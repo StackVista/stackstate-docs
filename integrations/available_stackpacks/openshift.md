@@ -3,7 +3,7 @@ title: Openshift StackPack
 kind: documentation
 ---
 
-# openshift
+# Openshift
 
 ## What is the Openshift StackPack?
 

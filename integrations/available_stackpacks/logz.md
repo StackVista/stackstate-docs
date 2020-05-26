@@ -3,7 +3,7 @@ title: Logz.io StackPack
 kind: documentation
 ---
 
-# logz
+# Logz.io
 
 ## What is the Logz.io StackPack?
 

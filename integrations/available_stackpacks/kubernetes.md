@@ -3,7 +3,7 @@ title: Kubernetes StackPack
 kind: documentation
 ---
 
-# kubernetes
+# Kubernetes
 
 ## What is the Kubernetes StackPack?
 

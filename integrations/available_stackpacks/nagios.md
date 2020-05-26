@@ -3,7 +3,7 @@ title: Nagios StackPack
 kind: documentation
 ---
 
-# nagios
+# Nagios
 
 ## What is the Nagios StackPack?
 

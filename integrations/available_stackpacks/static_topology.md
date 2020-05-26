@@ -3,7 +3,7 @@ title: Static Topology StackPack
 kind: documentation
 ---
 
-# static\_topology
+# Static Topology
 
 ### What is the Static Topology StackPack?
 

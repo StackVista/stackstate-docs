@@ -3,7 +3,7 @@ title: Custom Synchronization
 kind: documentation
 ---
 
-# customsync
+# Custom Synchronization
 
 ## What is the Custom Synchronization StackPack?
 

@@ -3,7 +3,7 @@ title: SCOM StackPack
 kind: documentation
 ---
 
-# scom
+# SCOM
 
 ## What is the SCOM StackPack?
 

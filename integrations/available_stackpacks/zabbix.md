@@ -3,7 +3,7 @@ title: Zabbix StackPack
 kind: documentation
 ---
 
-# zabbix
+# Zabbix
 
 ## What is the Zabbix StackPack?
 

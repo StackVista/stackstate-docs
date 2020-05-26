@@ -3,7 +3,7 @@ title: API Integration StackPack
 kind: documentation
 ---
 
-# api-integration
+# API integration
 
 ## What is the API-Integration StackPack?
 

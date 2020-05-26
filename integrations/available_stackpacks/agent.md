@@ -3,7 +3,7 @@ title: Agent StackPack
 kind: documentation
 ---
 
-# agent
+# StackState agent
 
 ## What is the Agent StackPack?
 

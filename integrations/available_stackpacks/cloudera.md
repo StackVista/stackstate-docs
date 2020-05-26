@@ -3,7 +3,7 @@ title: Cloudera StackPack
 kind: documentation
 ---
 
-# cloudera
+# Cloudera
 
 ## What is the Cloudera StackPack?
 

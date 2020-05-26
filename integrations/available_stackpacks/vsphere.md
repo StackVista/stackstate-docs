@@ -3,7 +3,7 @@ title: VMware vSphere StackPack
 kind: documentation
 ---
 
-# vsphere
+# VMWare vSphere
 
 ## What is the VMWare vSphere StackPack?
 

@@ -3,7 +3,7 @@ title: Manual Topology
 kind: documentation
 ---
 
-# manualtopo
+# Manual Topology
 
 ## What is the Manual Topology StackPack?
 

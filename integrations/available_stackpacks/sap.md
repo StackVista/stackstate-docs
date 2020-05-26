@@ -3,7 +3,7 @@ title: SAP StackPack
 kind: documentation
 ---
 
-# sap
+# SAP
 
 ## What is the SAP StackPack?
 

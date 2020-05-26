@@ -3,7 +3,7 @@ title: Azure StackPack
 kind: documentation
 ---
 
-# azure
+# Azure
 
 ## What is the Azure StackPack?
 

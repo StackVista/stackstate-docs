@@ -3,7 +3,7 @@ title: ServiceNow StackPack
 kind: documentation
 ---
 
-# servicenow
+# ServiceNow
 
 ## What is the ServiceNow StackPack?
 

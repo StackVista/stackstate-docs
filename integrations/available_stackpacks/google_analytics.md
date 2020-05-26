@@ -3,7 +3,7 @@ title: Google Analytics StackPack
 kind: documentation
 ---
 
-# google\_analytics
+# Google Analytics
 
 ## What is the Google Analytics StackPack?
 

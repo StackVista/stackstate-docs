@@ -1,53 +1,38 @@
 ---
-title: Splunk Topology Integration
+title: Splunk Event Integration
 kind: documentation
 ---
 
-# splunk\_topology
+# Splunk event
 
 ## Overview
 
-The StackState Agent can execute Splunk queries and convert the result to topology elements, which are then synchronized to StackState. The StackState Agent expects the `saved searches` to return the latest snapshot of the topology.
+The StackState Agent can be configured to execute Splunk saved searches and provide the results as generic events to the StackState receiver API. It will dispatch the saved searches periodically, specifying last event timestamp to start with up until now.
 
-In order for the StackState Agent to be able to convert the results to topology elements, the output of the query has to be according to the format below. The format describes specific columns in the output that, when present, are used for the topology element. Other columns that are present in the output format, not defined in the query format, are available as key-value-pairs in StackState inside the `data` map. The column names are used as keys and the content as value. Splunk internal fields are filtered out by the StackState Agent\)
+The StackState Agent expects the results of the saved searches to be according to the Events Query Format, which is described below. It requires the `_time` format, and has the following optional fields: `event_type`, `msg_title`, `message_text` and `source_type_name`. If there are other fields present in the result, they will be mapped to tags, where the column name is the key, and the content the value. The Agent will filter out Splunk default fields \(except `_time`\), like e.g. `_raw`, see the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) for more information about default fields.
 
-### Components Query Format
+The agent check prevents sending duplicate events over multiple check runs. The received saved search records have to be uniquely identified for comparison. By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`. The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration. Please note that the specified `unique_key_fields` fields become mandatory for each record. In case the records can not be uniquely identified by a combination of fields then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
 
-| **id** | string | The unique identifier for this component. |
+### Events Query Format
+
+| **\_time\*** | long | Data collection timestamp, millis since epoch |
 | :--- | :--- | :--- |
-| **type** | string | The type of the component. |
-| **name** | string | The value will be used as component name. |
-| **identifier.&lt;identifier name&gt;** | string | The value will be included as identifier of the component. |
-| **label.&lt;label name&gt;** | string | The value will appear as label of the component. |
+| **event\_type** | string | Event type, e,g, server\_created |
+| **msg\_title** | string | Message title |
+| **msg\_text** | string | Message text |
+| **source\_type\_name** | string | Source type name |
 
-\* This format assumes you use the default Splunk mapping function and identity extractor in StackState. By customizing these you can create your own format.
+\* Required columns
+
+## Example
 
 Example Splunk query:
 
 ```text
-| loadjob savedsearch=:servers
-| search OrganizationPart="*" OrgGrp="*" company="*"
-| table name | dedup name
-| eval name = upper(name)
-| eval id = 'name', type="vm"
-| table id type name
-```
-
-### Relations Query Format
-
-| **type** | string | The type of the relation. |
-| :--- | :--- | :--- |
-| **sourceId** | string | The id of the component that is the source of this relation. |
-| **targetId** | string | The id of the component that is the target of this relation. |
-
-Example Splunk query:
-
-```text
-index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
-| eval VMName=lower(VMName)
-| rename Application as sourceId, VMName as targetId
-| eval type="is-hosted-on"
-| table sourceId targetId type
+index=monitor alias_hostname=*
+| eval status = upper(status)
+| search status=CRITICAL OR status=error OR status=warning OR status=OK
+| table _time hostname status description
 ```
 
 ## Authentication
@@ -56,7 +41,7 @@ The Splunk integration provides various authentication mechanisms to connect to 
 
 ### HTTP Basic Authentication
 
-With HTTP basic authentication, the `username` and `password` specified in the `splunk_topology.yaml` can be used to connect to Splunk. These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
+With HTTP basic authentication, the `username` and `password` specified in the `splunk_events.yaml` can be used to connect to Splunk. These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
 
 _As an example, see the below config :_
 
@@ -129,12 +114,10 @@ instances:
         renewal_days: 10
 ```
 
-The above authentication configuration are part of the [conf.d/splunk\_topology.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example) file.
+The above authentication configuration are part of the [conf.d/splunk\_events.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example) file.
 
 ## Configuration
 
-There is an attribute `ignore_saved_search_errors` inside the `Splunk_topology.yaml` which is set to `true` by default. This flag makes the agent less strict and allows for saved searches which might be missing or fail when running. If this flag is set to `false` and one of the saved searches don't exist, it will produce an error.
-
-1. Edit your conf.d/Splunk\_topology.yaml file.
+1. Edit your conf.d/splunk\_events.yaml file.
 2. Restart the agent
 

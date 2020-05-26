@@ -3,7 +3,7 @@ title: AWS StackPack
 kind: documentation
 ---
 
-# aws
+# AWS
 
 ## What is the AWS StackPack?
 

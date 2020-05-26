@@ -3,7 +3,7 @@ title: Splunk StackPack
 kind: documentation
 ---
 
-# splunk
+# Splunk
 
 ## What is the Splunk StackPack?
 
@@ -11,7 +11,7 @@ The Splunk StackPack synchronizes topology, events and metrics from Splunk to St
 
 ## Prerequisites
 
-The Splunk StackPack depends on the [API Integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/api-integration/README.md) StackPack.
+The Splunk StackPack depends on the [API Integration](../api-integration.md) StackPack.
 
 ## Synchronizing data from Splunk
 
@@ -25,13 +25,13 @@ The Splunk StackPack supports three different types of information:
 
 ### Synchronizing Splunk topology
 
-See [Splunk Topology integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/splunk_topology/README.md) for more information.
+See [Splunk Topology integration](splunk_topology.md) for more information.
 
 ### Synchronizing Splunk events
 
-See [Splunk Events integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/splunk_event/README.md) for more information.
+See [Splunk Events integration](splunk_event.md) for more information.
 
 ### Synchronizing Splunk metrics
 
-See [Splunk Metrics integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/splunk_metric/README.md) for more information.
+See [Splunk Metrics integration](splunk_metric.md) for more information.
 
