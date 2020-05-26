@@ -3,21 +3,23 @@ title: CLI
 kind: Documentation
 ---
 
+# index
+
 The StackState CLI can be used to configure StackState, work with data, and help with debugging problems. The CLI provides easy access to the functionality provided by the StackState API. The URLs and authentication credentials are configurable. Multiple configurations can be stored for access to different instances.
 
-## Installation
+### Installation
 
-### Prerequisites
+#### Prerequisites
 
 * Docker
 
-### Getting the CLI
+#### Getting the CLI
 
-The CLI can be downloaded from https://download.stackstate.com using your license key.
+The CLI can be downloaded from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
 
 The downloaded zip contains the following:
 
-``` text
+```text
 .
 +-- bin
 |   +-- sts
@@ -33,11 +35,11 @@ The downloaded zip contains the following:
 * `VERSION` the version of the CLI.
 * `templates` these are topology templates in a format specific to the CLI.
 
-### Configuration
+#### Configuration
 
-The StackState CLI searches for configuration in `conf.d/conf.yaml`. You need to create this file. In this file, the URLs to the sts APIs, their authentication (if any), and a client must be defined. You can copy the `conf.d/conf.example.yaml` file, and rename it to `conf.yaml` to get you started. Or copy the example below.
+The StackState CLI searches for configuration in `conf.d/conf.yaml`. You need to create this file. In this file, the URLs to the sts APIs, their authentication \(if any\), and a client must be defined. You can copy the `conf.d/conf.example.yaml` file, and rename it to `conf.yaml` to get you started. Or copy the example below.
 
-``` yaml
+```yaml
 instances:
  default:
    base_api:
@@ -79,7 +81,7 @@ instances:
 
 The `conf.yaml` can hold multiple configurations. The example only holds a `default` instance. Other instances can be added on the same level as the default. To use a non default instance use `sts --instance <instance_name> ...`
 
-``` yaml
+```yaml
 instances:
  default:
    base_api:
@@ -93,7 +95,7 @@ instances:
      ...
 ```
 
-# Configuring StackState through the CLI
+## Configuring StackState through the CLI
 
 You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. To list all configuration nodes of a type call `sts graph list <type>`.
 
@@ -125,17 +127,17 @@ To import these check functions call:
 
 `sts graph import < mycheckfunctions.stj`
 
-## Inspecting data with the CLI
+### Inspecting data with the CLI
 
-###  Data flowing through Kafka topics
+#### Data flowing through Kafka topics
 
 Use `sts topic list` to list all Kafka topics active for a StackState instance. Then use `sts topic show <topic>` to inspect a topic.
 
-###  Topology and Telemetry
+#### Topology and Telemetry
 
 To inspect both topology and telemetry a script can be executed with the `sts script` command.
 
-### Agent check
+#### Agent check
 
 You can check what information is collected by a specific check using the following command:
 
@@ -143,15 +145,15 @@ You can check what information is collected by a specific check using the follow
 
 It returns collector log information, Metrics, Events, Topology Instances, Service Checks and Service Metadata.
 
-## Sending data with the CLI
+### Sending data with the CLI
 
 You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send some test topology or telemetry to StackState.
 
 * For help on sending metrics: `sts metrics send -h`
 * For help on sending events: `sts events send -h`
-* For help on sending topology: `sts topology send -h` ().
+* For help on sending topology: `sts topology send -h` \(\).
 
-### Metrics
+#### Metrics
 
 To send metrics the CLI provides `sts metrics send <MetricName> <OptionalNumberValue>` with some predefined settings. Running without any optional arguments sends one data point of the given value.
 
@@ -169,20 +171,21 @@ By default, a metrics pattern is random or when a value is provided a flatline. 
 
 To see all available options, use `sts metrics send -h`.
 
-### Events
+#### Events
 
 The CLI can send events using `sts events send <eventName>` It will send one event with the given name.
 
-### Topology
+#### Topology
 
 Please refer to `usage.md` provided with the CLI for detailed instructions.
 
-## Scripting
+### Scripting
 
 It is possible to execute scripts using the CLI. Use `sts script` to execute a script via standard input. For example:
 
-```
+```text
 echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts-cli -i sts-test script execute
 ```
 
 Do note that the script provided as input must use proper quoting.
+

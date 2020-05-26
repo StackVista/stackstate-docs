@@ -3,40 +3,41 @@ title: How to set up a security backend for Linux
 kind: Documentation
 ---
 
-This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](/configure/secrets_management/).
+# how\_to\_set\_up\_a\_security\_backend\_for\_linux
 
-### Security agent requirements
+This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/secrets_management/README.md).
+
+## Security agent requirements
 
 The Agent V2 runs the `secret_backend_command` executable as a sub-process. On Linux, the executable set as `secret_backend_command` is required to:
 
-* Belong to the same user running the Agent (or `root` inside a container).
+* Belong to the same user running the Agent \(or `root` inside a container\).
 * Have no rights for group or other.
 * Have at least exec rights for the owner.
 
-### How to use the executable API
+## How to use the executable API
 
 The executable respects a simple API that reads JSON structures from the standard input, and outputs JSON containing the decrypted secrets to the standard output. If the exit code is anything other than 0, then the integration configuration that is being decrypted is considered faulty and is dropped.
 
-#### Input
+### Input
 
 The executable receives a JSON payload from the standard input, containing the list of secrets to fetch:
 
-```
+```text
 {
   "version": "1.0",
   "secrets": ["secret1", "secret2"]
 }
 ```
 
-- `version`: is a string containing the format version.
-- `secrets`: is a list of strings; each string is a handle from a configuration file corresponding to a secret to fetch.
+* `version`: is a string containing the format version.
+* `secrets`: is a list of strings; each string is a handle from a configuration file corresponding to a secret to fetch.
 
-
-#### Output
+### Output
 
 The executable is expected to output to the standard output a JSON payload containing the:
 
-```
+```text
 {
   "secret1": {
     "value": "secret_value",
@@ -51,14 +52,14 @@ The executable is expected to output to the standard output a JSON payload conta
 
 The expected payload is a JSON object, where each key is one of the handles requested in the input payload. The value for each handle is a JSON object with two fields:
 
-- `value`: a string; the actual value that is used in the check configurations
-- `error`: a string; the error message, if needed. If error is anything other than null, the integration configuration that uses this handle is considered erroneous and is dropped.
+* `value`: a string; the actual value that is used in the check configurations
+* `error`: a string; the error message, if needed. If error is anything other than null, the integration configuration that uses this handle is considered erroneous and is dropped.
 
-#### Example
+### Example
 
 The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
 
-```
+```text
 package main
 
 import (
@@ -99,9 +100,9 @@ func main() {
 }
 ```
 
-Above example updates the following configuration (from the check file):
+Above example updates the following configuration \(from the check file\):
 
-```
+```text
 instances:
   - server: db_prod
     user: ENC[db_prod_user]
@@ -110,22 +111,22 @@ instances:
 
 into this in the Agent's memory:
 
-```
+```text
 instances:
   - server: db_prod
     user: decrypted_db_prod_user
     password: decrypted_db_prod_password
 ```
 
-### Troubleshooting secrets
+## Troubleshooting secrets
 
-#### Listing detected secrets
+### Listing detected secrets
 
 The `secret` command in the Agent CLI shows any errors related to your setup. For example, if the rights on the executable are incorrect. It also lists all handles found, and where they are located.
 
 On Linux, the command outputs file mode, owner and group for the executable. Example:
 
-```
+```text
 $> stackstate-agent secret
 === Checking executable rights ===
 Executable path: /path/to/you/executable
@@ -144,11 +145,11 @@ Secrets handle decrypted:
 - db_prod_password: from postgres.yaml
 ```
 
-#### Checking configurations after secrets were injected
+### Checking configurations after secrets were injected
 
 To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
 
-```
+```text
 sudo -u sts-agent -- stackstate-agent configcheck
 
 === a check ===
@@ -172,12 +173,13 @@ password: <decrypted_password2>
 
 **Note:** The Agent needs to be restarted to pick up changes on configuration files.
 
-#### Debugging `secret_backend_command`
+### Debugging `secret_backend_command`
 
 To test or debug outside of the Agent, you can mimic how the Agent runs it:
 
-```
+```text
 sudo su sts-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\"secret1\", \"secret2\"]}' | /path/to/the/secret_backend_command"
 ```
 
 The sts-agent user is created when you install the StackState Agent.
+

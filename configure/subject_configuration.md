@@ -3,28 +3,31 @@ title: Subject Configuration
 kind: Documentation
 ---
 
-### Link your existing LDAP to StackState RBAC
+# subject\_configuration
 
-StackState authentication is configured in a [config file](/setup/installation/authentication/) that contains already predefined roles for the Guest user (very limited permission level) and the Admin user (full permission level). To change the configuration to use LDAP authentication check out this document: [How to configure LDAP authentication](/configure/how_to_configure_ldap_authentication/).
+## Link your existing LDAP to StackState RBAC
 
-### How to make a new user, or a group, with scopes?
+StackState authentication is configured in a [config file](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md) that contains already predefined roles for the Guest user \(very limited permission level\) and the Admin user \(full permission level\). To change the configuration to use LDAP authentication check out this document: [How to configure LDAP authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_configure_ldap_authentication/README.md).
 
-To create a new subject (a group or a username), you must follow the StackState CLI route below. When you create a subject, it has no permissions at first. All custom subjects need a scope by design, so they do not have access to the full topology. This is a security requirement that makes sure that users have access only to what they need.
+## How to make a new user, or a group, with scopes?
 
-### Examples  
+To create a new subject \(a group or a username\), you must follow the StackState CLI route below. When you create a subject, it has no permissions at first. All custom subjects need a scope by design, so they do not have access to the full topology. This is a security requirement that makes sure that users have access only to what they need.
+
+## Examples
 
 To create the `stackstate` subject with a scope that allows the user to see all elements with the "StackState" label, use the following command:
 
-```
+```text
 sts subject save stackstate 'label = "StackState"'
 ```
 
 To give more context and specific limitations you can create the subject called `stackstateManager` that also has the scope of `StackState` label and has access to Business Applications within that label, command looks like this:
 
-```
+```text
 sts subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
 ```
 
-Please note that when passing a STQL query in a CLI command, all operators( like `=`, `<`,`AND`, and so on) need to be surrounded by spaces, as in the above example.
+Please note that when passing a STQL query in a CLI command, all operators\( like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
 
 Please note that if you are using LDAP authentication, then the subject needs to be provided with a name that exactly matches the username or a group name that is configured in LDAP, as it is case sensitive.
+

@@ -3,14 +3,15 @@ title: StackState log files
 kind: documentation
 ---
 
-StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`.
-In case of a two-node installation logs are kept in the `var/log` directory on each node; logs are node-specific, which means that StackState node keeps StackState related logs, and StackGraph node keeps logs related to StackGraph.  
+# stackstate\_log\_files
 
-### `var/log` details
+StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation logs are kept in the `var/log` directory on each node; logs are node-specific, which means that StackState node keeps StackState related logs, and StackGraph node keeps logs related to StackGraph.
+
+## `var/log` details
 
 Inside this directory, there is a subdirectory for each type of logs kept by StackState. By default, each subdirectory has a size cap of 2 GB; when exceeded, the oldest files are deleted. Example of `var/log` contents:
 
-```
+```text
 .:
 drwxr-xr-x. 2 stackstate stackstate     4096 Dec 18 00:00 correlate
 drwxr-xr-x. 2 stackstate stackstate     4096 Oct 23 00:00 elasticsearch
@@ -173,11 +174,11 @@ total 1043088
 
 Please note that with 1.15.0 release Elasticsearch version used by StackState changed. This means that all Elasticsearch logs are no longer kept in `./elasticsearch` subdirectory and all new log files are saved in `./elasticsearch7` subdirectory. The old directory can be removed to free some disk space.
 
-### Files
+## Files
 
 StackState keeps logs in files that have a maximum size of 50 MB. When a log file exceeds 50 MB size cap, it is divided into ordered parts, as in the below example:
 
-```
+```text
 ./sync:
 total 1043088
 -rw-r--r--. 1 stackstate stackstate 52430757 Dec 18 02:31 sync.Agent.2019-12-18.0.log
@@ -186,6 +187,7 @@ total 1043088
 -rw-r--r--. 1 stackstate stackstate 52430381 Dec 18 10:26 sync.Agent.2019-12-18.3.log
 ```
 
-### Default log pattern
+## Default log pattern
 
 StackState builds log files using the following default log pattern: `"%date [%thread] %-5level %logger{60} - %msg%n"`
+

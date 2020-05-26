@@ -4,17 +4,13 @@ kind: Documentation
 listorder: 3
 ---
 
-<!--
-======================================================
-OVERVIEW
-======================================================
--->
+# send\_telemetry
 
 ## Overview
 
-This guide details how to send metrics and events to StackState. StackState provides several ways to send telemetry. A growing number of integrations are provided out of the box. These can be found in StackPacks. Anyone can create their own integrations by sending data to the intake api in the right format. Another way is to use the `metric send` or `event send` command of the [stackstate-cli](/setup/cli/). All telemetry is sent to StackStates intake API. By default the intake api is hosted at `<baseUrl>/stsAgent/intake?api_key=<API_KEY>`. Data is sent to the intake api by http POST and has a common formatting for all messages. **Depending on your StackState configuration, metrics or events that are to old may be ignored.**
+This guide details how to send metrics and events to StackState. StackState provides several ways to send telemetry. A growing number of integrations are provided out of the box. These can be found in StackPacks. Anyone can create their own integrations by sending data to the intake api in the right format. Another way is to use the `metric send` or `event send` command of the [stackstate-cli](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md). All telemetry is sent to StackStates intake API. By default the intake api is hosted at `<baseUrl>/stsAgent/intake?api_key=<API_KEY>`. Data is sent to the intake api by http POST and has a common formatting for all messages. **Depending on your StackState configuration, metrics or events that are to old may be ignored.**
 
-``` json
+```javascript
 {
   "collection_timestamp": 1548855554, int, the epoch timestamp for the collection
   "events": {},
@@ -25,17 +21,13 @@ This guide details how to send metrics and events to StackState. StackState prov
 }
 ```
 
-<!--
-======================================================
-METRICS
-======================================================
--->
-
 ## Metrics
+
 A message to the intake api can contain a list of metrics. Every metric has a `name`, its own `timestamp`, `value`, `hostname`, `type` and optionally `tags`.
 
 Example of a metric:
-``` json
+
+```javascript
 [
   "test.metric",
   1548857152, int, the epoch timestamp for the metric
@@ -55,7 +47,7 @@ Multiple metrics can be sent in one message. The timestamp of the individual met
 
 curl example:
 
-``` json
+```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
  -H 'Content-Type: application/json' \
@@ -96,16 +88,11 @@ curl -X POST \
 }'
 ```
 
-<!--
-======================================================
-EVENTS
-======================================================
--->
-
 ## Events
+
 A message to the intake api can contain a map with lists of events. Every event has a `name`, its own `timestamp`, and optionally `msg_title`, `msg_text`, `tags` and `source_type_name`.
 
-``` json
+```javascript
 "event.test": [ string, the event name
   {
     "msg_text": "event_text", (optional) string, the text body of the event
@@ -132,7 +119,7 @@ A message to the intake api can contain a map with lists of events. Every event 
 
 curl example:
 
-``` json
+```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
  -H 'Content-Type: application/json' \
@@ -180,3 +167,4 @@ curl -X POST \
   "topologies": []
 }'
 ```
+

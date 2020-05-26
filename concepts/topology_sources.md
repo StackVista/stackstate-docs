@@ -3,11 +3,13 @@ title: Topology sources
 kind: Documentation
 ---
 
+# topology\_sources
+
 Topology Sources are configured in Sts Sources under Topology Sources in the Settings page. These sources are used to get data from the Kafka bus, which receives the data from the StackState topology API.
 
 The data source creation screen looks like this:
 
-![Add a data source screen](/images/guides/topology/create-data-source-screen.png)
+![Add a data source screen](../.gitbook/assets/create-data-source-screen.png)
 
 The screen contains the following fields:
 
@@ -21,10 +23,10 @@ The following advanced settings are also available:
 
 * `Maximum batch size`: Specifies the maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting.
 * `Maximum # of batches/second`: Specifies the maximum number of batches processed per second. Used for rate limiting.
-* `Expire elements`: Set topology to elements to *expired* if they do not appear in this data source for a configured amount of time.
-* `Cleanup expired elements`: Remove *expired* topology elements from StackState if they have been expired for a configured amount of time.
+* `Expire elements`: Set topology to elements to _expired_ if they do not appear in this data source for a configured amount of time.
+* `Cleanup expired elements`: Remove _expired_ topology elements from StackState if they have been expired for a configured amount of time.
 
-*NOTE*: if the topology data is sent in *snapshot* mode (see the JSON format description), expiry and cleanup of elements are not necessary, since each snapshot represents a complete landscape instance and elements missing from the snapshot are automatically deleted.
+_NOTE_: if the topology data is sent in _snapshot_ mode \(see the JSON format description\), expiry and cleanup of elements are not necessary, since each snapshot represents a complete landscape instance and elements missing from the snapshot are automatically deleted.
 
 The screen contains the following buttons:
 
@@ -32,3 +34,4 @@ The screen contains the following buttons:
 * `Refresh`: Refresh the lists of integration types and topics.
 * `Create`: Create the data source.
 * `Cancel`: Cancel creation of the data source.
+

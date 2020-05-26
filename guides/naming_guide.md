@@ -3,11 +3,8 @@ title: Naming Guide
 kind: Documentation
 listorder: 15
 ---
-<!--
-======================================================
-OVERVIEW
-======================================================
--->
+
+# naming\_guide
 
 ## Overview
 
@@ -66,3 +63,4 @@ Relation names depend heavily on how much is known about the relation. Do we onl
 * uses
 * uses database
 * uses service
+

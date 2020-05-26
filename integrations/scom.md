@@ -2,6 +2,9 @@
 title: SCOM StackPack
 kind: documentation
 ---
+
+# scom
+
 ## What is the SCOM StackPack?
 
 The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance.
@@ -10,7 +13,7 @@ The SCOM StackPack is used to create a near real time synchronisation with your 
 
 The following prerequisites need to be met:
 
-* StackState Agent V2 must be installed on a single machine which can connect to SCOM and StackState (See the [StackState Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/) for more details).
+* StackState Agent V2 must be installed on a single machine which can connect to SCOM and StackState \(See the [StackState Agent V2 StackPack](../#/stackpacks/stackstate-agent-v2/) for more details\).
 * An SCOM instance must be running.
 
 **NOTE**:- We support SCOM version 1806 and 2019.
@@ -19,9 +22,9 @@ The following prerequisites need to be met:
 
 To enable the SCOM check which collects the data from SCOM instance:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/scom.d/` directory, replacing `hostip`,`domain` ,`auth_mode`,  `<username>` and `<password>` with the information from your SCOM instance.
-Streams are disabled by default.
-```
+Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/scom.d/` directory, replacing `hostip`,`domain` ,`auth_mode`, `<username>` and `<password>` with the information from your SCOM instance. Streams are disabled by default.
+
+```text
 # Section used for global SCOM check config
 init_config:
     # run every minute
@@ -40,13 +43,13 @@ instances:
       #  class: Microsoft.Exchange.15.Organization
       #- name: Skype
       #  class: Microsoft.LS.2015.Site
-
 ```
 
-To publish the configuration changes, restart the StackState Agent(s) using below command.
+To publish the configuration changes, restart the StackState Agent\(s\) using below command.
 
-```
+```text
 sudo /etc/init.d/stackstate-agent restart
 ```
 
 Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+

@@ -2,23 +2,25 @@
 title: Send Telemetry
 kind: Documentation
 aliases:
-    - /configuring/send_telemetry/
+  - /configuring/send_telemetry/
 listorder: 3
 ---
+
+# send\_telemetry
 
 ## Overview
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integration](/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [stackstate-cli](/setup/cli/).
+There are several ways to send telemetry to StackState. A large number of [integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/README.md) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [stackstate-cli](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md).
 
 ## Sending telemetry over HTTP
 
-StackState's receiver API is responsible for receiving both telemetry and topology. By default the receiver API is hosted at `https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>`. Both the base URL and API_KEY are
+StackState's receiver API is responsible for receiving both telemetry and topology. By default the receiver API is hosted at `https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>`. Both the base URL and API\_KEY are
 
 Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain mutliple metrics and multiple events.
 
-``` json
+```javascript
 {
   "collection_timestamp": 1548855554, // int - the epoch timestamp for the collection
   "events": {}, // see section on events
@@ -37,7 +39,7 @@ Metrics can be sent to the receiver API using the `metrics` property. Every metr
 
 Example of a single metric:
 
-``` json
+```javascript
 [
   "test.metric", // string - name of the metric
   1548857152, // int - the epoch timestamp for the metric
@@ -57,7 +59,7 @@ Multiple metrics can be sent in one message. The `timestamp` and `value` of the 
 
 curl example:
 
-``` json
+```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
  -H 'Content-Type: application/json' \
@@ -106,7 +108,7 @@ Events can be sent to the receiver API using the `events` property. Every event 
 
 Example of a single event:
 
-``` json
+```javascript
 "event.test": [ // string - the event name
   {
     "msg_text": "event_text", // (optional) string - the text body of the event
@@ -125,7 +127,7 @@ Multiple events can be sent in one message. Any of an events' properties can be 
 
 curl example:
 
-``` json
+```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
  -H 'Content-Type: application/json' \
@@ -175,3 +177,4 @@ curl -X POST \
 ```
 
 You can also send events to StackState with the CLI `event send` command.
+

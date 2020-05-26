@@ -3,35 +3,33 @@ title: Development Installation
 kind: Documentation
 ---
 
-Development mode is StackState's installation mode for a small installation to do experiments
-on. It requires only one machine,
-but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger
-proof-of-concept projects or in an actual production environment.
+# development-installation
 
-### Requirements
+Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
 
-Before starting the installation, ensure your system meets StackState's development setup  [installation requirements](/setup/installation/requirements/).
+## Requirements
 
-### Installing StackState in a development configuration
+Before starting the installation, ensure your system meets StackState's development setup [installation requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see ([Installing before 1.15.0](/setup/installation/development-installation_pre1_15)).
+## Installing StackState in a development configuration
 
-For a development setup of StackState, simply follow the instructions for
-[Installing StackState](/setup/installation/install_stackstate), using `DEVELOPMENT` as the SETUP configuration parameter.
+**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/development-installation_pre1_15/README.md)\).
 
-### Starting and Stopping
+For a development setup of StackState, simply follow the instructions for [Installing StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/install_stackstate/README.md), using `DEVELOPMENT` as the SETUP configuration parameter.
 
-#### SystemD service
+## Starting and Stopping
 
-The RPM and DEB packages install SystemD services for StackState and StackGraph. StackState can be started with
-`sudo systemctl start stackstate.service` this will also start service StackGraph. Starting StackState can take some time.
+### SystemD service
+
+The RPM and DEB packages install SystemD services for StackState and StackGraph. StackState can be started with `sudo systemctl start stackstate.service` this will also start service StackGraph. Starting StackState can take some time.
 
 After starting processes are complete, the service is available at `http://<stackstate_hostname>:7070`.
 
-#### Stopping StackState
+### Stopping StackState
 
 StackState can be stopped by `sudo systemctl stop stackstate.service`. StackGraph is not automatically stopped when stopping StackState, StackGraph can be stopped by `sudo systemctl stop stackgraph.service`.
 
-#### StackState Status
+### StackState Status
 
 Checking the service status can be done with `sudo systemctl status stackstate.service` and `sudo systemctl status stackgraph.service`.
+

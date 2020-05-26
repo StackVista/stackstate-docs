@@ -2,6 +2,9 @@
 title: SAP StackPack
 kind: documentation
 ---
+
+# sap
+
 ## What is the SAP StackPack?
 
 The SAP StackPack is used to create a near real time synchronization with your SAP system and also pulls the metrics from it. The components supported are:
@@ -16,10 +19,11 @@ The SAP StackPack is used to create a near real time synchronization with your S
 
 The following prerequisites need to be met:
 
-* StackState Agent V2 must be installed on a single machine which can connect to SAP Instance and StackState. (See the [StackState Agent V2 StackPack](/integrations/agent/) for more details)
+* StackState Agent V2 must be installed on a single machine which can connect to SAP Instance and StackState. \(See the [StackState Agent V2 StackPack](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/agent/README.md) for more details\)
 * A SAP instance must be running.
 
 ## Enabling the SAP check
+
 To enable the SAP check which collects the data from SAP host instance:
 
 Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/sap.d` directory, replacing `<sap_host_name>` and `<sap_host_url>` with the unique name of SAP host to identify and URL to connect from your SAP instance.
@@ -32,7 +36,7 @@ This mechanism allows you to connect just using the `username` and `password` in
 
 _As an example, see the below config :_
 
-```
+```text
 # Section used for global SAP check config
 init_config: {}
 
@@ -42,13 +46,12 @@ instances:
       user: test            # <username>
       pass: test            # <password>
 ```
-**NOTE** - Make sure while using this mechanism, you have put `http` in the `url` of the config.
 
+**NOTE** - Make sure while using this mechanism, you have put `http` in the `url` of the config.
 
 ### 2. Client Certificate Authentication Mechanism
 
-This mechanism allows you to connect using the client certificate and the private key.
-The following new parameters are available :
+This mechanism allows you to connect using the client certificate and the private key. The following new parameters are available :
 
 * `verify` - `True` or `False` depending on verifying the client certificate or not. By default, it's `True`.
 * `cert` - path containing the client side certificate
@@ -56,7 +59,7 @@ The following new parameters are available :
 
 _As an example, see the below config :_
 
-```
+```text
 # Section used for global SAP check config
 init_config: {}
 
@@ -69,11 +72,12 @@ instances:
       cert: /path/to/cert.pem   # <certificate_path>
       keyfile: /path/to/key.pem # <keyfile_path>
 ```
+
 **NOTE** - Make sure while using this mechanism, you have put `https` in the `url` of the config.
 
-Once the configuration changes are done as explained above, restart the StackState Agent(s) using the following command.
+Once the configuration changes are done as explained above, restart the StackState Agent\(s\) using the following command.
 
-```
+```text
 sudo /etc/init.d/stackstate-agent restart
 ```
 
@@ -82,3 +86,4 @@ Once the Agent is restarted, wait for the Agent to collect the data and send it 
 ## Open-source
 
 The SAP StackPack is open-source and can be found [on StackState's github page](https://github.com/StackVista/stackpack-sap).
+

@@ -2,6 +2,9 @@
 title: Basic Concepts
 kind: Documentation
 ---
+
+# index
+
 This is an overview of the most basic concepts of StackState.
 
 ## Components
@@ -10,10 +13,10 @@ A component is anything that has a run-time state and some relation with other c
 
 A component consists of:
 
- 1. The name of the component written on top.
- 1. An icon in the middle that represents either the component itself or the component type.
- 1. An inner color representing the health state. In the example's case the color is green, so the component is reporting it's `clear`.
- 1. An outer color representing the propagated health state. In the example's case the color is orange, so the component got a `deviating` from a component or relation it depends on.
+1. The name of the component written on top.
+2. An icon in the middle that represents either the component itself or the component type.
+3. An inner color representing the health state. In the example's case the color is green, so the component is reporting it's `clear`.
+4. An outer color representing the propagated health state. In the example's case the color is orange, so the component got a `deviating` from a component or relation it depends on.
 
 ### Manually adding components
 
@@ -22,8 +25,8 @@ Go to the **palette pane**. Choose one of the component types and drag it on to 
 By right clicking on the component icon in the view, a context menu is presented which permits:
 
 1. to hide the component from the view, by adding the component to the hidden components in the view's Hide tab;
-1. to show the component's neighbors, by adding the component to the components for which to show the neighbors in the view's Show tab;
-1. to show the component's root cause, by adding the component to the components for which to show the root cause in the view's Show tab.
+2. to show the component's neighbors, by adding the component to the components for which to show the neighbors in the view's Show tab;
+3. to show the component's root cause, by adding the component to the components for which to show the root cause in the view's Show tab.
 
 ### Manually editing components
 
@@ -37,7 +40,7 @@ A data stream originates from a data source that can be accessed through one of 
 
 To connect two components to each other simply drag one of the component on top of the other component. A popup will appear asking you for the !relation type! that you would like the relation between the components to have. If the relation is a one-way dependency, the component that you have dragged on top of the other component will depend on that component, in other words the arrow will point in the direction of the component you have dragged to.
 
-Automatic creation and maintenance of existing components/relations, including checks and linked data streams, is possible  through **synchronization** or the REST API.
+Automatic creation and maintenance of existing components/relations, including checks and linked data streams, is possible through **synchronization** or the REST API.
 
 Synchronization is a way for you to keep your stack synchronized based on some data source. This may be a provisioning tool, service registry, discovery tool, CMDB or some custom data source that keeps information on components and their relations. Multiple synchronization sources can be used for different parts of the stack.
 
@@ -53,9 +56,9 @@ The order of the layers can be configured by dragging the layer up and down in t
 
 ## Environments
 
-Environments are meant for grouping components. They are meant to model DTAP environment: development, testing, acceptance, production, but can of course be used for other purposes as well.  A component can belong to one *or multiple* environments. This can be useful when modeling for example a database is used for both the development and the testing environment.
+Environments are meant for grouping components. They are meant to model DTAP environment: development, testing, acceptance, production, but can of course be used for other purposes as well. A component can belong to one _or multiple_ environments. This can be useful when modeling for example a database is used for both the development and the testing environment.
 
-Environments share all same layers and domains.  Typically you look at a single environment at a time, but multiple environments can be visualized at the same time.
+Environments share all same layers and domains. Typically you look at a single environment at a time, but multiple environments can be visualized at the same time.
 
 Environments can also be used within StackState to do modeling work without affecting the rest of the stack. One may for example create a couple of components and place them on a temporary environment. Once you are finished working you can move the components to the environment where you want to place the components.
 
@@ -63,8 +66,8 @@ Environments can also be used within StackState to do modeling work without affe
 
 Each component and each relation has two health states:
 
- 1. **Health state**
- 1. **Propagated health state**
+1. **Health state**
+2. **Propagated health state**
 
 The health state is the state that the component or relation itself reported via one of its checks. This state is visualized by the inner color of the component or relation.
 
@@ -72,10 +75,10 @@ The propagated health state is the state that the component or relation has rece
 
 The health state colors are:
 
- * **Gray** - UNKNOWN. No health state is known. There are no checks defined.
- * **Green**  - CLEAR. Everything is okay.
- * **Orange** - DEVIATING. Action is needed soon otherwise something will go wrong.
- * **Red** - CRITICAL. Something has gone wrong and is causing problems. Action is needed immediately.
+* **Gray** - UNKNOWN. No health state is known. There are no checks defined.
+* **Green**  - CLEAR. Everything is okay.
+* **Orange** - DEVIATING. Action is needed soon otherwise something will go wrong.
+* **Red** - CRITICAL. Something has gone wrong and is causing problems. Action is needed immediately.
 
 These **health states are ordered** by importance. That means that if a `deviating` and a `critical` are reported for the same component, the `critical` will be the overriding health state.
 
@@ -87,11 +90,11 @@ The order of the layers can be configured in Settings page under Layers section.
 
 ## Relations
 
-A relation connects two components. A relation shares many similarities with a component. Just like a component it has an own state (color of the circle in the middle) and a propagated state (color of the line). Just like components it also has checks and data streams.
+A relation connects two components. A relation shares many similarities with a component. Just like a component it has an own state \(color of the circle in the middle\) and a propagated state \(color of the line\). Just like components it also has checks and data streams.
 
 ### Manually linking data streams
 
-Just like you would link a data stream to a component (by dragging a data stream on top of component) you can link a data stream to a relation by dragging it on top of the relation. The plugins that allow you to link data streams can be found by their icons on the toolbar on the right in the view.
+Just like you would link a data stream to a component \(by dragging a data stream on top of component\) you can link a data stream to a relation by dragging it on top of the relation. The plugins that allow you to link data streams can be found by their icons on the toolbar on the right in the view.
 
 ## Relation types
 
@@ -110,6 +113,7 @@ All components in the stack belong to at least one layer, one domain and one env
 
 In addition to layers, domains and environments, other parts of the stack can be shown or hidden based on a few other criteria:
 
- * Individual components can be revealed or explicitly hidden.
- * Groups of components can be revealed or explicitly hidden via their labels.
- * Components can be shown based on their state relation with other components.
+* Individual components can be revealed or explicitly hidden.
+* Groups of components can be revealed or explicitly hidden via their labels.
+* Components can be shown based on their state relation with other components.
+

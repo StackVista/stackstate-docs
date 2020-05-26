@@ -3,6 +3,7 @@ title: Prepare StackPack provisioning script
 kind: Documentation
 ---
 
+# prepare\_stackpack\_provisioning\_script
 
 The provisioning script that is used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.
 
@@ -10,7 +11,7 @@ A provisioning script is provided with a set of capabilities that it can execute
 
 Here is an example of a provisioning script:
 
-```
+```text
 import com.stackstate.stackpack.ProvisioningContext
 import com.stackstate.stackpack.ProvisioningIO
 import com.stackstate.stackpack.ProvisioningScript
@@ -56,12 +57,12 @@ class SomeProvisioningScript extends ProvisioningScript {
 
 The supported actions are:
 
-- `preInstall` - this action is run when installing the very first instance of a StackPack - it is meant to install all the objects that each of the instances will share.
-- `install` - this action is run for every installed instance of a StackPack - it is meant to install instance-specific objects, that will be of use for this instance only.
-- `waitingForData` - this action allows the StackPack creator to check wether any external service that this StackPack communicates with is properly sending data that this StackPack can process. By default it just transitions to the `INSTALLED` state.
-- `upgrade` - this action is run for every installed instance of a StackPack when the user upgrades their StackPack version.
-- `uninstall` - this action is run for every instance when it is being uninstalled - it is meant to clean up all the instance-specific objects.
-- `postUninstall` - this action is run when uninstalling the very last instance of a StackPack - it is meant to clean up all the StackPack-shared objects.
+* `preInstall` - this action is run when installing the very first instance of a StackPack - it is meant to install all the objects that each of the instances will share.
+* `install` - this action is run for every installed instance of a StackPack - it is meant to install instance-specific objects, that will be of use for this instance only.
+* `waitingForData` - this action allows the StackPack creator to check wether any external service that this StackPack communicates with is properly sending data that this StackPack can process. By default it just transitions to the `INSTALLED` state.
+* `upgrade` - this action is run for every installed instance of a StackPack when the user upgrades their StackPack version.
+* `uninstall` - this action is run for every instance when it is being uninstalled - it is meant to clean up all the instance-specific objects.
+* `postUninstall` - this action is run when uninstalling the very last instance of a StackPack - it is meant to clean up all the StackPack-shared objects.
 
 ## Provisioning script context
 
@@ -69,68 +70,68 @@ A set of useful objects for the above actions are exposed via the provisioning c
 
 The provisioning script can interact with the provisioning via the `context()` function:
 
-```
+```text
 context()
 ```
 
 The `context()` function returns an object that provides the following functions:
 
-- `scriptsDirectory()` - returns the path to the directory where this script resides.
-- `fail(errorMessage)` - marks this StackPack instance as broken (StackPack is in `ERROR` state) with `errorMessage` error message.
+* `scriptsDirectory()` - returns the path to the directory where this script resides.
+* `fail(errorMessage)` - marks this StackPack instance as broken \(StackPack is in `ERROR` state\) with `errorMessage` error message.
 
-### The StackState (`sts`) object
+### The StackState \(`sts`\) object
 
 The provisioning script can interact with the StackState instance it is running in via the `sts()` function:
 
-```
+```text
 context().sts()
 ```
 
 The `sts()` function returns an object that provides the following functions:
 
-- `intakeApi()` - returns an object representing the StackState intake API that receives incoming data. The object supplies functions `apiKey()` (returns the API key for the intake API) and `baseUrl()` (returns the base URL for the intake API).
-- `log()` - allows logging to be done in the provisioning script. Example: `context().sts().log().debug("Installing test StackPack")`.
-- `install(stackpackName, parameters)` - triggers installation of StackPack `stackpackName` with parameters `parameters`.
-- `onDataReceived(topic, callback)` - runs a `callback` function whenever data is received by the StackState API on topic `topic`.
-- `provisioningComplete()` - called when provisioning is done, marks this StackPack instance state as `INSTALLED`.
-- `createTopologyTopicName(sourceType, sourceId)` - formats a StackState Kafka topic name using `sourceType` and `sourceId` parameters.
+* `intakeApi()` - returns an object representing the StackState intake API that receives incoming data. The object supplies functions `apiKey()` \(returns the API key for the intake API\) and `baseUrl()` \(returns the base URL for the intake API\).
+* `log()` - allows logging to be done in the provisioning script. Example: `context().sts().log().debug("Installing test StackPack")`.
+* `install(stackpackName, parameters)` - triggers installation of StackPack `stackpackName` with parameters `parameters`.
+* `onDataReceived(topic, callback)` - runs a `callback` function whenever data is received by the StackState API on topic `topic`.
+* `provisioningComplete()` - called when provisioning is done, marks this StackPack instance state as `INSTALLED`.
+* `createTopologyTopicName(sourceType, sourceId)` - formats a StackState Kafka topic name using `sourceType` and `sourceId` parameters.
 
-### The StackPack (`stackPack`) object
+### The StackPack \(`stackPack`\) object
 
 The provisioning script can interact with the StackPack being installed via the `stackPack()` function:
 
-```
+```text
 context().stackPack()
 ```
 
 The `stackPack()` function returns an object that provides the following functions:
 
-- `importSnapshot(filename, parameters)` - imports a template from `filename` in the StackPack's namespace, filling in the optional `parameters` substitutions.
+* `importSnapshot(filename, parameters)` - imports a template from `filename` in the StackPack's namespace, filling in the optional `parameters` substitutions.
 
-### The StackPack instance (`instance`) object
+### The StackPack instance \(`instance`\) object
 
 The provisioning script can interact with the StackPack instance being installed via the `instance()` function:
 
-```
+```text
 context().instance()
 ```
 
 The `instance()` function returns an object that provides the following functions:
 
-- `id()` - returns the current StackPack instance id.
-- `importSnapshot(filename, parameters)` - imports a template from `filename` in the StackPack's namespace, filling in the optional `parameters` substitutions.
+* `id()` - returns the current StackPack instance id.
+* `importSnapshot(filename, parameters)` - imports a template from `filename` in the StackPack's namespace, filling in the optional `parameters` substitutions.
 
-### The environment (`env`) object
+### The environment \(`env`\) object
 
 The provisioning script can interact with the StackState environment via the `env()` function:
 
-```
+```text
 context().env()
 ```
 
 The `env()` function returns an object that provides the following functions:
 
-- `execute(commandLine, directory, environment)` - runs a shell script command `commandLine` in `directory` with `environment` setup.
+* `execute(commandLine, directory, environment)` - runs a shell script command `commandLine` in `directory` with `environment` setup.
 
 ## How to ensure consistency between the provisioning script and the template file
 
@@ -138,7 +139,7 @@ It is time to template out the variables exposed by your StackPack. It is possib
 
 One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. The following code snippet shows how to create a function called `topicName` that generates a topic name for this instance, based on the data provided by the user in the StackPack installation step.
 
-```
+```text
 @Override
 ProvisioningIO<scala.Unit> install(Map<String, Object> config) {
     def templateArguments = [
@@ -160,7 +161,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 
 It is possible now to reference any of the above `templateArguments` in your `.stj` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
 
-```
+```text
 {
     "_type": "DataSource",
     "name": "StackPack Data Source",
@@ -172,3 +173,4 @@ It is possible now to reference any of the above `templateArguments` in your `.s
     ...
 }
 ```
+

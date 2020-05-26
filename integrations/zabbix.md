@@ -3,6 +3,8 @@ title: Zabbix StackPack
 kind: documentation
 ---
 
+# zabbix
+
 ## What is the Zabbix StackPack?
 
 The Zabbix StackPack is used to create a near real time synchronization with your Zabbix instance.
@@ -11,7 +13,7 @@ The Zabbix StackPack is used to create a near real time synchronization with you
 
 The following prerequisites need to be met:
 
-* The StackState Agent StackPack must be installed on a single machine which can connect to Zabbix and StackState. (See the [StackState Agent V2 StackPack](/integrations/agent/) for more details).
+* The StackState Agent StackPack must be installed on a single machine which can connect to Zabbix and StackState. \(See the [StackState Agent V2 StackPack](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/agent/README.md) for more details\).
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3 and 4 are supported.
@@ -21,7 +23,8 @@ The following prerequisites need to be met:
 To enable the Zabbix check which collects the data from Zabbix instance:
 
 Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/zabbix.d` directory, replacing `<url>`, `<username>` and `<password>` with the information from your Zabbix instance.
-```
+
+```text
 # Section used for global Zabbix check config
 init_config:
 
@@ -35,10 +38,11 @@ instances:
     password: <password> # zabbix
 ```
 
-To publish the configuration changes, restart the StackState Agent(s) using below command.
+To publish the configuration changes, restart the StackState Agent\(s\) using below command.
 
-```
+```text
 sudo /etc/init.d/stackstate-agent restart
 ```
 
 Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+

@@ -3,28 +3,28 @@ title: Splunk Topology Integration
 kind: documentation
 ---
 
+# splunk\_topology
+
 ## Overview
 
 The StackState Agent can execute Splunk queries and convert the result to topology elements, which are then synchronized to StackState. The StackState Agent expects the `saved searches` to return the latest snapshot of the topology.
 
-In order for the StackState Agent to be able to convert the results to topology elements, the output of the query has to be according to the format below. The format describes specific columns in the output that, when present, are used for the topology element. Other columns that are present in the output format, not defined in the query
-format, are available as key-value-pairs in StackState inside the `data` map. The column names are used as keys and the content as value. Splunk internal fields are filtered out by the StackState Agent)
+In order for the StackState Agent to be able to convert the results to topology elements, the output of the query has to be according to the format below. The format describes specific columns in the output that, when present, are used for the topology element. Other columns that are present in the output format, not defined in the query format, are available as key-value-pairs in StackState inside the `data` map. The column names are used as keys and the content as value. Splunk internal fields are filtered out by the StackState Agent\)
 
 ### Components Query Format
 
-<table class="table">
-<tr><td><strong>id</strong></td><td>string</td><td>The unique identifier for this component.</td></tr>
-<tr><td><strong>type</strong></td><td>string</td><td>The type of the component.</td></tr>
-<tr><td><strong>name</strong></td><td>string</td><td>The value will be used as component name.</td></tr>
-<tr><td><strong>identifier.&lt;identifier name></strong></td><td>string</td><td>The value will be included as identifier of the component.</td></tr>
-<tr><td><strong>label.&lt;label name></strong></td><td>string</td><td>The value will appear as label of the component.</td></tr>
-</table>
+| **id** | string | The unique identifier for this component. |
+| :--- | :--- | :--- |
+| **type** | string | The type of the component. |
+| **name** | string | The value will be used as component name. |
+| **identifier.&lt;identifier name&gt;** | string | The value will be included as identifier of the component. |
+| **label.&lt;label name&gt;** | string | The value will appear as label of the component. |
 
 \* This format assumes you use the default Splunk mapping function and identity extractor in StackState. By customizing these you can create your own format.
 
 Example Splunk query:
 
-```
+```text
 | loadjob savedsearch=:servers
 | search OrganizationPart="*" OrgGrp="*" company="*"
 | table name | dedup name
@@ -35,15 +35,14 @@ Example Splunk query:
 
 ### Relations Query Format
 
-<table class="table">
-<tr><td><strong>type</strong></td><td>string</td><td>The type of the relation.</td></tr>
-<tr><td><strong>sourceId</strong></td><td>string</td><td>The id of the component that is the source of this relation.</td></tr>
-<tr><td><strong>targetId</strong></td><td>string</td><td>The id of the component that is the target of this relation.</td></tr>
-</table>
+| **type** | string | The type of the relation. |
+| :--- | :--- | :--- |
+| **sourceId** | string | The id of the component that is the source of this relation. |
+| **targetId** | string | The id of the component that is the target of this relation. |
 
 Example Splunk query:
 
-```
+```text
 index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
 | eval VMName=lower(VMName)
 | rename Application as sourceId, VMName as targetId
@@ -57,13 +56,11 @@ The Splunk integration provides various authentication mechanisms to connect to 
 
 ### HTTP Basic Authentication
 
-With HTTP basic authentication, the `username` and `password` specified in the `splunk_topology.yaml` can be used to connect to Splunk. 
-These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration
-file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
+With HTTP basic authentication, the `username` and `password` specified in the `splunk_topology.yaml` can be used to connect to Splunk. These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
 
 _As an example, see the below config :_
 
-```
+```text
 instances:
     - url: "https://localhost:8089"
 
@@ -82,9 +79,7 @@ instances:
 
 ### Token-based Authentication
 
-Token-based authentication mechanism supports Splunk authentication tokens. An initial Splunk token is provided to the 
-integration with a short expiration date. The integration's authentication mechanism will request a new token before 
-expiration, respecting the `renewal_days` setting, with an expiration of `token_expiration_days` days.
+Token-based authentication mechanism supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. The integration's authentication mechanism will request a new token before expiration, respecting the `renewal_days` setting, with an expiration of `token_expiration_days` days.
 
 Token-based authentication information overrides basic authentication in case both are configured.
 
@@ -98,7 +93,7 @@ The following new parameters are available:
 
 _As an example, see the below config :_
 
-```
+```text
 instances:
     - url: "https://localhost:8089"
 
@@ -113,7 +108,7 @@ instances:
       # basic_auth:
         # username: "admin"
         # password: "admin"
-        
+
       token_auth:
         ## Token for the user who will be using it
         name: "api-user"
@@ -134,13 +129,12 @@ instances:
         renewal_days: 10
 ```
 
-The above authentication configuration are part of the [conf.d/splunk_topology.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example) file.
+The above authentication configuration are part of the [conf.d/splunk\_topology.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example) file.
 
 ## Configuration
 
 There is an attribute `ignore_saved_search_errors` inside the `Splunk_topology.yaml` which is set to `true` by default. This flag makes the agent less strict and allows for saved searches which might be missing or fail when running. If this flag is set to `false` and one of the saved searches don't exist, it will produce an error.
 
-1.  Edit your conf.d/Splunk_topology.yaml file.
-2.  Restart the agent
+1. Edit your conf.d/Splunk\_topology.yaml file.
+2. Restart the agent
 
-{{< insert-example-links >}}

@@ -2,27 +2,33 @@
 title: Adding telemetry to synchronized topology
 kind: Documentation
 aliases:
-    - /configuring/telemetry_synchronized_topology/
+  - /configuring/telemetry_synchronized_topology/
 listorder: 3
 ---
 
+# telemetry\_synchronized\_topology
+
 ## Overview
+
 When you have synchronized topology, every component/relation is synchronized via the template it was created with. That means that every time an update is received for a component/relation, that update is executed using the template. The only way to add telemetry or health checks to your synchronized topology is to edit the template with which the component/relation is created. In order to do so, StackState provides a template editor. The following sections will explain how the template editor works.
 
 ## Adding Telemetry
+
 In the view, select a component that you'd like to add telemetry to. This opens a component pane on the right side of the screen, where next to the component you'll find a menu with options to edit the component. Click on Edit template.
 
-<img src="/images/guides/topology/edit_template.png"/>
+![](../.gitbook/assets/edit_template.png)
 
 After selecting the edit template option from the menu, the template editing UI appears
 
-<img src="/images/guides/topology/template_editor.png"/>
+![](../.gitbook/assets/template_editor.png)
 
 Aside from self-explanatory fields like template, name and description, the template editor is divided into two text editors: The input parameters and the template function. The following sections explain how to add streams and checks to your component using these two editors.
 
 ### Input parameters
+
 This section shows the actual data already synchronized to the topology element. All the data shown is accessible to be used while editing the templates. The typical setup is to define a variable `element` which holds the topology element payload and is eventually exposed to the templated interpolation. Here is an example of an AWS lambda function payload:
-```
+
+```text
 import com.stackstate.structtype.StructType
 
 def element = StructType.wrapMap([
@@ -84,17 +90,18 @@ return [
 ]
 ```
 
-
 ## Template function
+
 This section shows the current template being used to synchronize the topology element. The template function has access to the component payload exposed by the input parameters and relies on using those variables to evaluate the template into a valid json document.
 
 ### Streams configuration
+
 The `streams` property is the way to configure telemetry into your topology element, the `streams` is defined as a collection of `DataStreams` which can be either a MetricStream or a EventStream, for example here is the payload for a MetricStream:
 
-```
+```text
 {
-	...
-	"streams": [
+    ...
+    "streams": [
     {
       "_type": "MetricStream",
       "name": "Invocation Duration",
@@ -113,25 +120,30 @@ The `streams` property is the way to configure telemetry into your topology elem
       "id": -13,
       "dataType": "METRICS"
     }
-	]
+    ]
 }
 ```
+
 The template requires the following fields:
-* `_type`: The type of Data Stream [MetricStream|EventStream].
+
+* `_type`: The type of Data Stream \[MetricStream\|EventStream\].
 * `name`: A name for the Data Stream.
-* `query`: Object representing the conditions to filter the stream [MetricTelemetryQuery,EventTelemetryQuery].
+* `query`: Object representing the conditions to filter the stream \[MetricTelemetryQuery,EventTelemetryQuery\].
 * `dataSource`: The data source where to connect to fetch the data.
-* `dataType`: The kind of data received on the stream [METRICS|EVENTS].
+* `dataType`: The kind of data received on the stream \[METRICS\|EVENTS\].
 
 The `query` object is probably the most important atribute of the `stream` object. A `query` object is defined as:
-* `_type`: The type of the Query [MetricTelemetryQuery,EventTelemetryQuery]
+
+* `_type`: The type of the Query \[MetricTelemetryQuery,EventTelemetryQuery\]
 * `conditions`: A collection of Objects with `key` and `value` atributes that represent the predicates that will help filtering the stream. The `key` atributes are defined by the data source that is being used. In the example all `keys` refer to atributes that you can filter on a Cloudwatch query. The `value` accepts String, Numeric or Boolean values.
-* `metricField`: The metric that we want to observe in the stream. *Field only available for Metric Streams*.
-* `aggregation`: The function to apply in order to aggregate the data. [MEAN,PERCENTILE_25,PERCENTILE_50,PERCENTILE_75,PERCENTILE_90,PERCENTILE_95,PERCENTILE_98,PERCENTILE_99,MAX,MIN,SUM,VALUE_COUNT,EVENT_COUNT]. *Field only available for Metric Streams*
+* `metricField`: The metric that we want to observe in the stream. _Field only available for Metric Streams_.
+* `aggregation`: The function to apply in order to aggregate the data. \[MEAN,PERCENTILE\_25,PERCENTILE\_50,PERCENTILE\_75,PERCENTILE\_90,PERCENTILE\_95,PERCENTILE\_98,PERCENTILE\_99,MAX,MIN,SUM,VALUE\_COUNT,EVENT\_COUNT\]. _Field only available for Metric Streams_
 
 ## Executing a template
-After editing the input parameters and template function, you can preview how the component with the added telemetry would look like  by pressing the 'Preview' button below the template function. For example, if we add an extra stream to monitor the `Errors` as:
-```
+
+After editing the input parameters and template function, you can preview how the component with the added telemetry would look like by pressing the 'Preview' button below the template function. For example, if we add an extra stream to monitor the `Errors` as:
+
+```text
 {
   "_type": "MetricStream",
   "name": "Invocation Error count",
@@ -150,16 +162,17 @@ After editing the input parameters and template function, you can preview how th
 }
 ```
 
-<img src="/images/guides/template_editor/preview_new_stream.png"/>
+![](../.gitbook/assets/preview_new_stream.png)
 
 If any mistakes were made during the editing of the template, the preview function will show you where the errors occurred.
 
-<img src="/images/guides/template_editor/template_editor_error_feedback.png"/>
+![](../.gitbook/assets/template_editor_error_feedback.png)
 
 You can also visit the history of previously executed templates. The historic representation will show both the input parameters and template function of a previously executed template, as well as the raw result of that execution. By clicking 'Load this template' you then replace your text editors on the left for the parameters and the function with the one you just loaded from the history.
 
-<img src="/images/guides/template_editor/template_editor_history.png"/>
+![](../.gitbook/assets/template_editor_history.png)
 
 You can also go to 'Template Examples' and get references on how to build templates. The examples tab also allows you to load an example into the text editors on the left by pressing 'Use this example'.
 
-<img src="/images/guides/template_editor/template_editor_examples.png"/>
+![](../.gitbook/assets/template_editor_examples.png)
+

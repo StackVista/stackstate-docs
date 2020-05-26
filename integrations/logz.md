@@ -2,6 +2,9 @@
 title: Logz.io StackPack
 kind: documentation
 ---
+
+# logz
+
 ## What is the Logz.io StackPack?
 
 The Logz.io StackPack allows StackState to connect to Logz.io.
@@ -14,3 +17,4 @@ Using this StackPack, you can:
 ## Installation
 
 Install the Logz.io StackPack from the StackPacks page in StackState.
+

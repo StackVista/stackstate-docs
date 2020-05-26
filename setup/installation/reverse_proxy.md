@@ -3,11 +3,11 @@ title: Configuring a reverse proxy
 kind: Documentation
 ---
 
-StackState makes heavy use of Websockets, so when setting up a reverse proxy to make StackState available on, for example,
-port 80 or 443 (with TLS) you will also need to proxy Websocket requests. An example setup for Nginx for this looks like this
-(proxying port 80 to StackState running on localhost port 7070):
+# reverse\_proxy
 
-```
+StackState makes heavy use of Websockets, so when setting up a reverse proxy to make StackState available on, for example, port 80 or 443 \(with TLS\) you will also need to proxy Websocket requests. An example setup for Nginx for this looks like this \(proxying port 80 to StackState running on localhost port 7070\):
+
+```text
 http {
     server {
         listen 80;
@@ -63,3 +63,4 @@ http {
     }
 }
 ```
+

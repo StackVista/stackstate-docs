@@ -4,9 +4,11 @@ kind: Documentation
 listorder: 2
 ---
 
+# default\_topology\_synchronization
+
 ## Overview
 
-StackState must be configured to process incoming JSON data into topology. The easiest way to do this is to use the *auto-sync* functionality. Auto-sync uses the same templates for all components and relations coming in via the data source. This enables new topology to be imported into StackState quickly. If you want to fully control the conversion of JSON data into topology, you can add mappings for specific component types.
+StackState must be configured to process incoming JSON data into topology. The easiest way to do this is to use the _auto-sync_ functionality. Auto-sync uses the same templates for all components and relations coming in via the data source. This enables new topology to be imported into StackState quickly. If you want to fully control the conversion of JSON data into topology, you can add mappings for specific component types.
 
 ## Creating a topology data source
 
@@ -20,22 +22,21 @@ StackState expects topology data at the following endpoint:
 
 Use the following `curl` command to send the data:
 
-~~~
+```text
 curl -v user:password -X POST -H "Content-Type: application/json" --data-ascii @topology.json "https://stackstate-server:7077/stsAgent/intake/?api_key=API_KEY"
-~~~
+```
 
-This request results in HTTP status code `200 OK` if the data has been successfully processed.
-Example: [topology.json](/files/guides/topology/topology.json)
+This request results in HTTP status code `200 OK` if the data has been successfully processed. Example: [topology.json](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/files/guides/topology/topology.json)
 
 ### Configure a data source
 
 Now that the StackState infrastructure is created for our new data, you can create a new data source.
 
-Navigate to the StackState *Settings* section. Under *Topology Sources*, select *Sts Sources*. Click the _plus_ button to create a new data source.
+Navigate to the StackState _Settings_ section. Under _Topology Sources_, select _Sts Sources_. Click the _plus_ button to create a new data source.
 
 The data source creation screen looks like this:
 
-<img src="/images/guides/topology/create-data-source-screen.png"/>
+![](../.gitbook/assets/create-data-source-screen.png)
 
 The screen contains the following fields:
 
@@ -49,10 +50,10 @@ The following advanced settings are also available:
 
 * `Maximum batch size`: Specifies the maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting.
 * `Maximum # of batches/second`: Specifies the maximum number of batches processed per second. Used for rate limiting.
-* `Expire elements`: Set topology to elements to *expired* if they do not appear in this data source for a configured amount of time.
-* `Cleanup expired elements`: Remove *expired* topology elements from StackState if they have been expired for a configured amount of time.
+* `Expire elements`: Set topology to elements to _expired_ if they do not appear in this data source for a configured amount of time.
+* `Cleanup expired elements`: Remove _expired_ topology elements from StackState if they have been expired for a configured amount of time.
 
-*NOTE*: if the topology data is sent in *snapshot* mode (see the JSON format description), expiry and cleanup of elements is not necessary, since each snapshots represents a complete landscape instance and elements missing from the snapshot are automatically deleted.
+_NOTE_: if the topology data is sent in _snapshot_ mode \(see the JSON format description\), expiry and cleanup of elements is not necessary, since each snapshots represents a complete landscape instance and elements missing from the snapshot are automatically deleted.
 
 The screen contains the following buttons:
 
@@ -65,17 +66,17 @@ The screen contains the following buttons:
 
 ### Import the auto-sync templates
 
-Before you can start creating a default synchronization, you will need to import the <a href="/json/auto-sync-nodes.conf" download>auto-sync templates</a>.
+Before you can start creating a default synchronization, you will need to import the [auto-sync templates](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/json/auto-sync-nodes.conf).
 
-To import these templates into StackState, navigate to the *Settings* section. Under *Import/Export*, select *Import Settings* and select the file to upload.
+To import these templates into StackState, navigate to the _Settings_ section. Under _Import/Export_, select _Import Settings_ and select the file to upload.
 
 ### Configure the auto-sync synchronization
 
-Navigate to the StackState *Settings* section. Under *Topology Synchronization*, select *Synchronizations*. Click the _plus_ button to create a new synchronization.
+Navigate to the StackState _Settings_ section. Under _Topology Synchronization_, select _Synchronizations_. Click the _plus_ button to create a new synchronization.
 
 This is the first step in the wizard:
 
-<img src="/images/guides/topology/synchronization-wizard-step-1.png"/>
+![](../.gitbook/assets/synchronization-wizard-step-1.png)
 
 This screen allows you to configure the name and plugin for the synchronization. The screen contains the following fields:
 
@@ -85,35 +86,37 @@ This screen allows you to configure the name and plugin for the synchronization.
 
 Click the _right arrow_ on the bottom of the screen.
 
-<img src="/images/guides/topology/synchronization-wizard-step-2.png"/>
+![](../.gitbook/assets/synchronization-wizard-step-2.png)
 
 This screen allows you to configure the data source and component- and relation id extractors. The screen contains the following fields:
 
 * `Choose source`: Select the data source created in the previous step from the list.
-* `Component Id Extractor`: Select the *Generic auto sync component id extractor*.
-* `Relation Id Extractor`: Select the *Generic auto sync relation id extractor*.
+* `Component Id Extractor`: Select the _Generic auto sync component id extractor_.
+* `Relation Id Extractor`: Select the _Generic auto sync relation id extractor_.
 
 The following advanced setting is available:
-* `Start from earliest available topology data`: If turned *on*, the topology data is processed starting from the earliest available data.
+
+* `Start from earliest available topology data`: If turned _on_, the topology data is processed starting from the earliest available data.
 
 Click the _right arrow_ on the bottom of the screen.
 
-<img src="/images/guides/topology/synchronization-wizard-step-3.png"/>
+![](../.gitbook/assets/synchronization-wizard-step-3.png)
 
-This screen allows you to configure *component* mappings for the synchronization.
+This screen allows you to configure _component_ mappings for the synchronization.
 
-In the `Other Sources` line at the bottom of the screen, select the *Create* action, *no* mapping function and the *Autosync component template*.
-
-Click the _right arrow_ on the bottom of the screen.
-
-<img src="/images/guides/topology/synchronization-wizard-step-4.png"/>
-
-This screen allows you to configure *relation* mappings for the synchronization.
-
-In the `Other Sources` line at the bottom of the screen, select the *Create* action, *no* mapping function and the *Autosync relation template*.
+In the `Other Sources` line at the bottom of the screen, select the _Create_ action, _no_ mapping function and the _Autosync component template_.
 
 Click the _right arrow_ on the bottom of the screen.
 
-<img src="/images/guides/topology/synchronization-wizard-step-5.png"/>
+![](../.gitbook/assets/synchronization-wizard-step-4.png)
 
-This screen allows you to review the settings for the synchronization. Click *Save* to store the synchronization.
+This screen allows you to configure _relation_ mappings for the synchronization.
+
+In the `Other Sources` line at the bottom of the screen, select the _Create_ action, _no_ mapping function and the _Autosync relation template_.
+
+Click the _right arrow_ on the bottom of the screen.
+
+![](../.gitbook/assets/synchronization-wizard-step-5.png)
+
+This screen allows you to review the settings for the synchronization. Click _Save_ to store the synchronization.
+

@@ -3,11 +3,13 @@ title: Synchronizations and templated files
 kind: Documentation
 ---
 
-To obtain the `.stj` Templated file for your StackPack you need to perform a few steps in StackState Settings page and then edit the template file by hand.  
+# synchronizations\_and\_templated\_files
+
+To obtain the `.stj` Templated file for your StackPack you need to perform a few steps in StackState Settings page and then edit the template file by hand.
 
 Every .stj template is filled with information about the hosts and environments that StackState collects data from. Example of this information looks like this:
 
-```
+```text
 {
   "nodes": [
     {
@@ -30,12 +32,7 @@ Every .stj template is filled with information about the hosts and environments 
   "timestamp": "2019-05-31T18:36:35Z",
   "version": "0.1"
 }
-
 ```
-
-
-
-
 
 ## How to get templated file for your StackPack
 
@@ -43,13 +40,13 @@ Preparing a templated file is a process that requires some configuration of Stac
 
 ### 1. Prepare a check in StackState Agent
 
-The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. You can find more on Agent V2 checks [here](/develop/agent_check/checks_in_agent_v2/).
+The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. You can find more on Agent V2 checks [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md).
 
 ### 2. Install Custom Synchronization StackPack
 
 To install this StackPack go to StackState's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to provide the following information:
 
-* Instance type (source identifier) - this is the identifier for the resource that you want to integrate with StackState, for example, AWS, Azure, Zabbix, etc.
+* Instance type \(source identifier\) - this is the identifier for the resource that you want to integrate with StackState, for example, AWS, Azure, Zabbix, etc.
 * Instance URL - The URL of the instance the data is being reported for.
 
 When the above information is provided click the "Install" button and if Agent V2 checks are working you should start to see the topology coming in for your integration and the "Custom Synchronization" should become enabled.
@@ -60,11 +57,11 @@ Once you have installed Custom Synchronization StackPack, you need to start prep
 
 There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 
-These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](/develop/synchronizations_and_templated_files/#7-configure-component-and-relation-templates).
+These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/synchronizations_and_templated_files/README.md#7-configure-component-and-relation-templates).
 
 ### 4. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](/concepts/components_and_relations).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/components_and_relations/README.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
 
@@ -72,32 +69,31 @@ Component types and Relation types can also be created automatically by StackSta
 
 When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
 
-More on Id Extractors - [here](/concepts/id_extraction)
+More on Id Extractors - [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/id_extraction/README.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 
 Component Mapping Functions are used by StackState to do some translation of incoming component data. They are applied in the Synchronization for a given source/component type.
 
-Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](/concepts/component_and_relation_mapping_functions).
+Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/component_and_relation_mapping_functions/README.md).
 
 ### 7. Configure Component and Relation Templates
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](/concepts/component_and_relation_templates).
+You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/component_and_relation_templates/README.md).
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
 ### 8. Configure Sts Sources - Topology Sources
 
-Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](/concepts/topology_sources)
+Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/topology_sources/README.md)
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
 
-
 ### 9. Configure Synchronizations
 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](/guides/default_topology_synchronization/#setting-up-an-default-synchronization) or proceed to edit this synchronization with the instructions below:
+Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/guides/default_topology_synchronization/README.md#setting-up-an-default-synchronization) or proceed to edit this synchronization with the instructions below:
 
 #### Step 1
 
@@ -128,7 +124,8 @@ Verify all the changes and click "Save". On the popup dialog that appears right 
 When your integration is working and has a shape that you expect, you can convert StackState's configuration into a StackPack template file. To do this go to the Settings page and at the bottom of the left menu, you can find an Import/Export section. Click on the `STS-EXPORT-ALL-{Date}.conf` button on the main screen. This exports all of StackState's configuration into a config file format.
 
 The configuration file has the following format:
-```
+
+```text
 {
   "_version": "1.0.5",
   "timestamp": "export_timestamp_here",
@@ -142,19 +139,19 @@ The configuration file has the following format:
 
 Each of the node elements represents a configuration item in StackState. This config file contains all of the configuration of your StackState instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.stj` template file:
 
-- Remove all configuration `node` objects that are owned by another StackPack. They all have a field called `ownedBy`.
-- StackState uses an urn-based identifiers, you can go ahead and define an urn for each of your configuration objects.
-- Items that are extended from the `Custom Synchronization` StackPack, will have their urn `identifier` field with the following structure: `urn:stackpack:autosync:{type_name}:{object_name}`.
-- Typical `identifier` pattern that you can find across our StackPacks configuration is: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`
-- For StackPacks that can have multiple instances the identifier has a slightly different pattern: `urn:stackpack:{stackpack_name}:instance:{{instanceId}}:{type_name}:{object_name}` where `{{instanceId}}` is uniquely genrated for every instance of the StackPack.
+* Remove all configuration `node` objects that are owned by another StackPack. They all have a field called `ownedBy`.
+* StackState uses an urn-based identifiers, you can go ahead and define an urn for each of your configuration objects.
+* Items that are extended from the `Custom Synchronization` StackPack, will have their urn `identifier` field with the following structure: `urn:stackpack:autosync:{type_name}:{object_name}`.
+* Typical `identifier` pattern that you can find across our StackPacks configuration is: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`
+* For StackPacks that can have multiple instances the identifier has a slightly different pattern: `urn:stackpack:{stackpack_name}:instance:{{instanceId}}:{type_name}:{object_name}` where `{{instanceId}}` is uniquely genrated for every instance of the StackPack.
 
 As of 1.14.13, the only way to add/modify the identifiers is the manual edit of the configuration file. This option will be available also through UI in the upcoming releases.
 
-After cleaning up the configuration file it is time to template out the variables exposed by your StackPack. As explained in the [Configuration input](/develop/stackpack/how_to_customize_a_stackpack) documentation section, it is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](/develop/stackpack/prepare_stackpack_provisioning_script). Any parameters or configuration item can be passed down to the `.stj` template file.
+After cleaning up the configuration file it is time to template out the variables exposed by your StackPack. As explained in the [Configuration input](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/how_to_customize_a_stackpack/README.md) documentation section, it is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/prepare_stackpack_provisioning_script/README.md). Any parameters or configuration item can be passed down to the `.stj` template file.
 
 One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. Following code snippet shows how to create a function called `topicName` that generates a topic name for this instance based on the data provided by the user in the StackPack installation step.
 
-```
+```text
 @Override
 ProvisioningIO<scala.Unit> install(Map<String, Object> config) {
     def templateArguments = [
@@ -176,7 +173,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 
 It is possible now to reference any of the above `templateArguments` in your `.stj` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
 
-```
+```text
 {
     "_type": "DataSource",
     "name": "StackPack Data Source",
@@ -188,3 +185,4 @@ It is possible now to reference any of the above `templateArguments` in your `.s
     ...
 }
 ```
+

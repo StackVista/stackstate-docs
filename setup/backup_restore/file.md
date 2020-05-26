@@ -3,9 +3,11 @@ title: File Based Import and Export
 kind: Documentation
 ---
 
+# file
+
 To backup and restore StackState configuration and topology information we can use StackState's import and export functionality. StackState's configuration and topology data is stored in StackGraph. Telemetry information is stored in Elasticsearch.
 
-### StackState configuration and topology data
+## StackState configuration and topology data
 
 To back up StackGraph's data on a running StackState instance:
 
@@ -21,6 +23,7 @@ To restore topology information by importing a previous made backup on a running
 
 **Note**: additional log messages can be found in `<stackstate installation path>/var/log/stackstate.log`
 
-### StackState telemetry data
+## StackState telemetry data
 
 StackState's telemetry data is stored in Elasticsearch. To backup and restore Elasticsearch data we recommend to follow Elasticsearch's [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.3/modules-snapshots.html).
+

@@ -3,7 +3,9 @@ title: Functions
 kind: Documentation
 ---
 
-StackState is built to deal with a wide variety of different situations. StackState comes with functions to stay flexible enough to account for different types of logic.  
+# functions
+
+StackState is built to deal with a wide variety of different situations. StackState comes with functions to stay flexible enough to account for different types of logic.
 
 Functions are predefined scripts that transform input into an output. Functions are called by StackState on-demand. For example, when a component changed state, some new telemetry flowed in or when the user triggered an action.
 
@@ -11,20 +13,21 @@ Functions are predefined scripts that transform input into an output. Functions 
 
 Functions give power-users the ability to customize StackState fully. However, everyday users of StackState should not need to know that they exist.
 
-StackPacks pre-package functions and automatically install functions on StackState whenever the StackPack gets installed. You can develop your function in StackState. When you are confident that it does what you want, you can export it and package it with a StackPack. Read more about it on [how to create StackPacks page](/develop/stackpack/).
+StackPacks pre-package functions and automatically install functions on StackState whenever the StackPack gets installed. You can develop your function in StackState. When you are confident that it does what you want, you can export it and package it with a StackPack. Read more about it on [how to create StackPacks page](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/README.md).
 
 ## Async vs sync functions
 
-Traditionally functions in StackState were written in a synchronous blocking manner. This limited the capability of what these functions can achieve and how many of these functions can be run in parallel. StackState started supporting a new kind of function called *async* functions that allow anyone to access the [Script APIs](/develop/scripting/). The following functions have started supporting the *async* mode and no longer allows you to edit the older (legacy) synchronous function anymore, though the older synchronous functions will remain working.
+Traditionally functions in StackState were written in a synchronous blocking manner. This limited the capability of what these functions can achieve and how many of these functions can be run in parallel. StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/README.md). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
 
-- Propagation functions (since 1.15.1)
+* Propagation functions \(since 1.15.1\)
 
 The following functions do not support async mode:
 
- - Check function
- - Baseline function
- - View state configuration function
- - Event handler function
- - Id extractor function
- - Component mapper function
- - Relation mapper function
+* Check function
+* Baseline function
+* View state configuration function
+* Event handler function
+* Id extractor function
+* Component mapper function
+* Relation mapper function
+

@@ -3,14 +3,15 @@ title: How to customize a StackPack
 kind: Documentation
 ---
 
+# how\_to\_customize\_a\_stackpack
+
 ## StackPack configuration file
 
-The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](/develop/stackpack/prepare_package) or follow the instructions below.
-
+The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/prepare_package/README.md) or follow the instructions below.
 
 StackPack configuration file structure is as follows:
 
-```
+```text
 name = example
 displayName = Example stackpack
 version = "1.0.0"
@@ -20,12 +21,12 @@ categories = ["Infrastructure"]
 overviewUrl = "overview.md"
 detailedOverviewUrl = "detailed-overview.md"
 configurationUrls = {
-	INSTALLED = "installed.md"
-	NOT_INSTALLED = "notinstalled.md"
-	ERROR = "error.md"
-	PROVISIONING = "provisioning.md"
-	DEPROVISIONING = "deprovisioning.md"
-	WAITING_FOR_DATA = "waitingfordata.md"
+    INSTALLED = "installed.md"
+    NOT_INSTALLED = "notinstalled.md"
+    ERROR = "error.md"
+    PROVISIONING = "provisioning.md"
+    DEPROVISIONING = "deprovisioning.md"
+    WAITING_FOR_DATA = "waitingfordata.md"
 }
 faqs = []
 steps = [
@@ -50,18 +51,19 @@ provision = "ExampleProvision"
 
 ### URLs in StackPack configuration
 
-- Any relative/absolute path is considered as a resource inside the `resources` directory in the StackPack.
-- Any absolute URL with a scheme (`http`/`https`) refers to an externally hosted resource with the given URL.
-- Configuration URLs are representing [documentation and states files](/develop/stackpack/stackpack_resources/) that reside in the `resources` directory in the StackPack.
+* Any relative/absolute path is considered as a resource inside the `resources` directory in the StackPack.
+* Any absolute URL with a scheme \(`http`/`https`\) refers to an externally hosted resource with the given URL.
+* Configuration URLs are representing [documentation and states files](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/stackpack_resources/README.md) that reside in the `resources` directory in the StackPack.
 
 ## Configuration input
 
 During installation, a StackPack can prompt for some input from the user. The prompt can be configured in `steps` part of the StackPack configuration file. Each step is rendered as an input field. There are two different types of inputs currently supported, a `text`, and a `password` input field.
 
 ### Text input
+
 The `text` input field is described as below:
 
-```
+```text
 {
     name = "text"
     display = "Text"
@@ -75,9 +77,10 @@ The `text` input field is described as below:
 StackState assumes all the input fields in the StackPack are mandatory, and to circumvent that, an optional field could be provided with a default value.
 
 ### Password input
+
 The `password` input field is described like the `text` input field except that there are no default values, as it's presented below:
 
-```
+```text
 {
     name = "password"
     display = "Password"
@@ -91,11 +94,11 @@ If the user does not provide any value to any of the input fields defined in the
 
 ## Customize Components and Relations
 
-If you have not completed this step during [configuration of the elements created by Custom Synchronization](/develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack/) StackPack, then you need to configure Components and Relations with icons now.
+If you have not completed this step during [configuration of the elements created by Custom Synchronization](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack/README.md) StackPack, then you need to configure Components and Relations with icons now.
 
 ### Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon - you can change it to reflect the context of your environment; Relation types are here to describe relations between components. Read more about [Component and Relation types](/concepts/components_and_relations/).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon - you can change it to reflect the context of your environment; Relation types are here to describe relations between components. Read more about [Component and Relation types](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/components_and_relations/README.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section below. Auto-generated components types will be created without an icon.
 
@@ -103,6 +106,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 The `Custom Synchronization` StackPack installed as an integration prerequisite, creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](/concepts/component_and_relation_templates/).
+You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/component_and_relation_templates/README.md).
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
+

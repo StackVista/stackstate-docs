@@ -3,15 +3,17 @@ title: Install StackState before 1.15.0
 kind: Documentation
 ---
 
-### Requirements
+# installing\_pre1\_15
 
-Before starting the installation, ensure your system(s) meet StackState's [installation requirements](/setup/installation/requirements/).
+## Requirements
 
-### Installing
+Before starting the installation, ensure your system\(s\) meet StackState's [installation requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
 
-**NOTE**: Installing StackState on versions older than 1.14.5 requires an alternative procedure, see ([Installing before 1.14.5](/setup/installation/installing_pre1_14_5)).
+## Installing
 
-#### Install using the RPM distribution
+**NOTE**: Installing StackState on versions older than 1.14.5 requires an alternative procedure, see \([Installing before 1.14.5](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/installing_pre1_14_5/README.md)\).
+
+### Install using the RPM distribution
 
 **NOTE**: StackState requires **JDK 8** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `rpm` command.
 
@@ -19,12 +21,15 @@ Before starting the installation, ensure your system(s) meet StackState's [insta
 
 * `<<<LICENSE_KEY>>>`: Your license key provided by StackState.
 * `<<<HOST>>>`: Public DNS resolvable hostname external services can use to connect to
+
   the installed StackState instance.
+
 * `<<<API_KEY>>>`: Secret key StackState agents must use to authenticate.
 * `SETUP`: Choose whether to install in production or development mode. These setups
-  should meet the [system-requirements](/setup/installation/requirements).
 
-#### Install using the DEB distribution
+  should meet the [system-requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
+
+### Install using the DEB distribution
 
 **NOTE**: StackState requires **JDK 8** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `dpkg` command.
 
@@ -32,7 +37,11 @@ Before starting the installation, ensure your system(s) meet StackState's [insta
 
 * `<<<LICENSE_KEY>>>`: Your license key provided by StackState.
 * `<<<HOST>>>`: Public DNS resolvable hostname external services can use to connect to
+
   the installed StackState instance.
+
 * `<<<API_KEY>>>`: Secret key StackState agents must use to authenticate.
 * `SETUP`: Choose whether to install in production or development mode. These setups
-  should meet the [system-requirements](/setup/installation/requirements).
+
+  should meet the [system-requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
+

@@ -2,54 +2,54 @@
 title: Tagging Guide
 kind: Documentation
 aliases:
-    - /configuring/tagging/
+  - /configuring/tagging/
 listorder: 15
 ---
 
+# tagging
+
 ## Introduction
 
-Tags (also known as _labels_) are a way of associating names with topology so it can be filtered.
+Tags \(also known as _labels_\) are a way of associating names with topology so it can be filtered.
 
 ## Defining Tags
 
 Below are StackState's tagging restrictions, requirements, and suggestions:
 
 1. Tags must **start with a letter** and after that may contain the characters listed below:
+   * Alphanumerics
+   * Underscores
+   * Minuses
+   * Colons
+   * Periods
+   * Slashes
 
-    * Alphanumerics
-    * Underscores
-    * Minuses
-    * Colons
-    * Periods
-    * Slashes
+     Other special characters are converted to underscores.
 
-    Other special characters are converted to underscores.
-
-    **Note**: A tag cannot end with a colon, for example `tag:`
-
+     **Note**: A tag cannot end with a colon, for example `tag:`
 2. Tags can be **up to 200 characters** long and support Unicode.
 3. Tags are converted to lowercase. Therefore, `CamelCase` tags are not recommended.
 4. A tag can be in the format `value` or `<KEY>:<VALUE>`. For optimal functionality, **we recommend constructing tags in the `<KEY>:<VALUE>` format.** Commonly used tag keys are `env`, `instance`, and `name`. The key always precedes the first colon of the global tag definition, for example:
 
-    | Tag                | Key           | Value          |
-    |--------------------|---------------|----------------|
-    | `customer:US:acme` | `customer`    | `US:acme`      |
-    | `customer:acme`    | `customer`    | `acme`         |
+   | Tag | Key | Value |
+   | :--- | :--- | :--- |
+   | `customer:US:acme` | `customer` | `US:acme` |
+   | `customer:acme` | `customer` | `acme` |
 
 5. Tags shouldn't originate from unbounded sources, such as EPOCH timestamps, user IDs, or request IDs. Doing so may infinitely increase the number of tags in StackState.
 
 ## Assigning Tags
 
-Tags may be assigned using any (or all) of the following methods.
+Tags may be assigned using any \(or all\) of the following methods.
 
-| Method                  | Assign tags                                                                                  |
-|-------------------------|----------------------------------------------------------------------------------------------|
-| Configuration Files     | Manually in your main agent configuration files, or in your integrations configuration file. |
-| StackPack Inheritance   | Automatically with supported StackPacks after setup                                          |
+| Method | Assign tags |
+| :--- | :--- |
+| Configuration Files | Manually in your main agent configuration files, or in your integrations configuration file. |
+| StackPack Inheritance | Automatically with supported StackPacks after setup |
 
 ### Configuration Files
 
-The hostname (tag key `host`) is assigned automatically by the StackState Agent. To customize the hostname, use the Agent configuration file, `stackstate.yaml`:
+The hostname \(tag key `host`\) is assigned automatically by the StackState Agent. To customize the hostname, use the Agent configuration file, `stackstate.yaml`:
 
 ```yaml
 # Set the hostname (default: auto-detected)
@@ -58,7 +58,7 @@ The hostname (tag key `host`) is assigned automatically by the StackState Agent.
 hostname: mymachine.mydomain
 ```
 
-The Agent configuration file (`stackstate.yaml`) is also used to set host tags which apply to all data forwarded by the StackState Agent (see YAML formats below).
+The Agent configuration file \(`stackstate.yaml`\) is also used to set host tags which apply to all data forwarded by the StackState Agent \(see YAML formats below\).
 
 Tags for the integrations installed with the Agent are configured via YAML files located in the **conf.d** directory of the Agent install.
 
@@ -66,13 +66,13 @@ Tags for the integrations installed with the Agent are configured via YAML files
 
 In YAML files, use a tag dictionary with a list of tags you want assigned at that level. Tag dictionaries have two different yet functionally equivalent forms:
 
-```
+```text
 tags: <KEY_1>:<VALUE_1>, <KEY_2>:<VALUE_2>, <KEY_3>:<VALUE_3>
 ```
 
 or
 
-```
+```text
 tags:
     - <KEY_1>:<VALUE_1>
     - <KEY_2>:<VALUE_2>
@@ -87,4 +87,5 @@ The most efficient method for assigning tags is to rely on your StackPacks. Tags
 
 ## Using Tags
 
-After you have assigned tags at the host and integration level, start using them to [create views](/use/views).
+After you have assigned tags at the host and integration level, start using them to [create views](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/views/README.md).
+

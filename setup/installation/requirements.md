@@ -3,12 +3,14 @@ title: Requirements
 kind: Documentation
 ---
 
+# requirements
+
 ## Server requirements
 
 * **Operating system:** one of the following operating systems running Java:
 
 | OS | Release |
-|----|---------|
+| :--- | :--- |
 | Ubuntu | Bionic |
 | Ubuntu | Xenial |
 | Ubuntu | Trusty |
@@ -19,11 +21,11 @@ kind: Documentation
 | Amazon Linux | 2 |
 
 * **Java:**
-    * OpenJDK 8 **patch level 121** or later
+  * OpenJDK 8 **patch level 121** or later
 
 **NOTE**: StackState **does not work** with JDK versions 9 or higher at this time.
 
-**NOTE**: The StackState Agent StackPack has [more specific requirements](/integrations/#stackstate-agent).
+**NOTE**: The StackState Agent StackPack has [more specific requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/README.md#stackstate-agent).
 
 ## Size requirements
 
@@ -33,24 +35,28 @@ The StackState production setup requires two machines to run on.
 
 #### Minimal requirements
 
-##### StackState node
-* >= 20GB of RAM
-* >= 100GB disk space
-* >= 4 cores cpu
+**StackState node**
 
-##### StackGraph node
-* >= 16gb of RAM
-* >= 100GB disk space
-* >= 4 cores cpu
+* > = 20GB of RAM
+* > = 100GB disk space
+* > = 4 cores cpu
+
+**StackGraph node**
+
+* > = 16gb of RAM
+* > = 100GB disk space
+* > = 4 cores cpu
 
 #### Recommended
 
-##### StackState node
+**StackState node**
+
 * 32GB of RAM
 * 500GB disk space
 * 8 cores cpu
 
 #### StackGraph node
+
 * 24GB of RAM
 * 500GB disk space
 * 8 cores cpu
@@ -104,54 +110,65 @@ The following ports can be opened for monitoring, but are also useful when troub
 * StackSate: 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026
 * StackGraph: 9001, 9002, 9003, 9004, 9005, 9006, 16010, 16030, 50070, 50075
 
-
 ### Port list per process
 
 Detailed information about ports per process.
 
 #### StackState
+
 * 7070: HTTP api & user interface
 * 7071: Admin API for health checks and admin operations. Typically you want to use this only from `localhost`
 
 #### Receiver
-* 7077: HTTP agent API (aka receiver API). When using an agent, data is sent to this endpoint.
+
+* 7077: HTTP agent API \(aka receiver API\). When using an agent, data is sent to this endpoint.
 
 #### Kafka
+
 * 9092: Client port
 
 #### Elasticsearch
+
 * 9200: HTTP api
 * 9300: Native api
 
 #### Zookeeper
+
 * 2181: Client API
-* 2888: Zookeeper peers (general communication), only when running a cluster
-* 3888: Zookeeper peers (leader election), only when running a cluster
+* 2888: Zookeeper peers \(general communication\), only when running a cluster
+* 3888: Zookeeper peers \(leader election\), only when running a cluster
 
 #### HBase Master
-* 16000: Master client api (needs to be open for clients)
-* 16010: Master Web UI (optional)
+
+* 16000: Master client api \(needs to be open for clients\)
+* 16010: Master Web UI \(optional\)
 
 #### HBase Region server
-* 16020: Region client API (needs to be open for clients)
-* 16030: Region Web UI (optional)
+
+* 16020: Region client API \(needs to be open for clients\)
+* 16030: Region Web UI \(optional\)
 
 #### HDFS NameNode
-* 8020: File system (needs to be open for clients)
-* 50070: Web UI (optional)
+
+* 8020: File system \(needs to be open for clients\)
+* 50070: Web UI \(optional\)
 
 #### HDFS DataNode
-* 50010: Datanode API (needs to be open for clients)
-* 50020: IPC api (communication within HDFS cluster)
-* 50075: HTTP api (optional)
+
+* 50010: Datanode API \(needs to be open for clients\)
+* 50020: IPC api \(communication within HDFS cluster\)
+* 50075: HTTP api \(optional\)
 
 #### Tephra Transaction service
+
 * 15165: Client API
 
 #### StackState ProcessManager
+
 * 5154: StackState ProcessManager, at the moment only from localhost
 
 #### StackGraph ProcessManager
+
 * 5152: StackGraph ProcessManager, at the moment only from localhost
 
 ## Client requirements
@@ -160,3 +177,4 @@ To use the StackState GUI, you must use one of the following web browsers:
 
 * Chrome
 * Firefox
+

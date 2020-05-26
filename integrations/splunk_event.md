@@ -3,30 +3,24 @@ title: Splunk Event Integration
 kind: documentation
 ---
 
+# splunk\_event
+
 ## Overview
 
 The StackState Agent can be configured to execute Splunk saved searches and provide the results as generic events to the StackState receiver API. It will dispatch the saved searches periodically, specifying last event timestamp to start with up until now.
 
-The StackState Agent expects the results of the saved searches to be according to the Events Query Format, which is described below.
-It requires the `_time` format, and has the following optional fields: `event_type`, `msg_title`, `message_text` and `source_type_name`.
-If there are other fields present in the result, they will be mapped to tags, where the column name is the key, and the content the value.
-The Agent will filter out Splunk default fields (except `_time`), like e.g. `_raw`, see the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) for more information about default fields.
+The StackState Agent expects the results of the saved searches to be according to the Events Query Format, which is described below. It requires the `_time` format, and has the following optional fields: `event_type`, `msg_title`, `message_text` and `source_type_name`. If there are other fields present in the result, they will be mapped to tags, where the column name is the key, and the content the value. The Agent will filter out Splunk default fields \(except `_time`\), like e.g. `_raw`, see the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) for more information about default fields.
 
-The agent check prevents sending duplicate events over multiple check runs.  The received saved search records have to be uniquely identified for comparison.
-By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`.
-The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration.
-Please note that the specified `unique_key_fields` fields become mandatory for each record.
-In case the records can not be uniquely identified by a combination of fields then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
+The agent check prevents sending duplicate events over multiple check runs. The received saved search records have to be uniquely identified for comparison. By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`. The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration. Please note that the specified `unique_key_fields` fields become mandatory for each record. In case the records can not be uniquely identified by a combination of fields then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
 
 ### Events Query Format
 
-<table class="table">
-<tr><td><strong>_time*</strong></td><td>long</td><td>Data collection timestamp, millis since epoch</td></tr>
-<tr><td><strong>event_type</strong></td><td>string</td><td>Event type, e,g, server_created</td></tr>
-<tr><td><strong>msg_title</strong></td><td>string</td><td>Message title</td></tr>
-<tr><td><strong>msg_text</strong></td><td>string</td><td>Message text</td></tr>
-<tr><td><strong>source_type_name</strong></td><td>string</td><td>Source type name</td></tr>
-</table>
+| **\_time\*** | long | Data collection timestamp, millis since epoch |
+| :--- | :--- | :--- |
+| **event\_type** | string | Event type, e,g, server\_created |
+| **msg\_title** | string | Message title |
+| **msg\_text** | string | Message text |
+| **source\_type\_name** | string | Source type name |
 
 \* Required columns
 
@@ -34,7 +28,7 @@ In case the records can not be uniquely identified by a combination of fields th
 
 Example Splunk query:
 
-```
+```text
 index=monitor alias_hostname=*
 | eval status = upper(status)
 | search status=CRITICAL OR status=error OR status=warning OR status=OK
@@ -47,13 +41,11 @@ The Splunk integration provides various authentication mechanisms to connect to 
 
 ### HTTP Basic Authentication
 
-With HTTP basic authentication, the `username` and `password` specified in the `splunk_events.yaml` can be used to connect to Splunk. 
-These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration
-file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
+With HTTP basic authentication, the `username` and `password` specified in the `splunk_events.yaml` can be used to connect to Splunk. These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
 
 _As an example, see the below config :_
 
-```
+```text
 instances:
     - url: "https://localhost:8089"
 
@@ -72,9 +64,7 @@ instances:
 
 ### Token-based Authentication
 
-Token-based authentication mechanism supports Splunk authentication tokens. An initial Splunk token is provided to the 
-integration with a short expiration date. The integration's authentication mechanism will request a new token before 
-expiration, respecting the `renewal_days` setting, with an expiration of `token_expiration_days` days.
+Token-based authentication mechanism supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. The integration's authentication mechanism will request a new token before expiration, respecting the `renewal_days` setting, with an expiration of `token_expiration_days` days.
 
 Token-based authentication information overrides basic authentication in case both are configured.
 
@@ -88,7 +78,7 @@ The following new parameters are available:
 
 _As an example, see the below config :_
 
-```
+```text
 instances:
     - url: "https://localhost:8089"
 
@@ -103,7 +93,7 @@ instances:
       # basic_auth:
         # username: "admin"
         # password: "admin"
-        
+
       token_auth:
         ## Token for the user who will be using it
         name: "api-user"
@@ -124,11 +114,10 @@ instances:
         renewal_days: 10
 ```
 
-The above authentication configuration are part of the [conf.d/splunk_events.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example) file.
+The above authentication configuration are part of the [conf.d/splunk\_events.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example) file.
 
 ## Configuration
 
-1.  Edit your conf.d/splunk_events.yaml file.
-2.  Restart the agent
+1. Edit your conf.d/splunk\_events.yaml file.
+2. Restart the agent
 
-{{< insert-example-links >}}

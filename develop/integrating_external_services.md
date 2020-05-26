@@ -3,9 +3,11 @@ title: Integrating StackState with external services
 kind: Documentation
 ---
 
-Not all custom logic needs to be coded using the [StackState Scripting Language (STSL)](/develop/scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs. 
+# integrating\_external\_services
 
-Integrating external services with StackState is done by using the [HTTP script API](/develop/scripting/http) from a [function](/develop/functions). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
+Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/README.md). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.
+
+Integrating external services with StackState is done by using the [HTTP script API](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/http/README.md) from a [function](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/functions/README.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
 
 ## Example
 
@@ -15,7 +17,7 @@ Whenever you call your HTTP server with `/propagation?componentName=SOMENAME` it
 
 You could then integrate your service by making a propagation function with the following script:
 
-```
+```text
 Component.withId(componentId).get().then { component ->  
     Http.get("http://mydomain/propagation").param("componentName", component.name).jsonBody() 
 }.then { response ->
@@ -24,11 +26,12 @@ Component.withId(componentId).get().then { component ->
 }
 ```
 
-This function first gets the name of the component, then calls out via HTTP to the external service and then uses its response to decide how StackState should propagate the state of the given component. 
+This function first gets the name of the component, then calls out via HTTP to the external service and then uses its response to decide how StackState should propagate the state of the given component.
 
 ## Requirements
 
- - Your service should be network resolvable and accessible by the StackState servers that run the scripts.
- - HTTPS is supported only for certificates that are signed by the Certificate Authorities known to the Java Keystore accessible by the StackState server.
- - StackState scripts have a default configurable timeout (e.g. 15 seconds). If your service does not respond in a timely fashion an error will be logged and depending on the type of function different types of error behavior will be observed. 
- - Make sure your service can keep up with the demand. Depending on the type of function and the size of the 4T model, StackState might make a lot of calls to your service.
+* Your service should be network resolvable and accessible by the StackState servers that run the scripts.
+* HTTPS is supported only for certificates that are signed by the Certificate Authorities known to the Java Keystore accessible by the StackState server.
+* StackState scripts have a default configurable timeout \(e.g. 15 seconds\). If your service does not respond in a timely fashion an error will be logged and depending on the type of function different types of error behavior will be observed. 
+* Make sure your service can keep up with the demand. Depending on the type of function and the size of the 4T model, StackState might make a lot of calls to your service.
+

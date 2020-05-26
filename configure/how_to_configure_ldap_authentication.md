@@ -3,26 +3,28 @@ title: How to configure LDAP authentication
 kind: Documentation
 ---
 
+# how\_to\_configure\_LDAP\_authentication
+
 StackState is built to work with one of two authentication configurations: a file-based authentication, and LDAP. This document explains how to configure LDAP authentication.
 
 ## Prepare the config file for LDAP authentication
 
-LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configuring authentication - examples](/setup/installation/authentication/) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support [file-based authentication](/setup/installation/authentication/#configuring-file-based-authentication); following changes are required to enable [LDAP authentication](/setup/installation/authentication/#configuring-file-based-authentication):
+LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configuring authentication - examples](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support [file-based authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md#configuring-file-based-authentication); following changes are required to enable [LDAP authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md#configuring-file-based-authentication):
 
 ### 1. Enable authentication
 
 At the beginning of the `authentication` block of `application_stackstate.conf` file locate following lines:
 
-```
+```text
 authentication {
   enabled  = false
 ...
-}  
+}
 ```
 
 To enable authentication, change this line to:
 
-```
+```text
 authentication {
   enabled  = true
 ...
@@ -32,16 +34,16 @@ authentication {
 
 As mentioned above, out of the box StackState configuration is set to a file-based authentication. To use LDAP configuration, locate the `authServerType` block in `authentication`:
 
-```
+```text
 authServer {
     authServerType = "stackstateAuthServer"
 ...
-}    
+}
 ```
 
 Now change `stackstateAuthServer` to `ldapAuthServer` and remove the configuration for the built-in user store configuration. Your configuration file should look like this now:
 
-```
+```text
 authentication {
   enabled  = true
 
@@ -57,12 +59,11 @@ authentication {
 }
 ```
 
-
 ### 3. Provide the connection details and bind credentials to LDAP server
 
 Now you need to include LDAP connection information, such as the host address, the port number that LDAP is available at, and bind credentials, as below:
 
-```
+```text
 ldapAuthServer {
       connection {
         host = localhost
@@ -79,10 +80,9 @@ ldapAuthServer {
       }
 ```
 
-
 Your configuration file should have `authentication` block similar to this:
 
-```
+```text
 authentication {
   enabled  = true
 
@@ -117,9 +117,9 @@ authentication {
 
 ### 4. Set the base directory where the user records are stored
 
-In this step, you need to provide information about the hierarchical structure of entries ([Directory Information Tree](https://ldapwiki.com/wiki/Directory%20Information%20Tree)) used by LDAP. Follow the example below:
+In this step, you need to provide information about the hierarchical structure of entries \([Directory Information Tree](https://ldapwiki.com/wiki/Directory%20Information%20Tree)\) used by LDAP. Follow the example below:
 
-```
+```text
 authentication {
   enabled  = true
 
@@ -162,13 +162,13 @@ authentication {
 }
 ```
 
-Please note that subjects (users or roles) created in StackState are stored in StackGraph, and to ensure they work with your LDAP configuration, subjects created in StackState must reflect the ones from your LDAP. With `bindCredentials` and `userQuery` configured, a username provided during login to StackState is checked against entries inside provided LDAP directories and their children directories.
+Please note that subjects \(users or roles\) created in StackState are stored in StackGraph, and to ensure they work with your LDAP configuration, subjects created in StackState must reflect the ones from your LDAP. With `bindCredentials` and `userQuery` configured, a username provided during login to StackState is checked against entries inside provided LDAP directories and their children directories.
 
 ### 5. Set the base directory where the group membership records are stored
 
 Similarly, as for users, you need to provide information about the group directories used by LDAP:
 
-```
+```text
 authentication {
   enabled  = true
 
@@ -222,8 +222,9 @@ authentication {
 }
 ```
 
-LDAP groups are reflecting [Roles](/configure/how_to_set_up_roles/) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
+LDAP groups are reflecting [Roles](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_set_up_roles/README.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
 
 ### 6. Summary
 
-After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](/configure/subject_configuration/), and setting up [Roles](/configure/how_to_set_up_roles/). Find out more on pages describing [Scopes](/configure/scopes_in_rbac/), and [Permissions](/configure/permissions/).
+After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/subject_configuration/README.md), and setting up [Roles](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_set_up_roles/README.md). Find out more on pages describing [Scopes](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/scopes_in_rbac/README.md), and [Permissions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/permissions/README.md).
+

@@ -2,9 +2,11 @@
 title: Topology synchronization
 kind: Documentation
 aliases:
-    - /configuring/topology_synchronization/
+  - /configuring/topology_synchronization/
 listorder: 2
 ---
+
+# topology\_synchronization
 
 ## Overview
 
@@ -12,7 +14,7 @@ StackState can synchronize topology information from different sources, includin
 
 ## Topology using a StackPack
 
-The easiest way to connect StackState to one of your data sources is to use a *StackPacks*. StackPacks are standard integrations that configure StackState to consume data from a particular data source or platform.
+The easiest way to connect StackState to one of your data sources is to use a _StackPacks_. StackPacks are standard integrations that configure StackState to consume data from a particular data source or platform.
 
 ## Custom topology
 
@@ -20,13 +22,13 @@ StackState accepts topology data in JSON format. JSON files received pass throug
 
 The entire process can be represented visually as follows:
 
-<img src="/images/guides/topology/topology_synchronization.png" style="width:100%"/>
+![](../.gitbook/assets/topology_synchronization.png)
 
 ## Topology JSON format
 
 StackState accepts topology information in the following JSON format:
 
-~~~
+```text
 {
    "apiKey":"your api key",
    "collection_timestamp":1585818978,
@@ -88,18 +90,18 @@ StackState accepts topology information in the following JSON format:
       }
    ]
 }
-~~~
+```
 
 The JSON contains the following fields:
 
 * `apiKey`: The key that StackState provided for your installation.
 * `collection_timestamp`: Collection timestamp in Epoch seconds. Depending on your StackState configuration, topology that is to old may be ignored.
-* `internalHostname`: The hostname of the collector (which sends your custom topology data).
+* `internalHostname`: The hostname of the collector \(which sends your custom topology data\).
 * `topologies`: A list of one or more instance types. Instance types are described by the following fields:
-  * `start_snapshot`: Boolean (true/false). When set to "true" this message is handled as the beginning of a snapshot. This enables StackState to diff snapshots with the previous one to delete components / relations which are not in the snapshot anymore.
-  * `stop_snapshot`: Boolean (true/false). When set to "true" this message is handled as the end of a snapshot.
+  * `start_snapshot`: Boolean \(true/false\). When set to "true" this message is handled as the beginning of a snapshot. This enables StackState to diff snapshots with the previous one to delete components / relations which are not in the snapshot anymore.
+  * `stop_snapshot`: Boolean \(true/false\). When set to "true" this message is handled as the end of a snapshot.
   * `delete_ids`: List of external ids. List of components or relations that should be deleted. All components and relations that are not repeated in a snapshot will be deleted automatically, thus this field is only necessary when _not_ sending a snapshot.
-* `instance`: Describes the type and unique ID (URL format) of the topology data.
+* `instance`: Describes the type and unique ID \(URL format\) of the topology data.
   * `type`: A type name for the topology data.
   * `URL`: Unique identifier for the source of this topology. This is used to generate a unique Kafka topic name for the topology data.
 * `components`: A list of components. Per component you have the following fields:
@@ -113,7 +115,7 @@ The JSON contains the following fields:
   * `sourceId`: This refers to the source component externalId.
   * `targetId`: This refers to the target component externalId.
 
-Mandatory fields (which can be empty, see other guides how to use them):
+Mandatory fields \(which can be empty, see other guides how to use them\):
 
 * `events`
 * `metrics`
@@ -121,4 +123,5 @@ Mandatory fields (which can be empty, see other guides how to use them):
 
 ## Getting started with custom topology
 
-The first step to importing custom topology is to create a [default topology synchronization](/configure/default_topology_synchronization).
+The first step to importing custom topology is to create a [default topology synchronization](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/default_topology_synchronization/README.md).
+

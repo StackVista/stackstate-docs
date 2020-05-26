@@ -2,8 +2,10 @@
 title: Splunk saved search
 kind: Documentation
 aliases:
-    - /usage/splunk_saved_search/
+  - /usage/splunk_saved_search/
 ---
+
+# splunk\_saved\_search
 
 StackState provides ability to call Splunk saved searches from the StackState Splunk plugin. This approach replaces index lookup by saved search, and takes data from a Splunk saved search instead.
 
@@ -16,11 +18,11 @@ StackState provides ability to call Splunk saved searches from the StackState Sp
 You can call Splunk saved searches in Telemetry Stream pane for selected Splunk components. Add a new stream to your component and provide following as Filters:
 
 * `~savedsearch` - this filter requires a string value that represents the name under that search is saved in Splunk Reports.
-* `~savedsearchparam_<savedsearch_param_name>` - if your search has some additional parameters (macro replacements from Splunk), they should be specified in this filter as the parameter name after `_`(underscore). Value is a string.
+* `~savedsearchparam_<savedsearch_param_name>` - if your search has some additional parameters \(macro replacements from Splunk\), they should be specified in this filter as the parameter name after `_`\(underscore\). Value is a string.
 
 ### Example
 
 To call a Splunk saved search `testsearch` with parameter `host` and a hostname `machine1` you need to add two filters in the Telemetry Stream:
 
-`~savedsearch` == `testsearch`
-`~savedsearchparam_host` == `machine1`
+`~savedsearch` == `testsearch` `~savedsearchparam_host` == `machine1`
+

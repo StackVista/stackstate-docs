@@ -3,31 +3,33 @@ title: AWS StackPack
 kind: documentation
 ---
 
+# aws
+
 ## What is the AWS StackPack?
 
-Amazon Web Services (AWS) is a major cloud provider. This StackPack enables in-depth monitoring of the following AWS services:
+Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of the following AWS services:
 
 * API Gateway
 * Auto Scaling Group
 * Cloud Formation
 * DynamoDB
-* Elastic Compute Cloud (EC2)
-* Elastic Container Services (ECS)
-* Elastic Load Balancer Classic (ELB)
-* Elastic Load Balancer V2 (ELB)
+* Elastic Compute Cloud \(EC2\)
+* Elastic Container Services \(ECS\)
+* Elastic Load Balancer Classic \(ELB\)
+* Elastic Load Balancer V2 \(ELB\)
 * Kinesis Data Firehose
 * Kinesis Stream
 * Lambda
-* Relational Database Service (RDS)
+* Relational Database Service \(RDS\)
 * Redshift
 * Route 53
-* Simple Storage Service (S3)
-* Simple Notification Service (SNS)
-* Simple Queue Service (SQS)
-* Virtual Private Cloud (VPC)
+* Simple Storage Service \(S3\)
+* Simple Notification Service \(SNS\)
+* Simple Queue Service \(SQS\)
+* Virtual Private Cloud \(VPC\)
 * VPN Gateway
 
-We also support monitoring X-Ray Traces with the [StackState Agent](/integrations/agent).
+We also support monitoring X-Ray Traces with the [StackState Agent](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/agent/README.md).
 
 Read [the announcement](http://blog.stackstate.com/stackstate-announces-aws-cloud-monitoring) for more information about the benefits of the AWS StackPack.
 
@@ -44,9 +46,9 @@ Please refer to the AWS [documentation](https://docs.aws.amazon.com/cli/latest/u
 
 The AWS StackPack requires installation of three lambda functions to monitor your AWS resources:
 
-+ `stackstate-topo-cron` - Scans the initial topology based on an interval schedule and publishes to StackState
-+ `stackstate-topo-cwevents` - A Lambda function that listens to CloudWatch events, transforms the events and publishes them to Kinesis
-+ `stackstate-topo-publisher` - A Lambda function that publishes topology from a Kinesis stream to StackState
+* `stackstate-topo-cron` - Scans the initial topology based on an interval schedule and publishes to StackState
+* `stackstate-topo-cwevents` - A Lambda function that listens to CloudWatch events, transforms the events and publishes them to Kinesis
+* `stackstate-topo-publisher` - A Lambda function that publishes topology from a Kinesis stream to StackState
 
 ## Installation
 
@@ -54,8 +56,8 @@ The AWS StackPack is installed with an installation script that you can download
 
 There are two versions of StackState monitoring that you can install on your AWS account:
 
-+ Full installation
-+ Minimal installation
+* Full installation
+* Minimal installation
 
 ### Full installation
 
@@ -77,8 +79,8 @@ The minimal installation enables periodic monitoring of your AWS resources. It i
 
 When you use the AWS StackPack minimal installation, you have the following additional options:
 
-+ **Custom S3 bucket** - You can specify a custom S3 bucket to be used during deployment using the option `--topo-cron-bucket`. The install files necessary for CloudFormation Stack installation are deployed there.
-+ **Custom IAM role** - Custom AWS IAM role can be specified with the option `--topo-cron-role`. It must have an attached policy defined like in file `sts-topo-cron-policy.json`
+* **Custom S3 bucket** - You can specify a custom S3 bucket to be used during deployment using the option `--topo-cron-bucket`. The install files necessary for CloudFormation Stack installation are deployed there.
+* **Custom IAM role** - Custom AWS IAM role can be specified with the option `--topo-cron-role`. It must have an attached policy defined like in file `sts-topo-cron-policy.json`
 
 ## AWS IAM Policies for installation and uninstallation
 
@@ -106,17 +108,16 @@ example: `AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=exte
 
 The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
 
-|     |     |
-|-----|-----|
+|  |  |
+| :--- | :--- |
 | `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
 | `stackstate-environment` | Places the StackState component in the environment specified |
-
 
 ## Uninstalling
 
 Execute the uninstall script to deprovision the StackState AWS StackPack resources created in your environment. This script requires the AWS CLI and read/write permissions to some AWS resources.
 
-example: `./uninstall.sh YOUR_CONFIG_INSTANCE_ID` in order to deprovision resources associated to the particular StackPack YOUR_CONFIG_INSTANCE_ID
+example: `./uninstall.sh YOUR_CONFIG_INSTANCE_ID` in order to deprovision resources associated to the particular StackPack YOUR\_CONFIG\_INSTANCE\_ID
 
 example: `./uninstall.sh` in order to deprovision all resources related to any StackPack.
 
@@ -130,4 +131,5 @@ example: `AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=exte
 
 ### Environment variables and options
 
-These environment variables have the same names as AWS_CLI utility uses. They can be overridden with options `--profile`, `--role-arn`, `--session-name`, and `--external-id`.
+These environment variables have the same names as AWS\_CLI utility uses. They can be overridden with options `--profile`, `--role-arn`, `--session-name`, and `--external-id`.
+
