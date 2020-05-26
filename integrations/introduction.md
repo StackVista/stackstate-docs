@@ -15,7 +15,7 @@ StackPacks are plugins for StackState which extend the functionality of StackSta
 
 ### Which StackPacks are available?
 
-Navigate to the **StackPacks** section inside StackState or check this page for a list of [available StackPacks](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/available_stackpacks/README.md).
+Navigate to the **StackPacks** section inside StackState or check this page for a list of [available StackPacks](available_stackpacks/).
 
 ## How to install a StackPack or an Integration
 
