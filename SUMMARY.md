@@ -195,5 +195,5 @@
   * [topology\_synchronization](guides/topology_synchronization.md)
   * [default\_topology\_synchronization](guides/default_topology_synchronization.md)
 * [About StackState documentation](_index.md)
-* [getting\_started](getting_started.md)
+* [Getting Started](getting_started.md)
 

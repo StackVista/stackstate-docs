@@ -3,7 +3,7 @@ title: Getting Started
 kind: Documentation
 ---
 
-# getting\_started
+# Getting Started
 
 So, you've just installed StackState and you are ready to get started.
 
