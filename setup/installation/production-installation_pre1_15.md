@@ -3,7 +3,7 @@ title: Production Installation before 1.15.0
 kind: Documentation
 ---
 
-# production-installation\_pre1\_15
+# Production installation pre 1.15
 
 ## Requirements
 

@@ -3,7 +3,7 @@ title: Install StackState before 1.15.0
 kind: Documentation
 ---
 
-# installing\_pre1\_15
+# Installing StackState before version 1.15
 
 ## Requirements
 

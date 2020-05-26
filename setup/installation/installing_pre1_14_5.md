@@ -3,7 +3,7 @@ title: StackState installation before 1.14.5
 kind: Documentation
 ---
 
-# installing\_pre1\_14\_5
+# Installing StackState before 1.14.5
 
 ## Installing
 
