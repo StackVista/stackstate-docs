@@ -1,4 +1,4 @@
-# Images
+# StackState images
 
 This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.
 

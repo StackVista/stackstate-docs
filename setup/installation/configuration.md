@@ -3,7 +3,7 @@ title: Configuring StackState
 kind: Documentation
 ---
 
-# configuration
+# Configuring StackState for first time use
 
 ## Registering your license key
 

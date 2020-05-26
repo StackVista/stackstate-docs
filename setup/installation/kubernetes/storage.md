@@ -1,4 +1,4 @@
-# storage
+# Configuring storage
 
 ## Storage defaults
 

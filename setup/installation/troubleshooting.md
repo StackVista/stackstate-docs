@@ -3,7 +3,7 @@ title: Troubleshooting
 kind: Documentation
 ---
 
-# troubleshooting
+# Troubleshooting StackState startup
 
 ## Issues getting StackState started
 
@@ -115,7 +115,7 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 
 **Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
 
-**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/configuration/README.md#configuring-the-receiver-base-url).
+**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](configuration.md).
 
 ### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
@@ -135,7 +135,7 @@ Diff (this = Requested; that = Catalog):
 
 **Cause**: Introduced index changes.
 
-**Solution**: Follow the [reindex process](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/reindex/README.md)
+**Solution**: Follow the [reindex process](reindex.md)
 
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
