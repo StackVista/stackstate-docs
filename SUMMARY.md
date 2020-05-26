@@ -1,6 +1,7 @@
 # Table of contents
 
-* [stackstate-docs](README.md)
+* [Welcome to StackState documentation](README.md)
+* [Getting Started](getting_started.md)
 * [develop](develop/README.md)
   * [stackpack](develop/stackpack/README.md)
     * [how\_to\_get\_a\_template\_file](develop/stackpack/how_to_get_a_template_file.md)
@@ -177,7 +178,6 @@
   * [openshift](integrations/openshift.md)
   * [zabbix](integrations/zabbix.md)
   * [logz](integrations/logz.md)
-* [hostnames](hostnames.md)
 * [basic\_concepts](basic_concepts/README.md)
   * [index](basic_concepts/index.md)
 * [README](guides/README.md)
@@ -194,6 +194,4 @@
   * [topology\_selection\_advanced](guides/topology_selection_advanced.md)
   * [topology\_synchronization](guides/topology_synchronization.md)
   * [default\_topology\_synchronization](guides/default_topology_synchronization.md)
-* [About StackState documentation](_index.md)
-* [Getting Started](getting_started.md)
 
