@@ -3,7 +3,7 @@ title: Component and Relation mapping functions
 kind: Documentation
 ---
 
-# component\_and\_relation\_mapping\_functions
+# Mapping functions
 
 Mapping Function is defined by a groovy script and input parameters that groovy script requires. The goal of Mapping Function is to process topology data of the external system and prepare parameters for the template function.
 

@@ -1,9 +1,4 @@
----
-title: Eventing
-kind: Documentation
----
-
-# index
+# Eventing
 
 StackState generates events for every change in your IT Stack. It is possible to react to events with event handlers and to view events in the event stream.
 
@@ -11,7 +6,7 @@ StackState generates events for every change in your IT Stack. It is possible to
 
 Everything that StackState detects as a change within your IT Stack is recorded with an event. Events pertaining to a view can be viewed in the event stream that can be opened via the events icon in the right toolbar. Possible events are:
 
-* Health state changed event: If a component or relation changes its [health state](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/basic_concepts/README.md#health-states) this event is triggered. It contains the old and new health state and a reference to the component/relation that changed state.
+* Health state changed event: If a component or relation changes its [health state](view_state.md) this event is triggered. It contains the old and new health state and a reference to the component/relation that changed state.
 * Propagated health state changed event: If a component or relation changes its propagated health state this event is triggered. It contains the old and new propagated health state and a reference to the component/relation that changed health state.
 * View health state changed event: If a view changes its view health state this event is triggered. It contains the old and new view health state and a reference to the view that changed health state.
 

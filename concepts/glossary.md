@@ -3,7 +3,7 @@ title: Glossary
 kind: Documentation
 ---
 
-# glossary
+# Glossary
 
 Below you can find a short dictionary that can help you get a better grasp on the context of the terms used in our documentation.
 

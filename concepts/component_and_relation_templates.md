@@ -3,7 +3,7 @@ title: Component and Relation templates
 kind: Documentation
 ---
 
-# component\_and\_relation\_templates
+# Templates
 
 Templates are functions defined by JSON template files and input parameters required by the template to render elements of StackState topology - components and relations. When executed, the template function substitutes all handlebar `{{paramName}}` parameter references with values of input parameters.
 

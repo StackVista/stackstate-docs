@@ -1,15 +1,10 @@
----
-title: Checks and Streams
-kind: Documentation
----
+# Checks and Streams
 
-# index
-
-Checks are the mechanisms through which [components](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/basic_concepts/README.md#components) and [relations](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/basic_concepts/README.md#relations) get a [health state](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/basic_concepts/README.md#health-states). A check needs data in order to determine a state. This data is supplied via data streams.
+Checks are the mechanisms through which [components](../components_and_relations.md) and [relations](../components_and_relations.md) get a [health state](view_state.md). A check needs data in order to determine a state. This data is supplied via data streams.
 
 ## Checks
 
-Checks determine their health state based on one or multiple monitor inputs for a certain component or relation. Checks may be likened to rules in that they determine if some rule holds for one or multiple [data streams](index.md#data-streams). They are more powerful than rules though, because they are based on !check functions! that are reusable user defined scripts. While a rule can only be configured in a limited number of ways, checks can always be made more powerful through the use of [check functions](index.md#check-functions).
+Checks determine their health state based on one or multiple monitor inputs for a certain component or relation. Checks may be likened to rules in that they determine if some rule holds for one or multiple [data streams](checks_and_streams.md). They are more powerful than rules though, because they are based on !check functions! that are reusable user defined scripts. While a rule can only be configured in a limited number of ways, checks can always be made more powerful through the use of [check functions](checks_and_streams.md).
 
 A data stream can either supply metrics \(time-series data\) or events. A check can receive multiple inputs of different types.
 
@@ -21,7 +16,7 @@ Some things a check may check:
 
 ## Check Functions
 
-A check function is a reusable !user defined script! that defines a single function that based on some !parameter! inputs returns an output [health state](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/basic_concepts/README.md#health-states). Each time a check function is executed it updates the health state of the [checks](index.md#checks) it ran for. If a check function does not return a health state, the health state of the check is unchanged.
+A check function is a reusable !user defined script! that defines a single function that based on some !parameter! inputs returns an output [health state](view_state.md). Each time a check function is executed it updates the health state of the [checks](checks_and_streams.md) it ran for. If a check function does not return a health state, the health state of the check is unchanged.
 
 ### Check function parameters
 
@@ -61,7 +56,7 @@ Data streams are supplied via plugins. Different plugins provide one or multiple
 
 ## Linking data streams
 
-In StackState data streams need to be linked to components or relations. Once a data stream is linked to a component or relation it can be used as an input for checks that determine a [health state](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/basic_concepts/README.md#health-states) based on the values in the stream.
+In StackState data streams need to be linked to components or relations. Once a data stream is linked to a component or relation it can be used as an input for checks that determine a [health state](view_state.md) based on the values in the stream.
 
 ## Defining a baseline for a stream
 

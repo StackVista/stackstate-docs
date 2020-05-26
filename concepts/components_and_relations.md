@@ -3,7 +3,7 @@ title: Components and Relations
 kind: Documentation
 ---
 
-# components\_and\_relations
+# Components and Relations
 
 ## Components
 

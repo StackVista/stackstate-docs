@@ -3,7 +3,7 @@ title: Topology sources
 kind: Documentation
 ---
 
-# topology\_sources
+# Topology sources
 
 Topology Sources are configured in Sts Sources under Topology Sources in the Settings page. These sources are used to get data from the Kafka bus, which receives the data from the StackState topology API.
 

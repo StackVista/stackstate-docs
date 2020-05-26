@@ -1,9 +1,4 @@
----
-title: Basic Concepts
-kind: Documentation
----
-
-# index
+# Basic concepts
 
 This is an overview of the most basic concepts of StackState.
 

@@ -30,7 +30,7 @@ To upgrade your StackState installation, see the instructions in our [upgrading 
 
 ## Authentication
 
-StackState provides Role Based Access Control functionality that works with LDAP authentication servers. See [RBAC](../../concepts/role_based_access_control/) pages for more information on the topic. You can also find how to configure LDAP servers [here](authentication.md).
+StackState provides Role Based Access Control functionality that works with LDAP authentication servers. See [RBAC](../../concepts/role_based_access_control.md) pages for more information on the topic. You can also find how to configure LDAP servers [here](authentication.md).
 
 ## Troubleshooting
 

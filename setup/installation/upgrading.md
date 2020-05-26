@@ -91,7 +91,7 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
 ### Upgrade to 1.14.9
 
-* As of this version, the concept of "valid guest groups" is deprecated by newly introduced Role Based Access Control. For more information please follow our [RBAC documentation pages](../../concepts/role_based_access_control/)
+* As of this version, the concept of "valid guest groups" is deprecated by newly introduced Role Based Access Control. For more information please follow our [RBAC documentation pages](../../concepts/role_based_access_control.md)
 * Upgrading from version 1.14.3 or earlier to this release requires a clean installation including removing the complete `/opt/stackstate` directory.
 
 Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
