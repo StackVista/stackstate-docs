@@ -9,7 +9,7 @@ This page describes the process of exporting and importing manual topology data,
 
 ## Requirements
 
-* [StackState CLI](../cli/)
+* [StackState CLI](../cli.md)
 * Unix shell
 
 ## Export

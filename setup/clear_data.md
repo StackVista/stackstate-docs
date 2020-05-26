@@ -7,7 +7,7 @@ kind: Documentation
 
 ## Clearing StackState
 
-The data in StackState is divided into three different sets: Elastic Search data, Kafka Topic data, and the StackGraph data. With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState, that you can configure according to your needs. Besides that, you can also use a StackState CLI command or choose to perform a few manual steps locally on each machine.
+The data in StackState is divided into three different sets: ElasticSearch data, Kafka Topic data, and the StackGraph data. With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState, that you can configure according to your needs. Besides that, you can also use a StackState CLI command or choose to perform a few manual steps locally on each machine.
 
 ## Clearing data using StackState CLI
 
@@ -21,7 +21,7 @@ sts graph delete --all
 
 ## Data retention period
 
-Data retention configuration provides a balance between the amount of stored data, performance, and data availability. By default, the data retention window is set to 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. Find more [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/retention/README.md).
+Data retention configuration provides a balance between the amount of stored data, performance, and data availability. By default, the data retention window is set to 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. Find more [here](retention.md).
 
 ## Clearing data manually
 

@@ -148,7 +148,7 @@ For upgrading the same command can be used as for the [first time installation](
 
 Several mechanisms can be used for backups. When running in EKS or AKS the easiest setup is to periodically make snapshots of all the volumes attached to the StackState processes \(i.e. in the same namespace\). A tool that can automate this for you is [Velero](https://velero.io/).
 
-Next to this StackState has the ability to export its configuration. This configuration can then be imported again at a later time, in a clean StackState instance or it can be used as a starting point to setup a new StackState environment. The most convenient way to create an export and later ipmort it again is to use the [stackstate cli](../../cli/) import and export commands.
+Next to this StackState has the ability to export its configuration. This configuration can then be imported again at a later time, in a clean StackState instance or it can be used as a starting point to setup a new StackState environment. The most convenient way to create an export and later ipmort it again is to use the [stackstate cli](../../cli.md) import and export commands.
 
 Exporting is as simple as running `sts-cli graph export stackstate_settings.stj`. Importing of an export can be done with the cli as well but is only adviced on an empty StackState \(a new deployment\). If it is not empty it will very likely fail. To import run this command `cat stackstate_settings.stj | sts-cli graph import`.
 

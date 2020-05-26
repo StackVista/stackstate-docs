@@ -5,8 +5,8 @@ StackState can be obtained by download from the distribution website. The follow
 * ​[Download](download.md)​
 * ​[Installation](installation/)​
 * ​[Backup & Restore](backup_restore/)​
-* ​[Using the StackState CLI](cli/)​
-* ​[Data retention](retention/)​
+* ​[Using the StackState CLI](cli.md)​
+* ​[Data retention](retention.md)​
 * ​[Clear data](clear_data.md)​
 
 
