@@ -9,13 +9,13 @@ So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/README.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](integrations/).
 
 ![StackPacks overview](.gitbook/assets/01_stackpacks.png)
 
 ## Explore topology
 
-After installing one or more StackPacks you can go to the Explore Mode to explore your IT landscape or visit a specific [view](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/views/README.md) from your installed StackPacks.
+After installing one or more StackPacks you can go to the Explore Mode to explore your IT landscape or visit a specific [view](use/views.md) from your installed StackPacks.
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
@@ -55,7 +55,7 @@ If you click on an event stream you can see the event/log stream in a popup. Aga
 
 ![Event inspector](.gitbook/assets/032_component_details_inspect_event_stream.png)
 
-## Problems
+## Problem clusters
 
 To quickly find the cause of any deviating component, head to the right-hand pane in the selected view where you can find the Problems section of the sidebar. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems pane will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
 
@@ -71,7 +71,7 @@ Not all components displayed in the problem pane are necessarily also visible in
 
 ## Activity
 
-To show all activity/events for the selected Topology, head to the breadcrumbs at the top of your Topology View, where you can find the dropdown menu that allows switching between Topology and Activity Perspectives. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/alerting/README.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
+To show all activity/events for the selected Topology, head to the breadcrumbs at the top of your Topology View, where you can find the dropdown menu that allows switching between Topology and Activity Perspectives. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](use/alerting.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
 ![Activity Perspective](.gitbook/assets/activity_perspective.png)
 
