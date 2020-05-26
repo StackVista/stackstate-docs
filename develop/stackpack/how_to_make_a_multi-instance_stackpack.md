@@ -30,7 +30,7 @@ Multi-instance StackPack package looks a little different from a standard StackP
 
 Steps to get a multi-instance StackPack:
 
-1. [Prepare a shared template file](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/prepare_shared_template/README.md)
+1. [Prepare a shared template file](prepare_shared_template.md)
 2. [Prepare an instance template file](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/prepare_instance_template_file/README.md)
 3. [Prepare a multi-instance provisioning script](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/prepare_multi-instance_provisioning_script/README.md)
 4. [Pack and upload a StackPack](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/how_to_make_a_multi-instance_stackpack/README.md)
