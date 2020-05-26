@@ -3,7 +3,7 @@ title: StackPacks & integrations
 kind: documentation
 ---
 
-# introduction
+# About StackPacks and Integrations
 
 ## What is a StackPack?
 

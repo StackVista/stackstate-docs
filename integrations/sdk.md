@@ -3,7 +3,7 @@ title: Integration SDK
 kind: documentation
 ---
 
-# sdk
+# StackPack SDK
 
 StackState is an open platform that allows anyone to connect external systems to StackState using integrations. These integrations are packaged in [StackPacks](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/introduction/README.md). Read on to find out how you can connect StackState to your own tools.
 
