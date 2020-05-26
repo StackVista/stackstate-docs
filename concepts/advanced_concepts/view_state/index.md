@@ -9,15 +9,15 @@ Every team has a different definition of when the part of the IT landscape they 
 
 * Green - CLEAR
 
-![CLEAR](../../.gitbook/assets/clear.png)
+![CLEAR](../../../.gitbook/assets/clear.png)
 
 * Orange - DEVIATING
 
-![DEVIATING](../../.gitbook/assets/deviating.png)
+![DEVIATING](../../../.gitbook/assets/deviating.png)
 
 * Red - CRITICAL
 
-![CRITICAL](../../.gitbook/assets/critical.png)
+![CRITICAL](../../../.gitbook/assets/critical.png)
 
 To enable view health state on a view switch `View Health State Enabled` to on. This can be done in the dialog when saving a new view or editing an existing one. This is also where the view health state function is configured. Often this will be the number of components to be deviating or critical before the View health state changes.
 
