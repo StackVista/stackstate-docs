@@ -3,7 +3,7 @@ title: Requirements
 kind: Documentation
 ---
 
-# requirements
+# Installation requirements
 
 ## Server requirements
 
@@ -25,7 +25,7 @@ kind: Documentation
 
 **NOTE**: StackState **does not work** with JDK versions 9 or higher at this time.
 
-**NOTE**: The StackState Agent StackPack has [more specific requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/README.md#stackstate-agent).
+**NOTE**: The StackState Agent StackPack has [more specific requirements](../../integrations/available_stackpacks/agent.md).
 
 ## Size requirements
 
@@ -37,15 +37,15 @@ The StackState production setup requires two machines to run on.
 
 **StackState node**
 
-* > = 20GB of RAM
-* > = 100GB disk space
-* > = 4 cores cpu
+* &gt;= 20GB of RAM
+* &gt;= 100GB disk space
+* &gt;= 4 cores cpu
 
 **StackGraph node**
 
-* > = 16gb of RAM
-* > = 100GB disk space
-* > = 4 cores cpu
+* &gt;= 16gb of RAM
+* &gt;= 100GB disk space
+* &gt;= 4 cores cpu
 
 #### Recommended
 
@@ -83,7 +83,7 @@ The development setup runs on a single node
 
 ## AWS requirements
 
-To meet StackState minimal requirements AWS instance type needs to have at least 4 CPU cores and 16GB of memory, e.g., m5.xlarge.
+To meet StackState minimal requirements the AWS instance type needs to have at least 4 CPU cores and 16GB of memory, e.g., m5.xlarge.
 
 The AWS CLI has to be installed on the EC2 instance that is running StackState.
 

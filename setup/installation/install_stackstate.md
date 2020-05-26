@@ -3,15 +3,15 @@ title: Install StackState
 kind: Documentation
 ---
 
-# install\_stackstate
+# Installing StackState
 
 ## Before you start
 
-Before starting the installation, make sure you make a choice whether to make a [development](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/development-installation/README.md) or [production](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/production-installation/README.md) setup, and make sure you have machines available that match our [requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
+Before starting the installation, make sure you make a choice whether to make a [development](development-installation.md) or [production](production-installation.md) setup, and make sure you have machines available that match our [requirements](requirements.md).
 
 ## Installing
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/installing_pre1_15/README.md)\).
+**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](installing_pre1_15.md)\).
 
 ### Install using the RPM distribution
 
@@ -33,9 +33,9 @@ Before starting the installation, make sure you make a choice whether to make a 
 During the installation process StackState requests the user for information about the installation. These are the options that can be chosen:
 
 * `SETUP`: Choose either one of there four options:
-  * `DEVELOPMENT`: Create a development setup. Single-node installation with limitations, see [development installation](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/development-installation/README.md).
-  * `PRODUCTION-STACKGRAPH`: Create a StackGraph node for the production setup, see [production installation](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/production-installation/README.md).
-  * `PRODUCTION-STACKSTATE`: Create a StackState node for the production setup, see [production installation](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/production-installation/README.md).
+  * `DEVELOPMENT`: Create a development setup. Single-node installation with limitations, see [development installation](development-installation.md).
+  * `PRODUCTION-STACKGRAPH`: Create a StackGraph node for the production setup, see [production installation](production-installation.md).
+  * `PRODUCTION-STACKSTATE`: Create a StackState node for the production setup, see [production installation](production-installation.md).
   * `CUSTOM`: Create a fully customizable StackState installation. For advanced users only.
 * `LICENSE_KEY`: Your license key provided by StackState.
 * `RECEIVER_BASE_URL`: Configures the endpoint to which agents and external sources can push data to StackState. Typically it is of the form `"http://<<<HOST>>>:7077/"`,
