@@ -3,13 +3,13 @@ title: Manual topology import/export
 kind: Documentation
 ---
 
-# manual\_topology
+# Manual topology backup
 
 This page describes the process of exporting and importing manual topology data, i.e. components and relations that are not synchronized via StackPacks.
 
 ## Requirements
 
-* [StackState CLI](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md)
+* [StackState CLI](../cli/)
 * Unix shell
 
 ## Export

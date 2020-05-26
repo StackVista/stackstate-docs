@@ -3,7 +3,7 @@ title: Backup and Restore StackState Configuration
 kind: Documentation
 ---
 
-# configuration
+# Configuration backup
 
 StackState's configuration can be exported and imported. The import/export functionality can be used to automate the installation process and/or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
 
@@ -15,7 +15,7 @@ The export of the configuration can be obtained by:
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfTypes":["ComponentType","RelationType","Domain","Layer","Environment","DataSource","QueryView","EventHandler","CheckFunction","BaselineFunction","PropagationFunction","EventHandlerFunction","ComponentTemplateFunction","RelationTemplateFunction","ComponentMappingFunction","RelationMappingFunction","IdExtractorFunction","ViewHealthStateConfigurationFunction","Sync"]}' "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 
-Or via the [CLI](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md) by:
+Or via the [CLI](../cli/) by:
 
 ```text
 sts graph list --ids ComponentType RelationType Domain Layer Environment DataSource QueryView EventHandler CheckFunction BaselineFunction PropagationFunction EventHandlerFunction ComponentTemplateFunction RelationTemplateFunction ComponentMappingFunction RelationMappingFunction IdExtractorFunction ViewHealthStateConfigurationFunction Sync | xargs sts graph export --ids
@@ -65,7 +65,7 @@ curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Ty
 SESSION=<session>; TOKEN=<token>; curl -X POST -d @config.stj -H 'Content-Type: application/json;charset=UTF-8' -H Cookie:AkkaHttpPac4jSession=$SESSION -H X-Sts-Token:$TOKEN "http://<host>:7070/api/import?timeoutSeconds=15"
 ```
 
-Or via the [CLI](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md) by:
+Or via the [CLI](../cli/) by:
 
 ```text
 sts graph import < export.stj
@@ -77,6 +77,8 @@ It is possible to export and import individual configuration items through the S
 
 To export an individual component type, click on 'Export as config':
 
+
+
 An individual configuration item can be imported through settings button 'Import Model'.
 
 ## Idempotent import/export
@@ -87,7 +89,9 @@ Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack
 
 For export: `sts graph export --namespace urn:stackpack:{stackpack_name}:`
 
-For import currently we have a curl way: `curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} --data @./filename -H 'Content-Type: application/json'`
+For import currently we have a curl way: 
+
+`curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} --data @./filename -H 'Content-Type: application/json'`
 
 ## Configuration Export Versioning
 
@@ -138,7 +142,7 @@ As StackState evolves versioning of the exported Node elements is necessary. The
 
 A configuration export is supported by versions of StackState that are equal or higher than the export's version and with the same major version \(see [semver](https://semver.org)\). The first configuration export version is _1.0.0_, and effectively any Node payload with a version below or missing the version field \(`_version`\) will be interpreted and auto-upgraded to version _1.0.0_.
 
-### For example: \#\#\#\#
+### For example:
 
 Configuration export version _1.0.0_ was introduced in StackState version _1.14.0_  
  Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_  
@@ -147,7 +151,7 @@ Configuration export version _1.0.0_ was introduced in StackState version _1.14.
 
 This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. As well it means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_
 
-### Configuration export versions \#\#\#\#
+### Configuration export versions
 
 The table below displays configuration export versions version and on which StackState versions they were introduced.
 
