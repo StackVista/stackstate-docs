@@ -3,7 +3,7 @@ title: Clear data
 kind: Documentation
 ---
 
-# clear\_data
+# Clearing data
 
 ## Clearing StackState
 
