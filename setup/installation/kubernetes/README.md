@@ -53,7 +53,7 @@ Start by creating the namespace where you want to install stackstate \(for the e
 kubectl create namespace stackstate
 ```
 
-If you didn't before run `helm repo update` to make sure the latest helm chart version is used. Installation can now be started. For the production setup the default should be good \(i.e. redundant storage services\). It is possible to create smaller deployments for test setups, see the [test environment deployments]().
+If you didn't before run `helm repo update` to make sure the latest helm chart version is used. Installation can now be started. For the production setup the default should be good \(i.e. redundant storage services\). It is possible to create smaller deployments for test setups, see the [test environment deployments](./).
 
 First generate a `values.yaml` containing your license key, api key etc. Store it somewhere safe so that it can be reused for upgrades. This saves some work on upgrades but more importantly StackState will keep using the same api key which is desirable because then agents and other data providers for StackState don't need to be updated.
 
@@ -86,7 +86,7 @@ stackstate \
 stackstate/stackstate
 ```
 
-When all pods are up you can enable a port-forward with `kubectl port-forward service/stackstate-router 8080:8080` and open StackState in your browser under `https://localhost:8080`. Log in with the username `admin` and the password provided in the previous steps. Next steps now are to configure [ingress](ingress.md), install a [StackPack](../../../integrations/) or two and to give your [co-workers access]().
+When all pods are up you can enable a port-forward with `kubectl port-forward service/stackstate-router 8080:8080` and open StackState in your browser under `https://localhost:8080`. Log in with the username `admin` and the password provided in the previous steps. Next steps now are to configure [ingress](ingress.md), install a [StackPack](../../../integrations/) or two and to give your [co-workers access](./).
 
 ### Further customizations
 
@@ -142,7 +142,7 @@ Here the custom config file is used for configuration, to do this with environme
 
 ## Upgrading
 
-For upgrading the same command can be used as for the [first time installation](). Do check the release notes and any optional upgrade notes before running the upgrade.
+For upgrading the same command can be used as for the [first time installation](./). Do check the release notes and any optional upgrade notes before running the upgrade.
 
 ## Backups
 

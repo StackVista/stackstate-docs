@@ -63,8 +63,10 @@ After these changes the `stackstate.service` file should look approximately like
 ```
 
 ```text
+
 ```
-```
+
+\`\`\`
 
 ### Configuring StackState
 
