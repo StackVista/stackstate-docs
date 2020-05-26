@@ -3,7 +3,7 @@ title: How to set up TLS without reverse proxy
 kind: Documentation
 ---
 
-# how\_to\_setup\_tls\_without\_reverse\_proxy
+# Configuring TLS without reverse proxy
 
 This document provides the steps to set up TLS on StackState application side with no reverse proxy configured.
 

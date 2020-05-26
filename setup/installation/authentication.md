@@ -3,7 +3,7 @@ title: Configuring authentication
 kind: Documentation
 ---
 
-# authentication
+# Configuring authentication
 
 Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against an [LDAP](authentication.md#configuring-the-ldap-authentication-server) server.
 
@@ -155,7 +155,7 @@ Configuration field explanation:
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/subject_configuration/README.md). With subjects created, you can start [setting up roles](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_set_up_roles/README.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](../../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../../configure/how_to_set_up_roles.md).
 
 ## REST API authentication
 

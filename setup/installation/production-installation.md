@@ -3,7 +3,7 @@ title: Production Installation
 kind: Documentation
 ---
 
-# Production installation
+# Installing StackState in a production configuration
 
 ## Requirements
 

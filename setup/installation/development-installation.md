@@ -3,19 +3,19 @@ title: Development Installation
 kind: Documentation
 ---
 
-# development-installation
+# Installing StackState in a development configuration
 
 Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
 
 ## Requirements
 
-Before starting the installation, ensure your system meets StackState's development setup [installation requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
+Before starting the installation, ensure your system meets StackState's development setup [installation requirements](requirements.md).
 
 ## Installing StackState in a development configuration
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/development-installation_pre1_15/README.md)\).
+**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](development-installation_pre1_15.md)\).
 
-For a development setup of StackState, simply follow the instructions for [Installing StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/install_stackstate/README.md), using `DEVELOPMENT` as the SETUP configuration parameter.
+For a development setup of StackState, simply follow the instructions for [Installing StackState](install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
 
 ## Starting and Stopping
 

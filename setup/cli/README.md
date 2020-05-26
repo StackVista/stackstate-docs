@@ -1,2 +1,2 @@
-# CLI
+# StackState CLI
 
