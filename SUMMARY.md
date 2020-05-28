@@ -104,7 +104,7 @@
   * [How to set up a security backend for Windows](configure/how_to_set_up_a_security_backend_for_windows.md)
   * [How to set up a security backend for Linux](configure/how_to_set_up_a_security_backend_for_linux.md)
   * [View state configuration](configure/view_state_configuration.md)
-  * [Configure identifiers](configure/identifiers.md)
+  * [Identifiers](configure/identifiers.md)
   * [StackState log files](configure/stackstate_log_files.md)
 * [Develop](develop/README.md)
   * [stackpack](develop/stackpack/README.md)

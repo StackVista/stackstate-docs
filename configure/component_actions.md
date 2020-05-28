@@ -13,7 +13,7 @@ Component Actions can be configured within StackState Settings or can be predefi
 
 ## What is a Component Action?
 
-A Component Action is a script that can be executed for components bound to that script with an [STQL query](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines Action's behavior. There are also optional fields for providing a description and an Identifier.
+A Component Action is a script that can be executed for components bound to that script with an [STQL query](../use/topology_selection_advanced.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines Action's behavior. There are also optional fields for providing a description and an Identifier.
 
 ## Component Actions in use
 
@@ -32,5 +32,5 @@ There are two ways of getting Component Actions in StackState:
 
 In the case of importing Components Actions with a StackPack, these Actions appear as locked items on the Settings page. Editing them unlocks the Component Action, but it may prevent the StackPack from correct upgrades in the future. It is possible to restore the locked status of a Component Action by reinstalling the StackPack that contains the definition of the unlocked Component Action.
 
-When configuring a new Component Action in the Settings page, follow the instructions from [How to configure Component Actions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_configure_component_actions/README.md) page.
+When configuring a new Component Action in the Settings page, follow the instructions from [How to configure Component Actions](how_to_configure_component_actions.md) page.
 

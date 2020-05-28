@@ -87,5 +87,5 @@ The most efficient method for assigning tags is to rely on your StackPacks. Tags
 
 ## Using Tags
 
-After you have assigned tags at the host and integration level, start using them to [create views](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/views/README.md).
+After you have assigned tags at the host and integration level, start using them to [create views](../use/views.md).
 

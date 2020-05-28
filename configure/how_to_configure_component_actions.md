@@ -19,7 +19,7 @@ Please note that the Component Action name is case-sensitive.
 
 ## 2. Bind components to your Action with an STQL query
 
-In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md).
+In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](../use/topology_selection_advanced.md).
 
 The below example binds an Action to all components in the "Production" domain that are present in the "databases" layer.
 
@@ -31,7 +31,7 @@ The below example binds an Action to all components in the "Production" domain t
 
 This step determines Action's behavior when it is executed from the component context menu. The scripting language here is [Groovy](https://groovy-lang.org/), and you can script almost any action you need, from redirecting to another View with context, restarting remote components, to calling predictions for components.
 
-Find more about the possibilities of [scripting in StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/scripting_reference/README.md).
+Find more about the possibilities of [scripting in StackState](../develop/scripting/).
 
 ## 4. Provide a valid Identifier \(optional\)
 
