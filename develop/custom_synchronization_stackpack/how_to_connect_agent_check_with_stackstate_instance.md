@@ -3,7 +3,7 @@ title: How to connect your Agent Check to a StackState instance
 kind: Documentation
 ---
 
-# how\_to\_connect\_agent\_check\_with\_stackstate\_instance
+# How to connect an agent check with StackState
 
 The recommended way to connect your agent check and visualize the data within StackState is to install the `Custom Synchronization` StackPack.
 
