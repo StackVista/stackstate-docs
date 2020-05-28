@@ -3,7 +3,7 @@ title: Integration SDK
 kind: documentation
 ---
 
-# sdk
+# StackState SDK
 
 StackState is an open platform that allows anyone to connect external systems to StackState using integrations. These integrations are packaged in [StackPacks](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/introduction/README.md). Read on to find out how you can connect StackState to your own tools.
 
@@ -33,17 +33,17 @@ If your integration is working, you can package it as a StackPack for distributi
 
 ## Integrating topology
 
-Topology data sent to StackState is processed in a number of steps which result in components and relations. The easiest way to get started is to use StackState's [default topology synchronization](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/default_topology_synchronization/README.md) mechanism, which does a lot of the heavy lifting for you, provided you can deliver data in a pre-determined JSON format.
+Topology data sent to StackState is processed in a number of steps which result in components and relations. The easiest way to get started is to use StackState's [default topology synchronization](../configure/default_topology_synchronization.md) mechanism, which does a lot of the heavy lifting for you, provided you can deliver data in a pre-determined JSON format.
 
-If you don't have the option to do this, you can create a [custom synchronization](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/topology_synchronization/README.md) from scratch.
+If you don't have the option to do this, you can create a [custom synchronization](../integrations/available_stackpacks/customsync.md) from scratch.
 
 ## Integrating telemetry
 
-Telemetry data can be pushed to StackState using a JSON data format. This [telemetry guide](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/send_telemetry/README.md) explains how this works.
+Telemetry data can be pushed to StackState using a JSON data format. This [telemetry guide](../configure/send_telemetry.md) explains how this works.
 
 ## Packaging a StackPack
 
-If your integration works, you can package it as a StackPack. Read this [guide](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/README.md) for more information.
+If your integration works, you can package it as a StackPack. Read this [guide](stackpack/prepare_package.md) for more information.
 
 ## Sample code
 

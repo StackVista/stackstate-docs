@@ -3,7 +3,7 @@ title: How to get a template file for a StackPack
 kind: Documentation
 ---
 
-# how\_to\_get\_a\_template\_file
+# How to get a template file
 
 ## Export the StackState configuration
 
