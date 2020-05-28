@@ -78,7 +78,7 @@
   * [Using the Telemetry Perspective](use/telemetry_perspective.md)
   * [How to narrow the telemetry perspective](use/how_to_narrow_the_telemetry_perspective.md)
   * [Analytics](use/queries.md)
-  * [Wildcard search](use/wildcard_search.md)
+  * [Wildcard search in Logz.io](use/wildcard_search.md)
   * [Splunk saved search](use/splunk_saved_search.md)
   * [Alerting](use/alerting.md)
 * [Configure](configure/README.md)

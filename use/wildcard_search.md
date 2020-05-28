@@ -5,7 +5,7 @@ aliases:
   - /usage/wildcard_search/
 ---
 
-# Wildcard search
+# Wildcard search in Logz.io
 
 StackState provides ability to make Logz.io and Elasticsearch wildcard search operations. This approach introduces the **Support Wildcards in values** switch in the Telemetry Sources page for Logz.io.
 

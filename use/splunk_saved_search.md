@@ -5,7 +5,7 @@ aliases:
   - /usage/splunk_saved_search/
 ---
 
-# Splunk saved search
+# splunk\_saved\_search
 
 StackState provides ability to call Splunk saved searches from the StackState Splunk plugin. This approach replaces index lookup by saved search, and takes data from a Splunk saved search instead.
 

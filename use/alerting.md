@@ -6,7 +6,7 @@ alises:
 listorder: 4
 ---
 
-# Alerting
+# alerting
 
 When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
 

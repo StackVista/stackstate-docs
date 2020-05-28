@@ -64,5 +64,5 @@ Selecting an action from the menu allows you to change your view, respective to 
 
 ## Using advanced filtering
 
-If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md).
+If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](topology_selection_advanced.md).
 

@@ -41,7 +41,7 @@ List of functions:
 
 STQL is a language which will defer execution till the moment the data is needed.
 
-### &lt;/A&gt;Types
+### Types
 
 STQL is a Typed language, this means that all functions have typed input parameters and output. Not all functions work with all types. Types in STQL are inferred where possible. The following types are available:
 
@@ -128,7 +128,7 @@ The withNeighborsOf function is used to append the ouput of the stream with neig
 
 #### withCauseOf `DEPRECATED`
 
-This functionality is deprecated and is replaced by the "Root Cause Analysis" section in the visualizer settings. The construct will be parsed but does not produce any additional components. For more information on migrating away from this construct, see [upgrading](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/upgrading/README.md#upgrade-to-1-16-0).
+This functionality is deprecated and is replaced by the "Root Cause Analysis" section in the visualizer settings. The construct will be parsed but does not produce any additional components.
 
 ### Query examples
 
@@ -154,5 +154,5 @@ If you \(start to\)type a word after a basic filter operator
 
 ## Using STQL in analytics
 
-STQL can be also be used in the [analytics](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/queries/README.md) environment in combination with [scripting](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/README.md) to create powerful queries that do not only query the topology, but the entire 4T data model.
+STQL can be also be used in the [analytics](queries.md) environment in combination with [scripting](../develop/scripting/) to create powerful queries that do not only query the topology, but the entire 4T data model.
 

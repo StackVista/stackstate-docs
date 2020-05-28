@@ -1,26 +1,8 @@
 # Welcome to StackState documentation
 
-### First time?
+Welcome to StackState documentation pages! 
 
-If you are here for the first time, you'll want to check out the [Getting Started](getting_started.md) page or dive into the [Setup](setup/) section.
+To get StackState running and configure it to your needs just follow the five steps specified below in Get Started. If you're looking for more in depth information - check out the most popular docs in other categories. You can also dive in to one of the documentation sets presented in the Table of Contents to the left.
 
-### Using StackState
-
-If you are a user of StackState and want to learn about how to get the most out of the product, start with the [Use](use/) section.
-
-### Configuring StackState
-
-If you are a StackState administrator or want to configure the product to best suit your needs, check out the [Configure](configure/) section.
-
-### Developing integrations
-
-If you are an engineer and want to develop on top of the StackState platform, the [Develop](develop/) section is your best bet.
-
-### Search
-
-Of course, you can always search for what you are looking for at the op right corner.
-
-### Support
-
-You can contact StackState support on our [support portal](https://support.stackstate.com).
+**Search for it!** If you know already what you are looking for, enter it in the search box on the top of the sidebar.
 
