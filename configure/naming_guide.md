@@ -6,7 +6,7 @@ aliases:
 listorder: 15
 ---
 
-# naming\_guide
+# Naming guide
 
 ## Overview
 

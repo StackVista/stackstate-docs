@@ -3,7 +3,7 @@ title: Subject Configuration
 kind: Documentation
 ---
 
-# subject\_configuration
+# Subjects \(RBAC\)
 
 ## Link your existing LDAP to StackState RBAC
 

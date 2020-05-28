@@ -5,7 +5,7 @@ aliases:
   - /configuring/view_state_configuration/
 ---
 
-# view\_state\_configuration
+# View state configuration
 
 Every team has a different definition of when the part of the IT landscape they are watching over is in danger. So the View health state can be used to indicate when the whole, as defined in a view, is in danger. The View can be in three states:
 

@@ -3,7 +3,7 @@ title: How to set up a security backend for Linux
 kind: Documentation
 ---
 
-# how\_to\_set\_up\_a\_security\_backend\_for\_linux
+# How to set up a security backend for Linux
 
 This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/secrets_management/README.md).
 

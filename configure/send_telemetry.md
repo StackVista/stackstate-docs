@@ -6,7 +6,7 @@ aliases:
 listorder: 3
 ---
 
-# send\_telemetry
+# Send telemetry
 
 ## Overview
 

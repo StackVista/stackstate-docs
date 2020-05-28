@@ -6,7 +6,7 @@ aliases:
 listorder: 10
 ---
 
-# debugging\_topology\_synchronization
+# Debugging topology synchronization
 
 ## Overview
 

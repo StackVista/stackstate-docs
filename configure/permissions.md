@@ -6,7 +6,7 @@ aliases:
   - /authentication/permissions/
 ---
 
-# permissions
+# Permissions \(RBAC\)
 
 ## Permissions in StackState
 

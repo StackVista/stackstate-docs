@@ -3,7 +3,7 @@ title: Component Actions
 kind: Documentation
 ---
 
-# component\_actions
+# Component actions
 
 Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu in the Topology View.
 

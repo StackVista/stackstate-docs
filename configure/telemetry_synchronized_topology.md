@@ -6,7 +6,7 @@ aliases:
 listorder: 3
 ---
 
-# telemetry\_synchronized\_topology
+# Adding telemetry to synchronized topology
 
 ## Overview
 

@@ -6,7 +6,7 @@ aliases:
 listorder: 3
 ---
 
-# browse\_telemetry
+# Browse telemetry
 
 This is an overview of the telemetry browser inside of StackState.
 

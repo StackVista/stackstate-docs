@@ -3,7 +3,7 @@ title: How to set up roles
 kind: Documentation
 ---
 
-# how\_to\_set\_up\_roles
+# Roles \(RBAC\)
 
 Every user in StackState needs to have a subject and a set of [permissions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/permissions/README.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. This instruction will take you through the process of setting up a new group called “StackState Manager”.
 

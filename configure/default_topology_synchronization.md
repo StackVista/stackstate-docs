@@ -6,7 +6,7 @@ aliases:
 listorder: 2
 ---
 
-# default\_topology\_synchronization
+# Creating a default topology synchronization
 
 ## Overview
 

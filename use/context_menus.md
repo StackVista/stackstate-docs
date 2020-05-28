@@ -3,7 +3,7 @@ title: Context menus
 kind: Documentation
 ---
 
-# context\_menus
+# Context menus
 
 One of the ways of interacting with components in StackState is through the context menus that appear whenever you hover a mouse pointer over one of these components. Context menus are providing a specific set of actions that are available for particular components, like checking the neighbors of the said component or showing a root cause of an issue.
 

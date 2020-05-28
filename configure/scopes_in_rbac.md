@@ -6,7 +6,7 @@ aliases:
   - /authentication/scopes_in_rbac/
 ---
 
-# scopes\_in\_rbac
+# Scopes \(RBAC\)
 
 ## How do scopes work?
 

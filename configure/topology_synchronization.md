@@ -6,7 +6,7 @@ aliases:
 listorder: 2
 ---
 
-# topology\_synchronization
+# Topology synchronization
 
 ## Overview
 

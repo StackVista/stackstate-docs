@@ -5,7 +5,7 @@ aliases:
   - /configuring/propagation/
 ---
 
-# propagation
+# Configuring state propagation
 
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
