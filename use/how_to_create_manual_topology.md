@@ -3,7 +3,7 @@ title: How to create a manual topology
 kind: documentation
 ---
 
-# how\_to\_create\_manual\_topology
+# How to create manual topology
 
 StackState automatically creates a topology based on real-time data sources. _There is typically no need to create a topology manually_. There may be a few exceptions:
 

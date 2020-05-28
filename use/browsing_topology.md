@@ -3,7 +3,7 @@ title: Browsing Topology
 kind: Documentation
 ---
 
-# browsing\_topology
+# Browsing topology
 
 The topology is the central part of StackState's 4T data model that makes it possible to reason about how things relate to one another.
 

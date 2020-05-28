@@ -6,7 +6,7 @@ aliases:
 listorder: 2
 ---
 
-# topology\_selection\_advanced
+# Advanced topology queries with STQL
 
 The topology in StackState is likely much bigger than what you care about at any given time. StackState allows you to filter the topology to locate the part of the topology you are interested in.
 

@@ -6,7 +6,7 @@ aliases:
 listorder: 2
 ---
 
-# views
+# Views
 
 The topology in StackState is likely much bigger than what you care about at any given point in time. StackState allows you to filter the topology in a **view** so you can locate the part of the topology you are interested in.
 

@@ -6,7 +6,7 @@ aliases:
 listorder: 9
 ---
 
-# queries
+# Analytics
 
 StackState's 4T \(Topology, Telemetry, Traces and Time\) model can be queried within the analytical environment. Analytical queries can be written in Groovy and have support for [topology queries using STQL](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md). StackState analytical enviornment can be found at: `<stackstate_url:7070>/#/analytics`. The analytical environment is a full-fledged scripting environment.
 
