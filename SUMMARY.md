@@ -80,7 +80,6 @@
   * [how\_to\_narrow\_the\_telemetry\_perspective](use/how_to_narrow_the_telemetry_perspective.md)
   * [alerting](use/alerting.md)
   * [telemetry\_perspective](use/telemetry_perspective.md)
-  * [index](use/index.md)
   * [help\_command\_list](use/help_command_list.md)
   * [views](use/views.md)
 * [Configure](configure/README.md)
