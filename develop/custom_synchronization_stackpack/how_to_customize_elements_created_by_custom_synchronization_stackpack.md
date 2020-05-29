@@ -3,7 +3,7 @@ title: How to configure elements created by Custom Synchronization StackPack
 kind: Documentation
 ---
 
-# How to customize elements created by the Custom Synchronization StackPack
+# how\_to\_customize\_elements\_created\_by\_custom\_synchronization\_stackpack
 
 ## 1. Configure Layers, Domains, and Environments
 
@@ -15,7 +15,7 @@ These can also be created automatically by StackState using the `getOrCreate` fu
 
 ## 2. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](../../concepts/components_and_relations.md).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/components_and_relations/README.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Configure Component and Relation Templates` section below. Auto-generated components types will be created without an icon.
 
@@ -23,7 +23,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. [Find more on Templates](../../concepts/component_and_relation_templates.md).
+You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. [Find more on Templates](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/component_and_relation_templates/README.md).
 
 The `getOrCreate` function tries to resolve a node by first its identifier and then by the fallback create-identifier. If it can't find any it'll create it using the type and name argument and it'll identify the newly created node with the create-identifier value.
 
@@ -37,11 +37,11 @@ Once you have completed all the changes, you can click on `update` and confirm t
 
 When creating an integration, or a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
 
-You can find more on [Id Extractors page](../../concepts/id_extraction.md).
+You can find more on [Id Extractorsv page](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/id_extraction/README.md).
 
 ## 5. Configure Sts Sources - Topology Sources
 
-Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on [Topology Sources.](../../concepts/topology_sources.md)
+Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on [Topology Sources.](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/topology_sources/README.md)
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
 

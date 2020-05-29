@@ -10,7 +10,7 @@ aliases:
 
 ## How do scopes work?
 
-Scopes are based on STQL. You can find more about STQL [here](../use/topology_selection_advanced.md). The scope is an STQL query that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
+Scopes are based on STQL. You can find more about STQL [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md). The scope is an STQL query that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` are not supported as they would not be performant in this context.
 

@@ -3,7 +3,7 @@ title: Prepare a multi-instance provisioning script
 kind: Documentation
 ---
 
-# Preparing a multi-instance provisioning script
+# prepare\_multi-instance\_provisioning\_script
 
 A multi-instance StackPack requires a provisioning script that is able to provision multiple StackPack instances. To achieve that, you need to provide a separate template file in the context for both `stackPack` and `instance`; `stackPack` needs to be provided with the `shared-template.stj`, and `instance` requires the `instance-template.stj` as in the example below:
 
@@ -68,5 +68,5 @@ class Provision extends ProvisioningScript {
 }
 ```
 
-The last step is to [prepare a StackPack `.sts` package and upload it to StackState.](prepare_multi-instance_provisioning_script.md)
+The last step is to [prepare a StackPack `.sts` package and upload it to StackState.](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/how_to_pack_and_upload_stackpack/README.md)
 

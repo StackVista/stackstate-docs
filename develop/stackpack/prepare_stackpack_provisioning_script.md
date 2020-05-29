@@ -3,7 +3,7 @@ title: Prepare StackPack provisioning script
 kind: Documentation
 ---
 
-# Preparing a StackPack provisioning script
+# prepare\_stackpack\_provisioning\_script
 
 The provisioning script that is used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.
 

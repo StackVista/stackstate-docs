@@ -3,11 +3,11 @@ title: Integrating StackState with external services
 kind: Documentation
 ---
 
-# Integrating external services
+# integrating\_external\_services
 
-Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.
+Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/README.md). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.
 
-Integrating external services with StackState is done by using the [HTTP script API](scripting/) from a [function](functions.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
+Integrating external services with StackState is done by using the [HTTP script API](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/http/README.md) from a [function](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/functions/README.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
 
 ## Example
 

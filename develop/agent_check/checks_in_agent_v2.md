@@ -3,7 +3,7 @@ title: Agent Check Reference
 kind: Documentation
 ---
 
-# Checks in Agent v2
+# checks\_in\_agent\_v2
 
 This document covers Agent V2 functionality to create checks with Agent V2 Check API. In below sections following topics are covered: sending checks on topology, metrics, events, and service checks, as well as overriding base class methods, logging, and error handling in checks. Code examples lead to StackState's [stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations) repository on GitHub.
 

@@ -10,7 +10,7 @@ listorder: 10
 
 ## Overview
 
-StackState allows automating synchronization of topology, as described in [default synchronization guide](default_topology_synchronization.md). When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
+StackState allows automating synchronization of topology, as described in [default synchronization guide](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/default_topology_synchronization/README.md). When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/sync/README.md).
 
 ## Why are components/elements I expect not in my topology?
 
@@ -26,8 +26,8 @@ Based on the information you see here, different actions can be taken:
 
     in new data, this is because StackState does not retroactively apply changes
 
-  * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration \(more on that [here](default_topology_synchronization.md)\)
-  * Make sure data is ending up in StackState. The [StackState CLI](../setup/cli.md) contains a way to see
+  * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration \(more on that [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/default_topology_synchronization/README.md)\)
+  * Make sure data is ending up in StackState. The [StackState CLI](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md) contains a way to see
 
     what data ends up on the synchronization topic.
 

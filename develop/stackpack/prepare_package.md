@@ -3,7 +3,7 @@ title: Prepare a StackPack package
 kind: Documentation
 ---
 
-# Packaging
+# prepare\_package
 
 ## What is a StackPack package?
 
@@ -29,10 +29,10 @@ StackPacks are essentially `.zip` archives that contain a file structure allowin
 
 Inside the `.sts` archive you can find the provisioning directory, resources directory and a configuration file. Provisioning directory is prepared for provision groovy scripts, and Templates.
 
-* `provisioning` directory is where all icons, templates, and `groovy` scripts used for provisioning the StackPack are stored. The provisioning can also be split into multiple groovy scripts, and the `provisioning` directory is part of the `classpath` while provisioning the StackPack. Find more on [Groovy in StackState](../scripting/).
+* `provisioning` directory is where all icons, templates, and `groovy` scripts used for provisioning the StackPack are stored. The provisioning can also be split into multiple groovy scripts, and the `provisioning` directory is part of the `classpath` while provisioning the StackPack. Find more on [Groovy in StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/README.md#groovy).
 * `resources` directory contains all the static resources and contents for the StackPack. They are available in the Groove code through `/stackpack/{stackpack-name}/resources/{resource}`.
 * `stackpack.conf` is where the StackPack is configured. See the section below for more details.
-* `Templates` - these files are StackState Templated JSON handlebar files that reflect StackState configuration; it may contain `ComponentTypes`, `Id Extractors`, and/or component/relations templates. Find more details on the [templates page](how_to_get_a_template_file.md)  
+* `Templates` - these files are StackState Templated JSON handlebar files that reflect StackState configuration; it may contain `ComponentTypes`, `Id Extractors`, and/or component/relations templates. Find more details on the [templates page](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/how_to_get_a_template_file/README.md)  
 
 ## The StackPack configuration file
 
@@ -82,7 +82,7 @@ upgradeInstructions = "upgrading.md"
 * `displayName` - Name that is displayed on both the StackPack listing page and on the title of the StackPack page. \(Required\)
 * `version` - [Semantic version](https://semver.org/) of the StackPack. StackPacks with the same major version are considered compatible. \(Required\)
 * `isNew` - This specifies whether the StackPack is new, as in the StackPack version is the first publicly available version. The values can be `yes`/`no`/`true`/`false`. By default, it is considered `false`.
-* `logoUrl` - Specifies the logo used as a badge for the StackPack. It could be any of the resource URL as defined [here](how_to_customize_a_stackpack.md). \(Required\)
+* `logoUrl` - Specifies the logo used as a badge for the StackPack. It could be any of the resource URL as defined [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/how_to_customize_a_stackpack/README.md). \(Required\)
 * `categories` - These are keywords using which the StackPacks can be filtered. Any list of relevant labels can be passed here. It is recommended to keep labels in capitalized letters.
 * `overviewUrl`- Markdown resource with general information about the StackPack. By default it is assumed to be `/overview.md`.
 * `detailedOverviewUrl` - Optional Markdown resource that described the StackPack in a bit more detailed fashion. This is displayed in two columns below the installed instances section in the StackPack page. Markdown comment,  `[comment]: # (split)` is used to delimit the two columns in the markdown.
@@ -99,7 +99,7 @@ upgradeInstructions = "upgrading.md"
 
   }\`  
 
-* `steps` - Describes the configuration fields. See [Configuration input](stackpack_resources.md).
+* `steps` - Describes the configuration fields. See [Configuration input](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stackpack/stackpack_resources/README.md).
 * `provision` - Defines the provisioning script. For example, if the script is `ExampleProvision` then, `provisioning/ExampleProvision.groovy` is looked up to see if there is a groovy class named `ExampleProvision` which extends `com.stackstate.stackpack.ProvisioningScript` from `stackpack-sdk`.
 * `releaseNotes` - Markdown file containing release notes for the current StackPack release. Shown when installing the StackPack.
 * `upgradeInstructions` - Markdown file containing upgrade instructions for the current StackPack release. Shown when upgrading the StackPack.

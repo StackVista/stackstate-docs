@@ -3,7 +3,7 @@ title: Introduction to StackState Template Language
 kind: documentation
 ---
 
-# StackState Template Language \(STL\)
+# sts\_template\_language\_intro
 
 Templates are used to convert raw synchronization data to components. Templates are defined in JSON extended with support for parameters, loops and conditions.
 
@@ -34,5 +34,5 @@ StackState extends on that concept and allows to include different types of cont
 
 ## Component and Relation templates
 
-Please find more information on the [Component and Relation templates page.](../concepts/components_and_relations.md)
+Please find more information on the [Component and Relation templates page.](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/concepts/component_and_relation_templates/README.md)
 

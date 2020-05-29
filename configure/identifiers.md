@@ -3,7 +3,7 @@ title: Identifiers
 kind: Documentation
 ---
 
-# Identifiers
+# Configure identifiers
 
 This page explains the reasoning behind introducing enforced identifier convention and provides guidelines on how to use Identifiers in the configuration of StackState.
 

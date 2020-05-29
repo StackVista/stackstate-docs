@@ -146,6 +146,6 @@
   * [Using functions \(STL\)](develop/sts_template_language_reference.md)
   * [Extending StackState with functions](develop/functions.md)
   * [StackState SDK](develop/sdk.md)
-  * [integrations\_and\_stackpacks\_sdk](develop/integrations_and_stackpacks_sdk/README.md)
+  * [Integrations and the StackPack SDK](develop/integrations_and_stackpacks_sdk/README.md)
     * [index](develop/integrations_and_stackpacks_sdk/index.md)
 

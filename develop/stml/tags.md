@@ -3,7 +3,7 @@ title: STML Tags
 kind: Documentation
 ---
 
-# STML Tags
+# tags
 
 ## Tag: `auto-widget`
 
