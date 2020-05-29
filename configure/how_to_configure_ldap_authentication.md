@@ -9,7 +9,7 @@ StackState is built to work with one of two authentication configurations: a fil
 
 ## Prepare the config file for LDAP authentication
 
-LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configuring authentication - examples](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support [file-based authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md#configuring-file-based-authentication); following changes are required to enable [LDAP authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md#configuring-file-based-authentication):
+LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configuring authentication - examples](../setup/installation/authentication.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support [file-based authentication](../setup/installation/authentication.md#configuring-file-based-authentication); following changes are required to enable [LDAP authentication](how_to_configure_ldap_authentication.md):
 
 ### 1. Enable authentication
 
@@ -222,9 +222,9 @@ authentication {
 }
 ```
 
-LDAP groups are reflecting [Roles](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_set_up_roles/README.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
+LDAP groups are reflecting [Roles](how_to_set_up_roles.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
 
 ### 6. Summary
 
-After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/subject_configuration/README.md), and setting up [Roles](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_set_up_roles/README.md). Find out more on pages describing [Scopes](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/scopes_in_rbac/README.md), and [Permissions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/permissions/README.md).
+After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](subject_configuration.md), and setting up [Roles](how_to_set_up_roles.md). Find out more on pages describing [Scopes](scopes_in_rbac.md), and [Permissions](permissions.md).
 

@@ -12,7 +12,7 @@ listorder: 3
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/README.md) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [stackstate-cli](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md).
+There are several ways to send telemetry to StackState. A large number of [integration](../integrations/)s are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [CLI](../setup/cli.md).
 
 ## Sending telemetry over HTTP
 

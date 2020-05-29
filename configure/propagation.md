@@ -23,19 +23,91 @@ A propagation function can take multiple parameters as input and produces a new 
 
 The Groovy programming language can be used when defining a propagation function. StackState makes available several functions to define propagation logic. Available functions are listed below.
 
-| Function | Description |
-| :--- | :--- |
-| element.name | returns the name of the current `element`. |
-| element.type | returns the type of the current `element`. |
-| element.version | returns a component version, Optional. |
-| element.isComponent\(\) | returns `true` when `element` is a component, false in case of a relation. |
-| element.getDependencies\(\) | when the `element` is a component the command returns a set of the outgoing relations and when `element` is relation the command returns a set of components. |
-| element.getDependencies\(\).size\(\) | returns the number of dependencies. |
-| stateChangesRepository.getPropagatedHealthStateCount\(`<set of elements>`, `<health state>`\) | returns the number of elements in the set that have a certain health state. Health state can be `CRITICAL` for example. |
-| stateChangesRepository.getHighestPropagatedHealthStateFromElements\(`<set of elements>`\) | return the highest propagated health state based on the given set of elements. |
-| stateChangesRepository.getState\(element\).getHealthState\(\).intValue | return `element`'s health state. |
-| stateChangesRepository.getState\(element\).getPropagatedHealthState\(\).getIntValue\(\) | return `element`'s propagated health state. |
-| element.runState\(\) | return the `element`'s run state |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Function</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>element.name</code>
+      </td>
+      <td style="text-align:left">returns the name of the current <code>element</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>element.type</code>
+      </td>
+      <td style="text-align:left">returns the type of the current <code>element</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>element.version</code>
+      </td>
+      <td style="text-align:left">returns a component version, Optional.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>element.isComponent()</code>
+      </td>
+      <td style="text-align:left">returns <code>true</code> when <code>element</code> is a component, false
+        in case of a relation.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>element.getDependencies()</code>
+      </td>
+      <td style="text-align:left">when the <code>element</code> is a component the command returns a set of
+        the outgoing relations and when <code>element</code> is relation the command
+        returns a set of components.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>element.getDependencies().size()</code>
+      </td>
+      <td style="text-align:left">returns the number of dependencies.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p><code>stateChangesRepository</code>
+        </p>
+        <p><code>.getPropagatedHealthStateCount(&lt;set of elements&gt;, &lt;health state&gt;)</code>
+        </p>
+      </td>
+      <td style="text-align:left">returns the number of elements in the set that have a certain health state.
+        Health state can be <code>CRITICAL</code> for example.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p><code>stateChangesRepository</code>
+        </p>
+        <p><code>.getHighestPropagatedHealthStateFromElements(&lt;set of elements&gt;)</code>
+        </p>
+      </td>
+      <td style="text-align:left">return the highest propagated health state based on the given set of elements.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p><code>stateChangesRepository.getState(element)</code>
+        </p>
+        <p><code>.getHealthState().intValue</code>
+        </p>
+      </td>
+      <td style="text-align:left">return <code>element</code>&apos;s health state.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p><code>stateChangesRepository.getState(element)</code>
+        </p>
+        <p><code>.getPropagatedHealthState().getIntValue()</code>
+        </p>
+      </td>
+      <td style="text-align:left">return <code>element</code>&apos;s propagated health state.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>element.runState()</code>
+      </td>
+      <td style="text-align:left">return the <code>element</code>&apos;s run state</td>
+    </tr>
+  </tbody>
+</table>
 
 A propagation function can return one of the following health states:
 

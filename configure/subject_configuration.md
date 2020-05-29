@@ -7,7 +7,7 @@ kind: Documentation
 
 ## Link your existing LDAP to StackState RBAC
 
-StackState authentication is configured in a [config file](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md) that contains already predefined roles for the Guest user \(very limited permission level\) and the Admin user \(full permission level\). To change the configuration to use LDAP authentication check out this document: [How to configure LDAP authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/how_to_configure_ldap_authentication/README.md).
+StackState authentication is configured in a [config file](../setup/installation/configuration.md#configuration-files) that contains already predefined roles for the Guest user \(very limited permission level\) and the Admin user \(full permission level\). To change the configuration to use LDAP authentication check out this document: [How to configure LDAP authentication](how_to_configure_ldap_authentication.md).
 
 ## How to make a new user, or a group, with scopes?
 
