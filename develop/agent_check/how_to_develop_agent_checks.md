@@ -3,7 +3,7 @@ title: How to develop agent checks
 kind: Documentation
 ---
 
-# how\_to\_develop\_agent\_checks
+# How to develop agent checks
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 

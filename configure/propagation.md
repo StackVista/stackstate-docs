@@ -107,7 +107,9 @@ The Groovy programming language can be used when defining a propagation function
       <td style="text-align:left">return the <code>element</code>&apos;s run state</td>
     </tr>
   </tbody>
-</table>A propagation function can return one of the following health states:
+</table>
+
+A propagation function can return one of the following health states:
 
 * `UNKNOWN`
 * `DEVIATING`
