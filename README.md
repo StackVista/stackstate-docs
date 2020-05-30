@@ -13,7 +13,7 @@
   <tbody>
     <tr>
       <td style="text-align:center">
-        <p><a href="getting_started.md"><b>Get Started</b></a>
+        <p><a href="getting_started.md"><b>Get Started</b></a><b><br /></b>
         </p>
         <p>Start in three steps:</p>
         <p><a href="setup/installation/">1. Get StackState running</a>
