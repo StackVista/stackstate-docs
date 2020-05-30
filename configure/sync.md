@@ -11,7 +11,7 @@ Synchronization allows you to automatically synchronize the topology of your sta
 
 A synchronization is defined by a data source and a number of mappings from the external system topology data into StackState topology elements. The following image gives an overview of a synchronization pipeline:
 
-![](../.gitbook/assets/topology_synchronization%20%281%29.png)
+![](../.gitbook/assets/topology_synchronization.png)
 
 Broadly speaking, the synchronization framework makes two models to turn external data into StackState internal components and relation. There is an 'External Topology' model which interprets data and turns it into a graph as the data looks outside of StackState. The second model is 'StackState Topology', which are components as viewed in StackState. A synchronization pipeline takes data through these models using configurable scripts. We now explain more in-depth the concepts in the pipeline.
 
