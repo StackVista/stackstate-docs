@@ -1,7 +1,3 @@
----
-description: Everything you need to know about StackState!
----
-
 # Welcome to the StackState Docs!
 
 ### Quick navigation
