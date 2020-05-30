@@ -41,7 +41,7 @@ To gather your kube-state metrics:
 
 ### Kubernetes compatibility matrix
 
-| kube-state-metrics |  **1.13** |  **1.14** |  **1.15** |  **1.16** |  **1.17** |
+| kube-state-metrics | **1.13** | **1.14** | **1.15** | **1.16** | **1.17** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **v1.6.0** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **v1.7.2** | ✅ | ✅ | ❌ | ❌ | ❌ |

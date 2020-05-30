@@ -29,5 +29,5 @@ You should use `example` as the Instance Type and the value of `instance_url` as
 
 When the above information is provided click the “Install” button and you should start to see the topology coming in for your Agent Check and the “Custom Synchronization” should become enabled.
 
- Note: The \`Custom Synchronization\` StackPack only supports a single instance, to synchronize multiple instances you'll have to create a multi-tenant StackPack.
+Note: The \`Custom Synchronization\` StackPack only supports a single instance, to synchronize multiple instances you'll have to create a multi-tenant StackPack.
 

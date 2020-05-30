@@ -1,11 +1,12 @@
 ---
 title: Specifying time
 kind: Documentation
+description: Functions related to time and timing.
 ---
 
-# time
+# Time
 
-Some scripting functions of StackState may accept a `Instant` or `Duration` parameter, representing both a point in time and a range of time.
+Some scripting functions of StackState may accept an `Instant` or `Duration` parameter, representing both a point in time and a range of time.
 
 ## Type: `Instant`
 

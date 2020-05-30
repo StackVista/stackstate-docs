@@ -3,9 +3,9 @@ title: Async script results
 kind: Documentation
 ---
 
-# async\_script\_result
+# Async script result
 
-Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is equivalent to how [promises in Javascript](https://www.google.com/search?q=javascript+promise+explained) work.
+Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises in Javascript work.
 
 ## Working with `AsyncScriptResult.then`
 

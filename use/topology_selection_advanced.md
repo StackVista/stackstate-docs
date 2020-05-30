@@ -29,7 +29,7 @@ Function always have an output type and can have have one or more arguments.
 
   Example: `"name='DLL_DB'"` or `withNeighborsOf(components = (name = "myApp"))`.
 
-* If a function has multiple arguments they can be split using a `,`  
+* If a function has multiple arguments they can be split using a `,`
 
 List of functions:
 
@@ -87,7 +87,7 @@ The key can be any key from the key/value pairs which you can put on a component
 * `domain`, Matching layers of the component
 * `environment`, Matching layers of the component
 
-The  [basic filter operators](topology_selection_advanced.md) are:
+The [basic filter operators](topology_selection_advanced.md) are:
 
 * equals: `=`
 * in list `in`
@@ -102,7 +102,7 @@ The default behavior of a key-value filter is that it filters on properties of c
 
 In other words:
 
-* basic  =  syntax of query:
+* basic = syntax of query:
 
   `layer = "application"`
 

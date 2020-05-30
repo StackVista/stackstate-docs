@@ -1,11 +1,14 @@
 ---
 title: Script API - Topology
 kind: Documentation
+description: Functions for accessing the topology.
 ---
 
-# Function: query
+# Topology
 
-The topology data can be accessed using the Topology Script API. There are several builder methods that help to define the query.
+## Function `query`
+
+Query the topology at any point in time. Builder methods available for extracting components, relations and comparing topological queries.
 
 ```text
 Topology.query(query: String)
@@ -61,5 +64,13 @@ Topology.query(query: String)
   ```text
   def q = 'environments in ("test")'
   Topology.query(q).at('-1w').diff(Topology.query(q))
+  ```
+
+* Get all the names of components from the test environment:
+
+  ```text
+  Topology.query('environments in ("test")')
+    .components()
+    .thenCollect { it.name }
   ```
 

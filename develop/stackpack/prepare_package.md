@@ -93,11 +93,11 @@ upgradeInstructions = "upgrading.md"
 
   \`{
 
-    question = "question"
+  question = "question"
 
-    answer = "answer"
+  answer = "answer"
 
-  }\`  
+  }\`
 
 * `steps` - Describes the configuration fields. See [Configuration input](stackpack_resources.md).
 * `provision` - Defines the provisioning script. For example, if the script is `ExampleProvision` then, `provisioning/ExampleProvision.groovy` is looked up to see if there is a groovy class named `ExampleProvision` which extends `com.stackstate.stackpack.ProvisioningScript` from `stackpack-sdk`.

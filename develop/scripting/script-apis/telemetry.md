@@ -1,15 +1,22 @@
 ---
 title: Script API - Telemetry
 kind: Documentation
+description: Functions for accessing telemetry.
 ---
 
-# Function: query
+# Telemetry
 
-The telemetry data can be accessed using the Telemetry API. Telemetry query is a conjunction of equality conditions. E.g. `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods that help to refine query time range, limit the number of points returned, or set a metric field.
+## Function `query`
+
+A telemetry query is a conjunction of equality conditions. E.g. `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine query time range, limit the number of points returned, or set a metric field.
 
 ```text
 Telemetry.query(dataSourceName: String, query: String)
 ```
+
+{% hint style="warning" %}
+As of yet telemetry queries only support metric queries. If you need event queries please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
+{% endhint %}
 
 **Args:**
 

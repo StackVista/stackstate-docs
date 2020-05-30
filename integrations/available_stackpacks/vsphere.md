@@ -97,7 +97,7 @@ instances:
     ssl_verify: false
 ```
 
-Please note that the  value needs to be the same as `vSphere Host Name` used during StackPack provisioning process.
+Please note that the value needs to be the same as `vSphere Host Name` used during StackPack provisioning process.
 
 To apply the configuration changes, restart the StackState Agent using the below command.
 

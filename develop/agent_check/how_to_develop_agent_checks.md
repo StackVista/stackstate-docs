@@ -74,7 +74,7 @@ instances:
       password:
 ```
 
- YAML files must use spaces instead of tabs.
+YAML files must use spaces instead of tabs.
 
 ### init\_config
 
@@ -225,7 +225,7 @@ The example below submits a gauge metric `host.cpu.usage` for our previously sub
 self.gauge("host.cpu.usage", 24.5, tags=["hostname:this-host"])
 ```
 
- Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
+Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
 Learn more about the Agent Check Metric API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
 

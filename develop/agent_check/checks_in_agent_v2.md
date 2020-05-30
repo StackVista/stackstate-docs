@@ -45,7 +45,7 @@ The `AgentCheck` class provides following methods and attributes:
 
 ## Scheduling
 
- Note: If there is a check already running, there is no need to schedule another one, as multiple instances of the same check will run concurrently.
+Note: If there is a check already running, there is no need to schedule another one, as multiple instances of the same check will run concurrently.
 
 ## Sending topology
 

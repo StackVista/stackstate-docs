@@ -1,11 +1,10 @@
 ---
 title: Working with Predictions
 kind: Documentation
+description: Functions for predicting data available in StackState.
 ---
 
-# prediction
-
-Functions for predicting data available in StackState.
+# Prediction
 
 ## Function: `predictMetrics`
 
@@ -13,7 +12,7 @@ The function executes asynchronously
 
 **Args:**
 
-* `predictorName` - name of prediction preset.
+* `predictorName` - name of prediction preset. Current available predictors: `linear` and `hmn`.
 * `horizon` - how much future to predict. The horizon is specified in the REF format.
 * `query` - what telemetry to predict. The query is specified in the STQL format REF.
 
@@ -30,7 +29,7 @@ Fields:
 The `PredictionRequest` type has the following fields:
 
 * `PredictionRequest.query` - the query provided to `predictMetrics`.
-* `PredictionRequest.predictor` - the name and configuration of the predictor.
+* `PredictionRequest.predictor` - the name and configuration of the predictor. . Both do not require 
 * `PredictionRequest.horizon` - the prediction horizon.
 * `PredictionRequest.predictionPointCount` - the number of predicted points.
 * `PredictionRequest.historyResponse` - options of the history response.

@@ -75,7 +75,7 @@ instances:
 
   **- optional\_tag2**
 
-1. Restart the Agent
+* Restart the Agent
 
 #### Configuration Options
 
@@ -87,7 +87,7 @@ instances:
 
 #### Validation
 
-Execute the info command and verify that the integration check has passed. The output of the command should contain a section similar to the following: 
+Execute the info command and verify that the integration check has passed. The output of the command should contain a section similar to the following:
 
 ## Checks
 

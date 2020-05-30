@@ -1,15 +1,18 @@
 ---
 title: Script API - UI
 kind: Documentation
+description: Functions that control the user-interface.
 ---
 
-# ui
+# UI
 
-This script API contains functions that allow the user-interface of StackState to take some actions. These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/component_actions/README.md) are an example of scripts that can trigger actions in the user-interface.
+{% hint style="info" %}
+These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/component_actions/README.md) are an example of scripts that can trigger actions in the user-interface. 
+{% endhint %}
 
 ## Function: `showReport`
 
-Shows a report in the user-interface. The user-interface will open a dialog with the report in it.
+Shows a report in the user-interface. The user-interface will open a dialog with the report in it. You can also see the result of these reports in the preview of the analytics environment.
 
 **Args:**
 

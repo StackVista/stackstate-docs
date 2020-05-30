@@ -16,7 +16,7 @@ Get all components which are related to a specific component.
 
 `//Define a name for the component where we start the search. def selectedComponent = "Invoicing"`
 
-`Topology.query("name = '" + selectedComponent + "'")` 
+`Topology.query("name = '" + selectedComponent + "'")`
 
 List all components which depend on a specific component and have the state CRITICAL
 
@@ -28,16 +28,16 @@ List a service with components it is depending on down to N levels of depth
 
 `//Define a name for the component where we start the search. def selectedComponent = "Payment_Service"`
 
-`//Define a search depth  
+`//Define a search depth    
 def N = 3`
 
-`Topology.query("withNeighborsOf(direction = 'down', components = (name = '" + selectedComponent + "'), levels = '" + N + "') ")` 
+`Topology.query("withNeighborsOf(direction = 'down', components = (name = '" + selectedComponent + "'), levels = '" + N + "') ")`
 
 List a service with components depending on it up to N levels of depth
 
 `//Define a name for the component where we start the search. def selectedComponent = "Payment_Service"`
 
-`//Define a search depth  
+`//Define a search depth    
 def N = 3`
 
 `Topology.query("withNeighborsOf(direction = 'up', components = (name = '" + selectedComponent + "'), levels = '" + N + "') ")`

@@ -8,5 +8,3 @@ The following documentation is available to learn more:
 * [Available StackPacks](available_stackpacks/)
 * [How to develop an integration](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/integrations_and_stackpacks_sdk/README.md)
 
-
-

@@ -1,21 +1,12 @@
 ---
 title: Script API - Http
 kind: Documentation
+description: Functions to execute http requests.
 ---
 
-# http
+# Http
 
-Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool, for example, to perform analysis using a custom python script or an ML library. This can be accomplished by deploying the external tool as a microservice with a REST API and have StackState interface with it using the Analytics environment.
-
-StackState can use the standard HTTP operations:
-
-* `get`
-* `put`
-* `post`
-* `delete`
-* `options`
-* `head`
-* `patch`
+Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool. For example, to perform analysis using a custom Python script, a cloud service or an Machine Learning framework. StackState can call out to any external service via HTTP using the functions in this script API.
 
 ## Function: `get`
 

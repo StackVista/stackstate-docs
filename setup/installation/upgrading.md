@@ -81,7 +81,7 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
   migrating.
 
- `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }` 
+  `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
 ### Upgrade to 1.15.0
 

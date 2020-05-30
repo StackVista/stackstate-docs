@@ -9,5 +9,3 @@ StackState can be obtained by download from the distribution website. The follow
 * ​[Data retention](retention.md)​
 * ​[Clear data](clear_data.md)​
 
-
-

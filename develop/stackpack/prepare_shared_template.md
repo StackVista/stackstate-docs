@@ -9,7 +9,7 @@ Shared template file contains information that is going to be used across instan
 
 Shared template file contains information that is going to be used across instances, like:
 
-### Component Types
+## Component Types
 
 Component Type in a template file contains an icon image that is coded in `png;base64` as in the example below:
 
@@ -23,7 +23,7 @@ Component Type in a template file contains an icon image that is coded in `png;b
 },
 ```
 
-### Relation Types
+## Relation Types
 
 Contains Relation name and direction.
 
@@ -37,7 +37,7 @@ Contains Relation name and direction.
   }
 ```
 
-### Component Template functions
+## Component Template functions
 
 ```javascript
   {
@@ -58,7 +58,7 @@ Contains Relation name and direction.
   },
 ```
 
-### Relation Template functions
+## Relation Template functions
 
 ```javascript
   {
@@ -81,7 +81,7 @@ Contains Relation name and direction.
   },
 ```
 
-### Component IdExtractor functions
+## Component IdExtractor functions
 
 ```javascript
   {
@@ -105,7 +105,7 @@ Contains Relation name and direction.
   },
 ```
 
-### Relation IdExtractor functions
+## Relation IdExtractor functions
 
 ```javascript
   {
@@ -129,7 +129,7 @@ Contains Relation name and direction.
   },
 ```
 
-### Layers
+## Layers
 
 ```javascript
   {
@@ -141,7 +141,7 @@ Contains Relation name and direction.
     },
 ```
 
-### Domains
+## Domains
 
 ```javascript
   {
@@ -153,7 +153,7 @@ Contains Relation name and direction.
     },
 ```
 
-### Environments
+## Environments
 
 ```javascript
   {
@@ -164,8 +164,6 @@ Contains Relation name and direction.
       "order": 703.0
     },
 ```
-
-
 
 The next step is: [Prepare an instance template file](prepare_instance_template_file.md)
 

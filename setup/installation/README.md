@@ -2,7 +2,7 @@
 
 ## Choosing your installation type
 
-Before setting up StackState, you need to choose whether you want to run StackState in development, POC, or production mode. 
+Before setting up StackState, you need to choose whether you want to run StackState in development, POC, or production mode.
 
 * **Development** requires only one machine, but will be limited to 1000 components/relations per view, due to the limited setup. This is recommended for small trials. 
 * **POC** setup is used for bigger installations, giving almost the same power as production, but is not suited for processing perpetual data streams. 
