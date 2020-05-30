@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions for accessing the topology.
 ---
 
-# Topology
+# Script API: Topology
 
 ## Function `query`
 

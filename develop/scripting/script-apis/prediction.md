@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions for predicting data available in StackState.
 ---
 
-# Prediction
+# Script API: Prediction
 
 ## Function: `predictMetrics`
 

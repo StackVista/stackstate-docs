@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions related to time and timing.
 ---
 
-# Time
+# Script API: Time
 
 Some scripting functions of StackState may accept an `Instant` or `Duration` parameter, representing both a point in time and a range of time.
 
