@@ -69,7 +69,7 @@ Mapping function can be created from the Settings page.
 
 ## Template Function
 
-Template functions is defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar  parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
+Template functions is defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
 
 Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapping function parse topological data of external system and prepares input parameters for Template function.
 
