@@ -92,53 +92,39 @@ instances:
 
 ## Configuring StackState through the CLI
 
-You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. To list all configuration nodes of a type call `sts graph list <type>`.
+StackState's configuration is stored in StackState's graph database in so-called configuration nodes. These nodes can be inspected, imported and exported using the CLI. To see all types of configuration nodes run:
 
-Some well known configuration nodes are:
+```text
+sts graph list-types
+```
 
-* Sync
-* TemplateFunction
-* ComponentType
-* RelationType
-* Domain
-* Layer
-* Environment
-* DataSource
-* View
-* EventHandler
-* CheckFunction
-* BaselineFunction
-* PropagationFunction
-* EventHandlerFunction
-* MappingFunction
-* IdExtractorFunction
-* ViewHealthStateConfigurationFunction
+You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](../develop/sts_template_language_intro/) format.
 
-It may be handy to write configurations to disk. For example, to write all check function to disk call:
+Here is an example to write all `check functions` to disk:
 
-`sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunctions.stj`
+```text
+sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunctions.stj
+```
 
 To import these check functions call:
 
-`sts graph import < mycheckfunctions.stj`
+```text
+sts graph import < mycheckfunctions.stj
+```
 
 ### Inspecting data with the CLI
 
-#### Data flowing through Kafka topics
+#### Data flowing through topics
 
-Use `sts topic list` to list all Kafka topics active for a StackState instance. Then use `sts topic show <topic>` to inspect a topic.
+All data flowing through StackState\(e.g. topology, telemetry, traces, etc.\) flows through so-called topics. For debugging purposes these topics can be inspected using the CLI. This can come in handy when writing an integration for StackState to make sure that StackState is receiving the data correctly.
 
-#### Topology and Telemetry
+To see all topics run:
 
-To inspect both topology and telemetry a script can be executed with the `sts script` command.
+```text
+sts topic list
+```
 
-#### Agent check
-
-You can check what information is collected by a specific check using the following command:
-
-`sts-agent check <check_name>`
-
-It returns collector log information, Metrics, Events, Topology Instances, Service Checks and Service Metadata.
+ Then use `sts topic show <topic>` to inspect any topic.
 
 ### Sending data with the CLI
 
