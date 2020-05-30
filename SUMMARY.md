@@ -83,7 +83,7 @@
 * [Configure](configure/README.md)
   * [Topology synchronization](configure/topology_synchronization.md)
   * [Creating a default topology synchronization](configure/default_topology_synchronization.md)
-  * [Configuring synchronizations](configure/sync.md)
+  * [Configuring synchronizations](configure/configuring-synchronizations.md)
   * [Debugging topology synchronization](configure/debugging_topology_synchronization.md)
   * [Tagging topology](configure/tagging.md)
   * [State propagation](configure/propagation.md)

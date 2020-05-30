@@ -1,6 +1,10 @@
 # Welcome to the StackState docs!
 
-**Search for it!** If you know already what you are looking for, enter it in the search box on the top right!
+{% hint style="info" %}
+### **Search for it!** 
+
+If you know already what you are looking for, enter it in the search box on the top right!
+{% endhint %}
 
 <table>
   <thead>
@@ -93,9 +97,7 @@
   </tbody>
 </table>
 
-If you have any questions about StackState or have a use case our docs didn’t mention, we’d love to help!
+### **Support Site**
 
-**Support Site**
-
-Find our support team on our [support site](http://support.stackstate.com/).
+Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/). 
 
