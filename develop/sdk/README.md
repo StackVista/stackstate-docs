@@ -1,7 +1,7 @@
 ---
 title: Integration SDK
 kind: documentation
-description: StackStates
+description: How to develop integration for StackState.
 ---
 
 # Developing integrations
