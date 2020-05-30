@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to the StackState docs!](README.md)
+* [Welcome to the StackState Docs!](README.md)
 * [Getting Started](getting_started.md)
 * [Setup](setup/README.md)
   * [Download](setup/download.md)

@@ -1,10 +1,10 @@
-# Welcome to the StackState docs!
+---
+description: Everything you need to know about StackState!
+---
 
-{% hint style="info" %}
-### **Search for it!** 
+# Welcome to the StackState Docs!
 
-If you know already what you are looking for, enter it in the search box on the top right!
-{% endhint %}
+### Quick navigation
 
 <table>
   <thead>
@@ -96,6 +96,11 @@ If you know already what you are looking for, enter it in the search box on the 
     </tr>
   </tbody>
 </table>
+
+### **Can't find what you are looking for?**
+
+**Search for it!** Use the search bar on the top right.   
+If you find any documentation missing, please let us know via our support site:
 
 ### **Support Site**
 
