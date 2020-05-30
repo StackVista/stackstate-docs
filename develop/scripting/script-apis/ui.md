@@ -17,7 +17,7 @@ Shows a report in the user-interface. The user-interface will open a dialog with
 **Args:**
 
 * `reportName` - Name of the report. In a dialog with the report, the name of the report will be in the title bar.
-* `stmlContent` - The report markup. See [StackState Markup Language](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/stml/README.md) for more information on how to format a report.
+* `stmlContent` - The report markup. See [StackState Markup Language](../../stml/) for more information on how to format a report.
 * Optional `data` - A map with data elements that can be referenced by the STML.
 
 **Return type:**
@@ -49,7 +49,7 @@ If the user is currently in an unsaved view, the user receives a prompt dialog a
 
 **Args:**
 
-* `query` - [STQL query](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md) that selects what part of the topology is shown.
+* `query` - [STQL query](../../../use/topology_selection_advanced.md) that selects what part of the topology is shown.
 
 **Return type:**
 
