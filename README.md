@@ -27,8 +27,7 @@
           <br />Most fundamental:
           <br />&#x2022; <a href="concepts/4t_data_model.md">4T Data Model</a>
           <br />&#x2022; <a href="concepts/components_and_relations.md">Components and Relations</a>
-          <br
-          />&#x2022; <a href="concepts/glossary.md">Glossary</a>
+          <br />&#x2022; <a href="concepts/glossary.md">Glossary</a>
         </p>
       </td>
       <td style="text-align:center">
@@ -37,8 +36,7 @@
           <br />Most often configured:
           <br />&#x2022; <a href="use/alerting.md">Setup alerting</a>
           <br />&#x2022; <a href="configure/component_actions.md">Create Component Actions</a>
-          <br
-          />&#x2022; <a href="configure/how_to_set_up_roles.md">Configure Authn &amp; Authz</a>
+          <br />&#x2022; <a href="configure/how_to_set_up_roles.md">Configure Authn &amp; Authz</a>
         </p>
       </td>
     </tr>
