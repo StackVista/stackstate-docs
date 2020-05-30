@@ -57,7 +57,7 @@ Once you have installed Custom Synchronization StackPack, you need to start prep
 
 There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 
-These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](sts_template_language_reference.md).
+These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](sts_template_language_intro/sts_template_language_reference.md).
 
 ### 4. Configure Component and Relation types
 

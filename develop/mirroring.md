@@ -21,7 +21,7 @@ There are however also some _disadvantages_:
 * If StackState requires streaming data it is forced to start polling data from the data source. When dealing with lots of streaming data, the limits that made mirroring a good idea in the first place now cause the same problems.
 * StackState has to make an outgoing connection to the mirror, which means that you will have to allow StackState to access your mirror. In order to secure these connections, firewalls rules may need to be configured. Especially in large enterprise this may cause installation delays.
 
-If you wish to use mirroring, but need a solution to any of the above disadvantages we recommend that you [contact us](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/help/README.md).
+If you wish to use mirroring, but need a solution to any of the above disadvantages we recommend that you [contact us](http://support.stackstate.com).
 
 ## Mirror Architecture
 

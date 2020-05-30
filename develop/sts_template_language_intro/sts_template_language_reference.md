@@ -3,9 +3,9 @@ title: StackState Template Language Functions
 kind: documentation
 ---
 
-# Using functions \(STL\)
+# Template functions
 
-StackState's templated json incorporates several functions helpful to resolve nodes either by name or [identifier](../configure/identifiers.md) that need to be addressed while creating other nodes, for example on a `ComponentTemplate` you want to attach to your about to be created `Component` a `Domain`.
+StackState's templated json incorporates several functions helpful to resolve nodes either by name or [identifier](../../configure/identifiers.md) that need to be addressed while creating other nodes, for example on a `ComponentTemplate` you want to attach to your about to be created `Component` a `Domain`.
 
 ## Function: `get`
 

@@ -14,7 +14,7 @@ In addition to pushing data, telemetry can also be pulled by StackState. This is
 
 ### 2. Configure StackState to process the incoming data
 
-StackState does not automatically process incoming data into the 4T data model, but must be [configured](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/README.md) to do so. Without configuration any incoming data will just sit in StackState's topics. Decoupling between the data format and its representation in the 4T data model allows for greater flexibility in fine-tuning the 4T data model for specific situations.
+StackState does not automatically process incoming data into the 4T data model, but must be configured to do so. Without configuration any incoming data will just sit in StackState's topics. Decoupling between the data format and its representation in the 4T data model allows for greater flexibility in fine-tuning the 4T data model for specific situations.
 
 For topology integrations use the [Custom Synchronization StackPack](../integrations/available_stackpacks/customsync.md) to test the topology in StackState. Also, take care that your topology is able to merge with other topologies \(see section below\).
 

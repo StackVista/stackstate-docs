@@ -1,12 +1,13 @@
----
-description: >-
-  StackState supports scripting and exposes several script APIs that allow power
-  users to access, process, and analyze data.
----
+# StackState Scripting Language \(STSL\)
 
-# Scripting
+StackState uses scripting in many places to:
 
-### StackState Scripting Language \(STSL\)
+* Transform incoming data
+* Query 4T data
+* Describe how the state changes of the 4T data model 
+* Control the UI
+* Create reports
+* And connect to external services
 
 The StackState Scripting Language scripting language is based on [Groovy](https://groovy-lang.org/). The choice of Groovy is motivated by the fact that StackState is written in Scala and runs on the JVM. Currently Groovy is the best and most performant script language for the JVM. _You are not stuck to using Groovy though_, but can use the [Http script API](script-apis/http.md) to develop any logic in any language.
 
