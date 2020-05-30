@@ -5,6 +5,7 @@ kind: Documentation
 
 # Getting Started
 
+Hi!
 So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
