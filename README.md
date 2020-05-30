@@ -45,6 +45,7 @@
     </tr>
     <tr>
       <td style="text-align:center">
+        <p></p>
         <p><a href="use/"><b>Using StackState</b></a><b><br /></b>
         </p>
         <p>Most often needed:</p>
@@ -56,6 +57,7 @@
         </p>
       </td>
       <td style="text-align:center">
+        <p></p>
         <p><a href="develop/"><b>Developing with StackState</b></a><b><br /></b>
         </p>
         <p>Most often developed:</p>
@@ -67,6 +69,7 @@
         </p>
       </td>
       <td style="text-align:center">
+        <p>&lt;b&gt;&lt;/b&gt;</p>
         <p><b>Troubleshooting</b>
         </p>
         <p>
