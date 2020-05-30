@@ -83,17 +83,17 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](/configure/propagation/#the-new-style-propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API. 
+* In this release a new way of scripting [propagation functions](https://github.com/StackVista/stackstate-docs/tree/2a35ff75e2776ea2cad1cb30ce416fc43be32884/configure/propagation/README.md#the-new-style-propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
 ### Upgrade to 1.15.0
 
-* Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](configuration.md).
+* Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](installation/configuration.md).
 * Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
 * The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
 
 ### Upgrade to 1.14.9
 
-* As of this version, the concept of "valid guest groups" is deprecated by newly introduced Role Based Access Control. For more information please follow our [RBAC documentation pages](../../concepts/role_based_access_control.md)
+* As of this version, the concept of "valid guest groups" is deprecated by newly introduced Role Based Access Control. For more information please follow our [RBAC documentation pages](../concepts/role_based_access_control.md)
 * Upgrading from version 1.14.3 or earlier to this release requires a clean installation including removing the complete `/opt/stackstate` directory.
 
 Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
@@ -110,7 +110,7 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
 ### Upgrade to 1.14.3
 
-* In version 1.14.3 the LDAP query prefix for users and groups was changed. If you are using LDAP authentication, then there are some changes you need to apply to your `application_stackstate.conf`. For detailed information check the [configuring-the-ldap-authentication-server](../../configure/how_to_configure_ldap_authentication.md) section.
+* In version 1.14.3 the LDAP query prefix for users and groups was changed. If you are using LDAP authentication, then there are some changes you need to apply to your `application_stackstate.conf`. For detailed information check the [configuring-the-ldap-authentication-server](../configure/how_to_configure_ldap_authentication.md) section.
 
 ### Upgrade to 1.14.2
 

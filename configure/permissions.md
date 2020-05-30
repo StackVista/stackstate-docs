@@ -35,11 +35,11 @@ stackstate-guest  access-view           everything
 
 ## List of all permissions in StackState
 
-| Permission  | Purpose |
-|-------------|-------------|
+| Permission | Purpose |
+| :--- | :--- |
 | create-views | Permission to create views |
 | access-analytics | Permission to access the Analytics page |
-| execute-scripts  | Permission to execute a query in the Analytics page |
+| execute-scripts | Permission to execute a query in the Analytics page |
 | read-settings | Permission to access the Settings page |
 | update-settings | Permission to update settings |
 | import-settings | Permission to import settings |
@@ -48,18 +48,18 @@ stackstate-guest  access-view           everything
 | access-explore | Permission to access the Explore page |
 | update-visualization | Permission to change visualization settings |
 | perform-custom-query | Permission to access the topology filter |
-| read-permissions  | Permission to list all granted permissions across the entire system via the CLI |
+| read-permissions | Permission to list all granted permissions across the entire system via the CLI |
 | update-permissions | Permission to grant/revoke permissions or modify subjects |
 | manage-stackpacks | Permission to install / upgrade / uninstall StackPacks |
 | save-view | Permission to save views |
-| access-view | Permission to access a specific view (when granted on a view) or all views (when granted on the `everything` subject) |
+| access-view | Permission to access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\) |
 | delete-view | Permission to delete views |
 | execute-component-actions | Permission to execute component actions |
 | manage-telemetry-streams | Permission to edit or create new streams for components via the UI |
 | access-log-data | Permission to access StackState logs via the CLI |
 | access-topic-data | Permission to access StackState receiver data via the CLI |
-| execute-component-templates | Permission to invoke a component template API extension (**internal use only**) |
-| execute-node-sync | Permission to invoke a node API extension (**internal use only**) |
+| execute-component-templates | Permission to invoke a component template API extension \(**internal use only**\) |
+| execute-node-sync | Permission to invoke a node API extension \(**internal use only**\) |
 | access-admin-api | Permission to access the administrator API |
 
 ## UI elements and permissions

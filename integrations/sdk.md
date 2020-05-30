@@ -1,9 +1,12 @@
 ---
 title: Integration SDK
 kind: documentation
+description: >-
+  StackState is an open platform with an open data model. Learn how to create
+  your own StackPacks.
 ---
 
-# StackPack SDK
+# Develop your own StackPacks
 
 StackState is an open platform that allows anyone to connect external systems to StackState using integrations. These integrations are packaged in [StackPacks](introduction.md). Read on to find out how you can connect StackState to your own tools.
 

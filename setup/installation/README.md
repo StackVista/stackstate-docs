@@ -28,7 +28,7 @@ StackState supports three different installation configurations:
 
 ## Upgrading
 
-To upgrade your StackState installation, see the instructions in our [upgrading guide](upgrading.md).
+To upgrade your StackState installation, see the instructions in our [upgrading guide](../upgrading.md).
 
 ## Authentication
 

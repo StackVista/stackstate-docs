@@ -1,9 +1,10 @@
 ---
 title: StackPacks & integrations
 kind: documentation
+description: What is a StackPack?
 ---
 
-# About StackPacks and Integrations
+# About StackPacks
 
 ## What is a StackPack?
 

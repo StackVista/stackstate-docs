@@ -1,6 +1,7 @@
 ---
 title: Browsing Topology
 kind: Documentation
+description: How to navigate the topology.
 ---
 
 # Browsing topology
