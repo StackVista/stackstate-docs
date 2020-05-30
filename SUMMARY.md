@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to StackState documentation](README.md)
+* [Welcome!](README.md)
 * [Getting Started](getting_started.md)
 * [Setup](setup/README.md)
   * [Download](setup/download.md)
@@ -144,4 +144,8 @@
   * [Extending StackState with functions](develop/functions.md)
   * [Developing integrations](develop/sdk/README.md)
     * [Getting started developing a new integration](develop/sdk/integrations_and_stackpacks_sdk.md)
+
+## Configuration
+
+* [Topology](configuration/topology.md)
 
