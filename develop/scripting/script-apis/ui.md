@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions that control the user-interface.
 ---
 
-# UI
+# Script API: UI
 
 {% hint style="info" %}
 These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](../../../configure/component_actions.md) are an example of scripts that can trigger actions in the user-interface.

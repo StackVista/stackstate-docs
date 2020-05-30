@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions to get access to specific component data.
 ---
 
-# Component
+# Script API: Component
 
 ## Function `withId`
 

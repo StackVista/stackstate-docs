@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions for accessing telemetry.
 ---
 
-# Telemetry
+# Script API: Telemetry
 
 ## Function `query`
 

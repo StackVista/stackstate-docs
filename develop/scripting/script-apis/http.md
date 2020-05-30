@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions to execute http requests.
 ---
 
-# Http
+# Script API: Http
 
 Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool. For example, to perform analysis using a custom Python script, a cloud service or an Machine Learning framework. StackState can call out to any external service via HTTP using the functions in this script API.
 
