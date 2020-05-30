@@ -1,13 +1,14 @@
 ---
 title: Introduction to StackState Template Language
 kind: documentation
+description: All configuration of StackState is described using StackState Templated Json.
 ---
 
-# StackState Template Language \(STL\)
+# StackState Template Json \(STJ\)
 
 Templates are used to convert raw synchronization data to components. Templates are defined in JSON extended with support for parameters, loops and conditions.
 
-## Handlebars in STL
+## Handlebars syntax
 
 StackState template files are using handlebars - a content that is placed between double curly brackets `{{ some content }}`. Below example shows a few handlebars used by a component template:
 

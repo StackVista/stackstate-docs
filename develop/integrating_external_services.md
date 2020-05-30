@@ -1,6 +1,7 @@
 ---
 title: Integrating StackState with external services
 kind: Documentation
+description: How to integrate StackState with any external service.
 ---
 
 # Integrating external services

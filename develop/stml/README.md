@@ -1,3 +1,7 @@
+---
+description: Build reports with StackState's markup language.
+---
+
 # StackState Markup Language \(STML\)
 
 With StackState Markup Language \(STML\), you can create pretty formatted documents of StackState data. STML is a [markdown](https://en.wikipedia.org/wiki/Markdown) based language with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.

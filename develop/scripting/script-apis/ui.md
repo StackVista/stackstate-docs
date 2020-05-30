@@ -7,7 +7,7 @@ description: Functions that control the user-interface.
 # UI
 
 {% hint style="info" %}
-These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/component_actions/README.md) are an example of scripts that can trigger actions in the user-interface. 
+These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](../../../configure/component_actions.md) are an example of scripts that can trigger actions in the user-interface. 
 {% endhint %}
 
 ## Function: `showReport`

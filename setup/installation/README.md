@@ -2,7 +2,9 @@
 
 ## Choosing your installation type
 
-Before setting up StackState, you need to choose whether you want to run StackState in development, POC, or production mode.
+StackState can be installed either with linux packages on one or two linux machines or with Helm on a Kubernetes cluster \(in _beta_\). The former is discussed in the remainder of this document, for the latter see [Kubernetes installation](kubernetes/).
+
+Before setting up StackState on one or two linux machine, you need to choose whether you want to run StackState in development, POC, or production mode.
 
 * **Development** requires only one machine, but will be limited to 1000 components/relations per view, due to the limited setup. This is recommended for small trials. 
 * **POC** setup is used for bigger installations, giving almost the same power as production, but is not suited for processing perpetual data streams. 

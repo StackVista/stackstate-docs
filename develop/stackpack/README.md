@@ -1,6 +1,10 @@
-# Developing StackPacks
+---
+description: >-
+  StackPacks are an easy way to ship and manage the lifecycle of integrations,
+  script and StackState configuration.
+---
 
-StackPacks are an easy way to ship and manage the lifecycle of your integration.
+# Developing StackPacks
 
 ## When to create a StackPack
 

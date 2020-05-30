@@ -1,3 +1,9 @@
+---
+description: >-
+  Utilize StackState's scripting language to customize or extend StackState's
+  capabilities.
+---
+
 # StackState Scripting Language \(STSL\)
 
 StackState uses scripting in many places to:

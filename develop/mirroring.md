@@ -1,9 +1,10 @@
 ---
 title: Mirroring
 kind: documentation
+description: Pull telemetry from existing telemetry sources using the concept of mirroring.
 ---
 
-# Connecting external data sources using mirroring
+# Mirroring Telemetry
 
 Mirroring is a way to connect StackState to third-party telemetry data sources. In the case of mirroring StackState does not require the telemetry to be present within StackState's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
 

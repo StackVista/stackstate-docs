@@ -1,6 +1,7 @@
 ---
 title: Functions
 kind: Documentation
+description: Extending StackState's capabilities using functions.
 ---
 
 # Extending StackState with functions
