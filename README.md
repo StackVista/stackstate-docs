@@ -87,7 +87,7 @@
 ## **Can't find what you are looking for?**
 
 **Search for it!** Use the search bar on the top right.  
-If you find any documentation missing, please let us know via our support site:
+If you any documentation is missing, please let us know via our support site:
 
 ## **Support Site**
 
