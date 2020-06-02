@@ -1,4 +1,4 @@
 
 redirects:
-	develop/creating_stackpacks: develop/stackpack/README.md
+	develop/creating_stackpacks/: ./develop/stackpack/README.md
 
