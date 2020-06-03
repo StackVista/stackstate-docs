@@ -39,3 +39,4 @@ StackState also supports authentication against a KeyCloak OIDC Authentication s
 ## Troubleshooting
 
 If you have any issues installing StackState, refer to our [troubleshooting guide](troubleshooting.md) or contact our technical support.
+
