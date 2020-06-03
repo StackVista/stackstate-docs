@@ -5,7 +5,9 @@ kind: Documentation
 
 # Configuring authentication
 
-Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against an [LDAP](authentication.md#configuring-the-ldap-authentication-server) server.
+Out of the box, StackState is configured with [file-based authentication](#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
+- [LDAP](#configuring-the-ldap-authentication-server)
+- [KeyCloak OIDC](#configuring-the-keycloak-oidc-authentication-server)
 
 When a user is authenticated, the user has one of two possible roles in StackState:
 
@@ -157,6 +159,63 @@ Please note that StackState can check for user files in LDAP main directory as w
 
 After editing the config file with the required LDAP details, move on to the [subject configuration doc](../../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../../configure/how_to_set_up_roles.md).
 
+### Configuring the KeyCloak OIDC Authentication Server
+
+In order to configure StackState to authenticate to an KeyCloak OIDC authentication server, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.
+
+#### Configuring StackState to authenticate against a KeyCloak OIDC Authentication Server
+
+Here is an example of an authentication configuration that uses a running KeyCloak server. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to change the line `authentication.enabled = false` to `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
+
+```javascript
+authentication {
+  enabled  = true
+
+  basicAuth = false
+
+  authServer {
+    authServerType = "keycloakAuthServer"
+
+    keycloakAuthServer {
+      clientId = stackstate
+      secret = 8051a2e4-e367-4631-a0f5-98fc9cdc564d
+      keycloakBaseUri = "http://keycloak.acme.com:8011/auth"
+      realm = acme
+      redirectUri = "http://stackstate.acme.com:7070/loginCallback"
+      authenticationMethod = "client_secret_basic"
+      jwsAlgorithm = "RS256"
+    }
+  }
+  guestGroups = ["stackstate-guest"]
+  adminGroups = ["stackstate-admin"]
+}
+```
+
+Configuration field explanation:
+
+1. **clientId** - The ID of the KeyCloak client as configured in KeyCloak
+2. **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak
+3. **keycloakBaseUri** - The base URI for the KeyCloak instance
+4. **realm** - The KeyCloak realm to connect to
+5. **redirectUri** - The URI where the login callback endpoint of StackState is reachable
+6. **authenticationMethod** - Set this to `client_secret_basic` which is the only supported value for now
+7. **jwsAlgorithm** - Set this to `RS256`, which is the only supported value for now
+
+The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
+
+#### Configuring a KeyCloak client for use with StackState
+
+In order to connect StackState to KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
+
+1. **Client ID** - This is the ID of the client that is connecting, we recommend naming this `stackstate`
+2. **Client Protocol** - Set this to `openid-connect`
+3. **Access Type** - Set this to `confidential`, so that a secret is used to establish the connection between KeyCloak and StackState
+4. **Standard Flow Enabled** - This should be `Enabled`
+5. **Implicit Flow Enabled** - This should be `Disabled`
+6. **Root URL** - This should point to the root location of StackState
+7. **Valid redirect URIs** - This shoud be `/loginCallback/*`
+8. **Base URL** - This should point to the root location of StackState
+
 ## REST API authentication
 
 If you use StackState's REST API directly \(as opposed to via the GUI\) you can also enable authentication. The REST API supports basic authentication for authenticating users. StackState authenticates the user against either the configuration file or LDAP server as described above.
@@ -174,4 +233,3 @@ authentication {
 ```
 
 1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
-
