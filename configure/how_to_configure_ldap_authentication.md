@@ -61,7 +61,7 @@ authentication {
 
 ### 3. Provide the connection details and bind credentials to LDAP server
 
-Now you need to include LDAP connection information, such as the host address, the port number that LDAP is available at, and bind credentials, as below:
+Now you need to include LDAP connection information, such as the host address, the port number that LDAP is available at, and optional bind credentials, as below:
 
 ```text
 ldapAuthServer {
@@ -74,7 +74,7 @@ ldapAuthServer {
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
         bindCredentials {
-          dn = "administrator@stackstate.com"
+          dn = "cn=Ldap bind user,ou=management,o=stackstate,cn=people,dc=example,dc=com"
           password = "password"
         }
       }
@@ -104,7 +104,7 @@ authentication {
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
         bindCredentials {
-           dn = "administrator@stackstate.com"
+           dn = "cn=Ldap bind user,ou=management,o=stackstate,cn=people,dc=example,dc=com"
            password = "password"
          }
       }
@@ -141,7 +141,7 @@ authentication {
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
         bindCredentials {
-           dn = "administrator@stackstate.com"
+           dn = "cn=Ldap bind user,ou=management,o=stackstate,cn=people,dc=example,dc=com"
            password = "password"
          }
       }
@@ -190,7 +190,7 @@ authentication {
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
         bindCredentials {
-           dn = "administrator@stackstate.com"
+           dn = "cn=Ldap bind user,ou=management,o=stackstate,cn=people,dc=example,dc=com"
            password = "password"
          }
       }
