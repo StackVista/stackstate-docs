@@ -14,11 +14,11 @@ For instructions on how to upgrade StackPacks, see [the StackPacks documentation
 When executing a StackState upgrade, please be aware of the following:
 
 {% hint style="warning" %}
-Always read the version-specific upgrade notes at the end of this document before upgrading StackState.
+**Always read the version-specific upgrade notes at the end of this document before upgrading StackState.**
 {% endhint %}
 
 {% hint style="warning" %}
-Clearing the data in StackState will remove any configured permissions from the system.
+Clearing the data in StackState will **remove any configured permissions from the system**.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -56,13 +56,17 @@ A major upgrade consists of the following steps:
 
 Before upgrading StackState it is recommended to backup your configuration and topology data. The script `bin/sts-backup.sh` will create a backup and store it inside the `backups/` directory.
 
-**NOTE**: the StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+{% hint style="info" %}
+The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+{% endhint %}
 
 ## Uninstall StackPacks
 
 StackPacks that are going to be upgraded must first be uninstalled. This removes all StackPack configuration from StackState.
 
-**NOTE**: the StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+{% hint style="warning" %}
+The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+{% endhint %}
 
 ## Upgrade StackState
 
