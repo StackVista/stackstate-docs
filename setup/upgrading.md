@@ -25,7 +25,13 @@ If you are using the StackState application, have installed StackPacks and are p
 * Install StackPacks
 * Verify the new installation
 
-**NOTE**: when you upgrade a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
+{% hint style="danger" %}
+If there are **hotfixes** installed in your StackState installation, contact StackState technical support prior to upgrading.
+{% endhint %}
+
+{% hint style="warning" %}
+When upgrading a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
+{% endhint %}
 
 ## Create a backup
 
@@ -115,4 +121,3 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 ### Upgrade to 1.14.2
 
 * Before version 1.14.2 some of the temporary files weren’t properly removed. This has been fixed in 1.14.2 but some of the older files before 1.14.2 need to cleaned up. In order to remove them run rm -rfv /tmp/_.sts_
-
