@@ -7,31 +7,50 @@ kind: Documentation
 
 This document describes the upgrade procedure for StackState.
 
-## Determine the type of upgrade
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../integrations/introduction.md).
 
-There are several ways of upgrading StackState, depending on your configuration setup and the changes in the StackState release. Please read the StackState release notes carefully before starting an upgrade.
+### Upgrade considerations
 
-If you are using the StackState application and have not installed any StackPacks, or are using StackPacks that have not been upgraded in this release, follow these steps:
+When executing a StackState upgrade, please be aware of the following:
 
-* Create a backup
-* Upgrade StackState
-* Verify the new installation
+{% hint style="warning" %}
+Always read the version-specific upgrade notes at the end of this document before upgrading StackState.
+{% endhint %}
 
-If you are using the StackState application, have installed StackPacks and are planning to upgrade one or more of them:
-
-* Create a backup
-* Uninstall StackPacks
-* Upgrade StackState
-* Install StackPacks
-* Verify the new installation
-
-{% hint style="danger" %}
-If there are **hotfixes** installed in your StackState installation, contact StackState technical support prior to upgrading.
+{% hint style="warning" %}
+Clearing the data in StackState will remove any configured permissions from the system.
 {% endhint %}
 
 {% hint style="warning" %}
 When upgrading a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
 {% endhint %}
+
+{% hint style="danger" %}
+If there are **hotfixes** installed in your StackState installation, contact StackState technical support prior to upgrading.
+{% endhint %}
+
+### Upgrading to a new minor StackState release
+
+If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
+
+A minor upgrade consists of the following steps:
+
+* Create a backup
+* Upgrade StackState
+* Verify the new installation
+
+### Upgrading to a new major StackState release
+
+If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation.
+For details, check the version-specific upgrade instructions.
+
+A major upgrade consists of the following steps:
+
+* Create a backup
+* Uninstall StackPacks (optional, check the version-specific upgrade instructions)
+* Upgrade StackState
+* Install StackPacks (optional, check the version-specific upgrade instructions)
+* Verify the new installation
 
 ## Create a backup
 
@@ -63,10 +82,6 @@ StackPacks that have been upgraded can now be installed again. This provisions S
 ## Verify the new installation
 
 Once StackState has been upgraded and started, verify that the new installation of StackState is reachable and that the application is running.
-
-## Verify Access Control
-
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
 
 ## Version-specific upgrade instructions
 
