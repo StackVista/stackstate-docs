@@ -18,10 +18,6 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-Clearing the data in StackState will **remove any configured permissions from the system**.
-{% endhint %}
-
-{% hint style="warning" %}
 When upgrading a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
 {% endhint %}
 
