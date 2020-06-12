@@ -5,9 +5,10 @@ kind: Documentation
 
 # Configuring authentication
 
-Out of the box, StackState is configured with [file-based authentication](#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
-- [LDAP](#configuring-the-ldap-authentication-server)
-- [KeyCloak OIDC](#configuring-the-keycloak-oidc-authentication-server)
+Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
+
+* [LDAP](authentication.md#configuring-the-ldap-authentication-server)
+* [KeyCloak OIDC](authentication.md#configuring-the-keycloak-oidc-authentication-server)
 
 When a user is authenticated, the user has one of two possible roles in StackState:
 
@@ -233,3 +234,4 @@ authentication {
 ```
 
 1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
+
