@@ -24,7 +24,7 @@ For example, the AWS StackPack makes it possible to connect to multiple AWS acco
 
 ### StackPack configuration locking
 
-StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. StackPacks can contain component templates, functions, component actions and views among other things. When a StackPack is upgraded to a newer version, **the configuration items from the previous StackPack version will be overwritten with those from the newer StackPack.**
+StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. StackPacks can contain component templates, functions, component actions and views among other things. When a StackPack is upgraded to a newer version, **the configuration items installed by the previous version of the StackPack will be overwritten by those from the newer StackPack.**
 
 To prevent a user from making changes to configuration items installed by a StackPack, the configuration items are initially **locked**. This means that it is protected from being changed by the user. Configuration items must explicitly be unlocked before they can be changed.
 
