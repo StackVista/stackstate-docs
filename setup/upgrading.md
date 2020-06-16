@@ -64,6 +64,10 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
 ## Version-specific upgrade instructions
 
+### Upgrade to 4.1.0
+
+* In this release the sts-healthuri has been moved from port 7071 to 7080 in processmanager.conf. Custom made processmanager.conf configurations will need to be adapted.
+
 ### Upgrade to 4.0.0
 
 * With this version the minimal system requirements for the StackState node of the production setup raised from 16GB to 20GB
