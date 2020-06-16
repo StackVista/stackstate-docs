@@ -12,24 +12,54 @@ A StackPack is a complete configuration package for StackState that simplifies t
 
 ### What is the difference between a StackPack and an integration?
 
-StackPacks are plugins for StackState which extend the functionality of StackState. For now all StackPack's provide a way to configure StackState in an automated way to integrate with specific systems.
+StackPacks are plugins for StackState which extend the functionality of StackState. StackPacks provide a way to configure StackState in an automated way to integrate with specific systems.
+
+Some StackPacks are designed to connect StackState to external systems. These StackPacks may come with a companion integration that translates data from the external system to data that StackState understands.
+
+### StackPack instances
+
+Some StackPacks make it possible to connect to multiple accounts on an external system. Each account is configured in a separate _instance_ of the StackPack. 
+
+For example, the AWS StackPack makes it possible to connect to multiple AWS accounts and combine information from all accounts in StackState. For each account, a separate StackState instance is configured that specifies the information StackState needs to receive data from that AWS account.
+
+### StackPack configuration locking
+
+StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. StackPacks can contain component templates, functions, component actions and views among other things. When a StackPack is upgraded to a newer version, **the configuration items from the previous StackPack version will be overwritten with those from the newer StackPack.**
+
+To prevent a user from making changes to configuration items installed by a StackPack, the configuration items are initially **locked**. This means that it is protected from being changed by the user. Configuration items must explicitly be unlocked before they can be changed.
 
 ### Which StackPacks are available?
 
 Navigate to the **StackPacks** section inside StackState or check this page for a list of [available StackPacks](available_stackpacks/).
 
-## How to install a StackPack or an Integration
+## Installing StackPacks
 
-Choose the desired StackPack or Integration and proceed to its page. There you can see the overview of the StackPack or an Integration, list of already installed Instances \(if any\) and helpful resources and FAQs. Integrations are provided by a StackPack. To install a specific Integration you will need to install the StackPack that provides it.
+Available StackPacks are listed on the StackPacks page in StackState. Before installing a StackPack, please make sure you meet all listed prerequisites.
 
-Before installation of a StackPack or an Integration please make sure you meet all prerequisites listed on the page.
+The following steps describe how to install a StackPack:
 
-To install an instance of a StackPack:
+* If the StackPack is a multi-instance StackPack, press the **Add New Instance** button.
+* Some StackPacks require information such as access credentials for installation. An explanation for each of the required parameters will be provided on the StackPack page.
+* Click the **Install** button. The installation process starts and you will see a loading indicator while the installation is in progress.
+* If the StackPack connects to an external system, the StackPack may display a screen indicating it is waiting to receive data from the external system. Follow the instructions on the screen to configure the external system to successfully communicate with StackState. When StackState receives the data that it expects, the installation process will complete successfully.
+* The StackPack \(instance\) is now successfully installed.
 
-* Press **Add new Configuration** button.
-* Fill in all the required fields - some of the StackPacks may require such data as credentials, access keys, passwords or any other configuration parameters that can be necessary during installation. An explanation for each of the required parameters will be provided on the StackPack page.
-* Click the **Install** button.
-* Provisioning of a StackPack may take some time as it potentially installs and configures many different objects for you. You will see a loading indicator while the provisioning is still in-progress.
-* After the provisioning is done you may be presented with additional installation instructions to be executed outside of StackState. During this time the StackPack is provisioned but _waiting for data_ so it is not considered installed yet. Follow the instructions to finalize the installation.
-* When the Instance receives the data that it expects, it will register itself as installed and the StackPack will be ready to go.
+{% hint style="info" %}
+The StackPack may require **manual** installation steps or configuration of the external system. Please read the instructions carefully.
+{% endhint %}
+
+## Uninstalling StackPacks
+
+{% hint style="danger" %}
+When a single-instance StackPack is uninstalled, or when an instance from a multi-instance StackPack is uninstalled, **all data that was received via the StackPack \(instance\) is removed from StackState.**
+{% endhint %}
+
+The following steps describe how to uninstall a StackPack:
+
+* Click the **Uninstall** button. The uninstallation process starts and you will see a loading indicator while the uninstallation is in progress.
+* The StackPack \(instance\) is now successfully uninstalled.
+
+{% hint style="info" %}
+Any \(manual\) configuration or installation of StackPack components in an external system may still need to be uninstalled.
+{% endhint %}
 

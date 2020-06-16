@@ -18,7 +18,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../integrations/introduction.md#stackpack-configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -26,8 +26,6 @@ If there are **hotfixes** installed in your StackState installation, contact Sta
 {% endhint %}
 
 ### Upgrading to a new minor StackState release
-
-A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0. 
 
 If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
 
@@ -39,21 +37,20 @@ A minor upgrade consists of the following steps:
 
 ### Upgrading to a new major StackState release
 
-A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0. 
-
-If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the version-specific upgrade instructions.
+If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation.
+For details, check the version-specific upgrade instructions.
 
 A major upgrade consists of the following steps:
 
 * Create a backup
-* Uninstall StackPacks \(optional, check the version-specific upgrade instructions\)
+* Uninstall StackPacks (optional, check the version-specific upgrade instructions)
 * Upgrade StackState
-* Install StackPacks \(optional, check the version-specific upgrade instructions\)
+* Install StackPacks (optional, check the version-specific upgrade instructions)
 * Verify the new installation
 
 ## Create a backup
 
-Before upgrading StackState it is recommended to backup your configuration and topology data. See [Backup and Restore](backup_restore/) for more information.
+Before upgrading StackState it is recommended to backup your configuration and topology data. The script `bin/sts-backup.sh` will create a backup and store it inside the `backups/` directory.
 
 {% hint style="info" %}
 The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
@@ -61,7 +58,7 @@ The StackState backup can only be restored in the StackState and StackPack versi
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](../integrations/introduction.md#uninstalling-stackpacks) for more information.
+StackPacks that are going to be upgraded must first be uninstalled. This removes all StackPack configuration from StackState.
 
 {% hint style="warning" %}
 The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
@@ -80,7 +77,7 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-See [Installing StackPacks](../integrations/introduction.md#installing-stackpacks) for more information.
+StackPacks that have been upgraded can now be installed again. This provisions StackState with configuration information from the new StackPack.
 
 ## Verify the new installation
 
@@ -139,4 +136,3 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 ### Upgrade to 1.14.2
 
 * Before version 1.14.2 some of the temporary files weren’t properly removed. This has been fixed in 1.14.2 but some of the older files before 1.14.2 need to cleaned up. In order to remove them run rm -rfv /tmp/_.sts_
-
