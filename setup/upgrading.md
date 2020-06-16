@@ -18,7 +18,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**. See [Configuration Locking](../integrations/introduction.md#stackpack-configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../integrations/introduction.md#stackpack-configuration-locking) for more information.
 {% endhint %}
 
 {% hint style="danger" %}
