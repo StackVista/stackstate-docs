@@ -59,7 +59,7 @@ stackstate-guest  access-view           everything
 | access-log-data | Permission to access StackState logs via the CLI |
 | access-topic-data | Permission to access StackState receiver data via the CLI |
 | execute-component-templates | Permission to invoke a component template API extension \(**internal use only**\) |
-| execute-node-sync | Permission to invoke a node API extension \(**internal use only**\) |
+| execute-node-sync | Permission to reset or delete a synchronization |
 | access-admin-api | Permission to access the administrator API |
 
 ## UI elements and permissions
@@ -131,9 +131,10 @@ stackstate-guest  access-view           everything
 Below capabilities are shared across all settings pages.
 
 1. Add New capability - requires `update-settings` system permission. It unlocks **Add...** buttons on all Settings Pages.
-2. Edit and Restart capabilities - requires `update-settings` system permission. Three dots menu \(kebab menu\) is not displayed for the users without that permission.
+2. Edit capability - requires `update-settings` system permission. Three dots menu \(kebab menu\) is not displayed for the users without that permission.
 3. Delete capability - requires `update-settings` system permission. Delete option is not displayed for the users without this permission.
 4. Export capability - requires `export-settings` system permission. Checkboxes are not available for the user without this permission.
+5. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
 
 ![SettingsPermissions](../.gitbook/assets/settings1.png)
 
