@@ -123,5 +123,5 @@ Mandatory fields \(which can be empty, see other guides how to use them\):
 
 ## Getting started with custom topology
 
-The first step to importing custom topology is to create a [default topology synchronization](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/configure/default_topology_synchronization/README.md).
+The first step to importing custom topology is to create a [default topology synchronization](default_topology_synchronization.md).
 
