@@ -9,8 +9,9 @@ description: Fetch a list of views.
 ## Function `getAll`
 
 Returns query view responses. The query view response contains
+
 * `view` - the actual query view definition
-* `viewInfo` - (optional) structure holding extra information that can be requested using builder methods
+* `viewInfo` - \(optional\) structure holding extra information that can be requested using builder methods
 
 The query view definition contains the following fields
 
@@ -31,7 +32,8 @@ query
 ```
 
 The fields that may be of the most interest are:
-* query - STQL query which can be used subsequently in getting topology using [Topology Script Api](./topology.md)
+
+* query - STQL query which can be used subsequently in getting topology using [Topology Script Api](topology.md)
 * state - View state object, holding view state
 
 **Args:**
@@ -42,8 +44,7 @@ None
 
 `withStarCount` - the flag asking the api to include the star count to the response.
 
-If this flag is set the query response will contain the `viewInfo` holding star count.
-The stars count is available on this path `viewResponse.viewInfo.stars.count`
+If this flag is set the query response will contain the `viewInfo` holding star count. The stars count is available on this path `viewResponse.viewInfo.stars.count`
 
 **Examples:**
 
@@ -59,5 +60,5 @@ View.getAll()
                   (components + currentBatch).unique()
               }
     }
-
 ```
+
