@@ -70,6 +70,7 @@ ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
   accumulator + element
 }
 ```
+
 Suppose that `asyncFn1` returns a list, then subsequent `thenInject` call can accumulate the result, in this case using summation.
 
 In particular this call can be interesting for the cases where an accumulating operation returns the `AsyncScriptResult`. See example below:
@@ -80,7 +81,6 @@ ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
     .then { result => accumulator + result }
 }
 ```
-
 
 ### Handling Exceptions
 
@@ -94,3 +94,4 @@ ScriptApi.asyncFn1().catchError { ex ->
 ```
 
 Any result returned by the closure passed to `catchError` gets automatically flattened just like `.then` call.
+
