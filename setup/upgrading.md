@@ -7,37 +7,62 @@ kind: Documentation
 
 This document describes the upgrade procedure for StackState.
 
-## Determine the type of upgrade
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../integrations/introduction.md).
 
-There are several ways of upgrading StackState, depending on your configuration setup and the changes in the StackState release. Please read the StackState release notes carefully before starting an upgrade.
+### Upgrade considerations
 
-If you are using the StackState application and have not installed any StackPacks, or are using StackPacks that have not been upgraded in this release, follow these steps:
+When executing a StackState upgrade, please be aware of the following:
+
+{% hint style="warning" %}
+**Always read the version-specific upgrade notes at the end of this document before upgrading StackState.**
+{% endhint %}
+
+{% hint style="warning" %}
+When upgrading a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
+{% endhint %}
+
+{% hint style="danger" %}
+If there are **hotfixes** installed in your StackState installation, contact StackState technical support prior to upgrading.
+{% endhint %}
+
+### Upgrading to a new minor StackState release
+
+If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
+
+A minor upgrade consists of the following steps:
 
 * Create a backup
 * Upgrade StackState
 * Verify the new installation
 
-If you are using the StackState application, have installed StackPacks and are planning to upgrade one or more of them:
+### Upgrading to a new major StackState release
+
+If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation.
+For details, check the version-specific upgrade instructions.
+
+A major upgrade consists of the following steps:
 
 * Create a backup
-* Uninstall StackPacks
+* Uninstall StackPacks (optional, check the version-specific upgrade instructions)
 * Upgrade StackState
-* Install StackPacks
+* Install StackPacks (optional, check the version-specific upgrade instructions)
 * Verify the new installation
-
-**NOTE**: when you upgrade a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
 
 ## Create a backup
 
 Before upgrading StackState it is recommended to backup your configuration and topology data. The script `bin/sts-backup.sh` will create a backup and store it inside the `backups/` directory.
 
-**NOTE**: the StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+{% hint style="info" %}
+The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+{% endhint %}
 
 ## Uninstall StackPacks
 
 StackPacks that are going to be upgraded must first be uninstalled. This removes all StackPack configuration from StackState.
 
-**NOTE**: the StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+{% hint style="warning" %}
+The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+{% endhint %}
 
 ## Upgrade StackState
 
@@ -57,10 +82,6 @@ StackPacks that have been upgraded can now be installed again. This provisions S
 ## Verify the new installation
 
 Once StackState has been upgraded and started, verify that the new installation of StackState is reachable and that the application is running.
-
-## Verify Access Control
-
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
 
 ## Version-specific upgrade instructions
 
@@ -115,4 +136,3 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 ### Upgrade to 1.14.2
 
 * Before version 1.14.2 some of the temporary files weren’t properly removed. This has been fixed in 1.14.2 but some of the older files before 1.14.2 need to cleaned up. In order to remove them run rm -rfv /tmp/_.sts_
-
