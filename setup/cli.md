@@ -124,7 +124,7 @@ To see all topics run:
 sts topic list
 ```
 
- Then use `sts topic show <topic>` to inspect any topic.
+Then use `sts topic show <topic>` to inspect any topic.
 
 ### Sending data with the CLI
 
