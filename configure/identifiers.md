@@ -41,9 +41,23 @@ Examples of the uniquely identifying segments:
 * `component-type:cmdb_ci_netgear` for `cmdb_ci_netgear` Component Type
 * `view-health-state-configuration-function:minimum-health-states` for Minimum Health States in the `ViewHealthStateConfigurationFunction`
 
-## Examples of Identifiers in StackState
+### Examples of Identifiers in StackState
 
 * `urn:stackpack:aws:shared:check-function:aws-event-run-state` for `AWS event run state` check function that is shared across AWS StackPack instances
 * `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear` for `cmdb_ci_netgear` Component Type in the ServiceNow StackPack
 * `urn:stackpack:common:view-health-state-configuration-function:minimum-health-states` for Minimum Health States `ViewHealthStateConfigurationFunction` in the Common StackPack
+
+## Topology identifiers
+
+Identifiers are also used to uniquely identify topology components in StackState. When StackState receives components from different sources that have matching identifiers, StackState will merge the components and their properties \(labels, streams, checks\) into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
+
+The following identifiers are used by the StackState StackPacks:
+
+| StackPack | URN namespace identifier | Description | Example |
+| :--- | :--- | :--- | :--- |
+| AWS | aws | Amazon Resource name, URI based | urn:aws:ec2:region:account-id:instance/instance-id |
+| Azure | azure | Azure Resource ID, URI based | urn:azure:subscription/resourcegroup/provider/resourcename |
+| Agent v2 | host | Host identifier | urn:host:/hostName |
+| Agent v2 | process | Process identifier | urn:process:/hostName:pid:createTime |
+| Agent v2 | container | Container identifier | urn:container:/hostName:containerId |
 
