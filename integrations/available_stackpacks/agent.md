@@ -85,7 +85,7 @@ install -stsApiKey {{config.apiKey}} -stsUrl {{config.baseUrl}}/stsAgent -f C:\\
 
 #### Linux
 
-The configuration file for the StackState Agent is located at `/etc/stackstate-agent/stackstate.conf`
+The configuration file for the StackState Agent is located at `/etc/stackstate-agent/stackstate.yaml`
 
 Configuration files for integrations are located in `/etc/stackstate-agent/conf.d/`
 
