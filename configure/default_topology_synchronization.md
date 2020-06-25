@@ -28,7 +28,7 @@ Use the following `curl` command to send the data:
 curl -v user:password -X POST -H "Content-Type: application/json" --data-ascii @topology.json "https://stackstate-server:7077/stsAgent/intake/?api_key=API_KEY"
 ```
 
-This request results in HTTP status code `200 OK` if the data has been successfully processed. Example: [topology.json](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/files/guides/topology/topology.json)
+This request results in HTTP status code `200 OK` if the data has been successfully processed. Example: [topology.json](https://gist.github.com/mpvvliet/c97ffd6348ef6e22cd13a7b6a9244948)
 
 ### Configure a data source
 
@@ -68,7 +68,7 @@ The screen contains the following buttons:
 
 ### Import the auto-sync templates
 
-Before you can start creating a default synchronization, you will need to import the [auto-sync templates](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/json/auto-sync-nodes.conf).
+Before you can start creating a default synchronization, you will need to import the [auto-sync templates](https://gist.github.com/mpvvliet/b6382578581ea76e02af3d97fb4a081d).
 
 To import these templates into StackState, navigate to the _Settings_ section. Under _Import/Export_, select _Import Settings_ and select the file to upload.
 
