@@ -144,6 +144,6 @@
   * [Extending StackState with functions](develop/functions.md)
   * [Tutorials](develop/tutorials/README.md)
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
-    * [Mirror integration tutorial](develop/tutorials/mirror_turorial.md)
+    * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
   * [Developing integrations](develop/sdk/README.md)
     * [Getting started developing a new integration](develop/sdk/integrations_and_stackpacks_sdk.md)

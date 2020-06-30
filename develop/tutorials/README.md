@@ -28,4 +28,4 @@ If you want to retrieve telemetry data from an external system on-demand, while 
 * aggregate this data in various ways
 * send the data in a standard format to StackState where it can be mapped to a component
 
-The [mirror integration tutorial](mirror_turorial.md) shows you how this works.
+The [mirror integration tutorial](mirror_tutorial.md) shows you how this works.
