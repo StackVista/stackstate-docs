@@ -1,6 +1,6 @@
-# StackState pull integration tutorial
+# Mirror integration tutorial
 
-StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch is not copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](https://docs.stackstate.com/develop/mirroring).
+StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch is not copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](../mirroring.md).
 
 Mirror integrations can be built in any language and run as a separate process. A mirror can:
 
@@ -10,7 +10,7 @@ Mirror integrations can be built in any language and run as a separate process. 
 
 ## Mirror architecture
 
-To integrate StackState with an external telemetry source using mirroring, the mirror integration sits in between StackState and the telemetry source. The mirror offers a standard interface (the mirror API) to StackState so that StackState can use multiple different mirror data sources out of the box. The mirror integration translates calls to the mirror API to calls to a telemetry datasource, allowing StackState to access telemetry data in a standard way.
+To integrate StackState with an external telemetry source using mirroring, the mirror integration sits in between StackState and the telemetry source. The mirror offers a standard interface \(the mirror API\) to StackState so that StackState can use multiple different mirror data sources out of the box. The mirror integration translates calls to the mirror API to calls to a telemetry datasource, allowing StackState to access telemetry data in a standard way.
 
 ## Setup
 
@@ -22,7 +22,7 @@ For this demo, your StackState instance needs to be able to connect with the mir
 
 Start by running the sample mirror. This directory contains a Python mirror server:
 
-```
+```text
 python3 mirror_server.py
 ```
 
@@ -37,7 +37,7 @@ In StackState, navigate to the **Settings** page and find **Mirror sources** in 
 * Api Key: `api_key`
 * Connection details JSON: a JSON datastructure that specifies how the mirror can connect to the external source. In our example, you can use an empty JSON object:
 
-```
+```text
 {}
 ```
 
@@ -45,11 +45,11 @@ Use the **Test Connection** button to verify connectivity from StackState to the
 
 Here is what that looks like:
 
-![Mirror configuration](../images/example-mirror.png)
+![Mirror configuration](https://github.com/StackVista/stackstate-docs/tree/e58a98f080b5a3a6411971097f7a496a42ce9c81/develop/images/example-mirror.png)
 
 ## Adding a mirror stream to a component
 
-Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](../push-integration/). Navigate to the component and open the Component Details pane.
+Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](https://github.com/StackVista/stackstate-docs/tree/e58a98f080b5a3a6411971097f7a496a42ce9c81/develop/push-integration/README.md). Navigate to the component and open the Component Details pane.
 
 In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 
@@ -57,7 +57,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![Example mirror stream](../images/example-mirror-stream.png)
+![Example mirror stream](https://github.com/StackVista/stackstate-docs/tree/e58a98f080b5a3a6411971097f7a496a42ce9c81/develop/images/example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 
@@ -66,3 +66,4 @@ Click on the **Save** button to permanently add the stream to the **a-host** com
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
 * Remove the mirror data source you added
+
