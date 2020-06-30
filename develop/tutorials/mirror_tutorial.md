@@ -14,7 +14,9 @@ To integrate StackState with an external telemetry source using mirroring, the m
 
 ## Setup
 
-This repository contains a sample mirror that serves telemetry data to StackState. The mirror is built in Python and stored in the `mirror_server.py` file.
+[This repository](https://github.com/StackVista/mirror-integration-tutorial) contains a sample mirror that serves telemetry data to StackState. The mirror is built in Python and stored in the `mirror_server.py` file.
+
+Clone the repository to your laptop to get started.
 
 ## Running the sample mirror
 
@@ -45,11 +47,11 @@ Use the **Test Connection** button to verify connectivity from StackState to the
 
 Here is what that looks like:
 
-![Mirror configuration](https://github.com/StackVista/stackstate-docs/tree/e58a98f080b5a3a6411971097f7a496a42ce9c81/develop/images/example-mirror.png)
+![](../../.gitbook/assets/example-mirror.png)
 
 ## Adding a mirror stream to a component
 
-Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](https://github.com/StackVista/stackstate-docs/tree/e58a98f080b5a3a6411971097f7a496a42ce9c81/develop/push-integration/README.md). Navigate to the component and open the Component Details pane.
+Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and open the Component Details pane.
 
 In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 
@@ -57,7 +59,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![Example mirror stream](https://github.com/StackVista/stackstate-docs/tree/e58a98f080b5a3a6411971097f7a496a42ce9c81/develop/images/example-mirror-stream.png)
+![](../../.gitbook/assets/example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 

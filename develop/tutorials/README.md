@@ -4,7 +4,7 @@ kind: documentation
 description: Tutorials to get started with extensions for StackState.
 ---
 
-# Getting started with extensions
+# Tutorials
 
 StackState is an open platform that can be extended to work with any other IT system in your landscape.
 
@@ -29,3 +29,4 @@ If you want to retrieve telemetry data from an external system on-demand, while 
 * send the data in a standard format to StackState where it can be mapped to a component
 
 The [mirror integration tutorial](mirror_tutorial.md) shows you how this works.
+
