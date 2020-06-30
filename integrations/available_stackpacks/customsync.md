@@ -15,7 +15,7 @@ The Custom Synchronization StackPack contains everything you need to automatical
 
 ## Next steps
 
-Read up on [configuring synchronizations](../../configure/sync.md).
+Read up on [configuring synchronizations](../../configure/sync.md) or follow the [Push-Integration tutorial](../../develop/tutorials/push_integration_tutorial.md).
 
 ## Open-source
 
