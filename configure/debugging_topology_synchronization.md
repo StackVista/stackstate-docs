@@ -10,7 +10,7 @@ listorder: 10
 
 ## Overview
 
-StackState allows automating synchronization of topology, as described in [default synchronization guide](default_topology_synchronization.md). When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
+When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
 
 ## Why are components/elements I expect not in my topology?
 
@@ -26,7 +26,7 @@ Based on the information you see here, different actions can be taken:
 
     in new data, this is because StackState does not retroactively apply changes
 
-  * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration \(more on that [here](default_topology_synchronization.md)\)
+  * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration
   * Make sure data is ending up in StackState. The [StackState CLI](../setup/cli.md) contains a way to see
 
     what data ends up on the synchronization topic.

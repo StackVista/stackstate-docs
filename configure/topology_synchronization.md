@@ -123,5 +123,5 @@ Mandatory fields \(which can be empty, see other guides how to use them\):
 
 ## Getting started with custom topology
 
-The first step to importing custom topology is to create a [default topology synchronization](default_topology_synchronization.md).
+The [push-integration tutorial](../develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into StackState.
 
