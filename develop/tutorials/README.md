@@ -1,7 +1,7 @@
 ---
 title: Tutorials
 kind: documentation
-description: Tutorials to get started with extensions for StackState.
+description: Tutorials to get started extending StackState.
 ---
 
 # Tutorials
