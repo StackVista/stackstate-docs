@@ -28,7 +28,7 @@ If there are **hotfixes** installed in your StackState installation, contact Sta
 
 ### Upgrading to a new minor StackState release
 
-A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0. 
+A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0.
 
 If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
 
@@ -40,7 +40,7 @@ A minor upgrade consists of the following steps:
 
 ### Upgrading to a new major StackState release
 
-A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0. 
+A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
 If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the version-specific upgrade instructions.
 
@@ -112,7 +112,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 1.15.0
 
-* Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](installation/configuration.md).
+* Upgrading to 1.15.0 will require you to re-register your license information.
 * Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
 * The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
 

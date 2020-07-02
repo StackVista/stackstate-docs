@@ -14,7 +14,6 @@
       * [Configuring storage](setup/installation/kubernetes/storage.md)
       * [Configuring Ingress](setup/installation/kubernetes/ingress.md)
       * [StackState images](setup/installation/kubernetes/image_configuration.md)
-    * [Configuring StackState for first time use](setup/installation/configuration.md)
     * [Configuring authentication](setup/installation/authentication.md)
     * [Configuring a reverse proxy](setup/installation/reverse_proxy.md)
     * [Configuring TLS without reverse proxy](setup/installation/how_to_setup_tls_without_reverse_proxy.md)
