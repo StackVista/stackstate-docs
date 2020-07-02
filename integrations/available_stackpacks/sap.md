@@ -19,7 +19,7 @@ The SAP StackPack is used to create a near real time synchronization with your S
 
 The following prerequisites need to be met:
 
-* StackState Agent V2 must be installed on a single machine which can connect to SAP Instance and StackState. \(See the [StackState Agent V2 StackPack](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/agent/README.md) for more details\)
+* StackState Agent V2 must be installed on a single machine which can connect to SAP Instance and StackState. \(See the [StackState Agent V2 StackPack](agent.md) for more details\)
 * A SAP instance must be running.
 
 ## Enabling the SAP check

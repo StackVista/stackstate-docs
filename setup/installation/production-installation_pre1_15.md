@@ -7,7 +7,7 @@ kind: Documentation
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet StackState's [installation requirements](requirements.md).
+Before starting the installation, ensure your system\(s\) meet StackState's [installation requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
 
 ## Two-node deployment architecture
 
@@ -21,7 +21,7 @@ Configure StackState to run in the two-node setup requires the following steps:
 
 ### Preparing the StackGraph node
 
-1. Install the package using the instruction for [Installing StackState](install_stackstate.md).
+1. Install the package using the instruction for [Installing StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/install_stackstate/README.md).
 2. Run `systemctl disable stackstate`
 3. Add `Environment=STACKGRAPH_NODE_NAME=<stackgraph-host-name>` to /lib/systemd/system/stackgraph.service
 4. Reload systemd daemon: `systemctl daemon-reload`
@@ -31,7 +31,7 @@ Configure StackState to run in the two-node setup requires the following steps:
 
 To prepare an additional node for running a StackState component, follow these steps:
 
-1. Install the package using the instruction for [Installing StackState](install_stackstate.md).
+1. Install the package using the instruction for [Installing StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/install_stackstate/README.md).
 2. Run `systemctl disable stackgraph`
 3. Modify the provided SystemD configuration files as follows:
    * Edit the file `/lib/systemd/system/stackstate.service`:
@@ -62,16 +62,19 @@ After these changes the `stackstate.service` file should look approximately like
     WantedBy=multi-user.target
 ```
 
-### Configuration files
+```text
 
-The main configuration file for StackState server is `application_stackstate.conf` located in the `STACKSTATE_HOME/etc` directory. This file can be manipulated directly to alter the StackState configuration. Secondly, to manipulate the running of stackstate processes, a `STACKSTATE_HOME/etc/processmanager/processmanager-properties-overrides.conf` file can be created, to override the properties exposed by `STACKSTATE_HOME/etc/processmanager/processmanager-properties.conf`.
+```
+
+\`\`\`
 
 ### Configuring StackState
 
 After you have installed StackState, refer to the following pages for configuration instructions:
 
-* [Configuring authentication](authentication.md)
-* [Reverse Proxy](reverse_proxy.md)
+* [Configuring StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/configuration/README.md)
+* [Configuring authentication](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/authentication/README.md)
+* [Reverse Proxy](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/reverse_proxy/README.md)
 
 ### Starting and Stopping
 

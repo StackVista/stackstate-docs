@@ -18,7 +18,7 @@ Some StackPacks are designed to connect StackState to external systems. These St
 
 ### StackPack instances
 
-Some StackPacks make it possible to connect to multiple accounts on an external system. Each account is configured in a separate _instance_ of the StackPack.
+Some StackPacks make it possible to connect to multiple accounts on an external system. Each account is configured in a separate _instance_ of the StackPack. 
 
 For example, the AWS StackPack makes it possible to connect to multiple AWS accounts and combine information from all accounts in StackState. For each account, a separate StackState instance is configured that specifies the information StackState needs to receive data from that AWS account.
 

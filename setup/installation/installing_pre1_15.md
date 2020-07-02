@@ -7,11 +7,11 @@ kind: Documentation
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet StackState's [installation requirements](requirements.md).
+Before starting the installation, ensure your system\(s\) meet StackState's [installation requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
 
 ## Installing
 
-**NOTE**: Installing StackState on versions older than 1.14.5 requires an alternative procedure, see \([Installing before 1.14.5](installing_pre1_14_5.md)\).
+**NOTE**: Installing StackState on versions older than 1.14.5 requires an alternative procedure, see \([Installing before 1.14.5](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/installing_pre1_14_5/README.md)\).
 
 ### Install using the RPM distribution
 
@@ -27,7 +27,7 @@ Before starting the installation, ensure your system\(s\) meet StackState's [ins
 * `<<<API_KEY>>>`: Secret key StackState agents must use to authenticate.
 * `SETUP`: Choose whether to install in production or development mode. These setups
 
-  should meet the [system requirements](requirements.md).
+  should meet the [system-requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
 
 ### Install using the DEB distribution
 
@@ -43,5 +43,5 @@ Before starting the installation, ensure your system\(s\) meet StackState's [ins
 * `<<<API_KEY>>>`: Secret key StackState agents must use to authenticate.
 * `SETUP`: Choose whether to install in production or development mode. These setups
 
-  should meet the [system-requirements](requirements.md).
+  should meet the [system-requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
 

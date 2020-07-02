@@ -22,12 +22,12 @@ VMware StackPack collects all topology data for the components and relations bet
 
 ## Prerequisites
 
-The [API Integration Agent](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/api-integration/README.md) is needed on a single machine which can connect to vSphere vCenter and StackState. Also vSphere vCenter instance must be running.
+The [API Integration Agent](api-integration.md) is needed on a single machine which can connect to vSphere vCenter and StackState. Also vSphere vCenter instance must be running.
 
 ### Network communication
 
-* The [API Integration Agent](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/api-integration/README.md) connects to the vSphere instance on TCP port 443.
-* The [API Integration Agent](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/api-integration/README.md) connects to StackState API on TCP port 7077
+* The [API Integration Agent](api-integration.md) connects to the vSphere instance on TCP port 443.
+* The [API Integration Agent](api-integration.md) connects to StackState API on TCP port 7077
 * If Agent is installed on the StackState host then port 7077 is localhost communication.
 * If Agent is installed on a different host, you need a network path between the Agent and StackState on port 7077/tcp, and to vSphere on 443/tcp port.
 

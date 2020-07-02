@@ -115,7 +115,7 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 
 **Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
 
-**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL]().
+**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](configuration.md).
 
 ### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
