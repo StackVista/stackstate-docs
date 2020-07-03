@@ -24,6 +24,8 @@ There are however also some _disadvantages_:
 
 If you wish to use mirroring, but need a solution to any of the above disadvantages we recommend that you [contact us](http://support.stackstate.com).
 
+To get started with mirroring, have a look at our [mirroring tutorial](tutorials/mirror_tutorial.md).
+
 ## Mirror Architecture
 
 Before mirroring StackState used to work with a plugin system to allow it to work with third-party telemetry data sources. Still some telemetry sources are accessed via the custom plugin method, but over time these will be deprecated in favor of the mirroring architecture, which builds on the plugin architecture.

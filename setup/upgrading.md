@@ -28,7 +28,7 @@ If there are **hotfixes** installed in your StackState installation, contact Sta
 
 ### Upgrading to a new minor StackState release
 
-A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0. 
+A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0.
 
 If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
 
@@ -40,7 +40,7 @@ A minor upgrade consists of the following steps:
 
 ### Upgrading to a new major StackState release
 
-A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0. 
+A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
 If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the version-specific upgrade instructions.
 

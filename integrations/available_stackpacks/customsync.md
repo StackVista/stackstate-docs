@@ -15,9 +15,8 @@ The Custom Synchronization StackPack contains everything you need to automatical
 
 ## Next steps
 
-Read up on [configuring synchronizations](../../develop/synchronizations_and_templated_files.md) or [how to use this StackPack](../../develop/custom_synchronization_stackpack/).
+Read up on [configuring synchronizations](../../configure/sync.md) or follow the [Push-Integration tutorial](../../develop/tutorials/push_integration_tutorial.md).
 
 ## Open-source
 
 The Custom Synchronization StackPack is open-source and can be found [on StackState's github page](https://github.com/StackVista/stackpack-autosync).
-

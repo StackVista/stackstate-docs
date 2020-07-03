@@ -81,7 +81,6 @@
   * [Alerting](use/alerting.md)
 * [Configure](configure/README.md)
   * [Topology synchronization](configure/topology_synchronization.md)
-  * [Creating a default topology synchronization](configure/default_topology_synchronization.md)
   * [Configuring synchronizations](configure/sync.md)
   * [Debugging topology synchronization](configure/debugging_topology_synchronization.md)
   * [Tagging topology](configure/tagging.md)
@@ -141,6 +140,7 @@
   * [Mirroring Telemetry](develop/mirroring.md)
   * [Integrating external services](develop/integrating_external_services.md)
   * [Extending StackState with functions](develop/functions.md)
-  * [Developing integrations](develop/sdk/README.md)
-    * [Getting started developing a new integration](develop/sdk/integrations_and_stackpacks_sdk.md)
+  * [Tutorials](develop/tutorials/README.md)
+    * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
+    * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
 
