@@ -50,6 +50,7 @@
     * [Cloudera](integrations/available_stackpacks/cloudera.md)
     * [Custom Synchronization](integrations/available_stackpacks/customsync.md)
     * [Google Analytics](integrations/available_stackpacks/google_analytics.md)
+    * [Humio](integrations/available_stackpacks/humio.md)
     * [Kubernetes](integrations/available_stackpacks/kubernetes.md)
     * [Logz.io](integrations/available_stackpacks/logz.md)
     * [Manual Topology](integrations/available_stackpacks/manualtopo.md)
