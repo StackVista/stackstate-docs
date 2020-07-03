@@ -18,15 +18,14 @@ The easiest way to connect an external system is by pushing data to StackState. 
 * send telemetry information from an external system to StackState
 * set the state of a component in StackState based on information from an external system
 
-This [push-integration tutorial](push_integration_tutorial.md) shows you how this works.
+This [push-integration tutorial](push_integration_tutorial.md) will show you how it works.
 
 ## Mirror tutorial
 
-If you want to retrieve telemetry data from an external system on-demand, while keeping the external system as the source of the data instead of StackState, a mirror integration is a good fit. A mirror can:
+A mirror integration is a good fit if you want to retrieve telemetry data from an external system on-demand, while keeping the external system as the source of the data instead of StackState. A mirror can:
 
 * retrieve telemetry data from external systems on-demand
 * aggregate this data in various ways
 * send the data in a standard format to StackState where it can be mapped to a component
 
-The [mirror integration tutorial](mirror_tutorial.md) shows you how this works.
-
+This [mirror integration tutorial](mirror_tutorial.md) will show you how it works.
