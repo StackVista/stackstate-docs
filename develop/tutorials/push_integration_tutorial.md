@@ -118,6 +118,10 @@ In the Template Editor you can edit the template used to create components based
 * Template function -- this is the template that uses the input parameters to create a component
 * Component preview -- this is a preview of the component produced by applying the input parameters to the template function
 
+{% hint style="info" %}
+Check out the **Template Examples** tab in the Template Editor to learn how to create templates.
+{% endhint %}
+
 The easiest way to add a stream to the component is to select **New template** from the Template dropdown. This will render a new template for your current component.
 
 Find the `streams` property in the Template function text area and copy it to your clipboard.
