@@ -94,11 +94,11 @@ Note that the components you see are hardcoded in the JSON data. The components 
 
 Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
 
-## Adding a custom telemetry stream to all components of a type
+## Making a change to the StackPack
 
-The **some-application-1** component now has our telemetry stream. The sample check, however, also produces telemetry for the second application component. To map a stream to all components of a certain type, we need to update the component's _template_.
+Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
 
-Select the **some-application-1** component again and in the Component Details pane, find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **myDummyApp** component and in the Component Details pane, find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
@@ -110,23 +110,7 @@ In the Template Editor you can edit the template used to create components based
 Check out the **Template Examples** tab in the Template Editor to learn how to create templates.
 {% endhint %}
 
-The easiest way to add a stream to the component is to select **New template** from the Template dropdown. This will render a new template for your current component.
-
-Find the `streams` property in the Template function text area and copy it to your clipboard.
-
-Now switch back to the `example-example://example-1-component-template` in the Template dropdown.
-
-In the Template function, replace the `streams` part with the code you copied earlier.
-
-Notice that the telemetry query we are using is selecting the `tags.related` key and `some-application-1` for the value. This is correct for one of our components, but not for the other. We need to make this value dynamic.
-
-Using the double curly notation, we can use dynamic values from our input data. Go ahead and replace the `some-application-1` with a reference to the component's external id:
-
-```text
-{{ element.externalId }}
-```
-
-The end result should look something like this:
+In the Template function, replace the `streams` part with the following code:
 
 ```text
 "streams": [{
@@ -149,82 +133,120 @@ The end result should look something like this:
 }],
 ```
 
+{% hint style="info" %}
+The [Push Integration tutorial](push_integration_tutorial.md) describes in more detail how to create this check.
+{% endhint %}
+
+Use the **Preview** button to see what the resulting component will look like.
+
 ![](../../.gitbook/assets/example-template-editor.png)
 
-Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
+Go ahead and save the template. Be aware that you may need to [_unlock_](../../integrations/introduction.md#stackpack-configuration-locking) it before this succeeds.
 
-Now, we need to reset the synchronization so it will reprocess the incoming data. Go to the **Settings** area and find the **Synchronizations** page. There, use the kebab menu to reset the `Synchronization example example://example-1` synchronization.
+## Exporting the changed template
 
-If you go back to the topology, you'll see that both application components \(and any you might add in the future\) will have the stream there.
+Now we are going to export the changed component template so we can include it in our StackPack.
 
-## Setting a component's health state from an external source
+Navigate to the **Settings** page and find the **Topology Synchronization** section. In that section, find the **Component Templates** page. Here you will find all component templates that StackState has loaded.
 
-StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It is also possible to create your own check function that interprets events from an external source, such as another monitoring tool, and use it to set the component's health state. Let's try that out on our **a-host** component.
+Locate the tutorial StackPack template \(`tutorial-tutorial://tutorial-1-component-template`\) among the templates. Check the checkbox in front of the template and use the **Export Component Template Function** button to export it.
 
-Let's start by creating the check function that takes the incoming data and translates it to a health state. Go to the **Settings** area and find the **Check functions** page. Click the **Add Check function** button to create a new check function. Name the function **External monitor state**.
+## Updating the StackPack
 
-Our check functions will work on an event stream, so add a parameter to the function using the **plus** button. The parameter name is `eventstream` and it's type is, indeed, `Event stream`.
+The exported component template will replace the `tutorial-component-template.json.handlebars`file in your StackPack. The export has a different structure than the file in our StackPack so we need to edit the file before updating the original. Specifically, the file in our StackPack contains only the `handlebarsTemplate` property in the export.
 
-Use the following code for the check function:
+Open the exported file in an editor and make the following changes:
+
+* Replace the entire file with the contents of the `handlebarsTemplate` property
+* Replace escaped newlines \(`\n`\) with newline characters
+* Replace escaped quotes \(`\"`\) with quote characters \(`"`\)
+
+After your edits, the exported file should look like this:
 
 ```text
-event = eventstream[eventstream.size() - 1]
-tags = event.point.getStructOrEmpty("tags")
-healthStateOpt = tags.getString("alert_level")
-healthState = healthStateOpt.orElse("unknown").toLowerCase()
-switch(healthState) {
-  case "error": return CRITICAL
-  case "warn": return DEVIATING
-  case "ok": return CLEAR
-  default: return UNKNOWN
+{
+    "_type": "Component",
+    "checks": [],
+"streams": [{
+  "_type": "MetricStream",
+  "dataSource": \{{ get "urn:stackpack:common:data-source:stackstate-metrics"  \}},
+  "dataType": "METRICS",
+  "id": -11,
+  "name": "test",
+  "query": {
+    "_type": "MetricTelemetryQuery",
+    "aggregation": "MEAN",
+    "conditions": [{
+      "key": "tags.related",
+      "value": "\{{ element.externalId \}}"
+    }],
+    "id": -13,
+    "metricField": "example.gauge"
+  },
+  "syncCreated": false
+}],
+    "labels": [
+        \{{#if element.data.labels \}}
+            \{{# join element.data.labels "," "" "," \}}
+            {
+            "_type": "Label",
+            "name": "\{{ this \}}"
+            }
+            \{{/ join \}}
+        \{{/if\}}
+        {
+            "_type": "Label",
+            "name": "tutorial:tutorial://tutorial-1"
+        }
+        \{{#if element.data.tags \}}
+            \{{# join element.data.tags "," "," "" \}}
+            {
+              "_type": "Label",
+              "name": "\{{ this \}}"
+            }
+            \{{/ join \}}
+        \{{/if\}}
+    ],
+    "name": "\{{#if element.data.name\}}\{{ element.data.name \}}\{{else\}}\{{ element.externalId \}}\{{/if\}}",
+    \{{#if element.data.description\}}
+    "description": "\{{ element.data.description \}}",
+    \{{/if\}}
+    "type" : \{{ resolveOrCreate "ComponentType" element.type.name "Tutorial Component" \}},
+    "version": "\{{ element.data.version \}}",
+    "layer": \{{ resolveOrCreate "Layer" element.data.layer "Tutorial Components" \}},
+    "domain": \{{ resolveOrCreate "Domain" element.data.domain "Tutorial Domain" \}},
+    "environments": [
+        \{{ resolveOrCreate "Environment" element.data.environment "Tutorial Environment" \}}
+    ]
 }
+
 ```
 
-Here is what that looks like:
+Now replace the file in your StackPack with the above JSON.
 
-![](../../.gitbook/assets/example-check-function.png)
+{% hint style="info" %}
+If you want to change the Groovy scripts, beware that the Groovy script files contain only the Groovy code and no JSON wrappers.
 
-Finally save the check function.
+ The `tutorial-template.stj` contains a DataSource and Synchronization and includes the contents of the separate templates and Groovy script files into a single JSON 
+{% endhint %}
 
-Now, let's create some test events for the component. Provided you have set the correct environment variables, the following command sends events into StackState:
+## Building a new version of the StackPack
+
+We are going to build a new version of our StackPack with our changed template. First, edit the `version.sbt` file and bump the version number to `0.0.2`. Next, build the StackPack using the `sbt` command:
 
 ```text
-TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "Content-Type: application/json" -X POST -d @- ${STS_STS_URL}/intake/\?api_key\=${STS_API_KEY}
+sbt package
 ```
 
-Just execute a few of these so we have a few datapoints to work with.
+This should produce a `0.0.3` version of the StackPack, the next version after the one in `version.sbt`. Upload the StackPack to StackState using the CLI.
 
-Next, let's create an _event stream_ for the component. Find the **a-host** component and open the Component Details pane. In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+## Upgrading the StackPack
 
-In the Stream Creation screen, select the **Event stream** type at the top. Then fill in the following parameters:
 
-* Time window: Last hour
-* Filters: `host` = `host_fqdn`
-
-Here is what that looks like:
-
-![](../../.gitbook/assets/example-event-stream-editor.png)
-
-You should already see the test events you sent. Go ahead and save the stream.
-
-The last thing to do is to add a health check to the **a-host** component. In the **Health** section, click on the **Add** button. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** event stream. Save the check by clicking the **Create** button.
-
-Now, sending in the events using the command below should set the health state to `CRITICAL`:
-
-```text
-TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "Content-Type: application/json" -X POST -d @- ${STS_STS_URL}/intake/\?api_key\=${STS_API_KEY}
-```
-
-You can change the `alert_level` field in the `custom-event.json` file to try out different values, such as `error`, `warning` and `ok`. The component should change it's state a few seconds after receiving the event.
-
-When the component turns `CRITICAL`, this is what you should see:
-
-![](../../.gitbook/assets/example-health-state.png)
 
 ## Cleaning your StackState instance
 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
-* Uninstall the **Custom Synchronization StackPack**. This will remove the configuration and data received \(topology\) from StackState.
-* Remove any check functions you added
+* Uninstall the **Tutorial StackPack**. This will remove the configuration and data received \(topology\) from StackState.
 
