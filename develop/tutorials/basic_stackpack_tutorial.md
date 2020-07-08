@@ -10,6 +10,20 @@ The repository contains a StackPack that configures StackState to receive extern
 
 The StackPack uses the `sbt` build tool to build a StackPack binary file. Build configuration is stored in the `build.sbt` and `version.sbt` files. The `project` directory contains the necessary build logic.
 
+## What's in the StackPack?
+
+The tutorial StackPack is fairly basic. It contains configuration information that configure StackState to receive a specific data format and turn this into topology.
+
+Specifically, the StackPack contains:
+
+* A [Groovy](https://groovy-lang.org/) provisioning script that installs the components of the StackPack \(`TutorialProvision.groovy`\)
+* A component and relation template that tell StackState how to process incoming data into components and relations \(`tutorial-component-template.json.handlebars` and `tutorial-relation-template.json.handlebars`\)
+* [Groovy](https://groovy-lang.org/) component and relation id extractor scripts that tell StackState how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
+* [Markdown](https://en.wikipedia.org/wiki/Markdown) files and images that are shown in the StackState GUI when users interact with the StackPack \(in the `resources` directory\)
+* A configuration file that describes all components of the StackPack \(`stackpack.conf`\)
+
+Take a moment to locate these files in the `src/main/stackpack` folder of the project.
+
 ## Building the StackPack
 
 The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. The `sbt` build tool can be downloaded from the [SBT website](https://www.scala-sbt.org/).
@@ -79,40 +93,6 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 Note that the components you see are hardcoded in the JSON data. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
 Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
-
-## Merging topology
-
-StackState creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If the data your check delivers should be merged with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
-
-In our sample check, this code defines the extra identifiers:
-
-```text
-    ...
-    "identifiers": ["urn:host:/host_fqdn"],
-    ...
-```
-
-Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/identifiers.md).
-
-## Adding a custom telemetry stream to a component
-
-The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
-
-Find the sample check's components in StackState and click on the **some-application-1** component. The Component Details pane opens on the right, showing the metadata of this component.
-
-In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
-
-In the Stream Creation screen, fill in the following parameters:
-
-* Time window: Last hour
-* Filters: `tags.related` = `application_id_1`
-* Select: `example.gauge` by `Mean`
-
-The stream preview on the right should show the incoming metric values. Here is what that looks like:
-
-![](../../.gitbook/assets/example-telemetry-stream.png)
-
-Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
 ## Adding a custom telemetry stream to all components of a type
 
