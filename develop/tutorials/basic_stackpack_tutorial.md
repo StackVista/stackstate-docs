@@ -227,7 +227,7 @@ Now replace the file in your StackPack with the above JSON.
 {% hint style="info" %}
 If you want to change the Groovy scripts, beware that the Groovy script files contain only the Groovy code and no JSON wrappers.
 
- The `tutorial-template.stj` contains a DataSource and Synchronization and includes the contents of the separate templates and Groovy script files into a single JSON 
+ The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON 
 {% endhint %}
 
 ## Building a new version of the StackPack
@@ -242,7 +242,7 @@ This should produce a `0.0.3` version of the StackPack, the next version after t
 
 ## Upgrading the StackPack
 
-
+Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. You can use the **Upgrade** button to upgrade the StackPack to the new version.
 
 ## Cleaning your StackState instance
 
