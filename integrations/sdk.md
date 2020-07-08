@@ -10,5 +10,3 @@ description: >-
 
 StackState is designed to be extended with custom-built StackPacks. See our [Develop section](../develop/) for more information.
 
-
-

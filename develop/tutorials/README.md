@@ -29,3 +29,4 @@ A mirror integration is a good fit if you want to retrieve telemetry data from a
 * send the data in a standard format to StackState where it can be mapped to a component
 
 This [mirror integration tutorial](mirror_tutorial.md) will show you how it works.
+

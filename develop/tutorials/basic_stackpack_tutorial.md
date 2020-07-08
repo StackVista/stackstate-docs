@@ -1,76 +1,84 @@
-# Push-integration tutorial
+# Basic StackPack tutorial
 
-This repository contains a project that shows you how to create push-based integrations for StackState.
-
-Push-based integrations are built in python and run as part of the StackState agent. Each python integration is called a `check` and it can:
-
-* retrieve information from external systems
-* convert the information into topology
-* convert the information into telemetry
-* send the data to StackState
+This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../integrations/introduction.md) for more information.
 
 ## Setup
 
-[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an agent check called `example` that sends topology into StackState. It uses docker to run the StackState agent to execute the check.
+[This repository](https://github.com/mpvvliet/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
-Clone the repository to your laptop to get started.
+The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder. 
 
-The `stackstate.yaml` file is the main agent configuration file. It tells the agent where to find StackState and what API key to use.
+The StackPack uses the `sbt` build tool to build a StackPack binary file. Build configuration is stored in the `build.sbt` and `version.sbt` files. The `project` directory contains the necessary build logic.
 
-The `example` check consists of two files:
+## Building the StackPack
 
-* `conf.d/example.d/conf.yaml` -- the check configuration file
-* `checks.d/example.py` -- the check Python code
+The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. The `sbt` build tool can be downloaded from the [SBT website](https://www.scala-sbt.org/).
 
-## Preparing StackState
-
-Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
-
-Configure the StackPack with the following values so they match with the data the check sends:
+Use the following command to build the StackPack:
 
 ```text
-Instance type (source identifier): example
-Instance URL: example://example-1
+sbt package
 ```
 
-## Preparing the tutorial
-
-The StackState agent container uses the root directory of this repository for it's configuration files.
-
-Before running the example, you need to configure the sample project with your StackState instance URL and API key.
+If you have never run `sbt` before, the tool will download a number of dependencies before packaging your StackPack. The output from the build tool will look similar to the following:
 
 ```text
-export STS_API_KEY=my-api-key
-export STS_STS_URL=https://stackstate.acme.com/stsAgent
+> sbt clean package
+[info] Loading settings for project global-plugins from build.sbt ...
+[info] Loading global plugins from /Users/martin/.sbt/1.0/plugins
+[info] Loading settings for project stackpack-tutorial-build from plugins.sbt ...
+[info] Loading project definition from /Users/martin/Dev/Workspace-sts/stackpack-tutorial/project
+[info] Loading settings for project root from version.sbt,build.sbt ...
+[info] Set current project to tutorial (in build file:/Users/martin/Dev/Workspace-sts/stackpack-tutorial/)
+[success] Total time: 0 s, completed Jul 8, 2020 4:23:09 PM
+[info] Packaging /Users/martin/Dev/Workspace-sts/stackpack-tutorial/target/tutorial-0.0.3-master-SNAPSHOT.sts ...
+[info] Done packaging.
+[success] Total time: 1 s, completed Jul 8, 2020 4:23:10 PM
 ```
 
-If you are running the agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the agent in the docker container to your local StackState:
+The final binary StackPack is located in the `target` directory and is named `tutorial-0.0.2-master-SNAPSHOT.sts` or something similar. 
+
+## Importing the StackPack
+
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/cli.md). Please make sure it is installed and configured to connect with your StackState instance.
+
+The following command installes our new tutorial StackPack in StackState:
 
 ```text
-export STS_STS_URL=https://host.docker.internal/stsAgent
+sts-cli stackpack upload target/tutorial-0.0.2-master-SNAPSHOT.sts
 ```
 
-That's it, you are now ready to run the agent.
+{% hint style="info" %}
+The StackState CLI requires a `conf.d` configuration folder in the directory it is running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
+{% endhint %}
 
-## Running the sample check using the agent
+We are now ready to install our tutorial StackPack.
 
-The sample project contains a `run.sh` shell script that runs the StackState agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
+## Installing the StackPack
 
-When you run the agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
+Open the StackState application in your browser and log in. Navigate to the **StackPacks** page that lists all available StackPacks. You should see our Tutorial StackPack in the list of StackPacks.
 
-Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
+Open the Tutorial StackPack page. Here you see the installation instructions that are part of the StackPack \(in the `src/main/stackpack/resources` directory\). Install the StackPack with the **Install** button.
 
-Press `ctrl-c` to stop the agent.
+If all goes well, your StackPack should be installed and in the _Waiting for data_ stage. This means the StackPack is ready to receive data, but hasn't yet received any. The StackState GUI tells you how to send data into the StackPack.
+
+If you want to use the manual approach, copy the JSON listed in the StackPack page to your laptop and use the supplied `curl` command to send it to StackState.
+
+{% hint style="info" %}
+The JSON and `curl` command shown in StackState contain data fields specific to your StackState installation, such as your API key and StackState URL.
+{% endhint %}
+
+When the StackPack has received your data, it will show a message indicating success and allowing you to explore your data.
 
 ## Seeing the topology in StackState
 
-When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
+When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/example-topology.png)
+![](../../.gitbook/assets/screen-shot-2020-07-08-at-16.37.40.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Click on the group to access the individual components that make up the group.
+Note that the components you see are hardcoded in the JSON data. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
-Click on one of the components to open the **Component Details pane**. You'll see the component's labels and other meta-data the check sent.
+Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
 
 ## Merging topology
 
