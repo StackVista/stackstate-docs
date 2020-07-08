@@ -172,4 +172,5 @@ Do note that the script provided as input must use proper quoting.
 
 #### License
 
-The CLI can check your license validity  `sts subscription show` and it can be used to update a license key when needed `sts subscription update new-license-key`, for example in case of expiration. Note that it is not necessary to do this via the CLI, when a license is about to expired or expired StackState will offer this option in the UI as well.
+The CLI can check your license validity `sts subscription show` and it can be used to update a license key when needed `sts subscription update new-license-key`, for example in case of expiration. Note that it is not necessary to do this via the CLI, when a license is about to expired or expired StackState will offer this option in the UI as well.
+
