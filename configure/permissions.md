@@ -51,6 +51,7 @@ stackstate-guest  access-view           everything
 | read-permissions | Permission to list all granted permissions across the entire system via the CLI |
 | update-permissions | Permission to grant/revoke permissions or modify subjects |
 | manage-stackpacks | Permission to install / upgrade / uninstall StackPacks |
+| manage-annotations | Permission to persist and fetch Anomaly annotations in StackState |
 | save-view | Permission to save views |
 | access-view | Permission to access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\) |
 | delete-view | Permission to delete views |
