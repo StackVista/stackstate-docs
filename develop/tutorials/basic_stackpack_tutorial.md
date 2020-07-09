@@ -238,11 +238,25 @@ We are going to build a new version of our StackPack with our changed template. 
 sbt package
 ```
 
-This should produce a `0.0.3` version of the StackPack, the next version after the one in `version.sbt`. Upload the StackPack to StackState using the CLI.
+This should produce a `0.0.3` version of the StackPack, the next version after the last released version in `version.sbt`. Upload the StackPack to StackState using the CLI.
 
 ## Upgrading the StackPack
 
-Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. You can use the **Upgrade** button to upgrade the StackPack to the new version.
+Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. 
+
+![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.32.55.png)
+
+You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will m the upgrade, but because you have unlocked a template earlier, you will see the following warning:
+
+![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.33.25.png)
+
+Push the **Overwrite** button to overwrite your local modifications with those in the new version of the StackPack. The component template will be locked again after the upgrade.
+
+Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
+
+If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:
+
+![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.38.01.png)
 
 ## Cleaning your StackState instance
 
