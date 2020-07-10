@@ -65,7 +65,8 @@ Generate it with the `generate_values.sh` script in the [installation directory]
   -l <license-key> \
   -u <image-pull-username> \
   -p <image-pull-password> \
-  -a <sts-admin-password>
+  -a <sts-admin-api-password> \
+  -d <sts-default-password> \
 ```
 
 The script requires the following input:
@@ -73,7 +74,8 @@ The script requires the following input:
 * base url \(`-b`\): The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`. For example `https://stackstate.internal`. If you don't know this yet, because you haven't decided on an ingress configuration yet, you can start with `http://localhost:8080` and later update it in the generated `values.yaml`
 * image pull username and password \(`-u` , `-p`\): The username and password provided by StackState to pull images from quay.io/stackstate repositories
 * license key \(`-l`\): The StackState license key
-* administrator password \(`-a`\): The password for the default administrator user that StackState \(you can also omit it from the command line, the script will ask for it in that case\)
+* admin api password \(`-d`\): The password for the admin api, this api contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation \(you can also omit it from the command line, the script will ask for it in that case\)
+* default password \(`-d`\): The password for the default user \(`admin`\) to access StackState's UI \(you can also omit it from the command line, the script will ask for it in that case\)
 
 Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace run the following command \(the required arguments will be discussed below\):
 
@@ -113,8 +115,7 @@ stackstate:
   components:
     server:
       extraEnv:
-        secret:
-          CONFIG_FORCE_stackstate_api_authentication_authServer_stackstateAuthServer_defaultPassword: <password-md5>
+        # Use 'secret' instead of open for things that should be stored as a secret
         open:
           CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink: "https://www.stackstate.com/forgotPassword.html"
 ```
