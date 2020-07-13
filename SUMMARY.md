@@ -66,6 +66,7 @@
     * [Static Topology](integrations/available_stackpacks/static_topology.md)
     * [VMWare vSphere](integrations/available_stackpacks/vsphere.md)
     * [Zabbix](integrations/available_stackpacks/zabbix.md)
+  * [Prometheus Mirror](integrations/prometheus-mirror.md)    
   * [Develop your own StackPacks](integrations/sdk.md)
   * [About StackPacks](integrations/introduction.md)
 * [Use](use/README.md)
@@ -144,4 +145,3 @@
   * [Extending StackState with functions](develop/functions.md)
   * [Developing integrations](develop/sdk/README.md)
     * [Getting started developing a new integration](develop/sdk/integrations_and_stackpacks_sdk.md)
-
