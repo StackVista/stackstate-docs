@@ -8,8 +8,6 @@ This tutorial shows you how to create a basic StackPack to configure StackState.
 
 The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder. 
 
-The StackPack uses the `sbt` build tool to build a StackPack binary file. Build configuration is stored in the `build.sbt` and `version.sbt` files. The `project` directory contains the necessary build logic.
-
 ## What's in the StackPack?
 
 The tutorial StackPack is fairly basic. It contains configuration information that configure StackState to receive a specific data format and turn this into topology.
@@ -216,13 +214,13 @@ If you want to change the Groovy scripts, beware that the Groovy script files co
 
 ## Building a new version of the StackPack
 
-We are going to build a new version of our StackPack with our changed template. First, edit the `version.sbt` file and bump the version number to `0.0.2`. Next, build the StackPack using the `sbt` command:
+We are going to build a new version of our StackPack with our changed template.
 
 ```text
-sbt package
+zip -r ./stackpack-0.0.2.sts stackpack.conf provisioning resources 
 ```
 
-This should produce a `0.0.3` version of the StackPack, the next version after the last released version in `version.sbt`. Upload the StackPack to StackState using the CLI.
+This should produce a `0.0.2` version of the StackPack. Upload the StackPack to StackState using the CLI.
 
 ## Upgrading the StackPack
 
