@@ -26,31 +26,11 @@ Take a moment to locate these files in the `src/main/stackpack` folder of the pr
 
 ## Building the StackPack
 
-The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. The `sbt` build tool can be downloaded from the [SBT website](https://www.scala-sbt.org/).
-
-Use the following command to build the StackPack:
+The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the root of the sample repository using the command:
 
 ```text
-sbt package
+zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources 
 ```
-
-If you have never run `sbt` before, the tool will download a number of dependencies before packaging your StackPack. The output from the build tool will look similar to the following:
-
-```text
-> sbt clean package
-[info] Loading settings for project global-plugins from build.sbt ...
-[info] Loading global plugins from /Users/martin/.sbt/1.0/plugins
-[info] Loading settings for project stackpack-tutorial-build from plugins.sbt ...
-[info] Loading project definition from /Users/martin/Dev/Workspace-sts/stackpack-tutorial/project
-[info] Loading settings for project root from version.sbt,build.sbt ...
-[info] Set current project to tutorial (in build file:/Users/martin/Dev/Workspace-sts/stackpack-tutorial/)
-[success] Total time: 0 s, completed Jul 8, 2020 4:23:09 PM
-[info] Packaging /Users/martin/Dev/Workspace-sts/stackpack-tutorial/target/tutorial-0.0.3-master-SNAPSHOT.sts ...
-[info] Done packaging.
-[success] Total time: 1 s, completed Jul 8, 2020 4:23:10 PM
-```
-
-The final binary StackPack is located in the `target` directory and is named `tutorial-0.0.2-master-SNAPSHOT.sts` or something similar. 
 
 ## Importing the StackPack
 
@@ -59,7 +39,7 @@ The StackPack must be imported into StackState before it can be installed. This 
 The following command installes our new tutorial StackPack in StackState:
 
 ```text
-sts-cli stackpack upload target/tutorial-0.0.2-master-SNAPSHOT.sts
+sts stackpack upload target/tutorial-0.0.2-master-SNAPSHOT.sts
 ```
 
 {% hint style="info" %}
@@ -71,6 +51,10 @@ We are now ready to install our tutorial StackPack.
 ## Installing the StackPack
 
 Open the StackState application in your browser and log in. Navigate to the **StackPacks** page that lists all available StackPacks. You should see our Tutorial StackPack in the list of StackPacks.
+
+{% hint style="info" %}
+If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
+{% endhint %}
 
 Open the Tutorial StackPack page. Here you see the installation instructions that are part of the StackPack \(in the `src/main/stackpack/resources` directory\). Install the StackPack with the **Install** button.
 
@@ -90,7 +74,7 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 ![](../../.gitbook/assets/screen-shot-2020-07-08-at-16.37.40.png)
 
-Note that the components you see are hardcoded in the JSON data. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
+Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
 Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
 
@@ -102,7 +86,7 @@ Select the **myDummyApp** component and in the Component Details pane, find the 
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* Input parameters -- this is the data sent by our example check that is processed by StackState
+* Input parameters -- this is the data sent by our `curl` command that is processed by StackState
 * Template function -- this is the template that uses the input parameters to create a component
 * Component preview -- this is a preview of the component produced by applying the input parameters to the template function
 
@@ -246,13 +230,21 @@ Navigate to the **StackPacks** page in StackState and find the **Tutorial** Stac
 
 ![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.32.55.png)
 
-You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will m the upgrade, but because you have unlocked a template earlier, you will see the following warning:
+{% hint style="info" %}
+If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
+{% endhint %}
+
+You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
 
 ![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.33.25.png)
 
 Push the **Overwrite** button to overwrite your local modifications with those in the new version of the StackPack. The component template will be locked again after the upgrade.
 
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
+
+{% hint style="info" %}
+It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/cli.md) for more information.
+{% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:
 
