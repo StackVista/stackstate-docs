@@ -4,9 +4,9 @@ This tutorial shows you how to create a basic StackPack to configure StackState.
 
 ## Setup
 
-[This repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
+[This repository](https://github.com/mpvvliet/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
-The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
+The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder. 
 
 ## What's in the StackPack?
 
@@ -27,7 +27,7 @@ Take a moment to locate these files in the `src/main/stackpack` folder of the pr
 The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the root of the sample repository using the command:
 
 ```text
-zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources
+zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources 
 ```
 
 ## Importing the StackPack
@@ -201,6 +201,7 @@ After your edits, the exported file should look like this:
         \{{ resolveOrCreate "Environment" element.data.environment "Tutorial Environment" \}}
     ]
 }
+
 ```
 
 Now replace the file in your StackPack with the above JSON.
@@ -208,7 +209,7 @@ Now replace the file in your StackPack with the above JSON.
 {% hint style="info" %}
 If you want to change the Groovy scripts, beware that the Groovy script files contain only the Groovy code and no JSON wrappers.
 
-The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON
+ The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON 
 {% endhint %}
 
 ## Building a new version of the StackPack
@@ -216,7 +217,7 @@ The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and in
 We are going to build a new version of our StackPack with our changed template.
 
 ```text
-zip -r ./stackpack-0.0.2.sts stackpack.conf provisioning resources
+zip -r ./stackpack-0.0.2.sts stackpack.conf provisioning resources 
 ```
 
 This should produce a `0.0.2` version of the StackPack. Upload the StackPack to StackState using the CLI.
