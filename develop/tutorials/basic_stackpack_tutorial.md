@@ -224,7 +224,7 @@ This should produce a `0.0.2` version of the StackPack. Upload the StackPack to 
 
 ## Upgrading the StackPack
 
-Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. 
+Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
 ![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.32.55.png)
 
