@@ -20,3 +20,4 @@ Read up on [configuring synchronizations](../../configure/sync.md) or follow the
 ## Open-source
 
 The Custom Synchronization StackPack is open-source and can be found [on StackState's github page](https://github.com/StackVista/stackpack-autosync).
+
