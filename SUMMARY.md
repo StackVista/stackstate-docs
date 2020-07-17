@@ -69,6 +69,7 @@
   * [Develop your own StackPacks](integrations/sdk.md)
   * [About StackPacks](integrations/introduction.md)
 * [Use](use/README.md)
+  * [Perspectives](use/perspectives/README.md)
   * [Browsing topology](use/browsing_topology.md)
   * [Views](use/views.md)
   * [Creating a topology manually](use/how_to_create_manual_topology.md)
@@ -145,4 +146,3 @@
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
     * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
     * [Basic StackPack tutorial](develop/tutorials/basic_stackpack_tutorial.md)
-
