@@ -24,5 +24,5 @@ Inside the timeline, blue bars show the number of recorded events at a particula
 
 The timeline is in **live mode** by default. This means that it tracks changes as they happen and update the perspective and timeline accordingly. By clicking at a specific place in the timeline, you can stop time and time travel to that moment, updating the information shown in the active perspective. Select the **Live Mode** button in the timeline to switch to live updates again.
 
-To the left of the current time are two arrows, one pointing left and one pointing right. These arrows move the active time window to the next interesting point in time \(either in the past or the future\) for which StackState has recorded events.
+To the left of the current time are two arrows, one pointing left and one pointing right. These **time jumpers** move the active time window to the next interesting point in time \(either in the past or the future\) for which StackState has recorded events.
 
