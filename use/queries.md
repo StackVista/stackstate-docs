@@ -4,6 +4,7 @@ kind: Documentation
 aliases:
   - /usage/queries/
 listorder: 9
+description: Answer questions using queries.
 ---
 
 # Analytics

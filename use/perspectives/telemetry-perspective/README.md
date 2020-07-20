@@ -1,4 +1,8 @@
+---
+description: See metrics of the components in your IT landscape.
+---
+
 # Telemetry Perspective
 
-The Telemetry Perspective brings together all important telemetry streams for a view and provides you with an automatic dashboard of sorts. Instead of pre-defining which streams you want to see, StackState automatically delivers all the relevant information for any part of your landscape. Customers can use the Telemetry Perspective to jump straight from a part of your landscape to the relevant telemetry. If you are investigating a problem and you've found an unhealthy component, you can switch directly to the telemetry perspective to see all critical metrics for the component and its dependencies with a single click. The Telemetry Perspective allows you to compare the same metric for different components in a single graph so you can spot anomalous patterns. For example, you can analyze how different Java Virtual Machines \(JVMs\) in your applications use their memory and whether one of them is causing a problem. Traveling through time affects all perspectives, so if you focus on a past problem, switching from Topology to Telemetry perspective or vice versa, remember your chosen time window.
+The Telemetry Perspective shows telemetry streams for your [view](../topology-perspective/views.md) and provides an automatic dashboard. Instead of pre-defining which streams you want to see, StackState automatically delivers all the relevant information for any part of your landscape.
 

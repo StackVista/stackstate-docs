@@ -1,5 +1,5 @@
 ---
-description: All data in StackState can be accessed via perspectives.
+description: Access data via perspectives.
 ---
 
 # Perspectives
@@ -14,9 +14,15 @@ StackState offers the following perspectives via it's user interface:
 
 * [Topology perspective](topology-perspective/)
 * [Telemetry perspective](telemetry-perspective/)
-* [Event perspective](event-perspective.md)
+* [Event perspective](event-perspective/)
 
 ### Time travel
 
-All perspectives allow for time travel by using the timeline control located at the bottom of the perspective.
+All perspectives allow for time travel by using the timeline control located at the bottom of the perspective. The timeline shows the currently selected time window and the active perspective also displays information from the selected time window. You can change the time window by using the dropdown on the top left of the timeline control. Zoom in on a particular time window using drag-zoom on the timeline control.
+
+Inside the timeline, blue bars show the number of recorded events at a particular point in time. This makes it possible to identify moments of interest that will help when troubleshooting.
+
+The timeline is in **live mode** by default. This means that it tracks changes as they happen and update the perspective and timeline accordingly. By clicking at a specific place in the timeline, you can stop time and time travel to that moment, updating the information shown in the active perspective. Select the **Live Mode** button in the timeline to switch to live updates again.
+
+To the left of the current time are a left and right arrow. These arrows move the active time window to the next interesting point in time \(either in the past or the future\) for which StackState has recorded events.
 
