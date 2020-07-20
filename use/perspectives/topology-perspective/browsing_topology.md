@@ -1,10 +1,10 @@
 ---
 title: Browsing Topology
 kind: Documentation
-description: How to navigate the topology.
+description: How to filter the topology.
 ---
 
-# Browsing topology
+# Filtering topology
 
 The topology is the central part of StackState's 4T data model that makes it possible to reason about how things relate to one another.
 

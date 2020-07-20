@@ -72,7 +72,7 @@
   * [Perspectives](use/perspectives/README.md)
     * [Topology Perspective](use/perspectives/topology-perspective/README.md)
       * [Views](use/perspectives/topology-perspective/views.md)
-      * [Browsing topology](use/perspectives/topology-perspective/browsing_topology.md)
+      * [Filtering topology](use/perspectives/topology-perspective/browsing_topology.md)
       * [Advanced topology queries with STQL](use/perspectives/topology-perspective/topology_selection_advanced.md)
       * [Creating a topology manually](use/perspectives/topology-perspective/how_to_create_manual_topology.md)
     * [Telemetry Perspective](use/perspectives/telemetry-perspective/README.md)

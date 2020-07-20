@@ -15,6 +15,10 @@ The topology in StackState is likely much bigger than what you care about at any
 
 Views can be accessed by clicking on the Views link in the top navigation bar or using the hamburger menu in the top left corner. When you select a view, StackState will show the components in the view and restrict all further information \(telemetry, problems, events\) to only those components.
 
+## View overview
+
+asd
+
 ## Creating views
 
 To create a new view, navigate to **Explore Mode** via the hamburger menu. Explore Mode shows you all components in StackState. If your IT landscape is too big, StackState will encourage you to narrow your search by [filtering topology](browsing_topology.md) in the view.
