@@ -17,7 +17,14 @@ Views can be accessed by clicking on the Views link in the top navigation bar or
 
 ## View overview
 
-asd
+The View Overview shows a compact summary of the information in the view and is shown when a view is first opened or by clicking on the grid \(white background\) of the graph.
+
+The View Overview shows the following information:
+
+* View properties -- shows the view query and last updated timestamp
+* Components -- shows a summary of the number of components in the view
+* Problem Clusters -- shows the problem clusters for any problems in the view
+* Events -- shows the 5 most recent events that occurred for components in the view
 
 ## Creating views
 
