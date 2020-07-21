@@ -6,6 +6,8 @@ description: See the architecture of your IT landscape.
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
+![](../../../.gitbook/assets/topoview1.png)
+
 ## Components and relations
 
 The Topology Perspective shows components and relations in the selected [view](views.md). Components that have one or more [checks](../../../configure/checks_and_streams.md#checks) configured will have a calculated [health state](../../../configure/propagation.md).
@@ -15,8 +17,8 @@ The Topology Perspective shows components and relations in the selected [view](v
 When a component is selected by clicking on it, the Component Details panel is shown on the right hand side. This panel displays detailed information of the component:
 
 * metadata such as the component's name, type and labels
-* health checks
-* telemetry streams
+* [health checks](../../../configure/checks_and_streams.md#checks)
+* [telemetry streams](../../../configure/checks_and_streams.md#data-streams)
 
 ## Component finder
 
@@ -32,11 +34,13 @@ If one or more components have a critical state, StackState will show the relate
 
 ## Root cause display
 
-The Topology Perspective can optionally show the root cause of a problem cluster in the view:
+If there are components with [telemetry streams](../../../configure/checks_and_streams.md#data-streams) and [health checks](../../../configure/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../../configure/propagation.md) this state throughout the graph. This means your view can contain components that have a deviating health state caused by a component that is outside your view.
 
-* Don't show root cause
-* Show root cause only
-* Show full root cause tree 
+The Topology Perspective allows you to configure whether to show the root cause if it is outside of your view:
+
+* **Don't show root cause** -- do not show the root cause 
+* **Show root cause only** -- only show the root cause component
+* **Show full root cause tree** -- show the entire root cause tree
 
 ## List mode
 

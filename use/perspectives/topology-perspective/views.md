@@ -21,10 +21,10 @@ The View Overview shows a compact summary of the information in the view and is 
 
 The View Overview shows the following information:
 
-* View properties -- shows the view query and last updated timestamp
-* Components -- shows a summary of the number of components in the view
-* Problem Clusters -- shows the problem clusters for any problems in the view
-* Events -- shows the 5 most recent events that occurred for components in the view
+* **View properties** -- shows the view query and last updated timestamp
+* **Components** -- shows a summary of the number of components in the view
+* **Problem Clusters** -- shows the problem clusters for any problems in the view
+* **Events** -- shows the 5 most recent events that occurred for components in the view
 
 ## Creating views
 
