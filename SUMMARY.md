@@ -76,7 +76,6 @@
       * [Advanced topology queries with STQL](use/perspectives/topology-perspective/topology_selection_advanced.md)
       * [Creating a topology manually](use/perspectives/topology-perspective/how_to_create_manual_topology.md)
     * [Telemetry Perspective](use/perspectives/telemetry-perspective/README.md)
-      * [Using the Telemetry Perspective](use/perspectives/telemetry-perspective/telemetry_perspective.md)
       * [How to narrow the telemetry perspective](use/perspectives/telemetry-perspective/how_to_narrow_the_telemetry_perspective.md)
       * [How to use the priority field for streams](use/perspectives/telemetry-perspective/how_to_use_the_priority_field_for_components.md)
     * [Event Perspective](use/perspectives/event-perspective/README.md)
