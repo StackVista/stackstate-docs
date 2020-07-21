@@ -1,5 +1,5 @@
 ---
-description: See events for the components in your IT landscape.
+description: Track changes in your IT landscape.
 ---
 
 # Event Perspective
