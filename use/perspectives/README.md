@@ -14,7 +14,7 @@ StackState offers the following perspectives via it's user interface:
 
 * [Topology perspective](topology-perspective/)
 * [Telemetry perspective](telemetry-perspective/)
-* [Event perspective](event-perspective/)
+* [Event perspective](event-perspective.md)
 
 ### Time travel
 
