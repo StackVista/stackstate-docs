@@ -6,68 +6,74 @@ description: Pull telemetry from Prometheus using mirroring.
 
 # Prometheus Mirror
 
-  Prometheus mirror is a gateway between StackState and prometheus that enables prometheus telemetry in stackstate.
+## Prometheus Mirror
 
-# Mirror Setup
+Prometheus mirror is a gateway between StackState and Prometheus that enables Prometheus telemetry in StackState.
 
-  Prometheus mirror is available as docker image from `quay.io/stackstate/prometheusmirror:latest`.
-  For convenience there is a helm chart available from https://helm.stackstate.io/charts/prometheusmirror-x.x.x.tgz
+## Mirror Setup
 
-  The important parameters are the following:
-  * `global.apiKey` - the key used for mirror authentication
-  * `workers` - number of workers processes
+Prometheus mirror is available as docker image from `stackstate/prometheusmirror:latest`. For convenience there is a helm chart available from [https://helm.stackstate.io/charts/prometheusmirror-x.x.x.tgz](https://helm.stackstate.io/charts/prometheusmirror-x.x.x.tgz)
 
-# StackState Configuration
+The important parameters are the following:
 
-  In order to start using prometheus mirror in StackState one has to create Mirror Datasource
+* `global.apiKey` - the key used for mirror authentication
+* `workers` - number of workers processes
 
-## Configure Mirror Datasource
+## StackState Configuration
 
-  Create new Mirror datasource
-  * DataSourceUrl - points to prometheus mirror endpoint  http://<host>:9900
-  * Api Key - should be the same key as specified by `global.apiKey` mirror install
-  * Connection Details JSON - the mirror configuration json, e.g.
-    ```
-      {
-        "host": "<prometheus host>",
-        "port": <prometheus port>,
-        "requestTimeout": 20000
-      }
-    ```
-    Prometheus host/port must point to actual prometheus host/port (not the mirror)
+In order to start using prometheus mirror in StackState one has to create Mirror Datasource
 
-# Query Configuration
+### Configure Mirror Datasource
 
-## Prometheus Counter
+Create new Mirror datasource
 
-  Counter query allows fetching counter type of metric from prometheus.
-  The retrieved counter values are transformed to a rate.
+* DataSourceUrl - points to prometheus mirror endpoint  http://:9900
+* Api Key - should be the same key as specified by `global.apiKey` mirror install
+* Connection Details JSON - the mirror configuration json, e.g.
 
-  The example of the configuration of query conditions are given below:
-
-  * __counter__ = go_memstats_lookups_total
-  * job = payment-service
-  * name = payment
-  * instance = 127.0.0.1:80
-
-## Prometheus Gauge
-
-  Gauge query allows fetching gauge type of metrics from prometheus.
-
-  The example of the configuration of query conditions are given below:
-
-  * __gauge__ = go_gc_duration_seconds
-  * job = payment-service
-  * name = payment
-  * instance = 127.0.0.1:80
-
-## Prometheus Histogram and Summary
-
-  Prometheus histogram and summary queries are not supported from query interface. They still can be configured using tilda-query.
-
-## Tilda ~ query
-
-  The query allows arbitrary prometheus queries, e.g.
+  ```text
+    {
+      "host": "<prometheus host>",
+      "port": <prometheus port>,
+      "requestTimeout": 20000
+    }
   ```
+
+  Prometheus host/port must point to actual prometheus host/port \(not the mirror\)
+
+## Query Configuration
+
+### Prometheus Counter
+
+Counter query allows fetching counter type of metric from prometheus. The retrieved counter values are transformed to a rate.
+
+The example of the configuration of query conditions are given below:
+
+* **counter** = go\_memstats\_lookups\_total
+* job = payment-service
+* name = payment
+* instance = 127.0.0.1:80
+
+### Prometheus Gauge
+
+Gauge query allows fetching gauge type of metrics from prometheus.
+
+The example of the configuration of query conditions are given below:
+
+* **gauge** = go\_gc\_duration\_seconds
+* job = payment-service
+* name = payment
+* instance = 127.0.0.1:80
+
+### Prometheus Histogram and Summary
+
+Prometheus histogram and summary queries are not supported from query interface. They still can be configured using tilda-query.
+
+### Tilda ~ query
+
+The query allows arbitrary prometheus queries, e.g.
+
+```text
     ~ = histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{instance='127.0.0.1:80', name='payment-service'}[1m])) by (name, le)) * 1000
-  ```
+```
+
