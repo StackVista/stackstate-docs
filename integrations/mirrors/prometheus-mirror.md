@@ -10,26 +10,47 @@ description: Pull telemetry from Prometheus using mirroring.
 
 Prometheus mirror is a gateway between StackState and Prometheus that enables Prometheus telemetry in StackState.
 
-## Mirror Setup
+## Prerequisites
 
-Prometheus mirror is available as docker image from `stackstate/prometheusmirror:latest`. For convenience there is a helm chart available from [https://helm.stackstate.io/charts/prometheusmirror-x.x.x.tgz](https://helm.stackstate.io/charts/prometheusmirror-x.x.x.tgz)
+The Prometheus Mirror has the following prerequisites:
 
-The important parameters are the following:
+* The mirror must be reachable from StackState
+* Prometheus must be reachable from the mirror **without authentication**
 
-* `global.apiKey` - the key used for mirror authentication
-* `workers` - number of workers processes
+## Helm
 
-## StackState Configuration
+The Prometheus mirror is available via the StackState helm repository. Configure your helm with these 2 commands:
 
-In order to start using prometheus mirror in StackState one has to create Mirror Datasource
+```text
+helm repo add stackstate https://helm.stackstate.io
+helm repo update
+```
+
+Alternatively, you can use the docker container directly:
+
+```text
+docker pull stackstate/prometheusmirror:latest
+```
+
+## Mirror configuration
+
+The Prometheus mirror is configured using the following parameters:
+
+* `global.apiKey` - the API key used to authenticate communication between the mirror and StackState
+* `workers` - number of workers processes \(default: `20`\)
+* `port` - the port the mirror is listening on \(default: `9900`\)
+
+## StackState configuration
+
+In order to start using Prometheus mirror in StackState one has to create Mirror Datasource
 
 ### Configure Mirror Datasource
 
-Create new Mirror datasource
+Create a new Mirror datasource:
 
-* DataSourceUrl - points to prometheus mirror endpoint  http://:9900
-* Api Key - should be the same key as specified by `global.apiKey` mirror install
-* Connection Details JSON - the mirror configuration json, e.g.
+* **DataSourceUrl** - points to Prometheus mirror endpoint  http://:9900
+* **Api Key** - should be the same key as specified by `global.apiKey` mirror configuration
+* **Connection Details JSON** - the mirror configuration json, e.g.
 
   ```text
     {
@@ -39,15 +60,15 @@ Create new Mirror datasource
     }
   ```
 
-  Prometheus host/port must point to actual prometheus host/port \(not the mirror\)
+  Prometheus host/port refers to the actual Prometheus host/port \(not the mirror\).
 
 ## Query Configuration
 
 ### Prometheus Counter
 
-Counter query allows fetching counter type of metric from prometheus. The retrieved counter values are transformed to a rate.
+Counter queries fetch counter metrics from Prometheus. The retrieved counter values are transformed to a rate.
 
-The example of the configuration of query conditions are given below:
+The following are sample parameters for a counter query:
 
 * **counter** = go\_memstats\_lookups\_total
 * job = payment-service
@@ -56,22 +77,23 @@ The example of the configuration of query conditions are given below:
 
 ### Prometheus Gauge
 
-Gauge query allows fetching gauge type of metrics from prometheus.
+Gauge queries fetch gauge metrics from Prometheus.
 
-The example of the configuration of query conditions are given below:
+The following are sample parameters for a gauge query:
 
-* **gauge** = go\_gc\_duration\_seconds
+**gauge** = go\_gc\_duration\_seconds
+
 * job = payment-service
 * name = payment
 * instance = 127.0.0.1:80
 
 ### Prometheus Histogram and Summary
 
-Prometheus histogram and summary queries are not supported from query interface. They still can be configured using tilda-query.
+Prometheus histogram and summary queries are **not** supported from the query interface. They still can be configured using tilda-query.
 
 ### Tilda ~ query
 
-The query allows arbitrary prometheus queries, e.g.
+The query allows arbitrary Prometheus queries, e.g.
 
 ```text
     ~ = histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{instance='127.0.0.1:80', name='payment-service'}[1m])) by (name, le)) * 1000
