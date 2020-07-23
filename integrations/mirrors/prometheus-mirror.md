@@ -1,3 +1,7 @@
+---
+description: Pull telemetry from Prometheus using mirroring.
+---
+
 # Prometheus mirror
 
 ## Prometheus Mirror
