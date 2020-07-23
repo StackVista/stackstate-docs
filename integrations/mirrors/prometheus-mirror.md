@@ -26,6 +26,12 @@ helm repo add stackstate https://helm.stackstate.io
 helm repo update
 ```
 
+Install the Prometheus mirror with the following command:
+
+```text
+helm install prometheusmirror stackstate/prometheusmirror --set global.apiKey=API_KEY
+```
+
 Alternatively, you can use the docker container directly:
 
 ```text
