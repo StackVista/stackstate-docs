@@ -71,7 +71,7 @@ The script requires the following input:
 * license key \(`-l`\): The StackState license key
 * admin api password \(`-d`\): The password for the admin api, this api contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation \(you can also omit it from the command line, the script will ask for it in that case\)
 * default password \(`-d`\): The password for the default user \(`admin`\) to access StackState's UI \(you can also omit it from the command line, the script will ask for it in that case\)
-* should the StackState k8s agent be installed automatically (interactively a yes/no question, also enabled when specifying `-k`): StackState has built-in support (via the [Kubernetes StackPack](../../../integrations/kubernetes.md)) for Kubernetes that can be automatically enabled, see the [section](#automatic-kubernetes-support).
+* should the StackState k8s agent be installed automatically (interactively a yes/no question, also enabled when specifying `-k`): StackState has built-in support (via the [Kubernetes StackPack](../../../integrations/kubernetes.md)) for Kubernetes that can be automatically enabled, see this [section](#automatic-kubernetes-support).
 * the Kubernetes cluster name \(`-k`\): When enabling automatic Kubernetes support StackState will use this name to identify the cluster, for more details see [this section](#automatic-kubernetes-support). In non-interactive mode specifying `-k` will specify the cluster name and at the same time enable the Kubernetes support.
 
 Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace run the following command:
