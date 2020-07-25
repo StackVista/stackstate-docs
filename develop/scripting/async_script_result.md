@@ -61,7 +61,7 @@ ScriptApi.asyncFn1().then  {
 
 will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
-### Reducing
+### Reducing with `thenInject`
 
 Since version 4.1.0 arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
 
@@ -94,4 +94,3 @@ ScriptApi.asyncFn1().catchError { ex ->
 ```
 
 Any result returned by the closure passed to `catchError` gets automatically flattened just like `.then` call.
-

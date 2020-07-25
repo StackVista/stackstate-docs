@@ -8,57 +8,52 @@ description: Fetch a list of views.
 
 ## Function `getAll`
 
-Returns query view responses. The query view response contains
-
-* `view` - the actual query view definition
-* `viewInfo` - \(optional\) structure holding extra information that can be requested using builder methods
-
-The query view definition contains the following fields
-
-```text
-id
-name
-description
-groupedByDomains
-groupedByLayers
-groupedByRelations
-showIndirectRelations
-showCause
-state
-viewHealthStateConfiguration
-groupingEnabled
-minimumGroupSize
-query
-```
-
-The fields that may be of the most interest are:
-
-* query - STQL query which can be used subsequently in getting topology using [Topology Script Api](topology.md)
-* state - View state object, holding view state
+Returns a list of all views.
 
 **Args:**
 
 None
 
+**Return type:**
+
+`AsyncScriptResult[List[QueryViewResponse]]`
+
+Fields:
+
+* `QueryViewResponse.view` - the `QueryView` object
+* `QueryViewResponse.viewInfo` - \(optional\) structure holding extra information that can be requested using builder methods
+
+The `QueryView` type has the following fields:
+
+* `QueryView.name` - the name of the view
+* `QueryView.description` - the description of the view
+* `QueryView.state` - View state object, holding view state
+* `QueryView.query` - STQL query which can be used subsequently in getting topology using [Topology Script Api](topology.md)
+
+The `ViewInfo` type has the following fields:
+
+* `ViewInfo.stars.count` - the number of time a star was given by any user to the view
+
 **Builder methods**
 
-`withStarCount` - the flag asking the api to include the star count to the response.
+`withStarCount` - adds the number of times a star was given by any user to the view info of each view.
 
 If this flag is set the query response will contain the `viewInfo` holding star count. The stars count is available on this path `viewResponse.viewInfo.stars.count`
 
 **Examples:**
 
-The example showing how to query views and subsequently the names of topology components from those views is given below:
+The following example collects the names of all components in all views.
 
 ```text
 View.getAll()
-    .thenInject([]) { components, viewResponse ->
-      Topology.query(viewResponse.view.query)
+    .thenInject([]) { componentNames, view ->
+      Topology.query(view.view.query)
               .components()
-              .then { topologyComponents ->
-                  def currentBatch = topologyComponents.collect { it.name }
-                  (components + currentBatch).unique()
+              .then {
+                components -> componentNames + components.collect { it.name }                  
               }
     }
+    .then {
+      it.unique()
+    }
 ```
-
