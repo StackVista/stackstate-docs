@@ -13,7 +13,7 @@ To install this StackPack we need to know the instance id of your servicenow acc
 
 ## Prerequisites
 
-* An API Integration Agent must be installed which can connect to ServiceNow and StackState. \(See the [API Integration StackPack](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/api-integration/README.md) for more details\)
+* An API Integration Agent must be installed which can connect to ServiceNow and StackState. \(See the [API Integration StackPack](api-integration.md) for more details\)
 * A ServiceNow instance must be running.
 
 ## Enabling ServiceNow integration

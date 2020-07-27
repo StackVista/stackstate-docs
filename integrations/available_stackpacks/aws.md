@@ -29,7 +29,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Virtual Private Cloud \(VPC\)
 * VPN Gateway
 
-We also support monitoring X-Ray Traces with the [StackState Agent](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/integrations/agent/README.md).
+We also support monitoring X-Ray Traces with the [StackState Agent](agent.md).
 
 Read [the announcement](http://blog.stackstate.com/stackstate-announces-aws-cloud-monitoring) for more information about the benefits of the AWS StackPack.
 

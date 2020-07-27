@@ -62,8 +62,9 @@
         <p>
           <br />Most often developed:
           <br />&#x2022; <a href="develop/scripting/">Scripting Language</a>
-          <br />&#x2022; <a href="integrations/sdk.md">Developing StackPacks</a>
-          <br />&#x2022; <a href="develop/agent_check/checks_in_agent_v2.md">Developing agent checks</a>
+          <br />&#x2022; <a href="develop/tutorials/basic_stackpack_tutorial.md">StackPack tutorial</a>
+          <br
+          />&#x2022; <a href="develop/agent_check/checks_in_agent_v2.md">Developing agent checks</a>
         </p>
       </td>
       <td style="text-align:left">

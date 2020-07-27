@@ -15,7 +15,7 @@ The export of the configuration can be obtained by:
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfTypes":["ComponentType","RelationType","Domain","Layer","Environment","DataSource","QueryView","EventHandler","CheckFunction","BaselineFunction","PropagationFunction","EventHandlerFunction","ComponentTemplateFunction","RelationTemplateFunction","ComponentMappingFunction","RelationMappingFunction","IdExtractorFunction","ViewHealthStateConfigurationFunction","Sync"]}' "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 
-Or via the [CLI](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md) by:
+Or via the [CLI](../cli.md) by:
 
 ```text
 sts graph list --ids ComponentType RelationType Domain Layer Environment DataSource QueryView EventHandler CheckFunction BaselineFunction PropagationFunction EventHandlerFunction ComponentTemplateFunction RelationTemplateFunction ComponentMappingFunction RelationMappingFunction IdExtractorFunction ViewHealthStateConfigurationFunction Sync | xargs sts graph export --ids
@@ -65,7 +65,7 @@ curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Ty
 SESSION=<session>; TOKEN=<token>; curl -X POST -d @config.stj -H 'Content-Type: application/json;charset=UTF-8' -H Cookie:AkkaHttpPac4jSession=$SESSION -H X-Sts-Token:$TOKEN "http://<host>:7070/api/import?timeoutSeconds=15"
 ```
 
-Or via the [CLI](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/cli/README.md) by:
+Or via the [CLI](../cli.md) by:
 
 ```text
 sts graph import < export.stj
