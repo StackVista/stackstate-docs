@@ -21,7 +21,7 @@ None
 Fields:
 
 * `QueryViewResponse.view` - the `QueryView` object
-* `QueryViewResponse.viewInfo` - \(optional\) structure holding extra information that can be requested using builder methods
+* `QueryViewResponse.viewInfo` - \(optional\) `ViewInfo` structure holding extra information that can be requested using builder methods
 
 The `QueryView` type has the following fields:
 
@@ -32,7 +32,7 @@ The `QueryView` type has the following fields:
 
 The `ViewInfo` type has the following fields:
 
-* `ViewInfo.stars.count` - the number of time a star was given by any user to the view
+* `ViewInfo.stars.count` - the number of times a star was given by any user to the view
 
 **Builder methods**
 
