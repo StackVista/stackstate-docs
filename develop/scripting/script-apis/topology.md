@@ -16,7 +16,7 @@ Topology.query(query: String)
 
 **Args:**
 
-* `query` - a [STQL query](../../../use/perspectives/topology-perspective/topology_selection_advanced.md).
+* `query` - a [STQL query](../../../configure/topology_selection_advanced.md).
 
 **Returns:**
 

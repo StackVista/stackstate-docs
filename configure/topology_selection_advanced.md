@@ -12,7 +12,7 @@ The topology in StackState is likely much bigger than what you care about at any
 
 If you want full control over your topology selection, you can use advanced topology selection. Advanced topology selection is used via the _advanced filter bar_, accessed by selecting _Advanced_ on the basic filter panel. The advanced filter bar allows you to select topology using StackState's built-in query language.
 
-![Advanced filter example](../../../.gitbook/assets/query_advanced_with_neighbours.png)
+![Advanced filter example](../.gitbook/assets/query_advanced_with_neighbours.png)
 
 StackState Query Language \(STQL\) has the following core concepts:
 
@@ -154,5 +154,5 @@ If you \(start to\)type a word after a basic filter operator
 
 ## Using STQL in analytics
 
-STQL can be also be used in the [analytics](../../queries.md) environment in combination with [scripting](../../../develop/scripting/) to create powerful queries that do not only query the topology, but the entire 4T data model.
+STQL can be also be used in the [analytics](../use/queries.md) environment in combination with [scripting](../develop/scripting/) to create powerful queries that do not only query the topology, but the entire 4T data model.
 

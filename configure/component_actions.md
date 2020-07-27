@@ -13,7 +13,7 @@ Component Actions can be configured within StackState Settings or can be predefi
 
 ## What is a Component Action?
 
-A Component Action is a script that can be executed for components bound to that script with an [STQL query](../use/perspectives/topology-perspective/topology_selection_advanced.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines Action's behavior. There are also optional fields for providing a description and an Identifier.
+A Component Action is a script that can be executed for components bound to that script with an [STQL query](topology_selection_advanced.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines Action's behavior. There are also optional fields for providing a description and an Identifier.
 
 ## Component Actions in use
 
