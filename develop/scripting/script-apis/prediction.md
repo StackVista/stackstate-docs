@@ -14,7 +14,7 @@ Predict metrics for the
 
 * `predictorName` - name of prediction preset. Current available predictors: `linear` and `hmn`.
 * `horizon` - how much future to predict. The horizon is specified in the [duration format](scripting/script-apis/time.md).
-* `query` - what metrics to use for the prediction. The query is specified in the STQL format.
+* `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
 
 **Builder methods:**
  
