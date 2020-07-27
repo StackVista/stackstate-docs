@@ -90,7 +90,7 @@ When all pods are up you can enable a port-forward with `kubectl port-forward se
 ### Automatic Kubernetes support
 StackState has built-in support for Kubernetes via the [Kubernetes StackPack](../../../integrations/available_stackpacks/kubernetes.md). To get started quickly the StackState installation can automate the installation of this StackPack and the required agent instalation, but only for the cluster StackState itself will be installed on. This is not required and can always be done later via the StackPacks page of StackState for StackState's cluster or any other Kuberenetes cluster.
 
-The information needed is only a unique name (among kubernetes clusters) for the Kubernetes cluster that will identify this cluster in StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details please read the [Kubernetes StackPack](../../../integrations/available_stackpacks/kubernetes.md).
+The only required information is a name for the Kubernetes cluster that will distinguish it for the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details please read the [Kubernetes StackPack](../../../integrations/available_stackpacks/kubernetes.md).
 
 ### Further customizations
 
