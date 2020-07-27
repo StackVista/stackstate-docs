@@ -19,7 +19,7 @@ Predict metrics for the
 **Builder methods:**
  
  * `predictionPoints(points: Int)` - the number of points to the horizon.
- * `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](scripting/script-apis/time.md).
+ * `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](scripting/script-apis/time.md). When not specifying the start and end the whole history will be included.
 
 **Return type:**
 
