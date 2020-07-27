@@ -87,5 +87,5 @@ The most efficient method for assigning tags is to rely on your StackPacks. Tags
 
 ## Using Tags
 
-After you have assigned tags at the host and integration level, start using them to [create views](../use/perspectives/topology-perspective/views.md).
+After you have assigned tags at the host and integration level, start using them to [create views](../use/views.md).
 

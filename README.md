@@ -53,9 +53,8 @@
           <br />Most often needed:
           <br />&#x2022; <a href="use/perspectives/topology-perspective/browsing_topology.md">Browsing topology</a>
           <br
-          />&#x2022; <a href="use/perspectives/topology-perspective/views.md">Creating views</a>
-          <br
-          />&#x2022; <a href="use/queries.md">Querying 4T data</a>
+          />&#x2022; <a href="use/views.md">Creating views</a>
+          <br />&#x2022; <a href="use/queries.md">Querying 4T data</a>
         </p>
       </td>
       <td style="text-align:left">

@@ -10,7 +10,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](views.md). Components that have one or more [checks](../../../configure/checks_and_streams.md#checks) configured will have a calculated [health state](../../../configure/propagation.md).
+The Topology Perspective shows components and relations in the selected [view](../../views.md). Components that have one or more [checks](../../../configure/checks_and_streams.md#checks) configured will have a calculated [health state](../../../configure/propagation.md).
 
 ## Component details
 
@@ -22,15 +22,15 @@ When a component is selected by clicking on it, the Component Details panel is s
 
 ## Component finder
 
-Locate a specific component in the view by typing the first few letters of it's name. Alternatively, you can select the **Component finder** icon magnifying glass.
+Locate a specific component in the view by typing the first few letters of it's name. Alternatively, you can select the **Component finder** icon magnifying glass in the bottom right corner of the topology visualizer.
 
 ## Zoom in, zoom out and Fit to Screen
 
-The **plus** button .zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
+There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
 
 ## Problem clusters
 
-If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Overview pane](views.md#view-overview).
+If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Overview pane](../../views.md#view-overview).
 
 ## Root cause display
 
