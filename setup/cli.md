@@ -207,7 +207,7 @@ sts stackpack uninstall MyStackPack
 It is possible to execute scripts using the CLI. Use `sts script` to execute a script via standard input. For example:
 
 ```text
-echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts-cli -i sts-test script execute
+echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts script execute
 ```
 
 Do note that the script provided as input must use proper quoting.
