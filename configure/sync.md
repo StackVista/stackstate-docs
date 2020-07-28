@@ -45,12 +45,12 @@ Next up is mapping. It specifies the transformation of external system topologic
 
 ## Merge Strategy
 
-The merge strategy is applied when multiple components get synchronized which have the same 'identifier'. At this point StackState has to decide what data to put into the resulting component, this is what the merge strategy configures. One of the follwing 4 options can be chosen:
+The merge strategy is applied when multiple components get synchronized which have the same 'identifier'. At this point StackState has to decide what data to put into the resulting component, this is what the merge strategy configures. One of the following 4 options can be chosen:
 
-* _Use Mine only_ - Discard everything else, just use the result of the current mapping
-* _Use Theirs always_ - Discard me, go with the result of the other merged components
-* _Merge, prefer mine_ - Merge fields that are mergable, if not take my data
-* _Merge, prefer theirs_ - Merge fields that are mergable, if not take my data
+* _Use Mine only_ - Discard the other components, use just the result of the current mapping
+* _Use Theirs always_ - Discard the result of this mapping, go with the result of the other merged components
+* _Merge, prefer mine_ - Merge fields that are mergable, if not take the data from this mapping
+* _Merge, prefer theirs_ - Merge fields that are mergable, if not take the dat from the other components
 
 Mergable fields in the component are set fields (like streams and checks) and optional fields (like version, description).
 
