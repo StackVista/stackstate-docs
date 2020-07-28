@@ -1,43 +1,72 @@
 ---
 title: Upgrading
 kind: Documentation
+description: Performing major and minor upgrades of StackState.
 ---
 
 # Upgrading StackState
 
 This document describes the upgrade procedure for StackState.
 
-## Determine the type of upgrade
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../integrations/introduction.md).
 
-There are several ways of upgrading StackState, depending on your configuration setup and the changes in the StackState release. Please read the StackState release notes carefully before starting an upgrade.
+### Upgrade considerations
 
-If you are using the StackState application and have not installed any StackPacks, or are using StackPacks that have not been upgraded in this release, follow these steps:
+When executing a StackState upgrade, please be aware of the following:
+
+{% hint style="warning" %}
+**Always read the version-specific upgrade notes at the end of this document before upgrading StackState.**
+{% endhint %}
+
+{% hint style="warning" %}
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../integrations/introduction.md#stackpack-configuration-locking) for more information.
+{% endhint %}
+
+{% hint style="danger" %}
+If there are **hotfixes** installed in your StackState installation, contact StackState technical support prior to upgrading.
+{% endhint %}
+
+### Upgrading to a new minor StackState release
+
+A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0.
+
+If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
+
+A minor upgrade consists of the following steps:
 
 * Create a backup
 * Upgrade StackState
 * Verify the new installation
 
-If you are using the StackState application, have installed StackPacks and are planning to upgrade one or more of them:
+### Upgrading to a new major StackState release
+
+A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
+
+If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the version-specific upgrade instructions.
+
+A major upgrade consists of the following steps:
 
 * Create a backup
-* Uninstall StackPacks
+* Uninstall StackPacks \(optional, check the version-specific upgrade instructions\)
 * Upgrade StackState
-* Install StackPacks
+* Install StackPacks \(optional, check the version-specific upgrade instructions\)
 * Verify the new installation
-
-**NOTE**: when you upgrade a StackPack, **any changes you have made to the templates in that StackPack will be overwritten**.
 
 ## Create a backup
 
-Before upgrading StackState it is recommended to backup your configuration and topology data. The script `bin/sts-backup.sh` will create a backup and store it inside the `backups/` directory.
+Before upgrading StackState it is recommended to backup your configuration and topology data. See [Backup and Restore](backup_restore/) for more information.
 
-**NOTE**: the StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+{% hint style="info" %}
+The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+{% endhint %}
 
 ## Uninstall StackPacks
 
-StackPacks that are going to be upgraded must first be uninstalled. This removes all StackPack configuration from StackState.
+See [Uninstalling StackPacks](../integrations/introduction.md#uninstalling-stackpacks) for more information.
 
-**NOTE**: the StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+{% hint style="warning" %}
+The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+{% endhint %}
 
 ## Upgrade StackState
 
@@ -52,15 +81,11 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-StackPacks that have been upgraded can now be installed again. This provisions StackState with configuration information from the new StackPack.
+See [Installing StackPacks](../integrations/introduction.md#installing-stackpacks) for more information.
 
 ## Verify the new installation
 
 Once StackState has been upgraded and started, verify that the new installation of StackState is reachable and that the application is running.
-
-## Verify Access Control
-
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
 
 ## Version-specific upgrade instructions
 
@@ -87,7 +112,7 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
 ### Upgrade to 1.15.0
 
-* Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](installation/configuration.md).
+* Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
 * Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
 * The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
 

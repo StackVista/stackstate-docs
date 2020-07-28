@@ -9,6 +9,10 @@ kind: Documentation
 
 The data in StackState is divided into three different sets: ElasticSearch data, Kafka Topic data, and the StackGraph data. With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState, that you can configure according to your needs. Besides that, you can also use a StackState CLI command or choose to perform a few manual steps locally on each machine.
 
+{% hint style="warning" %}
+Clearing the data in StackState will **remove any configured permissions from the system**.
+{% endhint %}
+
 ## Clearing data using StackState CLI
 
 The StackState CLI needs access to the Admin API \(default port 7071\) to issue the command used below.

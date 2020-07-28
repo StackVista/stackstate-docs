@@ -84,7 +84,7 @@ ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
 
 ### Handling Exceptions
 
-It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function available from version 1.16. For example:
+It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function available from version 4.0. For example:
 
 ```text
 ScriptApi.asyncFn1().catchError { ex ->

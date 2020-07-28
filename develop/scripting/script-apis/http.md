@@ -18,7 +18,7 @@ Submit HTTP get request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 
@@ -45,7 +45,7 @@ Submit HTTP put request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
@@ -81,7 +81,7 @@ Submit HTTP post request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
@@ -121,7 +121,7 @@ Submit HTTP delete request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 
@@ -159,7 +159,7 @@ Submit HTTP patch request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
@@ -193,7 +193,7 @@ Submit HTTP head request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 

@@ -209,7 +209,7 @@ self.component("urn:check2/host:this_host", "Host", {
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the Agent Check Topology API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Topology API [here](checks_in_agent_v2.md)
 
 ### Sending Metrics
 
@@ -227,7 +227,7 @@ self.gauge("host.cpu.usage", 24.5, tags=["hostname:this-host"])
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the Agent Check Metric API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Metric API [here](checks_in_agent_v2.md)
 
 ### Sending Events
 
@@ -247,7 +247,7 @@ self.event({
 })
 ```
 
-Learn more about the Agent Check Event API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Event API [here](checks_in_agent_v2.md)
 
 ### Sending Service Checks
 
@@ -267,7 +267,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the Agent Check Service Check API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Service Check API [here](checks_in_agent_v2.md)
 
 ### Adding Python Dependencies
 
