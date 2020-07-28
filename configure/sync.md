@@ -43,6 +43,17 @@ Next up is mapping. It specifies the transformation of external system topologic
 * _Parameters_ - values for a mapping function parameters, e.g. selecting template function that knows how to create specific StackState objects
 * _Merge Strategy_ - indicates the merge strategy applied in case several components form a single entity
 
+## Merge Strategy ##
+
+The merge strategy is applied when multiple components get synchronized which have the same 'identifier'. At this point StackState has to decide what data to put into the resulting component, this is what the merge strategy configures. One of the follwing 4 options can be chosen:
+
+* _Use Mine only_ - Discard everything else, just use the result of the current mapping
+* _Use Theirs always_ - Discard me, go with the result of the other merged components
+* _Merge, prefer mine_ - Merge fields that are mergable, if not take my data
+* _Merge, prefer theirs_ - Merge fields that are mergable, if not take my data
+
+Mergable fields in the component are set fields (like streams and checks) and optional fields (like version, description).
+
 ## Mapping Function
 
 Mapping function is defined by a groovy script and input parameters that groovy script requires. The goal of mapping function is to process topology data of external system and prepare parameters for template function. Thus mapping function is likely plugin specific.
@@ -113,4 +124,3 @@ The template below will create relation between components `{{ sourceId }}` to `
 ```
 
 Note that template is not limited to rendering only components and relations. It can render json for any StackState domain object that is supported by !restapi!, e.g. Domain, Layer, Check, Stream etc. and also not only single object, but several multiple objects with one template.
-
