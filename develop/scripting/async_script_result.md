@@ -61,14 +61,6 @@ ScriptApi.asyncFn1().then  {
 
 will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
-Since version 4.1.0 flattening can also be done using `AsyncScriptApi.sequence()` method. For example:
-
-```text
-AsyncScriptApi.sequence([ScriptApi.asyncFn2(), ScriptApi.asyncFn3()])
-```
-
-will return the same result as `.then()` expression above.
-
 ### Reducing with `thenInject`
 
 Since version 4.1.0 arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
