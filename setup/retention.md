@@ -1,3 +1,7 @@
+---
+description: Configuring data retention parameters.
+---
+
 # Data retention
 
 StackState imposes data retention limits to save storage space and improve performance.

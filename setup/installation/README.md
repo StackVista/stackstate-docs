@@ -1,3 +1,7 @@
+---
+description: Installing StackState.
+---
+
 # Installation
 
 ## Choosing your installation type

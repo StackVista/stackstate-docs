@@ -1,3 +1,7 @@
+---
+description: Managing StackState using the CLI.
+---
+
 # StackState CLI
 
 The StackState CLI can be used to configure StackState, work with data, and help with debugging problems. The CLI provides easy access to the functionality provided by the StackState API. The URLs and authentication credentials are configurable. Multiple configurations can be stored for access to different instances.

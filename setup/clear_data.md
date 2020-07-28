@@ -1,6 +1,7 @@
 ---
 title: Clear data
 kind: Documentation
+description: Removing data from StackState.
 ---
 
 # Clearing data
