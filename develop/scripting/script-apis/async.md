@@ -22,7 +22,7 @@ Flattening async results of Script API functions.
 The example below will return the AsyncScriptResult of the list of results of functions `asyncFn2()` and `asyncFn3()`
 
 ```text
-AsyncScriptApi.sequence([ScriptApi.asyncFn2(), ScriptApi.asyncFn3()])
+Async.sequence([ScriptApi.asyncFn2(), ScriptApi.asyncFn3()])
 ```
 
 Optionally the flattening can be done implicitly with `ScriptApi.then()` combinator.
