@@ -43,7 +43,7 @@ Next up is mapping. It specifies the transformation of external system topologic
 * _Parameters_ - values for a mapping function parameters, e.g. selecting template function that knows how to create specific StackState objects
 * _Merge Strategy_ - indicates the merge strategy applied in case several components form a single entity
 
-## Merge Strategy ##
+## Merge Strategy
 
 The merge strategy is applied when multiple components get synchronized which have the same 'identifier'. At this point StackState has to decide what data to put into the resulting component, this is what the merge strategy configures. One of the follwing 4 options can be chosen:
 
