@@ -90,7 +90,7 @@ instances:
      ...
 ```
 
-## Configuring StackState through the CLI
+## Configuring StackState using the CLI
 
 StackState's configuration is stored in StackState's graph database in so-called configuration nodes. These nodes can be inspected, imported and exported using the CLI. To see all types of configuration nodes run:
 
@@ -112,7 +112,7 @@ To import these check functions call:
 sts graph import < mycheckfunctions.stj
 ```
 
-### Inspecting data with the CLI
+### Inspecting data
 
 #### Data flowing through topics
 
@@ -126,7 +126,7 @@ sts topic list
 
 Then use `sts topic show <topic>` to inspect any topic.
 
-### Sending data with the CLI
+### Sending data
 
 You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send some test topology or telemetry to StackState.
 
@@ -159,6 +159,48 @@ The CLI can send events using `sts events send <eventName>` It will send one eve
 #### Topology
 
 Please refer to `usage.md` provided with the CLI for detailed instructions.
+
+### Managing StackPacks
+
+The CLI can be used to manage the StackPacks in your StackState instance.
+
+Upload a StackPack using the following command:
+
+```text
+sts stackpack upload /path/to/MyStackPack-1.0.0.sts
+```
+
+Once the StackPack is uploaded, it can be installed as follows:
+
+```text
+sts stackpack install MyStackPack
+```
+
+If the StackPack requires parameters during installation, supply them as follows:
+
+```text
+sts stackpack install -p param1 value1 -p param2 value2 MyStackPack
+```
+
+For example, the open-source [SAP StackPack](https://github.com/StackVista/stackpack-sap) requires [parameter **sap\_host**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/stackpack.conf#L24) during installation. This command kicks off that installation:
+
+```text
+sts stackpack install -p sap_host sap1.acme.com stackpack-sap-1.0.1.sts
+```
+
+If you want to upgrade a StackPack, first upload the new StackPack version as shown above, then trigger the upgrade with the following command:
+
+```text
+sts stackpack upgrade MyStackPack
+```
+
+Note that StackState will upgrade to the latest StackPack version that is available on the StackState server.
+
+Uninstall a StackPack as follows:
+
+```text
+sts stackpack uninstall MyStackPack
+```
 
 ### Scripting
 
