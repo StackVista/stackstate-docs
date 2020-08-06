@@ -17,7 +17,7 @@ Using this StackPack, you can:
 
 The following prerequisites need to be met:
 
-* An API-Integration Agent must be installed on a single machine which can connect to the Nagios and to StackState. \(See the [API Integration StackPack](api-integration.md) for more details\)
+* StackState Agent V2 must be installed on a single machine which can connect to Nagios and StackState. \(See the [StackState Agent V2 StackPack](agent.md) for more details\)
 * A Nagios instance must be running.
 
 ## Configuration

@@ -7,7 +7,7 @@ kind: documentation
 
 ## What is the VMWare vSphere StackPack?
 
-The VMware vSphere StackPack is used to create a near real time synchronization with VMware vSphere.
+The VMware vSphere StackPack is used to create a near real-time synchronization with VMware vSphere.
 
 This StackPack provides functionality that allows for monitoring of the following resources:
 
@@ -22,12 +22,13 @@ VMware StackPack collects all topology data for the components and relations bet
 
 ## Prerequisites
 
-The [API Integration Agent](api-integration.md) is needed on a single machine which can connect to vSphere vCenter and StackState. Also vSphere vCenter instance must be running.
+* StackState Agent V2 must be installed on a single machine which can connect to VSphere VCenter and StackState. \(See the [StackState Agent V2 StackPack](agent.md) for more details\)
+* A VSphere VCenter instance must be running.
 
 ### Network communication
 
-* The [API Integration Agent](api-integration.md) connects to the vSphere instance on TCP port 443.
-* The [API Integration Agent](api-integration.md) connects to StackState API on TCP port 7077
+* The [StackState Agent V2](agent.md) connects to the vSphere instance on TCP port 443.
+* The [StackState Agent V2](agent.md) connects to StackState API on TCP port 7077
 * If Agent is installed on the StackState host then port 7077 is localhost communication.
 * If Agent is installed on a different host, you need a network path between the Agent and StackState on port 7077/tcp, and to vSphere on 443/tcp port.
 
