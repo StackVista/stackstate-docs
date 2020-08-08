@@ -52,7 +52,7 @@ The merge strategy is applied when multiple components get synchronized which ha
 * _Merge, prefer mine_ - Merge fields that are mergable, if not take the data from this mapping
 * _Merge, prefer theirs_ - Merge fields that are mergable, if not take the data from the other components
 
-Mergable fields in the component are set fields (like streams and checks) and optional fields (like version, description). Mandatory fields (like name, layer) cannot be merged, for these always one has to be picked based on Mine/Theirs configuration.
+Mergable fields in the component are set fields \(like streams and checks\) and optional fields \(like version, description\). Mandatory fields \(like name, layer\) cannot be merged, for these always one has to be picked based on Mine/Theirs configuration.
 
 ## Mapping Function
 
@@ -124,3 +124,4 @@ The template below will create relation between components `{{ sourceId }}` to `
 ```
 
 Note that template is not limited to rendering only components and relations. It can render json for any StackState domain object that is supported by !restapi!, e.g. Domain, Layer, Check, Stream etc. and also not only single object, but several multiple objects with one template.
+

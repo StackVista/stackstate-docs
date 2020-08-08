@@ -94,3 +94,4 @@ ScriptApi.asyncFn1().catchError { ex ->
 ```
 
 Any result returned by the closure passed to `catchError` gets automatically flattened just like `.then` call.
+
