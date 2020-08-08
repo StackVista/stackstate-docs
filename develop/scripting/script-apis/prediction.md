@@ -8,11 +8,11 @@ description: Functions for predicting data available in StackState.
 
 ## Function: `predictMetrics`
 
-Predict metrics for the
+Predict metrics for any metric query coming from any data source.
 
 **Args:**
 
-* `predictorName` - name of prediction preset. Current available predictors: `linear` and `hmn`.
+* `predictorName` - name of prediction preset. Current available predictors: `linear`, `hmn` and `fft`.
 * `horizon` - how much future to predict. The horizon is specified in the [duration format](https://github.com/StackVista/stackstate-docs/tree/e2f9fce29a1e9eddeb4327ce7f8f25a8ab5ce870/develop/scripting/script-apis/scripting/script-apis/time.md).
 * `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
 
