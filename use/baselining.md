@@ -128,7 +128,7 @@ To configure a check to alert on anomalies follow these steps:
 5. Click `CREATE` to add the check.
 
 {% hint style="info" %}
-Once you've added the check function it may take a **5+ minutes** \(dependent on the baseline batch size\) before the check changes health state.
+Once you've added the check function it may take **5+ minutes** before the check changes health state. This is dependant on the configured baseline batch size.
 {% endhint %}
 
 ## Automatically configuring streams for anomaly detection
