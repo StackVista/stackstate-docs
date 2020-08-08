@@ -8,18 +8,18 @@ description: Functions for predicting data available in StackState.
 
 ## Function: `predictMetrics`
 
-Predict metrics for the 
+Predict metrics for the
 
 **Args:**
 
 * `predictorName` - name of prediction preset. Current available predictors: `linear` and `hmn`.
-* `horizon` - how much future to predict. The horizon is specified in the [duration format](scripting/script-apis/time.md).
+* `horizon` - how much future to predict. The horizon is specified in the [duration format](https://github.com/StackVista/stackstate-docs/tree/e2f9fce29a1e9eddeb4327ce7f8f25a8ab5ce870/develop/scripting/script-apis/scripting/script-apis/time.md).
 * `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
 
 **Builder methods:**
- 
- * `predictionPoints(points: Int)` - the number of points to the horizon.
- * `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](scripting/script-apis/time.md). When not specifying the start and end the whole history will be included.
+
+* `predictionPoints(points: Int)` - the number of points to the horizon.
+* `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](https://github.com/StackVista/stackstate-docs/tree/e2f9fce29a1e9eddeb4327ce7f8f25a8ab5ce870/develop/scripting/script-apis/scripting/script-apis/time.md). When not specifying the start and end the whole history will be included.
 
 **Return type:**
 
@@ -55,3 +55,4 @@ Prediction.predictMetrics("linear", "4h",
         .compileQuery()
 ).includeHistory().predictionPoints(8)
 ```
+
