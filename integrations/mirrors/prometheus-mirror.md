@@ -52,7 +52,7 @@ In order to start using Prometheus mirror in StackState one has to create Mirror
 
 Create a new Mirror datasource:
 
-* **DataSourceUrl** - points to Prometheus mirror endpoint  http://:9900
+* **DataSourceUrl** - points to Prometheus mirror endpoint  [http://:9900](http://:9900)
 * **Api Key** - should be the same key as specified by `global.apiKey` mirror configuration
 * **Connection Details JSON** - the mirror configuration json, e.g.
 

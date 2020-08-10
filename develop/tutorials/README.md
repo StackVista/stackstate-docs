@@ -30,3 +30,9 @@ A mirror integration is a good fit if you want to retrieve telemetry data from a
 
 This [mirror integration tutorial](mirror_tutorial.md) will show you how it works.
 
+## Basic StackPack tutorial
+
+StackPacks are packaged extensions to StackState. If you want to extend StackState to connect to a new datasource or add configuration, you can distribute these changes in a StackPack.
+
+This [basic StackPack tutorial](basic_stackpack_tutorial.md) will show you how it works.
+

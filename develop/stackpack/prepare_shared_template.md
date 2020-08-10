@@ -141,6 +141,8 @@ Contains Relation name and direction.
     },
 ```
 
+For more details on the layer, please go through [StackState Common Layer](stackstate-common-layer.md).
+
 ## Domains
 
 ```javascript

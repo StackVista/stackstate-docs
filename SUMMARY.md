@@ -116,6 +116,7 @@
     * [Preparing instance template files](develop/stackpack/prepare_instance_template_file.md)
     * [Preparing a StackPack provisioning script](develop/stackpack/prepare_stackpack_provisioning_script.md)
     * [Resources in a StackPack](develop/stackpack/stackpack_resources.md)
+    * [StackState Common Layer](develop/stackpack/stackstate-common-layer.md)
   * [Custom Synchronization StackPack](develop/custom_synchronization_stackpack/README.md)
     * [How to customize elements created by the Custom Synchronization StackPack](develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md)
     * [How to connect an agent check with StackState](develop/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance.md)
