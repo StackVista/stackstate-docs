@@ -20,7 +20,7 @@ The following events are currently recorded:
 
 ## Filtering
 
-The Event Perspective supports filtering of the events by type. 
+The Event Perspective supports filtering of the events by type.
 
 ## Time travel
 
