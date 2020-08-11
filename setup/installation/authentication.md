@@ -107,7 +107,7 @@ authentication {
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
         bindCredentials {
-           dn = "administrator@stackstate.com"
+           dn = "cn=Ldap bind user,ou=management,o=stackstate,cn=people,dc=example,dc=com"
            password = "password"
          }
       }
@@ -149,8 +149,8 @@ Configuration field explanation:
    * _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
    * _**trustStorePath**_ - optional, path to the trust store on the StackState server.
    * \(if both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence\)
-   * _**bindCredentials**_ - used to authenticate StackState to LDAP server.
-   * _**usernameKey**_ - the name of the attribute that stores the username.
+   * _**bindCredentials**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
+   * _**usernameKey**_ - the name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * _**groupMemberKey**_ - the name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `({groupMemberKey}=email=admin@sts.com,ou=management,o=stackstate,cn=people,dc=example,dc=com)`.
    * _**rolesKey**_ - the name of the attribute that stores the group name.
 4. **adminGroups** - the list of roles whose members StackState grants administrative privileges.

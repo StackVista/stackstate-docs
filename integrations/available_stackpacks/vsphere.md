@@ -29,8 +29,8 @@ VMware StackPack collects all topology data for the components and relations bet
 
 * The [StackState Agent V2](agent.md) connects to the vSphere instance on TCP port 443.
 * The [StackState Agent V2](agent.md) connects to StackState API on TCP port 7077
-* If Agent is installed on the StackState host then port 7077 is localhost communication.
-* If Agent is installed on a different host, you need a network path between the Agent and StackState on port 7077/tcp, and to vSphere on 443/tcp port.
+* If the Agent is installed on the StackState host then port 7077 is localhost communication.
+* If the Agent is installed on a different host, you need a network path between the Agent and StackState on port 7077/tcp, and to vSphere on 443/tcp port.
 
 ## Enabling the vSphere check
 

@@ -61,6 +61,27 @@ ScriptApi.asyncFn1().then  {
 
 will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
+### Reducing with `thenInject`
+
+Since version 4.1.0 arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
+
+```text
+ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
+  accumulator + element
+}
+```
+
+Suppose that `asyncFn1` returns a list, then subsequent `thenInject` call can accumulate the result, in this case using summation.
+
+In particular this call can be interesting for the cases where an accumulating operation returns the `AsyncScriptResult`. See example below:
+
+```text
+ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
+  ScriptApi.asyncFn2(element)
+    .then { result => accumulator + result }
+}
+```
+
 ### Handling Exceptions
 
 It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function available from version 4.0. For example:
