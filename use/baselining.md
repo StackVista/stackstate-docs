@@ -36,7 +36,7 @@ In the baseline dialog fill in the following values:
 
 Below the horizontal line you can run a preview of the baseline, so you may tune it to your liking. Select a time range for the preview and press the preview button.
 
-### Baseline functions
+## Baseline functions
 
 Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/developing/scripting/). By default the following baseline functions are supplied:
 
