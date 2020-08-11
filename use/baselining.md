@@ -38,7 +38,7 @@ Below the horizontal line you can run a preview of the baseline, so you may tune
 
 ### Baseline functions
 
-Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](https://github.com/StackVista/stackstate-docs/tree/bc0a70f1df1802f0c4ec1b51a67ff36592746880/developing/scripting/README.md). By default the following baseline functions are supplied:
+Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/developing/scripting/). By default the following baseline functions are supplied:
 
 ### Function: Stationary Auto-Tuned Baseline
 
