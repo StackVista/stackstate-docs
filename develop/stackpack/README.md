@@ -20,5 +20,4 @@ Refer to:
 * [Prepare a StackPack provisioning script](prepare_stackpack_provisioning_script.md)
 * [How to pack and upload a StackPack](how_to_pack_and_upload_stackpack.md)
 * [How to make a multi-instance StackPack](how_to_make_a_multi-instance_stackpack.md)
-* [StackState Common Layer](stackstate-common-layer.md)
 

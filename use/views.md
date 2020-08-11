@@ -28,7 +28,7 @@ The View Overview shows the following information:
 
 ## Creating views
 
-To create a new view, navigate to **Explore Mode** via the hamburger menu. Explore Mode shows you all components in StackState. If your IT landscape is too big, StackState will encourage you to narrow your search by [filtering topology](views.md) in the view.
+To create a new view, navigate to **Explore Mode** via the hamburger menu. Explore Mode shows you all components in StackState. If your IT landscape is too big, StackState will encourage you to narrow your search by [filtering topology]() in the view.
 
 When a view is modified or you created a new view starting from Explore Mode, a **Save As View** button will appear at the top of the screen. Click this button to save \(the changes to\) your view.
 

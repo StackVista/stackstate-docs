@@ -8,7 +8,7 @@ StackState and its [4T data model](../../concepts/4t_data_model.md) collect real
 
 All data in StackState is organized around [topology](../../concepts/4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](../views.md), that represents the application, layer or set of components that you care about, is the context that the perspectives operate in.
 
-## Perspectives
+### Perspectives
 
 StackState offers the following perspectives via it's user interface:
 
@@ -16,7 +16,7 @@ StackState offers the following perspectives via it's user interface:
 * [Telemetry perspective](telemetry-perspective.md)
 * [Event perspective](event-perspective.md)
 
-## Time travel
+### Time travel
 
 All perspectives allow for time travel by using the timeline control located at the bottom of the perspective. The timeline shows the currently selected time window and the active perspective uses this time window to show information. Switching to another perspective keeps the current time window in place so you can easily correlate different types of information. You can change the time window by using the dropdown on the top left of the timeline control. Zoom in on a particular time window using drag-zoom on the timeline control.
 
