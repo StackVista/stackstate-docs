@@ -1,3 +1,7 @@
+---
+description: Obtaining StackState software.
+---
+
 # Download
 
 StackState and related software are distributed through our download website. The software distribution website is located at [download.stackstate.com](https://download.stackstate.com).

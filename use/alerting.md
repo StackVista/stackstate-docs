@@ -4,6 +4,7 @@ kind: Documentation
 alises:
   - /usage/alerting/
 listorder: 4
+description: Alert when issues occur.
 ---
 
 # Alerting

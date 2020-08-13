@@ -49,7 +49,7 @@ If the user is currently in an unsaved view, the user receives a prompt dialog a
 
 **Args:**
 
-* `query` - [STQL query](../../../use/topology_selection_advanced.md) that selects what part of the topology is shown.
+* `query` - [STQL query](../../../configure/topology_selection_advanced.md) that selects what part of the topology is shown.
 
 **Return type:**
 
