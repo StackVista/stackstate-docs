@@ -3,6 +3,7 @@ title: Views
 kind: Documentation
 aliases:
   - /usage/views/
+listorder: 2
 description: Bookmark and monitor parts of the 4T data model with views.
 ---
 
@@ -101,4 +102,3 @@ Through a combination of configuration of [permissions](../configure/permissions
 * access to specific views and disallowing them to create, modify or delete views
 
 Please refer to the [RBAC documentation](../concepts/role_based_access_control.md).
-
