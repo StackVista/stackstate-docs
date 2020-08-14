@@ -26,7 +26,7 @@ Generally speaking, views serve two major purposes:
 Not all views are manually created. Many [StackPacks](/integrations/introduction.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
 {% endhint %}
 
-Views can be accessed by clicking on the "Views" menu item on the main menu. Views that you have starred will be presented directly in the main menu for easy access. Starred views are a personal preference that is stored onto your account and .
+Views can be accessed by clicking on the _"Views"_ menu item on the main menu. Views that you have starred will be presented directly in the main menu for easy access. Starred views are a personal preference that is stored onto your account and .
 
 ## View details panel
 
@@ -39,7 +39,7 @@ Whenever you first open a view you see a view details panel on the right side of
 * **View properties** -- shows the view query and last updated timestamp.
 * **Components** -- shows a summary of the number of components in the view.
 * **Problem Clusters** -- shows the problem clusters for any problems in the view.
-* **Events** -- shows the 5 most recent events that occurred for components in the view. Click view all to show the [event perspective](/use/perspectives/event-perspective).
+* **Events** -- shows the 5 most recent events that occurred for components in the view. Click _"View all"_ to show the [event perspective](/use/perspectives/event-perspective.md).
 
 ## View health state
 
@@ -55,10 +55,10 @@ To enable view health state put the `View Health State Enabled` to on when creat
 ## Creating views
 
 {% hint style="info" %}
-By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](../concepts/role_based_access_control.md).
+By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](/concepts/role_based_access_control.md).
 {% endhint %}
 
-To create a new view, navigate to "Explore Mode" via the hamburger menu or use another view as a starting point. Whenever you change any of the topology filtering settings a "Save View" button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select "Save View As".
+To create a new view, navigate to _"Explore Mode"_ via the hamburger menu or use another view as a starting point. Whenever you change any of the topology filtering settings a _"Save View"_ button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select _"Save View As"_.
 
 In the dialog the following options appear:
 
@@ -66,9 +66,9 @@ In the dialog the following options appear:
 | :--- | :--- |
 | View name |  The name of your view. |
 | View health state enabled |  Whether your view has a health state. If you disable this option your view's health state, depicted by the colored circle next to the view, will always color gray. The main reason for disabling is the fact that StackState's backend needs to spend resources on calculating the view health state each time the view changes. |
-| Configuration function | When view health state is enabled you can choose a [view state configuration function](configure/view_state_configuration) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states** |
-| Arguments | Arguments are dependent on the chosen function. See "Function: minimum health states" below. |
-| Identifier | (Optional) this field can be used to give a unique [identifier](configure/identifiers/) to the view. This makes the view uniquely referenceable from exported configuration, like the exported configuration in a StackPack. |
+| Configuration function | When view health state is enabled you can choose a [view state configuration function](/configure/view_state_configuration.md) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states** |
+| Arguments | Arguments are dependent on the chosen function. See (Function: minimum health states)[/use/views#function-minimum-health-states] below. |
+| Identifier | (Optional) this field can be used to give a unique [identifier](/configure/identifiers.md) to the view. This makes the view uniquely referenceable from exported configuration, like the exported configuration in a StackPack. |
 
 ## Function: minimum health states
 
