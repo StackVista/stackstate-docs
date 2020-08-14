@@ -26,7 +26,7 @@ Generally speaking, views serve two major purposes:
 Not all views are manually created. Many [StackPacks](/integrations/introduction.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
 {% endhint %}
 
-Views can be accessed by clicking on the **Views** menu item on the main menu. Views that you have starred will be presented directly in the main menu for easy access. Starred views are a personal preference that is stored onto your account and .
+Views can be accessed by clicking on the **Views** menu item on the main menu. Views that you have starred will be presented directly in the main menu for easy access. Starred views are a personal preference that is stored onto your account.
 
 ## View details panel
 
