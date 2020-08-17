@@ -102,6 +102,19 @@ curl -X POST \
 
 You can also send metrics to StackState with the CLI `metric send` command.
 
+{% hint style="warning" %}
+Metric names cannot start with any of the following prefixes:
+
+- `host`
+- `name`
+- `timestamp`
+- `timeReceived`
+- `labels`
+- `tags`
+- `values`
+
+{% endhint %}
+
 ## Events
 
 Events can be sent to the receiver API using the `events` property. Every event has a `name`, `timestamp`, and optionally `msg_title`, `msg_text`, `tags` and `source_type_name`.
@@ -178,3 +191,17 @@ curl -X POST \
 
 You can also send events to StackState with the CLI `event send` command.
 
+{% hint style="warning" %}
+Event names cannot start with any of the following prefixes:
+
+- `host`
+- `name`
+- `title`
+- `eventType`
+- `message`
+- `timestamp`
+- `timeReceived`
+- `labels`
+- `tags`
+
+{% endhint %}
