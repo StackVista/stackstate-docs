@@ -44,6 +44,7 @@
 * [StackPacks and Integrations](integrations/README.md)
   * [Available StackPacks](integrations/available_stackpacks/README.md)
     * [StackState agent](integrations/available_stackpacks/agent.md)
+    * [Autonomous Anomaly Detector](integrations/available_stackpacks/aad.md)
     * [AWS](integrations/available_stackpacks/aws.md)
     * [Azure](integrations/available_stackpacks/azure.md)
     * [API integration](integrations/available_stackpacks/api-integration.md)
@@ -149,4 +150,3 @@
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
     * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
     * [Basic StackPack tutorial](develop/tutorials/basic_stackpack_tutorial.md)
-
