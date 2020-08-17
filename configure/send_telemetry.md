@@ -103,7 +103,7 @@ curl -X POST \
 You can also send metrics to StackState with the CLI `metric send` command.
 
 {% hint style="warning" %}
-Metric names can not start with any of the following prefixes:
+Metric names cannot start with any of the following prefixes:
 
 - `host`
 - `name`
@@ -192,7 +192,7 @@ curl -X POST \
 You can also send events to StackState with the CLI `event send` command.
 
 {% hint style="warning" %}
-Event names can not start with any of the following prefixes:
+Event names cannot start with any of the following prefixes:
 
 - `host`
 - `name`
