@@ -36,25 +36,25 @@ The manual step is required to install Autonomous Anomaly Detector.
 
 ### Install Helm and Get the latest anomaly detection chart
 
-1. Install Helm:
+* Install Helm:
 
 Please see helm docs `https://helm.sh/docs/intro/install`
 
-2. Add stackstate helm repo:
+* Add stackstate helm repo:
 
 ```
 helm repo add stackstate https://helm.stackstate.io`
 ```
 
-3. Fetch the latest chart:
+* Fetch the latest chart:
 
 ```
 helm fetch stackstate/anomaly-detection
 ```
 
-### Configure Anomaly Detection Service
+### Configure Anomaly Detection Chart
 
-1. Configure values.yaml file:
+## Configure values.yaml file:
 
   - configure image version tag, e.g `4.1.0-latest`
   - stackstate instance url, e.g `http://stackstate-server-headless:7070/` or `http://<releasename>-stackstate-server-headless:7070/`
@@ -87,7 +87,9 @@ More information on possible configuration options are in the chart documentatio
 helm show all stackstate/anomaly-detection
 ```
 
-2. Install the anomaly detection chart in the same namespace as stackstate:
+## Install Anomaly detection chart
+
+The anomaly detection chart is required to be deployed to the same namespace as StackState chart.
 
 ```
 helm upgrade <release name> stackstate/anomaly-detection \
@@ -95,16 +97,21 @@ helm upgrade <release name> stackstate/anomaly-detection \
     --namespace <stackstate-namespace> \
     --values ./values.yaml
 ```
+## Deactivate Anomaly Detection service
 
-## Uninstalling Anomaly Detection Stackpack:
+The anomaly detection service can be deactivated by uninstalling the stackpack.
 
-1. Uninstall anomaly detection service:
+In this case the service will hold the resources but will not execute anomaly detection.
+
+## Uninstall Anomaly Detection Stackpack:
+
+* Uninstall anomaly detection service:
 
 ```
 helm delete <release name>
 ```
 
-2. Uninstall the AAD stackpack
+* Uninstall the AAD stackpack
 
 [//]: # (Configuration section)
 # Configuration
@@ -131,4 +138,13 @@ Detected anomalies appear in several places:
 
 In order to get the details about current state of anomaly detection and also for troubleshooting one can browse the debug UI of the anomaly detector service.
 The debug UI can be turned on by enabling debug interface ingress (see `Install` section).
-The UI allows to see scheduling progress, possible errors, what models selected for what streams, how many anomalies found in all streams and job statistics.
+With the help of the debug UI one can answer the following questions:
+* Is the anomaly detection service running?
+
+* Can I see the status page? (ingress must be configured)
+
+* Can anomaly detection service reach StackState?
+
+* Is anomaly detection service detecting anomalies?
+
+Besides that it allows to see various information about the scheduling progress, possible errors, ML models selected and job statistics.
