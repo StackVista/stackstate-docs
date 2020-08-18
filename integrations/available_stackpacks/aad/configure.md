@@ -1,5 +1,5 @@
 ---
-title: Configuration
+title: Configure
 kind: documentation
 ---
 

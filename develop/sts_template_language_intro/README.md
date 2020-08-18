@@ -29,11 +29,7 @@ StackState template files are using handlebars - a content that is placed betwee
 
 StackState extends on that concept and allows to include different types of content within handlebars inside `.stj` files:
 
-* you can include a script \(Groovy\): `{{ include "path/to/script.groovy" }}`
-* you can include an icon: `{{ include "path/to/icon.png" "base64" }}`
-* you can include a template: `{{ include "path/to/template.handlebars" }}`
 
 ## Component and Relation templates
 
 Please find more information on the [Component and Relation templates page.](../../concepts/components_and_relations.md)
-
