@@ -15,7 +15,7 @@ Autonomous Anomaly Detection scales to large environments by prioritizing stream
 
 ## Prerequisites
 
-The Autonomous Anomaly Detector StackPack can only be installed within a [Kubernetes](setup/installation/kubernetes/) setup. Please make sure that your StackState installation does support it.
+The Autonomous Anomaly Detector StackPack can only be installed within a [Kubernetes](/setup/installation/kubernetes/README.md) setup. Please make sure that your StackState installation does support it.
 Please [contact support](https://www.stackstate.com/company/contact/) if you are not sure that is the case or if you would like to know more.
 
 [//]: # (Install section)
@@ -111,7 +111,7 @@ Autonomous Anomaly Detection Service automatically finds the right machine learn
 
 Once the streams and views are configured, the Autonomous Anomaly Detection service selects streams using script API query and schedule detection jobs for them.
 Detected anomalies appear in several places:
-* All anomalies appear as annotations in metric charts in [Component Details](/getting_started.md#component-relation-details) and in [Metric inspector](/getting_started.md#metric-Inspector)
+* All anomalies appear as annotations in metric charts in [Component Details](/getting_started.md#component-relation-details) and in [Metric inspector](/getting_started.md#metric-inspector)
 * The Anomalies with HIGH severity will appear as events in [Event Perspective](/use/perspectives/event-perspective.md). Clicking on the event will open the event details pane where one can see the details of the anomaly.
 
 [//]: # (Troubleshooting section)
