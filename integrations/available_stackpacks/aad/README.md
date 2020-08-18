@@ -15,7 +15,7 @@ Autonomous Anomaly Detection scales to large environments by prioritizing stream
 
 ## Prerequisites
 
-The Autonomous Anomaly Detector StackPack can only be installed within a Kubernetes setup. Please make sure that your StackState installation does support it.
+The Autonomous Anomaly Detector StackPack can only be installed within a [Kubernetes](setup/installation/kubernetes/) setup. Please make sure that your StackState installation does support it.
 Please [contact support](https://www.stackstate.com/company/contact/) if you are not sure that is the case or if you would like to know more.
 
 [//]: # (Install section)
@@ -101,7 +101,7 @@ helm delete <release name>
 StackState's Autonomous Anomaly Detection doesn't need manual fine-grained configuration.
 It gives high level controls to the user in the following ways:
 * The stream priority can be set to `HIGH` and this will let anomaly detector to know that this stream is important
-* The user can prioritize parts of landscape for for anomaly detection by starring a view. The more stars view has got, the high its rank and the high chance that the components in the view are scheduled for anomaly detection.
+* The user can prioritize parts of landscape for for anomaly detection by starring a [View](/use/views.md). The more stars view has got, the high its rank and the high chance that the components in the view are scheduled for anomaly detection.
 
 Autonomous Anomaly Detection Service automatically finds the right machine learning algorithm for each data stream using AutoML. This is a collection of anomaly detection algorithms, the semantics of the data, correlations among data streams, user feedback, and historical IT incidents. Autonomous Anomaly Detection tries different ways to detect anomalies and finds the one that detects the most meaningful anomalies making sure it doesn't have false positives.
 
@@ -111,8 +111,8 @@ Autonomous Anomaly Detection Service automatically finds the right machine learn
 
 Once the streams and views are configured, the Autonomous Anomaly Detection service selects streams using script API query and schedule detection jobs for them.
 Detected anomalies appear in several places:
-* All anomalies appear as annotation in metric charts in element details and during stream inspection
-* The Anomalies with HIGH severity will appear as events. Clicking on the event will open the event details pane where one can see the details of the anomaly.
+* All anomalies appear as annotations in metric charts in [Component Details](/getting_started.md#component-relation-details) and in [Metric inspector](/getting_started.md#metric-Inspector)
+* The Anomalies with HIGH severity will appear as events in [Event Perspective](/use/perspectives/event-perspective.md). Clicking on the event will open the event details pane where one can see the details of the anomaly.
 
 [//]: # (Troubleshooting section)
 
