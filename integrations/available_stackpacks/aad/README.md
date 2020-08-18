@@ -141,10 +141,18 @@ The debug UI can be turned on by enabling debug interface ingress (see `Install`
 With the help of the debug UI one can answer the following questions:
 * Is the anomaly detection service running?
 
+  The access to debug UI indicates that the service is running.
+
 * Can I see the status page? (ingress must be configured)
+
+  If debug UI is not accessible check if ingress is configured.
 
 * Can anomaly detection service reach StackState?
 
+  This can be verified by the **Top errors** and **Last stream polling results** sections of debug UI.
+  The errors there usually indicate connection problem.
+
 * Is anomaly detection service detecting anomalies?
+
 
 Besides that it allows to see various information about the scheduling progress, possible errors, ML models selected and job statistics.
