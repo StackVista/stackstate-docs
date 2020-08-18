@@ -18,6 +18,17 @@ Autonomous Anomaly Detection scales to large environments by prioritizing stream
 The Autonomous Anomaly Detector StackPack can only be installed within a [Kubernetes](/setup/installation/kubernetes/README.md) setup. Please make sure that your StackState installation does support it.
 Please [contact support](https://www.stackstate.com/company/contact/) if you are not sure that is the case or if you would like to know more.
 
+*Node sizing*
+
+The standard deployment of the AAD service with default options (5 workers) requires the following instance types:
+
+* Amazon EKS: 1 instance of type `m4.xlarge`
+* Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD cpu's\)
+
+It is advantageous to run the service on AWS Spot Instances and Azure Low Priority VM.
+
+In general the scalability rule is that for 1 extra worker it is required to allocate 1 CPU and 1 Gb of RAM.
+
 [//]: # (Install section)
 # Install
 
