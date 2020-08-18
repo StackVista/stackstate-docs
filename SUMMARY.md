@@ -44,7 +44,7 @@
 * [StackPacks and Integrations](integrations/README.md)
   * [Available StackPacks](integrations/available_stackpacks/README.md)
     * [StackState agent](integrations/available_stackpacks/agent.md)
-    * [Autonomous Anomaly Detector](integrations/available_stackpacks/aad.md)
+    * [Autonomous Anomaly Detector](integrations/available_stackpacks/aad/overview.md)
     * [AWS](integrations/available_stackpacks/aws.md)
     * [Azure](integrations/available_stackpacks/azure.md)
     * [API integration](integrations/available_stackpacks/api-integration.md)
