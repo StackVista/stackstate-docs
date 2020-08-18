@@ -3,8 +3,6 @@ title: Install and Configure
 kind: documentation
 ---
 
-## Install and Configure
-
 The manual step is required to install Autonomous Anomaly Detector.
 
 ### Install Helm and Get the latest anomaly detection chart
