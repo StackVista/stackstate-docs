@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting AAD
+title: Troubleshooting
 kind: documentation
 ---
 
