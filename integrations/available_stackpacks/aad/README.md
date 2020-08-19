@@ -124,7 +124,9 @@ helm show all stackstate/anomaly-detection
 
 ### 5. Install the Anomaly Detection Chart
 
-To install run the command below specifying stackstate namespace and :
+To install, run the command below specifying stackstate namespace and image registry password:
+
+Note that you must install chart in the same namespace as stackstate chart.
 
 ```
 helm upgrade anomaly-detector stackstate/anomaly-detection \
@@ -133,8 +135,6 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
     --set image.pullSecretPassword=<image registry password>
     --values ./values.yaml
 ```
-
-Note that you must install chart in the same namespace as stackstate chart.
 
 # Deactivate the Anomaly Detection service
 
@@ -149,7 +149,7 @@ To re-enable you can simply install the StackPack again. You then don't need to 
 * Uninstall the anomaly detection kubernetes service:
 
 ```
-helm delete <release name>
+helm delete anomaly-detector
 ```
 
 * Uninstall the AAD stackpack
