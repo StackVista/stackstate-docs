@@ -159,3 +159,12 @@ With the help of the debug UI one can get answers for the following questions:
   The **Job Progress** tab showing ranked list of streams with scheduling progress. Each stream show the last time it was scheduled.
 
 Besides that it allows to see various information about the scheduling progress, possible errors, ML models selected and job statistics.
+
+[//]: # (Release notes section)
+
+# Release Notes
+
+## 0.2.2 (2020-09-04)
+
+**Beta Release**
+- Releasing Autonomous Anomaly Detector service Beta
