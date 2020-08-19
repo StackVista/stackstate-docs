@@ -136,23 +136,26 @@ Detected anomalies appear in several places:
 
 # Troubleshooting
 
-In order to get the details about current state of anomaly detection and also for troubleshooting one can browse the debug UI of the anomaly detector service.
+In order to get the details about technical state and also for troubleshooting one can browse the debug UI of the anomaly detector service.
 The debug UI can be turned on by enabling debug interface ingress (see `Install` section).
-With the help of the debug UI one can answer the following questions:
+
+With the help of the debug UI one can get answers for the following questions:
 * Is the anomaly detection service running?
 
-  The access to debug UI indicates that the service is running.
-
-* Can I see the status page? (ingress must be configured)
-
-  If debug UI is not accessible check if ingress is configured.
+  The access to debug UI indicates that the service is running. If the UI is not accessible it means the service is not running or the ingress is not configured (see `Install` section).
 
 * Can anomaly detection service reach StackState?
 
-  This can be verified by the **Top errors** and **Last stream polling results** sections of debug UI.
-  The errors there usually indicate connection problem.
+  This can be verified by the **Top errors** and **Last stream polling results** sections of debug UI. The errors there usually indicate connection problems.
 
 * Is anomaly detection service detecting anomalies?
 
+  The section **Top Anomalous Streams** is showing the streams with the highest number of anomalies. No streams in this section means no anomalies detected.
+
+  Besides that the **Anomaly Detection Summary** section showing various metrics that are relevant, e.g. total time of all registered streams, total checked time, total time of all anomalies detected.
+
+* Is anomaly detection service scheduling streams?
+
+  The **Job Progress** tab showing ranked list of streams with scheduling progress. Each stream show the last time it was scheduled.
 
 Besides that it allows to see various information about the scheduling progress, possible errors, ML models selected and job statistics.
