@@ -131,10 +131,7 @@ helm show all stackstate/anomaly-detection
 ### 5. Install the anomaly-detection chart
 
 Run the command below, specifying the StackState namespace and the image registry password.
-
-{% hint style="danger" %}
-The anomaly-detection chart must be installed in the same namespace as the StackState chart.
-{% endhint %}
+Note that the anomaly-detection chart must be installed in the same namespace as the StackState chart.
 
 ```
 helm upgrade anomaly-detector stackstate/anomaly-detection \
@@ -169,24 +166,19 @@ The status UI provides details on the technical state of the anomaly detection K
 
 To access the status UI, the status interface Ingress must be configured in the anomaly-detection chart (see the `Install` section).
 
-Common questions answered in the status UI:
+Common questions that can be answered in the status UI:
 
 - **Is the anomaly detection Kubernetes service running?**
   - The status UI is accessible: The service is running.
-  - The status UI is not available: Either the service is not running, or the Ingress has not been configured (See the install section).
+  - The status UI is not available: Either the service is not running, or the Ingress has not been configured (See the install section).<br>
 
-- **Can the anomaly detection Kubernetes service reach StackState?**<br>
-Check the sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
+- **Can the anomaly detection Kubernetes service reach StackState?**<br>Check the sections **Top errors** and **Last stream polling results**. <br>Errors here usually indicate connection problems.<br>
 
-- **Has the anomaly detection Kubernetes service selected streams for anomaly detection?**<br>
-The section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
+- **Has the anomaly detection Kubernetes service selected streams for anomaly detection?**<br>The section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.<br>
 
-- **Is the anomaly detection Kubernetes service detecting anomalies?**<br>
-The section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected. <br>
-The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
+- **Is the anomaly detection Kubernetes service detecting anomalies?**<br>The section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected. <br>The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.<br>
 
-- **Is the anomaly detection Kubernetes service scheduling streams?**<br>
-The tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
+- **Is the anomaly detection Kubernetes service scheduling streams?**<br>The tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 [//]: # (Release notes section)
 
