@@ -46,6 +46,7 @@ A minimal deployment of the anomaly detection Kubernetes service with the defaul
 
 * Amazon EKS: 1 instance of type `m4.xlarge`
 * Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
+* Self-hosted kubernetes: 1 instance with 4 CPUs and 6 Gb memory
 
 To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://www.stackstate.com/company/contact/).
 
