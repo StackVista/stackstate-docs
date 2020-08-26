@@ -30,7 +30,7 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 ### Which StackPacks are available?
 
-Navigate to the **StackPacks** section inside StackState or check this page for a list of [available StackPacks](available_stackpacks/).
+Navigate to the **StackPacks** section inside StackState or check this page for a list of [available add-ons](/stackpacks/add-ons) and [available integrations]((/stackpacks/integrations).
 
 ## Installing StackPacks
 
@@ -62,4 +62,3 @@ The following steps describe how to uninstall a StackPack:
 {% hint style="info" %}
 Any \(manual\) configuration or installation of StackPack components in an external system may still need to be uninstalled.
 {% endhint %}
-
