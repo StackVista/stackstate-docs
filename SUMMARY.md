@@ -71,7 +71,7 @@
     * [Zabbix](stackpacks/integrations/zabbix.md)
   * [Mirrors](integrations/mirrors/README.md)
     * [Prometheus mirror](integrations/mirrors/prometheus-mirror.md)
-    * [Develop your own StackPacks](stackpacks/sdk.md)
+  * [Develop your own StackPacks](stackpacks/sdk.md)
 * [Use](use/README.md)
   * [Views](use/views.md)
   * [Perspectives](use/perspectives/README.md)
