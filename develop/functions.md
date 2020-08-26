@@ -14,7 +14,7 @@ Functions are predefined scripts that transform input into an output. Functions 
 
 Functions give power-users the ability to customize StackState fully. However, everyday users of StackState should not need to know that they exist.
 
-StackPacks pre-package functions and automatically install functions on StackState whenever the StackPack gets installed. You can develop your function in StackState. When you are confident that it does what you want, you can export it and package it with a StackPack. Read more about it on [how to create StackPacks page](/stackpacks/about-stackpacks).
+StackPacks pre-package functions and automatically install functions on StackState whenever the StackPack gets installed. You can develop your function in StackState. When you are confident that it does what you want, you can export it and package it with a StackPack. Read more about it in [how to create StackPacks](/stackpacks/about-stackpacks).
 
 ## Async vs sync functions
 

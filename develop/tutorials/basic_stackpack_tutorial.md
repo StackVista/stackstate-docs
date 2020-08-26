@@ -1,6 +1,6 @@
 # Basic StackPack tutorial
 
-This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../integrations/introduction.md) for more information.
+This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](/stackpacks/about-stackpacks.md) for more information.
 
 ## Setup
 
@@ -123,7 +123,7 @@ Use the **Preview** button to see what the resulting component will look like.
 
 ![](../../.gitbook/assets/example-template-editor.png)
 
-Go ahead and save the template. Be aware that you may need to [_unlock_](../../integrations/introduction.md#stackpack-configuration-locking) it before this succeeds.
+Go ahead and save the template. Be aware that you may need to [_unlock_](/stackpacks/about-stackpacks.md#stackpack-configuration-locking) it before this succeeds.
 
 ## Exporting the changed template
 
@@ -252,4 +252,3 @@ If you navigate to your **myDummyApp** component, you should now see the stream 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
 * Uninstall the **Tutorial StackPack**. This will remove the configuration and data received \(topology\) from StackState.
-

@@ -16,7 +16,7 @@ In addition to pushing data, telemetry can also be pulled by StackState. This is
 
 StackState does not automatically process incoming data into the 4T data model, but must be configured to do so. Without configuration any incoming data will just sit in StackState's topics. Decoupling between the data format and its representation in the 4T data model allows for greater flexibility in fine-tuning the 4T data model for specific situations.
 
-For topology integrations use the [Custom Synchronization StackPack](../integrations/available_stackpacks/customsync.md) to test the topology in StackState. Also, take care that your topology is able to merge with other topologies \(see section below\).
+For topology integrations use the [Custom Synchronization StackPack](/stackpacks/integrations/customsync.md) to test the topology in StackState. Also, take care that your topology is able to merge with other topologies \(see section below\).
 
 ### 3. Create a StackPack to manage the installation and lifecycle of the integration
 
@@ -33,4 +33,3 @@ In the topology each component has an `identifiers` field. This field is populat
 Care has to be taken in choosing the identifiers when building a topology integration that should merge with existing topology integrations. If a component is known to AWS, make sure it has an ARN, if it is known to Azure, make sure it has a ObjectId, etc. You should make sure the identifiers match exactly, i.e. case sensitive. Consult the code of the StackPack you wish to integrate with in order to make sure you get it right.
 
 Once two or more components are merged you will see the combined checks, telemetry, labels and identifiers of both multiple components on a single component. This is taken care of fully automatically.
-
