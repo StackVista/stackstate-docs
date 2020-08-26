@@ -1,6 +1,6 @@
 
 redirects:
-	develop/creating_stackpacks/: ./develop/stackpack/README.md
+  develop/creating_stackpacks/: ./develop/stackpack/README.md
   integrations/: ./stackpacks/README.md
   integrations/available_stackpacks/: ./stackpacks/README.md
   integrations/sdk: ./stackpacks/sdk.md
