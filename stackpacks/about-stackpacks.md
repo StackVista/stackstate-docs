@@ -30,7 +30,7 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 ### Which StackPacks are available?
 
-Navigate to the **StackPacks** section inside StackState or check this page for a list of [available add-ons](/stackpacks/add-ons) and [available integrations]((/stackpacks/integrations).
+Navigate to the **StackPacks** section inside StackState or check this page for a list of [available add-ons](/stackpacks/add-ons) and [available integrations](/stackpacks/integrations).
 
 ## Installing StackPacks
 
