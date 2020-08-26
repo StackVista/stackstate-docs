@@ -44,7 +44,7 @@
 * [StackPacks](stackpacks/README.md)
   * [About StackPacks](stackpacks/about-stackpacks.md)
   * [Add-ons](stackpacks/add-ons/README.md)
-    * [Autonomous Anomaly Detector](stackpacks/add-ons/autonomous-anomaly-detector.md)
+    * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Integrations](stackpacks/integrations/README.md)
     * [StackState agent](stackpacks/integrations/agent.md)
     * [AWS](stackpacks/integrations/aws.md)
