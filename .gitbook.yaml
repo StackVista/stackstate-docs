@@ -5,8 +5,8 @@ redirects:
   integrations/available_stackpacks/: ./stackpacks/README.md
   integrations/sdk: ./stackpacks/sdk.md
   integrations/introduction: ./stackpacks/about-stackpacks.md
-  integrations/mirrors: ./stackpacks/mirrors/README.md
-  integrations/mirrors/prometheus-mirror: ./stackpacks/mirrors/prometheus-mirror.md
+  integrations/mirrors: ./develop/mirrors/README.md
+  integrations/mirrors/prometheus-mirror: ./develop/mirrors/prometheus-mirror.md
   integrations/available_stackpacks/aad/: ./stackpacks/add-ons/aad.md
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
   integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
