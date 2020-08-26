@@ -22,7 +22,7 @@ The following prerequisites need to be met:
 
 ## Configuration
 
-The Nagios StackPack requires the following parameters to collect the topology information :
+The Nagios StackPack requires the following parameters to collect the topology information:
 
 * **Nagios HostName** -- the Nagios HostName from which topology need to be collected.
 
@@ -32,7 +32,7 @@ The Nagios StackPack requires the following parameters to collect the topology i
 
 To enable the Nagios check which collects the data from Nagios instance:
 
-Edit the `nagios.yaml` file in your API-Integration Agent `conf.d` directory, replacing `<nagios_conf_path>` with the information from your Nagios instance.
+Edit the `nagios.yaml` file in your StackState Agent `conf.d` directory, replacing `<nagios_conf_path>` with the information from your Nagios instance.
 
 ```text
 # Section used for global Nagios check config
@@ -49,11 +49,14 @@ instances:
 
 With the default configuration, the Nagios check doesn’t collect any metrics. But if you set `collect_host_performance_data` and/or `collect_service_performance_data` to **True**, the check watches for Nagios metrics data and sends those to StackState.
 
-To publish the configuration changes, restart the StackState API-Integration Agent using below command.
+To publish the configuration changes, restart the StackState Agent using below command.
 
 ```text
-sudo /etc/init.d/stackstate-agent restart
+sudo service stackstate-agent restart
 ```
 
-Once the API-Integration Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+Once the StackState Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
+## Permissions for Nagios files
+
+Nagios StackState Agent check tails Nagios config and log files so it should have permission to read those files. If you run StackState Agent with some other user than `root`, you need to provide a way for StackState Agent check read those files. Sometimes these files can be recreated by Nagios, so manually setting read permission is not an option. You should add StackState Agent user to same group witch is attached to those log files.
