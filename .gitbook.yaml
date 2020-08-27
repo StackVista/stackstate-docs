@@ -22,7 +22,7 @@ redirects:
   integrations/available_stackpacks/nagios: ./stackpacks/integrations/nagios.md
   integrations/available_stackpacks/openshift: ./stackpacks/integrations/openshft.md
   integrations/available_stackpacks/sap: ./stackpacks/integrations/sap.md
-  integrations/available_stackpacks/scom: ./stackpacks/integrations.scom.md
+  integrations/available_stackpacks/scom: ./stackpacks/integrations/scom.md
   integrations/available_stackpacks/servicenow: ./stackpacks/integrations/servicenow.md
   integrations/available_stackpacks/splunk: ./stackpacks/integrations/splunk/README.md
   integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
