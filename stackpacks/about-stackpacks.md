@@ -6,14 +6,12 @@ description: What is a StackPack?
 
 # What is a StackPack?
 
-A StackPack is a complete configuration package for StackState that simplifies the setup of deep integrations with various external services. It can be easily installed and uninstalled.
+StackPacks are plugins for StackState that extend functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.
 
-## Add-ons and integrations
+There are two types of Stackpack:
 
-StackPacks are plugins for StackState that extend its functionality and provide an automated way to integrate with specific systems.
-
-- [Add-ons](/stackpacks/add-ons/) extend StackState's functionality.
-- [Integrations](/stackpacks/integrations/) connect StackState to external systems. These may come with a companion integration that translates data from the external system to data that StackState understands.
+- [Add-ons](/stackpacks/add-ons/) extend the functionality of StackState.
+- [Integrations](/stackpacks/integrations/) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
 
 ## StackPack instances
 
@@ -30,15 +28,16 @@ To prevent a user from making changes to configuration items installed by a Stac
 ## Which StackPacks are available?
 
 The available StackPack add-ons and integrations can be found on the **StackPacks** page in StackState. You can also find details on these pages:
+
 - [add-ons](/stackpacks/add-ons)
 - [integrations](/stackpacks/integrations)
 
 ## Install and uninstall StackPacks
 
-StackPack add-ons and integrations can be installed and uninstalled from the **StackPacks** page in StackState. Full install and uninstall details are provided.
+StackPacks can be installed and uninstalled from the **StackPacks** page in StackState. Full install and uninstall instructions are provided.
 
 {% hint style="info" %}
-- A StackPack may require **manual** installation steps or configuration of the external system. Please read the instructions carefully.
+- A StackPack may require **manual** installation steps or configuration of the external system. Please read the instructions provided carefully.
+- When a StackPack or StackPack instance is uninstalled, **all data received via the StackPack (instance) will be removed from StackState.**
 - Any (manual) configuration or installation of StackPack components in an external system may need to be uninstalled separately.
-- When a StackPack or StackPack instance is uninstalled, **all data received via the StackPack (instance) is removed from StackState.**
 {% endhint %}
