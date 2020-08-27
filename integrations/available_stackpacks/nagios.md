@@ -59,4 +59,4 @@ Once the StackState Agent is restarted, wait for the Agent to collect the data a
 
 ## Permissions for Nagios files
 
-Nagios StackState Agent check tails Nagios config and log files so it should have permission to read those files. If you run StackState Agent with some other user than `root`, you need to provide a way for StackState Agent check read those files. Sometimes these files can be recreated by Nagios, so manually setting read permission is not an option. You should add StackState Agent user to same group witch is attached to those log files.
+Nagios StackState Agent check tails Nagios config and log files, so it should have permission to read those files. If you run StackState Agent with some other user than `root`, the StackState Agent user must be added to the same group that is attached to the config and log files. Note that manually setting read permission is not an option as the files can sometimes be recreated by Nagios.
