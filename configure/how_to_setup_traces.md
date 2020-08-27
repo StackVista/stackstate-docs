@@ -21,6 +21,6 @@ Full configuration details for each available StackState Agent V2 integration ar
 
 1. Go to the **StackPacks** page in the StackState GUI.
 2. Click **Tracing** in the tags list at the top of the page - this will filter the items displayed to show only those used for traces.
-3. Click on the StackState Agent V2 integration you want to configure and follow the instructions provided to start receiving trace data.
+3. Click on the StackState Agent V2 integration that you want to configure and follow the instructions provided to start receiving trace data.
 
 ## Still not able to see traces?
