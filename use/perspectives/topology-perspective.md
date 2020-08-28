@@ -57,17 +57,17 @@ The same topology selection can also be shown in list format:
 
 ### Filtering limits
 
-To optimize performance, a limit is placed on the amount of elements that can be loaded to produce a topology visualization. By default, the limit is set to 10000 elements. This limit can be configured using the `stackstate.topologyQueryService.maxStackElementsPerQuery` parameter in `etc/application_stackstate.conf`.
+To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 
-If a [basic filtering](/use/perspectives/topology-perspective#filtering) or [advanced query](/configure/topology_selection_advanced) exceeds the limit configured in `etc/application_stackstate.conf` you will be presented with an error on screen.
+If a [basic filtering](/use/perspectives/topology-perspective#filtering) or [advanced query](/configure/topology_selection_advanced) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
 
-Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the elements displayed after filtering. For example:
+Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements to be displayed. For example:
 ```text
 withNeighborsOf(direction = "both", components = (name = "*"), levels = "15") <br>   AND layer = "applications"
 ```
-In the query above, we are asking to LOAD all neighbors of every component in our topology to eventually only SHOW the ones that belong to the `applications` layer. This would likely fail with a filtering limit error because of the number of components loaded.
+In the query above, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
 
-To successfully produce this topology visualization, you could either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit configured in `etc/application_stackstate.conf`.
+To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the configured filtering limit.
 
 ## Interactive navigation
 
