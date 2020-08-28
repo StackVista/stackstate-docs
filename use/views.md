@@ -23,7 +23,7 @@ Generally speaking, views serve two major purposes:
 ## Accessing views
 
 {% hint style="info" %}
-Not all views are manually created. Many [StackPacks](/integrations/introduction.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
+Not all views are manually created. Many [StackPacks](/stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
 {% endhint %}
 
 Views can be accessed by clicking on the **Views** menu item on the main menu. Views that you have starred will be presented directly in the main menu for easy access. Starred views are a personal preference that is stored onto your account.
@@ -50,7 +50,7 @@ Every person or team has a different definition of when a part of the environmen
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - The view does not have a view health state.
 
-To enable view health state put the `View Health State Enabled` to on when creating or editing the view. 
+To enable view health state put the `View Health State Enabled` to on when creating or editing the view.
 
 ## Creating views
 
@@ -90,10 +90,10 @@ It is not recommended to delete or edit views created by StackPacks. When doing 
 
 To delete or edit a view:
 
- * Open the view. 
+ * Open the view.
  * In the view details panel on the right side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
  * Select the **Delete** or **Edit** menu item.
- 
+
 ## Securing views \(RBAC\)
 
 Through a combination of configuration of [permissions](/configure/permissions.md) and [scope](/configure/scopes_in_rbac.md), it is possible to give specific users:
