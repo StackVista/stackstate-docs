@@ -105,3 +105,16 @@ The Topology Perspective allows you to configure whether to show the root cause 
 
 The components in the view can also be shown in a list instead of a graph.
 
+## Topology filtering limits
+
+To keep StackState performant we have a configurable maximum amount of elements (components and relations) that we can load in order to produce the topology visualisation, the default limit is set to 10000 elements and can be changed in the `etc/application_stackstate.conf` via the `stackstate.topologyQueryService.maxStackElementsPerQuery` parameter.
+Whenever your [basic filtering](./#filtering) or [advanced query](../topology_selection_advanced.md) exceeds the `loaded elements` limit you will be presented with such an error screen:
+
+![](../../.gitbook/assets/too_many_components.png)
+
+One important thing to keep in mind if that the limit applies to the total amount of elements that need to be loaded and not the elements that eventually will be displayed, for example in a query like:
+```text
+withNeighborsOf(direction = "both", components = (name = "*"), levels = "15") AND layer = "applications"
+```
+In such a query we are asking to LOAD all neighbors of every single component in our topology to eventually only SHOW the ones that belong to the `applications` layer. 
+The two options to remediate this error would be to either rewrite the query in a different way where we could avoid loading such a big input set or to change the before mentioned `stackstate.topologyQueryService.maxStackElementsPerQuery` parameter.
