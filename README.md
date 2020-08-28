@@ -18,8 +18,8 @@
         <p>
           <br />Start in three steps:
           <br /><a href="setup/installation/">1. Get StackState running</a>
-          <br /><a href="integrations/">2. Install a StackPack</a>
-          <br /><a href="./">3. Browse your IT landscape</a>
+          <br /><a href="stackpacks/">2. Install a StackPack</a>
+          <br /><a href="use/perspectives/topology-perspective.md">3. Browse your IT landscape</a>
         </p>
       </td>
       <td style="text-align:left">
@@ -51,7 +51,7 @@
         </p>
         <p>
           <br />Most often needed:
-          <br />&#x2022; <a href="./">Browsing topology</a>
+          <br />&#x2022; <a href="use/perspectives/topology-perspective.md">Browsing topology</a>
           <br />&#x2022; <a href="use/views.md">Creating views</a>
           <br />&#x2022; <a href="use/queries.md">Querying 4T data</a>
         </p>
@@ -90,4 +90,3 @@ If you any documentation is missing, please let us know via our support site:
 ## **Support Site**
 
 Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/).
-

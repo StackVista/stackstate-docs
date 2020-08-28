@@ -1,4 +1,32 @@
 
 redirects:
-	develop/creating_stackpacks/: ./develop/stackpack/README.md
-
+  develop/creating_stackpacks/: ./develop/stackpack/README.md
+  integrations/: ./stackpacks/README.md
+  integrations/available_stackpacks/: ./stackpacks/README.md
+  integrations/sdk: ./stackpacks/sdk.md
+  integrations/introduction: ./stackpacks/about-stackpacks.md
+  integrations/mirrors: ./develop/mirrors/README.md
+  integrations/mirrors/prometheus-mirror: ./develop/mirrors/prometheus-mirror.md
+  integrations/available_stackpacks/aad/: ./stackpacks/add-ons/aad.md
+  integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
+  integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
+  integrations/available_stackpacks/azure: ./stackpacks/integrations/azure.md
+  integrations/available_stackpacks/api-integration: ./stackpacks/integrations/api-integration.md
+  integrations/available_stackpacks/cloudera: ./stackpacks/integrations/cloudera.md
+  integrations/available_stackpacks/customsync: /stackpacks/integrations/customsync.md
+  integrations/available_stackpacks/google_analytics: ./stackpacks/integrations/google_analytics.md
+  integrations/available_stackpacks/humio: ./stackpacks/integrations/humio.md
+  integrations/available_stackpacks/kubernetes: ./stackpacks/integrations/kubernetes.md
+  integrations/available_stackpacks/logz: ./stackpacks/integrations/logz.md
+  integrations/available_stackpacks/manualtopo: ./stackpacks/integrations/manualtopo.md
+  integrations/available_stackpacks/nagios: ./stackpacks/integrations/nagios.md
+  integrations/available_stackpacks/openshift: ./stackpacks/integrations/openshft.md
+  integrations/available_stackpacks/sap: ./stackpacks/integrations/sap.md
+  integrations/available_stackpacks/scom: ./stackpacks/integrations/scom.md
+  integrations/available_stackpacks/servicenow: ./stackpacks/integrations/servicenow.md
+  integrations/available_stackpacks/splunk: ./stackpacks/integrations/splunk/README.md
+  integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
+  integrations/available_stackpacks/splunk/splunk_event: ./stackpacks/integration/splunk/splunk_event.md
+  integrations/available_stackpacks/static_topology: ./stackpacks/integrations/static_topology.md
+  integrations/available_stackpacks/vsphere: ./stackpacks/integrations/vsphere.md
+  integrations/available_stackpacks/zabbixL: ./stackpacks/integrations/zabbix.md
