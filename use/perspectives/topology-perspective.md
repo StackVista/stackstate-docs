@@ -55,6 +55,20 @@ The same topology selection can also be shown in list format:
 
 ![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
 
+### Filtering limits
+
+To optimize performance, a limit is placed on the amount of elements that can be loaded to produce a topology visualization. By default, the limit is set to 10000 elements. This limit can be configured using the `stackstate.topologyQueryService.maxStackElementsPerQuery` parameter in `etc/application_stackstate.conf`.
+
+If a [basic filtering](/use/perspectives/topology-perspective#filtering) or [advanced query](/configure/topology_selection_advanced) exceeds the limit configured in `etc/application_stackstate.conf` you will be presented with an error on screen.
+
+Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the elements displayed after filtering. For example:
+```text
+withNeighborsOf(direction = "both", components = (name = "*"), levels = "15") <br>   AND layer = "applications"
+```
+In the query above, we are asking to LOAD all neighbors of every component in our topology to eventually only SHOW the ones that belong to the `applications` layer. This would likely fail with a filtering limit error because of the number of components loaded.
+
+To successfully produce this topology visualization, you could either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit configured in `etc/application_stackstate.conf`.
+
 ## Interactive navigation
 
 It is also possible to interactively navigate the topology. Right-click on a component to bring up the component navigation menu:
@@ -97,24 +111,10 @@ If there are components with [telemetry streams](../../configure/checks_and_stre
 
 The Topology Perspective allows you to configure whether to show the root cause if it is outside of your view:
 
-* **Don't show root cause** -- do not show the root cause 
+* **Don't show root cause** -- do not show the root cause
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
 ## List mode
 
 The components in the view can also be shown in a list instead of a graph.
-
-## Topology filtering limits
-
-To keep StackState performant we have a configurable maximum amount of elements (components and relations) that we can load in order to produce the topology visualisation, the default limit is set to 10000 elements and can be changed in the `etc/application_stackstate.conf` via the `stackstate.topologyQueryService.maxStackElementsPerQuery` parameter.
-Whenever your [basic filtering](./#filtering) or [advanced query](../topology_selection_advanced.md) exceeds the `loaded elements` limit you will be presented with such an error screen:
-
-![](../../.gitbook/assets/too_many_components.png)
-
-One important thing to keep in mind if that the limit applies to the total amount of elements that need to be loaded and not the elements that eventually will be displayed, for example in a query like:
-```text
-withNeighborsOf(direction = "both", components = (name = "*"), levels = "15") AND layer = "applications"
-```
-In such a query we are asking to LOAD all neighbors of every single component in our topology to eventually only SHOW the ones that belong to the `applications` layer. 
-The two options to remediate this error would be to either rewrite the query in a different way where we could avoid loading such a big input set or to change the before mentioned `stackstate.topologyQueryService.maxStackElementsPerQuery` parameter.
