@@ -1,2 +1,0 @@
-# StackState CLI
-

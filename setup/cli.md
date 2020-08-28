@@ -6,15 +6,28 @@ description: Managing StackState using the CLI.
 
 The StackState CLI can be used to configure StackState, work with data, and help with debugging problems. The CLI provides easy access to the functionality provided by the StackState API. The URLs and authentication credentials are configurable. Multiple configurations can be stored for access to different instances.
 
-### Installation
+## Installation
+
+### Getting the CLI
+
+The CLI can be downloaded from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
+
+There are three types of CLI available:
+* standalone binary for Linux
+* standalone binary for Windows
+* ZIP distributive for running Docker
+
+### Binary
+
+#### Prerequisites
+
+* compatible operating system: Windows or Linux
+
+### Cross-platform distributive
 
 #### Prerequisites
 
 * Docker
-
-#### Getting the CLI
-
-The CLI can be downloaded from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
 
 The downloaded zip contains the following:
 
