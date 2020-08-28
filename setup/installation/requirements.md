@@ -25,7 +25,7 @@ kind: Documentation
 
 **NOTE**: StackState **does not work** with JDK versions 9 or higher at this time.
 
-**NOTE**: The StackState Agent StackPack has [more specific requirements](../../integrations/available_stackpacks/agent.md).
+**NOTE**: The StackState Agent StackPack has [more specific requirements](/stackpacks/integrations/agent.md).
 
 ## Size requirements
 
@@ -177,4 +177,3 @@ To use the StackState GUI, you must use one of the following web browsers:
 
 * Chrome
 * Firefox
-
