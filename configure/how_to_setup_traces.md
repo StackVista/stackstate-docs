@@ -4,11 +4,11 @@ This how-to describes the steps to set up traces that can be viewed in the Stack
 
 For traces to be available in StackState, the [StackState Agent V2 StackPack](/stackpacks/integrations/agent) must be installed with one or more tracing integrations configured.
 
-## Install the StackState Agent V2 StackPack
+## Install StackState Agent V2
 
 The StackState Agent V2 StackPack enables integration with external systems to receive trace data. You can check if it is installed on the StackPacks page in StackState. If it is not installed, follow the installation instructions on [StackState Agent V2 StackPack](/stackpacks/integrations/agent).
 
-## Configure StackState Agent V2 tracing integrations
+## Configure tracing integrations
 
 When the StackState Agent V2 StackPack is installed, you can configure integrations to receive trace data from external systems. The following StackState Agent V2 integrations are used to populate the Traces perspective:
 
