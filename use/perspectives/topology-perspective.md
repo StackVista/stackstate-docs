@@ -63,7 +63,8 @@ If a [basic filtering](/use/perspectives/topology-perspective#filtering) or [adv
 
 Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements to be displayed. For example:
 ```text
-withNeighborsOf(direction = "both", components = (name = "*"), levels = "15") <br>   AND layer = "applications"
+withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
+   AND layer = "applications"
 ```
 In the query above, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
 
