@@ -117,26 +117,6 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 
 **Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
 
-### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
-
-**Symptom**: StackState is not starting after upgrade to a newer version. StackState.log reflects:
-
-```text
-2019-07-31 13:14:27,139 [main] INFO  com.stackstate.StackStateMainContext - StackState starting with graph database: default
-2019-07-31 13:14:41,577 [main] WARN  com.stackstate.WebApp$ - Unexpected error:
-java.lang.IllegalStateException: Requested index specs do not match the catalog.
-Either enable automaticReIndexOnStartup feature or apply the offline reindex command.
-Diff (this = Requested; that = Catalog):
->> Only in this Spec:
-  - IndexSpecification(selectors=[SelectorSpecification(property=~label, value=ComponentType)], property=identifier, normalized=false, uniqueConstrained=true)
-  - IndexSpecification(selectors=[SelectorSpecification(property=~label, value=RelationMappingFunction)], property=identifier, normalized=false, uniqueConstrained=true)
-  ...
-```
-
-**Cause**: Introduced index changes.
-
-**Solution**: Follow the [reindex process](reindex.md)
-
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
 **Symptom**: Splunk saved search with SID \(Splunk job id\) results in `ERROR: CheckException: Splunk topology failed with message: 400 Client Error: Bad Request for url:` message. StackState log in `/var/log/stackstate/collector.log` shows the following:

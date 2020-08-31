@@ -17,7 +17,6 @@
     * [Configuring authentication](setup/installation/authentication.md)
     * [Configuring a reverse proxy](setup/installation/reverse_proxy.md)
     * [Configuring TLS without reverse proxy](setup/installation/how_to_setup_tls_without_reverse_proxy.md)
-    * [Reindexing StackState](setup/installation/reindex.md)
     * [Troubleshooting StackState startup](setup/installation/troubleshooting.md)
     * [Installing StackState before version 1.15](setup/installation/installing_pre1_15.md)
     * [Production installation pre 1.15](setup/installation/production-installation_pre1_15.md)
