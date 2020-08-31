@@ -9,13 +9,13 @@ Proof-of-concept \(POC\) mode is StackState's installation mode best suited for 
 
 ## Requirements
 
-Before starting the installation, ensure your system meet StackState's POC setup [installation requirements](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/requirements/README.md).
+Before starting the installation, ensure your system meet StackState's POC setup [installation requirements](requirements.md).
 
 ## Installing StackState in a POC configuration
 
 **NOTE**: This installation configuration is only available since StackState 4.0.0.
 
-For a POC setup of StackState, simply follow the instructions for [Installing StackState](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/install_stackstate/README.md), using `POC` as the SETUP configuration parameter.
+For a POC setup of StackState, simply follow the instructions for [Installing StackState](install_stackstate.md), using `POC` as the SETUP configuration parameter.
 
 ## Starting and Stopping
 

@@ -5,9 +5,10 @@ kind: Documentation
 
 # Configuring authentication
 
-Out of the box, StackState is configured with [file-based authentication](#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
-- [LDAP](#configuring-the-ldap-authentication-server)
-- [KeyCloak OIDC](#configuring-the-keycloak-oidc-authentication-server)
+Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
+
+* [LDAP](authentication.md#configuring-the-ldap-authentication-server)
+* [KeyCloak OIDC](authentication.md#configuring-the-keycloak-oidc-authentication-server)
 
 When a user is authenticated, the user has one of two possible roles in StackState:
 
@@ -106,7 +107,7 @@ authentication {
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
         bindCredentials {
-           dn = "administrator@stackstate.com"
+           dn = "cn=Ldap bind user,ou=management,o=stackstate,cn=people,dc=example,dc=com"
            password = "password"
          }
       }
@@ -148,8 +149,8 @@ Configuration field explanation:
    * _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
    * _**trustStorePath**_ - optional, path to the trust store on the StackState server.
    * \(if both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence\)
-   * _**bindCredentials**_ - used to authenticate StackState to LDAP server.
-   * _**usernameKey**_ - the name of the attribute that stores the username.
+   * _**bindCredentials**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
+   * _**usernameKey**_ - the name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * _**groupMemberKey**_ - the name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `({groupMemberKey}=email=admin@sts.com,ou=management,o=stackstate,cn=people,dc=example,dc=com)`.
    * _**rolesKey**_ - the name of the attribute that stores the group name.
 4. **adminGroups** - the list of roles whose members StackState grants administrative privileges.
@@ -233,3 +234,4 @@ authentication {
 ```
 
 1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
+

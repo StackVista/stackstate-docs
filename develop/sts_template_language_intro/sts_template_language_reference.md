@@ -45,3 +45,19 @@ Note that `getOrCreate` works only with the following \(simple\) types: Environm
 
 We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
 
+## Function: identifier
+
+The `identifier` function creates an identifier out of an identifier prefix, a component type and a component name.
+
+```text
+identifier "urn:stackpack:common" "ComponentType" element.type.name
+```
+
+## Function: concat
+
+The `concat` function concatenates two values:
+
+```text
+concat "Type=ComponentType;Name=" element.type.name
+```
+

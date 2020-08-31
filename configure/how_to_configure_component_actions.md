@@ -19,7 +19,7 @@ Please note that the Component Action name is case-sensitive.
 
 ## 2. Bind components to your Action with an STQL query
 
-In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](../use/topology_selection_advanced.md).
+In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](topology_selection_advanced.md).
 
 The below example binds an Action to all components in the "Production" domain that are present in the "databases" layer.
 

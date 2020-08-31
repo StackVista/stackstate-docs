@@ -51,6 +51,7 @@ stackstate-guest  access-view           everything
 | read-permissions | Permission to list all granted permissions across the entire system via the CLI |
 | update-permissions | Permission to grant/revoke permissions or modify subjects |
 | manage-stackpacks | Permission to install / upgrade / uninstall StackPacks |
+| manage-annotations | Permission to persist and fetch Anomaly annotations in StackState |
 | save-view | Permission to save views |
 | access-view | Permission to access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\) |
 | delete-view | Permission to delete views |
@@ -134,7 +135,7 @@ Below capabilities are shared across all settings pages.
 2. Edit capability - requires `update-settings` system permission. Three dots menu \(kebab menu\) is not displayed for the users without that permission.
 3. Delete capability - requires `update-settings` system permission. Delete option is not displayed for the users without this permission.
 4. Export capability - requires `export-settings` system permission. Checkboxes are not available for the user without this permission.
-4. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
+5. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
 
 ![SettingsPermissions](../.gitbook/assets/settings1.png)
 
@@ -175,3 +176,4 @@ sts permission grant [subject-handle] create-views system
 UI of a user without any permissions:
 
 ![NoPermissions](../.gitbook/assets/noperm.png)
+

@@ -65,13 +65,13 @@ The configuration file for the "Skeleton" check has the following structure:
 
 ```text
 init_config:
-    min_collection_interval: 30 # the collection interval in seconds. This check will runs once every 30 seconds
-
+ 
 instances:
   - url: "some_url"
     authentication:
       username:
       password:
+    min_collection_interval: 30 # the collection interval in seconds. This check will run at least every 30 seconds
 ```
 
 YAML files must use spaces instead of tabs.
@@ -80,24 +80,17 @@ YAML files must use spaces instead of tabs.
 
 The _init\_config_ section allows you to have an arbitrary number of global configuration options that will be available on every run of the check in `self.init_config`.
 
-`min_collection_interval` can be added to the init\_config section to help define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions.
-
-The default is `30`, if no `min_collection_interval` is specified.
-
 ### instances
 
-The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance. This means that every check will support multiple instances out of the box. The check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` function in the `instance` parameter.
+The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about developing [StackPacks.](https://l.stackstate.com/2uv1BH)
 
 To synchronize multiple instances in StackState you have to create a multi-tenant StackPack \(documentation not yet available\).
 
 ### Setting up your check configuration
 
-You can now take the following configuration:
+Create a directory named `{your_check_name}.d` inside the `conf.d` directory. The YAML configuration below can be used as a starting point for your check configuration. Save it to a file called `conf.yaml` in the `conf.d/{your_check_name}.d/` directory.
 
 ```text
-init_config:
-    min_collection_interval: 30 # the collection interval in seconds. This check will runs once every 30 seconds
-
 instances:
   - url: "some_url"
     authentication:
@@ -105,31 +98,26 @@ instances:
       password:
 ```
 
-and place it in the `conf.d` directory. In `conf.d` create a directory named `{your_check_name}.d` and place the above configuration inside a file named: `conf.yaml`. Save that file in the `{your_check_name}.d` directory.
-
 ## First Check
 
 Now you can start defining your first check. The following "Skeleton" check can be used as a good starting point:
 
 ```text
-from stackstate_checks.base import AgentCheck, ConfigurationError, TopologyInstance
+from stackstate_checks.base import AgentCheck, ConfigurationError, AgentIntegrationInstance
 
 class ExampleCheck(AgentCheck):
-    def __init__(self, name, init_config, agentConfig, instances=None):
-        AgentCheck.__init__(self, name, init_config, agentConfig, instances)
 
+    # This method should also be overriden to uniquely identify your integration instance. The AgentIntegrationInstance is synchronized by the StackState Agent V2 StackPack. All topology elements produced by this check can be found by filtering on the `integration-type:{example}` and `integration-url:{instance_url}` tags in StackState for this example.
     def get_instance_key(self, instance):
         if 'url' not in instance:
             raise ConfigurationError('Missing url in topology instance configuration.')
-
         instance_url = instance['url']
-        return TopologyInstance("example", instance_url)
-
+        return AgentIntegrationInstance("example", instance_url)
+    
+    # check is the entry point of your agent check, `instance` is a dictionary containing the instance that was read from conf.yaml  
     def check(self, instance):
         self.log.debug("starting check for instance: %s" % instance)
-        self.start_snapshot()
-
-        self.stop_snapshot()
+        ...
         self.log.debug("successfully ran check for instance: %s" % instance)
 ```
 
@@ -144,9 +132,11 @@ Values can be loaded from the instance config object in the following ways:
 ```text
 # gets the value of the `url` property
 url = instance['url']
-# gets the value of the `default_timeout` property or defaults to 5
+
+# gets the value of the `default_timeout` global config from the init_config section of conf.yaml or defaults to 5
 default_timeout = self.init_config.get('default_timeout', 5)
-# gets the value of the `timeout` property or defaults `default_timeout` and casts it to a float data type
+
+# gets the value of the `timeout` property or defaults `default_timeout` and casts it to a float data type. This can be done to override any global configuration on an instance basis.
 timeout = float(instance.get('timeout', default_timeout))
 ```
 
@@ -165,51 +155,55 @@ These are already in place in the StackState "Skeleton" check.
 Topology data can be submitted using the `self.component()` and `self.relation()` functions in the `AgentCheck` interface. The example below shows how to submit two components with a relation between them:
 
 ```text
-self.component("urn:example/host:this_host", "Host", {
+self.component("this-host-unique-identifier", "Host", {
     "name": "this-host",
     "domain": "Webshop",
-    "layer": "Hosts",
-    "identifiers": ["another_identifier_for_this_host"],
-    "labels": ["host:this_host", "region:eu-west-1"],
+    "layer": "Machines",
+    "identifiers": ["urn:host:/this-host-fqdn"],
+    "labels": ["host:this-host", "region:eu-west-1"],
     "environment": "Production"
 })
 
-self.component("urn:example/application:some_application", "Application", {
+self.component("some-application-unique-identifier", "Application", {
     "name": "some-application",
     "domain": "Webshop",
     "layer": "Applications",
-    "identifiers": ["another_identifier_for_some_application"],
-    "labels": ["application:some_application", "region:eu-west-1", "hosted_on:this-host"],
+    "identifiers": ["urn:application:/some-application"],
+    "tags": ["application:some-application", "region:eu-west-1", "hosted_on:this-host"],
     "environment": "Production",
     "version": "0.2.0"
 })
 
-self.relation("urn:example/application:some_application", "urn:example/host:this_host", "IS_HOSTED_ON", {})
+self.relation("some-application-unique-identifier", "this-host-unique-identifier", "IS_HOSTED_ON", {})
 ```
 
-This creates two components in StackState. One for the `this-host` and one for `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels` and `environment` add some metadata to the component and can also be used for filtering in StackState. The identifiers and the external identifier e.g. `urn:example/application:some_application` will be used as the StackState Id.
+This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add some metadata to the component and can also be used for filtering in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. The `labels` and `tags` fields can also be used on relations to add some metadata. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) will be automatically created in StackState and can later be used in the synchronization to create mappings for the different types. 
 
-Note that identifiers are used within StackState to merge components across different checks, synchronizations and data sources. Components with a matching identifier will be merged within StackState.
+The identifiers and the external identifier e.g. `some-application-unique-identifier` will be used as the StackState Id. The `external identifer` should be unique within this integration.
+
+#### Merging Identifiers
+
+The `identifiers` are used within StackState to merge components across different integrations. Components with a matching identifier will be merged within StackState.
 
 Given the following example:
 
 ```text
 # check1.py
-self.component("urn:check1/host:this_host", "Host", {
+self.component("this-host-unique-identifier-integration-a", "Host", {
     "name": "this-host",
-    "identifiers": ["urn:/host:this_host"],
+    "identifiers": ["urn:host:/this-host-fqdn"],
 })
 
 # check2.py
-self.component("urn:check2/host:this_host", "Host", {
+self.component("this-host-unique-identifier-integration-b", "Host", {
     "name": "this-host",
-    "identifiers": ["urn:/host:this_host"],
+    "identifiers": ["urn:host:/this-host-fqdn"],
 })
 ```
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the Agent Check Topology API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Topology API [here](checks_in_agent_v2.md)
 
 ### Sending Metrics
 
@@ -219,15 +213,15 @@ Metric data can be submitted using i.e. the `self.gauge()` function, or the `sel
 
 ![Metrics](../../.gitbook/assets/metricstelemetrystream.png)
 
-The example below submits a gauge metric `host.cpu.usage` for our previously submitted `this-host` component:
+The example below submits a gauge metric `system.cpu.usage` for our previously submitted `this-host` component:
 
 ```text
-self.gauge("host.cpu.usage", 24.5, tags=["hostname:this-host"])
+self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 ```
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the Agent Check Metric API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Metric API [here](checks_in_agent_v2.md)
 
 ### Sending Events
 
@@ -247,11 +241,45 @@ self.event({
 })
 ```
 
-Learn more about the Agent Check Event API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Event API [here](checks_in_agent_v2.md)
+
+### **Sending in Stream Definitions and Health Checks**
+
+Stream Definitions and Health Checks for StackState can be sent in with Topology. This allows you to map telemetry streams with health checks onto components in your integration, leaving no work to be done in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
+
+```text
+# import
+from stackstate_checks.base import AgentCheck, AgentIntegrationInstance, MetricStream, MetricHealthChecks# add this_host component with a metric strea and health check
+
+this_host_cpu_usage = MetricStream("Host CPU Usage", "system.cpu.usage",
+                                   conditions={"tags.hostname": "this-host", "tags.region": "eu-west-1"},
+                                   unit_of_measure="Percentage",
+                                   aggregation="MEAN",
+                                   priority="HIGH")
+                                   
+cpu_max_average_check = MetricHealthChecks.maximum_average(this_host_cpu_usage.identifier, "Max CPU Usage (Average)", 75, 90)
+
+self.component("this-host-unique-identifier", "Host", 
+    data={
+        "name": "this-host",
+        "domain": "Webshop",
+        "layer": "Machines",
+        "identifiers": ["urn:host:/this-host-fqdn"],
+        "labels": ["host:this_host", "region:eu-west-1"],
+        "environment": "Production"
+    },
+    streams=[this_host_cpu_usage],
+    checks=[cpu_max_average_check]
+)
+```
+
+We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list in our `this-host` component.
+
+Learn more about the Agent Check Telemetry API [here](checks_in_agent_v2.md#sending-streams-and-checks)
 
 ### Sending Service Checks
 
-Service checks can be submitted using the `self.service_check` function in the `AgentCheck` interface. Service check data is stored in the `StackState State Events` data source.
+Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source. 
 
 The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that is monitored:
 
@@ -267,7 +295,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the Agent Check Service Check API [here](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/agent_check/checks_in_agent_v2/README.md)
+Learn more about the Agent Check Service Check API [here](checks_in_agent_v2.md)
 
 ### Adding Python Dependencies
 

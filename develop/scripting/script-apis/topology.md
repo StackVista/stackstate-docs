@@ -16,7 +16,7 @@ Topology.query(query: String)
 
 **Args:**
 
-* `query` - a [STQL query](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/use/topology_selection_advanced/README.md).
+* `query` - a [STQL query](../../../configure/topology_selection_advanced.md).
 
 **Returns:**
 
@@ -24,8 +24,8 @@ Topology.query(query: String)
 
 **Builder methods:**
 
-* `at(time: Instant)` - sets the exact [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md) at which the query needs to be executed.
-* `repeatAt(time: Instant)` - repeats the same query but at a different exact [time](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/develop/scripting/time/README.md).
+* `at(time: Instant)` - sets the exact [time](time.md) at which the query needs to be executed.
+* `repeatAt(time: Instant)` - repeats the same query but at a different exact [time](time.md).
 * `diff(queryResult: TopologyScriptApiQueryResponse)` - compares this query with another query. A query should be the result of a call to this function.
 * `diffWithPrev(queryResult: TopologyScriptApiQueryResponse)` - compares this query with the last query in the chain. A query should be the result of a call to this function. This builder method is only available after the `diff` builder method was called.
 * `components()` - returns a summary of the components. After this builder method no more builder methods can be called.
