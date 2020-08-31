@@ -55,6 +55,22 @@ The same topology selection can also be shown in list format:
 
 ![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
 
+### Filtering limits
+
+To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
+
+If a [basic filter](/use/perspectives/topology-perspective.md#filtering) or [advanced filter query](/configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
+
+Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
+
+In the example below, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
+```text
+withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
+   AND layer = "applications"
+```
+
+To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit.
+
 ## Interactive navigation
 
 It is also possible to interactively navigate the topology. Right-click on a component to bring up the component navigation menu:
@@ -97,11 +113,10 @@ If there are components with [telemetry streams](../../configure/checks_and_stre
 
 The Topology Perspective allows you to configure whether to show the root cause if it is outside of your view:
 
-* **Don't show root cause** -- do not show the root cause 
+* **Don't show root cause** -- do not show the root cause
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
 ## List mode
 
 The components in the view can also be shown in a list instead of a graph.
-
