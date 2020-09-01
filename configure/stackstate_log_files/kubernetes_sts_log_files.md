@@ -2,19 +2,19 @@
 
 
 
-## How do I access the most recent logs?
+## Access recent logs
 
 ```
 kubectl logs
 ```
 
 
-## Where are logs stored?
+## Find logs on Kubernetes pods
 
 In a Kubernetes setup, StackState logs are stored across the running pods.
 
 
-| Logs | Stored on pod | 
+| Logs | Stored on pod |
 |:---|:---|
 | Synchronization | stackstate-server |
 | Data ingestion | stackstate-receiver |
