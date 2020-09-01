@@ -13,8 +13,7 @@ The StackState Agent V2 StackPack enables integration with external systems to r
 When the StackState Agent V2 StackPack is installed, you can configure integrations to receive trace data from external systems. One or more of the StackState Agent V2 integrations below can be configured to populate the Traces perspective.
 
 ### Java APM
-The Java APM integration enables tracing support for Java JVM based systems.<br>
-[Configure Java APM](../stackpacks/integrations/java-apm.md).
+The Java APM integration enables tracing support for Java JVM based systems.<br>[Configure Java APM](../stackpacks/integrations/java-apm.md).
 
 ### DotNet APM
 The DotNet APM integration enables instrumentation for dotNET applications and sends traces back to StackState.<br>
