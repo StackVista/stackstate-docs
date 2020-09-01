@@ -12,16 +12,12 @@ The StackState Agent V2 StackPack enables integration with external systems to r
 
 When the StackState Agent V2 StackPack is installed, you can configure integrations to receive trace data from external systems. The following StackState Agent V2 integrations can be configured to populate the Traces perspective:
 
-- **Java APM** provides tracing support for Java JVM based systems.<br>
-[Java APM configuration](../stackpacks/integrations/java-apm.md)
+- **Java APM** - [Configure Java APM](../stackpacks/integrations/java-apm.md) to support tracing for Java JVM based systems.
 
-- **DotNet APM** - enables instrumentation for dotNET applications and sends traces back to StackState.<br>
-[DotNet APM configuration](../stackpacks/integrations/dotnet-apm.md)
+- **DotNet APM** - [Configure DotNet APM](../stackpacks/integrations/dotnet-apm.md) to enable instrumentation for dotNET applications and send traces back to StackState.
 
-- **Traefik** - adds topology and telemetry information from Traefik.<br>
-[Traefik configuration](../stackpacks/integrations/traefik.md)
+- **Traefik** - [Configure Traefik](../stackpacks/integrations/traefik.md) to include topology and telemetry information from Traefik.
 
-- **AWS X-ray** - collects tracing information from the in-built AWS distributed tracing system.<br>
-[AWS X-ray configuration](../stackpacks/integrations/aws-x-ray.md)
+- **AWS X-ray** - [Configure AWS X-ray](../stackpacks/integrations/aws-x-ray.md) to collect tracing information from the in-built AWS distributed tracing system.<br>
 
 Full configuration details for each available StackState Agent V2 integration are also provided in the StackPacks section of the StackState GUI.
