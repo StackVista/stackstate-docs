@@ -5,11 +5,11 @@ kind: documentation
 
 # StackState log files - Linux
 
-StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation logs are kept in the `var/log` directory on each node; logs are node-specific, which means that StackState node keeps StackState related logs, and StackGraph node keeps logs related to StackGraph.
+In a Linux setup, StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the StackState node keeps StackState related logs and the StackGraph node keeps logs related to StackGraph.
 
 ## `var/log` details
 
-Inside this directory, there is a subdirectory for each type of logs kept by StackState. By default, each subdirectory has a size cap of 2 GB; when exceeded, the oldest files are deleted. Example of `var/log` contents:
+Inside `var/log`, there is a subdirectory for each type of logs kept by StackState. By default, each subdirectory has a size cap of 2 GB; when exceeded, the oldest files are deleted. Example of `var/log` contents:
 
 ```text
 .:
@@ -172,7 +172,9 @@ total 1043088
 -rw-r--r--. 1 stackstate stackstate      805 Dec 17 13:52 sync.Postgresql.log
 ```
 
-Please note that with 1.15.0 release Elasticsearch version used by StackState changed. This means that all Elasticsearch logs are no longer kept in `./elasticsearch` subdirectory and all new log files are saved in `./elasticsearch7` subdirectory. The old directory can be removed to free some disk space.
+{% hint style="info" %}
+From StackState v1.15.0, the version of Elasticsearch used by StackState changed. Elasticsearch logs are now saved in `./elasticsearch7`. The old `./elasticsearch` subdirectory can be removed to free some disk space.
+{% endhint %}
 
 ## Files
 
