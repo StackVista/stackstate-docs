@@ -96,41 +96,14 @@ Detailed information about ports per process.
 | **Receiver** | <ul><li>7077: HTTP agent API (aka receiver API). When using an agent, data is sent to this endpoint.</li></ul> |
 | **Kafka** | <ul><li>9092: Client port</li></ul> |
 | **ElasticSearch** | <ul><li>9200: HTTP api</li><li>9300: Native api</li></ul> |
-| **Zookeeper** | <ul><li>2181: Client API</li><li>2888: Zookeeper peers \(general communication\), only when running a cluster</li><li>3888: Zookeeper peers \(leader election\), only when running a cluster</li></ul> |
-
-
-#### HBase Master
-
-* 16000: Master client api \(needs to be open for clients\)
-* 16010: Master Web UI \(optional\)
-
-#### HBase Region server
-
-* 16020: Region client API \(needs to be open for clients\)
-* 16030: Region Web UI \(optional\)
-
-#### HDFS NameNode
-
-* 8020: File system \(needs to be open for clients\)
-* 50070: Web UI \(optional\)
-
-#### HDFS DataNode
-
-* 50010: Datanode API \(needs to be open for clients\)
-* 50020: IPC api \(communication within HDFS cluster\)
-* 50075: HTTP api \(optional\)
-
-#### Tephra Transaction service
-
-* 15165: Client API
-
-#### StackState ProcessManager
-
-* 5154: StackState ProcessManager, at the moment only from localhost
-
-#### StackGraph ProcessManager
-
-* 5152: StackGraph ProcessManager, at the moment only from localhost
+| **Zookeeper** | <ul><li>2181: Client API</li><li>2888: Zookeeper peers (general communication), only when running a cluster</li><li>3888: Zookeeper peers (leader election), only when running a cluster</li></ul> |
+| **HBase Master** | <ul><li>16000: Master client API (needs to be open for clients)</li><li>16010: Master Web UI (optional)</li></ul> |
+| **HBase Region Server** | <ul><li>16020: Region client API (needs to be open for clients)</li><li>16030: Region Web UI (optional)</li></ul>
+| **HDFS NameNode** | <ul><li>8020: File system (needs to be open for clients)</li><li>50070: Web UI (optional)</li></ul>
+| **HDFS DataNode** | <ul><li>50010: Datanode API (needs to be open for clients)</li><li>50020: IPC api (communication within HDFS cluster)</li><li>50075: HTTP api (optional)</li></ul> |
+| **Tephra Transaction service** | <ul><li>15165: Client API</li></ul> |
+| **StackState ProcessManager** | <ul><li>5154: StackState ProcessManager, at the moment only from localhost</li></ul> |
+| **StackGraph ProcessManager** | <ul><li>5152: StackGraph ProcessManager, at the moment only from localhost</li></ul> |
 
 ## Client (browser) requirements
 
