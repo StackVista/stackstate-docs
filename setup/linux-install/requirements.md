@@ -35,8 +35,8 @@ The StackState production setup requires two machines to run on.
 
 |  | MINIMUM | RECOMMENDED |
 |:---|:---|:---|
-| StackState node | <ul> <li>&gt;= 20GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>32GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
-| StackGraph node |<ul><li>&gt;= 16GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>24GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
+| **StackState node** | <ul> <li>&gt;= 20GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>32GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
+| **StackGraph node** |<ul><li>&gt;= 16GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>24GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
 
 ### POC setup
 
@@ -92,11 +92,11 @@ Detailed information about ports per process.
 
 | PROCESS | PORT LIST |
 |:---|:---|
-| StackState|<ul><li>7070: HTTP api & user interface</li><li>7071: Admin API for health checks and admin operations. Typically you want to use this only from `localhost`</li></ul> |
-| Receiver | <ul><li>7077: HTTP agent API \(aka receiver API\). When using an agent, data is sent to this endpoint.</li></ul> |
-| Kafka | <ul><li>9092: Client port</li></ul> |
-| ElasticSearch | <ul><li>9200: HTTP api</li><li>9300: Native api</li></ul> |
-| Zookeeper | <ul><li>2181: Client API</li><li>2888: Zookeeper peers \(general communication\), only when running a cluster</li><li>3888: Zookeeper peers \(leader election\), only when running a cluster</li></ul> |
+| **StackState** |<ul><li>7070: HTTP api & user interface</li><li>7071: Admin API for health checks and admin operations. Typically you want to use this only from `localhost`</li></ul> |
+| **Receiver** | <ul><li>7077: HTTP agent API (aka receiver API). When using an agent, data is sent to this endpoint.</li></ul> |
+| **Kafka** | <ul><li>9092: Client port</li></ul> |
+| **ElasticSearch** | <ul><li>9200: HTTP api</li><li>9300: Native api</li></ul> |
+| **Zookeeper** | <ul><li>2181: Client API</li><li>2888: Zookeeper peers \(general communication\), only when running a cluster</li><li>3888: Zookeeper peers \(leader election\), only when running a cluster</li></ul> |
 
 
 #### HBase Master
