@@ -175,9 +175,7 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/company/contact/).
 {% endhint %}
 
-StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process.
-
-Reindex needs to be run in Terminal \(or other CLI\) on the machine that hosts StackState \(for the [production setup](production-installation.md)\).
+StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process. Reindex needs to be run in Terminal \(or other CLI\) on the machine that hosts StackState \(for the [production setup](production-installation.md)\).
 
 1. Make sure that StackState is not running with the following command:
 `systemctl stop stackstate`
