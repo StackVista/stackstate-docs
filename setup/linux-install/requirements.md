@@ -33,46 +33,39 @@ kind: Documentation
 
 The StackState production setup requires two machines to run on.
 
-|  | Minimum | Recommended |
+|  | MINIMUM | RECOMMENDED |
 |:---|:---|:---|
-| StackState node | <ul> <li>&gt;= 20GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores cpu</li></ul> | <ul><li>32GB of RAM</li><li>500GB disk space</li><li>8 cores cpu</li></ul> |
-| StackGraph node |<ul><li>&gt;= 16gb of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores cpu</li></ul> | <ul><li>24GB of RAM</li><li>500GB disk space</li><li>8 cores cpu</li></ul> |
+| StackState node | <ul> <li>&gt;= 20GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>32GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
+| StackGraph node |<ul><li>&gt;= 16GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>24GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
 
 ### POC setup
 
-The POC setup runs on a single node
-
-#### Requirements
+The POC setup runs on a single node and requires:
 
 * 32GB of RAM
 * 500GB disk space
-* 8 cores cpu
+* 8 cores CPU
 
 ### Development setup
 
-The development setup runs on a single node
-
-#### Requirements
+The development setup runs on a single node and requires:
 
 * 16GB of RAM
 * 500GB disk space
-* 4 cores cpu
+* 4 cores CPU
 
 ## AWS requirements
 
-To meet StackState minimal requirements the AWS instance type needs to have at least 4 CPU cores and 16GB of memory, e.g., m5.xlarge.
+To meet StackState minimal requirements, the AWS instance type needs to have at least:
+
+* 4 CPU cores
+* 16GB of memory, e.g., m5.xlarge.
 
 The AWS CLI has to be installed on the EC2 instance that is running StackState.
 
 ## Networking requirements
 
 Listed ports are TCP ports.
-
-### Development/POC deployment
-
-StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system that is pushing data to StackState
-
-The following ports can be opened for monitoring, but are also useful when troubleshooting: 9001, 9002, 9003, 9004, 9005, 9006, 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026, 16010, 16030, 50070, 50075
 
 ### Production deployment
 
@@ -84,36 +77,27 @@ StackGraph should be reachable by StackState on ports 2181, 8020, 15165, 16000, 
 
 The following ports can be opened for monitoring, but are also useful when troubleshooting:
 
-* StackSate: 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026
-* StackGraph: 9001, 9002, 9003, 9004, 9005, 9006, 16010, 16030, 50070, 50075
+* **StackState:** 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026
+* **StackGraph:** 9001, 9002, 9003, 9004, 9005, 9006, 16010, 16030, 50070, 50075
+
+### Development/POC deployment
+
+StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system that is pushing data to StackState
+
+The following ports can be opened for monitoring, but are also useful when troubleshooting: 9001, 9002, 9003, 9004, 9005, 9006, 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026, 16010, 16030, 50070, 50075
 
 ### Port list per process
 
 Detailed information about ports per process.
 
-#### StackState
+| PROCESS | PORT LIST |
+|:---|:---|
+| StackState|<ul><li>7070: HTTP api & user interface</li><li>7071: Admin API for health checks and admin operations. Typically you want to use this only from `localhost`</li></ul> |
+| Receiver | <ul><li>7077: HTTP agent API \(aka receiver API\). When using an agent, data is sent to this endpoint.</li></ul> |
+| Kafka | <ul><li>9092: Client port</li></ul> |
+| ElasticSearch | <ul><li>9200: HTTP api</li><li>9300: Native api</li></ul> |
+| Zookeeper | <ul><li>2181: Client API</li><li>2888: Zookeeper peers \(general communication\), only when running a cluster</li><li>3888: Zookeeper peers \(leader election\), only when running a cluster</li></ul> |
 
-* 7070: HTTP api & user interface
-* 7071: Admin API for health checks and admin operations. Typically you want to use this only from `localhost`
-
-#### Receiver
-
-* 7077: HTTP agent API \(aka receiver API\). When using an agent, data is sent to this endpoint.
-
-#### Kafka
-
-* 9092: Client port
-
-#### Elasticsearch
-
-* 9200: HTTP api
-* 9300: Native api
-
-#### Zookeeper
-
-* 2181: Client API
-* 2888: Zookeeper peers \(general communication\), only when running a cluster
-* 3888: Zookeeper peers \(leader election\), only when running a cluster
 
 #### HBase Master
 
@@ -148,7 +132,7 @@ Detailed information about ports per process.
 
 * 5152: StackGraph ProcessManager, at the moment only from localhost
 
-## Client requirements
+## Client (browser) requirements
 
 To use the StackState GUI, you must use one of the following web browsers:
 
