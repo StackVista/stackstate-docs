@@ -33,8 +33,8 @@ kind: Documentation
 
 The StackState production setup requires two machines to run on.
 
-|   | Minimum | Recommended |
-|:---|:---|
+|  | Minimum | Recommended |
+|:---|:---|:---|
 | StackState node |
   <ul>
     <li>&gt;= 20GB of RAM</li>
