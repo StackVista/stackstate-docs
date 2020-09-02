@@ -42,7 +42,7 @@ StackState logs are stored across the running pods. The table below shows the po
 | Synchronization | `stackstate-server` |
 | View health state | `stackstate-server` |
 
-You can access logs on a specific pod the [`kubectl logs` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
+You can access logs on a specific pod using the [`kubectl logs` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
 
 ```
 kubectl logs stackstate-server
