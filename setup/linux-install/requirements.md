@@ -7,7 +7,9 @@ kind: Documentation
 
 ## Server requirements
 
-* **Operating system:** one of the following operating systems running Java:
+### Operating system
+
+One of the following operating systems running Java. Check also the specific requirements for the [StackState Agent StackPack](../../stackpacks/integrations/agent.md):
 
 | OS | Release |
 | :--- | :--- |
@@ -20,12 +22,12 @@ kind: Documentation
 | Red Hat | 7.5 |
 | Amazon Linux | 2 |
 
-* **Java:**
-  * OpenJDK 8 **patch level 121** or later
+### Java
+OpenJDK 8 **patch level 121** or later
 
-**NOTE**: StackState **does not work** with JDK versions 9 or higher at this time.
-
-**NOTE**: The StackState Agent StackPack has [more specific requirements](/stackpacks/integrations/agent.md).
+{% hint style="info" %}
+StackState **does not work** with JDK versions 9 or higher at this time.
+{% endhint %}
 
 ## Size requirements
 
