@@ -23,7 +23,7 @@
     * [File-based backup](setup/backup_restore/file.md)
   * [StackState CLI](setup/cli.md)
   * [Data retention](setup/retention.md)
-  * [Clearing data](setup/clear_data.md)
+  * [Clear stored data](setup/clear_data.md)
   * [Troubleshooting](setup/troubleshooting.md)
 * [Concepts](concepts/README.md)
   * [The 4T data model](concepts/4t_data_model.md)

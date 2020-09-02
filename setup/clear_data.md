@@ -6,33 +6,41 @@ description: Removing data from StackState.
 
 # Clearing data
 
-## Clearing StackState
+The data in StackState is divided into three different sets:
+* ElasticSearch data
+* Kafka Topic data
+* StackGraph data
 
-The data in StackState is divided into three different sets: ElasticSearch data, Kafka Topic data, and the StackGraph data. With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState, that you can configure according to your needs. Besides that, you can also use a StackState CLI command or choose to perform a few manual steps locally on each machine.
+With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState. This can be configured according to your needs using the StackState CLI or manually on each machine. Find out more about [StackState data retention](retention.md).
+
+## Clear data using the StackState CLI
 
 {% hint style="warning" %}
 Clearing the data in StackState will **remove any configured permissions from the system**.
 {% endhint %}
 
-## Clearing data using StackState CLI
-
 The StackState CLI needs access to the Admin API \(default port 7071\) to issue the command used below.
 
-Using the StackState CLI route takes care of stopping all necessary services, performs the deletion of all topology and telemetry data, and starts StackState up. However, the Kafka topics folder needs to be deleted manually from the StackState server. The Kafka topics folder is located in `/opt/stackstate/var/lib/` and is named `kafka`.
+Running the StackState CLI delete command will:
+- Stop all necessary services
+- Delete all topology and telemetry data.
+Note that, the Kafka topics folder needs to be deleted manually from the StackState server. The Kafka topics folder is located in `/opt/stackstate/var/lib/` and is named `kafka`.
+
+- Start StackState
 
 ```text
 sts graph delete --all
 ```
 
-## Data retention period
+## Clear data manually
 
-Data retention configuration provides a balance between the amount of stored data, performance, and data availability. By default, the data retention window is set to 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. Find more [here](retention.md).
+{% hint style="warning" %}
+Clearing the data in StackState will **remove any configured permissions from the system**.
+{% endhint %}
 
-## Clearing data manually
+Please note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node. For example, `stop stackgraph` for a StackGraph node.
 
-Please note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node - `stop stackgraph` for a StackGraph node, for example.
-
-1. To clean StackState manually, StackState and StackGraph services must be stopped first:
+1. Stop the StackState and StackGraph services:
 
    ```text
     systemctl stop stackstate
@@ -44,21 +52,15 @@ Please note that the below instructions are valid for a single node installation
     systemctl stop stackgraph
    ```
 
-2. After above services are stopped you can remove the directory that holds the files:
+2. Remove the directory that holds the files:
 
    ```text
     rm -rf /opt/stackstate/var/lib/*
    ```
 
-3. Start StackState and StackGraph services:
+3. Start the StackState and StackGraph services:
 
    ```text
     systemctl start stackstate
-   ```
-
-   and
-
-   ```text
     systemctl start stackgraph
    ```
-
