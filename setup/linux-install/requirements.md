@@ -23,7 +23,7 @@ One of the following operating systems running Java. Check also the specific req
 | Amazon Linux | 2 |
 
 ### Java
-OpenJDK 8 **patch level 121** or later
+OpenJDK 8 **patch level 121** or later.
 
 {% hint style="info" %}
 StackState **does not work** with JDK versions 9 or higher at this time.

@@ -4,9 +4,9 @@ description: Installing StackState.
 
 # Installation
 
-## Choosing your installation type
+StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../kubernetes-install/README.md).
 
-StackState can be installed either with Linux packages on one or two linux machines or with Helm on a [Kubernetes](../kubernetes-install/README.md) cluster.
+## Choosing your installation type
 
 Before setting up StackState, you need to choose whether you want to run StackState in Development, POC, or Production mode.
 

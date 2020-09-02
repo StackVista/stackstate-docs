@@ -5,6 +5,7 @@
 * [Setup](setup/README.md)
   * [Download](setup/download.md)
   * [Kubernetes install](/setup/kubernetes-install/README.md)
+    * [Requirements](setup/kubernetes-install/requirements.md)
     * [Configure storage](setup/kubernetes-install/storage.md)
     * [Configure Ingress](setup/kubernetes-install/ingress.md)
     * [StackState images](setup/kubernetes-install/image_configuration.md)
