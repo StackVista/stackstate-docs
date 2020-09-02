@@ -32,7 +32,8 @@ Note that, the Kafka topics folder needs to be deleted manually from the StackSt
 # Delete all topology and telemetry data
 sts graph delete --all
 
-# The Kafka topics folder needs to be manually deleted (/opt/stackstate/var/lib/kafka)
+# The Kafka topics folder needs to be deleted manually from the StackState server:
+# /opt/stackstate/var/lib/kafka
 ```
 
 ## Clear data manually
