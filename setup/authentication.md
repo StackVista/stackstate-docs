@@ -160,11 +160,11 @@ Please note that StackState can check for user files in LDAP main directory as w
 
 After editing the config file with the required LDAP details, move on to the [subject configuration doc](../../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../../configure/how_to_set_up_roles.md).
 
-### Configuring the KeyCloak OIDC Authentication Server
+## Configuring the KeyCloak OIDC Authentication Server
 
 In order to configure StackState to authenticate to an KeyCloak OIDC authentication server, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.
 
-#### Configuring StackState to authenticate against a KeyCloak OIDC Authentication Server
+### Configuring StackState to authenticate against a KeyCloak OIDC Authentication Server
 
 Here is an example of an authentication configuration that uses a running KeyCloak server. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to change the line `authentication.enabled = false` to `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
 
@@ -204,7 +204,7 @@ Configuration field explanation:
 
 The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
 
-#### Configuring a KeyCloak client for use with StackState
+### Configuring a KeyCloak client for use with StackState
 
 In order to connect StackState to KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
 
@@ -234,4 +234,3 @@ authentication {
 ```
 
 1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
-

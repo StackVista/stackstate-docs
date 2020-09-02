@@ -135,7 +135,7 @@ Diff (this = Requested; that = Catalog):
 
 **Cause**: Introduced index changes.
 
-**Solution**: Follow the [reindex process](reindex.md)
+**Solution**: Follow the [reindex process](#reindex-stackstate)
 
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
@@ -169,3 +169,26 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 
 **Solution**: Check the status of the Splunk job using SID in Splunk Activity Screen. To do this, you need to extract the job id from the URL provided in the error message. SID is located in the URL right after `/jobs/` - `.../search/jobs/{SID}/...`. Now you can check this job in Splunk Activity menu.
 
+## Reindex StackState
+
+{% hint style="danger" %}
+It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/company/contact/).
+{% endhint %}
+
+StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process.
+
+Reindex needs to be run in Terminal \(or other CLI\) on the machine that hosts StackState \(for the [production setup](production-installation.md)\).
+
+First, make sure that StackState is not running with the following command:
+
+`systemctl stop stackstate`
+
+Then, make sure that StackGraph is running with the following command:
+
+`systemctl start stackgraph`
+
+Then execute the reindex command:
+
+`sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
+
+Please note that this is a long-running process - monitoring progress in StackState logs is advised.
