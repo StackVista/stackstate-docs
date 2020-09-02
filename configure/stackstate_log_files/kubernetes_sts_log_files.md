@@ -1,12 +1,10 @@
 # StackState log files - Kubernetes
 
-In a Kubernetes setup, StackState stores log files across the running pods. You can access recent logs using 'kubectl', although for long term storage it is recommended to set up log aggregation.
-
 In a Kubernetes setup, StackState stores log files [across the running pods](#find-stackstate-logs-on-kubernetes-pods). You can [access recent logs](#access-recent-logs) using 'kubectl', although for long term storage it is recommended to set up [log aggregation](#log-aggregation).
 
 ## Access recent logs
 
-The most recent logs can be retrieved from Kubernetes using the [kubectl logs command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
+The most recent logs can be retrieved from Kubernetes using the [`kubectl logs` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
 ```
 # Snapshot of logs for all containers of <pod-name>
 kubectl logs <pod-name> --all-containers=true
@@ -44,7 +42,7 @@ StackState logs are stored across the running pods. The table below shows the po
 | Synchronization | `stackstate-server` |
 | View health state | `stackstate-server` |
 
-You can access logs on a specific pod the [kubectl logs command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
+You can access logs on a specific pod the [`kubectl logs` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
 
 ```
 kubectl logs stackstate-server
