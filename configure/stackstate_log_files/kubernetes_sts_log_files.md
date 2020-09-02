@@ -1,6 +1,8 @@
 # StackState log files - Kubernetes
 
+In a Kubernetes setup, StackState stores log files across the running pods. You can access recent logs using 'kubectl', although for long term storage it is recommended to set up log aggregation.
 
+In a Kubernetes setup, StackState stores log files [across the running pods](#find-stackstate-logs-on-kubernetes-pods). You can [access recent logs](#access-recent-logs) using 'kubectl', although for long term storage it is recommended to set up [log aggregation](#log-aggregation).
 
 ## Access recent logs
 
