@@ -42,25 +42,20 @@ Please note that the below instructions are valid for a single node installation
 
 1. Stop the StackState and StackGraph services:
 
-   ```text
-    systemctl stop stackstate
-   ```
-
-   and
-
-   ```text
-    systemctl stop stackgraph
-   ```
+ ```text
+  systemctl stop stackstate
+  systemctl stop stackgraph
+ ```
 
 2. Remove the directory that holds the files:
 
-   ```text
-    rm -rf /opt/stackstate/var/lib/*
-   ```
+ ```text
+  rm -rf /opt/stackstate/var/lib/*
+ ```
 
 3. Start the StackState and StackGraph services:
 
-   ```text
-    systemctl start stackstate
-    systemctl start stackgraph
-   ```
+ ```text
+  systemctl start stackstate
+  systemctl start stackgraph
+ ```
