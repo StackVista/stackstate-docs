@@ -33,33 +33,30 @@ kind: Documentation
 
 The StackState production setup requires two machines to run on.
 
-#### Minimal requirements
-
-**StackState node**
-
-* &gt;= 20GB of RAM
-* &gt;= 100GB disk space
-* &gt;= 4 cores cpu
-
-**StackGraph node**
-
-* &gt;= 16gb of RAM
-* &gt;= 100GB disk space
-* &gt;= 4 cores cpu
-
-#### Recommended
-
-**StackState node**
-
-* 32GB of RAM
-* 500GB disk space
-* 8 cores cpu
-
-#### StackGraph node
-
-* 24GB of RAM
-* 500GB disk space
-* 8 cores cpu
+|   | Minimum | Recommended |
+|:---|:---|
+| StackState node |
+  <ul>
+    <li>&gt;= 20GB of RAM</li>
+    <li>&gt;= 100GB disk space</li>
+    <li>&gt;= 4 cores cpu</li>
+  </ul> |
+  <ul>
+    <li>32GB of RAM</li>
+    <li>500GB disk space</li>
+    <li>8 cores cpu</li>
+  </ul> |
+| StackGraph node |
+  <ul>
+    <li>&gt;= 16gb of RAM</li>
+    <li>&gt;= 100GB disk space</li>
+    <li>&gt;= 4 cores cpu</li>
+  </ul> |
+  <ul>
+    <li>24GB of RAM</li>
+    <li>500GB disk space</li>
+    <li>8 cores cpu</li>
+  </ul> |
 
 ### POC setup
 
