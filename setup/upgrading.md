@@ -80,12 +80,22 @@ For upgrading, the same command can be used as for the [first time Kubernetes in
 {% tab title="Linux" %}
 Depending on your platform, you can use one of the following commands to upgrade.
 
-* **Fedora, RedHat, CentOS:**
-  * using RPM: `rpm -U <stackstate>.rpm`
-  * using yum: `yum localinstall <stackstate>.rpm`
-* **Debian, Ubuntu:**
-  * using dpkg: `dpkg -i <stackstate>.deb`
-  * using apt: `apt-get upgrade <stackstate>.deb`
+**Fedora, RedHat, CentOS:**
+```
+# Using RPM
+rpm -U <stackstate>.rpm
+
+# Using yum
+yum localinstall <stackstate>.rpm
+```
+**Debian, Ubuntu:**
+```
+# Using dpkg
+dpkg -i <stackstate>.deb
+
+# Using apt
+apt-get upgrade <stackstate>.deb
+```
 {% endtab %}
 {% endtabs %}
 
