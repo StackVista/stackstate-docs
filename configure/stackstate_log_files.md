@@ -6,7 +6,7 @@
 
 ## Kubernetes
 
-In a Kubernetes setup, StackState stores log files [across the running pods](#find-stackstate-logs-on-kubernetes-pods). You can [access recent logs](#access-recent-logs) using `kubectl`, although for long term storage it is recommended to set up [log aggregation](#log-aggregation).
+In a Kubernetes setup, StackState functions are distributed [across different pods](#find-stackstate-logs-on-kubernetes-pods) and logs for each function are stored per pod and container. You can [access recent logs](#access-recent-logs) using `kubectl`, although for long term storage it is recommended to set up [log aggregation](#log-aggregation).
 
 ### Access recent logs
 
@@ -38,7 +38,7 @@ kubectl logs stackstate-server-0 | grep "Agent"
 
 ### Find StackState logs on Kubernetes pods
 
-StackState logs are stored across the running pods. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (e.g. `stackstate-receiver-5b9d79db86-h2hkz`) and may also include the release name specified when StackState was deployed as a prefix.
+StackState logs are stored per pod and container. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (e.g. `stackstate-receiver-5b9d79db86-h2hkz`) and may also include the release name specified when StackState was deployed as a prefix.
 
 | StackState function | Pod |
 |:---|:---|
