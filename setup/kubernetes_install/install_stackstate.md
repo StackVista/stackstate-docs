@@ -99,10 +99,10 @@ kubectl port-forward service/stackstate-router 8080:8080
 
 StackState will now be available in your browser at `https://localhost:8080`. Log in with the username `admin` and the default password provided in the `values.yaml` file.
 
-Next steps are:
+Next steps are
 * Configure [ingress](ingress.md)
 * Install a [StackPack](/stackpacks/) or two
-* Give your [co-workers access](./#configuring-authentication-and-authorization).
+* Give your [co-workers access](../authentication.md).
 
 ## Automatic Kubernetes support
 

@@ -15,7 +15,7 @@ When a user is authenticated, the user has one of two possible roles in StackSta
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-StackState uses the file `etc/application_stackstate.conf` in the StackState installation directory for authentication configuration. After changing this file restart StackState for any changes to take effect.
+StackState uses the file `etc/application_stackstate.conf` in the StackState installation directory for authentication configuration. After changing this file, restart StackState for any changes to take effect.
 
 ## Default username and password
 
@@ -42,7 +42,9 @@ stackstate { api { authentication { enabled = false } } }
 
 ## File-based authentication
 
-Here is an example of `authentication` that configures a user `admin/password` and a user `guest/password`. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` to `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
+To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the 2 default roles available, the md5 hash still needs to be generated and put in the example.
+
+Here is an example of authentication that configures two users: `admin/password` and `guest/password`. Place it within the `stackstate { api {` block of `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState for changes to take effect.
 
 ```javascript
 authentication {
@@ -169,6 +171,7 @@ When using LDAP with Kubernetes, a number of (secret) values can be passed throu
 * `stackstate.authentication.ldap.ssl.type`: The SSL Connection type to use to connect to LDAP (Either ssl or starttls)
 * `stackstate.authentication.ldap.ssl.trustStore`: The Certificate Truststore to verify server certificates against
 * `stackstate.authentication.ldap.ssl.trustCertificates`: The client Certificate trusted by the server
+
 The `trustStore` and `trustCertificates` values need to be set from the command line, as they typically contain binary data. A sample command for this looks like:
 
 ```
