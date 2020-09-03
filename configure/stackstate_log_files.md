@@ -67,8 +67,8 @@ Note that logs stored on pods will be regularly removed. For long term access to
 For long term storage of StackState log data, it is advised that you set up log aggregation on your Kubernetes cluster. This can be done using a third party system for storage such as Elasticsearch, Splunk or Logz.io and a log shipper such as Logstash or Fluentd.
 
 For more details of how this can be done, check:
-* [Fluentd docs](https://docs.fluentd.org/container-deployment/kubernetes) for shipping logs
-* A complete overview of setting up [log aggregation into Elasticsearch]( https://docs.bitnami.com/tutorials/integrate-logging-kubernetes-kibana-elasticsearch-fluentd/)
+* Shipping logs with [Fluentd (fluentd.org)](https://docs.fluentd.org/container-deployment/kubernetes)
+* A complete overview of setting up [log aggregation into Elasticsearch (bitnami.com)]( https://docs.bitnami.com/tutorials/integrate-logging-kubernetes-kibana-elasticsearch-fluentd/)
 
 ## Linux
 In a Linux setup, StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the StackState node keeps StackState related logs and the StackGraph node keeps logs related to StackGraph.
