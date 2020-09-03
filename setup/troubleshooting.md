@@ -5,7 +5,7 @@ kind: Documentation
 
 # Troubleshooting StackState startup
 
-## Issues getting StackState started
+## StackState won't start
 
 Here is a quick guide for troubleshooting the startup of StackState:
 
@@ -18,9 +18,35 @@ Here is a quick guide for troubleshooting the startup of StackState:
 
 ### Timeout notification when uninstalling or upgrading a StackPack
 
-Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue; however, for the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
+Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue. For the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
 
-### Error `InterruptedException` when opening a view
+### `InterruptedException` when opening a view
+
+|:---|:---|
+| Symptom | opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
+
+```text
+... Starting ViewEventSummaryStream web socket stream failed.
+com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
+...
+Caused by: java.io.InterruptedIOException: Origin: InterruptedException
+``` |
+| Cause | topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered. |
+| Possible solution | increase the cache size by editing StackState's configuration.
+
+In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
+
+* number of components \* 10,
+* number of relations \* 10,
+* number of checks \* 5.
+
+The default cache size is set to 8191. Make sure the cache size is defined as a power of two minus one, e.g. `2^13-1 = 8191`.
+
+Make sure that StackState has enough memory available, the available memory can be configured by editing: `/opt/stackstate/etc/processmanager/processmanager.conf`. Under process named `stackstate-server`, change `-Xmx1G` to `-Xmx<N>G` where `<N>` is the number of desired GBs of memory. For example, change the setting to `-Xmx8G` to have 8 GBs of memory available to StackState.
+
+Restart StackState, by `sudo systemctl restart stackstate.service`, for the changes to be effective. |
+
+***
 
 **Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
 
@@ -81,7 +107,7 @@ Press <enter> to keep the current choice[*], or type selection number: 2
 update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to provide /usr/bin/java (java) in manual mode
 ```
 
-### Error `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
+### `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
 **Symptom**: when starting any component of StackState, the log shows a message similar to the following:
 
@@ -137,7 +163,7 @@ Diff (this = Requested; that = Catalog):
 
 **Solution**: Follow the [reindex process](#reindex-stackstate)
 
-### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
+### `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
 **Symptom**: Splunk saved search with SID \(Splunk job id\) results in `ERROR: CheckException: Splunk topology failed with message: 400 Client Error: Bad Request for url:` message. StackState log in `/var/log/stackstate/collector.log` shows the following:
 
