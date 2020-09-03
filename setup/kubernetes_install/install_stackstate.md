@@ -49,23 +49,25 @@ You can run the `generate_values.sh` script in two ways:
 * **Non-interactive mode:** Run the script with the `-n` flag to pass the required configuration on the command line, this is useful for scripting.
 
   ```
-  ./generate_values.sh -n <configuration to include>
+  ./generate_values.sh -n <configuration items>
 
   ```
 
+The script requires the following configuration items:
+
 | Configuration | Flag | Description |
 |:---|:---|:---|
-| **Base URL** | `-b` | The external URL for StackState that users and agents will use to connect.<br />For example `https://stackstate.internal`. <br />If you haven't decided on an Ingress configuration yet, use `http://localhost:8080` - this can be updated later in the generated file |
-| **Username and password** | `-u`<br />`-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories |
-| **License key** | `-l` | The StackState license key |
-| **Admin API password** | `-d` | The password for the admin API.<br />This API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation \(you can also omit it from the command line, the script will ask for it in that case\) |
-| **Default password** | `-d` | The password for the default user \(`admin`\) to access StackState's UI \(you can also omit it from the command line, the script will ask for it in that case\) |
-| **Kubernetes support<br /> and cluster name** | `-k` | StackState will use this name to identify the cluster.<br />In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](#automatic-kubernetes-support) and set the cluster name.<br />In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md). |
+| Base URL | `-b` | The external URL for StackState that users and agents will use to connect.<br />For example `https://stackstate.internal`. <br />If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file. |
+| **Username and password** | `-u`<br />`-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories. |
+| **License key** | `-l` | The StackState license key. |
+| **Admin API password** | `-a` | The password for the admin API.<br />Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation.<br />This can be omitted from the command line, the script will prompt for it. |
+| **Default password** | `-d` | The password for the default user \(`admin`\) to access StackState's UI.<br />This can be omitted from the command line, the script will prompt for it. |
+| **Kubernetes cluster name** | `-k` | StackState will use this name to identify the cluster.<br />In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](#automatic-kubernetes-support) and set the cluster name.<br />In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md). |
 
 The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
 
 {% hint style="info" %}
-Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
+Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
 {% endhint %}
 
 ### Deploy StackState with Helm
