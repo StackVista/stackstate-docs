@@ -37,28 +37,34 @@ The `values.yaml` is required to deploy StackState with Helm. It contains  your 
 **Before you continue:** If you didn't already, make sure you have the latest version of the Helm chart with `helm repo update`.
 {% endhint %}
 
-You can run the `generate_values.sh` script in two ways.
+You can run the `generate_values.sh` script in two ways:
 
 * **Interactive mode:** When the script is run without any arguments, it will guide you through the required configuration items.
-
 ```
 ./generate_values.sh
 
 ```
 
 * **Non-interactive mode:** Run the script with the `-n` flag to pass the required configuration on the command line, this is useful for scripting.
-
-
 ```
 ./generate_values.sh -n <configuration to include>
 
 ```
 
+| Configuration | Flag | Description |
+|:---|:---|:---|
+| Base url | `-b` | The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`. For example `https://stackstate.internal`. If you don't know this yet, because you haven't decided on an ingress configuration yet, you can start with `http://localhost:8080` and later update it in the generated `values.yaml` |
+| username and password | `-u` , `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories |
+
+
+
+The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
+
 {% hint style="info" %}
-Store the generated 'values.yaml' file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
+Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
 {% endhint %}
 
-The `values.yaml` file generated is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
+
 
 
 
