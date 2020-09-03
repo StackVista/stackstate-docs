@@ -55,30 +55,18 @@ You can run the `generate_values.sh` script in two ways:
 
 | Configuration | Flag | Description |
 |:---|:---|:---|
-| **Base URL** | `-b` | The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`.<br />For example `https://stackstate.internal`. <br />If you don't know this yet, because you haven't decided on an Ingress configuration, use `http://localhost:8080`. This can be updated later it in the generated file |
+| **Base URL** | `-b` | The external URL for StackState that users and agents will use to connect.<br />For example `https://stackstate.internal`. <br />If you haven't decided on an Ingress configuration yet, use `http://localhost:8080` - this can be updated later in the generated file |
 | **Username and password** | `-u`<br />`-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories |
-
-
+| **License key** | `-l` | The StackState license key |
+| **Admin API password** | `-d` | The password for the admin API.<br />This API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation \(you can also omit it from the command line, the script will ask for it in that case\) |
+| **Default password** | `-d` | The password for the default user \(`admin`\) to access StackState's UI \(you can also omit it from the command line, the script will ask for it in that case\) |
+| **Kubernetes support<br /> and cluster name** | `-k` | StackState will use this name to identify the cluster.<br />In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](#automatic-kubernetes-support) and set the cluster name.<br />In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md). |
 
 The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
 
 {% hint style="info" %}
 Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
 {% endhint %}
-
-
-
-
-
-The script requires the following input:
-
-* base url \(`-b`\): The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`. For example `https://stackstate.internal`. If you don't know this yet, because you haven't decided on an ingress configuration yet, you can start with `http://localhost:8080` and later update it in the generated `values.yaml`
-* image pull username and password \(`-u` , `-p`\): The username and password provided by StackState to pull images from quay.io/stackstate repositories
-* license key \(`-l`\): The StackState license key
-* admin api password \(`-d`\): The password for the admin api, this api contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation \(you can also omit it from the command line, the script will ask for it in that case\)
-* default password \(`-d`\): The password for the default user \(`admin`\) to access StackState's UI \(you can also omit it from the command line, the script will ask for it in that case\)
-* should the StackState k8s agent be installed automatically \(interactively a yes/no question, also enabled when specifying `-k`\): StackState has built-in support \(via the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md)) for Kubernetes that can be automatically enabled, see this [section](./#automatic-kubernetes-support).
-* the Kubernetes cluster name \(`-k`\): When enabling automatic Kubernetes support StackState will use this name to identify the cluster, for more details see [this section](./#automatic-kubernetes-support). In non-interactive mode specifying `-k` will specify the cluster name and at the same time enable the Kubernetes support.
 
 ### Deploy StackState with Helm
 
