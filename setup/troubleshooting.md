@@ -19,9 +19,12 @@ get pods
 {% endtab %}
 
 {% tab title="Linux" %}
-1. Check whether systemd service StackGraph is started by `sudo systemctl status stackgraph.service`
-2. Check whether systemd service StackState is started by `sudo systemctl status stackstate.service`
-3. Check connection to StackState's user interface, default listening on TCP port 7070.
+1. Check whether systemd services StackGraph and StackState are running:
+```
+sudo systemctl status stackgraph
+sudo systemctl status stackstate
+```
+2. Check connection to StackState's user interface, default listening on TCP port 7070.
 4. Check log files for errors, located at `/opt/stackstate/var/log/`
 {% endtab %}
 {% endtabs %}
