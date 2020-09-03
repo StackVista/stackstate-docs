@@ -4,6 +4,7 @@
 
 Before you start the installation of StackState
 
+* Check that your Kubernetes environment meets the [requirements](requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 
 * Add the StackState helm repository to the local helm client:
@@ -12,7 +13,6 @@ Before you start the installation of StackState
 helm repo add stackstate https://helm.stackstate.io
 helm repo update
 ```
-* Check that your Kubernetes environment meets the [requirements](requirements.md)
 
 ## Install StackState
 
