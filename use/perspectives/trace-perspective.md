@@ -19,7 +19,7 @@ When you're in a [view](../views.md), you are seeing a sub-selection of your IT 
 
 By installing our agent and its integrations to gather traces from these technologies, you'll then get traces that traverse these components. StackState, at ingestion time, stores both the spans that make up for each component in the bullet list above, as well as the topology (components and relations) that can be extracted from these traces. Therefore, each component makes for a span, and each trace makes for the list of spans (or components) that are traversed in order to complete requests that are executed in your IT infrastructure.
 
-![The spans (components) of a trace](../../.gitbook/assets/traces-inspection.png)
+![The spans (components) of a trace](../../.gitbook/assets/trace-inspection.png)
 
 ![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
 
@@ -31,7 +31,7 @@ The two images above illustrate these concepts by showing a library application 
 
 When in the *traces perspective*, you get a list of the slowest traces for the components in your view. In order to see the spans that make up for each trace, you can click on any trace in the list in order to expand that item.
 
-![Inspecting a trace](../../.gitbook/assets/traces-inspection.png)
+![Inspecting a trace](../../.gitbook/assets/trace-inspection.png)
 
 Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to postgres calls that are made when completing the request.
 
@@ -74,4 +74,4 @@ Let's imagine a concrete scenario - You received an alert saying that your payme
 
 When using the *traces perspective* in live mode, you are constantly polling for the *slowest traces* in your time range selection. However, in a large IT infrastructure with constant requests being traced, what are you slowest traces now might now be your slowest traces (and be further down the list) in a matter of seconds. However, if a user is inspecting a trace or one of its spans, it would severely impact the usability of this feature if that trace kept constantly bouncing up and down the list of traces. Furthermore, if a user is scrolling down the list looking for a specific trace or a pattern in the list of traces, it also would make it hard for them for that list to be constantly changing. For these reasons, we've decided that these two actions (inspecting traces/spans and scrolling) effectively "pause" time and allow you to browse through a stable snapshot of your data. Pausing time means that you are now in the past and just like in all other perspectives, you're able to resume to live mode by clicking on the blue ribbon on top or in the timeline itself as illustrated in the image below.
 
-![Pausing time when inspecting a trace](../../.gitbook/assets/traces-inspection.png)
+![Pausing time when inspecting a trace](../../.gitbook/assets/trace-inspection.png)
