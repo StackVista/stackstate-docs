@@ -19,11 +19,11 @@ helm repo update
 Installation is done in four steps:
 
 1. Create the namespace where StackState will be installed
-2. Generate the values.yaml file
+2. Generate the `values.yaml` file
 3. Deploy StackState with Helm
 4. Enable port forwarding
 
-### Create the namespace
+### 1) Create the namespace
 
 Start by creating the namespace where you want to install StackState and deploy the secret in that namespace. In our walkthrough we will use the namespace `stackstate`:
 
@@ -31,11 +31,13 @@ Start by creating the namespace where you want to install StackState and deploy 
 kubectl create namespace stackstate
 ```
 
-### Generate `values.yaml`
+### 2) Generate `values.yaml`
 
 We will use the `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the helm chart to generate a `values.yaml` file containing your license key, API key etc.
 
-If you didn't already, run `helm repo update` to make sure that the latest Helm chart version is used.
+{% hint style="info" %}
+If you didn't already, run `helm repo update` to make sure that the latest version of the Helm chart is used.
+{% endhint %}
 
 When the `generate_values.sh` script is run without any arguments, it will guide you through the required configuration. You can also optionally pass all required arguments on the command line, this is useful for scripting.
 
@@ -73,7 +75,7 @@ The script requires the following input:
 * should the StackState k8s agent be installed automatically \(interactively a yes/no question, also enabled when specifying `-k`\): StackState has built-in support \(via the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md)) for Kubernetes that can be automatically enabled, see this [section](./#automatic-kubernetes-support).
 * the Kubernetes cluster name \(`-k`\): When enabling automatic Kubernetes support StackState will use this name to identify the cluster, for more details see [this section](./#automatic-kubernetes-support). In non-interactive mode specifying `-k` will specify the cluster name and at the same time enable the Kubernetes support.
 
-#### Deploy StackState with Helm
+### 3) Deploy StackState with Helm
 
 Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace run the following command:
 
