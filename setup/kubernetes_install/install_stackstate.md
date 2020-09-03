@@ -16,12 +16,12 @@ helm repo update
 
 ## Install StackState
 
-1. [Create the namespace where StackState will be installed](#create-the-namespace)
-2. [Generate the `values.yaml` file](#generate-the-file-values-yaml)
+1. [Create the namespace where StackState will be installed](#create-namespace)
+2. [Generate the `values.yaml` file](#generate-values-yaml)
 3. [Deploy StackState with Helm](#deploy-stackstate-with-helm)
-4. [Enable port forwarding](#enable-port-forwarding)
+4. [Enable port forwarding](#access-the-stackstate-ui)
 
-### Create the namespace
+### Create namespace
 
 Start by creating the namespace where you want to install StackState and deploy the secret in that namespace. In our walkthrough we will use the namespace `stackstate`:
 
@@ -29,7 +29,7 @@ Start by creating the namespace where you want to install StackState and deploy 
 kubectl create namespace stackstate
 ```
 
-### Generate the file `values.yaml`
+### Generate `values.yaml`
 
 The `values.yaml` is required to deploy StackState with Helm. It contains  your StackState license key, API key and other important information. The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the Helm chart will guide you through generating the file.
 
@@ -72,7 +72,6 @@ Store the `values.yaml` file somewhere safe. You can reuse this file for upgrade
 
 ### Deploy StackState with Helm
 
-
 Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace run the following command:
 
 ```text
@@ -84,9 +83,24 @@ stackstate \
 stackstate/stackstate
 ```
 
-### Enable port forwarding
+### Access the StackState UI
 
-When all pods are up you can enable a port-forward with `kubectl port-forward service/stackstate-router 8080:8080` and open StackState in your browser under `https://localhost:8080`. Log in with the username `admin` and the default password provided in the previous steps. Next steps are to configure [ingress](ingress.md), install a [StackPack](/stackpacks/) or two and to give your [co-workers access](./#configuring-authentication-and-authorization).
+After StackState has been deployed you can check if all pods are up and running:
+
+```
+kubectl get pods
+```
+
+When all pods are up. you can enable a port-forward with
+
+```
+kubectl port-forward service/stackstate-router 8080:8080
+```
+
+StackState will now be available in your browser at `https://localhost:8080`. Log in with the username `admin` and the default password provided when generating the `values.yaml` file. Next steps are:
+* Configure [ingress](ingress.md)
+* Install a [StackPack](/stackpacks/) or two
+* Give your [co-workers access](./#configuring-authentication-and-authorization).
 
 ## Automatic Kubernetes support
 
