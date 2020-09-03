@@ -11,7 +11,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-1. Get pods for the StackState namespace and check all are running:
+1. Check all pods in the StackState namespace are running:
 ```
 get pods
 ```
