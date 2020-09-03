@@ -13,7 +13,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% tab title="Kubernetes" %}
 1. Check that all pods in the StackState namespace are running:
 ```
-get pods
+kubectl get pods
 ```
 2. [Check the logs](../configure/stackstate_log_files.md) for errors.
 {% endtab %}

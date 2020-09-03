@@ -78,13 +78,14 @@ For upgrading, the same command can be used as for the [first time Kubernetes in
 {% endtab %}
 
 {% tab title="Linux" %}
-Depending on your platform, you can use one of the following commands to upgrade StackState:
-**Fedora, RedHat, CentOS:**
-* using RPM: `rpm -U <stackstate>.rpm`
-* using yum: `yum localinstall <stackstate>.rpm`
-**Debian, Ubuntu:**
-* using dpkg: `dpkg -i <stackstate>.deb`
-* using apt: `apt-get upgrade <stackstate>.deb`
+Depending on your platform, you can use one of the following commands to upgrade.
+
+* **Fedora, RedHat, CentOS:**
+  * using RPM: `rpm -U <stackstate>.rpm`
+  * using yum: `yum localinstall <stackstate>.rpm`
+* **Debian, Ubuntu:**
+  * using dpkg: `dpkg -i <stackstate>.deb`
+  * using apt: `apt-get upgrade <stackstate>.deb`
 {% endtab %}
 {% endtabs %}
 
