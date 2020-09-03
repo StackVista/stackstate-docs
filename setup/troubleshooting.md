@@ -3,9 +3,19 @@ title: Troubleshooting
 kind: Documentation
 ---
 
-# Troubleshooting StackState startup
+# Troubleshooting
 
 ## Issues getting StackState started
+
+{% tabs %}
+{% tab title="First Tab" %}
+first tab text
+{% endtab %}
+
+{% tab title="Second Tab" %}
+second tab text
+{% endtab %}
+{% endtabs %}
 
 Here is a quick guide for troubleshooting the startup of StackState:
 
@@ -135,7 +145,7 @@ Diff (this = Requested; that = Catalog):
 
 **Cause**: Introduced index changes.
 
-**Solution**: Follow the [reindex process](#reindex-stackstate)
+**Solution**: Follow the [reindex process](troubleshooting.md#reindex-stackstate)
 
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
@@ -175,15 +185,11 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/company/contact/).
 {% endhint %}
 
-StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process. Reindex needs to be run in Terminal \(or other CLI\) on the machine that hosts StackState \(for the [production setup](production-installation.md)\).
+StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process. Reindex needs to be run in Terminal \(or other CLI\) on the machine that hosts StackState \(for the [production setup](https://github.com/StackVista/stackstate-docs/tree/342b89e753ffcbfbb761bef683ff261dca536e9b/setup/production-installation.md)\).
 
-1. Make sure that StackState is not running with the following command:
-`systemctl stop stackstate`
-
-2. Make sure that StackGraph is running with the following command:
-`systemctl start stackgraph`
-
-3. Execute the reindex command:
-`sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
+1. Make sure that StackState is not running with the following command: `systemctl stop stackstate`
+2. Make sure that StackGraph is running with the following command: `systemctl start stackgraph`
+3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
 
 Please note that this is a long-running process - monitoring progress in StackState logs is advised.
+
