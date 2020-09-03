@@ -52,10 +52,11 @@ You can run the `generate_values.sh` script in two ways:
   ./generate_values.sh -n <configuration to include>
 
   ```
+
 | Configuration | Flag | Description |
 |:---|:---|:---|
-| Base url | `-b` | The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`. For example `https://stackstate.internal`. If you don't know this yet, because you haven't decided on an ingress configuration yet, you can start with `http://localhost:8080` and later update it in the generated `values.yaml` |
-| username and password | `-u` , `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories |
+| **Base URL** | `-b` | The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`.<br />For example `https://stackstate.internal`. <br />If you don't know this yet, because you haven't decided on an Ingress configuration, use `http://localhost:8080`. This can be updated later it in the generated file |
+| **Username and password** | `-u`<br />`-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories |
 
 
 
