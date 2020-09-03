@@ -29,14 +29,12 @@ Start by creating the namespace where you want to install StackState and deploy 
 kubectl create namespace stackstate
 ```
 
-### Generate `values.yaml`
+### Generate the file `values.yaml`
 
-Before we can use Helm to deploy StackState, we need to generate a `values.yaml` file containing your license key, API key etc.
-
-The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the helm chart will guide you through generating
+Th `values.yaml` file contains your StackState license key, API key etc. and is required to deploy StackState with Helm. It can be generated using the `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation).
 
 {% hint style="info" %}
-If you didn't already, run `helm repo update` to make sure that the latest version of the Helm chart is used.
+**Before you continue:** If you didn't already, make sure you have the latest version of the Helm chart with `helm repo update`.
 {% endhint %}
 
 When the `generate_values.sh` script is run without any arguments, it will guide you through the required configuration. You can also optionally pass all required arguments on the command line, this is useful for scripting.
