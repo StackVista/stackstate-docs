@@ -2,7 +2,7 @@
 
 ## Before you start
 
-Before you start the installation of StackState
+Before you start the installation of StackState:
 
 * Check that your Kubernetes environment meets the [requirements](requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
@@ -16,14 +16,12 @@ helm repo update
 
 ## Install StackState
 
-Installation is done in four steps:
+1. [Create the namespace where StackState will be installed](#create-the-namespace)
+2. [Generate the `values.yaml` file](#generate-values-yaml)
+3. [Deploy StackState with Helm](#deploy-stackstate-with-helm)
+4. [Enable port forwarding](#enable-port-forwarding)
 
-1. Create the namespace where StackState will be installed
-2. Generate the `values.yaml` file
-3. Deploy StackState with Helm
-4. Enable port forwarding
-
-### 1) Create the namespace
+### Create the namespace
 
 Start by creating the namespace where you want to install StackState and deploy the secret in that namespace. In our walkthrough we will use the namespace `stackstate`:
 
@@ -31,9 +29,11 @@ Start by creating the namespace where you want to install StackState and deploy 
 kubectl create namespace stackstate
 ```
 
-### 2) Generate `values.yaml`
+### Generate `values.yaml`
 
-We will use the `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the helm chart to generate a `values.yaml` file containing your license key, API key etc.
+Before we can use Helm to deploy StackState, we need to generate a `values.yaml` file containing your license key, API key etc.
+
+The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the helm chart will guide you through generating
 
 {% hint style="info" %}
 If you didn't already, run `helm repo update` to make sure that the latest version of the Helm chart is used.
@@ -42,26 +42,14 @@ If you didn't already, run `helm repo update` to make sure that the latest versi
 When the `generate_values.sh` script is run without any arguments, it will guide you through the required configuration. You can also optionally pass all required arguments on the command line, this is useful for scripting.
 
 ```
-# Run script in interactive mode.
-# You will be prompted to enter the required configuration
 ./generate_values.sh
 
-# Run script in non-interactive mode
-# All required configuration is included
-./generate_values.sh -n \
--b <external URL for StackState> \
--u <username to pull images> \
--p <password to pull images> \
--l <StackState license key> \
--d <admin API password> \
--k <optional: Kubernetes cluster name and enable Kubernetes support>
 ```
+{% hint style="info" %}
+Store the generated 'values.yaml' file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
+{% endhint %}
 
-
-
-For the production setup the default should be good \(i.e. redundant storage services\). It is possible to create smaller deployments for test setups, see the [test environment deployments](./).
-
-Store it somewhere safe so that it can be reused for upgrades. This saves some work on upgrades but more importantly StackState will keep using the same api key which is desirable because then agents and other data providers for StackState don't need to be updated.
+The `values.yaml` file generated is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
 
 
 
@@ -75,7 +63,8 @@ The script requires the following input:
 * should the StackState k8s agent be installed automatically \(interactively a yes/no question, also enabled when specifying `-k`\): StackState has built-in support \(via the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md)) for Kubernetes that can be automatically enabled, see this [section](./#automatic-kubernetes-support).
 * the Kubernetes cluster name \(`-k`\): When enabling automatic Kubernetes support StackState will use this name to identify the cluster, for more details see [this section](./#automatic-kubernetes-support). In non-interactive mode specifying `-k` will specify the cluster name and at the same time enable the Kubernetes support.
 
-### 3) Deploy StackState with Helm
+### Deploy StackState with Helm
+
 
 Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace run the following command:
 
@@ -87,6 +76,8 @@ helm upgrade \
 stackstate \
 stackstate/stackstate
 ```
+
+### Enable port forwarding
 
 When all pods are up you can enable a port-forward with `kubectl port-forward service/stackstate-router 8080:8080` and open StackState in your browser under `https://localhost:8080`. Log in with the username `admin` and the default password provided in the previous steps. Next steps are to configure [ingress](ingress.md), install a [StackPack](/stackpacks/) or two and to give your [co-workers access](./#configuring-authentication-and-authorization).
 
