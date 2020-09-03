@@ -22,33 +22,9 @@ Please be aware that when uninstalling or upgrading a StackPack, it can fail wit
 
 ### `InterruptedException` when opening a view
 
-|:---|:---|
-| Symptom | opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
+#### Symptom**
 
-```text
-... Starting ViewEventSummaryStream web socket stream failed.
-com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
-...
-Caused by: java.io.InterruptedIOException: Origin: InterruptedException
-``` |
-| Cause | topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered. |
-| Possible solution | increase the cache size by editing StackState's configuration.
-
-In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
-
-* number of components \* 10,
-* number of relations \* 10,
-* number of checks \* 5.
-
-The default cache size is set to 8191. Make sure the cache size is defined as a power of two minus one, e.g. `2^13-1 = 8191`.
-
-Make sure that StackState has enough memory available, the available memory can be configured by editing: `/opt/stackstate/etc/processmanager/processmanager.conf`. Under process named `stackstate-server`, change `-Xmx1G` to `-Xmx<N>G` where `<N>` is the number of desired GBs of memory. For example, change the setting to `-Xmx8G` to have 8 GBs of memory available to StackState.
-
-Restart StackState, by `sudo systemctl restart stackstate.service`, for the changes to be effective. |
-
-***
-
-**Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
+Opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
 
 ```text
 ... Starting ViewEventSummaryStream web socket stream failed.
@@ -57,9 +33,13 @@ com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
 Caused by: java.io.InterruptedIOException: Origin: InterruptedException
 ```
 
-**Cause**: topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
+#### Cause
 
-**Possible solution**: increase the cache size by editing StackState's configuration.
+Topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
+
+#### Possible solution**
+
+Increase the cache size by editing StackState's configuration.
 
 In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
 
