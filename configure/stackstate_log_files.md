@@ -1,7 +1,7 @@
 # StackState log files
 
-* Linux setup
-* Kuberenetes setup
+* [Kuberenetes setup](#kubernetes)
+* [Linux setup](#linux)
 
 
 ## Kubernetes
@@ -25,19 +25,22 @@ kubectl logs -c <container-name> <pod-name>
 kubectl logs -p -c <container-name> <pod-name>
 ```
 
-You can use the **???** to locate specific log information in a log snapshot. For example:
+You can use the synchronization name to locate specific log information in a log snapshot. For example:
 
 ```
-# Using grep (Linux)
-kubectl logs <pod-name> | grep "???" > relevant-log-output.txt
+# Logs of the synchronization for a specific Kubernetes cluster
+kubectl logs stackstate-server-0 | grep "Kubernetes - \<cluster-name\>"
+
+# Logs of the agent synchronization
+kubectl logs stackstate-server-0 | grep "Agent"
 
 ```
 
 ### Find StackState logs on Kubernetes pods
 
-StackState logs are stored across the running pods. The table below shows the pod names to access for logs relating to specific StackState functions.
+StackState logs are stored across the running pods. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (e.g. `stackstate-receiver-5b9d79db86-h2hkz`) and may also include a prefix (the release name specified when StackState was deployed).
 
-| StackState function | Pod name  |
+| StackState function | Pod |
 |:---|:---|
 | API (including topology, charts and settings) | `stackstate-server` |
 | Checks | `stackstate-server` |
@@ -51,7 +54,7 @@ StackState logs are stored across the running pods. The table below shows the po
 You can access logs on a specific pod using the [`kubectl logs` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
 
 ```
-kubectl logs stackstate-server
+kubectl logs stackstate-server-0
 ```
 
 {% hint style="danger" %}
@@ -61,9 +64,11 @@ Note that logs stored on pods will be regularly removed. For long term access to
 
 ### Log aggregation
 
-For long term storage of StackState log data, it is advised that you set up log aggregation on your Kubernetes cluster. This can be done using a third party system, such as Elasticsearch, Splunk or logz.io
+For long term storage of StackState log data, it is advised that you set up log aggregation on your Kubernetes cluster. This can be done using a third party system for storage such as Elasticsearch, Splunk or Logz.io and a log shipper such as Logstash or Fluentd.
 
-**!!!EXAMPLE??!**
+For more details of how this can be done, check:
+* [Fluentd docs](https://docs.fluentd.org/container-deployment/kubernetes) for shipping logs
+* A complete overview of setting up [log aggregation into Elasticsearch]( https://docs.bitnami.com/tutorials/integrate-logging-kubernetes-kibana-elasticsearch-fluentd/)
 
 ## Linux
 In a Linux setup, StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the StackState node keeps StackState related logs and the StackGraph node keeps logs related to StackGraph.
