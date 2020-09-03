@@ -2,17 +2,17 @@
 description: See traces for the components in your IT landscape.
 ---
 
-# Traces Perspective
+# Trace Perspective
 
 The trace perspective shows a list of traces and their spans for the components in your view. This way, you can monitor the performance of the applications in your IT infrastructure in StackState without using 3rd party tools.
 
-![The traces perspective](../../.gitbook/assets/traces-perspective.png)
+![The trace perspective](../../.gitbook/assets/traces-perspective.png)
 
 To find out more about how you can add traces to StackState please visit [the following guide](../../configure/how_to_setup_traces.md).
 
 ## Traces and Topology
 
-When you're in a [view](../views.md), you are seeing a sub-selection of your IT infrastructure in terms of components and relations. If you then switch to the *traces perspective* how do these traces relate to the components in your view? A number of our supported integrations send traces to StackState via [our agent](../../configure/how_to_setup_traces.md). However, these traces are also used to create topology which you can see in the [topology perspective](topology-perspective.md) of your view. For example, let's imagine that among your IT infrastructure the following components exist:
+When you're in a [view](../views.md), you are seeing a sub-selection of your IT infrastructure in terms of components and relations. If you then switch to the *trace perspective* how do these traces relate to the components in your view? A number of our supported integrations send traces to StackState via [our agent](../../configure/how_to_setup_traces.md). However, these traces are also used to create topology which you can see in the [topology perspective](topology-perspective.md) of your view. For example, let's imagine that among your IT infrastructure the following components exist:
 1. An HTTP service
 2. A Java Application
 3. A SQL Database
@@ -29,7 +29,7 @@ The two images above illustrate these concepts by showing a library application 
 
 ### Trace Inspection
 
-When in the *traces perspective*, you get a list of the slowest traces for the components in your view. In order to see the spans that make up for each trace, you can click on any trace in the list in order to expand that item.
+When in the *trace perspective*, you get a list of the slowest traces for the components in your view. In order to see the spans that make up for each trace, you can click on any trace in the list in order to expand that item.
 
 ![Inspecting a trace](../../.gitbook/assets/trace-inspection.png)
 
@@ -43,7 +43,7 @@ When inspecting a trace and seeing the list of its spans, you can click on any s
 
 ## Filtering
 
-As explained in this guide, traces and components are tightly related. Therefore, there are two ways of filtering the traces you see in the *traces perspective*: using topology filters or trace filters.
+As explained in this guide, traces and components are tightly related. Therefore, there are two ways of filtering the traces you see in the *trace perspective*: using topology filters or trace filters.
 
 ### Topology Filters
 
@@ -64,7 +64,7 @@ As of version 4.1, all traces are sorted by latency (descending). This is the on
 
 ## Time Traveling Considerations
 
-When using the *traces perspective*, just like in other perspectives, you can either be in live mode or in the past. If you're in live mode, StackState is constantly polling for new traces. When time travelling to the past, all views in all perspectives come with a timeline for which you can make two selections:
+When using the *trace perspective*, just like in other perspectives, you can either be in live mode or in the past. If you're in live mode, StackState is constantly polling for new traces. When time travelling to the past, all views in all perspectives come with a timeline for which you can make two selections:
 1. The specific moment in time for which you want the snapshot of your IT infrastructure to be fetched (i.e. topology).
 2. The time range for which you want to see traces (e.g the last 24 hours).
 
@@ -72,6 +72,6 @@ Let's imagine a concrete scenario - You received an alert saying that your payme
 
 ### Inspection, scrolling and its impact on time selection.
 
-When using the *traces perspective* in live mode, you are constantly polling for the *slowest traces* in your time range selection. However, in a large IT infrastructure with constant requests being traced, what are you slowest traces now might now be your slowest traces (and be further down the list) in a matter of seconds. However, if a user is inspecting a trace or one of its spans, it would severely impact the usability of this feature if that trace kept constantly bouncing up and down the list of traces. Furthermore, if a user is scrolling down the list looking for a specific trace or a pattern in the list of traces, it also would make it hard for them for that list to be constantly changing. For these reasons, we've decided that these two actions (inspecting traces/spans and scrolling) effectively "pause" time and allow you to browse through a stable snapshot of your data. Pausing time means that you are now in the past and just like in all other perspectives, you're able to resume to live mode by clicking on the blue ribbon on top or in the timeline itself as illustrated in the image below.
+When using the *trace perspective* in live mode, you are constantly polling for the *slowest traces* in your time range selection. However, in a large IT infrastructure with constant requests being traced, what are you slowest traces now might now be your slowest traces (and be further down the list) in a matter of seconds. However, if a user is inspecting a trace or one of its spans, it would severely impact the usability of this feature if that trace kept constantly bouncing up and down the list of traces. Furthermore, if a user is scrolling down the list looking for a specific trace or a pattern in the list of traces, it also would make it hard for them for that list to be constantly changing. For these reasons, we've decided that these two actions (inspecting traces/spans and scrolling) effectively "pause" time and allow you to browse through a stable snapshot of your data. Pausing time means that you are now in the past and just like in all other perspectives, you're able to resume to live mode by clicking on the blue ribbon on top or in the timeline itself as illustrated in the image below.
 
 ![Pausing time when inspecting a trace](../../.gitbook/assets/trace-inspection.png)
