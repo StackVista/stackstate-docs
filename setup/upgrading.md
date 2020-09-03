@@ -72,12 +72,23 @@ The StackPacks must be uninstalled using the version of StackState prior to the 
 
 Depending on your platform, you can use one of the following commands to upgrade StackState:
 
+{% tabs %}
+{% tab title="Kubernetes" %}
+first tab text
+{% endtab %}
+For upgrading, the same command can be used as for the [first time Kubernetes installation](kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+{% tab title="Linux" %}
 * Fedora, RedHat, CentOS:
   * using RPM: `rpm -U <stackstate>.rpm`
   * using yum: `yum localinstall <stackstate>.rpm`
 * Debian, Ubuntu:
   * using dpkg: `dpkg -i <stackstate>.deb`
   * using apt: `apt-get upgrade <stackstate>.deb`
+{% endtab %}
+{% endtabs %}
+
+
+
 
 ## Install StackPacks
 

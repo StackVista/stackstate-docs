@@ -19,9 +19,6 @@ stackstate:
 
 Here the custom config file is used for configuration, to do this with environment variables would be very cumbersome. This same approach can be used to, for example, to switch to LDAP based authentication as discussed in the authentication docs.
 
-## Upgrading
-
-For upgrading the same command can be used as for the [first time installation](install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 
 ## Backups
 
