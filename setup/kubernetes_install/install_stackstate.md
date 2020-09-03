@@ -46,7 +46,7 @@ You can run the `generate_values.sh` script in two ways:
 
   ```
 
-* **Non-interactive mode:** Run the script with the `-n` flag to pass the required configuration on the command line, this is useful for scripting.
+* **Non-interactive mode:** Run the script with the flag `-n` to pass configuration on the command line, this is useful for scripting.
 
   ```
   ./generate_values.sh -n <configuration items>
@@ -67,7 +67,7 @@ The script requires the following configuration items:
 The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
 
 {% hint style="info" %}
-Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
+Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) will ensure that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
 {% endhint %}
 
 ### Deploy StackState with Helm
@@ -88,8 +88,8 @@ stackstate/stackstate
 
 When all pods are up you can enable a port-forward with `kubectl port-forward service/stackstate-router 8080:8080` and open StackState in your browser under `https://localhost:8080`. Log in with the username `admin` and the default password provided in the previous steps. Next steps are to configure [ingress](ingress.md), install a [StackPack](/stackpacks/) or two and to give your [co-workers access](./#configuring-authentication-and-authorization).
 
-### Automatic Kubernetes support
+## Automatic Kubernetes support
 
-StackState has built-in support for Kubernetes via the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md). To get started quickly the StackState installation can automate the installation of this StackPack and the required agent instalation, but only for the cluster StackState itself will be installed on. This is not required and can always be done later via the StackPacks page of StackState for StackState's cluster or any other Kuberenetes cluster.
+StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
 
-The only required information is a name for the Kubernetes cluster that will distinguish it for the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details please read the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md).
+The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md).
