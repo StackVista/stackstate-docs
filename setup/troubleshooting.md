@@ -11,7 +11,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-1. Check all pods in the StackState namespace are running:
+1. Check that all pods in the StackState namespace are running:
 ```
 get pods
 ```
@@ -19,7 +19,7 @@ get pods
 {% endtab %}
 
 {% tab title="Linux" %}
-1. Check whether systemd services StackGraph and StackState are running:
+1. Check that the systemd services StackGraph and StackState are running:
 ```
 sudo systemctl status stackgraph
 sudo systemctl status stackstate
