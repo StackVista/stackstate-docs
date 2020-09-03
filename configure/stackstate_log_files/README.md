@@ -1,1 +1,0 @@
-# StackState log files
