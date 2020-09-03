@@ -12,6 +12,7 @@
     * [Configure storage](setup/kubernetes_install/storage.md)
     * [Configure Ingress](setup/kubernetes_install/ingress.md)
     * [StackState images](setup/kubernetes_install/image_configuration.md)
+    * [Backup and restore](setup/kubernetes_install/backup.md)
   * [Linux install](setup/linux_install/README.md)
     * [Requirements](setup/linux_install/requirements.md)
     * [Install StackState](setup/linux_install/install_stackstate.md)
