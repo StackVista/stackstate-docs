@@ -38,7 +38,7 @@ kubectl logs stackstate-server-0 | grep "Agent"
 
 ### Find StackState logs on Kubernetes pods
 
-StackState logs are stored across the running pods. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (e.g. `stackstate-receiver-5b9d79db86-h2hkz`) and may also include a prefix (the release name specified when StackState was deployed).
+StackState logs are stored across the running pods. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (e.g. `stackstate-receiver-5b9d79db86-h2hkz`) and may also include the release name specified when StackState was deployed as a prefix.
 
 | StackState function | Pod |
 |:---|:---|
@@ -57,7 +57,7 @@ You can access logs on a specific pod using the [`kubectl logs` command](https:/
 kubectl logs stackstate-server-0
 ```
 
-{% hint style="danger" %}
+{% hint style="info" %}
 Note that logs stored on pods will be regularly removed. For long term access to logs, it is advised that you set up [log aggregation](#log-aggregation) for your Kubernetes cluster.
 {% endhint %}
 
