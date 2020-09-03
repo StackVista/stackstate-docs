@@ -24,7 +24,7 @@ StackState is configured by default with the following administrator account:
 * username: `admin`
 * password: `topology-telemetry-time`
 
-## Turning off authentication
+## Disable authentication
 
 If StackState runs without authentication, anyone who has access to the StackState URL will be able to use the product without any restrictions.
 
@@ -40,7 +40,7 @@ Note that in the [HOCON configuration format](https://github.com/lightbend/confi
 stackstate { api { authentication { enabled = false } } }
 ```
 
-## Configuring file-based authentication
+## File-based authentication
 
 Here is an example of `authentication` that configures a user `admin/password` and a user `guest/password`. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` to `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
 
@@ -81,7 +81,7 @@ Configuration field explanation:
 5. **adminGroups** - the list of groups whose members StackState grants administrative privileges.
 6. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
 
-## Configuring the LDAP authentication server
+## LDAP authentication server
 
 Here is an example of an authentication configuration that uses a localhost LDAP server. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to change the line `authentication.enabled = false` to `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
 
@@ -160,7 +160,27 @@ Please note that StackState can check for user files in LDAP main directory as w
 
 After editing the config file with the required LDAP details, move on to the [subject configuration doc](../../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../../configure/how_to_set_up_roles.md).
 
-## Configuring the KeyCloak OIDC Authentication Server
+### Kubernetes LDAP configuration through Helm
+
+When using LDAP with Kubernetes, a number of (secret) values can be passed through the Helm values. You can provide the following values to configure LDAP:
+
+* `stackstate.authentication.ldap.bind.dn`: The bind DN to use to authenticate to LDAP
+* `stackstate.authentication.ldap.bind.password`: The bind password to use to authenticate to LDAP
+* `stackstate.authentication.ldap.ssl.type`: The SSL Connection type to use to connect to LDAP (Either ssl or starttls)
+* `stackstate.authentication.ldap.ssl.trustStore`: The Certificate Truststore to verify server certificates against
+* `stackstate.authentication.ldap.ssl.trustCertificates`: The client Certificate trusted by the server
+The `trustStore` and `trustCertificates` values need to be set from the command line, as they typically contain binary data. A sample command for this looks like:
+
+```
+helm install \
+--set-file stackstate.authentication.ldap.ssl.trustStore=./ldap-cacerts \
+--set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
+... \
+stackstate/stackstate
+```
+
+
+## KeyCloak OIDC Authentication Server
 
 In order to configure StackState to authenticate to an KeyCloak OIDC authentication server, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.
 
