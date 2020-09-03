@@ -2,6 +2,8 @@
 
 ## Before you start
 
+Before you start the installation of StackState
+
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 
 * Add the StackState helm repository to the local helm client:
@@ -10,26 +12,56 @@
 helm repo add stackstate https://helm.stackstate.io
 helm repo update
 ```
+* Check that your Kubernetes environment meets the [requirements](requirements.md)
 
-## Deploy StackState
+## Install StackState
 
-Start by creating the namespace where you want to install StackState \(for the example we'll assume that is `stackstate`\) and deploy the secret in that namespace:
+Installation is done in four steps:
+
+1. Create the namespace where StackState will be installed
+2. Generate the values.yaml file
+3. Deploy StackState with Helm
+4. Enable port forwarding
+
+### Create the namespace
+
+Start by creating the namespace where you want to install StackState and deploy the secret in that namespace. In our walkthrough we will use the namespace `stackstate`:
 
 ```text
 kubectl create namespace stackstate
 ```
 
-If you didn't before run `helm repo update` to make sure the latest helm chart version is used. Installation can now be started. For the production setup the default should be good \(i.e. redundant storage services\). It is possible to create smaller deployments for test setups, see the [test environment deployments](./).
+### Generate `values.yaml`
 
-First generate a `values.yaml` containing your license key, api key etc. Store it somewhere safe so that it can be reused for upgrades. This saves some work on upgrades but more importantly StackState will keep using the same api key which is desirable because then agents and other data providers for StackState don't need to be updated.
+We will use the `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the helm chart to generate a `values.yaml` file containing your license key, API key etc.
 
-Generate it with the `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the helm chart. When run without any arguments it will guide you through the process of installing StackState with a few simple questions. Specifying the `-n` switches it to non-interactive mode requiring all required arguments are passed on the command line \(useful for scripting\).
+If you didn't already, run `helm repo update` to make sure that the latest Helm chart version is used.
 
-To get started run it like this:
+When the `generate_values.sh` script is run without any arguments, it will guide you through the required configuration. You can also optionally pass all required arguments on the command line, this is useful for scripting.
 
-```text
-./generate_values.sh
 ```
+# Run script in interactive mode.
+# You will be prompted to enter the required configuration
+./generate_values.sh
+
+# Run script in non-interactive mode
+# All required configuration is included
+./generate_values.sh -n \
+-b <external URL for StackState> \
+-u <username to pull images> \
+-p <password to pull images> \
+-l <StackState license key> \
+-d <admin API password> \
+-k <optional: Kubernetes cluster name and enable Kubernetes support>
+```
+
+
+
+For the production setup the default should be good \(i.e. redundant storage services\). It is possible to create smaller deployments for test setups, see the [test environment deployments](./).
+
+Store it somewhere safe so that it can be reused for upgrades. This saves some work on upgrades but more importantly StackState will keep using the same api key which is desirable because then agents and other data providers for StackState don't need to be updated.
+
+
 
 The script requires the following input:
 
@@ -40,6 +72,8 @@ The script requires the following input:
 * default password \(`-d`\): The password for the default user \(`admin`\) to access StackState's UI \(you can also omit it from the command line, the script will ask for it in that case\)
 * should the StackState k8s agent be installed automatically \(interactively a yes/no question, also enabled when specifying `-k`\): StackState has built-in support \(via the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md)) for Kubernetes that can be automatically enabled, see this [section](./#automatic-kubernetes-support).
 * the Kubernetes cluster name \(`-k`\): When enabling automatic Kubernetes support StackState will use this name to identify the cluster, for more details see [this section](./#automatic-kubernetes-support). In non-interactive mode specifying `-k` will specify the cluster name and at the same time enable the Kubernetes support.
+
+#### Deploy StackState with Helm
 
 Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace run the following command:
 
