@@ -17,7 +17,7 @@ helm repo update
 ## Install StackState
 
 1. [Create the namespace where StackState will be installed](#create-the-namespace)
-2. [Generate the `values.yaml` file](#generate-values-yaml)
+2. [Generate the `values.yaml` file](#generate-the-file-values-yaml)
 3. [Deploy StackState with Helm](#deploy-stackstate-with-helm)
 4. [Enable port forwarding](#enable-port-forwarding)
 
@@ -37,19 +37,23 @@ The `values.yaml` is required to deploy StackState with Helm. It contains  your 
 **Before you continue:** If you didn't already, make sure you have the latest version of the Helm chart with `helm repo update`.
 {% endhint %}
 
-The `generate_values.sh` script can be run in two ways.
+You can run the `generate_values.sh` script in two ways.
 
 * **Interactive mode:** When the script is run without any arguments, it will guide you through the required configuration items.
+
 ```
 ./generate_values.sh
 
 ```
+
 * **Non-interactive mode:** Run the script with the `-n` flag to pass the required configuration on the command line, this is useful for scripting.
+
 
 ```
 ./generate_values.sh -n <configuration to include>
 
 ```
+
 {% hint style="info" %}
 Store the generated 'values.yaml' file somewhere safe. You can reuse this file for upgrades, which will save time and (more importantly) ensures that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
 {% endhint %}
