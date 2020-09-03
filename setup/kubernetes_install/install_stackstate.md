@@ -40,17 +40,18 @@ The `values.yaml` is required to deploy StackState with Helm. It contains  your 
 You can run the `generate_values.sh` script in two ways:
 
 * **Interactive mode:** When the script is run without any arguments, it will guide you through the required configuration items.
-```
-./generate_values.sh
 
-```
+  ```
+  ./generate_values.sh
+
+  ```
 
 * **Non-interactive mode:** Run the script with the `-n` flag to pass the required configuration on the command line, this is useful for scripting.
-```
-./generate_values.sh -n <configuration to include>
 
-```
+  ```
+  ./generate_values.sh -n <configuration to include>
 
+  ```
 | Configuration | Flag | Description |
 |:---|:---|:---|
 | Base url | `-b` | The external URL for StackState that users and agents will use to connect with it: `https://<stackstate-hostname>`. For example `https://stackstate.internal`. If you don't know this yet, because you haven't decided on an ingress configuration yet, you can start with `http://localhost:8080` and later update it in the generated `values.yaml` |
