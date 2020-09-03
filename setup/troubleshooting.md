@@ -5,7 +5,7 @@ kind: Documentation
 
 # Troubleshooting StackState startup
 
-## StackState won't start
+## Issues getting StackState started
 
 Here is a quick guide for troubleshooting the startup of StackState:
 
@@ -18,13 +18,11 @@ Here is a quick guide for troubleshooting the startup of StackState:
 
 ### Timeout notification when uninstalling or upgrading a StackPack
 
-Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue. For the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
+Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue; however, for the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
 
-### `InterruptedException` when opening a view
+### Error `InterruptedException` when opening a view
 
-#### Symptom**
-
-Opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
+**Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
 
 ```text
 ... Starting ViewEventSummaryStream web socket stream failed.
@@ -33,13 +31,9 @@ com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
 Caused by: java.io.InterruptedIOException: Origin: InterruptedException
 ```
 
-#### Cause
+**Cause**: topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
 
-Topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
-
-#### Possible solution**
-
-Increase the cache size by editing StackState's configuration.
+**Possible solution**: increase the cache size by editing StackState's configuration.
 
 In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
 
@@ -87,7 +81,7 @@ Press <enter> to keep the current choice[*], or type selection number: 2
 update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to provide /usr/bin/java (java) in manual mode
 ```
 
-### `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
+### Error `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
 **Symptom**: when starting any component of StackState, the log shows a message similar to the following:
 
@@ -143,7 +137,7 @@ Diff (this = Requested; that = Catalog):
 
 **Solution**: Follow the [reindex process](#reindex-stackstate)
 
-### `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
+### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
 **Symptom**: Splunk saved search with SID \(Splunk job id\) results in `ERROR: CheckException: Splunk topology failed with message: 400 Client Error: Bad Request for url:` message. StackState log in `/var/log/stackstate/collector.log` shows the following:
 
