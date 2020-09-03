@@ -69,7 +69,7 @@
       * [Splunk topology](stackpacks/integrations/splunk/splunk_topology.md)
       * [Splunk event](stackpacks/integrations/splunk/splunk_event.md)
     * [Static Topology](stackpacks/integrations/static_topology.md)
-    * [Traefik \(beta\)](stackpacks/integrations/traefik.md)
+    * [Traefik \(BETA\)](stackpacks/integrations/traefik.md)
     * [VMWare vSphere](stackpacks/integrations/vsphere.md)
     * [Zabbix](stackpacks/integrations/zabbix.md)
   * [Develop your own StackPacks](stackpacks/sdk.md)
@@ -155,4 +155,3 @@
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
     * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
     * [Basic StackPack tutorial](develop/tutorials/basic_stackpack_tutorial.md)
-
