@@ -26,6 +26,10 @@ To address this issue, you can copy all the images to a single registry, close t
 
 ## Configuration
 
+{% hint style="info" %}
+For named images, * should be replaced with the appropriate version number.
+{% endhint %}
+
 | Chart | Component | Image | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | StackState | Correlate | `quay.io/stackstate/stackstate-correlate:sts-private-*-delta` | `stackstate.components.all.image.registry` | `stackstate.components.correlate.image.repository` | `stackstate.components.correlate.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
