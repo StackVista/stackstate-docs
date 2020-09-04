@@ -16,7 +16,6 @@ StackState offers the following perspectives via it's user interface:
 * [Telemetry perspective](telemetry-perspective.md)
 * [Event perspective](event-perspective.md)
 * [Trace perspective](trace-perspective.md)
-* 
 
 ## Time travel
 
