@@ -240,7 +240,9 @@ In order to connect StackState to KeyCloak, you need to add a new client configu
 
 ## REST API authentication
 
-If you use StackState's REST API directly \(as opposed to via the GUI\) you can also enable authentication. The REST API supports basic authentication for authenticating users. StackState authenticates the user against either the configuration file or LDAP server as described above.
+If you use StackState's REST API directly \(as opposed to via the GUI\) you can also enable authentication. The REST API supports basic authentication for authenticating users against the configured authentication mechanism.
+
+**basicAuth** - turn basic authentication on/off for the StackState REST API. Turn this setting on if you use the StackState REST API from external scripts that cannot use the HTML form-based login.
 
 ```javascript
 authentication {
@@ -253,5 +255,3 @@ authentication {
 
     }
 ```
-
-1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
