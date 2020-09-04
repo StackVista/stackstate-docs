@@ -97,7 +97,7 @@ update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to pro
 
 ### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
-**Symptom**: StackState is not starting after upgrade to a newer version. StackState.log reflects:
+**Symptom**: StackState will not start after upgrading to a newer version. StackState.log reflects:
 
 ```text
 2019-07-31 13:14:27,139 [main] INFO  com.stackstate.StackStateMainContext - StackState starting with graph database: default
@@ -131,7 +131,9 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 
 **Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
 
-**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
+**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more:
+* [Kubernetes - base URL](kubernetes_install/install_stackstate#generate-values-yaml)
+* [Linux - receiver base URL](linux_install/install_stackstate#configuration-options-required-during-install).
 
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
