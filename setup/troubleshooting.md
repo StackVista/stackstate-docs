@@ -101,7 +101,7 @@ update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to pro
 
 **Cause**:
 
-**Solution**: first run helm uninstall <release-name> and then run the upgrade again. This will cause (more) down-time, but will still preserve all data.
+**Solution**: First run `helm uninstall <release-name>` and then run `helm upgrade` again. This will cause (more) down-time, but will preserve all data.
 
 {% hint style="danger" %}
 NEVER delete the namespace or persistent volumes - that will remove all data.
