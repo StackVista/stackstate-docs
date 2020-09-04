@@ -29,17 +29,15 @@ StackState is configured by default with the following administrator account:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-* username: `admin`
-* password: set during installation (in `values.yaml`)
+* **username:** `admin`
+* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in `values.yaml`
 {% endtab %}
 
 {% tab title="Linux" %}
-* username: `admin`
-* password: `topology-telemetry-time`
+* **username:** `admin`
+* **password:** `topology-telemetry-time`
 {% endtab %}
 {% endtabs %}
-
-
 
 ## File-based authentication
 
