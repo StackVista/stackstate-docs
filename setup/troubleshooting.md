@@ -12,23 +12,26 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% tabs %}
 {% tab title="Kubernetes" %}
 1. Check that all pods in the StackState namespace are running:
-```
-kubectl get pods
-```
+
+   ```text
+   kubectl get pods
+   ```
+
 2. [Check the logs](../configure/stackstate_log_files.md) for errors.
 {% endtab %}
 
 {% tab title="Linux" %}
 1. Check that the systemd services StackGraph and StackState are running:
-```
-sudo systemctl status stackgraph
-sudo systemctl status stackstate
-```
+
+   ```text
+   sudo systemctl status stackgraph
+   sudo systemctl status stackstate
+   ```
+
 2. Check connection to StackState's user interface, default listening on TCP port 7070.
-4. Check log files for errors, located at `/opt/stackstate/var/log/`
+3. Check log files for errors, located at `/opt/stackstate/var/log/`
 {% endtab %}
 {% endtabs %}
-
 
 ## Known issues
 
@@ -198,3 +201,4 @@ StackState depends on a data model. When data model changes for any reason \(e.g
 3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
 
 Please note that this is a long-running process - monitoring progress in StackState logs is advised.
+

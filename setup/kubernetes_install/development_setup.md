@@ -18,5 +18,6 @@ stackstate/stackstate
 ```
 
 {% hint style="danger" %}
-Both the test and micro_test deployments are not suitable for bigger workloads. They are not supported for production usage.
+Both the test and micro\_test deployments are not suitable for bigger workloads. They are not supported for production usage.
 {% endhint %}
+

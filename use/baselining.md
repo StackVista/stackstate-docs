@@ -38,7 +38,7 @@ Below the horizontal line you can run a preview of the baseline, so you may tune
 
 ## Baseline functions
 
-Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/scripting/). By default the following baseline functions are supplied:
+Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](../develop/scripting/). By default the following baseline functions are supplied:
 
 ### Function: Stationary Auto-Tuned Baseline
 
@@ -134,3 +134,4 @@ Once you've added the check function it may take 5 or more minutes \(dependent o
 {% endhint %}
 
 Alerting on checks based on baseline metric streams works exactly the same as with other checks.
+

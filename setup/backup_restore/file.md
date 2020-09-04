@@ -11,7 +11,7 @@ To backup and restore StackState configuration and topology information we can u
 
 ### Backup
 
-In order to backup StackGraph's data on a [production setup](../installation/production-installation.md) you need to: 1. Have StackGraph up and running 2. Stop StackState node [Starting and Stopping StackState](https://github.com/StackVista/stackstate-docs/tree/3d23242fb63725889415e9d55f980c437c47e7d9/setup/installation/production-installation/README.md#starting-and-stopping-stackstate) `sudo systemctl stop stackstate.service` 3. Use one of the following commands to start the backup process:
+In order to backup StackGraph's data on a [production setup](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/installation/production-installation.md) you need to: 1. Have StackGraph up and running 2. Stop StackState node [Starting and Stopping StackState](https://github.com/StackVista/stackstate-docs/tree/3d23242fb63725889415e9d55f980c437c47e7d9/setup/installation/production-installation/README.md#starting-and-stopping-stackstate) `sudo systemctl stop stackstate.service` 3. Use one of the following commands to start the backup process:
 
 * `/opt/stackstate/bin/sts-standalone.sh export --file <path to backup file> --graph default` where the path to the backup file needs to be writable by the `stackstate` user/group
 * Alternatively, `/opt/stackstate/bin/sts-backup.sh` can be used to create a backup that will be written to `/opt/stackstate/backups/`.

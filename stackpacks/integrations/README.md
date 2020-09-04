@@ -2,4 +2,5 @@
 description: A list of the available integrations.
 ---
 
-# Available integrations
+# Integrations
+

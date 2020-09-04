@@ -1,4 +1,4 @@
-# Customize StackState configuration
+# Customize configuration
 
 A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it is possible to customize the `tolerations` and `nodeSelectors` for each of the components.
 
@@ -9,7 +9,21 @@ For the StackState `server` service, custom configuration can be dropped directl
 For example, you can set a custom "forgot password link" for the StackState login page:
 
 {% tabs %}
-{% tab title="values.yaml" %}
+{% tab title="Plain Text" %}
+```text
+
+```
+{% endtab %}
+
+{% tab title="" %}
+```
+
+```
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+
 ```text
 stackstate:
   components:
@@ -17,19 +31,18 @@ stackstate:
       config: |
         stackstate.api.authentication.forgotPasswordLink = "https://www.stackstate.com/forgotPassword.html"
 ```
-{% endtab %}
 
 Configuration set under `config:` will be available to the StackState configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
 
 {% hint style="info" %}
-Note that custom configuration set here will be overridden by [environment variables](#environment-variables).
+Note that custom configuration set here will be overridden by [environment variables](customize_config.md#environment-variables).
 {% endhint %}
 
 ## Environment variables
 
-The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `server`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` (for normal values). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`. For example:
+The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `server`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`. For example:
 
-```
+```text
 # configuration item
 stackstate.api.authentication.forgotPasswordLink
 
@@ -37,12 +50,12 @@ stackstate.api.authentication.forgotPasswordLink
 CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink
 ```
 
-For the StackState `server` service, environment variables will override [custom configuration set using `config`](#custom-configuration-for-stackstate-server).
+For the StackState `server` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-server).
 
 For example, you can set a custom "forgot password link" for the StackState login page:
 
 {% tabs %}
-{% tab title="values.yaml" %}
+
 ```text
 stackstate:
   components:
@@ -52,7 +65,7 @@ stackstate:
         open:
           CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink: "https://www.stackstate.com/forgotPassword.html"
 ```
-{% endtab %}
 
 * For details on the naming of all the different services in the StackState Helm chart, see [the Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
 * Find more details on [customizing authentication](../authentication.md).
+

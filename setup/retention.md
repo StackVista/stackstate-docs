@@ -52,3 +52,4 @@ sts graph retention remove-expired-data --immediately
 ## Retention of metrics/events
 
 If you are using the metric/event store provided with StackState, your data will be retained for a month. If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store you connected.
+

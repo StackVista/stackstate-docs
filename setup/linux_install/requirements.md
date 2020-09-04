@@ -3,7 +3,7 @@ title: Requirements
 kind: Documentation
 ---
 
-# Installation requirements
+# Requirements
 
 ## Server requirements
 
@@ -23,6 +23,7 @@ One of the following operating systems running Java. Check also the specific req
 | Amazon Linux | 2 |
 
 ### Java
+
 OpenJDK 8 **patch level 121** or later.
 
 {% hint style="info" %}
@@ -35,10 +36,45 @@ StackState **does not work** with JDK versions 9 or higher at this time.
 
 The StackState production setup requires two machines to run on.
 
-|  | MINIMUM | RECOMMENDED |
-|:---|:---|:---|
-| **StackState node** | <ul> <li>&gt;= 20GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>32GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
-| **StackGraph node** |<ul><li>&gt;= 16GB of RAM</li><li>&gt;= 100GB disk space</li><li>&gt;= 4 cores CPU</li></ul> | <ul><li>24GB of RAM</li><li>500GB disk space</li><li>8 cores CPU</li></ul> |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left"></th>
+      <th style="text-align:left">MINIMUM</th>
+      <th style="text-align:left">RECOMMENDED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>StackState node</b>
+      </td>
+      <td style="text-align:left">
+        <p>&gt;= 20GB of RAM</p>
+        <p>&gt;= 100GB disk space</p>
+        <p>&gt;= 4 cores CPU</p>
+      </td>
+      <td style="text-align:left">
+        <p>32GB of RAM</p>
+        <p>500GB disk space</p>
+        <p>8 cores CPU</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>StackGraph node</b>
+      </td>
+      <td style="text-align:left">
+        <p>&gt;= 16GB of RAM</p>
+        <p>&gt;= 100GB disk space</p>
+        <p>&gt;= 4 cores CPU</p>
+      </td>
+      <td style="text-align:left">
+        <p>24GB of RAM</p>
+        <p>500GB disk space</p>
+        <p>8 cores CPU</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### POC setup
 
@@ -92,25 +128,106 @@ The following ports can be opened for monitoring, but are also useful when troub
 
 Detailed information about ports per process.
 
-| PROCESS | PORT LIST |
-|:---|:---|
-| **ElasticSearch** | <ul><li>9200: HTTP api</li><li>9300: Native api</li></ul> |
-| **HBase Master** | <ul><li>16000: Master client API (needs to be open for clients)</li><li>16010: Master Web UI (optional)</li></ul> |
-| **HBase Region Server** | <ul><li>16020: Region client API (needs to be open for clients)</li><li>16030: Region Web UI (optional)</li></ul> |
-| **HDFS DataNode** | <ul><li>50010: Datanode API (needs to be open for clients)</li><li>50020: IPC api (communication within HDFS cluster)</li><li>50075: HTTP api (optional)</li></ul> |
-| **HDFS NameNode** | <ul><li>8020: File system (needs to be open for clients)</li><li>50070: Web UI (optional)</li></ul> |
-| **Kafka** | <ul><li>9092: Client port</li></ul> |
-| **Receiver** | <ul><li>7077: HTTP agent API (aka receiver API). When using an agent, data is sent to this endpoint.</li></ul> |
-| **StackGraph ProcessManager** | <ul><li>5152: StackGraph ProcessManager, at the moment only from localhost</li></ul> |
-| **StackState** |<ul><li>7070: HTTP api & user interface</li><li>7071: Admin API for health checks and admin operations. Typically you want to use this only from `localhost`</li></ul> |
-| **StackState ProcessManager** | <ul><li>5154: StackState ProcessManager, at the moment only from localhost</li></ul> |
-| **Tephra Transaction service** | <ul><li>15165: Client API</li></ul> |
-| **Zookeeper** | <ul><li>2181: Client API</li><li>2888: Zookeeper peers (general communication), only when running a cluster</li><li>3888: Zookeeper peers (leader election), only when running a cluster</li></ul> |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">PROCESS</th>
+      <th style="text-align:left">PORT LIST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>ElasticSearch</b>
+      </td>
+      <td style="text-align:left">
+        <p>9200: HTTP api</p>
+        <p>9300: Native api</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>HBase Master</b>
+      </td>
+      <td style="text-align:left">
+        <p>16000: Master client API (needs to be open for clients)</p>
+        <p>16010: Master Web UI (optional)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>HBase Region Server</b>
+      </td>
+      <td style="text-align:left">
+        <p>16020: Region client API (needs to be open for clients)</p>
+        <p>16030: Region Web UI (optional)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>HDFS DataNode</b>
+      </td>
+      <td style="text-align:left">
+        <p>50010: Datanode API (needs to be open for clients)</p>
+        <p>50020: IPC api (communication within HDFS cluster)</p>
+        <p>50075: HTTP api (optional)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>HDFS NameNode</b>
+      </td>
+      <td style="text-align:left">
+        <p>8020: File system (needs to be open for clients)</p>
+        <p>50070: Web UI (optional)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Kafka</b>
+      </td>
+      <td style="text-align:left">9092: Client port</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Receiver</b>
+      </td>
+      <td style="text-align:left">7077: HTTP agent API (aka receiver API). When using an agent, data is
+        sent to this endpoint.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>StackGraph ProcessManager</b>
+      </td>
+      <td style="text-align:left">5152: StackGraph ProcessManager, at the moment only from localhost</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>StackState</b>
+      </td>
+      <td style="text-align:left">
+        <p>7070: HTTP api &amp; user interface</p>
+        <p>7071: Admin API for health checks and admin operations. Typically you
+          want to use this only from `localhost`</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>StackState ProcessManager</b>
+      </td>
+      <td style="text-align:left">5154: StackState ProcessManager, at the moment only from localhost</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Tephra Transaction service</b>
+      </td>
+      <td style="text-align:left">15165: Client API</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Zookeeper</b>
+      </td>
+      <td style="text-align:left">
+        <p>2181: Client API</p>
+        <p>2888: Zookeeper peers (general communication), only when running a cluster</p>
+        <p>3888: Zookeeper peers (leader election), only when running a cluster</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-
-## Client (browser) requirements
+## Client \(browser\) requirements
 
 To use the StackState GUI, you must use one of the following web browsers:
 
 * Chrome
 * Firefox
+

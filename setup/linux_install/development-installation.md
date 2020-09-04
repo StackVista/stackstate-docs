@@ -3,7 +3,7 @@ title: Development Installation
 kind: Documentation
 ---
 
-# Installing StackState in a development configuration
+# Install with development configuration
 
 Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
 
@@ -13,7 +13,7 @@ Before starting the installation, ensure your system meets StackState's developm
 
 ## Installing StackState in a development configuration
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](development-installation_pre1_15.md)\).
+**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/linux-install/development-installation_pre1_15.md)\).
 
 For a development setup of StackState, simply follow the instructions for [Installing StackState](install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
 

@@ -1,4 +1,4 @@
-# Configuring Ingress
+# Configure Ingress
 
 The StackState Helm chart exposes an `ingress` section in its values. By default ingress is disabled.
 

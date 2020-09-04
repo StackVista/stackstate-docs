@@ -3,7 +3,7 @@ title: POC Installation
 kind: Documentation
 ---
 
-# Installing StackState in a POC configuration
+# Install with POC configuration
 
 Proof-of-concept \(POC\) mode is StackState's installation mode best suited for POCs. It requires only one machine, and can handle \(almost\) the same load as a regular production setup. The only limitations are that the system cannnot handle lots of perpetual data \(like &gt;10 agents or a big perpetually running AWS landscape\).
 

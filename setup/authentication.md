@@ -3,7 +3,7 @@ title: Configuring authentication
 kind: Documentation
 ---
 
-# Configuring authentication
+# Authentication
 
 Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
 
@@ -160,28 +160,27 @@ Configuration field explanation:
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](../../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../../configure/how_to_set_up_roles.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../configure/how_to_set_up_roles.md).
 
 ### Kubernetes LDAP configuration through Helm
 
-When using LDAP with Kubernetes, a number of (secret) values can be passed through the Helm values. You can provide the following values to configure LDAP:
+When using LDAP with Kubernetes, a number of \(secret\) values can be passed through the Helm values. You can provide the following values to configure LDAP:
 
 * `stackstate.authentication.ldap.bind.dn`: The bind DN to use to authenticate to LDAP
 * `stackstate.authentication.ldap.bind.password`: The bind password to use to authenticate to LDAP
-* `stackstate.authentication.ldap.ssl.type`: The SSL Connection type to use to connect to LDAP (Either ssl or starttls)
+* `stackstate.authentication.ldap.ssl.type`: The SSL Connection type to use to connect to LDAP \(Either ssl or starttls\)
 * `stackstate.authentication.ldap.ssl.trustStore`: The Certificate Truststore to verify server certificates against
 * `stackstate.authentication.ldap.ssl.trustCertificates`: The client Certificate trusted by the server
 
 The `trustStore` and `trustCertificates` values need to be set from the command line, as they typically contain binary data. A sample command for this looks like:
 
-```
+```text
 helm install \
 --set-file stackstate.authentication.ldap.ssl.trustStore=./ldap-cacerts \
 --set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
 ... \
 stackstate/stackstate
 ```
-
 
 ## KeyCloak OIDC Authentication Server
 
@@ -257,3 +256,4 @@ authentication {
 ```
 
 1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
+

@@ -4,9 +4,10 @@ kind: Documentation
 description: Removing data from StackState.
 ---
 
-# Clearing data
+# Clear stored data
 
 The data in StackState is divided into three different sets:
+
 * ElasticSearch data
 * Kafka Topic data
 * StackGraph data
@@ -22,11 +23,10 @@ Clearing the data in StackState will **remove any configured permissions from th
 The StackState CLI needs access to the Admin API \(default port 7071\) to issue the command used below.
 
 Running the StackState CLI delete command will:
-- Stop all necessary services
-- Delete all topology and telemetry data.
-Note that, the Kafka topics folder needs to be deleted manually from the StackState server. The Kafka topics folder is located in `/opt/stackstate/var/lib/` and is named `kafka`.
 
-- Start StackState
+* Stop all necessary services
+* Delete all topology and telemetry data. Note that, the Kafka topics folder needs to be deleted manually from the StackState server. The Kafka topics folder is located in `/opt/stackstate/var/lib/` and is named `kafka`.
+* Start StackState
 
 ```text
 # Delete all topology and telemetry data
@@ -46,20 +46,21 @@ Please note that the below instructions are valid for a single node installation
 
 1. Stop the StackState and StackGraph services:
 
- ```text
-  systemctl stop stackstate
-  systemctl stop stackgraph
- ```
+   ```text
+   systemctl stop stackstate
+   systemctl stop stackgraph
+   ```
 
 2. Remove the directory that holds the files:
 
- ```text
-  rm -rf /opt/stackstate/var/lib/*
- ```
+   ```text
+   rm -rf /opt/stackstate/var/lib/*
+   ```
 
 3. Start the StackState and StackGraph services:
 
- ```text
-  systemctl start stackstate
-  systemctl start stackgraph
- ```
+   ```text
+   systemctl start stackstate
+   systemctl start stackgraph
+   ```
+
