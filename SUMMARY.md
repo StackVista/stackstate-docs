@@ -83,6 +83,7 @@
   * [Analytics](use/queries.md)
   * [Alerting](use/alerting.md)
   * [Anomaly Detection with Baselines](use/baselining.md)
+  * [Troubleshooting](use/troubleshooting.md)
 * [Configure](configure/README.md)
   * [Creating a topology manually](configure/how_to_create_manual_topology.md)
   * [Advanced topology queries with STQL](configure/topology_selection_advanced.md)
