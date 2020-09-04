@@ -5,7 +5,9 @@ kind: Documentation
 
 # Troubleshooting
 
-## Issues getting StackState started
+## Starting StackState
+
+### Quick troubleshooting guide
 
 Here is a quick guide for troubleshooting the startup of StackState on Kubernetes and Linux:
 
@@ -32,39 +34,6 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 3. Check log files for errors, located at `/opt/stackstate/var/log/`
 {% endtab %}
 {% endtabs %}
-
-## Known issues
-
-### Timeout notification when uninstalling or upgrading a StackPack
-
-Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue; however, for the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
-
-### Error `InterruptedException` when opening a view
-
-**Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
-
-```text
-... Starting ViewEventSummaryStream web socket stream failed.
-com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
-...
-Caused by: java.io.InterruptedIOException: Origin: InterruptedException
-```
-
-**Cause**: topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
-
-**Possible solution**: increase the cache size by editing StackState's configuration.
-
-In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
-
-* number of components \* 10,
-* number of relations \* 10,
-* number of checks \* 5.
-
-The default cache size is set to 8191. Make sure the cache size is defined as a power of two minus one, e.g. `2^13-1 = 8191`.
-
-Make sure that StackState has enough memory available, the available memory can be configured by editing: `/opt/stackstate/etc/processmanager/processmanager.conf`. Under process named `stackstate-server`, change `-Xmx1G` to `-Xmx<N>G` where `<N>` is the number of desired GBs of memory. For example, change the setting to `-Xmx8G` to have 8 GBs of memory available to StackState.
-
-Restart StackState, by `sudo systemctl restart stackstate.service`, for the changes to be effective.
 
 ### Error `illegal reflective access` when starting StackState
 
@@ -124,17 +93,7 @@ update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to pro
 
 **Solution**: Remove the contents of `/opt/stackstate/var/log/license-check` and restart StackState.
 
-### Error `InvalidSchema("No connection adapters were found for '%s' % url")`
-
-**Symptom**: no data received in StackState from the AWS source that has access to StackState receiver service, the CloudWatch log stream related to the AWS lambda function StackState-Topo-Cron shows a message similar to the following:
-
-```text
-InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/stsAgent/'")
-```
-
-**Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
-
-**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
+## Upgrade
 
 ### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
@@ -155,6 +114,24 @@ Diff (this = Requested; that = Catalog):
 **Cause**: Introduced index changes.
 
 **Solution**: Follow the [reindex process](troubleshooting.md#reindex-stackstate)
+
+## StackPacks and integrations
+
+### Timeout notification when uninstalling or upgrading a StackPack
+
+Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue; however, for the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
+
+### Error `InvalidSchema("No connection adapters were found for '%s' % url")`
+
+**Symptom**: no data received in StackState from the AWS source that has access to StackState receiver service, the CloudWatch log stream related to the AWS lambda function StackState-Topo-Cron shows a message similar to the following:
+
+```text
+InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/stsAgent/'")
+```
+
+**Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
+
+**Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more on [configuring the receiver base URL](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
 
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
@@ -188,6 +165,37 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 
 **Solution**: Check the status of the Splunk job using SID in Splunk Activity Screen. To do this, you need to extract the job id from the URL provided in the error message. SID is located in the URL right after `/jobs/` - `.../search/jobs/{SID}/...`. Now you can check this job in Splunk Activity menu.
 
+## Using StackState
+
+### Error `InterruptedException` when opening a view
+
+**Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
+
+```text
+... Starting ViewEventSummaryStream web socket stream failed.
+com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
+...
+Caused by: java.io.InterruptedIOException: Origin: InterruptedException
+```
+
+**Cause**: topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
+
+**Possible solution**: increase the cache size by editing StackState's configuration.
+
+In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
+
+* number of components \* 10,
+* number of relations \* 10,
+* number of checks \* 5.
+
+The default cache size is set to 8191. Make sure the cache size is defined as a power of two minus one, e.g. `2^13-1 = 8191`.
+
+Make sure that StackState has enough memory available, the available memory can be configured by editing: `/opt/stackstate/etc/processmanager/processmanager.conf`. Under process named `stackstate-server`, change `-Xmx1G` to `-Xmx<N>G` where `<N>` is the number of desired GBs of memory. For example, change the setting to `-Xmx8G` to have 8 GBs of memory available to StackState.
+
+Restart StackState, by `sudo systemctl restart stackstate.service`, for the changes to be effective.
+
+
+
 ## Reindex StackState
 
 {% hint style="danger" %}
@@ -201,4 +209,3 @@ StackState depends on a data model. When data model changes for any reason \(e.g
 3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
 
 Please note that this is a long-running process - monitoring progress in StackState logs is advised.
-
