@@ -54,9 +54,20 @@ A major upgrade consists of the following steps:
 
 ## Create a backup
 
-Before upgrading StackState it is recommended to backup your configuration and topology data. See [Backup and Restore](backup_restore/) for more information.
+Before upgrading StackState it is recommended to backup your configuration and topology data.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+See [Kubernetes - backup and restore](kubernetes-install/backup.md) for more information.
+{% endtab %}
+
+{% tab title="Linux" %}
+See [Linux - backup and restore](backup_restore/) for more information.
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
+Note that it will not be possible to restore the backup on the upgraded version of StackState.
 The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
@@ -154,4 +165,3 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 ### Upgrade to 1.14.2
 
 * Before version 1.14.2 some of the temporary files weren’t properly removed. This has been fixed in 1.14.2 but some of the older files before 1.14.2 need to cleaned up. In order to remove them run rm -rfv /tmp/_.sts_
-
