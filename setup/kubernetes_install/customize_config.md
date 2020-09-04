@@ -1,6 +1,6 @@
 # Customize configuration
 
-A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it is possible to customize the `tolerations` and `nodeSelectors` for each of the components.
+A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it is possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
 ## Custom configuration for StackState `server`
 
@@ -27,7 +27,7 @@ Note that custom configuration set here will be overridden by [environment varia
 
 ## Environment variables
 
-The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `server`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`. For example:
+The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `server`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
 
 ```text
 # configuration item
