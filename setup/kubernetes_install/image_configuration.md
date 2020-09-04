@@ -27,7 +27,7 @@ To address this issue, you can copy all the images to a single registry, close t
 ## Configuration
 
 {% hint style="info" %}
-For named images, * should be replaced with the appropriate version number.
+For named images, `*` should be replaced with the appropriate version number.
 {% endhint %}
 
 | Chart | Component | Image | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
