@@ -4,7 +4,7 @@ A number of values can be set in the [StackState Helm chart](https://github.com/
 
 ## Custom configuration for StackState `server`
 
-For the StackState `server` service, custom configuration can be dropped directly into the Helm chart. This is the advised way to override the default configuration that StackState ships with and is especially convenient for customizing authentication.
+For the StackState `server` service, custom configuration can be dropped directly into the Helm chart. This is the advised way to override the default configuration that StackState ships with and is especially convenient for customizing authentication. Configuration set in this way will be available to the StackState configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
 
 For example, you can set a custom "forgot password link" for the StackState login page:
 
@@ -15,12 +15,11 @@ stackstate:
   components:
     server:
       config: |
-        stackstate.api.authentication.forgotPasswordLink = "https://www.stackstate.com/forgotPassword.html"
+        stackstate.api.authentication.forgotPasswordLink =
+        "https://www.stackstate.com/forgotPassword.html"
 ```
 {% endtab %}
 {% endtabs %}
-
-Configuration set under `config:` will be available to the StackState configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
 
 {% hint style="info" %}
 Note that custom configuration set here will be overridden by [environment variables](customize_config.md#environment-variables).
@@ -38,21 +37,26 @@ stackstate.api.authentication.forgotPasswordLink
 CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink
 ```
 
-For the StackState `server` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-server).
-
 For example, you can set a custom "forgot password link" for the StackState login page:
 
 {% tabs %}
-
+{% tab title="values.yaml" %}
 ```text
 stackstate:
   components:
     server:
       extraEnv:
-        # Use 'secret' instead of 'open' for configuration that should be stored as a secret
+        # Use 'secret:' to add configuration that should be stored as a secret
         open:
-          CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink: "https://www.stackstate.com/forgotPassword.html"
+          CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink:
+          "https://www.stackstate.com/forgotPassword.html"
 ```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+For the StackState `server` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-server).
+{% endhint %}
 
 * For details on the naming of all the different services in the StackState Helm chart, see [the Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
 * Find more details on [customizing authentication](../authentication.md).
