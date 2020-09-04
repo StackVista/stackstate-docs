@@ -30,22 +30,6 @@ StackState is configured by default with the following administrator account:
 * username: `admin`
 * password: `topology-telemetry-time`
 
-## Disable authentication
-
-If StackState runs without authentication, anyone who has access to the StackState URL will be able to use the product without any restrictions.
-
-To turn off authentication completely, use the following configuration setting:
-
-```javascript
-stackstate.api.authentication.enabled = false
-```
-
-Note that in the [HOCON configuration format](https://github.com/lightbend/config/blob/master/HOCON.md) this has exactly the same meaning as:
-
-```javascript
-stackstate { api { authentication { enabled = false } } }
-```
-
 ## File-based authentication
 
 To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the 2 default roles available, the md5 hash still needs to be generated and put in the example.
