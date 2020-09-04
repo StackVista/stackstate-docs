@@ -10,12 +10,18 @@ Out of the box, StackState is configured with [file-based authentication](authen
 * [LDAP](authentication.md#configuring-the-ldap-authentication-server)
 * [KeyCloak OIDC](authentication.md#configuring-the-keycloak-oidc-authentication-server)
 
-When a user is authenticated, the user has one of two possible roles in StackState:
+{% hint style="info" %}
+Authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
+{% endhint %}
+
+## User roles
+
+StackState ships with the default user roles **guest** and **administrator**:
 
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-StackState uses the file `etc/application_stackstate.conf` in the StackState installation directory for authentication configuration. After changing this file, restart StackState for any changes to take effect.
+ It is also possible to add more roles, see the [Roles (RBAC)](../configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](../configure.md)
 
 ## Default username and password
 
@@ -256,4 +262,3 @@ authentication {
 ```
 
 1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
-
