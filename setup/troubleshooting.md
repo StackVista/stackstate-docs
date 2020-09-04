@@ -95,6 +95,19 @@ update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to pro
 
 ## Upgrade
 
+### Kubernetes: `helm upgrade` fails
+
+**Symptom**: Running `helm upgrade` on Kubernetes fails.
+
+**Cause**:
+
+**Solution**: first run helm uninstall <release-name> and then run the upgrade again. This will cause (more) down-time, but will still preserve all data.
+
+{% hint style="danger" %}
+NEVER delete the namespace or persistent volumes - that will remove all data.
+{% endhint %}
+
+
 ### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
 **Symptom**: StackState will not start after upgrading to a newer version. StackState.log reflects:
@@ -132,8 +145,8 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 **Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
 
 **Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more:
-* [Kubernetes - base URL](kubernetes_install/install_stackstate#generate-values-yaml)
-* [Linux - receiver base URL](linux_install/install_stackstate#configuration-options-required-during-install).
+* [Kubernetes - base URL](kubernetes_install/install_stackstate.mb#generate-values-yaml)
+* [Linux - receiver base URL](linux_install/install_stackstate.mb#configuration-options-required-during-install)
 
 ### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
