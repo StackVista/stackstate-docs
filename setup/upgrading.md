@@ -58,7 +58,7 @@ Before upgrading StackState it is recommended to backup your configuration and t
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-See [Kubernetes - backup and restore](kubernetes_install/backup.md) for more information.
+See [Kubernetes - backup and restore](backup_restore/backup.md) for more information.
 {% endtab %}
 
 {% tab title="Linux" %}
