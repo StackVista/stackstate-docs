@@ -9,21 +9,7 @@ For the StackState `server` service, custom configuration can be dropped directl
 For example, you can set a custom "forgot password link" for the StackState login page:
 
 {% tabs %}
-{% tab title="Plain Text" %}
-```text
-
-```
-{% endtab %}
-
-{% tab title="" %}
-```
-
-```
-{% endtab %}
-{% endtabs %}
-
-{% tabs %}
-
+{% tab title="values.yaml" %}
 ```text
 stackstate:
   components:
@@ -31,6 +17,8 @@ stackstate:
       config: |
         stackstate.api.authentication.forgotPasswordLink = "https://www.stackstate.com/forgotPassword.html"
 ```
+{% endtab %}
+{% endtabs %}
 
 Configuration set under `config:` will be available to the StackState configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
 
@@ -68,4 +56,3 @@ stackstate:
 
 * For details on the naming of all the different services in the StackState Helm chart, see [the Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
 * Find more details on [customizing authentication](../authentication.md).
-
