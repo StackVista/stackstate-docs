@@ -21,14 +21,25 @@ StackState ships with the default user roles **guest** and **administrator**:
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
- It is also possible to add more roles, see the [Roles (RBAC)](../configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](../configure.md)
+It is also possible to add more roles, see the [Roles (RBAC)](../configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](../configure.md)
 
 ## Default username and password
 
 StackState is configured by default with the following administrator account:
 
+{% tabs %}
+{% tab title="Kubernetes" %}
+* username: `admin`
+* password: set during installation (in `values.yaml`)
+{% endtab %}
+
+{% tab title="Linux" %}
 * username: `admin`
 * password: `topology-telemetry-time`
+{% endtab %}
+{% endtabs %}
+
+
 
 ## File-based authentication
 
