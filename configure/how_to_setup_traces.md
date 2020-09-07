@@ -1,6 +1,6 @@
 # How to set up traces
 
-This how-to describes the steps to set up traces that can be viewed in the StackState [trace perspective](../use/perspectives/trace_perspective.md).
+This how-to describes the steps to set up traces that can be viewed in the StackState [trace perspective](../use/perspectives/trace-perspective.md).
 
 For traces to be available in StackState, the [StackState Agent V2 StackPack](../stackpacks/integrations/agent.md) must be installed with one or more tracing integrations configured.
 
