@@ -1,7 +1,9 @@
 # Configure tracing
 
+Traces can be viewed in the traces perspective screen in the StackState UI. To enable tracing, you need to install the StackState Agent StackPack and one or more tracing integration. See [how to set up traces](how_to_setup_traces.md). This page describes how to override the default tracing configuration and hide traces from the StackState UI.
+
 {% hint style="info" %}
-We do not advise changing the default configuration for tracing.
+Note that it is not advised to change the default configuration for tracing.
 {% endhint %}
 
 ## Retention limits
