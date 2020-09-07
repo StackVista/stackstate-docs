@@ -21,7 +21,7 @@
     * [Set up TLS without reverse proxy](setup/linux_install/how_to_setup_tls_without_reverse_proxy.md)
   * [Authentication](setup/authentication.md)
   * [Backup and Restore](setup/backup_restore/README.md)
-    * [Kubernetes - backup and restore](setup/kubernetes_install/backup.md)
+    * [Kubernetes - backup and restore](setup/backup_restore/backup.md)
     * [Manual topology backup](setup/backup_restore/manual_topology.md)
     * [Configuration backup](setup/backup_restore/configuration.md)
     * [File-based backup](setup/backup_restore/file.md)

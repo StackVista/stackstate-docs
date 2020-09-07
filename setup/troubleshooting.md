@@ -93,6 +93,16 @@ update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to pro
 
 **Solution**: Remove the contents of `/opt/stackstate/var/log/license-check` and restart StackState.
 
+## Install
+
+### Kubernetes: `helm list` does not show the StackState release
+
+**Symptom**: After install, the StackState release is not shown in `helm list`. Attempting to re-run the installation fails.
+
+**Cause**: StackState was only partially deployed during the initial install.
+
+**Solution**: Run `helm uninstall <release-name>` where `<release-name>` should be the same as that used in the initial installation command. Helm will clean up the initial install and, after that, installation can be run again.
+
 ## Upgrade
 
 ### Kubernetes: `helm upgrade` fails
