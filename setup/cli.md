@@ -8,32 +8,24 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 ## Installation
 
-### Getting the CLI
+CLI can be downloaded from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
 
-The CLI can be downloaded from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
+### Linux
 
-There are three types of CLI available:
-* standalone binary for Linux: `sts-cli-VERSION-linux64`
-* standalone binary for Windows: `sts-cli-VERSION-windows.exe`
-* ZIP distributive for running Docker: `sts-cli-VERSION.zip`
+* download linux executable: `sts-cli-VERSION-linux64`
+* rename to `sts`
+* make it executable: `chmod +x sts`
+* (optional) place it under your PATH to [make it available from any place](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere)
 
-### Binary
+### Windows
 
-#### Prerequisites
+* download executable: `sts-cli-VERSION-windows.exe`
+* rename to `sts.exe`
+* (optional) place it under your PATH to [make it available from any place](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows)
 
-* compatible operating system: Windows or Linux
+### Docker (Linux, Windows, Mac)
 
-Copy downloaded binary to any place, rename it to short name like `sts` or `sts.exe`.
-
-For linux, make it executable: `chmod +x sts`
-
-Now this executable can be run.
-
-### Cross-platform distributive
-
-#### Prerequisites
-
-* Docker
+* download zip distributive: `sts-cli-VERSION.zip`
 
 The downloaded zip contains the following:
 
@@ -48,7 +40,7 @@ The downloaded zip contains the following:
     +-- topology
 ```
 
-* `sts` is the CLI. Put sts on your path to use it anywhere on the command line.
+* `sts` is the CLI. Put sts on your path to use it [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 * `conf.yaml.example` documents how to configure the url and credentials.
 * `VERSION` the version of the CLI.
 * `templates` these are topology templates in a format specific to the CLI.
@@ -58,6 +50,25 @@ The downloaded zip contains the following:
 The StackState CLI searches for configuration in:
 * `conf.d/conf.yaml` (relative to directory where cli is run)
 * and `~/.stackstate/cli/conf.yaml` or `%APPDATA%/StackState/cli/conf.yaml` (relative to user's home directory)
+
+### Wizard configuration
+
+If you use binary, you can bootstrap configuration file for your system user by running any command. The cli won't find config file and will guide you to create one under your user's home directory:
+```
+$ ./sts graph list-types
+No config was found. Would you like to configure CLI using wizard? (y/N) y
+Base API URL (default - http://localhost:7070/) https://mystackstate.example.org
+	username (empty if no auth) admin
+	password secretpassword
+Receiver API URL (default - https://mystackstate.example.org:7077) https://mystackstate.example.org/receiver
+	username (empty if no auth) (default - admin) 
+	password (default - secretpassword) 
+Admin API URL (default - https://mystackstate.example.org:7071) https://mystackstate.example.org/admin
+	username (empty if no auth) (default - admin) 
+	password (default - secretpassword) 
+API key (default - API_KEY) a912bc82d89dfba72def
+Hostname used for ingested via CLI (default - hostname)
+```
 
 ### Manual configuration
 You need to create one of those files. In this file, the URLs to the sts APIs, their authentication \(if any\), and a client must be defined.
@@ -117,25 +128,6 @@ instances:
      ...
    clients:
      ...
-```
-
-### Wizard configuration
-
-If you use binary, you can bootstrap configuration file for your system user by running any command. The cli won't find config file and will guide you to create one under your user's home directory:
-```
-$ ./sts graph list-types
-No config was found. Would you like to configure CLI using wizard? (y/N) y
-Base API URL (default - http://localhost:7070/) https://mystackstate.example.org
-	username (empty if no auth) admin
-	password secretpassword
-Receiver API URL (default - https://mystackstate.example.org:7077) https://mystackstate.example.org/receiver
-	username (empty if no auth) (default - admin) 
-	password (default - secretpassword) 
-Admin API URL (default - https://mystackstate.example.org:7071) https://mystackstate.example.org/admin
-	username (empty if no auth) (default - admin) 
-	password (default - secretpassword) 
-API key (default - API_KEY) a912bc82d89dfba72def
-Hostname used for ingested via CLI (default - hostname)
 ```
 
 ## Configuring StackState using the CLI
