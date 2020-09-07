@@ -4,7 +4,7 @@
 We do not advise changing the default configuration for tracing.
 {% endhint %}
 
-## Retention
+## Retention limits
 
 It is not advised to change the default settings for retention!
 
@@ -16,16 +16,7 @@ stackstate.kafkaTraceToES.elasticsearch.index.maxIndicesRetained = 8 // defines 
 ```
 Restart the component for changes to take affect.
 
-## Turn off tracing
-
-Tracing cannot be turned off in StackState. If required, you can hide traces from the StackState UI in the file `etc/application_stackstate.conf` by setting:
-
-```
-stackstate.webUIConfig.featureFlags.enableTraces = false
-```
-Restart the component for changes to take affect.
-
-## Configure rate limits
+## Rate limits
 
 It is not advised to change the default settings for rate limits! These have been hand-picked to optimize stability and performance.
 
@@ -34,5 +25,14 @@ If required, overrides to the default rate limits settings can be placed in the 
 ```
 stackstate.processAgent.tracesVolumeLimit.capacity = 256 MiB // data volume quota per time unit
 stackstate.processAgent.tracesVolumeLimit.period = 1 hour // quota time unit
+```
+Restart the component for changes to take affect.
+
+## Turn off tracing
+
+Tracing cannot be turned off in StackState. If required, you can hide traces from the StackState UI in the file `etc/application_stackstate.conf` by setting:
+
+```
+stackstate.webUIConfig.featureFlags.enableTraces = false
 ```
 Restart the component for changes to take affect.
