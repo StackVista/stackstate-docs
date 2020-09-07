@@ -4,7 +4,7 @@ description: See traces for the components in your IT landscape.
 
 # Trace Perspective
 
-The trace perspective shows a list of traces and their spans for the components in your view. This way, you can monitor the performance of the applications in your IT infrastructure directly in StackState without using 3rd party tools.
+The trace perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState without using 3rd party tools.
 
 ![The trace perspective](../../.gitbook/assets/traces-perspective.png)
 
@@ -14,7 +14,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 ### Trace Inspection
 
-The trace perspective shows a list of the slowest traces for the components in your selected view. You can click on any trace in the list to expand the trace and see all the spans that belong to it
+The trace perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
 ![Inspecting a trace](../../.gitbook/assets/trace-inspection.png)
 
@@ -28,11 +28,11 @@ When inspecting a trace and seeing the list of its spans, you can click on any s
 
 ## Filtering
 
-As explained in this guide, traces and components are tightly related. Therefore, there are two ways of filtering the traces you see in the *trace perspective*: using topology filters or trace filters.
+Traces and components are tightly related. The traces visible in the *trace perspective* can be filtered in two ways: using topology filters or trace filters.
 
 ### Topology Filters
 
-When you are in a view, you fetch traces for the components in that view. These same filters can be used in the trace perspective to reduce or increase the number of components for which you want to fetch traces.
+When you are in a view, you fetch traces for the components in that view. These same topology filters can be used in the trace perspective to reduce or increase the number of components for which you want to fetch traces.
 
 * Learn more about how to use topology filters in the [topology perspective page](topology-perspective.md).
 * Find out [how traces and topology](trace-perspective.md#traces-and-topology) are related.
@@ -55,7 +55,7 @@ For example, let's imagine that among your IT infrastructure the following compo
 2. A Java Application
 3. A SQL Database
 
-By installing our agent and its integrations to gather traces from these technologies, you'll then get traces that traverse these components. StackState, at ingestion time, stores both the spans that make up for each component in the bullet list above, as well as the topology (components and relations) that can be extracted from these traces.
+By installing our agent and its integrations to gather traces from these technologies, StackState will receive traces that traverse these components. At ingestion time, StackState stores both the spans for each component in the list above and the topology that can be extracted from these traces (components and relations).
 
 * Each component relates to a span
 * Each trace relates to a list of spans (or components) that are traversed to complete the requests executed in your IT infrastructure.
@@ -64,7 +64,7 @@ By installing our agent and its integrations to gather traces from these technol
 
 ![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
 
-The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a single trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
+The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
 
 When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has_traces**, this allows you to easily identify components for which you have traces.
 
@@ -82,8 +82,8 @@ When using the *trace perspective*, just like in other perspectives, you can eit
 Let's imagine a concrete scenario:
 
 * You received an alert saying that your payment processing application is not able to process any payments right now and your customers aren't being served.
-* In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a `CRITICAL` state. That moment corresponds to the point in time for which you fetch the snapshot of your IT infrastructure (specified in point **1** above).
-* You can then select to see the hours that preceded that moment in order to fetch the traces that will hopefully point you to the root cause of your problem.
+* In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a `CRITICAL` state. That moment corresponds to the point in time for which you fetch the snapshot of your IT infrastructure (point **1** above).
+* You can then select to see the hours that preceded that moment in order to fetch the traces that will hopefully point you to the root cause of your problem (point **2** above).
 
 ### Inspection, scrolling and its impact on time selection.
 
