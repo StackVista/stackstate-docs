@@ -8,9 +8,8 @@ The defaults for those storage classes are typically to delete the PV \(persiste
 
 To remove the PVC's either remove them manually with `kubectl delete pvc` or delete the entire namespace.
 
-## Customizing
+## Customize storage
 
-The `storageClass` and `size` for the different volumes can be customized. The [`micro_test_values.yaml`](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate/installation/examples/micro_test_values.yaml.yaml) is an example of how to customize the `size` of the volumes. The `storageClass` can be added in a similar fashion.
+You can customize the `storageClass` and `size` settings for different volumes in the Helm chart. The example values.yaml files provided in the [GitHub Helm chart repo](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation/examples) show how you can customize the `size` of volumes. The `storageClass` can be added in a similar fashion.
 
-Note that only for Elasticsearch this is deviating, it uses instead the full volumeClaimTemplate \(i.e. `volumeClaimTemplate.storageClassName` should be used\).
-
+Note that for Elasticsearch the full volumeClaimTemplate should be used, i.e. `volumeClaimTemplate.storageClassName`.
