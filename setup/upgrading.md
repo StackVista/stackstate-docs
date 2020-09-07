@@ -140,28 +140,3 @@ Once StackState has been upgraded and started, verify that the new installation 
 * Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
 * Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
 * The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
-
-### Upgrade to 1.14.9
-
-* As of this version, the concept of "valid guest groups" is deprecated by newly introduced Role Based Access Control. For more information please follow our [RBAC documentation pages](../concepts/role_based_access_control.md)
-* Upgrading from version 1.14.3 or earlier to this release requires a clean installation including removing the complete `/opt/stackstate` directory.
-
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
-
-### Upgrade to 1.14.6
-
-* `stackstate.api.authentication.adminRoles` renamed to `stackstate.api.authentication.adminGroups`
-* The `guestGroups` configuration was removed from `stackstate.api.authentication.ldapAuthServer.guestGroups` and is now present and mandatory under `stackstate.api.authentication`. Just like before, this configuration is used to specify which groups have the guest role in StackState.
-* In case of `stackstateAuthServer` the `roles` field in the `stackstate.api.authentication.stackstateAuthServer.logins` is now mandatory. Just like the adminGroups, it should contain all the groups that automatically get guest permissions.
-
-### Upgrade to 1.14.4
-
-* CLEAN UPGRADE: For version 1.14.4 a clean installation is required, including removing the complete `/opt/stackstate` directory.
-
-### Upgrade to 1.14.3
-
-* In version 1.14.3 the LDAP query prefix for users and groups was changed. If you are using LDAP authentication, then there are some changes you need to apply to your `application_stackstate.conf`. For detailed information check the [configuring-the-ldap-authentication-server](../configure/how_to_configure_ldap_authentication.md) section.
-
-### Upgrade to 1.14.2
-
-* Before version 1.14.2 some of the temporary files weren’t properly removed. This has been fixed in 1.14.2 but some of the older files before 1.14.2 need to cleaned up. In order to remove them run rm -rfv /tmp/_.sts_
