@@ -10,7 +10,7 @@ Note that it is not advised to change the default configuration for tracing.
 
 It is not advised to change the default settings for retention!
 
-Retention limits specify the index size of StackState and how long data is stored. Changing the default value here can lead to reduced stability and may cause trace and topology data retention to go out of sync.
+Retention limits specify the index size of StackState and how long data is stored. Changing the default value here can lead to reduced stability and may cause trace and topology data to go out of sync.
 
 If required, overrides to the default retention limits can be placed in the file `etc/kafka-to-es/application.conf`:
 
