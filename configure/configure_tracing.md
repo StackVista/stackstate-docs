@@ -22,7 +22,7 @@ Restart the component for changes to take affect.
 
 ## Rate limits
 
-It is not advised to change the default settings for rate limits! These have been hand-picked to optimize stability and performance.
+It is not advised to change the default settings for rate limits! 
 
 If required, overrides to the default rate limits can be placed in the file `etc/stackstate-receiver/application.conf`:
 
