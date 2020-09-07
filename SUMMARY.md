@@ -7,7 +7,7 @@
     * [Requirements](setup/kubernetes_install/requirements.md)
     * [Install StackState](setup/kubernetes_install/install_stackstate.md)
     * [Development setup](setup/kubernetes_install/development_setup.md)
-    * [Customize configuration](setup/kubernetes_install/customize_config.md)
+    * [Override default configuration](setup/kubernetes_install/customize_config.md)
     * [Configure storage](setup/kubernetes_install/storage.md)
     * [Configure Ingress](setup/kubernetes_install/ingress.md)
     * [StackState images](setup/kubernetes_install/image_configuration.md)
