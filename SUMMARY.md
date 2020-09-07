@@ -12,7 +12,6 @@
     * [Configure Ingress](setup/kubernetes_install/ingress.md)
     * [StackState images](setup/kubernetes_install/image_configuration.md)
   * [Linux install](setup/linux_install/README.md)
-    * [Requirements](setup/linux_install/requirements.md)
     * [Download](setup/linux_install/download.md)
     * [Install StackState](setup/linux_install/install_stackstate.md)
     * [Install with production configuration](setup/linux_install/production-installation.md)
