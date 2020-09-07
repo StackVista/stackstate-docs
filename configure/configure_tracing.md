@@ -1,0 +1,38 @@
+# Configure tracing
+
+{% hint style="info" %}
+We do not advise changing the default configuration for tracing.
+{% endhint %}
+
+## Retention
+
+It is not advised to change the default settings for retention!
+
+If required, overrides to the default retention settings can be placed in the file `etc/kafka-to-es/application.conf`:
+
+```
+stackstate.kafkaTraceToES.elasticsearch.index.splittingStrategy = "days" // defines the unit of time for which data is retained
+stackstate.kafkaTraceToES.elasticsearch.index.maxIndicesRetained = 8 // defines the total number of time units to be retained, e.g. 8 days
+```
+Restart the component for changes to take affect.
+
+## Turn off tracing
+
+Tracing cannot be turned off in StackState. If required, you can hide traces from the StackState UI in the file `etc/application_stackstate.conf` by setting:
+
+```
+stackstate.webUIConfig.featureFlags.enableTraces = false
+```
+Restart the component for changes to take affect.
+
+## Configure rate limits
+
+It is not advised to change the default settings for rate limits! These have been hand-picked to optimize stability and performance.
+
+If required, overrides to the default rate limits settings can be placed in the file `etc/stackstate-receiver/application.conf`:
+
+```
+stackstate.processAgent.tracesVolumeLimit.capacity = 256 MiB // data volume quota per time unit
+stackstate.processAgent.tracesVolumeLimit.period = 1 hour // quota time unit
+```
+Restart the component for changes to take affect.
