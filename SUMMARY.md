@@ -100,7 +100,7 @@
   * [Adding telemetry to synchronized topology](configure/telemetry_synchronized_topology.md)
   * [Checks and Streams](configure/checks_and_streams.md)
   * [How to set up traces](configure/how_to_setup_traces.md)
-  * [Configure tracing](configure/configure_tracing.md)
+  * [Trace configuration](configure/configure_tracing.md)
   * [Permissions \(RBAC\)](configure/permissions.md)
   * [Scopes \(RBAC\)](configure/scopes_in_rbac.md)
   * [Subjects \(RBAC\)](configure/subject_configuration.md)
