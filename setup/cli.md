@@ -197,7 +197,7 @@ You may not always want to try a new configuration on real data. First, you migh
 
 * [Send metrics data](#metrics)
 * [Send events data](#events)
-* [send topology data](#topology)
+* [Send topology data](#topology)
 
 #### Metrics
 
