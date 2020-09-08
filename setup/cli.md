@@ -17,7 +17,7 @@ mv sts-cli-VERSION-linux64 sts
 chmod +x sts
 ```
 4. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-5. Follow the steps below to [configure the StackState CLI](#configure-the-stackstate-cli).
+5. Follow the steps below to [launch the StackState CLI configuration wizard](#wizard-config-linux-and-windows-install).
 
 ### Windows
 
@@ -54,7 +54,7 @@ To use the StackState CLI, you need to configure it with the API connection deta
 
 ### Wizard config (Linux and Windows install)
 
-The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. When you run any command, the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory.
+The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. The first time you run any command the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory.
 
 For example:
 ```
