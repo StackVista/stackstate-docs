@@ -240,6 +240,7 @@ sts events send -h
 #### Topology
 
 Please refer to `usage.md` in the CLI zip archive for detailed instructions.
+
 For help on sending topology data, use:
 ```
 sts topology send -h
@@ -272,7 +273,7 @@ sts stackpack install -p sap_host sap1.acme.com stackpack-sap-1.0.1.sts
 
 #### Upgrade a StackPack
 
-If you want to upgrade a StackPack, first upload the new StackPack version as shown above, then trigger the upgrade with the following command:
+If you want to upgrade a StackPack, first upload the new StackPack version to the StackState server, then trigger the upgrade with the following command:
 
 ```text
 # Upload new StackPack version
@@ -282,7 +283,9 @@ sts stackpack upload /path/to/MyStackPack-1.0.1.sts
 sts stackpack upgrade MyStackPack
 ```
 
+{% hint style="info" %}
 Note that StackState will upgrade to the latest StackPack version available on the StackState server.
+{% endhint %}
 
 #### Uninstall a StackPack
 
@@ -294,14 +297,28 @@ sts stackpack uninstall MyStackPack
 
 ### Scripting
 
-It is possible to execute scripts using the StakState CLI. Use `sts script` to execute a script via standard input. For example:
+It is possible to execute scripts using the StackState CLI. Use `sts script` to execute a script via standard input. For example:
 
 ```text
 echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts script execute
 ```
 
+{% hint style="info" %}
 Note that the script provided as input must use proper quoting.
+{% endhint %}
 
 ### License
 
-The StackState CLI can check your license validity using `sts subscription show` and it can be used to update a license key when needed `sts subscription update new-license-key`, for example in case of expiration. Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+The StackState CLI can check your license validity and update a license key when needed, for example in case of expiration.
+
+```
+# check license key validity
+sts subscription show
+
+# Update license key
+sts subscription update new-license-key
+```
+
+{% hint style="info" %}
+Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+{% endhint %}
