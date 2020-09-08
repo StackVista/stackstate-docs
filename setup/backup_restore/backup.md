@@ -9,12 +9,11 @@ StackState has the ability to export its configuration. This configuration can t
 Exporting is as simple as running:
 
 ```text
-sts-cli graph export stackstate_settings.stj
+sts graph export stackstate_settings.stj
 ```
 
 Importing can also be done with the CLI, however, this only advised on an empty StackState \(i.e. a new deployment\). If StackState is not empty, the import will very likely fail. To import, run this command:
 
 ```text
-cat stackstate_settings.stj | sts-cli graph import
+cat stackstate_settings.stj | sts graph import
 ```
-

@@ -24,7 +24,7 @@ sts graph list --ids ComponentType RelationType Domain Layer Environment DataSou
 Note that the above CLI command returns output in the terminal window only. To get the `export.conf` file follow the below example:
 
 ```text
-sts-cli graph list --ids ComponentAction | xargs sts graph export --ids < export.conf
+sts graph list --ids ComponentAction | xargs sts graph export --ids < export.conf
 ```
 
 ## Automated configuration export with authentication
@@ -153,4 +153,3 @@ The table below displays configuration export versions version and on which Stac
 | Configuration Export version | Introduced on StackState version |
 | :--- | :--- |
 | 1.0.0 | 1.14.0 |
-
