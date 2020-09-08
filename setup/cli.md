@@ -180,7 +180,7 @@ sts graph import < mycheckfunctions.stj
 
 All data flowing through StackState\(e.g. topology, telemetry, traces, etc.\) flows through so-called topics. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
 
-To see all topics run:
+For example:
 
 ```text
 # See all topics
@@ -192,22 +192,15 @@ sts topic show <topic>
 
 ### Send data
 
-You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send some test topology or telemetry to StackState.
+You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send test topology or telemetry data to StackState.
 
-```
-# help on sending metrics
-sts metrics send -h
-
-# help on sending events
-sts events send -h
-
-# help on sending topology
-sts topology send -h
-```
+* [Send metrics data](#metrics)
+* [Send events data](#events)
+* [send topology data](#topology)
 
 #### Metrics
 
-The CLI provides some predefined settings to send metrics to StackState. Running the below command without any optional arguments will send one data point of the given value:
+The CLI provides some predefined settings to send metrics to StackState. Run the below command without any optional arguments to send one data point of the given value:
 
 ```
 sts metrics send <MetricName> <OptionalNumberValue>
@@ -215,18 +208,18 @@ sts metrics send <MetricName> <OptionalNumberValue>
 
 You can also use optional arguments to create historical data for a test metric.
 
-| Argument | Details | Example |
-|:---|:---|:---|
-| `-p` | Time period.<br />This can be in weeks \(`w`\), days \(`d`\), hours \(`h`\), minutes \(`m`\) and/or seconds \(`s`\). | `-p 4w2d6h30m15s` |
-| `-b` | The bandwidth between which the values will be generated | `-b 100-250` |
+| Argument | Details |
+|:---|:---|
+| `-p` | Time period.<br />This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`.<br />For example: `-p 4w2d6h30m15s` |
+| `-b` | The bandwidth between which values will be generated.<br />For example: `-b 100-250` |
 
-By default, a metrics pattern is random or, when a value is provided, a flatline. This can be changed by using a pattern argument. The options are `--linear` and `--baseline`.
+By default, a metrics pattern is random or, when a value is provided, a flatline. This can be changed using the pattern arguments `--linear` and `--baseline`.
 
 | Argument | Details |
 |:---|:---|
 | `--linear` | Creates a line between the values given for `-b`<br />plotted over the time given for `-p` |
 | `--baseline` | Creates a daily usage curve.<br />On Saturday and Sunday, the metric is much lower than on weekdays.<br />The min and max of the curve are set by `-b` and `-p` |
-| `--csv` | Reads a CSV file from the stdin and sends it to StackState.<br />The content of the CSV file should be `timestamp,value` |
+| `--csv` | Reads a CSV file from the stdin and sends it to StackState.<br />The content of the CSV file should be in the format `timestamp,value` |
 
 
 To see all available options, use:
@@ -238,45 +231,59 @@ sts metrics send -h
 
 The CLI can send events using `sts events send <eventName>` It will send one event with the given name.
 
+For help on sending events data, use:
+```
+sts events send -h
+```
+
 #### Topology
 
-Please refer to `usage.md` provided with the CLI for detailed instructions.
+Please refer to `usage.md` in the CLI zip archive for detailed instructions.
+For help on sending topology data, use:
+```
+sts topology send -h
+```
 
-### Managing StackPacks
+### Manage StackPacks
 
-The CLI can be used to manage the StackPacks in your StackState instance.
+The StackState CLI can be used to manage the StackPacks in your StackState instance.
 
-Upload a StackPack using the following command:
+#### Install a StackPack
+
+To install a StackPack, you must first upload it to the StackState server.
 
 ```text
+# Upload a StackPack
 sts stackpack upload /path/to/MyStackPack-1.0.0.sts
-```
 
-Once the StackPack is uploaded, it can be installed as follows:
-
-```text
+# Install an uploaded StackPack
 sts stackpack install MyStackPack
-```
 
-If the StackPack requires parameters during installation, supply them as follows:
-
-```text
+# Provide parameters for StackPack install:
 sts stackpack install -p param1 value1 -p param2 value2 MyStackPack
 ```
 
-For example, the open-source [SAP StackPack](https://github.com/StackVista/stackpack-sap) requires [parameter **sap\_host**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/stackpack.conf#L24) during installation. This command kicks off that installation:
+For example, the open-source [SAP StackPack](https://github.com/StackVista/stackpack-sap) requires the parameter [sap\_host](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/stackpack.conf#L24) during installation. This command kicks off that installation:
 
 ```text
 sts stackpack install -p sap_host sap1.acme.com stackpack-sap-1.0.1.sts
 ```
 
+#### Upgrade a StackPack
+
 If you want to upgrade a StackPack, first upload the new StackPack version as shown above, then trigger the upgrade with the following command:
 
 ```text
+# Upload new StackPack version
+sts stackpack upload /path/to/MyStackPack-1.0.1.sts
+
+# Upgrade to the uploaded StackPack
 sts stackpack upgrade MyStackPack
 ```
 
-Note that StackState will upgrade to the latest StackPack version that is available on the StackState server.
+Note that StackState will upgrade to the latest StackPack version available on the StackState server.
+
+#### Uninstall a StackPack
 
 Uninstall a StackPack as follows:
 
@@ -286,14 +293,14 @@ sts stackpack uninstall MyStackPack
 
 ### Scripting
 
-It is possible to execute scripts using the CLI. Use `sts script` to execute a script via standard input. For example:
+It is possible to execute scripts using the StakState CLI. Use `sts script` to execute a script via standard input. For example:
 
 ```text
 echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts script execute
 ```
 
-Do note that the script provided as input must use proper quoting.
+Note that the script provided as input must use proper quoting.
 
-#### License
+### License
 
-The CLI can check your license validity `sts subscription show` and it can be used to update a license key when needed `sts subscription update new-license-key`, for example in case of expiration. Note that it is not necessary to do this via the CLI, when a license is about to expired or expired StackState will offer this option in the UI as well.
+The StackState CLI can check your license validity using `sts subscription show` and it can be used to update a license key when needed `sts subscription update new-license-key`, for example in case of expiration. Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
