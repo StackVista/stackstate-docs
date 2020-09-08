@@ -8,27 +8,26 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 ## Installation
 
-CLI can be downloaded from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
-
 ### Linux
 
-* download linux executable: `sts-cli-VERSION-linux64`
-* rename to `sts`
-* make it executable: `chmod +x sts`
-* (optional) place it under your PATH to [make it available from any place](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere)
+1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
+2. Rename the downloaded file to `sts`.
+3. Make the file executable:
+```
+chmod +x sts`
+```
+4. (optional) Place the file under your PATH to use it [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 
 ### Windows
 
-* download executable: `sts-cli-VERSION-windows.exe`
-* rename to `sts.exe`
-* (optional) place it under your PATH to [make it available from any place](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows)
+* Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
+* Rename the downloaded file to `sts.exe`.
+* (optional) place the file under your PATH to use it [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 
 ### Docker (Linux, Windows, Mac)
 
-* download zip distributive: `sts-cli-VERSION.zip`
-
+1. Download the ZIP file: `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com) using your license key.
 The downloaded zip contains the following:
-
 ```text
 .
 +-- bin
@@ -39,17 +38,18 @@ The downloaded zip contains the following:
 +-- templates
     +-- topology
 ```
+  * `sts` is the CLI.
+  * `conf.yaml.example` documents how to configure the url and credentials.
+  * `VERSION` the version of the CLI.
+  * `templates` these are topology templates in a format specific to the CLI.
+2. (optional) Place the file under your PATH to use it [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 
-* `sts` is the CLI. Put sts on your path to use it [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-* `conf.yaml.example` documents how to configure the url and credentials.
-* `VERSION` the version of the CLI.
-* `templates` these are topology templates in a format specific to the CLI.
 
 ## Configuration
 
-The StackState CLI searches for configuration in:
-* `conf.d/conf.yaml` (relative to directory where cli is run)
-* and `~/.stackstate/cli/conf.yaml` or `%APPDATA%/StackState/cli/conf.yaml` (relative to user's home directory)
+The StackState CLI will search for configuration in two places:
+* `conf.d/conf.yaml` - relative to the directory where the CLI is run
+* `~/.stackstate/cli/conf.yaml` or `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory
 
 ### Wizard configuration
 
@@ -61,11 +61,11 @@ Base API URL (default - http://localhost:7070/) https://mystackstate.example.org
 	username (empty if no auth) admin
 	password secretpassword
 Receiver API URL (default - https://mystackstate.example.org:7077) https://mystackstate.example.org/receiver
-	username (empty if no auth) (default - admin) 
-	password (default - secretpassword) 
+	username (empty if no auth) (default - admin)
+	password (default - secretpassword)
 Admin API URL (default - https://mystackstate.example.org:7071) https://mystackstate.example.org/admin
-	username (empty if no auth) (default - admin) 
-	password (default - secretpassword) 
+	username (empty if no auth) (default - admin)
+	password (default - secretpassword)
 API key (default - API_KEY) a912bc82d89dfba72def
 Hostname used for ingested via CLI (default - hostname)
 ```
@@ -255,4 +255,3 @@ Do note that the script provided as input must use proper quoting.
 #### License
 
 The CLI can check your license validity `sts subscription show` and it can be used to update a license key when needed `sts subscription update new-license-key`, for example in case of expiration. Note that it is not necessary to do this via the CLI, when a license is about to expired or expired StackState will offer this option in the UI as well.
-
