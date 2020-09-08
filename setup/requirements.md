@@ -135,7 +135,7 @@ To meet StackState minimal requirements, the AWS instance type needs to have at 
 
 The AWS CLI has to be installed on the EC2 instance that is running StackState.
 
-## Networking requirements
+## Networking
 
 Listed ports are TCP ports.
 
@@ -258,7 +258,7 @@ Detailed information about ports per process.
   </tbody>
 </table>
 
-## Client \(browser\) requirements
+## Client \(browser\)
 
 To use the StackState GUI, you must use one of the following web browsers:
 
