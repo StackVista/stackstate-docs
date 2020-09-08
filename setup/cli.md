@@ -54,8 +54,9 @@ To use the StackState CLI, you need to configure it with the API connection deta
 
 ### Wizard config (Linux and Windows install)
 
-The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the configuration file. When you run any command, the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under your user's home directory.
+The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. When you run any command, the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory.
 
+For example:
 ```
 $ sts graph list-types
 No config was found. Would you like to configure CLI using wizard? (y/N) y
@@ -75,7 +76,7 @@ Hostname used for ingested via CLI (default - hostname)
 
 ### Manual config (Docker install)
 
-If you ran the Docker install, you will need to create a configuration file manually.
+Follow the steps below to create a configuration file manually (required for Docker install).
 
 1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive downloaded during install and put it in **one** of the following directories:
   * `conf.d/conf.yaml` - relative to the directory where the CLI is run.
@@ -131,7 +132,7 @@ instances:
 
 ### Multiple configurations
 
-The `conf.yaml` configuration file can hold multiple configurations. Other instances can be added on the same level as the default configuration, for example:
+The `conf.yaml` configuration file can hold multiple configurations. Other StackState instances can be added on the same level as the default configuration, for example:
 
 ```yaml
 instances:
@@ -147,7 +148,7 @@ instances:
      ...
 ```
 
-To use a non-default instance:
+To use the StackState CLI with a non-default instance:
 
 ```
 sts --instance <instance_name> ...
