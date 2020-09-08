@@ -52,5 +52,3 @@ For images named in the table below, `$VERSION` should be replaced with the appr
 | Kafka | JMX Exporter | `docker.io/bitnami/jmx-exporter` | `kafka.metrics.jmx.image.registry` | `kafka.metrics.jmx.image.repository` | `kafka.metrics.jmx.image.tag` |
 | Kafka | Kafka Exporter | `docker.io/bitnami/kafka-exporte` | `kafka.metrics.kafka.image.registry` | `kafka.metrics.kafka.image.repository` | `kafka.metrics.kafka.image.tag` |
 | Zookeeper |  | `docker.io/bitnami/zookeeper-exporter` | `zookeeper.image.registry` | `zookeeper.image.repository` | `zookeeper.image.tag` |
-
-test text
