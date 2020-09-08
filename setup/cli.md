@@ -11,24 +11,25 @@ The StackState CLI can be used to configure StackState, work with data, and help
 ### Linux
 
 1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com).
-2. Rename the downloaded file `sts`.
-3. Make the file executable:
+2. Rename the downloaded file to be `sts` and make it executable:
 ```
+mv sts-cli-VERSION-linux64 sts
 chmod +x sts
 ```
-4. (optional) Place the file under your PATH to use StackState CLI commands [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
+4. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 5. Follow the steps below to [configure the StackState CLI](#configure-the-stackstate-cli).
 
 ### Windows
 
-* Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
-* Rename the downloaded file `sts.exe`.
-* (optional) Place the file under your PATH to use StackState CLI commands [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
+1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
+2. Rename the downloaded file to be `sts.exe`.
+3. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
+4. Follow the steps below to [configure the StackState CLI](#configure-the-stackstate-cli).
 
 ### Docker (Linux, Windows, Mac)
 
-1. Download the ZIP file: `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
-The downloaded zip file contains the following:
+1. Download the ZIP `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
+The ZIP archive contains the following files:
 ```text
 .
 +-- bin
@@ -37,9 +38,9 @@ The downloaded zip file contains the following:
 |   +-- conf.yaml.example # Example CLI configuration
 |   +-- VERSION           # The version of the CLI
 +-- templates
-    +-- topology          # Topology templates in a format specific to the CLI
+    +-- topology   # Topology templates in a format specific to the CLI
 ```
-2. (optional) Place the `sts` file under your PATH to use StackState CLI commands [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
+2. (optional) Place the `sts` file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 3. Follow the steps below to [configure the StackState CLI](#configure-the-stackstate-cli).
 
 
