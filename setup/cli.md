@@ -24,7 +24,7 @@ chmod +x sts
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts.exe`.
 3. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
-4. Follow the steps below to [configure the StackState CLI](#configure-the-stackstate-cli).
+4. Follow the steps below to [launch the StackState CLI configuration wizard](#wizard-config-linux-and-windows-install).
 
 ### Docker (Linux, Windows, Mac)
 
@@ -41,15 +41,15 @@ The ZIP archive contains the following files:
     +-- topology   # Topology templates in a format specific to the CLI
 ```
 2. (optional) Place the `sts` file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-3. Follow the steps below to [configure the StackState CLI](#configure-the-stackstate-cli).
+3. Follow the steps below to [manually configure the StackState CLI](#manual-config-docker-install).
 
 
 ## Configure the StackState CLI
 
 To use the StackState CLI, you need to configure it with the API connection details for your StackState instance.
 
-* If you installed the StackState CLI using the Linux or Windows instructions above, a [wizard will guide you through configuration](#wizard-configuration-linux=and-windows-install).
-* If you ran the Docker install, you will need to [create the configuration file manually](#manual-configuration-docker-install).
+* If you installed the StackState CLI using the Linux or Windows instructions above, a [wizard will guide you through configuration](#wizard-config-linux-and-windows-install).
+* If you ran the Docker install, you will need to [create the configuration file manually](#manual-config-docker-install).
 
 
 ### Wizard config (Linux and Windows install)
