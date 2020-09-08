@@ -80,6 +80,7 @@ If you ran the Docker install, you will need to manually create an installation 
 * `~/.stackstate/cli/conf.yaml` or `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory
 
 To manually create a configuration file:
+
 1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the directories named above.
 2. Rename the file to be `conf.yaml`.
 3. Edit the file to add the URLs to the StackState APIs, any required authentication details and client details. For example:
