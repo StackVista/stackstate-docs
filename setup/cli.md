@@ -250,6 +250,10 @@ sts topology send -h
 
 The StackState CLI can be used to manage the StackPacks in your StackState instance.
 
+* [Install a StackPack](#install-a-stackpack)
+* [Upgrade a StackPack](#upgrade-a-stackpack)
+* [Uninstall a StackPack](#uninstall-a-stackpack)
+
 #### Install a StackPack
 
 To install a StackPack, you must first upload it to the StackState server.
