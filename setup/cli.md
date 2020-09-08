@@ -28,7 +28,7 @@ chmod +x sts
 
 ### Docker (Linux, Windows, Mac)
 
-1. Download the ZIP `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
+1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
 The ZIP archive contains the following files:
 ```text
 .
@@ -46,16 +46,20 @@ The ZIP archive contains the following files:
 
 ## Configure the StackState CLI
 
-The StackState CLI will search for configuration in two places:
-* `conf.d/conf.yaml` - relative to the directory where the CLI is run
-* `~/.stackstate/cli/conf.yaml` or `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory
+To use the StackState CLI, you need to configure it with the API connection details for your StackState instance.
 
-### Wizard configuration
+* If you installed the StackState CLI using the Linux or Windows instructions above, a [wizard will guide you through configuration](#wizard-configuration-linux=and-windows-install).
+* If you ran the Docker install, you will need to [create the configuration file manually](#manual-configuration-docker-install).
 
-If you use binary, you can bootstrap configuration file for your system user by running any command. The cli won't find config file and will guide you to create one under your user's home directory:
+
+### Wizard configuration (Linux and Windows install)
+
+The binary files downloaded in the Linux and Windows install methods described above includes a configuration wizard to generate the configuration file. When you run any command, the StackState CLI will look for a configuration file. If it does not find a valid file, it will guide you through creating one and store it under your user's home directory.
+
 ```
-$ ./sts graph list-types
+$ sts graph list-types
 No config was found. Would you like to configure CLI using wizard? (y/N) y
+
 Base API URL (default - http://localhost:7070/) https://mystackstate.example.org
 	username (empty if no auth) admin
 	password secretpassword
@@ -69,9 +73,15 @@ API key (default - API_KEY) a912bc82d89dfba72def
 Hostname used for ingested via CLI (default - hostname)
 ```
 
-### Manual configuration
-You need to create one of those files. In this file, the URLs to the sts APIs, their authentication \(if any\), and a client must be defined.
-You can copy the `conf.d/conf.example.yaml` file from ZIP distribution, and rename it to `conf.yaml` to get you started. Or copy the example below.
+### Manual configuration (Docker install)
+
+If you ran the Docker install, you will need to manually create an installation file. Installation is stored in the file `conf.d`, the StackState CLI will search for this file in two places:
+* `conf.d/conf.yaml` - relative to the directory where the CLI is run
+* `~/.stackstate/cli/conf.yaml` or `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory
+
+1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the directories named above.
+2. Rename the file to be `conf.yaml`.
+3. Edit the file to add the URLs to the StackState APIs, any required authentication details and client details. For example:
 
 ```yaml
 instances:
@@ -113,7 +123,9 @@ instances:
        internal_hostname: "internal_hostname"
 ```
 
-The `conf.yaml` can hold multiple configurations. The example only holds a `default` instance. Other instances can be added on the same level as the default. To use a non default instance use `sts --instance <instance_name> ...`
+### Add an extra StackState instance
+
+The `conf.yaml` configuration file can hold multiple configurations. Other instances can be added on the same level as the default configuration, for example:
 
 ```yaml
 instances:
@@ -128,6 +140,8 @@ instances:
    clients:
      ...
 ```
+
+To use a non-default instance, use `sts --instance <instance_name> ...`
 
 ## Configuring StackState using the CLI
 
