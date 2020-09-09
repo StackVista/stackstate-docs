@@ -68,6 +68,7 @@ See:<br />
 [Linux backup](backup_restore/file.md)<br />
 [Configuration backup](backup_restore/configuration.md)<br />
 [Manually created topology backup](backup_restore/manual_topology.md)
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
