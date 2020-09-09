@@ -79,7 +79,7 @@ Hostname used for ingested via CLI (default - hostname)
 
 Follow the steps below to create a configuration file manually (required for Docker install).
 
-1. If you did not already, download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
+1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com). If you ran the Docker install, you will already have this.
 2. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the following directories:
   * **Docker:**
     * `conf.d/` - relative to the directory where the CLI is run.
