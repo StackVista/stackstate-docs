@@ -14,7 +14,7 @@ This page describes the process of exporting and importing manual topology data,
 
 ## Export manually created topology
 
-To export all manually created components and relations to a file `manual_topo.stj`:
+To export all manually created components and relations to a file `manual_topo.stj` using the [StackState CLI](../cli.md):
 
 1. Create the export file:
 ```text
@@ -38,7 +38,7 @@ Breakdown of the export command used in the example above:
 Manually created relations to synchronized components may fail on import if these synchronized components do not exist anymore.
 {% endhint %}
 
-To import topology and relation data from a file `manual_topo.stj`, use the following command:
+To import topology and relation data from a file `manual_topo.stj` using the [StackState CLI](../cli.md):
 
 ```text
 sts graph import < manual_topo.stj
