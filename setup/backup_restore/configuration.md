@@ -4,22 +4,22 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-The export of the configuration can be obtained by:
+An export of the StackState configuration can be obtained by:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
 ```text
 # Output in terminal window
-sts graph list --ids <node_types> | xargs sts graph export --ids
+sts graph list --ids <NODE_TYPES> | xargs sts graph export --ids
 
 # export to file
-sts graph list --ids <node_types> | xargs sts graph export --ids > export.conf
+sts graph list --ids <NODE_TYPES> | xargs sts graph export --ids > export.conf
 ```
 {% endtab %}
 {% tab title="curl" %}
 ```text
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
-  -d '{"allNodesOfTypes":[<node_types_to_export>]}' \
+  -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
   "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 {% endtab %}
@@ -28,18 +28,26 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 
 ### Export configuration with authentication (curl)
 
-StackState server can be configured to authenticate users when they access the application. In this case, the export script is required to first obtain a token before making the export request.
+StackState server can be configured to authenticate users when they access the application. In this case, the export script is required to first obtain a token before making the export request. Authentication is configured within the [StackState CLI](../cli.md).
 
-Here is a sample sequence of commands to achieve this:
+Here is a sample sequence of curl commands to achieve this:
 
 {% tabs %}
 {% tab title="curl" %}
 ```text
 # obtain session from cookie AkkaHttpPac4jSession and token from cookie pac4jCsrfToken
-curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Type: application/x-www-form-urlencoded" "http://<host>:7070/loginCallback"
+curl --fail -v \
+  -d "username=<my_username>&password=<my_password>" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  "http://<host>:7070/loginCallback"
 
 # do actual request
-SESSION=<session>; TOKEN=<token>; curl -v -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfTypes":["ComponentType","RelationType","Domain","Layer","Environment","DataSource","QueryView","EventHandler","CheckFunction","BaselineFunction","PropagationFunction","EventHandlerFunction","ComponentTemplateFunction","RelationTemplateFunction","ComponentMappingFunction","RelationMappingFunction","IdExtractorFunction","ViewHealthStateConfigurationFunction","Sync"]}' -H Cookie:AkkaHttpPac4jSession=$SESSION -H X-Sts-Token:$TOKEN "http://<host>:7070/api/export?timeoutSeconds=300" > config.stj
+SESSION=<session>; TOKEN=<token>; curl -v -X POST \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
+  -H Cookie:AkkaHttpPac4jSession=$SESSION \
+  -H X-Sts-Token:$TOKEN \
+  "http://<host>:7070/api/export?timeoutSeconds=300" > config.stj
 ```
 {% endtab %}
 {% endtabs %}
