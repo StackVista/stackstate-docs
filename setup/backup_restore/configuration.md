@@ -10,10 +10,10 @@ The export of the configuration can be obtained by:
 {% tab title="StackState CLI" %}
 ```text
 # Output in terminal window
-sts graph list --ids <node_types_to_export> | xargs sts graph export --ids
+sts graph list --ids <node_types> | xargs sts graph export --ids
 
 # export to file
-sts graph list --ids <node_types_to_export> | xargs sts graph export --ids > export.conf
+sts graph list --ids <node_types> | xargs sts graph export --ids > export.conf
 ```
 {% endtab %}
 {% tab title="curl" %}
