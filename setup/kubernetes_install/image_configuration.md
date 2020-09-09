@@ -27,17 +27,17 @@ To address this issue, you can copy all the images to a single registry, close t
 ## Configuration
 
 {% hint style="info" %}
-For images named in the table below, `ginatest` should be replaced with the appropriate StackState version number.
+For images named in the table below, `$VERSION` should be replaced with the appropriate StackState version number.
 {% endhint %}
 
 | Chart | Component | Image | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| StackState | Correlate | `quay.io/stackstate/stackstate-correlate:ginatest` | `stackstate.components.all.image.registry` | `stackstate.components.correlate.image.repository` | `stackstate.components.correlate.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Kafka-to-ElasticSearch \(3x\) | `quay.io/stackstate/stackstate-kafka-to-es:ginatest` | `stackstate.components.all.image.registry` | `stackstate.components.k2es.image.repository` | `stackstate.components.k2es.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Receiver | `quay.io/stackstate/stackstate-receiver:ginatest` | `stackstate.components.all.image.registry` | `stackstate.components.receiver.image.repository` | `stackstate.components.receiver.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Router | `docker.io/envoyproxy/envoy-alpine:ginatest` | `stackstate.components.router.image.registry` | `stackstate.components.router.image.repository` | `stackstate.components.router.image.tag` |
-| StackState | Server | `quay.io/stackstate/stackstate-server:ginatest` | `stackstate.components.all.image.registry` | `stackstate.components.server.image.repository` | `stackstate.components.server.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | UI | `quay.io/stackstate/stackstate-ui:ginatest` | `stackstate.components.all.image.registry` | `stackstate.components.ui.image.repository` | `stackstate.components.ui.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
+| StackState | Correlate | `quay.io/stackstate/stackstate-correlate:$VERSION` | `stackstate.components.all.image.registry` | `stackstate.components.correlate.image.repository` | `stackstate.components.correlate.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
+| StackState | Kafka-to-ElasticSearch \(3x\) | `quay.io/stackstate/stackstate-kafka-to-es:$VERSION` | `stackstate.components.all.image.registry` | `stackstate.components.k2es.image.repository` | `stackstate.components.k2es.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
+| StackState | Receiver | `quay.io/stackstate/stackstate-receiver:$VERSION` | `stackstate.components.all.image.registry` | `stackstate.components.receiver.image.repository` | `stackstate.components.receiver.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
+| StackState | Router | `docker.io/envoyproxy/envoy-alpine:$VERSION` | `stackstate.components.router.image.registry` | `stackstate.components.router.image.repository` | `stackstate.components.router.image.tag` |
+| StackState | Server | `quay.io/stackstate/stackstate-server:$VERSION` | `stackstate.components.all.image.registry` | `stackstate.components.server.image.repository` | `stackstate.components.server.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
+| StackState | UI | `quay.io/stackstate/stackstate-ui:$VERSION` | `stackstate.components.all.image.registry` | `stackstate.components.ui.image.repository` | `stackstate.components.ui.image.tag`<br />\(defaults to `stackstate.components.all.image.tag`\) |
 | StackState | UI | `docker.io/nginx/nginx-prometheus-exporter` | `stackstate.components.nginxPrometheusExporter.image.registry` | `stackstate.components.nginxPrometheusExporter.image.repository` | `stackstate.components.nginxPrometheusExporter.image.tag` |
 | StackState | multiple | `docker.io/dokkupaas/wait` | `stackstate.components.wait.image.registry` | `stackstate.components.wait.image.repository` | `stackstate.components.wait.image.tag` |
 | StackState | kafka-topic-create job | `docker.io/bitnami/kafka` | `stackstate.components.kafkaTopicCreate.image.registry` | `stackstate.components.kafkaTopicCreate.image.repository` | `stackstate.components.kafkaTopicCreate.image.tag` |
