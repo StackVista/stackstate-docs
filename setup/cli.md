@@ -8,7 +8,9 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 ## Install the StackState CLI
 
-### Linux
+A standalone executable is available to run the StackState CLI on [Linux](#linux-install) and [Windows](#windows-install). You can also run the CLI [inside a Docker container](#docker-install-linux-windows-mac) on Linux, Windows or MacOS.
+
+### Linux install
 
 A standalone executable file is available to run the StackState CLI on Linux.
 
@@ -26,7 +28,7 @@ chmod +x sts
 4. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 5. Follow the steps below to [launch the configuration wizard](#wizard-configuration-linux-and-windows-install) or [manually configure](#manual-configuration) the StackState CLI.
 
-### Windows
+### Windows install
 
 A standalone executable file is available to run the StackState CLI on Windows.
 
@@ -40,7 +42,7 @@ A standalone executable file is available to run the StackState CLI on Windows.
 3. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. Follow the steps below to [launch the configuration wizard](#wizard-configuration-linux-and-windows-install) or [manually configure](#manual-configuration) the StackState CLI.
 
-### Docker (Linux, Windows, Mac)
+### Docker install (Linux, Windows, Mac)
 
 The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that help you run the CLI without needing to worry about Docker invocations.
 
