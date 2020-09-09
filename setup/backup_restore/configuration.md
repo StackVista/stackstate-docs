@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained by:
+An export of the StackState configuration can be obtained from the [StackState CLI](../cli.md) or using curl commands:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -56,9 +56,9 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 ## Import configuration
 
-Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. To clear StackState of any configuration use:
+Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import.
 
-To import StackState configuration from a file:
+To clear the StackState configuration and import from a file:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -68,8 +68,11 @@ sts graph import < export.stj
 {% endtab %}
 {% tab title="curl" %}
 ```text
-## Import without authentication
+## Clear StackState configuration
 curl -X POST -f "http://<HOST>:7071/clear"
+
+
+## Import without authentication
 curl -X POST -d @./export.stj \
   -H 'Content-Type: application/json;charset=UTF-8' \
   "http://<host>:7070/api/import?timeoutSeconds=15"
@@ -84,7 +87,7 @@ curl --fail -v -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
 
 # Do actual request
 export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
-  curl -X POST -d @config.stj \
+  curl -X POST -d @export.stj \
   -H 'Content-Type: application/json;charset=UTF-8' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
   -H X-Sts-Token:$TOKEN "http://<HOST>:7070/api/import?timeoutSeconds=15"
@@ -98,7 +101,7 @@ It is possible to export and import individual configuration items through the S
 
 1. Go to the **Settings** page and click on **Component Types**.
 2. To export an individual component type, click on **Export as config**.
-3. To import a configuration, click on **Import Model**.
+3. To import a configuration item, click on **Import Model**.
 
 ## Idempotent import/export
 
