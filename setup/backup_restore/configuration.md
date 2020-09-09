@@ -38,17 +38,18 @@ Here is a sample sequence of curl commands to achieve this:
 # Obtain session from cookie AkkaHttpPac4jSession
 # Obtain token from cookie pac4jCsrfToken
 curl --fail -v \
-  -d "username=<my_username>&password=<my_password>" \
+  -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  "http://<host>:7070/loginCallback"
+  "http://<HOST>:7070/loginCallback"
 
 # Do actual request
-SESSION=<session>; TOKEN=<token>; curl -v -X POST \
+export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
+  curl -v -X POST \
   -H 'Content-Type: application/json;charset=UTF-8' \
   -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
   -H X-Sts-Token:$TOKEN \
-  "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
+  "http://<HOST>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 {% endtab %}
 {% endtabs %}
@@ -75,13 +76,13 @@ curl -X POST -d @./export.stj \
 
 
 ## Import with authentication
-# obtain session from cookie AkkaHttpPac4jSession
-# and token from cookie pac4jCsrfToken
+# Obtain session from cookie AkkaHttpPac4jSession
+# Obtain token from cookie pac4jCsrfToken
 curl --fail -v -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<host>:7070/loginCallback"
 
-# do actual request
+# Do actual request
 export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
   curl -X POST -d @config.stj \
   -H 'Content-Type: application/json;charset=UTF-8' \
