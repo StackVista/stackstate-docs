@@ -209,10 +209,13 @@ Restart StackState, by `sudo systemctl restart stackstate.service`, for the chan
 It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/company/contact/).
 {% endhint %}
 
-StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process. Reindex needs to be run in Terminal \(or other CLI\) on the machine that hosts StackState \(for the [production setup](https://github.com/StackVista/stackstate-docs/tree/342b89e753ffcbfbb761bef683ff261dca536e9b/setup/production-installation.md)\).
+For search and querying purposes, StackState builds an index out of data in the graph database. It is possible to initiate a rebuild of this index from StackState's graph database. Note that under normal circumstances you will never need to do this.
 
 1. Make sure that StackState is not running with the following command: `systemctl stop stackstate`
 2. Make sure that StackGraph is running with the following command: `systemctl start stackgraph`
 3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
 
-Please note that this is a long-running process - monitoring progress in StackState logs is advised.
+{% hint style="danger" %}
+That this is a long-running process that should be monitored in the StackState logs.<be />
+**Do not** kill the reindex process while it is running.
+{% endhint %}
