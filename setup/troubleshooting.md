@@ -216,5 +216,5 @@ For search and querying purposes, StackState builds an index out of data in the 
 3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
 
 {% hint style="danger" %}
-**Do not kill the reindex process while it is running.** The reindex process will take some time to complete, you can monitor progress in the StackState logs.
+**Do not kill the reindex process while it is running.**<br />The reindex process will take some time to complete, you can monitor progress in the StackState logs.
 {% endhint %}
