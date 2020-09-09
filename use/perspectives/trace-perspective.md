@@ -2,11 +2,11 @@
 description: See traces for the components in your IT landscape.
 ---
 
-# Trace Perspective
+# Traces Perspective
 
-The trace perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState without using 3rd party tools.
+The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState without using 3rd party tools.
 
-![The trace perspective](../../.gitbook/assets/traces-perspective.png)
+![The Traces Perspective](../../.gitbook/assets/traces-perspective.png)
 
 To find out more about how you can add traces to StackState, please read the [guide to setting up traces](../../configure/how_to_setup_traces.md).
 
@@ -14,7 +14,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 ### Trace Inspection
 
-The trace perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
+The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
 ![Inspecting a trace](../../.gitbook/assets/trace-inspection.png)
 
@@ -28,26 +28,26 @@ When inspecting a trace and seeing the list of its spans, you can click on any s
 
 ## Filtering
 
-Traces and components are tightly related. The traces visible in the *trace perspective* can be filtered in two ways: using topology filters or trace filters.
+Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered in two ways: using topology filters or trace filters.
 
 ### Topology Filters
 
-When you are in a view, you fetch traces for the components in that view. These same topology filters can be used in the trace perspective to reduce or increase the number of components for which you want to fetch traces.
+When you are in a view, you fetch traces for the components in that view. These same topology filters can be used in the Traces Perspective to reduce or increase the number of components for which you want to fetch traces.
 
-* Learn more about how to use topology filters in the [topology perspective page](topology-perspective.md).
+* Learn more about how to use topology filters on the [Topology Perspective page](topology-perspective.md).
 * Find out [how traces and topology](trace-perspective.md#traces-and-topology) are related.
 
 ### Trace Filters
 
 A trace can be filtered based on two properties of its spans: span types and span tags. The image below shows the filters menu where you see filters for topology, events and traces:
 
-![The traces perspective and its filters](../../.gitbook/assets/trace-filters.png)
+![The Traces Perspective and its filters](../../.gitbook/assets/trace-filters.png)
 
 For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
 
 ## Traces and Topology
 
-In StackState, a [view](../views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our agent](../../configure/how_to_setup_traces.md). These traces are used in the traces perspective and also in the [topology perspective](topology-perspective.md) to create the topology of your view.
+In StackState, a [view](../views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our agent](../../configure/how_to_setup_traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
 
 For example, let's imagine that among your IT infrastructure the following components exist:
 
@@ -74,7 +74,7 @@ As of version 4.1, all traces are sorted by latency (descending). This is the on
 
 ## Time Traveling Considerations
 
-When using the *trace perspective*, just like in other perspectives, you can either be in live mode or in the past. In live mode, StackState is constantly polling for new traces. When time traveling to the past, all views in all perspectives come with a timeline for which you can make two selections:
+When using the Traces Perspective, just like in other perspectives, you can either be in live mode or in the past. In live mode, StackState is constantly polling for new traces. When time traveling to the past, all views in all perspectives come with a timeline for which you can make two selections:
 
 1. A specific moment in time for which you want the snapshot of your IT infrastructure to be fetched (i.e. topology).
 2. The time range for which you want to see traces (e.g the last 24 hours).
@@ -87,7 +87,7 @@ Let's imagine a concrete scenario:
 
 ### Inspection, scrolling and its impact on time selection.
 
-When using the *trace perspective* in live mode, you are constantly polling for the *slowest traces* in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
+When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
 
 To avoid this, time will effectively be "paused" when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click the blue ribbon on top or in the timeline itself to resume live mode:
 

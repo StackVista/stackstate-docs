@@ -1,6 +1,6 @@
 # How to set up traces
 
-This how-to describes the steps to set up traces that can be viewed in the StackState [trace perspective](../use/perspectives/trace-perspective.md).
+This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](../use/perspectives/trace-perspective.md).
 
 For traces to be available in StackState, the [StackState Agent V2 StackPack](../stackpacks/integrations/agent.md) must be installed with one or more tracing integrations configured.
 
@@ -10,7 +10,7 @@ The StackState Agent V2 StackPack enables integration with external systems to r
 
 ## 2) Configure tracing integrations
 
-When the StackState Agent V2 StackPack is installed, you can configure integrations to receive trace data from external systems. One or more of the StackState Agent V2 integrations below can be configured to populate the Traces perspective.
+When the StackState Agent V2 StackPack is installed, you can configure integrations to receive trace data from external systems. One or more of the StackState Agent V2 integrations below can be configured to populate the Traces Perspective.
 
 ### AWS X-ray
 The AWS integration collects tracing information from the in-built AWS distributed tracing system.<br>[Configure AWS X-ray](../stackpacks/integrations/aws-x-ray.md)
