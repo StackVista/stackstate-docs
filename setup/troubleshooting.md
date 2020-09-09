@@ -35,7 +35,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% endtab %}
 {% endtabs %}
 
-### Error `illegal reflective access` when starting StackState
+### Error when starting StackState: illegal reflective access
 
 **Symptom**: when starting any component of StackState, the log shows a message similar to the following:
 
@@ -47,27 +47,9 @@ WARNING: Use --illegal-access=warn to enable warnings of further illegal reflect
 WARNING: All illegal access operations will be denied in a future release
 ```
 
-**Cause**: running StackState on a Java version newer than JDK 8.
+**Cause**: This warning is the result of restrictions imposed by Java 11 on certain operations.
 
-**Solution**:
-
-Install JDK 8 using the following commands:
-
-```text
-# sudo apt-get install openjdk-8-jdk
-# sudo update-alternatives --config java
-
-There are 2 choices for the alternative java (providing /usr/bin/java).
-
-  Selection    Path                                            Priority   Status
-------------------------------------------------------------
-* 0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1101      auto mode
-  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1101      manual mode
-  2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
-
-Press <enter> to keep the current choice[*], or type selection number: 2
-update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to provide /usr/bin/java (java) in manual mode
-```
+**Solution**: No action is necessary. This warning can be safely ignored.
 
 ### Error `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
