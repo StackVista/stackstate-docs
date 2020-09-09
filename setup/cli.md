@@ -15,6 +15,7 @@ A standalone executable file is available to run the StackState CLI on Linux.
 **Requirements:**
 * Access to the StackState APIs.
 
+**Installation:**
 1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts` and make it executable:
 ```
@@ -31,6 +32,7 @@ A standalone executable file is available to run the StackState CLI on Windows.
 **Requirements:**
 * Access to the StackState APIs.
 
+**Installation:**
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts.exe`.
 3. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
@@ -45,6 +47,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
 * [Docker installed](https://docs.docker.com/get-docker/).
 * Internet connection for first time run.
 
+**Installation:**
 1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
 The ZIP archive contains the following files:
 ```text
