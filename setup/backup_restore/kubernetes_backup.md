@@ -6,22 +6,3 @@ See also:
 
 * [Backup manually created topology](manual_topology.md)
 * [Configuration backup](configuration.md)
-
-
-
-
-## Import and export configuration
-
-StackState has the ability to export its configuration. This configuration can then be imported again at a later time, in a clean StackState instance or it can be used as a starting point to setup a new StackState environment. The most convenient way to create an export and later ipmort it again is to use the [StackState CLI](../cli.md) import and export commands.
-
-Exporting is as simple as running:
-
-```text
-sts graph export stackstate_settings.stj
-```
-
-Importing can also be done with the CLI, however, this only advised on an empty StackState \(i.e. a new deployment\). If StackState is not empty, the import will very likely fail. To import, run this command:
-
-```text
-cat stackstate_settings.stj | sts graph import
-```
