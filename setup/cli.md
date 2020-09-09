@@ -54,7 +54,7 @@ To use the StackState CLI, you need to configure it with the API connection deta
 
 ### Wizard config (Linux and Windows install)
 
-The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. The first time you run any command the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory.
+The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. The first time you run any `sts` command, the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory.
 
 For example:
 ```
@@ -132,7 +132,7 @@ instances:
 
 ### Multiple configurations
 
-The `conf.yaml` configuration file can hold multiple configurations. Other StackState instances can be added on the same level as the default configuration, for example:
+The `conf.yaml` configuration file can hold multiple configurations. Other StackState instances can be added on the same level as the default configuration. For example:
 
 ```yaml
 instances:
