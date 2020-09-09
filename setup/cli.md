@@ -33,7 +33,8 @@ The ZIP archive contains the following files:
 ```text
 .
 +-- bin
-|   +-- sts   # The StackState CLI
+|   +-- sts     # The script invoking StackState CLI using Docker
+|   +-- sts.ps1 # The script invoking StackState CLI using Docker in Powershell
 +-- conf.d
 |   +-- conf.yaml.example # Example CLI configuration
 |   +-- VERSION           # The version of the CLI
@@ -42,7 +43,7 @@ The ZIP archive contains the following files:
 +-- release_notes.md  # Changelog of the CLI
 +-- usage.md          # How to configure and use this package
 ```
-2. (optional) Place the `sts` file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
+2. (optional) Put put the `bin` folder to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 3. Follow the steps below to [manually configure the StackState CLI](#manual-configuration).
 
 
