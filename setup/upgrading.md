@@ -58,16 +58,16 @@ Before upgrading StackState it is recommended to backup your configuration and t
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-See:<br />
-[Kubernetes backup](backup_restore/kubernetes_backup.md)<br />
-[Configuration backup](backup_restore/configuration.md)<br />
-[Manually created topology backup](backup_restore/manual_topology.md)
+See:
+* [Kubernetes backup](backup_restore/kubernetes_backup.md)
+* [Configuration backup](backup_restore/configuration.md)
+* [Manually created topology backup](backup_restore/manual_topology.md)
 {% endtab %}
 {% tab title="Linux" %}
-See:<br />
-[Linux backup](backup_restore/file.md)<br />
-[Configuration backup](backup_restore/configuration.md)<br />
-[Manually created topology backup](backup_restore/manual_topology.md)
+See:
+* [Linux backup](backup_restore/file.md)
+* [Configuration backup](backup_restore/configuration.md)
+* [Manually created topology backup](backup_restore/manual_topology.md)
 {% endtab %}
 {% endtabs %}
 
