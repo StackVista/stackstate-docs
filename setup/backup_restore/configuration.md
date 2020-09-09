@@ -12,7 +12,7 @@ An export of the StackState configuration can be obtained by:
 # Output in terminal window
 sts graph list --ids <NODE_TYPES> | xargs sts graph export --ids
 
-# export to file
+# Export to file
 sts graph list --ids <NODE_TYPES> | xargs sts graph export --ids > export.conf
 ```
 {% endtab %}
@@ -28,21 +28,21 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 
 ### Export configuration with authentication (curl)
 
-StackState server can be configured to authenticate users when they access the application. In this case, the export script is required to first obtain a token before making the export request. Authentication is configured within the [StackState CLI](../cli.md).
+StackState server can be configured to authenticate users when they access the application. In this case, an export curl script is required to first obtain a token before making the export request. This is not necessary when using the StackState CLI as authentication details are configured during installation.
 
 Here is a sample sequence of curl commands to achieve this:
 
 {% tabs %}
 {% tab title="curl" %}
 ```text
-# obtain session from cookie AkkaHttpPac4jSession
-# and obtain token from cookie pac4jCsrfToken
+# Obtain session from cookie AkkaHttpPac4jSession
+# Obtain token from cookie pac4jCsrfToken
 curl --fail -v \
   -d "username=<my_username>&password=<my_password>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<host>:7070/loginCallback"
 
-# do actual request
+# Do actual request
 SESSION=<session>; TOKEN=<token>; curl -v -X POST \
   -H 'Content-Type: application/json;charset=UTF-8' \
   -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
@@ -53,9 +53,9 @@ SESSION=<session>; TOKEN=<token>; curl -v -X POST \
 {% endtab %}
 {% endtabs %}
 
-## Configuration import
+## Import configuration
 
-Import is intended to be a one-off action, importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. To clear StackState of any configuration use:
+Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. To clear StackState of any configuration use:
 
 To import StackState configuration from a file:
 
@@ -67,13 +67,14 @@ sts graph import < export.stj
 {% endtab %}
 {% tab title="curl" %}
 ```text
-# Import without authentication
+## Import without authentication
 curl -X POST -f "http://<HOST>:7071/clear"
 curl -X POST -d @./export.stj \
   -H 'Content-Type: application/json;charset=UTF-8' \
   "http://<host>:7070/api/import?timeoutSeconds=15"
 
-# Import with authentication
+
+## Import with authentication
 # obtain session from cookie AkkaHttpPac4jSession
 # and token from cookie pac4jCsrfToken
 curl --fail -v -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
@@ -92,11 +93,11 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 ## Import or export individual configuration items
 
-It is possible to export and import individual configuration items through the StackState user interface. For example, to export a component type go to the Settings page and click on 'Component Types':
+It is possible to export and import individual configuration items through the StackState user interface. For example, to export or export a component type:
 
-To export an individual component type, click on 'Export as config'.
-
-An individual configuration item can be imported through settings button 'Import Model'.
+1. Go to the **Settings** page and click on **Component Types**.
+2. To export an individual component type, click on **Export as config**.
+3. To import a configuration, click on **Import Model**.
 
 ## Idempotent import/export
 
