@@ -35,7 +35,8 @@ Here is a sample sequence of curl commands to achieve this:
 {% tabs %}
 {% tab title="curl" %}
 ```text
-# obtain session from cookie AkkaHttpPac4jSession and token from cookie pac4jCsrfToken
+# obtain session from cookie AkkaHttpPac4jSession
+# and obtain token from cookie pac4jCsrfToken
 curl --fail -v \
   -d "username=<my_username>&password=<my_password>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -47,7 +48,7 @@ SESSION=<session>; TOKEN=<token>; curl -v -X POST \
   -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
   -H X-Sts-Token:$TOKEN \
-  "http://<host>:7070/api/export?timeoutSeconds=300" > config.stj
+  "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 {% endtab %}
 {% endtabs %}
@@ -66,16 +67,25 @@ sts graph import < export.stj
 {% endtab %}
 {% tab title="curl" %}
 ```text
-# without authentication
-curl -X POST -f "http://<host>:7071/clear"
-curl -X POST -d @./export.stj -H 'Content-Type: application/json;charset=UTF-8' "http://<host>:7070/api/import?timeoutSeconds=15"
+# Import without authentication
+curl -X POST -f "http://<HOST>:7071/clear"
+curl -X POST -d @./export.stj \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  "http://<host>:7070/api/import?timeoutSeconds=15"
 
-# with authentication
-# obtain session from cookie AkkaHttpPac4jSession and token from cookie pac4jCsrfToken
-curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Type: application/x-www-form-urlencoded" "http://<host>:7070/loginCallback"
+# Import with authentication
+# obtain session from cookie AkkaHttpPac4jSession
+# and token from cookie pac4jCsrfToken
+curl --fail -v -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  "http://<host>:7070/loginCallback"
 
 # do actual request
-SESSION=<session>; TOKEN=<token>; curl -X POST -d @config.stj -H 'Content-Type: application/json;charset=UTF-8' -H Cookie:AkkaHttpPac4jSession=$SESSION -H X-Sts-Token:$TOKEN "http://<host>:7070/api/import?timeoutSeconds=15"
+export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
+  curl -X POST -d @config.stj \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H Cookie:AkkaHttpPac4jSession=$SESSION \
+  -H X-Sts-Token:$TOKEN "http://<HOST>:7070/api/import?timeoutSeconds=15"
 ```
 {% endtab %}
 {% endtabs %}
