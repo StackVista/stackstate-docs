@@ -28,15 +28,19 @@ chmod +x sts
 
 ### Docker (Linux, Windows, Mac)
 
-The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. Use this zip package that contains scipts that helps you run the CLI without worrying about Docker invocations.
+The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The StackState CLI ZIP package contains scripts that help you run the CLI without needing to worry about Docker invocations. 
+
+{% hint style="info" %}
+You will need to have [Docker installed](https://docs.docker.com/get-docker/) to run the CLI this way.
+{% endhint %}
 
 1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
 The ZIP archive contains the following files:
 ```text
 .
 +-- bin
-|   +-- sts     # The CLI for bash
-|   +-- sts.ps1 # The CLI for Powershell
+|   +-- sts     # Runs the CLI in Docker for bash
+|   +-- sts.ps1 # Runs the CLI in Docker for Powershell
 +-- conf.d
 |   +-- conf.yaml.example # Example CLI configuration
 |   +-- VERSION           # The version of the CLI
