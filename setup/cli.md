@@ -17,14 +17,14 @@ mv sts-cli-VERSION-linux64 sts
 chmod +x sts
 ```
 4. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-5. Follow the steps below to [launch the StackState CLI configuration wizard](#wizard-config-linux-and-windows-install).
+5. Follow the steps below to [launch the configuration wizard](#wizard-configuration-linux-and-windows-install) or [manually configure](#manual-configuration) the StackState CLI.
 
 ### Windows
 
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts.exe`.
 3. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
-4. Follow the steps below to [launch the StackState CLI configuration wizard](#wizard-config-linux-and-windows-install).
+4. Follow the steps below to [launch the configuration wizard](#wizard-configuration-linux-and-windows-install) or [manually configure](#manual-configuration) the StackState CLI.
 
 ### Docker (Linux, Windows, Mac)
 
@@ -43,18 +43,17 @@ The ZIP archive contains the following files:
 +-- usage.md          # How to configure and use this package
 ```
 2. (optional) Place the `sts` file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-3. Follow the steps below to [manually configure the StackState CLI](#manual-config-docker-install).
+3. Follow the steps below to [manually configure the StackState CLI](#manual-configuration).
 
 
 ## Configure the StackState CLI
 
 To use the StackState CLI, you need to configure it with the API connection details for your StackState instance.
 
-* If you installed the StackState CLI using the Linux or Windows instructions above, a [wizard will guide you through configuration](#wizard-config-linux-and-windows-install).
-* If you ran the Docker install, you will need to [create the configuration file manually](#manual-config-docker-install).
+* If you installed the StackState CLI using the Linux or Windows instructions above, a [wizard will guide you through configuration](#wizard-configuration-linux-and-windows-install).
+* You can also [create the configuration file manually](#manual-configuration) (required for Docker install.
 
-
-### Wizard config (Linux and Windows install)
+### Wizard configuration (Linux and Windows install)
 
 The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. The first time you run any `sts` command, the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory.
 
@@ -76,14 +75,17 @@ API key (default - API_KEY) a912bc82d89dfba72def
 Hostname used for ingested via CLI (default - hostname)
 ```
 
-### Manual config (Docker install)
+### Manual configuration
 
 Follow the steps below to create a configuration file manually (required for Docker install).
 
 1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive downloaded during install and put it in **one** of the following directories:
-  * `conf.d/conf.yaml` - relative to the directory where the CLI is run.
-  * `~/.stackstate/cli/conf.yaml` - relative to the user's home directory.
-  * `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory.
+  * Docker:
+    * `conf.d/` - relative to the directory where the CLI is run.
+  * Windows or Linux:
+    * `conf.d/` - relative to the directory where the CLI is run.
+    * `~/.stackstate/cli/` - relative to the user's home directory.
+    * `%APPDATA%/StackState/cli/` - relative to the user's home directory.
 2. Rename the file to be `conf.yaml`.
 3. Edit the file and add:
   * URLs to the StackState APIs.
