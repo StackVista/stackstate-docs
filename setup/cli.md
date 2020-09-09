@@ -79,15 +79,16 @@ Hostname used for ingested via CLI (default - hostname)
 
 Follow the steps below to create a configuration file manually (required for Docker install).
 
-1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive downloaded during install and put it in one of the following directories:
+1. If you did not already, download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
+2. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the following directories:
   * **Docker:**
     * `conf.d/` - relative to the directory where the CLI is run.
   * **Linux or Windows:**
     * `conf.d/` - relative to the directory where the CLI is run.
     * `~/.stackstate/cli/` - relative to the user's home directory.
     * `%APPDATA%/StackState/cli/` - relative to the user's home directory.
-2. Rename the file to be `conf.yaml`.
-3. Edit the file and add:
+3. Rename the file to be `conf.yaml`.
+4. Edit the file and add:
   * URLs to the StackState APIs.
   * Any required authentication details for the APIs.
   * Client details.
