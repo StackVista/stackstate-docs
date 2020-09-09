@@ -32,7 +32,7 @@ A standalone executable file is available to run the StackState CLI on Windows.
 
 ### Docker (Linux, Windows, Mac)
 
-The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that help you run the CLI without needing to worry about Docker invocations. 
+The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that help you run the CLI without needing to worry about Docker invocations.
 
 {% hint style="info" %}
 You will need to have [Docker installed](https://docs.docker.com/get-docker/) to run the StackState CLI this way.
@@ -47,7 +47,7 @@ The ZIP archive contains the following files:
 |   +-- sts.ps1 # Script to run the CLI in Docker from Powershell
 +-- conf.d
 |   +-- conf.yaml.example # Example CLI configuration
-|   +-- VERSION           # The version of the CLI
+|   +-- VERSION           # The version of the CLI to retrieve from Docker hub
 +-- templates
 |   +-- topology   # Topology templates in a format specific to the CLI
 +-- release_notes.md  # Changelog of the CLI
