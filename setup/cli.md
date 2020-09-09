@@ -38,7 +38,9 @@ The ZIP archive contains the following files:
 |   +-- conf.yaml.example # Example CLI configuration
 |   +-- VERSION           # The version of the CLI
 +-- templates
-    +-- topology   # Topology templates in a format specific to the CLI
+|   +-- topology   # Topology templates in a format specific to the CLI
++-- release_notes.md  # Changelog of the CLI
++-- usage.md          # How to configure and use this package
 ```
 2. (optional) Place the `sts` file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 3. Follow the steps below to [manually configure the StackState CLI](#manual-config-docker-install).
