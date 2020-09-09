@@ -35,7 +35,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% endtab %}
 {% endtabs %}
 
-### Error when starting StackState: illegal reflective access
+### Error: `illegal reflective access`
 
 **Symptom**: when starting any component of StackState, the log shows a message similar to the following:
 
@@ -51,7 +51,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 **Solution**: No action is necessary. This warning can be safely ignored.
 
-### Error `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
+### Linux - Error: `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
 **Symptom**: when starting any component of StackState, the log shows a message similar to the following:
 
@@ -63,7 +63,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 **Solution**: Remove the contents of `/opt/stackstate/var/log/stackstate` and `/opt/stackstate/var/log/stackgraph` directories and restart StackState.
 
-### Error `/opt/stackstate/var/log/license-check/license-app.log: Permission denied`
+### Linux - Error: `/opt/stackstate/var/log/license-check/license-app.log: Permission denied`
 
 **Symptom**: when starting any component of StackState, the log shows a message similar to the following:
 
@@ -77,7 +77,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 ## Install
 
-### Kubernetes: `helm list` does not show the StackState release
+### Kubernetes - `helm list` does not show the StackState release
 
 **Symptom**: After install, the StackState release is not shown in `helm list`. Attempting to re-run the installation fails.
 
@@ -87,7 +87,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 ## Upgrade
 
-### Kubernetes: `helm upgrade` fails
+### Kubernetes - `helm upgrade` fails
 
 **Symptom**: Running `helm upgrade` on Kubernetes fails.
 
@@ -100,7 +100,7 @@ NEVER delete the namespace or persistent volumes - that will remove all data.
 {% endhint %}
 
 
-### Error `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
+### Error: `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
 **Symptom**: StackState will not start after upgrading to a newer version. StackState.log reflects:
 
@@ -126,7 +126,7 @@ Diff (this = Requested; that = Catalog):
 
 Please be aware that when uninstalling or upgrading a StackPack, it can fail with a timeout message. This happens due to a high load on StackState, or high amounts of data related to this StackPack. We are working on solving this issue; however, for the time being, the solution is to retry the uninstall or upgrade operation until it succeeds.
 
-### Error `InvalidSchema("No connection adapters were found for '%s' % url")`
+### Error: `InvalidSchema("No connection adapters were found for '%s' % url")`
 
 **Symptom**: no data received in StackState from the AWS source that has access to StackState receiver service, the CloudWatch log stream related to the AWS lambda function StackState-Topo-Cron shows a message similar to the following:
 
@@ -140,9 +140,9 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 * [Kubernetes - base URL](kubernetes_install/install_stackstate.mb#generate-values-yaml)
 * [Linux - receiver base URL](linux_install/install_stackstate.mb#configuration-options-required-during-install)
 
-### Error `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
+### Error: `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
-**Symptom**: Splunk saved search with SID \(Splunk job id\) results in `ERROR: CheckException: Splunk topology failed with message: 400 Client Error: Bad Request for url:` message. StackState log in `/var/log/stackstate/collector.log` shows the following:
+**Symptom**: The Splunk saved search configured in the Agent with SID \(Splunk job id\) results in `ERROR: CheckException: Splunk topology failed with message: 400 Client Error: Bad Request for url:` message. The StackState log in `/var/log/stackstate/collector.log` shows the following:
 
 ```text
 2019-08-06 15:50:41 CEST | ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed
@@ -174,7 +174,7 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 
 ## Using StackState
 
-### Error `InterruptedException` when opening a view
+### Error: `InterruptedException` when opening a view
 
 **Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
 
