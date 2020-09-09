@@ -37,7 +37,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 ### Error: `illegal reflective access`
 
-**Symptom**: when starting any component of StackState, the log shows a message similar to the following:
+**Symptom**: When starting any component of StackState, the log shows a message similar to the following:
 
 ```text
 WARNING: An illegal reflective access operation has occurred
@@ -53,7 +53,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 ### Linux - Error: `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
-**Symptom**: when starting any component of StackState, the log shows a message similar to the following:
+**Symptom**: When starting any component of StackState, the log shows a message similar to the following:
 
 ```text
 /opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied
@@ -65,13 +65,13 @@ WARNING: All illegal access operations will be denied in a future release
 
 ### Linux - Error: `/opt/stackstate/var/log/license-check/license-app.log: Permission denied`
 
-**Symptom**: when starting any component of StackState, the log shows a message similar to the following:
+**Symptom**: When starting any component of StackState, the log shows a message similar to the following:
 
 ```text
 /opt/stackstate/var/log/license-check/license-app.log: Permission denied
 ```
 
-**Cause**: the license key registration command was executed as `root` or other user followed by starting StackState as a service.
+**Cause**: The license key registration command was executed as `root` or other user followed by starting StackState as a service.
 
 **Solution**: Remove the contents of `/opt/stackstate/var/log/license-check` and restart StackState.
 
@@ -128,7 +128,7 @@ Please be aware that when uninstalling or upgrading a StackPack, it can fail wit
 
 ### Error: `InvalidSchema("No connection adapters were found for '%s' % url")`
 
-**Symptom**: no data received in StackState from the AWS source that has access to StackState receiver service, the CloudWatch log stream related to the AWS lambda function StackState-Topo-Cron shows a message similar to the following:
+**Symptom**: No data received in StackState from the AWS source that has access to StackState receiver service, the CloudWatch log stream related to the AWS lambda function StackState-Topo-Cron shows a message similar to the following:
 
 ```text
 InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/stsAgent/'")
@@ -176,7 +176,7 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 
 ### Error: `InterruptedException` when opening a view
 
-**Symptom**: opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
+**Symptom**: Opening a view that is expected to contain a large topology results in an error and the `/opt/stackstate/var/log/stackstate.log` log shows an exception similar to:
 
 ```text
 ... Starting ViewEventSummaryStream web socket stream failed.
@@ -185,9 +185,9 @@ com.stackvista.graph.hbase.StackHBaseException: Error while accessing HBase
 Caused by: java.io.InterruptedIOException: Origin: InterruptedException
 ```
 
-**Cause**: topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
+**Cause**: Topology elements that are not cached are not fully retrieved from StackGraph within a certain period of time before a timeout, `InterruptedException`, is triggered.
 
-**Possible solution**: increase the cache size by editing StackState's configuration.
+**Possible solution**: Increase the cache size by editing StackState's configuration.
 
 In `/opt/stackstate/etc/application_stackstate.conf` add the following configuration `stackgraph.vertex.cache.size = <size>` where `<size>` is the number of Graph vertices. An initial cache size can be obtained by adding:
 
