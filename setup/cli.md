@@ -58,11 +58,11 @@ The ZIP archive contains the following files:
 ```text
 .
 +-- bin
-|   +-- sts     # Script to run the Docker StackState CLI in Docker for bash
+|   +-- sts     # Script to run the CLI in Docker for bash
 |   +-- sts.ps1 # Script to run the CLI in Docker for Powershell
 +-- conf.d
 |   +-- conf.yaml.example # Example CLI configuration
-|   +-- VERSION           # The version of the CLI to retrieve from Docker hub
+|   +-- VERSION           # The CLI version to retrieve from Docker hub
 +-- templates
 |   +-- topology   # Topology templates in a format specific to the CLI
 +-- release_notes.md  # Changelog of the CLI
