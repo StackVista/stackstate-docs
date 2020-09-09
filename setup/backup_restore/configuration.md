@@ -1,38 +1,37 @@
----
-title: Backup and Restore StackState Configuration
-kind: Documentation
----
-
 # Configuration backup
 
-StackState's configuration can be exported and imported. The import/export functionality can be used to automate the installation process and/or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
+StackState configuration can be exported and imported. The import/export functionality can be used to automate the installation process and/or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
 
-## Automated configuration export
+## Configuration export
 
 The export of the configuration can be obtained by:
 
+{% tabs %}
+{% tab title="StackState CLI" %}
+```text
+# Output in terminal window
+sts graph list --ids ComponentType RelationType Domain Layer Environment DataSource QueryView EventHandler CheckFunction BaselineFunction PropagationFunction EventHandlerFunction ComponentTemplateFunction RelationTemplateFunction ComponentMappingFunction RelationMappingFunction IdExtractorFunction ViewHealthStateConfigurationFunction Sync | xargs sts graph export --ids
+
+# export to file
+sts graph list --ids ComponentAction | xargs sts graph export --ids > export.conf
+```
+{% endtab %}
+{% tab title="curl" %}
 ```text
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfTypes":["ComponentType","RelationType","Domain","Layer","Environment","DataSource","QueryView","EventHandler","CheckFunction","BaselineFunction","PropagationFunction","EventHandlerFunction","ComponentTemplateFunction","RelationTemplateFunction","ComponentMappingFunction","RelationMappingFunction","IdExtractorFunction","ViewHealthStateConfigurationFunction","Sync"]}' "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
+{% endtab %}
+{% endtabs %}
 
-Or via the [CLI](../cli.md) by:
 
-```text
-sts graph list --ids ComponentType RelationType Domain Layer Environment DataSource QueryView EventHandler CheckFunction BaselineFunction PropagationFunction EventHandlerFunction ComponentTemplateFunction RelationTemplateFunction ComponentMappingFunction RelationMappingFunction IdExtractorFunction ViewHealthStateConfigurationFunction Sync | xargs sts graph export --ids
-```
+### Configuration export with authentication (curl)
 
-Note that the above CLI command returns output in the terminal window only. To get the `export.conf` file follow the below example:
-
-```text
-sts graph list --ids ComponentAction | xargs sts graph export --ids < export.conf
-```
-
-## Automated configuration export with authentication
-
-StackState server can be configured to authenticate users when they access the application. In this case, the export CLI script is required to first obtain a token before making the export request.
+StackState server can be configured to authenticate users when they access the application. In this case, the export script is required to first obtain a token before making the export request.
 
 Here is a sample sequence of commands to achieve this:
 
+{% tabs %}
+{% tab title="curl" %}
 ```text
 # obtain session from cookie AkkaHttpPac4jSession and token from cookie pac4jCsrfToken
 curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Type: application/x-www-form-urlencoded" "http://<host>:7070/loginCallback"
@@ -40,38 +39,38 @@ curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Ty
 # do actual request
 SESSION=<session>; TOKEN=<token>; curl -v -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfTypes":["ComponentType","RelationType","Domain","Layer","Environment","DataSource","QueryView","EventHandler","CheckFunction","BaselineFunction","PropagationFunction","EventHandlerFunction","ComponentTemplateFunction","RelationTemplateFunction","ComponentMappingFunction","RelationMappingFunction","IdExtractorFunction","ViewHealthStateConfigurationFunction","Sync"]}' -H Cookie:AkkaHttpPac4jSession=$SESSION -H X-Sts-Token:$TOKEN "http://<host>:7070/api/export?timeoutSeconds=300" > config.stj
 ```
+{% endtab %}
+{% endtabs %}
 
-## Automated configuration import
+## Configuration import
 
 Import is intended to be a one-off action, importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. To clear StackState of any configuration use:
 
+To import StackState configuration from a file:
+
+{% tabs %}
+{% tab title="StackState CLI" %}
 ```text
+sts graph import < export.stj
+```
+{% endtab %}
+{% tab title="curl" %}
+```text
+# without authentication
 curl -X POST -f "http://<host>:7071/clear"
-```
-
-The StackState configuration file can be imported by:
-
-```text
 curl -X POST -d @./export.stj -H 'Content-Type: application/json;charset=UTF-8' "http://<host>:7070/api/import?timeoutSeconds=15"
-```
 
-If authentication is needed:
-
-```text
+# with authentication
 # obtain session from cookie AkkaHttpPac4jSession and token from cookie pac4jCsrfToken
 curl --fail -v -d "username=<my_username>&password=<my_password>" -H "Content-Type: application/x-www-form-urlencoded" "http://<host>:7070/loginCallback"
 
 # do actual request
 SESSION=<session>; TOKEN=<token>; curl -X POST -d @config.stj -H 'Content-Type: application/json;charset=UTF-8' -H Cookie:AkkaHttpPac4jSession=$SESSION -H X-Sts-Token:$TOKEN "http://<host>:7070/api/import?timeoutSeconds=15"
 ```
+{% endtab %}
+{% endtabs %}
 
-Or via the [CLI](../cli.md) by:
-
-```text
-sts graph import < export.stj
-```
-
-## Importing or exporting individual configuration items
+## Import or export individual configuration items
 
 It is possible to export and import individual configuration items through the StackState user interface. For example, to export a component type go to the Settings page and click on 'Component Types':
 
