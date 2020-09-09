@@ -10,6 +10,8 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 ### Linux
 
+A standalone executable file is available to run the StackState CLI on Linux.
+
 1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts` and make it executable:
 ```
@@ -21,6 +23,8 @@ chmod +x sts
 
 ### Windows
 
+A standalone executable file is available to run the StackState CLI on Windows.
+
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts.exe`.
 3. (optional) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
@@ -28,10 +32,10 @@ chmod +x sts
 
 ### Docker (Linux, Windows, Mac)
 
-The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The StackState CLI ZIP package contains scripts that help you run the CLI without needing to worry about Docker invocations. 
+The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that help you run the CLI without needing to worry about Docker invocations. 
 
 {% hint style="info" %}
-You will need to have [Docker installed](https://docs.docker.com/get-docker/) to run the CLI this way.
+You will need to have [Docker installed](https://docs.docker.com/get-docker/) to run the StackState CLI this way.
 {% endhint %}
 
 1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
@@ -39,8 +43,8 @@ The ZIP archive contains the following files:
 ```text
 .
 +-- bin
-|   +-- sts     # Runs the CLI in Docker for bash
-|   +-- sts.ps1 # Runs the CLI in Docker for Powershell
+|   +-- sts     # Script to run the CLI in Docker from bash
+|   +-- sts.ps1 # Script to run the CLI in Docker from Powershell
 +-- conf.d
 |   +-- conf.yaml.example # Example CLI configuration
 |   +-- VERSION           # The version of the CLI
