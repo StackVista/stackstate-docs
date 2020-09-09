@@ -13,12 +13,14 @@ The export of the configuration can be obtained by:
 sts graph list --ids <node_types_to_export> | xargs sts graph export --ids
 
 # export to file
-sts graph list --ids ComponentAction | xargs sts graph export --ids > export.conf
+sts graph list --ids <node_types_to_export> | xargs sts graph export --ids > export.conf
 ```
 {% endtab %}
 {% tab title="curl" %}
 ```text
-curl -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfTypes":["ComponentType","RelationType","Domain","Layer","Environment","DataSource","QueryView","EventHandler","CheckFunction","BaselineFunction","PropagationFunction","EventHandlerFunction","ComponentTemplateFunction","RelationTemplateFunction","ComponentMappingFunction","RelationMappingFunction","IdExtractorFunction","ViewHealthStateConfigurationFunction","Sync"]}' "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
+curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
+  -d '{"allNodesOfTypes":[<node_types_to_export>]}' \
+  "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 {% endtab %}
 {% endtabs %}
