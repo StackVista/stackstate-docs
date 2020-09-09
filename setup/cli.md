@@ -79,10 +79,10 @@ Hostname used for ingested via CLI (default - hostname)
 
 Follow the steps below to create a configuration file manually (required for Docker install).
 
-1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive downloaded during install and put it in **one** of the following directories:
-  * Docker:
+1. Copy the file `conf.d/conf.example.yaml` from the ZIP archive downloaded during install and put it in one of the following directories:
+  * **Docker:**
     * `conf.d/` - relative to the directory where the CLI is run.
-  * Windows or Linux:
+  * **Linux or Windows:**
     * `conf.d/` - relative to the directory where the CLI is run.
     * `~/.stackstate/cli/` - relative to the user's home directory.
     * `%APPDATA%/StackState/cli/` - relative to the user's home directory.
