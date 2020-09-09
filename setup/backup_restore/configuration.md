@@ -2,7 +2,7 @@
 
 StackState configuration can be exported and imported. The import/export functionality can be used to automate the installation process and/or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
 
-## Configuration export
+## Export configuration
 
 The export of the configuration can be obtained by:
 
@@ -10,7 +10,7 @@ The export of the configuration can be obtained by:
 {% tab title="StackState CLI" %}
 ```text
 # Output in terminal window
-sts graph list --ids ComponentType RelationType Domain Layer Environment DataSource QueryView EventHandler CheckFunction BaselineFunction PropagationFunction EventHandlerFunction ComponentTemplateFunction RelationTemplateFunction ComponentMappingFunction RelationMappingFunction IdExtractorFunction ViewHealthStateConfigurationFunction Sync | xargs sts graph export --ids
+sts graph list --ids <node_types_to_export> | xargs sts graph export --ids
 
 # export to file
 sts graph list --ids ComponentAction | xargs sts graph export --ids > export.conf
@@ -24,7 +24,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' -d '{"allNodesOfT
 {% endtabs %}
 
 
-### Configuration export with authentication (curl)
+### Export configuration with authentication (curl)
 
 StackState server can be configured to authenticate users when they access the application. In this case, the export script is required to first obtain a token before making the export request.
 
