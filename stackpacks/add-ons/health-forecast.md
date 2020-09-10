@@ -11,7 +11,7 @@ Install the Health Forecast StackPack to get on-demand forecasts for the health 
   * Select **Health Forecast**
   * Click **INSTALL**
 1. After installation, hover over any component and go to the **Quick actions** tab of the popup.
-1. Select the action "Health Forecast (12h)".
+1. Select the action **Health Forecast (12h)**.
 1. A forecast report for the coming 12 hours is calculated and presented on-screen.
 
 ### How does the forecasting work?
