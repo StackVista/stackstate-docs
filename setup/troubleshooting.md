@@ -13,13 +13,19 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-1. Check that all pods in the StackState namespace are running:
+1. Check that the install completed successfully and the release is listed:
+
+  ```
+  helm list
+  ```
+
+2. Check that all pods in the StackState namespace are running:
 
    ```text
    kubectl get pods
    ```
 
-2. [Check the logs](../configure/stackstate_log_files.md) for errors.
+3. [Check the logs](../configure/stackstate_log_files.md) for errors.
 {% endtab %}
 
 {% tab title="Linux" %}
