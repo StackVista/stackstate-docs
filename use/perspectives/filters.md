@@ -1,40 +1,65 @@
-# Basic and Advanced filters
+# Filtering
 
-The Filter pane on the left side of the screen allows you to filter a sub-set of topology components to show in a perspective. You can browse topology with basic filters or build advanced topology filters with the StackState in-built query language STQL.
-The events and traces displayed in their 
-
+??? are filter settings still relevant?
 
 
-???
-* filter pane has filters for topology, events and traces. How do these work with each perspective? ALSO how do you do non-topology advanced filtering?
-* Will filtering limits be applied to topology filters run in each perspective? (or just topology perspective output)
-*
-???
+## Topology Filters
+
+The View Filters pane on the left side of the screen in any View allows you to filter a sub-set of topology components to display. The filtered components can then be shown in any one of the available perspectives. You can browse topology using the basic filters or build an [advanced topology filters](../../configure/topology_selection_advanced.md) with the StackState in-built query language STQL.
+
+## Filter Events
+
+You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
+
+## Filter Traces
+
+The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**
 
 
+## Using topology filters
 
-
-By design, there is only one topology per StackState instance to make sure any part of the topology can always be connected to any other part. The topology is, of course, segmented in many different ways depending on your environment. You can narrow down on the part of the topology you are interested in filtering.
-
-## Basic filters
+### Basic topology filters
 
 The main way of filtering the topology is by using the basic filter panel, accessed using the _filter_ icon.
 
 From here, you can use the basic filter panel to filter the topology on certain properties. If you select a particular property, the topology view will be updated to show only the topology that matches the selected value. Selecting multiple properties narrows down your search \(ie, it combines them using an `AND` operator\). Selecting multiple values for a single property expands your search \(ie, it combines them using an `OR` operator\).
 
-Using the basic filter panel you can select a subset of your topology based on the following properties:
+You can use the basic filter panel to select a subset of your topology based on the following properties:
 
-* layers
-* domains
-* environments
-* types
-* health state
-* tags / labels
-
-Layers, domains, and environments are a way to organize your topology. The health state reflects how the component is functioning. Use tags / labels to make it easy to navigate your topology.
+* Layers
+* Domains
+* Environments
+* Types
+* Health - reflects how the component is functioning
+* Labels - make it easy to navigate your topology
+* Components
 
 ### Filter settings
 
 **Show Components** adds one or more specific components to the topology selection. You can **search** for the component by name.
 
-## Advanced filters
+### Basic filtering example
+
+Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
+
+![Filtering example](../../.gitbook/assets/basic_filtering.png)
+
+The same topology selection can also be shown in list format:
+
+![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
+
+### Filtering limits
+
+To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
+
+If a [basic filter](/use/perspectives/topology-perspective.md#filtering) or [advanced filter query](/configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
+
+Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
+
+In the example below, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
+```text
+withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
+   AND layer = "applications"
+```
+
+To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit.
