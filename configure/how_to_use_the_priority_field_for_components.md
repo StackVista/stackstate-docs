@@ -5,7 +5,7 @@ alises:
   - /configure/priority_field/
 ---
 
-# How to use the priority field for components
+# How to set priority for telemetry streams
 
 The Priority field allows for ordering component's Telemetry streams in the right-hand component pane. There are four levels of priority for Telemetry streams in StackState: `High`, `Medium`, `Low`, and `None`. Streams that have a higher priority level are presented at the top of the Telemetry stream section. By default, all streams have priority set to `none`. To change priorities assigned to specific streams, follow the instruction below:
 
@@ -15,7 +15,7 @@ Locate the component that you want to edit Telemetry streams for. Click on the c
 
 ![component telemetry](../.gitbook/assets/component_telemetry.png)
 
-Here you can access the Component properties, the Health status, and Telemetry Streams.
+Here you can access the Component properties, Health status, and Telemetry Streams.
 
 ## 2. Choose Telemetry Streams to prioritize
 
@@ -34,4 +34,3 @@ Now navigate to the `PacketsReceivedRate` stream and open the stream editing scr
 ![Edit packetsReceiveRate](../.gitbook/assets/edit_medium.png)
 
 All streams have their priority set to `None` by default, so the `PacketsReceivedRate` stream is presented above them, and below the `basic_health` stream, which is set to `High` priority.
-
