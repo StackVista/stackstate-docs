@@ -2,9 +2,9 @@
 description: Track changes in your IT landscape.
 ---
 
-# Event Perspective
+# Events Perspective
 
-The Event Perspective shows events and changes for the components in your [view](../views.md).
+The Events Perspective shows events and changes for the components in your [view](../views.md).
 
 ## Events
 
@@ -20,13 +20,12 @@ The following events are currently recorded:
 
 ## Filtering
 
-The Event Perspective supports filtering of the events by type.
+The Events Perspective supports filtering of events by **Event Types**.
 
 ## Time travel
 
-When opening the Event Perspective, the events shown are based on the currently selected time window in the timeline control. Shrink the time window to display less events. Place the playhead on the timeline to restrict the events to the time indicated by the playhead.
+When opening the Events Perspective, the events shown are based on the currently selected time window in the timeline control. Shrink the time window to display less events. Place the playhead on the timeline to restrict the events to the time indicated by the playhead.
 
 ## Event handlers
 
-The Event Perspective allows the creation of [event handlers](../alerting.md) to act on events in the view.
-
+The Events Perspective allows the creation of [event handlers](../alerting.md) to act on events in the view.
