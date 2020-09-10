@@ -1,15 +1,8 @@
 # Filtering
 
-??? are filter settings still relevant?
-
-## View Filters pane
-
 The View Filters pane on the left side of the StackState UI in any View allows you to apply Filters to the components and other information displayed in perspectives.
 
-
- to display in any one of the available perspectives. There are also specific filters for the Events Perspective and Traces Perspective.
-
-### Topology Filters
+###Topology Filters
 
 Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology.
 
@@ -18,18 +11,6 @@ Read more about:
 * [Basic topology filters](#basic-topology-filters)
 * [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md)
 * [Topology filtering limits](#topology-filtering-limits)
-
-### Filter Events
-
-You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
-
-### Filter Traces
-
-The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](trace-perspective.md#trace-filters)
-
-
-
-## Using topology filters
 
 ### Basic topology filters
 
@@ -80,3 +61,11 @@ withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
 ```
 
 To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit.
+
+## Filter Events
+
+You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
+
+## Filter Traces
+
+The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](trace-perspective.md#trace-filters)
