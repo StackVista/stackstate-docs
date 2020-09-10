@@ -99,6 +99,7 @@
   * [Browse telemetry](configure/browse_telemetry.md)
   * [Send telemetry](configure/send_telemetry.md)
   * [Adding telemetry to synchronized topology](configure/telemetry_synchronized_topology.md)
+  * [How to set priority for telemetry streams](configure/how_to_use_the_priority_field_for_components.md)
   * [Checks and Streams](configure/checks_and_streams.md)
   * [How to set up traces](configure/how_to_setup_traces.md)
   * [Trace configuration](configure/configure_tracing.md)
