@@ -7,8 +7,8 @@ kind: Documentation
 
 Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
 
-* [LDAP](authentication.md#configuring-the-ldap-authentication-server)
-* [KeyCloak OIDC](authentication.md#configuring-the-keycloak-oidc-authentication-server)
+* [LDAP](authentication.md#ldap-authentication-server)
+* [KeyCloak OIDC](authentication.md#ckeycloak-oidc-authentication-server)
 
 {% hint style="info" %}
 Authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.

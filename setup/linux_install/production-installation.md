@@ -11,8 +11,6 @@ Before starting the installation, ensure your system\(s\) meet StackState's prod
 
 ## Two-node deployment architecture
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/linux-install/production-installation_pre1_15.md)\).
-
 The StackState production environment requires two nodes a StackGraph and a StackState node.
 
 Configure StackState to run in the two-node setup requires the following steps:
@@ -32,7 +30,7 @@ To prepare an additional node for running a StackState component, follow these s
 
 After you have installed StackState, refer to the following pages for configuration instructions:
 
-* [Configuring authentication](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/linux-install/authentication.md)
+* [Configuring authentication](../authentication.md)
 * [Reverse Proxy](reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](how_to_setup_tls_without_reverse_proxy.md)
 
 ### Starting and Stopping
@@ -54,4 +52,3 @@ On the StackState node, the following commands will start/stop StackState:
 `sudo systemctl start stackstate.service`
 
 `sudo systemctl stop stackstate.service`
-

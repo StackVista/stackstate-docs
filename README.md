@@ -17,7 +17,7 @@
         </p>
         <p>
           <br />Start in three steps:
-          <br /><a href="https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/installation/README.md">1. Get StackState running</a>
+          <br /><a href="setup/">1. Get StackState running</a>
           <br
           /><a href="stackpacks/">2. Install a StackPack</a>
           <br /><a href="use/perspectives/topology-perspective.md">3. Browse your IT landscape</a>
@@ -74,9 +74,9 @@
         </p>
         <p>
           <br />Most often needed:
-          <br />&#x2022; <a href="https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/installation/troubleshooting.md">Installation issues</a>
+          <br />&#x2022; <a href="setup//troubleshooting.md">Installation issues</a>
           <br
-          />&#x2022; <a href="https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/upgrading.md">Upgrading</a>
+          />&#x2022; <a href="setup/upgrading.md">Upgrading</a>
           <br
           />&#x2022; <a href="https://support.stackstate.com">Support</a>
         </p>
@@ -93,4 +93,3 @@ If you any documentation is missing, please let us know via our support site:
 ## **Support Site**
 
 Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/).
-

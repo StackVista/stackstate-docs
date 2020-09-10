@@ -13,8 +13,6 @@ Before starting the installation, ensure your system meets StackState's developm
 
 ## Installing StackState in a development configuration
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/linux-install/development-installation_pre1_15.md)\).
-
 For a development setup of StackState, simply follow the instructions for [Installing StackState](install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
 
 ## Starting and Stopping
@@ -32,4 +30,3 @@ StackState can be stopped by `sudo systemctl stop stackstate.service`. StackGrap
 ### StackState Status
 
 Checking the service status can be done with `sudo systemctl status stackstate.service` and `sudo systemctl status stackgraph.service`.
-

@@ -9,7 +9,7 @@ StackState is built to work with one of two authentication configurations: a fil
 
 ## Prepare the config file for LDAP authentication
 
-LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configuring authentication - examples](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/installation/authentication.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support [file-based authentication](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/installation/authentication.md#configuring-file-based-authentication); following changes are required to enable [LDAP authentication](how_to_configure_ldap_authentication.md):
+LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configure authentication](../setup/authentication.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support file-based authentication, the following changes are required to enable LDAP authentication:
 
 ### 1. Enable authentication
 
@@ -227,4 +227,3 @@ LDAP groups are reflecting [Roles](how_to_set_up_roles.md) in StackState - the G
 ### 6. Summary
 
 After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](subject_configuration.md), and setting up [Roles](how_to_set_up_roles.md). Find out more on pages describing [Scopes](scopes_in_rbac.md), and [Permissions](permissions.md).
-

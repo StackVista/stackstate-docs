@@ -36,7 +36,7 @@ The status UI of the anomaly detection Kubernetes service provides various metri
 
 ### Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/setup/installation/kubernetes/README.md). Please make sure that this is supported by your StackState installation.
+The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install_kubernetes/README.md). Please make sure that this is supported by your StackState installation.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://www.stackstate.com/company/contact/).
 
@@ -167,10 +167,10 @@ Common questions that can be answered in the status UI:
 
 * **Is the anomaly detection Kubernetes service running?**
   * The status UI is accessible: The service is running.
-  * The status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\). 
-* **Can the anomaly detection Kubernetes service reach StackState?** Check the sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems. 
-* **Has the anomaly detection Kubernetes service selected streams for anomaly detection?** The section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero. 
-* **Is the anomaly detection Kubernetes service detecting anomalies?** The section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected. 
+  * The status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
+* **Can the anomaly detection Kubernetes service reach StackState?** Check the sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
+* **Has the anomaly detection Kubernetes service selected streams for anomaly detection?** The section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
+* **Is the anomaly detection Kubernetes service detecting anomalies?** The section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
 * **Is the anomaly detection Kubernetes service scheduling streams?** The tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 ## Release Notes
@@ -180,4 +180,3 @@ Common questions that can be answered in the status UI:
 **Beta Release**
 
 * Releasing Autonomous Anomaly Detector service Beta
-

@@ -9,7 +9,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](https://github.com/StackVista/stackstate-docs/tree/5857dc918437163ce27b31c4c9727ad4865dfc05/integrations/README.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](stackpacks/).
 
 ![StackPacks overview](.gitbook/assets/01_stackpacks.png)
 
@@ -78,4 +78,3 @@ To show all activity/events for the selected Topology, head to the breadcrumbs a
 However, the Activity Perspective is not the only place you can find events; you can find up to 5 latest events in the Activity section of the right-hand pane that presents information about the selected Topology View.
 
 ![Activity section](.gitbook/assets/activity_section.png)
-
