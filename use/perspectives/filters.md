@@ -2,16 +2,17 @@
 
 ??? are filter settings still relevant?
 
+## View Filters pane
 
-## Topology Filters
+### Topology Filters
 
 The View Filters pane on the left side of the screen in any View allows you to filter a sub-set of topology components to display. The filtered components can then be shown in any one of the available perspectives. You can browse topology using the basic filters or build an [advanced topology filters](../../configure/topology_selection_advanced.md) with the StackState in-built query language STQL.
 
-## Filter Events
+### Filter Events
 
 You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
 
-## Filter Traces
+### Filter Traces
 
 The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**
 
@@ -48,7 +49,11 @@ The same topology selection can also be shown in list format:
 
 ![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
 
-### Filtering limits
+### Advanced topology filters
+
+You can use the in-built
+
+### Topology filtering limits
 
 To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 
