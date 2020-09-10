@@ -18,5 +18,3 @@ The Health Forecast StackPack adds a health forecast action to each component. T
 ### Can I get a forecast for more than 12 hours?
 
 Not yet. Please report your request for longer time-frame forecasts at [support.stackstate.com](https://support.stackstate.com).
-
-sometext
