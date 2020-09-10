@@ -16,7 +16,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 1. Check that the install completed successfully and the release is listed:
 
   ```
-  helm list
+  helm list --namespace stackstate
   ```
 
 2. Check that all pods in the StackState namespace are running:
