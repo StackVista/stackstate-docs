@@ -11,7 +11,7 @@ The Telemetry Perspective shows telemetry streams for your [view](../views.md) a
 The Telemetry Perspective shows telemetry for up to **5** components. When you open the Telemetry Perspective, StackState will show the telemetry for the components in your view. If there are more than 5 components in your view, StackState selects the top 5 components as follows:
 
 * Select the 5 components that most recently changed their health state to either CRITICAL or DEVIATING
-* If there are no unhealthy components, select the 5 components that most recently changed their health state 
+* If there are no unhealthy components, select the 5 components that most recently changed their health state
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
@@ -22,6 +22,12 @@ The component selection can be adjusted as follows:
 * Clear the component selection using the **Clear** button
 * Add components by typing their name in the component bar; remove components by clicking on the **x** next to their name
 * Reset the component selection to the most recent 5 unhealthy or updated components using the links at the bottom  
+
+## Filtering
+
+### Topology Filters
+
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ## Charts
 
@@ -36,4 +42,3 @@ Time traveling with the Telemetry Perspective is also possible. When time travel
 ## Ordering
 
 The Telemetry Perspective orders the telemetry streams based on their priority. The priority can be configured on the Telemetry Inspector screen.
-

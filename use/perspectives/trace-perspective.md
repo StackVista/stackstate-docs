@@ -32,14 +32,11 @@ Traces and components are tightly related. The traces visible in the Traces Pers
 
 ### Topology Filters
 
-When you are in a view, you fetch traces for the components in that view. These same topology filters can be used in the Traces Perspective to reduce or increase the number of components for which you want to fetch traces.
-
-* Learn more about how to use topology filters on the [Topology Perspective page](topology-perspective.md).
-* Find out [how traces and topology](trace-perspective.md#traces-and-topology) are related.
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which traces are displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ### Trace Filters
 
-A trace can be filtered based on two properties of its spans: span types and span tags. The image below shows the filters menu where you see filters for topology, events and traces:
+A trace can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the filters menu where you see filters for topology, events and traces:
 
 ![The Traces Perspective and its filters](../../.gitbook/assets/trace-filters.png)
 

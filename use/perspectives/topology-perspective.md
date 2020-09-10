@@ -22,54 +22,7 @@ When a component is selected by clicking on it, the Component Details panel is s
 
 ## Filtering
 
-By design, there is only one topology per StackState instance to make sure any part of the topology can always be connected to any other part. The topology is, of course, segmented in many different ways depending on your environment. You can narrow down on the part of the topology you are interested in filtering.
-
-### Using basic filtering
-
-The main way of filtering the topology is by using the basic filter panel, accessed using the _filter_ icon.
-
-From here, you can use the basic filter panel to filter the topology on certain properties. If you select a particular property, the topology view will be updated to show only the topology that matches the selected value. Selecting multiple properties narrows down your search \(ie, it combines them using an `AND` operator\). Selecting multiple values for a single property expands your search \(ie, it combines them using an `OR` operator\).
-
-Using the basic filter panel you can select a subset of your topology based on the following properties:
-
-* layers
-* domains
-* environments
-* types
-* health state
-* tags / labels
-
-Layers, domains, and environments are a way to organize your topology. The health state reflects how the component is functioning. Use labels to make it easy to navigate your topology.
-
-### Filter settings
-
-**Show Components** adds one or more specific components to the topology selection. You can **search** for the component by name.
-
-### Basic filtering example
-
-Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
-
-![Filtering example](../../.gitbook/assets/basic_filtering.png)
-
-The same topology selection can also be shown in list format:
-
-![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
-
-### Filtering limits
-
-To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
-
-If a [basic filter](/use/perspectives/topology-perspective.md#filtering) or [advanced filter query](/configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
-
-Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
-
-In the example below, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
-```text
-withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
-   AND layer = "applications"
-```
-
-To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit.
+The View Filters pane on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ## Interactive navigation
 

@@ -4,9 +4,20 @@
 
 ## View Filters pane
 
+The View Filters pane on the left side of the StackState UI in any View allows you to apply Filters to the components and other information displayed in perspectives.
+
+
+ to display in any one of the available perspectives. There are also specific filters for the Events Perspective and Traces Perspective.
+
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter a sub-set of topology components to display. The filtered components can then be shown in any one of the available perspectives. You can browse topology using the basic filters or build an [advanced topology filters](../../configure/topology_selection_advanced.md) with the StackState in-built query language STQL.
+Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology.
+
+Read more about:
+
+* [Basic topology filters](#basic-topology-filters)
+* [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md)
+* [Topology filtering limits](#topology-filtering-limits)
 
 ### Filter Events
 
@@ -14,7 +25,8 @@ You can use the View Filters pane to filter the type of events shown in the [Eve
 
 ### Filter Traces
 
-The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**
+The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](trace-perspective.md#trace-filters)
+
 
 
 ## Using topology filters
@@ -51,7 +63,7 @@ The same topology selection can also be shown in list format:
 
 ### Advanced topology filters
 
-You can use the in-built
+You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md)].
 
 ### Topology filtering limits
 
