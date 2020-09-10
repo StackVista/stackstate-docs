@@ -2,14 +2,14 @@
 
 ## Overview
 
-Install this StackPack to get on-demand forecasts for the health of any component for the coming 12 hours.
+Install the Health Forecast StackPack to get on-demand forecasts for the health of any component for the coming 12 hours.
 
 ### How to use the Health Forecast StackPack
 
-1. Install the Health Forecast StackPack by clicking on the "install" button below.
-1. After installation, hover over any component and go to the actions tab of the popup.
-1. Select the "Health Forecast (12h)" action.
-1. A forecast report is calculated and presented on-screen.
+1. Install the Health Forecast StackPack by clicking on the "install" button in the StackPacks section of the StackState UI.
+1. After installation, hover over any component and go to the **Quick actions** tab of the popup.
+1. Select the action "Health Forecast (12h)".
+1. A forecast report for the coming 12 hours is calculated and presented on-screen.
 
 ### How does the forecasting work?
 
