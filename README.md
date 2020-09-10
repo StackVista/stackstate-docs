@@ -74,7 +74,7 @@
         </p>
         <p>
           <br />Most often needed:
-          <br />&#x2022; <a href="setup//troubleshooting.md">Installation issues</a>
+          <br />&#x2022; <a href="setup/troubleshooting.md">Installation issues</a>
           <br
           />&#x2022; <a href="setup/upgrading.md">Upgrading</a>
           <br
