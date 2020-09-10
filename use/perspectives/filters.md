@@ -1,5 +1,10 @@
 # Basic and Advanced filters
 
+The Filter pane on the left side of the screen allows you to filter a sub-set of topology components to show in a perspective. You can browse topology with basic filters or build advanced topology filters with the StackState in-built query language STQL.
+The events and traces displayed in their 
+
+
+
 ???
 * filter pane has filters for topology, events and traces. How do these work with each perspective? ALSO how do you do non-topology advanced filtering?
 * Will filtering limits be applied to topology filters run in each perspective? (or just topology perspective output)
