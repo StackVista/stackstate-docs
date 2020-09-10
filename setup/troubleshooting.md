@@ -35,7 +35,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% endtab %}
 {% endtabs %}
 
-### Error: `illegal reflective access`
+### Linux - Error: `illegal reflective access`
 
 **Symptom**: When starting any component of StackState, the log shows a message similar to the following:
 
@@ -47,9 +47,9 @@ WARNING: Use --illegal-access=warn to enable warnings of further illegal reflect
 WARNING: All illegal access operations will be denied in a future release
 ```
 
-**Cause**: This warning is the result of restrictions imposed by Java 11 on certain operations.
+**Cause**: This warning is the result of restrictions imposed by JDK 11 on certain operations.
 
-**Solution**: No action is necessary. This warning can be safely ignored.
+**Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements#linux).
 
 ### Linux - Error: `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
@@ -173,6 +173,19 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 **Solution**: Check the status of the Splunk job using SID in Splunk Activity Screen. To do this, you need to extract the job id from the URL provided in the error message. SID is located in the URL right after `/jobs/` - `.../search/jobs/{SID}/...`. Now you can check this job in Splunk Activity menu.
 
 ## Using StackState
+
+### Linux - No topology results shown in any view
+
+**Symptom**: Going to any view will show no topology results. A long error appears in the `stackstate.log`, beginning with:
+```
+[StackStateGlobalActorSystem-akka.actor.default-dispatcher-92] ERROR com.stackstate.plugins.sts.topology.StsTopologyService - Error in identity extractor
+com.stackstate.domain.script.ScriptExecutionException: Script threw error. null. Script: '
+...
+```
+
+**Cause**: StackState v4.1.0 and StackState Agent v2 installed on a Linux server running JDK 11.
+
+**Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements#linux).
 
 ### Error: `InterruptedException` when opening a view
 
