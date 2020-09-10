@@ -43,7 +43,7 @@ Please note the `.stripMargin()` call. This is a Groovy function for strings tha
 
 ## Function: `showTopologyByQuery`
 
-Sets the user-interface to the topology perspective and changes the SQTL query.
+Sets the user-interface to the Topology Perspective and changes the SQTL query.
 
 If the user is currently in an unsaved view, the user receives a prompt dialog asking whether they are okay in navigating to another part of the topology. If the user continues the action they will loose their current view.
 
@@ -82,4 +82,3 @@ Open the stackstate.com website in a new tab in the browser.
 ```text
 UI.redirectToUrl("http://wwww.stackstate.com")
 ```
-
