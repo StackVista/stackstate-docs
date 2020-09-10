@@ -181,6 +181,8 @@ helm install \
 stackstate/stackstate
 ```
 
+For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
+
 ## KeyCloak OIDC Authentication Server
 
 In order to configure StackState to authenticate to an KeyCloak OIDC authentication server, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.

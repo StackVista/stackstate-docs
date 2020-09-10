@@ -80,6 +80,17 @@ stackstate \
 stackstate/stackstate
 ```
 
+After the install, the StackState release should be listed in the StackState namespace and all pods should be running:
+
+```
+# Check the release is listed
+helm list --namespace stackstate
+
+# Check pods are running
+# It may take some time for all pods to be installed or available
+kubectl get pods
+```
+
 ### Access the StackState UI
 
 After StackState has been deployed you can check if all pods are up and running:
