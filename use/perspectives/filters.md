@@ -66,4 +66,4 @@ You can use the View Filters pane to filter the type of events shown in the [Eve
 
 ## Filter Traces
 
-The traces shown in the [Traces Perspective](trace-perspective.md) can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](trace-perspective.md#trace-filters)
+The traces shown in the Traces Perspective can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](trace-perspective.md#trace-filters)
