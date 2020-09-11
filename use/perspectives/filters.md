@@ -2,7 +2,7 @@
 
 The View Filters pane on the left side of the StackState UI in any View allows you to apply Filters to the components and other information displayed in perspectives.
 
-###Topology Filters
+##Topology Filters
 
 Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about:
 
