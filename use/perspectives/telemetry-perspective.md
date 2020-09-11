@@ -15,7 +15,7 @@ The Telemetry Perspective shows telemetry for up to **5** components. When you o
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
-![](../../.gitbook/assets/v410/telemetry-component-selector.png)
+![](../../.gitbook/assets/v410/telemetry-components-selector.png)
 
 The component selection can be adjusted as follows:
 
