@@ -1,6 +1,6 @@
 # Filtering
 
-The View Filters pane on the left side of the StackState UI in any View allows you to apply Filters to the components and other information displayed in perspectives.
+The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ##Topology Filters
 
@@ -12,23 +12,19 @@ Topology Filters can be used to select a sub-set of topology components to be sh
 
 ### Basic topology filters
 
-The main way of filtering the topology is by using the basic filter panel, accessed using the _filter_ icon.
+The main way of filtering the topology is by using the basic filters.
 
-From here, you can use the basic filter panel to filter the topology on certain properties. If you select a particular property, the topology view will be updated to show only the topology that matches the selected value. Selecting multiple properties narrows down your search \(ie, it combines them using an `AND` operator\). Selecting multiple values for a single property expands your search \(ie, it combines them using an `OR` operator\).
+When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further - filters are combined using an `AND` operator. You can set multiple values for each filter to expand your search - filter values are combined using an `OR` operator.
 
-You can use the basic filter panel to select a subset of your topology based on the following properties:
+You can use basic filters to refine the selected topology by:
 
 * Layers
 * Domains
 * Environments
 * Types
-* Health - reflects how the component is functioning
-* Labels - make it easy to navigate your topology
+* Health
+* Labels
 * Components
-
-### Filter settings
-
-**Show Components** adds one or more specific components to the topology selection. You can **search** for the component by name.
 
 ### Basic filtering example
 
