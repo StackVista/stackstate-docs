@@ -189,7 +189,7 @@ com.stackstate.domain.script.ScriptExecutionException: Script threw error. null.
 ...
 ```
 
-**Cause**: StackState v4.1.0 and StackState Agent v2 installed in a Linux environment running JDK 11.
+**Cause**: StackState v4.1.0 installed in a Linux environment running JDK 11.
 
 **Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements.md#linux).
 
