@@ -10,16 +10,16 @@ An export of the StackState configuration can be obtained from the [StackState C
 {% tab title="StackState CLI" %}
 ```text
 # Output in terminal window
-sts graph list --ids <NODE_TYPES> | xargs sts graph export --ids
+sts graph export
 
 # Export to file
-sts graph list --ids <NODE_TYPES> | xargs sts graph export --ids > export.conf
+sts graph export > export.conf
 ```
 {% endtab %}
 {% tab title="curl" %}
 ```text
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
-  -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
+  -d '{}' \
   "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 {% endtab %}
@@ -46,7 +46,7 @@ curl --fail -v \
 export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
   curl -v -X POST \
   -H 'Content-Type: application/json;charset=UTF-8' \
-  -d '{"allNodesOfTypes":[<NODE_TYPES_TO_EXPORT>]}' \
+  -d '{}' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
   -H X-Sts-Token:$TOKEN \
   "http://<HOST>:7070/api/export?timeoutSeconds=300" > export.stj

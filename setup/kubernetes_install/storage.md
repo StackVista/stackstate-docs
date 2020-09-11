@@ -12,4 +12,31 @@ To remove the PVC's either remove them manually with `kubectl delete pvc` or del
 
 You can customize the `storageClass` and `size` settings for different volumes in the Helm chart. The example values.yaml files provided in the [GitHub Helm chart repo](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation/examples) show how you can customize the `size` of volumes. The `storageClass` can be added in a similar fashion.
 
-Note that for Elasticsearch the full volumeClaimTemplate should be used, i.e. `volumeClaimTemplate.storageClassName`.
+In the example below, all services that store data are switched to rely on the storageClass named `standard` and not the default storageClass configured for the Kubernetes cluster:
+
+{% tabs %}
+{% tab title="values.yaml" %}
+```
+elasticsearch:
+  volumeClaimTemplate:
+    storageClassName: "standard"
+
+hbase:
+  hdfs:
+    datanode:
+      persistence:
+        storageClass: "standard"
+    namenode:
+      persistence:
+        storageClass: "standard"
+
+kafka:
+  persistence:
+    storageClass: "standard"
+
+zookeeper:
+  persistence:
+    storageClass: "standard"
+```
+{% endtab %}
+{% endtabs %}
