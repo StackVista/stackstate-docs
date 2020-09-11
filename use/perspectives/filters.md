@@ -17,10 +17,10 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Basic filter | Description |
 |:---|:---|
 | Layers<br />Domains<br />Environments | Topology organization |
-| Types | |
-| Health | How the component is functioning |
-| Labels | Using custom labels makes it easy to navigate your topology |
-| Components | Add specific components to the selected topology |
+| Types | Component type |
+| Health | Health state |
+| Labels | Component labels |
+| Components | Add specific components |
 
 
 ### Basic filtering example
