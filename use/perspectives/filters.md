@@ -1,10 +1,10 @@
 # Filtering
 
-The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
+The View Filters panel on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ##Topology Filters
 
-Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about:
+Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about:
 
 * [Basic topology filters](#basic-topology-filters)
 * [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md)
@@ -55,7 +55,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
+You can use the View Filters panel to filter the type of events shown in the [Events Perspective](event-perspective.md).
 
 ## Filter Traces
 

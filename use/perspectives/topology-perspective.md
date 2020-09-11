@@ -22,7 +22,7 @@ When a component is selected by clicking on it, the Component Details panel is s
 
 ## Filtering
 
-The View Filters pane on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters panel on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ## Interactive navigation
 
