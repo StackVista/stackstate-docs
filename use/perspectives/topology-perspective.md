@@ -48,6 +48,14 @@ Selecting an action from the menu allows you to change your view, respective to 
 
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](../../configure/topology_selection_advanced.md).
 
+**Root cause** shows the selected deviating component and also:
+
+* **Root cause only** -- only show the root cause component
+* **Full root cause tree** -- the entire root cause tree
+
+![Root cause](../../.gitbook/assets/v410/show_root_cause.png)
+
+
 ## Component finder
 
 Locate a specific component in the view by typing the first few letters of it's name in the Topology Perspective. Alternatively, you can select the **Component finder** icon magnifying glass in the bottom right corner of the topology visualizer.
@@ -60,17 +68,17 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Overview pane](../views.md#view-overview).
 
-## Root cause display
+## Root cause outside current view
 
 If there are components with [telemetry streams](../../configure/checks_and_streams.md#data-streams) and [health checks](../../configure/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../configure/propagation.md) this state throughout the graph. This means your view can contain components that have a deviating health state caused by a component that is outside your view.
 
-The Topology Perspective allows you to configure whether to show the root cause if it is outside of your view:
+The Topology Perspective allows you to configure whether to show the root cause _if it is outside of the currently displayed view_:
 
 * **Don't show root cause** -- do not show the root cause
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v410/root_cause.png)
+![Root cause](../../.gitbook/assets/v410/show_root_cause_outside.png)
 
 ## List mode
 
