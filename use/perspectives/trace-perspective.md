@@ -38,7 +38,7 @@ The View Filters panel on the left side of the screen in any View allows you to 
 
 A trace can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the filters menu where you see filters for topology, events and traces:
 
-![The Traces Perspective and its filters](../../.gitbook/assets/trace-filters.png)
+![The Traces Perspective and its filters](../../.gitbook/assets/v410/trace-filters.png)
 
 For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
 
@@ -57,9 +57,9 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans (or components) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans (components) of a trace](../../.gitbook/assets/trace-inspection.png)
+![The spans (components) of a trace](../../.gitbook/assets/v410/trace-inspection.png)
 
-![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
+![The topology for which you fetch traces](../../.gitbook/assets/v410/topology-traces.png)
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
 
