@@ -20,7 +20,7 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Types | Component type |
 | Health | Health state |
 | Labels | Component labels |
-| Components | Add specific components |
+| Components | Add specific components by name |
 
 
 ### Basic filtering example
