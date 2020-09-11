@@ -6,6 +6,8 @@ description: Track changes in your IT landscape.
 
 The Events Perspective shows events and changes for the components in your [view](../views.md).
 
+![The Events Perspective](../../.gitbook/assets/v410/events-perspective.png)
+
 ## Events
 
 StackState records changes in your landscape as **events**. Events help you make sense of the changes that impact your IT landscape and are a great asset when troubleshooting problems.
