@@ -13,7 +13,7 @@ An export of the StackState configuration can be obtained from the [StackState C
 sts graph export
 
 # Export to file
-sts graph export > export.conf
+sts graph export > export.stj
 ```
 {% endtab %}
 {% tab title="curl" %}
