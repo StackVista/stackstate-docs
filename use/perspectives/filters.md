@@ -12,19 +12,16 @@ Topology Filters can be used to select a sub-set of topology components to be sh
 
 ### Basic topology filters
 
-The main way of filtering the topology is by using the basic filters.
+The main way of filtering the topology is by using the basic filters. When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further - filters are combined using an `AND` operator. You can set multiple values for each filter to expand your search - filter values are combined using an `OR` operator.
 
-When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further - filters are combined using an `AND` operator. You can set multiple values for each filter to expand your search - filter values are combined using an `OR` operator.
+| Basic filter | Description |
+|:---|:---|
+| Layers<br />Domains<br />Environments | Topology organization |
+| Types | |
+| Health | How the component is functioning |
+| Labels | Using custom labels makes it easy to navigate your topology |
+| Components | Add specific components to the selected topology |
 
-You can use basic filters to refine the selected topology by:
-
-* Layers
-* Domains
-* Environments
-* Types
-* Health
-* Labels
-* Components
 
 ### Basic filtering example
 
