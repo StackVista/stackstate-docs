@@ -90,4 +90,6 @@ The Topology Perspective allows you to configure whether to show a root cause _t
 
 ## List mode
 
-The components in the view can also be shown in a list instead of a graph.
+The components in the topology visualization can also be shown in a list instead of a graph:
+
+![Filtering\(list format\)](../../.gitbook/assets/v410/basic_filtering_list.png)
