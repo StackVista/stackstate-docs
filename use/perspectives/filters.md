@@ -25,19 +25,19 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 ### Basic filtering example
 
-Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
+Here is an example of using a basic filter to search for components by **Domains**.
 
 ![Filtering example](../../.gitbook/assets/v410/basic_filtering.png)
 
-The same topology selection can also be shown in list format:
+In the Topology Perspective, the same topology selection can also be shown in list format:
 
-![Filtering\(list\)](../../.gitbook/assets/v410/basic_filtering_list.png)
+![Filtering\(list format\)](../../.gitbook/assets/v410/basic_filtering_list.png)
 
 ### Advanced topology filters
 
 You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md).
 
-![Filtering\(list\)](../../.gitbook/assets/v410/advanced_filtering.png)
+![Filtering\(advanced filter\)](../../.gitbook/assets/v410/advanced_filtering.png)
 
 ### Topology filtering limits
 
