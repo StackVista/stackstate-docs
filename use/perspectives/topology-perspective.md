@@ -6,7 +6,7 @@ description: See the architecture of your IT landscape.
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/topoview1.png)
+![](../../.gitbook/assets/v410/topoview1.png)
 
 ## Components and relations
 
@@ -26,20 +26,20 @@ The View Filters panel on the left side of the screen in any View allows you to 
 
 ## Interactive navigation
 
-It is also possible to interactively navigate the topology. Right-click on a component to bring up the component navigation menu:
+It is also possible to interactively navigate the topology. Hover over a component to bring up the component navigation menu:
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
-![Quick Actions](../../.gitbook/assets/quick_actions.png)
+![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
 
 **Quick Actions** expands the topology selection in one of the following ways:
 
 * Show all dependencies -- shows all dependencies for selected component
-* Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selcted compontent
+* Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selected component
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Casue only -- limits displayed components to the root cause elements
 
-![Dependencies](../../.gitbook/assets/dependencies.png)
+![Dependencies](../../.gitbook/assets/v410/dependencies.png)
 
 **Dependencies** isolates the selected component \(shows only that component\) and expands the topology selection in one of the following ways:
 
@@ -69,6 +69,8 @@ The Topology Perspective allows you to configure whether to show the root cause 
 * **Don't show root cause** -- do not show the root cause
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
+
+![Root cause](../../.gitbook/assets/v410/root_cause.png)
 
 ## List mode
 
