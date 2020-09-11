@@ -30,25 +30,33 @@ It is also possible to interactively navigate the topology. Hover over a compone
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
+### Quick actions
+
 ![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
 
-**Quick Actions** expands the topology selection in one of the following ways:
+Quick actions expand the topology selection in one of the following ways:
 
 * Show all dependencies -- shows all dependencies for selected component
 * Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selected component
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
-* Show Root Casue only -- limits displayed components to the root cause elements
+* Show Root Cause only -- limits displayed components to the root cause elements
+
+You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
+
+### Dependencies
 
 ![Dependencies](../../.gitbook/assets/v410/dependencies.png)
 
-**Dependencies** isolates the selected component \(shows only that component\) and expands the topology selection in one of the following ways:
+Isolate the selected component \(show only that component\) and expand the topology selection in one of the following ways:
 
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
 
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](../../configure/topology_selection_advanced.md).
 
-**Root cause** shows the selected deviating component and also:
+### Root Cause Analysis
+
+Isolate the selected deviating component \(show only that component\) and expand the topology selection in one of the following ways:
 
 * **Root cause only** -- only show the root cause component
 * **Full root cause tree** -- the entire root cause tree
