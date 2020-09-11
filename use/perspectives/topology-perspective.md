@@ -61,7 +61,7 @@ Isolate the selected deviating component \(show only that component\) and expand
 * **Root cause only** -- only show the root cause component
 * **Full root cause tree** -- the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v410/show_root_cause.png)
+![Root cause](../../.gitbook/assets/v410/root_cause_analysis.png)
 
 
 ## Component finder
