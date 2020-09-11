@@ -55,7 +55,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 **Cause**: This warning is the result of restrictions imposed by JDK 11 on certain operations.
 
-**Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements#linux).
+**Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements.md#linux).
 
 ### Linux - Error: `/opt/stackstate/*/bin/*.sh: line 45: /opt/stackstate/var/log/*/*.log: Permission denied`
 
@@ -143,8 +143,8 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 **Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
 
 **Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more:
-* [Kubernetes - base URL](kubernetes_install/install_stackstate.mb#generate-values-yaml)
-* [Linux - receiver base URL](linux_install/install_stackstate.mb#configuration-options-required-during-install)
+* [Kubernetes - base URL](kubernetes_install/install_stackstate.md#generate-values-yaml)
+* [Linux - receiver base URL](linux_install/install_stackstate.md#configuration-options-required-during-install)
 
 ### Error: `ERROR | dd.collector | checks.splunk_topology(__init__.py:1002) | Check 'splunk_topology' instance #0 failed`
 
@@ -191,7 +191,7 @@ com.stackstate.domain.script.ScriptExecutionException: Script threw error. null.
 
 **Cause**: StackState v4.1.0 and StackState Agent v2 installed in a Linux environment running JDK 11.
 
-**Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements#linux).
+**Solution**: JDK versions 9 or higher are not currently supported. See the StackState [Requirements for Linux servers](requirements.md#linux).
 
 ### Error: `InterruptedException` when opening a view
 
