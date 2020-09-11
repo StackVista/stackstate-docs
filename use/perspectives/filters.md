@@ -12,7 +12,7 @@ Topology Filters can be used to select a sub-set of topology components to be sh
 
 ### Basic topology filters
 
-The main way of filtering the topology is by using the basic filters. When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further - filters are combined using an `AND` operator. You can set multiple values for each filter to expand your search - filter values are combined using an `OR` operator.
+The main way of filtering the topology is by using the basic filters. When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further. You can set more than one value for each filter to expand your search
 
 | Basic filter | Description |
 |:---|:---|
@@ -20,22 +20,24 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Types | Component type |
 | Health | Health state |
 | Labels | Component labels |
-| Components | Add specific components by name |
+| Components | Always include the named component(s) |
 
 
 ### Basic filtering example
 
 Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
 
-![Filtering example](../../.gitbook/assets/basic_filtering.png)
+![Filtering example](../../.gitbook/assets/v410/basic_filtering.png)
 
 The same topology selection can also be shown in list format:
 
-![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
+![Filtering\(list\)](../../.gitbook/assets/v410/basic_filtering_list.png)
 
 ### Advanced topology filters
 
 You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md).
+
+![Filtering\(list\)](../../.gitbook/assets/v410/advanced_filtering.png)
 
 ### Topology filtering limits
 

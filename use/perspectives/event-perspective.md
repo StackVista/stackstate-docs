@@ -12,11 +12,12 @@ StackState records changes in your landscape as **events**. Events help you make
 
 The following events are currently recorded:
 
-* component / relation created
-* component / relation deleted
-* component / relation updated
-* health state changed
-* version changed
+* Anomaly
+* Component / relation created
+* Component / relation deleted
+* Component / relation updated
+* Health state changed
+* Version changed
 
 ## Filtering
 
