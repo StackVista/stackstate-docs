@@ -13,7 +13,7 @@ description: StackState version 4.1.0
     </tr>
     <tr>
     <td>
-    <a href="getting_started.md">Get started]</a> in three steps:
+    <a href="getting_started.md">Get started</a> in three steps:
       <ol>
         <li /><a href="setup/">Run StackState</a>
         <li /><a href="stackpacks/">Install a StackPack</a>
@@ -95,7 +95,7 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 **You are currently reading the documentation for StackState version 4.1.0**
 
-If you are running an older version of StackState, use the version drop-down menu on the top left to select the associated documentation.
+If you are running an older version of StackState, use the version drop-down menu on the top left to find associated documentation.
 
 ### Support
 
