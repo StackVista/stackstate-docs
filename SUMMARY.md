@@ -142,6 +142,7 @@
       * [Script API: Prediction](develop/scripting/script-apis/prediction.md)
       * [Script API: View](develop/scripting/script-apis/view.md)
       * [Script API: Async](develop/scripting/script-apis/async.md)
+      * [Script API: StackPack](develop/scripting/script-apis/stackpack.md)
   * [StackState Markup Language \(STML\)](develop/stml/README.md)
     * [STML Tags](develop/stml/tags.md)
   * [StackState Template Json \(STJ\)](develop/sts_template_language_intro/README.md)
