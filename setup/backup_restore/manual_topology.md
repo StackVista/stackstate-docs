@@ -23,7 +23,7 @@ sts graph list --manual --ids Component Relation \
   sts graph export --ids \
   > manual_topo.stj
 ```
-2. Check the generated file `manual_topo.stj` to make sure in contains a correct export of all your topology.
+2. Check the generated file `manual_topo.stj` to make sure it contains a correct export of all your topology.
 
 Breakdown of the export command used in the example above:
 

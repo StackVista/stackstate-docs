@@ -1,6 +1,6 @@
 # StackState log files
 
-* [Kuberenetes setup](stackstate_log_files.md#kubernetes)
+* [Kubernetes setup](stackstate_log_files.md#kubernetes)
 * [Linux setup](stackstate_log_files.md#linux)
 
 ## Kubernetes
@@ -258,4 +258,3 @@ total 1043088
 ### Default log pattern
 
 StackState builds log files using the following default log pattern: `"%date [%thread] %-5level %logger{60} - %msg%n"`
-
