@@ -78,7 +78,7 @@ description: StackState version 4.1.0
             <li /><a href="concepts/4t_data_model.md">4T data model</a>
             <li /><a href="concepts/components_and_relations.md">Components and relations</a>
             <li /><a href="concepts/glossary.md">Glossary</a>
-            <li /><a href="concepts/">More concepts >>></a>
+            <li /><a href="concepts/">More concepts</a>
           </ul>
         </td>
       </tr>
@@ -93,9 +93,9 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 ### Previous version of StackState
 
-**You are currently reading the documentation for StackState version 4.1.0**
+You are currently reading the documentation for **StackState version 4.1.0**
 
-If you are running an older version of StackState, use the version drop-down menu on the top left to find associated documentation.
+If you are running another version of StackState, use the version drop-down menu on the top left to find documentation for all supported versions.
 
 ### Support
 
