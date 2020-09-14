@@ -91,11 +91,11 @@ description: StackState version 4.1.0
 **Search for it!** Use the search bar on the top right.  
 If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
 
-### Previous version of StackState
+### Other StackState versions
 
 You are currently reading the documentation for **StackState version 4.1.0**
 
-If you are running another version of StackState, use the version drop-down menu on the top left to find documentation for all supported versions.
+Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrading StackState](setup/upgrading.md)
 
 ### Support
 
