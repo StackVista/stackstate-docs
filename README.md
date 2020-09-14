@@ -1,95 +1,91 @@
 # Welcome to the StackState Docs!
 
-## Quick navigation
-
 <table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">
-        <p><a href="getting_started.md"><b>Get Started</b></a>
-        </p>
-        <p>
-          <br />Start in three steps:
-          <br /><a href="setup/">1. Get StackState running</a>
-          <br
-          /><a href="stackpacks/">2. Install a StackPack</a>
-          <br /><a href="use/perspectives/topology-perspective.md">3. Browse your IT landscape</a>
-        </p>
-      </td>
-      <td style="text-align:left">
-        <p><a href="https://docs.stackstate.com/concepts/"><b>Understand StackState</b></a>
-        </p>
-        <p>
-          <br />Most fundamental:
-          <br />&#x2022; <a href="concepts/4t_data_model.md">4T Data Model</a>
-          <br />&#x2022; <a href="concepts/components_and_relations.md">Components and Relations</a>
-          <br
-          />&#x2022; <a href="concepts/glossary.md">Glossary</a>
-        </p>
-      </td>
-      <td style="text-align:left">
-        <p><a href="configure/"><b>Configure StackState</b></a>
-        </p>
-        <p>
-          <br />Most often configured:
-          <br />&#x2022; <a href="use/alerting.md">Setup alerting</a>
-          <br />&#x2022; <a href="configure/component_actions.md">Create Component Actions</a>
-          <br
-          />&#x2022; <a href="configure/how_to_set_up_roles.md">Configure Authn &amp; Authz</a>
-        </p>
-      </td>
+      <td>GET STARTED</td>
+      <td>CONFIGURE</td>
+      <td>USE</td>
     </tr>
     <tr>
-      <td style="text-align:left">
-        <p><a href="use/"><b>Using StackState</b></a>
-        </p>
-        <p>
-          <br />Most often needed:
-          <br />&#x2022; <a href="use/perspectives/topology-perspective.md">Browsing topology</a>
-          <br
-          />&#x2022; <a href="use/views.md">Creating views</a>
-          <br />&#x2022; <a href="use/queries.md">Querying 4T data</a>
-        </p>
-      </td>
-      <td style="text-align:left">
-        <p><a href="develop/"><b>Developing with StackState</b></a>
-        </p>
-        <p>
-          <br />Most often developed:
-          <br />&#x2022; <a href="develop/scripting/">Scripting Language</a>
-          <br />&#x2022; <a href="develop/tutorials/basic_stackpack_tutorial.md">StackPack tutorial</a>
-          <br
-          />&#x2022; <a href="develop/agent_check/checks_in_agent_v2.md">Developing agent checks</a>
-        </p>
-      </td>
-      <td style="text-align:left">
-        <p><b>Troubleshooting</b>
-        </p>
-        <p>
-          <br />Most often needed:
-          <br />&#x2022; <a href="setup/troubleshooting.md">Installation issues</a>
-          <br
-          />&#x2022; <a href="setup/upgrading.md">Upgrading</a>
-          <br
-          />&#x2022; <a href="https://support.stackstate.com">Support</a>
-        </p>
-      </td>
+    <td>
+    Get started in three steps:
+      <ol>
+        <li /><a href="setup/">Run StackState</a>
+        <li /><a href="stackpacks/">Install a StackPack</a>
+        <li /><a href="use/perspectives/topology-perspective.md">Browse your IT landscape</a>
+      </ol>
+    </td>
+    <td>
+      <ul>
+        <li /><a href="use/alerting.md">Set up alerting</a>
+        <li /><a href="configure/component_actions.md">Create component actions</a>
+        <li /><a href="configure/how_to_set_up_roles.md">Configure AuthN and AuthZ</a>
+        <li /><a href="configure/">More customizations >>></a>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li /><a href="use/perspectives/topology-perspective.md">Browse topology</a>
+        <li /><a href="use/views.md">Create Views</a>
+        <li /><a href="use/queries.md">Query the 4T data model</a>
+        <li /><a href="use/">More actions >>></a>
+      </ul>
+    </td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>DEVELOPER RESOURCES</td>
+        <td>TROUBLESHOOTING</td>
+      </tr>
+      <tr>
+        <td>
+          <ul>
+            <li /><a href="develop/scripting/">StackState Scripting Language (STSL)</a>
+            <li /><a href="develop/tutorials/basic_stackpack_tutorial.md">StackPack tutorial</a>
+            <li /><a href="develop/agent_check/checks_in_agent_v2.md">Developing agent checks</a>
+            <li /><a href="develop/">More tutorials and reference docs >>></a>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li /><a href="setup/installation/troubleshooting.md">Help with installation</a>
+            <li /><a href="setup/upgrading.md">Help with upgrades</a>
+            <li /><a href="https://support.stackstate.com/">StackState support site</a><br />
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>LEARN ABOUT STACKSTATE</td>
+      </tr>
+      <tr>
+        <td>
+          <ul>
+            <li /><a href="concepts/4t_data_model.md">4T data model</a>
+            <li /><a href="concepts/components_and_relations.md">Components and relations</a>
+            <li /><a href="concepts/glossary.md">Glossary</a>
+            <li /><a href="concepts/">More concepts >>></a>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 
 ## **Can't find what you are looking for?**
 
 **Search for it!** Use the search bar on the top right.  
-If you any documentation is missing, please let us know via our support site:
+If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
 
 ## **Support Site**
 
-Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/).
+Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
