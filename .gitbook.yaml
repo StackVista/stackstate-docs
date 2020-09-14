@@ -1,7 +1,7 @@
 
 redirects:
   develop/creating_stackpacks/: ./develop/stackpack/README.md
-  integrations/: ./v/4-0-0/integrations/
+  integrations/: ./v/4-0-0/integrations/README.md
   integrations/available_stackpacks/: ./v/4-0-0/integrations/available_stackpacks/README.md
   integrations/sdk: ./v/4-0-0/ntegrations/sdk.md
   integrations/introduction: ./v/4-0-0/integrations/introduction.md
