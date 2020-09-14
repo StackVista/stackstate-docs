@@ -1,3 +1,7 @@
+---
+description: StackState version 4.1.0
+---
+
 # Welcome to the StackState Docs!
 
 <table>
@@ -53,8 +57,9 @@
         </td>
         <td>
           <ul>
-            <li /><a href="setup/installation/troubleshooting.md">Help with installation</a>
+            <li /><a href="setup/">Help with installation</a>
             <li /><a href="setup/upgrading.md">Help with upgrades</a>
+            <li /><a href="setup/troubleshooting.md">Troubleshooting</a>
             <li /><a href="https://support.stackstate.com/">StackState support site</a><br />
           </ul>
         </td>
@@ -81,11 +86,17 @@
   </table>
 
 
-## **Can't find what you are looking for?**
+### Can't find what you are looking for?
 
 **Search for it!** Use the search bar on the top right.  
 If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
 
-## **Support Site**
+### Previous version of StackState
+
+**You are currently reading the documentation for StackState version 4.1.0**
+
+If you are running an older version of StackState, use the version drop-down menu on the top left to select the associated documentation.
+
+### Support
 
 Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
