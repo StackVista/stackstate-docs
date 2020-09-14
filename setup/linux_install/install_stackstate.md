@@ -3,15 +3,13 @@ title: Install StackState
 kind: Documentation
 ---
 
-# Installing StackState
+# Install StackState
 
 ## Before you start
 
-Before starting the installation, make sure you make a choice whether to make a [development](development-installation.md) or [production](production-installation.md) setup, and make sure you have machines available that match our [requirements](requirements.md).
+Before starting the installation, you need to make a choice which make sure you make a choice whether to make a [development](development-installation.md) or [production](production-installation.md) setup, and make sure you have machines available that match our [requirements](requirements.md).
 
 ## Installing
-
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](installing_pre1_15.md)\).
 
 ### Install using the RPM distribution
 
@@ -46,4 +44,3 @@ During the installation process StackState requests the user for information abo
 * `API_KEY`: Secret key StackState agents must use to authenticate. If it is not provided, one will be generated automatically under /opt/stackstate/etc/APIKEY
 
 Each of these options can also be passed to the installation as an environment variable, to create an unattended install used in automatic deployment scenarios.
-

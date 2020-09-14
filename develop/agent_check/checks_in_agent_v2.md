@@ -92,7 +92,6 @@ self.component("urn:example:/host:this_host", "Host",
                },
                streams=[this_host_cpu_usage],
                checks=[cpu_max_average_check])
-
 ```
 
 We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check is then added to the streams and checks list in our `this-host` component.
@@ -139,7 +138,7 @@ class EventHealthChecks(object):
         `description` the description for this check in StackState
         `remediation_hint` the remediation hint to display when this check return a critical health state
         """
-        
+
     def custom_health_check(name, check_arguments):
         """
         This method provides the functionality to send in a custom event health check.
@@ -151,7 +150,7 @@ class EventHealthChecks(object):
 
 #### Metric Stream
 
-A Metric stream can be added to a component using the `MetricStream` class. It expects a stream `name` , `metricField`,  `conditions`  and optionally also `unit_of_measure`, `aggregation` and `priority` for the metric telemetry query in StackState. Metric Streams have a few out of the box supported checks which can be mapped using the stream identifier. Some of the Metric checks require multiple streams in which case they are referred to as the `denominator_stream_id` and `numerator_stream_id` used for ratio calculations.
+A Metric stream can be added to a component using the `MetricStream` class. It expects a stream `name` , `metricField`, `conditions` and optionally also `unit_of_measure`, `aggregation` and `priority` for the metric telemetry query in StackState. Metric Streams have a few out of the box supported checks which can be mapped using the stream identifier. Some of the Metric checks require multiple streams in which case they are referred to as the `denominator_stream_id` and `numerator_stream_id` used for ratio calculations.
 
 ```text
 class MetricStream(TelemetryStream):
@@ -171,7 +170,7 @@ class MetricStream(TelemetryStream):
     """
 
 class MetricHealthChecks(object):
-    
+
     def maximum_average(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None, max_window=None):
         """
         Calculate the health state by comparing the average of all metric points in the time window against the
@@ -185,7 +184,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def maximum_last(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None,
     max_window=None):
         """
@@ -200,7 +199,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def maximum_percentile(stream_id, name, deviating_value, critical_value, percentile, description=None,
     remediation_hint=None, max_window=None):
         """
@@ -217,7 +216,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def maximum_ratio(denominator_stream_id, numerator_stream_id, name, deviating_value, critical_value,
     description=None, remediation_hint=None, max_window=None):
         """
@@ -235,7 +234,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def minimum_average(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None,
     max_window=None):
         """
@@ -250,7 +249,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def minimum_last(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None,
     max_window=None):
         """
@@ -265,7 +264,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def minimum_percentile(stream_id, name, deviating_value, critical_value, percentile, description=None,
     remediation_hint=None, max_window=None):
         """
@@ -282,7 +281,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def failed_ratio(success_stream_id, failed_stream_id, name, deviating_value, critical_value,
     description=None, remediation_hint=None, max_window=None):
         """
@@ -299,7 +298,7 @@ class MetricHealthChecks(object):
         `remediation_hint` the remediation hint to display when this check return a critical health state
         `max_window` the max window size for the metrics
         """
-    
+
     def custom_health_check(name, check_arguments):
         """
         This method provides the functionality to send in a custom metric health check.
@@ -324,7 +323,7 @@ class ServiceCheckStream(TelemetryStream):
     """
 
 class ServiceCheckHealthChecks(object):
-    
+
     def service_check_health(stream_id, name, description=None, remediation_hint=None):
         """
         Check that returns the service check status as a health status in StackState

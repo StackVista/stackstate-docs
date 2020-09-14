@@ -1,2 +1,2 @@
-# StackPacks and Integrations
+# StackPacks
 

@@ -9,10 +9,10 @@ AWS services provide integration with AWS X-Ray by adding a tracing header to re
 ## Functionality
 
 The StackState AWS X-Ray integration provides the following functionality:
+
 * Enriches AWS components with X-Ray trace service data.
 * Allows mapping the relations between X-Ray services, and ultimately AWS resources.
 * Provides performance metrics on relations between X-Ray services, as well as local anomaly detection on all performance metrics.
-
 
 ## Setup
 
@@ -26,7 +26,7 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also 
 
 1. Edit the `aws.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your Tomcat metrics and logs. See the sample `aws.d/conf.yaml.example` for all available configuration options.
 
-```
+```text
 # Section used for global AWS check config
 init_config:
     # optional
@@ -42,7 +42,7 @@ instances:
     # min_collection_interval: 60
 ```
 
-2. Restart the Agent
-
+1. Restart the Agent
 
 Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
+

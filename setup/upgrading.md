@@ -4,11 +4,11 @@ kind: Documentation
 description: Performing major and minor upgrades of StackState.
 ---
 
-# Upgrading StackState
+# Upgrade StackState
 
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../stackpacks/about-stackpacks.md).
 
 ### Upgrade considerations
 
@@ -19,7 +19,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](/stackpacks/about-stackpacks.md#configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../stackpacks/about-stackpacks.md#configuration-locking) for more information.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -54,15 +54,31 @@ A major upgrade consists of the following steps:
 
 ## Create a backup
 
-Before upgrading StackState it is recommended to backup your configuration and topology data. See [Backup and Restore](backup_restore/) for more information.
+Before upgrading StackState it is recommended to backup your configuration and topology data.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+To create a backup on Kubernetes, see:
+* [Kubernetes backup](backup_restore/kubernetes_backup.md)
+* [Configuration backup](backup_restore/configuration.md)
+* [Manually created topology backup](backup_restore/manual_topology.md)
+{% endtab %}
+{% tab title="Linux" %}
+To create a backup on Linux, see:
+* [Linux backup](backup_restore/file.md)
+* [Configuration backup](backup_restore/configuration.md)
+* [Manually created topology backup](backup_restore/manual_topology.md)
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
+Note that it will not be possible to restore the backup on the upgraded version of StackState.
 The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Uninstalling StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 {% hint style="warning" %}
 The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
@@ -70,18 +86,28 @@ The StackPacks must be uninstalled using the version of StackState prior to the 
 
 ## Upgrade StackState
 
-Depending on your platform, you can use one of the following commands to upgrade StackState:
+Find instructions to upgrade a StackState Kubernetes or Linux setup below.
 
-* Fedora, RedHat, CentOS:
+{% tabs %}
+{% tab title="Kubernetes" %}
+For upgrading, the same command can be used as for the [first time Kubernetes installation](kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+{% endtab %}
+
+{% tab title="Linux" %}
+Depending on your platform, you can use one of the following commands to upgrade.
+
+* **Fedora, RedHat, CentOS:**
   * using RPM: `rpm -U <stackstate>.rpm`
   * using yum: `yum localinstall <stackstate>.rpm`
-* Debian, Ubuntu:
+* **Debian, Ubuntu:**
   * using dpkg: `dpkg -i <stackstate>.deb`
   * using apt: `apt-get upgrade <stackstate>.deb`
+{% endtab %}
+{% endtabs %}
 
 ## Install StackPacks
 
-See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Installing StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 ## Verify the new installation
 
@@ -119,28 +145,3 @@ Once StackState has been upgraded and started, verify that the new installation 
 * Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
 * Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
 * The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
-
-### Upgrade to 1.14.9
-
-* As of this version, the concept of "valid guest groups" is deprecated by newly introduced Role Based Access Control. For more information please follow our [RBAC documentation pages](../concepts/role_based_access_control.md)
-* Upgrading from version 1.14.3 or earlier to this release requires a clean installation including removing the complete `/opt/stackstate` directory.
-
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
-
-### Upgrade to 1.14.6
-
-* `stackstate.api.authentication.adminRoles` renamed to `stackstate.api.authentication.adminGroups`
-* The `guestGroups` configuration was removed from `stackstate.api.authentication.ldapAuthServer.guestGroups` and is now present and mandatory under `stackstate.api.authentication`. Just like before, this configuration is used to specify which groups have the guest role in StackState.
-* In case of `stackstateAuthServer` the `roles` field in the `stackstate.api.authentication.stackstateAuthServer.logins` is now mandatory. Just like the adminGroups, it should contain all the groups that automatically get guest permissions.
-
-### Upgrade to 1.14.4
-
-* CLEAN UPGRADE: For version 1.14.4 a clean installation is required, including removing the complete `/opt/stackstate` directory.
-
-### Upgrade to 1.14.3
-
-* In version 1.14.3 the LDAP query prefix for users and groups was changed. If you are using LDAP authentication, then there are some changes you need to apply to your `application_stackstate.conf`. For detailed information check the [configuring-the-ldap-authentication-server](../configure/how_to_configure_ldap_authentication.md) section.
-
-### Upgrade to 1.14.2
-
-* Before version 1.14.2 some of the temporary files weren’t properly removed. This has been fixed in 1.14.2 but some of the older files before 1.14.2 need to cleaned up. In order to remove them run rm -rfv /tmp/_.sts_
