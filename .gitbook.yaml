@@ -29,3 +29,19 @@ redirects:
   integrations/available_stackpacks/static_topology: ./v/4-0-0/integrations/available_stackpacks/static_topology.md
   integrations/available_stackpacks/vsphere: ./v/4-0-0/integrations/available_stackpacks/vsphere.md
   integrations/available_stackpacks/zabbixL: ./v/4-0-0/integrations/available_stackpacks/zabbixL.md
+  setup/installation/authentication: ./v/4-0-0/setup/installation/authentication.md
+  setup/installation: ./v/4-0-0/setup/installation/README.md
+  setup/installation/kubernetes: ./v/4-0-0/setup/installation/kubernetes/README.md
+  setup/installation/kubernetes/image_configuration: ./v/4-0-0/setup/installation/kubernetes/image_configuration.md
+  setup/installation/kubernetes/storage: ./v/4-0-0/setup/installation/kubernetes/storage.md
+  setup/installation/reindex: ./v/4-0-0/setup/installation/reindex.md
+  setup/installation/requirements: ./v/4-0-0/setup/installation/requirements.md
+  setup/installation/kubernetes/ingress: ./v/4-0-0/setup/installation/kubernetes/ingress.md
+  setup/installation/development-installation: ./v/4-0-0/setup/installation/development-installation.md
+  setup/download: ./v/4-0-0/setup/download.md
+  setup/installation/how_to_setup_tls_without_reverse_proxy: ./v/4-0-0/setup/installation/how_to_setup_tls_without_reverse_proxy.md
+  setup/installation: ./v/4-0-0/setup/installation/index.md
+  setup/installation/install_stackstate: ./v/4-0-0/setup/installation/install_stackstate.md
+  setup/installation/poc-installation: ./v/4-0-0/setup/installation/poc-installation.md
+  setup/installation/production-installation: ./v/4-0-0/setup/installation/production-installation.md
+  setup/installation/reverse_proxy: ./v/4-0-0/setup/installation/reverse_proxy.md
