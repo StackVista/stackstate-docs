@@ -13,7 +13,7 @@ description: StackState version 4.1.0
     </tr>
     <tr>
     <td>
-    Get started in three steps:
+    <a href="getting_started.md">Get started]</a> in three steps:
       <ol>
         <li /><a href="setup/">Run StackState</a>
         <li /><a href="stackpacks/">Install a StackPack</a>
@@ -25,7 +25,7 @@ description: StackState version 4.1.0
         <li /><a href="use/alerting.md">Set up alerting</a>
         <li /><a href="configure/component_actions.md">Create component actions</a>
         <li /><a href="configure/how_to_set_up_roles.md">Configure AuthN and AuthZ</a>
-        <li /><a href="configure/">More customizations >>></a>
+        <li /><a href="configure/">More customizations</a>
       </ul>
     </td>
     <td>
@@ -33,7 +33,7 @@ description: StackState version 4.1.0
         <li /><a href="use/perspectives/topology-perspective.md">Browse topology</a>
         <li /><a href="use/views.md">Create Views</a>
         <li /><a href="use/queries.md">Query the 4T data model</a>
-        <li /><a href="use/">More actions >>></a>
+        <li /><a href="use/">More actions</a>
       </ul>
     </td>
     </tr>
@@ -52,7 +52,7 @@ description: StackState version 4.1.0
             <li /><a href="develop/scripting/">StackState Scripting Language (STSL)</a>
             <li /><a href="develop/tutorials/basic_stackpack_tutorial.md">StackPack tutorial</a>
             <li /><a href="develop/agent_check/checks_in_agent_v2.md">Developing agent checks</a>
-            <li /><a href="develop/">More tutorials and reference docs >>></a>
+            <li /><a href="develop/">More tutorials and reference docs</a>
           </ul>
         </td>
         <td>
