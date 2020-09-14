@@ -26,13 +26,9 @@ The View Filters panel on the left side of the screen in any View allows you to 
 
 ## Interactive navigation
 
-It is also possible to interactively navigate the topology. Hover over a component to bring up the component navigation menu:
-
-Selecting an action from the menu allows you to change your view, respective to the selected component.
+The topology can also be navigated interactively. Hover over any component to bring up the component navigation menu. The available options allow tyou to change your view respective to the selected component.
 
 ### Quick actions
-
-![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
 
 Quick actions expand the topology selection in one of the following ways:
 
@@ -41,16 +37,18 @@ Quick actions expand the topology selection in one of the following ways:
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
+![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
+
 You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
 ### Dependencies
-
-![Dependencies](../../.gitbook/assets/v410/dependencies.png)
 
 Isolate the selected component \(show only that component\) and expand the topology selection in one of the following ways:
 
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
+
+![Dependencies](../../.gitbook/assets/v410/dependencies.png)
 
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](../../configure/topology_selection_advanced.md).
 
@@ -63,6 +61,7 @@ Isolate the selected deviating component \(show only that component\) and expand
 
 ![Root cause](../../.gitbook/assets/v410/root_cause_analysis.png)
 
+You can also [show root cause outside the current view](#root-cause-outside-current-view)
 
 ## Component finder
 

@@ -85,7 +85,7 @@ Component
 This code works as follows:
 
 * The `componentId` is passed as long and it has to be resolved using using `Component.withId(componentId)` combinator.
-* The `.fullComponent()` returns component in Json-style representation the same as the one that can be obtained from `Show Json` component menu or using [topology query](https://github.com/StackVista/stackstate-docs/tree/2a35ff75e2776ea2cad1cb30ce416fc43be32884/develop/scripting/topology/README.md) in analytics.
+* The `.fullComponent()` returns component in Json-style representation the same as the one that can be obtained from `Show Json` component menu or using [topology query](../develop/scripting/script-apis/topology) in analytics.
 * `then { component -> ... }` is an async lambda function where the main logic for the propagation function resides.
 
   The `component` is the component variable which has properties that can be accessed using `.<property name>` notations. e.g. `.type` returns component type id.
@@ -192,4 +192,3 @@ StackState makes available several elements to define propagation logic. Availab
     </tr>
   </tbody>
 </table>
-

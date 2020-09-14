@@ -3,46 +3,47 @@ title: Configuring authentication
 kind: Documentation
 ---
 
-# Configuring authentication
+# Authentication
 
 Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
 
-* [LDAP](authentication.md#configuring-the-ldap-authentication-server)
-* [KeyCloak OIDC](authentication.md#configuring-the-keycloak-oidc-authentication-server)
+* [LDAP](authentication.md#ldap-authentication-server)
+* [KeyCloak OIDC](authentication.md#ckeycloak-oidc-authentication-server)
 
-When a user is authenticated, the user has one of two possible roles in StackState:
+{% hint style="info" %}
+Authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
+{% endhint %}
+
+## User roles
+
+StackState ships with the default user roles **guest** and **administrator**:
 
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-StackState uses the file `etc/application_stackstate.conf` in the StackState installation directory for authentication configuration. After changing this file restart StackState for any changes to take effect.
+It is also possible to add more roles, see the [Roles (RBAC)](../configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](../configure.md)
 
 ## Default username and password
 
 StackState is configured by default with the following administrator account:
 
-* username: `admin`
-* password: `topology-telemetry-time`
+{% tabs %}
+{% tab title="Kubernetes" %}
+* **username:** `admin`
+* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in `values.yaml`
+{% endtab %}
 
-## Turning off authentication
+{% tab title="Linux" %}
+* **username:** `admin`
+* **password:** `topology-telemetry-time`
+{% endtab %}
+{% endtabs %}
 
-If StackState runs without authentication, anyone who has access to the StackState URL will be able to use the product without any restrictions.
+## File-based authentication
 
-To turn off authentication completely, use the following configuration setting:
+To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the 2 default roles available, the md5 hash still needs to be generated and put in the example.
 
-```javascript
-stackstate.api.authentication.enabled = false
-```
-
-Note that in the [HOCON configuration format](https://github.com/lightbend/config/blob/master/HOCON.md) this has exactly the same meaning as:
-
-```javascript
-stackstate { api { authentication { enabled = false } } }
-```
-
-## Configuring file-based authentication
-
-Here is an example of `authentication` that configures a user `admin/password` and a user `guest/password`. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` to `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
+Here is an example of authentication that configures two users: `admin/password` and `guest/password`. Place it within the `stackstate { api {` block of `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState for changes to take effect.
 
 ```javascript
 authentication {
@@ -81,7 +82,7 @@ Configuration field explanation:
 5. **adminGroups** - the list of groups whose members StackState grants administrative privileges.
 6. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
 
-## Configuring the LDAP authentication server
+## LDAP authentication server
 
 Here is an example of an authentication configuration that uses a localhost LDAP server. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to change the line `authentication.enabled = false` to `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
 
@@ -158,13 +159,35 @@ Configuration field explanation:
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](../../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../../configure/how_to_set_up_roles.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](../configure/subject_configuration.md). With subjects created, you can start [setting up roles](../configure/how_to_set_up_roles.md).
 
-### Configuring the KeyCloak OIDC Authentication Server
+### Kubernetes LDAP configuration through Helm
+
+When using LDAP with Kubernetes, a number of \(secret\) values can be passed through the Helm values. You can provide the following values to configure LDAP:
+
+* `stackstate.authentication.ldap.bind.dn`: The bind DN to use to authenticate to LDAP
+* `stackstate.authentication.ldap.bind.password`: The bind password to use to authenticate to LDAP
+* `stackstate.authentication.ldap.ssl.type`: The SSL Connection type to use to connect to LDAP \(Either ssl or starttls\)
+* `stackstate.authentication.ldap.ssl.trustStore`: The Certificate Truststore to verify server certificates against
+* `stackstate.authentication.ldap.ssl.trustCertificates`: The client Certificate trusted by the server
+
+The `trustStore` and `trustCertificates` values need to be set from the command line, as they typically contain binary data. A sample command for this looks like:
+
+```text
+helm install \
+--set-file stackstate.authentication.ldap.ssl.trustStore=./ldap-cacerts \
+--set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
+... \
+stackstate/stackstate
+```
+
+For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
+
+## KeyCloak OIDC Authentication Server
 
 In order to configure StackState to authenticate to an KeyCloak OIDC authentication server, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.
 
-#### Configuring StackState to authenticate against a KeyCloak OIDC Authentication Server
+### Configuring StackState to authenticate against a KeyCloak OIDC Authentication Server
 
 Here is an example of an authentication configuration that uses a running KeyCloak server. Place it within the `stackstate { api {` block of the `etc/application_stackstate.conf`. Make sure to change the line `authentication.enabled = false` to `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
 
@@ -204,7 +227,7 @@ Configuration field explanation:
 
 The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
 
-#### Configuring a KeyCloak client for use with StackState
+### Configuring a KeyCloak client for use with StackState
 
 In order to connect StackState to KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
 
@@ -219,7 +242,9 @@ In order to connect StackState to KeyCloak, you need to add a new client configu
 
 ## REST API authentication
 
-If you use StackState's REST API directly \(as opposed to via the GUI\) you can also enable authentication. The REST API supports basic authentication for authenticating users. StackState authenticates the user against either the configuration file or LDAP server as described above.
+If you use StackState's REST API directly \(as opposed to via the GUI\) you can also enable authentication. The REST API supports basic authentication for authenticating users against the configured authentication mechanism.
+
+**basicAuth** - turn basic authentication on/off for the StackState REST API. Turn this setting on if you use the StackState REST API from external scripts that cannot use the HTML form-based login.
 
 ```javascript
 authentication {
@@ -232,6 +257,3 @@ authentication {
 
     }
 ```
-
-1. **basicAuth** - turn on or off basic authentication for the StackState REST API. Turn this setting on if you use the REST API from external scripts that can not use the HTML form-based login.
-
