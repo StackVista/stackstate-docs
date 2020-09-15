@@ -1,12 +1,12 @@
 ---
-description: See the architecture of your IT landscape.
+description: See the real time state of your IT landscape
 ---
 
 # Topology Perspective
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/topoview1.png)
+![](../../.gitbook/assets/v410/topoview1.png)
 
 ## Components and relations
 
@@ -22,79 +22,46 @@ When a component is selected by clicking on it, the Component Details panel is s
 
 ## Filtering
 
-By design, there is only one topology per StackState instance to make sure any part of the topology can always be connected to any other part. The topology is, of course, segmented in many different ways depending on your environment. You can narrow down on the part of the topology you are interested in filtering.
-
-### Using basic filtering
-
-The main way of filtering the topology is by using the basic filter panel, accessed using the _filter_ icon.
-
-From here, you can use the basic filter panel to filter the topology on certain properties. If you select a particular property, the topology view will be updated to show only the topology that matches the selected value. Selecting multiple properties narrows down your search \(ie, it combines them using an `AND` operator\). Selecting multiple values for a single property expands your search \(ie, it combines them using an `OR` operator\).
-
-Using the basic filter panel you can select a subset of your topology based on the following properties:
-
-* layers
-* domains
-* environments
-* types
-* health state
-* tags / labels
-
-Layers, domains, and environments are a way to organize your topology. The health state reflects how the component is functioning. Use labels to make it easy to navigate your topology.
-
-### Filter settings
-
-**Show Components** adds one or more specific components to the topology selection. You can **search** for the component by name.
-
-### Basic filtering example
-
-Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
-
-![Filtering example](../../.gitbook/assets/basic_filtering.png)
-
-The same topology selection can also be shown in list format:
-
-![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
-
-### Filtering limits
-
-To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
-
-If a [basic filter](topology-perspective.md#filtering) or [advanced filter query](../../configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
-
-Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
-
-In the example below, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
-
-```text
-withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
-   AND layer = "applications"
-```
-
-To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit.
+The View Filters panel on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ## Interactive navigation
 
-It is also possible to interactively navigate the topology. Right-click on a component to bring up the component navigation menu:
+The topology can also be navigated interactively. Hover over any component to bring up the component navigation menu. The available options allow tyou to change your view respective to the selected component.
 
-Selecting an action from the menu allows you to change your view, respective to the selected component.
+### Quick actions
 
-![Quick Actions](../../.gitbook/assets/quick_actions.png)
-
-**Quick Actions** expands the topology selection in one of the following ways:
+Hover over any component to bring up the component navigation menu. Select Quick actions to expand the topology selection in one of the following ways:
 
 * Show all dependencies -- shows all dependencies for selected component
-* Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selcted compontent
+* Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selected component
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
-* Show Root Casue only -- limits displayed components to the root cause elements
+* Show Root Cause only -- limits displayed components to the root cause elements
 
-![Dependencies](../../.gitbook/assets/dependencies.png)
+![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
 
-**Dependencies** isolates the selected component \(shows only that component\) and expands the topology selection in one of the following ways:
+You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
+
+### Dependencies
+
+Hover over any component to bring up the component navigation menu. Select Dependencies to isolate the selected component \(show only that component\) and expand the topology selection in one of the following ways:
 
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
 
+![Dependencies](../../.gitbook/assets/v410/dependencies.png)
+
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](../../configure/topology_selection_advanced.md).
+
+### Root Cause Analysis
+
+Hover over any component to bring up the component navigation menu. Select Root Cause Analysis to isolate the selected non clear \(e.g. deviating or critical\) and expand the topology selection in one of the following ways:
+
+* **Root cause only** -- only show the probable causing component
+* **Full root cause tree** --  show the entire root cause tree
+
+![Root cause](../../.gitbook/assets/v410/root_cause_analysis.png)
+
+You can also [show root cause outside the current view](#root-cause-outside-current-view)
 
 ## Component finder
 
@@ -108,17 +75,20 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Overview pane](../views.md#view-overview).
 
-## Root cause display
+## Root cause outside current view
 
-If there are components with [telemetry streams](../../configure/checks_and_streams.md#data-streams) and [health checks](../../configure/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../configure/propagation.md) this state throughout the graph. This means your view can contain components that have a deviating health state caused by a component that is outside your view.
+If there are components with [telemetry streams](../../configure/checks_and_streams.md#data-streams) and [health checks](../../configure/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../configure/propagation.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
-The Topology Perspective allows you to configure whether to show the root cause if it is outside of your view:
+It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view.  The Topology Perspective allows you to configure whether to show a root cause even when it is outside of the currently displayed view:
 
 * **Don't show root cause** -- do not show the root cause
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
+![Root cause](../../.gitbook/assets/v410/show_root_cause_outside.png)
+
 ## List mode
 
-The components in the view can also be shown in a list instead of a graph.
+The components in the topology visualization can also be shown in a list instead of a graph:
 
+![Filtering\(list format\)](../../.gitbook/assets/v410/basic_filtering_list.png)
