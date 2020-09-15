@@ -30,7 +30,7 @@ The topology can also be navigated interactively. Hover over any component to br
 
 ### Quick actions
 
-Quick actions expand the topology selection in one of the following ways:
+Hover over any component to bring up the component navigation menu. Select Quick actions to expand the topology selection in one of the following ways:
 
 * Show all dependencies -- shows all dependencies for selected component
 * Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selected component
@@ -43,7 +43,7 @@ You can extend this list with [component actions](../../configure/component_acti
 
 ### Dependencies
 
-Isolate the selected component \(show only that component\) and expand the topology selection in one of the following ways:
+Hover over any component to bring up the component navigation menu. Select Dependencies to isolate the selected component \(show only that component\) and expand the topology selection in one of the following ways:
 
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
@@ -54,7 +54,7 @@ If you require more flexibility in selecting topology, check out our [guide to A
 
 ### Root Cause Analysis
 
-Isolate the selected non clear \(e.g. deviating or critical\) and expand the topology selection in one of the following ways:
+Hover over any component to bring up the component navigation menu. Select Root Cause Analysis to isolate the selected non clear \(e.g. deviating or critical\) and expand the topology selection in one of the following ways:
 
 * **Root cause only** -- only show the probable causing component
 * **Full root cause tree** --  show the entire root cause tree
