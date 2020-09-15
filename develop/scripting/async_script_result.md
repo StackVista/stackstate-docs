@@ -30,7 +30,7 @@ The `it` keyword is default Groovy keyword that you do not need to define a vari
 
 ### Chaining
 
-Multiple asynchronous script results can be chained together. This is useful for combining for example the results of topology with telemetry.
+From version 1.15: Multiple asynchronous script results can be chained together. This is useful for combining for example the results of topology with telemetry.
 
 For example:
 
@@ -51,7 +51,7 @@ The above means that the results of `asyncFn1` are passed to `asyncFn2`, then th
 
 ### Flattening
 
-Since version 1.15 arrays of `AsyncScriptResult` are automatically flattened when returned from a `.then` call. For example:
+Arrays of `AsyncScriptResult` are automatically flattened when returned from a `.then` call. For example:
 
 ```text
 ScriptApi.asyncFn1().then  {
@@ -61,30 +61,9 @@ ScriptApi.asyncFn1().then  {
 
 will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
-### Reducing with `thenInject`
-
-Since version 4.1.0 arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
-
-```text
-ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
-  accumulator + element
-}
-```
-
-Suppose that `asyncFn1` returns a list, then subsequent `thenInject` call can accumulate the result, in this case using summation.
-
-In particular this call can be interesting for the cases where an accumulating operation returns the `AsyncScriptResult`. See example below:
-
-```text
-ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
-  ScriptApi.asyncFn2(element)
-    .then { result => accumulator + result }
-}
-```
-
 ### Handling Exceptions
 
-It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function available from version 4.0. For example:
+From version 4.0: It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function available. For example:
 
 ```text
 ScriptApi.asyncFn1().catchError { ex ->
@@ -94,4 +73,3 @@ ScriptApi.asyncFn1().catchError { ex ->
 ```
 
 Any result returned by the closure passed to `catchError` gets automatically flattened just like `.then` call.
-

@@ -19,10 +19,6 @@
     * [Configuring TLS without reverse proxy](setup/installation/how_to_setup_tls_without_reverse_proxy.md)
     * [Reindexing StackState](setup/installation/reindex.md)
     * [Troubleshooting StackState startup](setup/installation/troubleshooting.md)
-    * [Installing StackState before version 1.15](setup/installation/installing_pre1_15.md)
-    * [Production installation pre 1.15](setup/installation/production-installation_pre1_15.md)
-    * [Development installation pre 1.15](setup/installation/development-installation_pre1_15.md)
-    * [Installing StackState before 1.14.5](setup/installation/installing_pre1_14_5.md)
   * [Upgrading StackState](setup/upgrading.md)
   * [Backup and Restore](setup/backup_restore/README.md)
     * [Manual topology backup](setup/backup_restore/manual_topology.md)
@@ -149,4 +145,3 @@
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
     * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
     * [Basic StackPack tutorial](develop/tutorials/basic_stackpack_tutorial.md)
-
