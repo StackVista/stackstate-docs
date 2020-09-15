@@ -1,9 +1,6 @@
----
-title: Installation
-kind: Documentation
----
-
-# index
+{% hint style="info" %}
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read the [Kubernetes migration guide](link_to_guide.md) to find out more.
+{% endhint %}
 
 ## Choosing your installation type
 
@@ -36,4 +33,3 @@ StackState provides Role Based Access Control functionality that works with LDAP
 ## Troubleshooting
 
 If you have any issues installing StackState, refer to our [troubleshooting guide](https://github.com/mpvvliet/stackstate-docs/tree/0f69067c340456b272cfe50e249f4f4ee680f8d9/setup/installation/troubleshooting/README.md) or contact our technical support.
-

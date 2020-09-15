@@ -1,9 +1,6 @@
----
-title: How to set up TLS without reverse proxy
-kind: Documentation
----
-
-# Set up TLS without reverse proxy
+{% hint style="info" %}
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read the [Kubernetes migration guide](link_to_guide.md) to find out more.
+{% endhint %}
 
 This document provides the steps to set up TLS on StackState application side with no reverse proxy configured.
 
@@ -126,4 +123,3 @@ apm_sts_url: https://stackstate.infra.company.tld:7077/stsAgent
 cp /path/to/certificate-authority.pem /usr/local/share/ca-certificates/stackstate.crt # extension .crt is important here
 sudo update-ca-certificates
 ```
-

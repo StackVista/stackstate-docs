@@ -1,9 +1,6 @@
----
-title: Production Installation
-kind: Documentation
----
-
-# Install with production configuration
+{% hint style="info" %}
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read the [Kubernetes migration guide](link_to_guide.md) to find out more.
+{% endhint %}
 
 ## Requirements
 
