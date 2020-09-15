@@ -1,7 +1,7 @@
----
-title: Development Installation
-kind: Documentation
----
+{% hint style="info" %}
+StackState prefers Kubernetes!
+In the future we will be moving away from Linux support. Read the [Kubernetes migration guide](link_to_guide.md) for more details.
+{% endhint %}
 
 # Install with development configuration
 
