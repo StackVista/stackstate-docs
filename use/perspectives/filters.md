@@ -31,7 +31,7 @@ Here is an example of using a basic filter to search for components by **Domains
 
 ### Advanced topology filters
 
-You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md).
+You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [advanced topology queries with STQL](../../configure/topology_selection_advanced.md).
 
 ![Filtering\(advanced filter\)](../../.gitbook/assets/v410/advanced_filtering.png)
 
