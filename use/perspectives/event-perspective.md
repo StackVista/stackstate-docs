@@ -6,19 +6,28 @@ description: Track changes in your IT landscape.
 
 The Events Perspective shows events and changes for the components in your [view](../views.md).
 
+![The Events Perspective](../../.gitbook/assets/v410/event-perspective.png)
+
 ## Events
 
 StackState records changes in your landscape as **events**. Events help you make sense of the changes that impact your IT landscape and are a great asset when troubleshooting problems.
 
 The following events are currently recorded:
 
-* component / relation created
-* component / relation deleted
-* component / relation updated
-* health state changed
-* version changed
+* Anomaly
+* Component / relation created
+* Component / relation deleted
+* Component / relation updated
+* Health state changed
+* Version changed
 
 ## Filtering
+
+### Topology Filters
+
+The View Filters panel on the left side of the screen in any View allows you to filter the sub-set of topology for which events are displayed. Read more about [Topology Filters](filters.md#topology-filters)
+
+### FIlter Events
 
 The Events Perspective supports filtering of events by **Event Types**.
 
