@@ -1,5 +1,5 @@
 ---
-description: StackState version 4.1.0
+description: StackState version 4.1.x
 ---
 
 # Welcome to the StackState Docs!
@@ -93,9 +93,9 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 ### Other StackState versions
 
-You are currently reading the documentation for **StackState version 4.1.0**
+You are currently reading the documentation for **StackState version 4.1.x**
 
-Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrading StackState](setup/upgrading.md)
+Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](setup/upgrading.md).
 
 ### Support
 
