@@ -39,7 +39,7 @@ You can use the StackState in-built query language (STQL) to build an advanced t
 
 To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 
-If a [basic filter](#basic-topology-filters) or [advanced filter query](/configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
+If a [basic filter](#basic-topology-filters) or [advanced filter query](../../configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
 
 Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
 
