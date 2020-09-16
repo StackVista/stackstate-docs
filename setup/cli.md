@@ -229,6 +229,7 @@ You may not always want to try a new configuration on real data. First, you migh
 * [Send metrics data](#metrics)
 * [Send events data](#events)
 * [Send topology data](#topology)
+* [Send anomaly data](#anomaly)
 
 #### Metrics
 
@@ -275,6 +276,28 @@ Please refer to `usage.md` in the CLI zip archive for detailed instructions.
 For help on sending topology data, use:
 ```
 sts topology send -h
+```
+
+#### Anomaly
+
+The CLI provides an `anomaly` command used to send anomaly data for a named metric stream of a component.
+
+```
+sts anomaly send --component-name <Component> --stream-name <Metric Stream> --start-time=-30m
+```
+
+You can also use the optional arguments below to create a specific anomaly.
+
+| Argument | Details |
+|:---|:---|
+| `--duration` | Anomaly duration (seconds) |
+| `--severity` | Anomaly severity (HIGH, MEDIUM, LOW) |
+| `--severity-score` |  Anomaly severity score |
+| `--description` |  Anomaly description field contents |
+
+For help on sending anomaly data, use:
+```
+sts anomaly send -h
 ```
 
 ### Manage StackPacks
