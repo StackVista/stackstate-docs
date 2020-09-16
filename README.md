@@ -1,7 +1,7 @@
 # Welcome to the StackState Docs!
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.x<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.x.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Quick navigation
