@@ -1,5 +1,10 @@
 # Welcome to the StackState Docs!
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.x
+Go to documentation for the [latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Quick navigation
 
 <table>
@@ -90,4 +95,3 @@ If you any documentation is missing, please let us know via our support site:
 ## **Support Site**
 
 Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/).
-
