@@ -1,6 +1,6 @@
 # Filtering
 
-The View Filters panel on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
+The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ##Topology Filters
 
@@ -53,7 +53,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters panel to filter the type of events shown in the [Events Perspective](event-perspective.md).
+You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
 
 ## Filter Traces
 

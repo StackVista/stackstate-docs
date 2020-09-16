@@ -14,7 +14,7 @@ The Topology Perspective shows components and relations in the selected [view](.
 
 ## Component details
 
-When a component is selected by clicking on it, the Component Details panel is shown on the right hand side. This panel displays detailed information of the component:
+When a component is selected by clicking on it, the Component Details pane is shown on the right hand side. This panel displays detailed information of the component:
 
 * metadata such as the component's name, type and labels
 * [health checks](../../configure/checks_and_streams.md#checks)
@@ -22,7 +22,7 @@ When a component is selected by clicking on it, the Component Details panel is s
 
 ## Filtering
 
-The View Filters panel on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ## Interactive navigation
 

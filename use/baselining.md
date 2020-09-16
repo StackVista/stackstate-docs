@@ -75,14 +75,14 @@ When dealing with metric streams which are seasonal either by day or week. It al
 
 **Pros:**
 
-* Works reasonably well for seasonal as well as stationary metric streams. 
+* Works reasonably well for seasonal as well as stationary metric streams.
 
 **Cons:**
 
 * Assumes daily or weekly patterns. If such patterns are not there this algorithm will not produce good results.
 * Assumes the data is normally distributed.
 * You have to specify the fundamental period yourself instead of that being auto detected.
-* For weekly patterns requires a lot of data. 
+* For weekly patterns requires a lot of data.
 
 **Arguments**:
 
@@ -97,7 +97,7 @@ This baseline functions works well for stationary metrics \(e.g. data center tem
 
 **Pros:**
 
-* Works well for seasonal as well as stationary metric streams given any distribution of the metric stream. 
+* Works well for seasonal as well as stationary metric streams given any distribution of the metric stream.
 * Provide a lot of controls for tuning.
 
 **Cons:**
@@ -125,8 +125,8 @@ Once you've added a baseline to a metric stream and you see the baseline bounds 
 2. Select the `Detect anomaly by checking if the metric values are within upper and lower deviation bounds` check function.
 3. Select the baseline metric stream you want to check for anomalies.
 4. Select a critical and deviating value. The values are floating point values that indicate with what factor how far the metric stream may exceed the baseline. For example:
-   * `deviatingValue = 1.0` - if the metric exceeds the baseline that the check will go to the `DEVIATNG` health state. 
-   * `criticalValue = 1.25` - if the metric exceeds the baseline by 125% that the check will go to the `CRITICAL` health state. 
+   * `deviatingValue = 1.0` - if the metric exceeds the baseline that the check will go to the `DEVIATING` health state. 
+   * `criticalValue = 1.25` - if the metric exceeds the baseline by 125% that the check will go to the `CRITICAL` health state.
 5. Click `create` to add the check.
 
 {% hint style="info" %}
@@ -134,4 +134,3 @@ Once you've added the check function it may take 5 or more minutes \(dependent o
 {% endhint %}
 
 Alerting on checks based on baseline metric streams works exactly the same as with other checks.
-
