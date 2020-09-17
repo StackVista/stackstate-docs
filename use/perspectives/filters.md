@@ -27,13 +27,13 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 Here is an example of using a basic filter to search for components by **Domains**.
 
-![Filtering example](../../.gitbook/assets/v410/basic_filtering.png)
+![Filtering example](../../.gitbook/assets/4.1/basic_filtering.png)
 
 ### Advanced topology filters
 
 You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [advanced topology queries with STQL](../../configure/topology_selection_advanced.md).
 
-![Filtering\(advanced filter\)](../../.gitbook/assets/v410/advanced_filtering.png)
+![Filtering\(advanced filter\)](../../.gitbook/assets/4.1/advanced_filtering.png)
 
 ### Topology filtering limits
 

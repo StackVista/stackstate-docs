@@ -6,7 +6,7 @@ description: See traces for the components in your IT landscape.
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
-![The Traces Perspective](../../.gitbook/assets/v410/traces-perspective.png)
+![The Traces Perspective](../../.gitbook/assets/4.1/traces-perspective.png)
 
 To find out more about how you can add traces to StackState, please read the [guide to setting up traces](../../configure/how_to_setup_traces.md).
 
@@ -16,7 +16,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
-![Inspecting a trace](../../.gitbook/assets/v410/trace-inspection.png)
+![Inspecting a trace](../../.gitbook/assets/4.1/trace-inspection.png)
 
 Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to Postgres calls that are made when completing the request.
 
@@ -24,7 +24,7 @@ Span types are colored differently according to the information on the right. Fo
 
 When inspecting a trace and seeing the list of its spans, you can click on any span to see further details. The image below illustrates this action.
 
-![Inspecting a span](../../.gitbook/assets/v410/span-details.png)
+![Inspecting a span](../../.gitbook/assets/4.1/span-details.png)
 
 ## Filtering
 
@@ -38,7 +38,7 @@ The View Filters pane on the left side of the screen in any View allows you to f
 
 A trace can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the filters menu where you see filters for topology, events and traces:
 
-![The Traces Perspective and its filters](../../.gitbook/assets/v410/trace-filters.png)
+![The Traces Perspective and its filters](../../.gitbook/assets/4.1/trace-filters.png)
 
 For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
 
@@ -57,9 +57,9 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans (or components) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans (components) of a trace](../../.gitbook/assets/v410/trace-inspection.png)
+![The spans (components) of a trace](../../.gitbook/assets/4.1/trace-inspection.png)
 
-![The topology for which you fetch traces](../../.gitbook/assets/v410/topology-traces.png)
+![The topology for which you fetch traces](../../.gitbook/assets/4.1/topology-traces.png)
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
 
@@ -88,4 +88,4 @@ When using the Traces Perspective in live mode, you are constantly polling for t
 
 To avoid this, time will effectively be "paused" when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click the blue ribbon on top or in the timeline itself to resume live mode:
 
-![Pausing time when inspecting a trace](../../.gitbook/assets/v410/trace-inspection.png)
+![Pausing time when inspecting a trace](../../.gitbook/assets/4.1/trace-inspection.png)

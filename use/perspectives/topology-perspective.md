@@ -6,7 +6,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/v410/topoview1.png)
+![](../../.gitbook/assets/4.1/topoview1.png)
 
 ## Components and relations
 
@@ -37,7 +37,7 @@ Hover over any component to bring up the component navigation menu. Select Quick
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
+![Quick Actions](../../.gitbook/assets/4.1/quick_actions.png)
 
 You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
@@ -48,7 +48,7 @@ Hover over any component to bring up the component navigation menu. Select Depen
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
 
-![Dependencies](../../.gitbook/assets/v410/dependencies.png)
+![Dependencies](../../.gitbook/assets/4.1/dependencies.png)
 
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](../../configure/topology_selection_advanced.md).
 
@@ -59,7 +59,7 @@ Hover over any component to bring up the component navigation menu. Select Root 
 * **Root cause only** -- only show the probable causing component
 * **Full root cause tree** --  show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v410/root_cause_analysis.png)
+![Root cause](../../.gitbook/assets/4.1/root_cause_analysis.png)
 
 You can also [show root cause outside the current view](#root-cause-outside-current-view)
 
@@ -85,10 +85,10 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v410/show_root_cause_outside.png)
+![Root cause](../../.gitbook/assets/4.1/show_root_cause_outside.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../.gitbook/assets/v410/basic_filtering_list.png)
+![Filtering\(list format\)](../../.gitbook/assets/4.1/basic_filtering_list.png)
