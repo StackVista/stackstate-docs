@@ -5,7 +5,7 @@ kind: Documentation
 
 # Getting Started
 
-![test image](.gitbook/assets/5.1/topology_traces.png)
+![test image](.gitbook/assets/51/topology-traces.png)
 
 Hi! So, you've just installed StackState and you are ready to get started.
 
