@@ -3,8 +3,6 @@ title: Id Extraction
 kind: Documentation
 ---
 
-# ID extraction
-
 # Role-based Access Control
 
 {% hint style="warning" %}
