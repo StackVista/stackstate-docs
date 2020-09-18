@@ -30,7 +30,7 @@ When all required information is provided for the component type, click CREATE, 
 
 |  |  |
 | :---: | :---: |
-| ![Component Types list](../.gitbook/assets/plus_list.png) | ![New component](../.gitbook/assets/new_component.png) |
+| ![Component Types list](../.gitbook/assets/plus_list.png) | ![New component](../.gitbook/assets/new_component%20%281%29.png) |
 
 ## How to create relations between components
 

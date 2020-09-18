@@ -6,7 +6,7 @@ description: See the architecture of your IT landscape.
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/topoview1.png)
+![](../../.gitbook/assets/topoview1%20%281%29.png)
 
 ## Components and relations
 
@@ -49,11 +49,11 @@ Layers, domains, and environments are a way to organize your topology. The healt
 
 Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
 
-![Filtering example](../../.gitbook/assets/basic_filtering.png)
+![Filtering example](../../.gitbook/assets/basic_filtering%20%281%29.png)
 
 The same topology selection can also be shown in list format:
 
-![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list.png)
+![Filtering\(list\)](../../.gitbook/assets/basic_filtering_list%20%281%29.png)
 
 ## Interactive navigation
 
@@ -70,7 +70,7 @@ Selecting an action from the menu allows you to change your view, respective to 
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Casue only -- limits displayed components to the root cause elements
 
-![Dependencies](../../.gitbook/assets/dependencies.png)
+![Dependencies](../../.gitbook/assets/dependencies%20%281%29.png)
 
 **Dependencies** isolates the selected component \(shows only that component\) and expands the topology selection in one of the following ways:
 

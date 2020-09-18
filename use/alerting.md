@@ -73,5 +73,5 @@ Health state changes of components and relations are events that can be handled 
 8. One of the arguments is the event type to which the event handler will react. All state change events except the view state changes are caused by check functions. The view state changes are caused by the view health state configuration.
 9. Click `Create` to create the event handler. The event handler is now active and visible under the "event handlers" section. It will alert on the next event it is configured to react to.
 
-![Event handlers](../.gitbook/assets/event_handlers_tab.png)
+![Event handlers](../.gitbook/assets/event_handlers_tab%20%281%29.png)
 
