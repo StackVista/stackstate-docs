@@ -39,7 +39,7 @@ Whenever you first open a view you see a view details panel on the right side of
 * **View properties** -- shows the view query and last updated timestamp.
 * **Components** -- shows a summary of the number of components in the view.
 * **Problem Clusters** -- shows the problem clusters for any problems in the view.
-* **Events** -- shows the 5 most recent events that occurred for components in the view. Click **View all** to show the [Events Perspective](/use/perspectives/event-perspective.md).
+* **Events** -- shows the 5 most recent events that occurred for components in the view. Click **View all** to show the [Events Perspective](perspectives/event-perspective.md).
 
 ## View health state
 
@@ -102,4 +102,3 @@ Through a combination of configuration of [permissions](../configure/permissions
 * access to specific views and disallowing them to create, modify or delete views
 
 Please refer to the [RBAC documentation](../concepts/role_based_access_control.md).
-

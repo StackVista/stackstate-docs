@@ -1,10 +1,8 @@
----
-description: Installing StackState.
----
+{% hint style="info" %}
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+{% endhint %}
 
-# Linux install
-
-StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster]().
+StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../Kubernetes_install/).
 
 ## Choosing your installation type
 

@@ -12,11 +12,11 @@ By design, there is only one topology per StackState instance to make sure any p
 
 ## Using basic filtering
 
-The main way of filtering the topology is by using the basic filter panel, accessed using the _filter_ icon.
+The main way of filtering the topology is by using the basic filter pane, accessed using the _filter_ icon.
 
-From here, you can use the basic filter panel to filter the topology on certain properties. If you select a particular property, the topology view will be updated to show only the topology that matches the selected value. Selecting multiple properties narrows down your search \(ie, it combines them using an `AND` operator\). Selecting multiple values for a single property expands your search \(ie, it combines them using an `OR` operator\).
+From here, you can use the basic filter pane to filter the topology on certain properties. If you select a particular property, the topology view will be updated to show only the topology that matches the selected value. Selecting multiple properties narrows down your search \(ie, it combines them using an `AND` operator\). Selecting multiple values for a single property expands your search \(ie, it combines them using an `OR` operator\).
 
-Using the basic filter panel you can select a subset of your topology based on the following properties:
+Using the basic filter pane you can select a subset of your topology based on the following properties:
 
 * layers
 * domains
@@ -66,4 +66,3 @@ Selecting an action from the menu allows you to change your view, respective to 
 ## Using advanced filtering
 
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](topology_selection_advanced.md).
-

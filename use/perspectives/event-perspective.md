@@ -6,7 +6,7 @@ description: Track changes in your IT landscape.
 
 The Events Perspective shows events and changes for the components in your [view](../views.md).
 
-![The Events Perspective](../../.gitbook/assets/v410/event-perspective.png)
+![The Events Perspective](../../.gitbook/assets/4.1/event-perspective.png)
 
 ## Events
 
@@ -25,7 +25,7 @@ The following events are currently recorded:
 
 ### Topology Filters
 
-The View Filters panel on the left side of the screen in any View allows you to filter the sub-set of topology for which events are displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which events are displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ### FIlter Events
 

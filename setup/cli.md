@@ -280,7 +280,7 @@ sts topology send -h
 
 #### Anomaly
 
-The CLI provides an `anomaly` command used to send anomaly data for a named metric stream of a component.
+The CLI provides an `anomaly` command used to send anomaly data for a metric stream of a component.
 
 ```
 sts anomaly send --component-name <Component> --stream-name <Metric Stream> --start-time=-30m

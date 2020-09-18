@@ -6,7 +6,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/v410/topoview1.png)
+![](../../.gitbook/assets/4.1/topoview1.png)
 
 ## Components and relations
 
@@ -14,7 +14,7 @@ The Topology Perspective shows components and relations in the selected [view](.
 
 ## Component details
 
-When a component is selected by clicking on it, the Component Details panel is shown on the right hand side. This panel displays detailed information of the component:
+When a component is selected by clicking on it, the Component Details pane is shown on the right hand side. This panel displays detailed information of the component:
 
 * metadata such as the component's name, type and labels
 * [health checks](../../configure/checks_and_streams.md#checks)
@@ -22,7 +22,7 @@ When a component is selected by clicking on it, the Component Details panel is s
 
 ## Filtering
 
-The View Filters panel on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
 ## Interactive navigation
 
@@ -37,7 +37,7 @@ Hover over any component to bring up the component navigation menu. Select Quick
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-![Quick Actions](../../.gitbook/assets/v410/quick_actions.png)
+![Quick Actions](../../.gitbook/assets/4.1/quick_actions.png)
 
 You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
@@ -48,7 +48,7 @@ Hover over any component to bring up the component navigation menu. Select Depen
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
 
-![Dependencies](../../.gitbook/assets/v410/dependencies.png)
+![Dependencies](../../.gitbook/assets/4.1/dependencies.png)
 
 If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](../../configure/topology_selection_advanced.md).
 
@@ -59,7 +59,7 @@ Hover over any component to bring up the component navigation menu. Select Root 
 * **Root cause only** -- only show the probable causing component
 * **Full root cause tree** --  show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v410/root_cause_analysis.png)
+![Root cause](../../.gitbook/assets/4.1/root_cause_analysis.png)
 
 You can also [show root cause outside the current view](#root-cause-outside-current-view)
 
@@ -85,10 +85,10 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v410/show_root_cause_outside.png)
+![Root cause](../../.gitbook/assets/4.1/show_root_cause_outside.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../.gitbook/assets/v410/basic_filtering_list.png)
+![Filtering\(list format\)](../../.gitbook/assets/4.1/basic_filtering_list.png)

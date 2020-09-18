@@ -86,7 +86,7 @@
   * [Alerting](use/alerting.md)
   * [Anomaly Detection with Baselines](use/baselining.md)
 * [Configure](configure/README.md)
-  * [Creating a topology manually](configure/how_to_create_manual_topology.md)
+  * [How to create a topology manually](configure/how_to_create_manual_topology.md)
   * [Advanced topology queries with STQL](configure/topology_selection_advanced.md)
   * [Topology synchronization](configure/topology_synchronization.md)
   * [Configuring synchronizations](configure/sync.md)

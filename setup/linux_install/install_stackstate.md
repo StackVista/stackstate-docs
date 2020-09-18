@@ -1,9 +1,6 @@
----
-title: Install StackState
-kind: Documentation
----
-
-# Install StackState
+{% hint style="info" %}
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+{% endhint %}
 
 ## Before you start
 

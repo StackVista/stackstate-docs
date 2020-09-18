@@ -1,6 +1,6 @@
 # Filtering
 
-The View Filters panel on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
+The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ##Topology Filters
 
@@ -27,19 +27,19 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 Here is an example of using a basic filter to search for components by **Domains**.
 
-![Filtering example](../../.gitbook/assets/v410/basic_filtering.png)
+![Filtering example](../../.gitbook/assets/4.1/basic_filtering.png)
 
 ### Advanced topology filters
 
-You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [Advanced topology filters with STQL](../../configure/topology_selection_advanced.md).
+You can use the StackState in-built query language (STQL) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [advanced topology queries with STQL](../../configure/topology_selection_advanced.md).
 
-![Filtering\(advanced filter\)](../../.gitbook/assets/v410/advanced_filtering.png)
+![Filtering\(advanced filter\)](../../.gitbook/assets/4.1/advanced_filtering.png)
 
 ### Topology filtering limits
 
 To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 
-If a [basic filter](#basic-topology-filters) or [advanced filter query](/configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
+If a [basic filter](#basic-topology-filters) or [advanced filter query](../../configure/topology_selection_advanced.md) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
 
 Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
 
@@ -53,7 +53,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters panel to filter the type of events shown in the [Events Perspective](event-perspective.md).
+You can use the View Filters pane to filter the type of events shown in the [Events Perspective](event-perspective.md).
 
 ## Filter Traces
 

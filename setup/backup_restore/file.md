@@ -1,4 +1,6 @@
-# Linux backup
+{% hint style="info" %}
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+{% endhint %}
 
 To backup and restore StackState configuration and topology information we can use StackState's import and export functionality. StackState's configuration and topology data is stored in StackGraph. Telemetry information is stored in Elasticsearch.
 
