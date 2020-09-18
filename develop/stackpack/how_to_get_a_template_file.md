@@ -5,6 +5,10 @@ kind: Documentation
 
 # How to get a template file
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Export the StackState configuration
 
 You can get a complete dump of all configuration using the CLI: `sts graph export > configuration.stj`. Follow the preparation steps below to prepare the `.stj` file, such that it contains only configuration nodes pertaining to your StackPack.

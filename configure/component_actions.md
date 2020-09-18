@@ -5,6 +5,10 @@ kind: Documentation
 
 # Component actions
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu in the Topology View.
 
 ![Component Actions](../.gitbook/assets/quick_component_actions.png)

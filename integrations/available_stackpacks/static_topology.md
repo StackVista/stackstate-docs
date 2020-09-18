@@ -5,6 +5,10 @@ kind: documentation
 
 # Static Topology
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ### What is the Static Topology StackPack?
 
 The Static Topology StackPack reads topology information from an external CSV file and synchronizes the data with StackState.

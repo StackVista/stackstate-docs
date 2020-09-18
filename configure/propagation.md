@@ -7,6 +7,10 @@ aliases:
 
 # State propagation
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
 By default the propagation for components and relations is set to transparent propagation. It determines the propagated state for a component or relation by taking the maximum of the propagated state of all its dependencies and its own state. For example:

@@ -9,6 +9,10 @@ description: Bookmark and monitor parts of the 4T data model with views.
 
 # Views
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The topology in StackState is likely much bigger than what you care about at any given point in time. StackState allows you to filter the topology in a **view** so you can locate the part of the topology you are interested in.
 
 ## Accessing views

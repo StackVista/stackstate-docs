@@ -5,6 +5,10 @@ kind: Documentation
 
 # index
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState imposes data retention limits to save storage space and improve performance.
 
 ## Retention of topology graph data

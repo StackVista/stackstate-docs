@@ -6,6 +6,10 @@ description: Performing major and minor upgrades of StackState.
 
 # Upgrading StackState
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This document describes the upgrade procedure for StackState.
 
 For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../integrations/introduction.md).

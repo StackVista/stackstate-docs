@@ -5,6 +5,10 @@ kind: Documentation
 
 # Installing StackState in a production configuration
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Requirements
 
 Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](requirements.md).

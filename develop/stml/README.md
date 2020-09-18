@@ -4,6 +4,10 @@ description: Build reports with StackState's markup language.
 
 # StackState Markup Language \(STML\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 With StackState Markup Language \(STML\), you can create pretty formatted documents of StackState data. STML is a [markdown](https://en.wikipedia.org/wiki/Markdown) based language with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.
 
 ## Rich text formatting using Markdown
@@ -67,4 +71,3 @@ Telemetry
 Notice that the third parameter of the `showReport` function is a map that is defined by `[ metrics: host1Load ]`. This map defines which variables are available to STML. In this case the variable `metrics` references the data `host1Load`.
 
 The syntax for using such variables in STML is `{NAME}`, where NAME is the name of the variable containing the data. Thus, passing the `metrics` variable to the `data` variable using this syntax means that the `auto-widget` can use the metric to render a nice chart.
-

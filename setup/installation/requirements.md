@@ -5,6 +5,10 @@ kind: Documentation
 
 # Installation requirements
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Server requirements
 
 * **Operating system:** one of the following operating systems running Java:

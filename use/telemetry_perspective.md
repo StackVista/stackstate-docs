@@ -5,6 +5,10 @@ kind: documentation
 
 # Using the Telemetry Perspective
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState can ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s Agent. The telemetry shown is based on current [Topology selection](topology_selection_advanced.md), showing a comprehensive picture of the IT environment and how it is functioning in near real-time. Telemetry perspective provides a dashboard of charts representing the metrics of the selected components. This document explains how the Telemetry Perspective works.
 
 ## Telemetry and Components

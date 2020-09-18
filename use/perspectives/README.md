@@ -4,6 +4,10 @@ description: Access data via perspectives.
 
 # Perspectives
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState and its [4T data model](../../concepts/4t_data_model.md) collect real-time data about your IT landscape. **Perspectives** allow you to look at this data from various angles and to relate different types of data to each other.
 
 All data in StackState is organized around [topology](../../concepts/4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](../views.md), that represents the application, layer or set of components that you care about, is the context that the perspectives operate in.
@@ -25,4 +29,3 @@ Inside the timeline, blue bars show the number of recorded events at a particula
 The timeline is in **live mode** by default. This means that it tracks changes as they happen and update the perspective and timeline accordingly. By clicking at a specific place in the timeline, you can stop time and time travel to that moment, updating the information shown in the active perspective. Select the **Live Mode** button in the timeline to switch to live updates again.
 
 To the left of the current time are two arrows, one pointing left and one pointing right. These **time jumpers** move the active time window to the next interesting point in time \(either in the past or the future\) for which StackState has recorded events.
-

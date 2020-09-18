@@ -1,3 +1,14 @@
+---
+title: Prepare a multi-instance provisioning script
+kind: Documentation
+---
+
+# Preparing a multi-instance provisioning script
+
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 # Basic StackPack tutorial
 
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../integrations/introduction.md) for more information.

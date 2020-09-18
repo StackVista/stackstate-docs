@@ -6,6 +6,10 @@ description: How to navigate the topology.
 
 # Browsing topology
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The topology is the central part of StackState's 4T data model that makes it possible to reason about how things relate to one another.
 
 By design, there is only one topology per StackState instance to make sure any part of the topology can always be connected to any other part. The topology is, of course, segmented in many different ways depending on your environment. You can narrow down on the part of the topology you are interested in filtering.

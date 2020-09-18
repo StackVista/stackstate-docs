@@ -6,6 +6,10 @@ description: What is a StackPack?
 
 # About StackPacks
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is a StackPack?
 
 A StackPack is a complete configuration package for StackState that simplifies the setup of deep integrations with various external services. It can be easily installed and uninstalled.

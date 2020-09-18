@@ -4,6 +4,10 @@ description: Installing StackState.
 
 # Installation
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Choosing your installation type
 
 StackState can be installed either with linux packages on one or two linux machines or with Helm on a Kubernetes cluster \(in _beta_\). The former is discussed in the remainder of this document, for the latter see [Kubernetes installation](kubernetes/).
@@ -43,4 +47,3 @@ StackState also supports authentication against a KeyCloak OIDC Authentication s
 ## Troubleshooting
 
 If you have any issues installing StackState, refer to our [troubleshooting guide](troubleshooting.md) or contact our technical support.
-

@@ -6,6 +6,10 @@ description: Functions for accessing the topology.
 
 # Script API: Topology
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Function `query`
 
 Query the topology at any point in time. Builder methods available for extracting components, relations and comparing topological queries.

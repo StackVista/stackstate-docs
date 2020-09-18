@@ -5,6 +5,10 @@ kind: documentation
 
 # Splunk
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Splunk StackPack?
 
 The Splunk StackPack synchronizes topology, events and metrics from Splunk to StackState.
@@ -55,4 +59,3 @@ See [Splunk Events integration](splunk_event.md) for more information.
 ### Synchronizing Splunk metrics
 
 See [Splunk Metrics integration](splunk_metric.md) for more information.
-

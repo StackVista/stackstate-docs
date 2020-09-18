@@ -6,6 +6,10 @@ description: Tutorials to get started extending StackState.
 
 # Tutorials
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState is an open platform that can be extended to work with any other IT system in your landscape.
 
 Choose from one of the available tutorials below to get started.
@@ -29,4 +33,3 @@ A mirror integration is a good fit if you want to retrieve telemetry data from a
 * send the data in a standard format to StackState where it can be mapped to a component
 
 This [mirror integration tutorial](mirror_tutorial.md) will show you how it works.
-

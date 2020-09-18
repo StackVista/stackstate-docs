@@ -7,6 +7,10 @@ aliases:
 
 # Wildcard search in Logz.io
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState provides ability to make Logz.io and Elasticsearch wildcard search operations. This approach introduces the **Support Wildcards in values** switch in the Telemetry Sources page for Logz.io.
 
 ### Optional Prerequisites:
