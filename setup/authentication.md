@@ -21,7 +21,7 @@ StackState ships with the default user roles **guest** and **administrator**:
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-It is also possible to add more roles, see the [Roles (RBAC)](../configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](../configure.md)
+It is also possible to add more roles, see the [Roles \(RBAC\)](../configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/configure.md)
 
 ## Default username and password
 
@@ -257,3 +257,4 @@ authentication {
 
     }
 ```
+

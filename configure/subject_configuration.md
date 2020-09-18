@@ -7,7 +7,7 @@ kind: Documentation
 
 ## Link your existing LDAP to StackState RBAC
 
-StackState authentication is configured in a [config file](authentication.md) that contains already predefined roles for the Guest user \(very limited permission level\) and the Admin user \(full permission level\). To change the configuration to use LDAP authentication, check out this document: [How to configure LDAP authentication](how_to_configure_ldap_authentication.md).
+StackState authentication is configured in a [config file](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/configure/authentication.md) that contains already predefined roles for the Guest user \(very limited permission level\) and the Admin user \(full permission level\). To change the configuration to use LDAP authentication, check out this document: [How to configure LDAP authentication](how_to_configure_ldap_authentication.md).
 
 ## How to make a new user, or a group, with scopes?
 
@@ -30,3 +30,4 @@ sts subject save stackstateManager 'label = "StackState" AND type = "Business Ap
 Please note that when passing a STQL query in a CLI command, all operators\( like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
 
 Please note that if you are using LDAP authentication, then the subject needs to be provided with a name that exactly matches the username or a group name that is configured in LDAP, as it is case sensitive.
+

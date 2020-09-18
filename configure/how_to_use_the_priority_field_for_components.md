@@ -13,7 +13,7 @@ The Priority field allows for ordering component's Telemetry streams in the righ
 
 Locate the component that you want to edit Telemetry streams for. Click on the component to open the component's properties pane - see screenshot below:
 
-![component telemetry](../.gitbook/assets/4.1/component_telemetry.png)
+![component telemetry](../.gitbook/assets/component_telemetry.png)
 
 Here you can access the Component properties, Health status, and Telemetry Streams.
 
@@ -21,7 +21,7 @@ Here you can access the Component properties, Health status, and Telemetry Strea
 
 Components can have multiple Telemetry streams. They are presented in a column, so not all of them are visible at first. Let's say that instead of `BytesReceivedRate`, you want to see `PacketsReceivedRate` right after the `basic_health` stream. Click on the kebab menu in the upper right corner of the `basic_health` stream and choose the **Edit** option:
 
-![Edit telemetry stream](../.gitbook/assets/4.1/telstream_edit.png)
+![Edit telemetry stream](../.gitbook/assets/telstream_edit.png)
 
 ## 3. Set priorities for selected streams
 
@@ -34,3 +34,4 @@ Now navigate to the `PacketsReceivedRate` stream and open the stream editing scr
 ![Edit packetsReceiveRate](../.gitbook/assets/edit_medium.png)
 
 All streams have their priority set to `None` by default, so the `PacketsReceivedRate` stream is presented above them, and below the `basic_health` stream, which is set to `High` priority.
+

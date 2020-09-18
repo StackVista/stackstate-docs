@@ -258,3 +258,4 @@ total 1043088
 ### Default log pattern
 
 StackState builds log files using the following default log pattern: `"%date [%thread] %-5level %logger{60} - %msg%n"`
+

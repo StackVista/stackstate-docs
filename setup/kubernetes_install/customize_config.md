@@ -1,4 +1,4 @@
-# Customize configuration
+# Override default configuration
 
 A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it is possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
@@ -60,3 +60,4 @@ For the StackState `server` service, environment variables will override [custom
 
 * Full details on the naming of all the different services can be found in the in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
 * Find more details on [customizing authentication](../authentication.md).
+

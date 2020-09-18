@@ -1,8 +1,11 @@
+# Linux install
+
 {% hint style="info" %}
-StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+StackState prefers Kubernetes!  
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
 {% endhint %}
 
-StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../Kubernetes_install/).
+StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/Kubernetes_install/README.md).
 
 ## Choosing your installation type
 
@@ -14,11 +17,11 @@ Before setting up StackState, you need to choose whether you want to run StackSt
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet the StackState [installation requirements](requirements.md).
+Before starting the installation, ensure your system\(s\) meet the StackState [installation requirements](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/linux_install/requirements.md).
 
 ## Packages
 
-There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](../download.md).
+There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/download.md).
 
 ## Installation
 
@@ -41,3 +44,4 @@ StackState also supports authentication against a KeyCloak OIDC Authentication s
 ## Troubleshooting
 
 If you have any issues installing StackState, refer to our [troubleshooting guide](../troubleshooting.md) or contact our technical support.
+

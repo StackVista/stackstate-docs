@@ -16,6 +16,7 @@ sts graph export
 sts graph export > export.stj
 ```
 {% endtab %}
+
 {% tab title="curl" %}
 ```text
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
@@ -25,8 +26,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 {% endtab %}
 {% endtabs %}
 
-
-### Export configuration with authentication (curl)
+### Export configuration with authentication \(curl\)
 
 StackState server can be configured to authenticate users when they access the application. In this case, an export curl script is required to first obtain a token before making the export request. This is not necessary when using the StackState CLI as authentication details are configured during installation.
 
@@ -66,6 +66,7 @@ To clear the StackState configuration and import from a file:
 sts graph import < export.stj
 ```
 {% endtab %}
+
 {% tab title="curl" %}
 ```text
 ## Clear StackState configuration
@@ -177,3 +178,4 @@ The table below displays configuration export versions version and on which Stac
 | Configuration Export version | Introduced on StackState version |
 | :--- | :--- |
 | 1.0.0 | 1.14.0 |
+
