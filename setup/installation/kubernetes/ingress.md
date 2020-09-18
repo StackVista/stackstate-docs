@@ -3,13 +3,16 @@ title: Install StackState
 kind: Documentation
 ---
 
-# Installing StackState
+# Configuring Ingress
+
+## Installing StackState
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-# Configuring Ingress
+## Configuring Ingress
 
 The StackState Helm chart exposes an `ingress` section in its values. By default ingress is disabled.
 

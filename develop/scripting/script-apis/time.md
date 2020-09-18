@@ -7,7 +7,8 @@ description: Functions related to time and timing.
 # Script API: Time
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Some scripting functions of StackState may accept an `Instant` or `Duration` parameter, representing both a point in time and a range of time.

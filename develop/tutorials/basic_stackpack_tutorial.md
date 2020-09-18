@@ -3,23 +3,26 @@ title: Prepare a multi-instance provisioning script
 kind: Documentation
 ---
 
-# Preparing a multi-instance provisioning script
+# Basic StackPack tutorial
+
+## Preparing a multi-instance provisioning script
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-# Basic StackPack tutorial
+## Basic StackPack tutorial
 
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../integrations/introduction.md) for more information.
 
-## Setup
+### Setup
 
 [This repository](https://github.com/mpvvliet/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
 The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
 
-## What's in the StackPack?
+### What's in the StackPack?
 
 The tutorial StackPack is fairly basic. It contains configuration information that configure StackState to receive a specific data format and turn this into topology.
 
@@ -33,7 +36,7 @@ Specifically, the StackPack contains:
 
 Take a moment to locate these files in the `src/main/stackpack` folder of the project.
 
-## Building the StackPack
+### Building the StackPack
 
 The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the root of the sample repository using the command:
 
@@ -41,7 +44,7 @@ The first step is to build the StackPack into a binary file with extension `.sts
 zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources
 ```
 
-## Importing the StackPack
+### Importing the StackPack
 
 The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/cli.md). Please make sure it is installed and configured to connect with your StackState instance.
 
@@ -57,7 +60,7 @@ The StackState CLI requires a `conf.d` configuration folder in the directory it 
 
 We are now ready to install our tutorial StackPack.
 
-## Installing the StackPack
+### Installing the StackPack
 
 Open the StackState application in your browser and log in. Navigate to the **StackPacks** page that lists all available StackPacks. You should see our Tutorial StackPack in the list of StackPacks.
 
@@ -77,7 +80,7 @@ The JSON and `curl` command shown in StackState contain data fields specific to 
 
 When the StackPack has received your data, it will show a message indicating success and allowing you to explore your data.
 
-## Seeing the topology in StackState
+### Seeing the topology in StackState
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
@@ -87,7 +90,7 @@ Note that the components you see are constructed from the JSON data you sent in.
 
 Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
 
-## Making a change to the StackPack
+### Making a change to the StackPack
 
 Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
 
@@ -136,7 +139,7 @@ Use the **Preview** button to see what the resulting component will look like.
 
 Go ahead and save the template. Be aware that you may need to [_unlock_](../../integrations/introduction.md#stackpack-configuration-locking) it before this succeeds.
 
-## Exporting the changed template
+### Exporting the changed template
 
 Now we are going to export the changed component template so we can include it in our StackPack.
 
@@ -144,7 +147,7 @@ Navigate to the **Settings** page and find the **Topology Synchronization** sect
 
 Locate the tutorial StackPack template \(`tutorial-tutorial://tutorial-1-component-template`\) among the templates. Check the checkbox in front of the template and use the **Export Component Template Function** button to export it.
 
-## Updating the StackPack
+### Updating the StackPack
 
 The exported component template will replace the `tutorial-component-template.json.handlebars`file in your StackPack. The export has a different structure than the file in our StackPack so we need to edit the file before updating the original. Specifically, the file in our StackPack contains only the `handlebarsTemplate` property in the export.
 
@@ -222,7 +225,7 @@ If you want to change the Groovy scripts, beware that the Groovy script files co
 The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON
 {% endhint %}
 
-## Building a new version of the StackPack
+### Building a new version of the StackPack
 
 We are going to build a new version of our StackPack with our changed template.
 
@@ -232,7 +235,7 @@ zip -r ./stackpack-0.0.2.sts stackpack.conf provisioning resources
 
 This should produce a `0.0.2` version of the StackPack. Upload the StackPack to StackState using the CLI.
 
-## Upgrading the StackPack
+### Upgrading the StackPack
 
 Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
@@ -258,7 +261,7 @@ If you navigate to your **myDummyApp** component, you should now see the stream 
 
 ![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.38.01.png)
 
-## Cleaning your StackState instance
+### Cleaning your StackState instance
 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 

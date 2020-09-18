@@ -6,7 +6,8 @@ kind: Documentation
 # Topology sources
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Topology Sources are configured in Sts Sources under Topology Sources in the Settings page. These sources are used to get data from the Kafka bus, which receives the data from the StackState topology API.

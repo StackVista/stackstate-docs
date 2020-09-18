@@ -6,7 +6,8 @@ kind: Documentation
 # Secrets management
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This document presents the concept of how secrets are managed in StackState using Agent V2 StackPack. You can find more detailed information on how to set up a security backend for [Linux](how_to_set_up_a_security_backend_for_windows.md) or [Windows](how_to_set_up_a_security_backend_for_linux.md).

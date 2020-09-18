@@ -6,7 +6,8 @@ kind: Documentation
 # Getting Started
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Hi! So, you've just installed StackState and you are ready to get started.
@@ -82,3 +83,4 @@ To show all activity/events for the selected Topology, head to the breadcrumbs a
 However, the Activity Perspective is not the only place you can find events; you can find up to 5 latest events in the Activity section of the right-hand pane that presents information about the selected Topology View.
 
 ![Activity section](.gitbook/assets/activity_section.png)
+

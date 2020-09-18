@@ -6,7 +6,8 @@ kind: Documentation
 # Manual topology backup
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This page describes the process of exporting and importing manual topology data, i.e. components and relations that are not synchronized via StackPacks.

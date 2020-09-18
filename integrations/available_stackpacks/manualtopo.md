@@ -6,7 +6,8 @@ kind: documentation
 # Manual Topology
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## What is the Manual Topology StackPack?
@@ -18,3 +19,4 @@ The Manual Topology StackPack contains everything you need to manually create to
 ## Next steps
 
 Read up on [how to create manual topology](../../configure/how_to_create_manual_topology.md).
+

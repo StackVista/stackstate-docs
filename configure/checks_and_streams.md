@@ -8,7 +8,8 @@ aliases:
 # Checks and Streams
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Checks are the mechanisms through which components and relations get a health state. A check needs data in order to determine a state. This data is supplied via data streams.

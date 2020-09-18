@@ -10,7 +10,8 @@ description: >-
 # Creating a topology manually
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 StackState automatically creates a topology based on real-time data sources. _There is typically no need to create a topology manually_. There may be a few exceptions:
@@ -34,7 +35,7 @@ When all required information is provided for the component type, click CREATE, 
 
 |  |  |
 | :---: | :---: |
-| ![Component Types list](../.gitbook/assets/plus_list.png) | ![New component](../.gitbook/assets/new_component.png) |
+| ![Component Types list](../.gitbook/assets/plus_list.png) | ![New component](../.gitbook/assets/new_component%20%281%29.png) |
 
 ## How to create relations between components
 

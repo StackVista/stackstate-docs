@@ -5,7 +5,8 @@ description: Installing StackState.
 # Installation
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Choosing your installation type
@@ -47,3 +48,4 @@ StackState also supports authentication against a KeyCloak OIDC Authentication s
 ## Troubleshooting
 
 If you have any issues installing StackState, refer to our [troubleshooting guide](troubleshooting.md) or contact our technical support.
+

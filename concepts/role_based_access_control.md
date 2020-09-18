@@ -6,7 +6,8 @@ kind: Documentation
 # Role-based Access Control
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Role Based Access Control \(RBAC\) is a critical function for any Managed Service Provider \(MSP\) organization, but its use is not limited to MSPs. Access Management helps you manage who has access to the specific topology elements, UI elements, and which APIs they can call.
@@ -32,3 +33,4 @@ A role in StackState is a combination of a [configured subject](../configure/sub
 * [Subject Configuration](../configure/subject_configuration.md)
 * [How to configure LDAP authentication](../configure/how_to_configure_ldap_authentication.md)
 * [How to set up roles](../configure/how_to_set_up_roles.md)
+

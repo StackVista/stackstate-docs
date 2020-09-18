@@ -6,7 +6,8 @@ kind: Documentation
 # Identifiers
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This page explains the reasoning behind introducing enforced identifier convention and provides guidelines on how to use Identifiers in the configuration of StackState.

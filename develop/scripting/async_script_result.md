@@ -6,7 +6,8 @@ kind: Documentation
 # Async script result
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises in Javascript work.
@@ -77,3 +78,4 @@ ScriptApi.asyncFn1().catchError { ex ->
 ```
 
 Any result returned by the closure passed to `catchError` gets automatically flattened just like `.then` call.
+

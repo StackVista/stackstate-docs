@@ -6,7 +6,8 @@ kind: Documentation
 # Installing StackState in a production configuration
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Requirements
@@ -15,7 +16,7 @@ Before starting the installation, ensure your system\(s\) meet StackState's prod
 
 ## Two-node deployment architecture
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](production-installation_pre1_15.md)\).
+**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/StackVista/stackstate-docs/tree/fb5d48fe72dfe02da5a2395a6a8645010a0c4a05/setup/installation/production-installation_pre1_15.md)\).
 
 The StackState production environment requires two nodes a StackGraph and a StackState node.
 

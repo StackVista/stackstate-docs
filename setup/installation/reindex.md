@@ -6,7 +6,8 @@ kind: Documentation
 # Reindexing StackState
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 StackState depends on a data model. When data model changes for any reason \(e.g., upgrade to a new version\) there is a need to run a reindexing process.

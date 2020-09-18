@@ -9,7 +9,8 @@ listorder: 3
 # Adding telemetry to synchronized topology
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -20,7 +21,7 @@ When you have synchronized topology, every component/relation is synchronized vi
 
 In the view, select a component that you'd like to add telemetry to. This opens a component pane on the right side of the screen, where next to the component you'll find a menu with options to edit the component. Click on Edit template.
 
-![](../.gitbook/assets/edit_template.png)
+![](../.gitbook/assets/edit_template%20%281%29.png)
 
 After selecting the edit template option from the menu, the template editing UI appears
 

@@ -10,7 +10,8 @@ description: Alert when issues occur.
 # Alerting
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
@@ -77,5 +78,5 @@ Health state changes of components and relations are events that can be handled 
 8. One of the arguments is the event type to which the event handler will react. All state change events except the view state changes are caused by check functions. The view state changes are caused by the view health state configuration.
 9. Click `Create` to create the event handler. The event handler is now active and visible under the "event handlers" section. It will alert on the next event it is configured to react to.
 
-![Event handlers](../.gitbook/assets/event_handlers_tab.png)
+![Event handlers](../.gitbook/assets/event_handlers_tab%20%281%29.png)
 

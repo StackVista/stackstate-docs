@@ -6,7 +6,8 @@ kind: Documentation
 # How to get a template file
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Export the StackState configuration
@@ -26,3 +27,4 @@ A `.stj` file contains a number of configuration nodes. Each of the configuratio
   * For StackPacks that can have multiple instances, the identifier has a slightly different pattern: `urn:stackpack:{stackpack_name}:instance:{{instanceId}}:{type_name}:{object_name}` where `{{instanceId}}` is uniquely generated for every instance of the StackPack.
 
 The only way to add/modify the identifiers is the manual edit of the configuration file. This option is available through the UI.
+

@@ -6,7 +6,8 @@ kind: Documentation
 # How to configure LDAP authentication
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 StackState is built to work with one of two authentication configurations: a file-based authentication, and LDAP. This document explains how to configure LDAP authentication.

@@ -7,7 +7,8 @@ description: >-
 # StackState Scripting Language \(STSL\)
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 StackState uses scripting in many places to:
@@ -36,3 +37,4 @@ All StackState functionality exposed via scripting is available via so-called sc
 ## Asynchronous programming
 
 Most available functions on the script APIs can not immediately produce a result, but need some time to return. For efficiency reasons StackState will then suspend script execution and continue other work on other background threads. When a function has a async return value you the word `async` is written before the return type in the documentation. This has implications for how to work with StackState results. Please [read about async script results](async_script_result.md) to understand how this work.
+

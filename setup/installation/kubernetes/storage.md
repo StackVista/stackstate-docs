@@ -3,15 +3,18 @@ title: Install StackState
 kind: Documentation
 ---
 
-# Installing StackState
-
-{% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 # Configuring storage
 
-## Storage defaults
+## Installing StackState
+
+{% hint style="warning" %}
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
+## Configuring storage
+
+### Storage defaults
 
 StackState doesn't specify a specific storage class on its PVC's \(persistent volume claims\) by default, for cloud providers like EKS and AKS this means the default storage class will be used.
 
@@ -19,7 +22,7 @@ The defaults for those storage classes are typically to delete the PV \(persiste
 
 To remove the PVC's either remove them manually with `kubectl delete pvc` or delete the entire namespace.
 
-## Customizing
+### Customizing
 
 The `storageClass` and `size` for the different volumes can be customized. The [`micro_test_values.yaml`](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate/installation/examples/micro_test_values.yaml.yaml) is an example of how to customize the `size` of the volumes. The `storageClass` can be added in a similar fashion.
 

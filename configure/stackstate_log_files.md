@@ -6,7 +6,8 @@ kind: documentation
 # StackState log files
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation logs are kept in the `var/log` directory on each node; logs are node-specific, which means that StackState node keeps StackState related logs, and StackGraph node keeps logs related to StackGraph.

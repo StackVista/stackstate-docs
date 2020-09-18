@@ -5,7 +5,8 @@ description: How to configure anomaly detection with baselines.
 # Anomaly Detection with Baselines
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Baselines are a way to detect anomalies in metric streams. Generally speaking, an anomaly is detected when a metric stream exceeds its baseline boundaries. A baseline consists of a lower and upper boundary. It forms a band that the metric, under normal conditions, is expected to remain inside of. Baselines are initially derived from historical data, but continuously update as new data flows in. Thus when an anomaly occurs, the baseline gradually updates to take the anomaly into account.
@@ -42,7 +43,7 @@ Below the horizontal line you can run a preview of the baseline, so you may tune
 
 ## Baseline functions
 
-Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/scripting/). By default the following baseline functions are supplied:
+Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](../develop/scripting/). By default the following baseline functions are supplied:
 
 ### Function: Stationary Auto-Tuned Baseline
 
@@ -138,3 +139,4 @@ Once you've added the check function it may take 5 or more minutes \(dependent o
 {% endhint %}
 
 Alerting on checks based on baseline metric streams works exactly the same as with other checks.
+

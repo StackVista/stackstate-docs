@@ -6,7 +6,8 @@ kind: Documentation
 # Preparing instance template files
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 When preparing an instance specific template file, please keep in mind that you will use some of the identifiers that point to the shared template file. It is highly recommended to [prepare your shared template first](prepare_shared_template.md).

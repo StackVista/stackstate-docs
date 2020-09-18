@@ -6,7 +6,8 @@ kind: Documentation
 # Installing StackState
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Before you start
@@ -15,7 +16,7 @@ Before starting the installation, make sure you make a choice whether to make a 
 
 ## Installing
 
-**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](installing_pre1_15.md)\).
+**NOTE**: Installing StackState on versions older than 1.15.0 requires an alternative procedure, see \([Installing before 1.15.0](https://github.com/StackVista/stackstate-docs/tree/fb5d48fe72dfe02da5a2395a6a8645010a0c4a05/setup/installation/installing_pre1_15.md)\).
 
 ### Install using the RPM distribution
 

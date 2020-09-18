@@ -3,17 +3,20 @@ title: Install StackState
 kind: Documentation
 ---
 
-# Installing StackState
+# StackState images
+
+## Installing StackState
 
 {% hint style="warning" %}
-This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+This page describes StackState version 4.0.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-# StackState images
+## StackState images
 
 This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.
 
-## Serving the images from a different image registry
+### Serving the images from a different image registry
 
 Pulling the images from the different image registries can take some time when pod are started, either when the application starts for the first time or when it is being scaled to a new node. Also, if one of those registries is not accessible, the pods won't start.
 
@@ -35,7 +38,7 @@ To address this issue, you can copy all the images to a single registry, close t
     imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
    ```
 
-## Configuration
+### Configuration
 
 | Chart | Component | Image | Value for registry | Value for repository | Value for tag |
 | :--- | :--- | :--- | :--- | :--- | :--- |
