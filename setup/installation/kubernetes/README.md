@@ -2,6 +2,10 @@
 
 ## Requirements
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState can be installed on a Kubernetes cluster via Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.15.x \(tested on Amazon EKS and Azure AKS\) and Helm 3.
 
 For a list of all docker images used see the [image overview](image_configuration.md).
@@ -177,4 +181,3 @@ stackstate/stackstate
 ```
 
 _WARNING:_ Both the test and micro test deployment are not suitable for bigger workloads and are not supported for production usage.
-

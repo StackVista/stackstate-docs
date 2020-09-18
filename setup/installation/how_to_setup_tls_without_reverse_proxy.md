@@ -5,6 +5,10 @@ kind: Documentation
 
 # Configuring TLS without reverse proxy
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This document provides the steps to set up TLS on StackState application side with no reverse proxy configured.
 
 ## Prerequisites

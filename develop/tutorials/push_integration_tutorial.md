@@ -1,3 +1,14 @@
+---
+title: Prepare a multi-instance provisioning script
+kind: Documentation
+---
+
+# Preparing a multi-instance provisioning script
+
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 # Push-integration tutorial
 
 This tutorial shows you how to create push-based integrations for StackState.

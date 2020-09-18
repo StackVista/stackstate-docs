@@ -4,6 +4,10 @@ description: Track changes in your IT landscape.
 
 # Event Perspective
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The Event Perspective shows events and changes for the components in your [view](../views.md).
 
 ## Events

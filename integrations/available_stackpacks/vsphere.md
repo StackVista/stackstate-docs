@@ -5,6 +5,10 @@ kind: documentation
 
 # VMWare vSphere
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the VMWare vSphere StackPack?
 
 The VMware vSphere StackPack is used to create a near real-time synchronization with VMware vSphere.

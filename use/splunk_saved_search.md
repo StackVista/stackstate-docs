@@ -7,6 +7,10 @@ aliases:
 
 # Splunk saved search
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 StackState provides ability to call Splunk saved searches from the StackState Splunk plugin. This approach replaces index lookup by saved search, and takes data from a Splunk saved search instead.
 
 ### Optional Prerequisites:

@@ -5,6 +5,10 @@ kind: Documentation
 
 # Configuring authentication
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
 
 * [LDAP](authentication.md#configuring-the-ldap-authentication-server)

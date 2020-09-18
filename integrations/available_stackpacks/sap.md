@@ -5,6 +5,10 @@ kind: documentation
 
 # SAP
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the SAP StackPack?
 
 The SAP StackPack is used to create a near real time synchronization with your SAP system and also pulls the metrics from it. The components supported are:

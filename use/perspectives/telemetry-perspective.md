@@ -4,6 +4,10 @@ description: See metrics of the components in your IT landscape.
 
 # Telemetry Perspective
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The Telemetry Perspective shows telemetry streams for your [view](../views.md) and provides an automatic dashboard. Instead of pre-defining which streams you want to see, StackState automatically delivers all the relevant information for any part of your landscape.
 
 ## Telemetry and Components

@@ -5,6 +5,10 @@ kind: documentation
 
 # Custom Synchronization
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Custom Synchronization StackPack?
 
 The Custom Synchronization StackPack contains everything you need to automatically synchronize topology information from an external topology source.

@@ -5,6 +5,10 @@ kind: Documentation
 
 # Installing StackState
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Before you start
 
 Before starting the installation, make sure you make a choice whether to make a [development](development-installation.md) or [production](production-installation.md) setup, and make sure you have machines available that match our [requirements](requirements.md).

@@ -8,6 +8,10 @@ listorder: 2
 
 # Advanced topology queries with STQL
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The topology in StackState is likely much bigger than what you care about at any given time. StackState allows you to filter the topology to locate the part of the topology you are interested in.
 
 If you want full control over your topology selection, you can use advanced topology selection. Advanced topology selection is used via the _advanced filter bar_, accessed by selecting _Advanced_ on the basic filter panel. The advanced filter bar allows you to select topology using StackState's built-in query language.

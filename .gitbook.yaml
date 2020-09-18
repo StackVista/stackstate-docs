@@ -1,4 +1,7 @@
 
 redirects:
-	develop/creating_stackpacks/: ./develop/stackpack/README.md
-
+  develop/creating_stackpacks/: ./develop/stackpack/README.md
+  setup/installation/production-installation_pre1_15: ./setup/upgrading.md
+  setup/installation/installing_pre1_15: ./setup/upgrading.md
+  setup/installation/installing_pre1_14_5: ./setup/upgrading.md
+  setup/installation/development-installation_pre1_15: ./setup/upgrading.md

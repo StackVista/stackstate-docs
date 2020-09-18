@@ -1,3 +1,14 @@
+---
+title: Synchronizations and templated files
+kind: Documentation
+---
+
+# Synchronizations and templated files
+
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 # Integrations and the StackPack SDK
 
 StackState was specifically designed to integrate third-party data sources into a single real-time and time-traveling data model. This allows StackState users and StackState's AI to operate on the entire environment, independent of where the data originates from.

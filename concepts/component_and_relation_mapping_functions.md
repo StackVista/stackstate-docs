@@ -5,6 +5,10 @@ kind: Documentation
 
 # Mapping functions
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Mapping Function is defined by a groovy script and input parameters that groovy script requires. The goal of Mapping Function is to process topology data of the external system and prepare parameters for the template function.
 
 ![Mapping function](../.gitbook/assets/mapping_function.png)

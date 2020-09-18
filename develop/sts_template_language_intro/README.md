@@ -6,6 +6,10 @@ description: All configuration of StackState is described using StackState Templ
 
 # StackState Template Json \(STJ\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.0.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Templates are used to convert raw synchronization data to components. Templates are defined in JSON extended with support for parameters, loops and conditions.
 
 ## Handlebars syntax
@@ -36,4 +40,3 @@ StackState extends on that concept and allows to include different types of cont
 ## Component and Relation templates
 
 Please find more information on the [Component and Relation templates page.](../../concepts/components_and_relations.md)
-
