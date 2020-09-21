@@ -37,7 +37,7 @@ Hover over any component to bring up the component navigation menu. Select Quick
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-![Quick Actions](../../.gitbook/assets/quick_actions%20%281%29.png)
+![Quick Actions](../../.gitbook/assets/v41_quick_actions.png)
 
 You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
@@ -92,4 +92,3 @@ It is possible that your view can contain components that have a deviating propa
 The components in the topology visualization can also be shown in a list instead of a graph:
 
 ![Filtering\(list format\)](../../.gitbook/assets/basic_filtering_list.png)
-
