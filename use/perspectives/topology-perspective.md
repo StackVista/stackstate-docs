@@ -37,7 +37,7 @@ Hover over any component to bring up the component navigation menu. Select Quick
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-![Quick Actions](../../.gitbook/assets/v41_quick_actions.png)
+![Quick Actions](../../.gitbook/assets/v41_quick-actions.png)
 
 You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
