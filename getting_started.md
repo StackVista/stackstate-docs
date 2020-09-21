@@ -80,4 +80,4 @@ To show all events for the selected Topology, select the Events perspective from
 
 The Events perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
 
-![Events section](.gitbook/assets/ve41_events-section.png)
+![Events section](.gitbook/assets/v41_events-section.png)
