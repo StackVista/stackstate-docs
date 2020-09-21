@@ -88,4 +88,4 @@ When using the Traces Perspective in live mode, you are constantly polling for t
 
 To avoid this, time will effectively be "paused" when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click the blue ribbon on top or in the timeline itself to resume live mode:
 
-![Pausing time when inspecting a trace](../../.gitbook/assets/trace-inspection%20%282%29.png)
+![Pausing time when inspecting a trace](../../.gitbook/assets/trace-inspection.png)
