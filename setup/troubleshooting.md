@@ -26,6 +26,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
    ```
 
 3. [Check the logs](../configure/stackstate_log_files.md) for errors.
+
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).
 {% endtab %}
 
@@ -39,6 +40,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 2. Check connection to StackState's user interface, default listening on TCP port 7070.
 3. Check log files for errors, located at `/opt/stackstate/var/log/`
+
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).
 {% endtab %}
 {% endtabs %}
