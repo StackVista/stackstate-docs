@@ -1,3 +1,7 @@
+---
+description: StackState version 4.0
+---
+
 # Welcome to the StackState Docs!
 
 {% hint style="warning" %}
