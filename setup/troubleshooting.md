@@ -5,9 +5,7 @@ kind: Documentation
 
 # Troubleshooting
 
-## Starting StackState
-
-### Quick troubleshooting guide
+## Quick troubleshooting guide
 
 Here is a quick guide for troubleshooting the startup of StackState on Kubernetes and Linux:
 
