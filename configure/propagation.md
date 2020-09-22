@@ -6,11 +6,11 @@ Propagation defines how a propagated state flows from one component to the next.
 
 By default, the propagation for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
 
-| Component state | Dependency state | Propagated state |
+| Dependency state | Component state | Propagated state |
 |:---|:---|:---|
-| DEVIATING | CRITICAL | CRITICAL |
-| CRITICAL | CLEAR | CRITICAL |
-| CLEAR | DEVIATING | DEVIATING |
+| CRITICAL | DEVIATING | CRITICAL |
+| CLEAR | CRITICAL | CRITICAL |
+| DEVIATING | CLEAR | DEVIATING |
 
 You can select different propagation methods for a component or relation in its **edit dialogue**:
 - **Cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
