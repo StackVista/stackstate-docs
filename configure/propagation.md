@@ -21,7 +21,7 @@ By default, the propagation method for components and relations is set to transp
 | CLEAR | CRITICAL | CRITICAL |
 | DEVIATING | CLEAR | DEVIATING |
 
-## Edit the propagation method
+## Set the propagation method
 
 In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own custom propagation functions. The desired propagation function to use for a component or relation can be set in its edit dialogue.
 
@@ -31,13 +31,13 @@ For example:
 
 **Cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
 
-## Create a custom propagation functions
+## Custom propagation functions
 
 It is possible to write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
 
 ![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
 
-### parameters
+### Parameters
 
 The propagation function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script:
 
