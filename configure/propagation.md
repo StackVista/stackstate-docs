@@ -2,7 +2,7 @@
 
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
-A propagated state is returned one of the following health states:
+A propagated state is returned as one of the following health states:
 
 * `UNKNOWN`
 * `DEVIATING`
@@ -39,7 +39,7 @@ It is possible to write your own custom propagation functions to determine the n
 
 Propagation functions can be run as either async (default) or synchronous.
 
-* With Async set to **On** you will be run as [async](#async-propagation-functions)
+* With Async set to **On** the function will be run as [async](#async-propagation-functions)
 
 * With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions).
 
