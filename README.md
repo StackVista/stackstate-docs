@@ -1,3 +1,7 @@
+---
+description: StackState version 4.0
+---
+
 # Welcome to the StackState Docs!
 
 {% hint style="warning" %}
@@ -87,12 +91,18 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
   </tbody>
 </table>
 
-## **Can't find what you are looking for?**
+## Can't find what you are looking for?
 
 **Search for it!** Use the search bar on the top right.  
 If you any documentation is missing, please let us know via our support site:
 
+## Other StackState versions
+
+You are currently reading the documentation for **StackState version 4.0**.
+
+Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](setup/upgrading.md).
+
+
 ## **Support Site**
 
 Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/).
-
