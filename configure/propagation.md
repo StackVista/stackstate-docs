@@ -37,6 +37,12 @@ It is possible to write your own custom propagation functions to determine the n
 
 ![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
 
+Propagation functions can be run as either async (default) or synchronous.
+
+* With Async set to **On** you will be run as [async](#async-propagation-functions)
+
+* With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions).
+
 ### Parameters
 
 The propagation function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script:
@@ -45,15 +51,7 @@ The propagation function script takes system and user defined parameters. System
 * `component` - the id of the current component
 
 
-### Async and synchronous functions
-
-Propagation functions can be run as either async (default) or synchronous.
-
-* With Async set to **On** you will be run as [async](#async-propagation-functions)
-
-* With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions).
-
-#### Async propagation functions
+### Async propagation functions
 
 Running as an async function will all you to make an HTTP request. This allows you to use [StackState script APIs](../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation.
 
@@ -61,7 +59,7 @@ Running as an async function will all you to make an HTTP request. This allows y
 The async script APIs provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. Consider extreme cases where the propagation function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
-#### Synchronous propagation functions
+### Synchronous propagation functions
 
 Running the function as synchronous places limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel, but allows access to `stateChangesRepository` information.
 
