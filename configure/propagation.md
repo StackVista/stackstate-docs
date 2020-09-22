@@ -2,11 +2,19 @@
 
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
+A propagated state is returned one of the following health states:
+
+* `UNKNOWN`
+* `DEVIATING`
+* `FLAPPING`
+* `CRITICAL`
+* `CLEAR`
+
 # Propagation method
 
-## Transparent propagation
+## Transparent propagation (default)
 
-By default, the propagation for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
+By default, the propagation method for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
 
 | Dependency state | Component state | Propagated state |
 |:---|:---|:---|
@@ -14,7 +22,7 @@ By default, the propagation for components and relations is set to transparent p
 | CLEAR | CRITICAL | CRITICAL |
 | DEVIATING | CLEAR | DEVIATING |
 
-## Other propagation methods
+## Edit the propagation method
 
 In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own custom propagation functions. The desired propagation function to use for a component or relation can be set in its edit dialogue.
 
@@ -24,45 +32,51 @@ For example:
 
 - **Cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
 
-## Custom propagation functions
+## Create a custom propagation functions
 
-You can write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
+It is possible to write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
 
+![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
 
+### parameters
 
-The propagation function can be defined using two styles:
-
-* The new style. Such a function can use `async` script apis in the function body.
-
-  It will be set to this style by default if a new propagation function is created in settings.
-
-* The old style. This is the function which uses old sync apis and limited in functionality. It exists for backward compatibility and on attempt to modify it the message below will be shown.
-
-  ```text
-  This propagation function is now deprecated and hence it is not editable. Any new propagation should use asynchronous API.
-  ```
-
-  It is not possible to modify an old function body. The user is expected to create a new one using new APIs.
-
-  More about the async vs sync differences can be found [here](../develop/functions.md)
-
-### The new style propagation function
-
-The async propagation function is written in StackState Scripting Language using wide set of script apis. Please check the [scripting](../develop/scripting/) page for the references of what functions can be used.
-
-The function script takes system and user defined parameters. The system parameters are predefined parameters passed automatically to the script:
+The propagation function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script:
 
 * `transparentState` - the precomputed transparent state if returned from the script will lead to transparent propagation
-* `componentId` - the id of the current component
+* `component` - the id of the current component
 
-A propagation function can return one of the following health states:
 
-* `UNKNOWN`
-* `DEVIATING`
-* `CRITICAL`
-* `CLEAR`
+### Async and synchronous functions
 
-  Warning! The async script apis provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. It is required to consider the extreme cases where the propagation function is executed on all components and properly assess system impact. StackState is coming with a number of stackpacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+Propagation functions can be run as either async (default) or synchronous.
+
+* With Async set to **On** you will be run as [async](#async-propagation-functions)
+
+* With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions).
+
+#### Async propagation functions
+
+Running as an async function will all you to make an HTTP request. This allows you to use [StackState script APIs](../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation.
+
+{% hint style="danger" %}
+The async script APIs provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. Consider extreme cases where the propagation function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+{% endhint %}
+
+#### Synchronous propagation functions
+
+Running the function as synchronous places limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel, but allows access to `stateChangesRepository` information.
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Example: 'Hello world' propagation function
 
