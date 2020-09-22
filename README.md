@@ -105,4 +105,6 @@ Use the version drop-down menu on the top left to find documentation for all cur
 
 ## **Support Site**
 
-Any question? We love to help !Find our support team on our [support site](http://support.stackstate.com/).
+Any question? We love to help!
+
+Find our support team on our [support site](http://support.stackstate.com/).
