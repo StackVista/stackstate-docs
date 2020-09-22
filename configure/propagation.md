@@ -2,6 +2,8 @@
 
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
+# Propagation method
+
 ## Transparent propagation
 
 By default, the propagation for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
@@ -12,13 +14,21 @@ By default, the propagation for components and relations is set to transparent p
 | CLEAR | CRITICAL | CRITICAL |
 | DEVIATING | CLEAR | DEVIATING |
 
-You can select different propagation methods for a component or relation in its **edit dialogue**:
+## Other propagation methods
+
+In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own custom propagation functions. The desired propagation function to use for a component or relation can be set in its edit dialogue.
+
+![Edit component propagation](../.gitbook/assets/v41_edit-component-propagation.png)
+
+For example:
+
 - **Cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
-- **...**
 
-## Propagation functions
+## Custom propagation functions
 
-A propagation function can take multiple parameters as input and produces a new propagated state as output. To determine the new propagated state of an element \(component or relation\) it has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
+You can write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
+
+
 
 The propagation function can be defined using two styles:
 
