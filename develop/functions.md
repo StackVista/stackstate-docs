@@ -1,6 +1,4 @@
 ---
-title: Functions
-kind: Documentation
 description: Extending StackState's capabilities using functions.
 ---
 
@@ -18,17 +16,26 @@ StackPacks pre-package functions and automatically install functions on StackSta
 
 ## Async vs sync functions
 
-Traditionally functions in StackState were written in a synchronous blocking manner. This limited the capability of what these functions can achieve and how many of these functions can be run in parallel. StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](scripting/). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
+Functions in StackState can be either synchronous or asynchronous (async).
 
-* Propagation functions \(since 1.15.1\)
+| Function | synchronous | async |
+|:---|:---:|:---:|
+| Propagation functions \(since 1.15.1\) | ✅| ✅ |
+| Check function | ✅ | - |
+| Baseline function | ✅ | - |
+| Event handler function | ✅ | - |
+| Id extractor function | ✅ | - |
+| Component mapper function | ✅ | - |
+| Relation mapper function | ✅ | - |
 
-The following functions do not support async mode:
+### Synchronous Functions
 
-* Check function
-* Baseline function
-* View state configuration function
-* Event handler function
-* Id extractor function
-* Component mapper function
-* Relation mapper function
+In StackState, functions are generally written in a synchronous blocking manner. This places some limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel.
 
+
+
+### Async Functions
+
+
+
+StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](scripting/). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
