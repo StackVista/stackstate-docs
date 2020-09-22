@@ -10,7 +10,6 @@ A propagated state is returned one of the following health states:
 * `CRITICAL`
 * `CLEAR`
 
-# Propagation method
 
 ## Transparent propagation (default)
 
@@ -30,7 +29,7 @@ In some situations transparent propagation is undesirable. Different propagation
 
 For example:
 
-- **Cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
+**Cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
 
 ## Create a custom propagation functions
 
