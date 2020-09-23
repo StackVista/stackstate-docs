@@ -18,14 +18,14 @@ StackPacks pre-package functions and automatically install functions on StackSta
 
 Functions in StackState can be either synchronous or asynchronous (async).
 
-| Function | Snchronous | Aasync |
+| Function | Synchronous | Async |
 |:---|:---:|:---:|
-| Propagation functions | ✅| ✅ \(from 1.15.1\) |
-| Check function | ✅ | - |
 | Baseline function | ✅ | - |
+| Check function | ✅ | - |
+| Component mapper function | ✅ | - |
 | Event handler function | ✅ | - |
 | Id extractor function | ✅ | - |
-| Component mapper function | ✅ | - |
+| Propagation functions | ✅| ✅ \(from v1.15.1\) |
 | Relation mapper function | ✅ | - |
 
 
@@ -33,8 +33,18 @@ Functions in StackState can be either synchronous or asynchronous (async).
 
 StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](scripting/). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
 
-Read more about [propagation functions](../configure/propagation.md).
+Read more about [propagation functions](../configure/propagation.md#custom-propagation-functions).
 
 ### Synchronous Functions
 
 In StackState, functions are generally written in a synchronous blocking manner. This places some limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel.
+
+Read more about:
+
+- [Baseline functions](../use/baselining.md#baseline-functions)
+- [Check functions](../configure/checks_and_streams.md#check-functions)
+- [Component mapper functions](../concepts/component_and_relation_mapping_functions.md)
+- [Event handlre functions](../use/alerting.md#alerting-using-event-handlers)
+- [Id extractor functions](../concepts/id_extraction.md)
+- [Propagation functions](../configure/propagation.md#custom-propagation-functions)
+- [Relation mapper functions](../concepts/component_and_relation_mapping_functions.md)
