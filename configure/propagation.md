@@ -79,9 +79,9 @@ A propagation function script takes system and user defined parameters. System p
 
 Propagation functions can be run as either async (default) or synchronous.
 
-* With Async set to **On** the function will be run as async.
+* With Async set to **On** the function will be run as [async](#async-propagation-functions-default).
 
-* With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions).
+* With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions-async-off).
 
 ### Async propagation functions (default)
 
@@ -98,19 +98,7 @@ Running a propagation function as synchronous places limitations on both the cap
 - The number of elements with a particular propagating state
 - The highest state of a given set of elements
 
-See [element functions](#element-functions).
-
-### The old style propagation function \(deprecated\)
-
-The old style function is written using sync apis. The function takes the following parameters:
-
-| Parameter | Description |
-| :--- | :--- |
-| element | reference to current component |
-| stateChangesRepository | the state change helper class, see the detailed methods below |
-| transparentState | the transparent state value |
-| log | script logger |
-
+See [available methods and properties](#available-methods-and-properties).
 
 ### Available methods and properties
 
@@ -129,7 +117,6 @@ Several `element` properties and functions are available for use in propagation 
 | `stateChangesRepository`<br />`.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` | The highest propagated health state based on the given set of elements. |
 | `stateChangesRepository.getState(element)`<br />`.getHealthState().intValue` | The health state of the element. |
 | `stateChangesRepository.getState(element)`<br />`.getPropagatedHealthState().getIntValue()` | The propagated health state of the element. |
-
 
 ### Logging
 
