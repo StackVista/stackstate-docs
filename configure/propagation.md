@@ -108,38 +108,13 @@ Several [element properties and methods](#element-properties-and-methods) are av
 
 The `element` properties and methods listed below can be used in async and synchronous propagation functions.
 
-```
-# Return the name of the current element
-element.name
-
-# Return type of the current element
-element.type
-
-# Return the component version (optional)
-element.version
-```
-
-```
-# Return True if element is a component
-# Return False if element is a relation
-element.isComponent()
-
-# For components: Return a set of the outgoing relations.
-# For relations: Return set of components.
-element.getDependencies()
-
-# Return the number of dependencies
-element.getDependencies().size()
-```
-
-
-- `element.name`<br />Returns the name of the current element.
-- `element.type`
-- `element.version`
-- `element.runState()`
-- `element.isComponent()`
-- `element.getDependencies()`
-- `element.getDependencies().size()`
+- `element.name` - Returns the name of the current element.
+- `element.type` - Returns type of the current element.
+- `element.version` - Returns the component version (optional).
+- `element.runState()` - Returns the run state of the current element.
+- `element.isComponent()` - Returns True if element is a component and False if element is a relation.
+- `element.getDependencies()` - Returns a set of the outgoing relations (for components) or a set of components (for relations).
+- `element.getDependencies().size()` - Returns the number of dependencies.
 
 
 #### StateChangesRepository methods
