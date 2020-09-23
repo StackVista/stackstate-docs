@@ -18,9 +18,9 @@ StackPacks pre-package functions and automatically install functions on StackSta
 
 Functions in StackState can be either synchronous or asynchronous (async).
 
-| Function | synchronous | async |
+| Function | Snchronous | Aasync |
 |:---|:---:|:---:|
-| Propagation functions \(since 1.15.1\) | ✅| ✅ |
+| Propagation functions | ✅| ✅ \(from 1.15.1\) |
 | Check function | ✅ | - |
 | Baseline function | ✅ | - |
 | Event handler function | ✅ | - |
@@ -28,14 +28,13 @@ Functions in StackState can be either synchronous or asynchronous (async).
 | Component mapper function | ✅ | - |
 | Relation mapper function | ✅ | - |
 
-### Synchronous Functions
-
-In StackState, functions are generally written in a synchronous blocking manner. This places some limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel.
-
-
 
 ### Async Functions
 
-
-
 StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](scripting/). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
+
+Read more about [propagation functions](../configure/propagation.md).
+
+### Synchronous Functions
+
+In StackState, functions are generally written in a synchronous blocking manner. This places some limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel.
