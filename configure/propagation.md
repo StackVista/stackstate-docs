@@ -106,9 +106,7 @@ Several [element properties and methods](#element-properties-and-methods) are av
 
 #### Element properties and methods
 
-{% hint style="danger" %}
-Available for use in async and synchronous functions.
-{% endhint %}
+The `element` properties and methods listed below can be used in async and synchronous propagation functions.
 
 - `element.name`<br />Returns the name of the current element.
 - `element.type`
@@ -121,9 +119,7 @@ Available for use in async and synchronous functions.
 
 #### StateChangesRepository methods
 
-{% hint style="danger" %}
-Available for use in synchronous functions only.
-{% endhint %}
+The `stateChangesRepository` methods listed below can only be used in **synchronous propagation functions**.
 
 - `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`
 - `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`
