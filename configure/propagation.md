@@ -120,10 +120,10 @@ The `element` properties and methods listed below can be used in async and synch
 
 The `stateChangesRepository` methods listed below are **only available in synchronous propagation functions**.
 
-- `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` - Returns the number of elements in the set that have a certain health state, for example CRITICAL.
-- `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` - Returns the highest propagated health state based on the given set of elements.
-- `stateChangesRepository.getState(element).getHealthState().intValue` - Returns the health state of the element.
-- `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()` - Returns the propagated health state of the element.
+- `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`<br />Returns the number of elements in the set that have a certain health state, for example CRITICAL.
+- `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`<br />Returns the highest propagated health state based on the given set of elements.
+- `stateChangesRepository.getState(element).getHealthState().intValue`<br />Returns the health state of the element.
+- `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()`<br />Returns the propagated health state of the element.
 
 ### Logging
 
