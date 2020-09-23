@@ -33,7 +33,9 @@ Functions in StackState can be either synchronous or asynchronous (async).
 
 StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](scripting/). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
 
-Read more about [propagation functions](../configure/propagation.md#custom-propagation-functions).
+Read more about:
+
+- [Propagation functions](../configure/propagation.md#custom-propagation-functions)
 
 ### Synchronous Functions
 
