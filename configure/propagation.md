@@ -36,10 +36,10 @@ It is possible to write your own custom propagation functions to determine the n
 
 ![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
 
-The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state.:
+The simplest possible function that can be written is given below. This function will always return a `CLEAR` propagated state, which will stop propagation.:
 
 ```text
-    return DEVIATING
+    return CLEAR
 ```
 
 You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component is not running:
@@ -75,13 +75,15 @@ A propagation function script takes system and user defined parameters. System p
 | `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
 | `component` | The id of the current component |
 
-### Async propagation functions (default)
+### Async On / Off
 
 Propagation functions can be run as either async (default) or synchronous.
 
 * With Async set to **On** the function will be run as async.
 
 * With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions).
+
+### Async propagation functions (default)
 
 Running as an async function will allow you to make an HTTP request. This allows you to use [StackState script APIs](../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation.
 
@@ -90,12 +92,6 @@ The async script APIs provide super-human level of flexibility and even allow qu
 {% endhint %}
 
 ### Synchronous propagation functions (async Off)
-
-Propagation functions can be run as either async (default) or synchronous.
-
-* With Async set to **On** the function will be run as [async](#async-propagation-functions).
-
-* With Async set to **Off** the function will be run as synchronous.
 
 Running a propagation function as synchronous places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the runs as async. `stateChangesRepository` can be used to return:
 - The propagating state of an element
@@ -116,23 +112,23 @@ The old style function is written using sync apis. The function takes the follow
 | log | script logger |
 
 
-### Element functions
+### Available methods and properties
 
-StackState provides several functions. Note that some of these are only available for synchronous propagation functions.
+Several `element` properties and functions are available for use in propagation functions. Synchronous functions also have access to `stateChangesRepository` methods.
 
-| Async | Sync | Function | Returns |
-|:---:|:---:|:---|:---|
-| ✅ | ✅ | `element.name` | The name of the current element. |
-| ✅ | ✅ | `element.type` | The type of the current element (component or relation). |
-| ✅ | ✅ | `element.version` | Component version (optional). |
-| ✅ | ✅ | `element.isComponent()` | Component: `true`.<br />Relation: `false`. |
-| ✅ | ✅ | `element.getDependencies()` | Component: A set of the outgoing relations.<br />Relation: A set of components. |
-| ✅ | ✅ | `element.getDependencies().size()` | The number of dependencies. |
-| ✅ | ✅ | `element.runState()` | The run state of the current element. |
-| - | ✅ | `stateChangesRepository`<br />`.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` | The number of elements in the set that have a certain health state, for example CRITICAL |
-| - | ✅ | `stateChangesRepository`<br />`.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` | The highest propagated health state based on the given set of elements. |
-| - | ✅ | `stateChangesRepository.getState(element)`<br />`.getHealthState().intValue` | The health state of the element. |
-| - | ✅ | `stateChangesRepository.getState(element)`<br />`.getPropagatedHealthState().getIntValue()` | The propagated health state of the element. |
+| Method / property | Returns |
+|:---|:---|
+| `element.name` | The name of the current element. |
+| `element.type` | The type of the current element (component or relation). |
+| `element.version` | Component version (optional). |
+| `element.runState()` | The run state of the current element. |
+| `element.isComponent()` | Component: `true`.<br />Relation: `false`. |
+| `element.getDependencies()` | Component: A set of the outgoing relations.<br />Relation: A set of components. |
+| `element.getDependencies().size()` | The number of dependencies. |
+| `stateChangesRepository`<br />`.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` | The number of elements in the set that have a certain health state, for example CRITICAL |
+| `stateChangesRepository`<br />`.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` | The highest propagated health state based on the given set of elements. |
+| `stateChangesRepository.getState(element)`<br />`.getHealthState().intValue` | The health state of the element. |
+| `stateChangesRepository.getState(element)`<br />`.getPropagatedHealthState().getIntValue()` | The propagated health state of the element. |
 
 
 ### Logging
