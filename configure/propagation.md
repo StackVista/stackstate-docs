@@ -113,33 +113,17 @@ The `element` properties and methods listed below can be used in async and synch
 - `element.version` - Returns the component version (optional).
 - `element.runState()` - Returns the run state of the current element.
 - `element.isComponent()` - Returns True if element is a component and False if element is a relation.
-- `element.getDependencies()` - Returns a set of the outgoing relations (for components) or a set of components (for relations).
 - `element.getDependencies().size()` - Returns the number of dependencies.
-
+- `element.getDependencies()` - Returns a set of the outgoing relations (for components) or a set of components (for relations).
 
 #### StateChangesRepository methods
 
 The `stateChangesRepository` methods listed below can **only be used in synchronous propagation functions**.
 
-- `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`
-- `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`
-- `stateChangesRepository.getState(element).getHealthState().intValue`
-- `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()`<br />Returns the propagated health state of the element.
-
-
-| Method / property | Returns |
-|:---|:---|
-| `element.name` | The name of the current element. |
-| `element.type` | The type of the current element (component or relation). |
-| `element.version` | Component version (optional). |
-| `element.runState()` | The run state of the current element. |
-| `element.isComponent()` | Component: `true`.<br />Relation: `false`. |
-| `element.getDependencies()` | Component: A set of the outgoing relations.<br />Relation: A set of components. |
-| `element.getDependencies().size()` | The number of dependencies. |
-| `stateChangesRepository`.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` | The number of elements in the set that have a certain health state, for example CRITICAL |
-| `stateChangesRepository`<br />`.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` | The highest propagated health state based on the given set of elements. |
-| `stateChangesRepository.getState(element)`<br />`.getHealthState().intValue` | The health state of the element. |
-| `stateChangesRepository.getState(element)`<br />`.getPropagatedHealthState().getIntValue()` | The propagated health state of the element. |
+- `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` - Returns the number of elements in the set that have a certain health state, for example CRITICAL.
+- `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` - Returns the highest propagated health state based on the given set of elements.
+- `stateChangesRepository.getState(element).getHealthState().intValue` - Returns the health state of the element.
+- `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()` - Returns the propagated health state of the element.
 
 ### Logging
 
