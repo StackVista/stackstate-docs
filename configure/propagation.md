@@ -102,7 +102,7 @@ See [available methods and properties](#available-methods-and-properties).
 
 ### Available methods and properties
 
-Several `element` properties and methods are available for use in propagation functions. Synchronous functions also have access to `stateChangesRepository` methods.
+Several [element properties and methods](#element-properties-and-methods) are available for use in propagation functions. Synchronous functions also have access to [stateChangesRepository methods](#statechangesrepository-methods).
 
 #### Element properties and methods
 
