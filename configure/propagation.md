@@ -10,7 +10,6 @@ A propagated state is returned as one of the following health states:
 * `CRITICAL`
 * `CLEAR`
 
-
 ## Transparent propagation (default)
 
 By default, the propagation method for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
