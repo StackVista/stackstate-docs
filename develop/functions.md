@@ -14,7 +14,7 @@ Functions give power-users the ability to customize StackState fully. However, e
 
 StackPacks pre-package functions and automatically install functions on StackState whenever the StackPack gets installed. You can develop your function in StackState. When you are confident that it does what you want, you can export it and package it with a StackPack. Read more about it in [how to create StackPacks](../stackpacks/about-stackpacks.md).
 
-## Async vs sync functions
+## Async vs synchronous functions
 
 Functions in StackState can be either synchronous or asynchronous (async).
 
