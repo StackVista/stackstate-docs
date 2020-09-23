@@ -36,7 +36,7 @@ It is possible to write your own custom propagation functions to determine the n
 
 ![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
 
-The simplest possible function that can be written is given below. This function will always return a `CLEAR` propagated state, which will stop propagation.:
+The simplest possible function that can be written is given below. This function will always return a `CLEAR` propagated state, which will stop propagation:
 
 ```text
     return CLEAR
@@ -102,7 +102,34 @@ See [available methods and properties](#available-methods-and-properties).
 
 ### Available methods and properties
 
-Several `element` properties and functions are available for use in propagation functions. Synchronous functions also have access to `stateChangesRepository` methods.
+Several `element` properties and methods are available for use in propagation functions. Synchronous functions also have access to `stateChangesRepository` methods.
+
+#### Element properties and methods
+
+{% hint style="danger" %}
+Available for use in async and synchronous functions.
+{% endhint %}
+
+- `element.name`<br />Returns the name of the current element.
+- `element.type`
+- `element.version`
+- `element.runState()`
+- `element.isComponent()`
+- `element.getDependencies()`
+- `element.getDependencies().size()`
+
+
+#### StateChangesRepository methods
+
+{% hint style="danger" %}
+Available for use in synchronous functions only.
+{% endhint %}
+
+- `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`
+- `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`
+- `stateChangesRepository.getState(element).getHealthState().intValue`
+- `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()`<br />Returns the propagated health state of the element.
+
 
 | Method / property | Returns |
 |:---|:---|
@@ -113,7 +140,7 @@ Several `element` properties and functions are available for use in propagation 
 | `element.isComponent()` | Component: `true`.<br />Relation: `false`. |
 | `element.getDependencies()` | Component: A set of the outgoing relations.<br />Relation: A set of components. |
 | `element.getDependencies().size()` | The number of dependencies. |
-| `stateChangesRepository`<br />`.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` | The number of elements in the set that have a certain health state, for example CRITICAL |
+| `stateChangesRepository`.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` | The number of elements in the set that have a certain health state, for example CRITICAL |
 | `stateChangesRepository`<br />`.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` | The highest propagated health state based on the given set of elements. |
 | `stateChangesRepository.getState(element)`<br />`.getHealthState().intValue` | The health state of the element. |
 | `stateChangesRepository.getState(element)`<br />`.getPropagatedHealthState().getIntValue()` | The propagated health state of the element. |
