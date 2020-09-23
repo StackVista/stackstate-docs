@@ -8,7 +8,7 @@ StackState is built to deal with a wide variety of different situations. StackSt
 
 Functions are predefined scripts that transform input into an output. Functions are called by StackState on-demand. For example, when a component changed state, some new telemetry flowed in or when the user triggered an action.
 
-## Packaging Functions
+## Packaging functions
 
 Functions give power-users the ability to customize StackState fully. However, everyday users of StackState should not need to know that they exist.
 
@@ -29,24 +29,22 @@ Functions in StackState can be either synchronous or asynchronous (async).
 | Relation mapper function | ✅ | - |
 
 
-### Async Functions
+### Async functions
 
-StackState started supporting a new kind of function called _async_ functions that allow anyone to access the [Script APIs](scripting/). The following functions have started supporting the _async_ mode and no longer allows you to edit the older \(legacy\) synchronous function anymore, though the older synchronous functions will remain working.
+Propagation functions can optionally be created as asynchronous (async) functions. This gives the function access to the [Script APIs](scripting/) and allows more functions to be run in parallel.
 
-Read more about:
+Read more about [propagation functions](../configure/propagation.md#custom-propagation-functions).
 
-- [Propagation functions](../configure/propagation.md#custom-propagation-functions)
+### Synchronous functions
 
-### Synchronous Functions
-
-In StackState, functions are generally written in a synchronous blocking manner. This places some limitations on both the capability of what the functions can achieve and the number of functions that can be run in parallel.
+In StackState, functions are generally written in a synchronous blocking manner.
 
 Read more about:
 
 - [Baseline functions](../use/baselining.md#baseline-functions)
 - [Check functions](../configure/checks_and_streams.md#check-functions)
 - [Component mapper functions](../concepts/component_and_relation_mapping_functions.md)
-- [Event handlre functions](../use/alerting.md#alerting-using-event-handlers)
+- [Event handler functions](../use/alerting.md#alerting-using-event-handlers)
 - [Id extractor functions](../concepts/id_extraction.md)
 - [Propagation functions](../configure/propagation.md#custom-propagation-functions)
 - [Relation mapper functions](../concepts/component_and_relation_mapping_functions.md)
