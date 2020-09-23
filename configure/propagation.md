@@ -22,7 +22,7 @@ By default, the propagation method for components and relations is set to transp
 
 ## Other propagation methods
 
-In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own custom propagation functions. The desired propagation function to use for a component or relation can be set in its edit dialogue.
+In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own [custom propagation functions](#custom-propagation-functions). The desired propagation function to use for a component or relation can be set in its edit dialogue.
 
 ![Edit component propagation](../.gitbook/assets/v41_edit-component-propagation.png)
 
