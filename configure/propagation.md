@@ -108,6 +108,31 @@ Several [element properties and methods](#element-properties-and-methods) are av
 
 The `element` properties and methods listed below can be used in async and synchronous propagation functions.
 
+```
+# Return the name of the current element
+element.name
+
+# Return type of the current element
+element.type
+
+# Return the component version (optional)
+element.version
+```
+
+```
+# Return True if element is a component
+# Return False if element is a relation
+element.isComponent()
+
+# For components: Return a set of the outgoing relations.
+# For relations: Return set of components.
+element.getDependencies()
+
+# Return the number of dependencies
+element.getDependencies().size()
+```
+
+
 - `element.name`<br />Returns the name of the current element.
 - `element.type`
 - `element.version`
@@ -119,7 +144,7 @@ The `element` properties and methods listed below can be used in async and synch
 
 #### StateChangesRepository methods
 
-The `stateChangesRepository` methods listed below can only be used in **synchronous propagation functions**.
+The `stateChangesRepository` methods listed below can **only be used in synchronous propagation functions**.
 
 - `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`
 - `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`
