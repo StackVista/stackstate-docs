@@ -83,7 +83,7 @@ Propagation functions can be run as either async (default) or synchronous.
 
 * With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions-async-off).
 
-### Async propagation functions (default)
+#### Async propagation functions (default)
 
 Running as an async function will allow you to make an HTTP request. This allows you to use [StackState script APIs](../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation.
 
@@ -91,7 +91,7 @@ Running as an async function will allow you to make an HTTP request. This allows
 The async script APIs provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. Consider extreme cases where the propagation function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
-### Synchronous propagation functions (async Off)
+#### Synchronous propagation functions (async Off)
 
 Running a propagation function as synchronous places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the runs as async. `stateChangesRepository` can be used to return:
 - The propagating state of an element
