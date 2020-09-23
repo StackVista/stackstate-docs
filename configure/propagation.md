@@ -118,7 +118,7 @@ The `element` properties and methods listed below can be used in async and synch
 
 #### StateChangesRepository methods
 
-The `stateChangesRepository` methods listed below can **only be used in synchronous propagation functions**.
+The `stateChangesRepository` methods listed below are **only available in synchronous propagation functions**.
 
 - `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)` - Returns the number of elements in the set that have a certain health state, for example CRITICAL.
 - `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)` - Returns the highest propagated health state based on the given set of elements.
