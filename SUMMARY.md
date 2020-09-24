@@ -88,11 +88,11 @@
 
   * [Views](use/views.md)
   * [Perspectives](use/perspectives/README.md)
-    * [Filtering](use/perspectives/filters.md)
     * [Topology Perspective](use/perspectives/topology-perspective.md)
     * [Telemetry Perspective](use/perspectives/telemetry-perspective.md)
     * [Events Perspective](use/perspectives/event-perspective.md)
     * [Traces Perspective](use/perspectives/trace-perspective.md)
+    * [Filtering](use/perspectives/filters.md)
   * [Analytics](use/queries.md)
   * [Alerting](use/alerting.md)
   * [Anomaly Detection with Baselines](use/baselining.md)
