@@ -120,7 +120,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 ### Upgrade to 4.1.0
 
 * There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
-  * The `sts-healthuri` has been moved from port 7071 to 7080
+  * The `sts-healthcheckuri` has been moved from port 7071 to 7080
   * The `startup-check` block has been removed completely
 
 ### Upgrade to 4.0.0
