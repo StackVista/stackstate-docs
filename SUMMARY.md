@@ -115,7 +115,7 @@
   * [Browse telemetry](configure/browse_telemetry.md)
   * [Checks and Streams](configure/checks_and_streams.md)
   * [Send telemetry](configure/send_telemetry.md)
-  * [Set priority on telemetry streams](configure/how_to_use_the_priority_field_for_components.md)
+  * [Set telemetry stream priority](configure/how_to_use_the_priority_field_for_components.md)
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/configure_tracing.md)
   * [Set up traces](configure/how_to_setup_traces.md)
