@@ -7,7 +7,6 @@ A propagated state is returned as one of the following health states:
 * `CRITICAL`
 * `FLAPPING`
 * `DEVIATING`
-* `CLEAR`
 * `UNKNOWN`
 
 ## Transparent propagation (default)
@@ -36,10 +35,10 @@ It is possible to write your own custom propagation functions to determine the n
 
 ![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
 
-The simplest possible function that can be written is given below. This function will always return a `CLEAR` propagated state, which will stop propagation:
+The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 
 ```text
-    return CLEAR
+    return DEVIATING
 ```
 
 You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component is not running:
