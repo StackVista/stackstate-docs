@@ -22,6 +22,7 @@
     * [Install with POC configuration](setup/linux_install/poc-installation.md)
     * [Set up a reverse proxy](setup/linux_install/reverse_proxy.md)
     * [Set up TLS without reverse proxy](setup/linux_install/how_to_setup_tls_without_reverse_proxy.md)
+  * [StackState CLI](setup/cli.md)
   * [Troubleshooting](setup/troubleshooting.md)
 * [Authentication](setup/authentication.md)
 * [Data](setup/data/README.md)
@@ -32,9 +33,8 @@
     * [Manually created topology backup](setup/backup_restore/manual_topology.md)
   * [Data retention](setup/retention.md)
   * [Clear stored data](setup/clear_data.md)
-* [StackState CLI](setup/cli.md)
 * [Upgrade StackState](setup/upgrading.md)
-* [StackState log files](configure/stackstate_log_files.md)
+* [Log files](configure/stackstate_log_files.md)
 
 ## Concepts
 
