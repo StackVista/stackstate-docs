@@ -58,6 +58,8 @@ Component
 
 This code works as follows:
 
+| Code | Description |
+|:---|:---|
 | `.withId(componentId)` | The `componentId` is passed as long and resolved |
 | `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component menu or by using a [topology query](../develop/scripting/script-apis/topology.md) in analytics. |
 | `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides.<br />`component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id.|
