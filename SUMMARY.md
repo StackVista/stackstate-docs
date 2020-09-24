@@ -25,7 +25,7 @@
   * [StackState CLI](setup/cli.md)
   * [Troubleshooting](setup/troubleshooting.md)
 * [Authentication](setup/authentication.md)
-* [Data](setup/data/README.md)
+* [Data management](setup/data/README.md)
   * [Backup and Restore](setup/backup_restore/README.md)
     * [Kubernetes backup](setup/backup_restore/kubernetes_backup.md)
     * [Linux backup](setup/backup_restore/file.md)
