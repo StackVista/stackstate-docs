@@ -18,7 +18,12 @@ In order to backup StackGraph's data on a [production setup](/setup/linux_instal
 
 ### Restore
 
-In order to restore topology information by importing a previous made backup you need to: 1. Have StackGraph up and running 2. Stop StackState node [Starting and Stopping StackState](/setup/linux_install/production-installation/README.md#starting-and-stopping-stackstate) 3. `/opt/stackstate/bin/sts-standalone.sh import --file <path to backup file> --graph default` 4. All progress and end result of the process is logged at `<stackstate installation path>/var/log/stackstate.log`. Verify that the process finished and what the outcome was before trying to [Starting and Stopping StackState](/setup/linux_install/production-installation/README.md#starting-and-stopping-stackstate) `sudo systemctl start stackstate.service`
+In order to restore topology information by importing a previous made backup you need to:
+
+1. Have StackGraph up and running.
+2. Stop StackState node [Starting and Stopping StackState](/setup/linux_install/production-installation.md#starting-and-stopping-stackstate).
+3. `/opt/stackstate/bin/sts-standalone.sh import --file <path to backup file> --graph default`
+4. All progress and end result of the process is logged at `<stackstate installation path>/var/log/stackstate.log`. Verify that the process finished and what the outcome was before trying to [Starting and Stopping StackState](/setup/linux_install/production-installation.md#starting-and-stopping-stackstate) `sudo systemctl start stackstate.service`
 
 ## StackState telemetry data
 
