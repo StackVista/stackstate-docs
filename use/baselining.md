@@ -134,3 +134,4 @@ Once you've added the check function it may take 5 or more minutes \(dependent o
 {% endhint %}
 
 Alerting on checks based on baseline metric streams works exactly the same as with other checks.
+

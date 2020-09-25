@@ -16,7 +16,7 @@ In the example below, all services that store data are switched to rely on the s
 
 {% tabs %}
 {% tab title="values.yaml" %}
-```
+```text
 elasticsearch:
   volumeClaimTemplate:
     storageClassName: "standard"
@@ -40,3 +40,4 @@ zookeeper:
 ```
 {% endtab %}
 {% endtabs %}
+

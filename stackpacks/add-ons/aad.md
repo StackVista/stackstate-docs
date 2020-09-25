@@ -21,8 +21,8 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 The stream selection algorithm works as follows:
 
-- Components in Views that have the most stars are selected.
-- From those components, only high priority metric streams are selected. See - [how to set the priority for a stream](../../configure/how_to_use_the_priority_field_for_components.md).
+* Components in Views that have the most stars are selected.
+* From those components, only high priority metric streams are selected. See - [how to set the priority for a stream](../../configure/how_to_use_the_priority_field_for_components.md).
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 
@@ -36,7 +36,7 @@ The status UI of the anomaly detection Kubernetes service provides various metri
 
 ### Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install_kubernetes/README.md). Please make sure that this is supported by your StackState installation.
+The AAD StackPack can only be installed within a [Kubernetes setup](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/install_kubernetes/README.md). Please make sure that this is supported by your StackState installation.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://www.stackstate.com/company/contact/).
 
@@ -180,3 +180,4 @@ Common questions that can be answered in the status UI:
 **Beta Release**
 
 * Releasing Autonomous Anomaly Detector service Beta
+

@@ -1,10 +1,13 @@
+# Install with production configuration
+
 {% hint style="info" %}
-StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+StackState prefers Kubernetes!  
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
 {% endhint %}
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](requirements.md).
+Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/linux_install/requirements.md).
 
 ## Two-node deployment architecture
 
@@ -49,3 +52,4 @@ On the StackState node, the following commands will start/stop StackState:
 `sudo systemctl start stackstate.service`
 
 `sudo systemctl stop stackstate.service`
+

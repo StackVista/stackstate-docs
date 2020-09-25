@@ -13,7 +13,7 @@ Predict metrics for any metric query coming from any data source.
 **Args:**
 
 * `predictorName` - name of prediction preset. Current available predictors: `linear`, `hmn` and `fft`.
-* `horizon` - how much future to predict. The horizon is specified in the [duration format](time.mc).
+* `horizon` - how much future to predict. The horizon is specified in the [duration format](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/develop/scripting/script-apis/time.mc).
 * `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
 
 **Builder methods:**
@@ -55,3 +55,4 @@ Prediction.predictMetrics("linear", "4h",
         .compileQuery()
 ).includeHistory().predictionPoints(8)
 ```
+

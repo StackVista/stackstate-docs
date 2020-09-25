@@ -1,12 +1,15 @@
+# Install with development configuration
+
 {% hint style="info" %}
-StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+StackState prefers Kubernetes!  
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
 {% endhint %}
 
 Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
 
 ## Requirements
 
-Before starting the installation, ensure your system meets StackState's development setup [installation requirements](requirements.md).
+Before starting the installation, ensure your system meets StackState's development setup [installation requirements](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/linux_install/requirements.md).
 
 ## Installing StackState in a development configuration
 
@@ -27,3 +30,4 @@ StackState can be stopped by `sudo systemctl stop stackstate.service`. StackGrap
 ### StackState Status
 
 Checking the service status can be done with `sudo systemctl status stackstate.service` and `sudo systemctl status stackgraph.service`.
+

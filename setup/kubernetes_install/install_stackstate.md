@@ -4,7 +4,7 @@
 
 Before you start the installation of StackState:
 
-* Check that your Kubernetes environment meets the [requirements](requirements.md)
+* Check that your Kubernetes environment meets the [requirements](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/kubernetes_install/requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Add the StackState helm repository to the local helm client:
 
@@ -82,7 +82,7 @@ stackstate/stackstate
 
 After the install, the StackState release should be listed in the StackState namespace and all pods should be running:
 
-```
+```text
 # Check the release is listed
 helm list --namespace stackstate
 
@@ -118,3 +118,4 @@ Next steps are
 StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
 
 The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md) page.
+

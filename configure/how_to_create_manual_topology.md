@@ -7,7 +7,7 @@ description: >-
   manually.
 ---
 
-# Creating a topology manually
+# How to create a topology manually
 
 StackState automatically creates a topology based on real-time data sources. _There is typically no need to create a topology manually_. There may be a few exceptions:
 
@@ -28,7 +28,7 @@ First you need to define a component type. Go to `Settings -> Component Types ->
 
 When all required information is provided for the component type, click CREATE, and proceed to the Explore Mode or to one of the views. Follow to the left side pane menu and locate big plus \(`+`\) sign described as Component Types. It opens a full list of the component types - it should contain the one you created. Click on it and provide all information required for the new component.
 
-![Add new component](../.gitbook/assets/4.1/new_component.png)
+![Add new component](../.gitbook/assets/new_component.png)
 
 ## How to create relations between components
 
@@ -43,3 +43,4 @@ Now you can navigate to the View that you want to use your relation on and drag-
 ## How to export/import manual topology
 
 See [manual topology backup/restore](../setup/backup_restore/manual_topology.md).
+

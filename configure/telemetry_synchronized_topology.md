@@ -16,7 +16,7 @@ When you have synchronized topology, every component/relation is synchronized vi
 
 In the view, select a component that you'd like to add telemetry to. This opens a component pane on the right side of the screen, where next to the component you'll find a menu with options to edit the component. Click on Edit template.
 
-![](../.gitbook/assets/4.1/edit_template.png)
+![](../.gitbook/assets/edit_template.png)
 
 After selecting the edit template option from the menu, the template editing UI appears
 
@@ -175,3 +175,4 @@ You can also visit the history of previously executed templates. The historic re
 You can also go to 'Template Examples' and get references on how to build templates. The examples tab also allows you to load an example into the text editors on the left by pressing 'Use this example'.
 
 ![](../.gitbook/assets/template_editor_examples.png)
+
