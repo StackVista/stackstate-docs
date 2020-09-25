@@ -15,7 +15,7 @@ The Telemetry Perspective shows telemetry for up to **5** components. When you o
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
-![](../../.gitbook/assets/4.1/telemetry-components-selector.png)
+![](../../.gitbook/assets/telemetry-components-selector.png)
 
 The component selection can be adjusted as follows:
 
@@ -31,7 +31,7 @@ The View Filters pane on the left side of the screen in any View allows you to f
 
 ## Charts
 
-![Telemetry Perspective](../../.gitbook/assets/4.1/telemetry-perspective.png)
+![Telemetry Perspective](../../.gitbook/assets/telemetry-perspective.png)
 
 Charts are showing Telemetry Data of selected components in near real-time - they are fetching data every 30 seconds. If a process is stopped and no more data is received, then eventually, the process will leave the chart as the data shifts left at least every 30 seconds. If there is more data that comes in during the 30 second interval it will be pushed to a chart. A single chart can display multiple lines for the same metric when multiple components are selected - this grouping is based on the name of the stream. It is possible to cycle through each of these streams and depict them as a single line in a single chart using the arrow controls on the chart.
 
@@ -42,3 +42,4 @@ Time traveling with the Telemetry Perspective is also possible. When time travel
 ## Ordering
 
 The Telemetry Perspective orders the telemetry streams based on their priority. The priority can be configured on the Telemetry Inspector screen.
+

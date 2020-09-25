@@ -11,7 +11,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](stackpacks/).
 
-![StackPacks overview](.gitbook/assets/4.1/01_stackpacks.png)
+![StackPacks overview](.gitbook/assets/01_stackpacks%20%281%29.png)
 
 ## Explore topology
 
@@ -19,9 +19,9 @@ After installing one or more StackPacks, you can go to the Explore Mode to explo
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
-You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](use/filtering.md) on the left side bar, or by [hovering over a component](use/topology-Perspective.md#interactive-navigation).
+You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/perspectives/filtering.md) on the left side bar, or by [hovering over a component](/use/perspectives/topology-Perspective.md#interactive-navigation).
 
-![Explore topology](.gitbook/assets/4.1/02_topology.png)
+![Explore topology](.gitbook/assets/02_topology%20%281%29.png)
 
 ## Topology elements
 
@@ -40,13 +40,13 @@ The direction of a relation's arrow indicates dependency. For example, `app -> d
 
 The timeline at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the time that is currently selected. Normally, StackState is in the **live mode**, this means that StackState automatically displays the latest state of the stack.
 
-![Timeline](.gitbook/assets/4.1/06_timeline.png)
+![Timeline](.gitbook/assets/06_timeline%20%281%29.png)
 
 ## Component / relation details
 
 To see the details of a component or a relation, you can click on it. Click on "Show component properties" to see all details of a component.
 
-![Component details](.gitbook/assets/4.1/03_component_details.png)
+![Component details](.gitbook/assets/03_component_details%20%281%29.png)
 
 ## Metric inspector
 
@@ -70,14 +70,14 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Quick Actions` menu.
 
-![Component details](.gitbook/assets/4.1/04_problem_summary.png)
+![Component details](.gitbook/assets/04_problem_summary%20%281%29.png)
 
 ## Events
 
 To show all events for the selected Topology, select the Events perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](use/alerting.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
-![Activity Perspective](.gitbook/assets/activity_perspective.png)
+![Events Perspective](.gitbook/assets/event-perspective.png)
 
 The Events perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
 
-![Activity section](.gitbook/assets/activity_section.png)
+![Events section](.gitbook/assets/v41_events-section.png)

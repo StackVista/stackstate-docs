@@ -82,3 +82,4 @@ Open the stackstate.com website in a new tab in the browser.
 ```text
 UI.redirectToUrl("http://wwww.stackstate.com")
 ```
+

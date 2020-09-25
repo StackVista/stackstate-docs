@@ -15,9 +15,9 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% tab title="Kubernetes" %}
 1. Check that the install completed successfully and the release is listed:
 
-  ```
-  helm list --namespace stackstate
-  ```
+   ```text
+   helm list --namespace stackstate
+   ```
 
 2. Check that all pods in the StackState namespace are running:
 
@@ -99,12 +99,11 @@ WARNING: All illegal access operations will be denied in a future release
 
 **Cause**:
 
-**Solution**: First run `helm uninstall <release-name>` and then run `helm upgrade` again. This will cause (more) down-time, but will preserve all data.
+**Solution**: First run `helm uninstall <release-name>` and then run `helm upgrade` again. This will cause \(more\) down-time, but will preserve all data.
 
 {% hint style="danger" %}
 NEVER delete the namespace or persistent volumes - that will remove all data.
 {% endhint %}
-
 
 ### Error: `java.lang.IllegalStateException: Requested index specs do not match the catalog.`
 
@@ -143,6 +142,7 @@ InvalidSchema("No connection adapters were found for 'stackstate.acme.com:7077/s
 **Cause**: Environment variable 'STACKSTATE\_BASE\_URL' for lambda function is not correct.
 
 **Solution**: Check if the URL provided for the `STACKSTATE_BASE_URL` environment variable on AWS Lambda function is correct. Be sure that protocol is specified, e.g., `http://`, and that it points to a proper port. Read more:
+
 * [Kubernetes - base URL](kubernetes_install/install_stackstate.md#generate-values-yaml)
 * [Linux - receiver base URL](linux_install/install_stackstate.md#configuration-options-required-during-install)
 
@@ -183,7 +183,8 @@ CheckException: Splunk topology failed with message: 400 Client Error: Bad Reque
 ### Linux - No topology results shown in any view
 
 **Symptom**: Going to any view will show no topology results. A long error appears in the `stackstate.log`, beginning with:
-```
+
+```text
 [StackStateGlobalActorSystem-akka.actor.default-dispatcher-92] ERROR com.stackstate.plugins.sts.topology.StsTopologyService - Error in identity extractor
 com.stackstate.domain.script.ScriptExecutionException: Script threw error. null. Script: '
 ...
@@ -220,8 +221,6 @@ Make sure that StackState has enough memory available, the available memory can 
 
 Restart StackState, by `sudo systemctl restart stackstate.service`, for the changes to be effective.
 
-
-
 ## Reindex StackState
 
 {% hint style="danger" %}
@@ -235,5 +234,7 @@ For search and querying purposes, StackState builds an index out of data in the 
 3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
 
 {% hint style="danger" %}
-**Do not kill the reindex process while it is running.**<br />The reindex process will take some time to complete. You can monitor progress in the StackState logs.
+**Do not kill the reindex process while it is running.**  
+The reindex process will take some time to complete. You can monitor progress in the StackState logs.
 {% endhint %}
+

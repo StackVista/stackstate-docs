@@ -59,12 +59,15 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tabs %}
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
+
 * [Kubernetes backup](backup_restore/kubernetes_backup.md)
 * [Configuration backup](backup_restore/configuration.md)
 * [Manually created topology backup](backup_restore/manual_topology.md)
 {% endtab %}
+
 {% tab title="Linux" %}
 To create a backup on Linux, see:
+
 * [Linux backup](backup_restore/file.md)
 * [Configuration backup](backup_restore/configuration.md)
 * [Manually created topology backup](backup_restore/manual_topology.md)
@@ -72,8 +75,7 @@ To create a backup on Linux, see:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that it will not be possible to restore the backup on the upgraded version of StackState.
-The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+Note that it will not be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
 ## Uninstall StackPacks
