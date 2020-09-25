@@ -1,73 +1,47 @@
----
-title: Configuring State Propagation
-kind: Documentation
-aliases:
-  - /configuring/propagation/
----
-
 # State propagation
 
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
-By default the propagation for components and relations is set to transparent propagation. It determines the propagated state for a component or relation by taking the maximum of the propagated state of all its dependencies and its own state. For example:
+A propagated state is returned as one of the following health states:
 
-* A component has an own state of `DEVIATING` and a dependency that has a propagated state of `CRITICAL`. The propagated state of the component will be `CRITICAL`.
-* A component has an own state of `CRITICAL` and a dependency that has a propagated state of `CLEAR`. The propagated state of the component will be `CRITICAL`.
-* A component has an own state of `CLEAR`, a dependency with propagated state of `DEVIATING` and a dependency with a propagated state of CLEAR. The propagated state of the component will be `DEVIATING`.
-
-In some situations this type of propagation is undesirable, therefore a different propagation can be selected for a component or relation via their edit dialogs. In the edit dialog you can select different 'propagation functions'. An example of an alternative propagation is 'cluster propagation'. When a component is a cluster component a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
-
-## Propagation function
-
-A propagation function can take multiple parameters as input and produces a new propagated state as output. To determine the new propagated state of an element \(component or relation\) it has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
-
-The propagation function can be defined using two styles:
-
-* The new style. Such a function can use `async` script apis in the function body.
-
-  It will be set to this style by default if a new propagation function is created in settings.
-
-* The old style. This is the function which uses old sync apis and limited in functionality. It exists for backward compatibility and on attempt to modify it the message below will be shown.
-
-  ```text
-  This propagation function is now deprecated and hence it is not editable. Any new propagation should use asynchronous API.
-  ```
-
-  It is not possible to modify an old function body. The user is expected to create a new one using new APIs.
-
-  More about the async vs sync differences can be found [here](../develop/functions.md)
-
-### The new style propagation function
-
-The async propagation function is written in StackState Scripting Language using wide set of script apis. Please check the [scripting](../develop/scripting/) page for the references of what functions can be used.
-
-The function script takes system and user defined parameters. The system parameters are predefined parameters passed automatically to the script:
-
-* `transparentState` - the precomputed transparent state if returned from the script will lead to transparent propagation
-* `componentId` - the id of the current component
-
-A propagation function can return one of the following health states:
-
-* `UNKNOWN`
-* `DEVIATING`
 * `CRITICAL`
-* `CLEAR`
+* `FLAPPING`
+* `DEVIATING`
+* `UNKNOWN`
 
-  Warning! The async script apis provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. It is required to consider the extreme cases where the propagation function is executed on all components and properly assess system impact. StackState is coming with a number of stackpacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+## Transparent propagation (default)
 
-#### Example: 'Hello world' propagation function
+By default, the propagation method for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
 
-The simplest possible function that can be written is given below:
+| Dependency state | Component state | Propagated state |
+|:---|:---|:---|
+| CRITICAL | DEVIATING | CRITICAL |
+| CLEAR | CRITICAL | CRITICAL |
+| DEVIATING | CLEAR | DEVIATING |
+
+## Other propagation methods
+
+In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own [custom propagation functions](#custom-propagation-functions). The desired propagation function to use for a component or relation can be set in its edit dialogue.
+
+![Edit component propagation](../.gitbook/assets/v41_edit-component-propagation.png)
+
+For example:
+
+**Quorum based cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
+
+## Custom propagation functions
+
+It is possible to write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
+
+![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
+
+The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 
 ```text
     return DEVIATING
 ```
 
-This function will always return `DEVIATING` propagated state.
-
-#### Example: Propagate DEVIATING state if the component is not in a running state
-
-It is possible to implement more complicated logic in the propagation function. The example of the script that propagates the DEVIATING state in case if component is not running:
+You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component is not running:
 
 ```text
 Component
@@ -84,111 +58,72 @@ Component
 
 This code works as follows:
 
-* The `componentId` is passed as long and it has to be resolved using using `Component.withId(componentId)` combinator.
-* The `.fullComponent()` returns component in Json-style representation the same as the one that can be obtained from `Show Json` component menu or using [topology query](../develop/scripting/script-apis/topology) in analytics.
-* `then { component -> ... }` is an async lambda function where the main logic for the propagation function resides.
+| Code | Description |
+|:---|:---|
+| `.withId(componentId)` | The `componentId` is passed as long and resolved |
+| `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component menu or by using a [topology query](../develop/scripting/script-apis/topology.md) in analytics. |
+| `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides.<br />`component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id.|
+|
 
-  The `component` is the component variable which has properties that can be accessed using `.<property name>` notations. e.g. `.type` returns component type id.
+### Parameters
 
-* The logic above checks if component has specific type and not in running state then it will propagate `DEVIATING` state.
+A propagation function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script:
 
-It is possible to add user logging from the script for debug purposes, e.g `log.info("message")`. The logs will appear in `stackstate.log`.
+| System parameter | Description |
+|:---|:---|
+| `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
+| `component` | The id of the current component |
 
-### The old style propagation function \(deprecated\)
+### Async On / Off
 
-The old style function is written using sync apis. The function takes the following parameters:
+Propagation functions can be run as either async (default) or synchronous.
 
-| Parameter | Description |
-| :--- | :--- |
-| element | reference to current component |
-| stateChangesRepository | the state change helper class, see the detailed methods below |
-| transparentState | the transparent state value |
-| log | script logger |
+* With Async set to **On** the function will be run as [async](#async-propagation-functions-default).
 
-StackState makes available several elements to define propagation logic. Available functions are listed below.
+* With Async set to **Off** the function will be run as [synchronous](#synchronous-propagation-functions-async-off).
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>element.name</code>
-      </td>
-      <td style="text-align:left">returns the name of the current <code>element</code>.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>element.type</code>
-      </td>
-      <td style="text-align:left">returns the type of the current <code>element</code>.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>element.version</code>
-      </td>
-      <td style="text-align:left">returns a component version, Optional.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>element.isComponent()</code>
-      </td>
-      <td style="text-align:left">returns <code>true</code> when <code>element</code> is a component, false
-        in case of a relation.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>element.getDependencies()</code>
-      </td>
-      <td style="text-align:left">when the <code>element</code> is a component the command returns a set of
-        the outgoing relations and when <code>element</code> is relation the command
-        returns a set of components.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>element.getDependencies().size()</code>
-      </td>
-      <td style="text-align:left">returns the number of dependencies.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>stateChangesRepository</code>
-        </p>
-        <p><code>.getPropagatedHealthStateCount(&lt;set of elements&gt;, &lt;health state&gt;)</code>
-        </p>
-      </td>
-      <td style="text-align:left">returns the number of elements in the set that have a certain health state.
-        Health state can be <code>CRITICAL</code> for example.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>stateChangesRepository</code>
-        </p>
-        <p><code>.getHighestPropagatedHealthStateFromElements(&lt;set of elements&gt;)</code>
-        </p>
-      </td>
-      <td style="text-align:left">return the highest propagated health state based on the given set of elements.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>stateChangesRepository.getState(element)</code>
-        </p>
-        <p><code>.getHealthState().intValue</code>
-        </p>
-      </td>
-      <td style="text-align:left">return <code>element</code>&apos;s health state.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>stateChangesRepository.getState(element)</code>
-        </p>
-        <p><code>.getPropagatedHealthState().getIntValue()</code>
-        </p>
-      </td>
-      <td style="text-align:left">return <code>element</code>&apos;s propagated health state.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>element.runState()</code>
-      </td>
-      <td style="text-align:left">return the <code>element</code>&apos;s run state</td>
-    </tr>
-  </tbody>
-</table>
+#### Async propagation functions (default)
+
+Running as an async function will allow you to make an HTTP request. This allows you to use [StackState script APIs](../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation. You can also use the [available elements properties and methods](#available-properties-and-methods).
+
+{% hint style="danger" %}
+The async script APIs provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. Consider extreme cases where the propagation function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+{% endhint %}
+
+#### Synchronous propagation functions (async Off)
+
+Running a propagation function as synchronous places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the runs as async. `stateChangesRepository` can be used to return:
+- The propagating state of an element
+- The number of elements with a particular propagating state
+- The highest state of a given set of elements
+
+See [available properties and methods](#available-properties-and-methods).
+
+### Available properties and methods
+
+Several [element properties and methods](#element-properties-and-methods) are available for use in propagation functions. Synchronous functions also have access to [stateChangesRepository methods](#statechangesrepository-methods).
+
+#### Element properties and methods
+
+The `element` properties and methods listed below can be used in **async and synchronous** propagation functions.
+
+- `element.name` - Returns the name of the current element.
+- `element.type` - Returns type of the current element.
+- `element.version` - Returns the component version (optional).
+- `element.runState()` - Returns the run state of the current element.
+- `element.isComponent()` - Returns True if element is a component and False if element is a relation.
+- `element.getDependencies().size()` - Returns the number of dependencies.
+- `element.getDependencies()` - Returns a set of the outgoing relations (for components) or a set of components (for relations).
+
+#### StateChangesRepository methods
+
+The `stateChangesRepository` methods listed below are **only available in synchronous** propagation functions.
+
+- `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`<br />Returns the number of elements in the set that have a certain health state, for example CRITICAL.
+- `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`<br />Returns the highest propagated health state based on the given set of elements.
+- `stateChangesRepository.getState(element).getHealthState().intValue`<br />Returns the health state of the element.
+- `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()`<br />Returns the propagated health state of the element.
+
+### Logging
+
+You can add user logging from the script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`.
