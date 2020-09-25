@@ -2,12 +2,12 @@
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/README.md).
 {% endhint %}
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/linux_install/requirements.md).
+Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](/setup/linux_install/requirements.md).
 
 ## Two-node deployment architecture
 
@@ -17,21 +17,21 @@ Configure StackState to run in the two-node setup requires the following steps:
 
 ### Preparing the StackGraph node
 
-1. Install the package using the instruction for [Installing StackState](install_stackstate.md), using `PRODUCTION-STACKGRAPH` as SETUP configuration parameter.
-2. Start the StackGraph process as described in [Starting / Stopping](production-installation.md#starting-and-stopping).
+1. Install the package using the instruction for [Installing StackState](/setup/linux_install/install_stackstate.md), using `PRODUCTION-STACKGRAPH` as SETUP configuration parameter.
+2. Start the StackGraph process as described in [Starting / Stopping](/setup/linux_install/production-installation.md#starting-and-stopping).
 
 ### Preparing the StackState node
 
 To prepare an additional node for running a StackState component, follow these steps:
 
-1. Install the package using the instruction for [Installing StackState](install_stackstate.md), using `PRODUCTION-STACKSTATE` as SETUP configuration parameter.
+1. Install the package using the instruction for [Installing StackState](/setup/linux_install/install_stackstate.md), using `PRODUCTION-STACKSTATE` as SETUP configuration parameter.
 
 ### Further Configuring StackState
 
 After you have installed StackState, refer to the following pages for configuration instructions:
 
-* [Configuring authentication](../authentication.md)
-* [Reverse Proxy](reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](how_to_setup_tls_without_reverse_proxy.md)
+* [Configuring authentication](/setup/authentication.md)
+* [Reverse Proxy](/setup/linux_install/reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](/setup/linux_install/how_to_setup_tls_without_reverse_proxy.md)
 
 ### Starting and Stopping
 
@@ -52,4 +52,3 @@ On the StackState node, the following commands will start/stop StackState:
 `sudo systemctl start stackstate.service`
 
 `sudo systemctl stop stackstate.service`
-
