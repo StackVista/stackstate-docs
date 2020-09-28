@@ -72,7 +72,7 @@ To be able to pull the Docker image, you will need access to quay.io. Access cre
 
 #### 2. Install Helm
 
-* Install Helm \(version 3\). See the Helm docs [https://helm.sh/docs/intro/install](https://helm.sh/docs/intro/install)
+* Install Helm \(version 3\). See the Helm docs [https://helm.sh/docs/intro/install](https://helm.sh/docs/intro/install/)
 * Add the StackState Helm repo:
 
 ```text
