@@ -39,7 +39,7 @@ Details of troubleshooting known issues can be found in the [StackState support 
 ## Reindex StackState
 
 {% hint style="danger" %}
-It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/company/contact/).
+It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/contact/).
 {% endhint %}
 
 For search and querying purposes, StackState builds an index out of data in the graph database. It is possible to initiate a rebuild of this index from StackState's graph database. Note that under normal circumstances you will never need to do this.

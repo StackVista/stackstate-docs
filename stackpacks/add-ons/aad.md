@@ -38,7 +38,7 @@ The status UI of the anomaly detection Kubernetes service provides various metri
 
 The AAD StackPack can only be installed within a [Kubernetes setup](/setup/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation.
 
-If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://www.stackstate.com/company/contact/).
+If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://www.stackstate.com/contact/).
 
 #### Node sizing
 
@@ -48,7 +48,7 @@ A minimal deployment of the anomaly detection Kubernetes service with the defaul
 * Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
 * Self-hosted Kubernetes: 1 instance with 4 CPUs and 6 Gb memory
 
-To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://www.stackstate.com/company/contact/).
+To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://www.stackstate.com/contact/).
 
 The anomaly detection Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
 
@@ -68,11 +68,11 @@ After installing the AAD StackPack, install the anomaly detection Kubernetes ser
 
 #### 1. Get access to quay.io
 
-To be able to pull the Docker image, you will need access to quay.io. Access credentials can be requested from [StackState support](https://www.stackstate.com/company/contact/).
+To be able to pull the Docker image, you will need access to quay.io. Access credentials can be requested from [StackState support](https://www.stackstate.com/contact/).
 
 #### 2. Install Helm
 
-* Install Helm \(version 3\). See the Helm docs [https://helm.sh/docs/intro/install](https://helm.sh/docs/intro/install)
+* Install Helm \(version 3\). See the Helm docs [https://helm.sh/docs/intro/install](https://helm.sh/docs/intro/install/)
 * Add the StackState Helm repo:
 
 ```text
