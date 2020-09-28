@@ -9,7 +9,7 @@ kind: Documentation
 
 StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.15.x \(tested on Amazon EKS and Azure AKS\) and Helm 3.
 
-For a list of all docker images used see the [image overview](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/image_configuration.md).
+For a list of all docker images used see the [image overview](/setup/kubernetes_install/image_configuration.md).
 
 ### Node sizing
 
@@ -23,7 +23,7 @@ For a standard deployment, the StackState Helm chart will deploy storage service
 
 StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
 
-For more details on the defaults used, see the page [Configure storage](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/storage.md).
+For more details on the defaults used, see the page [Configure storage](/setup/kubernetes_install/storage.md).
 
 ### Ingress
 
@@ -35,7 +35,7 @@ kubectl port-forward service/<helm-release-name>-distributed-router 8080:8080
 
 When configuring Ingress, make sure to allow for large request body sizes \(50MB\) that may be sent occasionally by data sources like the StackState Agent or the AWS integration.
 
-For more details on configuring Ingress, have a look at the page [Configure Ingress docs](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/setup/ingress.md).
+For more details on configuring Ingress, have a look at the page [Configure Ingress docs](/setup/kubernetes_install/ingress.md).
 
 ## Linux
 
@@ -43,7 +43,7 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 
 #### Operating system
 
-One of the following operating systems running Java. Check also the specific requirements for the [StackState Agent StackPack](../stackpacks/integrations/agent.md):
+One of the following operating systems running Java. Check also the specific requirements for the [StackState Agent StackPack](/stackpacks/integrations/agent.md):
 
 | OS | Release |
 | :--- | :--- |
@@ -264,4 +264,3 @@ To use the StackState GUI, you must use one of the following web browsers:
 
 * Chrome
 * Firefox
-

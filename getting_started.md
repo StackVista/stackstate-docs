@@ -19,7 +19,7 @@ After installing one or more StackPacks, you can go to the Explore Mode to explo
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
-You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/use/filtering.md) on the left side bar, or by [hovering over a component](https://github.com/StackVista/stackstate-docs/tree/e642f99b5f9f4a7b201b558ae44375317f5974c5/use/topology-Perspective.md#interactive-navigation).
+You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/perspectives/filtering.md) on the left side bar, or by [hovering over a component](/use/perspectives/topology-Perspective.md#interactive-navigation).
 
 ![Explore topology](.gitbook/assets/02_topology%20%281%29.png)
 
@@ -76,9 +76,8 @@ Not all components displayed in the problem pane are necessarily also visible in
 
 To show all events for the selected Topology, select the Events perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](use/alerting.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
-![Activity Perspective](.gitbook/assets/activity_perspective.png)
+![Events Perspective](.gitbook/assets/event-perspective.png)
 
 The Events perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
 
-![Activity section](.gitbook/assets/activity_section.png)
-
+![Events section](.gitbook/assets/v41_events-section.png)
