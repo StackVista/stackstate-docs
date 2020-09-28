@@ -11,6 +11,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+
 1. Check that the install completed successfully and the release is listed:
 
    ```text
@@ -25,6 +26,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).
 {% endtab %}
 {% tab title="Linux" %}
+
 1. Check that the systemd services StackGraph and StackState are running:
 
    ```text
