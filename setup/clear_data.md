@@ -47,6 +47,8 @@ Clearing the data in StackState will **remove any configured permissions from th
 {% tab title="Kubernetes" %}
 To clear stored data in StackState running on Kubernetes, it is recommended to run a [clean install](/steup/kubernetes_install/install_stackstate.md).
 {% endtab %}
+{% tab title="Linux" %}
+{% endtab %}
 {% endtabs %}
 
 Please note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node. For example, `systemctl stop stackgraph` for a StackGraph node.
