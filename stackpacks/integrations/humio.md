@@ -11,10 +11,9 @@ Using this StackPack, you can:
 ## Prerequisites
 
 * A Humio cloud account
-* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration](https://docs.humio.com/integrations/platforms/kubernetes/)
+* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration](https://docs.humio.com/integrations/ingest-logs-from-a-specific-system/kubernetes/)
 * Logging from each Kubernetes cluster must be stored in a **repository with the same name as your cluster** in Humio
 
 ## Using the Humio StackPack
 
 Navigate to your Kubernetes cluster in StackState and use a Quick Action on one of the containers to jump into your logs.
-
