@@ -115,10 +115,9 @@ instances:
         renewal_days: 10
 ```
 
-The above authentication configuration are part of the [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metic/conf.yaml.example) file.
+The above authentication configuration are part of the [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example) file.
 
 ## Configuration
 
 1. Edit your conf.d/splunk\_metric.yaml file.
 2. Restart the agent
-

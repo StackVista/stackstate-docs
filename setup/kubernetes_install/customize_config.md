@@ -58,6 +58,6 @@ stackstate:
 For the StackState `server` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-server).
 {% endhint %}
 
-* Full details on the naming of all the different services can be found in the in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
+* Full details on the naming of all the different services can be found in the in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate/README.md).
 * Find more details on [customizing authentication](../authentication.md).
 

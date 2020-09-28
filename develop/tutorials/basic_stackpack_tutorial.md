@@ -4,7 +4,7 @@ This tutorial shows you how to create a basic StackPack to configure StackState.
 
 ## Setup
 
-[This repository](https://github.com/mpvvliet/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
+[This repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
 The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
 
@@ -252,4 +252,3 @@ If you navigate to your **myDummyApp** component, you should now see the stream 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
 * Uninstall the **Tutorial StackPack**. This will remove the configuration and data received \(topology\) from StackState.
-
