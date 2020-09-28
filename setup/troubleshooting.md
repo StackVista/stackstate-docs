@@ -1,8 +1,3 @@
----
-title: Troubleshooting
-kind: Documentation
----
-
 # Troubleshooting
 
 ## Quick troubleshooting guide
