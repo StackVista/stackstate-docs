@@ -37,6 +37,10 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 {% endtab %}
 {% endtabs %}
 
+## Known issues
+
+Details of troubleshooting known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
+
 ## Reindex StackState
 
 {% hint style="danger" %}
