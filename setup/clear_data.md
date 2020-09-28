@@ -42,7 +42,12 @@ sts graph delete --all
 Clearing the data in StackState will **remove any configured permissions from the system**.
 {% endhint %}
 
-Please note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node. For example, `stop stackgraph` for a StackGraph node.
+{% tabs %}
+{% tab title="Kubernetes" %}
+To clear stored data in StackState running on Kubernetes, it is recommended to run a [clean install](/steup/kubernetes_install/install_stackstate.md).
+{% endtab %}
+{% tab title="Linux" %}
+Please note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node. For example, `systemctl stop stackgraph` for a StackGraph node.
 
 1. Stop the StackState and StackGraph services:
 
@@ -63,4 +68,5 @@ Please note that the below instructions are valid for a single node installation
    systemctl start stackstate
    systemctl start stackgraph
    ```
-
+ {% endtab %}
+ {% endtabs %}
