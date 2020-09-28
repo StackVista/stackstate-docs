@@ -181,7 +181,7 @@ helm install \
 stackstate/stackstate
 ```
 
-For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/README.md).
+For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate/README.md).
 
 ## KeyCloak OIDC Authentication Server
 
