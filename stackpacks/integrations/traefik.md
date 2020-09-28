@@ -21,7 +21,7 @@ The StackState Traefik integration is included in the [Agent V2 StackPack](agent
 
 ### Configuration
 
-Configure your Traefik instance to report [Datadog tracing data](https://docs.traefik.io/configuration/tracing/#datadog) to the StackState Agent. Your Traefik.toml configuration file must include the following parameters:
+Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to the StackState Agent. Your Traefik.toml configuration file must include the following parameters:
 
 ```text
 # Tracing definition
@@ -105,4 +105,3 @@ In Docker or Kubernetes, set the following environment variable for the StackSta
 ```text
 STS_LOG_LEVEL: "DEBUG"
 ```
-
