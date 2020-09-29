@@ -3,7 +3,7 @@
 * [Welcome to the StackState Docs!](README.md)
 * [Getting Started](getting_started.md)
 
-## 🔹 Setup
+## Setup
 
 * [Requirements](setup/requirements.md)
 * [Installation](setup/installation/README.md)
@@ -36,7 +36,7 @@
 * [Upgrade StackState](setup/upgrading.md)
 * [Log files](configure/stackstate_log_files.md)
 
-## 🔵 Concepts
+## Concepts
 
 * [The 4T data model](concepts/4t_data_model.md)
 * [Glossary](concepts/glossary.md)
@@ -48,7 +48,7 @@
 * [ID extraction](concepts/id_extraction.md)
 * [Topology sources](concepts/topology_sources.md)
 
-## 📘 Use
+## 👤 Use
 
   * [Views](use/views.md)
   * [Perspectives](use/perspectives/README.md)
@@ -132,7 +132,7 @@
 * [View state configuration](configure/view_state_configuration.md)
 * [Identifiers](configure/identifiers.md)
 
-## ⌨ Develop
+## 📘 Develop
 
   * [Develop StackPacks](develop/stackpack/README.md)
     * [Packaging](develop/stackpack/prepare_package.md)
