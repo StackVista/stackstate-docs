@@ -48,7 +48,20 @@
 * [ID extraction](concepts/id_extraction.md)
 * [Topology sources](concepts/topology_sources.md)
 
-## StackPacks
+## 📘Use
+
+  * [Views](use/views.md)
+  * [Perspectives](use/perspectives/README.md)
+    * [Topology Perspective](use/perspectives/topology-perspective.md)
+    * [Telemetry Perspective](use/perspectives/telemetry-perspective.md)
+    * [Events Perspective](use/perspectives/event-perspective.md)
+    * [Traces Perspective](use/perspectives/trace-perspective.md)
+    * [Filtering](use/perspectives/filters.md)
+  * [Analytics](use/queries.md)
+  * [Alerting](use/alerting.md)
+  * [Anomaly Detection with Baselines](use/baselining.md)
+
+## 🧩StackPacks
 
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
@@ -84,20 +97,7 @@
   * [Zabbix](stackpacks/integrations/zabbix.md)
 * [Develop your own StackPacks](stackpacks/sdk.md)
 
-## Use
-
-  * [Views](use/views.md)
-  * [Perspectives](use/perspectives/README.md)
-    * [Topology Perspective](use/perspectives/topology-perspective.md)
-    * [Telemetry Perspective](use/perspectives/telemetry-perspective.md)
-    * [Events Perspective](use/perspectives/event-perspective.md)
-    * [Traces Perspective](use/perspectives/trace-perspective.md)
-    * [Filtering](use/perspectives/filters.md)
-  * [Analytics](use/queries.md)
-  * [Alerting](use/alerting.md)
-  * [Anomaly Detection with Baselines](use/baselining.md)
-
-## Configure
+## ⚙ Configure
 
 * [Topology](configure/topology/README.md)
   * [Advanced topology queries with STQL](configure/topology_selection_advanced.md)
@@ -132,7 +132,7 @@
 * [View state configuration](configure/view_state_configuration.md)
 * [Identifiers](configure/identifiers.md)
 
-## Develop
+## ⌨ Develop
 
   * [Develop StackPacks](develop/stackpack/README.md)
     * [Packaging](develop/stackpack/prepare_package.md)
@@ -181,4 +181,3 @@
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
     * [Mirror integration tutorial](develop/tutorials/mirror_tutorial.md)
     * [Basic StackPack tutorial](develop/tutorials/basic_stackpack_tutorial.md)
-
