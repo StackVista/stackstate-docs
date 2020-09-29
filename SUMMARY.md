@@ -45,6 +45,7 @@
     * [Mapping functions](concepts/component_and_relation_mapping_functions.md)
     * [ID extraction](concepts/id_extraction.md)
   * [Views](use/views.md)
+  * [Template](use/template.md)
   * [Perspectives](use/perspectives/README.md)
     * [Topology Perspective](use/perspectives/topology-perspective.md)
     * [Telemetry Perspective](use/perspectives/telemetry-perspective.md)
