@@ -121,7 +121,7 @@ arguments
 
 **Examples:**
 
-This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](/develop/scripting/script-apis/async_script_result.md) `then` function is used to get the name of the layer.
+This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](/develop/scripting/async_script_result.md) `then` function is used to get the name of the layer.
 
 ```text
 Component.withId(123).layer().then { it.name }
