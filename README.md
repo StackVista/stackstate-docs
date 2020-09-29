@@ -5,13 +5,12 @@ description: StackState version 4.1
 # Welcome to the StackState Docs!
 
 
-{% page-ref page="getting_started.md" %}
+| | |
+|:---:|:---:|
+| {% page-ref page="getting_started.md" %} | {% page-ref page="getting_started.md" %} |
+| {% page-ref page="/setup/kubernetes_install/install_stackstate.md" %} | {% page-ref page="/setup/kubernetes_install/install_stackstate.md" %} |
+| {% page-ref page="/use/README.md" %} | {% page-ref page="/use/README.md" %} |
 
-{% page-ref page="/setup/kubernetes_install/install_stackstate.md" %}
-
-{% page-ref page="/develop/reference/README.md" %}
-
-{% page-ref page="/use/README.md" %}
 
 ## Can't find what you are looking for?
 
