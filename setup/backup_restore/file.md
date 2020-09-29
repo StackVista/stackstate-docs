@@ -13,8 +13,8 @@ To backup and restore StackState configuration and topology information we can u
 
 In order to backup StackGraph's data on a [production setup](/setup/linux_install/production-installation.md) you need to:
 
-1. Have StackGraph up and running
-2. Stop the StackState node `sudo systemctl stop stackstate.service`
+1. Have StackGraph up and running.
+2. Stop the StackState node using `sudo systemctl stop stackstate.service`.
 3. Use one of the following commands to start the backup process:
 
 
@@ -33,9 +33,14 @@ In order to backup StackGraph's data on a [production setup](/setup/linux_instal
 In order to restore topology information by importing a previous made backup you need to:
 
 1. Have StackGraph up and running.
-2. Stop StackState node [Starting and Stopping StackState](/setup/linux_install/production-installation.md#starting-and-stopping-stackstate).
-3. `/opt/stackstate/bin/sts-standalone.sh import --file <path to backup file> --graph default`
-4. All progress and end result of the process is logged at `<stackstate installation path>/var/log/stackstate.log`. Verify that the process finished and what the outcome was before trying to [Starting and Stopping StackState](/setup/linux_install/production-installation.md#starting-and-stopping-stackstate) `sudo systemctl start stackstate.service`
+2. Stop StackState node using `sudo systemctl stop stackstate.service`.
+3. Restore a backup from a specified file:
+```
+/opt/stackstate/bin/sts-standalone.sh import --file <path_to_backup_file> --graph default
+```
+4. Progress and the end result of the restore process is logged at `<stackstate_installation_path>/var/log/stackstate.log`.
+5. Check the log to verify that the restore process completed successfully.
+6. Start the StackState node using `sudo systemctl start stackstate.service`.
 
 ## StackState telemetry data
 
