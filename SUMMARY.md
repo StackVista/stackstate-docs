@@ -3,7 +3,7 @@
 * [Welcome to the StackState Docs!](README.md)
 * [Getting Started](getting_started.md)
 
-## Setup
+## 🔹 Setup
 
 * [Requirements](setup/requirements.md)
 * [Installation](setup/installation/README.md)
@@ -36,7 +36,7 @@
 * [Upgrade StackState](setup/upgrading.md)
 * [Log files](configure/stackstate_log_files.md)
 
-## Concepts
+## 🔵 Concepts
 
 * [The 4T data model](concepts/4t_data_model.md)
 * [Glossary](concepts/glossary.md)
@@ -48,7 +48,7 @@
 * [ID extraction](concepts/id_extraction.md)
 * [Topology sources](concepts/topology_sources.md)
 
-## 📘Use
+## 📘 Use
 
   * [Views](use/views.md)
   * [Perspectives](use/perspectives/README.md)
@@ -97,7 +97,7 @@
   * [Zabbix](stackpacks/integrations/zabbix.md)
 * [Develop your own StackPacks](stackpacks/sdk.md)
 
-## ⚙ Configure
+## 🔧 Configure
 
 * [Topology](configure/topology/README.md)
   * [Advanced topology queries with STQL](configure/topology_selection_advanced.md)
