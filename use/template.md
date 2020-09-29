@@ -7,7 +7,7 @@ Start with a brief intro explaining:
 
 ## Using this thing/concept
 
-Needs a better title, obviously. This section is basically a UI manual. It describes where this thing/concept sits in the StackState UI and the elements that it controls and can control it.
+This section is basically a UI manual. It describes where this thing/concept sits in the StackState UI and the elements that it controls and can control it.
 
 ![thing/concept where](/.gitbook/assets/basic_filtering_list.png)
 
@@ -15,7 +15,7 @@ Includes at least one screenshot that should be annotated to clearly show influe
 
 ## Actions
 
-Instructions for completing all the relevant actions a user can do with the thing/concept. The example below is taken from the Views page. For each action, open with an intro line of why/when you would do this. These descriptions should remain simple and link out to more complex content if required.
+Instructions for completing all the relevant actions a user can do with the thing/concept. The example below is taken from the Views page. For each, open with an intro line of why/when you would do this. These descriptions should remain simple and link out to more complex content if required.
 
 ### Create a view
 
