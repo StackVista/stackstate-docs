@@ -22,9 +22,10 @@ In order to backup StackGraph's data on a [production setup](/setup/linux_instal
 # Backup to the default location `/opt/stackstate/backups/`:
 /opt/stackstate/bin/sts-backup.sh
 
-# Specify a backup location.
-# Note that the specified path must be writable for the user/group `stackstate`:
+# Specify a backup location:
 /opt/stackstate/bin/sts-standalone.sh export --file <backup_path> --graph default
+
+# Note that the specified path must be writable for the user/group `stackstate`.
 ```
 
 ### Restore
