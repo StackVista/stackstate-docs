@@ -14,7 +14,7 @@ description: StackState version 4.1
 
 {% page-ref page="/develop/scripting/README.md" %}
 
-{% page-ref page="/develop/tutorials/.md" %}
+{% page-ref page="/develop/tutorials/README.md" %}
 
 
 
