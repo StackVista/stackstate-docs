@@ -59,12 +59,15 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tabs %}
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
+
 * [Kubernetes backup](backup_restore/kubernetes_backup.md)
 * [Configuration backup](backup_restore/configuration.md)
 * [Manually created topology backup](backup_restore/manual_topology.md)
 {% endtab %}
+
 {% tab title="Linux" %}
 To create a backup on Linux, see:
+
 * [Linux backup](backup_restore/file.md)
 * [Configuration backup](backup_restore/configuration.md)
 * [Manually created topology backup](backup_restore/manual_topology.md)
@@ -72,8 +75,7 @@ To create a backup on Linux, see:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that it will not be possible to restore the backup on the upgraded version of StackState.
-The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+Note that it will not be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
 ## Uninstall StackPacks
@@ -117,7 +119,9 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.1.0
 
-* In this release the sts-healthuri has been moved from port 7071 to 7080 in processmanager.conf. Custom made processmanager.conf configurations will need to be adapted.
+* There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
+  * The `sts-healthcheckuri` has been moved from port 7071 to 7080
+  * The `startup-check` block has been removed completely
 
 ### Upgrade to 4.0.0
 
@@ -142,6 +146,6 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 1.15.0
 
-* Upgrading to 1.15.0 will require you to reregister your license information. See the instructions for registering your license key [here](https://github.com/StackVista/stackstate-docs/tree/7b63b38aa95b63faadf80045a0e41f308c239e59/setup/installation/configuration.md).
+* Upgrading to 1.15.0 will require you to reregister your license information. Please contact support for details.
 * Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
 * The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.

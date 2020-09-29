@@ -1,16 +1,19 @@
+# Install with development configuration
+
 {% hint style="info" %}
-StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+StackState prefers Kubernetes!  
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/kubernetes_install/README.md).
 {% endhint %}
 
 Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
 
 ## Requirements
 
-Before starting the installation, ensure your system meets StackState's development setup [installation requirements](requirements.md).
+Before starting the installation, ensure your system meets StackState's development setup [installation requirements](/setup/requirements.md).
 
 ## Installing StackState in a development configuration
 
-For a development setup of StackState, simply follow the instructions for [Installing StackState](install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
+For a development setup of StackState, simply follow the instructions for [Installing StackState](/setup/linux_install/install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
 
 ## Starting and Stopping
 

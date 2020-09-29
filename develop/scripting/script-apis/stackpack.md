@@ -23,3 +23,4 @@ The example below will return the AsyncScriptResult of the boolean indicating if
 ```text
 StackPack.isInstalled("agent")
 ```
+

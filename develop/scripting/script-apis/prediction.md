@@ -13,13 +13,13 @@ Predict metrics for any metric query coming from any data source.
 **Args:**
 
 * `predictorName` - name of prediction preset. Current available predictors: `linear`, `hmn` and `fft`.
-* `horizon` - how much future to predict. The horizon is specified in the [duration format](time.mc).
+* `horizon` - how much future to predict. The horizon is specified in the [duration format](/develop/scripting/script-apis/time.md).
 * `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
 
 **Builder methods:**
 
 * `predictionPoints(points: Int)` - the number of points to the horizon.
-* `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](time.md). When not specifying the start and end the whole history will be included.
+* `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](/develop/scripting/script-apis/time.md). When not specifying the start and end the whole history will be included.
 
 **Return type:**
 

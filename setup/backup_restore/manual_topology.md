@@ -3,7 +3,7 @@ title: Manual topology import/export
 kind: Documentation
 ---
 
-# Backup manually created topology
+# Manually created topology backup
 
 This page describes the process of exporting and importing manual topology data, i.e. components and relations that are not synchronized via StackPacks.
 
@@ -17,12 +17,14 @@ This page describes the process of exporting and importing manual topology data,
 To export all manually created components and relations to a file `manual_topo.stj` using the [StackState CLI](../cli.md):
 
 1. Create the export file:
-```text
-sts graph list --manual --ids Component Relation \
-  | xargs \
-  sts graph export --ids \
-  > manual_topo.stj
-```
+
+   ```text
+   sts graph list --manual --ids Component Relation \
+   | xargs \
+   sts graph export --ids \
+   > manual_topo.stj
+   ```
+
 2. Check the generated file `manual_topo.stj` to make sure it contains a correct export of all your topology.
 
 Breakdown of the export command used in the example above:
@@ -43,3 +45,4 @@ To import topology and relation data from a file `manual_topo.stj` using the [St
 ```text
 sts graph import < manual_topo.stj
 ```
+
