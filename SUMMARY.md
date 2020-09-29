@@ -39,14 +39,12 @@
 ## Concepts
 
 * [The 4T data model](concepts/4t_data_model.md)
-* [Glossary](concepts/glossary.md)
-* [Role-based Access Control](concepts/role_based_access_control.md)
+
 * [Components and Relations](concepts/components_and_relations.md)
 * [Layers, Domains and Environments](concepts/layers_domains_and_environments.md)
-* [Templates](concepts/component_and_relation_templates.md)
 * [Mapping functions](concepts/component_and_relation_mapping_functions.md)
 * [ID extraction](concepts/id_extraction.md)
-* [Topology sources](concepts/topology_sources.md)
+* [Glossary](concepts/glossary.md)
 
 ## 👤 Use
 
@@ -109,6 +107,7 @@
   * [Naming guide](configure/naming_guide.md)
   * [State propagation](configure/propagation.md)
   * [Tag topology](configure/tagging.md)
+  * [Topology sources](concepts/topology_sources.md)
   * [Topology synchronization](configure/topology_synchronization.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Add telemetry to synchronized topology](configure/telemetry_synchronized_topology.md)
@@ -122,6 +121,7 @@
 * [Security](configure/security/README.md)
   * [Configure LDAP authentication](configure/how_to_configure_ldap_authentication.md)
   * [RBAC](configure/rbac/README.md)
+    * [Role-based Access Control](concepts/role_based_access_control.md)
     * [Permissions](configure/permissions.md)
     * [Roles](configure/how_to_set_up_roles.md)
     * [Scopes](configure/scopes_in_rbac.md)
@@ -176,6 +176,7 @@
     * [StackState Markup Language \(STML\)](develop/stml/README.md)
       * [STML Tags](develop/stml/tags.md)
     * [StackState Template Json \(STJ\)](develop/sts_template_language_intro/README.md)
+      * [Templates](concepts/component_and_relation_templates.md)
       * [Template functions](develop/sts_template_language_intro/sts_template_language_reference.md)
   * [Tutorials](develop/tutorials/README.md)
     * [Push-integration tutorial](develop/tutorials/push_integration_tutorial.md)
