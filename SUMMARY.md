@@ -36,18 +36,14 @@
 * [Upgrade StackState](setup/upgrading.md)
 * [Log files](configure/stackstate_log_files.md)
 
-## Concepts
-
-* [The 4T data model](concepts/4t_data_model.md)
-
-* [Components and Relations](concepts/components_and_relations.md)
-* [Layers, Domains and Environments](concepts/layers_domains_and_environments.md)
-* [Mapping functions](concepts/component_and_relation_mapping_functions.md)
-* [ID extraction](concepts/id_extraction.md)
-* [Glossary](concepts/glossary.md)
-
 ## 👤 Use
 
+  * [Introduction to StackState](use/intro/README.md)
+    * [The 4T data model](concepts/4t_data_model.md)
+    * [Components and Relations](concepts/components_and_relations.md)
+    * [Layers, Domains and Environments](concepts/layers_domains_and_environments.md)
+    * [Mapping functions](concepts/component_and_relation_mapping_functions.md)
+    * [ID extraction](concepts/id_extraction.md)
   * [Views](use/views.md)
   * [Perspectives](use/perspectives/README.md)
     * [Topology Perspective](use/perspectives/topology-perspective.md)
@@ -58,6 +54,7 @@
   * [Analytics](use/queries.md)
   * [Alerting](use/alerting.md)
   * [Anomaly Detection with Baselines](use/baselining.md)
+  * [Glossary](concepts/glossary.md)
 
 ## 🧩StackPacks
 
