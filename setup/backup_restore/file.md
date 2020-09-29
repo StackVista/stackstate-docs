@@ -16,14 +16,16 @@ In order to backup StackGraph's data on a [production setup](/setup/linux_instal
 1. Have StackGraph up and running
 2. Stop the StackState node `sudo systemctl stop stackstate.service`
 3. Use one of the following commands to start the backup process:
-  * Backup to the default location `/opt/stackstate/backups/`:
-  ```
-  /opt/stackstate/bin/sts-backup.sh
-  ```
-  *  Specify a backup location. Note that the specified path_to_backup_file must be writable for the user/group `stackstate`:
-  ```
-  /opt/stackstate/bin/sts-standalone.sh export --file <path_to_backup_file> --graph default
-  ```
+
+
+```
+# Backup to the default location `/opt/stackstate/backups/`:
+/opt/stackstate/bin/sts-backup.sh
+
+# Specify a backup location.
+# Note that the specified path must be writable for the user/group `stackstate`:
+/opt/stackstate/bin/sts-standalone.sh export --file <path_to_backup_file> --graph default
+```
 
 ### Restore
 
