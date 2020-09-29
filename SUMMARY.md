@@ -129,7 +129,7 @@
 * [View state configuration](configure/view_state_configuration.md)
 * [Identifiers](configure/identifiers.md)
 
-## 📘 Develop
+## 📖 Develop
 
   * [Develop StackPacks](develop/stackpack/README.md)
     * [Packaging](develop/stackpack/prepare_package.md)
