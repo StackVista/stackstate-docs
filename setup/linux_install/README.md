@@ -5,7 +5,7 @@ StackState prefers Kubernetes!
 In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/kubernetes_install/README.md).
 {% endhint %}
 
-StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](/setup/Kubernetes_install/README.md).
+StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](/setup/kubernetes_install/README.md).
 
 ## Choosing your installation type
 
@@ -21,7 +21,7 @@ Before starting the installation, ensure your system\(s\) meet the StackState [i
 
 ## Packages
 
-There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](/setup/download.md).
+There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](/setup/linux_install/download.md).
 
 ## Installation
 
