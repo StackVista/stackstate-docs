@@ -23,7 +23,9 @@ In order to backup StackGraph's data on a [production setup](/setup/linux_instal
 /opt/stackstate/bin/sts-backup.sh
 
 # Specify a backup location:
-/opt/stackstate/bin/sts-standalone.sh export --file <backup_path> --graph default
+/opt/stackstate/bin/sts-standalone.sh export \
+  --file <path_to_store_backup> \ # must be writable for the user/group `stackstate`
+  --graph default
 
 # Note that the specified path must be writable for the user/group `stackstate`.
 ```
@@ -36,7 +38,9 @@ In order to restore topology information by importing a previous made backup you
 2. Stop StackState node using `sudo systemctl stop stackstate.service`.
 3. Restore a backup from a specified file:
 ```
-/opt/stackstate/bin/sts-standalone.sh import --file <path_to_backup_file> --graph default
+/opt/stackstate/bin/sts-standalone.sh import \
+  --file <path_to_backup_file> \
+  --graph default
 ```
 4. Progress and the end result of the restore process is logged at `<stackstate_installation_path>/var/log/stackstate.log`.
 5. Check the log to verify that the restore process completed successfully.
