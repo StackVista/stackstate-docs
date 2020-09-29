@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Welcome to the StackState Docs!](README.md)
-* [Getting Started](getting_started.md)
 
 ## Setup
 
@@ -39,6 +38,7 @@
 ## 👤 Use
 
   * [Introduction to StackState](use/intro/README.md)
+    * [Getting Started](getting_started.md)
     * [The 4T data model](concepts/4t_data_model.md)
     * [Components and Relations](concepts/components_and_relations.md)
     * [Layers, Domains and Environments](concepts/layers_domains_and_environments.md)
