@@ -12,9 +12,10 @@ description: StackState version 4.1
 
 ### Developer guides
 
-{% page-ref page="/develop/scripting/README.md" %}
-
 {% page-ref page="/develop/tutorials/README.md" %}
+
+{% page-ref page="/develop/reference/README.md" %}
+
 
 ### Setup and configuration
 
