@@ -2,12 +2,12 @@
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/README.md).
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/kubernetes_install/README.md).
 {% endhint %}
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](/setup/linux_install/requirements.md).
+Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](/setup/requirements.md).
 
 ## Two-node deployment architecture
 
