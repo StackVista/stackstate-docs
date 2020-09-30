@@ -11,6 +11,10 @@ Describe what happens in the diagram (data flow). This should cover the type of 
 
 ## Install
 
+{% hint style="info" %}
+To decide - Should all the page be included in the UI StackPack or should basic steps completed in UI be covered there and link out to docs for remaining? (e.g. include pre-requisites, install and uninstall only).
+{% endhint %}
+
 #### Pre-requisites
 
 Networking requirements and pre-requisites should be named them here. If there are none, also state that here.

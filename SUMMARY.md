@@ -59,7 +59,7 @@
 
 ## 🧩StackPacks
 
-* [DOCS: StackPack template](stackpacks/templated.md)
+* [DOCS: StackPack template](stackpacks/template.md)
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
   * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
