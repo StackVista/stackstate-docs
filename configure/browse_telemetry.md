@@ -14,8 +14,6 @@ This is an overview of the telemetry browser inside of StackState.
 
 The Telemetry Browser enables users to query events and metrics inside your data sources \(monitored systems\). These queries can be saved as telemetry streams on a Component or Relation entity in the topology of the 4T model. Also the Telemetry Browser allows you to play around with different graph settings in a more ad-hoc way.
 
-test
-
 ![Telemetry browser](/.gitbook/assets/telemetry_browser.png)
 
 ## How to access the telemetry browser
