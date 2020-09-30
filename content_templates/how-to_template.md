@@ -1,7 +1,5 @@
 # How-to template
 
-test
-
 Start with a brief intro explaining:
 - What is going to be done?
 - Why would you do this?
