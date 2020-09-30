@@ -1,7 +1,7 @@
 # Template
 
 Start with a brief intro explaining:
-- What is this screen/concept and how does it fit into the StackState system?
+- What is this screen/concept and how does it fit into the StackState workflow?
 - Why/when would you use it? There may be different answers for different user types here, that can also be covered and link out to other content/actions as required
 
 

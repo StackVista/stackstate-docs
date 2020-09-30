@@ -96,6 +96,7 @@
 
 ## 🔧 Configure
 
+* [DOCS: How-to template](/configure/template.md)
 * [Topology](configure/topology/README.md)
   * [Advanced topology queries with STQL](configure/topology_selection_advanced.md)
   * [Component actions](configure/component_actions.md)
