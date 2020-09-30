@@ -2,7 +2,7 @@
 
 Start with an intro overview. Include a high level overview (diagram!!) of how the StackPack works and where it sits in the StackState ecosystem.
 
-![Diagram]()
+![Diagram](/.gitbook/assets/021_topology_elements.png)
 
 Describe what happens in the diagram (data flow). This should cover the type of information it produces:
 
