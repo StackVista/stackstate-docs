@@ -5,7 +5,7 @@ Start with a brief intro explaining:
 - Why would you do this?
   - background
   - benefits
-  - problems will be solved
+  - problems that will be solved
 - Are there any other ways to get to this outcome? (ie. are you sure you need to do this)
 - Are there any known problems relating to this action?
 
