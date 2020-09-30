@@ -33,15 +33,15 @@ Parameters should be described in a table. If there are steps to follow number t
 
 ### Core reporting API
 
-Parameters should be described in a table. If there are steps to follow number these as a process. Include an example.
+...
 
 ### Real-time reporting API
 
-Parameters should be described in a table. If there are steps to follow number these as a process. Include an example.
+...
 
 ### Google Analytics integration
 
-Parameters should be described in a table. If there are steps to follow number these as a process. Include an example.
+...
 
 ## Uninstall
 
