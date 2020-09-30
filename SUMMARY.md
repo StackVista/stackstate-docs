@@ -52,7 +52,7 @@
   * [Analytics](use/queries.md)
   * [Alerting](use/alerting.md)
   * [Anomaly Detection with Baselines](use/baselining.md)
- [StackPacks](stackpacks/README.md)
+ * [StackPacks](stackpacks/README.md)
   * [What is a StackPack?](stackpacks/about-stackpacks.md)
   * [Add-ons](stackpacks/add-ons/README.md)
     * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
