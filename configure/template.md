@@ -53,7 +53,13 @@ You can manually add a component in the StackState UI from the [Topology Perspec
   - **Layer** - This will be used ... and is helpful to ...
   - **Domain** - This will be used ... and is helpful to ...
 
+### Create a relation type (optional)
+
+...
+
 ### Add relations between components
+
+...
 
 1.
 
