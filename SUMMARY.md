@@ -37,6 +37,7 @@
 
 ## 👤 Use
 
+  * [DOCS: Use template](use/template.md)
   * [Introduction to StackState](use/intro/README.md)
     * [Getting Started](getting_started.md)
     * [The 4T data model](concepts/4t_data_model.md)
@@ -45,7 +46,6 @@
     * [Mapping functions](concepts/component_and_relation_mapping_functions.md)
     * [ID extraction](concepts/id_extraction.md)
   * [Views](use/views.md)
-  * [Template](use/template.md)
   * [Perspectives](use/perspectives/README.md)
     * [Topology Perspective](use/perspectives/topology-perspective.md)
     * [Telemetry Perspective](use/perspectives/telemetry-perspective.md)
@@ -59,6 +59,7 @@
 
 ## 🧩StackPacks
 
+* [DOCS: StackPack template](stackpacks/templated.md)
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
   * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)

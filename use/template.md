@@ -1,21 +1,21 @@
 # Template
 
 Start with a brief intro explaining:
-- What is this thing/concept and how does it fit into the StackState system?
+- What is this screen/concept and how does it fit into the StackState system?
 - Why/when would you use it? There may be different answers for different user types here, that can also be covered and link out to other content/actions as required
 
 
-## Using this thing/concept
+## Using this screen/concept
 
-This section is basically a UI manual. It describes where this thing/concept sits in the StackState UI and the elements that it controls and can control it.
+This section is basically a UI manual. It describes where this screen/concept sits in the StackState UI and the elements that it controls and can control it.
 
-![thing/concept where](/.gitbook/assets/basic_filtering_list.png)
+![screen/concept where](/.gitbook/assets/basic_filtering_list.png)
 
-Includes at least one screenshot that should be annotated to clearly show influence of the thing/concept.
+Includes at least one screenshot that should be annotated to clearly show influence of the screen/concept.
 
 ## Actions
 
-Instructions for completing all the relevant actions a user can do with the thing/concept. The example below is taken from the Views page. For each, open with an intro line of why/when you would do this. These descriptions should remain simple and link out to more complex content if required.
+Instructions for completing all the relevant actions a user can do with the screen/concept. The example below is taken from the Views page. For each, open with an intro line of why/when you would do this. These descriptions should remain simple and link out to more complex content if required.
 
 ### Create a view
 
@@ -59,7 +59,7 @@ How to delete a view and any associated implications.
 
 ## See also
 
-End the page with pointers to relevant, further info. This might just be a list with any links already included in the page. If the thing/concept is used in a tutorial, include that here.
+End the page with pointers to relevant, further info. This might just be a list with any links already included in the page. If the screen/concept is used in a tutorial, include that here.
 
 - link 1
 - link 2
