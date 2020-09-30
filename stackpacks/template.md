@@ -1,6 +1,6 @@
 # stackpack template
 
-Start with an intro overview. Include a high level overview (diagram!!) of how the StackPack works and where it sits in the StackState ecosystem.
+Start with an intro. Include a high level overview (diagram!!) of how the StackPack works and where it sits in the StackState ecosystem.
 
 ![Diagram](/.gitbook/assets/021_topology_elements.png)
 
@@ -17,7 +17,7 @@ To decide - Should all the page be included in the UI StackPack or should basic 
 
 #### Pre-requisites
 
-Networking requirements and pre-requisites should be named them here. If there are none, also state that here.
+Networking requirements and pre-requisites should be named here. If there are none, also state that here.
 
 #### Installation
 
@@ -45,7 +45,7 @@ Parameters should be described in a table. If there are steps to follow number t
 
 ## Uninstall
 
-If the uninstall includes manual or extra steps these should be included here. If it is a standard 'click to uninstall', also describe that here so reader's do not need to figure this out for themselves.
+If the uninstall includes manual or extra steps these should be included here. If it is a standard 'click to uninstall', also describe that here - don't leave the reader to guess.
 
 ## See also
 
