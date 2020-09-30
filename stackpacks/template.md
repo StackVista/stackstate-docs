@@ -4,30 +4,22 @@ Start with an intro overview. Include a high level overview (diagram!!) of how t
 
 ![Diagram]()
 
-Describe what happens in the diagram (data flow).
+Describe what happens in the diagram (data flow). This should cover the type of information it produces:
 
-## Output
+- topological components and relations
+- metrics, events and traces
 
-### Type of information it produces
-
-### Type of topological components and relations
-
-### Metrics, events and traces
-
-
-## Use
-
-### Install
+## Install
 
 #### Pre-requisites
 
-If there are special pre-requisites, name them here. If there are not, also state that here.
+Networking requirements and pre-requisites should be named them here. If there are none, also state that here.
 
 #### Installation
 
-The steps to take to install. It's ok if that is just 'click to install', also name it here.
+The steps to taken to install. It's ok if that is just 'click to install', also name it here. If there is more than one step, write as a process of numbered steps.
 
-### Configuration
+## Configure
 
 Extra steps that need to be carried out to activate the StackPack. This can be a collection of headings or actions. For example, from the [Google Analytics StackPack](/stackpacks/integrations/google_analytics.md) page:
 
@@ -47,7 +39,7 @@ Parameters should be described in a table. If there are steps to follow number t
 
 Parameters should be described in a table. If there are steps to follow number these as a process. Include an example.
 
-### Uninstall
+## Uninstall
 
 If the uninstall includes manual or extra steps these should be included here. If it is a standard 'click to uninstall', also describe that here so reader's do not need to figure this out for themselves.
 
