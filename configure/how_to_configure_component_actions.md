@@ -9,7 +9,7 @@ This how-to describes the steps to create a Component Action that can be execute
 
 To start working with Component Actions, go to the Settings page and then in Actions, select "Component Actions". There you can add a new Component Action or edit one that already exists.
 
-![Component Actions](../.gitbook/assets/component_actions.png)
+![Component Actions](/.gitbook/assets/component_actions.png)
 
 ## 1. Provide a name and description
 
@@ -19,7 +19,7 @@ Please note that the Component Action name is case-sensitive.
 
 ## 2. Bind components to your Action with an STQL query
 
-In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](topology_selection_advanced.md).
+In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](/configure/topology_selection_advanced.md).
 
 The below example binds an Action to all components in the "Production" domain that are present in the "databases" layer.
 
@@ -107,4 +107,3 @@ Http.post("https://postman-echo.com/post")
     .timeout("30s")
 .jsonResponse()
 ```
-
