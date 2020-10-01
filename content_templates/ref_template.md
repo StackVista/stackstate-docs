@@ -11,9 +11,8 @@ If there are general instructions on how this reference should be used, include 
 # Function name
 
 Start with a description of what it does and when it is used.
-```
-example -of <use>
-```
+
+`example -of <use>`
 
 ## Parameters / fields
 
