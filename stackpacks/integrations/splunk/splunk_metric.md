@@ -17,12 +17,13 @@ The agent check prevents sending duplicate metrics over multiple check runs. The
 
 All these fields are required.
 
-| **\_time** | long | Data collection timestamp, millis since epoch |
+| Field | Type | Description |
 | :--- | :--- | :--- |
+| **_time** | long | Data collection timestamp, millis since epoch |
 | **metric%** | string | Name of the metric |
 | **value%** | numeric | The value of the metric |
 
-\% The name of the field is configurable in the configuration file
+The name of the field is configurable in the configuration file.
 
 ### Example
 
