@@ -8,13 +8,13 @@ If there are general instructions on how this reference should be used, include 
 
 # Functions / Commands / ...
 
-# Function name
+## Function name
 
 Start with a description of what it does and when it is used.
 
 `example -of <use>`
 
-## Parameters / fields
+### Parameters / fields
 
 | Parameter | Format | Description |
 |:---|:---|:---|
@@ -22,7 +22,7 @@ Start with a description of what it does and when it is used.
 | `of` | True, False | what each paramater |
 | `parameters` | Number | is used for |
 
-## Examples
+### Examples
 
 ```
 # actual examples of use
