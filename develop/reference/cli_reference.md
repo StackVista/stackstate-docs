@@ -8,7 +8,7 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 To use the StackState CLI commands, [install the StackState CLI](/setup/cli.md) on the machine where you want to run the commands.
 
-# sts graph commands
+# Export / import configuration
 
 ## sts graph list-types
 
@@ -86,7 +86,7 @@ You can use the CLI to send one data point of a given value data. You can also u
 | `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
 | `-h` | See all available options |
 
-# sts topic commands
+# Inspect topic data
 
 All data flowing through StackState \(e.g. topology, telemetry, traces, etc.\) flows through topics. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
 
