@@ -14,9 +14,9 @@ All fields described below are required in a Splunk query:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| **_time** | long | Data collection timestamp, millis since epoch |
+| **_time** | long | Data collection timestamp, millis since epoch. |
 | **metric%** | string | Name of the metric. This is the `metric_name_field` configured in [conf.d/splunk_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example).|
-| **value%** | numeric | The value of the metric |
+| **value%** | numeric | The value of the metric. |
 
 Example Splunk query:
 
