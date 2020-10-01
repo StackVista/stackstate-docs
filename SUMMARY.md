@@ -176,6 +176,7 @@
         * [Script API: StackPack](develop/scripting/script-apis/stackpack.md)
     * [StackState Markup Language \(STML\)](develop/stml/README.md)
       * [STML Tags](develop/stml/tags.md)
+    * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
     * [StackState Template Json \(STJ\)](develop/sts_template_language_intro/README.md)
       * [Templates](concepts/component_and_relation_templates.md)
       * [Template functions](develop/sts_template_language_intro/sts_template_language_reference.md)
