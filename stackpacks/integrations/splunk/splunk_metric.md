@@ -1,8 +1,3 @@
----
-title: Splunk Metric Integration
-kind: documentation
----
-
 # Splunk metrics
 
 ## Overview
@@ -13,19 +8,15 @@ The StackState Agent expects the results of the saved searches to contain certai
 
 The agent check prevents sending duplicate metrics over multiple check runs. The received saved search records have to be uniquely identified for comparison. By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`. The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration. Please note that the specified `unique_key_fields` fields become mandatory for each record. In case the records can not be uniquely identified by a combination of fields then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
 
-### Metric Query Format
+### Splunk query format
 
-All these fields are required.
+The fields in the table below are required in a Splunk query:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | **_time** | long | Data collection timestamp, millis since epoch |
-| **metric%** | string | Name of the metric |
+| **metric%** | string | Name of the metric. This is the `metric_name_field` configured in [conf.d/splunk_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example).|
 | **value%** | numeric | The value of the metric |
-
-The name of the field is configurable in the configuration file.
-
-### Example
 
 Example Splunk query:
 
