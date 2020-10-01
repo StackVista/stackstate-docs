@@ -68,47 +68,17 @@ StackState **does not work** with JDK versions 9 or higher at this time.
 
 #### Production setup
 
-The StackState production setup requires two machines to run on.
+The StackState production setup runs on two machines and requires:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left">MINIMUM</th>
-      <th style="text-align:left">RECOMMENDED</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><b>StackState node</b>
-      </td>
-      <td style="text-align:left">
-        <p>&gt;= 20GB of RAM</p>
-        <p>&gt;= 100GB disk space</p>
-        <p>&gt;= 4 cores CPU</p>
-      </td>
-      <td style="text-align:left">
-        <p>32GB of RAM</p>
-        <p>500GB disk space</p>
-        <p>8 cores CPU</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>StackGraph node</b>
-      </td>
-      <td style="text-align:left">
-        <p>&gt;= 16GB of RAM</p>
-        <p>&gt;= 100GB disk space</p>
-        <p>&gt;= 4 cores CPU</p>
-      </td>
-      <td style="text-align:left">
-        <p>24GB of RAM</p>
-        <p>500GB disk space</p>
-        <p>8 cores CPU</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+* **StackState node**:
+  * 32GB of RAM
+  * 500GB disk space
+  * 8 cores CPU
+
+* **StackGraph node**:
+  * 24GB of RAM
+  * 500GB disk space
+  * 8 cores CPU
 
 #### POC setup
 
