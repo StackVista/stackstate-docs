@@ -83,12 +83,12 @@ layer = "application"
   OR withNeighborsOf(components = (name in ("appA","appB")))
 ```
 
-## DEPRECATED - withCauseOf
+## withCauseOf - DEPRECATED
 
 The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but will not produce any additional components.
 
 # See also
 
-- [Filter topology in the StackState UI](/use/perspectives/filters/md)
+- [Filter topology in the StackState UI](/use/perspectives/filters.md)
 - [Use queries in analytics](/use/queries.md)
 - [Reference: StackState scripting language (STSL)](/develop/scripting/README.md)
