@@ -8,13 +8,23 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 To use the StackState CLI commands, [install the StackState CLI](/setup/cli.md) on the machine where you want to run the commands.
 
-# Import / export StackState configuration
+# sts graph commands
 
-The StackState configuration is stored in the StackState graph database (StackGraph) in so-called configuration nodes. These nodes can be inspected, imported and exported using the CLI.
+## sts graph list-types
+
+StackState configuration is stored in the StackState graph database (StackGraph) in configuration nodes. Use the `sts graph list-types` command to see the types of all configuration nodes.
+
+```text
+sts graph list-types
+```
+
+### Output
+
+
 
 ## sts graph export
 
-You can use the `sts graph export` to export and different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
+You can use the `sts graph export` to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
 
 `sts graph export --ids ids_to_export > file_name`
 
@@ -34,13 +44,65 @@ The example below will write all check functions to the file mycheckfunctions.st
 sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunctions.stj
 ```
 
-
-
 ## sts graph import
 
-You can use the `sts graph import` command to import configuration from a file to StackState.
+You can use the `sts graph import` command to import configuration previously exported configuration back into StackState.
 
 `sts graph import < file_name`
+
+### Parameters / fields
+
+| Parameter | Format | Required | Description |
+|:---|:---|:---|
+| file_name | file_name | ??? | The file to import StackState configuration from. If none is specified, will be taken from ??? |
+
+### Examples
+
+```
+# actual examples of use
+```
+
+# Send data to StackState
+
+The CLI makes it easy to send test data to StackState.
+
+* [Send metrics data](cli.md#metrics)
+* [Send events data](cli.md#events)
+* [Send topology data](cli.md#topology)
+* [Send anomaly data](cli.md#anomaly)
+
+## sts metrics send
+
+You can use the CLI to send one data point of a given value data. You can also use the CLI to generate values within a defined bandwidth. By default, a generated metrics pattern is random or, when a value is provided, a flatline. This can be changed using the pattern arguments `--linear` and `--baseline`.
+
+`sts metrics send <optional_argument> <MetricName> <OptionalNumberValue>`
+
+| Argument | Details |
+| :--- | :--- |
+| `-p` | Time period. This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`. For example: `-p 4w2d6h30m15s` |
+| `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
+| `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
+| `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
+| `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
+| `-h` | See all available options |
+
+# sts topic commands
+
+All data flowing through StackState \(e.g. topology, telemetry, traces, etc.\) flows through topics. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
+
+## sts topic list
+
+See all topics.
+
+```
+sts topic list
+```
+
+### Output
+
+## sts topic show
+
+`sts topic show <topic>`
 
 ### Parameters / fields
 
@@ -50,11 +112,7 @@ You can use the `sts graph import` command to import configuration from a file t
 | `of` | True, False | what each paramater |
 | `parameters` | Number | is used for |
 
-### Examples
 
-```
-# actual examples of use
-```
 
 
 # See also
@@ -69,79 +127,9 @@ End the page with pointers to relevant, further info. This might just be a list 
 
 -------
 
-## Use the StackState CLI
-
-### Import and export StackState configuration
-
-The StackState configuration is stored in StackState's graph database in so-called configuration nodes. These nodes can be inspected, imported and exported using the CLI.
-
-```text
-# See all types of configuration nodes:
-sts graph list-types
-```
-
-You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](../develop/sts_template_language_intro/) format.
-
-For example:
-
-```text
-# Write all check functions to disk
-sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunctions.stj
-
-# Import check functions from file
-sts graph import < mycheckfunctions.stj
-```
-
-### Inspect data
-
-All data flowing through StackState \(e.g. topology, telemetry, traces, etc.\) flows through so-called topics. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
-
-For example:
-
-```text
-# See all topics
-sts topic list
-
-# Inspect a topic
-sts topic show <topic>
-```
-
 ### Send data
 
-You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send test topology or telemetry data to StackState.
-
-* [Send metrics data](cli.md#metrics)
-* [Send events data](cli.md#events)
-* [Send topology data](cli.md#topology)
-* [Send anomaly data](cli.md#anomaly)
-
-#### Metrics
-
-The CLI provides some predefined settings to send metrics to StackState. Run the below command without any optional arguments to send one data point of the given value:
-
-```text
-sts metrics send <MetricName> <OptionalNumberValue>
-```
-
-You can also use optional arguments to create historical data for a test metric.
-
-| Argument | Details |
-| :--- | :--- |
-| `-p` | Time period. This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`. For example: `-p 4w2d6h30m15s` |
-| `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
-
-By default, a metrics pattern is random or, when a value is provided, a flatline. This can be changed using the pattern arguments `--linear` and `--baseline`.
-
-| Argument | Details |
-| :--- | :--- |
-| `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
-| `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
-| `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
-
-To see all available options, use:
-
-```text
-sts metrics send -h
+You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. 
 ```
 
 #### Events
