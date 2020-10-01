@@ -2,8 +2,6 @@
 description: Build topology queries with STQL
 ---
 
-# StackState Query Lanuguage (STQL) reference
-
 The built-in StackState Query Language (STQL) can be used to run advanced queries in the StackState Topology perspective and Analytics environments.
 
 - **Topology**: Use STQL to build [advanced topology filters](/use/perspectives/filters.md) that zoom in on a specific area of your topology or highlight problem components and their root cause.
