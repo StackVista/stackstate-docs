@@ -29,7 +29,7 @@ example -of <use>
 # actual examples of use
 ```
 
-## See also
+# See also
 
 End the page with pointers to relevant, further info. This might just be a list with any links already included in the page. If the use of the functions/commands are explained in more detail elsewhere include it here (e.g. in a tutorial or how-to).
 
