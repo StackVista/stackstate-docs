@@ -6,11 +6,11 @@ The StackState Agent can be configured to execute Splunk saved searches and prov
 
 The StackState Agent expects the results of the saved searches to contain certain fields, as described below in the Metric Query Format. If there are other fields present in the result, they will be mapped to tags, where the column name is the key, and the content the value. The Agent will filter out Splunk default fields \(except `_time`\), like e.g. `_raw`, see the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) for more information about default fields.
 
-The agent check prevents sending duplicate metrics over multiple check runs. The received saved search records have to be uniquely identified for comparison. By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`. The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration. Please note that the specified `unique_key_fields` fields become mandatory for each record. In case the records can not be uniquely identified by a combination of fields then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
+The agent check prevents sending duplicate metrics over multiple check runs. The received saved search records have to be uniquely identified for comparison. By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`. The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration. Please note that the specified `unique_key_fields` fields become mandatory for each record. In case the records cannot be uniquely identified by a combination of fields, then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
 
-### Splunk query format
+### Required fields
 
-The fields in the table below are required in a Splunk query:
+All fields described below are required in a Splunk query:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
