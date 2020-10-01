@@ -66,21 +66,24 @@ StackState **does not work** with JDK versions 9 or higher at this time.
 
 ### Size requirements
 
+* [Production setup](#production-setup)
+* [POC setup](#poc-setup)
+* [Development setup](#development-setup)
+
 #### Production setup
 
 The StackState production setup runs on two machines and requires:
 
+  **StackState node**:
+  * 32GB of RAM
+  * 500GB disk space
+  * 8 cores CPU
 
-**StackState node**:
-* 32GB of RAM
-* 500GB disk space
-* 8 cores CPU
 
-
-**StackGraph node**:
-* 24GB of RAM
-* 500GB disk space
-* 8 cores CPU
+  **StackGraph node**:
+  * 24GB of RAM
+  * 500GB disk space
+  * 8 cores CPU
 
 #### POC setup
 
