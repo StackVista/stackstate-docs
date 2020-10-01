@@ -43,6 +43,10 @@ Parameters should be described in a table. If there are steps to follow number t
 
 ...
 
+## Troubleshooting
+
+Describe any common issues/misunderstandings or troubleshooting steps here. Note that known issues should also be covered in the StackState support site.
+
 ## Uninstall
 
 If the uninstall includes manual or extra steps these should be included here. If it is a standard 'click to uninstall', also describe that here - don't leave the reader to guess.
