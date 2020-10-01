@@ -1,3 +1,7 @@
+---
+description: include a description
+---
+
 # stackpack template
 
 Start with an intro. Include a high level overview (diagram!!) of how the StackPack works and where it sits in the StackState ecosystem.

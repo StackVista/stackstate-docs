@@ -1,3 +1,7 @@
+---
+description: include a description
+---
+
 # How-to template
 
 Start with a brief intro explaining:

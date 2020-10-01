@@ -1,3 +1,7 @@
+---
+description: include a description
+---
+
 # Reference material template
 
 Start with an intro. What is being described and where this would be used and why.
