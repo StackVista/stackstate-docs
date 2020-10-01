@@ -1,5 +1,5 @@
 ---
-Build topology queries with STQL
+description: Build topology queries with STQL
 ---
 
 # StackState Query Lanuguage (STQL) reference
