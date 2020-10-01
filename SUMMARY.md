@@ -161,6 +161,7 @@
   * [Integrate external services](develop/integrating_external_services.md)
   * [Extend StackState with functions](develop/functions.md)
   * [Reference](develop/reference/README.md)
+    * [StackState CLI](develop/reference/cli_reference.md)
     * [StackState Scripting Language \(STSL\)](develop/scripting/README.md)
       * [Async script result](develop/scripting/async_script_result.md)
       * [Script APIs](develop/scripting/script-apis/README.md)
