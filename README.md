@@ -4,7 +4,7 @@ description: StackState version 4.1
 
 # Welcome to the StackState Docs!
 
-move to directory
+move to directory.md
 
 <table>
   <thead>
@@ -33,7 +33,7 @@ move to directory
           </li>
           <li><a href="configure/component_actions">Create component actions</a>
           </li>
-          <li><a href="configure/security/how_to_set_up_roles"  target="_self">Configure AuthN and AuthZ</a>
+          <li><a href="configure/security/how_to_set_up_roles.md"  target="_self">Configure AuthN and AuthZ</a>
           </li>
           <li><a href="configure/">More customizations</a>
           </li>
