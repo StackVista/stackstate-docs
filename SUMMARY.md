@@ -88,7 +88,7 @@
   * [Develop your own StackPacks](stackpacks/sdk.md)
 * [Configure](configure/README.md)
   * [Topology](configure/topology/README.md)
-    * [Component actions](configure/component_actions.md)
+    * [Component actions](configure/topology/component_actions.md)
     * [Configure component actions](configure/how_to_configure_component_actions.md)
     * [Configure synchronizations](configure/sync.md)
     * [Create a topology manually](configure/how_to_create_manual_topology.md)
