@@ -4,9 +4,9 @@ description: Manage StackState using the CLI
 
 The StackState CLI can be used to configure StackState, work with data, and help with debugging problems. The CLI provides easy access to the functionality provided by the StackState API. The URLs and authentication credentials are configurable. Multiple configurations can be stored for access to different instances.
 
-# Use
+# Install
 
-To use the StackState CLI commands, [install the StackState CLI](/setup/cli.md) on the machine where you want to run the commands.
+To use the StackState CLI, you need to [install the StackState CLI](/setup/cli.md) on the machine where you will run the commands.
 
 # Export / import configuration
 
@@ -73,18 +73,18 @@ The CLI makes it easy to send test data to StackState.
 
 ## sts metrics send
 
-You can use the CLI to send one data point of a given value data. You can also use the CLI to generate values within a defined bandwidth. By default, a generated metrics pattern is random or, when a value is provided, a flatline. This can be changed using the pattern arguments `--linear` and `--baseline`.
+You can use the CLI to send one data point of a given value data. You can also use the CLI to generate values within a defined bandwidth. By default, a generated metrics pattern is random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. Use the arguments `--baseline` and `--linear` to change the generated pattern.
 
-`sts metrics send <optional_argument> <MetricName> <OptionalNumberValue>`
+`sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear | --csv] <file_name>` 
 
 | Argument | Details |
 | :--- | :--- |
-| `-p` | Time period. This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`. For example: `-p 4w2d6h30m15s` |
 | `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
-| `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
+| `-h` | See all available options |
+| `-p` | Time period. This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`. For example: `-p 4w2d6h30m15s` |
 | `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
 | `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
-| `-h` | See all available options |
+| `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
 
 # Inspect topic data
 
@@ -102,17 +102,15 @@ sts topic list
 
 ## sts topic show
 
+Use the `topic show` command to display data for a specific topic.
+
 `sts topic show <topic>`
 
 ### Parameters / fields
 
 | Parameter | Format | Description |
 |:---|:---|:---|
-| `list` | string | A description of |
-| `of` | True, False | what each paramater |
-| `parameters` | Number | is used for |
-
-
+| \<topic\> | string | The topic to show data for. Topic name can be retrieved from the [topic list](#sts-topic-list). |
 
 
 # See also
