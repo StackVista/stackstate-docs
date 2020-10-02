@@ -50,7 +50,7 @@ Hover over any component to bring up the component navigation menu. Select Depen
 
 ![Dependencies](/.gitbook/assets/dependencies.png)
 
-If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](/configure/topology_selection_advanced.md).
+If you require more flexibility in selecting topology, check out the [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md).
 
 ### Root Cause Analysis
 
