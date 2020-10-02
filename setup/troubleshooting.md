@@ -35,20 +35,3 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 ## Known issues
 
 Details of troubleshooting known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
-
-## Reindex StackState
-
-{% hint style="danger" %}
-It is not advised to reindex StackState unless this was explicitly recommended by [StackState support](https://www.stackstate.com/contact/).
-{% endhint %}
-
-For search and querying purposes, StackState builds an index out of data in the graph database. It is possible to initiate a rebuild of this index from StackState's graph database. Note that under normal circumstances you will never need to do this.
-
-1. Make sure that StackState is not running with the following command: `systemctl stop stackstate`
-2. Make sure that StackGraph is running with the following command: `systemctl start stackgraph`
-3. Execute the reindex command: `sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh reindex --graph default`
-
-{% hint style="danger" %}
-**Do not kill the reindex process while it is running.**  
-The reindex process will take some time to complete. You can monitor progress in the StackState logs.
-{% endhint %}
