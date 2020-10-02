@@ -4,8 +4,6 @@ description: StackState version 4.1
 
 # Welcome to the StackState Docs!
 
-remove redirects
-
 <table>
   <thead>
     <tr>
