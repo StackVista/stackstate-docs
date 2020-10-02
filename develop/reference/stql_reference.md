@@ -30,9 +30,16 @@ The filters described below can be combined using boolean operators to achieve c
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
 
+## Wildcard
+
+You can use * as a full wildcard. It is not possible to filter for partial matches using a wildcard character.
+
 ## Examples
 
 ```
+# Select all components
+name = "*"
+
 # Select all components with name "serviceB"
 name = "serviceB"
 
@@ -44,15 +51,6 @@ name in ("appA","appB") NOT label = "bck"
 
 # Select all components named "appA" that do not have a label "bck" or "test"
 name = "appA" NOT label in ("bck", "test")
-```
-
-## Filter with wildcard
-
-You can use * as a full wildcard. It is not possible to filter for partial matches using a wildcard character. For example:
-
-```
-# Select all components
-name = "*"
 ```
 
 # Functions
