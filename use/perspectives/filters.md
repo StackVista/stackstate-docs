@@ -53,7 +53,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters pane to filter the type of events shown in the [Events Perspective](/use/perspectives/event-perspective.md).
+You can use the View Filters pane to filter the type of events shown in the [Events Perspective](/use/perspectives/event-perspective.md#filter-events).
 
 ## Filter Traces
 
