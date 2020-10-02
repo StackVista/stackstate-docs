@@ -6,8 +6,8 @@ The View Filters pane on the left side of the StackState UI allows you to filter
 
 Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or use the StackState in-built query language \(STQL\) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about:
 
-* [Basic topology filters](#basic-topology-filters)
-* [Advanced topology filters with STQL](#advanced-topology-filters)
+* [Basic filters](#basic-topology-filters)
+* [Advanced filters](#advanced-topology-filters)
 * [Topology filtering limits](#topology-filtering-limits)
 
 ### Basic topology filters
@@ -30,7 +30,7 @@ Here is an example of using a basic filter to search for components by **Domains
 
 ### Advanced topology filters
 
-You can use the in-built StackState Query Language \(STQL\) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about [STQL](/develop/reference/stql_reference.md).
+You can use the in-built [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
 ![Filtering\(advanced filter\)](/.gitbook/assets/advanced_filtering.png)
 

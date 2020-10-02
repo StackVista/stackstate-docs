@@ -4,7 +4,7 @@ description: Build topology queries with STQL
 
 The built-in StackState Query Language (STQL) can be used to run advanced queries in the StackState Topology perspective and Analytics environments.
 
-- **Topology**: Use STQL to build [advanced topology filters](/use/perspectives/filters.md) that zoom in on a specific area of your topology or highlight problem components and their root cause.
+- **Topology**: Use STQL to build [advanced topology filters](/use/perspectives/filters.md#advanced-topology-filters) that zoom in on a specific area of your topology or highlight problem components and their root cause.
 - **Analytics**: Combine STQL with scripting to create powerful queries that access the entire 4T data model.
 
 STQL queries consist of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, from the complete topology.
@@ -65,11 +65,11 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 | Parameter | Default | Allowed values | Description |
 |:---|:---|:---|:---|
-| `components` | "all" | A [component filter](#component-filters) | The component(s) for which the neighbors will be returned, see [component filters](#component-filters). |
+| `components` | "all" | A component filter | The component(s) for which the neighbors will be returned, see [component filters](#component-filters). |
 | `levels` | 1 | "all", [1:14] | The number of levels to include in the output. Use "all" to display all available levels (maximum 15) |
 | `direction` | "both" | "up", "down", "both" |**up**: only components that depend on the named component(s) will be added <br />**down**: only dependencies of the named component(s) will be added <br />**both**: components that depend on and dependencies of the named component(s) will be added. |
 
-### Examples
+### Example
 
 The example below will return all components in the application layer that have a healthstate of either "CRITICAL" or "DEVIATING". Components with names "appA" or "appB" and their neighbors will also be included.
 
@@ -86,5 +86,5 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 # See also
 
 - [Filter topology in the StackState UI](/use/perspectives/filters.md)
-- [Use queries in analytics](/use/queries.md)
-- [Reference: StackState scripting language (STSL)](/develop/scripting/README.md)
+- [Use STQL queries in analytics](/use/queries.md)
+- [StackState scripting language (STSL)](/develop/scripting/README.md)
