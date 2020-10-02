@@ -14,13 +14,13 @@ Here are some examples of what you can do with RBAC:
 
 ## What is a role in StackState?
 
-A role in StackState is a combination of a [configured subject](../configure/subject_configuration.md) and a set of [permissions](../configure/permissions.md). Process of setting up a role in StackState is described in [How to set up roles](../configure/how_to_set_up_roles.md).
+A role in StackState is a combination of a [configured subject](../configure/subject_configuration.md) and a set of [permissions](../configure/permissions.md). Process of setting up a role in StackState is described in [How to set up roles](/configure/how_to_set_up_roles.md).
 
 ## More on RBAC configuration
 
-* [Permissions](../configure/permissions.md)
-* [Scopes](../configure/scopes_in_rbac.md)
-* [Subject Configuration](../configure/subject_configuration.md)
-* [How to configure LDAP authentication](../configure/how_to_configure_ldap_authentication.md)
-* [How to set up roles](../configure/how_to_set_up_roles.md)
+* [Permissions](/configure/permissions.md)
+* [Scopes](/configure/scopes_in_rbac.md)
+* [Subject Configuration](/configure/subject_configuration.md)
+* [How to configure LDAP authentication](/configure/how_to_configure_ldap_authentication.md)
+* [How to set up roles](/configure/how_to_set_up_roles.md)
 
