@@ -63,7 +63,7 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 ### Parameters / fields
 
-| Filter | Default | Allowed values | Description |
+| Parameter | Default | Allowed values | Description |
 |:---|:---|:---|:---|
 | `components` | "all" | A [component filter](#component-filters) | The component(s) for which the neighbors will be returned, see [component filters](#component-filters). |
 | `levels` | 1 | "all", [1:14] | The number of levels to include in the output. Use "all" to display all available levels (maximum 15) |
