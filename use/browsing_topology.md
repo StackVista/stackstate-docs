@@ -1,6 +1,4 @@
 ---
-title: Browsing Topology
-kind: Documentation
 description: How to navigate the topology.
 ---
 
@@ -35,11 +33,11 @@ Layers, domains, and environments are a way to organize your topology. The healt
 
 Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
 
-![Filtering example](../.gitbook/assets/basic_filtering.png)
+![Filtering example](/.gitbook/assets/basic_filtering.png)
 
 The same topology selection can also be shown in list format:
 
-![Filtering\(list\)](../.gitbook/assets/basic_filtering_list.png)
+![Filtering\(list\)](/.gitbook/assets/basic_filtering_list.png)
 
 ## Interactive navigation
 
@@ -47,7 +45,7 @@ It is also possible to interactively navigate the topology. Right-click on a com
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
-![Quick Actions](../.gitbook/assets/v41_quick_actions.png)
+![Quick Actions](/.gitbook/assets/v41_quick_actions.png)
 
 **Quick Actions** expands the topology selection in one of the following ways:
 
@@ -56,7 +54,7 @@ Selecting an action from the menu allows you to change your view, respective to 
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Casue only -- limits displayed components to the root cause elements
 
-![Dependencies](../.gitbook/assets/dependencies.png)
+![Dependencies](/.gitbook/assets/dependencies.png)
 
 **Dependencies** isolates the selected component \(shows only that component\) and expands the topology selection in one of the following ways:
 
@@ -65,4 +63,4 @@ Selecting an action from the menu allows you to change your view, respective to 
 
 ## Using advanced filtering
 
-If you require more flexibility in selecting topology, check out our [guide to Advanced topology querying with STQL](topology_selection_advanced.md).
+If you require more flexibility in selecting topology, check out the [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md).
