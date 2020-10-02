@@ -32,7 +32,7 @@ The filters described below can be combined using boolean operators to achieve c
 
 ## Wildcard
 
-You can use * as a full wildcard. It is not possible to filter for partial matches using a wildcard character.
+You can use * as a full wildcard in a component filter. It is not possible to filter for partial matches using a wildcard character.
 
 ## Examples
 
