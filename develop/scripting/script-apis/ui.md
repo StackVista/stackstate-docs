@@ -17,7 +17,7 @@ Shows a report in the user-interface. The user-interface will open a dialog with
 **Args:**
 
 * `reportName` - Name of the report. In a dialog with the report, the name of the report will be in the title bar.
-* `stmlContent` - The report markup. See [StackState Markup Language](/develop/stml/README.md/) for more information on how to format a report.
+* `stmlContent` - The report markup. See [StackState Markup Language](/develop/stml/README.md) for more information on how to format a report.
 * Optional `data` - A map with data elements that can be referenced by the STML.
 
 **Return type:**
