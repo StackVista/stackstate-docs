@@ -21,7 +21,7 @@ StackState ships with the default user roles **guest** and **administrator**:
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-It is also possible to add more roles, see the [Roles \(RBAC\)](/configure/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](/configure/README.md)
+It is also possible to add more roles, see the [Roles \(RBAC\)](/configure/security/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](/configure/README.md)
 
 ## Default username and password
 
@@ -159,7 +159,7 @@ Configuration field explanation:
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](/configure/subject_configuration.md). With subjects created, you can start [setting up roles](/configure/how_to_set_up_roles.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](/configure/subject_configuration.md). With subjects created, you can start [setting up roles](/configure/security/how_to_set_up_roles.md).
 
 ### Kubernetes LDAP configuration through Helm
 

@@ -39,7 +39,7 @@ Hover over any component to bring up the component navigation menu. Select Quick
 
 ![Quick Actions](../../.gitbook/assets/v41_quick-actions.png)
 
-You can extend this list with [component actions](../../configure/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
+You can extend this list with [component actions](../../configure/topology/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
 ### Dependencies
 
