@@ -31,7 +31,7 @@ description: StackState version 4.1
           </li>
           <li><a href="configure/component_actions.md">Create component actions</a>
           </li>
-          <li><a href="configure/how_to_set_up_roles.md"  target="_self">Configure AuthN and AuthZ</a>
+          <li><a href="configure/how_to_set_up_roles.md">Configure AuthN and AuthZ</a>
           </li>
           <li><a href="configure/">More customizations</a>
           </li>
