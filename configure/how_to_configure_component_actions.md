@@ -1,8 +1,3 @@
----
-title: How to configure Component Actions
-kind: Documentation
----
-
 # How to configure component actions
 
 This how-to describes the steps to create a Component Action that can be executed from the component context menu in a Topology View.

@@ -222,8 +222,8 @@ authentication {
 }
 ```
 
-LDAP groups are reflecting [Roles](/configure/how_to_set_up_roles.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
+LDAP groups are reflecting [Roles](/configure/security/how_to_set_up_roles.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
 
 ### 6. Summary
 
-After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](/configure/subject_configuration.md), and setting up [Roles](/configure/how_to_set_up_roles.md). Find out more on pages describing [Scopes](/configure/scopes_in_rbac.md), and [Permissions](/configure/permissions.md).
+After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](/configure/subject_configuration.md), and setting up [Roles](/configure/security/how_to_set_up_roles.md). Find out more on pages describing [Scopes](/configure/scopes_in_rbac.md), and [Permissions](/configure/permissions.md).
