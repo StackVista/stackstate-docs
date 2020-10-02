@@ -1,6 +1,4 @@
 ---
-title: Script API - Topology
-kind: Documentation
 description: Functions for accessing the topology.
 ---
 
@@ -16,7 +14,7 @@ Topology.query(query: String)
 
 **Args:**
 
-* `query` - a [STQL query](../../../configure/topology_selection_advanced.md).
+* `query` - a [STQL query](/develop/reference/stql_reference.md).
 
 **Returns:**
 
@@ -24,8 +22,8 @@ Topology.query(query: String)
 
 **Builder methods:**
 
-* `at(time: Instant)` - sets the exact [time](time.md) at which the query needs to be executed.
-* `repeatAt(time: Instant)` - repeats the same query but at a different exact [time](time.md).
+* `at(time: Instant)` - sets the exact [time](/develop/scripting/script-apis/time.md) at which the query needs to be executed.
+* `repeatAt(time: Instant)` - repeats the same query but at a different exact [time](/develop/scripting/script-apis/time.md).
 * `diff(queryResult: TopologyScriptApiQueryResponse)` - compares this query with another query. A query should be the result of a call to this function.
 * `diffWithPrev(queryResult: TopologyScriptApiQueryResponse)` - compares this query with the last query in the chain. A query should be the result of a call to this function. This builder method is only available after the `diff` builder method was called.
 * `components()` - returns a summary of the components. After this builder method no more builder methods can be called.

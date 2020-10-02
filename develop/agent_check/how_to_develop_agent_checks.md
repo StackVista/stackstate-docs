@@ -59,13 +59,13 @@ For the remainder of this document these paths will be referred to as `checks.d`
 
 ## Check Configuration
 
-Each check has a configuration directory and file that will be placed in the `conf.d` directory. Configuration is written using [YAML](http://www.yaml.org/). The folder name should match the name of the check \(e.g.: `example.py` and `example.d` containing the `conf.yaml` configuration file\). We will be using the StackState "Skeleton" / bare essentials check and configuration as a starting point.
+Each check has a configuration directory and file that will be placed in the `conf.d` directory. Configuration is written using [YAML](https://yaml.org/). The folder name should match the name of the check \(e.g.: `example.py` and `example.d` containing the `conf.yaml` configuration file\). We will be using the StackState "Skeleton" / bare essentials check and configuration as a starting point.
 
 The configuration file for the "Skeleton" check has the following structure:
 
 ```text
 init_config:
- 
+
 instances:
   - url: "some_url"
     authentication:
@@ -82,7 +82,7 @@ The _init\_config_ section allows you to have an arbitrary number of global conf
 
 ### instances
 
-The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about developing [StackPacks.](https://l.stackstate.com/2uv1BH)
+The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about [developing StackPacks.](/develop/stackpack).
 
 To synchronize multiple instances in StackState you have to create a multi-tenant StackPack \(documentation not yet available\).
 
@@ -113,7 +113,7 @@ class ExampleCheck(AgentCheck):
             raise ConfigurationError('Missing url in topology instance configuration.')
         instance_url = instance['url']
         return AgentIntegrationInstance("example", instance_url)
-    
+
     # check is the entry point of your agent check, `instance` is a dictionary containing the instance that was read from conf.yaml  
     def check(self, instance):
         self.log.debug("starting check for instance: %s" % instance)
@@ -177,7 +177,7 @@ self.component("some-application-unique-identifier", "Application", {
 self.relation("some-application-unique-identifier", "this-host-unique-identifier", "IS_HOSTED_ON", {})
 ```
 
-This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add some metadata to the component and can also be used for filtering in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. The `labels` and `tags` fields can also be used on relations to add some metadata. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) will be automatically created in StackState and can later be used in the synchronization to create mappings for the different types. 
+This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add some metadata to the component and can also be used for filtering in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. The `labels` and `tags` fields can also be used on relations to add some metadata. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) will be automatically created in StackState and can later be used in the synchronization to create mappings for the different types.
 
 The identifiers and the external identifier e.g. `some-application-unique-identifier` will be used as the StackState Id. The `external identifer` should be unique within this integration.
 
@@ -256,10 +256,10 @@ this_host_cpu_usage = MetricStream("Host CPU Usage", "system.cpu.usage",
                                    unit_of_measure="Percentage",
                                    aggregation="MEAN",
                                    priority="HIGH")
-                                   
+
 cpu_max_average_check = MetricHealthChecks.maximum_average(this_host_cpu_usage.identifier, "Max CPU Usage (Average)", 75, 90)
 
-self.component("this-host-unique-identifier", "Host", 
+self.component("this-host-unique-identifier", "Host",
     data={
         "name": "this-host",
         "domain": "Webshop",
@@ -279,7 +279,7 @@ Learn more about the Agent Check Telemetry API [here](checks_in_agent_v2.md#send
 
 ### Sending Service Checks
 
-Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source. 
+Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
 The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that is monitored:
 
@@ -362,4 +362,3 @@ For Windows:
 ```
 
 If your issue continues, please reach out to Support with the help page that lists the paths it installs.
-

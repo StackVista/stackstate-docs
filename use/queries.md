@@ -1,15 +1,10 @@
 ---
-title: Analytical queries
-kind: Documentation
-aliases:
-  - /usage/queries/
-listorder: 9
 description: Answer questions using queries.
 ---
 
 # Analytics
 
-StackState's 4T \(Topology, Telemetry, Traces and Time\) model can be queried within the analytical environment. Analytical queries can be written in Groovy and have support for [topology queries using STQL](../configure/topology_selection_advanced.md). StackState analytical environment can be found at: `<stackstate_url:7070>/#/analytics`. The analytical environment is a full-fledged scripting environment.
+StackState's 4T \(Topology, Telemetry, Traces and Time\) model can be queried within the analytical environment. Analytical queries can be written in Groovy and support the [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md). StackState analytical environment can be found at: `<stackstate_url:7070>/#/analytics`. The analytical environment is a full-fledged scripting environment.
 
 ## Examples
 
@@ -49,5 +44,5 @@ Give a list of databases.
 
 ## Scripting
 
-All queries are in-fact Groovy scripts. A full explanation on how StackState scripting works and an overview of all capabilities can be found [here](../develop/scripting/).
+All queries are in-fact Groovy scripts. Find out more about [how StackState scripting works](/develop/scripting/).
 

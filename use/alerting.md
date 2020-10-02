@@ -15,9 +15,9 @@ When something goes wrong within your IT environment StackState can alert you or
 
 Before configuring StackState to send out alerts it is helpful to have a general understanding of how an alert is triggered.
 
-All telemetry in StackState flows through either metric or event streams that are part of to the components in the topology. Checks determine the health state of these components based on their telemetry streams. All health states, like the check health state, component health state and view health satte are based on the health states determined by checks. All state changes generate events. The different types of events can trigger event handlers that can send out an alert or trigger some type of automation.
+All telemetry in StackState flows through either metric or event streams that are part of to the components in the topology. Checks determine the health state of these components based on their telemetry streams. All health states, like the check health state, component health state and view health state are based on the health states determined by checks. All state changes generate events. The different types of events can trigger event handlers that can send out an alert or trigger some type of automation.
 
-![Activity Perspective](../.gitbook/assets/activity_perspective.png)
+![Events Perspective](../.gitbook/assets/event-perspective.png)
 
 The entire flow of events that lead to an alert follow this path:
 

@@ -86,7 +86,7 @@ stackstate-guest  access-view           everything
 4. Delete a view - requires `delete-view` permission. It's dependant on `Everything` or the specific view permissions.
 5. Sidebar access - requires `save-view`, `delete-view` or both of them to access these options in the sidebar.
 
-![NavigationBar1](../.gitbook/assets/navbar1.png) ![NavigationBar2](../.gitbook/assets/navbar2.png)
+![NavigationBar1](/.gitbook/assets/navbar1.png) ![NavigationBar2](/.gitbook/assets/navbar2.png)
 
 ### Topology capabilities permissions
 
@@ -104,7 +104,7 @@ stackstate-guest  access-view           everything
 2. Access to a node actions menu - requires `execute-component-actions` permission.  
 3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
 
-![TopologyView1](../.gitbook/assets/topoview1.png) ![TopologyView2](../.gitbook/assets/topoview2.png)
+![TopologyView1](/.gitbook/assets/topoview1%20%281%29.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
 
 ### Analytics Page permissions
 
@@ -137,7 +137,7 @@ Below capabilities are shared across all settings pages.
 4. Export capability - requires `export-settings` system permission. Checkboxes are not available for the user without this permission.
 5. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
 
-![SettingsPermissions](../.gitbook/assets/settings1.png)
+![SettingsPermissions](/.gitbook/assets/settings1.png)
 
 ## Examples
 
@@ -175,5 +175,4 @@ sts permission grant [subject-handle] create-views system
 
 UI of a user without any permissions:
 
-![NoPermissions](../.gitbook/assets/noperm.png)
-
+![NoPermissions](/.gitbook/assets/noperm.png)

@@ -1,19 +1,14 @@
 
 redirects:
-  develop/creating_stackpacks/: ./develop/stackpack/README.md
+  develop/creating_stackpacks: ./develop/stackpack/README.md
   integrations/: ./stackpacks/README.md
   integrations/available_stackpacks/: ./stackpacks/README.md
-  integrations/sdk: ./stackpacks/sdk.md
-  integrations/introduction: ./stackpacks/about-stackpacks.md
-  integrations/mirrors: ./develop/mirrors/README.md
-  integrations/mirrors/prometheus-mirror: ./develop/mirrors/prometheus-mirror.md
-  integrations/available_stackpacks/aad/: ./stackpacks/add-ons/aad.md
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
+  integrations/available_stackpacks/api-integration: stackpacks/integrations/api-integration.md
   integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
   integrations/available_stackpacks/azure: ./stackpacks/integrations/azure.md
-  integrations/available_stackpacks/api-integration: ./stackpacks/integrations/api-integration.md
   integrations/available_stackpacks/cloudera: ./stackpacks/integrations/cloudera.md
-  integrations/available_stackpacks/customsync: /stackpacks/integrations/customsync.md
+  integrations/available_stackpacks/customsync: ./stackpacks/integrations/customsync.md
   integrations/available_stackpacks/google_analytics: ./stackpacks/integrations/google_analytics.md
   integrations/available_stackpacks/humio: ./stackpacks/integrations/humio.md
   integrations/available_stackpacks/kubernetes: ./stackpacks/integrations/kubernetes.md
@@ -25,8 +20,34 @@ redirects:
   integrations/available_stackpacks/scom: ./stackpacks/integrations/scom.md
   integrations/available_stackpacks/servicenow: ./stackpacks/integrations/servicenow.md
   integrations/available_stackpacks/splunk: ./stackpacks/integrations/splunk/README.md
-  integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
   integrations/available_stackpacks/splunk/splunk_event: ./stackpacks/integration/splunk/splunk_event.md
+  integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
   integrations/available_stackpacks/static_topology: ./stackpacks/integrations/static_topology.md
   integrations/available_stackpacks/vsphere: ./stackpacks/integrations/vsphere.md
   integrations/available_stackpacks/zabbixL: ./stackpacks/integrations/zabbix.md
+  integrations/introduction: ./stackpacks/about-stackpacks.md
+  integrations/mirrors: ./develop/mirrors/README.md
+  integrations/mirrors/prometheus-mirror: ./develop/mirrors/prometheus-mirror.md
+  integrations/sdk: ./stackpacks/sdk.md
+  setup/download: ./setup/linux_install/download.md
+  setup/installation/authentication: ./setup/authentication.md
+  setup/installation/development-installation: ./setup/linux_install/development-installation.md
+  setup/installation/development-installation_pre1_15: ./setup/upgrading
+  setup/installation/how_to_setup_tls_without_reverse_proxy: ./setup/linux_install/how_to_setup_tls_without_reverse_proxy.md
+  setup/installation/index: ./setup/linux_install/index.md
+  setup/installation/install_stackstate: ./setup/linux_install/install_stackstate.md
+  setup/installation/installing_pre1_14_5: ./setup/upgrading.md
+  setup/installation/installing_pre1_15: ./setup/upgrading.md
+  setup/installation/kubernetes/image_configuration: ./setup/kubernetes_install/image_configuration.md
+  setup/installation/kubernetes/ingress: ./setup/installation/kubernetes_install/ingress.md
+  setup/installation/kubernetes/README: ./setup/kubernetes_install/README.md
+  setup/installation/kubernetes/storage: ./setup/kubernetes_install/storage.md
+  setup/installation/poc-installation: ./setup/linux_install/poc-installation.md
+  setup/installation/production-installation: ./setup/linux_install/production-installation.md
+  setup/installation/production-installation_pre1_15: ./setup/upgrading.md
+  setup/installation/README: ./setup/linux_install/index.md
+  setup/installation/reindex: ./setup/troubleshooting.md
+  setup/installation/requirements: ./setup/requirements.md
+  setup/installation/reverse_proxy: ./setup/linux_install/reverse_proxy.md
+  setup/installation/troubleshooting: ./setup/troubleshooting.md
+

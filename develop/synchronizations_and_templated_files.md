@@ -40,7 +40,7 @@ Preparing a templated file is a process that requires some configuration of Stac
 
 ### 1. Prepare a check in StackState Agent
 
-The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](/stackpacks/integrations/agent.md).
+The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](../stackpacks/integrations/agent.md).
 
 ### 2. Install Custom Synchronization StackPack
 
@@ -185,3 +185,4 @@ It is possible now to reference any of the above `templateArguments` in your `.s
     ...
 }
 ```
+

@@ -12,9 +12,10 @@ All data in StackState is organized around [topology](../../concepts/4t_data_mod
 
 StackState offers the following perspectives via it's user interface:
 
-* [Topology perspective](topology-perspective.md)
-* [Telemetry perspective](telemetry-perspective.md)
-* [Event perspective](event-perspective.md)
+* [Topology Perspective](topology-perspective.md)
+* [Telemetry Perspective](telemetry-perspective.md)
+* [Events Perspective](event-perspective.md)
+* [Traces Perspective](trace-perspective.md)
 
 ## Time travel
 

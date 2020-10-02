@@ -1,18 +1,10 @@
----
-title: Send Telemetry
-kind: Documentation
-aliases:
-  - /configuring/send_telemetry/
-listorder: 3
----
-
 # Send telemetry
 
 ## Overview
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integration](../integrations/)s are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [CLI](../setup/cli.md).
+There are several ways to send telemetry to StackState. A large number of [integrations](/stackpacks/integrations) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](/setup/cli.md).
 
 ## Sending telemetry over HTTP
 
@@ -102,6 +94,18 @@ curl -X POST \
 
 You can also send metrics to StackState with the CLI `metric send` command.
 
+{% hint style="warning" %}
+Metric names **cannot start with** any of the following prefixes:
+
+* `host`
+* `name`
+* `timestamp`
+* `timeReceived`
+* `labels`
+* `tags`
+* `values`
+{% endhint %}
+
 ## Events
 
 Events can be sent to the receiver API using the `events` property. Every event has a `name`, `timestamp`, and optionally `msg_title`, `msg_text`, `tags` and `source_type_name`.
@@ -178,3 +182,16 @@ curl -X POST \
 
 You can also send events to StackState with the CLI `event send` command.
 
+{% hint style="warning" %}
+Event names **cannot start with** any of the following prefixes:
+
+* `host`
+* `name`
+* `title`
+* `eventType`
+* `message`
+* `timestamp`
+* `timeReceived`
+* `labels`
+* `tags`
+{% endhint %}

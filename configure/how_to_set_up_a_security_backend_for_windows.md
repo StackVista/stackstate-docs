@@ -5,7 +5,7 @@ kind: Documentation
 
 # How to set up a security backend for Windows
 
-This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](secrets_management.md).
+This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](/configure/secrets_management.md).
 
 ## Security agent requirements
 
@@ -228,4 +228,3 @@ If you have secrets in `stackstate.yaml` and the Agent refuses to start:
 
 * Try to start the Agent manually to be able to see `stderr`.
 * Remove the secrets from `stackstate.yaml` and test with secrets in a check configuration file.
-
