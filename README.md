@@ -29,7 +29,7 @@ description: StackState version 4.1
         <ul>
           <li><a href="use/alerting.md">Set up alerting</a>
           </li>
-          <li><a href="https://docs.stackstate.com/configure/topology/component_actions"  target="_self">Create component actions</a>
+          <li><a href="configure/topology/component_actions">Create component actions</a>
           </li>
           <li><a href="https://docs.stackstate.com/configure/security/how_to_set_up_roles"  target="_self">Configure AuthN and AuthZ</a>
           </li>
