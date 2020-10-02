@@ -50,3 +50,4 @@ redirects:
   setup/installation/requirements: ./setup/requirements.md
   setup/installation/reverse_proxy: ./setup/linux_install/reverse_proxy.md
   setup/installation/troubleshooting: ./setup/troubleshooting.md
+

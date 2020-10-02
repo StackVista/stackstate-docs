@@ -109,7 +109,7 @@
   * [Security](configure/security/README.md)
     * [Configure LDAP authentication](configure/how_to_configure_ldap_authentication.md)
     * [RBAC permissions](configure/permissions.md)
-    * [RBAC roles](configure/how_to_set_up_roles.md)
+    * [RBAC roles](configure/security/how_to_set_up_roles.md)
     * [RBAC scopes](configure/scopes_in_rbac.md)
     * [RBAC subjects](configure/subject_configuration.md)
     * [Secrets management](configure/secrets_management.md)
