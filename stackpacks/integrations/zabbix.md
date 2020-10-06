@@ -24,6 +24,10 @@ To enable the Zabbix check which collects the data from Zabbix instance:
 
 Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/zabbix.d` directory, replacing `<url>`, `<username>` and `<password>` with the information from your Zabbix instance.
 
+{% hint style="info" %}
+If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
+{% endhint %}
+
 ```text
 # Section used for global Zabbix check config
 init_config:

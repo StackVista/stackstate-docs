@@ -24,6 +24,10 @@ To enable the SCOM check which collects the data from SCOM instance:
 
 Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/scom.d/` directory, replacing `hostip`,`domain` ,`auth_mode`, `<username>` and `<password>` with the information from your SCOM instance. Streams are disabled by default.
 
+{% hint style="info" %}
+If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
+{% endhint %}
+
 ```text
 # Section used for global SCOM check config
 init_config:

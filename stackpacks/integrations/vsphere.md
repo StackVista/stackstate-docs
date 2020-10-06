@@ -38,6 +38,10 @@ VMware StackPack collects all topology data for the components and relations bet
 
 Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/vsphere.d` directory, replacing `<name>`, `<host_name>`, `<username>` and `<password>` with the information from your VSphere VCenter instance.
 
+{% hint style="info" %}
+If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
+{% endhint %}
+
 ```text
 # Section used for global vsphere check config
 init_config:

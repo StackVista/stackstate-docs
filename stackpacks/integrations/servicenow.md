@@ -1,8 +1,3 @@
----
-title: ServiceNow StackPack
-kind: documentation
----
-
 # ServiceNow
 
 ## What is the ServiceNow StackPack?
@@ -13,14 +8,18 @@ To install this StackPack we need to know the instance id of your servicenow acc
 
 ## Prerequisites
 
-* An API Integration Agent must be installed which can connect to ServiceNow and StackState. \(See the [API Integration StackPack](api-integration.md) for more details\)
+* StackState Agent V2 must be installed on a single machine which can connect to ServiceNow and StackState. See the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) for more details.
 * A ServiceNow instance must be running.
 
 ## Enabling ServiceNow integration
 
 To enable the ServiceNow check which collects the data from ServiceNow:
 
-Edit the `servicenow.yaml` file in your agent’s `conf.d` directory, replacing `<instance_ID>`, `<instance_username>` and `<instance_password>` with the information from your ServiceNow instance.
+Edit the `servicenow.yaml` file in the agent `conf.d` directory, replacing `<instance_ID>`, `<instance_username>` and `<instance_password>` with the information from your ServiceNow instance.
+
+{% hint style="info" %}
+If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
+{% endhint %}
 
 ```text
 init_config:

@@ -34,6 +34,10 @@ To Connect to your SAP System, there are 2 ways to do so as explained below:
 
 This mechanism allows you to connect just using the `username` and `password` inside the `conf.yaml`.
 
+{% hint style="info" %}
+If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
+{% endhint %}
+
 _As an example, see the below config :_
 
 ```text
