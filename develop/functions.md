@@ -33,7 +33,7 @@ Functions in StackState can be either synchronous or asynchronous (async).
 
 Propagation functions can optionally be created as asynchronous (async) functions. This gives the function access to the [Script APIs](scripting/) and allows more functions to be run in parallel.
 
-Read more about [propagation functions](../configure/propagation.md#custom-propagation-functions).
+Read more about [propagation functions](../configure/topology/propagation.md#custom-propagation-functions).
 
 ### Synchronous functions
 
@@ -42,9 +42,9 @@ In StackState, functions are generally written in a synchronous blocking manner.
 Read more about:
 
 - [Baseline functions](../use/baselining.md#baseline-functions)
-- [Check functions](../configure/checks_and_streams.md#check-functions)
+- [Check functions](../configure/telemetry/checks_and_streams.md#check-functions)
 - [Component mapper functions](../concepts/component_and_relation_mapping_functions.md)
 - [Event handler functions](../use/alerting.md#alerting-using-event-handlers)
 - [Id extractor functions](../concepts/id_extraction.md)
-- [Propagation functions](../configure/propagation.md#custom-propagation-functions)
+- [Propagation functions](../configure/topology/propagation.md#custom-propagation-functions)
 - [Relation mapper functions](../concepts/component_and_relation_mapping_functions.md)

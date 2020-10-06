@@ -5,7 +5,7 @@ kind: Documentation
 
 # How to set up a security backend for Windows
 
-This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](/configure/secrets_management.md).
+This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](/configure/security/secrets_management.md).
 
 ## Security agent requirements
 

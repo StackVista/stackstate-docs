@@ -10,7 +10,7 @@ listorder: 10
 
 ## Overview
 
-When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](/configure/topology_synchronization.md).
+When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](/configure/topology/topology_synchronization.md).
 
 ## Why are components/elements I expect not in my topology?
 

@@ -72,4 +72,4 @@ Query with prefix for this user is then:
 '(domain = "Customer1" OR domain = "Customer2") AND (layer = "Infrastructure" AND domain IN ("Customer1", "Customer2"))'
 ```
 
-Which results in a following view: ![Full view permissions](/.gitbook/assets/allperm%20%281%29.png)
+Which results in a following view: ![Full view permissions](/.gitbook/assets/allperm%20(1).png)

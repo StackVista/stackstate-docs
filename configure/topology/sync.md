@@ -1,10 +1,3 @@
----
-title: Synchronizations
-kind: Documentation
-aliases:
-  - /configuring/sync/
----
-
 # Configuring synchronizations
 
 Synchronization allows you to automatically synchronize the topology of your stack to StackState based on information from such diverse systems as discovery tools, service registries, container management tools and CMDBs.

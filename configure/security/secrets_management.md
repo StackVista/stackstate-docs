@@ -5,7 +5,7 @@ kind: Documentation
 
 # Secrets management
 
-This document presents the concept of how secrets are managed in StackState using Agent V2 StackPack. You can find more detailed information on how to set up a security backend for [Linux](/configure/how_to_set_up_a_security_backend_for_windows.md) or [Windows](/configure/how_to_set_up_a_security_backend_for_linux.md).
+This document presents the concept of how secrets are managed in StackState using Agent V2 StackPack. You can find more detailed information on how to set up a security backend for [Linux](/configure/security/how_to_set_up_a_security_backend_for_windows.md) or [Windows](/configure/security/how_to_set_up_a_security_backend_for_linux.md).
 
 ## About secrets in StackState
 
