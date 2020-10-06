@@ -194,7 +194,7 @@ C:\ProgramData\StackState\logs\process-agent.log
 {% endtab %}
 {% endtabs %}
 
-## Start / stop the StackState Agent
+## Start / stop / restart the StackState Agent
 
 {% hint style="info" %}
 - Commands require elevated privileges.
@@ -208,7 +208,7 @@ To manually start, stop or restart the StackState Agent:
 ```
 sudo service stackstate-agent start
 sudo service stackstate-agent stop
-sudo service stackstate-agent restart   # will reload the configuration files
+sudo service stackstate-agent restart
 ```
 {% endtab %}
 {% tab title="Windows - CMD" %}
