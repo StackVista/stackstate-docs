@@ -65,11 +65,7 @@ instances:
     ssl_verify: false
 ```
 
-To publish the configuration changes, restart the StackState Agent\(s\) using below command.
-
-```text
-sudo /etc/init.d/stackstate-agent restart
-```
+To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent#start-stop-the-stackstate-agent).
 
 Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

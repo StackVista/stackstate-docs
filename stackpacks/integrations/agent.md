@@ -87,7 +87,9 @@ Assuming your installer is saved as `C:\stackstate-custom.msi`, and the PowerShe
 
 ```text
 Import-Module C:\install_script.ps1
-install -stsApiKey {{config.apiKey}} -stsUrl {{config.baseUrl}}/stsAgent -f C:\\stackstate-custom.msi
+install -stsApiKey {{config.apiKey}} `
+-stsUrl {{config.baseUrl}}/stsAgent `
+-f C:\\stackstate-custom.msi
 ```
 
 ### Docker
