@@ -184,12 +184,12 @@ C:\ProgramData\StackState\logs\process-agent.log
 
 ## Start / stop the StackState Agent
 
-Manually start, stop or restart the StackState Agent:
-
 {% hint style="info" %}
 - Commands require elevated privileges.
 - Restarting the StackState Agent will reload the configuration files.
 {% endhint %}
+
+To manually start, stop or restart the StackState Agent:
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -199,7 +199,7 @@ sudo service stackstate-agent stop
 sudo service stackstate-agent restart   # will reload the configuration files
 ```
 {% endtab %}
-{% tab title="Windows -CMD" %}
+{% tab title="Windows - CMD" %}
 ```text
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
@@ -213,20 +213,22 @@ sudo service stackstate-agent restart   # will reload the configuration files
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
 ```
 {% endtab %}
-{% endtabs %}
-
-Below commands need to be invoked from `"C:\Program Files\StackState\StackState Agent\embedded"` directory.
-
+{% tab title="Windows" %}
 ```text
+# Below commands need to be invoked from the directory`"C:\Program Files\StackState\StackState Agent\embedded"`.
 "./agent.exe start-service"
 "./agent.exe stopservice"
 "./agent.exe restart-service"
 ```
+{% endtab %}
+{% endtabs %}
+
+
 
 ## Status and Information
 
-#### Linux
-
+{% tabs %}
+{% tab title="Linux" %}
 To check if the StackState Agent is running and receive information about the Agent's state:
 
 ```text
@@ -238,12 +240,14 @@ Tracebacks for errors can be retrieved by setting the -v flag:
 ```text
 sudo service stackstate-agent status -v
 ```
-
-#### Windows
-
+{% endtab %}
+{% tab title="Windows" %}
 To check if the StackState Agent is running and receive information about the Agent's state:
 
 ```text
 "./agent.exe status"
 ```
+{% endtab %}
+{% endtabs %}
+
 
