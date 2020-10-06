@@ -22,7 +22,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 The stream selection algorithm works as follows:
 
 * Components in Views that have the most stars are selected.
-* From those components, only high priority metric streams are selected. See - [how to set the priority for a stream](/configure/how_to_use_the_priority_field_for_components.md).
+* From those components, only high priority metric streams are selected. See - [how to set the priority for a stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md).
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 

@@ -1,10 +1,3 @@
----
-title: Checks and Streams
-kind: Documentation
-aliases:
-  - /configuring/checks_and_streams/
----
-
 # Checks and Streams
 
 Checks are the mechanisms through which components and relations get a health state. A check needs data in order to determine a state. This data is supplied via data streams.

@@ -8,7 +8,7 @@ The Traces Perspective shows a list of traces and their spans for the components
 
 ![The Traces Perspective](../../.gitbook/assets/traces-perspective.png)
 
-To find out more about how you can add traces to StackState, please read the [guide to setting up traces](../../configure/how_to_setup_traces.md).
+To find out more about how you can add traces to StackState, please read the [guide to setting up traces](../../configure/traces/how_to_setup_traces.md).
 
 ## Inspecting Traces
 
@@ -44,7 +44,7 @@ For example, if you filter the trace list for all spans of type **database**, th
 
 ## Traces and Topology
 
-In StackState, a [view](../views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our agent](../../configure/how_to_setup_traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
+In StackState, a [view](../views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our agent](../../configure/traces/how_to_setup_traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
 
 For example, let's imagine that among your IT infrastructure the following components exist:
 
