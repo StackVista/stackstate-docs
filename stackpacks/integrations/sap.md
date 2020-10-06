@@ -79,11 +79,7 @@ instances:
 
 **NOTE** - Make sure while using this mechanism, you have put `https` in the `url` of the config.
 
-Once the configuration changes are done as explained above, restart the StackState Agent\(s\) using the following command.
-
-```text
-sudo /etc/init.d/stackstate-agent restart
-```
+stackstate-agent-v2
 
 Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
