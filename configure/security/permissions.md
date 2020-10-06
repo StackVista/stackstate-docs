@@ -104,7 +104,7 @@ stackstate-guest  access-view           everything
 2. Access to a node actions menu - requires `execute-component-actions` permission.  
 3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
 
-![TopologyView1](/.gitbook/assets/topoview%20%281%29.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
+![TopologyView1](/.gitbook/assets/topoview1.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
 
 ### Analytics Page permissions
 
