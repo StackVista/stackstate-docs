@@ -43,13 +43,17 @@ Install the StackState Agent with one of the following commands:
 Using [cURL](https://curl.haxx.se)
 
 ```text
-curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | STS_API_KEY="{{config.apiKey}}" STS_URL="{{config.baseUrl}}/stsAgent" bash
+curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
+    STS_API_KEY="{{config.apiKey}}" \
+    STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```
 
 Using [wget](https://www.gnu.org/software/wget/)
 
 ```text
-wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | STS_API_KEY="{{config.apiKey}}" STS_URL="{{config.baseUrl}}/stsAgent" bash
+wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
+    STS_API_KEY="{{config.apiKey}}" \
+    STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```
 
 #### Linux offline installation
@@ -59,7 +63,10 @@ On your host, download the installation script from [https://stackstate-agent-2.
 By default, installer tries to configure the package update channel, which would allow to update packages using the host package manager. If you for any reason do not want this behavior, please include `STS_INSTALL_NO_REPO=yes` as an environment parameter:
 
 ```text
-STS_API_KEY="{{config.apiKey}}" STS_URL="{{config.baseUrl}}/stsAgent" STS_INSTALL_NO_REPO=yes install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
+STS_API_KEY="{{config.apiKey}}" \
+    STS_URL="{{config.baseUrl}}/stsAgent" \
+    STS_INSTALL_NO_REPO=yes \
+    install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
 ```
 
 ### Windows
@@ -67,7 +74,9 @@ STS_API_KEY="{{config.apiKey}}" STS_URL="{{config.baseUrl}}/stsAgent" STS_INSTAL
 Using [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6)
 
 ```text
-. { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; install -stsApiKey "{{config.apiKey}}" -stsUrl "{{config.baseUrl}}/stsAgent"
+. { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `
+install -stsApiKey "{{config.apiKey}}" `
+-stsUrl "{{config.baseUrl}}/stsAgent"
 ```
 
 #### Windows offline installation
@@ -151,15 +160,16 @@ STS_LOG_LEVEL: "DEBUG"
 
 ## Configuration files
 
-#### Linux
-
+{% tabs %}
+{% tab title="Linux" %}
 - StackState Agent configuration: `/etc/stackstate-agent/stackstate.yaml`
 - Integration configurations: `/etc/stackstate-agent/conf.d/`
-
-#### Windows
-
+{% endtab %}
+{% tab title="Windows" %}
 - StackState Agent configuration: `C:\ProgramData\StackState\stackstate.yaml`
 - Integration configurations:`C:\ProgramData\StackState\conf.d`
+{% endtab %}
+{% endtabs %}
 
 ## Troubleshooting
 
@@ -215,7 +225,9 @@ sudo service stackstate-agent restart   # will reload the configuration files
 {% endtab %}
 {% tab title="Windows" %}
 ```text
-# Below commands need to be invoked from the directory`"C:\Program Files\StackState\StackState Agent\embedded"`.
+# Below commands need to be invoked from the directory:
+# C:\Program Files\StackState\StackState Agent\embedded
+
 "./agent.exe start-service"
 "./agent.exe stopservice"
 "./agent.exe restart-service"
@@ -225,7 +237,7 @@ sudo service stackstate-agent restart   # will reload the configuration files
 
 
 
-## Status and Information
+## Status and information
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -235,7 +247,7 @@ To check if the StackState Agent is running and receive information about the Ag
 sudo service stackstate-agent status
 ```
 
-Tracebacks for errors can be retrieved by setting the -v flag:
+Tracebacks for errors can be retrieved by setting the `-v` flag:
 
 ```text
 sudo service stackstate-agent status -v
