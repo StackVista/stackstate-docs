@@ -163,33 +163,33 @@ STS_LOG_LEVEL: "DEBUG"
 
 ## Troubleshooting
 
-Try running the info command to see the state of the StackState Agent.
-
-#### Linux
+Try running the [status](#status-and-information) command to see the state of the StackState Agent.
 
 Logs for the subsystems are in the following files:
 
+{% tabs %}
+{% tab title="Linux" %}
 ```text
 /var/log/stackstate-agent/agent.log
 /var/log/stackstate-agent/process-agent.log
 ```
-
-#### Windows
-
-Logs for the subsystems are in the following files:
-
+{% endtab %}
+{% tab title="Windows" %}
 ```text
 C:\ProgramData\StackState\logs\agent.log
 C:\ProgramData\StackState\logs\process-agent.log
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Start / stop the StackState Agent
 
 Manually start, stop or restart the StackState Agent:
 
-The following commands require elevated privileges.
-
-Manually start, stop or restart the StackState Agent:
+{% hint style="info" %}
+- Commands require elevated privileges.
+- Restarting the StackState Agent will reload the configuration files.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -199,14 +199,14 @@ sudo service stackstate-agent stop
 sudo service stackstate-agent restart   # will reload the configuration files
 ```
 {% endtab %}
-{% tab title="CMD" %}
+{% tab title="Windows -CMD" %}
 ```text
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
 ```
 {% endtab %}
-{% tab title="PowerShell" %}
+{% tab title="Windows - PowerShell" %}
 ```
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
