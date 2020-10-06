@@ -177,16 +177,22 @@ STS_LOG_LEVEL: "DEBUG"
 
 Try running the [status](#status-and-information) command to see the state of the StackState Agent.
 
-Logs for the subsystems are in the following files:
+### Log files
 
 {% tabs %}
 {% tab title="Linux" %}
+
+Logs for the subsystems are in the following files:
+
 ```text
 /var/log/stackstate-agent/agent.log
 /var/log/stackstate-agent/process-agent.log
 ```
 {% endtab %}
 {% tab title="Windows" %}
+
+Logs for the subsystems are in the following files:
+
 ```text
 C:\ProgramData\StackState\logs\agent.log
 C:\ProgramData\StackState\logs\process-agent.log
