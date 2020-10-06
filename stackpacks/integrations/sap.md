@@ -79,7 +79,7 @@ instances:
 
 **NOTE** - Make sure while using this mechanism, you have put `https` in the `url` of the config.
 
-To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-the-stackstate-agent).
+To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
 
 Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
