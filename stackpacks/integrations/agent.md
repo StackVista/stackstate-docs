@@ -185,22 +185,20 @@ C:\ProgramData\StackState\logs\process-agent.log
 
 ## Start / stop the StackState Agent
 
-### Linux
-
 Manually start, stop or restart the StackState Agent:
-
-```text
-sudo service stackstate-agent start
-sudo service stackstate-agent stop
-sudo service stackstate-agent restart   # will reload the configuration files
-```
-#### Windows
 
 The following commands require elevated privileges.
 
 Manually start, stop or restart the StackState Agent:
 
 {% tabs %}
+{% tab title="Linux" %}
+```
+sudo service stackstate-agent start
+sudo service stackstate-agent stop
+sudo service stackstate-agent restart   # will reload the configuration files
+```
+{% endtab %}
 {% tab title="CMD" %}
 ```text
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
