@@ -76,7 +76,7 @@ stackstate-guest  access-view           everything
 7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
 8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
 
-![Pages1](../.gitbook/assets/pages1.png) ![Pages2](../.gitbook/assets/pages2.png)
+![Pages1](../../.gitbook/assets/pages1.png) ![Pages2](../../.gitbook/assets/pages2.png)
 
 ### Navigation Bar permissions
 
@@ -96,7 +96,7 @@ stackstate-guest  access-view           everything
 
 |  |  |  |
 | :---: | :---: | :---: |
-| ![TopologyCapabilities1](../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../.gitbook/assets/topocap3.png) |
+| ![TopologyCapabilities1](../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../../.gitbook/assets/topocap3.png) |
 
 ### Topology views permissions
 
@@ -104,7 +104,7 @@ stackstate-guest  access-view           everything
 2. Access to a node actions menu - requires `execute-component-actions` permission.  
 3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
 
-![TopologyView1](/.gitbook/assets/topoview1%20%281%29.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
+![TopologyView1](/.gitbook/assets/topoview1%20(1).png) ![TopologyView2](/.gitbook/assets/topoview2.png)
 
 ### Analytics Page permissions
 
@@ -112,7 +112,7 @@ stackstate-guest  access-view           everything
 
 |  |  |  |
 | :---: | :---: | :---: |
-|  | ![AnalyticsPage1](../.gitbook/assets/anpage1.png) |  |
+|  | ![AnalyticsPage1](../../.gitbook/assets/anpage1.png) |  |
 
 ### Element Details permissions
 
@@ -125,7 +125,7 @@ stackstate-guest  access-view           everything
 
 |  |  |
 | :---: | :---: |
-| ![ElementDetails1](../.gitbook/assets/eldet1.png) | ![ElementDetails2](../.gitbook/assets/eldet2.png) |
+| ![ElementDetails1](../../.gitbook/assets/eldet1.png) | ![ElementDetails2](../../.gitbook/assets/eldet2.png) |
 
 ### Settings permissions
 

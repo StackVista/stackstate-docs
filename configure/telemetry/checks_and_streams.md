@@ -1,4 +1,4 @@
----
+~~~~---
 title: Checks and Streams
 kind: Documentation
 aliases:

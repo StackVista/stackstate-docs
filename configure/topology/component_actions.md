@@ -27,4 +27,4 @@ There are two ways of getting Component Actions in StackState:
 
 In the case of importing Components Actions with a StackPack, these Actions appear as locked items on the Settings page. Editing them unlocks the Component Action, but it may prevent the StackPack from correct upgrades in the future. It is possible to restore the locked status of a Component Action by reinstalling the StackPack that contains the definition of the unlocked Component Action.
 
-When configuring a new Component Action in the Settings page, follow the instructions from [How to configure Component Actions](/configure/how_to_configure_component_actions.md) page.
+When configuring a new Component Action in the Settings page, follow the instructions from [How to configure Component Actions](/configure/topology/how_to_configure_component_actions.md) page.

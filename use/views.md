@@ -96,7 +96,7 @@ To delete or edit a view:
 
 ## Securing views \(RBAC\)
 
-Through a combination of configuration of [permissions](../configure/permissions.md) and [scope](../configure/scopes_in_rbac.md), it is possible to give specific users:
+Through a combination of configuration of [permissions](../configure/security/permissions.md) and [scope](../configure/security/scopes_in_rbac.md), it is possible to give specific users:
 
 * access to a specific subset of the topology \(a so-called scope\) and allowing them to create their own views
 * access to specific views and disallowing them to create, modify or delete views
