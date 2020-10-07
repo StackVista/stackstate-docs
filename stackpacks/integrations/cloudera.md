@@ -18,7 +18,7 @@ The following prerequisites need to be met:
 
 **NOTE**:- We support Cloudera version 5.11.
 
-## Enable the Cloudera integration
+## Enable Cloudera integration
 
 To enable the Cloudera check and begin collecting data from your Cloudera instance:
 

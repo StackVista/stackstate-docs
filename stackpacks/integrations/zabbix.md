@@ -18,7 +18,7 @@ The following prerequisites need to be met:
 
 **NOTE**: Zabbix versions 3 and 4 are supported.
 
-## Enable the Zabbix integration
+## Enable Zabbix integration
 
 To enable the Zabbix check and begin collecting data from your Zabbix instance:
 

@@ -18,7 +18,7 @@ The following prerequisites need to be met:
 
 **NOTE**:- We support SCOM version 1806 and 2019.
 
-## Enable the SCOM integration
+## Enable SCOM integration
 
 To enable the SCOM check and begin collecting data from your SCOM instance:
 

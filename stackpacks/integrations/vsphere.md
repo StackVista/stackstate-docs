@@ -32,7 +32,7 @@ VMware StackPack collects all topology data for the components and relations bet
 * If the Agent is installed on the StackState host then port 7077 is localhost communication.
 * If the Agent is installed on a different host, you need a network path between the Agent and StackState on port 7077/tcp, and to vSphere on 443/tcp port.
 
-## Enable the vSphere integration
+## Enable vSphere integration
 
 To enable the vSphere check and begin collecting data from your VSphere VCenter instance:
 
