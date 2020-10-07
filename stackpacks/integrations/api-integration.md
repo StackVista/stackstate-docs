@@ -41,7 +41,7 @@ Install the API-Integration StackPack by using the following sequence of steps:
 {% endtab %}
 {% tab title="rpm" %}
 1. [Download the API-Integration Agent from Bintray](http://dl.bintray.com/stackstate-agent/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm)
-    Alternatively run this command on the machine where you wish to install the Agent:
+   Alternatively run this command on the machine where you wish to install the Agent:
    ```text
    wget https://dl.bintray.com/stackstate-agent/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm
    ```
