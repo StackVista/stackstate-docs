@@ -15,10 +15,10 @@ To install this StackPack we need to know the instance id of your servicenow acc
 
 To enable the ServiceNow check to collect data from ServiceNow:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.yaml` to include details of your ServiceNow instance:
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - `<instance_ID>`
     - `<instance_username>`
-    - `<instance_password>` - If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
+    - `<instance_password>` - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     ```text
     init_config:
       # Any global configurable parameters should be added here

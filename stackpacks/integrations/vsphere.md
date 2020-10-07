@@ -32,83 +32,41 @@ VMware StackPack collects all topology data for the components and relations bet
 * If the Agent is installed on the StackState host then port 7077 is localhost communication.
 * If the Agent is installed on a different host, you need a network path between the Agent and StackState on port 7077/tcp, and to vSphere on 443/tcp port.
 
-## Enabling the vSphere check
+## Enable the vSphere check
 
-### Enabling the vSphere check using the StackState Agent StackPack and Agent v2
-
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/vsphere.d` directory, replacing `<name>`, `<host_name>`, `<username>` and `<password>` with the information from your VSphere VCenter instance.
-
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
-
-```text
-# Section used for global vsphere check config
-init_config:
-
-instances:
-  # name must be a unique key representing your vCenter instance
-  # mandatory
-  - name: <name> # main-vcenter
-
-    # the host used to resolve the vCenter IP
-    # mandatory
-    host: <host_name> # vcenter.domain.com
-
-    # Read-only credentials to connect to vCenter
-    # mandatory
-    username: <username> # stackstate-readonly@vsphere.local
-    password: <password> # mypassword
-
-    # Set to false to disable SSL verification, when connecting to vCenter
-    # optional
-    ssl_verify: false
-```
-
-To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
-
-### Enabling the vSphere check using the API Integration StackPack and Agent v1
-
-To enable the vSphere check which collects the data from vSphere vCenter:
-
-Edit the agent integration configuration file `/etc/sts-agent/conf.d/vsphere.yaml` to include details of your vSphere vCenter instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/vsphere.d/conf.yaml` file to include details of your VSphere VCenter instance:
     - `<name>`
     - `<host_name>` - the same as the `vSphere Host Name` used during StackPack provisioning process.
     - `<username>`
-    - `<password>`
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
-{% tabs %}
-{% tab title="vsphere.yaml" %}
-```text
-# Section used for global vsphere check config
-init_config:
-
-instances:
-  # name must be a unique key representing your vCenter instance
-  # mandatory
-  - name: <name> # main-vcenter
-
-    # the host used to resolve the vCenter IP
-    # mandatory
-    host: <host_name> # vcenter.domain.com
-
-    # Read-only credentials to connect to vCenter
-    # mandatory
-    username: <username> # stackstate-readonly@vsphere.local
-    password: <password> # mypassword
-
-    # Set to false to disable SSL verification, when connecting to vCenter
-    # optional
-    ssl_verify: false
-```
-
-[Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
-
-Once the Agent is restarted, it starts collecting data, and sends it to StackState.
+    - `<password>` - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
+    {% tabs %}
+    {% tab title="vsphere.d/conf.yaml" %}
+    ```text
+    # Section used for global vsphere check config
+    init_config:
+    
+    instances:
+      # name must be a unique key representing your vCenter instance
+      # mandatory
+      - name: <name> # main-vcenter
+    
+        # the host used to resolve the vCenter IP
+        # mandatory
+        host: <host_name> # vcenter.domain.com
+    
+        # Read-only credentials to connect to vCenter
+        # mandatory
+        username: <username> # stackstate-readonly@vsphere.local
+        password: <password> # mypassword
+    
+        # Set to false to disable SSL verification, when connecting to vCenter
+        # optional
+        ssl_verify: false
+    ```
+    {% endtab %}
+    {% endtabs %}
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Configuration options
 
