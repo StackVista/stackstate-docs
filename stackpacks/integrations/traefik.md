@@ -1,12 +1,12 @@
+---
+description: Get topology and telemetry information from Traefik
+---
+
 # Traefik \(BETA\)
 
-## Overview
-
-Get topology and telemetry information from Traefik.
-
-This integration is still in **BETA**.
-
-## Functionality
+{% hint style="info" %}
+The Traefik integration is still in **BETA**.
+{% endhint %}
 
 The StackState Agent V2 Traefik integration provides the following functionality:
 

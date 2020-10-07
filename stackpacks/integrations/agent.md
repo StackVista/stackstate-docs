@@ -1,8 +1,3 @@
----
-title: Agent StackPack
-kind: documentation
----
-
 # StackState Agent
 
 ## What is the Agent StackPack?
