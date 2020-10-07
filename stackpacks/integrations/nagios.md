@@ -28,7 +28,7 @@ The Nagios StackPack requires the following parameters to collect the topology i
 
 **NOTE** - Make sure once Nagios is installed properly, you configure your `hostname` and rename from `localhost` to proper fully qualified domain name.
 
-## Enablle the Nagios integration
+## Enable the Nagios integration
 
 To enable the Nagios check and collect data from your Nagios instance:
 
@@ -50,7 +50,7 @@ To enable the Nagios check and collect data from your Nagios instance:
     ```
 
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
-4. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+4. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Permissions for Nagios files
 
