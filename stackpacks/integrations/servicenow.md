@@ -13,7 +13,7 @@ To install this StackPack we need to know the instance id of your servicenow acc
 
 ## Enable ServiceNow integration
 
-To enable the ServiceNow check and begin collecting data from your ServiceNow:
+To enable the ServiceNow check and begin collecting data from your ServiceNow instance:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url**
