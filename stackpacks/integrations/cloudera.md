@@ -13,7 +13,7 @@ The Cloudera StackPack is used to create a near real time synchronization with y
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)  must be installed on a single machine which can connect to Cloudera Manager and StackState.
+* [StackState Agent V2](/stackpacks/integrations/agent.md)  must be installed on a single machine which can connect to Cloudera Manager and StackState.
 * A Cloudera instance must be running.
 
 **NOTE**:- We support Cloudera version 5.11.

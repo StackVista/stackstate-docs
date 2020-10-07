@@ -22,7 +22,7 @@ VMware StackPack collects all topology data for the components and relations bet
 
 ## Prerequisites
 
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed on a single machine that can connect to VSphere VCenter and StackState.
+* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on a single machine that can connect to VSphere VCenter and StackState.
 * A VSphere VCenter instance must be running.
 
 ### Network communication

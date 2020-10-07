@@ -13,7 +13,7 @@ The Zabbix StackPack is used to create a near real time synchronization with you
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
+* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3 and 4 are supported.

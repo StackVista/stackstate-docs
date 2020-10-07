@@ -13,7 +13,7 @@ The SCOM StackPack is used to create a near real time synchronisation with your 
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)  must be installed on a single machine which can connect to SCOM and StackState.
+* [StackState Agent V2](/stackpacks/integrations/agent.md)  must be installed on a single machine which can connect to SCOM and StackState.
 * A SCOM instance must be running.
 
 **NOTE**:- We support SCOM version 1806 and 2019.
