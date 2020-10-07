@@ -17,7 +17,7 @@ The StackState Agent V2 Traefik integration provides the following functionality
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The StackState Traefik integration is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
 ### Configuration
 

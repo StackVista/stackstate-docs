@@ -1,8 +1,3 @@
----
-title: Openshift StackPack
-kind: documentation
----
-
 # Openshift
 
 ## What is the Openshift StackPack?
