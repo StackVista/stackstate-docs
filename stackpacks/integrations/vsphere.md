@@ -22,7 +22,7 @@ VMware StackPack collects all topology data for the components and relations bet
 
 ## Prerequisites
 
-* StackState Agent V2 must be installed on a single machine which can connect to VSphere VCenter and StackState. \(See the [StackState Agent V2 StackPack](agent.md) for more details\)
+* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed on a single machine that can connect to VSphere VCenter and StackState.
 * A VSphere VCenter instance must be running.
 
 ### Network communication
@@ -41,9 +41,6 @@ To enable the vSphere check to collect data from your VSphere VCenter instance:
     - **host** - the same as the `vSphere Host Name` used in the StackPack provisioning process.
     - **username**
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
-    
-    {% tabs %}
-    {% tab title="vsphere.d/conf.yaml" %}
     ```text
     # Section used for global vsphere check config
     init_config:
@@ -66,8 +63,6 @@ To enable the vSphere check to collect data from your VSphere VCenter instance:
         # optional
         ssl_verify: false
     ```
-    {% endtab %}
-    {% endtabs %}
     
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
