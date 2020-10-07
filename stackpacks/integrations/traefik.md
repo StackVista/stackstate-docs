@@ -92,7 +92,7 @@ or for a similar docker-compose configuration:
 
 ## Troubleshooting
 
-You can verify whether the StackState Trace Agent has received the traces, by setting the logging level to debug and checking the `trace-agent.log`:
+To verify whether the StackState Trace Agent has received traces, set the logging level to debug and check the `trace-agent.log`:
 
 
 {% tabs %}
