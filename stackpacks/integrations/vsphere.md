@@ -39,6 +39,7 @@ VMware StackPack collects all topology data for the components and relations bet
     - **host** - the same as the `vSphere Host Name` used in the StackPack provisioning process.
     - **username**
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
+    
     {% tabs %}
     {% tab title="vsphere.d/conf.yaml" %}
     ```text
@@ -65,6 +66,7 @@ VMware StackPack collects all topology data for the components and relations bet
     ```
     {% endtab %}
     {% endtabs %}
+    
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
