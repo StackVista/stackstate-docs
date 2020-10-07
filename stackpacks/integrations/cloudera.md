@@ -18,38 +18,34 @@ The following prerequisites need to be met:
 
 **NOTE**:- We support Cloudera version 5.11.
 
-## Enabling Cloudera integration
+## Enable the Cloudera integration
 
-To enable the cloudera check which collects the data from Cloudera instance:
+To enable the Cloudera check and collect data from your Cloudera instance:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/cloudera.d/` directory, replacing `<url>`, `<username>` and `<password>` with the information from your Cloudera instance.
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/cloudera.d/conf.yaml` to include details of your Cloudera instance:
+    - **url**
+    - **username** 
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
-
-```text
-# Section used for global Cloudera check config
-init_config:
-
-instances:
-  # mandatory
-  - url: <url>
-    # SSL verification
-    verify_ssl: false    
-
-    # Read-only credentials to connect to cloudera
-    # mandatory
-    username: <username> # Admin
-    password: <password> # cloudera
-
-    # Cloudra API version
-    # mandatory
-    api_version: <api_version> # v18
-```
-
-To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
-```
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+    ```text
+    # Section used for global Cloudera check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url>
+        # SSL verification
+        verify_ssl: false    
+    
+        # Read-only credentials to connect to cloudera
+        # mandatory
+        username: <username> # Admin
+        password: <password> # cloudera
+    
+        # Cloudra API version
+        # mandatory
+        api_version: <api_version> # v18
+    ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

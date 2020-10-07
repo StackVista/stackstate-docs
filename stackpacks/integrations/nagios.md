@@ -28,30 +28,28 @@ The Nagios StackPack requires the following parameters to collect the topology i
 
 **NOTE** - Make sure once Nagios is installed properly, you configure your `hostname` and rename from `localhost` to proper fully qualified domain name.
 
-## Enabling Nagios check
+## Enablle the Nagios integration
 
-To enable the Nagios check which collects the data from Nagios instance:
+To enable the Nagios check and collect data from your Nagios instance:
 
-Edit the `nagios.yaml` file in your StackState Agent `conf.d` directory, replacing `<nagios_conf_path>` with the information from your Nagios instance.
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/nagios.d/conf.yaml` to include details of your Nagios instance: 
+    - **nagios_conf** - path to the `nagios.cfg` file
+2. By default the Nagios check will not collect any metrics. To watch for Nagios metrics data and send these to StackState, set `collect_host_performance_data` and/or `collect_service_performance_data` to **True** in the Agent integration configuration file.
+    ```text
+    # Section used for global Nagios check config
+    init_config:
+    # check_freq: 15 # default is 15
+    
+    instances:
+      - nagios_conf: <nagios_conf_path> # /etc/nagios/nagios.cfg
+        # collect_events: True                   # default is True
+        # passive_checks_events: True            # default is False
+        collect_host_performance_data: True      # default is False
+        collect_service_performance_data: True   # default is False
+    ```
 
-```text
-# Section used for global Nagios check config
-init_config:
-# check_freq: 15 # default is 15
-
-instances:
-  - nagios_conf: <nagios_conf_path> # /etc/nagios/nagios.cfg
-    # collect_events: True                   # default is True
-    # passive_checks_events: True            # default is False
-    # collect_host_performance_data: True    # default is False
-    # collect_service_performance_data: True # default is False
-```
-
-With the default configuration, the Nagios check will not collect any metrics. To watch for Nagios metrics data and sends these to StackState, set `collect_host_performance_data` and/or `collect_service_performance_data` to **True**.
-
-To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
-
-Once the StackState Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+4. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Permissions for Nagios files
 
