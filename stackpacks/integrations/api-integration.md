@@ -22,11 +22,11 @@ Install the API-Integration StackPack by using the following sequence of steps:
 1. [Download the API-Integration Agent from Bintray](https://dl.bintray.com/stackstate-agent/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.2.18-1_amd64.deb)
    Alternatively run this command on the machine where you wish to install the Agent:
    ```text
-    wget 'https://dl.bintray.com/stackstate-agent/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.2.18-1_amd64.deb'
+   wget 'https://dl.bintray.com/stackstate-agent/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.2.18-1_amd64.deb'
    ```
 2. Use `dpkg` to install the downloaded package:
    ```text
-    dpkg -i stackstate-agent_1.2.18-1_amd64.deb
+   dpkg -i stackstate-agent_1.2.18-1_amd64.deb
    ```
 
 3. Set the following keys in the stackstate.conf.example file:
