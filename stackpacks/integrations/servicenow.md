@@ -30,7 +30,7 @@ To enable the ServiceNow check and begin collecting data from your ServiceNow in
         basic_auth:
            user: <instance_username>
            password: <instance_password>
-        batch_size: 100
+        batch_size: 100    # the maximum number of records to be returned
     ```
 2.  [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
