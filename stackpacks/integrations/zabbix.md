@@ -18,31 +18,28 @@ The following prerequisites need to be met:
 
 **NOTE**: Zabbix versions 3 and 4 are supported.
 
-## Enabling Zabbix integration
+## Enable the Zabbix integration
 
-To enable the Zabbix check which collects the data from Zabbix instance:
+To enable the Zabbix check and begin collecting data from your Zabbix instance:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/zabbix.d` directory, replacing `<url>`, `<username>` and `<password>` with the information from your Zabbix instance.
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/zabbix.d/conf.yaml` file to include details of your Zabbix instance:
+    - **url**
+    - **username** 
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
-
-```text
-# Section used for global Zabbix check config
-init_config:
-
-instances:
-  # mandatory
-  - url: <url> # http://10.0.0.1/zabbix/api_jsonrpc.php
-
-    # Read-only credentials to connect to zabbix
-    # mandatory
-    username: <username> # Admin
-    password: <password> # zabbix
-```
-
-To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+    ```text
+    # Section used for global Zabbix check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url> # http://10.0.0.1/zabbix/api_jsonrpc.php
+    
+        # Read-only credentials to connect to zabbix
+        # mandatory
+        username: <username> # Admin
+        password: <password> # zabbix
+    ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

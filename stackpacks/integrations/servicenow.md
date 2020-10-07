@@ -11,9 +11,9 @@ To install this StackPack we need to know the instance id of your servicenow acc
 * StackState Agent V2 must be installed on a single machine which can connect to ServiceNow and StackState. See the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) for more details.
 * A ServiceNow instance must be running.
 
-## Enable ServiceNow integration
+## Enable the ServiceNow integration
 
-To enable the ServiceNow check to collect data from ServiceNow:
+To enable the ServiceNow check and begin collecting data from your ServiceNow:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url**

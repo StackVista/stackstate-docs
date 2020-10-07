@@ -30,12 +30,12 @@ The Nagios StackPack requires the following parameters to collect the topology i
 
 ## Enable the Nagios integration
 
-To enable the Nagios check and collect data from your Nagios instance:
+To enable the Nagios check and begin collecting data from your Nagios instance:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/nagios.d/conf.yaml`:
     - Include details of your Nagios instance: 
         - **nagios_conf** - path to the `nagios.cfg` file
-    - By default the Nagios check will not collect any metrics. To watch for Nagios metrics data and send these to StackState, set one or both of the following to **True**:
+    - By default, the Nagios check will not collect any metrics. To enable the collection of data, set one or both of the following to **True**:
         - **collect_host_performance_data**
         - **collect_service_performance_data**.
         

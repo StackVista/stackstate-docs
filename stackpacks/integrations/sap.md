@@ -32,11 +32,7 @@ To Connect to your SAP System, there are 2 ways to do so as explained below:
 
 ### 1. HTTP Basic Authentication Mechanism
 
-This mechanism allows you to connect just using the `username` and `password` inside the `conf.yaml`.
-
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
+This mechanism allows you to connect just using the `username` and `password` inside the `conf.yaml`. You can also use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
 _As an example, see the below config :_
 
@@ -57,9 +53,9 @@ instances:
 
 This mechanism allows you to connect using the client certificate and the private key. The following new parameters are available :
 
-* `verify` - `True` or `False` depending on verifying the client certificate or not. By default, it's `True`.
-* `cert` - path containing the client side certificate
-* `keyfile` - path containing the private key for certificate
+* **verify** - `True` or `False` depending on verifying the client certificate or not. By default, it's `True`.
+* **cert** - path containing the client side certificate
+* **keyfile** - path containing the private key for certificate
 
 _As an example, see the below config :_
 
@@ -79,9 +75,9 @@ instances:
 
 **NOTE** - Make sure while using this mechanism, you have put `https` in the `url` of the config.
 
-To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
+[Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Open-source
 

@@ -18,38 +18,38 @@ The following prerequisites need to be met:
 
 **NOTE**:- We support SCOM version 1806 and 2019.
 
-## Enabling SCOM check
+## Enable the SCOM integration
 
-To enable the SCOM check which collects the data from SCOM instance:
+To enable the SCOM check and begin collecting data from your SCOM instance:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/scom.d/` directory, replacing `hostip`,`domain` ,`auth_mode`, `<username>` and `<password>` with the information from your SCOM instance. Streams are disabled by default.
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml`  to include details of your SCOM instance:
+    - **hostip**
+    - **domain**
+    - **auth_mode**
+    - **username** 
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
+    ```text
+    # Section used for global SCOM check config
+    init_config:
+        # run every minute
+        min_collection_interval: 60
+    
+    instances:
+      - hostip: #SCOM IP
+        domain: # active directory domain where the SCOM is located
+        username: # username
+        password: # password
+        auth_mode: Network # Network or Windows (Default is Network)
+        streams:
+          #- name: SCOM
+          #  class: Microsoft.SystemCenter.ManagementGroup  --> Management Pack root class
+          #- name: Exchange
+          #  class: Microsoft.Exchange.15.Organization
+          #- name: Skype
+          #  class: Microsoft.LS.2015.Site
+    ```
 
-```text
-# Section used for global SCOM check config
-init_config:
-    # run every minute
-    min_collection_interval: 60
-
-instances:
-  - hostip: #SCOM IP
-    domain: # active directory domain where the SCOM is located
-    username: # username
-    password: # password
-    auth_mode: Network # Network or Windows (Default is Network)
-    streams:
-      #- name: SCOM
-      #  class: Microsoft.SystemCenter.ManagementGroup  --> Management Pack root class
-      #- name: Exchange
-      #  class: Microsoft.Exchange.15.Organization
-      #- name: Skype
-      #  class: Microsoft.LS.2015.Site
-```
-
-To publish the configuratiTo publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

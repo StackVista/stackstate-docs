@@ -34,7 +34,7 @@ VMware StackPack collects all topology data for the components and relations bet
 
 ## Enable the vSphere integration
 
-To enable the vSphere check to collect data from your VSphere VCenter instance:
+To enable the vSphere check and begin collecting data from your VSphere VCenter instance:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/vsphere.d/conf.yaml` file to include details of your VSphere VCenter instance:
     - **name**

@@ -20,7 +20,7 @@ The following prerequisites need to be met:
 
 ## Enable the Cloudera integration
 
-To enable the Cloudera check and collect data from your Cloudera instance:
+To enable the Cloudera check and begin collecting data from your Cloudera instance:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/cloudera.d/conf.yaml` to include details of your Cloudera instance:
     - **url**
