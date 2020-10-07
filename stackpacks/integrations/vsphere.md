@@ -35,10 +35,10 @@ VMware StackPack collects all topology data for the components and relations bet
 ## Enable the vSphere check
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/vsphere.d/conf.yaml` file to include details of your VSphere VCenter instance:
-    - `<name>`
-    - `<host_name>` - the same as the `vSphere Host Name` used during StackPack provisioning process.
-    - `<username>`
-    - `<password>` - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
+    - **name**
+    - **host** - the same as the `vSphere Host Name` used in the StackPack provisioning process.
+    - **username**
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     {% tabs %}
     {% tab title="vsphere.d/conf.yaml" %}
     ```text
