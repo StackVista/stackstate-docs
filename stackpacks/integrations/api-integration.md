@@ -18,7 +18,7 @@ The StackState API-Integration Agent is open source: [view the source code on Gi
 Install the API-Integration StackPack by using the following sequence of steps:
 
 {% tabs %}
-{% tab title="dpkg (deb)" %}
+{% tab title="Debian, Ubuntu" %}
 1. [Download the API-Integration Agent from Bintray](https://dl.bintray.com/stackstate-agent/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.2.18-1_amd64.deb)
    Alternatively run this command on the machine where you wish to install the Agent:
    ```text
@@ -39,7 +39,7 @@ Install the API-Integration StackPack by using the following sequence of steps:
     cp /etc/sts-agent/stackstate.conf.example /etc/sts-agent/stackstate.conf
    ```
 {% endtab %}
-{% tab title="rpm" %}
+{% tab title="Amazon linux, CentOS, Fedora, Red Hat" %}
 1. [Download the API-Integration Agent from Bintray](http://dl.bintray.com/stackstate-agent/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm)
    Alternatively run this command on the machine where you wish to install the Agent:
    ```text
