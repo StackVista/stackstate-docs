@@ -23,9 +23,9 @@ The following prerequisites need to be met:
 To enable the SCOM check and begin collecting data from your SCOM instance:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml`  to include details of your SCOM instance:
-    - **hostip**
-    - **domain**
-    - **auth_mode**
+    - **hostip** - SCOM IP
+    - **domain** - active directory domain where the SCOM is located
+    - **auth_mode** - Network or Windows (Default is Network)
     - **username** 
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 

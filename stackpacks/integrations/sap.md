@@ -29,13 +29,13 @@ To enable the SAP check and begin collecting data from your SAP host instance:
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/sap.d/confiyaml`:
     - Include details of your SAP instance:
         - **host**
-        - **url** - include `http` for basic authentication (user/pass) and `https` for client certificate authentication.
-        - **user** - username.
-        - **pass** - password. Use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
+        - **url** - Use `http` for basic authentication (user/pass) and `https` for client certificate authentication.
+        - **user**
+        - **pass** - Use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     - To authenticate with a client certificate and private key, add:
-        - **verify** -set to `False` to skip verification of the client certificate (default `True`).
-        - **cert** - path to the client side certificate.
-        - **keyfile** - path to the private key for certificate.
+        - **verify** - Set to `False` to skip verification of the client certificate (default `True`).
+        - **cert** - Path to the client side certificate.
+        - **keyfile** - Path to the private key for certificate.
         
     ```text
     # Section used for global SAP check config
