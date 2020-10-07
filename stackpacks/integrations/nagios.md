@@ -47,13 +47,9 @@ instances:
     # collect_service_performance_data: True # default is False
 ```
 
-With the default configuration, the Nagios check doesn’t collect any metrics. But if you set `collect_host_performance_data` and/or `collect_service_performance_data` to **True**, the check watches for Nagios metrics data and sends those to StackState.
+With the default configuration, the Nagios check will not collect any metrics. To watch for Nagios metrics data and sends these to StackState, set `collect_host_performance_data` and/or `collect_service_performance_data` to **True**.
 
-To publish the configuration changes, restart the StackState Agent using below command.
-
-```text
-sudo service stackstate-agent restart
-```
+To publish the configuration changes, [restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent).
 
 Once the StackState Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

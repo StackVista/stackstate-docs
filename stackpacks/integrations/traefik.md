@@ -94,11 +94,14 @@ or for a similar docker-compose configuration:
 
 You can verify whether the StackState Trace Agent has received the traces, by setting the logging level to debug and checking the `trace-agent.log`:
 
-stackstate.yaml
 
+{% tabs %}
+{% tab title="stackstate.yaml" %}
 ```text
 log_level: debug
 ```
+{% endtab %}
+{% endtabs %}
 
 In Docker or Kubernetes, set the following environment variable for the StackState Agent
 

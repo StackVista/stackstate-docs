@@ -73,8 +73,14 @@ Once the Agent is restarted, wait for the Agent to collect the data and send it 
 
 To enable the vSphere check which collects the data from vSphere vCenter:
 
-Edit the `vsphere.yaml` file in your agent in `/etc/sts-agent/conf.d/`, replacing `<name>`, `<host_name>`, `<username>`, and `<password>` with the information from your vSphere vCenter instance.
+Edit the file `/etc/sts-agent/conf.d/vsphere.yaml` in your agent, replacing `<name>`, `<host_name>`, `<username>`, and `<password>` with the information from your vSphere vCenter instance.
 
+{% hint style="info" %}
+If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
+{% endhint %}
+
+{% tabs %}
+{% tab title="vsphere.yaml" %}
 ```text
 # Section used for global vsphere check config
 init_config:
