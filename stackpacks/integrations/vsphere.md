@@ -73,12 +73,14 @@ Once the Agent is restarted, wait for the Agent to collect the data and send it 
 
 To enable the vSphere check which collects the data from vSphere vCenter:
 
-Edit the file `/etc/sts-agent/conf.d/vsphere.yaml` in your agent, replacing `<name>`, `<host_name>`, `<username>`, and `<password>` with the information from your vSphere vCenter instance.
-
+Edit the agent integration configuration file `/etc/sts-agent/conf.d/vsphere.yaml` to include details of your vSphere vCenter instance:
+    - `<name>`
+    - `<host_name>` - the same as the `vSphere Host Name` used during StackPack provisioning process.
+    - `<username>`
+    - `<password>`
 {% hint style="info" %}
 If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
 {% endhint %}
-
 {% tabs %}
 {% tab title="vsphere.yaml" %}
 ```text
@@ -104,19 +106,7 @@ instances:
     ssl_verify: false
 ```
 
-Please note that the value needs to be the same as `vSphere Host Name` used during StackPack provisioning process.
-
-To apply the configuration changes, restart the StackState Agent using the below command.
-
-```text
-systemctl restart stackstate-agent
-```
-
-or
-
-```text
-service stackstate-agent restart
-```
+[Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
 Once the Agent is restarted, it starts collecting data, and sends it to StackState.
 

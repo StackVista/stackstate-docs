@@ -15,26 +15,23 @@ To install this StackPack we need to know the instance id of your servicenow acc
 
 To enable the ServiceNow check to collect data from ServiceNow:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.yaml`:
-    - `<instance_ID>` - the instance ID of your ServiceNow instance.
-    - `<instance_username>` - the username of your ServiceNow instance. 
-    - `<instance_password>` - the password of your ServiceNow instance.
-{% hint style="info" %}
-If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
-{% endhint %}
-```text
-init_config:
-  # Any global configurable parameters should be added here
-  default_timeout: 10
-  min_collection_interval: 5
-
-instances:
-  - url: "https://<instance_ID>.service-now.com"
-    basic_auth:
-       user: <instance_username>
-       password: <instance_password>
-    batch_size: 100
-```
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.yaml` to include details of your ServiceNow instance:
+    - `<instance_ID>`
+    - `<instance_username>`
+    - `<instance_password>` - If you don't want to include a password directly in the configuration file, you can use [secrets management](/configure/security/secrets_management.md).
+    ```text
+    init_config:
+      # Any global configurable parameters should be added here
+      default_timeout: 10
+      min_collection_interval: 5
+    
+    instances:
+      - url: "https://<instance_ID>.service-now.com"
+        basic_auth:
+           user: <instance_username>
+           password: <instance_password>
+        batch_size: 100
+    ```
 2.  [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
