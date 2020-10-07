@@ -8,7 +8,7 @@ To install this StackPack we need to know the instance id of your servicenow acc
 
 ## Prerequisites
 
-* StackState Agent V2 must be installed on a single machine which can connect to ServiceNow and StackState. See the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) for more details.
+* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed on a single machine that can connect to ServiceNow and StackState.
 * A ServiceNow instance must be running.
 
 ## Enable ServiceNow integration
