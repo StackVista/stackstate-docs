@@ -63,7 +63,7 @@ To install the Azure StackPack, we suggest that you create a separate resource g
 
 ### Manually deploy the StackState Agent
 
-1. Download the **manual installation zip file** from the Azure StackPack configuration page in your StackState instance and extract it \(if not done already\).
+1. Download the **manual installation zip file** from the Azure StackPack configuration page in your StackState instance and extract it.
 2. Create a resource group in one of your subscriptions where StackState can be deployed.
 3. Run:
 
