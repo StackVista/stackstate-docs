@@ -13,42 +13,39 @@ The Cloudera StackPack is used to create a near real time synchronization with y
 
 The following prerequisites need to be met:
 
-* StackState Agent V2 must be installed on a single machine which can connect to Cloudera Manager and StackState. \(See the [StackState Agent V2 StackPack](agent.md) for more details\)
+* [StackState Agent V2](/stackpacks/integrations/agent.md)  must be installed on a single machine which can connect to Cloudera Manager and StackState.
 * A Cloudera instance must be running.
 
 **NOTE**:- We support Cloudera version 5.11.
 
-## Enabling Cloudera integration
+## Enable Cloudera integration
 
-To enable the cloudera check which collects the data from Cloudera instance:
+To enable the Cloudera check and begin collecting data from your Cloudera instance:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/cloudera.d/` directory, replacing `<url>`, `<username>` and `<password>` with the information from your Cloudera instance.
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/cloudera.d/conf.yaml` to include details of your Cloudera instance:
+    - **url**
+    - **username** 
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
-```text
-# Section used for global Cloudera check config
-init_config:
-
-instances:
-  # mandatory
-  - url: <url>
-    # SSL verification
-    verify_ssl: false    
-
-    # Read-only credentials to connect to cloudera
-    # mandatory
-    username: <username> # Admin
-    password: <password> # cloudera
-
-    # Cloudra API version
-    # mandatory
-    api_version: <api_version> # v18
-```
-
-To publish the configuration changes, restart the StackState Agent\(s\) using below command.
-
-```text
-sudo /etc/init.d/stackstate-agent restart
-```
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+    ```text
+    # Section used for global Cloudera check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url>
+        # SSL verification
+        verify_ssl: false    
+    
+        # Read-only credentials to connect to cloudera
+        # mandatory
+        username: <username> # Admin
+        password: <password> # cloudera
+    
+        # Cloudra API version
+        # mandatory
+        api_version: <api_version> # v18
+    ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

@@ -134,8 +134,8 @@ Check Rights: OK, the executable has the correct rights
 
 Rights Detail:
 file mode: 100700
-Owner username: sts-agent
-Group name: sts-agent
+Owner username: stackstate-agent
+Group name: stackstate-agent
 
 === Secrets stats ===
 Number of secrets decrypted: 3
@@ -150,7 +150,7 @@ Secrets handle decrypted:
 To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
 
 ```text
-sudo -u sts-agent -- stackstate-agent configcheck
+sudo -u stackstate-agent -- stackstate-agent configcheck
 
 === a check ===
 Source: File Configuration Provider
@@ -178,7 +178,7 @@ password: <decrypted_password2>
 To test or debug outside of the Agent, you can mimic how the Agent runs it:
 
 ```text
-sudo su sts-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\"secret1\", \"secret2\"]}' | /path/to/the/secret_backend_command"
+sudo su stackstate-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\"secret1\", \"secret2\"]}' | /path/to/the/secret_backend_command"
 ```
 
-The sts-agent user is created when you install the StackState Agent.
+The stackstate-agent user is created when you install the StackState Agent.

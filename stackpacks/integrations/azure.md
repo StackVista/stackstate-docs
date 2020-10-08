@@ -61,33 +61,49 @@ _Azure Resource Group_
 
 To install the Azure StackPack, we suggest that you create a separate resource group where you can deploy all the StackState related resources.
 
-### Manually Deploying the StackState agent
+### Manually deploy the StackState Agent
 
-1. Download the **manual installation zip file** from the Azure StackPack configuration page in your StackState instance and extract it \(if not done already\).
-2. Make sure you have created a resource group in one of your subscriptions where StackState can be deployed.
+1. Download the **manual installation zip file** from the Azure StackPack configuration page in your StackState instance and extract it.
+2. Create a resource group in one of your subscriptions where StackState can be deployed.
 3. Run:
 
-#### BASH
-
+{% tabs %}
+{% tab title="bash" %}
 ```bash
-./stackstate.monitor.sh <Azure tenantId> {{config.baseUrl}} {{config.apiKey}} <Azure subscriptionId> <Azure clientId> <Azure clientSecret> <Azure resourceGroupName>
+./stackstate.monitor.sh \
+    <Azure tenantId> \
+    {{config.baseUrl}} \
+    {{config.apiKey}} \
+    <Azure subscriptionId> \
+    <Azure clientId> \
+    <Azure clientSecret> \
+    <Azure resourceGroupName>
+
 ```
-
-#### POWERSHELL
-
+{% endtab %}
+{% tab title="Powershell" %}
 ```text
 az login
-./stackstate.monitor.ps1 -tenantId <your tenantId> -stsApiUrl {{config.baseUrl}} -stsApiKey {{config.apiKey}} -subscriptionId <azure subscriptionId> -servicePrincipalId <Client Id> -servicePrincipalSecret <Client Secret> -resourceGroupName <Resource GroupName to deploy to>
+./stackstate.monitor.ps1 `
+-tenantId <your tenantId> `
+-stsApiUrl {{config.baseUrl} `
+-stsApiKey {{config.apiKey}} `
+-subscriptionId <azure subscriptionId> `
+-servicePrincipalId <Client Id> `
+-servicePrincipalSecret <Client Secret> `
+-resourceGroupName <Resource GroupName to deploy to>
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Advanced setup
 
-This section is meant for advanced users that need more control over the Service Principal and its rights.
+This section is intended for advanced users who need more control over the Service Principal and its rights.
 
-_Azure Service Principal \(SPN\)_
+### Azure Service Principal \(SPN\)
 
 To install the Azure StackPack, a Service Principal is needed that has these permissions:
 
-* Rights to deploy and delete resources inside of the StackPack resource group that you need to create beforehand. Give the Service Principal a `Contributor` role in the new resource group.
-* The `Reader` role to each of the subscriptions you want to monitor.
+* `Contributor` role for the StackPack resource group to deploy and delete resources.
+* `Reader` role for each of the subscriptions you want to monitor.
 
