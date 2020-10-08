@@ -1,8 +1,3 @@
----
-title: Custom Synchronization
-kind: documentation
----
-
 # Custom Synchronization
 
 ## What is the Custom Synchronization StackPack?

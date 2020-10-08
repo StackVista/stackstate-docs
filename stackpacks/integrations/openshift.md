@@ -1,8 +1,3 @@
----
-title: Openshift StackPack
-kind: documentation
----
-
 # Openshift
 
 ## What is the Openshift StackPack?
@@ -35,9 +30,9 @@ To gather your kube-state metrics:
 1. Download **Kube-State v.1.8.0 manifests zip file** from the Kubernetes StackPack configuration page in your StackState instance
 2. Apply:
 
-   ```text
-   kubectl apply -f <NAME_OF_THE_KUBE_STATE_MANIFESTS_FOLDER>
-   ```
+```text
+kubectl apply -f <NAME_OF_THE_KUBE_STATE_MANIFESTS_FOLDER>
+```
 
 ### Openshift compatibility matrix
 
@@ -58,7 +53,7 @@ To execute the manual installation follow these steps:
 
 1. Download the **manual installation zip file** from the Kubernetes StackPack configuration page in your StackState instance and extract it \(if not done already\).
 2. Make sure the `kubectl` binary version 1.14+ is installed.
-3. From the command line run
+3. From the command line run:
 
    ```text
    ./install.sh {{config.baseUrl}}/stsAgent {{config.apiKey}}

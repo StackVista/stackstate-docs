@@ -1,12 +1,12 @@
+---
+description: Get topology and telemetry information from Traefik
+---
+
 # Traefik \(BETA\)
 
-## Overview
-
-Get topology and telemetry information from Traefik.
-
-This integration is still in **BETA**.
-
-## Functionality
+{% hint style="info" %}
+The Traefik integration is in **BETA**.
+{% endhint %}
 
 The StackState Agent V2 Traefik integration provides the following functionality:
 
@@ -17,7 +17,7 @@ The StackState Agent V2 Traefik integration provides the following functionality
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The StackState Traefik integration is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
 ### Configuration
 
@@ -92,13 +92,16 @@ or for a similar docker-compose configuration:
 
 ## Troubleshooting
 
-You can verify whether the StackState Trace Agent has received the traces, by setting the logging level to debug and checking the `trace-agent.log`:
+To verify whether the StackState Trace Agent has received traces, set the logging level to debug and check the `trace-agent.log`:
 
-stackstate.yaml
 
+{% tabs %}
+{% tab title="stackstate.yaml" %}
 ```text
 log_level: debug
 ```
+{% endtab %}
+{% endtabs %}
 
 In Docker or Kubernetes, set the following environment variable for the StackState Agent
 

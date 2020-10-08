@@ -13,5 +13,5 @@ The Manual Topology StackPack contains everything you need to manually create to
 
 ## Next steps
 
-Read up on [how to create manual topology](../../configure/topology/how_to_create_manual_topology.md).
+Read up on [how to create manual topology](/configure/topology/how_to_create_manual_topology.md).
 
