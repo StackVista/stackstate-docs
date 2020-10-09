@@ -11,7 +11,7 @@ Predict metrics for any metric query coming from any data source.
 **Args:**
 
 * `predictorName` - name of prediction preset. Current available predictors: 
-    - **fft** - For metrics with a repeatable pattern that has a cycle. Prediction models the season of a metric using Fast Fourier Transformation (FFT).
+    - **fft** - Fast Fourier Transformation. For metrics with a repeatable pattern that has a cycle (seasonal).
     - **linear** - For metrics that have a linear trend.
     - **hmn** -
 * `horizon` - how much future to predict. The horizon is specified in the [duration format](/develop/scripting/script-apis/time.md).
