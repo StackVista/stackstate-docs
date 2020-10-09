@@ -5,9 +5,7 @@ kind: documentation
 
 # Autonomous Anomaly Detector
 
-## Overview
-
-### What is the Autonomous Anomaly Detector StackPack?
+## What is the Autonomous Anomaly Detector StackPack?
 
 Anomaly detection identifies incidents in your fast-changing IT environment and provides insights into their root cause. This directs the attention of IT operators to the root cause of incidents.
 
@@ -15,7 +13,7 @@ Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous 
 
 The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to and the appropriate machine learning algorithms to use for each.
 
-### How does the AAD decide what to work on?
+## How does the AAD decide what to work on?
 
 The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. Streams with the highest priority will be examined first. The prioritization of streams is computed by an algorithm that learns to maximize the probability of preventing an IT issue. To operate in large environments, attention must be allocated where it matters the most. The AAD achieves this based on its knowledge of streams that are intrinsically important \(such as KPIs and SLAs\), ongoing and historical issues, relations between streams and other relevant factors.
 
@@ -38,7 +36,7 @@ The status UI of the anomaly detection Kubernetes service provides various metri
 
 The AAD StackPack can only be installed within a [Kubernetes setup](/setup/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation.
 
-If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://www.stackstate.com/contact/).
+If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
 #### Node sizing
 
@@ -48,7 +46,7 @@ A minimal deployment of the anomaly detection Kubernetes service with the defaul
 * Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
 * Self-hosted Kubernetes: 1 instance with 4 CPUs and 6 Gb memory
 
-To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://www.stackstate.com/contact/).
+To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
 The anomaly detection Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
 
@@ -68,7 +66,7 @@ After installing the AAD StackPack, install the anomaly detection Kubernetes ser
 
 #### 1. Get access to quay.io
 
-To be able to pull the Docker image, you will need access to quay.io. Access credentials can be requested from [StackState support](https://www.stackstate.com/contact/).
+To be able to pull the Docker image, you will need access to quay.io. Access credentials can be requested from [StackState support](https://support.stackstate.com/hc/en-us).
 
 #### 2. Install Helm
 
@@ -197,15 +195,21 @@ Common questions that can be answered in the status UI:
 
 ## AAD service Release Notes
 
-**Beta Release**
+**BETA Release**
 
-### 4.1.1 \(2020-10-09\) (helm chart version: 4.1.18, image tag: 4.4.1-release)
+### AAD service version 4.1.1 \(2020-10-09\) 
+
+**Helm chart version**: 4.1.18
+**image tag**: 4.4.1-release
 
 * Upgraded various ML libraries
 * Added support for username/password authentication
 * Improved model selection efficiency
 * Fixed various minor bugs
 
-### 4.1.0 \(2020-09-04\) (helm chart version: 4.1.15, image tag: 4.4.0-release)
+### Version 4.1.0 \(2020-09-04\) 
+
+**Helm chart version**: 4.1.15
+**image tag**: 4.4.0-release
 
 * Releasing Autonomous Anomaly Detector service Beta
