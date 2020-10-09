@@ -212,28 +212,17 @@ sudo service stackstate-agent stop
 sudo service stackstate-agent restart
 ```
 {% endtab %}
-{% tab title="Windows - CMD" %}
+{% tab title="Windows" %}
 ```text
+# CMD
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
-```
-{% endtab %}
-{% tab title="Windows - PowerShell" %}
-```
+
+# PowerShell
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
-```
-{% endtab %}
-{% tab title="Windows" %}
-```text
-# Below commands need to be invoked from the directory:
-# C:\Program Files\StackState\StackState Agent\embedded
-
-"./agent.exe start-service"
-"./agent.exe stopservice"
-"./agent.exe restart-service"
 ```
 {% endtab %}
 {% endtabs %}

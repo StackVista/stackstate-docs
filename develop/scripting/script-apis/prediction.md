@@ -12,7 +12,7 @@ Predict metrics for any metric query coming from any data source.
 
 * `predictorName` - name of prediction preset. Current available predictors: 
     - **fft** - Fast Fourier Transformation. For metrics with a repeatable pattern that has a cycle (seasonal).
-     - **hmn** -
+    - **hmn** -
     - **linear** - For metrics that have a linear trend.
 * `horizon` - how much future to predict. The horizon is specified in the [duration format](/develop/scripting/script-apis/time.md).
 * `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
