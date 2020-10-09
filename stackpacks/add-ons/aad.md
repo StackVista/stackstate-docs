@@ -185,9 +185,7 @@ To access the status UI, the status interface Ingress must be configured in the 
 
 Common questions that can be answered in the status UI:
 
-**Is the anomaly detection Kubernetes service running?**
-If the status UI is accessible: The service is running.
-If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
+**Is the anomaly detection Kubernetes service running?**<br />If the status UI is accessible: The service is running.<br />If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
 
 **Can the anomaly detection Kubernetes service reach StackState?**<br />Check the status UI sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
 
@@ -210,7 +208,7 @@ If the status UI is not available: Either the service is not running, or the Ing
 * Improved model selection efficiency
 * Fixed various minor bugs
 
-### Version 4.1.0
+### AAD service version 4.1.0
 
 **Helm chart version**: 4.1.15<br />**Image tag**: 4.4.0-release<br />**Release date**: 2020-09-04
 
