@@ -195,7 +195,9 @@ Common questions that can be answered in the status UI:
 
 **Is the anomaly detection Kubernetes service scheduling streams?**<br />The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
-## AAD service Release Notes
+## Release Notes
+
+Release notes for the AAD Service are included below. AAD StackPack release notes can be found in the StackPack.
 
 **BETA Release**
 
@@ -205,13 +207,15 @@ Common questions that can be answered in the status UI:
 
 Changes in this version:
 
-* Upgraded various ML libraries
-* Added support for username/password authentication
-* Improved model selection efficiency
-* Fixed various minor bugs
+* Upgraded various ML libraries.
+* Added support for username/password authentication.
+* Improved model selection efficiency.
+* Fixed various minor bugs.
 
 ### AAD service version 4.1.0
 
 **Helm chart version**: 4.1.15<br />**Image tag**: 4.4.0-release<br />**Release date**: 2020-09-04
 
-* Releasing Autonomous Anomaly Detector service Beta
+Changes in this version:
+
+* Releasing Autonomous Anomaly Detector service Beta.
