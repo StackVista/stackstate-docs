@@ -139,6 +139,28 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
     --values ./values.yaml
 ```
 
+## Upgrade the anomaly-detection chart
+
+AAD service is released independently from StackState therefore you may benefit if you upgrade often.
+Upgrading the AAD service means getting corresponding helm chart and the AAD image and running AAD helm command.
+In the release notes at the bottom of this page you will find out what version of the helm chart is consistent with the image of AAD.
+You need to fetch specific version of helm chart (see example below):
+
+```text
+helm fetch stackstate/anomaly-detection --version 4.1.18
+```
+
+In the `values.yaml` file you need to specify consistent AAD image tag, e.g. 4.1.1-latest.
+
+Run the upgrade command below, specifying the necessary parameters as mentioned in the Install section.
+
+```text
+helm upgrade anomaly-detector stackstate/anomaly-detection \
+    --namespace <stackstate-namespace> \
+    --set image.pullSecretPassword=<image registry password>
+    --values ./values.yaml
+```
+
 ## Deactivate the anomaly detection Kubernetes service
 
 To deactivate the anomaly detection Kubernetes service, uninstall the AAD StackPack.
@@ -173,10 +195,17 @@ Common questions that can be answered in the status UI:
 * **Is the anomaly detection Kubernetes service detecting anomalies?** The section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
 * **Is the anomaly detection Kubernetes service scheduling streams?** The tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
-## Release Notes
-
-### 0.2.2 \(2020-09-04\)
+## AAD service Release Notes
 
 **Beta Release**
+
+### 4.1.1 \(2020-10-09\) (helm chart version: 4.1.18, image tag: 4.4.1-release)
+
+* Upgraded various ML libraries
+* Added support for username/password authentication
+* Improved model selection efficiency
+* Fixed various minor bugs
+
+### 4.1.0 \(2020-09-04\) (helm chart version: 4.1.15, image tag: 4.4.0-release)
 
 * Releasing Autonomous Anomaly Detector service Beta
