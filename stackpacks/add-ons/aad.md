@@ -191,7 +191,7 @@ Common questions that can be answered in the status UI:
 
 **Has the anomaly detection Kubernetes service selected streams for anomaly detection?**<br />The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
 
-**Is the anomaly detection Kubernetes service detecting anomalies?**<br />The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
+**Is the anomaly detection Kubernetes service detecting anomalies?**<br />The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
 
 **Is the anomaly detection Kubernetes service scheduling streams?**<br />The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
@@ -202,6 +202,8 @@ Common questions that can be answered in the status UI:
 ### AAD service version 4.1.1
 
 **Helm chart version**: 4.1.18<br />**Image tag**: 4.4.1-release<br />**Release date**: 2020-10-09
+
+Changes in this version:
 
 * Upgraded various ML libraries
 * Added support for username/password authentication
