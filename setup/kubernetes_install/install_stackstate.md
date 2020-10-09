@@ -88,7 +88,7 @@ helm list --namespace stackstate
 
 # Check pods are running
 # It may take some time for all pods to be installed or available
-kubectl get pods
+kubectl get pods --namespace stackstate
 ```
 
 ### Access the StackState UI
@@ -96,13 +96,13 @@ kubectl get pods
 After StackState has been deployed you can check if all pods are up and running:
 
 ```text
-kubectl get pods
+kubectl get pods --namespace stackstate
 ```
 
 When all pods are up, you can enable a port-forward:
 
 ```text
-kubectl port-forward service/stackstate-router 8080:8080
+kubectl port-forward service/stackstate-router 8080:8080 --namespace stackstate
 ```
 
 StackState will now be available in your browser at `https://localhost:8080`. Log in with the username `admin` and the default password provided in the `values.yaml` file.
