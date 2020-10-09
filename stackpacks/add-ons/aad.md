@@ -24,21 +24,21 @@ The stream selection algorithm works as follows:
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 
-### How fast are anomalies detected?
+## How fast are anomalies detected?
 
 The AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
-### How do I know what the AAD is working on?
+## How do I know what the AAD is working on?
 
 The status UI of the anomaly detection Kubernetes service provides various metrics and indicators, including details of what it is currently doing.
 
-### Prerequisites
+## Prerequisites
 
 The AAD StackPack can only be installed within a [Kubernetes setup](/setup/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
-#### Node sizing
+### Node sizing
 
 A minimal deployment of the anomaly detection Kubernetes service with the default options requires one of the following instance types:
 
