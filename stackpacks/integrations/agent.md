@@ -213,13 +213,14 @@ sudo service stackstate-agent restart
 ```
 {% endtab %}
 {% tab title="Windows" %}
+**CMD**
 ```text
-# CMD
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
-
-# PowerShell
+```
+**PowerShell**
+```
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
