@@ -32,7 +32,7 @@ Install the API-Integration StackPack by using the following sequence of steps:
 3. Set the following keys in the stackstate.conf.example file:
    ```text
     api_key: {{config.apiKey}}
-    dd_url: {{config.baseUrl}}/stsAgent
+    dd_url: {{config.baseUrl}}/stsAgent/
    ```
 4. After this the example configuration can be used as configuration.
    ```text
