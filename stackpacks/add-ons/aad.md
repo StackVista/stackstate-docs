@@ -186,20 +186,16 @@ To access the status UI, the status interface Ingress must be configured in the 
 Common questions that can be answered in the status UI:
 
 **Is the anomaly detection Kubernetes service running?**
-  * The status UI is accessible: The service is running.
-  * The status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
+If the status UI is accessible: The service is running.
+If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
 
-**Can the anomaly detection Kubernetes service reach StackState?** 
-* Check the sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
+**Can the anomaly detection Kubernetes service reach StackState?**<br />Check the status UI sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
 
-**Has the anomaly detection Kubernetes service selected streams for anomaly detection?**<br />The section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
+**Has the anomaly detection Kubernetes service selected streams for anomaly detection?**<br />The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
 
-**Is the anomaly detection Kubernetes service detecting anomalies?** 
+**Is the anomaly detection Kubernetes service detecting anomalies?**<br />The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
 
-The section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
-
-**Is the anomaly detection Kubernetes service scheduling streams?** 
-The tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
+**Is the anomaly detection Kubernetes service scheduling streams?**<br />The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 ## AAD service Release Notes
 
@@ -207,8 +203,7 @@ The tab **Job Progress** shows a ranked list of streams with scheduling progress
 
 ### AAD service version 4.1.1 \(2020-10-09\) 
 
-**Helm chart version**: 4.1.18
-**image tag**: 4.4.1-release
+**Helm chart version**: 4.1.18<br />**image tag**: 4.4.1-release
 
 * Upgraded various ML libraries
 * Added support for username/password authentication
@@ -217,7 +212,6 @@ The tab **Job Progress** shows a ranked list of streams with scheduling progress
 
 ### Version 4.1.0 \(2020-09-04\) 
 
-**Helm chart version**: 4.1.15
-**image tag**: 4.4.0-release
+**Helm chart version**: 4.1.15<br />**image tag**: 4.4.0-release
 
 * Releasing Autonomous Anomaly Detector service Beta
