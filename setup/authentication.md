@@ -59,8 +59,6 @@ authentication {
 
     stackstateAuthServer {
       # echo -n "password" | md5sum
-      # Open http://www.md5.net/md5-generator/
-      # Enter your password and press submit, you will get an MD5 Hash
       # Set the MD5 Hash into `auth.password`
       logins = [
         { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
