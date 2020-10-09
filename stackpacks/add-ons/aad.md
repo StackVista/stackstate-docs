@@ -201,17 +201,17 @@ If the status UI is not available: Either the service is not running, or the Ing
 
 **BETA Release**
 
-### AAD service version 4.1.1 \(2020-10-09\) 
+### AAD service version 4.1.1
 
-**Helm chart version**: 4.1.18<br />**image tag**: 4.4.1-release
+**Helm chart version**: 4.1.18<br />**Image tag**: 4.4.1-release<br />**Release date**: 2020-10-09
 
 * Upgraded various ML libraries
 * Added support for username/password authentication
 * Improved model selection efficiency
 * Fixed various minor bugs
 
-### Version 4.1.0 \(2020-09-04\) 
+### Version 4.1.0
 
-**Helm chart version**: 4.1.15<br />**image tag**: 4.4.0-release
+**Helm chart version**: 4.1.15<br />**Image tag**: 4.4.0-release<br />**Release date**: 2020-09-04
 
 * Releasing Autonomous Anomaly Detector service Beta
