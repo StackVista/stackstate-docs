@@ -1,7 +1,5 @@
 ---
-title: Working with Predictions
-kind: Documentation
-description: Functions for predicting data available in StackState.
+description: Functions for predicting data available in StackState
 ---
 
 # Script API: Prediction
@@ -12,9 +10,12 @@ Predict metrics for any metric query coming from any data source.
 
 **Args:**
 
-* `predictorName` - name of prediction preset. Current available predictors: `linear`, `hmn` and `fft`.
-* `horizon` - how much future to predict. The horizon is specified in the [duration format](/develop/scripting/script-apis/time.md).
-* `query` - what metrics to use for the prediction. The query can be created using the `Telemetry.query()` function followed by `.compileQuery()`. The telemetry query has to return metrics.
+* `predictorName` - the prediction preset to use: 
+    - **fft** - Fast Fourier Transformation. Used for seasonal metrics with a repeatable pattern that has a cycle.
+    - **linear** - used for metrics that have a linear trend.
+    - **hmn** - Harmonic Mean Normal. Used in difficult cases when metrics are not clearly seasonal or linear.
+* `horizon` - how much future to predict. The horizon is specified in [duration format](/develop/scripting/script-apis/time.md).
+* `query` - the metrics to use for the prediction. A telemetry query that returns metrics, created using the `Telemetry.query()` function followed by `.compileQuery()`.
 
 **Builder methods:**
 
