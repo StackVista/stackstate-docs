@@ -1,17 +1,39 @@
+---
+description: Receive ServiceNow data in StackState
+---
+
 # ServiceNow
 
 ## What is the ServiceNow StackPack?
 
-The ServiceNow StackPack is used to create a near real time synchronization of CI's and their dependencies from ServiceNow to StackState.
+The ServiceNow StackPack enables near real time synchronization between ServiceNow and StackState. ServiceNow configuration items (CIs) and their dependencies are available in StackState as ... and can be used to ... .
 
-To install this StackPack we need to know the instance id of your servicenow account.
+![Diagram](/.gitbook/assets/stackpack-servicenow.png)
 
-## Prerequisites
+- StackState Agent v2 connects to the configured ServiceNow API to retrieve configuration items (CIs) and their dependencies.
+- Retrieved data are pushed to StackState as components and relations.
 
-* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on a single machine that can connect to ServiceNow and StackState.
-* A ServiceNow instance must be running.
+### Required ServiceNow API endpoints
 
-## Enable ServiceNow integration
+The ServiceNow User configured in the StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The table names and endpoints used in the StackState integration are described in the table below. All the REST API endpoints uses HTTPS protocol for communication.
+
+| Table Name | Table API Endpoint | Description |
+|:---|:---|:---|
+| cmdb_ci  |  /api/now/table/cmdb_ci | |
+| cmdb_rel_type  |  /api/now/table/cmdb_rel_type | |
+| cmdb_rel_ci  |  /api/now/table/cmdb_rel_ci | |
+
+## Install
+
+### Pre-requisites
+
+To set up the StackState ServiceNow integration, you will need to have:
+
+- [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
+- A running ServiceNow instance.
+- A ServiceNow user with access to the [required ServiceNow API endopints](#servicenow-api-endpoints). Refer to the ServiceNow product documentation to find out [how to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html.
+
+### Enable ServiceNow integration
 
 To enable the ServiceNow check and begin collecting data from your ServiceNow instance:
 
@@ -35,3 +57,16 @@ To enable the ServiceNow check and begin collecting data from your ServiceNow in
 2.  [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
+## Troubleshooting
+
+Describe any common issues/misunderstandings or troubleshooting steps here. Note that known issues should also be covered in the StackState support site.
+
+## Uninstall
+
+If the uninstall includes manual or extra steps these should be included here. If it is a standard 'click to uninstall', also describe that here - don't leave the reader to guess.
+
+## See also
+
+- [StackState Agent V2](/stackpacks/integrations/agent.md) 
+- [Secrets management](/configure/security/secrets_management.md)
+- [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)
