@@ -15,7 +15,7 @@ The ServiceNow StackPack enables near real time synchronization between ServiceN
 
 ### Required ServiceNow REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The specific table names and endpoints used in the StackState integration are described below. All the REST API endpoints use HTTPS protocol for communication.
+The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The specific table names and endpoints used in the StackState integration are described below. All the named REST API endpoints use HTTPS protocol for communication.
 
 | Table Name | REST API Endpoint | Description |
 |:---|:---|:---|
