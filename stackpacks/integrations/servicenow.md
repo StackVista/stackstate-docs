@@ -31,7 +31,7 @@ To set up the StackState ServiceNow integration, you will need to have:
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
 - A running ServiceNow instance.
-- A ServiceNow user with access to the [required ServiceNow API endopints](#required-servicenow-rest-api-endpoints).<br />>Refer to the ServiceNow product documentation to find out [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
+- A ServiceNow user with access to the [required ServiceNow API endopints](#required-servicenow-rest-api-endpoints).<br />Refer to the ServiceNow product documentation to find out [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 
 ### Enable ServiceNow integration
 
