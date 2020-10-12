@@ -28,6 +28,19 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
 
+### Filter CIs
+
+By default, all available ServiceNow CIs (configuration items) will be sent to StackState. You can configure the Agent integration to filter the CIs sent to StackState:
+
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml`.
+2. A subset of the available CIs is included, but commented out.
+3. Uncomment the line `include_resource_types` and the CIs you would like to send to StackState.
+4. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+
+{% hint style="info" %}
+The Agent integration configuration file lists a subset of CIs. You can add any valid ServiceNow CI to this list, the associated components will be shown on the **Uncategorized** layer of a StackState view. 
+{% endhint %}
+
 ## Installation
 
 ### Pre-requisites
@@ -67,7 +80,7 @@ To enable the ServiceNow check and begin collecting data from your ServiceNow in
            password: <instance_password>
         batch_size: 100    # the maximum number of records to be returned
     ```
-2.  [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Uninstall
