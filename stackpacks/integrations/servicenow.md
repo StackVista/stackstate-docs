@@ -6,7 +6,7 @@ description: Receive ServiceNow data in StackState
 
 ## What is the ServiceNow StackPack?
 
-The ServiceNow StackPack enables near real time synchronization between ServiceNow and StackState. ServiceNow configuration items (CIs) and their dependencies are available in StackState as components and relations.
+The ServiceNow StackPack enables near real time synchronization between ServiceNow and StackState. WHen running, ServiceNow configuration items (CIs) and their dependencies are pushed to StackState as components and relations.
 
 ![Diagram](/.gitbook/assets/stackpack-servicenow.png)
 
