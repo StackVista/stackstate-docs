@@ -13,9 +13,9 @@ The ServiceNow StackPack enables near real time synchronization between ServiceN
 - StackState Agent v2 connects to the configured ServiceNow API to retrieve CIs and their dependencies.
 - Retrieved data are pushed to StackState as components and relations.
 
-### Required ServiceNow API endpoints
+### Required ServiceNow REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The table names and endpoints used in the StackState integration are described in the table below. All the REST API endpoints uses HTTPS protocol for communication.
+The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The specific table names and endpoints used in the StackState integration are described in the table below. All the REST API endpoints use HTTPS protocol for communication.
 
 | Table Name | Table API Endpoint | Description |
 |:---|:---|:---|
@@ -31,7 +31,7 @@ To set up the StackState ServiceNow integration, you will need to have:
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
 - A running ServiceNow instance.
-- A ServiceNow user with access to the [required ServiceNow API endopints](#servicenow-api-endpoints). Refer to the ServiceNow product documentation to find out [how to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html.
+- A ServiceNow user with access to the [required ServiceNow API endopints](#required-servicenow-rest-api-endpoints). Refer to the ServiceNow product documentation to find out [how to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html.
 
 ### Enable ServiceNow integration
 
@@ -39,7 +39,7 @@ To enable the ServiceNow check and begin collecting data from your ServiceNow in
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.
-    - **user** - a ServiceNow user with access to the [required ServiceNow API endopints](#servicenow-api-endpoints)
+    - **user** - a ServiceNow user with access to the [required ServiceNow API endopints](#required-servicenow-rest-api-endpoints)
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     ```text
     init_config:
