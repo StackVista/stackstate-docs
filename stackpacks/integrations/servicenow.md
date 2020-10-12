@@ -18,11 +18,11 @@ The ServiceNow StackPack creates near real time synchronization between ServiceN
 
 The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use HTTPS protocol for communication.
 
-| Table Name | REST API Endpoint | Description |
-|:---|:---|:---|
-| **cmdb_ci**  |  `/api/now/table/cmdb_ci` | |
-| **cmdb_rel_type**  |  `/api/now/table/cmdb_rel_type` | |
-| **cmdb_rel_ci**  |  `/api/now/table/cmdb_rel_ci` | |
+| Table Name | REST API Endpoint | 
+|:---|:---|
+| **cmdb_ci**  |  `/api/now/table/cmdb_ci` |
+| **cmdb_rel_type**  |  `/api/now/table/cmdb_rel_type` |
+| **cmdb_rel_ci**  |  `/api/now/table/cmdb_rel_ci` |
 
 {% hint style="info" %}
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
