@@ -28,17 +28,62 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
 
-### Filter CIs
+### CI filtering
 
-By default, all available ServiceNow CIs (configuration items) will be sent to StackState. You can configure the Agent integration to filter the CIs sent to StackState:
+By default, all available ServiceNow CIs (configuration items) will be sent to StackState. You can optionally configure the Agent integration to filter the CIs sent to StackState:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml`.
-2. A subset of the available CIs is included, but commented out.
+    - A subset of the available CIs is listed and commented out.
 3. Uncomment the line `include_resource_types` and the CIs you would like to send to StackState.
+    ```
+    instances:
+      - url: "https://<instance_ID>.service-now.com"
+        user: <instance_username>
+        password: <instance_password>
+        batch_size: 100
+        #    include_resource_types: # optional and by default includes all resource types(sys Class Names)
+        #        - cmdb_ci_netgear
+        #        - cmdb_ci_ip_router
+        #        - cmdb_ci_aix_server
+        #        - cmdb_ci_storage_switch
+        #        - cmdb_ci_win_cluster
+        #        - cmdb_ci_email_server
+        #        - cmdb_ci_web_server
+        #        - cmdb_ci_app_server
+        #        - cmdb_ci_printer
+        #        - cmdb_ci_cluster
+        #        - cmdb_ci_cluster_node
+        #        - cmdb_ci_computer
+        #        - cmdb_ci_msd
+        #        - cmdb_ci
+        #        - cmdb_ci_unix_server
+        #        - cmdb_ci_win_cluster_node
+        #        - cmdb_ci_datacenter
+        #        - cmdb_ci_linux_server
+        #        - cmdb_ci_db_ora_catalog
+        #        - cmdb_ci_win_server
+        #        - cmdb_ci_zone
+        #        - cmdb_ci_appl
+        #        - cmdb_ci_computer_room
+        #        - cmdb_ci_ip_switch
+        #        - service_offering
+        #        - cmdb_ci_disk
+        #        - cmdb_ci_peripheral
+        #        - cmdb_ci_service_group
+        #        - cmdb_ci_db_mysql_catalog
+        #        - cmdb_ci_ups
+        #        - cmdb_ci_service
+        #        - cmdb_ci_app_server_java
+        #        - cmdb_ci_spkg
+        #        - cmdb_ci_database
+        #        - cmdb_ci_rack
+        #        - cmdb_ci_server
+        #        - cmdb_ci_network_adapter
+    ```
 4. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
 {% hint style="info" %}
-The Agent integration configuration file lists a subset of CIs. You can add any valid ServiceNow CI to this list, the associated components will be shown on the **Uncategorized** layer of a StackState view. 
+You can add any valid ServiceNow CI to the **include_resource_types** list, however, these components will be shown on the **Uncategorized** layer of a StackState view. 
 {% endhint %}
 
 ## Installation
