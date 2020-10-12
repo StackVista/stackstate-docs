@@ -10,7 +10,7 @@ The ServiceNow StackPack enables near real time synchronization between ServiceN
 
 ![Diagram](/.gitbook/assets/stackpack-servicenow.png)
 
-- StackState Agent v2 connects to the configured ServiceNow API to retrieve CIs and their dependencies.
+- StackState Agent V2 connects to the configured ServiceNow API to retrieve CIs and their dependencies.
 - Retrieved data are pushed to StackState as components and relations.
 
 ### Required ServiceNow REST API endpoints
@@ -31,7 +31,7 @@ Refer to the ServiceNow product documentation to find out [how to configure a Se
 
 To set up the StackState ServiceNow integration, you will need to have:
 
-- [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
+- [StackState Agent **V2**](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
 - A running ServiceNow instance.
 - A ServiceNow user with access to the [required ServiceNow API endopints](#required-servicenow-rest-api-endpoints).
 
