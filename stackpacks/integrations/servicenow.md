@@ -6,16 +6,16 @@ description: Receive ServiceNow data in StackState
 
 ## What is the ServiceNow StackPack?
 
-The ServiceNow StackPack enables near real time synchronization between ServiceNow and StackState. ServiceNow configuration items (CIs) and their dependencies are available in StackState as ... and can be used to ... .
+The ServiceNow StackPack enables near real time synchronization between ServiceNow and StackState. ServiceNow configuration items (CIs) and their dependencies are available in StackState as components and relations.
 
 ![Diagram](/.gitbook/assets/stackpack-servicenow.png)
 
-- StackState Agent v2 connects to the configured ServiceNow API to retrieve configuration items (CIs) and their dependencies.
+- StackState Agent v2 connects to the configured ServiceNow API to retrieve CIs and their dependencies.
 - Retrieved data are pushed to StackState as components and relations.
 
 ### Required ServiceNow API endpoints
 
-The ServiceNow User configured in the StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The table names and endpoints used in the StackState integration are described in the table below. All the REST API endpoints uses HTTPS protocol for communication.
+The ServiceNow user configured in the StackState Agent V2 must have access to read the ServiceNow API `TABLE`. The table names and endpoints used in the StackState integration are described in the table below. All the REST API endpoints uses HTTPS protocol for communication.
 
 | Table Name | Table API Endpoint | Description |
 |:---|:---|:---|
@@ -38,8 +38,8 @@ To set up the StackState ServiceNow integration, you will need to have:
 To enable the ServiceNow check and begin collecting data from your ServiceNow instance:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
-    - **url**
-    - **user**
+    - **url** - the REST API url, uses HTTPS protocol for communication.
+    - **user** - a ServiceNow user with access to the [required ServiceNow API endopints](#servicenow-api-endpoints)
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     ```text
     init_config:
