@@ -11,7 +11,7 @@ The ServiceNow StackPack creates near real time synchronization between ServiceN
 ![](/.gitbook/assets/stackpack-servicenow.png)
 
 - Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints) to retrieve CIs and their dependencies.
-- Agent V2 pushes the retrieved data to StackState.
+- Retrieved data is pushed to StackState.
 - StackState translates incoming CIs and dependencies into components and relations. 
 
 ### ServiceNow REST API endpoints
@@ -72,15 +72,12 @@ To enable the ServiceNow check and begin collecting data from your ServiceNow in
 
 ### CI filtering
 
-By default, all available ServiceNow CIs (configuration items) will be sent to StackState. You can optionally configure the Agent integration to filter the CIs sent to StackState:
+By default, all available ServiceNow CIs (configuration items) will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CIs it retrieves:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml`.
     - A subset of the available CIs is listed and commented out.
 3. Uncomment the line `include_resource_types` and the CIs you would like to send to StackState.
-
-    {% hint style="info" %}
-    You can add any valid ServiceNow CI to the **include_resource_types** list, however, these components will appear on the **Uncategorized** layer of a StackState view. 
-    {% endhint %}
+    You can add any valid ServiceNow CI to the **include_resource_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a StackState view. 
 
     ```
     instances:
@@ -134,7 +131,7 @@ By default, all available ServiceNow CIs (configuration items) will be sent to S
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click **UNINSTALL**
-    - All ServiceNow specific configuration in StackState will be removed.
+    - All ServiceNow specific configuration will be removed from StackState .
 2. Rename the Agent integration configuration file:
     ```
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.example
