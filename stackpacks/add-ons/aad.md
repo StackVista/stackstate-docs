@@ -203,7 +203,7 @@ Release notes for the AAD Service are included below. AAD StackPack release note
 
 ### AAD Service version 4.1.1
 
-**Helm chart version**: 4.1.18<br />**Image tag**: 4.4.1-release<br />**Release date**: 2020-10-09
+**Helm chart version**: 4.1.18<br />**Image tag**: 4.1.1-release<br />**Release date**: 2020-10-09
 
 Changes in this version:
 
@@ -214,7 +214,7 @@ Changes in this version:
 
 ### AAD Service version 4.1.0
 
-**Helm chart version**: 4.1.15<br />**Image tag**: 4.4.0-release<br />**Release date**: 2020-09-04
+**Helm chart version**: 4.1.15<br />**Image tag**: 4.1.0-release<br />**Release date**: 2020-09-04
 
 Changes in this version:
 
