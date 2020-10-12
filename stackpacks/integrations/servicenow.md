@@ -10,7 +10,7 @@ The ServiceNow StackPack enables near real time synchronization between ServiceN
 
 ![Diagram](/.gitbook/assets/stackpack-servicenow.png)
 
-- StackState Agent V2 connects to the configured ServiceNow API to retrieve CIs and their dependencies.
+- StackState Agent V2 connects to the configured [ServiceNow API](#required-servicenow-rest-api-endpoints) to retrieve CIs and their dependencies.
 - Retrieved data are pushed to StackState as components and relations.
 
 ### Required ServiceNow REST API endpoints
