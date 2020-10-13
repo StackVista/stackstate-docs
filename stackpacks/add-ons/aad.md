@@ -83,7 +83,7 @@ helm repo add stackstate https://helm.stackstate.io`
 helm fetch stackstate/anomaly-detection
 ```
 
-#### 4. Configure the anomaly-detection Chart
+#### 4. Configure the anomaly-detection chart
 
 Create the file `values.yaml` file including the configuration described below and save it to disk:
 
