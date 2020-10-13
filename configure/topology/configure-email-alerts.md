@@ -9,7 +9,7 @@ To receive email alerts for changes in health state, the StackState configuratio
 
         email {
             properties {
-                "mail.smtp.auth" = "false"              # use "true" for TLS
+                "mail.smtp.auth" = "true"   # "true" when user/pass provided   
                 "mail.smtp.starttls.enable" = "false"   # use "true" for TLS
             }
             sender = "<EMAIL_SENDER_ADDRESS>"
@@ -17,8 +17,8 @@ To receive email alerts for changes in health state, the StackState configuratio
               protocol = "smtp"
               host =  "<SMTP_SERVER_HOST>"
               port = 25
-              username = "XXX"
-              password = "XXX"
+              username = "XXX"      # optional
+              password = "XXX"      # optional
             }
         }
    
