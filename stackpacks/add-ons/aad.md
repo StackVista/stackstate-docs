@@ -50,7 +50,7 @@ To handle more streams or to reduce detection latency, the service can be scaled
 
 The AAD Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
 
-## Install
+## Installation
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
