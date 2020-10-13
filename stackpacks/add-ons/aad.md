@@ -201,7 +201,7 @@ Release notes for the AAD Kubernetes service are included below. AAD StackPack r
 
 **BETA Release**
 
-### AAD Kubernetes service version 4.1.1
+### AAD Kubernetes service 4.1.1
 
 **Helm chart version**: 4.1.18<br />**Image tag**: 4.1.1-release<br />**Release date**: 2020-10-09
 
@@ -212,7 +212,7 @@ Changes in this version:
 * Improved model selection efficiency.
 * Fixed various minor bugs.
 
-### AAD Kubernetes service version 4.1.0
+### AAD Kubernetes service 4.1.0
 
 **Helm chart version**: 4.1.15<br />**Image tag**: 4.1.0-release<br />**Release date**: 2020-09-04
 
