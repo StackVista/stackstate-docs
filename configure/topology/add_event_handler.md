@@ -41,25 +41,6 @@ To receive email alerts for changes in health state the StackState configuration
 
 ### Add an event handler
 
-![Add email event handler](/.gitbook/assets/v41_add_email_event_handler.png)
-
-1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
-2. Select **Events Settings** on the left.
-3. Click **ADD EVENT HANDLER**
-4. Select the email event handler "Send view health state notifications via email".
-5. Enter the required details:
-    - **Subject Prefix** - will be added to the subject of the alert email.
-    - **To** = the email address to send the alert to.
-6. Select the type of state changes that should trigger alert emails:
-    - **State changes** - 
-    - **Own state changes** - 
-    - **Propagated state changes** - 
-    - **View state changes** - 
-7. Click **SAVE**.
-
-
-### Add an event handler
-
 ![Add event handler](/.gitbook/assets/v41_add_email_event_handler.png)
 
 1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
