@@ -27,24 +27,24 @@ To receive email alerts for changes in health state, the StackState configuratio
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
     ```
     stackstate{
-        ...
+       ...
 
-        email {
-            properties {
-                "mail.smtp.auth" = "true"   # "true" when user/pass provided   
-                "mail.smtp.starttls.enable" = "false"   # use "true" for TLS
-            }
-            sender = "<EMAIL_SENDER_ADDRESS>"
-            server {
-              protocol = "smtp"
-              host =  "<SMTP_SERVER_HOST>"
-              port = 25
-              username = "XXX"      # optional
-              password = "XXX"      # optional
-            }
-        }
+       email {
+          properties {
+             "mail.smtp.auth" = "true"   # "true" when user/pass provided   
+             "mail.smtp.starttls.enable" = "false"   # use "true" for TLS
+          }
+          sender = "<EMAIL_SENDER_ADDRESS>"
+          server {
+             protocol = "smtp"
+             host =  "<SMTP_SERVER_HOST>"
+             port = 25
+             username = "XXX"      # optional
+             password = "XXX"      # optional
+          }
+       }
    
-        ...
+       ...
     }
    
     ``` 
