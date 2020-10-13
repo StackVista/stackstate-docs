@@ -30,7 +30,7 @@ The AAD ensures that prioritized metric streams are checked for anomalies in a t
 
 ## How do I know what the AAD is working on?
 
-The status UI of the anomaly detection Kubernetes service provides various metrics and indicators, including details of what it is currently doing.
+The status UI of the AAD Kubernetes service provides various metrics and indicators, including details of what it is currently doing.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ If you are not sure that you have a Kubernetes setup or would you like to know m
 
 ### Node sizing
 
-A minimal deployment of the anomaly detection Kubernetes service with the default options requires one of the following instance types:
+A minimal deployment of the AAD Kubernetes service with the default options requires one of the following instance types:
 
 * Amazon EKS: 1 instance of type `m4.xlarge`
 * Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
@@ -48,7 +48,7 @@ A minimal deployment of the anomaly detection Kubernetes service with the defaul
 
 To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
-The anomaly detection Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
+The AAD Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
 
 ## Install
 
@@ -57,12 +57,12 @@ The anomaly detection Kubernetes service is stateless and survives restarts. It 
 Install the AAD StackPack from the StackPacks page in StackState.
 
 {% hint style="info" %}
-To use the AAD StackPack, the anomaly detection Kubernetes service must also be installed.
+To use the AAD StackPack, the AAD Kubernetes service must also be installed.
 {% endhint %}
 
-### Install the anomaly detection Kubernetes service
+### Install the AAD Kubernetes service
 
-After installing the AAD StackPack, install the anomaly detection Kubernetes service.
+After installing the AAD StackPack, install the AAD Kubernetes service.
 
 #### 1. Get access to quay.io
 
@@ -92,7 +92,7 @@ Create the file `values.yaml` file including the configuration described below a
   * **pullSecretUsername** - the image registry username \(from step 1\)
 * **stackstate:**
   * **instance** - the StackState instance url. This must be a StackState internal url to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-server-headless:7070/` or `http://<releasename>-stackstate-server-headless:7070/`
-* **ingress:** - Ingress provides access to the technical interface of the anomaly detection Kubernetes service, this is useful for troubleshooting. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
+* **ingress:** - Ingress provides access to the technical interface of the AAD Kubernetes service, this is useful for troubleshooting. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
   * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
   * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
   * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
@@ -125,9 +125,9 @@ Details of all configuration options are available in the anomaly-detection char
 helm show all stackstate/anomaly-detection
 ```
 
-#### 5. Install the anomaly-detection chart
+#### 5. Install the AAD Kubernetes service
 
-Run the command below, specifying the StackState namespace and the image registry password. Note that the anomaly-detection chart must be installed in the same namespace as the StackState chart.
+Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState.
 
 ```text
 helm upgrade anomaly-detector stackstate/anomaly-detection \
@@ -137,10 +137,10 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
     --values ./values.yaml
 ```
 
-## Upgrade the anomaly-detection chart
+## Upgrade the AAD Kubernetes service
 
-AAD service is released independently from StackState therefore you may benefit if you upgrade often.
-Upgrading the AAD service means getting corresponding helm chart and the AAD image and running AAD helm command.
+The AAD Kubernetes service is released independently from StackState, therefore you may benefit if you upgrade often.
+Upgrading the AAD Kubernetes service means getting corresponding helm chart and the AAD image and running AAD helm command.
 In the release notes at the bottom of this page you will find out what version of the helm chart is consistent with the image of AAD.
 You need to fetch specific version of helm chart (see example below):
 
@@ -159,17 +159,15 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
     --values ./values.yaml
 ```
 
-## Deactivate the anomaly detection Kubernetes service
+## Deactivate the AAD Kubernetes service
 
-To deactivate the anomaly detection Kubernetes service, uninstall the AAD StackPack.
+To deactivate the AAD Kubernetes service, uninstall the AAD StackPack. The AAD Kubernetes service will continue to run and reserve its compute resources, but anomaly detection will not be executed.
 
-After the AAD StackPack has been uninstalled, the anomaly detection Kubernetes service will continue to run and reserve its compute resources, but anomaly detection will not be executed.
-
-To re-enable the anomaly detection Kubernetes service, you can simply install the AAD StackPack again. It is not necessary to repeat the installation of the anomaly detection Kubernetes service.
+To re-enable the AAD Kubernetes service, you can simply install the AAD StackPack again. It is not necessary to repeat the installation of the AAD Kubernetes service.
 
 ## Full uninstall
 
-* Uninstall the anomaly detection Kubernetes service:
+* Uninstall the AAD Kubernetes service:
 
   ```text
   helm delete anomaly-detector
@@ -179,29 +177,29 @@ To re-enable the anomaly detection Kubernetes service, you can simply install th
 
 ## Troubleshooting
 
-The status UI provides details on the technical state of the anomaly detection Kubernetes service. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
+The status UI provides details on the technical state of the AAD Kubernetes service. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
 
 To access the status UI, the status interface Ingress must be configured in the anomaly-detection chart \(see the `Install` section\).
 
 Common questions that can be answered in the status UI:
 
-**Is the anomaly detection Kubernetes service running?**<br />If the status UI is accessible: The service is running.<br />If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
+**Is the AAD Kubernetes service running?**<br />If the status UI is accessible: The service is running.<br />If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
 
-**Can the anomaly detection Kubernetes service reach StackState?**<br />Check the status UI sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
+**Can the AAD Kubernetes service reach StackState?**<br />Check the status UI sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
 
-**Has the anomaly detection Kubernetes service selected streams for anomaly detection?**<br />The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
+**Has the AAD Kubernetes service selected streams for anomaly detection?**<br />The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
 
-**Is the anomaly detection Kubernetes service detecting anomalies?**<br />The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
+**Is the AAD Kubernetes service detecting anomalies?**<br />The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
 
-**Is the anomaly detection Kubernetes service scheduling streams?**<br />The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
+**Is the AAD Kubernetes service scheduling streams?**<br />The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 ## Release Notes
 
-Release notes for the AAD Service are included below. AAD StackPack release notes can be found in the StackPack.
+Release notes for the AAD Kubernetes service are included below. AAD StackPack release notes can be found in the StackPack.
 
 **BETA Release**
 
-### AAD Service version 4.1.1
+### AAD Kubernetes service version 4.1.1
 
 **Helm chart version**: 4.1.18<br />**Image tag**: 4.1.1-release<br />**Release date**: 2020-10-09
 
@@ -212,7 +210,7 @@ Changes in this version:
 * Improved model selection efficiency.
 * Fixed various minor bugs.
 
-### AAD Service version 4.1.0
+### AAD Kubernetes service version 4.1.0
 
 **Helm chart version**: 4.1.15<br />**Image tag**: 4.1.0-release<br />**Release date**: 2020-09-04
 
