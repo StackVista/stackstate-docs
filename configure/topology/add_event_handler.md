@@ -2,11 +2,11 @@
 
 You can configure StackState to send out alerts whenever there is a change in the health state of individual components, relations or topology views. A number of event handlers are included out of the box:
 
-- Email: [Send an email alert](#set-up-email-alerts) to a specified email address.
-- SMS: Send an SMS alert (MessageBird) to a specified phone number.
-- HTTP webhook POST: Send an HTTP POST request to a specified URL.
-- Slack: Send a notification to a specified Slack webhook URL.
-- HipChat: Send a notification to a specified HipChat webhook URL.
+- **Email**: [Send an email alert](#set-up-email-alerts) to a specified email address.
+- **SMS**: Send an SMS alert (MessageBird) to a specified phone number.
+- **HTTP webhook POST**: Send an HTTP POST request to a specified URL.
+- **Slack**: Send a notification to a specified Slack webhook URL.
+- **HipChat**: Send a notification to a specified HipChat webhook URL.
 
 ## Set up email alerts
 
