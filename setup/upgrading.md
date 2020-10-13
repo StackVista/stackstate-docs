@@ -117,6 +117,15 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ## Version-specific upgrade instructions
 
+### Upgrade to 4.2.0
+
+* A new event perspective introduces more comprehensive events includes following changes:
+  * Deprecated `sts_generic_events` Kafka topic and `sts_generic_events-*` Elastic index in favor to `sts_topology_events` and `sts_topology_events-*` respectively
+    * deprecated topic and index are still available for migration purposes
+  * Events submitted before upgrade won't be available in Events perspective
+  * Streams using events will work as before
+ 
+
 ### Upgrade to 4.1.0
 
 * There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
