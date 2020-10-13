@@ -55,7 +55,7 @@ Each view in StackState has a health state, just like component and relations ha
 
 You can use StackState event handlers to send out alerts whenever there is a change in the health state of individual components, relations or topology views. A number of event handlers are included out of the box:
 
-- **Email**: Send an email alert to a specified email address. Note that an [SMTP server must be configured] in StackState.
+- **Email**: Send an email alert to a specified email address. Note that an [SMTP server must be configured](/configure/topology/configure-email-alerts.mc) in StackState.
 - **HTTP webhook POST**: Send an HTTP POST request to a specified URL.
 - **Slack**: Send a notification to a specified Slack webhook URL.
 - **SMS**: Send an SMS alert (MessageBird) to a specified phone number.

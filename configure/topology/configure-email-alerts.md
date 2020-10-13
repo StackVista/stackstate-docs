@@ -1,4 +1,4 @@
-# SMTP server for email alerts
+# Configure email alerts
 
 To receive email alerts for changes in health state, the StackState configuration must include SMTP server details. 
 
