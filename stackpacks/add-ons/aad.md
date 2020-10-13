@@ -11,6 +11,7 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 ## How does the AAD decide what to work on?
 
 The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. Streams with the highest priority will be examined first. The prioritization of streams is computed by an algorithm that learns to maximize the probability of preventing an IT issue. To operate in large environments, attention must be allocated where it matters the most. The AAD achieves this based on its knowledge of streams that are intrinsically important \(such as KPIs and SLAs\), ongoing and historical issues, relations between streams and other relevant factors.
+The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. Streams with the highest priority will be examined first. The prioritization of streams is computed by an algorithm that learns to maximize the probability of preventing an IT issue. To operate in large environments, attention must be allocated where it matters the most. The AAD achieves this based on its knowledge of streams that are intrinsically important \(such as KPIs and SLAs\), ongoing and historical issues, relations between streams and other relevant factors.
 
 The stream selection algorithm works as follows:
 
@@ -55,7 +56,7 @@ Install the AAD StackPack from the StackPacks page in StackState.
 To use the AAD StackPack, the AAD Kubernetes service must also be installed.
 {% endhint %}
 
-### Install the Autonomous Anomaly Detection \(AAD\) Kubernetes service
+### Install the Autonomous Anomaly Detector \(AAD\) Kubernetes service
 
 After installing the AAD StackPack, install the AAD Kubernetes service.
 
