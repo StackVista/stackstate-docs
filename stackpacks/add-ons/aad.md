@@ -1,8 +1,3 @@
----
-title: Autonomous Anomaly Detection StackPack
-kind: documentation
----
-
 # Autonomous Anomaly Detector
 
 ## What is the Autonomous Anomaly Detector StackPack?
@@ -20,7 +15,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 The stream selection algorithm works as follows:
 
 * Components in Views that have the most stars are selected.
-* From those components, only high priority metric streams are selected. See - [how to set the priority for a stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md).
+* From those components, only high priority metric streams are selected. See [how to set the priority for a stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md).
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 
@@ -50,7 +45,7 @@ To handle more streams or to reduce detection latency, the service can be scaled
 
 The AAD Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
 
-## Install
+## Installation
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
@@ -60,7 +55,7 @@ Install the AAD StackPack from the StackPacks page in StackState.
 To use the AAD StackPack, the AAD Kubernetes service must also be installed.
 {% endhint %}
 
-### Install the Autonomous Anomaly Detection \(AAD\) Kubernetes service
+### Install the Autonomous Anomaly Detector \(AAD\) Kubernetes service
 
 After installing the AAD StackPack, install the AAD Kubernetes service.
 
