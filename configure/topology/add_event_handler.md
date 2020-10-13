@@ -8,6 +8,22 @@ You can configure StackState to send out alerts whenever there is a change in th
 - **Slack**: Send a notification to a specified Slack webhook URL.
 - **HipChat**: Send a notification to a specified HipChat webhook URL.
 
+## Add an event handler
+
+![Add event handler](/.gitbook/assets/v41_add_email_event_handler.png)
+
+1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
+2. Select **Events Settings** on the left.
+3. Click **ADD EVENT HANDLER**
+4. Select the event handler function you wish to add.
+5. Enter the required details, these will vary according to the type of event handler function you have selected.
+6. Select the type of state changes that should trigger alerts:
+    - **State changes** - 
+    - **Own state changes** - 
+    - **Propagated state changes** - 
+    - **View state changes** - 
+7. Click **SAVE**.
+
 ## Set up email alerts
 
 To receive email alerts for changes in health state the StackState configuration must include details of the SMTP server to use. 
@@ -38,19 +54,3 @@ To receive email alerts for changes in health state the StackState configuration
     ``` 
 2. Restart StackState to apply the configuration changes.
 3. Add an email [event handler](#add-an-event-handler).
-
-### Add an event handler
-
-![Add event handler](/.gitbook/assets/v41_add_email_event_handler.png)
-
-1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
-2. Select **Events Settings** on the left.
-3. Click **ADD EVENT HANDLER**
-4. Select the event handler function you wish to add.
-5. Enter the required details, these will vary according to the type of event handler function you have selected.
-6. Select the type of state changes that should trigger alerts:
-    - **State changes** - 
-    - **Own state changes** - 
-    - **Propagated state changes** - 
-    - **View state changes** - 
-7. Click **SAVE**.
