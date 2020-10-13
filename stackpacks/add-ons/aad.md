@@ -60,7 +60,7 @@ Install the AAD StackPack from the StackPacks page in StackState.
 To use the AAD StackPack, the AAD Kubernetes service must also be installed.
 {% endhint %}
 
-### Install the AAD Kubernetes service
+### Install the Autonomous Anomaly Detection \(AAD\) Kubernetes service
 
 After installing the AAD StackPack, install the AAD Kubernetes service.
 
@@ -77,13 +77,13 @@ To be able to pull the Docker image, you will need access to quay.io. Access cre
 helm repo add stackstate https://helm.stackstate.io`
 ```
 
-#### 3. Get the latest StackState anomaly-detection chart
+#### 3. Get the latest AAD Kubernetes service
 
 ```text
 helm fetch stackstate/anomaly-detection
 ```
 
-#### 4. Configure the anomaly-detection chart
+#### 4. Configure AAD Kubernetes service
 
 Create the file `values.yaml` file including the configuration described below and save it to disk:
 
@@ -143,25 +143,21 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
 
 ## Upgrade the AAD Kubernetes service
 
-The AAD Kubernetes service is released independently from StackState, therefore you may benefit if you upgrade often.
-Upgrading the AAD Kubernetes service means getting corresponding helm chart and the AAD image and running AAD helm command.
-In the release notes at the bottom of this page you will find out what version of the helm chart is consistent with the image of AAD.
-You need to fetch specific version of helm chart (see example below):
-
-```text
-helm fetch stackstate/anomaly-detection --version 4.1.18
-```
-
-In the `values.yaml` file you need to specify consistent AAD image tag, e.g. 4.1.1-latest.
-
-Run the upgrade command below, specifying the necessary parameters as mentioned in the Install section.
-
-```text
-helm upgrade anomaly-detector stackstate/anomaly-detection \
-    --namespace <stackstate-namespace> \
-    --set image.pullSecretPassword=<image registry password>
-    --values ./values.yaml
-```
+The AAD Kubernetes service is released independently from StackState, therefore you may benefit from upgrading often.
+To upgrade the AAD Kubernetes service, check the [release notes](#release-notes) section at the bottom of this page to find the required helm chart version and image tag for the release. 
+1. Download the AAD Kubernetes service image from [quay.io](https://quay.io/).
+2. Fetch the version of the helm chart:
+    ```text
+    helm fetch stackstate/anomaly-detection --version 4.1.18
+    ```
+3. Update the file `values.yaml` with the new AAD Kubernetes service image tag, for example `4.1.1-latest`.
+4. Run the upgrade command below, specifying the [necessary parameters](#5-install-the-aad-kubernetes-service) as described in the install section.
+    ```text
+    helm upgrade anomaly-detector stackstate/anomaly-detection \
+        --namespace <stackstate-namespace> \
+        --set image.pullSecretPassword=<image registry password>
+        --values ./values.yaml
+    ```
 
 ## Deactivate the AAD Kubernetes service
 
