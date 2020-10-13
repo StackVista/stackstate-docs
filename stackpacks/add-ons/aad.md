@@ -150,7 +150,7 @@ To upgrade the AAD Kubernetes service:
 
 1. Check the [release notes](#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release. 
     - Update the image tag in `values.yaml`.
-    - Fetch the updated helm chart version:
+    - Fetch the helm chart version:
         ```text
         helm fetch stackstate/anomaly-detection --version 4.1.18
         ```
