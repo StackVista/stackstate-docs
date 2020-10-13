@@ -70,10 +70,10 @@ Event handlers can be added from the StackState UI Events Perspective.
 4. Select the event handler function you wish to add.
 5. Enter the required details, these will vary according to the type of event handler function you have selected.
 6. Select the type of state changes that should trigger alerts:
-    - **State changes** - Any state change on any component or relation in the view.
-    - **Own state changes** - Not propagated changes, but other changes on any component or relation in the view.
-    - **Propagated state changes** - Only propagated changes on any component or relation in the view.
-    - **View state changes** - Only changes to the view state.
+    - **State changes** - trigger on either an own health state change or a propagated health state change of a component/relation.
+    - **Own state changes** - trigger only on an own health state change of a component/relation.
+    - **Propagated state changes** - trigger only on a propagated health state change of a component/relation.
+    - **View state changes** - trigger only on a health state change of the entire view.
 7. Click **SAVE**.
 
 
