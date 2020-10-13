@@ -66,14 +66,14 @@ Event handlers can be added from the StackState UI Events Perspective.
 
 1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
 2. Select **Events Settings** on the left.
-3. Click **ADD EVENT HANDLER**
+3. Click **ADD EVENT HANDLER**.
 4. Select the event handler function you wish to add.
 5. Enter the required details, these will vary according to the type of event handler function you have selected.
 6. Select the type of state changes that should trigger alerts:
-    - **State changes** - 
-    - **Own state changes** - 
-    - **Propagated state changes** - 
-    - **View state changes** - 
+    - **State changes** - Any state change on any component or relation in the view.
+    - **Own state changes** - Not propagated changes, but other changes on any component or relation in the view.
+    - **Propagated state changes** - Only propagated changes on any component or relation in the view.
+    - **View state changes** - Only changes to the view state.
 7. Click **SAVE**.
 
 
