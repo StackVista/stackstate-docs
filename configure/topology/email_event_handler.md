@@ -12,8 +12,6 @@ You can configure StackState to send out alerts whenever there is a change in th
 
 To receive email alerts for changes in health state the StackState configuration must include details of the SMTP server to use. 
 
-### Update StackState configuration
-
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
     ```
     stackstate{
@@ -39,8 +37,9 @@ To receive email alerts for changes in health state the StackState configuration
    
     ``` 
 2. Restart StackState to apply the configuration changes.
+3. Add an email [event handler](#add-an-event-handler).
 
-### Add an email event handler
+### Add an event handler
 
 ![Add email event handler](/.gitbook/assets/v41_add_email_event_handler.png)
 
