@@ -90,6 +90,7 @@
   * [Topology](configure/topology/README.md)
     * [Component actions](configure/topology/component_actions.md)
     * [Configure component actions](configure/topology/how_to_configure_component_actions.md)
+    * [Configure email alerts](configure/topology/configure-email-alerts.md)
     * [Configure synchronizations](configure/topology/sync.md)
     * [Create a topology manually](configure/topology/how_to_create_manual_topology.md)
     * [Debug topology synchronization](configure/topology/debugging_topology_synchronization.md)
