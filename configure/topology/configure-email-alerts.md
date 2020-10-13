@@ -9,8 +9,8 @@ To receive email alerts for changes in health state, the StackState configuratio
 
         email {
             properties {
-                "mail.smtp.auth" = "false"              # use "true" to connect using TLS
-                "mail.smtp.starttls.enable" = "false"   # use "true" to connect using TLS
+                "mail.smtp.auth" = "false"              # use "true" for TLS
+                "mail.smtp.starttls.enable" = "false"   # use "true" for TLS
             }
             sender = "<EMAIL_SENDER_ADDRESS>"
             server {
