@@ -88,7 +88,7 @@
   * [Develop your own StackPacks](stackpacks/sdk.md)
 * [Configure](configure/README.md)
   * [Topology](configure/topology/README.md)
-    * [Alert with event handler](configure/topology/add_event_handler.md)
+    * [Alert with event handlers](configure/topology/add_event_handler.md)
     * [Component actions](configure/topology/component_actions.md)
     * [Configure component actions](configure/topology/how_to_configure_component_actions.md)
     * [Configure synchronizations](configure/topology/sync.md)
