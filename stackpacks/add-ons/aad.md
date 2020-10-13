@@ -97,6 +97,8 @@ Create the file `values.yaml` file including the configuration described below a
   * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
   * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
 
+{% tabs %}
+{% tab title="values.yaml" %}
 ```text
 image:
     tag: <image tag>
@@ -118,6 +120,8 @@ ingress:
     hosts:
         - host: <domain name>  # e.g. spotlight.domain.com
 ```
+{% endtab %}
+{% endtabs %}
 
 Details of all configuration options are available in the anomaly-detection chart documentation.
 
