@@ -148,9 +148,9 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
 The AAD Kubernetes service is released independently from StackState, therefore you may benefit from upgrading often.
 To upgrade the AAD Kubernetes service:
 
-1. Check the [release notes](#release-notes) section at the bottom of this page to find the required helm chart version and image tag for the release. 
-    - Update image tag in `values.yaml`.
-    - Fetch the updated version of the helm chart:
+1. Check the [release notes](#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release. 
+    - Update the image tag in `values.yaml`.
+    - Fetch the updated helm chart version:
         ```text
         helm fetch stackstate/anomaly-detection --version 4.1.18
         ```
