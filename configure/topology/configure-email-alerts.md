@@ -27,4 +27,4 @@ To receive email alerts for changes in health state, the StackState configuratio
    
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/alerting.md#alerts-using-event-handlers).
+3. Add an email [event handler](/use/alerting.md#send-alerts-with-event-handlers).

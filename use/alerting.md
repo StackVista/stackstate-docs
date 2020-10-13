@@ -23,7 +23,7 @@ The entire flow of events that lead to an alert follow this path:
 * Events that are triggered by components contained in a view or by the view changing state itself can trigger event handlers.
 * Event handlers are configured on views and can send alerts or trigger some kind of automation.
 
-## Creating health checks
+## Create a health check
 
 Health checks generate events that can be alerted on. To create a health check:
 
@@ -37,7 +37,7 @@ Health checks generate events that can be alerted on. To create a health check:
 8. At least one of the arguments is a telemetry stream \(some checks may require multiple streams\). For metric streams a windowing method and window size need to be supplied that determine how often the check function runs based on the incoming metrics. If the windowing method is set to batching and window size is set to 60 seconds than the check runs every minute with a minute of metrics. If the windowing method is set to sliding and the window size to 60 seconds then check runs whenever the data flows in after 60 seconds of metrics have been collected.
 9. Click `Create` to create the health check. The check is now active and visible under the health section. At first the check will appear gray, because its health state is not yet known. As soon as enough telemetry has been received the check will get a health state.
 
-## Configuring view health
+## Configure the view health
 
 Often it is not desirable to react to each event, because that can cause a lot of noise. If one or multiple components cause some impact on a service than we do not want to report on each state change, but only on the changes to the problem itself. In StackState this is done through the health of the view. The health of a view is determined by the health of the components and relations in the view. Whenever a view changes its health state this triggers an view state state event that can be handled with an event handler on the view.
 
@@ -51,7 +51,7 @@ Each view in StackState has a health state, just like component and relations ha
 6. Each configuration function has different arguments that need to be supplied. These arguments determine the behavior of the view health state configuration function.
 7. Click `Update` to save the new configuration to the view. The view health updates immediately.
 
-## Alerts using event handlers
+## Send alerts with event handlers
 
 You can use StackState event handlers to send out alerts whenever there is a change in the health state of individual components, relations or topology views. A number of event handlers are included out of the box:
 
