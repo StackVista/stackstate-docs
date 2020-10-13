@@ -1,10 +1,5 @@
 ---
-title: Alerting
-kind: Documentation
-alises:
-  - /usage/alerting/
-listorder: 4
-description: Alert when issues occur.
+description: Alert when issues occur
 ---
 
 # Alerting
@@ -56,22 +51,30 @@ Each view in StackState has a health state, just like component and relations ha
 6. Each configuration function has different arguments that need to be supplied. These arguments determine the behavior of the view health state configuration function.
 7. Click `Update` to save the new configuration to the view. The view health updates immediately.
 
-## Alerting using event handlers
+## Alerts using event handlers
 
-Health state changes of components and relations are events that can be handled by event handlers that send out alerts. To create an event handler:
+You can use StackState event handlers to send out alerts whenever there is a change in the health state of individual components, relations or topology views. A number of event handlers are included out of the box:
 
-1. Select a view.
-2. Open the event stream pane on the right \(bell icon\).
-3. Click on the `View Event Handlers` tab.
-4. Click on the `add event handler` plus button. A `add event handler` dialog appears.
-5. Give a name to identify the event handler, for example "email alert".
-6. Select an event handler function. Each event handler function performs a different action based on the incoming event. There is the list of possible event handler functions: 1. Notify via HipChat for component health state change 1. Notify via HipChat for view health state change 1. Notify via Slack for component health state change 1. Notify via Slack for view health state change 1. Notify via Email for view health state change 1. Notify via SMS \(MessageBird\) for view health state change 1. Notify via Webhook for view health state change
+- **Email**: Send an email alert to a specified email address. Note that an [SMTP server must be configured] in StackState.
+- **HTTP webhook POST**: Send an HTTP POST request to a specified URL.
+- **Slack**: Send a notification to a specified Slack webhook URL.
+- **SMS**: Send an SMS alert (MessageBird) to a specified phone number.
 
-   If you want to know what an event handler function does exactly or want to create your own event handler function then you can find a full listing of all check functions under the `settings / check functions` page.
+Event handlers can be added from the StackState UI [Events Perspective](/use/perspectives/event-perspective.md).
 
-7. Each event handler function has different arguments that need to be supplied. These arguments determine the behavior of the event handler.
-8. One of the arguments is the event type to which the event handler will react. All state change events except the view state changes are caused by check functions. The view state changes are caused by the view health state configuration.
-9. Click `Create` to create the event handler. The event handler is now active and visible under the "event handlers" section. It will alert on the next event it is configured to react to.
+![Add an event handlers](../.gitbook/assets/event_handlers_tab.png)
 
-![Event handlers](../.gitbook/assets/event_handlers_tab.png)
+1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
+2. Select **Events Settings** on the left.
+3. Click **ADD EVENT HANDLER**
+4. Select the event handler function you wish to add.
+5. Enter the required details, these will vary according to the type of event handler function you have selected.
+6. Select the type of state changes that should trigger alerts:
+    - **State changes** - 
+    - **Own state changes** - 
+    - **Propagated state changes** - 
+    - **View state changes** - 
+7. Click **SAVE**.
+
+
 
