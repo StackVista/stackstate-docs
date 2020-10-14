@@ -8,7 +8,7 @@ description: Receive ServiceNow data in StackState
 
 The ServiceNow StackPack creates near real time synchronization between ServiceNow and StackState. When enabled, ServiceNow configuration items (CIs) and their dependencies will be visible in StackState as components and relations.
 
-![Data flow](/.gitbook/assets/stackpack-servicenow_TOCHANGE.png)
+![Data flow](/.gitbook/assets/stackpack-servicenow.png)
 
 - Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints).
 - CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all).
