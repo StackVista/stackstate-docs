@@ -2,7 +2,7 @@
 description: Build topology queries with STQL
 ---
 
-This page describes how to write advanced topology component filters in the built-in StackState Query Language (STQL). STQL queries can be used in the StackState UI [Topology Perspective](/use/perspectives/topology-perspective.md) and the [Analytics](/use/queries.md) environment.
+This page describes how to use the built-in StackState Query Language (STQL) to write advanced topology component filters. STQL queries are used in the StackState UI perspectives for [advanced filtering of components](/use/perspectives/filters#advanced-topology-filters) and can be combined with scripts in the [Analytics](/use/queries.md) environment.
 
 An STQL query consists of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, filtered from the complete topology. 
 
