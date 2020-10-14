@@ -1,8 +1,3 @@
----
-title: Async script results
-kind: Documentation
----
-
 # Async script result
 
 Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises in Javascript work.
@@ -78,7 +73,7 @@ In particular this call can be interesting for the cases where an accumulating o
 ```text
 ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
   ScriptApi.asyncFn2(element)
-    .then { result => accumulator + result }
+    .then { result -> accumulator + result }
 }
 ```
 

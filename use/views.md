@@ -1,10 +1,5 @@
 ---
-title: Views
-kind: Documentation
-aliases:
-  - /usage/views/
-listorder: 2
-description: Bookmark and monitor parts of the 4T data model with views.
+description: Bookmark and monitor parts of the 4T data model with views
 ---
 
 # Views
