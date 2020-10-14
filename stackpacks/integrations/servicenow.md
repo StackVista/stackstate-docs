@@ -13,7 +13,7 @@ The ServiceNow StackPack creates near real time synchronization between ServiceN
 - Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints).
 - CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all).
 - Agent V2 pushes retrieved data to StackState.
-- StackState translates incoming CIs and dependencies into components and relations. 
+- StackState translates incoming CIs and dependencies into topology components and relations. 
 
 ### ServiceNow REST API endpoints
 
