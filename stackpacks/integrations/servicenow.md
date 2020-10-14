@@ -8,10 +8,11 @@ description: Receive ServiceNow data in StackState
 
 The ServiceNow StackPack creates near real time synchronization between ServiceNow and StackState. When enabled, ServiceNow configuration items (CIs) and their dependencies will be visible in StackState as components and relations.
 
-![](/.gitbook/assets/stackpack-servicenow.png)
+![Data flow](/.gitbook/assets/stackpack-servicenow_OPTIONS.png)
 
-- Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints) to retrieve the configured CIs and their dependencies (default all).
-- Retrieved data is pushed to StackState.
+- Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints).
+- CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all).
+- Agent V2 pushes retrieved data to StackState.
 - StackState translates incoming CIs and dependencies into components and relations. 
 
 ### ServiceNow REST API endpoints
@@ -46,9 +47,9 @@ The ServiceNow StackPack can be installed from the StackState UI StackPacks > In
 
 After the StackPack has been installed, you can enable the ServiceNow integration.
 
-### Enable ServiceNow integration
+### Configure the Agent ServiceNow integration
 
-To enable the ServiceNow check and begin collecting data from your ServiceNow instance:
+After the ServiceNow StackPack has been installed, the StackState Agent can be configured with details of your ServiceNow instance. This will enable the ServiceNow check and begin collecting data from ServiceNow.
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.
@@ -67,17 +68,18 @@ To enable the ServiceNow check and begin collecting data from your ServiceNow in
            password: <instance_password>
         batch_size: 100    # the maximum number of records to be returned
     ```
-2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+2. Optional: Include a list of the [CI types that should be retrieved](#filter-retrieved-ci-types).
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
-### CI filtering
+### Filter retrieved CI types
 
-By default, all available ServiceNow CIs (configuration items) will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CIs it retrieves:
+By default, all available ServiceNow CI types will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml`.
-    - A subset of the available CIs is listed and commented out.
-3. Uncomment the line `include_resource_types` and the CIs you would like to send to StackState.
-    You can add any valid ServiceNow CI to the **include_resource_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a StackState view. 
+    - A subset of the available CI types is listed and commented out.
+3. Uncomment the line `include_resource_types` and the CI types you would like to send to StackState.
+    You can add any valid ServiceNow CI type to the **include_resource_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a StackState view. 
 
     ```
     instances:
@@ -124,7 +126,7 @@ By default, all available ServiceNow CIs (configuration items) will be sent to S
         #        - cmdb_ci_server
         #        - cmdb_ci_network_adapter
     ```
-4. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+4. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 ## Uninstall
 
@@ -132,11 +134,11 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click **UNINSTALL**
     - All ServiceNow specific configuration will be removed from StackState .
-2. Rename the Agent integration configuration file:
+2. Remove or rename the Agent integration configuration file, for example:
     ```
-    mv servicenow.d/conf.yaml servicenow.d/conf.yaml.example
+    mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
     ```
-3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 ## See also
 
