@@ -68,7 +68,7 @@ After the ServiceNow StackPack has been installed, the StackState Agent can be c
            password: <instance_password>
         batch_size: 100    # the maximum number of records to be returned
     ```
-2. Optional: Include a list of the [CI types that should be retrieved](#filter-retrieved-ci-types).
+2. Optional: Include a list of [specific CI types](#filter-retrieved-ci-types) that should be retrieved.
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
