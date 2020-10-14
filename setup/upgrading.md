@@ -119,15 +119,9 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
-* The Events Perspective has been updated to include more comprehensive events.<br />Important notes:
-  * Events submitted before upgrade will not be available in the Events Perspective after upgrade.
-  * Streams using events will continue to work as before.
-  * Deprecated: 
-    * The `sts_generic_events-*` Elastic index has been deprecated in favor of `sts_topology_events-*`.
-    * The `sts_generic_events` Kafka topic has been deprecated in favor of `sts_topology_events`.
-  * The deprecated Kafka topic and Elastic index are still available for migration purposes.
-
- 
+If you have customised or generated configuration, consider these required changes:
+* added a new argument `topology-events` in `processes.kafkaToElasticsearch` section in `processmanager.conf` file
+* added a new section `kafka.topics.sts_topology_events` in `processmanager/kafka-topics.conf`
 
 ### Upgrade to 4.1.0
 
