@@ -2,7 +2,7 @@
 description: Build topology queries with STQL
 ---
 
-This page describes how to use the built-in StackState Query Language (STQL) to write advanced topology component filters. STQL queries are used in the StackState UI perspectives for [advanced filtering of components](/use/perspectives/filters#advanced-topology-filters) and can be combined with scripts in the [Analytics](/use/queries.md) environment.
+This page describes how to use the built-in StackState Query Language (STQL) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](/use/perspectives/filters#advanced-topology-filters) and can be combined with scripts in the [Analytics](/use/queries.md) environment.
 
 An STQL query consists of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, filtered from the complete topology. 
 
@@ -17,7 +17,7 @@ The filters described below can be combined using boolean operators to achieve c
 
 ## Filters
 
-| Parameter | Default | Description |
+| Filter | Default | Description |
 |:---|:---|:---|
 | `domain` | "all" | Components in the specified domain(s). |
 | `environment` | "all" | Components in the named environment. |
@@ -44,7 +44,7 @@ name = "serviceB"
 layer = "application"
 
 # Select all components named either "appA" or "appB" that do not have a label "bck"
-name in ("appA","appB") NOT label = "bck"
+name IN ("appA","appB") NOT label = "bck"
 
 # Select all components named "appA" that do not have a label "bck" or "test"
 name = "appA" NOT label in ("bck", "test")
