@@ -119,7 +119,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
-If you have customised or generated configuration, consider these required changes:
+If you have customised or generated configuration, make sure the following changes are made:
 * added a new argument `topology-events` in `processes.kafkaToElasticsearch` section in `processmanager.conf` file
 * added a new section `kafka.topics.sts_topology_events` in `processmanager/kafka-topics.conf`
 
