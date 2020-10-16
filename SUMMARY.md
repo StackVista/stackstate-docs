@@ -77,6 +77,8 @@
     * [SAP](stackpacks/integrations/sap.md)
     * [SCOM](stackpacks/integrations/scom.md)
     * [ServiceNow](stackpacks/integrations/servicenow.md)
+    * [ServiceNow_1](stackpacks/integrations/servicenow_1.md)
+    * [ServiceNow_2](stackpacks/integrations/servicenow_2.md)
     * [Splunk](stackpacks/integrations/splunk/README.md)
       * [Splunk metrics](stackpacks/integrations/splunk/splunk_metric.md)
       * [Splunk topology](stackpacks/integrations/splunk/splunk_topology.md)
