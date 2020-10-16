@@ -10,7 +10,7 @@ The ServiceNow StackPack allows near real time synchronization between ServiceNo
 
 ![Data flow](/.gitbook/assets/servicenow_1.png)
 
-- Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints).
+- Agent V2 connects to the configured [ServiceNow API](#rest-api-endpoints).
 - CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all).
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming CIs and dependencies into topology components and relations. 
@@ -23,23 +23,21 @@ To set up the StackState ServiceNow integration, you will need to have:
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
 - A running ServiceNow instance.
-- A ServiceNow user with access to the required [ServiceNow API endopints](#servicenow-rest-api-endpoints).
+- A ServiceNow user with access to the required [ServiceNow API endopints](#rest-api-endpoints).
 
 ### Install
 
-The ServiceNow StackPack can be installed from the StackState UI StackPacks > Integrations screen. To install the StackPack you will need to provide the following parameters:
+Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
 
 - **Instance ID**: the ServiceNow instance ID from which topology will be collected. For example, if the ServiceNow Instance URL is `https://dev102222.service-now.com`, then `dev102222` is the instance ID.
 
-After the StackPack has been installed, you can enable the ServiceNow integration.
-
 ### Configure
 
-After the ServiceNow StackPack has been installed, you can configure StackState Agent V2 with details of your ServiceNow instance. This will enable the ServiceNow check and begin collecting data from ServiceNow.
+To enable the ServiceNow check and begin collecting data from ServiceNow, the following configuration should be added to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.
-    - **user** - a ServiceNow user with access to the required [ServiceNow API endopints](#servicenow-rest-api-endpoints)
+    - **user** - a ServiceNow user with access to the required [ServiceNow API endopints](#rest-api-endpoints)
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     ```text
     init_config:
@@ -58,17 +56,13 @@ After the ServiceNow StackPack has been installed, you can configure StackState 
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
-### Uninstall
+## Status
 
-To uninstall the ServiceNow StackPack and disable the ServiceNow check:
+To check the status of the ServiceNow integration, run the status subcommand and check for ServiceNow under `Running Checks`:
 
-1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click **UNINSTALL**
-    - All ServiceNow specific configuration will be removed from StackState .
-2. Remove or rename the Agent integration configuration file, for example:
-    ```
-    mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
-    ```
-3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+```
+sudo stackstate-agent status
+```
 
 ## Integration details
 
@@ -91,7 +85,7 @@ The ServiceNow check retrieves the following topology data from the ServiceNow C
 | Components | |
 | Relations | |
 
-### ServiceNow REST API endpoints
+### REST API endpoints
 
 The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use HTTPS protocol for communication.
 
@@ -163,7 +157,21 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
 
 ## Troubleshooting
 
-Troubleshooting steps for known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
+### Known issues
+
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
+
+### Uninstall
+
+To uninstall the ServiceNow StackPack and disable the ServiceNow check:
+
+1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click **UNINSTALL**
+    - All ServiceNow specific configuration will be removed from StackState .
+2. Remove or rename the Agent integration configuration file, for example:
+    ```
+    mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
+    ```
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 ## See also
 
