@@ -39,7 +39,7 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
 
-### Installation
+### Install
 
 The ServiceNow StackPack can be installed from the StackState UI StackPacks > Integrations screen. To install the StackPack you will need to provide the following parameters:
 
@@ -47,9 +47,9 @@ The ServiceNow StackPack can be installed from the StackState UI StackPacks > In
 
 After the StackPack has been installed, you can enable the ServiceNow integration.
 
-### Configuration
+### Configure
 
-After the ServiceNow StackPack has been installed, the StackState Agent can be configured with details of your ServiceNow instance. This will enable the ServiceNow check and begin collecting data from ServiceNow.
+After the ServiceNow StackPack has been installed, you can configure StackState Agent V2 with details of your ServiceNow instance. This will enable the ServiceNow check and begin collecting data from ServiceNow.
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.
@@ -128,7 +128,7 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
     ```
 4. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
-## Uninstall
+### Uninstall
 
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
@@ -139,6 +139,25 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
     ```
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+## Data retrieved
+
+### Events
+
+The ServiceNow check does not retrieve any events data.
+
+### Metrics
+
+The ServiceNow check does not retrieve any metrics data.
+
+### Topology
+
+The following topology data is retrieved from the ServiceNow CMDB by the ServiceNow check:
+
+| Topology | Description |
+|:---|:---|
+| Components | |
+| Relations | |
 
 ## Troubleshooting
 
