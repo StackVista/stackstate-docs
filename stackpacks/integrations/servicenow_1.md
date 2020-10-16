@@ -52,9 +52,9 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, the fo
            password: <instance_password>
         batch_size: 100    # the maximum number of records to be returned
     ```
-2. Optional: Include a list of [specific CI types](#filter-retrieved-ci-types) that should be retrieved.
+2. Optional: [Specify the CI types](#filter-retrieved-ci-types) that should be retrieved (default all).
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
-3. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
+3. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
 ### Status
 
@@ -80,10 +80,8 @@ The ServiceNow check does not retrieve any metrics data.
 
 The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:
 
-| Topology | Description |
-|:---|:---|
-| Components | |
-| Relations | |
+* Components
+* Relations
 
 ### REST API endpoints
 
