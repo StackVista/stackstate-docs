@@ -56,7 +56,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, the fo
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
-## Status
+### Status
 
 To check the status of the ServiceNow integration, run the status subcommand and check for ServiceNow under `Running Checks`:
 
