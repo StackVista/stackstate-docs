@@ -58,7 +58,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, the fo
 
 ### Status
 
-To check the status of the ServiceNow integration, run the status subcommand and check for ServiceNow under `Running Checks`:
+To check the status of the ServiceNow integration, run the status subcommand and look for ServiceNow under `Running Checks`:
 
 ```
 sudo stackstate-agent status
