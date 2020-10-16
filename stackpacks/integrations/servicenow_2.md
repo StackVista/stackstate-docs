@@ -8,7 +8,7 @@ description: Receive ServiceNow data in StackState
 
 The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items (CIs) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations.
 
-![Data flow](/.gitbook/assets/stackpack-servicenow.png)
+![Data flow](/.gitbook/assets/servicenow_2.png)
 
 - Agent V2 connects to the configured [ServiceNow API](#servicenow-rest-api-endpoints).
 - CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all).
@@ -152,7 +152,7 @@ The ServiceNow check does not retrieve any metrics data.
 
 ### Topology
 
-The following topology data is retrieved from the ServiceNow CMDB by the ServiceNow check:
+The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:
 
 | Topology | Description |
 |:---|:---|
