@@ -153,7 +153,7 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
 
-### Open source code
+### Open source
 
 The code for the ServiceNow check is open source and available on GitHub at [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
 
