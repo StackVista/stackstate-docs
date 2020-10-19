@@ -37,7 +37,6 @@
 
 ## 👤 Use
 
-  * [DOCS: Use template](content_templates/use_template.md)
   * [Introduction to StackState](use/intro/README.md)
     * [Getting Started](getting_started.md)
     * [The 4T data model](concepts/4t_data_model.md)
@@ -59,7 +58,6 @@
 
 ## 🧩StackPacks
 
-* [DOCS: StackPack template](content_templates/stackpack_template.md)
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
   * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
@@ -96,7 +94,6 @@
 
 ## 🔧 Configure
 
-* [DOCS: How-to template](/content_templates/how-to_template.md)
 * [Topology](configure/topology/README.md)
   * [Advanced topology queries with STQL](configure/topology_selection_advanced.md)
   * [Component actions](configure/component_actions.md)
@@ -134,7 +131,6 @@
 
 ## 📖 Develop
 
-  * [DOCS: Reference template](content_templates/ref_template.md)
   * [Develop StackPacks](develop/stackpack/README.md)
     * [Packaging](develop/stackpack/prepare_package.md)
     * [How to get a template file](develop/stackpack/how_to_get_a_template_file.md)
