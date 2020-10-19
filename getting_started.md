@@ -11,7 +11,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](stackpacks/).
 
-![StackPacks overview](/.gitbook/assets/01_stackpacks%20%281%29.png)
+![StackPacks overview](/.gitbook/assets/v41_01_stackpacks.png)
 
 ## Explore topology
 
@@ -21,7 +21,7 @@ StackState visualizes components by the layer and domain they are placed in. The
 
 You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/perspectives/filters.md) on the left side bar, or by [hovering over a component](/use/perspectives/topology-perspective.md#interactive-navigation).
 
-![Explore topology](/.gitbook/assets/02_topology%20%281%29.png)
+![Explore topology](/.gitbook/assets/v41_02_topology.png)
 
 ## Topology elements
 
@@ -40,13 +40,13 @@ The direction of a relation's arrow indicates dependency. For example, `app -> d
 
 The timeline at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the time that is currently selected. Normally, StackState is in the **live mode**, this means that StackState automatically displays the latest state of the stack.
 
-![Timeline](/.gitbook/assets/06_timeline%20%281%29.png)
+![Timeline](/.gitbook/assets/v41_06_timeline.png)
 
 ## Component / relation details
 
 To see the details of a component or a relation, you can click on it. Click on "Show component properties" to see all details of a component.
 
-![Component details](/.gitbook/assets/03_component_details%20%281%29.png)
+![Component details](/.gitbook/assets/v41_03_component_details.png)
 
 ## Metric inspector
 
@@ -70,7 +70,7 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Quick Actions` menu.
 
-![Component details](/.gitbook/assets/04_problem_summary%20%281%29.png)
+![Component details](/.gitbook/assets/v41_04_problem_summary.png)
 
 ## Events
 

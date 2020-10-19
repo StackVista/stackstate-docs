@@ -57,7 +57,7 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](/.gitbook/assets/trace-inspection%20%281%29.png)
+![The spans \(components\) of a trace](/.gitbook/assets/v41_trace-inspection.png)
 
 ![The topology for which you fetch traces](/.gitbook/assets/topology-traces.png)
 
