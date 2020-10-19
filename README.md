@@ -5,9 +5,12 @@ description: StackState version 4.1
 # Welcome to the StackState Docs!
 
 
-### User guides
+### Using StackState
 
 {% page-ref page="getting_started.md" %}
+
+### Setup and configuration
+
 
 
 ### Developer guides
@@ -15,9 +18,6 @@ description: StackState version 4.1
 {% page-ref page="/develop/tutorials/README.md" %}
 
 {% page-ref page="/develop/reference/README.md" %}
-
-
-### Setup and configuration
 
 
 

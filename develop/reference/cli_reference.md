@@ -4,9 +4,7 @@ description: Manage StackState using the CLI
 
 The StackState CLI can be used to configure StackState, work with data, and help with debugging problems. The CLI provides easy access to the functionality provided by the StackState API. The URLs and authentication credentials are configurable. Multiple configurations can be stored for access to different instances.
 
-# Install
-
-To use the StackState CLI, you need to [install the StackState CLI](/setup/cli.md) on the machine where you will run the commands.
+To use StackState CLI commands, you need to [install the StackState CLI](/setup/cli.md) on the machine they will be run from.
 
 # Export / import configuration
 
@@ -18,27 +16,25 @@ StackState configuration is stored in the StackState graph database (StackGraph)
 sts graph list-types
 ```
 
-### Output
-
-
 
 ## sts graph export
 
 You can use the `sts graph export` to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
 
-`sts graph export --ids ids_to_export > file_name`
+```
+sts graph export --ids ids_to_export > file_name
+```
 
-
-### Parameters / fields
+### Parameters
 
 | Parameter | Format | Default | Description |
 |:---|:---|:---|:---|
-| `--ids` | list of string(s) | "all" | The IDs to export. If none are specified all configuration will be exported. |
-| file_name | file_name | ??? | The file to store the backup in. If none is specified, will be stored in ??? |
+| `--ids` | list of strings | "all" | The IDs to export. If none are specified all configuration will be exported. |
+| `file_name `| file_name | ??? | The file to store the backup in. If none is specified, will be stored in ??? |
 
 ### Examples
 
-The example below will write all check functions to the file mycheckfunctions.stj
+The example below will write all check functions to the file `mycheckfunctions.stj`
 
 ```
 sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunctions.stj
@@ -48,13 +44,15 @@ sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunct
 
 You can use the `sts graph import` command to import configuration previously exported configuration back into StackState.
 
-`sts graph import < file_name`
+```
+sts graph import < file_name
+```
 
-### Parameters / fields
+### Parameters
 
 | Parameter | Format | Required | Description |
 |:---|:---|:---|
-| file_name | file_name | ??? | The file to import StackState configuration from. If none is specified, will be taken from ??? |
+| `file_name` | file_name | ??? | The file to import StackState configuration from. If none is specified, will be taken from ??? |
 
 ### Examples
 
@@ -75,7 +73,9 @@ The CLI makes it easy to send test data to StackState.
 
 You can use the CLI to send one data point of a given value data. You can also use the CLI to generate values within a defined bandwidth. By default, a generated metrics pattern is random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. Use the arguments `--baseline` and `--linear` to change the generated pattern.
 
-`sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear | --csv] <file_name>` 
+```
+sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear | --csv] <file_name>
+``` 
 
 | Argument | Details |
 | :--- | :--- |
@@ -104,7 +104,9 @@ sts topic list
 
 Use the `topic show` command to display data for a specific topic.
 
-`sts topic show <topic>`
+```
+sts topic show <topic>
+```
 
 ### Parameters / fields
 
@@ -115,11 +117,7 @@ Use the `topic show` command to display data for a specific topic.
 
 # See also
 
-End the page with pointers to relevant, further info. This might just be a list with any links already included in the page. If the use of the functions/commands are explained in more detail elsewhere include it here (e.g. in a tutorial or how-to).
-
 - [StackState Templated Json](/develop/sts_template_language_intro/)
-- link 2
-- link 3
 
 
 
