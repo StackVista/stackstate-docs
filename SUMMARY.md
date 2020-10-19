@@ -117,7 +117,7 @@
 * [Security](configure/security/README.md)
   * [Configure LDAP authentication](configure/security/how_to_configure_ldap_authentication.md)
   * [RBAC](configure/security/rbac/README.md)
-    * [Role-based Access Control](concepts/security/role_based_access_control.md)
+    * [Role-based Access Control](concepts/role_based_access_control.md)
     * [Permissions](configure/security/permissions.md)
     * [Roles](configure/security/how_to_set_up_roles.md)
     * [Scopes](configure/security/scopes_in_rbac.md)
