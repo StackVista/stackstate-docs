@@ -8,6 +8,8 @@ To use StackState CLI commands, you need to [install the StackState CLI](/setup/
 
 # Export / import configuration
 
+Use the CLI to export all or specific data from StackState. Exported data can be imported from file.
+
 ## sts graph list-types
 
 StackState configuration is stored in the StackState graph database (StackGraph) in configuration nodes. Use the `sts graph list-types` command to see the types of all configuration nodes.
@@ -19,15 +21,15 @@ sts graph list-types
 
 ## sts graph export
 
-You can use the `sts graph export` to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
+Use the `sts graph export` command to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
 
 ```
 sts graph export --ids ids_to_export > file_name
 ```
 
-### Parameters
+### Arguments
 
-| Parameter | Format | Default | Description |
+| Argument | Format | Default | Description |
 |:---|:---|:---|:---|
 | `--ids` | list of strings | "all" | The IDs to export. If none are specified all configuration will be exported. |
 | `file_name `| file_name | ??? | The file to store the backup in. If none is specified, will be stored in ??? |
@@ -42,15 +44,15 @@ sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunct
 
 ## sts graph import
 
-You can use the `sts graph import` command to import configuration previously exported configuration back into StackState.
+Use the `sts graph import` command to import configuration previously exported configuration back into StackState.
 
 ```
 sts graph import < file_name
 ```
 
-### Parameters
+### Arguments
 
-| Parameter | Format | Required | Description |
+| Argument | Format | Required | Description |
 |:---|:---|:---|
 | `file_name` | file_name | ??? | The file to import StackState configuration from. If none is specified, will be taken from ??? |
 
@@ -69,22 +71,69 @@ The CLI makes it easy to send test data to StackState.
 * [Send topology data](cli.md#topology)
 * [Send anomaly data](cli.md#anomaly)
 
-## sts metrics send
 
-You can use the CLI to send one data point of a given value data. You can also use the CLI to generate values within a defined bandwidth. By default, a generated metrics pattern is random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. Use the arguments `--baseline` and `--linear` to change the generated pattern.
+## sts anomaly send
+
+The CLI provides an `anomaly` command used to send anomaly data to StackState for a metric stream of a component.
+
+```text
+sts anomaly send --component-name <Component> --stream-name <Metric Stream> --start-time=<time>
+```
+
+| Argument | Required/Optional | Details |
+| :--- | :--- |
+| `--component-name` | Required | |
+| `--start-time` | Required | |
+| `--stream-name` | Required | |
+| `--description` | Optional | Anomaly description field contents |
+| `--duration` | Optional | Anomaly duration \(seconds\) |
+| `--severity` | Optional | Anomaly severity \(HIGH, MEDIUM, LOW\) |
+| `--severity-score` | Optional | Anomaly severity score |
+| `-h` | Optional | See all available options |
+
+## sts events send
+
+Use `sts events send` to send a single event with a given name.
 
 ```
-sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear | --csv] <file_name>
+sts events send
+```
+
+| Argument | Details |
+| :--- | :--- |
+| `-h` | See all available options |
+
+## sts metrics send
+
+You can use the CLI to send one data point of a given value data or to generate values within a defined bandwidth. This is useful if you want to check a new configuration with predictable data.
+
+By default, generated metrics patterns are random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. You can use the arguments `--baseline` and `--linear` to generate a different type of pattern.
+
+```
+sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear ] --csv <file_name>
 ``` 
 
 | Argument | Details |
 | :--- | :--- |
 | `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
 | `-h` | See all available options |
-| `-p` | Time period. This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`. For example: `-p 4w2d6h30m15s` |
+| `-p` | Time period.<br />>This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`.<br />>For example: `-p 4w2d6h30m15s` |
 | `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
-| `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
 | `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
+| `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
+
+## sts topology send
+
+Please refer to `usage.md` in the CLI zip archive for detailed instructions.
+
+```
+
+```
+
+| Argument | Details |
+| :--- | :--- |
+| `-h` | See all available options |
+
 
 # Inspect topic data
 
@@ -92,13 +141,11 @@ All data flowing through StackState \(e.g. topology, telemetry, traces, etc.\) f
 
 ## sts topic list
 
-See all topics.
+Get a list of all Kafka topics.
 
 ```
 sts topic list
 ```
-
-### Output
 
 ## sts topic show
 
@@ -108,70 +155,13 @@ Use the `topic show` command to display data for a specific topic.
 sts topic show <topic>
 ```
 
-### Parameters / fields
+### Arguments
 
-| Parameter | Format | Description |
+| Argument | Format | Description |
 |:---|:---|:---|
-| \<topic\> | string | The topic to show data for. Topic name can be retrieved from the [topic list](#sts-topic-list). |
+| \<topic\> | string | The Kafka topic to show data for. Topic names can be retrieved using [sts topic list](#sts-topic-list). |
 
-
-# See also
-
-- [StackState Templated Json](/develop/sts_template_language_intro/)
-
-
-
--------
-
-### Send data
-
-You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. 
-```
-
-#### Events
-
-The CLI can send events using `sts events send <eventName>` It will send one event with the given name.
-
-For help on sending events data, use:
-
-```text
-sts events send -h
-```
-
-#### Topology
-
-Please refer to `usage.md` in the CLI zip archive for detailed instructions.
-
-For help on sending topology data, use:
-
-```text
-sts topology send -h
-```
-
-#### Anomaly
-
-The CLI provides an `anomaly` command used to send anomaly data for a metric stream of a component.
-
-```text
-sts anomaly send --component-name <Component> --stream-name <Metric Stream> --start-time=-30m
-```
-
-You can also use the optional arguments below to create a specific anomaly.
-
-| Argument | Details |
-| :--- | :--- |
-| `--duration` | Anomaly duration \(seconds\) |
-| `--severity` | Anomaly severity \(HIGH, MEDIUM, LOW\) |
-| `--severity-score` | Anomaly severity score |
-| `--description` | Anomaly description field contents |
-
-For help on sending anomaly data, use:
-
-```text
-sts anomaly send -h
-```
-
-### Manage StackPacks
+# Manage StackPacks
 
 The StackState CLI can be used to manage the StackPacks in your StackState instance.
 
@@ -226,7 +216,7 @@ sts stackpack uninstall MyStackPack
 
 ### Scripting
 
-It is possible to execute scripts using the StackState CLI. Use `sts script` to execute a script via standard input. For example:
+Use `sts script` to execute a script via standard input. For example:
 
 ```text
 echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts script execute
@@ -238,7 +228,7 @@ Note that the script provided as input must use proper quoting.
 
 ### License
 
-The StackState CLI can check your license validity and update a license key when needed, for example in case of expiration.
+The StackState CLI can be used to check your license validity and update a license key when needed, for example, in case of expiration.
 
 ```text
 # check license key validity
@@ -251,3 +241,7 @@ sts subscription update new-license-key
 {% hint style="info" %}
 Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
 {% endhint %}
+
+# See also
+
+- [StackState Templated Json](/develop/sts_template_language_intro/)
