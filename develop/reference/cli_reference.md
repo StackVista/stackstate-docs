@@ -105,9 +105,9 @@ sts events send
 
 ## sts metrics send
 
-You can use the CLI to send one data point of a given value data or to generate values within a defined bandwidth. This is useful if you want to check a new configuration with predictable data.
+You can use the CLI to send one data point of a given value or to generate a set of values within a defined bandwidth. This is useful if you want to check a new configuration with predictable data.
 
-By default, generated metrics patterns are random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. You can use the arguments `--baseline` and `--linear` to generate a different type of pattern.
+By default, generated metrics patterns are random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. To generate a different type of pattern, use the arguments `--baseline` and `--linear`.
 
 ```
 sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear ] --csv <file_name>
@@ -117,7 +117,7 @@ sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline |
 | :--- | :--- |
 | `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
 | `-h` | See all available options |
-| `-p` | Time period.<br />>This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`.<br />>For example: `-p 4w2d6h30m15s` |
+| `-p` | Time period.<br />This can be in weeks, days, hours, minutes and/or seconds.<br />For example: `-p 4w2d6h30m15s` |
 | `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
 | `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
 | `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
