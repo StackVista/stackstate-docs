@@ -103,7 +103,7 @@
   * [Naming guide](configure/topology/naming_guide.md)
   * [State propagation](configure/topology/propagation.md)
   * [Tag topology](configure/topology/tagging.md)
-  * [Topology sources](concepts/topology/topology_sources.md)
+  * [Topology sources](concepts/topology_sources.md)
   * [Topology synchronization](configure/topology/topology_synchronization.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Add telemetry to synchronized topology](configure/telemetry/telemetry_synchronized_topology.md)
