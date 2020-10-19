@@ -16,7 +16,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
-![Inspecting a trace](/.gitbook/assets/v41_trace_inspection.png)
+![Inspecting a trace](/.gitbook/assets/v41_trace-inspection.png)
 
 Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to Postgres calls that are made when completing the request.
 
