@@ -66,10 +66,10 @@ sts graph import < file_name
 
 The CLI makes it easy to send test data to StackState.
 
-* [Send metrics data](cli.md#metrics)
-* [Send events data](cli.md#events)
-* [Send topology data](cli.md#topology)
-* [Send anomaly data](cli.md#anomaly)
+* [Send anomaly data](cli.md#sts-anomaly-send)
+* [Send events data](cli.md#sts-events-send)
+* [Send metrics data](cli.md#sts-metrics-send)
+* [Send topology data](cli.md#sts-topology-send)
 
 
 ## sts anomaly send
@@ -169,7 +169,7 @@ The StackState CLI can be used to manage the StackPacks in your StackState insta
 * [Upgrade a StackPack](cli.md#upgrade-a-stackpack)
 * [Uninstall a StackPack](cli.md#uninstall-a-stackpack)
 
-#### Install a StackPack
+### Install a StackPack
 
 To install a StackPack, you must first upload it to the StackState server.
 
@@ -190,7 +190,7 @@ For example, the open-source [SAP StackPack](https://github.com/StackVista/stack
 sts stackpack install -p sap_host sap1.acme.com stackpack-sap-1.0.1.sts
 ```
 
-#### Upgrade a StackPack
+### Upgrade a StackPack
 
 If you want to upgrade a StackPack, first upload the new StackPack version to the StackState server, then trigger the upgrade with the following command:
 
@@ -206,7 +206,7 @@ sts stackpack upgrade MyStackPack
 Note that StackState will upgrade to the latest StackPack version available on the StackState server.
 {% endhint %}
 
-#### Uninstall a StackPack
+### Uninstall a StackPack
 
 Uninstall a StackPack as follows:
 
@@ -214,7 +214,7 @@ Uninstall a StackPack as follows:
 sts stackpack uninstall MyStackPack
 ```
 
-### Scripting
+## Scripting
 
 Use `sts script` to execute a script via standard input. For example:
 
@@ -226,7 +226,7 @@ echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts script execute
 Note that the script provided as input must use proper quoting.
 {% endhint %}
 
-### License
+## License
 
 The StackState CLI can be used to check your license validity and update a license key when needed, for example, in case of expiration.
 
