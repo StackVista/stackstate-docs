@@ -56,48 +56,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, the fo
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
-### Status
-
-To check the status of the ServiceNow integration, run the status subcommand and look for ServiceNow under `Running Checks`:
-
-```
-sudo stackstate-agent status
-```
-
-## Integration details
-
-### Data retrieved
-
-#### Events
-
-The ServiceNow check does not retrieve any events data.
-
-#### Metrics
-
-The ServiceNow check does not retrieve any metrics data.
-
-#### Topology
-
-The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:
-
-* Components
-* Relations
-
-### REST API endpoints
-
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use HTTPS protocol for communication.
-
-| Table Name | REST API Endpoint | 
-|:---|:---|
-| **cmdb_ci**  |  `/api/now/table/cmdb_ci` |
-| **cmdb_rel_type**  |  `/api/now/table/cmdb_rel_type` |
-| **cmdb_rel_ci**  |  `/api/now/table/cmdb_rel_ci` |
-
-{% hint style="info" %}
-Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
-{% endhint %}
-
-### Filter retrieved CI types
+#### Filter retrieved CI types
 
 By default, all available ServiceNow CI types will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
 
@@ -152,6 +111,47 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
         #        - cmdb_ci_network_adapter
     ```
 4. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+### Status
+
+To check the status of the ServiceNow integration, run the status subcommand and look for ServiceNow under `Running Checks`:
+
+```
+sudo stackstate-agent status
+```
+
+## Integration details
+
+### Data retrieved
+
+#### Events
+
+The ServiceNow check does not retrieve any events data.
+
+#### Metrics
+
+The ServiceNow check does not retrieve any metrics data.
+
+#### Topology
+
+The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:
+
+* Components
+* Relations
+
+### REST API endpoints
+
+The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use HTTPS protocol for communication.
+
+| Table Name | REST API Endpoint | 
+|:---|:---|
+| **cmdb_ci**  |  `/api/now/table/cmdb_ci` |
+| **cmdb_rel_type**  |  `/api/now/table/cmdb_rel_type` |
+| **cmdb_rel_ci**  |  `/api/now/table/cmdb_rel_ci` |
+
+{% hint style="info" %}
+Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
+{% endhint %}
 
 ## Troubleshooting
 
