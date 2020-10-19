@@ -36,7 +36,7 @@ The query for this view is the same as for the others, but without any prefix:
 'domain = "Customer1"'
 ```
 
-![Limited view](/.gitbook/assets/esx1perm%20%281%29.png)
+![Limited view](/.gitbook/assets/v41_esx1perm.png)
 
 Query with the prefix for this view is:
 
@@ -50,7 +50,9 @@ Query with the prefix for this view is:
 'domain = "Customer2"'
 ```
 
-gets this topology: ![Limited view](/.gitbook/assets/esx2perm.png)
+gets this topology: 
+
+![Limited view](/.gitbook/assets/esx2perm.png)
 
 Query with the prefix for this view is:
 
@@ -74,4 +76,4 @@ Query with prefix for this user is then:
 
 Which results in a following view: 
 
-![Full view permissions](/.gitbook/assets/allperm%20(1).png)
+![Full view permissions](/.gitbook/assets/v41_allperm.png)
