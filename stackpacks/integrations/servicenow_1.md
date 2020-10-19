@@ -167,8 +167,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
-1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click **UNINSTALL**
-    - All ServiceNow specific configuration will be removed from StackState .
+1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click UNINSTALL.
+    - All ServiceNow specific configuration will be removed from StackState.
 2. Remove or rename the Agent integration configuration file, for example:
     ```
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
@@ -179,5 +179,5 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md) 
 - [Secrets management](/configure/security/secrets_management.md)
-- [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)
 - [StackState Agent integrations (github.com)](https://github.com/StackVista/stackstate-agent-integrations)
+- [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)
