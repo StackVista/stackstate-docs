@@ -145,13 +145,17 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 
 | Table Name | REST API Endpoint | 
 |:---|:---|
-| **cmdb_ci**  |  `/api/now/table/cmdb_ci` |
-| **cmdb_rel_type**  |  `/api/now/table/cmdb_rel_type` |
-| **cmdb_rel_ci**  |  `/api/now/table/cmdb_rel_ci` |
+| cmdb_ci  |  `/api/now/table/cmdb_ci` |
+| cmdb_rel_type  |  `/api/now/table/cmdb_rel_type` |
+| cmdb_rel_ci  |  `/api/now/table/cmdb_rel_ci` |
 
 {% hint style="info" %}
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
+
+### Open source code
+
+The code for the ServiceNow check is open source and available on GitHub at [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
 
 ## Troubleshooting
 
@@ -176,5 +180,4 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 - [StackState Agent V2](/stackpacks/integrations/agent.md) 
 - [Secrets management](/configure/security/secrets_management.md)
 - [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)
-- [StackState Agent (github.com)](https://github.com/StackVista/stackstate-agent)
 - [StackState Agent integrations (github.com)](https://github.com/StackVista/stackstate-agent-integrations)
