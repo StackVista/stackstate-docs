@@ -50,3 +50,27 @@ redirects:
   setup/installation/requirements: ./setup/requirements.md
   setup/installation/reverse_proxy: ./setup/linux_install/reverse_proxy.md
   setup/installation/troubleshooting: ./setup/troubleshooting.md
+  configure/component_actions: configure/topology/component_actions.md
+  configure/how_to_configure_component_actions: configure/topology/how_to_configure_component_actions.md
+  configure/sync: configure/topology/sync.md
+  configure/how_to_create_manual_topology: configure/topology/how_to_create_manual_topology.md
+  configure/debugging_topology_synchronization: configure/topology/debugging_topology_synchronization.md
+  configure/naming_guide: configure/topology/naming_guide.md
+  configure/propagation: configure/topology/propagation.md
+  configure/tagging: configure/topology/tagging.md
+  configure/topology_synchronization: configure/topology/topology_synchronization.md
+  configure/telemetry_synchronized_topology: configure/telemetry/telemetry_synchronized_topology.md
+  configure/browse_telemetry: configure/telemetry/browse_telemetry.md
+  configure/checks_and_streams: configure/telemetry/checks_and_streams.md
+  configure/send_telemetry: configure/telemetry/send_telemetry.md
+  configure/how_to_use_the_priority_field_for_components: configure/telemetry/how_to_use_the_priority_field_for_components.md
+  configure/how_to_setup_traces: configure/traces/how_to_setup_traces.md
+  configure/configure_tracing: configure/traces/configure_tracing.md
+  configure/how_to_configure_ldap_authentication: configure/security/how_to_configure_ldap_authentication.md
+  configure/permissions: configure/security/permissions.md
+  configure/how_to_set_up_roles: configure/security/how_to_set_up_roles.md
+  configure/scopes_in_rbac: configure/security/scopes_in_rbac.md
+  configure/subject_configuration: configure/security/subject_configuration.md
+  configure/secrets_management: configure/security/secrets_management.md
+  configure/how_to_set_up_a_security_backend_for_linux: configure/security/how_to_set_up_a_security_backend_for_linux.md
+  configure/how_to_set_up_a_security_backend_for_windows: configure/security/how_to_set_up_a_security_backend_for_windows.md

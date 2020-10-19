@@ -13,36 +13,33 @@ The Zabbix StackPack is used to create a near real time synchronization with you
 
 The following prerequisites need to be met:
 
-* The StackState Agent StackPack must be installed on a single machine which can connect to Zabbix and StackState. \(See the [StackState Agent V2 StackPack](agent.md) for more details\).
+* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3 and 4 are supported.
 
-## Enabling Zabbix integration
+## Enable Zabbix integration
 
-To enable the Zabbix check which collects the data from Zabbix instance:
+To enable the Zabbix check and begin collecting data from your Zabbix instance:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/zabbix.d` directory, replacing `<url>`, `<username>` and `<password>` with the information from your Zabbix instance.
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/zabbix.d/conf.yaml` to include details of your Zabbix instance:
+    - **url**
+    - **username** 
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
-```text
-# Section used for global Zabbix check config
-init_config:
-
-instances:
-  # mandatory
-  - url: <url> # http://10.0.0.1/zabbix/api_jsonrpc.php
-
-    # Read-only credentials to connect to zabbix
-    # mandatory
-    username: <username> # Admin
-    password: <password> # zabbix
-```
-
-To publish the configuration changes, restart the StackState Agent\(s\) using below command.
-
-```text
-sudo /etc/init.d/stackstate-agent restart
-```
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+    ```text
+    # Section used for global Zabbix check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url> # http://10.0.0.1/zabbix/api_jsonrpc.php
+    
+        # Read-only credentials to connect to zabbix
+        # mandatory
+        username: <username> # Admin
+        password: <password> # zabbix
+    ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 

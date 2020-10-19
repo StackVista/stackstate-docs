@@ -1,16 +1,8 @@
----
-title: Scopes in Role Based Access Control
-kind: Documentation
-aliases:
-  - /concepts/scopes_in_rbac/
-  - /authentication/scopes_in_rbac/
----
-
 # Scopes \(RBAC\)
 
 ## How do scopes work?
 
-Scopes are based on STQL. You can find more about STQL [here](topology_selection_advanced.md). The scope is an STQL query that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
+The scope is an [STQL query](/develop/reference/stql_reference.md) that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` are not supported as they would not be performant in this context.
 
@@ -30,7 +22,7 @@ The below example shows the same topology view called "All Infrastructure" for f
 
 ### This user is a part of StackState Admin group, so there is no scope:
 
-![Full view permissions](../.gitbook/assets/allperm.png)
+![Full view permissions](/.gitbook/assets/allperm.png)
 
 The query for this view is the same as for the others, but without any prefix:
 
@@ -44,7 +36,7 @@ The query for this view is the same as for the others, but without any prefix:
 'domain = "Customer1"'
 ```
 
-![Limited view](../.gitbook/assets/esx1perm%20%281%29.png)
+![Limited view](/.gitbook/assets/esx1perm%20%281%29.png)
 
 Query with the prefix for this view is:
 
@@ -58,7 +50,7 @@ Query with the prefix for this view is:
 'domain = "Customer2"'
 ```
 
-gets this topology: ![Limited view](../.gitbook/assets/esx2perm.png)
+gets this topology: ![Limited view](/.gitbook/assets/esx2perm.png)
 
 Query with the prefix for this view is:
 
@@ -80,5 +72,4 @@ Query with prefix for this user is then:
 '(domain = "Customer1" OR domain = "Customer2") AND (layer = "Infrastructure" AND domain IN ("Customer1", "Customer2"))'
 ```
 
-Which results in a following view: ![Full view permissions](../.gitbook/assets/allperm%20%281%29.png)
-
+Which results in a following view: ![Full view permissions](/.gitbook/assets/allperm%20(1).png)

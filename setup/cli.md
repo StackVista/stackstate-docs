@@ -337,7 +337,7 @@ sts stackpack install -p param1 value1 -p param2 value2 MyStackPack
 For example, the open-source [SAP StackPack](https://github.com/StackVista/stackpack-sap) requires the parameter [sap\_host](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/stackpack.conf#L24) during installation. This command kicks off that installation:
 
 ```text
-sts stackpack install -p sap_host sap1.acme.com stackpack-sap-1.0.1.sts
+sts stackpack install -p sap_host sap1.acme.com sap
 ```
 
 #### Upgrade a StackPack

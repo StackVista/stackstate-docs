@@ -23,7 +23,7 @@ By default, the propagation method for components and relations is set to transp
 
 In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own [custom propagation functions](#custom-propagation-functions). The desired propagation function to use for a component or relation can be set in its edit dialogue.
 
-![Edit component propagation](../.gitbook/assets/v41_edit-component-propagation.png)
+![Edit component propagation](/.gitbook/assets/v41_edit-component-propagation.png)
 
 For example:
 
@@ -33,7 +33,7 @@ For example:
 
 It is possible to write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
 
-![Custom propagation funtion](../.gitbook/assets/v41_propagation-function.png)
+![Custom propagation funtion](/.gitbook/assets/v41_propagation-function.png)
 
 The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 
@@ -61,7 +61,7 @@ This code works as follows:
 | Code | Description |
 |:---|:---|
 | `.withId(componentId)` | The `componentId` is passed as long and resolved |
-| `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component menu or by using a [topology query](../develop/scripting/script-apis/topology.md) in analytics. |
+| `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component menu or by using a [topology query](../../develop/scripting/script-apis/topology.md) in analytics. |
 | `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides.<br />`component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id.|
 |
 
@@ -84,7 +84,7 @@ Propagation functions can be run as either async (default) or synchronous.
 
 #### Async propagation functions (default)
 
-Running as an async function will allow you to make an HTTP request. This allows you to use [StackState script APIs](../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation. You can also use the [available elements properties and methods](#available-properties-and-methods).
+Running as an async function will allow you to make an HTTP request. This allows you to use [StackState script APIs](../../develop/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation. You can also use the available [element properties and methods](#available-properties-and-methods).
 
 {% hint style="danger" %}
 The async script APIs provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. Consider extreme cases where the propagation function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
@@ -97,7 +97,7 @@ Running a propagation function as synchronous places limitations on both the cap
 - The number of elements with a particular propagating state
 - The highest state of a given set of elements
 
-See [available properties and methods](#available-properties-and-methods).
+See available [properties and methods](#available-properties-and-methods).
 
 ### Available properties and methods
 

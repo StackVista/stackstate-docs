@@ -9,7 +9,7 @@ StackState is built to work with one of two authentication configurations: a fil
 
 ## Prepare the config file for LDAP authentication
 
-LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configure authentication](../setup/authentication.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support file-based authentication, the following changes are required to enable LDAP authentication:
+LDAP configuration uses the `etc/application_stackstate.conf` file located in the StackState installation directory. Check out this page -[Configure authentication](/setup/authentication.md) - for more information about `authentication` block of this file. Out of the box the configuration file is prepared to support file-based authentication, the following changes are required to enable LDAP authentication:
 
 ### 1. Enable authentication
 
@@ -222,9 +222,8 @@ authentication {
 }
 ```
 
-LDAP groups are reflecting [Roles](how_to_set_up_roles.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
+LDAP groups are reflecting [Roles](/configure/security/how_to_set_up_roles.md) in StackState - the Group name in LDAP must be the same as the Role subject name in StackState.
 
 ### 6. Summary
 
-After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](subject_configuration.md), and setting up [Roles](how_to_set_up_roles.md). Find out more on pages describing [Scopes](scopes_in_rbac.md), and [Permissions](permissions.md).
-
+After completion of all above steps your StackState configuration is ready to be used with LDAP in your organization. You can start creating [Subjects](/configure/security/subject_configuration.md), and setting up [Roles](/configure/security/how_to_set_up_roles.md). Find out more on pages describing [Scopes](/configure/security/scopes_in_rbac.md), and [Permissions](/configure/security/permissions.md).

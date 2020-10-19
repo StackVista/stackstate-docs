@@ -1,18 +1,10 @@
----
-title: Send Telemetry
-kind: Documentation
-aliases:
-  - /configuring/send_telemetry/
-listorder: 3
----
-
 # Send telemetry
 
 ## Overview
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integrations](../stackpacks/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](../setup/cli.md).
+There are several ways to send telemetry to StackState. A large number of [integrations](/stackpacks/integrations) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](/setup/cli.md).
 
 ## Sending telemetry over HTTP
 
@@ -203,4 +195,3 @@ Event names **cannot start with** any of the following prefixes:
 * `labels`
 * `tags`
 {% endhint %}
-
