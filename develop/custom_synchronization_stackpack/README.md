@@ -6,7 +6,7 @@ description: >-
 
 # Custom Synchronization StackPack
 
-The Custom Synchronization StackPack is a StackPack that is meant to ease the setup of a custom [topology synchronization](../../configure/topology/topology_synchronization.md). It works well with agent checks and can be a first step before making a StackPack.
+The Custom Synchronization StackPack is a StackPack that is meant to ease the setup of a custom [topology synchronization](/configure/topology/topology_synchronization.md). It works well with agent checks and can be a first step before making a StackPack.
 
 ## When to use the Custom Synchronization StackPack
 
@@ -14,7 +14,7 @@ The Custom Synchronization StackPack is meant for integrations that include a to
 
 ## Getting started with the Custom Synchronization StackPack
 
-The easiest way to get started is to follow the [push-integration tutorial](../tutorials/push_integration_tutorial.md).
+The easiest way to get started is to follow the [push-integration tutorial](/deveop/tutorials/push_integration_tutorial.md).
 
 ## How to use the Custom Synchronization StackPack
 

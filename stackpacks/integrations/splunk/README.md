@@ -11,7 +11,7 @@ The Splunk StackPack synchronizes topology, events and metrics from Splunk to St
 
 ## Prerequisites
 
-The Splunk StackPack depends on the [API Integration](../api-integration.md) StackPack.
+The Splunk StackPack depends on the [API Integration](/stackpacks/integrations/api-integration.md) StackPack.
 
 ## Synchronizing data from Splunk
 

@@ -31,7 +31,7 @@ You can find the Manual Topology StackPack in the StackPacks section under the S
 
 All components in StackState have a component type. If your StackState instance has an automated data source available or if you [installed the Manual Topology StackPack](#install-the-manual-topology-stackpack-optional), some default component types will already be available. You can optionally add your own component types, for example ..., the granularity is up to you.
 
-![Add component type screen](../.gitbook/assets/add_comp_type.png)
+![Add component type screen](/.gitbook/assets/add_comp_type.png)
 
 1. In the StackState UI, go to Settings -> Component Types -> Add Component Type.
 2. Enter the component type details:
@@ -44,7 +44,7 @@ All components in StackState have a component type. If your StackState instance 
 
 You can manually add a component in the StackState UI from the [Topology Perspective](/use/perspectives/topology-perspective.md).
 
-![Add new component](../.gitbook/assets/new_component.png)
+![Add new component](/.gitbook/assets/new_component.png)
 
 1. In the StackState UI go to the Topology Perspective of a [view](/use/views.md) or explore mode.
 2. Click on the big plus (+) sign on the left side of the screen (**Component Types**).

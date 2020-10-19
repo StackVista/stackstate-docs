@@ -1,5 +1,5 @@
 {% hint style="info" %}
-StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+StackState prefers Kubernetes!<br />In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/kubernetes_install/).
 {% endhint %}
 
 ## Choosing your installation type

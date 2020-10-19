@@ -8,7 +8,7 @@ description: Performing major and minor upgrades of StackState.
 
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../stackpacks/about-stackpacks.md).
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
 
 ### Upgrade considerations
 
@@ -19,7 +19,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../stackpacks/about-stackpacks.md#configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](/stackpacks/about-stackpacks.md#configuration-locking) for more information.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -80,7 +80,7 @@ Note that it will not be possible to restore the backup on the upgraded version 
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 {% hint style="warning" %}
 The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
@@ -109,7 +109,7 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-See [Installing StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 ## Verify the new installation
 
@@ -142,7 +142,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](../configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+* In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
 ### Upgrade to 1.15.0
 
