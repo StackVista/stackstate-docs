@@ -11,7 +11,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](stackpacks/).
 
-![StackPacks overview](.gitbook/assets/01_stackpacks%20%281%29.png)
+![StackPacks overview](/.gitbook/assets/01_stackpacks%20%281%29.png)
 
 ## Explore topology
 
@@ -21,7 +21,7 @@ StackState visualizes components by the layer and domain they are placed in. The
 
 You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/perspectives/filters.md) on the left side bar, or by [hovering over a component](/use/perspectives/topology-perspective.md#interactive-navigation).
 
-![Explore topology](.gitbook/assets/02_topology%20%281%29.png)
+![Explore topology](/.gitbook/assets/02_topology%20%281%29.png)
 
 ## Topology elements
 
@@ -34,29 +34,29 @@ The health state of a component is indicated by two colors:
 
 The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction. So if the `db` component turns red, the `app` component will turn red too.
 
-![Component](.gitbook/assets/021_topology_elements.png)
+![Component](/.gitbook/assets/021_topology_elements.png)
 
 ## Timeline
 
 The timeline at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the time that is currently selected. Normally, StackState is in the **live mode**, this means that StackState automatically displays the latest state of the stack.
 
-![Timeline](.gitbook/assets/06_timeline%20%281%29.png)
+![Timeline](/.gitbook/assets/06_timeline%20%281%29.png)
 
 ## Component / relation details
 
 To see the details of a component or a relation, you can click on it. Click on "Show component properties" to see all details of a component.
 
-![Component details](.gitbook/assets/03_component_details%20%281%29.png)
+![Component details](/.gitbook/assets/03_component_details%20%281%29.png)
 
 ## Metric inspector
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Metric inspector](.gitbook/assets/031_component_details_inspect_metric_stream.png)
+![Metric inspector](/.gitbook/assets/031_component_details_inspect_metric_stream.png)
 
 If you click on an event stream, you can see the event/log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
 
-![Event inspector](.gitbook/assets/032_component_details_inspect_event_stream.png)
+![Event inspector](/.gitbook/assets/032_component_details_inspect_event_stream.png)
 
 ## Problem clusters
 
@@ -70,14 +70,14 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Quick Actions` menu.
 
-![Component details](.gitbook/assets/04_problem_summary%20%281%29.png)
+![Component details](/.gitbook/assets/04_problem_summary%20%281%29.png)
 
 ## Events
 
 To show all events for the selected Topology, select the Events perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](use/alerting.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
-![Events Perspective](.gitbook/assets/event-perspective.png)
+![Events Perspective](/.gitbook/assets/event-perspective.png)
 
 The Events perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
 
-![Events section](.gitbook/assets/v41_events-section.png)
+![Events section](/.gitbook/assets/v41_events-section.png)
