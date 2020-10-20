@@ -16,7 +16,7 @@ The logging level for individual functions ond event handlers can be set using t
 2. Find the ID for the function you want to add logging to:
     - [Check functions](#check-functions)
     - [Component actions](#component-actions)
-    - [Event handlers](#event-handlers)
+    - [Event handlers](#event-handler-functions)
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
@@ -35,7 +35,7 @@ tail -f stackstate.log | grep <id>
 Find the ID for a function:
     - [Check functions](#check-functions)
     - [Component actions](#component-actions)
-    - [Event handlers](#event-handlers)
+    - [Event handlers](#event-handler-functions)
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
