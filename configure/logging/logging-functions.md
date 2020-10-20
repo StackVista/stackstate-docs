@@ -15,19 +15,19 @@ You can add logging statements to StackState functions. This is useful for debug
     - `log.info(variable.toString)`
 
 2) Find the StackState function ID from the StackState UI:
-    - Open the component details
-    - Show JSON
-    - Find the propagation section
-    - Copy the value from the `id` field
+    - Click on a component to open the component details.
+    - Click on **...** and select **Show JSON**.
+    - Find the section for the function type you would like to log, e.g. `propagation`.
+    - Copy the value from the `id` field.
 
-![Show JSON](/.gitbook/assets/v41_show-json.png)
+![Show JSON](/.gitbook/assets/v41_show-json1.png)
 
 3) Set the log level for the function ID using the [StackState CLI](/setup/cli.md):
     ```
     sts serverlog setlevel <id> DEBUG
     ```
 
-4) Monitor the `stackstate.log` using the event handler ID.
+4) Monitor the `stackstate.log` using the function ID.
     ```
     tail -f stackstate.log | grep <id>
     ```
