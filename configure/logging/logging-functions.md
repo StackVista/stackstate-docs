@@ -22,12 +22,12 @@ You can add logging statements to StackState functions. This is useful for debug
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-3. Set the log level for the function ID using the [StackState CLI](/setup/cli.md):
+3) Set the log level for the function ID using the [StackState CLI](/setup/cli.md):
     ```
     sts serverlog setlevel <id> DEBUG
     ```
 
-4. Monitor the `stackstate.log` using the event handler ID.
+4) Monitor the `stackstate.log` using the event handler ID.
     ```
     tail -f stackstate.log | grep <id>
     ```
