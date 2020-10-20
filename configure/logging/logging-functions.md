@@ -10,6 +10,8 @@ You can add logging from a StackState function. This is useful for for debug pur
 
 ## Add logging to a StackState function
 
+![Show JSON](/.gitbook/assets/v41_show-json.png)
+
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
     - `log.info(variable.toString)`
@@ -19,7 +21,6 @@ You can add logging from a StackState function. This is useful for for debug pur
     - Show JSON
     - Find the propagation section
     - Copy the value from the `id` field
-    ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
 3. Set the log level using the [StackState CLI](/setup/cli.md):
     ```
