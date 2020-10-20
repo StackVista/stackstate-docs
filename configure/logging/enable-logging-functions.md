@@ -32,6 +32,13 @@ tail -f stackstate.log | grep <id>
 
 ## Find a function ID
 
+Find the ID for a function:
+    - [Check functions](#check-functions)
+    - [Component actions](#component-actions)
+    - [Event handlers](#event-handlers)
+    - [Propagation functions](#propagation-functions)
+    - [View health state configuration functions](#view-health-state-configuration-functions)
+
 ### Analytics environment
 
 #### Component actions
