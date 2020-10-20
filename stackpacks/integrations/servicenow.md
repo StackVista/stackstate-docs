@@ -166,9 +166,7 @@ The code for the ServiceNow check is open source and available on GitHub at:
 
 ## Troubleshooting
 
-### Known issues
-
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
 
 ## Uninstall
 
