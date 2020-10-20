@@ -10,11 +10,11 @@ You can add logging statements to StackState functions. This is useful for debug
 
 ## Add logging to a StackState function
 
-1. Add a log statement in the function's code. For example:
+1) Add a log statement in the function's code. For example:
     - `log.info("message")`
     - `log.info(variable.toString)`
 
-2. Find the StackState function ID from the StackState UI:
+2) Find the StackState function ID from the StackState UI:
     - Open the component details
     - Show JSON
     - Find the propagation section
