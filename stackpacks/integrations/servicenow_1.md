@@ -165,12 +165,12 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ### Transaction cancelled: maximum execution time exceeded
 
-The ServiceNow `REST Table API request timeout` must be enough to process an API call from StackState for the configured integration `batch_size`. 
+The ServiceNow `REST Table API request timeout` must be high enough to process an API call from StackState for the configured `batch_size`. 
 
 If you receive the error **Transaction cancelled: maximum execution time exceeded**, try:
 
 - Set a higher `REST Table API request timeout` in ServiceNow (default 60 seconds). See [Default quota rules \(servicenow.com\)](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/platform-performance/concept/c_DefaultQuotaRules.html).
-- Set a lower `batch_size` in the [StackState Agent integration configuration](#configure).
+- Set a lower `batch_size` in the [StackState Agent integration configuration](#configure) (default 100).
 
 ### Uninstall
 
