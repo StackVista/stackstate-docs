@@ -1,7 +1,7 @@
 # StackState log files
 
-* [Kubernetes setup](stackstate_log_files.md#kubernetes)
-* [Linux setup](stackstate_log_files.md#linux)
+* [Kubernetes setup](#kubernetes)
+* [Linux setup](#linux)
 
 ## Kubernetes
 
