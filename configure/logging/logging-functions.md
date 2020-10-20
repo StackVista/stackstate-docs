@@ -18,9 +18,9 @@ You can add logging statements to StackState functions. This is useful for debug
     - Click on a component to open the component details.
     - Click on **...** and select **Show JSON**.
     - Find the section for the function type you would like to log, e.g. `propagation`.
-    - Copy the value from the `id` field.
+    - Copy the value from the field `id`.
 
-![Show JSON](/.gitbook/assets/v41_show-json1.png)
+![Show JSON](/.gitbook/assets/v41_show-json.png)
 
 3) Set the log level for the function ID using the [StackState CLI](/setup/cli.md):
     ```
