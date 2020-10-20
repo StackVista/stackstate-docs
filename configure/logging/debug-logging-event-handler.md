@@ -12,7 +12,7 @@ You can set the logging level of event handlers using the StackState CLI.
 
 Follow the steps below to enable DEBUG logging for a specific event handler ID. This will add DEBUG level messages to the `stackstate.log` together with the event handler ID.
 
-1. Get the ID of the event handler function. Run the below query in the [StackState UI Analytics environment](/develop/scripting.md#running-scripts):
+1. Get the ID of the event handler function from the [StackState UI Analytics environment](/develop/scripting.md#running-scripts):
     ```
     Graph.query{it.V().hasLabel("EventHandler")}
     ```
