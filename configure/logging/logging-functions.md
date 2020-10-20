@@ -20,6 +20,8 @@ You can add logging statements to StackState functions. This is useful for debug
     - Find the propagation section
     - Copy the value from the `id` field
 
+![Show JSON](/.gitbook/assets/v41_show-json.png)
+
 3. Set the log level for the function ID using the [StackState CLI](/setup/cli.md):
     ```
     sts serverlog setlevel <id> DEBUG
@@ -30,7 +32,7 @@ You can add logging statements to StackState functions. This is useful for debug
     tail -f stackstate.log | grep <id>
     ```
    
-![Show JSON](/.gitbook/assets/v41_show-json.png)
+
 
 ## See also
 
