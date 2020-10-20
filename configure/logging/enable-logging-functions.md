@@ -15,9 +15,9 @@ The logging level for individual functions ond event handlers can be set using t
 
 2. Find the ID for the function you want to add logging to:
     - [Check functions](#check-functions)
-    - [Component actions](#analytics-environment-query)
-    - [Event handlers](#analytics-environment-query)
-    - [Propagation functions](#analytics-environment-query)
+    - [Component actions](#component-actions)
+    - [Event handlers](#event-handlers)
+    - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
 3. Use the [StackState CLI](/setup/cli.md) to set the log level for the function ID:
@@ -65,6 +65,8 @@ Graph.query{it.V()
 
 #### Event handler functions
 
+In the [StackState UI Analytics environment]() enter the following query to list all event handler functions. Copy the ID from the output.
+
 {% tabs %}
 {% tab title="Query" %}
 ```
@@ -91,6 +93,8 @@ Graph.query{it.V()
 {% endtabs %}
 
 #### Propagation functions
+
+In the [StackState UI Analytics environment]() enter the following query to list all propagation function. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -138,6 +142,8 @@ Graph.query{it.V()
 {% endtabs %}
 
 #### View health state configuration functions
+
+In the [StackState UI Analytics environment]() enter the following query to list all view health state configuration functions. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
