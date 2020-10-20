@@ -6,11 +6,9 @@ description: Use logging in StackState functions
 
 ## Overview
 
-You can add logging from a StackState function. This is useful for for debug purposes. Logs will appear in stackstate.log.
+You can add logging statements to StackState functions. This is useful for debug purposes. Logs will appear in `stackstate.log`.
 
 ## Add logging to a StackState function
-
-![Show JSON](/.gitbook/assets/v41_show-json.png)
 
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
@@ -31,6 +29,8 @@ You can add logging from a StackState function. This is useful for for debug pur
     ```
     tail -f stackstate.log | grep <id>
     ```
+   
+![Show JSON](/.gitbook/assets/v41_show-json.png)
 
 ## See also
 
