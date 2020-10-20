@@ -23,7 +23,7 @@ Scope is in this case the QueryView:
     Graph.query{it.V(59013784209828)}
     ```
 
-3. Set the log level using the [StackState CLI](/setup/cli.md):
+3. Set the log level for the event handler ID using the [StackState CLI](/setup/cli.md):
     ```
     sts serverlog setlevel 39169420504614 DEBUG
     ```

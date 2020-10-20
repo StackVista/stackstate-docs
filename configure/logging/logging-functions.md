@@ -22,7 +22,7 @@ You can add logging from a StackState function. This is useful for for debug pur
     - Find the propagation section
     - Copy the value from the `id` field
 
-3. Set the log level using the [StackState CLI](/setup/cli.md):
+3. Set the log level for the function ID using the [StackState CLI](/setup/cli.md):
     ```
     sts serverlog setlevel <id> DEBUG
     ```
