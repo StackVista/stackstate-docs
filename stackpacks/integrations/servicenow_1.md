@@ -163,6 +163,15 @@ The code for the ServiceNow check is open source and available on GitHub at [htt
 
 Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
 
+### Transaction cancelled: maximum execution time exceeded
+
+The ServiceNow `REST Table API request timeout` must be enough to process an API call from StackState for the configured integration `batch_size`. 
+
+If you receive the error **Transaction cancelled: maximum execution time exceeded**, try:
+
+- Set a higher `REST Table API request timeout` in ServiceNow (default 60 seconds). See [Default quota rules \(servicenow.com\)](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/platform-performance/concept/c_DefaultQuotaRules.html).
+- Set a lower `batch_size` in the [StackState Agent integration configuration](#configure).
+
 ### Uninstall
 
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
