@@ -4,7 +4,9 @@ description: Use logging in StackState functions and set logging level
 
 # Logging for functions
 
-You can add logging to StackState function and control the level of logging used for individual functions and event handlers.
+## Overview
+
+You can add logging to StackState functions and control the level of logging used for individual functions and event handlers using the StackState CLI.
 
 ## Add logging to a StackState function
 
