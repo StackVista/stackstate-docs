@@ -59,7 +59,7 @@ Retrieve the ID for a specific check, event handler or function:
 #### Component actions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions.
-- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the component action.
+- You can use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the component action.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -88,8 +88,10 @@ Graph.query{it.V()
 
 #### Event handlers
 
+Logging should be enabled for a specific event handler, not an event handler function.
+
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handlers.
-- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
+- You can use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
 
 
 {% tabs %}
@@ -120,7 +122,7 @@ Graph.query{it.V()
 #### Propagation functions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation functions. 
-- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the function.
+- You can use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -170,7 +172,7 @@ Graph.query{it.V()
 #### View health state configuration functions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
-- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the function.
+- You can use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -237,7 +239,9 @@ You can find the ID of a check in the StackState UI.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the check.
+- You can use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the check.
+
+Logging should be enabled for a specific check, not a check function.
 
 ## See also
 
