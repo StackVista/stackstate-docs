@@ -1,5 +1,5 @@
 ---
-description: Use logging in StackState functions and set logging level
+description: Use logging in StackState functions and set the logging level
 ---
 
 # Logging for functions
