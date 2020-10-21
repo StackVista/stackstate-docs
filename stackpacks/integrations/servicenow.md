@@ -29,7 +29,7 @@ To set up the StackState ServiceNow integration, you will need to have:
 
 Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
 
-- **Instance ID**: the ServiceNow instance ID from which topology will be collected. For example, if the ServiceNow Instance URL is `https://dev102222.service-now.com`, then `dev102222` is the instance ID.
+- **ServiceNow Instance ID**: the ServiceNow instance ID from which topology will be collected. For example, if the ServiceNow Instance URL is `https://dev102222.service-now.com`, then `dev102222` is the instance ID.
 
 ### Configure
 
@@ -147,7 +147,7 @@ The ServiceNow check does not retrieve any traces data.
 
 ### REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use HTTPS protocol for communication.
+The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
 | Table Name | REST API Endpoint | 
 |:---|:---|
