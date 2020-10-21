@@ -161,7 +161,7 @@ Refer to the ServiceNow product documentation for details on [how to configure a
 
 ### Open source
 
-The code for the ServiceNow check is open source and available on GitHub at:
+The code for the StackState ServiceNow check is open source and available on GitHub at:
 [https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 
 ## Troubleshooting
