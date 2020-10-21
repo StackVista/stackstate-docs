@@ -223,7 +223,7 @@ You can find the ID of check functions in the StackState UI.
 3. Find the section for ...
 4. Copy the value from the field `id`.
 
-![Show JSON](/.gitbook/assets/v41_show-json2.png)
+![Show JSON](/.gitbook/assets/v41_show-json.png)
 
 ## See also
 
