@@ -31,13 +31,13 @@ tail -f stackstate.log | grep <id>
 
 ## Add logging to a StackState function
 
-Logging messages can be added to StackState functions and tracked in `stackstate.log`. This is useful for debug purposes.
+Logging statements can be added to StackState functions and monitored in the `stackstate.log`. This is useful for debug purposes.
 
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
     - `log.info(variable.toString)`
     
-2. [Enable logging](#enable-logging-for-a-function-or-event-handler) for the function.
+2. [Enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 
 ## Find the ID for a check, event handler or function
