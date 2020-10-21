@@ -27,7 +27,7 @@ The following events are currently recorded:
 
 The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which events are displayed. Read more about [Topology Filters](filters.md#topology-filters)
 
-### FIlter Events
+### Filter Events
 
 The Events Perspective supports filtering of events by **Event Types**.
 
