@@ -4,7 +4,7 @@ description: Use logging in StackState functions and set logging level
 
 # Logging for functions
 
-You can add logging to StackState function and control the level of logging used for individual functions and even handlers.
+You can add logging to StackState function and control the level of logging used for individual functions and event handlers.
 
 ## Add logging to a StackState function
 
@@ -28,7 +28,7 @@ The logging level for individual functions ond event handlers can be set using t
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
-2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the function ID:
+2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the function ID, for example:
 ```
 sts serverlog setlevel <id> DEBUG
 ```
