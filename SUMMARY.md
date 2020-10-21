@@ -2,7 +2,7 @@
 
 * [Welcome to the StackState Docs!](README.md)
 
-## Setup
+## 🚀 Setup
 
 * [Requirements](setup/requirements.md)
 * [Installation](setup/installation/README.md)
