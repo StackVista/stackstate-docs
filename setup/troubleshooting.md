@@ -16,7 +16,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
    ```text
    kubectl get pods
    ```
-3. [Check the logs](../configure/logging/stackstate_log_files.md) for errors.
+3. [Check the logs](/configure/logging/stackstate_log_files.md) for errors.
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).
 {% endtab %}
 {% tab title="Linux" %}
@@ -34,7 +34,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
 
 ## Known issues
 
-Details of troubleshooting known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues).
+Check the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues) to find troubleshooting steps for all known issues.
 
 ## Reindex StackState
 
