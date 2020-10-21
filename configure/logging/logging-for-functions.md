@@ -114,7 +114,7 @@ Graph.query{it.V()
 
 #### Propagation functions
 
-- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation function. 
+- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation functions. 
 - You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
 
 {% tabs %}
