@@ -220,8 +220,8 @@ You can find the ID of check functions in the StackState UI.
 
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
-3. Find the section for ...
-4. Copy the value from the field `id`.
+3. Find the section for "checks"
+4. Find the check function you want to set the logging level for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
