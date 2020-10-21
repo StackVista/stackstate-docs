@@ -51,7 +51,7 @@ Find the ID for a function:
 
 #### Component actions
 
-In the [StackState UI Analytics environment]() enter the following query to list all component actions. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting.md#running-scripts) enter the following query to list all component actions. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -80,7 +80,7 @@ Graph.query{it.V()
 
 #### Event handler functions
 
-In the [StackState UI Analytics environment]() enter the following query to list all event handler functions. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting.md#running-scripts) enter the following query to list all event handler functions. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -109,7 +109,7 @@ Graph.query{it.V()
 
 #### Propagation functions
 
-In the [StackState UI Analytics environment]() enter the following query to list all propagation function. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting.md#running-scripts) enter the following query to list all propagation function. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -158,7 +158,7 @@ Graph.query{it.V()
 
 #### View health state configuration functions
 
-In the [StackState UI Analytics environment]() enter the following query to list all view health state configuration functions. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting.md#running-scripts) enter the following query to list all view health state configuration functions. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -228,3 +228,4 @@ You can find the ID of check functions in the StackState UI.
 ## See also
 
 - [StackState CLI](/setup/cli.md)
+- [StackState UI Analytics environment](/develop/scripting.md#running-scripts)
