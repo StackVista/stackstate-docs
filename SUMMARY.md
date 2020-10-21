@@ -118,7 +118,7 @@
   * [View state configuration](configure/view_state_configuration.md)
   * [Identifiers](configure/identifiers.md)
   * [Logging](configure/logging/README.md)
-    * [Logging for functions](configure/logging/logging-for-functions.md)
+    * [Logging for checks, event handlers and functions](configure/logging/enable-logging.md)
     * [StackState log files](configure/logging/stackstate_log_files.md)
 * [Develop](develop/README.md)
   * [Developing StackPacks](develop/stackpack/README.md)

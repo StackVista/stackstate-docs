@@ -1,12 +1,13 @@
 ---
-description: Use logging in StackState functions and set the logging level
+description: Enable logging for StackState checks, event handlers and functions
 ---
 
-# Logging for functions
+# Logging for checks, event handlers and functions
 
 ## Overview
 
-You can add logging to StackState functions and control the level of logging used for individual functions and event handlers using the StackState CLI.
+Logging for StackState checks, event handlers and certain types of functions can be enabled by setting a logging level using the StackState CLI. This is useful for debugging purposes. Note that logging is only possible for component actions, propagation and view health state configuration function types.
+
 
 ## Add logging to a StackState function
 
@@ -19,14 +20,14 @@ Logging messages can be added to StackState functions and tracked in `stackstate
 2. [Set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 
-## Set the logging level for a function or event handler
+## Set the logging level for a check, event handler or function
 
-The logging level for individual functions ond event handlers can be set using the StackState CLI. 
+The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
 
 1. Find the ID for the function you want to add logging to:
-    - [Check functions](#check-functions)
+    - [Checks](#checks)
     - [Component actions](#component-actions)
-    - [Event handler functions](#event-handler-functions)
+    - [Event handlers](#event-handlers)
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
@@ -40,12 +41,12 @@ sts serverlog setlevel <id> DEBUG
 tail -f stackstate.log | grep <id>
 ```
 
-## Find a function ID
+## Find the ID for a check, event handler or function
 
-Find the ID for a function:
-    - [Check functions](#check-functions)
+Retrieve the ID for a specific check, event handler or function:
+    - [Checks](#checks)
+    - [Event handlers](#event-handlers)
     - [Component actions](#component-actions)
-    - [Event handlers](#event-handler-functions)
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
@@ -54,7 +55,7 @@ Find the ID for a function:
 #### Component actions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions.
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the component action.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -81,10 +82,10 @@ Graph.query{it.V()
 {% endtab %}
 {% endtabs %}
 
-#### Event handler functions
+#### Event handlers
 
-- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handler functions.
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
+- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handlers.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the event handler.
 
 
 {% tabs %}
@@ -115,7 +116,7 @@ Graph.query{it.V()
 #### Propagation functions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation functions. 
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -165,7 +166,7 @@ Graph.query{it.V()
 #### View health state configuration functions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -221,18 +222,18 @@ Graph.query{it.V()
 
 ### StackState UI
 
-#### Check functions
+#### Checks
 
-You can find the ID of check functions in the StackState UI.
+You can find the ID of a check in the StackState UI.
 
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
 3. Find the section for "checks"
-4. Find the check function you want to set the logging level for and copy the value from the field `id`.
+4. Find the check you want to set the logging level for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the check.
 
 ## See also
 
