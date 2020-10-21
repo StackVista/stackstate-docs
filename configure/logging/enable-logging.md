@@ -2,12 +2,16 @@
 description: Enable logging for StackState checks, event handlers and functions
 ---
 
-# Logging for checks, event handlers and functions
+# Enable logging
 
 ## Overview
 
-Logging for StackState checks, event handlers and certain types of functions can be enabled by setting a logging level using the StackState CLI. This is useful for debugging purposes. Note that logging is only possible for component actions, propagation and view health state configuration function types.
-
+For debugging purposes, it may be helpful to enable logging for a StackState check, event handler or function. You can use the StackState CLI to set a logging level for and track messages in `stackstate.log`.  Logging can be enabled for the following:
+- Checks
+- Event handlers
+- Component actions
+- Propagation functions
+- View state configuration functions
 
 ## Add logging to a StackState function
 
@@ -17,10 +21,10 @@ Logging messages can be added to StackState functions and tracked in `stackstate
     - `log.info("message")`
     - `log.info(variable.toString)`
     
-2. [Set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
+2. [Enable logging](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 
-## Set the logging level for a check, event handler or function
+## Enable logging for a check, event handler or function
 
 The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
 
@@ -55,7 +59,7 @@ Retrieve the ID for a specific check, event handler or function:
 #### Component actions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions.
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the component action.
+- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the component action.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -85,7 +89,7 @@ Graph.query{it.V()
 #### Event handlers
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handlers.
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the event handler.
+- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
 
 
 {% tabs %}
@@ -116,7 +120,7 @@ Graph.query{it.V()
 #### Propagation functions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation functions. 
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the function.
+- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -166,7 +170,7 @@ Graph.query{it.V()
 #### View health state configuration functions
 
 - In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the function.
+- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -233,7 +237,7 @@ You can find the ID of a check in the StackState UI.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-check-event-handler-or-function) for the check.
+- You can use the ID from the output to [enable loggingl](#enable-logging-for-a-check-event-handler-or-function) for the check.
 
 ## See also
 
