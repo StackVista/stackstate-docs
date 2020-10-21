@@ -51,7 +51,8 @@ Find the ID for a function:
 
 #### Component actions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions. Copy the ID from the output.
+- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -78,11 +79,11 @@ Graph.query{it.V()
 {% endtab %}
 {% endtabs %}
 
-Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
-
 #### Event handler functions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handler functions. Copy the ID from the output.
+- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handler functions.
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
+
 
 {% tabs %}
 {% tab title="Query" %}
@@ -108,8 +109,6 @@ Graph.query{it.V()
 ```
 {% endtab %}
 {% endtabs %}
-
-Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 #### Propagation functions
 
@@ -163,9 +162,8 @@ Graph.query{it.V()
 
 #### View health state configuration functions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
-
-You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
+- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
 
 {% tabs %}
 {% tab title="Query" %}
