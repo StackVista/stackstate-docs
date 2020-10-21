@@ -17,7 +17,7 @@ The ServiceNow StackPack allows near real time synchronization between ServiceNo
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
 
 To set up the StackState ServiceNow integration, you will need to have:
 
