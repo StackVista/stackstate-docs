@@ -51,7 +51,7 @@ Find the ID for a function:
 
 #### Component actions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the following query to list all component actions. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -82,7 +82,7 @@ Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-e
 
 #### Event handler functions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the following query to list all event handler functions. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handler functions. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -113,7 +113,7 @@ Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-e
 
 #### Propagation functions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the following query to list all propagation function. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation function. Copy the ID from the output.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -164,7 +164,9 @@ Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-e
 
 #### View health state configuration functions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the following query to list all view health state configuration functions. Copy the ID from the output.
+In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
+
+You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -218,8 +220,6 @@ Graph.query{it.V()
 {% endtab %}
 {% endtabs %}
 
-Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
-
 ### StackState UI
 
 #### Check functions
@@ -232,6 +232,8 @@ You can find the ID of check functions in the StackState UI.
 4. Find the check function you want to set the logging level for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
+
+Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 ## See also
 
