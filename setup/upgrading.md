@@ -118,8 +118,8 @@ Once StackState has been upgraded and started, verify that the new installation 
 ### Upgrade to 4.2.0
 
 * Changes to the `processmanager.conf` and `processmanager/kafka-topics.conf` files must be manually processed if you are using a customised or generated configuration:
-  * A new argument `topology-events` has been added to the section `processes.kafkaToElasticsearch` of file `processmanager.conf`.
-  * A new section `kafka.topics.sts_topology_events` has been added to file `processmanager/kafka-topics.conf`.
+  * Added new argument `topology-events` to the section `processes.kafkaToElasticsearch` of file `processmanager.conf`.
+  * Added new section `kafka.topics.sts_topology_events` to file `processmanager/kafka-topics.conf`.
 
 ### Upgrade to 4.1.0
 
