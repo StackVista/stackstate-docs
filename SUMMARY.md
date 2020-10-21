@@ -33,7 +33,7 @@
   * [Data retention](setup/retention.md)
   * [Clear stored data](setup/clear_data.md)
 * [Upgrade StackState](setup/upgrading.md)
-* [Log files](configure/stackstate_log_files.md)
+* [Log files](setup/stackstate_log_files.md)
 
 ## 👤 Use
 
