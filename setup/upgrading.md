@@ -1,6 +1,4 @@
 ---
-title: Upgrading
-kind: Documentation
 description: Performing major and minor upgrades of StackState.
 ---
 
@@ -8,7 +6,7 @@ description: Performing major and minor upgrades of StackState.
 
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../stackpacks/about-stackpacks.md).
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
 
 ### Upgrade considerations
 
@@ -19,7 +17,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../stackpacks/about-stackpacks.md#configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](/stackpacks/about-stackpacks.md#configuration-locking) for more information.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -60,17 +58,17 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
 
-* [Kubernetes backup](backup_restore/kubernetes_backup.md)
-* [Configuration backup](backup_restore/configuration.md)
-* [Manually created topology backup](backup_restore/manual_topology.md)
+* [Kubernetes backup](/setup/backup_restore/kubernetes_backup.md)
+* [Configuration backup](/setup/backup_restore/configuration.md)
+* [Manually created topology backup](/setup/backup_restore/manual_topology.md)
 {% endtab %}
 
 {% tab title="Linux" %}
 To create a backup on Linux, see:
 
-* [Linux backup](backup_restore/file.md)
-* [Configuration backup](backup_restore/configuration.md)
-* [Manually created topology backup](backup_restore/manual_topology.md)
+* [Linux backup](/setup/backup_restore/file.md)
+* [Configuration backup](/setup/backup_restore/configuration.md)
+* [Manually created topology backup](/setup/backup_restore/manual_topology.md)
 {% endtab %}
 {% endtabs %}
 
@@ -80,7 +78,7 @@ Note that it will not be possible to restore the backup on the upgraded version 
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 {% hint style="warning" %}
 The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
@@ -92,7 +90,7 @@ Find instructions to upgrade a StackState Kubernetes or Linux setup below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-For upgrading, the same command can be used as for the [first time Kubernetes installation](kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+For upgrading, the same command can be used as for the [first time Kubernetes installation](/setup/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -109,7 +107,7 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-See [Installing StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 ## Verify the new installation
 
@@ -119,9 +117,9 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
-If you have customised or generated configuration, make sure the following changes are made:
-* added a new argument `topology-events` in `processes.kafkaToElasticsearch` section in `processmanager.conf` file
-* added a new section `kafka.topics.sts_topology_events` in `processmanager/kafka-topics.conf`
+If you have customised or generated configuration, you will need to make the following changes:
+* added a new argument `topology-events` to the section `processes.kafkaToElasticsearch` of file `processmanager.conf`.
+* added a new section `kafka.topics.sts_topology_events` to file `processmanager/kafka-topics.conf`.
 
 ### Upgrade to 4.1.0
 
@@ -148,7 +146,7 @@ If you have customised or generated configuration, make sure the following chang
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](../configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+* In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
 ### Upgrade to 1.15.0
 
