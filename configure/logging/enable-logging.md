@@ -28,19 +28,19 @@ Logging messages can be added to StackState functions and tracked in `stackstate
 
 The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
 
-1. Find the ID for the function you want to add logging to:
+1. Find the ID for the check, event handler or function you want to enable logging for:
     - [Checks](#checks)
-    - [Component actions](#component-actions)
     - [Event handlers](#event-handlers)
+    - [Component actions](#component-actions)
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
-2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the function ID, for example:
+2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the ID, for example:
 ```
 sts serverlog setlevel <id> DEBUG
 ```
 
-3. Monitor the `stackstate.log` using the function ID.
+3. Monitor the `stackstate.log` using the ID.
 ```
 tail -f stackstate.log | grep <id>
 ```
