@@ -2,30 +2,38 @@
 description: Use logging in StackState functions and set logging level
 ---
 
-# logging in StackState functions
+# Logging for functions
 
-Logging messages can be added to StackState functions and tracked in `stackstate.log`. This is useful for debug purposes.  
-The logging level for individual functions ond event handlers can be set using the StackState CLI.
+You can add logging to StackState function and control the level of logging used for individual functions and even handlers.
 
 ## Add logging to a StackState function
+
+Logging messages can be added to StackState functions and tracked in `stackstate.log`. This is useful for debug purposes.
 
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
     - `log.info(variable.toString)`
+    
+2. [Set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
-2. Find the ID for the function you want to add logging to:
+
+## Set the logging level for a function or event handler
+
+The logging level for individual functions ond event handlers can be set using the StackState CLI. 
+
+1. Find the ID for the function you want to add logging to:
     - [Check functions](#check-functions)
     - [Component actions](#component-actions)
-    - [Event handlers](#event-handler-functions)
+    - [Event handler functions](#event-handler-functions)
     - [Propagation functions](#propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
-3. Use the [StackState CLI](/setup/cli.md) to set the log level for the function ID:
+2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the function ID:
 ```
 sts serverlog setlevel <id> DEBUG
 ```
 
-4. Monitor the `stackstate.log` using the function ID.
+3. Monitor the `stackstate.log` using the function ID.
 ```
 tail -f stackstate.log | grep <id>
 ```
@@ -208,10 +216,12 @@ Graph.query{it.V()
 
 #### Check functions
 
-    a. Click on a component to open the component details.
-    b. Click on **...** and select **Show JSON**.
-    c. Find the section for the function type you would like to log, e.g. `propagation`.
-    d. Copy the value from the field `id`.
+You can find the ID of check functions in the StackState UI.
+
+1. Click on a component to open the component details.
+2. Click on **...** and select **Show JSON**.
+3. Find the section for ...
+4. Copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
