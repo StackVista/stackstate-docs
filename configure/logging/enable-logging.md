@@ -13,17 +13,6 @@ For debugging purposes, it may be helpful to enable logging for a StackState che
 - Propagation functions
 - View state configuration functions
 
-## Add logging to a StackState function
-
-Logging messages can be added to StackState functions and tracked in `stackstate.log`. This is useful for debug purposes.
-
-1. Add a log statement in the function's code. For example:
-    - `log.info("message")`
-    - `log.info(variable.toString)`
-    
-2. [Enable logging](#set-the-logging-level-for-a-function-or-event-handler) for the function.
-
-
 ## Enable logging for a check, event handler or function
 
 The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
@@ -45,6 +34,17 @@ sts serverlog setlevel <id> DEBUG
 tail -f stackstate.log | grep <id>
 ```
 
+## Add logging to a StackState function
+
+Logging messages can be added to StackState functions and tracked in `stackstate.log`. This is useful for debug purposes.
+
+1. Add a log statement in the function's code. For example:
+    - `log.info("message")`
+    - `log.info(variable.toString)`
+    
+2. [Enable logging](#enable-logging-for-a-function-or-event-handler) for the function.
+
+
 ## Find the ID for a check, event handler or function
 
 Retrieve the ID for a specific check, event handler or function:
@@ -58,8 +58,8 @@ Retrieve the ID for a specific check, event handler or function:
 
 #### Component actions
 
-- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all component actions.
-- Use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the component action.
+- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all component actions.
+- Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the component action.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -73,7 +73,7 @@ Graph.query{it.V()
 }
 ```
 {% endtab %}
-{% tab title="Output" %}
+{% tab title="Example result" %}
 ```
 [
   {
@@ -88,10 +88,10 @@ Graph.query{it.V()
 
 #### Event handlers
 
-Logging can be enabled for a specific event handler, not an event handler function.
+Note that logging can be enabled for a specific event handler, not an event handler function.
 
-- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all event handlers.
-- Use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
+- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all event handlers.
+- Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -105,7 +105,7 @@ Graph.query{it.V()
 }
 ```
 {% endtab %}
-{% tab title="Output" %}
+{% tab title="Example result" %}
 ```
 [
   {
@@ -120,8 +120,8 @@ Graph.query{it.V()
 
 #### Propagation functions
 
-- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation functions. 
-- Use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
+- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all propagation functions. 
+- Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -135,7 +135,7 @@ Graph.query{it.V()
 }
 ```
 {% endtab %}
-{% tab title="Output" %}
+{% tab title="Example result" %}
 ```
 [
   {
@@ -170,8 +170,8 @@ Graph.query{it.V()
 
 #### View health state configuration functions
 
-- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all view health state configuration functions. 
-- Use the ID from the output to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
+- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all view health state configuration functions. 
+- Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -185,7 +185,7 @@ Graph.query{it.V()
 }
 ```
 {% endtab %}
-{% tab title="Output" %}
+{% tab title="Example result" %}
 ```
 [
   {
@@ -229,7 +229,7 @@ Graph.query{it.V()
 
 #### Checks
 
-Logging can be enabled for a specific check, not a check function. You can find the ID of a check in the StackState UI.
+Note that logging can be enabled for a specific check, not a check function. You can find the ID of a check in the StackState UI.
 
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
