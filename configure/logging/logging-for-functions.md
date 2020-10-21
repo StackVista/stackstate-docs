@@ -113,7 +113,8 @@ Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-e
 
 #### Propagation functions
 
-In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation function. Copy the ID from the output.
+- In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the query below to list all propagation function. 
+- You can use the ID from the output to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for a function.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -159,8 +160,6 @@ Graph.query{it.V()
 ```
 {% endtab %}
 {% endtabs %}
-
-Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 #### View health state configuration functions
 
