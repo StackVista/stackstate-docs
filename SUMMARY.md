@@ -33,7 +33,6 @@
   * [Data retention](setup/retention.md)
   * [Clear stored data](setup/clear_data.md)
 * [Upgrade StackState](setup/upgrading.md)
-* [Log files](setup/stackstate_log_files.md)
 
 ## 👤 Use
 
@@ -128,6 +127,7 @@
   * [Set up a security backend for Windows](configure/security/how_to_set_up_a_security_backend_for_windows.md)
 * [View state configuration](configure/view_state_configuration.md)
 * [Identifiers](configure/identifiers.md)
+* [Log files](setup/stackstate_log_files.md)
 
 ## 📖 Develop
 
