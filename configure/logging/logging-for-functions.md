@@ -78,6 +78,8 @@ Graph.query{it.V()
 {% endtab %}
 {% endtabs %}
 
+Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
+
 #### Event handler functions
 
 In the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) enter the following query to list all event handler functions. Copy the ID from the output.
@@ -106,6 +108,8 @@ Graph.query{it.V()
 ```
 {% endtab %}
 {% endtabs %}
+
+Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 #### Propagation functions
 
@@ -155,6 +159,8 @@ Graph.query{it.V()
 ```
 {% endtab %}
 {% endtabs %}
+
+Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 #### View health state configuration functions
 
@@ -211,6 +217,8 @@ Graph.query{it.V()
 ```
 {% endtab %}
 {% endtabs %}
+
+Use the ID to [set the logging level](#set-the-logging-level-for-a-function-or-event-handler) for the function.
 
 ### StackState UI
 
