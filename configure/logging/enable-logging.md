@@ -6,12 +6,7 @@ description: Enable logging for StackState checks, event handlers and functions
 
 ## Overview
 
-For debugging purposes, it may be helpful to enable logging for a StackState check, event handler or function. You can use the StackState CLI to set a logging level for and track messages in `stackstate.log`.  Logging can be enabled for the following:
-- Checks
-- Event handlers
-- Component actions
-- Propagation functions
-- View state configuration functions
+For debugging purposes, it may be helpful to enable logging for a StackState check, event handler or function. You can use the StackState CLI to set a logging level for and track messages in `stackstate.log`.  Logging can be enabled for checks, event handlers, component actions, propagation functions and view state configuration functions. Note that it is not currently possible to enable logging for other function types.
 
 ## Enable logging for a check, event handler or function
 
