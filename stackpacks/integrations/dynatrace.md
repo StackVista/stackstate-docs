@@ -102,7 +102,7 @@ The API Token configured in StackState Agent V2 must have the permission **Acces
 Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 {% endhint %}
 
-### Additional filters in StackState views
+### Filters for StackState views
 
 The DynaTrace integration enables additional keys to filter StackState views:
 
