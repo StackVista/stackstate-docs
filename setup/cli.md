@@ -83,8 +83,8 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
 
 To use the StackState CLI, you need to configure it with the API connection details for your StackState instance.
 
-* If you installed the StackState CLI using the Linux or Windows instructions above, a [wizard will guide you through configuration](cli.md#wizard-configuration-linux-and-windows-install).
-* You can also [create the configuration file manually](cli.md#manual-configuration) \(required for Docker install.
+* **Linux or Windows install**: A [wizard will guide you through configuration](#wizard-configuration-linux-and-windows-install) or you can [create the configuration file manually](#manual-configuration).
+* **Docker install**: You should [create the configuration file manually](#manual-configuration).
 
 ### Wizard configuration \(Linux and Windows install\)
 
