@@ -109,16 +109,16 @@ sudo stackstate-agent status
 
 ### REST API endpoints
 
-The API Token configured in StackState Agent V2 must have access to read the topology. The specific permission required for this API token is `Access problems and event feed, metrics, and topology`. The specific API endpoints used in the StackState Agent V2 are defined below:
-* _/api/v1/entity/infrastructure/processes_
-* _/api/v1/entity/infrastructure/hosts_
-* _/api/v1/entity/applications_
-* _/api/v1/entity/infrastructure/process-groups_
-* _/api/v1/entity/services_
+The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology**. See [DynaTrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions) for details. The API endpoints used in the StackState integration are listed below:
+
+* `/api/v1/entity/applications`
+* `/api/v1/entity/infrastructure/hosts`
+* `/api/v1/entity/infrastructure/processes`
+* `/api/v1/entity/infrastructure/process-groups`
+* `/api/v1/entity/services`
 
 **NOTE** 
-* Refer the Dynatrace documentation page on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
-* Read the Dynatrace documentation page on [permission required for your API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
+Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 
 ### Open source
 
@@ -141,9 +141,8 @@ To uninstall the DynaTrace StackPack and disable the DynaTrace check:
     ```
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
-
 ## See also
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md)
-- [How to create a DynaTrace API token (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
+- [How to generate a DynaTrace API token (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 - [Permissions for DynaTrace API tokens (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
