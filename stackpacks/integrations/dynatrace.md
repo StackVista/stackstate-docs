@@ -131,8 +131,19 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
+To uninstall the DynaTrace StackPack and disable the DynaTrace check:
+
+1. Go to the StackState UI StackPacks > Integrations > DynaTrace screen and click UNINSTALL.
+    - All DynaTrace specific configuration will be removed from StackState.
+2. Remove or rename the Agent integration configuration file, for example:
+    ```
+    mv dynatrace.d/conf.yaml dynatrace.d/conf.yaml.bak
+    ```
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 
 ## See also
 
--
+- [StackState Agent V2](/stackpacks/integrations/agent.md)
+- [How to create a DynaTrace API token (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
+- [Permissions for DynaTrace API tokens (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
