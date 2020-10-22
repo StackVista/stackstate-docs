@@ -113,7 +113,7 @@ The Dynatrace integration enables additional keys to filter StackState views:
 * dynatrace-Tags
 * dynatrace-MonitoringState
 
-For example, if you want to filter the view with `ManagementZones` then you will see the key as `dynatrace-managementZones:<value>` in the `label` filter box.
+For example, to filter a view with `ManagementZones`, add the key `dynatrace-managementZones:<value>` in the `label` filter box.
 
 ### Open source
 
