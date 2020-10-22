@@ -14,7 +14,7 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
 
 ### Pre-requisites
 
-To set up the Dynatrace integration:
+To set up the Dynatrace integration you will need to have:
 
 * [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both Dynatrace and StackState.
 * A running Dynatrace instance.
