@@ -1,5 +1,5 @@
 ---
-description: StackPack description
+description: Collect Smartscape topology data from DynaTrace
 ---
 
 # StackPack name
