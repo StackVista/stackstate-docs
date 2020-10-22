@@ -12,18 +12,18 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
 
 ### Pre-requisites
 
-The following prerequisites need to be met:
+To set up the Dynatrace integration:
 
-* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on a single machine that can connect to both Dynatrace and StackState.
-* A Dynatrace instance must be running.
-* An API Token from Dynatrace with access to read the Smartscape Topology.
+* [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both Dynatrace and StackState.
+* A running Dynatrace instance.
+* A Dynatrace API Token with access to read the Smartscape Topology, see [REST API endpoints](#rest-api-endpoints).
 
 ### Install
 
 The Dynatrace StackPack requires the following parameters to collect the topology information :
 
-* **Dynatrace URL** -- the Dynatrace url from which topology need to be collected. 
-* **Dynatrace Instance Name** -- the user-defined name of Dynatrace account shown in configurations such as views. 
+* **Dynatrace URL** - the Dynatrace URL from which topology need to be collected. 
+* **Dynatrace Instance Name** - the user-defined name of the Dynatrace account shown in configurations such as views. 
 
 ### Configure
 
@@ -31,7 +31,7 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, the foll
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` to include details of your Dynatrace instance:
     - **url** - the URL of the Dynatrace instance.
-    - **token** - an API token with access to the required [Dynatrace API endopints](#rest-api-endpoints)
+    - **token** - an API token with access to the required [Dynatrace API endopints](#rest-api-endpoints).
 
     ```
     # Section used for global dynatrace check config
