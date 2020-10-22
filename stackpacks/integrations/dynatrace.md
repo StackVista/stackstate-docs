@@ -122,6 +122,8 @@ The API Token configured in StackState Agent V2 must have access to read the top
 
 ### Open source
 
+The code for the DynaTrace check is open source and available on GitHub at:
+[https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
 
 ## Troubleshooting
 
