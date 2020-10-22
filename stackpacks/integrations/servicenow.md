@@ -33,7 +33,7 @@ Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integ
 
 ### Configure
 
-To enable the ServiceNow check and begin collecting data from ServiceNow, the following configuration should be added to StackState Agent V2:
+To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.

@@ -29,7 +29,7 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** > **Integr
 
 ### Configure
 
-To enable the Dynatrace check and begin collecting data from Dynatrace, the following configuration should be added to StackState Agent V2:
+To enable the Dynatrace check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` to include details of your Dynatrace instance:
     - **url** - the URL of the Dynatrace instance.
@@ -78,7 +78,7 @@ The Dynatrace check does not retrieve any metrics data.
 
 #### Topology
 
-The Dynatrace check retrieves the following Smartscape topology data:
+The Dynatrace check retrieves the following Smartscape topology data from the last 72 hours:
 
 - Hosts
 - Applications
