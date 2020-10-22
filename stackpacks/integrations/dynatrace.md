@@ -22,7 +22,7 @@ To set up the Dynatrace integration:
 
 ### Install
 
-The Dynatrace StackPack requires the following parameters to collect the topology information :
+Install the Dynatrace StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
 
 * **Dynatrace URL** - the Dynatrace URL from which topology need to be collected. 
 * **Dynatrace Instance Name** - the user-defined name of the Dynatrace account shown in configurations such as views. 
