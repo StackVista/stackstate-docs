@@ -6,24 +6,7 @@ description: StackPack description
 
 ## Overview
 
-The Dynatrace StackPack is used to create a synchronization with Dynatrace instance collecting your smartscape topology. 
-Currently supported Component Types are : 
-* _Hosts_
-* _Applications_
-* _Processes_
-* _Process-Groups_
-* _Services_
-
-This StackPack gives you the possibility to filter the view with below key parameters which will have a default prefix value `dynatrace-`.
-* _ManagementZones_
-* _EntityID_
-* _Tags_
-* _MonitoringState_
-
-As an example, If you want to filter the view with `ManagementZones` then you will see the key as `dynatrace-managementZones:<value>` in the `label` filter 
-box. Same path can be followed with other parameters. 
-
-**Note** : Currently, we gather the Dynatrace Smartscape topology from the last 72 hours as per default to Dynatrace.
+The DynaTrace StackPack creates a synchronization between a Dynatrace instance and StackState, collecting. When the integration is enabled, DynaTrace Smartscape topology from the last 72 hours will be added to the StackState topology. 
 
 ## Setup
 
@@ -44,35 +27,32 @@ The Dynatrace StackPack requires the following parameters to collect the topolog
 
 ### Configure
 
-To enable the dynatrace check which collects the data from Dynatrace system:
+To enable the DynaTrace check and begin collecting data from DynaTrace, the following configuration should be added to StackState Agent V2:
 
-Edit the `conf.yaml` file in your agent `/etc/stackstate-agent/conf.d/dynatrace.d` directory, replacing `<url>` and `<token>` with the information from your Dynatrace instance. You can provide `domain` and `environment` in the instance config which will take precedence in the StackState view.
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` to include details of your DynaTrace instance:
+    - **url** - the URL of the DynaTrace instance.
+    - **token** - an API token with access to the required [DynaTrace API endopints](#rest-api-endpoints)
 
-```
-# Section used for global dynatrace check config
-init_config:
-
-instances:
-  # mandatory
-  - url: <url> # URL of the Dynatrace instance
-    token: <token> # API-Token to connect to dynatrace
-    # verify: True  # By default it's True
-    # cert: /path/to/cert.pem
-    # keyfile: /path/to/key.pem
-    # domain: "axa"
-    # environment: "axa"
-    # tags:
-    #   - foo:bar
-
-```
-
-To publish the configuration changes, restart the StackState Agent(s) using below command.
-
-```
-sudo /etc/init.d/stackstate-agent restart
-```
-
-Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+    ```
+    # Section used for global dynatrace check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url> # URL of the DynaTrace instance
+        token: <token> # API-Token to connect to DynaTrace
+        # verify: True  # By default its True
+        # cert: /path/to/cert.pem
+        # keyfile: /path/to/key.pem
+        # domain: <domain>
+        # environment: <environment>
+        # tags:
+        #   - foo:bar
+    
+    ```
+2. Optional: Provide a `domain` and `environment` in the `conf.yaml` file, this will take precedence in the StackState view.
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+4. Once the Agent has restarted, wait for data to be collected from DynaTrace and sent to StackState.
 
 ### Status
 
@@ -88,28 +68,29 @@ sudo stackstate-agent status
 
 #### Events
 
-
+The DynaTrace check does not retrieve any events data.
 
 #### Metrics
 
-
+The DynaTrace check does not retrieve any metrics data.
 
 #### Topology
 
+The DynaTrace check retrieves the following Smartscape topology data:
 
-
-| Data | Description |
-|:---|:---|
-|  |  |
-|  |  | 
+- Hosts
+- Applications
+- Processes
+- Process-Groups
+- Services
 
 #### Traces
 
-
+The DynaTrace check does not retrieve any traces data.
 
 ### REST API endpoints
 
-The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology**. See [DynaTrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions) for details. The API endpoints used in the StackState integration are listed below:
+The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology**, see [DynaTrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions). The API endpoints used in the StackState integration are listed below:
 
 * `/api/v1/entity/applications`
 * `/api/v1/entity/infrastructure/hosts`
@@ -117,8 +98,20 @@ The API Token configured in StackState Agent V2 must have the permission **Acces
 * `/api/v1/entity/infrastructure/process-groups`
 * `/api/v1/entity/services`
 
-**NOTE** 
+{% hint style="info" %}
 Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
+{% endhint %}
+
+### Additional filters in StackState views
+
+The DynaTrace integration enables additional keys to filter StackState views:
+
+* dynatrace-ManagementZones
+* dynatrace-EntityID
+* dynatrace-Tags
+* dynatrace-MonitoringState
+
+For example, if you want to filter the view with `ManagementZones` then you will see the key as `dynatrace-managementZones:<value>` in the `label` filter box.
 
 ### Open source
 
