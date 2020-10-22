@@ -66,6 +66,20 @@ sudo stackstate-agent status
 
 ## Integration details
 
+### REST API endpoints
+
+The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology**, see [Dynatrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions). The API endpoints used in the StackState integration are listed below:
+
+* `/api/v1/entity/applications`
+* `/api/v1/entity/infrastructure/hosts`
+* `/api/v1/entity/infrastructure/processes`
+* `/api/v1/entity/infrastructure/process-groups`
+* `/api/v1/entity/services`
+
+{% hint style="info" %}
+Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
+{% endhint %}
+
 ### Data retrieved
 
 #### Events
@@ -89,20 +103,6 @@ The Dynatrace check retrieves the following Smartscape topology data from the la
 #### Traces
 
 The Dynatrace check does not retrieve any traces data.
-
-### REST API endpoints
-
-The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology**, see [Dynatrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions). The API endpoints used in the StackState integration are listed below:
-
-* `/api/v1/entity/applications`
-* `/api/v1/entity/infrastructure/hosts`
-* `/api/v1/entity/infrastructure/processes`
-* `/api/v1/entity/infrastructure/process-groups`
-* `/api/v1/entity/services`
-
-{% hint style="info" %}
-Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
-{% endhint %}
 
 ### Filters for StackState views
 
