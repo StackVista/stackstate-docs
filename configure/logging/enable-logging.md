@@ -13,10 +13,10 @@ For debugging purposes, it may be helpful to enable logging for a StackState che
 The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
 
 1. Find the ID for the check, event handler or function you want to enable logging for:
-    - [Checks](#checks)
+    - [Checks](#checks-and-propagation-functions)
     - [Event handlers](#event-handlers)
     - [Component actions](#component-actions)
-    - [Propagation functions](#propagation-functions)
+    - [Propagation functions](#checks-and-propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
 2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the ID, for example:
@@ -113,56 +113,6 @@ Graph.query{it.V()
 {% endtab %}
 {% endtabs %}
 
-#### Propagation functions
-
-- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all propagation functions. 
-- Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
-
-{% tabs %}
-{% tab title="Query" %}
-```
-Graph.query{it.V()
-    .hasLabel("PropagationHealthFunction")
-    .project("name", "id", "type")
-    .by("name")
-    .by(__.id())
-    .by(__.label())
-}
-```
-{% endtab %}
-{% tab title="Example result" %}
-```
-[
-  {
-    "id": 36569776373133,
-    "name": "Quorum based cluster propagation",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 32271358816814,
-    "name": "Decreasing propagated health state",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 105550770677720,
-    "name": "Stop propagation",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 16688530732364,
-    "name": "Active/active failover",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 279133974122155,
-    "name": "Propagate when running",
-    "type": "PropagationHealthFunction"
-  }
-]
-```
-{% endtab %}
-{% endtabs %}
-
 #### View health state configuration functions
 
 - Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all view health state configuration functions. 
@@ -222,19 +172,22 @@ Graph.query{it.V()
 
 ### StackState UI
 
-#### Checks
+#### Checks and propagation functions
 
-Note that logging can be enabled for a specific check, not a check function. You can find the ID of a check in the StackState UI.
+You can find the ID of a check or propagation function in the StackState UI.
 
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
-3. Find the section for "checks"
-4. Find the check you want to set the logging level for and copy the value from the field `id`.
+3. Find the section for `"checks"` or `"propagation"`.
+4. Find the check or propagation functionyou want to set the logging level for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the check.
+- Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the check or propagation funtion.
 
+{% hint style="info" %}
+Note that logging can be enabled for a specific check, not a check function. 
+{% endhint %}
 
 ## See also
 
