@@ -174,7 +174,7 @@ Graph.query{it.V()
 
 #### Checks and propagation functions
 
-You can find the ID of a check or propagation function in the StackState UI.
+You can find the ID of check or propagation function for a specific component in the StackState UI.
 
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
