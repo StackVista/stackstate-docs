@@ -35,7 +35,7 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
-    - `log.info(variable.toString)`
+    - `log.info(variable.toString())`
     
 2. [Enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
