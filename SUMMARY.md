@@ -1,7 +1,8 @@
 # Table of contents
 
-* [docs update](gina/README.md)
+* [Welcome to the StackState Docs update!](gina/README.md)
 * [Welcome to the StackState Docs!](README.md)
+
 * [Getting Started](getting_started.md)
 * [Setup](setup/README.md)
   * [Requirements](setup/requirements.md)
