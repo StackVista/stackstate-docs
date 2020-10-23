@@ -179,7 +179,7 @@ You can find the ID of a check or propagation function in the StackState UI.
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
 3. Find the section for `"checks"` or `"propagation"`.
-4. Find the check or propagation functionyou want to set the logging level for and copy the value from the field `id`.
+4. Find the check or propagation function that you want to enable logging for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
