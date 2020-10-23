@@ -8,6 +8,10 @@ description: Enable logging for StackState checks, event handlers and functions
 
 For debugging purposes, it may be helpful to enable logging for a StackState check, event handler or function. You can use the StackState CLI to set a logging level and then track messages in the file `stackstate.log`.  Logging can be enabled for checks, event handlers, component actions, propagation functions and view state configuration functions. Note that it is not currently possible to enable logging for other function types.
 
+{% hint style="info" %}
+Note that logging will be enabled for an instance of a check, event handler or function, not for the function itself.
+{% endhint %}
+
 ## Enable logging for a check, event handler or function
 
 The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
@@ -82,8 +86,6 @@ Graph.query{it.V()
 {% endtabs %}
 
 #### Event handlers
-
-Note that logging can be enabled for a specific event handler, not an event handler function.
 
 - Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all event handlers.
 - Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
@@ -184,10 +186,6 @@ You can find the ID of check or propagation function for a specific component in
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
 - Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the check or propagation funtion.
-
-{% hint style="info" %}
-Note that logging can be enabled for a specific check, not a check function. 
-{% endhint %}
 
 ## See also
 
