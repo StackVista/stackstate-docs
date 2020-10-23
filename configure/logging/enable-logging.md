@@ -43,10 +43,10 @@ Logging statements can be added to StackState functions and monitored in the `st
 ## Find the ID for a check, event handler or function
 
 Retrieve the ID for a specific check, event handler or function:
-    - [Checks](#checks)
+    - [Checks](#checks-and-propagation-functions)
     - [Event handlers](#event-handlers)
     - [Component actions](#component-actions)
-    - [Propagation functions](#propagation-functions)
+    - [Propagation functions](#checks-and-propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
 ### Analytics environment
