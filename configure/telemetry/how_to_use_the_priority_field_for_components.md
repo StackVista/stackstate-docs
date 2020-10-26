@@ -21,7 +21,7 @@ Here you can access the Component properties, Health status, and Telemetry Strea
 
 Components can have multiple Telemetry streams. They are presented in a column, so not all of them are visible at first. Let's say that instead of `BytesReceivedRate`, you want to see `PacketsReceivedRate` right after the `basic_health` stream. Click on the kebab menu in the upper right corner of the `basic_health` stream and choose the **Edit** option:
 
-![Edit telemetry stream](/.gitbook/assets/telstream_edit%20%281%29.png)
+![Edit telemetry stream](/.gitbook/assets/v41_telstream_edit.png)
 
 ## 3. Set priorities for selected streams
 
