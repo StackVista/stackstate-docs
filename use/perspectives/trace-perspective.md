@@ -57,9 +57,9 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../.gitbook/assets/trace-inspection%20%281%29.png)
+![The spans \(components\) of a trace](/.gitbook/assets/v41_trace-inspection.png)
 
-![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
+![The topology for which you fetch traces](/.gitbook/assets/topology-traces.png)
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
 
@@ -88,4 +88,4 @@ When using the Traces Perspective in live mode, you are constantly polling for t
 
 To avoid this, time will effectively be "paused" when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click the blue ribbon on top or in the timeline itself to resume live mode:
 
-![Pausing time when inspecting a trace](../../.gitbook/assets/trace-inspection.png)
+![Pausing time when inspecting a trace](/.gitbook/assets/trace-inspection.png)
