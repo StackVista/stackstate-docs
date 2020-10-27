@@ -46,13 +46,13 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, add the 
         # verify: True  # By default its True
         # cert: /path/to/cert.pem
         # keyfile: /path/to/key.pem
-        # domain: <domain>
-        # environment: <environment>
+        # domain: <domain>  # default 'dynatrace'
+        # environment: <environment>    # default 'production'
         # tags:
         #   - foo:bar
     
     ```
-2. Optional: Provide a `domain` and `environment` in the `conf.yaml` file, this will take precedence in the StackState view.
+2. Optional: Add a `domain` and `environment` in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState (default `domain=dynatrace` and `environment=production`).
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
