@@ -1,4 +1,88 @@
+---
+description: 
+---
+
 # SCOM
+
+# StackPack name
+
+## Overview
+
+
+
+![Data flow](/.gitbook/assets/stackpack-scom.png)
+
+## Setup
+
+### Pre-requisites
+
+
+### Install
+
+
+
+### Configure
+
+
+
+### Status
+
+To check the status of the Dynatrace integration, run the status subcommand and look for SCOM under `Running Checks`:
+
+```
+sudo stackstate-agent status
+```
+
+## Integration details
+
+### REST API endpoints
+
+
+
+### Data retrieved
+
+#### Events
+
+
+
+#### Metrics
+
+
+
+#### Topology
+
+
+
+#### Traces
+
+
+
+### Open source
+
+
+## Troubleshooting
+
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=SCOM).
+
+## Uninstall
+
+To uninstall the SCOM StackPack and disable the SCOM check:
+
+1. Go to the StackState UI StackPacks > Integrations > SCOM screen and click UNINSTALL.
+    - All SCOM specific configuration will be removed from StackState.
+2. Remove or rename the Agent integration configuration file, for example:
+    ```
+    mv scom.d/conf.yaml scom.d/conf.yaml.bak
+    ```
+3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+## See also
+
+- [StackState Agent V2](/stackpacks/integrations/agent.md)
+
+
+
+===========
 
 ## What is the SCOM StackPack?
 
