@@ -1,6 +1,5 @@
 ---
-title: Splunk Topology Integration
-kind: documentation
+description: Build topology out of Splunk data
 ---
 
 # Splunk topology
@@ -16,7 +15,7 @@ In order for the StackState Agent to be able to convert the results to topology 
 | **id** | string | The unique identifier for this component. |
 | :--- | :--- | :--- |
 | **type** | string | The type of the component. |
-| **name** | string | The value will be used as component name. |
+| **name** | string | The value will be used as component name. Alternatively, use **match** to specify a regular expression to be matched against the saved searches in Splunk. |
 | **identifier.&lt;identifier name&gt;** | string | The value will be included as identifier of the component. |
 | **label.&lt;label name&gt;** | string | The value will appear as label of the component. |
 
@@ -135,6 +134,6 @@ The above authentication configuration are part of the [conf.d/splunk\_topology.
 
 There is an attribute `ignore_saved_search_errors` inside the `Splunk_topology.yaml` which is set to `true` by default. This flag makes the agent less strict and allows for saved searches which might be missing or fail when running. If this flag is set to `false` and one of the saved searches don't exist, it will produce an error.
 
-1. Edit your conf.d/Splunk\_topology.yaml file.
+1. Edit your `conf.d/Splunk_topology.yaml` file.
 2. Restart the agent
 

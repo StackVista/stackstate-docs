@@ -1,3 +1,7 @@
+---
+description: Retrieve metrics from Splunk
+---
+
 # Splunk metrics
 
 ## Overview
@@ -111,5 +115,5 @@ The above authentication configuration are part of the [conf.d/splunk\_metric.ya
 
 ## Configuration
 
-1. Edit your conf.d/splunk\_metric.yaml file.
+1. Edit your `conf.d/splunk_metric.yaml` file.
 2. Restart the agent
