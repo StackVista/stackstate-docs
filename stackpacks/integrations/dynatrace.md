@@ -2,7 +2,7 @@
 description: Collect Smartscape topology data from Dynatrace
 ---
 
-# StackPack name
+# Dynatrace
 
 ## Overview
 
