@@ -4,8 +4,6 @@ description:
 
 # SCOM
 
-# StackPack name
-
 ## Overview
 
 
