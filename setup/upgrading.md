@@ -1,6 +1,4 @@
 ---
-title: Upgrading
-kind: Documentation
 description: Performing major and minor upgrades of StackState.
 ---
 
@@ -60,17 +58,17 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
 
-* [Kubernetes backup](backup_restore/kubernetes_backup.md)
-* [Configuration backup](backup_restore/configuration.md)
-* [Manually created topology backup](backup_restore/manual_topology.md)
+* [Kubernetes backup](/setup/backup_restore/kubernetes_backup.md)
+* [Configuration backup](/setup/backup_restore/configuration.md)
+* [Manually created topology backup](/setup/backup_restore/manual_topology.md)
 {% endtab %}
 
 {% tab title="Linux" %}
 To create a backup on Linux, see:
 
-* [Linux backup](backup_restore/file.md)
-* [Configuration backup](backup_restore/configuration.md)
-* [Manually created topology backup](backup_restore/manual_topology.md)
+* [Linux backup](/setup/backup_restore/file.md)
+* [Configuration backup](/setup/backup_restore/configuration.md)
+* [Manually created topology backup](/setup/backup_restore/manual_topology.md)
 {% endtab %}
 {% endtabs %}
 
@@ -92,7 +90,7 @@ Find instructions to upgrade a StackState Kubernetes or Linux setup below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-For upgrading, the same command can be used as for the [first time Kubernetes installation](kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+For upgrading, the same command can be used as for the [first time Kubernetes installation](/setup/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -116,6 +114,12 @@ See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstal
 Once StackState has been upgraded and started, verify that the new installation of StackState is reachable and that the application is running.
 
 ## Version-specific upgrade instructions
+
+### Upgrade to 4.2.0
+
+* Changes to the `processmanager.conf` and `processmanager/kafka-topics.conf` files must be manually processed if you are using a customised or generated configuration:
+  * Added new argument `topology-events` to the section `processes.kafkaToElasticsearch` of file `processmanager.conf`.
+  * Added new section `kafka.topics.sts_topology_events` to file `processmanager/kafka-topics.conf`.
 
 ### Upgrade to 4.1.0
 

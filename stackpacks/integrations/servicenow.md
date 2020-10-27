@@ -17,7 +17,7 @@ The ServiceNow StackPack allows near real time synchronization between ServiceNo
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
 
 To set up the StackState ServiceNow integration, you need to have:
 
@@ -29,7 +29,7 @@ To set up the StackState ServiceNow integration, you need to have:
 
 Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
 
-- **Instance ID**: the ServiceNow instance ID from which topology will be collected. For example, if the ServiceNow Instance URL is `https://dev102222.service-now.com`, then `dev102222` is the instance ID.
+- **ServiceNow Instance ID**: the ServiceNow instance ID from which topology will be collected. For example, if the ServiceNow Instance URL is `https://dev102222.service-now.com`, then the ServiceNow Instance ID will be `dev102222`.
 
 ### Configure
 
@@ -147,7 +147,7 @@ The ServiceNow check does not retrieve any traces data.
 
 ### REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use HTTPS protocol for communication.
+The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
 | Table Name | REST API Endpoint | 
 |:---|:---|
@@ -161,7 +161,7 @@ Refer to the ServiceNow product documentation for details on [how to configure a
 
 ### Open source
 
-The code for the ServiceNow check is open source and available on GitHub at:
+The code for the StackState ServiceNow check is open source and available on GitHub at:
 [https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 
 ## Troubleshooting

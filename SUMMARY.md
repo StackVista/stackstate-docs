@@ -127,7 +127,9 @@
   * [Set up a security backend for Windows](configure/security/how_to_set_up_a_security_backend_for_windows.md)
 * [View state configuration](configure/view_state_configuration.md)
 * [Identifiers](configure/identifiers.md)
-* [Log files](setup/stackstate_log_files.md)
+* [Logging](configure/logging/README.md)
+    * [Enable logging](configure/logging/enable-logging.md)
+    * [StackState log files](configure/logging/stackstate_log_files.md)
 
 ## 📖 Develop
 
