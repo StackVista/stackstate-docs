@@ -146,5 +146,6 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 ## See also
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md)
+- [StackState Agent integrations - Dynatrace (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
 - [How to generate a Dynatrace API token (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 - [Permissions for Dynatrace API tokens (dynatrace.com)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
