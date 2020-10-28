@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState Docs!](README.md)
+* [Welcome to the StackState Docs!](README_2.md)
 
 ## 🚀 Setup
 
