@@ -159,6 +159,16 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
 
+### ServiceNow views in StackState
+
+When the ServiceNow integration is enabled, the following ServiceNow specific views are available in StackState:
+
+- ServiceNow Applications
+- ServiceNow Business Processes
+- ServiceNow Discovered
+- ServiceNow Infrastructure & Network
+- ServiceNow Machines & Load balancers
+
 ### Open source
 
 The code for the StackState ServiceNow check is open source and available on GitHub at:

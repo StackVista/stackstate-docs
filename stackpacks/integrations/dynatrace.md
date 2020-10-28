@@ -96,13 +96,12 @@ The Dynatrace check does not retrieve any metrics data.
 
 #### Topology
 
-The Dynatrace check retrieves the following Smartscape topology data from the last 72 hours:
+The Dynatrace check retrieves the following topology data from Dynatrace:
 
-- Applications
-- Hosts
-- Processes
-- Process-Groups
-- Services
+| Data | Description |
+|:---|:---|
+| Components | Smartscape Applications, Hosts, Processes, Process-Groups and Services from the last 72 hours. |
+| Relations |  | 
 
 #### Traces
 
@@ -119,7 +118,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Add a Dynatrace topology filter](/.gitbook/assets/v41_dynatrace-filter.png)
+![Use a Dynatrace topology filter](/.gitbook/assets/v41_dynatrace-filter.png)
 
 ### Open source
 
