@@ -109,7 +109,7 @@ StackState will now be available in your browser at `https://localhost:8080`. Lo
 
 Next steps are
 
-* Configure [ingress](/setup/kubernetes-install/ingress.md)
+* Configure [ingress](/setup/kubernetes_install/ingress.md)
 * Install a [StackPack](/stackpacks/) or two
 * Give your [co-workers access](/setup/authentication.md).
 

@@ -66,10 +66,10 @@ sts graph import < file_name
 
 The CLI makes it easy to send test data to StackState.
 
-* [Send anomaly data](cli.md#sts-anomaly-send)
-* [Send events data](cli.md#sts-events-send)
-* [Send metrics data](cli.md#sts-metrics-send)
-* [Send topology data](cli.md#sts-topology-send)
+* [Send anomaly data](#sts-anomaly-send)
+* [Send events data](#sts-events-send)
+* [Send metrics data](#sts-metrics-send)
+* [Send topology data](#sts-topology-send)
 
 
 ## sts anomaly send
@@ -165,9 +165,9 @@ sts topic show <topic>
 
 The StackState CLI can be used to manage the StackPacks in your StackState instance.
 
-* [Install a StackPack](cli.md#install-a-stackpack)
-* [Upgrade a StackPack](cli.md#upgrade-a-stackpack)
-* [Uninstall a StackPack](cli.md#uninstall-a-stackpack)
+* [Install a StackPack](#install-a-stackpack)
+* [Upgrade a StackPack](#upgrade-a-stackpack)
+* [Uninstall a StackPack](#uninstall-a-stackpack)
 
 ## Install a StackPack
 
