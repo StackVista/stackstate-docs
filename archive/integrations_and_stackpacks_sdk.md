@@ -16,7 +16,7 @@ In addition to pushing data, telemetry can also be pulled by StackState. This is
 
 StackState does not automatically process incoming data into the 4T data model, but must be configured to do so. Without configuration any incoming data will just sit in StackState's topics. Decoupling between the data format and its representation in the 4T data model allows for greater flexibility in fine-tuning the 4T data model for specific situations.
 
-For topology integrations use the [Custom Synchronization StackPack](../stackpacks/integrations/customsync.md) to test the topology in StackState. Also, take care that your topology is able to merge with other topologies \(see section below\).
+For topology integrations use the [Custom Synchronization StackPack](/stackpacks/integrations/customsync.md) to test the topology in StackState. Also, take care that your topology is able to merge with other topologies \(see section below\).
 
 ### 3. Create a StackPack to manage the installation and lifecycle of the integration
 

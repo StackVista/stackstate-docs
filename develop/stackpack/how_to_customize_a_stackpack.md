@@ -94,11 +94,11 @@ If the user does not provide any value to any of the input fields defined in the
 
 ## Customize Components and Relations
 
-If you have not completed this step during [configuration of the elements created by Custom Synchronization](../custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md) StackPack, then you need to configure Components and Relations with icons now.
+If you have not completed this step during [configuration of the elements created by Custom Synchronization](/develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md) StackPack, then you need to configure Components and Relations with icons now.
 
 ### Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon - you can change it to reflect the context of your environment; Relation types are here to describe relations between components. Read more about [Component and Relation types](../../concepts/components_and_relations.md).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon - you can change it to reflect the context of your environment; Relation types are here to describe relations between components. Read more about [Component and Relation types](/concepts/components_and_relations.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section below. Auto-generated components types will be created without an icon.
 
@@ -106,7 +106,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 The `Custom Synchronization` StackPack installed as an integration prerequisite, creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](../../concepts/component_and_relation_templates.md).
+You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](/concepts/component_and_relation_templates.md).
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 

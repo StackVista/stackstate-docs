@@ -19,7 +19,7 @@ The ServiceNow StackPack allows near real time synchronization between ServiceNo
 
 ### Prerequisites
 
-To set up the StackState ServiceNow integration, you will need to have:
+To set up the StackState ServiceNow integration, you need to have:
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
 - A running ServiceNow instance.
