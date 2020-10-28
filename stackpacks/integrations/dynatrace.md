@@ -109,7 +109,7 @@ The Dynatrace check retrieves the following Smartscape topology data from the la
 
 The Dynatrace check does not retrieve any traces data.
 
-### Filters for StackState views
+### Dynatrace filters for StackState views
 
 When the Dynatrace integration is enabled, the following additional keys can be used to filter views in the StackState UI:
 
@@ -118,7 +118,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 * dynatrace-Tags
 * dynatrace-MonitoringState
 
-For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **label** filter box.
+For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
 ![Add a Dynatrace topology filter](/.gitbook/assets/v41_dynatrace-filter.png)
 
