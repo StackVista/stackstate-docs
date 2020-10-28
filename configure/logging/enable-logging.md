@@ -12,11 +12,15 @@ For debugging purposes, it may be helpful to enable logging for a StackState che
 
 The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
 
+{% hint style="info" %}
+Note that logging will be enabled for an instance of a check, event handler or function, not for the function itself.
+{% endhint %}
+
 1. Find the ID for the check, event handler or function you want to enable logging for:
-    - [Checks](#checks)
+    - [Checks](#checks-and-propagation-functions)
     - [Event handlers](#event-handlers)
     - [Component actions](#component-actions)
-    - [Propagation functions](#propagation-functions)
+    - [Propagation functions](#checks-and-propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
 2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the ID, for example:
@@ -35,7 +39,7 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
-    - `log.info(variable.toString)`
+    - `log.info(variable.toString())`
     
 2. [Enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
@@ -43,10 +47,10 @@ Logging statements can be added to StackState functions and monitored in the `st
 ## Find the ID for a check, event handler or function
 
 Retrieve the ID for a specific check, event handler or function:
-    - [Checks](#checks)
+    - [Checks](#checks-and-propagation-functions)
     - [Event handlers](#event-handlers)
     - [Component actions](#component-actions)
-    - [Propagation functions](#propagation-functions)
+    - [Propagation functions](#checks-and-propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
 ### Analytics environment
@@ -83,8 +87,6 @@ Graph.query{it.V()
 
 #### Event handlers
 
-Note that logging can be enabled for a specific event handler, not an event handler function.
-
 - Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all event handlers.
 - Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
 
@@ -107,56 +109,6 @@ Graph.query{it.V()
     "id": 275935840353084,
     "name": "test",
     "type": "EventHandler"
-  }
-]
-```
-{% endtab %}
-{% endtabs %}
-
-#### Propagation functions
-
-- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all propagation functions. 
-- Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
-
-{% tabs %}
-{% tab title="Query" %}
-```
-Graph.query{it.V()
-    .hasLabel("PropagationHealthFunction")
-    .project("name", "id", "type")
-    .by("name")
-    .by(__.id())
-    .by(__.label())
-}
-```
-{% endtab %}
-{% tab title="Example result" %}
-```
-[
-  {
-    "id": 36569776373133,
-    "name": "Quorum based cluster propagation",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 32271358816814,
-    "name": "Decreasing propagated health state",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 105550770677720,
-    "name": "Stop propagation",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 16688530732364,
-    "name": "Active/active failover",
-    "type": "PropagationHealthFunction"
-  },
-  {
-    "id": 279133974122155,
-    "name": "Propagate when running",
-    "type": "PropagationHealthFunction"
   }
 ]
 ```
@@ -222,19 +174,18 @@ Graph.query{it.V()
 
 ### StackState UI
 
-#### Checks
+#### Checks and propagation functions
 
-Note that logging can be enabled for a specific check, not a check function. You can find the ID of a check in the StackState UI.
+You can find the check or propagation ID for a specific component in the StackState UI.
 
 1. Click on a component to open the component details.
 2. Click on **...** and select **Show JSON**.
-3. Find the section for "checks"
-4. Find the check you want to set the logging level for and copy the value from the field `id`.
+3. Find the section for `"checks"` or `"propagation"`.
+4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the check.
-
+- Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the check or propagation funtion.
 
 ## See also
 
