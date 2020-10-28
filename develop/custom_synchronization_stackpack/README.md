@@ -14,7 +14,7 @@ The Custom Synchronization StackPack is meant for integrations that include a to
 
 ## Getting started with the Custom Synchronization StackPack
 
-The easiest way to get started is to follow the [push-integration tutorial](/deveop/tutorials/push_integration_tutorial.md).
+The easiest way to get started is to follow the [push-integration tutorial](/develop/tutorials/push_integration_tutorial.md).
 
 ## How to use the Custom Synchronization StackPack
 
