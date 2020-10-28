@@ -15,6 +15,8 @@ description: StackState version 4.1
 
 {% page-ref page="/stackpacks/integrations/README.md" %}
 
+{% page-ref page="/use/alerting.md" %}
+
 
 ## Can't find what you are looking for?
 
