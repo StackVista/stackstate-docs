@@ -52,7 +52,7 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, add the 
         #   - foo:bar
     
     ```
-2. Optional: Add a `domain` and `environment` in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState (default `domain=dynatrace` and `environment=production`).
+2. Optional: Add a **domain** and **environment** in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState (default domain=dynatrace and environment=production).
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
@@ -77,7 +77,7 @@ The API Token configured in StackState Agent V2 must have the permission **Acces
 * `/api/v1/entity/services`
 
 {% hint style="info" %}
-Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
+Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token).
 {% endhint %}
 
 ### Data retrieved
@@ -106,14 +106,16 @@ The Dynatrace check does not retrieve any traces data.
 
 ### Filters for StackState views
 
-The Dynatrace integration enables additional keys to filter StackState views:
+When the Dynatrace integration is enabled, the following additional keys can be used to filter views in the StackState UI:
 
 * dynatrace-ManagementZones
 * dynatrace-EntityID
 * dynatrace-Tags
 * dynatrace-MonitoringState
 
-For example, to filter a view with `ManagementZones`, add the key `dynatrace-managementZones:<value>` in the `label` filter box.
+For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **label** filter box.
+
+![Add a Dynatrace topology filter](/.gitbook/assets/v41_dynatrace-filter.png)
 
 ### Open source
 
