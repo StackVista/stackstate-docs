@@ -11,11 +11,15 @@ description: StackState version 4.1
 
 ### Setup and configuration
 
+| | |
+|:---|:---|
+| {% page-ref page="/stackpacks/integrations/README.md" %} | {% page-ref page="/use/alerting.md" %} |
+
 {% page-ref page="/setup/kubernetes_install/README.md" %}
 
-{% page-ref page="/stackpacks/integrations/README.md" %}
 
-{% page-ref page="/use/alerting.md" %}
+
+
 
 ### Developer
 
