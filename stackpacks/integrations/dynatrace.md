@@ -10,6 +10,11 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
 
 ![Data flow](/.gitbook/assets/stackpack-dynatrace.png)
 
+- Agent V2 connects to the configured [Dynatrace API](#rest-api-endpoints).
+- Smartscape topology data from the last 72 hours is retrieved from Dynatrace.
+- Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
+- StackState translates incoming Dynatrace data into topology components and relations. 
+
 ## Setup
 
 ### Pre-requisites
@@ -94,8 +99,8 @@ The Dynatrace check does not retrieve any metrics data.
 
 The Dynatrace check retrieves the following Smartscape topology data from the last 72 hours:
 
-- Hosts
 - Applications
+- Hosts
 - Processes
 - Process-Groups
 - Services
