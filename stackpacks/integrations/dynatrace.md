@@ -6,7 +6,7 @@ description: Collect Smartscape topology data from Dynatrace
 
 ## Overview
 
-The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState, collecting. When the integration is enabled, Dynatrace Smartscape topology from the last 72 hours will be added to the StackState topology. 
+The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology from the last 72 hours will be added to the topology in StackState. 
 
 ![Data flow](/.gitbook/assets/stackpack-dynatrace.png)
 
@@ -28,7 +28,7 @@ To set up the Dynatrace integration you will need to have:
 
 Install the Dynatrace StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
 
-* **Dynatrace URL** - the Dynatrace URL from which topology need to be collected. 
+* **Dynatrace URL** - the Dynatrace URL from which topology will be collected. 
 * **Dynatrace Instance Name** - the user-defined name of the Dynatrace account shown in configurations such as views. 
 
 ### Configure
