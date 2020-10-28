@@ -15,7 +15,7 @@ description: StackState version 4.1
 
 {% page-ref page="/stackpacks/integrations/README.md" %}
 
-{% page-ref page="/ues/alerting.md" %}
+{% page-ref page="/use/alerting.md" %}
 
 ### Developer
 
