@@ -37,7 +37,7 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, add the 
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` to include details of your Dynatrace instance:
     - **url** - the URL of the Dynatrace instance.
-    - **token** - an API token with access to the required [Dynatrace API endopints](#rest-api-endpoints).
+    - **token** - an API token with access to the required [Dynatrace API endpoints](#rest-api-endpoints).
 
     ```
     # Section used for global dynatrace check config
@@ -72,7 +72,7 @@ sudo stackstate-agent status
 
 ### REST API endpoints
 
-The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology**, see [Dynatrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions). The API endpoints used in the StackState integration are listed below:
+The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology** (`DataExport`), see [Dynatrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions). The API endpoints used in the StackState integration are listed below:
 
 * `/api/v1/entity/applications`
 * `/api/v1/entity/infrastructure/hosts`
