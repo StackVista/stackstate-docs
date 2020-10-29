@@ -10,6 +10,8 @@ The SCOM StackPack is used to create a near real time synchronisation with your 
 
 ![Data flow](/.gitbook/assets/stackpack-scom_2.png)
 
+{% tabs %}
+{% tab title="API integration" %}
 ### API integration
 
 The StackState SCOM API integration sends requests to the SCOM API to retrieve topology data and events.
@@ -26,7 +28,8 @@ Pros:
 Cons:
 * It can take some time to retrieve all configured topology details. 
 * The SCOM system may place a limit on the number of allowed API requests.
-
+{% endtab %}
+{% tab title="PowerShell integration (BETA)" %}
 ### PowerShell integration (BETA)
 
 The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM box to retrieve topology data and events.
@@ -43,6 +46,8 @@ Pros:
 Cons:
 * All data is always retrieved. It is not currently possible to filter the classes collected.
 * StackState Agent V2 must be installed on the same box as SCOM.
+{% endtab %}
+{% endtabs %}
 
 ## Setup
 
