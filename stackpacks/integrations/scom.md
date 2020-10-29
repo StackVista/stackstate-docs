@@ -8,7 +8,7 @@ description:
 
 
 
-![Data flow](/.gitbook/assets/stackpack-scom.png)
+![Data flow](/.gitbook/assets/stackpack-scom1.png)
 
 ## Setup
 
