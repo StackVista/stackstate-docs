@@ -6,6 +6,7 @@ description:
 
 ## Overview
 
+The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. 
 
 
 ![Data flow](/.gitbook/assets/stackpack-scom1.png)
