@@ -117,7 +117,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
-* Changes to configuration files must be manually processed if you are using a customised or generated configuration:
+* The following changes to configuration files must be manually processed if you are using a customised or generated configuration:
   * `etc/stackstate-receiver/application.conf`:
     * The `stackstate` namespace has been renamed to `stackstate.receiver`.
     * The configuration key `apiKey` has been renamed to `apiKeys`.
