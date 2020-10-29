@@ -70,6 +70,7 @@
   * [Cloudera](stackpacks/integrations/cloudera.md)
   * [Custom Synchronization](stackpacks/integrations/customsync.md)
   * [DotNet APM](stackpacks/integrations/dotnet-apm.md)
+  * [Dynatrace](stackpacks/integrations/dynatrace.md)
   * [Google Analytics](stackpacks/integrations/google_analytics.md)
   * [Humio](stackpacks/integrations/humio.md)
   * [Java APM](stackpacks/integrations/java-apm.md)
