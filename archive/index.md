@@ -1,13 +1,9 @@
 ---
-description: Obtaining StackState software.
+title: Download
+kind: Documentation
 ---
 
-# Download
-
-{% hint style="info" %}
-StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/kubernetes_install/).
-{% endhint %}
+# index
 
 StackState and related software are distributed through our download website. The software distribution website is located at [download.stackstate.com](https://download.stackstate.com).
 

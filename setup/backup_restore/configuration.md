@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the [StackState CLI](../cli.md) or using curl commands:
+An export of the StackState configuration can be obtained from the [StackState CLI](/setup/cli.md) or using curl commands:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
