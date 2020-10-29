@@ -189,5 +189,5 @@ You can find the check or propagation ID for a specific component in the StackSt
 
 ## See also
 
-- [StackState CLI](/setup/cli.md)
-- [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts)
+- [StackState CLI](/setup/cli)
+- [StackState UI Analytics environment](/develop/scripting#running-scripts)
