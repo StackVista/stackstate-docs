@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/kubernetes_install/).
 {% endhint %}
 
 StackState makes heavy use of Websockets, so when setting up a reverse proxy to make StackState available on, for example, port 80 or 443 \(with TLS\) you will also need to proxy Websocket requests. An example setup for Nginx for this looks like this \(proxying port 80 to StackState running on localhost port 7070\):

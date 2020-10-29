@@ -204,7 +204,7 @@ The StackState configuration is stored in StackState's graph database in so-call
 sts graph list-types
 ```
 
-You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](../develop/sts_template_language_intro/) format.
+You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
 
 For example:
 
