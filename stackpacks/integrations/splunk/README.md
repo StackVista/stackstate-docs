@@ -18,7 +18,7 @@ The Splunk StackPack supports three different types of information:
 * retrieve **events** from Splunk
 * retrieve **metrics** from Splunk
 
-StackState provides ability to call Splunk saved searches from the StackState Splunk plugin. This approach replaces index lookup by sa2ved search, and takes data from a Splunk saved search instead.
+StackState provides ability to call Splunk saved searches from the StackState Splunk plugin. This approach replaces index lookup by saved search, and takes data from a Splunk saved search instead.
 
 ### Optional Prerequisites:
 

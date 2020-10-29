@@ -15,7 +15,7 @@ In order for the StackState Agent to be able to convert the results to topology 
 | **id** | string | The unique identifier for this component. |
 | :--- | :--- | :--- |
 | **type** | string | The type of the component. |
-| **name** | string | The value will be used as component name. Alternatively, use **match** to specify a regular expression to be matched against the saved searches in Splunk. |
+| **name** | string | The value will be used as component name.|
 | **identifier.&lt;identifier name&gt;** | string | The value will be included as identifier of the component. |
 | **label.&lt;label name&gt;** | string | The value will appear as label of the component. |
 
