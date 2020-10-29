@@ -9,7 +9,7 @@ Topology Sources are configured in Sts Sources under Topology Sources in the Set
 
 The data source creation screen looks like this:
 
-![Add a data source screen](../.gitbook/assets/create-data-source-screen.png)
+![Add a data source screen](/.gitbook/assets/create-data-source-screen.png)
 
 The screen contains the following fields:
 

@@ -12,7 +12,7 @@ Before configuring StackState to send out alerts it is helpful to have a general
 
 All telemetry in StackState flows through either metric or event streams that are part of to the components in the topology. Checks determine the health state of these components based on their telemetry streams. All health states, like the check health state, component health state and view health state are based on the health states determined by checks. All state changes generate events. The different types of events can trigger event handlers that can send out an alert or trigger some type of automation.
 
-![Events Perspective](../.gitbook/assets/event-perspective.png)
+![Events Perspective](/.gitbook/assets/event-perspective.png)
 
 The entire flow of events that lead to an alert follow this path:
 
@@ -62,7 +62,7 @@ You can use StackState event handlers to send out alerts whenever there is a cha
 
 Event handlers can be added from the StackState UI Events Perspective.
 
-![Add an event handler](../.gitbook/assets/event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
 1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
 2. Select **Events Settings** on the left.
