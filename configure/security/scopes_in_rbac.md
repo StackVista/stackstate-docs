@@ -50,7 +50,9 @@ Query with the prefix for this view is:
 'domain = "Customer2"'
 ```
 
-gets this topology: ![Limited view](/.gitbook/assets/esx2perm.png)
+gets this topology: 
+
+![Limited view](/.gitbook/assets/esx2perm.png)
 
 Query with the prefix for this view is:
 
@@ -72,6 +74,6 @@ Query with prefix for this user is then:
 '(domain = "Customer1" OR domain = "Customer2") AND (layer = "Infrastructure" AND domain IN ("Customer1", "Customer2"))'
 ```
 
-Which results in the following view: 
+Which results in a following view: 
 
 ![Full view permissions](/.gitbook/assets/v41_allperm.png)

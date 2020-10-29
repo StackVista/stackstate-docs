@@ -4,9 +4,9 @@ description: Track changes in your IT landscape.
 
 # Events Perspective
 
-The Events Perspective shows events and changes for the components in your [view](../views.md).
+The Events Perspective shows events and changes for the components in your [view](/use/views.md).
 
-![The Events Perspective](../../.gitbook/assets/event-perspective.png)
+![The Events Perspective](/.gitbook/assets/event-perspective.png)
 
 ## Events
 
@@ -37,5 +37,5 @@ When opening the Events Perspective, the events shown are based on the currently
 
 ## Event handlers
 
-The Events Perspective allows the creation of [event handlers](../alerting.md) to act on events in the view.
+The Events Perspective allows the creation of [event handlers](/use/alerting.md) to act on events in the view.
 

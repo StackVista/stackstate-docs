@@ -66,7 +66,7 @@ Press `ctrl-c` to stop the agent.
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/example-topology.png)
+![](/.gitbook/assets/example-topology.png)
 
 Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Click on the group to access the individual components that make up the group.
 
@@ -84,7 +84,7 @@ In our sample check, this code defines the extra identifiers:
     ...
 ```
 
-Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/identifiers.md).
+Our documentation contains a description of the [identifiers used by various StackPacks](/configure/identifiers.md).
 
 ## Adding a custom telemetry stream to a component
 
@@ -102,7 +102,7 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](../../.gitbook/assets/example-telemetry-stream.png)
+![](/.gitbook/assets/example-telemetry-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
@@ -161,7 +161,7 @@ The end result should look something like this:
 }],
 ```
 
-![](../../.gitbook/assets/example-template-editor.png)
+![](/.gitbook/assets/example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 
@@ -194,7 +194,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/example-check-function.png)
+![](/.gitbook/assets/example-check-function.png)
 
 Finally save the check function.
 
@@ -215,7 +215,7 @@ In the Stream Creation screen, select the **Event stream** type at the top. Then
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/example-event-stream-editor.png)
+![](/.gitbook/assets/example-event-stream-editor.png)
 
 You should already see the test events you sent. Go ahead and save the stream.
 
@@ -231,7 +231,7 @@ You can change the `alert_level` field in the `custom-event.json` file to try ou
 
 When the component turns `CRITICAL`, this is what you should see:
 
-![](../../.gitbook/assets/example-health-state.png)
+![](/.gitbook/assets/example-health-state.png)
 
 ## Cleaning your StackState instance
 

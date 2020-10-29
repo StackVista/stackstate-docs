@@ -35,5 +35,5 @@ StackState extends on that concept and allows to include different types of cont
 
 ## Component and Relation templates
 
-Please find more information on the [Component and Relation templates page.](../../concepts/components_and_relations.md)
+Please find more information on the [Component and Relation templates page.](/concepts/components_and_relations.md)
 

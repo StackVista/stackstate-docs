@@ -11,7 +11,7 @@ Telemetry Perspective primarily provides the Telemetry overview for components s
 
 On the top ribbon there is a dropdown menu that informs how many components are selected for the Telemetry Perspective \(1\). Unfold it to see all components selected for the current Telemetry Perspective:
 
-![Component Selector](../.gitbook/assets/componentselector.png)
+![Component Selector](/.gitbook/assets/componentselector.png)
 
 ## 2. Remove unnecessary components
 
