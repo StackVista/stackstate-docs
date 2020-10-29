@@ -107,11 +107,11 @@ stackstate-agent:
       - "/sys/kernel/debug:/sys/kernel/debug"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: <url to /receiver/stsAgent>
-      STS_PROCESS_AGENT_URL: <url to /receiver/stsAgent>
+      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
       STS_PROCESS_AGENT_ENABLED: "true"
       STS_NETWORK_TRACING_ENABLED: "true"
-      STS_APM_URL: <url to /receiver/stsAgent>
+      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
       STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
