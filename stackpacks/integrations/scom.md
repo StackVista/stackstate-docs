@@ -9,12 +9,19 @@ description:
 The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. 
 
 
-![Data flow](/.gitbook/assets/stackpack-scom1.png)
+![Data flow](/.gitbook/assets/stackpack-scom_2.png)
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
 
+To set up the StackState SCOM integration, you need to have:
+
+* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed:
+    - **API integration** - installed on any machine that can connect to both SCOM and StackState.
+    - **PowerShell integration (BETA)** - installed on the same machine running SCOM.
+* A running SCOM instance.
+* API integration only: A SCOM user with the role **Operations Manager Read-Only Operators**.
 
 ### Install
 
