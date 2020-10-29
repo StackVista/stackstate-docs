@@ -6,40 +6,41 @@ description:
 
 ## Overview
 
-The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run with either an API connection or using PowerShell scripts (BETA).
-
-- **API integration**: Sends requests to the SCOM API to retrieve topology data.
-- **PowerShell integration (BETA)**: Runs PowerShell scripts on the box running SCOM to retrieve topology data.
+The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run with either an [API connection](#api-integration) or using [PowerShell scripts \(BETA\)](#powershell-integration-beta).
 
 ![Data flow](/.gitbook/assets/stackpack-scom_2.png)
 
 ### API integration
+
+The StackState SCOM API integration sends requests to the SCOM API to retrieve topology data and events.
 
 - Agent V2 connects to the configured [SCOM API](#rest-api-endpoints).
 - Topology data and events for the configured classes are retrieved from SCOM.
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
-- Pros:
-    * Only the data for the configured classes is collected from SCOM. This results in a clean topology in StackState.
-    * StackState Agent V2 can be installed on any box that can connect to both SCOM and StackState.
-- Cons:
-    * It can take some time to retrieve all configured topology details. 
-    * The SCOM system may place a limit on the number of allowed API requests.
+Pros:
+* Only the data for the configured classes is collected from SCOM. This results in a clean topology in StackState.
+* StackState Agent V2 can be installed on any box that can connect to both SCOM and StackState.
+Cons:
+* It can take some time to retrieve all configured topology details. 
+* The SCOM system may place a limit on the number of allowed API requests.
 
-### PowerShell integration
+### PowerShell integration (BETA)
+
+The StackState SCOM PowerShell integration runs PowerShell scripts on the box running SCOM to retrieve topology data and events.
 
 - PowerShell scripts in Agent V2 collect topology data and events from SCOM..
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
-- Pros:
-    * Retrieves data quickly.
-    * Does not put pressure on the SCOM system.
-    * No limit to the size of topology retrieved.
-- Cons:
-    * All data is always retrieved. It is not currently possible to collect data for specific classes.
-    * StackState Agent V2 must be installed on the same box as SCOM.
+Pros:
+* Retrieves data quickly.
+* Does not put pressure on the SCOM system.
+* No limit to the size of topology retrieved.
+Cons:
+* All data is always retrieved. It is not currently possible to collect data for specific classes.
+* StackState Agent V2 must be installed on the same box as SCOM.
 
 ## Setup
 
