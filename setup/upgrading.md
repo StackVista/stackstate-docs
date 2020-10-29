@@ -120,6 +120,8 @@ Once StackState has been upgraded and started, verify that the new installation 
 * Changes to the `processmanager.conf` and `processmanager/kafka-topics.conf` files must be manually processed if you are using a customised or generated configuration:
   * Added new argument `topology-events` to the section `processes.kafkaToElasticsearch` of file `processmanager.conf`.
   * Added new section `kafka.topics.sts_topology_events` to file `processmanager/kafka-topics.conf`.
+* The etc/stackstate-receiver/application.conf has been changed to have the config in the `stackstate.receiver` namespace. Custom configurations should be adapted.
+  * The apiKey configuration key has been changed to apiKeys
 
 ### Upgrade to 4.1.0
 
