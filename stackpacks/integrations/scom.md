@@ -17,16 +17,6 @@ The SCOM StackPack is used to create a near real time synchronisation with your 
 
 ### Prerequisites
 
-To set up the StackState SCOM integration, you need to have:
-
-* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed:
-    - **API integration** - installed on any machine that can connect to both SCOM and StackState.
-    - **PowerShell integration (BETA)** - installed on the same machine running SCOM.
-* A running SCOM instance.
-* API integration only: A SCOM user with the role **Operations Manager Read-Only Operators**.
-
-### Prerequisites2
-
 #### API integration
 
 * [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on any machine that can connect to both SCOM and StackState.
@@ -37,24 +27,6 @@ To set up the StackState SCOM integration, you need to have:
 
 * [StackState Agent V2](/stackpacks/integrations/agent.md) must be on the same machine running SCOM.
 * A running SCOM instance.
-
-### Prerequisites3
-
-- **API integration**
-    * [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on any machine that can connect to both SCOM and StackState.
-    * A running SCOM instance.
-    * A SCOM user with the role **Operations Manager Read-Only Operators**.
-- **PowerShell integration (BETA)**
-    * [StackState Agent V2](/stackpacks/integrations/agent.md) must be on the same machine running SCOM.
-    * A running SCOM instance.
-
-### Prerequisites4
-
-| Prerequisite| API<br />integration | PowerShell<br />integration<br />(BETA) | 
-|:---|:---:|:---:|
-| [StackState Agent V2](/stackpacks/integrations/agent.md) installed | ✅<br />on any machine that can connect to both SCOM and StackState | ✅<br /on the same machine running SCOM |
-| A running SCOM instance | ✅ | ✅ | 
-| A SCOM user | ✅<br /with the role **Operations Manager Read-Only Operators** | - | 
 
 
 ### Install
