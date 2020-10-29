@@ -122,7 +122,7 @@ Once StackState has been upgraded and started, verify that the new installation 
     * The `stackstate` namespace has been renamed to `stackstate.receiver`.
     * The configuration key `apiKey` has been renamed to `apiKeys`.
   * `processmanager.conf`:
-    * Added new argument `topology-events` to the section `processes.kafkaToElasticsearch`
+    * Added new argument `topology-events` to the section `processes.kafkaToElasticsearch`.
   * `processmanager/kafka-topics.conf` :
     * Added new section `kafka.topics.sts_topology_events` to file `processmanager/kafka-topics.conf`.
 
