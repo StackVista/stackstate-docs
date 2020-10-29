@@ -1,6 +1,5 @@
 ---
-title: Splunk Topology Integration
-kind: documentation
+description: Build topology out of Splunk data
 ---
 
 # Splunk topology
@@ -135,6 +134,6 @@ The above authentication configuration are part of the [conf.d/splunk\_topology.
 
 There is an attribute `ignore_saved_search_errors` inside the `Splunk_topology.yaml` which is set to `true` by default. This flag makes the agent less strict and allows for saved searches which might be missing or fail when running. If this flag is set to `false` and one of the saved searches don't exist, it will produce an error.
 
-1. Edit your conf.d/Splunk\_topology.yaml file.
+1. Edit your `conf.d/Splunk_topology.yaml` file.
 2. Restart the agent
 

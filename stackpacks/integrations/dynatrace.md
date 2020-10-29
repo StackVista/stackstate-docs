@@ -72,7 +72,7 @@ sudo stackstate-agent status
 
 ### REST API endpoints
 
-The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology** (API value `DataExport`), see [Dynatrace API token permsissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions) for details. The API endpoints used in the StackState integration are listed below:
+The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology** (API value `DataExport`), see [Dynatrace API token permissions (dynatrace.com)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication/#token-permissions) for details. The API endpoints used in the StackState integration are listed below:
 
 * `/api/v1/entity/applications`
 * `/api/v1/entity/infrastructure/hosts`
