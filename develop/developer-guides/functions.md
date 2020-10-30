@@ -31,7 +31,7 @@ Functions in StackState can be either synchronous or asynchronous (async).
 
 ### Async functions
 
-Propagation functions can optionally be created as asynchronous (async) functions. This gives the function access to the [Script APIs](scripting/) and allows more functions to be run in parallel.
+Propagation functions can optionally be created as asynchronous (async) functions. This gives the function access to the [Script APIs](/develop/reference/scripting/) and allows more functions to be run in parallel.
 
 Read more about [propagation functions](/configure/topology/propagation.md#custom-propagation-functions).
 
