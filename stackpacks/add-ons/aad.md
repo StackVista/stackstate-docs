@@ -29,7 +29,7 @@ The status UI of the AAD Kubernetes service provides various metrics and indicat
 
 ## Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](/setup/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation.
+The AAD StackPack can only be installed within a [Kubernetes setup](/setup/installation/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 

@@ -1,6 +1,6 @@
 # Using the Telemetry Perspective
 
-StackState can ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s Agent. The telemetry shown is based on current [Topology selection](/use/perspectives/filters.md), showing a comprehensive picture of the IT environment and how it is functioning in near real-time. The Telemetry Perspective provides a dashboard of charts representing the metrics of the selected components. This document explains how the Telemetry Perspective works.
+StackState can ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s Agent. The telemetry shown is based on current [Topology selection](/use/views/filters.md), showing a comprehensive picture of the IT environment and how it is functioning in near real-time. The Telemetry Perspective provides a dashboard of charts representing the metrics of the selected components. This document explains how the Telemetry Perspective works.
 
 ## Telemetry and Components
 

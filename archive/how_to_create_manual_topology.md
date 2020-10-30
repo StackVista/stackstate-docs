@@ -44,5 +44,5 @@ Now you can navigate to the View that you want to use your relation on and drag-
 
 ## How to export/import manual topology
 
-See [manual topology backup/restore](/setup/backup_restore/manual_topology.md).
+See [manual topology backup/restore](/setup/data-management/backup_restore/manual_topology_backup.md).
 

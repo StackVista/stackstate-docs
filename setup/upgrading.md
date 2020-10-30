@@ -58,17 +58,17 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
 
-* [Kubernetes backup](/setup/backup_restore/kubernetes_backup.md)
-* [Configuration backup](/setup/backup_restore/configuration.md)
-* [Manually created topology backup](/setup/backup_restore/manual_topology.md)
+* [Kubernetes backup](/setup/data-management/backup_restore/kubernetes_backup.md)
+* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
+* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
 {% endtab %}
 
 {% tab title="Linux" %}
 To create a backup on Linux, see:
 
-* [Linux backup](/setup/backup_restore/file.md)
-* [Configuration backup](/setup/backup_restore/configuration.md)
-* [Manually created topology backup](/setup/backup_restore/manual_topology.md)
+* [Linux backup](/setup/data-management/backup_restore/linux_backup.md)
+* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
+* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
 {% endtab %}
 {% endtabs %}
 
@@ -90,7 +90,7 @@ Find instructions to upgrade a StackState Kubernetes or Linux setup below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-For upgrading, the same command can be used as for the [first time Kubernetes installation](/setup/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+For upgrading, the same command can be used as for the [first time Kubernetes installation](/setup/installation/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 {% endtab %}
 
 {% tab title="Linux" %}
