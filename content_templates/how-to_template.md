@@ -42,11 +42,11 @@ All components in StackState have a component type. If your StackState instance 
 
 ### Create a component
 
-You can manually add a component in the StackState UI from the [Topology Perspective](/use/perspectives/topology-perspective.md).
+You can manually add a component in the StackState UI from the [Topology Perspective](/use/views/topology_perspective.md).
 
 ![Add new component](/.gitbook/assets/new_component.png)
 
-1. In the StackState UI go to the Topology Perspective of a [view](/use/views.md) or explore mode.
+1. In the StackState UI go to the Topology Perspective of a [view](/use/views/README.md) or explore mode.
 2. Click on the big plus (+) sign on the left side of the screen (**Component Types**).
   - A full list of the available component types is displayed.
 3. Select the type of component you want to create. If the component type you want to add is not include in the list you can [create a new component type](#create-a-component-type-optional).

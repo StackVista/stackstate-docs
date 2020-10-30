@@ -27,7 +27,7 @@ Based on the information you see here, different actions can be taken:
     in new data, this is because StackState does not retroactively apply changes
 
   * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration
-  * Make sure data is ending up in StackState. The [StackState CLI](/setup/cli.md) contains a way to see
+  * Make sure data is ending up in StackState. The [StackState CLI](/setup/installation/cli-install.md) contains a way to see
 
     what data ends up on the synchronization topic.
 

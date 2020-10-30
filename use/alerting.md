@@ -64,7 +64,7 @@ Event handlers can be added from the StackState UI Events Perspective.
 
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
-1. Go to the [Events Perspective](/use/perspectives/event-perspective.md).
+1. Go to the [Events Perspective](/use/views/events_perspective.md).
 2. Select **Events Settings** on the left.
 3. Click **ADD EVENT HANDLER**.
 4. Select the event handler function you wish to add.
