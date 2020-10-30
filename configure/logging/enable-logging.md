@@ -23,7 +23,7 @@ Note that logging will be enabled for an instance of a check, event handler or f
     - [Propagation functions](#checks-and-propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
-2. Use the [StackState CLI](/setup/cli.md) to set the logging level for the ID, for example:
+2. Use the [StackState CLI](/setup/installation/cli-install.md) to set the logging level for the ID, for example:
 ```
 sts serverlog setlevel <id> DEBUG
 ```
@@ -57,7 +57,7 @@ Retrieve the ID for a specific check, event handler or function:
 
 #### Component actions
 
-- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all component actions.
+- Execute the query below in the [StackState UI Analytics environment](/develop/reference/scripting/README.md#running-scripts) to list all component actions.
 - Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the component action.
 
 {% tabs %}
@@ -87,7 +87,7 @@ Graph.query{it.V()
 
 #### Event handlers
 
-- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all event handlers.
+- Execute the query below in the [StackState UI Analytics environment](/develop/reference/scripting/README.md#running-scripts) to list all event handlers.
 - Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the event handler.
 
 {% tabs %}
@@ -117,7 +117,7 @@ Graph.query{it.V()
 
 #### View health state configuration functions
 
-- Execute the query below in the [StackState UI Analytics environment](/develop/scripting/README.md#running-scripts) to list all view health state configuration functions. 
+- Execute the query below in the [StackState UI Analytics environment](/develop/reference/scripting/README.md#running-scripts) to list all view health state configuration functions. 
 - Use the ID from the query result to [enable logging](#enable-logging-for-a-check-event-handler-or-function) for the function.
 
 {% tabs %}
@@ -190,4 +190,4 @@ You can find the check or propagation ID for a specific component in the StackSt
 ## See also
 
 - [StackState CLI](/setup/cli)
-- [StackState UI Analytics environment](/develop/scripting#running-scripts)
+- [StackState UI Analytics environment](/develop/reference/scripting#running-scripts)

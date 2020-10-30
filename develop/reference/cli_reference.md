@@ -6,7 +6,7 @@ description: Manage StackState using the CLI
 
 The StackState CLI can be used to configure StackState, work with data, and help with debugging problems. The CLI provides easy access to the functionality provided by the StackState API. The URLs and authentication credentials are configurable. Multiple configurations can be stored for access to different instances.
 
-To use StackState CLI commands, you need to [install the StackState CLI](/setup/cli.md) on the machine they will be run from.
+To use StackState CLI commands, you need to [install the StackState CLI](/setup/installation/cli-install.md) on the machine they will be run from.
 
 # Export / import configuration
 
@@ -23,7 +23,7 @@ sts graph list-types
 
 ## sts graph export
 
-Use the `sts graph export` command to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/sts_template_language_intro/) format.
+Use the `sts graph export` command to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/reference/stj/) format.
 
 ```
 sts graph export --ids ids_to_export > file_name
@@ -246,4 +246,4 @@ Note that it is not necessary to do this via the CLI. StackState will also offer
 
 # See also
 
-- [StackState Templated Json](/develop/sts_template_language_intro/)
+- [StackState Templated Json](/develop/reference/stj/)
