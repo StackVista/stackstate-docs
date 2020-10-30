@@ -7,7 +7,7 @@ description: StackState version 4.1
 
 ### Using StackState
 
-{% page-ref page="getting_started.md" %}
+{% page-ref page="/use/introduction-to-stackstate/getting_started.md" %}
 
 ### Setup and configuration
 
