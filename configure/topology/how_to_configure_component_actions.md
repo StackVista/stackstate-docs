@@ -26,7 +26,7 @@ The below example binds an Action to all components in the "Production" domain t
 
 This step determines Action's behavior when it is executed from the component context menu. The scripting language here is [Groovy](https://groovy-lang.org/), and you can script almost any action you need, from redirecting to another View with context, restarting remote components, to calling predictions for components.
 
-Find more about the possibilities of [scripting in StackState](/develop/scripting/).
+Find more about the possibilities of [scripting in StackState](/develop/reference/scripting/).
 
 ## 4. Provide a valid Identifier \(optional\)
 

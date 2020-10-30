@@ -1,6 +1,5 @@
 ---
-title: Splunk Event Integration
-kind: documentation
+description: Retrieve events from Splunk
 ---
 
 # Splunk event
@@ -118,6 +117,6 @@ The above authentication configuration are part of the [conf.d/splunk\_events.ya
 
 ## Configuration
 
-1. Edit your conf.d/splunk\_events.yaml file.
+1. Edit your `conf.d/splunk_events.yaml` file.
 2. Restart the agent
 
