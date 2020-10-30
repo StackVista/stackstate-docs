@@ -15,7 +15,7 @@ Before starting the installation, ensure your system meet StackState's POC setup
 
 **NOTE**: This installation configuration is only available since StackState 4.0.0.
 
-For a POC setup of StackState, simply follow the instructions for [Installing StackState](/setup/installation/linux_installlinux_install/install_stackstate.md), using `POC` as the SETUP configuration parameter.
+For a POC setup of StackState, simply follow the instructions for [Installing StackState](/setup/installation/linux_install/install_stackstate.md), using `POC` as the SETUP configuration parameter.
 
 ## Starting and Stopping
 

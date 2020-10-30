@@ -7,7 +7,7 @@ In the future we will move away from Linux support. Read about [installing Stack
 
 ## Before you start
 
-Before starting the installation, you need to make a choice which make sure you make a choice whether to make a [development](/setup/installation/linux_installlinux_install/development-installation.md) or [production](/setup/installation/linux_installlinux_install/production-installation.md) setup, and make sure you have machines available that match our [requirements](/setup/requirements.md).
+Before starting the installation, you need to make a choice which make sure you make a choice whether to make a [development](/setup/installation/linux_install/development-installation.md) or [production](/setup/installation/linux_install/production-installation.md) setup, and make sure you have machines available that match our [requirements](/setup/requirements.md).
 
 ## Installing
 
@@ -31,9 +31,9 @@ Before starting the installation, you need to make a choice which make sure you 
 During the installation process StackState requests the user for information about the installation. These are the options that can be chosen:
 
 * `SETUP`: Choose either one of there four options:
-  * `DEVELOPMENT`: Create a development setup. Single-node installation with limitations, see [development installation](/setup/installation/linux_installlinux_install/development-installation.md).
-  * `PRODUCTION-STACKGRAPH`: Create a StackGraph node for the production setup, see [production installation](/setup/installation/linux_installlinux_install/production-installation.md).
-  * `PRODUCTION-STACKSTATE`: Create a StackState node for the production setup, see [production installation](/setup/installation/linux_installlinux_install/production-installation.md).
+  * `DEVELOPMENT`: Create a development setup. Single-node installation with limitations, see [development installation](/setup/installation/linux_install/development-installation.md).
+  * `PRODUCTION-STACKGRAPH`: Create a StackGraph node for the production setup, see [production installation](/setup/installation/linux_install/production-installation.md).
+  * `PRODUCTION-STACKSTATE`: Create a StackState node for the production setup, see [production installation](/setup/installation/linux_install/production-installation.md).
   * `CUSTOM`: Create a fully customizable StackState installation. For advanced users only.
 * `LICENSE_KEY`: Your license key provided by StackState.
 * `RECEIVER_BASE_URL`: Configures the endpoint to which agents and external sources can push data to StackState. Typically it is of the form `"http://<<<HOST>>>:7077/"`,

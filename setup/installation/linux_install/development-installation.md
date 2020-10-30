@@ -13,7 +13,7 @@ Before starting the installation, ensure your system meets StackState's developm
 
 ## Installing StackState in a development configuration
 
-For a development setup of StackState, simply follow the instructions for [Installing StackState](/setup/installation/linux_installlinux_install/install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
+For a development setup of StackState, simply follow the instructions for [Installing StackState](/setup/installation/linux_install/install_stackstate.md), using `DEVELOPMENT` as the SETUP configuration parameter.
 
 ## Starting and Stopping
 

@@ -25,7 +25,7 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 You are currently reading the documentation for **StackState version 4.1**.
 
-Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](setup/upgrading.md).
+Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](/setup/upgrading.md).
 
 ## Support and troubleshooting
 

@@ -17,21 +17,21 @@ Configure StackState to run in the two-node setup requires the following steps:
 
 ### Preparing the StackGraph node
 
-1. Install the package using the instruction for [Installing StackState](/setup/installation/linux_installlinux_install/install_stackstate.md), using `PRODUCTION-STACKGRAPH` as SETUP configuration parameter.
-2. Start the StackGraph process as described in [Starting / Stopping](/setup/installation/linux_installlinux_install/production-installation.md#starting-and-stopping).
+1. Install the package using the instruction for [Installing StackState](/setup/installation/linux_install/install_stackstate.md), using `PRODUCTION-STACKGRAPH` as SETUP configuration parameter.
+2. Start the StackGraph process as described in [Starting / Stopping](/setup/installation/linux_install/production-installation.md#starting-and-stopping).
 
 ### Preparing the StackState node
 
 To prepare an additional node for running a StackState component, follow these steps:
 
-1. Install the package using the instruction for [Installing StackState](/setup/installation/linux_installlinux_install/install_stackstate.md), using `PRODUCTION-STACKSTATE` as SETUP configuration parameter.
+1. Install the package using the instruction for [Installing StackState](/setup/installation/linux_install/install_stackstate.md), using `PRODUCTION-STACKSTATE` as SETUP configuration parameter.
 
 ### Further Configuring StackState
 
 After you have installed StackState, refer to the following pages for configuration instructions:
 
 * [Configuring authentication](/setup/authentication.md)
-* [Reverse Proxy](/setup/installation/linux_installlinux_install/reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](/setup/installation/linux_installlinux_install/how_to_setup_tls_without_reverse_proxy.md)
+* [Reverse Proxy](/setup/installation/linux_install/reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](/setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy.md)
 
 ### Starting and Stopping
 
