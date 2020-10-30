@@ -95,7 +95,7 @@ redirects:
   develop/mirrors: ./develop/developer-guides/mirrors/README.md
   develop/mirroring: ./develop/developer-guides/mirrors/mirroring.md
   develop/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
-  develop/stackpack: ./develop/developer-guides/stackpack/README.md
+  develop/stackpack: ./develop/developer-guides/stackpack
   develop/stackpack/how_to_customize_a_stackpack: ./develop/developer-guides/stackpack/how_to_customize_a_stackpack.md
   develop/stackpack/how_to_get_a_template_file: ./develop/developer-guides/stackpack/how_to_get_a_template_file.md
   develop/stackpack/how_to_make_a_multi-instance_stackpack: ./develop/developer-guides/stackpack/how_to_make_a_multi-instance_stackpack.md
@@ -108,7 +108,7 @@ redirects:
   develop/stackpack/stackpack_resources: ./develop/developer-guides/stackpack/stackpack_resources.md
   develop/stackpack/stackstate-common-layer: ./develop/developer-guides/stackpack/stackstate-common-layer.md
   develop/synchronizations_and_templated_files: ./develop/developer-guides/synchronizations_and_templated_files.md
-  develop/scripting: ./develop/reference/scripting/README.md
+  develop/scripting: ./develop/reference/scripting
   develop/scripting/async_script_result: ./develop/reference/scripting/async_script_result.md
   develop/scripting/script-apis: ./develop/reference/scripting/script-apis/README.md
   develop/scripting/script-apis/async: ./develop/reference/scripting/script-apis/async.md
@@ -121,10 +121,10 @@ redirects:
   develop/scripting/script-apis/topology: ./develop/reference/scripting/script-apis/topology.md
   develop/scripting/script-apis/ui: ./develop/reference/scripting/script-apis/ui.md
   develop/scripting/script-apis/view: ./develop/reference/scripting/script-apis/view.md
-  develop/sts_template_language_intro: ./develop/reference/stj/README.md
+  develop/sts_template_language_intro: ./develop/reference/stj/
   develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stj/stj_reference.md
   concepts/component_and_relation_templates: ./develop/reference/stj/templates.md
-  develop/stml: ./develop/reference/stml/README.md
+  develop/stml: ./develop/reference/stml/
   develop/stml/tags: ./develop/reference/stml/tags.md
   setup/backup_restore: ./setup/data-management/backup_restore/README.md
   setup/backup_restore/configuration: ./setup/data-management/backup_restore/configuration_backup.md
@@ -134,11 +134,11 @@ redirects:
   setup/clear_data: ./setup/data-management/clear_stored_data.md
   setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/installation/cli-install.md
-  setup/kubernetes_install: ./setup/installation/kubernetes_install/README.md
+  setup/kubernetes_install: ./setup/installation/kubernetes_install/
   setup/kubernetes_install/customize_config: ./setup/installation/kubernetes_install/customize_config.md
   setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/development_setup.md
   setup/kubernetes_install/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
-  setup/kubernetes_install/ingress.: ./setup/installation/kubernetes_install/ingress.md
+  setup/kubernetes_install/ingress: ./setup/installation/kubernetes_install/ingress.md
   setup/kubernetes_install/install_stackstate: ./setup/installation/kubernetes_install/install_stackstate.md
   setup/kubernetes_install/storage: ./setup/installation/kubernetes_install/storage.md
   setup/linux_install: ./setup/installation/linux_install/README.md
@@ -153,7 +153,7 @@ redirects:
   use/queries: ./use/analytics.md
   concepts/glossary: ./use/glossary.md
   concepts/4t_data_model: ./use/introduction-to-stackstate/4t_data_model.md
-  concepts/components_and_relations: ./ use/introduction-to-stackstate/components_and_relations.md
+  concepts/components_and_relations: ./use/introduction-to-stackstate/components_and_relations.md
   getting_started: ./use/introduction-to-stackstate/getting_started.md
   concepts/id_extraction: ./use/introduction-to-stackstate/id_extraction.md
   concepts/layers_domains_and_environments: ./use/introduction-to-stackstate/layers_domains_and_environments.md
