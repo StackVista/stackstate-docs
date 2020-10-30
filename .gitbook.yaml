@@ -121,7 +121,7 @@ redirects:
   develop/scripting/script-apis/topology: ./develop/reference/scripting/script-apis/topology.md
   develop/scripting/script-apis/ui: ./develop/reference/scripting/script-apis/ui.md
   develop/scripting/script-apis/view: ./develop/reference/scripting/script-apis/view.md
-  develop/sts_template_language_intro/: ./develop/reference/stj/
+  develop/sts_template_language_intro: ./develop/reference/stj/
   develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stj/stj_reference.md
   concepts/component_and_relation_templates: ./develop/reference/stj/templates.md
   develop/stml: ./develop/reference/stml/
@@ -135,7 +135,7 @@ redirects:
   setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/installation/cli-install.md
   setup/kubernetes_install: ./setup/installation/kubernetes_install/
-  setup/kubernetes_install/: ./setup/installation/kubernetes_install/
+  setup/kubernetes_install/README.md: ./setup/installation/kubernetes_install/
   setup/kubernetes_install/customize_config: ./setup/installation/kubernetes_install/customize_config.md
   setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/development_setup.md
   setup/kubernetes_install/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
