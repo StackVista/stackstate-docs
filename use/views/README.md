@@ -50,7 +50,7 @@ To enable view health state put the `View Health State Enabled` to on when creat
 ## Creating views
 
 {% hint style="info" %}
-By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](/configure/security/role_based_access_control.md).
+By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
 {% endhint %}
 
 To create a new view, navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the topology filtering settings a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
@@ -91,10 +91,10 @@ To delete or edit a view:
 
 ## Securing views \(RBAC\)
 
-Through a combination of configuration of [permissions](/configure/security/rbac_permissions.md) and [scope](/configure/security/rbac_scopes.md), it is possible to give specific users:
+Through a combination of configuration of [permissions](/configure/security/rbac/rbac_permissions.md) and [scope](/configure/security/rbac/rbac_scopes.md), it is possible to give specific users:
 
 * access to a specific subset of the topology \(a so-called scope\) and allowing them to create their own views
 * access to specific views and disallowing them to create, modify or delete views
 
-Please refer to the [RBAC documentation](/configure/security/role_based_access_control.md).
+Please refer to the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
 
