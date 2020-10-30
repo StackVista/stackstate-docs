@@ -135,6 +135,7 @@ redirects:
   setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/installation/cli-install.md
   setup/kubernetes_install: ./setup/installation/kubernetes_install/
+  setup/kubernetes_install/: ./setup/installation/kubernetes_install/
   setup/kubernetes_install/customize_config: ./setup/installation/kubernetes_install/customize_config.md
   setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/development_setup.md
   setup/kubernetes_install/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
