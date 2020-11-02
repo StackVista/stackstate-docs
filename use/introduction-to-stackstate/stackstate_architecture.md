@@ -8,7 +8,7 @@ description: ???
 
 
 
-![StackState architecture overview](/.gitbook/assets/architecture_overview.png)
+![StackState architecture overview](/.gitbook/assets/architecture_overview_white.png)
 
 ## Data sources
 
