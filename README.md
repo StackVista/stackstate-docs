@@ -11,7 +11,7 @@ description: StackState version 4.1
 
 ### Setup and configuration
 
-{% page-ref page="/setup/kubernetes_install/README.md" %}
+{% page-ref page="/setup/installation/kubernetes_install/README.md" %}
 
 {% page-ref page="/stackpacks/integrations/README.md" %}
 
