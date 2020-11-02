@@ -120,7 +120,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
 #### Determine the required number of API requests
 
-Use the script below to determine the number of API requests required to retrieve topology data from SCOM. The script will return the numbr of components to be retrieved from the specified class. The configured `max_number_of_requests` must be higher than the number of components to retrieve multiplied by 3 - three API requests are required to retrieve data for each component.
+Use the script below to determine the number of API requests required to retrieve topology data from SCOM. The script will return the number of components to be retrieved from the specified class. The configured `max_number_of_requests` must be higher than the number of components to retrieve multiplied by 3 - three API requests are required to retrieve data for each component.
 
 ```
  $objects = get-scomclass -name "Microsoft.Windows.Computer" | Get-SCOMClassInstance 
