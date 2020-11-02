@@ -25,7 +25,7 @@ The StackState SCOM API integration sends requests to the SCOM API to retrieve t
 
 The SCOM API integration produces a clean topology in StackState by allowing you to configure specific classes to collect from SCOM. You can run the SCOM check from any StackState Agent V2 as long as it can connect to both the SCOM API and StackState.
 
-Retrieving a large topology can require a large number of API requests, this can take time and may place some stress on your SCOM system. The size of topology you can retrieve may also be limited by the number of requests possible. To avoid this, you can consider the SCOM PowerShell integration (BETA).
+Retrieving a large topology can require a large number of API requests, this can take time and may place some stress on your SCOM system. The size of topology you can retrieve may also be limited by the number of requests possible. To avoid this, use the SCOM PowerShell integration (BETA).
 
 {% endtab %}
 {% tab title="PowerShell integration (BETA)" %}
@@ -41,7 +41,7 @@ The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM b
 
 The PowerShell integration retrieves all SCOM topology data quickly without placing strain on your SCOM system. This means that there is no limit on the size of topology that can be retrieved.
 
-The PowerShell integration scripts must be run by an instance of StackState Agent V2 installed on the same box as SCOM and will always retrieve all topology data from SCOM, this might be undesirable or confusing when viewed in StackState. If you would like to specify the SCOM classes retrieved or need to run the integration from a StackState Agent installed in another location, you should use the SCOM API integration.
+The PowerShell integration scripts must be run by an instance of StackState Agent V2 installed on the same box as SCOM and will always retrieve all topology data. This might be undesirable or confusing when viewed in StackState. If you would like to specify the SCOM classes retrieved or need to run the integration from a StackState Agent installed in another location, you should use the SCOM API integration.
 
 {% endtab %}
 {% endtabs %}
@@ -75,7 +75,7 @@ To set up the StackState SCOM PowerShell integration, you need to have:
 
 ### Status
 
-To check the status of the Dynatrace integration, run the status subcommand and look for SCOM under `Running Checks`:
+To check the status of the SCOM integration, run the status subcommand and look for SCOM under `Running Checks`:
 
 ```
 sudo stackstate-agent status
@@ -85,6 +85,14 @@ sudo stackstate-agent status
 
 ### REST API endpoints
 
+Retrieving topology data from SCOM requires 3 API requests per component. 
+
+| API endpoint | Description | 
+|:---|:---|
+| `OperationsManager/data/scomObjectsByClass` | Get components for the configured class(es). |
+| `OperationsManager/data/scomObjects` | Get type of component. |
+| `OperationsManager/data/objectInformation` | Get component information and relations. |
+| `OperationsManager/data/alert` | Alerts. |
 
 
 ### Data retrieved
