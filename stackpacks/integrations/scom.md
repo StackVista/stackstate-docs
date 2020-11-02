@@ -67,11 +67,87 @@ To set up the StackState SCOM PowerShell integration, you need to have:
 
 ### Install
 
+Install the SCOM StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
+
+- **SCOM Instance URL**: the SCOM instance URL from which topology need to be collected.
 
 
 ### Configure
 
+{% tabs %}
+{% tab title="API integration" %}
+To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2:
 
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
+    - **hostip** - SCOM IP.
+    - **domain** - active directory domain where the SCOM is located.
+    - **username** 
+    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
+    - **auth_mode** - Network or Windows (Default is Network).
+    - **integration mode** - to use the API integration, set to `api`.
+    - **max_number_of_requests** - The maximum number of requests that should be sent to the SCOM API. See how to [determine the required number of API requests](#determine-the-required-number-of-api-requests).
+    - **streams** - The names of SCOM classes to retrieve data for. Data will be retrieved recursively from the specified SCOM classes. Note that one component may belong to multiple classes.
+    ```
+    init_config:
+        # run every minute
+        min_collection_interval: 60
+    instances:
+      - hostip: localhost
+        domain: stackstate
+        username: <username>
+        password: <password>
+        auth_mode: Network
+        integration_mode: api    # can be api or powershell
+        max_number_of_requests: 100000000
+        streams:
+         # - name: SCOM
+         #   class: Microsoft.SystemCenter.ManagementGroup
+         # - name: Exchange
+         #   class: Microsoft.Exchange.15.Organization #Microsoft.Exchange.15.Server #Microsoft.Exchange.15.Organization
+          #- name: SQL
+          #  class: Microsoft.SQLServer.Generic.Presentation.ServerRolesGroup
+         # - name: Activedirectory
+         #   class: Microsoft.Windows.Server.AD.Library.Container
+         # - name: IIS
+         #   class: Microsoft.Windows.InternetInformationServices.10.0.ServerRoleGroup
+           - name: windows
+             class: Microsoft.Windows.Computer
+         #  - name: linux
+         #    class: Microsoft.Unix.Computer
+    ``` 
+     ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+#### Determine the required number of API requests
+
+Use the script below to determine the number of API requests required to retrieve topology data from SCOM. The script will return the numbr of components to be retrieved from the specified class. The configured `max_number_of_requests` must be higher than the number of components to retrieve multiplied by 3 - three API requests are required to retrieve data for each component.
+
+```
+ $objects = get-scomclass -name "Microsoft.Windows.Computer" | Get-SCOMClassInstance 
+($objects).count
+($objects.GetRelatedMonitoringObjects('Recursive')).count  
+```
+
+{% endtab %}
+{% tab title="PowerShell integration (BETA)" %}
+To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2 running on the same box as your SCOM instance:
+
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
+    - **integration mode** - to use the PowerShell integration, set to `powershell`.
+    ```
+    init_config:
+        # run every minute
+        min_collection_interval: 60
+    instances:
+      - hostip: localhost
+        integration_mode: powershell    # api or powershell
+
+    ```
+    ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+{% endtab %}
+{% endtabs %}
 
 ### Status
 
@@ -79,6 +155,12 @@ To check the status of the SCOM integration, run the status subcommand and look 
 
 ```
 sudo stackstate-agent status
+```
+
+To check connectivity between StackState Agent V2 and the SCOM API, open the StackState Agent log file and search for the SCOM `Connection Status Code`. This is an HTTP status code - `200` is good connection, other codes show a problem with connectivity.
+
+```
+(scom.py:118) | Connection Status Code 200
 ```
 
 ## Integration details
@@ -94,20 +176,16 @@ Retrieving topology data from SCOM requires 3 API requests per component.
 | `OperationsManager/data/objectInformation` | Get component information and relations. |
 | `OperationsManager/data/alert` | Alerts. |
 
-
 ### Data retrieved
 
 #### Events
 
-The SCOM check retrieves component Alerts and Health State as events from SCOM.
+Alerts and Health state from SCOM are available in StackState as events.
 
-##### Alerts
-
-Alerts are retrieved every ??? from SCOM...
-
-##### Health state
-
-Health state is retrieved per component 
+| Data | Description |
+|:---|:---|
+| Alerts |  |
+| Health state | Used to determine component health: Healthy = green, Warning = red, Not monitored = gray | 
 
 #### Metrics
 
@@ -129,7 +207,6 @@ The SCOM check does not retrieve any traces data.
 The code for the StackState SCOM check is open source and available on GitHub at:
 [https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
 
-
 ## Troubleshooting
 
 Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=SCOM).
@@ -149,57 +226,7 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 ## See also
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md)
+- [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 - [StackState Agent integrations - SCOM (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
 - [SCOM API reference \(microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
-
-
-===========
-
-## What is the SCOM StackPack?
-
-The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance.
-
-## Prerequisites
-
-The following prerequisites need to be met:
-
-* [StackState Agent V2](/stackpacks/integrations/agent.md)  must be installed on a single machine which can connect to SCOM and StackState.
-* A SCOM instance must be running.
-
-**NOTE**:- We support SCOM version 1806 and 2019.
-
-## Enable SCOM integration
-
-To enable the SCOM check and begin collecting data from your SCOM instance:
-
-1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml`  to include details of your SCOM instance:
-    - **hostip** - SCOM IP.
-    - **domain** - active directory domain where the SCOM is located.
-    - **auth_mode** - Network or Windows (Default is Network).
-    - **username** 
-    - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
-
-    ```text
-    # Section used for global SCOM check config
-    init_config:
-        # run every minute
-        min_collection_interval: 60
-    
-    instances:
-      - hostip: #SCOM IP
-        domain: # active directory domain where the SCOM is located
-        username: # username
-        password: # password
-        auth_mode: Network # Network or Windows (Default is Network)
-        streams:
-          #- name: SCOM
-          #  class: Microsoft.SystemCenter.ManagementGroup  --> Management Pack root class
-          #- name: Exchange
-          #  class: Microsoft.Exchange.15.Organization
-          #- name: Skype
-          #  class: Microsoft.LS.2015.Site
-    ```
-
-2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
-3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
