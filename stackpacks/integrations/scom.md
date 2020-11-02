@@ -54,13 +54,13 @@ The PowerShell integration scripts must be run by an instance of StackState Agen
 {% tab title="API integration" %}
 To set up the StackState SCOM API integration, you need to have:
 * [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on any machine that can connect to both SCOM and StackState.
-* A running SCOM instance.
+* A running SCOM instance (version 1806 or 2019).
 * A SCOM user with the role **Operations Manager Read-Only Operators**.
 {% endtab %}
 {% tab title="PowerShell integration (BETA)" %}
 To set up the StackState SCOM PowerShell integration, you need to have:
 * [StackState Agent V2](/stackpacks/integrations/agent.md) must be on the same machine running SCOM.
-* A running SCOM instance.
+* A running SCOM instance (version 1806 or 2019).
 {% endtab %}
 {% endtabs %}
 
@@ -99,21 +99,35 @@ Retrieving topology data from SCOM requires 3 API requests per component.
 
 #### Events
 
+The SCOM check retrieves component Alerts and Health State as events from SCOM.
 
+##### Alerts
+
+Alerts are retrieved every ??? from SCOM...
+
+##### Health state
+
+Health state is retrieved per component 
 
 #### Metrics
 
-
+The SCOM check does not retrieve any metrics data.
 
 #### Topology
 
-
+| Data | Description |
+|:---|:---|
+| Components |  |
+| Relations |  | 
 
 #### Traces
 
-
+The SCOM check does not retrieve any traces data.
 
 ### Open source
+
+The code for the StackState SCOM check is open source and available on GitHub at:
+[https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
 
 
 ## Troubleshooting
@@ -135,7 +149,8 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 ## See also
 
 - [StackState Agent V2](/stackpacks/integrations/agent.md)
-
+- [StackState Agent integrations - SCOM (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
+- [SCOM API reference \(microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
 
 
 ===========
