@@ -101,7 +101,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
         max_number_of_requests: 100000000
         streams:
          # - name: SCOM
-         #   class: Microsoft.SystemCenter.ManagementGroup
+         #   class: Microsoft.SystemCenter.ManagementGroup  # Management Pack root class
          # - name: Exchange
          #   class: Microsoft.Exchange.15.Organization #Microsoft.Exchange.15.Server #Microsoft.Exchange.15.Organization
           #- name: SQL
