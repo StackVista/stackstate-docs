@@ -21,7 +21,7 @@ The StackState SCOM API integration sends requests to the SCOM API to retrieve t
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
-#### Pros and cons of API integration
+#### When to choose API integration
 
 The SCOM API integration produces a clean topology in StackState by allowing you to configure specific classes to collect from SCOM. You can run the SCOM check from any StackState Agent V2 as long as it can connect to both the SCOM API and StackState.
 
@@ -37,7 +37,7 @@ The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM b
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
-#### Pros and cons of PowerShell integration
+#### When to choose PowerShell integration
 
 The PowerShell integration retrieves all SCOM topology data quickly without placing strain on your SCOM system. This means that there is no limit on the size of topology that can be retrieved.
 
