@@ -17,7 +17,10 @@ StackState retrieves topology, telemetry, events, metrics and traces data from e
 ## StackGraph
 
 
-## Output to external sources
+## StackState User Interface and CLI
+
+
+## Output to external systems
 
 
 
