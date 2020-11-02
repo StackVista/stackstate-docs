@@ -1,5 +1,5 @@
 ---
-description: 
+description: Collect topology, health state and alerts from SCOM
 ---
 
 # SCOM
