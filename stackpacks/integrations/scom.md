@@ -157,7 +157,7 @@ To check the status of the SCOM integration, run the status subcommand and look 
 sudo stackstate-agent status
 ```
 
-To check connectivity between StackState Agent V2 and the SCOM API, open the StackState Agent log file and search for the SCOM `Connection Status Code`. This is an HTTP status code - `200` is good connection, other codes show a problem with connectivity.
+To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](/stackpacks/integrations/agent#log-files) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
 
 ```
 (scom.py:118) | Connection Status Code 200
