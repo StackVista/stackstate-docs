@@ -59,7 +59,7 @@ To set up the StackState SCOM API integration, you need to have:
 {% endtab %}
 {% tab title="PowerShell integration (BETA)" %}
 To set up the StackState SCOM PowerShell integration, you need to have:
-* [StackState Agent V2](/stackpacks/integrations/agent.md) must be on the same machine running SCOM.
+* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on the same machine running SCOM.
 * A running SCOM instance (version 1806 or 2019).
 {% endtab %}
 {% endtabs %}
