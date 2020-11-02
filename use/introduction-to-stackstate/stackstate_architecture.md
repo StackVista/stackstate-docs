@@ -8,7 +8,7 @@ description: ???
 
 
 
-![StackState architecture overview](/.gitbook/assets/sts-architecture.svg)
+![StackState architecture overview](/.gitbook/assets/sts-architecture-old.svg)
 
 ## Data sources
 
