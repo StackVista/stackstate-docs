@@ -1,5 +1,5 @@
 ---
-description: ???
+description: An overview of StackState components and integration with external systems. 
 ---
 
 # StackState architecture
@@ -12,15 +12,7 @@ description: ???
 
 ## Data sources
 
-
-### Agents
-
-
-### Plugins
-
-
-## StackState
-
+StackState retrieves topology, telemetry, events, metrics and traces data from external sources via Agents or directly into StackState
 
 ## StackGraph
 
