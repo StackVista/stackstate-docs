@@ -115,7 +115,6 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
          #  - name: linux
          #    class: Microsoft.Unix.Computer
     ``` 
-     ```
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 #### Determine the required number of API requests
@@ -142,7 +141,6 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
       - hostip: localhost
         integration_mode: powershell    # api or powershell
 
-    ```
     ```
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
