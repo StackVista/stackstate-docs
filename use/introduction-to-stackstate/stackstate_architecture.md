@@ -12,7 +12,10 @@ description: An overview of StackState components and integration with external 
 
 ## Data sources
 
-StackState retrieves topology, telemetry, events, metrics and traces data from external sources via Agents or directly into StackState
+StackState retrieves data from external systems. Some systems can connect directly into StackState Receiver or the StackState mirror plugin, while others will connect via a StackState Agent:
+
+- [StackState Agent V2]()
+- [StackState ]
 
 ## StackGraph
 
@@ -26,7 +29,7 @@ StackState retrieves topology, telemetry, events, metrics and traces data from e
 
 ## Open source
 
-Some elements of the StackState architecture are open source:
+Some elements of the StackState architecture are open source. Code is available on GitHub:
 
-- StackState Agents - [link to code](http://not.here)
+- StackState Agent integrations - [link to code](http://not.here)
 - StackState CLI - [link to code](http://not.here)
