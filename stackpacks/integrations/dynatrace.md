@@ -101,7 +101,7 @@ The Dynatrace check retrieves the following topology data from Dynatrace:
 | Data | Description |
 |:---|:---|
 | Components | Smartscape Applications, Hosts, Processes, Process-Groups and Services from the last 72 hours. |
-| Relations |  | 
+| Relations | Relations between the imported components are included in the component data retrieved from Dynatrace.  | 
 
 #### Traces
 
