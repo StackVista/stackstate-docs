@@ -8,7 +8,7 @@ description: An overview of StackState components and integration with external 
 
 
 
-![StackState architecture overview](/.gitbook/assets/sts-architecture.svg)
+![StackState architecture and data flow](/.gitbook/assets/sts-architecture.svg)
 
 ## Data sources
 
