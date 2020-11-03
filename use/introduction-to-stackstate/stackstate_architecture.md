@@ -12,20 +12,17 @@ description: An overview of StackState components and integration with external 
 
 ## Data sources
 
-StackState retrieves data from external systems. Some systems can connect directly into StackState Receiver or the StackState mirror plugin, while others will connect via a StackState Agent:
-
-- [StackState Agent V2]()
-- [StackState ]
+StackState retrieves data from external systems. Integrations are set up using [StackState Agent](/stackpacks/integrations/agent.md), [API integration](/stackpacks/integrations/api-integration.md) and/or the associated [integration StackPack](/stackpacks/integrations).
 
 ## StackGraph
 
+StackState configuration and topology data are stored in the StackGraph database. 
 
 ## StackState User Interface and CLI
 
+The StackState User Interface visualizes all collected data in [perspectives](/use/views/perspectives.md). You can also customize your instance of StackState here by adding automization steps, such as event handlers and output to external systems.
 
-## Output to external systems
-
-
+You can optionally install the [StackState CLI](/develop/reference/cli_reference.md) to control your StackState instance directly from the command line.
 
 ## Open source
 
@@ -41,8 +38,3 @@ The following elements of the StackState architecture are open source and availa
 - Custom Sync StackPack - [https://github.com/StackVista/stackpack-autosync](https://github.com/StackVista/stackpack-autosync)
 - SAP StackPack - [https://github.com/StackVista/stackpack-sap](https://github.com/StackVista/stackpack-sap)
 - Splunk StackPack - [https://github.com/StackVista/stackpack-splun](https://github.com/StackVista/stackpack-splunk)
-
-| Name | Docs page | Code |
-|:---|:---|:---|
-| StackState Agent V2 | docs |  [Agent on github.com](https://github.com/StackVista/stackstate-agent)<br />[Agent integrations on github.com](https://github.com/StackVista/stackstate-agent-integrations) |
-| Custom Sync StackPack | docs | [code on github.com](https://github.com/StackVista/stackpack-autosync) |
