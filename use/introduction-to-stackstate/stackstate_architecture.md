@@ -26,14 +26,16 @@ You can optionally install the [StackState CLI](/develop/reference/cli_reference
 
 ## Open source
 
-The following elements of the StackState architecture are open source and available on GitHub:
-
 ### StackState Agent V2
+
+StackState Agent V2 is open source and available on GitHub:
 
 - Agent - [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent)
 - Agent integrations - [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations)
 
-### StackPacks:
+### StackPacks
+
+The StackPacks listed below are open source and available on GitHub:
 
 - Custom Sync StackPack - [https://github.com/StackVista/stackpack-autosync](https://github.com/StackVista/stackpack-autosync)
 - SAP StackPack - [https://github.com/StackVista/stackpack-sap](https://github.com/StackVista/stackpack-sap)
