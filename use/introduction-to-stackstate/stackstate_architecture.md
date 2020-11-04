@@ -8,11 +8,11 @@ description: An overview of StackState components and integration with external 
 
 
 
-![StackState architecture and data flow](/.gitbook/assets/v41_sts-architecture.svg)
+![StackState architecture and data flow](/.gitbook/assets/sts-architecture.svg)
 
 ## Data sources
 
-StackState integrates with external systems to retrieve events, metrics, topology and traces. Integrations are set up using [StackState Agent](/stackpacks/integrations/agent.md), [API integration](/stackpacks/integrations/api-integration.md) and/or an associated [integration StackPack](/stackpacks/integrations).
+StackState integrates with external systems to retrieve data. Integrations are set up using [StackState Agent](/stackpacks/integrations/agent.md), [API integration](/stackpacks/integrations/api-integration.md) and/or an associated [integration StackPack](/stackpacks/integrations).
 
 ## StackGraph
 
