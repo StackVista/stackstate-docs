@@ -1,5 +1,5 @@
 ---
-description: Alert when issues occur
+description: Receive alerts for component or view state changes
 ---
 
 # Alerts
