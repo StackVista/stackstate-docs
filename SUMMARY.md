@@ -43,6 +43,7 @@
     * [Layers, Domains and Environments](use/introduction-to-stackstate/layers_domains_and_environments.md)
     * [Mapping functions](use/introduction-to-stackstate/mapping_functions.md)
     * [ID extraction](use/introduction-to-stackstate/id_extraction.md)
+    * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
   * [Explore mode](use/explore_mode.md)
   * [Views](use/views/README.md)
     * [Filtering](use/views/filters.md)
