@@ -55,7 +55,7 @@
   * [Health state and alerts](use/health-state-and-alerts/README.md)
     * [Create a health check](use/health-state-and-alerts/create-a-health-check.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
-    * [configure alerts](use/health-state-and-alerts/configure-alerts.md)
+    * [Add an alert](use/health-state-and-alerts/add-an-alert.md)
   * [Glossary](use/glossary.md)
   * [Anomaly Detection with Baselines](use/baselining.md)
 
