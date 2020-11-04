@@ -13,7 +13,7 @@ The 4T data model in StackState is likely much bigger than what you care about a
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of the 4T data model that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [alerting](../alerting.md) and automation. Whenever a change within the view requires your attention an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+2. Views can be used for [alerting](../health-state-and-alerts/configure-alerts.md) and automation. Whenever a change within the view requires your attention an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 ## Accessing views
 
@@ -75,7 +75,7 @@ The minimum health states function calculates the health state of the view as fo
 
 ## Alerting on view health state
 
-An activity event is triggered when a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [alerting](../alerting.md) to understand how to set that up.
+An activity event is triggered when a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [alerting](../health-state-and-alerts/configure-alerts.md) to understand how to set that up.
 
 ## Deleting or editing views
 

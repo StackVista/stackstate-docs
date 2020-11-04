@@ -37,5 +37,5 @@ When opening the Events Perspective, the events shown are based on the currently
 
 ## Event handlers
 
-The Events Perspective allows the creation of [event handlers](/use/alerting.md) to act on events in the view.
+The Events Perspective allows the creation of [event handlers](/use/health-state-and-alerts/configure-alerts.md) to act on events in the view.
 

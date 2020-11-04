@@ -29,7 +29,7 @@ To receive email alerts for changes in health state, the StackState configuratio
             }
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/alerting.md#send-alerts-with-event-handlers).
+3. Add an email [event handler](/use/health-state-and-alerts/configure-alerts.md#send-alerts-with-event-handlers).
 {% endtab %}
 {% tab title="Linux" %}
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
@@ -57,6 +57,6 @@ To receive email alerts for changes in health state, the StackState configuratio
    
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/alerting.md#send-alerts-with-event-handlers).
+3. Add an email [event handler](/use/health-state-and-alerts/configure-alerts.md#send-alerts-with-event-handlers).
 {% endtab %}
 {% endtabs %}

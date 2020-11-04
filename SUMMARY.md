@@ -36,13 +36,14 @@
 
 ## 👤 Use
 
-  * [Introduction to StackState](use/intro/README.md)
+  * [Introduction to StackState](use/introduction-to-stackstate/README.md)
     * [Getting Started](use/introduction-to-stackstate/getting_started.md)
     * [The 4T data model](use/introduction-to-stackstate/4t_data_model.md)
     * [Components and Relations](use/introduction-to-stackstate/components_and_relations.md)
     * [Layers, Domains and Environments](use/introduction-to-stackstate/layers_domains_and_environments.md)
     * [Mapping functions](use/introduction-to-stackstate/mapping_functions.md)
     * [ID extraction](use/introduction-to-stackstate/id_extraction.md)
+  * [Explore mode](use/explore_mode.md)
   * [Views](use/views/README.md)
     * [Filtering](use/views/filters.md)
     * [Perspectives](use/views/perspectives.md)
@@ -50,10 +51,12 @@
     * [Telemetry Perspective](use/views/telemetry_perspective.md)
     * [Events Perspective](use/views/events_perspective.md)
     * [Traces Perspective](use/views/traces_perspective.md)
-  * [Analytics](use/analytics.md)
-  * [Alerting](use/alerting.md)
-  * [Anomaly Detection with Baselines](use/baselining.md)
+  * [Health state and alerts](use/health-state-and-alerts/README.md)
+    * [Create a health check](use/health-state-and-alerts/create-a-health-check.md)
+    * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
+    * [configure alerts](use/health-state-and-alerts/configure-alerts.md)
   * [Glossary](use/glossary.md)
+  * [Anomaly Detection with Baselines](use/baselining.md)
 
 ## 🧩StackPacks
 
