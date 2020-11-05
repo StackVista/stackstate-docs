@@ -20,14 +20,14 @@ In StackState, telemetry flows through topology components as either metric or e
 
 The flow of events that lead to an alert follow this path:
 
-1. A health check changes health state, for example it becomes `critical`.
-    - The health state of the associated component changes
+1. A [health check](/use/health-state-and-alerts/create-a-health-check.md) changes health state, for example it becomes `critical`.
+    - The health state of the associated component changes.
     - A `health state change` event is generated and shown in the event stream on the right and in the Events Perspective.
 3. The health state propagates to other components, updating their propagated health state. 
     - A `???` event is generated for all affected components. These events are not visible in the event stream, but can be used for alerting.
-4. A view that contains these components may also change health state based on these changes. 
+4. A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). 
     - A `view state change` event is generated. These events are not shown in the event stream.
-5. Event handlers associated with the view will send the configured alerts or trigger the configured actions.
+5. Event handlers associated with the view will trigger the [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md).
 
 ## See also
 
