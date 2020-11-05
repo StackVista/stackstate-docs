@@ -103,7 +103,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
         auth_mode: Network
         integration_mode: api    # can be api or powershell, default api
         max_number_of_requests: 100000000   # default 5000
-        criteria : "(FullNsame LIKE 'Microsoft.Windows.Computer:%')"
+        criteria : "(FullNsame LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
     ``` 
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
