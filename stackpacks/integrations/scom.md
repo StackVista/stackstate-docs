@@ -182,7 +182,7 @@ Alerts and Health state from SCOM are available in StackState as events.
 | Data | Description |
 |:---|:---|
 | Alerts | The following alert fields are retrieved:<br />`id`, `name`, `monitoringobjectdisplayname`, `description`, `resolutionstate`, `timeadded`, `monitoringobjectpath`. |
-| Health state | Used to determine component health:<br />`Healthy` = green<br />`Warning` = orange<br />`Critical` = red<br />`Not monitored`, `Out of contact` or `Maintenance mode` = gray | 
+| Health state | The component health state retrieved from SCOM is used to determine component health in StackState:<br />`Healthy` = green<br />`Warning` = orange<br />`Critical` = red<br />`Not monitored`, `Out of contact` or `Maintenance mode` = gray | 
 
 ##### Metrics
 
@@ -190,7 +190,7 @@ The SCOM check does not retrieve any metrics data.
 
 ##### Topology
 
-Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.\<SCOM_IP\>** .
+Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.IP_of_SCOM_instance** .
 
 - Components
 - Relations
