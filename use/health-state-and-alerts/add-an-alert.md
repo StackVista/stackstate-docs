@@ -16,7 +16,7 @@ Events are generated for every change in health state. These events can be linke
 - **Own health state change event**<br />Generated when the health state of a component changes.
 - **Propagated health state change event**<br />Generated whenever the health state of one of a component’s dependencies changes.
 
-![Events Perspective](/.gitbook/assets/event-perspective.png)
+![Health state change events in the Events Perspective](/.gitbook/assets/event-perspective.png)
 
 The entire flow of events that lead to an alert follow this path:
 
