@@ -109,12 +109,12 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
 ##### Specify the components to retrieve data for
 
-The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497\(v=msdn.10\)). For example:
+The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497\(v=msdn.10\)). For example, to retrieve data for all Microsoft Windows computers:
 ```
 criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
 ```
 
-Errors in the configured criteria query will be reported in the [StackState Agent log file](/stackpacks/integrations/agent#log-files).
+Errors in the configured criteria query will be reported in the [StackState Agent log file](/stackpacks/integrations/agent.md#log-files).
 
 ```
 2020-11-05 09:19:31 GMT | ERROR | ... | (scom2.py:114) | Invalid criteria :The property FullNsame is not valid for the given criteria.
@@ -155,7 +155,7 @@ To check the status of the SCOM integration, run the status subcommand and look 
 sudo stackstate-agent status
 ```
 
-To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](/stackpacks/integrations/agent#log-files) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
+To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](/stackpacks/integrations/agent.md#log-files) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
 
 ```
 (scom.py:118) | Connection Status Code 200
@@ -181,8 +181,8 @@ Alerts and Health state from SCOM are available in StackState as events.
 
 | Data | Description |
 |:---|:---|
-| Alerts | The following alert fields are retrieved: `id`, `name`, `monitoringobjectdisplayname`, `description`, `resolutionstate`, `timeadded`, `monitoringobjectpath`. |
-| Health state | Used to determine component health: `Healthy` = green, `Warning` = orange, `Critical` = red, `Not monitored`, `Out of contact` or `Maintenance mode` = gray | 
+| Alerts | The following alert fields are retrieved:<br />`id`, `name`, `monitoringobjectdisplayname`, `description`, `resolutionstate`, `timeadded`, `monitoringobjectpath`. |
+| Health state | Used to determine component health:<br />`Healthy` = green<br />`Warning` = orange<br />`Critical` = red<br />`Not monitored`, `Out of contact` or `Maintenance mode` = gray | 
 
 ##### Metrics
 
@@ -190,7 +190,7 @@ The SCOM check does not retrieve any metrics data.
 
 ##### Topology
 
-Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.<SCOM_IP>** .
+Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.\<SCOM_IP\>** .
 
 - Components
 - Relations
