@@ -14,7 +14,7 @@ Events are generated for every change in health state. These events can be linke
 
 | Health state<br />change event | Generated when |
 |:---|:---|
-| Propagated | Whenever the health state on one of a component’s dependencies changes. |
+| Propagated | Whenever the health state of one of a component’s dependencies changes. |
 | Own | When the health state of a component changes. |
 | View | Only when the health state of a significant number of components in a view changes. |
 
