@@ -2,11 +2,15 @@
 description: Collect topology, health state and alerts from SCOM
 ---
 
-# SCOM
+# SCOM (BETA)
+
+{% hint style="info" %}
+The SCOM integration is in **BETA**.
+{% endhint %}
 
 ## Overview
 
-The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run as either an API integration or PowerShell integration \(BETA\), these are described in the tabs below the diagram.
+The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run as either an API integration or PowerShell integration, these are described in the tabs below the diagram.
 
 ![Data flow](/.gitbook/assets/stackpack-scom_2.png)
 
@@ -17,19 +21,19 @@ The SCOM StackPack is used to create a near real time synchronisation with your 
 The StackState SCOM API integration sends requests to the SCOM API to retrieve topology data and events.
 
 - Agent V2 connects to the configured [SCOM API](#rest-api-endpoints).
-- Topology data and events for the configured classes are retrieved from SCOM.
+- Topology data and events for the configured criteria are retrieved from SCOM.
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
 #### When to choose API integration
 
-The SCOM API integration produces a clean topology in StackState by allowing you to configure specific topology classes to collect. You can run the SCOM check from any StackState Agent V2 as long as it can connect to both the SCOM API and StackState.
+The SCOM API integration produces a clean topology in StackState by allowing you to specify the topology to collect. You can run the SCOM check from any StackState Agent V2 as long as it can connect to both the SCOM API and StackState.
 
-Retrieving a large topology can require a high number of API requests, this can take time and may place some stress on your SCOM system. The size of topology you can retrieve may also be limited by the number of requests possible. To avoid this, use the SCOM PowerShell integration (BETA).
+Retrieving a large topology can require a high number of API requests, this can take time and may place some stress on your SCOM system. The size of topology you can retrieve may also be limited by the number of requests possible. To avoid this, use the SCOM PowerShell integration.
 
 {% endtab %}
-{% tab title="PowerShell integration (BETA)" %}
-### PowerShell integration (BETA)
+{% tab title="PowerShell integration" %}
+### PowerShell integration
 
 The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM box to retrieve topology data and events.
 
@@ -41,7 +45,7 @@ The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM b
 
 The PowerShell integration retrieves all SCOM topology data quickly without placing strain on your SCOM system. As a result, there is no limit on the size of topology that can be retrieved.
 
-The PowerShell integration scripts must be run by an instance of StackState Agent V2 installed on the same box as SCOM and will always retrieve all topology data. This might be undesirable or confusing when viewed in StackState. If you would like to specify the SCOM classes retrieved or need to run the integration from a StackState Agent installed elsewhere, you should use the SCOM API integration.
+The PowerShell integration scripts must be run by an instance of StackState Agent V2 installed on the same box as SCOM and will always retrieve all topology data. This might be undesirable or confusing when viewed in StackState. If you would like to specify a criteria for the data to be retrieved or need to run the integration from a StackState Agent installed elsewhere, you should use the SCOM API integration.
 
 {% endtab %}
 {% endtabs %}
@@ -57,7 +61,7 @@ To set up the StackState SCOM API integration, you need to have:
 * A running SCOM instance (version 1806 or 2019).
 * A SCOM user with the role **Operations Manager Read-Only Operators**.
 {% endtab %}
-{% tab title="PowerShell integration (BETA)" %}
+{% tab title="PowerShell integration" %}
 To set up the StackState SCOM PowerShell integration, you need to have:
 * [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on the same machine running SCOM.
 * A running SCOM instance (version 1806 or 2019).
@@ -85,8 +89,8 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     - **auth_mode** - Network or Windows (Default is Network).
     - **integration mode** - to use the API integration, set to `api`.
-    - **max_number_of_requests** - The maximum number of requests that should be sent to the SCOM API. See how to [determine the required number of API requests](#determine-the-required-number-of-api-requests).
-    - **streams** - The names of SCOM classes to retrieve data for. Data will be retrieved recursively from the specified SCOM classes. Note that one component may belong to multiple classes.
+    - **max_number_of_requests** - The maximum number of requests that should be sent to the SCOM API. See how to [determine the required number of API requests](#determine-the-required-number-of-api-requests), default 5000.
+    - **criteria** - A query to [specify the components to retrieved data for](#specify-the-components-to-retrieve-data-for.
     ```
     init_config:
         # run every minute
@@ -97,38 +101,35 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
         username: <username>
         password: <password>
         auth_mode: Network
-        integration_mode: api    # can be api or powershell
-        max_number_of_requests: 100000000
-        streams:
-         # - name: SCOM
-         #   class: Microsoft.SystemCenter.ManagementGroup  # Management Pack root class
-         # - name: Exchange
-         #   class: Microsoft.Exchange.15.Organization #Microsoft.Exchange.15.Server #Microsoft.Exchange.15.Organization
-          #- name: SQL
-          #  class: Microsoft.SQLServer.Generic.Presentation.ServerRolesGroup
-         # - name: Activedirectory
-         #   class: Microsoft.Windows.Server.AD.Library.Container
-         # - name: IIS
-         #   class: Microsoft.Windows.InternetInformationServices.10.0.ServerRoleGroup
-           - name: windows
-             class: Microsoft.Windows.Computer
-         #  - name: linux
-         #    class: Microsoft.Unix.Computer
+        integration_mode: api    # can be api or powershell, default api
+        max_number_of_requests: 100000000   # default 5000
+        criteria : "(FullNsame LIKE 'Microsoft.Windows.Computer:%')"
     ``` 
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
-#### Determine the required number of API requests
+#### Specify the components to retrieved data for
 
-Use the script below to determine the number of API requests required to retrieve topology data from SCOM. The script will return the number of components to be retrieved from the specified class. The configured `max_number_of_requests` must be higher than the number of components to retrieve multiplied by 3 - three API requests are required to retrieve data for each component.
+The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497(v=msdn.10). For example:
+```
+criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
+```
+
+Errors in the configured criteria query will be reported in the [StackState Agent log file](/stackpacks/integrations/agent#log-files).
 
 ```
- $objects = get-scomclass -name "Microsoft.Windows.Computer" | Get-SCOMClassInstance 
-($objects).count
-($objects.GetRelatedMonitoringObjects('Recursive')).count  
+2020-11-05 09:19:31 GMT | ERROR | ... | (scom2.py:114) | Invalid criteria :The property FullNsame is not valid for the given criteria.
+```
+
+#### Determine the required number of API requests
+
+Use the script below to determine the number of API requests required to retrieve topology data from SCOM. The script will return the number of components to be retrieved from the specified class. The configured `max_number_of_requests` must be higher than the number of components to retrieve multiplied by 2 - two API requests are required to retrieve data for each component.
+
+```
+ ??? Add new script
 ```
 
 {% endtab %}
-{% tab title="PowerShell integration (BETA)" %}
+{% tab title="PowerShell integration" %}
 To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2 running on the same box as your SCOM instance:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
@@ -138,8 +139,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
         # run every minute
         min_collection_interval: 60
     instances:
-      - hostip: localhost
-        integration_mode: powershell    # api or powershell
+      - integration_mode: powershell    # api or powershell, default api
 
     ```
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
@@ -165,11 +165,10 @@ To check connectivity between StackState Agent V2 and the SCOM API, open the [St
 
 ### REST API endpoints
 
-Retrieving topology data from SCOM requires 3 API requests per component. 
+Retrieving topology data from SCOM requires 2 API requests per component. 
 
 | API endpoint | Description | 
 |:---|:---|
-| `OperationsManager/data/scomObjectsByClass` | Get components for the configured class(es). |
 | `OperationsManager/data/scomObjects` | Get type of component. |
 | `OperationsManager/data/objectInformation` | Get component information and relations. |
 | `OperationsManager/data/alert` | Alerts. |
@@ -182,8 +181,8 @@ Alerts and Health state from SCOM are available in StackState as events.
 
 | Data | Description |
 |:---|:---|
-| Alerts |  |
-| Health state | Used to determine component health: Healthy = green, Warning = red, Not monitored = gray | 
+| Alerts | The following alert fields are retrieved: `id`, `name`, `monitoringobjectdisplayname`, `description`, `resolutionstate`, `timeadded`, `monitoringobjectpath`. |
+| Health state | Used to determine component health: `Healthy` = green, `Warning` = orange, `Critical` = red, `Not monitored`, `Out of contact` or `Maintenance mode` = gray | 
 
 #### Metrics
 
@@ -191,10 +190,10 @@ The SCOM check does not retrieve any metrics data.
 
 #### Topology
 
-| Data | Description |
-|:---|:---|
-| Components |  |
-| Relations |  | 
+Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.<SCOM_IP>** .
+
+- Components
+- Relations
 
 #### Traces
 
