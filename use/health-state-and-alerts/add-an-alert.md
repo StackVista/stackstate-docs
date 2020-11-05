@@ -14,9 +14,9 @@ Events are generated for every change in health state. These events can be linke
 
 | Health state<br />change event vent | Generated when |
 |:---|:---|
-| Propagated health state | Whenever there is a health state change on one of a component’s dependencies. |
-| Own health state | When there is a change to the health state of a component. |
-| View health state | If the health state of a significant number of components in a view changes, this will trigger the view health state to change |
+| Propagated | Whenever there is a health state change on one of a component’s dependencies. |
+| Own | When there is a change to the health state of a component. |
+| View | If the health state of a significant number of components in a view changes, this will trigger the view health state to change |
 
 ![Events Perspective](/.gitbook/assets/event-perspective.png)
 
