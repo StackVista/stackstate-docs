@@ -109,7 +109,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
 #### Specify the components to retrieved data for
 
-The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497(v=msdn.10). For example:
+The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497(v=msdn.10)). For example:
 ```
 criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
 ```
@@ -225,5 +225,6 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 - [StackState Agent V2](/stackpacks/integrations/agent.md)
 - [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
 - [StackState Agent integrations - SCOM (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
-- [SCOM API reference \(microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
+- [SCOM API reference \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
+- [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497(v=msdn.10))
 
