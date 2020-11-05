@@ -16,10 +16,7 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 | Basic filter | Description |
 | :--- | :--- |
-| Layers | A hierarchy that determines the relations and dependencies in your stack - typically top to bottom. |
-| Domains | Used to logically group components, e.g., business units, teams, application. |
-| Environments | Divide your IT landscape into logical units according to their intended purpose, for example DTAP (Develop, Test, Acceptance, Production). One component can belong to multiple environments.  |
-| Types | Specify component types to define the granularity level of components in the IT environment. |
+| Layers, Domains, Environments and Types | Component details included when topology is imported or created. |
 | Health | Filter components by the health state set by a configured [health check](/use/health-state-and-alerts/create-a-health-check.md). |
 | Labels | You can [add labels to components](/configure/topology/tagging) and use these to filter the topology. Some integrations will also add labels to topology they import, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md) |
 | Components | The components field behaves differently to other filters. Components named here will always be included in the topology. |
