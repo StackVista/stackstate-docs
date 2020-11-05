@@ -6,15 +6,15 @@ description: Trigger alerts and actions on component or view state changes
 
 When something goes wrong within your IT environment, StackState can alert you or your team with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
 
-## How events trigger alerts
+## Events that trigger alerts
 
 In StackState, telemetry flows through topology components as either metric or event streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/create-a-health-check.md) to determine the health state of each component. 
 
 Events are generated for every change in health state. These events can be linked with event handlers to send out an alert or trigger some type of automation.
 
-- Propagated health state change<br />Generated whenever the health state of one of a component’s dependencies changes.
-- Own health state change<br />Generated when the health state of a component changes.
-- View health state change<br />Generated only when the health state of a significant number of components in a view changes.
+- **Propagated health state change event**e<br />Generated whenever the health state of one of a component’s dependencies changes.
+- **Own health state change event**<br />Generated when the health state of a component changes.
+- **View health state change event**<br />Generated only when the health state of a significant number of components in a view changes.
 
 | Health state<br />change event | Generated when |
 |:---|:---|
