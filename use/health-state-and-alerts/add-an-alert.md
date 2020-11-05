@@ -4,6 +4,8 @@ description: Trigger alerts and actions on component or view state changes
 
 # Add an alert
 
+## Overview
+
 When something goes wrong within your IT environment, StackState can alert you or your team with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
 
 ## Events that trigger alerts
