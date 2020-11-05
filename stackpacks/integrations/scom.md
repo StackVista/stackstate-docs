@@ -107,7 +107,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
     ``` 
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
-##### Specify the components to retrieved data for
+##### Specify the components to retrieve data for
 
 The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497\(v=msdn.10\)). For example:
 ```
