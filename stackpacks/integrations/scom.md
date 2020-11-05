@@ -109,7 +109,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
 ##### Specify the components to retrieved data for
 
-The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497(v=msdn.10)). For example:
+The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497\(v=msdn.10\)). For example:
 ```
 criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
 ```
