@@ -16,10 +16,10 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 | Basic filter | Description |
 | :--- | :--- |
-| Layers, Domains, Environments and Types | Component details included when topology is imported or created. |
-| Health | Filter components by the health state set by a configured [health check](/use/health-state-and-alerts/create-a-health-check.md). |
-| Labels | You can [add labels to components](/configure/topology/tagging) and use these to filter the topology. Some integrations will also add labels to topology they import, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md) |
-| Components | The components field behaves differently to other filters. Components named here will always be included in the topology. |
+| Layers, Domains, Environments and Types | Filter by the component details included when topology is imported or created. |
+| Health | Only include components with the named health state(s) as set by the associated [health check](/use/health-state-and-alerts/create-a-health-check.md). |
+| Labels | Only include components with a [custom label](/configure/topology/tagging) or a default integration label, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views) |
+| Components | The components field behaves differently to other filters. Components named here will always be included in the topology in addition to components from other filters. |
 
 ### Basic filtering example
 
