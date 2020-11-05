@@ -12,20 +12,24 @@ In StackState, telemetry flows through topology components as either metric or e
 
 For every change in health state, an event is generated. These events can be linked with event handlers to [send out an alert](/use/health-state-and-alerts/add-an-alert.md) or to trigger some type of automation.
 
-- **View health state change event**<br />Generated only when the health state of a significant number of components in a view changes.
-- **Own health state change event**<br />Generated when the health state of a component changes.
-- **Propagated health state change event**<br />Generated whenever the health state of one of a component’s dependencies changes.
+- **View state change event**<br />Generated only when the health state of a significant number of components in a view changes. These events are not visible in the event stream or Events Perspective, but can be used for alerting.
+- **Health state change event**<br />Generated when the health state of a component changes.
+- **Propagated health state change event**<br />Generated whenever the health state of one of a component’s dependencies changes. These events are not visible in the event stream or Events Perspective, but can be used for alerting.
 
 ![Health state change events in the Events Perspective](/.gitbook/assets/event-perspective.png)
 
-The entire flow of events that lead to an alert follow this path:
+## How an alert is triggered
 
-* A check changes health state \(e.g. becomes `critical`\).
-* This causes the component to change state for which an event is shown in the event stream pane \(in a view click on the bell icon on the far right\).
-* The health state propagates to other components that causes their propagated health state to change based on the propagation function of each component. This triggers an event for all affected components. These events are not visible in the event stream, but can be used for alerting.
-* A view that contains these components can also change health state based on these changes. This triggers a `view state change` event to be created. These events are not shown in the event stream.
-* Events that are triggered by components contained in a view or by the view changing state itself can trigger event handlers.
-* Event handlers are configured on views and can send alerts or trigger some kind of automation.
+The flow of events that lead to an alert follow this path:
+
+1. A health check changes health state, for example it becomes `critical`.
+2. The health state of the associated component changes
+    - An event is generated and shown in the event stream on the right and in the Events Perspective.
+3. The health state propagates to other components, updating their propagated health state. 
+    - An event is generated for all affected components. These events are not visible in the event stream, but can be used for alerting.
+4. A view that contains these components may also change health state based on these changes. 
+    - A `view state change` event to be created. These events are not shown in the event stream.
+5. Event handlers associated with the view will send the configured alerts or trigger the configured actions.
 
 ## See also
 
