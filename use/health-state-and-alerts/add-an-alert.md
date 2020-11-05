@@ -12,15 +12,9 @@ In StackState, telemetry flows through topology components as either metric or e
 
 Events are generated for every change in health state. These events can be linked with event handlers to send out an alert or trigger some type of automation.
 
-- **Propagated health state change event**e<br />Generated whenever the health state of one of a component’s dependencies changes.
-- **Own health state change event**<br />Generated when the health state of a component changes.
 - **View health state change event**<br />Generated only when the health state of a significant number of components in a view changes.
-
-| Health state<br />change event | Generated when |
-|:---|:---|
-| Propagated | Whenever the health state of one of a component’s dependencies changes. |
-| Own | When the health state of a component changes. |
-| View | Only when the health state of a significant number of components in a view changes. |
+- **Own health state change event**<br />Generated when the health state of a component changes.
+- **Propagated health state change event**<br />Generated whenever the health state of one of a component’s dependencies changes.
 
 ![Events Perspective](/.gitbook/assets/event-perspective.png)
 
