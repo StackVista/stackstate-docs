@@ -6,7 +6,7 @@ description: How alerts are triggered in StackState
 
 When something goes wrong within your IT environment, StackState can alert you or your team with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures.
 
-## Events that trigger alerts
+## Alerts are triggered by events
 
 In StackState, telemetry flows through topology components as either metric or event streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/create-a-health-check.md) to determine the health state of each component. For every change in health state, an event is generated. These events can be linked with event handlers on a view to [send out an alert](/use/health-state-and-alerts/add-an-alert.md) or to trigger some type of automation.
 
