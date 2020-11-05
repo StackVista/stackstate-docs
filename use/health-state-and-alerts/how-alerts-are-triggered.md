@@ -4,13 +4,13 @@ description: How alerts are triggered in StackState
 
 ## Overview
 
-When something goes wrong within your IT environment, StackState can alert you or your team with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
+When something goes wrong within your IT environment, StackState can alert you or your team with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures.
 
 ## Events that trigger alerts
 
 In StackState, telemetry flows through topology components as either metric or event streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/create-a-health-check.md) to determine the health state of each component. 
 
-Events are generated for every change in health state. These events can be linked with event handlers to send out an alert or to trigger some type of automation.
+For every change in health state, an event is generated. These events can be linked with event handlers to [send out an alert](/use/health-state-and-alerts/add-an-alert.md) or to trigger some type of automation.
 
 - **View health state change event**<br />Generated only when the health state of a significant number of components in a view changes.
 - **Own health state change event**<br />Generated when the health state of a component changes.
@@ -26,3 +26,10 @@ The entire flow of events that lead to an alert follow this path:
 * A view that contains these components can also change health state based on these changes. This triggers a `view state change` event to be created. These events are not shown in the event stream.
 * Events that are triggered by components contained in a view or by the view changing state itself can trigger event handlers.
 * Event handlers are configured on views and can send alerts or trigger some kind of automation.
+
+## See also
+
+- [Create a health check](/use/health-state-and-alerts/create-a-health-check.md)
+- [Configure the view health state](/use/health-state-and-alerts/configure-view-health.md)
+- [Checks and streams](/configure/telemetry/checks_and_streams.md)
+- [Add an alert](/use/health-state-and-alerts/add-an-alert.md)
