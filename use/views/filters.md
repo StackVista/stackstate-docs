@@ -21,7 +21,7 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Environments | Divide your IT landscape into logical units according to their intended purpose, for example DTAP (Develop, Test, Acceptance, Production). One component can belong to multiple environments.  |
 | Types | Specify component types to define the granularity level of components in the IT environment. |
 | Health | Include only components with the named health state(s). |
-| Labels | You can add labels to components using ??? and use these to filter the topology. Some integrations will also add labels to topology they import, for example the [SCOM integration](/stackpacks/integrations/scom.md) |
+| Labels | You can add labels to components using ??? and use these to filter the topology. Some integrations will also add labels to topology they import, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md) |
 | Components | The components field behaves differently to other filters. Components named here will always be included in the topology. |
 
 ### Basic filtering example
