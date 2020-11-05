@@ -90,7 +90,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
     - **auth_mode** - Network or Windows (Default is Network).
     - **integration mode** - to use the API integration, set to `api`.
     - **max_number_of_requests** - The maximum number of requests that should be sent to the SCOM API. See how to [determine the required number of API requests](#determine-the-required-number-of-api-requests), default 5000.
-    - **criteria** - A query to [specify the components to retrieved data for](#specify-the-components-to-retrieve-data-for).
+    - **criteria** - A query to [specify the components to retrieve data for](#specify-the-components-to-retrieve-data-for).
     ```
     init_config:
         # run every minute
