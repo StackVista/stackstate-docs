@@ -4,7 +4,7 @@ description: Report the health state for a complete view
 
 # Configure the view health
 
-Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, we want to report on the changes to the problem itself and not on each related state change.
+Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not on each related state change.
 
 In StackState this is done by looking at the health of a **view**. The health of a view is determined by the combined health of the components and relations in the view. When a view changes its health state, this triggers an view state event that can in turn trigger an alert or automated action.
 
