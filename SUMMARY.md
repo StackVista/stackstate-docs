@@ -53,6 +53,7 @@
     * [Events Perspective](use/views/events_perspective.md)
     * [Traces Perspective](use/views/traces_perspective.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
+    * [How alerts are triggered](use/health-state-and-alerts/how-alerts-are-triggered.md)
     * [Create a health check](use/health-state-and-alerts/create-a-health-check.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
     * [Add an alert](use/health-state-and-alerts/add-an-alert.md)
