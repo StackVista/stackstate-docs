@@ -30,5 +30,9 @@ To add an alert or automated action, add an event handler from the StackState UI
     - **Propagated state changes** - trigger whenever the propagated health state of a component/relation in the view changes.
 7. Click **SAVE**.
 
+## See also
 
+- [Configure an SMTP server to send email alerts](/configure/topology/configure-email-alerts.md)
+- [How alerts are triggered](/use/health-state-and-alerts/how-alerts-are-triggered.md)
+- [Events Perspective](/use/views/events_perspective.md)
 
