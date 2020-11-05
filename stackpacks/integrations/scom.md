@@ -12,7 +12,7 @@ The SCOM integration is in **BETA**.
 
 The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run as either an API integration or PowerShell integration, these are described in the tabs below the diagram.
 
-![Data flow](/.gitbook/assets/stackpack-scom_2.png)
+![Data flow](/.gitbook/assets/stackpack-scom.svg)
 
 {% tabs %}
 {% tab title="API integration" %}
