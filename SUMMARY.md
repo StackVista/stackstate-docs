@@ -52,11 +52,11 @@
     * [Telemetry Perspective](use/views/telemetry_perspective.md)
     * [Events Perspective](use/views/events_perspective.md)
     * [Traces Perspective](use/views/traces_perspective.md)
-  * [Anomaly Detection with Baselines](use/baselining.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
     * [Create a health check](use/health-state-and-alerts/create-a-health-check.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
     * [Add an alert](use/health-state-and-alerts/add-an-alert.md)
+    * [Anomaly Detection with Baselines](use/baselining.md)
   * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks
