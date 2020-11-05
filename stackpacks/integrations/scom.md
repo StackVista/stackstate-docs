@@ -171,7 +171,7 @@ Retrieving topology data from SCOM requires 2 API requests per component.
 |:---|:---|
 | `OperationsManager/data/scomObjects` | Get type of component. |
 | `OperationsManager/data/objectInformation` | Get component information and relations. |
-| `OperationsManager/data/alert` | Alerts. |
+| `OperationsManager/data/alert` | Get alerts. |
 
 #### Data retrieved
 
