@@ -13,12 +13,9 @@ Health checks report the status of components and relations in StackState. Any c
 
 Each health check uses a check function to monitor the telemetry stream attached to the component/relation. The telemetry changes a check function responds to determines the way in which the health state is reported. A number of check functions are included out of the box with StackState, or you could create your own:
 
-- **Baseline anomaly detection**
-    Officially a baseline function, see [baseline anomaly detection](/use/health-state-and-alerts/baselining.md).
+- **Baseline anomaly detection**<br />Officially a baseline function, see [baseline anomaly detection](/use/health-state-and-alerts/baselining.md).
 
-- **Event contains key/value**
-    Check that the last event contains (at the top-level), the specified value for a key. Returns 'trueState' value when the state is contained and 'falseState' when it is not contained.
-    Returns: `HEALTH_STATE`
+- **Event contains key/value**<br />Check that the last event contains (at the top-level), the specified value for a key.<br />Returns: `HEALTH_STATE` - `trueState` when the key/value is present, `falseState` when it is not.
 
 - **Event fixed state**
 This check will always return the state that is provided when an event has been received.
