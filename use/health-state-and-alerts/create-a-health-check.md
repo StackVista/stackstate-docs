@@ -15,15 +15,11 @@ Each health check uses a check function to monitor the telemetry stream attached
 
 - **Baseline anomaly detection**<br />Officially a baseline function, see [baseline anomaly detection](/use/health-state-and-alerts/baselining.md).
 
-- **Event contains key/value**<br />Check that the last event contains (at the top-level), the specified value for a key.<br />Returns: `HEALTH_STATE` - `trueState` when the key/value is present, `falseState` when it is not.
+- **Event contains key/value**<br />Check that the last event contains (at the top-level), the specified value for a key.<br />Returns: `HEALTH_STATE` - `trueState` when the key/value is present, `falseState` when it is not.<br />
 
-- **Event fixed state**
-This check will always return the state that is provided when an event has been received.
-Returns: `HEALTH_STATE`
+- **Event fixed state**<br />This check will always return the state that is provided when an event has been received.<br />Returns: `HEALTH_STATE`<br />
 
-- **Event fixed run state**
-This check will always return the run state that is provided when an event has been received.
-Returns: `RUN_STATE`
+- **Event fixed run state**<br />This check will always return the run state that is provided when an event has been received.<br />Returns: `RUN_STATE`<br />
 
 - **Metrics failed ratio**
 Calculate the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value.
