@@ -2,11 +2,6 @@
 description: Report the health state for a complete view
 ---
 
-{% hint style="warning" %}
-**QUESTIONS:**
-
-{% endhint %}
-
 # Configure the view health
 
 ## Overview
@@ -19,14 +14,14 @@ StackState can reduce this noise by looking at the overall health state of a **v
 
 ## Configure a view health state
 
-View health state is calculated by a **view state configuration function**. You can use the default standard view state configuration function or [create your own](/configure/view_state_configuration.md). To configure a view to report its health state:
+View health state is calculated by a **view state configuration function**.  To configure a view to report its health state:
 
 1. In the StackState UI, go to the **Views** list.
 2. Click on the pencil icon next to a view name to edit the view.
-3.Make sure `view health state` is enabled. A `edit query view` dialog appears.
-5. Select an configuration function. Each configuration function determines the health of the view in its own way based on the components and relations that are visible within the view. Some may count the number of components that have a certain health state, others may lend some special status to a certain component, etc. If you want to know what an view health state configuration function does exactly or want to create your own view health state configuration function then you can find a full listing of all view health state configuration functions under the `settings / view health state configuration functions` page.
-6. Each configuration function has different arguments that need to be supplied. These arguments determine the behavior of the view health state configuration function.
-7. Click `Update` to save the new configuration to the view. The view health updates immediately.
+3. Set **View Health State Enabled** to **On** and enter the required details:
+4. Select a **Configuration function** to calculate the view health. YOu can use the default standard view state configuration function or [create your own](/configure/view_state_configuration.md).
+6. Provide the required configuration function arguments. These arguments determine the behavior of the view health state configuration function and will vary according to the function selected.
+7. Click **UPDATE** to save the new configuration to the view. The view health updates immediately.
 
 ## React to view state changes
 
