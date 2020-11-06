@@ -31,7 +31,7 @@ Health checks require telemetry streams.
 5. Each check function requires different arguments to determine the behavior of the check. 
     - At least one of the arguments is a telemetry stream \(some checks may require multiple streams\). 
     - For metric streams, a windowing method and window size need to be supplied that determine how often the check function runs based on the incoming metrics. If the windowing method is set to batching and window size is set to 60 seconds than the check runs every minute with a minute of metrics. If the windowing method is set to sliding and the window size to 60 seconds then check runs whenever the data flows in after 60 seconds of metrics have been collected.
-9. Click **Create** to create the health check. 
+9. Click **CREATE** to create the health check. 
     - The check is now active and visible under the **Health** section on the right side of the screen. 
     - At first, the check will appear gray. This is because its health state is not yet known. As soon as enough telemetry has been received ,the check will get a health state.
 
