@@ -30,11 +30,10 @@ Health checks require telemetry streams.
     - **Check function** - The check function to use to monitor the component/relation's telemetry stream(s). See [Check functions](#check-functions) below.
 5. Provide the required check function arguments, these will vary according to the check function selected, but will include:
     - At least one telemetry stream. Some checks will require multiple streams. 
-    - For metrics check functions: A windowing method and window size, see [Windowing for metrics check functions](#windowing-for-metrics-check-functions) below.
+    - For metrics check functions, a [windowing method](#windowing-method) and window size.
 9. Click **CREATE** to create the health check. 
     - The check is now active and visible under the **Health** section on the right side of the screen. 
-    - At first, the check will appear gray. This is because its health state is not yet known. As soon as enough telemetry has been received ,the check will get a health state.
-
+    - The check will remain gray until enough telemetry data has been received to determine a health state.
 
 ## Check functions
 
