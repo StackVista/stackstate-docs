@@ -4,11 +4,13 @@ description:
 
 ## Add a custom telemetry stream to a component
 
-- ??? Where does telemetry come from?
-- ??? Why does it need to be manually added to a component(s) - is this always required or will it sometimes be added automatically when the component is created in sts?
-- ??? What if there isn't any telemetry available?
-- ??? How to know if telemetry is available?
-
+{% hint style="warning" %}
+**QUESTIONS:**
+- Where does telemetry come from?
+- Why does it need to be manually added to a component(s) - is this always required or will it sometimes be added automatically when the component is created in sts?
+- What if there isn't any telemetry available?
+- How to know if telemetry is available?
+{% endhint %}
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
