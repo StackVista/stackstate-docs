@@ -29,8 +29,8 @@ Health checks require telemetry streams.
     - **Remediation hint** - Optional, will be automatically displayed on the component or relation when this check goes to a non clear state, for example `critical` or `deviating`.
     - **Check function** - The check function to use to monitor the component/relation's telemetry stream(s). See [Check functions](#check-functions) below.
 5. Provide the required check function arguments, these will vary according to the check function selected, but will include:
-    - At least one telemetry stream. Some checks require multiple streams. 
-    - For metrics check functions: A windowing method and window size. See [Windowing for metrics check functions](#windowing-for-metrics-check-functions) below.
+    - At least one telemetry stream. Some checks will require multiple streams. 
+    - For metrics check functions: A windowing method and window size, see [Windowing for metrics check functions](#windowing-for-metrics-check-functions) below.
 9. Click **CREATE** to create the health check. 
     - The check is now active and visible under the **Health** section on the right side of the screen. 
     - At first, the check will appear gray. This is because its health state is not yet known. As soon as enough telemetry has been received ,the check will get a health state.
@@ -82,10 +82,10 @@ Returns: `HEALTH_STATE`
 Calculate the health state by comparing the average of all metric points in the time window against the configured maximum values.
 Returns: `HEALTH_STATE`
 
-## Windowing for metrics check functions
+## Windowing method
 
-For metrics check functions, a windowing method and window size must be provided. This determines how often the check function runs based on the incoming metrics. 
+For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. 
 
-- **Batching** - If the `windowing method` is set to batching and `window size` is set to 60 seconds, the check will run every minute with a minute of metrics.
-- **Sliding** - If the `windowing method` is set to sliding and `window size` is set to 60 seconds, the check runs whenever the data flows in after 60 seconds of metrics have been collected.
+- **Batching** - If the windowing method is set to batching and window size is set to 60 seconds, the check will run every minute with a minute of metrics.
+- **Sliding** - If the windowing method is set to sliding and window size is set to 60 seconds, the check runs whenever the data flows in after 60 seconds of metrics have been collected.
 
