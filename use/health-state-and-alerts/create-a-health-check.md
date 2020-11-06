@@ -84,8 +84,8 @@ Returns: `HEALTH_STATE`
 
 ## Windowing method
 
-For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. 
+For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. There are two possible windowing methods:
 
-- **Batching** - With a window size of 60 seconds, the check will run every minute with a minute of metrics.
-- **Sliding** - With a window size of 60 seconds, the check runs whenever the data flows in after 60 seconds of metrics have been collected.
+- **Batching** - If the windowing method is set to batching and window size is set to 60 seconds, the check will run every minute with a minute of metrics.
+- **Sliding** - If the windowing method is set to sliding and window size is set to 60 seconds, the check runs whenever the data flows in after 60 seconds of metrics have been collected.
 
