@@ -1,5 +1,5 @@
 ---
-description: How alerts are triggered in StackState
+description: Understand how alerts are triggered in StackState
 ---
 
 ## Overview

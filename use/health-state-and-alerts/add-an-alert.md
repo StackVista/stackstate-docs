@@ -1,5 +1,5 @@
 ---
-description: Trigger alerts and actions on component or view state changes
+description: Configure an alert or automation to trigger on component or view state changes
 ---
 
 # Add an alert

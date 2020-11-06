@@ -54,10 +54,10 @@
     * [Traces Perspective](use/views/traces_perspective.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
     * [How alerts are triggered](use/health-state-and-alerts/how-alerts-are-triggered.md)
-    * [Create a health check](use/health-state-and-alerts/create-a-health-check.md)
+    * [Assign a health check](use/health-state-and-alerts/create-a-health-check.md)
+    * [Baseline anomaly detection](use/baselining.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
-    * [Add an alert](use/health-state-and-alerts/add-an-alert.md)
-    * [Anomaly Detection with Baselines](use/baselining.md)
+    * [Trigger alerts and actions](use/health-state-and-alerts/add-an-alert.md)
   * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks

@@ -4,6 +4,13 @@ description:
 
 # Create a health check
 
+- ??? do health checks always need to be manually added or is there a default added when a component/relation is created?
+
+Health checks report the status of a StackState component or relation using a check function that responds to a telemetry stream attached to the component/relation. Each component/relation in a StackState topology view can have a health check assigned. The check function used by a health check determines the way in which the health state is reported. A number of check functions are included out of the box with StackState, or you could create your own:
+
+- 
+
+
 Health checks generate events that can be alerted on. 
 
 To create a health check:
