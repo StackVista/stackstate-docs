@@ -19,12 +19,14 @@ You can assign a health check to a component or relation in the StackState Topol
 Health checks require telemetry streams.
 {% endhint %}
 
+![Add a health check to a component or relation](/.gitbook/assets/v41_add_health_check.png)
+
 1. Select the component or relation that you want to assign a health check to.
     - If no telemetry stream is available on the selected component/relation, you will need to [add a telemetry stream](/use/health-state-and-alerts/add-telemetry-to-component.md).
 3. Click **+ ADD** next to **Health** on the right of the screen. 
     - An **Add check** dialog box appears.
 4. Provide the following details:
-    - **Name** - ???
+    - **Name** - The health check name. Will be displayed in the StackState UI **Health** pane.
     - **Description** - Optional, can be used to explain the check in greater detail.
     - **Remediation hint** - Optional, will be automatically displayed on the component or relation when this check goes to a non clear state, for example `critical` or `deviating`.
     - **Check function** - The check function to use to monitor the component/relation's telemetry stream(s). See [Check functions](#check-functions) below.
