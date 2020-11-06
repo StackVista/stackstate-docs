@@ -4,8 +4,11 @@ description:
 
 # Create a health check
 
+{% hint style="warning" %}
 - ??? do health checks always need to be manually added or is there a default added when a component/relation is created?
 - ??? are health checks added with stackpacks?
+- ??? if windowing method is set to sliding, does a check run continuously as long as data is arriving?
+{% endhint %}
 
 ## Overview
 
@@ -87,6 +90,6 @@ Returns: `HEALTH_STATE`
 
 For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. There are two possible windowing methods:
 
-- **Batching** - If the windowing method is set to batching and window size is set to 60 seconds, the check will run every minute with a minute of metrics.
-- **Sliding** - If the windowing method is set to sliding and window size is set to 60 seconds, the check runs whenever the data flows in after 60 seconds of metrics have been collected.
+- **Batching** - Groups metric data in strictly separate windows of the configured window time, with consistent start and end times. For example, with window size set to 60 seconds, a batching check will run every minute with metrics from the previous minute.
+- **Sliding** - Groups metric data in overlapping windows of at most the configured max-window time. For example, with window size set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected.
 
