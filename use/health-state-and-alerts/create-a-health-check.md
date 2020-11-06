@@ -16,46 +16,41 @@ Each health check uses a check function to monitor the telemetry stream attached
 - Baseline anomaly detection
 Officially a baseline function, see [baseline anomaly detection](/use/health-state-and-alerts/baselining.md).
 
-- Event contains key/value
+- **Event contains key/value**
 Check that the last event contains (at the top-level), the specified value for a key. Returns 'trueState' value when the state is contained and 'falseState' when it is not contained.
 Returns: `HEALTH_STATE`
 
-- Event fixed run state
+- **Event fixed run state**
 This check will always return the run state that is provided when an event has been received.
 Returns: `RUN_STATE`
 
-- Event fixed state
+- **Event fixed state**
 This check will always return the state that is provided when an event has been received.
 Returns: `HEALTH_STATE`
 
-- Metric fixed run state
+- **Metric fixed run state**
 This check will always return the run state that is provided when a metric has been received.
 Returns: `RUN_STATE`
 
-- Metric fixed state
+- **Metric fixed state**
 This check will always return the health state that is provided when a metric has been received.
 Returns: `HEALTH_STATE`
 
-- Metrics failed ratio
+- **Metrics failed ratio**
 Calculate the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value.
 Returns: `HEALTH_STATE`
 
-- Metrics last/max threshold
+- **etrics last/max threshold**
 Checks whether the ratio of the last value and its maximum is above the critical or deviating percentage.
 Returns: `HEALTH_STATE`
 
-- Metrics local anomaly detection
+- **Metrics local anomaly detection**
 Check to detect spikes by calculating a standard deviation on the points in the time window and report deviating when a number of values exceed the multiple.
 Returns: `HEALTH_STATE`
 
-- Metrics maximum average
+- **Metrics maximum average**
 Calculate the health state by comparing the average of all metric points in the time window against the configured maximum values.
 Returns: `HEALTH_STATE`
-
-
-
-
-- 
 
 
 
