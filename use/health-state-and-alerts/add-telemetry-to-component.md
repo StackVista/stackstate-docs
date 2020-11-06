@@ -6,10 +6,12 @@ description:
 
 {% hint style="warning" %}
 **QUESTIONS:**
-- Where does telemetry come from?
+- Where does telemetry come from? (what are the data sources)
+- How to be sure that data in a stream relates to the component you are attaching it to?
 - Why does it need to be manually added to a component(s) - is this always required or will it sometimes be added automatically when the component is created in sts?
 - What if there isn't any telemetry available?
 - How to know if telemetry is available?
+- What is the difference between a telemetry stream and a metric stream?
 {% endhint %}
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.

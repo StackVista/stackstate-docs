@@ -2,15 +2,27 @@
 description: Report the health state for a complete view
 ---
 
+{% hint style="warning" %}
+**QUESTIONS:**
+
+{% endhint %}
+
 # Configure the view health
 
-Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not on each related state change.
+## Overview
 
-In StackState this is done by looking at the health of a **view**. The health of a view is determined by the combined health of the components and relations in the view. When a view changes its health state, this triggers an view state event that can in turn trigger an alert or automated action.
+Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.
+
+StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual component and relations. The view health state is determined by the combined health of its components and relations. When a view changes its health state, a view state change event is triggered and that can in turn trigger an alert or automated action.
 
 ## Configure a view health state
 
-1. Select a view.
+View health state is calculated by a **view state configuration function**. StackState ships with one standard view state configuration or you can [create your own](/configure/view_state_configuration). To configure a view to report its health state:
+
+1. In the StackState UI, go to the **Views** list.
+2. Click on the pencil icon next to a view name to edit the view.
+3.
+
 2. On the top bread crumb next to the name of the view click on the drop down arrow.
 3. In the drop down menu click on `Edit`.
 4. Make sure `view health state` is enabled. A `edit query view` dialog appears.

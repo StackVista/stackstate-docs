@@ -2,7 +2,7 @@
 description: 
 ---
 
-# Create a health check
+# Add a health check
 
 {% hint style="warning" %}
 **QUESTIONS:**
