@@ -57,3 +57,8 @@ For metrics check functions, a windowing method and window size must be provided
 - **Batching** - Groups metric data in strictly separate windows of the configured window time, with consistent start and end times. For example, with window size set to 60 seconds, a batching check will run every minute with metrics from the previous minute.
 - **Sliding** - Groups metric data in overlapping windows of at most the configured max-window time. For example, with window size set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected.
 
+## See also
+
+- [Check functions](/configure/telemetry/checks_and_streams.md#check-functions)
+- [Add a telemetry stream to a component](/use/health-state-and-alerts/add-telemetry-to-component.md)
+- [Add an alert](/use/health-state-and-alerts/add-an-alert.md)
