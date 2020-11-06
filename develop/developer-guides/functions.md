@@ -41,7 +41,7 @@ In StackState, functions are generally written in a synchronous blocking manner.
 
 Read more about:
 
-- [Baseline functions](/use/baselining.md#baseline-functions)
+- [Baseline functions](/use/health-state-and-alerts/baselining.md#baseline-functions)
 - [Check functions](/configure/telemetry/checks_and_streams.md#check-functions)
 - [Component mapper functions](/use/introduction-to-stackstate/mapping_functions.md)
 - [Event handler functions](/use/health-state-and-alerts/add-an-alert.md#alerting-using-event-handlers)
