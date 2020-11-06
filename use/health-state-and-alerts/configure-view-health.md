@@ -25,6 +25,8 @@ View health state is calculated by a **view state configuration function**.  To 
 6. Provide any required configuration function arguments. These arguments determine the behavior of the view health state configuration function and will vary according to the function selected.
 7. Click **UPDATE** to save the new configuration to the view. 
     - The view health will update immediately.
+    
+![Edit query view](/.gitbook/assets/v41_edit_query_view.png)
 
 ## React to view state changes
 
