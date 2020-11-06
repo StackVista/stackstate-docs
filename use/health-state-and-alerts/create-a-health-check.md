@@ -11,7 +11,9 @@ description:
 
 Health checks report the status of components and relations in StackState. Any component/relation in a StackState topology view with a telemetry stream can have a health check assigned. 
 
-Each health check uses a check function to monitor the telemetry stream attached to the component/relation. The telemetry changes a check function responds to determines the way in which the health state is reported. A number of check functions are included out of the box with StackState, or you could create your own:
+## Check functions
+
+Each health check uses a check function to monitor the telemetry stream attached to the component/relation. The telemetry changes a check function responds to determine the way in which the health check reports component/relation health state. A number of check functions are included out of the box with StackState, or you could create your own:
 
 - **Baseline anomaly detection**<br />Officially a baseline function, see [baseline anomaly detection](/use/health-state-and-alerts/baselining.md).
 
