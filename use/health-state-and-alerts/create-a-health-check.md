@@ -5,9 +5,10 @@ description:
 # Create a health check
 
 {% hint style="warning" %}
-- ??? do health checks always need to be manually added or is there a default added when a component/relation is created?
-- ??? are health checks added with stackpacks?
-- ??? if windowing method is set to sliding, does a check run continuously as long as data is arriving?
+**QUESTIONS:**
+- do health checks always need to be manually added or is there a default added when a component/relation is created?
+- are health checks added with stackpacks?
+- if windowing method is set to sliding, does a check run continuously as long as data is arriving?
 {% endhint %}
 
 ## Overview
@@ -45,46 +46,9 @@ Health checks require telemetry streams.
 Each health check uses a check function to monitor the telemetry stream attached to the component/relation. 
 
 Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports component/relation health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. 
-A number of check functions are included out of the box with StackState, or you could create your own.
+A number of check functions are included out of the box with StackState, or you could [create your own](/configure/telemetry/checks_and_streams.md#check-functions).
 
-### Baseline anomaly detection
-Officially a baseline function, see [baseline anomaly detection](/use/health-state-and-alerts/baselining.md).
-
-### Event contains key/value*
-Check that the last event contains (at the top-level), the specified value for a key.
-Returns: `HEALTH_STATE` - `trueState` when the key/value is present, `falseState` when it is not.
-
-### Event fixed state
-This check will always return the state that is provided when an event has been received.
-Returns: `HEALTH_STATE`
-
-### Event fixed run state
-This check will always return the run state that is provided when an event has been received.
-Returns: `RUN_STATE`
-
-### Metrics failed ratio
-Calculate the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value.
-Returns: `HEALTH_STATE`
-
-### Metric fixed state
-This check will always return the health state that is provided when a metric has been received.
-Returns: `HEALTH_STATE`
-
-### Metric fixed run state
-This check will always return the run state that is provided when a metric has been received.
-Returns: `RUN_STATE`
-
-### Metrics last/max threshold
-Checks whether the ratio of the last value and its maximum is above the critical or deviating percentage.
-Returns: `HEALTH_STATE`
-
-### Metrics local anomaly detection
-Check to detect spikes by calculating a standard deviation on the points in the time window and report deviating when a number of values exceed the multiple.
-Returns: `HEALTH_STATE`
-
-### Metrics maximum average
-Calculate the health state by comparing the average of all metric points in the time window against the configured maximum values.
-Returns: `HEALTH_STATE`
+Details of the available check functions check the StackState UI **Settings** > **Check functions**.
 
 ## Windowing method
 
