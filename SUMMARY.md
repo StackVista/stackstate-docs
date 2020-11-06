@@ -58,6 +58,7 @@
     * [Baseline anomaly detection](use/health-state-and-alerts/baselining.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
     * [Trigger alerts and actions](use/health-state-and-alerts/add-an-alert.md)
+    * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-component.md)
   * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks
