@@ -27,9 +27,9 @@ Health checks require telemetry streams.
     - **Name** - ???
     - **Description** - Optional, can be used to explain the check in greater detail.
     - **Remediation hint** - Optional, will be automatically displayed on the component or relation when this check goes to a non clear state, for example `critical` or `deviating`.
-    - **Check function** - The check function to use to monitor the component/relation's telemetry stream. See [check functions](#check-functions) for details.
-5. Each check function requires different arguments to determine the behavior of the check. 
-    - At least one of the arguments is a telemetry stream \(some checks may require multiple streams\). 
+    - **Check function** - The check function to use to monitor the component/relation's telemetry stream(s). See [check functions](#check-functions) for details.
+5. Provide the required check function arguments, these will vary according to the check function selected:
+    - At least one telemetry stream \(some checks require multiple streams\). 
     - For metric streams, a windowing method and window size need to be supplied that determine how often the check function runs based on the incoming metrics. If the windowing method is set to batching and window size is set to 60 seconds than the check runs every minute with a minute of metrics. If the windowing method is set to sliding and the window size to 60 seconds then check runs whenever the data flows in after 60 seconds of metrics have been collected.
 9. Click **CREATE** to create the health check. 
     - The check is now active and visible under the **Health** section on the right side of the screen. 
