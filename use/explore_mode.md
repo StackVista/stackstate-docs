@@ -38,6 +38,6 @@ When you change the displayed components using a filter, the **Save view** butto
 
 ## See also
 
-- [Filters](/use/views/filters.md)
-- [Perspectives](/use/views/perspectives.md)
-- [Views](/use/views/README.md)
+- [Filtering data](/use/views/filters.md)
+- [StackState perspectives](/use/views/perspectives.md)
+- [Working with StackState Views](/use/views/README.md)
