@@ -37,7 +37,7 @@ You can add a telemetry stream to a component or relation in the StackState Topo
     - **Time window** - 
     - **Filters** - 
     - **Select** - 
-    - **Priority** - Optionally [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md). This will affect 
+    - **Priority** - Optional, you can [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md). This will affect the order in which streams are displayed and influence the behaviour of toe [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md).
 6. The stream preview on the right will update to show the incoming metric values based on the details you provide.
 7. Click **SAVE** to add the stream to the component.
     - You will receive a notification that the stream has been successfully completed. 
