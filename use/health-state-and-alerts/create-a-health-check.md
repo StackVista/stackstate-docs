@@ -1,5 +1,5 @@
 ---
-description: 
+description: Report the health state for a component or relation.
 ---
 
 # Add a health check

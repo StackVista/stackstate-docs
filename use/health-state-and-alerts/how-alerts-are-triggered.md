@@ -1,5 +1,5 @@
 ---
-description: Understand how alerts are triggered in StackState
+description: Understand how alerts are triggered in StackState.
 ---
 
 {% hint style="warning" %}

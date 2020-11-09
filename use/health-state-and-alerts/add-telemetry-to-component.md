@@ -1,5 +1,5 @@
 ---
-description: 
+description: Add incoming telemetry (metrics) data to a component or relation.
 ---
 
 # Add a custom telemetry stream to a component
