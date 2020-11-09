@@ -22,12 +22,12 @@ To add an alert or automated action, add an event handler from the StackState UI
 1. Go to the [Events Perspective](/use/views/events_perspective.md).
 2. Select **Events Settings** on the left.
 3. Click **ADD EVENT HANDLER**.
-4. Select the event handler function you wish to add.
-5. Enter the required details, these will vary according to the type of event handler function you have selected.
-6. Select the type of state changes that should trigger the selected event handler:
-    - **View state changes** - trigger only on a health state change of the entire view (recommended to reduce noise).
-    - **Own state changes** - trigger when the health state of a component/relation changes.
-    - **Propagated state changes** - trigger whenever the propagated health state of a component/relation in the view changes.
+4. Select the type of state changes that should trigger an alert or automated action:
+    - **View state changes** - triggers only on a health state change of the entire view. Recommended to reduce noise.
+    - **Own state changes** - triggers with every change to the own health state of a component or relation in the view.
+    - **Propagated state changes** - triggers for every change to the propagated health state of a component or relation in the view. The propagated health state is calculated based on the component’s dependencies. Use to alert on potential impact.
+5. Select the event handler function that should run whenever the selected event type is generated.
+6. Enter the required details, these will vary according to the event handler function you have selected.
 7. Click **SAVE**.
 
 ## See also
