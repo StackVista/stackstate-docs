@@ -44,6 +44,6 @@ You can add a telemetry stream to a component or relation in the StackState Topo
 
 ## See also
 
-- [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
+- [Set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
 - [Automomous Anomaly Detector](/stackpacks/add-ons/aad.md)
 - [Monitor the health of a component](/use/health-state-and-alerts/create-a-health-check.md)
