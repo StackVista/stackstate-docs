@@ -37,5 +37,10 @@ When opening the Events Perspective, the events shown are based on the currently
 
 ## Event handlers
 
-The Events Perspective allows the creation of [event handlers](/use/health-state-and-alerts/add-an-alert.md) to act on events in the view.
+The Events Perspective allows the creation of event handlers to act on events in the view and [trigger alerts and actions](/use/health-state-and-alerts/add-an-alert.md).
 
+## See also
+
+- [Trigger alerts and actions](/use/health-state-and-alerts/add-an-alert.md)
+- [Filtering data](/use/views/filters.md)
+- [Working with StackState views](/use/views/README.md)

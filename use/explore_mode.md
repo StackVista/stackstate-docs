@@ -6,9 +6,9 @@ description: Explore your full IT environment
 
 ## Overview
 
-The StackState explore mode gives you an unfiltered view of your topology. This is most likely a much larger overview that you would like to see at any given time, but is a good place to start creating [customized views](/use/views/README.md).
+The StackState explore mode provides an unfiltered view of your topology. This is most likely a much larger overview that you would like to see at any given time, but it's a good place to start creating [customized views](/use/views/README.md) and get familiar with teh StackState UI.
 
-Up to 10,000 components can be displayed at any time, if there are already more items in your topology than this, you will need to [add a filter](#add-a-filter) before any data will be displayed.
+Up to 10,000 components can be displayed at any time, if there are already more items than this in your topology, you will need to [add a filter](#add-a-filter) before any data will be displayed.
 
 ![Explore mode](/.gitbook/assets/v41_explore_mode.png)
 
