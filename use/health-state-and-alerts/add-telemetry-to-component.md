@@ -42,8 +42,6 @@ You can add a telemetry stream to a component or relation in the StackState Topo
 7. Click **SAVE** to add the stream to the component.
     - You will receive a notification that the stream has been successfully completed. 
 
-![](/.gitbook/assets/example-telemetry-stream.png)
-
 ## See also
 
 - [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
