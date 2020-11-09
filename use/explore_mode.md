@@ -25,9 +25,9 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ## Add a filter
 
-![View Filters](/.gitbook/assets/v41_view_filters.png)
+![View Filters](/.gitbook/assets/v41_view_filters2.png)
 
-You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the View Filters pane. Read more about [filtering](/use/views/filters.md).  
+You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](/use/views/filters.md).  
 
 ## Save a view
 
