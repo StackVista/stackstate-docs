@@ -1,25 +1,25 @@
 ---
-description: Configure an alert or automation to trigger on component or view state changes.
+description: Use event handlers to trigger an alert or automated action on component or view state changes.
 ---
 
-# Add an alert
+# Trigger alerts and actions
 
 ## Overview
 
-StackState can be configured to send out alerts in response to changes in the health state. Event handlers assigned to a view will run when state change events are generated either by the associated components/relations or by the view itself. 
+StackState can be configured to send out alerts or trigger automated actions in response to changes in the health state. Event handlers assigned to a view will run when state change events are generated either by the associated components/relations or by the view itself. 
 
 ## Event handlers 
 
-A number of event handlers are included out of the box, or you could create your own:
+Event handlers are functions that run in response to an event. A number of event handlers are included out of the box, or you could create your own:
 
 - **Email**: Send an email alert to a specified email address. Note that an [SMTP server must be configured](/configure/topology/configure-email-alerts.md) in StackState to send email alerts.
 - **HTTP webhook POST**: Send an HTTP POST request to a specified URL.
 - **Slack**: Send a notification to a specified Slack webhook URL.
 - **SMS**: Send an SMS alert (MessageBird) to a specified phone number.
 
-## Add an alert
+## Add an event handler to a view
 
-To add an alert or automated action, add an event handler from the StackState UI Events Perspective.
+You can add an event handler to a view from the StackState UI Events Perspective.
 
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
