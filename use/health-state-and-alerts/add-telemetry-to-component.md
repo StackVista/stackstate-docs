@@ -2,7 +2,7 @@
 description: 
 ---
 
-## Add a custom telemetry stream to a component
+# Add a custom telemetry stream to a component
 
 {% hint style="warning" %}
 **QUESTIONS:**
@@ -12,22 +12,40 @@ description:
 - What if there isn't any telemetry available?
 - How to know if telemetry is available?
 - What is the difference between a telemetry stream and a metric stream?
+- priority - this is used for the order of the lista dn also the AAD right?
 {% endhint %}
 
-The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
+## Overview
 
-Find the sample check's components in StackState and click on the **some-application-1** component. The Component Details pane opens on the right, showing the metadata of this component.
+Components in StackState can also include telemetry \(metrics\). This provides additional insight into your topology and is required, for example, to [monitor the health of a component](/use/health-state-and-alerts/create-a-health-check.md).
 
-In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
+If a telemetry stream has not automatically been assigned to a component, you can do this manually from the StackState UI.
 
-In the Stream Creation screen, fill in the following parameters:
+## Add a telemetry stream to a component or relation
 
-* Time window: Last hour
-* Filters: `tags.related` = `application_id_1`
-* Select: `example.gauge` by `Mean`
+You can add a telemetry stream to a component or relation in the StackState Topology Perspective.
 
-The stream preview on the right should show the incoming metric values. Here is what that looks like:
+![Add a telemetry stream to a component or relation](/.gitbook/assets/v41_add_telemetry_stream.png)
+
+1. Select the component or relation that you want to.
+2. Click **+ ADD** next to **Telemetry streams** on the right of the screen.
+3. Provide the following details:
+    - **Name** - 
+    - **Data source** - 
+4. Click **NEXT**
+5. Provide the following details:
+    - **Time window** - 
+    - **Filters** - 
+    - **Select** - 
+    - **Priority** - Optionally [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md). This will affect 
+6. The stream preview on the right will update to show the incoming metric values based on the details you provide.
+7. Click **SAVE** to add the stream to the component.
+    - You will receive a notification that the stream has been successfully completed. 
 
 ![](/.gitbook/assets/example-telemetry-stream.png)
 
-Click on the **Save** button to permanently add the stream to the **some-application-1** component.
+## See also
+
+- [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
+- [Automomous Anomaly Detector](/stackpacks/add-ons/aad.md)
+- [Monitor the health of a component](/use/health-state-and-alerts/create-a-health-check.md)

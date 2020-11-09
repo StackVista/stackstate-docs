@@ -20,7 +20,7 @@ Health checks use check functions to report the status of components and relatio
 You can assign a health check to a component or relation in the StackState Topology Perspective.
 
 {% hint style="info" %}
-Health checks require telemetry streams.
+Health checks require [telemetry streams](/use/health-state-and-alerts/add-telemetry-to-component.md).
 {% endhint %}
 
 ![Add a health check to a component or relation](/.gitbook/assets/v41_add_health_check.png)
