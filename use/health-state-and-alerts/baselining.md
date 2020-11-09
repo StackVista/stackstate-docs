@@ -15,7 +15,7 @@ The process for detecting anomalies using baselines consists out of two steps:
 1. A `baseline` enriches a metric stream with a baseline. The metric stream is transformed into a `baseline metric stream`. Baselines are continuously calculated by baseline functions based on given the batch size.
 2. A `check` determines the health state of a component or relation based on the metrics in the metric stream and its baseline. Once a metric stream is a baseline metric stream, check functions that support such baseline metric streams are available for selection.
 
-## Configuring a baseline for a metric stream
+## Configure a baseline for a metric stream
 
 To configure a baseline for a metric stream go to the metric stream on a component or relation and select "add baseline" from the metric stream context menu \(accessed through the triple dots next to the name of the metric stream\).
 

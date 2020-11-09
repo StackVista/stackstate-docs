@@ -56,10 +56,9 @@
   * [Health state and alerts](use/health-state-and-alerts/README.md)
     * [How alerts are triggered](use/health-state-and-alerts/how-alerts-are-triggered.md)
     * [Add a health check](use/health-state-and-alerts/create-a-health-check.md)
-    * [Baseline anomaly detection](use/health-state-and-alerts/baselining.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
-    * [Trigger alerts and actions](use/health-state-and-alerts/add-an-alert.md)
-    * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-component.md)
+    * [Set up alerting](use/health-state-and-alerts/add-an-alert.md)
+    * [Baseline anomaly detection](use/health-state-and-alerts/baselining.md)
   * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks

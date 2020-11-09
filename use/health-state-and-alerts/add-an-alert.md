@@ -2,7 +2,7 @@
 description: Use event handlers to trigger an alert or automated action on component or view state changes.
 ---
 
-# Trigger alerts and actions
+# Set up alerting
 
 ## Overview
 
