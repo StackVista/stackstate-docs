@@ -10,9 +10,11 @@ The StackState explore mode gives you an unfiltered view of your topology. This 
 
 Up to 10,000 components can be displayed at any time, if there are already more items in your topology than this, you will need to [add a filter](#add-a-filter) before any data will be displayed.
 
-![Explore mode](/.gitbook/assets/v41_explore_mode2.png)
+![Explore mode](/.gitbook/assets/v41_explore_mode.png)
 
 ## Perspectives
+
+![Perspectives](/.gitbook/assets/v41_perspective_buttons.png)
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](/use/views/perspectives.md). Each perspective shows different data from the filtered (or unfiltered) components. Use the perspective buttons across the top of the screen to switch between them: 
 
@@ -23,9 +25,13 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ## Add a filter
 
+![View Filters](/.gitbook/assets/v41_view_filters.png)
+
 You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the View Filters pane. Read more about [filtering](/use/views/filters.md).  
 
 ## Save a view
+
+![Save view as](/.gitbook/assets/v41_save_view_as.png)
 
 When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](/use/views/README.md) menu. 
 
