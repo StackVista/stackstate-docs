@@ -20,6 +20,14 @@ In StackState, telemetry flows through topology components as either metric or e
 
 The flow of events that lead to an alert follows this path:
 
+| thing | Description |
+|:---|:---|
+| Telemetry streams | Telemetry streams attached to an element provide metrics and events data relating to the element.  |
+| Health checks | Health checks attached to an element listen to available telemetry streams and report the element's health state based on the configured parameters. |
+| State change events | When the reported health state of an element changes, the following events will be triggered<br />A `HealthStateChangedEvent` event is generated for the element. The event is visible in the StackState UI in the event stream on the right of the Topology Perspective screen and in the Events Perspective.<br />The health state propagates to other elements, updating their propagated health state. A `PropagatedStateChangedEvent` event is generated for all affected elements. These events are not visible in the StackState UI, but can be used for alerting.<br />A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). A `ViewStateChangedEvent` event is generated. These events are not shown in the StackState UI, but can be used for alerting. |
+| Event handlers | Event handlers associated with the view listen to the generated state change events from elements in the view and the view itself and trigger the [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md) accordingly. | 
+
+
 1. [Health checks](/use/health-state-and-alerts/create-a-health-check.md) attached to elements listen to the associated telemetry streams.
 2. The element's health is reported by the health check based on the configured criteria. When a change in the health state is reported, state change events are generated:
     - The actual health state of the element changes. A `HealthStateChangedEvent` event is generated for the element. The event is visible in the StackState UI in the event stream on the right of the Topology Perspective screen and in the Events Perspective.
