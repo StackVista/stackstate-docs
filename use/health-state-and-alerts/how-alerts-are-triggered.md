@@ -20,7 +20,9 @@ Alerts are triggered in response to health state changes on an element. The heal
 
 ## State change events
 
-In StackState, metrics and events flow through topology elements in telemetry streams. Telemetry streams are used by [health checks](/use/health-state-and-alerts/create-a-health-check.md) to determine the health state of each element. For every change in health state, a state change event is generated, which can be linked with an event handler to [send out an alert or trigger some type of automation](/use/health-state-and-alerts/add-an-alert.md).
+In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/create-a-health-check.md) to determine the health state of each element. For every change in health state, a state change event is generated. Event handlers can be added to a view to listen to the generated state change events and  [take action](/use/health-state-and-alerts/add-an-alert.md) if a configured threshold is passed.
+
+The event types generated when an element state changes are described in the table below.
 
 | Event | Event type | Description |
 |:---|:---|:---|
@@ -29,9 +31,6 @@ In StackState, metrics and events flow through topology elements in telemetry st
 | State change of entire view | `ViewStateChangedEvent` | Generated only when the health state of a significant number of components in a view changes. These events are not visible in the StackState UI, but can be used for alerting. |
 
 ![Health state change events in the Events Perspective](/.gitbook/assets/event-perspective.png)
-
-
-
 
 ## See also
 
