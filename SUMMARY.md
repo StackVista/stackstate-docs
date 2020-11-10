@@ -54,7 +54,6 @@
     * [Traces Perspective](use/views/traces_perspective.md)
   * [Analytics](use/analytics.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
-    * [How alerts are triggered](use/health-state-and-alerts/how-alerts-are-triggered.md)
     * [Add a health check](use/health-state-and-alerts/create-a-health-check.md)
     * [Baseline anomaly detection](use/health-state-and-alerts/baselining.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
