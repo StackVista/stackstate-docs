@@ -14,16 +14,26 @@ Topology Filters can be used to select a sub-set of topology components to be sh
 
 The main way of filtering the topology is by using the basic filters. When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further. You can set more than one value for each filter to expand your search
 
-| Basic filter | Description |
+| Filter | Description |
 | :--- | :--- |
-| Layers, Domains, Environments and Types | Filter by the standard component details included when topology is imported or created. |
-| Health | Only include components with the named health state(s) as set by the associated [health check](/use/health-state-and-alerts/add-a-health-check.md). |
-| Labels | Only include components with a [custom label](/configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views) |
-| Components | The components field behaves differently to other filters. Components named here will always be included in the topology in addition to components from other filters. |
+| Layers, Domains, Environments and Types | Filter by the component details included when topology is imported or created. |
+| Health | Only include components with the named health state as reported by the associated [health check](/use/health-state-and-alerts/add-a-health-check.md). |
+| Labels | Only include components with a [custom label](/configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
+| Components | The Components field behaves differently to other filters.<br />>Components named here will always be included in the topology _in addition to_ the components returned from other filters. |
 
-Here is an example of using a basic filter to search for components by **Domains**.
+Here is an example of using a basic filter to search for components that are:
 
-![Filtering example](/.gitbook/assets/v41_basic_filtering.png)
+- In the **Domain** `security check`
+- AND have a **Health** state of `Clear` OR `Deviating`
+- OR is the **Component** named `bambDB`
+
+This could also be written as an [advanced filter](#advanced-topology-filters):
+
+```
+(domain IN ("security check") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("bambDB")
+```
+
+![Filtering example](/.gitbook/assets/v41_basic_filter_example.png)
 
 ### Advanced topology filters
 
