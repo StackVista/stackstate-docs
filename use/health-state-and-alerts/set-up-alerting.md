@@ -6,9 +6,7 @@ description: Use event handlers to trigger an alert or automated action on compo
 
 ## Overview
 
-StackState can be configured to send out alerts or trigger automated actions in response to changes in the health state. 
-
-Event handlers assigned to a view will run when state change events are generated either by an element in the view or by the view itself. 
+When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
 
 ## How an alert is triggered
 
