@@ -21,7 +21,7 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Labels | Only include components with a [custom label](/configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
 | Components | The Components filter behaves differently to other filters.<br />Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
-The example below uses basic filters to return components that match the conditions:
+The example below uses basic filters to return components that match the following conditions:
 
 - In the **Domain** `security check`
 - AND has a **Health** state of `Clear` OR `Deviating`
@@ -35,7 +35,7 @@ This could also be written as an advanced filter, see [advanced topology filters
 
 You can use the in-built [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
-The example below uses an advanced filter to return components that match the conditions:
+The example below uses an advanced filter to return components that match the following conditions:
 
 - In the domain `security check`
 - AND has a healthstate of `CLEAR` OR `DEVIATING`
