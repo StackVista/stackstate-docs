@@ -18,7 +18,7 @@ In StackState, telemetry flows through topology components as either metric or e
 
 ## How an alert is triggered
 
-Alerts are triggered in response to health state changes, which are based on metrics and events data in the telemetry streams attached to elements. 
+Alerts are triggered in response to health state changes. The health state of an element is derived from metrics and events data in its telemetry streams. 
 
 - Telemetry streams
 Telemetry streams attached to an element provide metrics and events.
