@@ -20,8 +20,7 @@ In StackState, telemetry flows through topology components as either metric or e
 
 Alerts are triggered in response to health state changes. The health state of an element is derived from metrics and events data in its telemetry streams. 
 
-- Telemetry streams
-    Telemetry streams attached to an element provide metrics and events.
+- Telemetry streams<br />Telemetry streams attached to an element provide metrics and events.
 
 - Health checks
     Health checks attached to an element listen to available telemetry streams and report a health state based on the configured parameters.
