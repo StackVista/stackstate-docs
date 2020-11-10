@@ -24,11 +24,8 @@ The flow of events that lead to an alert follows this path:
 |:---|:---|
 | Telemetry streams | Telemetry streams attached to an element provide metrics and events.  |
 | Health checks | Health checks attached to an element listen to available telemetry streams and report a health state based on the configured parameters. |
-| State change events | When the reported health state of an element changes, a chain of state change events are generated:<br />
-  `HealthStateChangedEvent` for the element.<br />
-  `PropagatedStateChangedEvent` for all other elements that depend on the element.<br />
-  `ViewStateChangedEvent` for the entire view. Only generated when the configured criteria are met.  |
-| Event handlers | Event handlers associated with the view listen to the generated state change eventsand trigger the [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md). | 
+| State change events | When the reported health state of an element changes, a chain of state change events are generated:<ul><li/>`HealthStateChangedEvent` for the element.<li />`PropagatedStateChangedEvent` for all other elements that depend on the element.<li />`ViewStateChangedEvent` for the entire view. Only generated when the configured criteria are met.</ul>  |
+| Event handlers | Event handlers associated with the view listen to the generated state change events and trigger the [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md). | 
 
 
 1. [Health checks](/use/health-state-and-alerts/create-a-health-check.md) attached to elements listen to the associated telemetry streams.
