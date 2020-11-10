@@ -54,11 +54,11 @@
     * [Traces Perspective](use/views/traces_perspective.md)
   * [Analytics](use/analytics.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
-    * [Add a health check](use/health-state-and-alerts/create-a-health-check.md)
-    * [Baseline anomaly detection](use/health-state-and-alerts/baselining.md)
+    * [Add a health check](use/health-state-and-alerts/add-a-health-check.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
-    * [Set up alerting](use/health-state-and-alerts/add-an-alert.md)
+    * [Set up alerting](use/health-state-and-alerts/set-up-alerting.md)
     * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-component.md)
+    * [Anomaly detection with baselines](use/health-state-and-alerts/anomaly-detection-with-baselines.md)
   * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks

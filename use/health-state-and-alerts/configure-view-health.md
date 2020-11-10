@@ -30,9 +30,9 @@ View health state is calculated by a **view state configuration function**.  To 
 
 ## React to view state changes
 
-You can configure StackState to [trigger alerts and actions](/use/health-state-and-alerts/add-an-alert.md) when a view state changes.
+You can configure StackState to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md) when a view state changes.
 
 ## See also
 
 - [View state configuration](/configure/view_state_configuration.md)
-- [Trigger alerts and actions](/use/health-state-and-alerts/add-an-alert.md)
+- [Trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md)

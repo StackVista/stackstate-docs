@@ -6,20 +6,22 @@ description: Use event handlers to trigger an alert or automated action on compo
 
 ## Overview
 
-StackState can be configured to send out alerts or trigger automated actions in response to changes in the health state. Event handlers assigned to a view will run when state change events are generated either by an element in the view or by the view itself. 
+StackState can be configured to send out alerts or trigger automated actions in response to changes in the health state. 
+
+Event handlers assigned to a view will run when state change events are generated either by an element in the view or by the view itself. 
 
 ## How an alert is triggered
 
 Alerts are triggered in response to health state changes on an element or view. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the cumulative health state of elements within it. Propagated state changes can also be used to trigger alerts, however, this can result in a lot of noise. 
 The contributing factors that lead to an alert being triggered are described below.
 
-- Telemetry streams attached to an element provide related metrics and events data.
-- Health checks attached to the element listen to the available telemetry streams and report a health state based on the configured parameters.
+- [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-component.md) attached to an element provide related metrics and events data.
+- [Health checks](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listen to the available telemetry streams and report a health state based on the configured parameters.
 - When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
     - `HealthStateChangedEvent` for the element itself.
-    - `PropagatedStateChangedEvent` for all elements that depend on the element.
+    - `PropagatedStateChangedEvent` for all elements that depend on the element whose health state changed.
     - `ViewStateChangedEvent` a single event for the entire view. Note that this event type will only be generated if the configured [view state change criteria](/use/health-state-and-alerts/configure-view-health.md) are met.
-- [Event handlers](#add-an-event-handler-to-a-view) associated with the view listen to the generated state change events and trigger the configured alerts and actions.
+- Event handlers associated with the view listen to the generated state change events and [trigger the configured alerts and actions](#add-an-event-handler-to-a-view).
 
 ## Add an event handler to a view
 
@@ -37,7 +39,7 @@ You can add an event handler to a view from the StackState UI Events Perspective
 
 ## State change events
 
-In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/create-a-health-check.md) to determine the health state of each element. For every change in health state, a state change event is generated. Event handlers can be added to a view to listen to the generated state change events and  [take action](/use/health-state-and-alerts/add-an-alert.md) if a configured threshold is passed.
+In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/add-a-health-check.md) to determine the health state of each element. For every change in health state, a state change event is generated. Event handlers can be added to a view to listen to the generated state change events and  take action if a configured threshold is passed.
 
 The event types generated when an element state changes are described in the table below.
 
@@ -58,10 +60,11 @@ Event handlers are functions that run in response to an event. A number of event
 - **Slack**: Send a notification to a specified Slack webhook URL.
 - **SMS**: Send an SMS alert (MessageBird) to a specified phone number.
 
+You can [add an event handler to a view](#add-an-event-handler-to-a-view) to trigger alerts or automated actions on specific state change events.
 
 ## See also
 
-- [Add a health check](/use/health-state-and-alerts/create-a-health-check.md)
+- [Add a health check](/use/health-state-and-alerts/add-a-health-check.md)
 - [Configure an SMTP server to send email alerts](/configure/topology/configure-email-alerts.md)
 - [Events Perspective](/use/views/events_perspective.md)
 

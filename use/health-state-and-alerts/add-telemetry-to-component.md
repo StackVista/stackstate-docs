@@ -17,7 +17,7 @@ description: Add incoming telemetry (metrics) data to a component or relation.
 
 ## Overview
 
-Components in StackState can also include telemetry \(metrics\). This provides additional insight into your topology and is required, for example, to [monitor the health of a component](/use/health-state-and-alerts/create-a-health-check.md).
+Components in StackState can also include telemetry \(metrics\). This provides additional insight into your topology and is required, for example, to [monitor the health of a component](/use/health-state-and-alerts/add-a-health-check.md).
 
 If a telemetry stream has not automatically been assigned to a component, you can do this manually from the StackState UI.
 
@@ -47,4 +47,4 @@ You can add a telemetry stream to a component or relation in the StackState Topo
 
 - [Set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
 - [Automomous Anomaly Detector](/stackpacks/add-ons/aad.md)
-- [Monitor the health of a component](/use/health-state-and-alerts/create-a-health-check.md)
+- [Monitor the health of a component](/use/health-state-and-alerts/add-a-health-check.md)
