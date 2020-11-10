@@ -38,7 +38,7 @@ You can use the in-built [StackState Query Language \(STQL\)](/develop/reference
 The example below uses an advanced filter to return components that match the conditions:
 
 - In the domain `security check`
-- AND has a healthstate of `Clear` OR `Deviating`
+- AND has a healthstate of `CLEAR` OR `DEVIATING`
 - OR has the name `bambDB`
 
 ![Filtering \(advanced filter\)](/.gitbook/assets/v41_advanced_filter_example.png)
