@@ -21,12 +21,9 @@ In StackState, telemetry flows through topology components as either metric or e
 The flow of events that lead to an alert follows this path:
 
 1. A [health check](/use/health-state-and-alerts/create-a-health-check.md) listens to telemetry streams attached to an element and changes health state according to the configured criteria:
-    - The actual health state of the element changes.
-        - A `HealthStateChangedEvent` event is generated for the element. The event is visible in the StackState UI in the event stream on the right of the Topology Perspective screen and in the Events Perspective.
-    - The health state propagates to other elements, updating their propagated health state. 
-        - A `PropagatedStateChangedEvent` event is generated for all affected elements. These events are not visible in the StackState UI, but can be used for alerting.
-    - A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). 
-        - A `ViewStateChangedEvent` event is generated. These events are not shown in the StackState UI, but can be used for alerting.
+    - The actual health state of the element changes. A `HealthStateChangedEvent` event is generated for the element. The event is visible in the StackState UI in the event stream on the right of the Topology Perspective screen and in the Events Perspective.
+    - The health state propagates to other elements, updating their propagated health state. A `PropagatedStateChangedEvent` event is generated for all affected elements. These events are not visible in the StackState UI, but can be used for alerting.
+    - A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). A `ViewStateChangedEvent` event is generated. These events are not shown in the StackState UI, but can be used for alerting.
 5. Event handlers associated with the view listen to the generated state change events and trigger any [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md).
 
 ## See also
