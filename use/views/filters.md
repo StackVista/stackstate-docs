@@ -19,21 +19,27 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Layers, Domains, Environments and Types | Filter by the component details included when topology is imported or created. |
 | Health | Only include components with the named health state as reported by the associated [health check](/use/health-state-and-alerts/add-a-health-check.md). |
 | Labels | Only include components with a [custom label](/configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](/stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
-| Components | The Components filter behaves differently to other filters.<br />>Components named here will always be included in the topology _in addition to_ the components returned from other filters. |
+| Components | The Components filter behaves differently to other filters.<br />Components named here will always be included in the topology _in addition to_ the components returned from other filters. |
 
-Here is an example of using a basic filter to search for components that are:
+The example below uses basic filters to return components that are:
 
 - In the **Domain** `security check`
 - AND have a **Health** state of `Clear` OR `Deviating`
 - OR is the **Component** named `bambDB`
 
-This could also be written as an [advanced filter](#advanced-topology-filters), see below.
-
 ![Filtering example](/.gitbook/assets/v41_basic_filter_example.png)
+
+This could also be written as an advanced filter, see [advanced topology filters](#advanced-topology-filters).
 
 ### Advanced topology filters
 
 You can use the in-built [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
+
+The example below uses an advanced filter to return components that are:
+
+- In the **Domain** `security check`
+- AND have a **Health** state of `Clear` OR `Deviating`
+- OR is the **Component** named `bambDB`
 
 ![Filtering\(advanced filter\)](/.gitbook/assets/v41_advanced_filter_example.png)
 
