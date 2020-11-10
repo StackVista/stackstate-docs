@@ -1,50 +1,41 @@
 ---
-description: Add incoming telemetry (metrics) data to a component or relation.
+description: Add incoming telemetry (metrics and events) data to an element.
 ---
 
-# Add a custom telemetry stream to a component
+# Add a custom telemetry stream to an element
 
 {% hint style="warning" %}
 **QUESTIONS:**
-- Where does telemetry come from? (what are the data sources)
-- How to be sure that data in a stream relates to the component you are attaching it to?
-- Why does it need to be manually added to a component(s) - is this always required or will it sometimes be added automatically when the component is created in sts?
-- What if there isn't any telemetry available?
-- How to know if telemetry is available?
-- What is the difference between a telemetry stream and a metric stream?
-- priority - this is used for the order of the lista dn also the AAD right?
+- Would it be worthwhile to include a description of usage for "select" functions (e.g.even count, 90th percentile)?
 {% endhint %}
 
 ## Overview
 
-Components in StackState can also include telemetry \(metrics\). This provides additional insight into your topology and is required, for example, to [monitor the health of a component](/use/health-state-and-alerts/add-a-health-check.md).
+Elements in StackState can have a telemetry \(metrics and events\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](/use/health-state-and-alerts/add-a-health-check.md).  If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
-If a telemetry stream has not automatically been assigned to a component, you can do this manually from the StackState UI.
+## Add a telemetry stream to an element
 
-## Add a telemetry stream to a component or relation
+Telemetry streams can be added to any element in the StackState Topology Perspective.
 
-You can add a telemetry stream to a component or relation in the StackState Topology Perspective.
+![Add a telemetry stream to an element](/.gitbook/assets/v41_add_telemetry_stream.png)
 
-![Add a telemetry stream to a component or relation](/.gitbook/assets/v41_add_telemetry_stream.png)
-
-1. Select the component or relation that you want to.
+1. Select the element that you want to add a telemetry stream to.
 2. Click **+ ADD** next to **Telemetry streams** on the right of the screen.
 3. Provide the following details:
-    - **Name** - 
-    - **Data source** - Can add your own data sources. There are some standard ones. The ones you add on your own are more important. they might be added with stackpack, but .. for instance AWS will add some. E.g. cloudwise 
+    - **Name** - A name for the telemetry stream. This will be visible in the StackState UI. 
+    - **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in Settings > Telemetry Sources.
 4. Click **NEXT**
 5. Provide the following details:
-    - **Time window** - display purposes. Shows a specific selection of time. does not affect handling.
-    - **Filters** - filters can be for all hosts, filter data which is selected. this is where you make sure that this component is chosen. for example. if the telemetry ssource contains data about all services on the host. select the service and the host.
-    - **Select** - select one filter to get a metric and then apply a function as "by".
-    - **Priority** - Optional, you can [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md). This will affect the order in which streams are displayed and influence the behaviour of toe [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md).
-    Used to set priority of stream, this influences the way the stream is handled by other services such as ...
+    - **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
+    - **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
+    - **Select** - select the metric you want to retrieve and the function to apply to it.
+    - **Priority** - Optional, you can [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services such as the [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md).
 6. The stream preview on the right will update to show the incoming metric values based on the details you provide.
-7. Click **SAVE** to add the stream to the component.
+7. Click **SAVE** to add the stream to the element.
     - You will receive a notification that the stream has been successfully completed. 
 
 ## See also
 
 - [Set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
 - [Automomous Anomaly Detector](/stackpacks/add-ons/aad.md)
-- [Monitor the health of a component](/use/health-state-and-alerts/add-a-health-check.md)
+- [Monitor the health of an element](/use/health-state-and-alerts/add-a-health-check.md)
