@@ -20,13 +20,14 @@ In StackState, telemetry flows through topology components as either metric or e
 
 The flow of events that lead to an alert follows this path:
 
-1. A [health check](/use/health-state-and-alerts/create-a-health-check.md) changes health state in response to a telemetry stream attached to an element.
-    - The health state of the associated element changes, for example it becomes `critical`.
+1. A state change generates events:
+    - A [health check](/use/health-state-and-alerts/create-a-health-check.md) changes health state in response to a telemetry stream attached to an element.
+        - The actual health state of the associated element changes, for example it becomes `critical`.
         - A `HealthStateChangedEvent` event is generated. The event is visible in the StackState UI in the event stream on the right of the Topology Perspective screen and in the Events Perspective.
-3. The health state propagates to other elements, updating their propagated health state. 
-    - A `PropagatedStateChangedEvent` event is generated for all affected elements. These events are not visible in the StackState UI, but can be used for alerting.
-4. A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). 
-    - A `ViewStateChangedEvent` event is generated. These events are not shown in the StackState UI, but can be used for alerting.
+    - The health state propagates to other elements, updating their propagated health state. 
+        - A `PropagatedStateChangedEvent` event is generated for all affected elements. These events are not visible in the StackState UI, but can be used for alerting.
+    - A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). 
+        - A `ViewStateChangedEvent` event is generated. These events are not shown in the StackState UI, but can be used for alerting.
 5. Event handlers associated with the view trigger any [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md) in response to the associated event.
 
 ## See also
