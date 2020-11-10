@@ -55,7 +55,7 @@
   * [Analytics](use/analytics.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
     * [Add a health check](use/health-state-and-alerts/add-a-health-check.md)
-    * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-component.md)
+    * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-element.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
     * [Set up alerting](use/health-state-and-alerts/set-up-alerting.md)
     * [Anomaly detection with baselines](use/health-state-and-alerts/anomaly-detection-with-baselines.md)

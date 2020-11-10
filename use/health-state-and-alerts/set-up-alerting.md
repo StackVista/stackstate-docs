@@ -10,10 +10,10 @@ When something goes wrong within your IT environment StackState can alert you or
 
 ## How an alert is triggered
 
-Alerts are triggered in response to health state changes on an element or view. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the cumulative health state of elements within it. Propagated state changes can also be used to trigger alerts, however, this can result in a lot of noise. 
+Alerts are triggered in response to health state changes on an element or view. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger alerts, however, this can result in a lot of noise. 
 The contributing factors that lead to an alert being triggered are described below.
 
-- [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-component.md) attached to an element provide related metrics and events data.
+- [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-element.md) attached to an element provide related metrics and events data.
 - [Health checks](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listen to the available telemetry streams and report a health state based on the configured parameters.
 - When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
     - `HealthStateChangedEvent` for the element itself.
