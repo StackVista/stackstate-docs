@@ -31,13 +31,14 @@ You can add a telemetry stream to a component or relation in the StackState Topo
 2. Click **+ ADD** next to **Telemetry streams** on the right of the screen.
 3. Provide the following details:
     - **Name** - 
-    - **Data source** - 
+    - **Data source** - Can add your own data sources. There are some standard ones. The ones you add on your own are more important. they might be added with stackpack, but .. for instance AWS will add some. E.g. cloudwise 
 4. Click **NEXT**
 5. Provide the following details:
-    - **Time window** - 
-    - **Filters** - 
-    - **Select** - 
+    - **Time window** - display purposes. Shows a specific selection of time. does not affect handling.
+    - **Filters** - filters can be for all hosts, filter data which is selected. this is where you make sure that this component is chosen. for example. if the telemetry ssource contains data about all services on the host. select the service and the host.
+    - **Select** - select one filter to get a metric and then apply a function as "by".
     - **Priority** - Optional, you can [set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md). This will affect the order in which streams are displayed and influence the behaviour of toe [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md).
+    Used to set priority of stream, this influences the way the stream is handled by other services such as ...
 6. The stream preview on the right will update to show the incoming metric values based on the details you provide.
 7. Click **SAVE** to add the stream to the component.
     - You will receive a notification that the stream has been successfully completed. 
