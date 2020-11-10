@@ -39,9 +39,16 @@ You can add an event handler to a view from the StackState UI Events Perspective
 
 ## State change events
 
-In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/add-a-health-check.md) to determine the health state of the element. For every change in health state, at least one state change event is generated. Event handlers can be added to a view to listen to the generated state change events within the view and trigger an alert or action if a configured threshold is passed.
+In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/add-a-health-check.md) to determine the health state of the element. For every change in health state, at least one state change event is generated. Event handlers can be added to a view to listen to the generated state change events within the view and trigger an alert or action when a configured threshold is passed.
 
 The event types generated when an element state changes are described in the table below.
+
+| Event type | Description |
+|:---|:---|
+| `HealthStateChangedEvent` | **State change of an element**<br />Generated when the health state of an element changes. |
+| `PropagatedStateChangedEvent` | **Propagated state change of an element**<br />Generated whenever the health state of one of an element’s dependencies changes. These events are not visible in the StackState UI, but can be used for alerting. |
+| `ViewStateChangedEvent` | **State change of entire view**<br />Generated only when the health state of a significant number of elements in a view changes. These events are not visible in the StackState UI, but can be used for alerting. |
+
 
 | Event | Event type | Description |
 |:---|:---|:---|
