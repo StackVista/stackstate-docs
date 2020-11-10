@@ -22,9 +22,9 @@ The flow of events that lead to an alert follows this path:
 
 | thing | Description |
 |:---|:---|
-| Telemetry streams | Telemetry streams attached to an element provide metrics and events data relating to the element.  |
-| Health checks | Health checks attached to an element listen to available telemetry streams and report the element's health state based on the configured parameters. |
-| State change events | When the reported health state of an element changes, the following events will be triggered<br />A `HealthStateChangedEvent` event is generated for the element. The event is visible in the StackState UI in the event stream on the right of the Topology Perspective screen and in the Events Perspective.<br />The health state propagates to other elements, updating their propagated health state. A `PropagatedStateChangedEvent` event is generated for all affected elements. These events are not visible in the StackState UI, but can be used for alerting.<br />A view that contains these components may also change health state based on these changes and the [configured view health state](/use/health-state-and-alerts/configure-view-health.md). A `ViewStateChangedEvent` event is generated. These events are not shown in the StackState UI, but can be used for alerting. |
+| Telemetry streams | Telemetry streams attached to an element provide metrics and events.  |
+| Health checks | Health checks attached to an element listen to available telemetry streams and report a health state based on the configured parameters. |
+| State change events | When the reported health state of an element changes, a `HealthStateChangedEvent` event is generated. This state change is propagated to other elements, updating their propagated state and generating a `PropagatedStateChangedEvent` event. The health state of the view containing the element is calculated based on componets within the view, if the configured criteria are met then the health state of the view will also be updated generating a `ViewStateChangedEvent` event.  |
 | Event handlers | Event handlers associated with the view listen to the generated state change events from elements in the view and the view itself and trigger the [configured alerts and actions](/use/health-state-and-alerts/add-an-alert.md) accordingly. | 
 
 
