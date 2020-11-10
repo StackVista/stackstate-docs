@@ -19,7 +19,7 @@ The contributing factors that lead to an alert being triggered are described bel
 - [Health checks](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listen to the available telemetry streams and report a health state based on the configured parameters.
 - When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
     - `HealthStateChangedEvent` for the element itself.
-    - `PropagatedStateChangedEvent` for all elements that depend on the element whose health state changed.
+    - `PropagatedStateChangedEvent` for all elements that depend on the element whose health state has changed.
     - `ViewStateChangedEvent` a single event for the entire view. Note that this event type will only be generated if the configured [view state change criteria](/use/health-state-and-alerts/configure-view-health.md) are met.
 - Event handlers associated with the view listen to the generated state change events and [trigger the configured alerts and actions](#add-an-event-handler-to-a-view).
 
@@ -39,7 +39,7 @@ You can add an event handler to a view from the StackState UI Events Perspective
 
 ## State change events
 
-In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/add-a-health-check.md) to determine the health state of each element. For every change in health state, a state change event is generated. Event handlers can be added to a view to listen to the generated state change events and  take action if a configured threshold is passed.
+In StackState, metrics and events flow through topology elements in telemetry streams. These telemetry streams are used by [health checks](/use/health-state-and-alerts/add-a-health-check.md) to determine the health state of the element. For every change in health state, at least one state change event is generated. Event handlers can be added to a view to listen to the generated state change events within the view and trigger an alert or action if a configured threshold is passed.
 
 The event types generated when an element state changes are described in the table below.
 
