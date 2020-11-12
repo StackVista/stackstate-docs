@@ -60,6 +60,7 @@ If your StackState instance is configured with a file-based authentication, then
         }
       }
       adminGroups = ["stackstate-admin"]
+      powerUserGroups = ["stackstate-power-user"]
       guestGroups = ["stackstate-guest"]
     }
    ```

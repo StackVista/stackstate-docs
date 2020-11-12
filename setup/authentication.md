@@ -16,10 +16,13 @@ Authentication configuration is stored in the file `etc/application_stackstate.c
 
 ## User roles
 
-StackState ships with the default user roles **guest** and **administrator**:
+StackState ships with the default user roles **guest**, **power-user** and **administrator**:
 
-* **guest users** - able to see information but make no changes
-* **administrators** - able to see and change all configuration
+* **guests** - able to see information but make no changes
+* **power-users** - able to see and change all configuration
+* **administrators** - able to see and change all configuration, grant and revoke user permissions and upload (new versions of) stackpacks
+
+When deciding on the roles to assign your users it is strongly adviced to have only a small group of administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. These users can manage access to StackState and decide on which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration of StackState can be delegated to a larger number of users with the power-user role.
 
 It is also possible to add more roles, see the [Roles \(RBAC\)](/configure/security/rbac/rbac_roles.md) and the other RBAC documentation pages under [configure](/configure/README.md)
 
@@ -62,11 +65,13 @@ authentication {
       # Set the MD5 Hash into `auth.password`
       logins = [
         { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
+        { username = "power", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-power-user"] }
         { username = "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
       ]
     }
   }
   adminGroups = ["stackstate-admin"]
+  powerUserGroups = ["stackstate-power-user"]
   guestGroups = ["stackstate-guest"]
 }
 ```
@@ -78,7 +83,8 @@ Configuration field explanation:
 3. **password** - the user's password in MD5 hash format.
 4. **roles** - the list of roles the user is a member of.
 5. **adminGroups** - the list of groups whose members StackState grants administrative privileges.
-6. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
+6. **powerUserGroups** - the list of groups whose members StackState grants power-user privileges.
+7. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
 
 ## LDAP authentication server
 
@@ -134,6 +140,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```
@@ -153,7 +160,8 @@ Configuration field explanation:
    * _**groupMemberKey**_ - the name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `({groupMemberKey}=email=admin@sts.com,ou=management,o=stackstate,cn=people,dc=example,dc=com)`.
    * _**rolesKey**_ - the name of the attribute that stores the group name.
 4. **adminGroups** - the list of roles whose members StackState grants administrative privileges.
-5. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
+5. **powerUserGroups** - the list of roles whose members StackState grants power-user privileges.
+6. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
@@ -209,6 +217,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```

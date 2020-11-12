@@ -18,9 +18,9 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
 Views permissions are a set of permissions that allow for CRUD operations with Views in StackState. System permissions are scoping user capabilities like access to settings, query execution or scripting.
 
-## Predefined Admin and Guest roles
+## Predefined Admin, Power-user and Guest roles
 
-StackState comes with two predefined roles - Admin and Guest. Admin is a power user that has all permissions and access to all views. On the other hand, the Guest user is fairly limited, as you can see below:
+StackState comes with three predefined roles - Admin, Power-user and Guest. Admin is a user that has all permissions and access to all views. The Power-user role has all admin permissions except update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation but do need to configure StackState for their team(s). On the other hand, the Guest user is fairly limited, as you can see below:
 
 ```text
 subject           permission            resource
@@ -50,6 +50,7 @@ stackstate-guest  access-view           everything
 | perform-custom-query | Permission to access the topology filter |
 | read-permissions | Permission to list all granted permissions across the entire system via the CLI |
 | update-permissions | Permission to grant/revoke permissions or modify subjects |
+| upload-stackpacks | Permission to upload new (versions of) StackPacks |
 | manage-stackpacks | Permission to install / upgrade / uninstall StackPacks |
 | manage-annotations | Permission to persist and fetch Anomaly annotations in StackState |
 | save-view | Permission to save views |
