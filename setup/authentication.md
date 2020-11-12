@@ -44,7 +44,7 @@ StackState is configured by default with the following administrator account:
 
 ## File-based authentication
 
-To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the default roles available, the md5 hash still needs to be generated and put in the example.
+To keep using configuration file based authentication but change the users, here is an example to have 2 users, `admin-demo` and `guest-demo`, with the default roles Administrator and Guest.
 
 ```javascript
 authentication {
