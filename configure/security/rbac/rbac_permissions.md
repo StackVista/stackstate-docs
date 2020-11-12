@@ -10,7 +10,7 @@ aliases:
 
 ## Permissions in StackState
 
-Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow Administratoristrators to take control over actions that users can perform inside StackState, as well as adjusting a user's UI to fit their role. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.
+Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow Administrators to take control over actions that users can perform inside StackState, as well as adjusting a user's UI to fit their role. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.
 
 Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
 
