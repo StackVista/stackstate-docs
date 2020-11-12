@@ -16,13 +16,13 @@ Authentication configuration is stored in the file `etc/application_stackstate.c
 
 ## User roles
 
-StackState ships with the default user roles **Guest**, **Power-user** and **Administrator**:
+StackState ships with the default user roles **Guest**, **Power user** and **Administrator**:
 
 * **Guest** - able to see information but make no changes.
 * **Power user** - able to see and change all configuration.
 * **Administrator** - able to see and change all configuration, grant and revoke user permissions and upload (new versions of) stackpacks.
 
-When deciding on the roles to assign your users it is strongly adviced to have only a small group of administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. These users can manage access to StackState and decide on which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration of StackState can be delegated to a larger number of users with the power-user role.
+When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration of StackState can be delegated to a larger number of users with the Power user role.
 
 It is also possible to add more roles, see the page [Roles \(RBAC\)](/configure/security/rbac/rbac_roles.md) and the other [RBAC documentation pages](/configure/security/rbac/README.md)
 
