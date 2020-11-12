@@ -111,6 +111,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```
@@ -158,6 +159,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```
@@ -218,6 +220,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```

@@ -10,7 +10,7 @@ aliases:
 
 ## Permissions in StackState
 
-Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow administrators to take control over actions that users can perform inside StackState, as well as adjusting users' UI to their roles. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.
+Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow Administrators to take control over actions that users can perform inside StackState, as well as adjusting a user's UI to fit their role. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.
 
 Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
 
@@ -18,9 +18,13 @@ Please note that permissions are stored in StackGraph, so performing an upgrade 
 
 Views permissions are a set of permissions that allow for CRUD operations with Views in StackState. System permissions are scoping user capabilities like access to settings, query execution or scripting.
 
-## Predefined Admin and Guest roles
+## Predefined roles
 
-StackState comes with two predefined roles - Admin and Guest. Admin is a power user that has all permissions and access to all views. On the other hand, the Guest user is fairly limited, as you can see below:
+StackState comes with three predefined roles - **Administrator**, **Power User** and **Guest**. 
+
+- Administrators have all permissions and access to all views. 
+- Power Users have all Administratorpermissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team(s).
+- Guests have access to view, as you can see below:
 
 ```text
 subject           permission            resource
@@ -50,6 +54,7 @@ stackstate-guest  access-view           everything
 | perform-custom-query | Permission to access the topology filter |
 | read-permissions | Permission to list all granted permissions across the entire system via the CLI |
 | update-permissions | Permission to grant/revoke permissions or modify subjects |
+| upload-stackpacks | Permission to upload new (versions of) StackPacks |
 | manage-stackpacks | Permission to install / upgrade / uninstall StackPacks |
 | manage-annotations | Permission to persist and fetch Anomaly annotations in StackState |
 | save-view | Permission to save views |
@@ -71,7 +76,7 @@ stackstate-guest  access-view           everything
 2. StackPacks page - requires `manage-stackpacks` system permission. Without this permission, StackPacks section is hidden in the UI and it is not accessible via URL.
 3. Settings page - requires `read-settings` system permission. Without this permission, Settings section is hidden in the UI and it is not accessible via URL.
 4. Explore Mode page - requires `access-explore` system permission. Without this permission, Explore Mode section is hidden in the UI and it is not accessible via URL.
-5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view id or, as it is for Admin role, with `Everything` resource that is allowing to see all views.
+5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or (as it is for the Administrator role) with `Everything` resource, allowing to see all views.
 6. Import Settings Page - requires `import-settings` system permission. Without this permission, Import Settings is removed from Settings Menu.
 7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
 8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
