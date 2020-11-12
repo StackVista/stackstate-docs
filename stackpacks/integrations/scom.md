@@ -89,7 +89,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
     - **auth_mode** - Network or Windows (Default is Network).
     - **integration mode** - to use the API integration, set to `api`.
-    - **max_number_of_requests** - The maximum number of requests that should be sent to the SCOM API. See how to [determine the required number of API requests](#determine-the-required-number-of-api-requests), default 5000.
+    - **max_number_of_requests** - The maximum number of requests that should be sent to the SCOM API. See how to [determine the required number of API requests](#determine-the-required-number-of-api-requests), default 10000.
     - **criteria** - A query to [specify the components to retrieve data for](#specify-the-components-to-retrieve-data-for).
     ```
     init_config:
@@ -102,8 +102,8 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
         password: <password>
         auth_mode: Network
         integration_mode: api    # can be api or powershell, default api
-        max_number_of_requests: 100000000   # default 5000
-        criteria : "(FullNsame LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
+        max_number_of_requests: 10000   # default 10000
+        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
     ``` 
 2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
@@ -152,11 +152,15 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
 ### Status
 
+#### integration status
+
 To check the status of the SCOM integration, run the status subcommand and look for SCOM under `Running Checks`:
 
 ```
 sudo stackstate-agent status
 ```
+
+#### API connectivity (API integration only)
 
 To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](/stackpacks/integrations/agent.md#log-files) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
 
