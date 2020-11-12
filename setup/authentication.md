@@ -81,7 +81,7 @@ Configuration field explanation:
 4. **roles** - the list of roles the user is a member of.
 5. **adminGroups** - the list of roles that receive Administrator privileges.
 6. **powerUserGroups** - the list of roles that receive Power User privileges.
-7. **guestGroups** - the list of roles that have Guest access privileges\(read-only\) in StackState.
+7. **guestGroups** - the list of roles that have Guest access privileges \(read-only\) in StackState.
 
 ## LDAP authentication server
 
@@ -158,7 +158,7 @@ Configuration field explanation:
    * _**rolesKey**_ - the name of the attribute that stores the group name.
 4. **adminGroups** - the list of roles that receive Administrator privileges.
 5. **powerUserGroups** - the list of roles that receive Power User privileges.
-6. **guestGroups** - the list of roles that have Guest access privileges\(read-only\) in StackState.
+6. **guestGroups** - the list of roles that have Guest access privileges \(read-only\) in StackState.
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
