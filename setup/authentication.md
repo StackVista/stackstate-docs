@@ -22,7 +22,7 @@ StackState ships with the default user roles **Guest**, **Power User** and **Adm
 * **Power User** - able to see and change all configuration and install StackPacks.
 * **Administrator** - able to see and change all configuration, install StackPacks, grant and revoke user permissions and upload (new versions of) StackPacks.
 
-When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration of StackState can be delegated to a larger number of users with the Power User role.
+When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
 
 It is also possible to add more roles, see the page [Roles \(RBAC\)](/configure/security/rbac/rbac_roles.md) and the other [RBAC documentation pages](/configure/security/rbac/README.md)
 
