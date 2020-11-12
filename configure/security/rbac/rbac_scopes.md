@@ -12,9 +12,9 @@ Users need to log out and authenticate again to StackState whenever any changes 
 
 ## Why scopes?
 
-Scopes are introduced as a security feature that is mandatory for every subject within StackState. Only predefined Admin, Power-user and Guest roles have no scope defined.
+Scopes are introduced as a security feature that is mandatory for every subject within StackState. The predefined StackState users Admin, Power-user and Guest roles have no scope defined.
 
-It is possible to provide a scope as a query wildcard which will result in access to everything, however, it is not recommended. If there is a need for access without a scope it is recommended to use one of the predefined roles instead.
+It is possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it is recommended to use one of the [predefined roles](/setup/authentication.md#user-roles) instead.
 
 ## Examples
 
