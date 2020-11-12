@@ -44,9 +44,7 @@ StackState is configured by default with the following administrator account:
 
 ## File-based authentication
 
-To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the 2 default roles available, the md5 hash still needs to be generated and put in the example.
-
-Here is an example of authentication that configures three users: `admin/password`, `power/password` and `guest/password`. Place it within the `stackstate { api {` block of `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState for changes to take effect.
+To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the default roles available, the md5 hash still needs to be generated and put in the example.
 
 ```javascript
 authentication {
@@ -64,9 +62,8 @@ authentication {
       # echo -n "password" | md5sum
       # Set the MD5 Hash into `auth.password`
       logins = [
-        { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
-        { username = "power", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-power-user"] }
-        { username = "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
+        { username = "admin-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
+        { username = "guest-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
       ]
     }
   }
