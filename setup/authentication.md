@@ -62,14 +62,14 @@ authentication {
       # echo -n "password" | md5sum
       # Set the MD5 Hash into `auth.password`
       logins = [
-        { username = "admin-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
-        { username = "guest-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
+        { username = "admin-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["admin-demo-role"] }
+        { username = "guest-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["guest-demo-role"] }
       ]
     }
   }
-  adminGroups = ["stackstate-admin"]
+  adminGroups = ["stackstate-admin", "admin-demo-role"]
   powerUserGroups = ["stackstate-power-user"]
-  guestGroups = ["stackstate-guest"]
+  guestGroups = ["stackstate-guest", "guest-demo-role"]
 }
 ```
 
