@@ -76,7 +76,7 @@ stackstate-guest  access-view           everything
 2. StackPacks page - requires `manage-stackpacks` system permission. Without this permission, StackPacks section is hidden in the UI and it is not accessible via URL.
 3. Settings page - requires `read-settings` system permission. Without this permission, Settings section is hidden in the UI and it is not accessible via URL.
 4. Explore Mode page - requires `access-explore` system permission. Without this permission, Explore Mode section is hidden in the UI and it is not accessible via URL.
-5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or (as it is for the Administratorrole) with `Everything` resource, allowing to see all views.
+5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or (as it is for the Administrator role) with `Everything` resource, allowing to see all views.
 6. Import Settings Page - requires `import-settings` system permission. Without this permission, Import Settings is removed from Settings Menu.
 7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
 8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
