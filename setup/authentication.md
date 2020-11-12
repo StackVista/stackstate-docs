@@ -33,7 +33,7 @@ StackState is configured by default with the following administrator account:
 {% tabs %}
 {% tab title="Kubernetes" %}
 * **username:** `admin`
-* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in `values.yaml`
+* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in MD5 hash format in `values.yaml`
 {% endtab %}
 
 {% tab title="Linux" %}
