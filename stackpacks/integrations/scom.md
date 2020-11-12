@@ -197,7 +197,7 @@ The SCOM check does not retrieve any metrics data.
 
 ##### Topology
 
-Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.IP_of_SCOM_instance** .
+Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.\<IP_of_SCOM_instance\>** .
 
 - Components
 - Relations
