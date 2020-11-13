@@ -232,6 +232,6 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 - [StackState Agent V2](/stackpacks/integrations/agent.md)
 - [Secrets management in StackState](/configure/security/secrets_management.md)
 - [StackState Agent integrations - SCOM (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
-- [SCOM API reference \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
-- [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497\(v=msdn.10\))
+- [Operations Manager API reference \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
+- [Using Operations Manager data queries \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497\(v=msdn.10\))
 
