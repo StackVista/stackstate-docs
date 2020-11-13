@@ -133,7 +133,7 @@ $deps= ($components.GetRelatedMonitoringObjects('Recursive')).count
 
 The configured `max_number_of_requests` must be higher than:
 
- `("total number of components that match criteria" + "total number of dependencies") * 2**.
+ `("total number of components that match criteria" + "total number of dependencies") * 2**`.
 
 {% endtab %}
 {% tab title="PowerShell integration" %}
