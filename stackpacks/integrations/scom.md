@@ -122,11 +122,7 @@ Errors in the configured criteria query will be reported in the [StackState Agen
 
 ##### Determine the required number of API requests
 
-Use the script below to determine the number of API requests required to retrieve topology data from SCOM. The script will return the number of components to be retrieved from the specified class. Two API requests are required to retrieve data for each component and each dependency.
-
-The configured `max_number_of_requests` must be higher than:
-
- `("total number of components that match criteria" + "total number of dependencies") * 2**.
+Use the script below to determine the number of components that match a criteria query and the number of dependencies. Add these numbers together and multiply by 2 to find the required number of API requests to retrieve topology data from SCOM. Two API requests are required to retrieve data for each component and each dependency.
 
 ```
 $components = (Get-SCOMManagementGroup).GetMonitoringObjects("FullName LIKE 'Microsoft.Windows.Computer:%'")
@@ -134,6 +130,10 @@ $components = (Get-SCOMManagementGroup).GetMonitoringObjects("FullName LIKE 'Mic
 $deps= ($components.GetRelatedMonitoringObjects('Recursive')).count
 "Total number of dependencies: "+ $deps 
 ```
+
+The configured `max_number_of_requests` must be higher than:
+
+ `("total number of components that match criteria" + "total number of dependencies") * 2**.
 
 {% endtab %}
 {% tab title="PowerShell integration" %}
