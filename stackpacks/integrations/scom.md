@@ -131,7 +131,7 @@ $deps= ($components.GetRelatedMonitoringObjects('Recursive')).count
 "Total number of dependencies: "+ $deps 
 ```
 
-The configured `max_number_of_requests` must be higher than the returned `total number of components that match criteria` AND `total number of dependencies` multiplied by 2, as two API requests are required to retrieve data for each component and each dependency.
+As two API requests are required to retrieve data for each component and each dependency, the configured `max_number_of_requests` must be higher than the returned `total number of components that match criteria` AND `total number of dependencies` multiplied by 2.
 
 {% endtab %}
 {% tab title="PowerShell integration" %}
