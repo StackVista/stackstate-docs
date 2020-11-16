@@ -6,17 +6,17 @@ description: Enable logging for StackState checks, event handlers and functions
 
 ## Overview
 
-For debugging purposes, it may be helpful to enable logging for a StackState check, event handler or function. You can use the StackState CLI to set a logging level and then track messages in the file `stackstate.log`.  Logging can be enabled for checks, event handlers, propagation functions and view state configuration functions. Note that it is not currently possible to enable logging for other function types.
+For debugging purposes, it may be helpful to enable logging for a StackState check, event handler or function. You can use the StackState CLI to set a logging level and then track messages in the file `stackstate.log`.  Logging can be enabled for checks, event handlers, propagation functions and view state configuration functions. It is not currently possible to enable logging for other function types.
 
 ## Enable logging for a check, event handler or function instance
 
-The logging level can be set in the StackState CLI using the ID of the check, event handler or function. 
+The logging level can be set in the StackState CLI using the ID of the check, event handler or function instance. 
 
 {% hint style="info" %}
-Note that logging will be enabled for an instance of a check, event handler or function, not for the function itself.
+Logging should be enabled for an instance of a check, event handler or function, not for the function itself.
 {% endhint %}
 
-1. Find the ID for the check, event handler or function you want to enable logging for:
+1. Find the ID for the instance of the check, event handler or function that you want to enable logging for:
     - [Checks](#checks-and-propagation-functions)
     - [Event handlers](#event-handlers)
     - [Propagation functions](#checks-and-propagation-functions)
@@ -45,7 +45,8 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 ## Find the ID for a check, event handler or function
 
-Retrieve the ID for a specific check, event handler or function instance:
+Retrieve the ID for a specific instance of a check, event handler or function:
+
     - [Checks](#checks-and-propagation-functions)
     - [Event handlers](#event-handlers)
     - [Propagation functions](#checks-and-propagation-functions)
@@ -180,4 +181,3 @@ You can find the check or propagation ID for a specific component in the StackSt
 ## See also
 
 - [StackState CLI](/setup/installation/cli-install.md)
-- [StackState UI Analytics environment](/develop/reference/scripting#running-scripts)
