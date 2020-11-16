@@ -10,9 +10,7 @@ For debugging purposes, it may be helpful to enable logging for a StackState fun
 
 ## Set the logging level for a function instance
 
-You can set the logging level for an instance of a function in the StackState CLI using its ID. Note that the function itself will have an ID and each instance of the function in StackState
-
-check function, event handler function, propagation function or view state configuration function can be set
+You can set the logging level for an instance of a function in the StackState CLI using its ID. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have its own ID.
 
 {% hint style="info" %}
 Logging should be enabled for an instance of a function, not for the function itself.
