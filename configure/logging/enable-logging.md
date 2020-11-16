@@ -6,22 +6,22 @@ description: Enable logging for StackState checks, event handlers and functions
 
 ## Overview
 
-For debugging purposes, it may be helpful to enable logging for a StackState function. You can use the StackState CLI to set a logging level for an instance of a check function, event handler function, propagation function or view state configuration function and track messages in the StackState log file `stackstate.log`. 
+For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState CLI to set the logging level for individual instances of a check function, event handler function, propagation function or view state configuration function. Log messages can then be tracked in the StackState log file `stackstate.log`. It is not currently possible to enable logging for other function types.
 
-It is not currently possible to enable logging for other function types.
+## Set the logging level for a function instance
 
-## Enable logging for a function instance
+You can set the logging level for an instance of a function in the StackState CLI using its ID. Note that the function itself will have an ID and each instance of the function in StackState
 
-The logging level for an instance of a check function, event handler function, propagation function or view state configuration function can be set in the StackState CLI using the ID of the check, event handler or function instance. 
+check function, event handler function, propagation function or view state configuration function can be set
 
 {% hint style="info" %}
-Logging should be enabled for an instance of a check, event handler or function, not for the function itself.
+Logging should be enabled for an instance of a function, not for the function itself.
 {% endhint %}
 
 1. Find the ID for the instance of the check, event handler or function that you want to enable logging for:
-    - [Checks](#checks-and-propagation-functions)
+    - [Checks](#check-and-propagation-functions)
     - [Event handlers](#event-handlers)
-    - [Propagation functions](#checks-and-propagation-functions)
+    - [Propagation functions](#check-and-propagation-functions)
     - [View health state configuration functions](#view-health-state-configuration-functions)
 
 2. Use the [StackState CLI](/setup/installation/cli-install.md) to set the logging level for the ID, for example:
@@ -42,7 +42,7 @@ Logging statements can be added to StackState functions and monitored in the `st
     - `log.info("message")`
     - `log.info(variable.toString())`
     
-2. [Enable logging](#enable-logging-for-a-function-instance) for the function.
+2. [Enable logging](#set-the-logging-level-for-a-function-instance) for the function.
 
 
 ## Find the ID for a function instance
@@ -59,7 +59,7 @@ Retrieve the ID for a specific instance of a function:
 #### Event handlers
 
 - To list all event handlers, run the [StackState CLI](/setup/installation/cli-install.md) command below.
-- Use the `id` from the command output to [enable logging](#enable-logging-for-a-function-instance) for a specific event handler.
+- Use the `id` from the command output to [enable logging](#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
 {% tab title="CLI command" %}
@@ -81,7 +81,7 @@ sts graph list EventHandler
 - Run the [StackState CLI](/setup/installation/cli-install.md) commands below:
     1. To return the IDs of all StackState views.
     2. To retrieve the JSON for a specific view ID.
-- Use the `viewHealthStateConfiguration` ID from the retrieved JSON to [enable logging](#enable-logging-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
+- Use the `viewHealthStateConfiguration` ID from the retrieved JSON to [enable logging](#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
 {% tab title="CLI command" %}
@@ -178,7 +178,7 @@ You can find the check or propagation ID for a specific component in the StackSt
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- Use the ID to [enable logging](#enable-logging-for-a-function-instance) for the component's check or propagation function.
+- Use the ID to [enable logging](#set-the-logging-level-for-a-function-instance) for the component's check or propagation function.
 
 ## See also
 
