@@ -169,14 +169,14 @@ $ sts graph show-node 9161801377514
 
 You can find the check or propagation ID for a specific component in the StackState UI.
 
-1. Click on a component to open the component details.
+1. Click on a component to open the component details on the right of the screen.
 2. Click on **...** and select **Show JSON**.
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function-instance) for the check or propagation function.
+- Use the ID to [enable logging](#enable-logging-for-a-check-event-handler-or-function-instance) for the component's check or propagation function.
 
 ## See also
 
