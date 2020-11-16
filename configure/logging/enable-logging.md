@@ -17,12 +17,10 @@ Note that logging will be enabled for an instance of a check, event handler or f
 {% endhint %}
 
 1. Find the ID for the check, event handler or function you want to enable logging for:
-    - StackState CLI:
-        - [Event handlers](#event-handlers)
-        - [View health state configuration functions](#view-health-state-configuration-functions)
-    - StackState UI:
-        - [Checks](#checks-and-propagation-functions)
-        - [Propagation functions](#checks-and-propagation-functions)
+    - [Checks](#checks-and-propagation-functions)
+    - [Event handlers](#event-handlers)
+    - [Propagation functions](#checks-and-propagation-functions)
+    - [View health state configuration functions](#view-health-state-configuration-functions)
 
 2. Use the [StackState CLI](/setup/installation/cli-install.md) to set the logging level for the ID, for example:
 ```
