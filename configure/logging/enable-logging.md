@@ -181,7 +181,7 @@ You can find the check or propagation ID for a specific component in the StackSt
 ## See also
 
 - [StackState CLI](/setup/installation/cli-install.md)
-- [Checks amd check functions](/configure/telemetry/checks_and_streams.md#checks)
+- [Checks and check functions](/configure/telemetry/checks_and_streams.md#checks)
 - [Event handlers](/use/alerting.md#send-alerts-with-event-handlers)
 - [Propagation and propagation functions](/configure/topology/propagation.md)
 - [View state configuration functions](/configure/view_state_configuration.md)
