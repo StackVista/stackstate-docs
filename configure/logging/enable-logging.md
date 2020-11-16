@@ -86,7 +86,7 @@ sts graph list EventHandler
 # get ID of the view
 sts graph list QueryView
 
-# get the ID of the view's "viewHealthStateConfiguration"
+# get the ID of the specified view's "viewHealthStateConfiguration"
 sts graph show-node <VIEW_ID>
 
 ```
