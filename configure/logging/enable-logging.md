@@ -55,7 +55,7 @@ Retrieve the ID for a specific check, event handler or function instance:
 
 #### Event handlers
 
-- Run the [StackState CLI](/setup/installation/cli-install.md) command below to list all event handlers.
+- To list all event handlers, run the [StackState CLI](/setup/installation/cli-install.md) command below.
 - Use the `id` from the command output to [enable logging](#enable-logging-for-a-check-event-handler-or-function-instance) for a specific event handler.
 
 {% tabs %}
@@ -66,16 +66,18 @@ sts graph list EventHandler
 {% endtab %}
 {% tab title="Example result" %}
 ```
-             id  type          name              description    owned by    manual    last updated
----------------  ------------  ----------------  -------------  ----------  --------  ------------------------
-114118706410878  EventHandler  my_event_handler                             True      Fri Nov 13 11:32:29 2020
+             id  type          name          description    owned by    manual    last updated
+---------------  ------------  ------------  -------------  ----------  --------  ------------------------
+114118706410878  EventHandler  demo_handler                             True      Fri Nov 13 11:32:29 2020
 ```
 {% endtab %}
 {% endtabs %}
 
 #### View health state configuration functions
 
-- Run the [StackState CLI](/setup/installation/cli-install.md) commands below to return the IDs of all StackState views and then retrieve the JSON for a specific view ID.
+- Run the [StackState CLI](/setup/installation/cli-install.md) commands below:
+    1. To return the IDs of all StackState views.
+    2. To retrieve the JSON for a specific view ID.
 - Use the `viewHealthStateConfiguration` ID from the retrieved JSON to [enable logging](#enable-logging-for-a-check-event-handler-or-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
