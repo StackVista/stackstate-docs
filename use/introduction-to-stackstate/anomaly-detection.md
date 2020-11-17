@@ -13,14 +13,14 @@ Each metric stream can use either autonomous or baseline anomaly detection. It i
 
 ## Autonomous anomaly detection
 
-
+The StackState Autonomous Anomaly Detector StackPack works fully autonomously to identify anomalies in your IT environment. When installed and enabled, it will determine for itself the best configuration of its machine learning models and the metric streams that should be prioritized for anomaly detection. No configuration is required although you can influence the selection of telemetry streams by giving a them higher priority.
 
 Read more about the [Autonomous Anomaly Detector (BETA)](/stackpacks/add-ons/aad.md).
 
 
 ## Baseline anomaly detection
 
-
+Each metric stream can have metric baselines manually configured or set by a template. The baselines determine the normal operating values of a metric stream and can be used in health checks and to trigger alerts. Note that any metric stream with a base line configured will not be picked up for autonomous anomaly detection.
 
 Read more about [anomaly detection with baselines](/use/baselining.md)
 

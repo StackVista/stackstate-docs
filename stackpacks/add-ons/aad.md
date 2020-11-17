@@ -16,7 +16,7 @@ The stream selection algorithm works as follows:
 
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md).
-* Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](/use/baselining.md)
+* Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](/use/baselining.md).
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 
