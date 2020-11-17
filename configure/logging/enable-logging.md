@@ -17,10 +17,10 @@ You can set the logging level for an instance of a function in the StackState CL
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
-    - [Check](#check-and-propagation-ids) IDs
-    - [Event handler](#event-handler-ids) IDs
-    - [Propagation](#check-and-propagation-ids) IDs
-    - [View health state configuration](#view-health-state-configuration-ids) IDs
+    - [Check IDs](#check-and-propagation-ids)
+    - [Event handler IDs](#event-handler-ids)
+    - [Propagation IDs](#check-and-propagation-ids)
+    - [View health state configuration IDs](#view-health-state-configuration-ids)
 
 2. Use the [StackState CLI](/setup/installation/cli-install.md) to set the logging level for the ID, for example:
 ```
@@ -83,7 +83,7 @@ The ID for a view health state configuration can be found using the [StackState 
 - Run the two StackState CLI commands below:
     1. To return the IDs of all StackState views.
     2. To retrieve the JSON for a specific view ID.
-- Use the `viewHealthStateConfiguration` ID from the retrieved JSON to [enable logging](#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
+- Use the `viewHealthStateConfiguration` ID from the retrieved view JSON to [enable logging](#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
 {% tab title="CLI command" %}
