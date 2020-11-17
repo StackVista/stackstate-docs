@@ -180,7 +180,7 @@ The ID for a check or propagation on a specific component can be found in in the
 
 ![Show JSON](/.gitbook/assets/v41_show-json.png)
 
-- Use the ID to [enable logging](#set-the-logging-level-for-a-function-instance) for the component's check or propagation function.
+- Use the ID to [enable logging](#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 
 ## See also
 
