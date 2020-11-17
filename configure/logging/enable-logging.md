@@ -40,7 +40,7 @@ Logging statements can be added to StackState functions and monitored in the `st
     - `log.info("message")`
     - `log.info(variable.toString())`
     
-2. [Enable logging](#set-the-logging-level-for-a-function-instance) for the function.
+2. [Enable logging](#set-the-logging-level-for-a-function-instance) for an instance of the function.
 
 
 ## Find the ID for a function instance
