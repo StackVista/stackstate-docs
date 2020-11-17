@@ -61,7 +61,7 @@
 
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
-  * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
+  * [Autonomous Anomaly Detector (BETA)](stackpacks/add-ons/aad.md)
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](stackpacks/integrations/agent.md)

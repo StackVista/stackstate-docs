@@ -1,5 +1,9 @@
 # Autonomous Anomaly Detector
 
+{% hint style="info" %}
+The Traefik integration is in **BETA**.
+{% endhint %}
+
 ## What is the Autonomous Anomaly Detector StackPack?
 
 Anomaly detection identifies incidents in your fast-changing IT environment and provides insights into their root cause. This directs the attention of IT operators to the root cause of incidents.
