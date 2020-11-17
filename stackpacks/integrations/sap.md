@@ -17,7 +17,9 @@ To set up the StackState SAP integration you need to have:
 * [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a single machine that can connect to both your SAP Instance and StackState.
 * A running SAP instance.
 
-Required TCP ports: 
+### Networking requirements
+
+The StackState SAP integration requires the following TCP ports: 
 
 * 1128 for HTTP 
 * 1129 for HTTPS
