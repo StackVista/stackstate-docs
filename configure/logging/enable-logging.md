@@ -78,7 +78,7 @@ sts graph list EventHandler
 
 #### View health state configuration IDs
 
-The ID for an instance of a view health state configuration function can be found using the [StackState CLI](/setup/installation/cli-install.md).
+The ID for a view health state configuration can be found using the [StackState CLI](/setup/installation/cli-install.md). This is the ID for a view's instance of a view health state configuration function.
 
 - Run the two StackState CLI commands below:
     1. To return the IDs of all StackState views.
@@ -171,7 +171,7 @@ $ sts graph show-node 9161801377514
 
 #### Check and propagation IDs
 
-The ID for a check or propagation ID of a specific component can be found in in the StackState UI. These are the IDs for an instance of a check function or propagation function.
+The ID for a check or propagation on a specific component can be found in in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
 
 1. Click on a component to open the component details on the right of the screen.
 2. Click on **...** and select **Show JSON**.
