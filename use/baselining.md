@@ -20,20 +20,20 @@ The process for detecting anomalies using baselines consists out of two steps:
 ### Configure a baseline for a metric stream
 
 {% hint style="info" %}
-Metric streams configured with a baseline will be ignored by the Autonomous Anomaly detector. 
+Metric streams configured with a baseline will not be picked up for anomaly detection by the [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md). 
 {% endhint %}
 
 To configure a baseline for a metric stream:
 
-1. Go to the metric stream on a component or relation and select "add baseline" from the metric stream context menu \(accessed through the triple dots next to the name of the metric stream\).
+1. Go to the metric stream on a component or relation and select **Add baseline** from the metric stream context menu \(accessed through the triple dots next to the name of the metric stream\).
 
-2. In the baseline dialog fill in the following values:
+2. In the baseline dialog, fill in the following values:
     - **Name** - A name for later reference to the baseline.
     - **Description** -  \(Optional\) A description for the baseline.
     - **Aggregation** - The way metrics are aggregated before being fed to the baseline function for determining the baseline. This can only be modified by modifying the metric stream itself.
     - **Batch size** - How often the metrics are aggregated before being fed to the baseline function.
     - **Baseline function** - The type of baseline calculation to apply. See [baseline functions](#baseline-functions) below for details of the pros and cons of each type.
-    - **Arguments** - VAry according to the baseline function selected.
+    - **Arguments** - Vary according to the baseline function selected.
 
 3. You can run a preview of the configured baseline, to help tune the settings to your liking. 
     - Select a time range for the preview.
