@@ -1,8 +1,3 @@
----
-title: SAP StackPack
-kind: documentation
----
-
 # SAP
 
 ## What is the SAP StackPack?
@@ -17,16 +12,17 @@ The SAP StackPack is used to create a near real time synchronization with your S
 
 ## Prerequisites
 
-The following prerequisites need to be met:
+To set up the StackState SAP integration you need to have:
 
-* [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed on a single machine which can connect to SAP Instance and StackState.
-* A SAP instance must be running.
+* [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a single machine that can connect to both your SAP Instance and StackState.
+* Required ports: 1128 for HTTP and 1129 for HTTPS
+* A running SAP instance.
 
 ## Enable SAP integration
 
 To enable the SAP check and begin collecting data from your SAP host instance:
 
-1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/sap.d/confiyaml`:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/sap.d/conf.yaml`:
     - Include details of your SAP instance:
         - **host**
         - **url** - Use `http` for basic authentication (user/pass) and `https` for client certificate authentication.
