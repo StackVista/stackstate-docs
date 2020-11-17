@@ -6,35 +6,35 @@ description: Enable logging for StackState checks, event handlers and functions
 
 ## Overview
 
-For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState CLI to set the logging level for individual instances of a check function, event handler function, propagation function or view state configuration function. Log messages can then be tracked in the StackState log file `stackstate.log`. It is not currently possible to enable logging for other function types.
+For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState CLI to set the logging level for individual instances of a check function, event handler function, propagation function or view state configuration function. Log messages will be added to the StackState log file `stackstate.log`. It is not currently possible to enable logging for other function types.
 
 ## Set the logging level for a function instance
 
 You can set the logging level for an instance of a function in the StackState CLI using its ID. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have its own ID.
 
 {% hint style="info" %}
-Logging should be enabled for an instance of a function, not for the function itself.
+ The logging level should be set on the ID for an instance of a function, not the ID of the function itself.
 {% endhint %}
 
-1. Find the ID for the instance of the check, event handler or function that you want to enable logging for:
-    - [Checks](#check-and-propagation-functions)
-    - [Event handlers](#event-handlers)
-    - [Propagation functions](#check-and-propagation-functions)
-    - [View health state configuration functions](#view-health-state-configuration-functions)
+1. Find the ID for the instance of the function that you want to enable logging for:
+    - Locate a [check](#check-and-propagation-functions) ID
+    - [Event handler](#event-handlers) IDs
+    - Find the ID of a [propagation function](#check-and-propagation-functions)
+    - Find the ID of a [view health state configuration function](#view-health-state-configuration-functions)
 
 2. Use the [StackState CLI](/setup/installation/cli-install.md) to set the logging level for the ID, for example:
 ```
 sts serverlog setlevel <id> DEBUG
 ```
 
-3. Monitor the `stackstate.log` using the ID.
+3. Monitor the `stackstate.log` using the function instance ID.
 ```
 tail -f stackstate.log | grep <id>
 ```
 
 ## Add logging to a StackState function
 
-Logging statements can be added to StackState functions and monitored in the `stackstate.log`. This is useful for debug purposes.
+Logging statements can be added to StackState functions and monitored in the `stackstate.log` file. This is useful for debug purposes.
 
 1. Add a log statement in the function's code. For example:
     - `log.info("message")`
