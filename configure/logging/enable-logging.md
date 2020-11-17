@@ -13,14 +13,14 @@ For debugging purposes, it may be helpful to enable logging for a StackState fun
 You can set the logging level for an instance of a function in the StackState CLI using its ID. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have its own ID.
 
 {% hint style="info" %}
- The logging level should be set on the ID for an instance of a function, not the ID of the function itself.
+ The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
-    - Locate a [check](#check-and-propagation-functions) ID
-    - [Event handler](#event-handlers) IDs
-    - Find the ID of a [propagation function](#check-and-propagation-functions)
-    - Find the ID of a [view health state configuration function](#view-health-state-configuration-functions)
+    - [Check](#check-and-propagation-ids) IDs
+    - [Event handler](#event-handler-ids) IDs
+    - [Propagation](#check-and-propagation-ids) IDs
+    - [View health state configuration](#view-health-state-configuration-ids) IDs
 
 2. Use the [StackState CLI](/setup/installation/cli-install.md) to set the logging level for the ID, for example:
 ```
@@ -47,16 +47,18 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 Retrieve the ID for a specific instance of a function:
 
-    - [Checks](#check-and-propagation-functions)
-    - [Event handlers](#event-handlers)
-    - [Propagation functions](#check-and-propagation-functions)
-    - [View health state configuration functions](#view-health-state-configuration-functions)
+    - [Checks](#check-and-propagation-function-ids)
+    - [Event handlers](#event-handler-ids)
+    - [Propagation functions](#check-and-propagation-ids)
+    - [View health state configuration functions](#view-health-state-configuration-ids)
 
 ### StackState CLI
 
-#### Event handlers
+#### Event handler IDs
 
-- To list all event handlers, run the [StackState CLI](/setup/installation/cli-install.md) command below.
+The ID for an event handler can be found using the [StackState CLI](/setup/installation/cli-install.md). This is the ID for an instance of an event handler function.
+
+- To list all event handlers, run the StackState CLI command below.
 - Use the `id` from the command output to [enable logging](#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
@@ -74,9 +76,11 @@ sts graph list EventHandler
 {% endtab %}
 {% endtabs %}
 
-#### View health state configuration functions
+#### View health state configuration IDs
 
-- Run the [StackState CLI](/setup/installation/cli-install.md) commands below:
+The ID for an instance of a view health state configuration function can be found using the [StackState CLI](/setup/installation/cli-install.md).
+
+- Run the two StackState CLI commands below:
     1. To return the IDs of all StackState views.
     2. To retrieve the JSON for a specific view ID.
 - Use the `viewHealthStateConfiguration` ID from the retrieved JSON to [enable logging](#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
@@ -84,7 +88,7 @@ sts graph list EventHandler
 {% tabs %}
 {% tab title="CLI command" %}
 ```
-# get ID of the view
+# get IDs of all views
 sts graph list QueryView
 
 # get the ID of the specified view's "viewHealthStateConfiguration"
@@ -165,9 +169,9 @@ $ sts graph show-node 9161801377514
 
 ### StackState UI
 
-#### Check and propagation functions
+#### Check and propagation IDs
 
-You can find the check or propagation ID for a specific component in the StackState UI.
+The ID for a check or propagation ID of a specific component can be found in in the StackState UI. These are the IDs for an instance of a check function or propagation function.
 
 1. Click on a component to open the component details on the right of the screen.
 2. Click on **...** and select **Show JSON**.
