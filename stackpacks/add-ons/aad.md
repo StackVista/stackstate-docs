@@ -1,7 +1,7 @@
 # Autonomous Anomaly Detector
 
 {% hint style="info" %}
-The Traefik integration is in **BETA**.
+The Autonomous Anomaly Detection add-on is in **BETA**.
 {% endhint %}
 
 ## What is the Autonomous Anomaly Detector StackPack?
