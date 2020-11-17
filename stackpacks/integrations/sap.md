@@ -15,8 +15,12 @@ The SAP StackPack is used to create a near real time synchronization with your S
 To set up the StackState SAP integration you need to have:
 
 * [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a single machine that can connect to both your SAP Instance and StackState.
-* Required ports: 1128 for HTTP and 1129 for HTTPS
 * A running SAP instance.
+
+Required TCP ports: 
+
+* 1128 for HTTP 
+* 1129 for HTTPS
 
 ## Enable SAP integration
 
