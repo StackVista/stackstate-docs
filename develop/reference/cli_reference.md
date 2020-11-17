@@ -26,15 +26,16 @@ sts graph list-types
 Use the `sts graph export` command to export different types of [configuration nodes](#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](/develop/reference/stj/) format.
 
 ```
-sts graph export --ids ids_to_export > file_name
+sts graph export -i ids_to_export > file_name
 ```
 
 ### Arguments
 
 | Argument | Format | Default | Description |
 |:---|:---|:---|:---|
-| `--ids` | list of strings | "all" | The IDs to export. If none are specified all configuration will be exported. |
-| `file_name `| file_name | ??? | The file to store the backup in. If none is specified, will be stored in ??? |
+| `-i` | list of strings | "all" | The IDs to export. If none are specified all configuration will be exported. |
+| `-h` | - | - | Show usage information and available arguments. |
+| `file_name `| file_name |  | The file to store the backup in. If none is specified, will be output to stdout.  |
 
 ### Examples
 
@@ -56,7 +57,8 @@ sts graph import < file_name
 
 | Argument | Format | Required | Description |
 |:---|:---|:---|
-| `file_name` | file_name | ??? | The file to import StackState configuration from. If none is specified, will be taken from ??? |
+| `-h` | - | - | Show usage information and available arguments. |
+| `file_name` | file_name |  | The file to import StackState configuration from.  |
 
 ### Examples
 
@@ -103,7 +105,7 @@ sts events send
 
 | Argument | Details |
 | :--- | :--- |
-| `-h` | See all available options |
+| `-h` | Show usage information and available arguments. |
 
 ## sts metrics send
 
@@ -118,7 +120,7 @@ sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline |
 | Argument | Details |
 | :--- | :--- |
 | `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
-| `-h` | See all available options |
+| `-h` | Show usage information and available arguments. |
 | `-p` | Time period.<br />This can be in weeks, days, hours, minutes and/or seconds.<br />For example: `-p 4w2d6h30m15s` |
 | `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
 | `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
@@ -134,7 +136,7 @@ Please refer to `usage.md` in the CLI zip archive for detailed instructions.
 
 | Argument | Details |
 | :--- | :--- |
-| `-h` | See all available options |
+| `-h` | Show usage information and available arguments. |
 
 
 # Inspect topic data
