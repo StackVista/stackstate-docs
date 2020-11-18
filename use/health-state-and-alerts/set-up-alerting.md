@@ -30,7 +30,7 @@ You can add an event handler to a view from the StackState UI Events Perspective
 1. Go to the [Events Perspective](/use/views/events_perspective.md).
 2. Select **Events Settings** on the left.
 3. Click **ADD EVENT HANDLER**.
-4. Select the type of [state change events](#state-change-events) that should trigger an alert or automated action:
+4. Select the type of [state change events](#state-change-events) that should trigger an alert or automated action.
 5. Select the [event handler](#event-handlers) function that should run whenever the selected event type is generated.
 6. Enter the required details, these will vary according to the event handler function you have selected.
 7. Click **SAVE**.
