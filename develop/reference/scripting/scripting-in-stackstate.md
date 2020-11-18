@@ -1,6 +1,5 @@
 ---
-description: Utilize StackState's scripting language to customize or extend StackState's
-  capabilities.
+description: Use the StackState Scripting Language (STSL) to customize or extend StackState's capabilities.
 ---
 
 # StackState Scripting Language \(STSL\)
@@ -9,14 +8,16 @@ StackState uses scripting in many places to:
 
 * Transform incoming data
 * Query 4T data
-* Describe how the state changes of the 4T data model 
-* Control the UI
+* Describe state changes of the 4T data model 
+* Control the StackState UI
 * Create reports
-* And connect to external services
+* Connect to external services
 
-The StackState Scripting Language scripting language is based on [Groovy](https://groovy-lang.org/). The choice of Groovy is motivated by the fact that StackState is written in Scala and runs on JVM. Currently Groovy is the best and most performant script language for JVM. You are not stuck to using Groovy though, you can use the [HTTP script API](script-apis/http.md) to develop logic in any language.
+StackState scripts are written using the StackState Scripting Language (STSL), which is based on [Groovy](https://groovy-lang.org/). The choice of Groovy is motivated by the fact that StackState is written in Scala and runs on JVM. Currently Groovy is the best and most performant script language for JVM. You are not stuck to using Groovy though, you can use the [HTTP script API](script-apis/http.md) to develop logic in any language.
 
+{% hint style="info" %}
 All scripts have a default \(configurable\) timeout of 15 seconds.
+{% endhint %}
 
 ## Running Scripts
 

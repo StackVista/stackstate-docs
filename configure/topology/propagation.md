@@ -92,7 +92,7 @@ The async script APIs provide super-human level of flexibility and even allow qu
 
 #### Synchronous propagation functions (async Off)
 
-Running a propagation function as synchronous places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the runs as async. `stateChangesRepository` can be used to return:
+Running a propagation function as synchronous places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs as async. `stateChangesRepository` can be used to return:
 - The propagating state of an element
 - The number of elements with a particular propagating state
 - The highest state of a given set of elements
