@@ -13,7 +13,7 @@ To backup and restore StackState configuration and topology information we can u
 
 StackState topology and configuration data are stored in StackGraph. To create a backup of StackGraph data on a [production setup](/setup/installation/linux_install/production-installation.md):
 
-1. Make sure that StackGraph is up and running `sudo systemctl status stackgraph`.
+1. Make sure that StackGraph is up and running.
 2. Stop the StackState node using `sudo systemctl stop stackstate.service`.
 3. Use one of the following commands to start the backup process:
 
@@ -33,7 +33,7 @@ StackState topology and configuration data are stored in StackGraph. To create a
 
 To restore previously backed up topology data:
 
-1. Make sure that StackGraph is up and running `sudo systemctl status stackgraph`.
+1. Make sure that StackGraph is up and running.
 2. Stop the StackState node using `sudo systemctl stop stackstate.service`.
 3. Run the restore form a specified backup file:
 ```
