@@ -2,6 +2,10 @@
 
 ## What is the Autonomous Anomaly Detector StackPack?
 
+{% hint style="info" %}
+The Autonomous Anomaly Detector add-on is in **BETA**.
+{% endhint %}
+
 Anomaly detection identifies incidents in your fast-changing IT environment and provides insights into their root cause. This directs the attention of IT operators to the root cause of incidents.
 
 Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState interface. An Anomaly Event for the incident will also be generated and stored, this can be inspected at a later date on the Events Perspective.
@@ -16,6 +20,7 @@ The stream selection algorithm works as follows:
 
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md).
+* Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](/use/baselining.md).
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 
