@@ -148,4 +148,5 @@ Alerting on baseline checks works exactly the same as with other health checks. 
 ## See also
 
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
+- [Autonomous Anomaly detector add-on StackPack](/stackpacks/add-ons/aad.md)
 - [Send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers)
