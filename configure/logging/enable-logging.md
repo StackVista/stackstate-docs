@@ -1,5 +1,5 @@
 ---
-description: Enable logging for StackState checks, event handlers and functions
+description: Set the logging level for an instance of a StackState function
 ---
 
 # Enable logging
