@@ -8,7 +8,7 @@ description: Removing data from StackState.
 
 The data in StackState is divided into three different sets:
 
-* ElasticSearch data
+* Elasticsearch data
 * Kafka Topic data
 * StackGraph data
 
