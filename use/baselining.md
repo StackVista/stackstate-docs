@@ -55,7 +55,7 @@ Baseline functions are configurable in StackState and can be coded in the [Stack
 This is always a good default choice; it works well for stationary as well as seasonal metrics.
 {% endhint %}
 
-This baseline functions works well for stationary metrics \(e.g. data center temperature, average response time, error count\). Under the hood it uses the Exponential Weighted Moving Average \(EWMA\) algorithm, but auto-tunes that algorithm itself.
+This baseline function works well for stationary metrics \(e.g. data center temperature, average response time, error count\). Under the hood it uses the Exponential Weighted Moving Average \(EWMA\) algorithm, but auto-tunes that algorithm itself.
 
 **Pros:**
 
@@ -143,7 +143,7 @@ Once you have [added a baseline](#configure-a-baseline-for-a-metric-stream) to a
 Once you have added the check function, it may take 5 or more minutes \(dependent on the baseline batch size\) before the check changes health state.
 {% endhint %}
 
-Alerting on baseline checks works exactly the same as with other health checks. See [send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers) for details on how to set this up.
+Alerting on baseline checks works exactly the same as with other health checks. For details on how to set this up, see [send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers).
 
 ## See also
 
