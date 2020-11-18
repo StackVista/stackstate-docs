@@ -3,7 +3,7 @@
 ## What is the Autonomous Anomaly Detector StackPack?
 
 {% hint style="info" %}
-The Autonomous Anomaly Detection add-on is in **BETA**.
+The Autonomous Anomaly Detector add-on is in **BETA**.
 {% endhint %}
 
 Anomaly detection identifies incidents in your fast-changing IT environment and provides insights into their root cause. This directs the attention of IT operators to the root cause of incidents.
