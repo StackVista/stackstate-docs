@@ -41,6 +41,7 @@
     * [The 4T data model](use/introduction-to-stackstate/4t_data_model.md)
     * [Components and Relations](use/introduction-to-stackstate/components_and_relations.md)
     * [Layers, Domains and Environments](use/introduction-to-stackstate/layers_domains_and_environments.md)
+    * [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
     * [Mapping functions](use/introduction-to-stackstate/mapping_functions.md)
     * [ID extraction](use/introduction-to-stackstate/id_extraction.md)
     * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
@@ -65,7 +66,7 @@
 
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
-  * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
+  * [Autonomous Anomaly Detector (BETA)](stackpacks/add-ons/aad.md)
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](stackpacks/integrations/agent.md)
