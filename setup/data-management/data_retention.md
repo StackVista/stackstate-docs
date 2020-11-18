@@ -60,7 +60,7 @@ In some circumstances it may be necessary to adjust the memory available to Elas
 | Parameter | Default | Description | 
 |:---|:---|:---|
 | `elasticsearchDiskSpaceMB` | 500000 | The total disk space assigned to ElasticSearch in MB. The default setting is the recommended disk space for a StackState production setup (500GB). |
-| `splittingStrategy` | "days" | The frequency of creating new indices. Can be one of \["none","hours","days","months","years"\]. If "none" is specified only one index will be used. |
+| `splittingStrategy` | "days" | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
 | `maxIndicesRetained` | 30 | The number of indices that will be retained. Together with the `splittingStrategy` governs how long historical data will be kept in ElasticSearch.  |
 | `diskSpaceWeight` | 0 | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  |
 | `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. Remaining disk space will be shared between other indices according to their configured `diskSpaceWeight`. | 
