@@ -61,7 +61,7 @@ This code works as follows:
 | Code | Description |
 |:---|:---|
 | `.withId(componentId)` | The `componentId` is passed as long and resolved |
-| `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component properties menu or by using a [topology query](/develop/reference/scripting/script-apis/topology.md) in analytics. |
+| `.fullComponent()` | Returns a JSON-style representation of the component. This is the same format as is obtained from the `Show Json` component properties menu or by using a [topology query](/develop/reference/scripting/script-apis/topology.md) in analytics. |
 | `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides.<br />`component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id.|
 |
 
@@ -87,8 +87,7 @@ Propagation functions can be run as either async (default) or synchronous.
 Running as an async function will allow you to make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](#available-properties-and-methods).
 
 {% hint style="danger" %}
-**Keep performance aspects in mind during function development**
-The script APIs provide super-human level of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+**Keep performance aspects in mind during async function development**<br />The script APIs provide super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
 #### Synchronous propagation functions (async Off)
@@ -118,7 +117,9 @@ The `element` properties and methods listed below can be used in **async and syn
 
 #### StateChangesRepository methods
 
+{% hint style="info" %}
 The `stateChangesRepository` methods listed below are **only available in synchronous** propagation functions.
+{% endhint %}
 
 - `stateChangesRepository.getPropagatedHealthStateCount(<set_of_elements>, <health_state>)`<br />Returns the number of elements in the set that have a certain health state, for example CRITICAL.
 - `stateChangesRepository.getHighestPropagatedHealthStateFromElements(<set_of_elements>)`<br />Returns the highest propagated health state based on the given set of elements.
