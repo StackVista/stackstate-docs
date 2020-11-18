@@ -31,7 +31,7 @@ For example:
 
 ## Custom propagation functions
 
-It is possible to write your own custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. The propagation function has access to the component itself, the component's dependencies and the transparent state that has already been calculated for the element.
+You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
 ![Custom propagation funtion](/.gitbook/assets/v41_propagation-function.png)
 
@@ -61,7 +61,7 @@ This code works as follows:
 | Code | Description |
 |:---|:---|
 | `.withId(componentId)` | The `componentId` is passed as long and resolved |
-| `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component menu or by using a [topology query](/develop/reference/scripting/script-apis/topology.md) in analytics. |
+| `.fullComponent()` | Returns a Json-style representation of the component. This is the same format as is obtained from the `Show Json` component properties menu or by using a [topology query](/develop/reference/scripting/script-apis/topology.md) in analytics. |
 | `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides.<br />`component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id.|
 |
 
