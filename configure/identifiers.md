@@ -53,11 +53,13 @@ Identifiers are also used to uniquely identify topology components in StackState
 
 The following identifiers are used by the StackState StackPacks:
 
-| StackPack | URN namespace identifier | Description | Example |
-| :--- | :--- | :--- | :--- |
-| AWS | aws | Amazon Resource name, URI based | urn:aws:ec2:region:account-id:instance/instance-id |
-| Azure | azure | Azure Resource ID, URI based | urn:azure:subscription/resourcegroup/provider/resourcename |
-| Agent v2 | host | Host identifier | urn:host:/hostName |
-| Agent v2 | process | Process identifier | urn:process:/hostName:pid:createTime |
-| Agent v2 | container | Container identifier | urn:container:/hostName:containerId |
+| StackPack | URN namespace identifier | Description                             | Format                                                                     | Example |
+| :---      | :---                     | :---                                    | :---                                                                       | :--- |
+| AWS       | aws                      | Amazon Resource name, URI based         | urn:aws:ec2:[region]:[account-id]:[instance]/[instance-id]                 |              |
+| Azure     | azure                    | Azure Resource ID, URI based            | urn:azure:subscription/[resourceGroup]/[provider]/[resourceName]           |              |
+| Agent v2  | host                     | Host identifier                         | urn:host:/[hostName]                                                       | `urn:host:/example.org` |
+| Agent v2  | process                  | Process identifier                      | urn:process:/[hostName]:[pid]:[createTime]                                 | `urn:process:/db.infra.company.org:161841:1602158335000` |
+| Agent v2  | container                | Container identifier                    | urn:container:/[hostName]:[containerId]                                    | `urn:container:/compnode5.k8s.example.org:8b18c68a820904c55b4909d7f5a9a52756d45e866c07c92bf478bcf6cd240901` |
+| Agent v2  | service                  | Service discovered with traces          | urn:service:/[serviceName]                                                 | `urn:service:/prod-db` |
+| Agent v2  | service-instance         | Service instance discovered with traces | urn:service-instance:/[serviceName]:/[hostName]                            | `urn:service-instance:/prod-db:/main.example.org` |
 

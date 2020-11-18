@@ -86,7 +86,7 @@
   * [Nagios](stackpacks/integrations/nagios.md)
   * [Openshift](stackpacks/integrations/openshift.md)
   * [SAP](stackpacks/integrations/sap.md)
-  * [SCOM](stackpacks/integrations/scom.md)
+  * [SCOM \(BETA\)](stackpacks/integrations/scom.md)
   * [ServiceNow](stackpacks/integrations/servicenow.md)
   * [Splunk](stackpacks/integrations/splunk/README.md)
     * [Splunk metrics](stackpacks/integrations/splunk/splunk_metric.md)
