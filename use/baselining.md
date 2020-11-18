@@ -49,7 +49,7 @@ To configure a baseline for a metric stream:
 
 Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/reference/scripting/README.md). By default the following baseline functions are supplied:
 
-### Function: Stationary Auto-Tuned Baseline
+### Stationary Auto-Tuned Baseline
 
 {% hint style="info" %}
 This is always a good default choice; it works well for stationary as well as seasonal metrics.
@@ -74,7 +74,7 @@ This baseline functions works well for stationary metrics \(e.g. data center tem
 | sensitivity | Integer between 0 and 100 | Sensitivity controls the smoothing of the EWMA algorithm. High sensitivity \(max 100\) means the baseline will quickly change shape when new metrics flow in, thus resulting in fewer anomalies. Low sensitivity means the baseline will be slower in changing shape, thus resulting in more anomalies. |
 | history | Duration | The amount of time needed for the baseline function to learn an initial baseline. 1 day typically is enough. The choice for a different fundamental period does not affect the algorithm, only the amount of initial data needed for calculating the baseline. |
 
-### Function: Median Absolute Deviation
+### Median Absolute Deviation
 
 This baseline functions work well for seasonal metrics \(e.g. logged in user count, online orders placed per minute\). It assumes that the metrics of the last days or last weeks \(fundamental period\) are similar to those of today or this week.
 
@@ -100,7 +100,7 @@ When dealing with metric streams which are seasonal either by day or week. It al
 | Fundamental period | Day / Week | Whether the baseline function should assume self-similarity in terms of days or weeks. Set to days if each day looks similar to every other day. Set to weeks if every weekday looks similar to the every other weekday \(every Monday looks similar to next Monday, every Tuesday looks similar to next Tuesday, etc.\) |
 | Training window | Duration | The amount of fundamental periods to learn from. Four or more is recommended. |
 
-### Function: Stationary Customizable Baseline based on EWMA
+### Stationary Customizable Baseline based on EWMA
 
 This baseline functions works well for stationary metrics \(e.g. data center temperature, average response time, error count\). It uses the Exponential Weighted Moving Average \(EWMA\) algorithm. It is the same as the `Stationary Auto-Tuned Baseline`, but leaves the tuning up to you.
 
