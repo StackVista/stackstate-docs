@@ -84,10 +84,11 @@ Propagation functions can be run as either async (default) or synchronous.
 
 #### Async propagation functions (default)
 
-Running as an async function will allow you to make an HTTP request. This allows you to use [StackState script APIs](/develop/reference/scripting/script-apis) in the function body and gives you access to parts of the topology/telemetry not available in the context of the propagation. You can also use the available [element properties and methods](#available-properties-and-methods).
+Running as an async function will allow you to make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](#available-properties-and-methods).
 
 {% hint style="danger" %}
-The async script APIs provide super-human level of flexibility and even allow querying standalone services, therefore during propagation function development it is important to keep performance aspects in mind. Consider extreme cases where the propagation function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks with tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+**Keep performance aspects in mind during function development**
+The script APIs provide super-human level of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
 #### Synchronous propagation functions (async Off)
