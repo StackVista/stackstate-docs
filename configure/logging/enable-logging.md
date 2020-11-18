@@ -47,10 +47,10 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 Retrieve the ID for a specific instance of a function:
 
-    - [Checks](#check-and-propagation-function-ids)
-    - [Event handlers](#event-handler-ids)
-    - [Propagation functions](#check-and-propagation-ids)
-    - [View health state configuration functions](#view-health-state-configuration-ids)
+    - [Check IDs](#check-and-propagation-ids)
+    - [Event handler IDs](#event-handler-ids)
+    - [Propagation IDs](#check-and-propagation-ids)
+    - [View health state configuration IDs](#view-health-state-configuration-ids)
 
 ### StackState CLI
 
