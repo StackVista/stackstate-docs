@@ -51,5 +51,132 @@ sts graph retention remove-expired-data --immediately
 
 ## Retention of metrics/events
 
-If you are using the metric/event store provided with StackState, your data will be retained for a month. If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store you connected.
+### StackState metrics and events data store
 
+If you are using the metric/event store provided with StackState, your data will by default be retained for a month. In most cases the default settings should be sufficient to store all indices for 30 days. 
+
+In some circumstances it may be necessary to adjust the memory available and how it is distributed, for example if you anticipate a lot of data to arrive for a specific index. The disk space available to ElasticSearch and how it is allocated to each StackState index can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
+
+| Parameter | Default | Description | 
+|:---|:---|:---|
+| `elasticsearchDiskSpaceMB` | 500000 | The total disk space assigned to ElasticSearch in MB. The default setting is the recommended disk space for a StackState production setup. |
+| `splittingStrategy` | "days" | The frequency of creating new indices. Can be one of \["none","hours","days","months","years"\]. If "none" is specified only one index will be used. |
+| `maxIndicesRetained` | 30 | The number of indices that will be retained. Together with the `splittingStrategy` governs how long historical data will be kept in ElasticSearch.  |
+| `diskSpaceWeight` | | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`  |
+| `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. The remaining disk space from the `elasticsearchDiskSpaceMB` will be shared between other indices based on their configured `diskSpaceWeight`. | 
+
+For example:
+
+```
+stackstate {
+  ...
+
+  // Total size of disk assigned to ElasticSearch in MB
+  elasticsearchDiskSpaceMB = 500000 # recommended disk space for a production setup
+
+  ...
+
+  // sts_metrics index
+  kafkaMetricsToES {
+    ...
+    elasticsearch {
+        index {
+          splittingStrategy = "days"
+          maxIndicesRetained = 30
+          refreshInterval = 1s
+          replicas = 0 // Default setup is single node
+          diskSpaceWeight = 0
+        }
+      }
+    }
+
+  // sts_multi_metrics index
+  kafkaMultiMetricsToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 0
+      }
+    }
+  }
+
+  // sts_generic_events index
+  kafkaGenericEventsToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 0
+      }
+    }
+  }
+
+  // sts_topology_events index
+  kafkaTopologyEventsToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 0
+      }
+    }
+  }
+
+  // sts_state_events index
+  kafkaStateEventsToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 0
+      }
+    }
+  }
+
+  // sts_events index
+  kafkaStsEventsToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 0
+      }
+    }
+  }
+
+  // sts_trace_events index
+  kafkaTraceToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 0
+      }
+    }
+  }
+}
+
+``` 
+
+### External metrics and events data store
+
+If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store you connected.
