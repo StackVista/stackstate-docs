@@ -72,7 +72,7 @@ stackstate {
   ...
 
   // Total size of disk assigned to ElasticSearch in MB
-  elasticsearchDiskSpaceMB = 500000 # recommended disk space for a production setup
+  elasticsearchDiskSpaceMB = 500000
 
   ...
 
