@@ -38,5 +38,11 @@ All StackState functionality exposed via scripting is available via so-called sc
 
 ## Asynchronous programming
 
-Most available functions on the script APIs can not immediately produce a result, but need some time to return. For efficiency reasons StackState will then suspend script execution and continue other work on other background threads. When a function has a async return value you the word `async` is written before the return type in the documentation. This has implications for how to work with StackState results. Please [read about async script results](async_script_result.md) to understand how this work.
+Most functions available through the StackState script APIs need some time to return a result. For efficiency reasons, StackState will suspend script execution while waiting for a result and continue other work on other background threads. When a function has an async return value, the word `async` is written before the return type in the script API documentation. This has implications for how to work with results. Please [read about async script results](async_script_result.md) to understand how this works.
 
+
+## See also
+
+- [Analytics environment](/use/analytics.md)
+- [Async script results](/develop/reference/scripting/async_script_result.md)
+- [Script APIs](/develop/reference/scripting/script-apis/README.md)
