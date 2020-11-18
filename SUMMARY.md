@@ -136,7 +136,7 @@
 * [View state configuration](configure/view_state_configuration.md)
 * [Identifiers](configure/identifiers.md)
 * [Logging](configure/logging/README.md)
-    * [Enable logging](configure/logging/enable-logging.md)
+    * [Enable logging for functions](configure/logging/enable-logging.md)
     * [StackState log files](configure/logging/stackstate_log_files.md)
 
 ## 📖 Develop
