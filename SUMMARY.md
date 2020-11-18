@@ -176,6 +176,7 @@
       * [STML Tags](develop/reference/stml/tags.md)
     * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
     * [StackState Scripting Language \(STSL\)](develop/reference/scripting/README.md)
+      * [Writing StackState scripts](develop/reference/scripting/writing-stackstate-scripts.md)
       * [Async script result](develop/reference/scripting/async_script_result.md)
       * [Script APIs](develop/reference/scripting/script-apis/README.md)
         * [Async - script API](develop/reference/scripting/script-apis/async.md)

@@ -1,6 +1,6 @@
 # Async script result
 
-Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises in Javascript work.
+Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
 
 ## Working with `AsyncScriptResult.then`
 
@@ -46,7 +46,7 @@ The above means that the results of `asyncFn1` are passed to `asyncFn2`, then th
 
 ### Flattening
 
-Since version 1.15 arrays of `AsyncScriptResult` are automatically flattened when returned from a `.then` call. For example:
+Arrays of `AsyncScriptResult` are automatically flattened when returned from a `.then` call. For example:
 
 ```text
 ScriptApi.asyncFn1().then  {
@@ -58,7 +58,7 @@ will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
 ### Reducing with `thenInject`
 
-Since version 4.1.0 arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
+Since version 4.1.0, arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
 
 ```text
 ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
@@ -79,7 +79,7 @@ ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
 
 ### Handling Exceptions
 
-It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function available from version 4.0. For example:
+It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function. For example:
 
 ```text
 ScriptApi.asyncFn1().catchError { ex ->
