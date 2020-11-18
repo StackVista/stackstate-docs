@@ -146,7 +146,7 @@ Detailed information about ports per process.
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><b>ElasticSearch</b>
+      <td style="text-align:left"><b>Elasticsearch</b>
       </td>
       <td style="text-align:left">
         <p>9200: HTTP api</p>

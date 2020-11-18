@@ -8,7 +8,7 @@ description: Removing data from StackState.
 
 The data in StackState is divided into three different sets:
 
-* ElasticSearch data
+* Elasticsearch data
 * Kafka Topic data
 * StackGraph data
 
@@ -24,9 +24,9 @@ The StackState CLI needs access to the Admin API \(default port 7071\) to issue 
 
 Running the StackState CLI delete command will:
 
-* Stop all necessary services
+* Stop all necessary services.
 * Delete all topology and telemetry data. Note that, the Kafka topics folder needs to be deleted manually from the StackState server. The Kafka topics folder is located in `/opt/stackstate/var/lib/` and is named `kafka`.
-* Start StackState
+* Start StackState.
 
 ```text
 # Delete all topology and telemetry data
