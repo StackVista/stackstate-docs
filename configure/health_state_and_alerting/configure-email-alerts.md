@@ -1,6 +1,11 @@
 # Configure email alerts
 
+## Overview
+
+StackState can be set up to sent an email alert 
 To receive email alerts for changes in health state, the StackState configuration must include SMTP server details. 
+
+## Configure the SMTP server to use for email alerting
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -60,3 +65,8 @@ To receive email alerts for changes in health state, the StackState configuratio
 3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers).
 {% endtab %}
 {% endtabs %}
+
+## See also
+
+- [Add an event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers)
+- [Event handler functions](/configure/health_state_and_alerting/event-handlers.md)
