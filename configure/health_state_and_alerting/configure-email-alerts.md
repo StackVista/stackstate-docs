@@ -1,9 +1,8 @@
-# Configure email alerts
+# Enable email alerts
 
 ## Overview
 
-StackState can be set up to sent an email alert 
-To receive email alerts for changes in health state, the StackState configuration must include SMTP server details. 
+StackState can send an email alert whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use. 
 
 ## Configure the SMTP server to use for email alerting
 
@@ -34,7 +33,7 @@ To receive email alerts for changes in health state, the StackState configuratio
             }
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers).
+3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% tab title="Linux" %}
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
@@ -62,7 +61,7 @@ To receive email alerts for changes in health state, the StackState configuratio
    
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers).
+3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% endtabs %}
 
