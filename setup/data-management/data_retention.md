@@ -75,10 +75,9 @@ The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/applic
 | `replicas` | Linux: `0`<br />Kubernetes: `1` | The number of nodes that a single piece of data should be available on. Use for redundancy/high availability when more than one Elasticsearch node is available.|
 | `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. Remaining disk space will be shared between other indices according to their configured `diskSpaceWeight`. | 
 
-For example:
 
 {% tabs %}
-{% tab title="application.conf" %}
+{% tab title="Example application.conf" %}
 ```
 stackstate {
   ...
