@@ -10,7 +10,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](/use/views/README.md). Components that have one or more [checks](/configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](/configure/topology/propagation.md).
+The Topology Perspective shows components and relations in the selected [view](/use/views/README.md). Components that have one or more [checks](/configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](/configure/health_state_and_alerting/propagation.md).
 
 ## Component details
 
@@ -77,7 +77,7 @@ If one or more components have a critical state, StackState will show the relate
 
 ## Root cause outside current view
 
-If there are components with [telemetry streams](/configure/telemetry/checks_and_streams.md#data-streams) and [health checks](/configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](/configure/topology/propagation.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
+If there are components with [telemetry streams](/configure/telemetry/checks_and_streams.md#data-streams) and [health checks](/configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](/configure/health_state_and_alerting/propagation.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
 It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether to show a root cause even when it is outside of the currently displayed view:
 

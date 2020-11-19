@@ -1,8 +1,5 @@
 ---
-title: View State Configuration
-kind: Documentation
-aliases:
-  - /configuring/view_state_configuration/
+description: Configure how the health state of a StackState view is calculated
 ---
 
 # View state configuration

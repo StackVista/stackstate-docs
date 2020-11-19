@@ -61,7 +61,7 @@ In the dialog the following options appear:
 | :--- | :--- |
 | View name | The name of your view. |
 | View health state enabled | Whether your view has a health state. If you disable this option your view's health state, depicted by the colored circle next to the view, will always color gray. The main reason for disabling is the fact that StackState's backend needs to spend resources on calculating the view health state each time the view changes. |
-| Configuration function | When view health state is enabled you can choose a [view state configuration function](/configure/view_state_configuration.md) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states** |
+| Configuration function | When view health state is enabled you can choose a [view state configuration function](/configure/health_state_and_alerting/view_state_configuration.md) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states** |
 | Arguments | Arguments are dependent on the chosen function. See "Function: minimum health states" below. |
 | Identifier | \(Optional\) this field can be used to give an unique [identifier](/configure/identifiers.md) to the view. This makes the view uniquely referenceable from exported configuration, like the exported configuration in a StackPack. |
 
