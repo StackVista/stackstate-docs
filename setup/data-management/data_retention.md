@@ -77,6 +77,8 @@ The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/applic
 
 For example:
 
+{% tabs %}
+{% tab title="application.conf" %}
 ```
 stackstate {
   ...
@@ -112,6 +114,9 @@ stackstate {
 }
 
 ``` 
+
+{% endtab %}
+{% endtabs %}
 
 ### External metrics and events data store
 
