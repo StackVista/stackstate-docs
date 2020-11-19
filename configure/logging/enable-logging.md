@@ -32,7 +32,7 @@ sts serverlog setlevel <id> DEBUG
 tail -f stackstate.log | grep <id>
 ```
 
-## Add logging to a StackState function
+## Add logging statements to a function
 
 Logging statements can be added to StackState functions and monitored in the `stackstate.log` file. This is useful for debug purposes.
 
