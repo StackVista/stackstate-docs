@@ -55,7 +55,7 @@ sts graph retention remove-expired-data --immediately
 
 If you are using the metric/event store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time. 
 
-In some circumstances it may be necessary to adjust the memory available to ElasticSearch and how it is allocated to each index, for example if you anticipate a lot of data to arrive for a specific index. The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
+In some circumstances it may be necessary to adjust the disk space available to ElasticSearch and how it is allocated to each index, for example if you anticipate a lot of data to arrive for a specific index. The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
 
 | Parameter | Default | Description | 
 |:---|:---|:---|
