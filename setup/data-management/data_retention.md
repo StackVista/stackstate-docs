@@ -86,22 +86,15 @@ stackstate {
 
   ...
 
-  // sts_metrics index
-  kafkaMetricsToES {
-    ...
-    elasticsearch {
-        index {
-          splittingStrategy = "days"
-          maxIndicesRetained = 30
-          refreshInterval = 1s
-          replicas = 0 // Default setup is single node
-          diskSpaceWeight = 0
-        }
-      ...
-      }
-    }
+  // For each index:
+  // kafkaMetricsToES - the sts_metrics index
+  // kafkaMultiMetricsToES - the sts_multi_metrics index
+  // kafkaGenericEventsToES - the sts_generic_events index
+  // kafkaTopologyEventsToES - the sts_topology_events index
+  // kafkaStateEventsToES - the sts_state_events index
+  // kafkaStsEventsToES - the sts_events index
+  // kafkaTraceToES - the sts_trace_events index
 
-  // sts_multi_metrics index
   kafkaMultiMetricsToES {
     ...
     elasticsearch {
@@ -110,86 +103,12 @@ stackstate {
         maxIndicesRetained = 30
         refreshInterval = 1s
         replicas = 0 // Default setup is single node
-        diskSpaceWeight = 0
+        diskSpaceWeight = 1
       }
     ...
     }
   }
-
-  // sts_generic_events index
-  kafkaGenericEventsToES {
-    ...
-    elasticsearch {
-      index {
-        splittingStrategy = "days"
-        maxIndicesRetained = 30
-        refreshInterval = 1s
-        replicas = 0 // Default setup is single node
-        diskSpaceWeight = 0
-      }
-    ...
-    }
-  }
-
-  // sts_topology_events index
-  kafkaTopologyEventsToES {
-    ...
-    elasticsearch {
-      index {
-        splittingStrategy = "days"
-        maxIndicesRetained = 30
-        refreshInterval = 1s
-        replicas = 0 // Default setup is single node
-        diskSpaceWeight = 0
-      }
-    ...
-    }
-  }
-
-  // sts_state_events index
-  kafkaStateEventsToES {
-    ...
-    elasticsearch {
-      index {
-        splittingStrategy = "days"
-        maxIndicesRetained = 30
-        refreshInterval = 1s
-        replicas = 0 // Default setup is single node
-        diskSpaceWeight = 0
-      }
-    ...
-    }
-  }
-
-  // sts_events index
-  kafkaStsEventsToES {
-    ...
-    elasticsearch {
-      index {
-        splittingStrategy = "days"
-        maxIndicesRetained = 30
-        refreshInterval = 1s
-        replicas = 0 // Default setup is single node
-        diskSpaceWeight = 0
-      }
-    ...
-    }
-  }
-
-  // sts_trace_events index
-  kafkaTraceToES {
-    ...
-    elasticsearch {
-      index {
-        splittingStrategy = "days"
-        maxIndicesRetained = 30
-        refreshInterval = 1s
-        replicas = 0 // Default setup is single node
-        diskSpaceWeight = 0
-      }
-    ...
-    }
-  }
+  ...
 }
 
 ``` 
