@@ -151,7 +151,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](/configure/health_state_and_alerting/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+* In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
 ### Upgrade to 1.15.0
 

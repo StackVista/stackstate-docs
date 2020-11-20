@@ -68,4 +68,4 @@ StackState can send an email alert whenever the health state of an entity or vie
 ## See also
 
 - [Add an event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers)
-- [Event handler functions](/configure/health_state_and_alerting/event-handlers.md)
+- [Event handler functions](/configure/topology/event-handlers.md)
