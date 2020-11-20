@@ -23,7 +23,7 @@ The contributing factors that lead to an alert being triggered are described bel
 
 ## Add an event handler to a view
 
-You can add an event handler to a view from the StackState UI Events Perspective.
+You can add an event handler to a view from the StackState UI Events Perspective. Event handlers respond to health state change events and run event handler functions to generate alerts.  
 
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
@@ -31,7 +31,7 @@ You can add an event handler to a view from the StackState UI Events Perspective
 2. Select **Events Settings** on the left.
 3. Click **ADD EVENT HANDLER**.
 4. Select the type of [state change events](#state-change-events) that should trigger an alert or automated action.
-5. Select the [event handler](#event-handlers) function that should run whenever the selected event type is generated.
+5. Select the [event handler function](#event-handler-functions) that should run whenever the selected event type is generated.
 6. Enter the required details, these will vary according to the event handler function you have selected.
 7. Click **SAVE**.
 
@@ -49,9 +49,9 @@ The event types generated when an element state changes are described in the tab
 
 You can [add an event handler to a view](#add-an-event-handler-to-a-view) to trigger alerts or automated actions on specific state change events.
 
-## Event handlers 
+## Event handler functions 
 
-Event handlers are functions that run in response to an event. A number of event handlers are included out of the box, or you could create your own:
+Event handlers attached to a view run a specified event handle functions in response to health state change events. The event handler functions listed below are included out of the box with StackState, or you could [create a custom event handler function](/configure/topology/event-handlers.md).
 
 - **Email**: Send an email alert to a specified email address. Note that an [SMTP server must be configured](/configure/topology/configure-email-alerts.md) in StackState to send email alerts.
 - **HTTP webhook POST**: Send an HTTP POST request to a specified URL.
