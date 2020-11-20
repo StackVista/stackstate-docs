@@ -19,7 +19,7 @@ A component's propagated state is calculated using a [propagation function](#pro
 
 Propagation functions are used to calculate the propagated state of a component. 
 
-- **Transparent propagation** is the default propagation method. This returns the transparent state, which is the maximum from the propagated state of all dependencies and its own state. For example:
+- **Transparent propagation** - the default propagation method. Returns the transparent state, which is the maximum from the the component's own state and the propagated state of all dependencies. For example:
 
     | Dependency state | Component state | Transparent state |
     |:---|:---|:---|
@@ -27,9 +27,9 @@ Propagation functions are used to calculate the propagated state of a component.
     | CLEAR | CRITICAL | CRITICAL |
     | DEVIATING | CLEAR | DEVIATING |
 
-- Other propagation functions can be installed as part of a StackPack. For example **Quorum based cluster propagation** for cluster components, will propagate a `CRITICAL` state only when the cluster quorum is in danger.
+- **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
 
-- [Custom propagation functions](#create-a-custom-propagation-functions). You can write your own propagation functions.
+- **Custom propagation functions** - you can write your own [Custom propagation functions](#create-a-custom-propagation-functions).
 
 For a full list of the propagation functions available in your StackState instance, go to **Settings** > **Functions** > **Propagation functions** in the StackState UI. 
 
