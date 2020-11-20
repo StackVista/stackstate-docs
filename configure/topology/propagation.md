@@ -1,3 +1,7 @@
+---
+description: Propagate health states from dependencies to dependents
+---
+
 # State propagation
 
 ## Overview
