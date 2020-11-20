@@ -4,7 +4,7 @@ description: Near real-time synchronization with VMware vSphere
 
 # VMware vSphere
 
-## What is the VMWare vSphere StackPack?
+## What is the VMware vSphere StackPack?
 
 The VMware vSphere StackPack is used to create a near real-time synchronization with VMware vSphere.
 
