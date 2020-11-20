@@ -19,7 +19,7 @@ A component's propagated state is calculated using a [propagation function](#pro
 
 Propagation functions are used to calculate the propagated state of a component. 
 
-- The default propagation method is **Transparent propagation**, this returns a propagated state that is determined by taking the maximum of the propagated state of all its dependencies and its own state (the transparent state). For example:
+- The default propagation method is **Transparent propagation**. Transparent propagation returns the transparent state, this is determined by taking the maximum propagated state of all its dependencies and its own state. For example:
 
     | Dependency state | Component state | Transparent state |
     |:---|:---|:---|
