@@ -2,7 +2,7 @@
 description: Near real-time synchronization with VMware vSphere
 ---
 
-# VMWare vSphere
+# VMware vSphere
 
 ## What is the VMWare vSphere StackPack?
 
