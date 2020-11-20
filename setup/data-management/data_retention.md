@@ -51,5 +51,74 @@ sts graph retention remove-expired-data --immediately
 
 ## Retention of metrics/events
 
-If you are using the metric/event store provided with StackState, your data will be retained for a month. If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store you connected.
+### StackState metrics and events data store
 
+If you are using the metric/event store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time. 
+
+#### Configure disk space for Elasticsearch
+
+In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it is allocated to each index, for example if you anticipate a lot of data to arrive for a specific index.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+The settings can be adjusted by using environment variables to [override the default configuration](/setup/installation/kubernetes_install/customize_config.md#environment-variables) of the parameters described below.
+{% endtab %}
+{% tab title="Linux" %}
+The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
+{% endtab %}
+{% endtabs %}
+
+| Parameter | Default | Description | 
+|:---|:---|:---|
+| `elasticsearchDiskSpaceMB` | `500000` | The total disk space assigned to Elasticsearch in MB. The default setting is the recommended disk space for a StackState production setup (500GB). |
+| `splittingStrategy` | `"days"` | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
+| `maxIndicesRetained` | `30` | The number of indices that will be retained. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch.  |
+| `diskSpaceWeight` | Varies per index | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index.<br />For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`. |
+| `replicas` | Linux: `0`<br />Kubernetes: `1` | The number of nodes that a single piece of data should be available on. Use for redundancy/high availability when more than one Elasticsearch node is available.|
+| `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. Remaining disk space will be shared between other indices according to their configured `diskSpaceWeight`. | 
+
+
+{% tabs %}
+{% tab title="Example application.conf" %}
+```
+stackstate {
+  ...
+
+  // Total size of disk assigned to Elasticsearch in MB
+  elasticsearchDiskSpaceMB = 500000
+
+  ...
+
+  // For each index:
+  // kafkaMetricsToES - the sts_metrics index
+  // kafkaMultiMetricsToES - the sts_multi_metrics index
+  // kafkaGenericEventsToES - the sts_generic_events index
+  // kafkaTopologyEventsToES - the sts_topology_events index
+  // kafkaStateEventsToES - the sts_state_events index
+  // kafkaStsEventsToES - the sts_events index
+  // kafkaTraceToES - the sts_trace_events index
+
+  kafkaMultiMetricsToES {
+    ...
+    elasticsearch {
+      index {
+        splittingStrategy = "days"
+        maxIndicesRetained = 30
+        refreshInterval = 1s
+        replicas = 0 // Default setup is single node
+        diskSpaceWeight = 1
+      }
+    ...
+    }
+  }
+  ...
+}
+
+``` 
+
+{% endtab %}
+{% endtabs %}
+
+### External metrics and events data store
+
+If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store that you have connected.
