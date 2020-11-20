@@ -29,7 +29,7 @@ Propagation functions are used to calculate the propagated state of a component.
 
 - **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
 
-- **Custom propagation functions** - you can write your own [Custom propagation functions](#create-a-custom-propagation-functions).
+- **Custom propagation functions** - you can write your own [custom propagation functions](#create-a-custom-propagation-function).
 
 For a full list of the propagation functions available in your StackState instance, go to **Settings** > **Functions** > **Propagation functions** in the StackState UI. 
 
