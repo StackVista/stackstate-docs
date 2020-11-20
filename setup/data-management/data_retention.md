@@ -121,4 +121,4 @@ stackstate {
 
 ### External metrics and events data store
 
-If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store you connected.
+If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store that you have connected.
