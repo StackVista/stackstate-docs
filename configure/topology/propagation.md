@@ -31,7 +31,9 @@ Propagation functions are used to calculate the propagated state of a component.
 
 - **Custom propagation functions** - you can write your own [custom propagation functions](#create-a-custom-propagation-function).
 
+{% hint style="info" %}
 For a full list of the propagation functions available in your StackState instance, go to **Settings** > **Functions** > **Propagation functions** in the StackState UI. 
+{% endhint %}
 
 ## Create a custom propagation function
 
