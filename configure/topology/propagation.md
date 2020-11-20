@@ -17,25 +17,12 @@ A component's propagated state is calculated using a [propagation function](#pro
 
 ## Propagation functions
 
-### Transparent propagation (default)
-
-By default, the propagation method for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
-
-| Dependency state | Component state | Propagated state |
-|:---|:---|:---|
-| CRITICAL | DEVIATING | CRITICAL |
-| CLEAR | CRITICAL | CRITICAL |
-| DEVIATING | CLEAR | DEVIATING |
-
-### Other propagation functions
-
-In some situations transparent propagation is undesirable. You can change the propagation function used by a component
-
 Different propagation functions can be installed as part of a StackPack or you can [write your own custom propagation function](#create-a-custom-propagation-functions). 
 
 For example:
 
-**Quorum based cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
+- **Transparent propagation** - The default propagation method. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state.
+- **Quorum based cluster propagation** - When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
 
 ## Create a custom propagation function
 
