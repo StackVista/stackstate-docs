@@ -23,7 +23,7 @@ The contributing factors that lead to an alert being triggered are described bel
 
 ## Add an event handler to a view
 
-You can add an event handler to a view from the StackState UI Events Perspective. Event handlers respond to health state change events and run event handler functions to generate alerts.  
+Event handlers respond to health state change events and run event handler functions to generate alerts. You can add an event handler to a view from the StackState UI Events Perspective. 
 
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
