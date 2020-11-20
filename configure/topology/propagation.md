@@ -17,9 +17,8 @@ A component's propagated state is calculated using a [propagation function](#pro
 
 ## Propagation functions
 
-Propagation functions are used to calculate the propagated state of a component. By default, components will use **Transparent propagation**. Other propagation functions can be installed as part of a StackPack or you can [write your own custom propagation function](#create-a-custom-propagation-functions). For example:
+Propagation functions are used to calculate the propagated state of a component. By default, components will use **Transparent propagation**, the propagated state is returned as the transparent state. This is determined by taking the maximum of the propagated state of all its dependencies and its own state. Other propagation functions can be installed as part of a StackPack or you can [write your own custom propagation function](#create-a-custom-propagation-functions). For example:
 
-- **Transparent propagation (default)** - The default propagation method. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state.
 - **Quorum based cluster propagation** - When a component is a cluster component, a `CRITICAL` state should only propagate when the cluster quorum is in danger.
 
 ## Create a custom propagation function
