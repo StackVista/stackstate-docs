@@ -1,5 +1,7 @@
 # State propagation
 
+## Overview
+
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
 
 A propagated state is returned as one of the following health states:
@@ -9,7 +11,13 @@ A propagated state is returned as one of the following health states:
 * `DEVIATING`
 * `UNKNOWN`
 
-## Transparent propagation (default)
+A component's propagated state is calculated using a [propagation function](#propagation-functions). This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
+
+![Edit component propagation](/.gitbook/assets/v41_edit-component-propagation.png)
+
+## Propagation functions
+
+### Transparent propagation (default)
 
 By default, the propagation method for components and relations is set to transparent propagation. The propagated state for a component or relation is determined by taking the maximum of the propagated state of all its dependencies and its own state. For example:
 
@@ -19,17 +27,17 @@ By default, the propagation method for components and relations is set to transp
 | CLEAR | CRITICAL | CRITICAL |
 | DEVIATING | CLEAR | DEVIATING |
 
-## Other propagation methods
+### Other propagation functions
 
-In some situations transparent propagation is undesirable. Different propagation functions can be installed as part of a StackPack or you can write your own [custom propagation functions](#custom-propagation-functions). The desired propagation function to use for a component or relation can be set in its edit dialogue.
+In some situations transparent propagation is undesirable. You can change the propagation function used by a component
 
-![Edit component propagation](/.gitbook/assets/v41_edit-component-propagation.png)
+Different propagation functions can be installed as part of a StackPack or you can [write your own custom propagation function](#create-a-custom-propagation-functions). 
 
 For example:
 
 **Quorum based cluster propagation**: When a component is a cluster component, a `CRITICAL` state should typically only propagate when the cluster quorum is in danger.
 
-## Custom propagation functions
+## Create a custom propagation function
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
