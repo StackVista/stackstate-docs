@@ -65,4 +65,5 @@ You can [add an event handler to a view](#add-an-event-handler-to-a-view) to tri
 - [Add a health check](/use/health-state-and-alerts/add-a-health-check.md)
 - [Configure an SMTP server to send email alerts](/configure/topology/configure-email-alerts.md)
 - [Events Perspective](/use/views/events_perspective.md)
+- [Event handlers](/configure/topology/event-handlers.md)
 
