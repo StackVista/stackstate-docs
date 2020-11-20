@@ -1,5 +1,5 @@
 ---
-description: Enable logging for StackState checks, event handlers and functions
+description: Set the logging level for an instance of a StackState function
 ---
 
 # Enable logging
@@ -10,10 +10,10 @@ For debugging purposes, it may be helpful to enable logging for a StackState fun
 
 ## Set the logging level for a function instance
 
-You can set the logging level for an instance of a function in the StackState CLI using its ID. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have its own ID.
+To enable logging for an instance of a function, use its ID to set a logging level in the StackState CLI. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have a separate ID.
 
 {% hint style="info" %}
- The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
+The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
@@ -47,10 +47,10 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 Retrieve the ID for a specific instance of a function:
 
-    - [Checks](#check-and-propagation-function-ids)
-    - [Event handlers](#event-handler-ids)
-    - [Propagation functions](#check-and-propagation-ids)
-    - [View health state configuration functions](#view-health-state-configuration-ids)
+    - [Check IDs](#check-and-propagation-ids)
+    - [Event handler IDs](#event-handler-ids)
+    - [Propagation IDs](#check-and-propagation-ids)
+    - [View health state configuration IDs](#view-health-state-configuration-ids)
 
 ### StackState CLI
 
