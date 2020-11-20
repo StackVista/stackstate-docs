@@ -6,14 +6,25 @@ description: Automate alerts and actions based on events
 
 ## Overview
 
+Event handlers can be attached to a StackState view to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md) in response to a configured event within the view.
 
-
-Event handlers trigger actions by running an [event handler function](#event-handler-functions). This can be set as **Run event handler** in the StackState UI **Add event handler** dialogue.
+To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This can be set as **Run event handler** in the StackState UI **Add event handler** dialogue.
 
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
 ## Event handler functions
 
+Event handler functions are used to trigger an alert or action in a system outside of StackState. For example, an email or POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create a custom event handler function](#create-a-custom-event-handler-function). 
 
 
-## Custom event handler functions
+
+
+## Create a custom event handler function
+
+
+
+
+## See also
+
+- [StackState views](/use/views/README.md)
+- [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
