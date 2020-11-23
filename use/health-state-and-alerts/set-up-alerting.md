@@ -14,7 +14,7 @@ Alerts are triggered in response to health state changes on an element or view. 
 
 The process to trigger an event is as follows:
 
-1. [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-element.md) attached to an element provide related metrics and events data.
+1. [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-element.md) attached to an element provide metrics and events data.
 2. A [health check](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listens to the available telemetry streams and reports a health state based on its configured parameters.
 3. When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
     - `HealthStateChangedEvent` for the element itself.
@@ -32,12 +32,7 @@ Event handlers respond to health state change events and run event handler funct
 2. Click **ADD EVENT HANDLER**.
 3. Select the trigger event and event handler: 
     - **On event** - the type of [state change events](#state-change-events) that should trigger an alert or automated action.
-    - **Run event handler** - the event handler function that should run whenever the selected event type is generated:
-        - **Email**: Send an email alert to a specified email address. Note that an [SMTP server must be configured](/configure/topology/configure-email-alerts.md) in StackState to send email alerts.
-        - **HTTP webhook POST**: Send an HTTP POST request to a specified URL.
-        - **Slack**: Send a notification to a specified Slack webhook URL.
-        - **SMS**: Send an SMS alert (MessageBird) to a specified phone number.6. Enter the required details, these will vary according to the event handler function you have selected.
-        - **Custom**: Create your own [custom event handler function](/configure/topology/event-handlers.md#create-a-custom-event-handler-function).
+    - **Run event handler** - the [event handler function](/configure/topology/event-handlers.md#event-handler-functions) that should run whenever the selected event type is generated. StackState ships with event handler functions that can send a message via email, Slack or SMS, or POST to a webhook. You can also create your own.
 4. Enter the required details, these will vary according to the event handler function you have selected.
 5. Click **SAVE**.
 
