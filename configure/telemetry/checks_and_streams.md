@@ -1,12 +1,17 @@
 # Checks and Streams
 
-Checks are the mechanisms through which components and relations get a health state. A check needs data in order to determine a state. This data is supplied via data streams.
+## Overview
+
+Checks are the mechanisms through which components and relations get a health state. A check needs data in order to determine a state. This data is supplied via telemetry streams.
+
+- Read more about [checks](#checks)
+- Read more about [telemetry streams](#data-streams)
 
 ## Checks
 
-Checks determine the health state for an element (component or relation) by monitoring one or more telemetry streams to determine if a rule holds true. Telemetry streams can supply either metrics (time-series data) or events (logs and events). StackState checks are particularly powerful as they are based on [check functions](#check-functions). A check function is a reusable, user defined script that can be adapted to monitor any number of available telemetry streams. 
+Checks determine the health state for an element (component or relation) by monitoring one or more telemetry streams to determine if a rule holds true. Telemetry streams can supply either metrics (time-series data) or events (logs and events). 
 
-For example, you could write a check function to monitor:
+StackState checks are particularly powerful as they are based on [check functions](#check-functions). A check function is a reusable, user defined script that can be adapted to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
 
 * Are we seeing a normal amount of hourly traffic?
 * Have there been any fatal exceptions logged?
