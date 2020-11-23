@@ -1,6 +1,4 @@
 ---
-title: Script API - UI
-kind: Documentation
 description: Functions that control the user-interface.
 ---
 
@@ -9,6 +7,45 @@ description: Functions that control the user-interface.
 {% hint style="info" %}
 These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](/configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}
+
+## Function: `baseUrl`
+
+Returns the base URL from the StackState configuration. This is the parameter `stackstate.baseUrl` or the environment variable `STACKSTATE_BASE_URL`.
+
+**Args:**
+
+None.
+
+**Return type:**
+
+* ???
+
+**Examples:**
+
+Return the base URL from the StackState configuration.
+
+```text
+UI.baseUrl()
+```
+## Function: `redirectToURL`
+
+Opens a new tab in the user's browser to some URL.
+
+**Args:**
+
+* `url` - the URL to redirect the browser to.
+
+**Return type:**
+
+* Async: URLRedirectResponse
+
+**Examples:**
+
+Open the stackstate.com website in a new tab in the browser.
+
+```text
+UI.redirectToUrl("http://wwww.stackstate.com")
+```
 
 ## Function: `showReport`
 
@@ -39,7 +76,7 @@ UI.showReport(
 )
 ```
 
-Please note the `.stripMargin()` call. This is a Groovy function for strings that strips leading whitespace/control characters followed by '\|' from every line. This way indenting can be retained without introducing leading whitespace in the STML.
+Please note the `.stripMargin()` call. This is a Groovy function for strings that strips leading whitespace/control characters followed by '\|' from every line. This way, indenting can be retained without introducing leading whitespace in the STML.
 
 ## Function: `showTopologyByQuery`
 
@@ -62,24 +99,3 @@ Redirects the user-interface to show the Azure topology.
 ```text
 UI.showTopologyByQuery('domain IN ("Azure")')
 ```
-
-## Function: `redirectToURL`
-
-Opens a new tab in the user's browser to some URL.
-
-**Args:**
-
-* `url` - the URL to redirect the browser to.
-
-**Return type:**
-
-* Async: URLRedirectResponse
-
-**Examples:**
-
-Open the stackstate.com website in a new tab in the browser.
-
-```text
-UI.redirectToUrl("http://wwww.stackstate.com")
-```
-
