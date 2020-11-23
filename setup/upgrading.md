@@ -117,7 +117,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
-The following changes to configuration files must be manually processed if you are using a customised or generated configuration:
+The following configuration changes must be manually applied after upgrade to StackState v4.2.0:
 
 * **etc/stackstate-receiver/application.conf**
     * Added new mandatory parameter `stackstate.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
