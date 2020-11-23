@@ -23,7 +23,7 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 2. Click **+ ADD** next to **Telemetry streams** on the right of the screen.
 3. Provide the following details:
     - **Name** - A name for the telemetry stream. This will be visible in the StackState UI. 
-    - **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in Settings > Telemetry Sources.
+    - **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in **Settings** > **Telemetry Sources**.
 4. Click **NEXT**
 5. Provide the following details:
     - **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.

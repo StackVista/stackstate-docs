@@ -56,4 +56,4 @@ if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (
 
 ## See also
 
-- [Configure view health](/use/health-state-and-alerts/configure-view-health.md)
+- [Configure the view health](/use/health-state-and-alerts/configure-view-health.md)
