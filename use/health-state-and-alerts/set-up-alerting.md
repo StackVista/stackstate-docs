@@ -11,15 +11,16 @@ When something goes wrong within your IT environment StackState can alert you or
 ## How an alert is triggered
 
 Alerts are triggered in response to health state changes on an element or view. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger alerts, however, this can result in a lot of noise. 
-The contributing factors that lead to an alert being triggered are described below.
 
-- [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-element.md) attached to an element provide related metrics and events data.
-- [Health checks](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listen to the available telemetry streams and report a health state based on the configured parameters.
-- When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
+The process to trigger an event is as follows:
+
+1. [Telemetry streams](/use/health-state-and-alerts/add-telemetry-to-element.md) attached to an element provide related metrics and events data.
+2. A [health check](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listens to the available telemetry streams and reports a health state based on its configured parameters.
+3. When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
     - `HealthStateChangedEvent` for the element itself.
-    - `PropagatedStateChangedEvent` for all elements that depend on the element whose health state has changed.
-    - `ViewStateChangedEvent` a single event for the entire view. Note that this event type will only be generated if the configured [view state change criteria](/use/health-state-and-alerts/configure-view-health.md) are met.
-- Event handlers associated with the view listen to the generated state change events and [trigger the configured alerts and actions](#add-an-event-handler-to-a-view).
+    - `PropagatedStateChangedEvent` for all elements that depend on the element.
+    - `ViewStateChangedEvent` for each view containing the element. Note that this event type is only generated when a view's [view state configuration criteria](/use/health-state-and-alerts/configure-view-health.md) are met.
+4. Event handlers associated with each view listen to the generated state change events and [trigger the configured alerts and actions](#add-an-event-handler-to-a-view).
 
 ## Add an event handler to a view
 
