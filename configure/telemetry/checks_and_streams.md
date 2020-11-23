@@ -4,11 +4,9 @@ Checks are the mechanisms through which components and relations get a health st
 
 ## Checks
 
-Checks determine their health state based on one or multiple monitor inputs for a certain component or relation. Checks may be likened to rules in that they determine if some rule holds for one or multiple telemetry streams. They are more powerful than rules though, because they are based on !check functions! that are reusable user defined scripts. While a rule can only be configured in a limited number of ways, checks can always be made more powerful through the use of check functions.
+Checks determine the health state for an element (component or relation) by monitoring one or more telemetry streams to determine if a rule holds true. Telemetry streams can supply either metrics (time-series data) or events (logs and events). StackState checks are particularly powerful as they are based on [check functions](#check-functions). A check function is a reusable, user defined script that can be adapted to monitor any number of available telemetry streams. 
 
-A data stream can either supply metrics \(time-series data\) or events. A check can receive multiple inputs of different types.
-
-Some things a check may check:
+For example, you could write a check function to monitor:
 
 * Are we seeing a normal amount of hourly traffic?
 * Have there been any fatal exceptions logged?
@@ -16,7 +14,7 @@ Some things a check may check:
 
 ## Check Functions
 
-A check function is a reusable !user defined script! that defines a single function that based on some !parameter! inputs returns an output health state. Each time a check function is executed it updates the health state of the checks it ran for. If a check function does not return a health state, the health state of the check is unchanged.
+A check function is a reusable user defined script that includes a single function based on parameter inputs and returns an output health state. Each time a check function is executed, it updates the health state of the checks it ran for. If a check function does not return a health state, the health state of the check remains unchanged.
 
 ### Check function parameters
 

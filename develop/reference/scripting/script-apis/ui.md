@@ -10,7 +10,7 @@ These functions only work in the context of scripts that are executed by a user 
 
 ## Function: `baseUrl`
 
-Returns the base URL from the StackState configuration. This is the parameter `stackstate.baseUrl` or the environment variable `STACKSTATE_BASE_URL`.
+Returns the base URL from the StackState configuration. This is the parameter `stackstate.web.baseUrl` or the environment variable `STACKSTATE_BASE_URL`.
 
 **Examples:**
 
