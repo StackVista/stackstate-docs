@@ -12,14 +12,6 @@ These functions only work in the context of scripts that are executed by a user 
 
 Returns the base URL from the StackState configuration. This is the parameter `stackstate.baseUrl` or the environment variable `STACKSTATE_BASE_URL`.
 
-**Args:**
-
-None.
-
-**Return type:**
-
-* String: baseUrl
-
 **Examples:**
 
 Return the base URL from the StackState configuration.
@@ -34,6 +26,10 @@ Opens a new tab in the user's browser to some URL.
 **Args:**
 
 * `url` - the URL to redirect the browser to.
+
+**Return type:**
+
+* Async: URLRedirectResponse
 
 **Examples:**
 

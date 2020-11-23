@@ -119,7 +119,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 * The following changes to configuration files must be manually processed if you are using a customised or generated configuration:
   * `etc/stackstate-receiver/application.conf`:
-    * Added new mandatory parameter `stackstate.baseUrl`. This is the public URL for StackState and will be made available via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
+    * Added new mandatory parameter `stackstate.baseUrl`. This is the public URL of StackState and will be made available via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
     * The `stackstate` namespace has been renamed to `stackstate.receiver`.
     * The configuration key `apiKey` has been renamed to `apiKeys`.
   * `processmanager.conf`:
