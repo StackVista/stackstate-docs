@@ -18,7 +18,7 @@ None.
 
 **Return type:**
 
-* ???
+* String: baseUrl
 
 **Examples:**
 
@@ -34,10 +34,6 @@ Opens a new tab in the user's browser to some URL.
 **Args:**
 
 * `url` - the URL to redirect the browser to.
-
-**Return type:**
-
-* Async: URLRedirectResponse
 
 **Examples:**
 
