@@ -121,8 +121,8 @@ The following configuration changes must be manually applied after upgrade to St
 
 * **etc/stackstate-receiver/application.conf**
     * Added new mandatory parameter `stackstate.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
-    * Renamed the namespace `stackstate`. This is now named `stackstate.receiver`.
-    * Renamed the parameter `apiKey`. This is now named `apiKeys`.
+    * Renamed the namespace `stackstate`. This is now `stackstate.receiver`.
+    * Renamed the parameter `apiKey`. This is now `apiKeys`.
 
 * **processmanager.conf**
     * Added new parameter `processes.kafkaToElasticsearch.topology-events`.

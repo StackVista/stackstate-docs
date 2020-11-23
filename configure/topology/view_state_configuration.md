@@ -4,6 +4,8 @@ description: Configure how the health state of a StackState view is calculated
 
 # View state configuration
 
+## Overview
+
 Every team has a different definition of when the part of the IT landscape they are watching over is in danger. So the View health state can be used to indicate when the whole, as defined in a view, is in danger. The View can be in three states:
 
 * Green - CLEAR
@@ -14,13 +16,13 @@ To enable view health state in a view, switch `View Health State Enabled` to on.
 
 When the View health state changes it triggers a ViewHealthStateChangedEvent. This event can be used in event handlers to, for example, trigger an e-mail or Slack message.
 
-## View health state configuration function
+## View health state configuration functions
 
 A view health state configuration function is a user defined script that takes user parameters and has access to a `viewSummary` variable that can be used to get summary information on the \(states of\) the components and relations in the view.
 
 To create, update or delete a view state configuration go to "Settings -&gt; View Health State Configuration Functions".
 
-## Scripting a view health state configuration function
+## Write a custom view health state configuration function
 
 A view health state configuration function receives a `viewSummary` and needs to return value from the viewHealthStates enum. `UNKNOWN, CLEAR, DEVIATING, CRITICAL`. The `viewSummary` gives access to the methods `countHealthState` and `countPropagatedHealthState`. These take a state and return the number of components on the view in that state. For example `viewSummary.countPropagatedHealthState(propagatedHealthStates.DEVIATING)`.
 
@@ -52,3 +54,6 @@ if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (
 }
 ```
 
+## See also
+
+- [Configure view health](/use/health-state-and-alerts/configure-view-health.md)
