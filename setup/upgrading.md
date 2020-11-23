@@ -117,6 +117,8 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
+The following changes to configuration files must be manually processed if you are using a customised or generated configuration:
+
 * **etc/stackstate-receiver/application.conf**
     * Added new mandatory parameter `stackstate.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
     * Renamed the namespace `stackstate`. This is now named `stackstate.receiver`.
@@ -127,16 +129,6 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 * **processmanager/kafka-topics.conf`**
     * Added new section `kafka.topics.sts_topology_events`.
-
-* The following changes to configuration files must be manually processed if you are using a customised or generated configuration:
-  * `etc/stackstate-receiver/application.conf`:
-    * Added new mandatory parameter `stackstate.baseUrl`. This is the public URL of StackState and will be made available via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
-    * The `stackstate` namespace has been renamed to `stackstate.receiver`.
-    * The configuration key `apiKey` has been renamed to `apiKeys`.
-  * `processmanager.conf`:
-    * Added new argument `topology-events` to the section `processes.kafkaToElasticsearch`.
-  * `processmanager/kafka-topics.conf` :
-    * Added new section `kafka.topics.sts_topology_events` to file `processmanager/kafka-topics.conf`.
 
 ### Upgrade to 4.1.0
 
