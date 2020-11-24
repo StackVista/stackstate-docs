@@ -49,6 +49,11 @@ To configure a baseline for a metric stream:
 
 Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/reference/scripting/README.md). By default the following baseline functions are supplied:
 
+- [Stationary Auto-Tuned Baseline](#stationary-auto-tuned-baseline)
+- [Median Absolute Deviation](#median-absolute-deviation)
+- [Stationary Customizable Baseline based on EWMA](#stationary-customizable-baseline-based-on-ewma)
+- you can also [create your own custom baseline function](/configure/telemetry/baseline-functions.md)
+
 ### Stationary Auto-Tuned Baseline
 
 {% hint style="info" %}
@@ -102,7 +107,7 @@ When dealing with metric streams which are seasonal either by day or week. It al
 
 ### Stationary Customizable Baseline based on EWMA
 
-This baseline functions works well for stationary metrics \(e.g. data center temperature, average response time, error count\). It uses the Exponential Weighted Moving Average \(EWMA\) algorithm. It is the same as the `Stationary Auto-Tuned Baseline`, but leaves the tuning up to you.
+This baseline functions works well for stationary metrics, for example data center temperature, average response time and error count. It uses the Exponential Weighted Moving Average \(EWMA\) algorithm. It is the same as the `Stationary Auto-Tuned Baseline`, but leaves the tuning up to you.
 
 **Pros:**
 
@@ -150,3 +155,4 @@ Alerting on baseline checks works exactly the same as with other health checks. 
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
 - [Autonomous Anomaly detector add-on StackPack](/stackpacks/add-ons/aad.md)
 - [Send alerts with event handlers](/use//health-state-and-alerts/set-up-alerting.md)
+- [Create custom baseline functions](/configure/telemetry/baseline-functions.md)

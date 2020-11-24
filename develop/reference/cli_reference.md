@@ -141,7 +141,7 @@ Please refer to `usage.md` in the CLI zip archive for detailed instructions.
 
 # Inspect topic data
 
-All data flowing through StackState \(e.g. topology, telemetry, traces, etc.\) flows through topics. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
+All data flowing through StackState flows through topics, for example topology, telemetry and traces. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
 
 ## sts topic list
 

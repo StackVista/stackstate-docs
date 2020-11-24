@@ -19,7 +19,7 @@ Agent checks are deployed and configured alongside the agent using a provisionin
 1. The agent check pulls data from a system that is running on the same host as the agent is deployed on. Multiple agents are deployed; one on each host. Each deployed agent is configured to pull data from the local host and forward it to StackState.
 2. The agent check pulls data from a remote system. Typically one agent is configured per remote system or per instance of the remote system. Based on concerns of security and cost this agent typically is deployed in close proximity to the remote system.
 
-When building an agent check you have to consider how you want your agent check to be deployed based on concerns like performance, cost, latency, security, reliability, etc.
+When building an agent check you have to consider how you want your agent check to be deployed based on concerns like performance, cost, latency, security, reliability etc.
 
 In some cases you may even want to build two agent checks, one for each types of deployment. The StackState Kubernetes integration is a good example of this; it gather both low-level telemetry, process information and network connections through an agent check build for deployment model No. 1 and gathers high-level telemetry and service-level topology information via an agent check build for deployment model No. 2.
 

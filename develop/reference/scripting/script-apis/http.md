@@ -48,7 +48,7 @@ Submit HTTP put request.
 * `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
-* `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
+* `.contentType(contentType: String)` -  specify the content type, for example "application/text".
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the json of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
 * `.jsonBody()` - get the body of the json response.
@@ -84,7 +84,7 @@ Submit HTTP post request.
 * `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
-* `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
+* `.contentType(contentType: String)` -  specify the content type, for example "application/text".
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the json of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
 * `.jsonBody()` - get the body of the json response.
@@ -162,7 +162,7 @@ Submit HTTP patch request.
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
-* `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
+* `.contentType(contentType: String)` -  specify the content type, for example "application/text".
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the json of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
 * `.jsonBody()` - get the body of the json response.
