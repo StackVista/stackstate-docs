@@ -2,16 +2,16 @@
 
 ## Overview
 
-Checks are the mechanisms through which components and relations get a health state. A check needs data in order to determine a state. This data is supplied via telemetry streams.
+Checks are the mechanisms through which elements (components and relations) get a health state. The state of an element is determined from data in the associated telemetry streams.
 
 - Read more about [checks](#checks)
 - Read more about [telemetry streams](#data-streams)
 
 ## Checks
 
-Checks determine the health state for an element (component or relation) by monitoring one or more telemetry streams to determine if a rule holds true. Telemetry streams can supply either metrics (time-series data) or events (logs and events). 
+Checks determine the health state of an element by monitoring one or more telemetry streams. Each telemetry streams can supply either metrics (time-series data) or events (logs and events) data. 
 
-StackState checks are particularly powerful as they are based on [check functions](#check-functions). A check function is a reusable, user defined script that can be adapted to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
+StackState checks are particularly powerful as they are based on [check functions](#check-functions). A check function is a reusable, user defined script that specifies when each health state should be returned. A check function can be adapted to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
 
 * Are we seeing a normal amount of hourly traffic?
 * Have there been any fatal exceptions logged?
@@ -19,7 +19,7 @@ StackState checks are particularly powerful as they are based on [check function
 
 ## Check Functions
 
-A check function is a reusable user defined script that includes a single function based on parameter inputs and returns an output health state. Each time a check function is executed, it updates the health state of the checks it ran for. If a check function does not return a health state, the health state of the check remains unchanged.
+A check function is a reusable user defined script that includes a single function. The check function receives parameter inputs and returns an output health state. Each time a check function is executed, it updates the health state of the checks it ran for. If a check function does not return a health state, the health state of the check remains unchanged.
 
 ### Check function parameters
 
