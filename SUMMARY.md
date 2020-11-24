@@ -48,7 +48,7 @@
     * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
   * [Explore mode](use/explore_mode.md)
   * [Views](use/views/README.md)
-    * [Filters](use/views/filters.md)
+    * [Filter components in a view](use/views/filters.md)
     * [Topology Perspective](use/views/topology_perspective.md)
     * [Telemetry Perspective](use/views/telemetry_perspective.md)
     * [Events Perspective](use/views/events_perspective.md)
