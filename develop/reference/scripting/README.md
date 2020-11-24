@@ -27,7 +27,7 @@ StackState scripting can be executed in the Analytics environment that can be ac
 
 ## Script APIs
 
-All StackState functionality exposed via scripting is available via so-called script API's. These are singleton objects starting with a capital case letter that contain a number of functions that can be called. Commonly used script APIs are the [Topology script API](script-apis/topology.md) for querying the topology and the [Http script API](script-apis/http.md) for calling out to external services, [View script API](script-apis/view.md) to get view definitions. Please have a look at the full list of [script APIs](script-apis/).
+All StackState functionality exposed via scripting is available via so-called script API's. These are singleton objects starting with a capital case letter that contain a number of functions that can be called. Commonly used script APIs are the [Topology script API](/develop/reference/scripting/script-apis/topology.md) for querying the topology and the [Http script API](/develop/reference/scripting/script-apis/http.md) for calling out to external services, [View script API](script-apis/view.md) to get view definitions. Please have a look at the full list of [script APIs](script-apis/).
 
 ## Asynchronous programming
 
