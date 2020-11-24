@@ -2,29 +2,29 @@
 
 ## Overview
 
-A Baseline function defines a calculation that produces a baseline, which is \[an average, a lowerDeviation and a higherDeviation\] for a single input metric stream. The metric stream is batched and downsampled. A metric stream that has a baseline calculation attached to it can be used as an input for other functions, like checks.
+A Baseline function defines a calculation that produces a baseline, which is an average, a lowerDeviation and a higherDeviation for a single input metric stream. The metric stream is batched and downsampled. A metric stream that has a baseline calculation attached to it can be used as an input for other functions, like checks.
 
 The baseline function body is a specified as groovy script. Below is an example of a baseline function with metricStream input parameter name.
 
 ```text
-     def maximum = groovy.util.GroovyCollections.max(metricStream.collect { it.point }).doubleValue()
-     def minimum = groovy.util.GroovyCollections.min(metricStream.collect { it.point }).doubleValue()
-     def sum = groovy.util.GroovyCollections.sum(metricStream.collect { it.point }).doubleValue()
-     def count = metricStream.size()
-     return baselineMonitorDataPoint(sum/count,minimum,maximum)
+ def maximum = groovy.util.GroovyCollections.max(metricStream.collect { it.point }).doubleValue()
+ def minimum = groovy.util.GroovyCollections.min(metricStream.collect { it.point }).doubleValue()
+ def sum = groovy.util.GroovyCollections.sum(metricStream.collect { it.point }).doubleValue()
+ def count = metricStream.size()
+ return baselineMonitorDataPoint(sum/count,minimum,maximum)
 ```
 
 ## Baseline parameters
 
-**Batch size**
+### Batch size
 
 Determines the duration by which metrics are batched. Batches are always non-overlapping and the startTime of a batch is aligned to midnight 00:00 AM. A batch size of 1 hour e.g. will split a day of metrics into 24 batches, the first one starting at 00:00 AM until 01:00 AM.
 
-**Fundamental period**
+### Fundamental period
 
 The period which is assumed to have recurring similarities and is therefore used by the baseline function to determine which periods can be compared with other periods.
 
-**Training window**
+### Training window
 
 The amount of time that is used to select the historical metrics that are used as input for calculating the baseline. When the baseline did not collect enough historical metrics yet to fill the training window, it will not produce a baseline yet.
 
