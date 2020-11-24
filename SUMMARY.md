@@ -121,6 +121,7 @@
   * [Checks and telemetry streams](configure/telemetry/checks_and_streams.md)
   * [Send telemetry to StackState](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
+  * [Baseline functions](/configure/telemetry/baseline-functions.md)
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
   * [Set up traces](configure/traces/how_to_setup_traces.md)
