@@ -21,5 +21,5 @@ Within the telemetry browser you can adjust the filters, time window and aggrega
 ## See also
 
 - [Add a single telemetry stream to a component](/use/health-state-and-alerts/add-telemetry-to-element.md)
-- [Use templates to automatically add telemetry to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
-- [Monitor a telemetry stream with a check](/use/health-state-and-alerts/add-a-health-check.md)
+- [Use templates to add telemetry in your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
+- [Monitor a telemetry stream with a health check](/use/health-state-and-alerts/add-a-health-check.md)
