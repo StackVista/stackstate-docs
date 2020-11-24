@@ -5,7 +5,7 @@
 Checks are the mechanisms through which elements (components and relations) get a health state. The state of an element is determined from data in the associated telemetry streams.
 
 - Read more about [checks](#checks)
-- Read more about [telemetry streams](#data-streams)
+- Read more about [telemetry streams](#telemetry-streams)
 
 ## Checks
 
@@ -36,11 +36,15 @@ Telemetry streams are supplied via plugins. Different plugins provide one or mul
 
 ### Add telemetry streams
 
-In StackState, telemetry streams need to be linked to elements (components or relations). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Read how to [add a telemetry stream to an element](/use/health-state-and-alerts/add-telemetry-to-element.md).
+In StackState, telemetry streams need to be linked to elements (components or relations). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Read how to [add a telemetry stream to an element](/use/health-state-and-alerts/add-telemetry-to-element.md). Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization.
 
 ### Baselines
 
 A baseline can be attached to a metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. Checks can use baseline values on a metric stream to trigger an alert when a batch of metrics deviate from the baseline. Read more about [anomaly detection with baselines](/use/health-state-and-alerts/anomaly-detection-with-baselines.md) and [baseline functions](/configure/telemetry/baseline-functions.md).
 
+## See also
 
+- [Add a health check](/use/health-state-and-alerts/add-a-health-check.md)
+- [Add a telemetry stream to an element](/use/health-state-and-alerts/add-telemetry-to-element.md)
+- [Use templates to add telemetry in your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
 
