@@ -11,9 +11,9 @@ Checks are the mechanisms through which elements (components and relations) get 
 
 Checks determine the health state of an element by monitoring one or more telemetry streams. Each telemetry stream supplies either metrics (time-series) or events (logs and events) data. 
 
-## Check Functions
+### Check Functions
 
-StackState checks are based on [check functions](#check-functions) - reusable, user defined scripts that specify when a health state should be returned. This makes checks particularly powerful, allowing StackState to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
+StackState checks are based on check functions - reusable, user defined scripts that specify when a health state should be returned. This makes checks particularly powerful, allowing StackState to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
 
 * Are we seeing a normal amount of hourly traffic?
 * Have there been any fatal exceptions logged?
@@ -23,29 +23,24 @@ A check function receives parameter inputs and returns an output health state. E
 
 ## Telemetry streams
 
-A telemetry stream is a real-time stream of metric or event data coming from an external monitoring system.
+A telemetry stream is a real-time stream of either metric or event data coming from an external monitoring system.
 
-### Metrics
+| Data | Description | 
+|:---|:---|
+| Metrics | Metric, or time-series, data are numeric values over time. A metric can represent any kind of measurement, like a count or a percentage. |
+| Events | An event is a \(JSON style\) data object with some properties. Each event may represent a log entry or even some state information coming from an external system. StackState is able to synchronize the checks of external systems, like OpsView or Nagios. These systems report check changes to StackState as events. These events are then checked for their data by a check, which in turn can translate this into an element's state in StackState. |
 
-Metric, or time-series, data are numeric values over time. A metric can represent any kind of measurement, like a count or a percentage.
+### Telemetry stream providers
 
-### Events
+Telemetry streams are supplied via plugins. Different plugins provide one or multiple types of data streams. For example, the Graphite plugin provides StackState with a metrics telemetry stream, while the Elasticsearch plugin provides metrics and events telemetry streams.
 
-An event is a \(JSON style\) data object with some properties. Each event may represent a log entry or even some state information coming from an external system.
+### Add telemetry streams
 
-StackState is able to synchronize the checks of external systems, like OpsView or Nagios. These systems report check changes to StackState as events. These events are then checked for their data by a check, which then translates into a state of a component or relation in StackState.
+In StackState, telemetry streams need to be linked to elements (components or relations). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Read how to [add a telemetry stream to an element](/use/health-state-and-alerts/add-telemetry-to-element.md).
 
-## Data stream providers
+### Configure a baseline for a metric stream
 
-Data streams are supplied via plugins. Different plugins provide one or multiple types of data streams. The Graphite plugin for example supplies StackState with metric data stream, while the Elastic Search plugin provides metric and event data streams.
-
-## Linking data streams
-
-In StackState data streams need to be linked to components or relations. Once a data stream is linked to a component or relation it can be used as an input for checks that determine a health states based on the values in the stream.
-
-## Defining a baseline for a stream
-
-A baseline can be attached to a metric stream, which causes additional information to be added to the metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. A check can be created on a metric stream with a baseline, which can trigger an alert when a batch of metrics deviate from the baseline.
+A baseline can be attached to a metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. Checks can use baseline values on a metric stream to trigger an alert when a batch of metrics deviate from the baseline. Read more about [anomaly detection with baselines](/use/health-state-and-alerts/anomaly-detection-with-baselines.md).
 
 ### Baseline Functions
 

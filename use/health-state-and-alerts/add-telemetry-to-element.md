@@ -7,7 +7,6 @@ description: Add incoming telemetry (metrics and events) data to an element.
 {% hint style="warning" %}
 **QUESTIONS:**
 - Would it be worthwhile to include a description of usage for "select" functions (e.g.even count, 90th percentile)?
-- is it still not possible to [create a telemetry stream on a synced component?](/use/views/browse_telemetry.md#telemetry-browser)
 {% endhint %}
 
 ## Overview
