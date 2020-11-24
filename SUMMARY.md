@@ -117,7 +117,7 @@
   * [Event handlers](configure/topology/event-handlers.md)
   * [Health state propagation](configure/topology/propagation.md)
 * [Telemetry](configure/telemetry/README.md)
-  * [Add telemetry to synchronized topology](configure/telemetry/telemetry_synchronized_topology.md)
+  * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Checks and telemetry streams](configure/telemetry/checks_and_streams.md)
   * [Send telemetry to StackState](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
