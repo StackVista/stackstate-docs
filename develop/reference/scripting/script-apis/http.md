@@ -18,7 +18,7 @@ Submit HTTP get request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 
@@ -45,7 +45,7 @@ Submit HTTP put request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
@@ -81,7 +81,7 @@ Submit HTTP post request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type \(e.g. "application/text"\).
