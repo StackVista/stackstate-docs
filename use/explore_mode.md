@@ -16,7 +16,7 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 ![Perspectives](/.gitbook/assets/v41_perspective_buttons.png)
 
-As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](/use/views/perspectives.md). Each perspective shows different data from the filtered (or unfiltered) components. Use the perspective buttons across the top of the screen to switch between them: 
+As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](/use/introduction-to-stackstate/perspectives.md). Each perspective shows different data from the filtered (or unfiltered) components. Use the perspective buttons across the top of the screen to switch between them: 
 
 * [Topology Perspective](/use/views/topology_perspective.md)
 * [Telemetry Perspective](/use/views/telemetry_perspective.md)
@@ -39,5 +39,5 @@ When you change the displayed components using a filter, the **Save view** butto
 ## See also
 
 - [Filtering data](/use/views/filters.md)
-- [StackState perspectives](/use/views/perspectives.md)
+- [StackState perspectives](/use/introduction-to-stackstate/perspectives.md)
 - [Working with StackState Views](/use/views/README.md)
