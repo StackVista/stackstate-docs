@@ -1,4 +1,4 @@
-# Checks and Streams
+# Checks and telemetry streams
 
 ## Overview
 
@@ -9,39 +9,21 @@ Checks are the mechanisms through which elements (components and relations) get 
 
 ## Checks
 
-Checks determine the health state of an element by monitoring one or more telemetry streams. Each telemetry streams can supply either metrics (time-series data) or events (logs and events) data. 
+Checks determine the health state of an element by monitoring one or more telemetry streams. Each telemetry stream supplies either metrics (time-series) or events (logs and events) data. 
 
-StackState checks are particularly powerful as they are based on [check functions](#check-functions). A check function is a reusable, user defined script that specifies when each health state should be returned. A check function can be adapted to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
+## Check Functions
+
+StackState checks are based on [check functions](#check-functions) - reusable, user defined scripts that specify when a health state should be returned. This makes checks particularly powerful, allowing StackState to monitor any number of available telemetry streams. For example, you could write a check function to monitor:
 
 * Are we seeing a normal amount of hourly traffic?
 * Have there been any fatal exceptions logged?
 * What state did other systems report?
 
-## Check Functions
+A check function receives parameter inputs and returns an output health state. Each time a check function is executed, it updates the health state of the checks it ran for. If a check function does not return a health state, the health state of the check remains unchanged.
 
-A check function is a reusable user defined script that includes a single function. The check function receives parameter inputs and returns an output health state. Each time a check function is executed, it updates the health state of the checks it ran for. If a check function does not return a health state, the health state of the check remains unchanged.
+## Telemetry streams
 
-### Check function parameters
-
-**Downsampling method**
-
-Determines how a window/batch of metric data is downsampled, that is, how it is reduced from a set of values to a single value. There are different kinds of methods available:
-
-* Average: Calculates the average value of all the metric points in the window.
-* Percentile: Calculates the value below which a given percentage of observations in a group of observations fall. For example, the 25th percentile is the value below which 25% of the observations may be found.
-* Maximum: Calculates the maximum value of the window
-* Minimum: Calculates the minimum value of the window
-
-**Windowing method**
-
-Determines how metric data is grouped together, the options are:
-
-* Sliding: Groups metric data in overlapping windows of at most the configured max-window time.
-* Batching: Groups metric data in strictly separate windows of the configured window time, with consistent start and end times.
-
-## Data streams
-
-A data stream is a real-time stream of metric or event data coming from an external monitoring system.
+A telemetry stream is a real-time stream of metric or event data coming from an external monitoring system.
 
 ### Metrics
 
