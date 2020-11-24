@@ -203,7 +203,7 @@ self.component("this-host-unique-identifier-integration-b", "Host", {
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the Agent Check Topology API [here](checks_in_agent_v2.md)
+Learn more about the [Agent Check Topology API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
 
 ### Sending Metrics
 
@@ -221,7 +221,7 @@ self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the Agent Check Metric API [here](checks_in_agent_v2.md)
+Learn more about the [Agent Check Metric API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
 
 ### Sending Events
 
