@@ -10,7 +10,7 @@ description: Track changes in your IT landscape.
 - when are tags applied to events?
 {% endhint %}
 
-The Events Perspective shows events and changes for the elements in the current [view](/use/views/README.md) or filtered topopology. 
+The Events Perspective shows events for the elements in the current [view](/use/views/README.md) or filtered topology. 
 
 ![The Events Perspective](/.gitbook/assets/event-perspective.png)
 
