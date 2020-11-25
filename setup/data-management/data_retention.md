@@ -125,7 +125,7 @@ Use the `diskSpaceWeight` configuration parameter to adjust how available disk s
 
 **Allocate no disk space to an index**<br />Setting the `diskSpaceWeight` to 0 will result in no disk space being allocated to the index. For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
 
-**Distribute disk space unevenly across indices**<br />The available disk space (configured `elasticsearchDiskSpaceMB`) will be allocated to the indices proportionally based on their configured `diskSpaceWeight`. For example, if `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
+**Distribute disk space unevenly across indices**<br />The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to the indices proportionally based on their configured `diskSpaceWeight`. For example, if `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
 
 | Parameter | Allocated disk space |
 |:---|:---|
