@@ -38,7 +38,7 @@ Click on an event to display an overview of the event details in the **Event pro
 
 ## Filter displayed events
 
-Events displayed in the Events Perspective can be filtered in two ways: 
+The events listed in the Events Perspective can be filtered in two ways: 
 
 - Topology filters define the elements (components and relations) for which events will be displayed.
 - Event filters refine events displayed based on type and tags. 
@@ -49,15 +49,14 @@ The elements (components and relations) included in a view are defined by the to
 
 ### Event filters
 
-The events displayed in the Events Perspective can be filtered in the **View Filters** > **Filter Events** pane on the left side of the screen. Two filters are available to help you quickly locate relevant changes:
+The list of events displayed in the Events Perspective can be filtered using the **View Filters** > **Filter Events** pane on the left side of the screen. Two filters are available to help you quickly locate relevant information:
 
 | Filter | Description |
 |:---|:---|
 | **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
 | **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help identify  events relevant to a specific problem or environment.  |
 
-
 ## Time travel
 
-When opening the Events Perspective, the events shown are based on the currently selected time window in the timeline control. Shrink the time window to display less events. Place the playhead on the timeline to restrict the events to the time indicated by the playhead.
+When opening the Events Perspective, the events shown are based on the currently selected time window in the timeline control. Shrink the time window to display less events. Place the playhead on the timeline to restrict the events to the time indicated by the playhead. Clicking on a timestamp from the Event Properties will jump directly to this point on the timeline.
 
