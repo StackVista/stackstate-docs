@@ -58,5 +58,9 @@ The list of events displayed in the Events Perspective can be filtered using the
 
 ## Time travel
 
-When opening the Events Perspective, the events shown are based on the currently selected time window in the timeline control. Shrink the time window to display less events. Place the playhead on the timeline to restrict the events to the time indicated by the playhead. Clicking on a timestamp from the Event Properties will jump directly to this point on the timeline.
+When opening the Events Perspective, the events shown are based on the currently selected time window in the timeline control. 
+
+- Shrink the time window to display less events. 
+- Place the playhead on the timeline to restrict the events to the time indicated by the playhead. 
+- Click on a timestamp from the Event Properties to jump directly to that point on the timeline.
 
