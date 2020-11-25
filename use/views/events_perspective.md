@@ -29,8 +29,8 @@ All events in StackState have a category assigned based on the event type and so
 An overview of the selected event is shown in the **Event properties** pane on the right of the screen, vents from external systems will also include links through to relevant information from the source system:
 
 - **Elements** - The components and/or relations involved in the event.
-- **Event type** - 
-- **Event time** - The time at which the event was recorded. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
+- **Event type** - A description of the event type.
+- **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
 - **Processed time** - The time the event was received by StackState. For internally generated events this will be the same as the **event time**. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
 - **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
  
