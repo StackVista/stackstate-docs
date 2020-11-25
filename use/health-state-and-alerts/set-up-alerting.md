@@ -44,7 +44,7 @@ The event types generated when an element state changes are described in the tab
 
 | Event type | Description |
 |:---|:---|
-| `HealthStateChangedEvent` | **State change of an element**<br />Generated when the health state of an element changes. These events will be listed in the StackState UI [Events Perspective](/use/views/events-perspective.md). |
+| `HealthStateChangedEvent` | **State change of an element**<br />Generated when the health state of an element changes. These events will be listed in the StackState UI [Events Perspective](/use/views/events_perspective.md). |
 | `PropagatedStateChangedEvent` | **Propagated state change of an element**<br />Generated whenever the health state of one of an element’s dependencies changes. These events are not visible in the StackState UI, but can be used for alerting. |
 | `ViewStateChangedEvent` | **State change of entire view**<br />Generated only when the health state of a significant number of elements in a view changes. These events are not visible in the StackState UI, but can be used for alerting. |
 
