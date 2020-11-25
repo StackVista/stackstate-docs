@@ -73,7 +73,7 @@ The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/applic
 | `elasticsearchDiskSpaceMB` | `400000` | The total disk space assigned to Elasticsearch in MB. The default setting is the recommended disk space for a StackState production setup (400GB). |
 | `splittingStrategy` | `"days"` | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
 | `maxIndicesRetained` | `30` | The number of indices that will be retained. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch.  |
-| `diskSpaceWeight` | Varies per index | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index.<br />For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`. |
+| `diskSpaceWeight` | Varies per index | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index. See the [disk space weight examples](#disk-space-weight-examples) below.|
 | `replicas` | Linux: `0`<br />Kubernetes: `1` | The number of nodes that a single piece of data should be available on. Use for redundancy/high availability when more than one Elasticsearch node is available.|
 | `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. Remaining disk space will be shared between other indices according to their configured `diskSpaceWeight`. | 
 
@@ -118,6 +118,27 @@ stackstate {
 
 {% endtab %}
 {% endtabs %}
+
+#### Disk space weight examples
+
+Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated between Elasticsearch indexes. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
+
+**Set to 0 to allocate no disk space to an index**
+Setting the `diskSpaceWeight` to 0 for an index will cause result in no disk space being allocated for the index. For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
+
+**Distribute allocated disk space unevenly across indexes**
+The available disk space (configured `elasticsearchDiskSpaceMB`) will be allocated to the indexes proportionally based on their configured `diskSpaceWeight`. For example, if `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
+
+| Parameter | Allocated disk space |
+|:---|:---|
+| `kafkaMetricsToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
+| `kafkaMultiMetricsToES.elasticsearch.index.diskSpaceWeight = 1` | 20000MB |
+| `kafkaGenericEventsToES.elasticsearch.index.diskSpaceWeight = 2` | 40000MB |
+| `kafkaTopologyEventsToES.elasticsearch.index.diskSpaceWeight = 3` | 60000MB |
+| `kafkaStateEventsToES.elasticsearch.index.diskSpaceWeight = 4` | 80000MB |
+| `kafkaStsEventsToES.elasticsearch.index.diskSpaceWeight = 5` | 100000MB |
+| `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
+
 
 ### External metrics and events data store
 
