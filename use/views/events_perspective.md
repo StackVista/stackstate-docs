@@ -7,9 +7,10 @@ description: Track changes in your IT landscape.
 {% hint style="warning" %}
 **TODO**
 - description of categories
+- when are tags applied to events?
 {% endhint %}
 
-The Events Perspective shows events and changes for the components in your [view](/use/views/README.md). 
+The Events Perspective shows events and changes for the elements in the current [view](/use/views/README.md) or filtered topopology. 
 
 ![The Events Perspective](/.gitbook/assets/event-perspective.png)
 
@@ -17,9 +18,11 @@ The Events Perspective shows events and changes for the components in your [view
 
 StackState records changes in your landscape as **events**. Events help you make sense of the changes that impact your IT landscape and are a great asset when troubleshooting problems.
 
-The StackState Events Perspective lists events generated internally by StackState and can also include events retrieved from external systems for some integrations. Event data received in StackState through a configured events telemetry stream will not be listed here, however, they can be monitored by a check, which can in turn trigger an internally generated state change event for the associated element. The internally generated state change event will appear on the Events Perspective page.
+The StackState Events Perspective lists events generated internally by StackState and can also include events retrieved from external systems. Event data received in StackState through a configured events telemetry stream will not be listed here. This can, however, be monitored by a check, which can in turn trigger an internally generated state change event for the associated element. The internally generated state change event will appear on the Events Perspective page.
 
-All events displayed in the Events Perspective have a category, which is assigned according to their type and source system. Events from external systems should already 
+### Event categories
+
+All events displayed in the Events Perspective have a category. The category is assigned based on the event type and the source system. Events retrieved from external systems should have  
 
 | Category | Internal event types | Description |
 |:---|:---|:---|
@@ -29,20 +32,22 @@ All events displayed in the Events Perspective have a category, which is assigne
 | Changes | element created, deleted or updated, version changed. | |
 | Others | - | All external events that do not include a category. |
 
-
-
-
-* Version changed
-
 ## Filtering
 
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which events are displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The elements (components and relations) included in a view are defined by the topology filters in the **View Filters** > **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/views/filters.md) at any time to show events for different elements. 
 
 ### Filter Events
 
-The Events Perspective supports filtering of events by **Event Types**.
+Events displayed can be filtered by event type or tags. 
+
+| Filter | Description |
+|:---|:---|
+| **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
+| **Tags** | |
+
+
 
 ## Time travel
 
