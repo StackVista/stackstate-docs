@@ -121,7 +121,7 @@ stackstate {
 
 #### Disk space weight examples
 
-Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated between Elasticsearch indices. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
+Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch indices. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
 
 **Allocate no disk space to an index**<br />Setting the `diskSpaceWeight` to 0 will result in no disk space being allocated to the index. For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
 
