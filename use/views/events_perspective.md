@@ -45,7 +45,7 @@ The events listed in the Events Perspective can be filtered in two ways:
 
 ### Topology Filters
 
-The elements (components and relations) included in a view are defined by the topology filters in the **View Filters** > **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/views/filters.md) at any time to show events for a different set of elements. 
+The elements (components and relations) included in a view are defined by the topology filters in the **View Filters** > **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/views/filters.md) at any time to list the events for a different set of elements. 
 
 ### Event filters
 
