@@ -70,7 +70,7 @@ The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/applic
 
 | Parameter | Default | Description | 
 |:---|:---|:---|
-| `elasticsearchDiskSpaceMB` | `500000` | The total disk space assigned to Elasticsearch in MB. The default setting is the recommended disk space for a StackState production setup (500GB). |
+| `elasticsearchDiskSpaceMB` | `400000` | The total disk space assigned to Elasticsearch in MB. The default setting is the recommended disk space for a StackState production setup (400GB). |
 | `splittingStrategy` | `"days"` | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
 | `maxIndicesRetained` | `30` | The number of indices that will be retained. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch.  |
 | `diskSpaceWeight` | Varies per index | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index.<br />For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`. |
@@ -85,7 +85,7 @@ stackstate {
   ...
 
   // Total size of disk assigned to Elasticsearch in MB
-  elasticsearchDiskSpaceMB = 500000
+  elasticsearchDiskSpaceMB = 400000
 
   ...
 
