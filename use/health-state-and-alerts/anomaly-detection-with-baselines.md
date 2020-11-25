@@ -17,7 +17,7 @@ The process for detecting anomalies using baselines consists out of two steps:
 1. A `baseline` enriches a metric stream with a baseline. The metric stream is transformed into a `baseline metric stream`. Baselines are continuously calculated by baseline functions based on given the batch size.
 2. A `check` determines the health state of a component or relation based on the metrics in the metric stream and its baseline. Once a metric stream is a baseline metric stream, check functions that support such baseline metric streams are available for selection.
 
-## Configure a baseline for a metric stream
+## Add a baseline to a metric stream
 
 {% hint style="info" %}
 Metric streams configured with a baseline will not be picked up for anomaly detection by the [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md). 
@@ -133,7 +133,7 @@ This baseline functions works well for stationary metrics, for example data cent
 
 ## Check for anomalies on a baseline metric stream
 
-Once you have [added a baseline](#configure-a-baseline-for-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
+Once you have [added a baseline](#add-a-baseline-to-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
 
 1. Select the component/relation to open the Component/Relation properties pane with the baseline metric stream on it
 2. Click **+ ADD** next to **Health**.
