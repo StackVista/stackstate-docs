@@ -26,7 +26,7 @@ All events in StackState have a category assigned based on the event type and so
 
 ### Event properties
 
-When you click on an event listed in the Events Perspective, an overview of the event details is shown in the **Event properties** pane on the right of the screen, vents from external systems will also include links through to relevant information from the source system:
+Click on an event to display an overview of the event details in the **Event properties** pane on the right of the screen. Events from external systems will also include links through to relevant information in the source system:
 
 - **Elements** - The components and/or relations involved in the event.
 - **Event type** - A description of the event type.
