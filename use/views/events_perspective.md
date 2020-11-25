@@ -10,7 +10,7 @@ description: Track changes in your IT landscape.
 - when are tags applied to events?
 {% endhint %}
 
-The Events Perspective shows events for the elements in the current [view](/use/views/README.md) or filtered topology. 
+The Events Perspective shows events and changes for the elements in the current [view](/use/views/README.md) or filtered topology. 
 
 ![The Events Perspective](/.gitbook/assets/event-perspective.png)
 
@@ -30,7 +30,7 @@ All events displayed in the Events Perspective have a category. The category is 
 | Alerts | Health state changes | |
 | Anomalies | Anomaly | | 
 | Changes | element created, deleted or updated, version changed. | |
-| Others | - | All external events that do not include a category. |
+| Others | - | All external events that do not specify a category will be added to the **Others**. |
 
 ## Filtering
 
@@ -45,7 +45,7 @@ Events displayed can be filtered by event type or tags.
 | Filter | Description |
 |:---|:---|
 | **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
-| **Tags** | |
+| **Tags** | Relevant properties will be added as tags when an event is retrieved from an external system. For example `status:open`.  |
 
 
 
