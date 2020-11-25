@@ -22,7 +22,7 @@ The StackState Events Perspective lists events generated internally by StackStat
 
 ### Event categories
 
-All events displayed in the Events Perspective have a category. The category is assigned based on the event type and the source system. Events retrieved from external systems should have  
+All events displayed in the Events Perspective have a category. The category is assigned based on the event type and the source system. Events retrieved from external systems should have a category attached to them. If no category is included in a retrieved event, it will be assigned the category **Others**. 
 
 | Category | Internal event types | Description |
 |:---|:---|:---|
@@ -45,7 +45,7 @@ Events displayed can be filtered by event type or tags.
 | Filter | Description |
 |:---|:---|
 | **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
-| **Tags** | Relevant properties will be added as tags when an event is retrieved from an external system. For example `status:open`.  |
+| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help identify events relevant to specific problems in your IT infrastructure.  |
 
 
 
