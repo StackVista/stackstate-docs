@@ -54,7 +54,7 @@ The list of events displayed in the Events Perspective can be filtered using the
 | Filter | Description |
 |:---|:---|
 | **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
-| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help identify  events relevant to a specific problem or environment.  |
+| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment.  |
 
 ## Time travel
 
