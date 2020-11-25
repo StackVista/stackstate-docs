@@ -23,7 +23,7 @@ All events in StackState have a category assigned based on the event type and so
 Events displayed in the Events Perspective can be filtered in two ways: 
 
 - Topology filters define the elements (components and relations) for which events will be displayed.
-- Event filters refine the type and area of events that should be displayed. 
+- Event filters refine events displayed based on type and tags. 
 
 ### Topology Filters
 
@@ -39,12 +39,7 @@ The events displayed in the Events Perspective can be filtered in the **View Fil
 | **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help identify  events relevant to a specific problem or environment.  |
 
 
-
 ## Time travel
 
 When opening the Events Perspective, the events shown are based on the currently selected time window in the timeline control. Shrink the time window to display less events. Place the playhead on the timeline to restrict the events to the time indicated by the playhead.
-
-## Event handlers
-
-The Events Perspective allows the creation of [event handlers](/use/alerting.md) to act on events in the view.
 
