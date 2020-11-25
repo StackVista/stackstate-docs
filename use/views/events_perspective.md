@@ -22,7 +22,7 @@ The StackState Events Perspective lists events generated internally by StackStat
 
 ### Event categories
 
-All events displayed in the Events Perspective have a category. The category is assigned based on the event type and the source system. Events retrieved from external systems should have a category attached to them. If no category is included in a retrieved event, it will be assigned the category **Others**. 
+All events displayed in the Events Perspective have a category. The category is assigned based on the event type and the source system. Events retrieved from external systems should already have a category attached to them. If no category is included in a retrieved event, it will be assigned the category **Others**. 
 
 | Category | Internal event types | Description |
 |:---|:---|:---|
@@ -30,22 +30,27 @@ All events displayed in the Events Perspective have a category. The category is 
 | Alerts | Health state changes | |
 | Anomalies | Anomaly | | 
 | Changes | Element created<br />Element deleted<br />Element updated<br />Version changed | |
-| Others | - | All external events that do not specify a category will be added to the **Others**. |
+| Others | - | All external events that do not specify a category. |
 
-## Filtering
+## Filter displayed events
+
+Events displayed in the Events Perspective can be filtered in two ways: 
+
+- Topology filters define the elements (components and relations) for which events will be displayed.
+- Event filters refine the type and area of events that should be displayed. 
 
 ### Topology Filters
 
-The elements (components and relations) included in a view are defined by the topology filters in the **View Filters** > **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/views/filters.md) at any time to show events for different elements. 
+The elements (components and relations) included in a view are defined by the topology filters in the **View Filters** > **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/views/filters.md) at any time to show events for a different set of elements. 
 
-### Filter Events
+### Event filters
 
-Events displayed can be filtered by event type or tags. 
+The events displayed in the Events Perspective can be filtered in the **View Filters** > **Filter Events** pane on the left side of the screen. Two filters are available to help you quickly locate relevant changes:
 
 | Filter | Description |
 |:---|:---|
 | **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
-| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help identify events relevant to specific problems in your IT infrastructure.  |
+| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help identify the events relevant to a specific problem in your IT infrastructure.  |
 
 
 
