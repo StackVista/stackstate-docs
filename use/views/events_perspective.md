@@ -29,7 +29,7 @@ All events displayed in the Events Perspective have a category. The category is 
 | Activities | Run state changes | |
 | Alerts | Health state changes | |
 | Anomalies | Anomaly | | 
-| Changes | element created, deleted or updated, version changed. | |
+| Changes | Element created<br />Element deleted<br />Element updated<br />Version changed | |
 | Others | - | All external events that do not specify a category will be added to the **Others**. |
 
 ## Filtering
