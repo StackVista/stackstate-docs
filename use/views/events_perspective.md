@@ -34,6 +34,7 @@ Click on an event to display an overview of the event details in the **Event pro
 - **Processed time** - The time the event was received by StackState. For internally generated events this will be the same as the **event time**. Click on the timestamp to [time travel](#time-travel) to the moment that the event was processed by StackState.
 - **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
  
+![Event properties]()
 
 ## Filter displayed events
 
