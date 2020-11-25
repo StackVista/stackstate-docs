@@ -30,8 +30,8 @@ An overview of the selected event is shown in the **Event properties** pane on t
 
 - **Elements** - The components and/or relations involved in the event.
 - **Event type** - A description of the event type.
-- **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
-- **Processed time** - The time the event was received by StackState. For internally generated events this will be the same as the **event time**. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
+- **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment the event occurred.
+- **Processed time** - The time the event was received by StackState. For internally generated events this will be the same as the **event time**. Click on the timestamp to [time travel](#time-travel) to the moment the event was processed by StackState.
 - **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
  
 
