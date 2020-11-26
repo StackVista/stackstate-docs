@@ -43,24 +43,28 @@ Event handler functions can be written as async (default) or synchronous.
 
 #### Async event handler functions (default)
 
-An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function, this allows more extensive details around an event to be included in alerts sent to Slack such as links to relevant data and a possible root cause. 
+An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function, this allows more extensive details around an event to be included in alerts sent to Slack, such as links to relevant data and a possible root cause. 
+
+Event handler functions use plugins to interact with external systems, not all plugins are available for use with async functions. See [plugins] below for further details.
 
 #### Synchronous event handler functions (async Off)
 
-All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. 
+All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. This places limitations on both the capability of what they can achieve and the number of functions that can be run in parallel.
+
+Event handler functions use plugins to interact with external systems, synchronous event handler functions can use all available plugins. See [plugins] below for further details.
 
 ### Available properties and methods
 
 ### Plugins
 
-Event handler functions use plugins to send notifications to external systems. The current plugins are available for use in custom event handler functions:
+Event handler functions use plugins to send notifications to external systems. The plugins available for use in custom event handler functions are listed below, note that not all of these can be used in an async enabled enabled event handler function:
 
 | Plugin | Async | Description |
 |:---|:---|:---|
-| email | - | Use: `emailPlugin.sendEmail("to", "subject", "body")` |
-| HTTP webhook | - | Use: `webhookPlugin.sendMessage("url", "json"` | |
+| email | - | Use: `emailPlugin.sendEmail(to, subject, "body")` |
+| HTTP webhook | - | Use: `webhookPlugin.sendMessage(url, "json"` | |
 | Slack | ✅ | Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
-| SMS | - | Use: `smsPlugin.sendSMSMessage(token, to, "message")`|
+| SMS | - | Use: `smsPlugin.sendSMSMessage(token, "to", "message")`|
 
 
 ### Logging
