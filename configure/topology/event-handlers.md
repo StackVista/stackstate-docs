@@ -37,7 +37,7 @@ You can write custom event handler functions to react to propagated state change
 
 ### Parameters
 
-An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event variables are described below, see [available properties](#available-properties)
+An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event variables are described below, see [available properties](#available-properties)
 
 ### Async on/off
 
@@ -65,7 +65,7 @@ Event handler functions use plugins to interact with external systems, synchrono
 
 The variables and properties described below can be used in synchronous event handler functions.
 
-The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` can be used, or an alias.
+The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` variable name can be used, or an alias.
 - `view.getName` - returns the name of the view
 - `view.getDescription` - returns the description
 - `view.getQuery` - returns an STQL query of the view
