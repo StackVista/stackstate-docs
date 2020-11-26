@@ -125,16 +125,22 @@ Use the `diskSpaceWeight` configuration parameter to adjust how available disk s
 
 **Allocate no disk space to an index**<br />Setting the `diskSpaceWeight` to 0 will result in no disk space being allocated to the index. For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
 
-**Distribute disk space unevenly across indices**<br />The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to the indices proportionally based on their configured `diskSpaceWeight`. For example, if `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
+**Distribute disk space unevenly across indices**<br />The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to the indices proportionally based on their configured `diskSpaceWeight`.  Each index will be allocated an follows the formula:
+
+```
+index allocated disk space = (elasticsearchdiskSpaceMB* diskSpaceWeight / sum(diskSpaceWeights)
+```
+
+For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
 
 | Parameter | Allocated disk space |
 |:---|:---|
 | `kafkaMetricsToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
-| `kafkaMultiMetricsToES.elasticsearch.index.diskSpaceWeight = 1` | 20000MB |
-| `kafkaGenericEventsToES.elasticsearch.index.diskSpaceWeight = 2` | 40000MB |
-| `kafkaTopologyEventsToES.elasticsearch.index.diskSpaceWeight = 3` | 60000MB |
-| `kafkaStateEventsToES.elasticsearch.index.diskSpaceWeight = 4` | 80000MB |
-| `kafkaStsEventsToES.elasticsearch.index.diskSpaceWeight = 5` | 100000MB |
+| `kafkaMultiMetricsToES.elasticsearch.index.diskSpaceWeight = 1` | 20000MB<br />or 300000*1/15 |
+| `kafkaGenericEventsToES.elasticsearch.index.diskSpaceWeight = 2` | 40000MB<br />(300000*2/15) |
+| `kafkaTopologyEventsToES.elasticsearch.index.diskSpaceWeight = 3` | 60000MB<br />(300000*3/15) |
+| `kafkaStateEventsToES.elasticsearch.index.diskSpaceWeight = 4` | 80000MB<br />(300000*4/15) |
+| `kafkaStsEventsToES.elasticsearch.index.diskSpaceWeight = 5` | 100000MB<br />(300000*5/15) |
 | `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
 
 
