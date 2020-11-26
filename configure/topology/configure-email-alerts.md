@@ -4,7 +4,7 @@
 
 StackState can send an email alert whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use. 
 
-## Configure the SMTP server to use for email alerting
+## Configure an SMTP server to use for email alerting
 
 {% tabs %}
 {% tab title="Kubernetes" %}
