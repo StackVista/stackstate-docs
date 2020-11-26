@@ -8,7 +8,7 @@ description: Report the health state for an element.
 
 Health checks use check functions to report the status of elements (components and relations) in StackState based on the data from telemetry streams. Any element in a StackState topology view with a telemetry stream attached can be monitored by a health check. When the status of an element changes, a state change event is generated. These events can be used to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md).
 
-## Assign a health check to an element
+## Add a health check to an element
 
 Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can assign additional custom health checks to an element in the StackState Topology Perspective.
 
@@ -43,12 +43,15 @@ A number of check functions are included out of the box with StackState, or you 
 
 Details of the available check functions check the StackState UI **Settings** > **Check functions**.
 
-## Windowing method
+### Windowing method
 
-For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. There are two possible windowing methods:
+For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. There are two possible windowing methods, batching and sliding.
 
-- **Batching** - Groups metric data in strictly separate windows of the configured window time, with consistent start and end times. For example, with window size set to 60 seconds, a batching check will run every minute with metrics from the previous minute.
-- **Sliding** - Groups metric data in overlapping windows. For example, with window size set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected. Note that runs of the check will adhere to the `Minimum live stream polling interval` configured for the data source.
+#### Batching
+The batching windowing method groups metric data into strictly separate windows of the configured window time, with consistent start and end times. For example, with window size set to 60 seconds, a batching check will run every minute with metrics from the previous minute.
+
+#### Sliding
+The sliding windowing method groups metric data into overlapping windows. For example, with `window size` set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected. Note that runs of the check will adhere to the `Minimum live stream polling interval` configured for the data source.
 
 ## See also
 

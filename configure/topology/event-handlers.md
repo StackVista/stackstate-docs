@@ -60,6 +60,68 @@ Event handler functions use plugins to interact with external systems, synchrono
 
 ### Available properties and methods
 
+#### Variables for synchronous functions
+
+The variables and properties described below can be used in synchronous event handler functions.
+
+- Variable: `view` or `scope`. The view of the event handler. Can be referenced by aliases.
+    - `getName` - returns the name of the view
+    - `getDescription` - returns the description
+    - `getQuery` - returns an STQL query of the view
+    - `getIdentifier` - 
+    - `getTags` - 
+        
+- Variable: `event` (default). The received event. Can be modified by the user.
+    -  `HealthStateChengedEvent`. An event generated on an element's own health state change.
+        - `getNewStateRef` - returns an object representing the current state of the element.
+        - `getOldStateRef` - returns an object representing the previous state of the element.
+        - `getCauseId` -
+        - `getTriggeredTimestamp` -
+    - `PropagatedHealthStateChangedEvent`. An event generated when the propagated health state of an element changes.
+        - `getStateChanges` - returns the chain og elements through which the health state change propagated.
+        - `getCauseId` -
+        - `getTriggeredTimestamp` - 
+    - `ViewHealthStateChangedEvent` = An event generated on a health state change of the entire view.
+        - `getNewStateRef` - returns an object representing the current state of the view.
+        - `getOldStateRef` - returns an object representing the previous state of the view.
+        - `getCauseId` -
+        - `getTriggeredTimestamp` -
+
+#### Variables for async functions
+
+The variables and properties described below can be used in async event handler functions.
+
+- Variable: `view`. The view of the event handler.
+    - `name` - the view name.
+    - `descriotion` - the view description.
+    - `query` -  returns an STQL query of the view.
+    - `identifier` -
+    - `tags` -
+
+- Variable: `event` (default). The received event. Can be modified by the user.
+    -  `HealthStateChengedEvent`. An event generated on an element's own health state change.
+        - `triggeredTimestamp` -
+        - `transactionId` -
+        - `identifier` -
+        - `stackElement` -
+        - `newState` - the current state of the element.
+        - `oldState` - the previous state of the element.
+        - `causeId` -
+    - `PropagatedHealthStateChangedEvent`. An event generated when the propagated health state of an element changes.
+        - `triggeredTimestamp` -
+        - `transactionId` -
+        - `identifier` -
+        - `stateChanges` - the chain og elements through which the health state change propagated.
+        - `causeId` -
+    - `ViewHealthStateChangedEvent` = An event generated on a health state change of the entire view.
+        - `triggeredTimestamp` -
+        - `transactionId` -
+        - `identifier` -
+        - `viewHealthState` -
+        - `oldState` - the previous health state of the view.
+        - `newState` - the health state of the view.
+        - `causeId` -
+
 ### Plugins
 
 Event handler functions use plugins to send notifications to external systems. The plugins available for use in custom event handler functions are listed below, note that not all of these can be used in an async enabled enabled event handler function:
