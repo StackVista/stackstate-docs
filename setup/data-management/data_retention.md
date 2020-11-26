@@ -57,7 +57,7 @@ If you are using the metric/event store provided with StackState, your data will
 
 #### Configure disk space for Elasticsearch
 
-In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it is allocated to each index, for example if you anticipate a lot of data to arrive for a specific index.
+In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it is allocated to each index group, for example if you anticipate a lot of data to arrive for a specific index.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -72,8 +72,8 @@ The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/applic
 |:---|:---|:---|
 | `elasticsearchDiskSpaceMB` | `400000` | The total disk space assigned to Elasticsearch in MB. The default setting is the recommended disk space for a StackState production setup (400GB). |
 | `splittingStrategy` | `"days"` | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
-| `maxIndicesRetained` | `30` | The number of indices that will be retained. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch.  |
-| `diskSpaceWeight` | Varies per index | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index. See the [disk space weight examples](#disk-space-weight-examples) below.|
+| `maxIndicesRetained` | `30` | The number of indices that will be retained in each index group. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch.  |
+| `diskSpaceWeight` | Varies per index group | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index. See the [disk space weight examples](#disk-space-weight-examples) below.|
 | `replicas` | Linux: `0`<br />Kubernetes: `1` | The number of nodes that a single piece of data should be available on. Use for redundancy/high availability when more than one Elasticsearch node is available.|
 | `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. Remaining disk space will be shared between other indices according to their configured `diskSpaceWeight`. | 
 
@@ -89,7 +89,7 @@ stackstate {
 
   ...
 
-  // For each index:
+  // For each index group:
   // kafkaMetricsToES - the sts_metrics index
   // kafkaMultiMetricsToES - the sts_multi_metrics index
   // kafkaGenericEventsToES - the sts_generic_events index
@@ -121,19 +121,23 @@ stackstate {
 
 #### Disk space weight examples
 
-Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch indices. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
+Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
 
 **Allocate no disk space to an index**<br />Setting the `diskSpaceWeight` to 0 will result in no disk space being allocated to the index. For example, if you are not going to use traces then you can stop reserving disk space for this index and make it available to other indices by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
 
-**Distribute disk space unevenly across indices**<br />The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to the indices proportionally based on their configured `diskSpaceWeight`.  Disk space will be allocated to each index according to the formula:
+**Distribute disk space unevenly across index groups**<br />The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`.  Disk space will be allocated to each index group according to the formula below, this will then be shared equally between the indicies in the index group (the configured `maxIndicesRetained`):
 
 ```
-Allocated disk space = (elasticsearchdiskSpaceMB* diskSpaceWeight / sum(diskSpaceWeights)
+# Total disk space allocated to an index group
+index_group_disk_space = (elasticsearchdiskSpaceMB* diskSpaceWeight / sum(diskSpaceWeights)
+
+# Disk space available to each index in an index group
+Disk space per index = index_group_disk_space/maxIndicesRetained
 ```
 
-For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
+For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated to the index groups would be as follows:
 
-| Parameter | Allocated disk space |
+| Parameter | Allocated disk space<br />for index group |
 |:---|:---|
 | `kafkaMetricsToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
 | `kafkaMultiMetricsToES.elasticsearch.index.diskSpaceWeight = 1` | 20000MB<br />(or 300000*1/15) |
