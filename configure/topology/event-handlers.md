@@ -100,39 +100,39 @@ The `view` properties listed below can be used in **async** event handler functi
 
 The `event` properties below can be used in **async** event handler functions, they return details of the received event.
 
-A HealthStateChangedEvent is generated when an element's own health state changes.
-- `event.HealthStateChengedEvent.triggeredTimestamp` -
-- `event.HealthStateChengedEvent.transactionId` -
-- `event.HealthStateChengedEvent.identifier` -
-- `event.HealthStateChengedEvent.stackElement` -
-- `event.HealthStateChengedEvent.newState` - the current state of the element.
-- `event.HealthStateChengedEvent.oldState` - the previous state of the element.
-- `event.HealthStateChengedEvent.causeId` -
+- A **HealthStateChangedEvent** is generated when an element's own health state changes.
+    - `event.HealthStateChengedEvent.triggeredTimestamp` -
+    - `event.HealthStateChengedEvent.transactionId` -
+    - `event.HealthStateChengedEvent.identifier` -
+    - `event.HealthStateChengedEvent.stackElement` -
+    - `event.HealthStateChengedEvent.newState` - the current state of the element.
+    - `event.HealthStateChengedEvent.oldState` - the previous state of the element.
+    - `event.HealthStateChengedEvent.causeId` -
 
-A PropagatedHealthStateChangedEvent is generated when the propagated health state of an element changes.
-- `event.PropagatedHealthStateChangedEvent.triggeredTimestamp` -
-- `event.PropagatedHealthStateChangedEvent.transactionId` -
-- `event.PropagatedHealthStateChangedEvent.identifier` -
-- `event.PropagatedHealthStateChangedEvent.stateChanges` - the chain og elements through which the health state change propagated.
-- `event.PropagatedHealthStateChangedEvent.causeId` -
+- A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
+    - `event.PropagatedHealthStateChangedEvent.triggeredTimestamp` -
+    - `event.PropagatedHealthStateChangedEvent.transactionId` -
+    - `event.PropagatedHealthStateChangedEvent.identifier` -
+    - `event.PropagatedHealthStateChangedEvent.stateChanges` - the chain of elements through which the health state change propagated.
+    - `event.PropagatedHealthStateChangedEvent.causeId` -
 
-A ViewHealthStateChangedEvent is generated when the health state of the entire view changes.
-- `event.ViewHealthStateChangedEvent.triggeredTimestamp` -
-- `event.ViewHealthStateChangedEvent.transactionId` -
-- `event.ViewHealthStateChangedEvent.identifier` -
-- `event.ViewHealthStateChangedEvent.viewHealthState` -
-- `event.ViewHealthStateChangedEvent.oldState` - the previous health state of the view.
-- `event.ViewHealthStateChangedEvent.newState` - the health state of the view.
-- `event.ViewHealthStateChangedEvent.causeId` -
+- A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
+    - `event.ViewHealthStateChangedEvent.triggeredTimestamp` -
+    - `event.ViewHealthStateChangedEvent.transactionId` -
+    - `event.ViewHealthStateChangedEvent.identifier` -
+    - `event.ViewHealthStateChangedEvent.viewHealthState` -
+    - `event.ViewHealthStateChangedEvent.oldState` - the previous health state of the view.
+    - `event.ViewHealthStateChangedEvent.newState` - the health state of the view.
+    - `event.ViewHealthStateChangedEvent.causeId` -
 
 ### Plugins
 
-Event handler functions use plugins to send notifications to external systems. The plugins available for use in custom event handler functions are listed below, note that not all of these can be used in an async enabled enabled event handler function:
+Event handler functions use plugins to send notifications to external systems. The plugins available for use in custom event handler functions are listed below. Note that not all plugins can be used in an async event handler function:
 
 | Plugin | Async | Description |
 |:---|:---|:---|
-| email | - | Use: `emailPlugin.sendEmail(to, subject, "body")` |
-| HTTP webhook | - | Use: `webhookPlugin.sendMessage(url, "json"` | |
+| email | - | Sends an email via the SMTP server configured in the StackState configuration<br />Use: `emailPlugin.sendEmail(to, subject, "body")` |
+| HTTP webhook | - | Use: `webhookPlugin.sendMessage(url, "json")` | |
 | Slack | ✅ | Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
 | SMS | - | Use: `smsPlugin.sendSMSMessage(token, "to", "message")`|
 
