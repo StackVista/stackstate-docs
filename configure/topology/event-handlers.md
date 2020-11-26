@@ -37,7 +37,7 @@ You can write custom event handler functions to react to propagated state change
 
 ### Parameters
 
-An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event variables are described below, see [available properties](#available-properties)
+An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event parameters are described below, see [available properties](#available-properties)
 
 ### Async on/off
 
@@ -51,28 +51,28 @@ Event handler functions can be written as async (default) or synchronous.
 
 An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function, this allows more extensive details around an event to be included in alerts sent to Slack, such as links to relevant data and a possible root cause. 
 
-Event handler functions use plugins to interact with external systems, not all plugins are available for use with async functions. See [plugins] below for further details.
+Event handler functions use plugins to interact with external systems, not all plugins are available for use with async functions. See [plugins](#plugins) below for further details. The [available properties](#properties-for-async-functions) that can be retrieved from the default parameters are described below.
 
 #### Synchronous event handler functions (async Off)
 
 All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. This places limitations on both the capability of what they can achieve and the number of functions that can be run in parallel.
 
-Event handler functions use plugins to interact with external systems, synchronous event handler functions can use all available plugins. See [plugins] below for further details.
+Event handler functions use plugins to interact with external systems, synchronous event handler functions can use all available plugins. See [plugins](#plugins) below for further details. The [available properties](#properties-for-synchronous-functions) that can be retrieved from the default parameters are described below.
 
 ### Available properties
 
 #### Properties for synchronous functions
 
-The variables and properties described below can be used in synchronous event handler functions.
+The parameters and properties described below can be used in synchronous event handler functions.
 
-The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` variable name can be used, or an alias.
+The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` parameter name can be used, or an alias.
 - `view.getName` - returns the name of the view
 - `view.getDescription` - returns the description
 - `view.getQuery` - returns an STQL query of the view
 - `view.getIdentifier` - 
 - `view.getTags` - 
 
-The `event` properties for different event types below can be used in **synchronous** event handler functions, they return details of the received event. Note that `event` is the default variable, but this can be modified if you choose.
+The `event` properties for different event types below can be used in **synchronous** event handler functions, they return details of the received event. Note that `event` is the default parameter name, but this can be modified if you choose.
         
 - A **HealthStateChangedEvent** is generated when an element's own health state changes.
     - `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
@@ -93,7 +93,7 @@ The `event` properties for different event types below can be used in **synchron
 
 #### Properties for async functions
 
-The variables and properties described below can be used in async event handler functions.
+The parameters and properties described below can be used in async event handler functions.
 
 The `view` properties listed below can be used in **async** event handler functions, they return details of the view the event handler is in.
 - `view.name` - returns the view name.
@@ -102,7 +102,7 @@ The `view` properties listed below can be used in **async** event handler functi
 - `view.identifier` -
 - `view.tags` -
 
-The `event` properties for different event types below can be used in **async** event handler functions, they return details of the received event. Note that `event` is the default variable, but this can be modified if you choose.
+The `event` properties for different event types below can be used in **async** event handler functions, they return details of the received event. Note that `event` is the default parameter name, but this can be modified if you choose.
 
 - A **HealthStateChangedEvent** is generated when an element's own health state changes.
     - `event.HealthStateChengedEvent.triggeredTimestamp` -
