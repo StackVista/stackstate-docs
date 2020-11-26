@@ -87,40 +87,43 @@ The variables and properties described below can be used in synchronous event ha
         - `getCauseId` -
         - `getTriggeredTimestamp` -
 
-#### Variables for async functions
+#### Properties for async functions
 
 The variables and properties described below can be used in async event handler functions.
 
-- Variable: `view`. The view of the event handler.
-    - `name` - the view name.
-    - `descriotion` - the view description.
-    - `query` -  returns an STQL query of the view.
-    - `identifier` -
-    - `tags` -
+The `view` properties listed below can be used in **async** event handler functions, they return details of the view the event handler is in to.
+- `view.name` - the view name.
+- `view.description` - the view description.
+- `view.query` -  returns an STQL query of the view.
+- `view.identifier` -
+- `view.tags` -
 
-- Variable: `event` (default). The received event. Can be modified by the user.
-    -  `HealthStateChengedEvent`. An event generated on an element's own health state change.
-        - `triggeredTimestamp` -
-        - `transactionId` -
-        - `identifier` -
-        - `stackElement` -
-        - `newState` - the current state of the element.
-        - `oldState` - the previous state of the element.
-        - `causeId` -
-    - `PropagatedHealthStateChangedEvent`. An event generated when the propagated health state of an element changes.
-        - `triggeredTimestamp` -
-        - `transactionId` -
-        - `identifier` -
-        - `stateChanges` - the chain og elements through which the health state change propagated.
-        - `causeId` -
-    - `ViewHealthStateChangedEvent` = An event generated on a health state change of the entire view.
-        - `triggeredTimestamp` -
-        - `transactionId` -
-        - `identifier` -
-        - `viewHealthState` -
-        - `oldState` - the previous health state of the view.
-        - `newState` - the health state of the view.
-        - `causeId` -
+The `event` properties below can be used in **async** event handler functions, they return details of the received event.
+
+A HealthStateChangedEvent is generated when an element's own health state changes.
+- `event.HealthStateChengedEvent.triggeredTimestamp` -
+- `event.HealthStateChengedEvent.transactionId` -
+- `event.HealthStateChengedEvent.identifier` -
+- `event.HealthStateChengedEvent.stackElement` -
+- `event.HealthStateChengedEvent.newState` - the current state of the element.
+- `event.HealthStateChengedEvent.oldState` - the previous state of the element.
+- `event.HealthStateChengedEvent.causeId` -
+
+A PropagatedHealthStateChangedEvent is generated when the propagated health state of an element changes.
+- `event.PropagatedHealthStateChangedEvent.triggeredTimestamp` -
+- `event.PropagatedHealthStateChangedEvent.transactionId` -
+- `event.PropagatedHealthStateChangedEvent.identifier` -
+- `event.PropagatedHealthStateChangedEvent.stateChanges` - the chain og elements through which the health state change propagated.
+- `event.PropagatedHealthStateChangedEvent.causeId` -
+
+A ViewHealthStateChangedEvent is generated when the health state of the entire view changes.
+- `event.ViewHealthStateChangedEvent.triggeredTimestamp` -
+- `event.ViewHealthStateChangedEvent.transactionId` -
+- `event.ViewHealthStateChangedEvent.identifier` -
+- `event.ViewHealthStateChangedEvent.viewHealthState` -
+- `event.ViewHealthStateChangedEvent.oldState` - the previous health state of the view.
+- `event.ViewHealthStateChangedEvent.newState` - the health state of the view.
+- `event.ViewHealthStateChangedEvent.causeId` -
 
 ### Plugins
 

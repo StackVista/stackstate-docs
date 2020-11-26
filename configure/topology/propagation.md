@@ -118,7 +118,7 @@ Several element properties and methods are available for use in propagation func
 
 #### Element properties and methods
 
-The `element` properties and methods listed below can be used in **async and synchronous** propagation functions. Synchronous functions also have access to [stateChangesRepository methods](#statechangesrepository-methods).
+The `element` properties and methods listed below can be used in **async and synchronous** propagation functions. Synchronous functions also have access to [stateChangesRepository methods](#statechangesrepository-methods).__
 
 - `element.name` - Returns the name of the current element.
 - `element.type` - Returns type of the current element.
