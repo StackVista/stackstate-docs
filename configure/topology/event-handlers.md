@@ -64,41 +64,44 @@ Event handler functions use plugins to interact with external systems, synchrono
 
 The variables and properties described below can be used in synchronous event handler functions.
 
-- Variable: `view` or `scope`. The view of the event handler. Can be referenced by aliases.
-    - `getName` - returns the name of the view
-    - `getDescription` - returns the description
-    - `getQuery` - returns an STQL query of the view
-    - `getIdentifier` - 
-    - `getTags` - 
+The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` can be used, or an alias.
+- `view.getName` - returns the name of the view
+- `view.getDescription` - returns the description
+- `view.getQuery` - returns an STQL query of the view
+- `view.getIdentifier` - 
+- `view.getTags` - 
+
+The `event` properties for different event types below can be used in **synchronous** event handler functions, they return details of the received event. Note that `event` is the default variable, but this can be modified if you choose.
         
-- Variable: `event` (default). The received event. Can be modified by the user.
-    -  `HealthStateChengedEvent`. An event generated on an element's own health state change.
-        - `getNewStateRef` - returns an object representing the current state of the element.
-        - `getOldStateRef` - returns an object representing the previous state of the element.
-        - `getCauseId` -
-        - `getTriggeredTimestamp` -
-    - `PropagatedHealthStateChangedEvent`. An event generated when the propagated health state of an element changes.
-        - `getStateChanges` - returns the chain og elements through which the health state change propagated.
-        - `getCauseId` -
-        - `getTriggeredTimestamp` - 
-    - `ViewHealthStateChangedEvent` = An event generated on a health state change of the entire view.
-        - `getNewStateRef` - returns an object representing the current state of the view.
-        - `getOldStateRef` - returns an object representing the previous state of the view.
-        - `getCauseId` -
-        - `getTriggeredTimestamp` -
+- A **HealthStateChangedEvent** is generated when an element's own health state changes.
+    - `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
+    - `event.HealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the element.
+    - `event.HealthStateChangedEvent.getCauseId` -
+    - `event.HealthStateChangedEvent.getTriggeredTimestamp` -
+
+- A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
+    - `event.PropagatedHealthStateChangedEvent.getStateChanges` - returns the chain og elements through which the health state change propagated.
+    - `event.PropagatedHealthStateChangedEvent.getCauseId` -
+    - `event.PropagatedHealthStateChangedEvent.getTriggeredTimestamp` - 
+
+- A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
+    - `event.ViewHealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the view.
+    - `event.ViewHealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the view.
+    - `event.ViewHealthStateChangedEvent.getCauseId` -
+    - `event.ViewHealthStateChangedEvent.getTriggeredTimestamp` -
 
 #### Properties for async functions
 
 The variables and properties described below can be used in async event handler functions.
 
-The `view` properties listed below can be used in **async** event handler functions, they return details of the view the event handler is in to.
+The `view` properties listed below can be used in **async** event handler functions, they return details of the view the event handler is in.
 - `view.name` - the view name.
 - `view.description` - the view description.
 - `view.query` -  returns an STQL query of the view.
 - `view.identifier` -
 - `view.tags` -
 
-The `event` properties for different event types below can be used in **async** event handler functions, they return details of the received event.
+The `event` properties for different event types below can be used in **async** event handler functions, they return details of the received event. Note that `event` is the default variable, but this can be modified if you choose.
 
 - A **HealthStateChangedEvent** is generated when an element's own health state changes.
     - `event.HealthStateChengedEvent.triggeredTimestamp` -
