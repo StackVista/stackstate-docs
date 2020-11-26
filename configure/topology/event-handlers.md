@@ -96,8 +96,8 @@ The `event` properties for different event types below can be used in **synchron
 The variables and properties described below can be used in async event handler functions.
 
 The `view` properties listed below can be used in **async** event handler functions, they return details of the view the event handler is in.
-- `view.name` - the view name.
-- `view.description` - the view description.
+- `view.name` - returns the view name.
+- `view.description` - returns the view description.
 - `view.query` -  returns an STQL query of the view.
 - `view.identifier` -
 - `view.tags` -
@@ -109,15 +109,15 @@ The `event` properties for different event types below can be used in **async** 
     - `event.HealthStateChengedEvent.transactionId` -
     - `event.HealthStateChengedEvent.identifier` -
     - `event.HealthStateChengedEvent.stackElement` -
-    - `event.HealthStateChengedEvent.newState` - the current state of the element.
-    - `event.HealthStateChengedEvent.oldState` - the previous state of the element.
+    - `event.HealthStateChengedEvent.newState` - returns the current state of the element.
+    - `event.HealthStateChengedEvent.oldState` - returns the previous state of the element.
     - `event.HealthStateChengedEvent.causeId` -
 
 - A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
     - `event.PropagatedHealthStateChangedEvent.triggeredTimestamp` -
     - `event.PropagatedHealthStateChangedEvent.transactionId` -
     - `event.PropagatedHealthStateChangedEvent.identifier` -
-    - `event.PropagatedHealthStateChangedEvent.stateChanges` - the chain of elements through which the health state change propagated.
+    - `event.PropagatedHealthStateChangedEvent.stateChanges` - returns the chain of elements through which the health state change propagated.
     - `event.PropagatedHealthStateChangedEvent.causeId` -
 
 - A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
@@ -125,8 +125,8 @@ The `event` properties for different event types below can be used in **async** 
     - `event.ViewHealthStateChangedEvent.transactionId` -
     - `event.ViewHealthStateChangedEvent.identifier` -
     - `event.ViewHealthStateChangedEvent.viewHealthState` -
-    - `event.ViewHealthStateChangedEvent.oldState` - the previous health state of the view.
-    - `event.ViewHealthStateChangedEvent.newState` - the health state of the view.
+    - `event.ViewHealthStateChangedEvent.oldState` - returns the previous health state of the view.
+    - `event.ViewHealthStateChangedEvent.newState` - returns the health state of the view.
     - `event.ViewHealthStateChangedEvent.causeId` -
 
 ### Plugins
