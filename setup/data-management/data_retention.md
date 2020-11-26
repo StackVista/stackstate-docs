@@ -1,5 +1,5 @@
 ---
-description: Configuring data retention parameters.
+description: Configure the data retention parameters
 ---
 
 # Data retention
