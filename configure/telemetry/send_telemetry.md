@@ -8,7 +8,7 @@ There are several ways to send telemetry to StackState. A large number of [integ
 
 ## Sending telemetry over HTTP
 
-StackState's receiver API is responsible for receiving both telemetry and topology. By default the receiver API is hosted at `https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>`. Both the base URL and API\_KEY are
+StackState's receiver API is responsible for receiving both telemetry and topology. By default the receiver API is hosted at `https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>`. Both the base URL and API\_KEY are set during installation. For details see [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) or [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
 
 Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain mutliple metrics and multiple events.
 
