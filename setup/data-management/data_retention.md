@@ -128,7 +128,7 @@ Use the `diskSpaceWeight` configuration parameter to adjust how available disk s
 **Distribute disk space unevenly across indices**<br />The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to the indices proportionally based on their configured `diskSpaceWeight`.  Each index will be allocated an follows the formula:
 
 ```
-index allocated disk space = (elasticsearchdiskSpaceMB* diskSpaceWeight / sum(diskSpaceWeights)
+Allocated disk space = (elasticsearchdiskSpaceMB* diskSpaceWeight / sum(diskSpaceWeights)
 ```
 
 For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated as follows:
