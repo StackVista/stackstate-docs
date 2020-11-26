@@ -98,7 +98,7 @@ The `view` properties listed below can be used in **async** event handler functi
 - `view.identifier` -
 - `view.tags` -
 
-The `event` properties below can be used in **async** event handler functions, they return details of the received event.
+The `event` properties for different event types below can be used in **async** event handler functions, they return details of the received event.
 
 - A **HealthStateChangedEvent** is generated when an element's own health state changes.
     - `event.HealthStateChengedEvent.triggeredTimestamp` -
@@ -131,10 +131,10 @@ Event handler functions use plugins to send notifications to external systems. T
 
 | Plugin | Async | Description |
 |:---|:---|:---|
-| email | - | Sends an email using the [configured SMTP server](/configure/topology/configure-email-alerts.md)<br />Use: `emailPlugin.sendEmail(to, subject, "body")` |
-| HTTP webhook | - | Sends an HTTP POST request with the specified content to a URL.<br />Use: `webhookPlugin.sendMessage(url, "json")` | |
+| email | - | Sends an email using the [configured SMTP server](/configure/topology/configure-email-alerts.md).<br />`emailPlugin.sendEmail(to, subject, "body")` |
+| HTTP webhook | - | Sends an HTTP POST request with the specified content to a URL.<br />`webhookPlugin.sendMessage(url, "json")` | |
 | Slack | ✅ | Sends a notification message to a Slack webhook. THe message can contain detailed content on the trigger event and possible root cause.<br />Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
-| SMS | - | Sends an SMS using MessageBird with the specified token.<br />Use: `smsPlugin.sendSMSMessage(token, "to", "message")`|
+| SMS | - | Sends an SMS using MessageBird with the specified token.<br />`smsPlugin.sendSMSMessage(token, "to", "message")`|
 
 
 ### Logging
