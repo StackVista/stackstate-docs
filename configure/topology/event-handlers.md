@@ -32,7 +32,7 @@ Settings > Functions > Event Handler Functions
 
 ## Create a custom event handler function
 
-You can write custom event handler functions to react to propagated state changes and health state changes of an element or view. 
+You can write custom event handler functions to react to propagated state changes and health state changes of an element or view and use a plugin to send an alert to a system outside of StackState. 
 
 ### Parameters
 
