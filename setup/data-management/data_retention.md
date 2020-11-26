@@ -125,7 +125,9 @@ stackstate {
 Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
 
 #### Allocate no disk space to an index group
-Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
+Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. 
+
+For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
 
 #### Distribute disk space unevenly across index groups
 The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`.  Disk space will be allocated to each index group according to the formula below, this will then be shared equally between the indicies in the index group (the configured `maxIndicesRetained`):
