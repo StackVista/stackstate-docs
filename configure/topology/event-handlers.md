@@ -131,10 +131,10 @@ Event handler functions use plugins to send notifications to external systems. T
 
 | Plugin | Async | Description |
 |:---|:---|:---|
-| email | - | Sends an email via the SMTP server configured in the StackState configuration<br />Use: `emailPlugin.sendEmail(to, subject, "body")` |
-| HTTP webhook | - | Use: `webhookPlugin.sendMessage(url, "json")` | |
-| Slack | ✅ | Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
-| SMS | - | Use: `smsPlugin.sendSMSMessage(token, "to", "message")`|
+| email | - | Sends an email using the [configured SMTP server](/configure/topology/configure-email-alerts.md)<br />Use: `emailPlugin.sendEmail(to, subject, "body")` |
+| HTTP webhook | - | Sends an HTTP POST request with the specified content to a URL.<br />Use: `webhookPlugin.sendMessage(url, "json")` | |
+| Slack | ✅ | Sends a notification message to a Slack webhook. THe message can contain detailed content on the trigger event and possible root cause.<br />Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
+| SMS | - | Sends an SMS using MessageBird with the specified token.<br />Use: `smsPlugin.sendSMSMessage(token, "to", "message")`|
 
 
 ### Logging
