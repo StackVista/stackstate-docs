@@ -38,7 +38,7 @@ Propagation functions are used to calculate the propagated state of a component.
 {% hint style="info" %}
 A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to 
 
-**Settings** > **Functions** > **Propagation functions** 
+**Settings** > **Functions** > **Propagation Functions** 
  
 {% endhint %}
 

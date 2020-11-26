@@ -25,6 +25,11 @@ StackState ships with the event handler functions:
     - **SMS** - using MessageBird.
 - Send an HTTP webhook POST request to a specified URL.
 
+{% hint style="info" %}
+Some of the event handler functions above will be installed as part of a StackPack. A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to
+Settings > Functions > Event Handler Functions
+{% endhint %}
+
 ## Create a custom event handler function
 
 You can write custom event handler functions to react to propagated state changes and health state changes of an element or view. 
