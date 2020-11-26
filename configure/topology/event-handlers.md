@@ -61,8 +61,6 @@ Event handler functions use plugins to interact with external systems, synchrono
 
 #### Properties for synchronous functions
 
-The parameters and properties described below can be used in synchronous event handler functions.
-
 The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` parameter name can be used, or an alias.
 - `view.getName` - returns the name of the view
 - `view.getDescription` - returns the description
@@ -90,8 +88,6 @@ The `event` properties for different event types below can be used in **synchron
     - `event.ViewHealthStateChangedEvent.getTriggeredTimestamp` -
 
 #### Properties for async functions
-
-The parameters and properties described below can be used in async event handler functions.
 
 The `view` properties listed below can be used in **async** event handler functions, they return details of the view the event handler is in.
 - `view.name` - returns the view name.
