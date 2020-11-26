@@ -132,7 +132,7 @@ Use the `diskSpaceWeight` configuration parameter to adjust how available disk s
 index_group_disk_space = (elasticsearchdiskSpaceMB* diskSpaceWeight / sum(diskSpaceWeights)
 
 # Disk space available to each index in an index group
-Disk space per index = index_group_disk_space/maxIndicesRetained
+index_disk_space = index_group_disk_space / maxIndicesRetained
 ```
 
 For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated to the index groups would be as follows:
