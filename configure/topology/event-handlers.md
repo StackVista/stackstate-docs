@@ -18,16 +18,16 @@ Event handlers listen to events generated within the view, when the configured e
 
 StackState ships with the following event handler functions:
 
-- Send details of health state change event that triggered the alert and links to information to assist with root cause analysis via:
-    - **Slack**
-- Send details of the health state change event that triggered the alert via:
-    - **Email** using the [configured SMTP server](/configure/topology/configure-email-alerts.md).
-    - **SMS** using MessageBird.
+- Send details of a health state change event and links to information that can assist with root cause analysis:
+    - **Slack** - at the configured Slack web hook URL.
+- Send details of a health state change event:
+    - **Email** - using the [configured SMTP server](/configure/topology/configure-email-alerts.md).
+    - **SMS** - using MessageBird.
 - Send an HTTP POST request to a specified URL.
 
 ## Create a custom event handler function
 
-You can write custom event handler functions to react to health state changes and propagated state changes of an element or view. 
+You can write custom event handler functions to react to propagated state changes and health state changes of an element or view. 
 
 ### Parameters
 
@@ -45,7 +45,12 @@ An async event handler function has access to the [StackState script APIs](/deve
 
 #### Synchronous event handler functions (async Off)
 
+### Logging
+
+You can add user logging from the script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/).
+
 ## See also
 
-- [StackState views](/use/views/README.md)
+- [Enable logging for functions](/configure/logging/)
 - [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
+- [StackState script APIs](/develop/reference/scripting/script-apis)
