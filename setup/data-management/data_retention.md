@@ -75,7 +75,6 @@ The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/applic
 | `maxIndicesRetained` | `30` | The number of indices that will be retained in each index group. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch.  |
 | `diskSpaceWeight` | Varies per index group | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`.  If set to `0` then no disk space will be allocated to the index. See the [disk space weight examples](#disk-space-weight-examples) below.|
 | `replicas` | Linux: `0`<br />Kubernetes: `1` | The number of nodes that a single piece of data should be available on. Use for redundancy/high availability when more than one Elasticsearch node is available.|
-| `maxIndexSizeBytes` | - | Optional. When set, will overrule the configured `diskSpaceWeight` and make the specified disk space available to the index. Remaining disk space will be shared between other indices according to their configured `diskSpaceWeight`. | 
 
 
 {% tabs %}
