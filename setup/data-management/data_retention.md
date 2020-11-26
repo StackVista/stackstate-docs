@@ -136,11 +136,11 @@ For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be alloc
 | Parameter | Allocated disk space |
 |:---|:---|
 | `kafkaMetricsToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
-| `kafkaMultiMetricsToES.elasticsearch.index.diskSpaceWeight = 1` | 20000MB<br />or 300000*1/15 |
+| `kafkaMultiMetricsToES.elasticsearch.index.diskSpaceWeight = 1` | 20000MB<br />(or 300000*1/15) |
 | `kafkaGenericEventsToES.elasticsearch.index.diskSpaceWeight = 2` | 40000MB<br />(or 300000*2/15) |
-| `kafkaTopologyEventsToES.elasticsearch.index.diskSpaceWeight = 3` | 60000MB<br />(300000*3/15) |
-| `kafkaStateEventsToES.elasticsearch.index.diskSpaceWeight = 4` | 80000MB<br />(300000*4/15) |
-| `kafkaStsEventsToES.elasticsearch.index.diskSpaceWeight = 5` | 100000MB<br />(300000*5/15) |
+| `kafkaTopologyEventsToES.elasticsearch.index.diskSpaceWeight = 3` | 60000MB<br />(or 300000*3/15) |
+| `kafkaStateEventsToES.elasticsearch.index.diskSpaceWeight = 4` | 80000MB<br />(or 300000*4/15) |
+| `kafkaStsEventsToES.elasticsearch.index.diskSpaceWeight = 5` | 100000MB<br />(or 300000*5/15) |
 | `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0` | 0MB |
 
 
