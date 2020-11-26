@@ -36,7 +36,7 @@ You can write custom event handler functions to react to propagated state change
 
 ### Parameters
 
-An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function, this provides ???. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function.
+An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event variables are described below, see [available properties](#available-properties)
 
 ### Async on/off
 
@@ -58,7 +58,7 @@ All event handler functions developed before StackState v4.2 and the email, SMS 
 
 Event handler functions use plugins to interact with external systems, synchronous event handler functions can use all available plugins. See [plugins] below for further details.
 
-### Available properties and methods
+### Available properties
 
 #### Variables for synchronous functions
 
@@ -136,7 +136,7 @@ Event handler functions use plugins to send notifications to external systems. T
 |:---|:---|:---|
 | email | - | Sends an email using the [configured SMTP server](/configure/topology/configure-email-alerts.md).<br />`emailPlugin.sendEmail(to, subject, "body")` |
 | HTTP webhook | - | Sends an HTTP POST request with the specified content to a URL.<br />`webhookPlugin.sendMessage(url, "json")` | |
-| Slack | ✅ | Sends a notification message to a Slack webhook. THe message can contain detailed content on the trigger event and possible root cause.<br />`slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
+| Slack | ✅ | Sends a notification message to a Slack webhook. The message can contain detailed content on the trigger event and possible root cause.<br />`slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
 | SMS | - | Sends an SMS using MessageBird with the specified token.<br />`smsPlugin.sendSMSMessage(token, "to", "message")`|
 
 
