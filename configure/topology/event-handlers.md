@@ -61,7 +61,7 @@ Event handler functions use plugins to interact with external systems, synchrono
 
 ### Available properties
 
-#### Variables for synchronous functions
+#### Properties for synchronous functions
 
 The variables and properties described below can be used in synchronous event handler functions.
 
