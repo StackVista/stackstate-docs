@@ -136,7 +136,7 @@ Event handler functions use plugins to send notifications to external systems. T
 |:---|:---|:---|
 | email | - | Sends an email using the [configured SMTP server](/configure/topology/configure-email-alerts.md).<br />`emailPlugin.sendEmail(to, subject, "body")` |
 | HTTP webhook | - | Sends an HTTP POST request with the specified content to a URL.<br />`webhookPlugin.sendMessage(url, "json")` | |
-| Slack | ✅ | Sends a notification message to a Slack webhook. THe message can contain detailed content on the trigger event and possible root cause.<br />Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
+| Slack | ✅ | Sends a notification message to a Slack webhook. THe message can contain detailed content on the trigger event and possible root cause.<br />`slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
 | SMS | - | Sends an SMS using MessageBird with the specified token.<br />`smsPlugin.sendSMSMessage(token, "to", "message")`|
 
 
