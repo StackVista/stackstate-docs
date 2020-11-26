@@ -63,7 +63,7 @@ In some circumstances it may be necessary to adjust the disk space available to 
 {% tab title="Kubernetes" %}
 The settings can be adjusted by using environment variables to [override the default configuration](/setup/installation/kubernetes_install/customize_config.md#environment-variables) of the parameters described below.
 
-Note that `elasticsearchDiskSpaceMB` will scale automatically based on disk space available to Elasticsearch in Kubernetes.
+Note that `elasticsearchDiskSpaceMB` will scale automatically based on the disk space available to Elasticsearch in Kubernetes.
 {% endtab %}
 {% tab title="Linux" %}
 The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
@@ -123,9 +123,6 @@ stackstate {
 ### Disk space weight examples
 
 Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
-
-- Example: [Allocate no disk space to an index group](#allocate-no-disk-space-to-an-index-group)
-- Example: [Distribute disk space unevenly across index groups](#distribute-disk-space-unevenly-across-index-groups)
 
 #### Allocate no disk space to an index group
 Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
