@@ -6,22 +6,24 @@ description: Automate alerts and actions based on events
 
 ## Overview
 
-Event handlers can be attached to a StackState view to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md) in response to a configured event within the view.
+Event handlers can be attached to a StackState view to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md) in response to health state change events generated within the view.
 
-To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This can be set as **Run event handler** in the StackState UI **Add event handler** dialogue.
+To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This is set in the StackState UI **Add event handler** dialogue as **Run event handler** .
 
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
 ## Event handler functions
 
-Event handlers listen to events and run an event handler function to [trigger an alert or action](/use/health-state-and-alerts/set-up-alerting.md) in a system outside of StackState. For example, send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create a custom event handler function](#create-a-custom-event-handler-function). 
+Event handlers listen to events generated within the view, when the configured event type is generated the configured event handler function is run to [trigger an alert or action](/use/health-state-and-alerts/set-up-alerting.md) in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create a custom event handler function](#create-a-custom-event-handler-function). 
 
 StackState ships with the following event handler functions:
 
-- **Email** - send an email alert to a specified email address using the [configured SMTP server](/configure/topology/configure-email-alerts.md).
-- **HTTP webhook POST** -  send an HTTP POST request to a specified URL.
-- **Slack** - send a notification to a specified Slack webhook URL.
-- **SMS** - send an SMS alert (MessageBird) to a specified phone number.
+- Send details of health state change event that triggered the alert and links to information to assist with root cause analysis via:
+    - **Slack**
+- Send details of the health state change event that triggered the alert via:
+    - **Email** using the [configured SMTP server](/configure/topology/configure-email-alerts.md).
+    - **SMS** using MessageBird.
+- Send an HTTP POST request to a specified URL.
 
 ## Create a custom event handler function
 
