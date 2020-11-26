@@ -55,12 +55,12 @@ All event handler functions developed before StackState v4.2 and the email, SMS 
 
 Event handler functions use plugins to send notifications to external systems. The current plugins are available for use in custom event handler functions:
 
-| Plugin | Async | Usage | Description |
-|:---|:---|:---|:---|
-| email | - | `emailPlugin.sendEmail("to", "subject", "body")` | |  
-| HTTP webhook | - | `webhookPlugin.sendMessage("url", "json"` | |
-| Slack | ✅ | `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` | |
-| SMS | - | `smsPlugin.sendSMSMessage(token, to, "message")`| |
+| Plugin | Async | Description |
+|:---|:---|:---|
+| email | - | Use: `emailPlugin.sendEmail("to", "subject", "body")` |
+| HTTP webhook | - | Use: `webhookPlugin.sendMessage("url", "json"` | |
+| Slack | ✅ | Use: `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |
+| SMS | - | Use: `smsPlugin.sendSMSMessage(token, to, "message")`|
 
 
 ### Logging
