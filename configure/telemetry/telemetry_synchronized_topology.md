@@ -76,6 +76,7 @@ For example, a CloudWatch metric stream:
 
 - [Add a single telemetry stream to a single component](/use/health-state-and-alerts/add-telemetry-to-element.md)
 - [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
+- [Browse telemetry streams](/use/views/browse_telemetry.md)
 
 
 
