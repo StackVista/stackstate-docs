@@ -16,7 +16,7 @@ StackState can reduce this noise by looking at the overall health state of a **v
 
 View health state is calculated by a **view state configuration function**.  To configure a view to report its health state:
 
-1. In the StackState UI, go to the **Views** list.
+1. In the StackState UI, click **Views** from the main menu.
 2. Click on the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
 4. Select a **Configuration function** to use to calculate the view health. 
