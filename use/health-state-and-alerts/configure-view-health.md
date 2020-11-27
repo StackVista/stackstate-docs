@@ -22,9 +22,7 @@ View health state is calculated by a **view state configuration function**.  To 
 4. Select a **Configuration function** to use to calculate the view health. 
     - You can use the standard view state configuration function or [create your own](/configure/topology/view_state_configuration.md).
     - For details of the available configuration functions, go to **Settings** > **Functions** > **View Health State Configuration Functions**.
-6. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the standard MINIMUM HEALTH STATES configuration function you will need to enter:
-    - **minCriticalHealthStates** - the number of elements required to have a CRITICAL state before a CRITICAL state is returned for the view.
-    - **minDeviatingHealthStates** - the number of elements required to have a DEVIATING state before a DEVIATING state is returned for the view.
+6. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the standard [MINIMUM HEALTH STATES](#view-health-state-configuration-function-minimum-health-states) configuration function.
 7. Click **UPDATE** to save the new configuration to the view. 
     - The view health will update immediately.
     
@@ -34,8 +32,18 @@ View health state is calculated by a **view state configuration function**.  To 
 
 You can [set up alerting](/use/health-state-and-alerts/set-up-alerting.md) to trigger alerts and actions whenever a view state changes.
 
+## View health state configuration function: MINIMUM HEALTH STATES
+
+The **MINIMUM HEALTH STATES** view health state configuration function calculates the health state of the view as follows:
+
+* The view has a `CRITICAL` health state when more than the **minCriticalHealthStates** components inside the view have a `CRITICAL` health state. This does not count propagated health states.
+* The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
+* In all other situations, the view has a `CLEAR` health state.
+
+The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function].
+
 ## See also
 
-- [View state configuration](/configure/topology/view_state_configuration.md)
+- [Customize the view state configuration](/configure/topology/view_state_configuration.md)
 - [Add a health check](/use/health-state-and-alerts/add-a-health-check.md)
 - [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
