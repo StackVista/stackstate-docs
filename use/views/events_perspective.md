@@ -32,7 +32,7 @@ Click on an event to display an overview of the event details in the **Event pro
 - **Event type** - A description of the event type.
 - **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
 - **Processed time** - The time the event was received by StackState. For internally generated events, this will be the same as the **event time**. Click on the timestamp to [time travel](#time-travel) to the moment that the event was processed by StackState.
-- **Links** - Links to directly jump to an external source of an event. For example, a ServiceNow change request or JIRA ticket.
+- **Links** - Direct links to an external source of an event. For example, a ServiceNow change request or JIRA ticket.
 - **Description** - Additional information about the event. For example, the context of the event or its importance.
 - **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
  
