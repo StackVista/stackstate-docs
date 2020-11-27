@@ -9,7 +9,7 @@ The StackState Agent provides the following functionality:
 * Telemetry for hosts, processes, and containers
 * 100+ additional integrations
 
-The StackState Agent is open source: [view the source code on GitHub](https://github.com/StackVista/stackstate-agent).
+The StackState Agent is open source and available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Supported configurations
 
@@ -116,6 +116,13 @@ stackstate-agent:
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
+
+#### Using Docker-Swarm mode
+To run the StackState Agent in Docker-Swarm mode as a docker-compose setup, use the above configuration in your compose file on each node where you want to run the Agent. After placing the compose file on each node, run the command `docker-compose up -d`.
+
+##### Limitation of Docker-Swarm mode
+Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between Containers, Processes and other resources while in Docker-Swarm mode. To run StackState Agent in Docker-Swarm mode, use a docker-compose setup.
+
 
 #### Using Self-Signed Certificate
 

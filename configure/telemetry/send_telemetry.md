@@ -14,7 +14,7 @@ StackState's receiver API is responsible for receiving both telemetry and topolo
 - [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 
-Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain mutliple metrics and multiple events.
+Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
 
 ```javascript
 {
