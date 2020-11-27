@@ -4,11 +4,6 @@ description: Add incoming telemetry (metrics and events) data to an element.
 
 # Add a custom telemetry stream to an element
 
-{% hint style="warning" %}
-**QUESTIONS:**
-- Would it be worthwhile to include a description of usage for "select" functions (e.g.even count, 90th percentile)?
-{% endhint %}
-
 ## Overview
 
 Elements in StackState can have a telemetry \(metrics and events\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](/use/health-state-and-alerts/add-a-health-check.md).  If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
