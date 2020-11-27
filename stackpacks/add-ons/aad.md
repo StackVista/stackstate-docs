@@ -148,7 +148,7 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
 The AAD Kubernetes service is released independently from StackState, therefore you may benefit from upgrading often.
 To upgrade the AAD Kubernetes service:
 
-1. Check the [release notes](#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release. 
+1. Check the [release notes](#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release.
     - Update the image tag in `values.yaml`.
     - Fetch the helm chart version:
         ```text
@@ -201,6 +201,14 @@ Common questions that can be answered in the status UI:
 Release notes for the AAD Kubernetes service are included below. AAD StackPack release notes can be found in the StackPack.
 
 **BETA Release**
+
+### AAD Kubernetes service 4.1.2
+
+**Helm chart version**: 4.1.24<br />**Image tag**: 4.1.2-release<br />**Release date**: 2020-11-27
+
+Changes in this version:
+
+* Improved stream selection and ranking. Stream selection is able to handle timeouts gracefully. Stream ranking applies heuristic based stream prioritization.
 
 ### AAD Kubernetes service 4.1.1
 
