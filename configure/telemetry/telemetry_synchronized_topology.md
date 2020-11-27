@@ -73,7 +73,6 @@ For example, a CloudWatch metric stream:
 
 ## See also
 
-- [Template functions](/develop/reference/stj/stj_reference.md)
 - [Add a single telemetry stream to a single component](/use/health-state-and-alerts/add-telemetry-to-element.md)
 - [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
 
