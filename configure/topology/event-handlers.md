@@ -141,6 +141,6 @@ You can add logging statements to an event handler function for debug purposes, 
 
 ## See also
 
-- [Enable logging for functions](/configure/logging/)
+- [Enable logging for functions](/configure/logging/enable-logging.md)
 - [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
 - [StackState script APIs](/develop/reference/scripting/script-apis)
