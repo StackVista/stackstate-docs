@@ -10,7 +10,9 @@ If you want to add a telemetry stream to all topology elements imported by a spe
 
 ### Edit a template function with the template editor
 
-The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. To open the template editor:
+The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. The template editor can be accessed from the StackState UI.
+
+![Template editor](/.gitbook/assets/edit_template.png)
 
 1. Click on an element to open the **Component details** on the right of the screen.
 2. Click on **...** and select **Edit template**. 
@@ -24,8 +26,7 @@ The StackState template editor allows you to customize how StackState builds top
 Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template. 
 {% endhint %}
 
-![Template editor](/.gitbook/assets/edit_template.png)
-
+![](/.gitbook/assets/template_editor.png)
 
 ### Add a telemetry stream to a template function
 
