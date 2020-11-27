@@ -117,10 +117,10 @@ stackstate-agent:
       HOST_SYS: "/host/sys"
 ```
 
-### Using Docker-Swarm mode
+#### Using Docker-Swarm mode
 To run the StackState Agent in Docker-Swarm mode as a docker-compose setup, use the above configuration in your compose file on each node where you want to run the Agent. After placing the compose file on each node, run the command `docker-compose up -d`.
 
-#### Limitation of Docker-Swarm mode
+##### Limitation of Docker-Swarm mode
 Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between Containers, Processes and other resources while in Docker-Swarm mode. To run StackState Agent in Docker-Swarm mode, use a docker-compose setup.
 
 
