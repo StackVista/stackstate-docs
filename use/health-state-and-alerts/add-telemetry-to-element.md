@@ -36,7 +36,7 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 7. The stream preview on the right will update to show the incoming metric values based on the details you provide.
 8. Click **SAVE** to add the stream to the element.
     - You will receive a notification that the stream has been successfully completed. 
-9. A graph of the selected telemetry stream data will be visible in the list of **Telemetry streams** on the right of the screen. 
+9. A graph of the selected telemetry stream data will be visible in the list of **Telemetry streams** on the right of the screen. You can inspect data in the stream using the [telemetry browser](/use/views/browse_telemetry.md).
 
 ## See also
 
@@ -44,3 +44,4 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 - [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md)
 - [Monitor the health of an element](/use/health-state-and-alerts/add-a-health-check.md)
 - [Use templates to add telemetry streams to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
+- [Browse data in a telemetry stream](/use/views/browse_telemetry.md)
