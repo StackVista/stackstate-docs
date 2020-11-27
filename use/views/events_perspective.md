@@ -10,7 +10,7 @@ The Events Perspective shows events and changes for the elements in the current 
 
 ## Events
 
-StackState records changes in your landscape as **events**. Events help you make sense of the changes that impact your IT landscape and are a great asset when troubleshooting problems. 
+StackState defines an event as a timestamped record of an activity or change that an observer of the platform should be aware of. Events help you make sense of the changes that impact your IT landscape and are a great asset when troubleshooting problems. 
 
 ### Event source
 
