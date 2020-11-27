@@ -1,96 +1,50 @@
-# Adding telemetry to synchronized topology
+# Add telemetry during topology synchronization
 
 ## Overview
 
-When you have synchronized topology, every element (component or relation) is synchronized via the template it was created with. That means that every time an update is received for an elementn, that update is executed using the template. The only way to add telemetry or health checks to your synchronized topology is to edit the template with which the entity is created. Template can be edited in the StackState template editor.
+Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be build in StackState, such as the layer it belongs to, the health checks to add and any telemetry streams that should be attached to it. The StackPacks provided with StackState already include templates with the relevant telemetry streams for each imported element type. If you create your own integrations or have additional telemetry streams you would like to link with imported components, you can edit the template used during synchronization to automatically add these to imported topology. 
 
-## Adding Telemetry
+## Add telemetry streams to the synchronization template
 
-In the view, select a component that you'd like to add telemetry to. This opens a component pane on the right side of the screen, where next to the component you'll find a menu with options to edit the component. Click on Edit template.
+If you want to add a telemetry stream to all topology elements imported by a specific integration, you can edit its template function to include the additional telemetry stream. 
 
-![](/.gitbook/assets/edit_template.png)
+### Edit a template function with the template editor
 
-After selecting the edit template option from the menu, the template editing UI appears
+The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. To open the template editor:
 
-![](/.gitbook/assets/template_editor.png)
+1. Click on an element to open the **Component details** on the right of the screen.
+2. Click on **...** and select **Edit template**. 
+3. The template editor will open for the template that was used to create the selected element. Three sets of information are displayed:
+    - **input paramaters** - the raw data imported for a specific element.
+    - **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](/develop/reference/stj/templates.md), which is used to build the **Component properties** you see on the right side of the StackState UI.
+    - **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI **Component properties**.
+4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](#add-a-telemetry-stream-to-a-template-function).
 
-Aside from self-explanatory fields like template, name and description, the template editor is divided into two text editors: The input parameters and the template function. The following sections explain how to add streams and checks to your component using these two editors.
+{% hint style="info" %}
+Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template. 
+{% endhint %}
 
-### Input parameters
+![Template editor](/.gitbook/assets/edit_template.png)
 
-This section shows the actual data already synchronized to the topology element. All the data shown is accessible to be used while editing the templates. The typical setup is to define a variable `element` which holds the topology element payload and is eventually exposed to the templated interpolation. Here is an example of an AWS lambda function payload:
 
-```text
-import com.stackstate.structtype.StructType
+### Add a telemetry stream to a template function
 
-def element = StructType.wrapMap([
-  "type": [
-    "id": 8771488439030,
-    "lastUpdateTimestamp": 1549374894208,
-    "name": "aws.lambda",
-    "model": 158421643423988,
-    "_type": "ExtTopoComponentType"
-  ],
-  "data": [
-    "Location": [
-      "AwsRegion": "eu-west-1",
-      "AwsAccount": "508573134510"
-    ],
-    "Environment": [
-      "Variables": [
-        "API_KEY": "API_KEY",
-        "STACKSTATE_BASE_URL": "http://9315df6b.ngrok.io"
-      ]
-    ],
-    "Role": "arn:aws:iam::508573134510:role/stackstate-topo-publisher-StackSatePublisherLambda-4J951WJWADBV",
-    "Handler": "sts_publisher.lambda_function.lambda_handler",
-    "FunctionArn": "arn:aws:lambda:eu-west-1:508573134510:function:StackState-Topo-Publisher",
-    "FunctionName": "StackState-Topo-Publisher",
-    "Version": "$LATEST",
-    "Description": "A Lambda function that publishes topology from a Kinesis stream to StackState",
-    "LastModified": "2019-02-05T13:54:23.566+0000",
-    "MemorySize": 1024,
-    "RevisionId": "7b985ba6-08e6-4f3f-9379-925c4e5f268a",
-    "CodeSha256": "jitGoNUCN5USoEjXRd6V9yTeDERgP0Pi7Yc1RpZFebE=",
-    "Runtime": "python2.7",
-    "Tags": [
-      "Aws:cloudformation:stack-id": "arn:aws:cloudformation:eu-west-1:508573134510:stack/stackstate-topo-publisher/78a10570-294d-11e9-8047-062647984902",
-      "Origin": "Stackstate",
-      "Stackstate-lightweight-agent": "37975427094405",
-      "Aws:cloudformation:logical-id": "StackSatePublisherLambda",
-      "Aws:cloudformation:stack-name": "stackstate-topo-publisher",
-      "Lambda:createdBy": "SAM"
-    ],
-    "TracingConfig": [
-      "Mode": "PassThrough"
-    ],
-    "CodeSize": 1474331,
-    "Timeout": 300
-  ],
-  "externalId": "arn:aws:lambda:eu-west-1:508573134510:function:StackState-Topo-Publisher",
-  "identifiers": [
-    "arn:aws:lambda:eu-west-1:508573134510:function:StackState-Topo-Publisher"
-  ]
-])
+The telemetry streams attached to topology elements during synchronization are configured in the template function as `streams: []`. To add a telemetry stream to a component the fields described below are required. The most important part of the stream configuraton is the `query`, this represents the conditions used to filter the stream:
 
-def mappingFunction(element) {
-  return element;
-}
+| Field | Allowed values | Description | 
+|:---|:---|:---|
+| `_type` | MetricStream<br />EventStream | The type of Data Stream. |
+| `name` | | A name for the Data Stream. |
+| `query._type` | MetricTelemetryQuery<br />EventTelemetryQuery | The type of the Query |
+| `query.conditions` | |  A collection of `"key", "value"` attributes used to filter the stream. The keys are defined by the data source, wheras value can be any string, numeric or boolean. |
+| `query.metricField` | | Metric streams only. The metric to observe in the stream. |
+| `query.aggregation` | MEAN<br />PERCENTILE_25<br />PERCENTILE_50<br />PERCENTILE_75<br />PERCENTILE_90<br />PERCENTILE_95<br />PERCENTILE_98<br />PERCENTILE_99<br />MAX<br />MIN<br />SUM<br />VALUE_COUNT<br />EVENT_COUNT | Metric streams only. The function to apply to aggregate the data. |
+| `datasource` | | The data source where to connect to fetch the data. |
+| `datatype` | METRICS<br />EVENTS | The kind of data received on the stream. |
 
-return [
-  'element': mappingFunction(element)
-]
+For example, a CloudWatch metric stream:
+
 ```
-
-## Template function
-
-This section shows the current template being used to synchronize the topology element. The template function has access to the component payload exposed by the input parameters and relies on using those variables to evaluate the template into a valid json document.
-
-### Streams configuration
-
-The `streams` property is the way to configure telemetry into your topology element, the `streams` is defined as a collection of `DataStreams` which can be either a MetricStream or a EventStream, for example here is the payload for a MetricStream:
-
-```text
 {
     ...
     "streams": [
@@ -116,54 +70,13 @@ The `streams` property is the way to configure telemetry into your topology elem
 }
 ```
 
-The template requires the following fields:
 
-* `_type`: The type of Data Stream \[MetricStream\|EventStream\].
-* `name`: A name for the Data Stream.
-* `query`: Object representing the conditions to filter the stream \[MetricTelemetryQuery,EventTelemetryQuery\].
-* `dataSource`: The data source where to connect to fetch the data.
-* `dataType`: The kind of data received on the stream \[METRICS\|EVENTS\].
+## See also
 
-The `query` object is probably the most important atribute of the `stream` object. A `query` object is defined as:
+- [Template functions](/develop/reference/stj/stj_reference.md)
+- [Add a single telemetry stream to a single component](/use/health-state-and-alerts/add-telemetry-to-element.md)
+- [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
 
-* `_type`: The type of the Query \[MetricTelemetryQuery,EventTelemetryQuery\]
-* `conditions`: A collection of Objects with `key` and `value` atributes that represent the predicates that will help filtering the stream. The `key` atributes are defined by the data source that is being used. In the example all `keys` refer to atributes that you can filter on a Cloudwatch query. The `value` accepts String, Numeric or Boolean values.
-* `metricField`: The metric that we want to observe in the stream. _Field only available for Metric Streams_.
-* `aggregation`: The function to apply in order to aggregate the data. \[MEAN,PERCENTILE\_25,PERCENTILE\_50,PERCENTILE\_75,PERCENTILE\_90,PERCENTILE\_95,PERCENTILE\_98,PERCENTILE\_99,MAX,MIN,SUM,VALUE\_COUNT,EVENT\_COUNT\]. _Field only available for Metric Streams_
 
-## Executing a template
 
-After editing the input parameters and template function, you can preview how the component with the added telemetry would look like by pressing the 'Preview' button below the template function. For example, if we add an extra stream to monitor the `Errors` as:
 
-```text
-{
-  "_type": "MetricStream",
-  "name": "Invocation Error count",
-  "query": {
-    "conditions": [
-      {"key": "Namespace","value": "AWS/Lambda"},
-      {"key": "Resource","value": "{{ element.data.FunctionName }}"},
-      {"key": "Region","value": "{{ element.data.Location.AwsRegion }}"}
-  ],
-    "_type": "MetricTelemetryQuery",
-    "metricField": "Errors",
-    "aggregation": "SUM"
-  },
-  "dataSource": {{ resolve "DataSource" "CloudWatchSource" }},
-  "dataType": "METRICS"
-}
-```
-
-![](/.gitbook/assets/preview_new_stream.png)
-
-If any mistakes were made during the editing of the template, the preview function will show you where the errors occurred.
-
-![](/.gitbook/assets/template_editor_error_feedback.png)
-
-You can also visit the history of previously executed templates. The historic representation will show both the input parameters and template function of a previously executed template, as well as the raw result of that execution. By clicking 'Load this template' you then replace your text editors on the left for the parameters and the function with the one you just loaded from the history.
-
-![](/.gitbook/assets/template_editor_history.png)
-
-You can also go to 'Template Examples' and get references on how to build templates. The examples tab also allows you to load an example into the text editors on the left by pressing 'Use this example'.
-
-![](/.gitbook/assets/template_editor_examples.png)
