@@ -68,3 +68,4 @@ The Events Perspective shows events matching the time window selected in the tim
     - by topology elements that existed at that moment in time.
     - within the specified time range before that moment in time until the present time.
 
+![Time window](/.gitbook/assets/v42_time-window.png)
