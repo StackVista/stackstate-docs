@@ -9,7 +9,7 @@ The StackState Agent provides the following functionality:
 * Telemetry for hosts, processes, and containers
 * 100+ additional integrations
 
-The StackState Agent is open source: [view the source code on GitHub](https://github.com/StackVista/stackstate-agent).
+The StackState Agent is open source and available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Supported configurations
 
