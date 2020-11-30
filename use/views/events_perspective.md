@@ -22,7 +22,7 @@ StackState works with three different kinds of events, note that not all of thes
 
 ### Event category
 
-All events in StackState have a category assigned based on the event type and source system. The available categories are Activities, Alerts, Anomalies, Changes and Others. Events retrieved from external systems will have a category attached to them when they arrive in StackState. If no valid category is included in an event, it will be grouped under the category **Others**. 
+All events in StackState have a category assigned based on the event type and source system. The available categories are **Activities**, **Alerts**, **Anomalies**, **Changes** and **Others**. Events received from external systems will have a category attached to them when they arrive in StackState. If no valid category is included in an event, it will be grouped under the category **Others**. 
 
 ### Event properties
 
