@@ -1,3 +1,8 @@
+---
+description: Get started with pushing data to StackState from an external system.
+---
+
+
 # Push-integration tutorial
 
 This tutorial shows you how to create push-based integrations for StackState.
