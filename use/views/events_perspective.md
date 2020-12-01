@@ -31,7 +31,7 @@ Click on an event to display an overview of the event details in the **Event pro
 - **Elements** - The components and/or relations involved in the event.
 - **Event type** - A description of the event type.
 - **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
-- **Processed time** - The time the event was received by StackState. For internally generated events, this will be the same as the **event time**. Click on the timestamp to [time travel](#time-travel) to the moment that the event was processed by StackState.
+- **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click on the timestamp to [time travel](#time-travel) to the moment that the event was processed by StackState.
 - **Links** - Direct links to an external source of an event. For example, a ServiceNow change request or JIRA ticket.
 - **Description** - Additional information about the event. For example, the context of the event or its importance.
 - **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
@@ -51,12 +51,16 @@ The elements (components and relations) included in a view are defined by the to
 
 ### Event filters
 
-The list of events displayed in the Events Perspective can be filtered using the **View Filters** > **Filter Events** pane on the left side of the screen. Two filters are available to help you quickly locate relevant information:
+The events displayed in the Events Perspective can be filtered using the **View Filters** > **Filter Events** pane on the left side of the screen. Two filters are available to help you quickly locate relevant information:
 
 | Filter | Description |
 |:---|:---|
 | **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
 | **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment.  |
+
+### Time filter
+
+Specify a time window to filter the events shown by time. Only events that occurred in the selected time window are listed. You can click on the playhead or timestamp to [time travel](#time-travel) to a point in history. 
 
 ## Time travel
 
