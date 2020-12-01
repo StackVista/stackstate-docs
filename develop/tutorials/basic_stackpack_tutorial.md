@@ -1,5 +1,5 @@
 ---
-description: Learn how to create your own StackPack integrations
+description: Learn how to create your own StackPack integrations.
 ---
 
 # Basic StackPack tutorial
