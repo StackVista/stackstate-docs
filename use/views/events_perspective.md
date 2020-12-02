@@ -73,5 +73,3 @@ The Events Perspective shows events matching the time window selected in the tim
     - within the specified time window adjusted to fit the timestamp if required.
 
 ![Time window](/.gitbook/assets/v42_time-window.png)
-
-## 
