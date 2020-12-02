@@ -132,11 +132,19 @@ The following configuration changes must be manually applied after upgrade to St
 
 ### Upgrade to 4.1.0
 
+{% hint style="info" %}
+Go to the [StackState v4.1 docs site](https://docs.stackstate.com/v/4.1/).
+{% endhint %}
+
 * There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
   * The `sts-healthcheckuri` has been moved from port 7071 to 7080
   * The `startup-check` block has been removed completely
 
 ### Upgrade to 4.0.0
+
+{% hint style="info" %}
+Go to the [StackState v4.0 docs site](https://docs.stackstate.com/v/4.0/).
+{% endhint %}
 
 * With this version the minimal system requirements for the StackState node of the production setup raised from 16GB to 20GB
 * The configuration `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, you changes will need to be reapplied after upgrade.
@@ -155,10 +163,6 @@ The following configuration changes must be manually applied after upgrade to St
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+* In this release a new way of scripting [propagation functions](https://docs.stackstate.com/v/4.0/configure/propagation#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
-### Upgrade to 1.15.0
 
-* Upgrading to 1.15.0 will require you to reregister your license information. Please contact support for details.
-* Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
-* The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
