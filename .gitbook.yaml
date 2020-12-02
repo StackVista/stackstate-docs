@@ -2,7 +2,7 @@
 redirects:
   develop/creating_stackpacks: ./develop/developer-guides/stackpack/README.md
   integrations/: ./stackpacks/README.md
-  integrations/available_stackpacks/: ./stackpacks/README.md
+  integrations/available_stackpacks/: ./stackpacks/integrations
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
   integrations/available_stackpacks/api-integration: stackpacks/integrations/api-integration.md
   integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
