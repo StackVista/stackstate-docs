@@ -28,16 +28,16 @@ The View Filters pane on the left side of the screen in any View allows you to f
 
 The topology can also be navigated interactively. Hover over any component to bring up the component navigation menu. The available options allow tyou to change your view respective to the selected component.
 
-### Quick actions
+### Actions
 
-Hover over any component to bring up the component navigation menu. Select Quick actions to expand the topology selection in one of the following ways:
+Hover over any component to bring up the component navigation menu. Select **Actions** to expand the topology selection in one of the following ways:
 
 * Show all dependencies -- shows all dependencies for selected component
 * Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selected component
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-![Quick Actions](/.gitbook/assets/v41_quick-actions.png)
+![Actions](/.gitbook/assets/v41_quick-actions.png)
 
 You can extend this list with [component actions](/configure/topology/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
