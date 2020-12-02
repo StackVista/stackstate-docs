@@ -64,12 +64,12 @@ The Events Perspective shows events matching the time window selected in the tim
 
 ## Time travel
 
-The events perspective lists events that were generated:
+The Events Perspective lists events that were generated:
 
 - by the topology elements that existed at the point in time specified by the playhead.
 - within the specified time window.
 
-You can adjust the time window to increase or decrease the number of events displayed. Moving the playhead in the timeline or clicking a timestamp will time travel to the topology that was available at that point in history. The events perspective will list events for the topology elements available at the position of the playhead and within the selected time window. 
+You can adjust the time window to increase or decrease the number of events displayed. Moving the playhead in the timeline or clicking a timestamp will time travel to the topology that was available at that point in history. The Events Perspective will list events for the topology elements available at the position of the playhead and within the selected time window. 
 
 For example:
 
