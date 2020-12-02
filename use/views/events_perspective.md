@@ -60,16 +60,23 @@ The events displayed in the Events Perspective can be filtered using the **View 
 
 ### Time filter
 
-Specify a time window to filter the events shown by time. Only events that occurred in the selected time window are listed in the events perspective. You can click on the playhead or timestamp to time travel to the topology at a point in history, the events shown will be for the topology elements available at the position of the playhead and within the selected time window. 
+The Events Perspective shows events matching the time window selected in the timeline control. Specify a time window to filter the events shown by time. 
 
 ## Time travel
 
-The Events Perspective shows events matching the time window selected in the timeline control. 
+The events perspective lists events that were generated:
+
+- by the topology elements that existed at the point in time specified by the playhead.
+- within the specified time window.
+
+You can adjust the time window to increase or decrease the number of events displayed. Moving the playhead in the timeline or clicking a timestamp will time travel to the topology that was available at that point in history. The events perspective will list events for the topology elements available at the position of the playhead and within the selected time window. 
+
+For example:
 
 - Shrink the time window to display less events. 
-- Place the playhead on the timeline to time travel to the topology at a point in history. Events generated within the selected time window by topology elements that existed at the moment in time indicated by the playhead will be displayed.
-- Click on a timestamp from the Event Properties to move the playhead directly to that point on the timeline. This will update the events list to display events that were generated:
+- Place the playhead on the timeline to time travel to the topology available at a specific point in history. Events generated within the selected time window by topology elements that existed at the moment in time indicated by the playhead will be displayed.
+- Click on a timestamp from the **Event Properties** to move the playhead directly to that point on the timeline. This will update the events list to display events that were generated:
     - by topology elements that existed at that moment in time.
-    - within the specified time window adjusted to fit the timestamp if required.
+    - within the specified time window (this will be adjusted to fit the selected timestamp if required).
 
 ![Time window](/.gitbook/assets/v42_time-window.png)
