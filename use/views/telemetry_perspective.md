@@ -4,7 +4,7 @@ description: See metrics of the components in your IT landscape.
 
 # Telemetry Perspective
 
-The Telemetry Perspective shows telemetry streams for your [view](/use/views/README.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you do not need to pre-define the streams you want to see.
+The Telemetry Perspective shows telemetry streams for your [view](/use/views/README.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
 ## Telemetry and Components
 
