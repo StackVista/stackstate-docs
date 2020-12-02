@@ -124,7 +124,7 @@ The following configuration changes must be manually processed if you are using 
 
 * **etc/stackstate-receiver/application.conf**
     * Renamed the namespace `stackstate`. This is now `stackstate.receiver`.
-    * Renamed the parameter `apiKey`. This is now `apiKeys` and requires a list in the format `[${stackstate.receiver.key}, ${?EXTRA_API_KEY}]`.
+    * Renamed the parameter `apiKey`. This is now named `apiKeys` and should be a list in the format `[${stackstate.receiver.key}, ${?EXTRA_API_KEY}]`.
 
 * **processmanager.conf**
     * Added new parameter `processes.kafkaToElasticsearch.topology-events`.
