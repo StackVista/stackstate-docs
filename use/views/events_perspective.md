@@ -67,7 +67,7 @@ Specify a time window to filter the events shown by time. Only events that occur
 The Events Perspective shows events matching the time window selected in the timeline control. 
 
 - Shrink the time window to display less events. 
-- Place the playhead on the timeline to time travel to the topology at a point in history. Events generated within the selected time window by topology elements that existed at the moment in time indicated by the playhead will be displayed .
+- Place the playhead on the timeline to time travel to the topology at a point in history. Events generated within the selected time window by topology elements that existed at the moment in time indicated by the playhead will be displayed.
 - Click on a timestamp from the Event Properties to move the playhead directly to that point on the timeline. This will update the events list to display events that were generated:
     - by topology elements that existed at that moment in time.
     - within the specified time window adjusted to fit the timestamp if required.
