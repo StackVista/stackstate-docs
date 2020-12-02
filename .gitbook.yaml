@@ -2,7 +2,8 @@
 redirects:
   develop/creating_stackpacks: ./develop/developer-guides/stackpack/README.md
   integrations/: ./stackpacks/README.md
-  integrations/available_stackpacks/: ./stackpacks/README.md
+  integrations/available_stackpacks: ./stackpacks/integrations/README.md
+  integrations/available_stackpacks/: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
   integrations/available_stackpacks/api-integration: stackpacks/integrations/api-integration.md
   integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
@@ -24,7 +25,7 @@ redirects:
   integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
   integrations/available_stackpacks/static_topology: ./stackpacks/integrations/static_topology.md
   integrations/available_stackpacks/vsphere: ./stackpacks/integrations/vsphere.md
-  integrations/available_stackpacks/zabbixL: ./stackpacks/integrations/zabbix.md
+  integrations/available_stackpacks/zabbix: ./stackpacks/integrations/zabbix.md
   integrations/introduction: ./stackpacks/about-stackpacks.md
   integrations/mirrors: ./develop/developer-guides/mirrors/README.md
   integrations/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
