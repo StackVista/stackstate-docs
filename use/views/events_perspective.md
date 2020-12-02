@@ -30,8 +30,8 @@ Click on an event to display an overview of the event details in the **Event pro
 
 - **Elements** - The components and/or relations involved in the event.
 - **Event type** - A description of the event type.
-- **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the moment that the event occurred.
-- **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click on the timestamp to [time travel](#time-travel) to the moment that the event was processed by StackState.
+- **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](#time-travel) to the topology at the moment that the event occurred.
+- **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click on the timestamp to [time travel](#time-travel) to the topology at the moment that the event was processed by StackState.
 - **Links** - Direct links to an external source of an event. For example, a ServiceNow change request or JIRA ticket.
 - **Description** - Additional information about the event. For example, the context of the event or its importance.
 - **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
