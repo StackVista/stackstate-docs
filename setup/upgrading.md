@@ -120,9 +120,11 @@ Once StackState has been upgraded and started, verify that the new installation 
 The following configuration changes must be manually applied after upgrade to StackState v4.2.0:
 
 * **etc/stackstate-receiver/application.conf**
-    * Added new mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
     * Renamed the namespace `stackstate`. This is now `stackstate.receiver`.
     * Renamed the parameter `apiKey`. This is now `apiKeys`.
+
+* **etc/application_stackstate.conf**
+    * Added new mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl).
 
 * **processmanager.conf**
     * Added new parameter `processes.kafkaToElasticsearch.topology-events`.
