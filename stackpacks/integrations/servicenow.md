@@ -186,7 +186,7 @@ The ServiceNow check retrieves the following topology data from the ServiceNow C
 | Data | Description |
 |:---|:---|
 | Components | CI types retrieved from the ServiceNow CMDB, see [filter retrieved CI types](#specify-ci-types-to-retrieve). |
-| Relations |  | 
+| Relations | Relations retrieved from the `cmdb_rel_ci` table. | 
 
 #### Traces
 
