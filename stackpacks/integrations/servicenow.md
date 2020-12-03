@@ -50,13 +50,18 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
       - url: "https://<instance_ID>.service-now.com"
         user: <instance_username>
         password: <instance_password>
-        batch_size: 3000    # the maximum number of records to be returned. Default value is 2500, max value is 10000.
-        change_request_bootstrap_days: 100 # On first start we get all changed request that have been updated in last N days. Default value is 100
-        change_request_process_limit: 1000 # Maximum number of change requests that we process. Default value is 1000.
-        timeout: 20 # Timeout for requests to the ServiceNow API. Default value is 20 seconds.
-        verify_https: true # Verify certificate when using https. Default value is true.
+        # batch_size: 3000  
+        # change_request_bootstrap_days: 10
+        # change_request_process_limit: 2000 
+        # timeout: 20
+        # verify_https: false
     ```
-2. Optional: 
+2. You can also add optional configuration and filters:
+   - **batch_size** - the maximum number of records to be returned (default `2500`, max `10000`).
+   - **change_request_bootstrap_days** - On first start, all change requests that have been updated in last N days will be retrieved (default `100`).
+   - **change_request_process_limit** - The maximum number of change requests that should be processed (default `1000`).
+   - **timeout** - Timeout for requests to the ServiceNow API in seconds (default `20`).
+   - **verify_https** - Verify certificate when using https (default `true`).
    - Use queries to [filter change requests retrieved](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow (default all).
    - Use queries to [filter the CI types retrieved](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) (default all).
    - [Specify the CI types](#specify-ci-types-to-retrieve) that should be retrieved (default all).
