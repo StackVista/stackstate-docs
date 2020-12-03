@@ -93,6 +93,13 @@ No arguments.
 
 CreateUrlBuilder
 
+**Builder methods:**
+
+- `view()` - returns a `ViewUrlBuilder` for the specified view.
+- `view().at()` -  specifes a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
+- `view().withComponent()` - 
+- `view().url()` -
+
 **Examples:**
 
 Create a URL to a view at a specific time.
