@@ -30,7 +30,9 @@ To set up the StackState ServiceNow integration, you need to have:
 
 Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
 
-- **ServiceNow Instance ID**: the ServiceNow instance ID from which topology will be collected. For example, if the ServiceNow Instance URL is `https://dev102222.service-now.com`, then the ServiceNow Instance ID will be `dev102222`.
+- **ServiceNow Instance URL**: The ServiceNow instance URL from which topology data will be collected. 
+- **ServiceNow Instance Name**: the user-defined name of the ServiceNow account shown in configurations such as views. 
+
 
 ### Configure
 
