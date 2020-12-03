@@ -98,7 +98,7 @@ Creates a URL builder that can be used to generate URLs that can be linked back 
 Create URL to a view at a given time.
 ```
 View.getAll().then { views ->
-UI.createUrl().view(views[0]).at('-15m').url()
+    UI.createUrl().view(views[0]).at('-15m').url()
 }
 ```
 
