@@ -82,7 +82,7 @@ Install the SCOM StackPack from the StackState UI **StackPacks** > **Integration
 {% tab title="API integration" %}
 To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
     - **hostip** - SCOM IP.
     - **domain** - active directory domain where the SCOM is located.
     - **username** 
@@ -137,7 +137,7 @@ As two API requests are required to retrieve data for each component and each de
 {% tab title="PowerShell integration" %}
 To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2 running on the same box as your SCOM instance:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
     - **integration mode** - to use the PowerShell integration, set to `powershell`.
     ```
     init_config:
