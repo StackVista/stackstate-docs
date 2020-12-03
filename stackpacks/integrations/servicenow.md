@@ -11,7 +11,7 @@ The ServiceNow StackPack allows near real time synchronization between ServiceNo
 ![Data flow](/.gitbook/assets/stackpack-servicenow.png)
 
 - Agent V2 connects to the configured [ServiceNow API](#rest-api-endpoints).
-- CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all). Change request events are retrieved in the same run.
+- CIs and dependencies for the configured CI types are retrieved from the ServiceNow CMDB (default all). Change request events are retrieved in the same run.
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming CIs and dependencies into topology components and relations. 
 - Retrieved change requests are attached to the associated elements and listed in the StackState Events Perspective.
@@ -32,7 +32,6 @@ Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integ
 
 - **ServiceNow Instance URL**: The ServiceNow instance URL from which topology data will be collected. 
 - **ServiceNow Instance Name**: the user-defined name of the ServiceNow account shown in configurations such as views. 
-
 
 ### Configure
 
