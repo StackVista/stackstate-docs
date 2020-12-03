@@ -87,22 +87,22 @@ Creates a URL builder that can be used to generate URLs that can be linked back 
 
 **Args:**
 
-
+No arguments.
 
 **Return type:**
 
-
+CreateUrlBuilder
 
 **Examples:**
 
-Create URL to a view at a given time.
+Create a URL to a view at a specific time.
 ```
 View.getAll().then { views ->
     UI.createUrl().view(views[0]).at('-15m').url()
 }
 ```
 
-Create URL to a view focus on a component
+Create a URL to a view focussing on a component.
 
 ```
 View.getAll().then { views ->
