@@ -57,9 +57,9 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
         verify_https: true # Verify certificate when using https. Default value is true.
     ```
 2. Optional: 
-    - [Use queries to filter events](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved from ServiceNow (default all).
-    - [Use queries to filter the CI types](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved (default all).
-    - [Specify the CI types](#specify-ci-types-to-retrieve) that should be retrieved (default all).
+   - Use queries to [filter change requests retrieved](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow (default all).
+   - Use queries to [filter the CI types retrieved](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) (default all).
+   - [Specify the CI types](#specify-ci-types-to-retrieve) that should be retrieved (default all).
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
