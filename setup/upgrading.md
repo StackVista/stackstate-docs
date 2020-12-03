@@ -120,7 +120,7 @@ Once StackState has been upgraded and started, verify that the new installation 
 The following configuration must be manually added after upgrade:
 
 * **etc/application_stackstate.conf**
-    * Added new mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl) and is how stackstate is reachable from external machines. You can manually create a system environment variable called `STACKSTATE_BASE_URL` or add the value manually as a string in the file `application_stackstate.conf`.
+    * New mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl) and is how stackstate is reachable from external machines. You can manually create a system environment variable called `STACKSTATE_BASE_URL` or add the value manually as a string in the file `application_stackstate.conf`.
 
 The following configuration changes must be manually processed if you are using a customised version of a file:
 

@@ -29,7 +29,7 @@ Event handlers respond to health state change events and run event handler funct
 ![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
 
 1. Select **Events Settings** on the left.
-2. Click **ADD EVENT HANDLER**.
+2. Click **ADD NEW EVENT HANDLER**.
 3. Select the trigger event and event handler to run: 
     - **On event** - the type of [state change events](#state-change-events) that should trigger the alert or automated action.
     - **Run event handler** - the [event handler function](/configure/topology/event-handlers.md#event-handler-functions) that should run whenever the selected state change event type is generated. StackState ships with event handler functions that can send a message via email, Slack or SMS, or POST to an HTTP webhook. You can also [create your own](/configure/topology/event-handlers.md).
