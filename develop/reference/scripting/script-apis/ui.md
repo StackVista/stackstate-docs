@@ -1,7 +1,5 @@
 ---
-title: Script API - UI
-kind: Documentation
-description: Functions that control the user-interface.
+description: Functions that control the StackState user-interface.
 ---
 
 # Script API: UI
@@ -83,3 +81,45 @@ Open the stackstate.com website in a new tab in the browser.
 UI.redirectToUrl("http://wwww.stackstate.com")
 ```
 
+## Function: `createUrl`
+
+Creates a URL builder that can be used to generate URLs that can be linked back in Stackstate.
+
+**Args:**
+
+* 
+
+**Return type:**
+
+* 
+
+**Examples:**
+
+Create URL to a view at a given time.
+```
+View.getAll().then { views ->
+UI.createUrl().view(views[0]).at('-15m').url()
+}
+```
+
+Create URL to a view focus on a component
+
+```
+View.getAll().then { views ->
+	Component.withId(component).get().then { component ->
+		UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
+	}
+}
+```
+
+## Function: baseUrl
+
+Returns the baseUrl of the StackState instance as configured in the `application.conf` or `values.yaml`.
+
+**Examples:**
+
+Return the base URL from the StackState configuration.
+
+```
+UI.baseUrl()
+```
