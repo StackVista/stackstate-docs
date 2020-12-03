@@ -95,10 +95,10 @@ CreateUrlBuilder
 
 **Builder methods:**
 
-- `view()` - returns a `ViewUrlBuilder` for the specified view.
-- `view().at()` -  specifes a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
-- `view().withComponent()` - 
-- `view().url()` -
+- `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
+    - `at()` -  specifes a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
+    - `withComponent()` - 
+    - `url()` -
 
 **Examples:**
 
