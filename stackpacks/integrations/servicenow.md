@@ -74,11 +74,10 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
 1. In ServiceNow, create and copy a filter for CI types or change requests. See the ServiceNow documentation for details on [filtering with sysparm_query parameters (servicenow.com)](https://developer.servicenow.com/dev.do#!/learn/learning-plans/orlando/servicenow_application_developer/app_store_learnv2_rest_orlando_more_about_query_parameters)
 2. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml`.
 3. Uncomment the CI type or event that you would like to add a filter to:
-    - `cmdb_ci_sysparm_query` - ServiceNow CMDB Configuration Items query
-    - `cmdb_rel_ci_sysparm_query` - ServiceNow CMDB Configuration Items Relations query
-    - `change_request_sysparm_query` - ServiceNow Change Request query
+    - `cmdb_ci_sysparm_query` - ServiceNow CMDB Configuration Items query.
+    - `cmdb_rel_ci_sysparm_query` - ServiceNow CMDB Configuration Items Relations query.
+    - `change_request_sysparm_query` - ServiceNow Change Request query.
     - `custom_cmdb_ci_field` - ServiceNow CMDB Configuration Item custom field mapping
-    - 
 4. Add the filter you copied from ServiceNow. For example
 
    ```
