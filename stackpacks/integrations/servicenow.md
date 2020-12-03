@@ -6,14 +6,15 @@ description: Collect topology data from ServiceNow
 
 ## Overview
 
-The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items (CIs) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations.
+The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items (CIs) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations. ServiceNow change request events are also retrieved.
 
 ![Data flow](/.gitbook/assets/stackpack-servicenow.png)
 
 - Agent V2 connects to the configured [ServiceNow API](#rest-api-endpoints).
-- CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all).
+- CIs and dependencies for the [configured CI types](##filter-retrieved-ci-types) are retrieved from the ServiceNow CMDB (default all). Change request events are retrieved in the same run.
 - Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming CIs and dependencies into topology components and relations. 
+- Retrieved change requests are attached to the associated elements and listed in the StackState Events Perspective.
 
 ## Setup
 
@@ -35,7 +36,7 @@ Install the ServiceNow StackPack from the StackState UI **StackPacks** > **Integ
 
 To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.
     - **user** - a ServiceNow user with access to the required [ServiceNow API endopints](#rest-api-endpoints)
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
@@ -47,20 +48,31 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
     
     instances:
       - url: "https://<instance_ID>.service-now.com"
-        basic_auth:
-           user: <instance_username>
-           password: <instance_password>
-        batch_size: 100    # the maximum number of records to be returned
+        user: <instance_username>
+        password: <instance_password>
+        batch_size: 3000    # the maximum number of records to be returned. Default value is 2500, max value is 10000.
+        change_request_bootstrap_days: 100 # On first start we get all changed request that have been updated in last N days. Default value is 100
+        change_request_process_limit: 1000 # Maximum number of change requests that we process. Default value is 1000.
+        timeout: 20 # Timeout for requests to the ServiceNow API. Default value is 20 seconds.
+        verify_https: true # Verify certificate when using https. Default value is true.
     ```
-2. Optional: [Specify the CI types](#filter-retrieved-ci-types) that should be retrieved (default all).
+2. Optional: 
+        - [Use queries to filter events](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved from ServiceNow (default all).
+    - [Use queries to filter the CI types](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved (default all).
+    - [Specify the CI types](#specify-ci-types-to-retrieve) that should be retrieved (default all).
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
-#### Filter retrieved CI types
+#### Use ServiceNow queries to filter retrieved events and CI types
+
+
+
+
+#### Specify CI types to retrieve
 
 By default, all available ServiceNow CI types will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml`.
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml`.
     - A subset of the available CI types is listed and commented out.
 3. Uncomment the line `include_resource_types` and the CI types you would like to send to StackState.
     You can add any valid ServiceNow CI type to the **include_resource_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a StackState view. 
@@ -126,7 +138,11 @@ sudo stackstate-agent status
 
 #### Events
 
-The ServiceNow check does not retrieve any events data.
+The ServiceNow check retrieves the following events data from ServiceNow:
+
+| Data | Description |
+|:---|:---|
+| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](/use/views/events_perspective). |
 
 #### Metrics
 
@@ -138,7 +154,7 @@ The ServiceNow check retrieves the following topology data from the ServiceNow C
 
 | Data | Description |
 |:---|:---|
-| Components | CI types retrieved from the ServiceNow CMDB, see [filter retrieved CI types](#filter-retrieved-ci-types). |
+| Components | CI types retrieved from the ServiceNow CMDB, see [filter retrieved CI types](#specify-ci-types-to-retrieve). |
 | Relations |  | 
 
 #### Traces
@@ -151,6 +167,7 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 
 | Table Name | REST API Endpoint | 
 |:---|:---|
+| change_request | `/api/now/table/change_request` |
 | cmdb_ci  |  `/api/now/table/cmdb_ci` |
 | cmdb_rel_type  |  `/api/now/table/cmdb_rel_type` |
 | cmdb_rel_ci  |  `/api/now/table/cmdb_rel_ci` |
