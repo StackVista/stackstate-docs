@@ -57,7 +57,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
         verify_https: true # Verify certificate when using https. Default value is true.
     ```
 2. Optional: 
-        - [Use queries to filter events](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved from ServiceNow (default all).
+    - [Use queries to filter events](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved from ServiceNow (default all).
     - [Use queries to filter the CI types](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) that should be retrieved (default all).
     - [Specify the CI types](#specify-ci-types-to-retrieve) that should be retrieved (default all).
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
@@ -65,7 +65,33 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
 
 #### Use ServiceNow queries to filter retrieved events and CI types
 
+1. In ServiceNow, create and copy a filter for CI types or change requests. See the ServiceNow documentation for details on [filtering with sysparm_query parameters (servicenow.com)](https://developer.servicenow.com/dev.do#!/learn/learning-plans/orlando/servicenow_application_developer/app_store_learnv2_rest_orlando_more_about_query_parameters)
+2. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml`.
+3. Uncomment the CI type or event that you would like to add a filter to:
+    - `cmdb_ci_sysparm_query` - ServiceNow CMDB Configuration Items query
+    - `cmdb_rel_ci_sysparm_query` - ServiceNow CMDB Configuration Items Relations query
+    - `change_request_sysparm_query` - ServiceNow Change Request query
+    - `custom_cmdb_ci_field` - ServiceNow CMDB Configuration Item custom field mapping
+    - 
+4. Add the filter you copied from ServiceNow. For example
 
+   ```
+   ... 
+   # ServiceNow CMDB Configuration Items query. There is no default value.
+   # cmdb_ci_sysparm_query: company.nameSTARTSWITHstackstate
+   
+   # ServiceNow CMDB Configuration Items Relations query. There is no default value.
+   # cmdb_rel_ci_sysparm_query: parent.company.nameSTARTSWITHstackstate^ORchild.company.nameSTARTSWITHstackstate
+   
+   # ServiceNow Change Request query. There is no default value.
+   # change_request_sysparm_query: company.nameSTARTSWITHstackstate
+   
+   # ServiceNow CMDB Configuration Item custom field mapping. The default value is cmdb_ci.
+   # custom_cmdb_ci_field: u_configuration_item
+   ...
+   ```
+   
+5. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 
 #### Specify CI types to retrieve
@@ -213,3 +239,4 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 - [Secrets management](/configure/security/secrets_management.md)
 - [StackState Agent integrations - ServiceNow (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 - [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)
+- [Filtering with sysparm_query parameters (servicenow.com)](https://developer.servicenow.com/dev.do#!/learn/learning-plans/orlando/servicenow_application_developer/app_store_learnv2_rest_orlando_more_about_query_parameters)
