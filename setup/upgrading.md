@@ -117,10 +117,20 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 ### Upgrade to 4.2.0
 
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState (how StackState is reachable from external machines) and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl). 
+
+The file `values.yaml` file should be updated to include the new `stackstate.baseUrl` parameter. If this is not present, StackState will default to the old `stackstate.receiver.baseUrl`.
+
+{% endtab %}
+{% tab title="Linux" %}
+
 The following configuration must be manually added after upgrade:
 
 * **etc/application_stackstate.conf**
-    * New mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl) and is how stackstate is reachable from external machines. You can manually create a system environment variable called `STACKSTATE_BASE_URL` or add the value manually as a string in the file `application_stackstate.conf`.
+    * New mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState (how StackState is reachable from external machines) and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl). You can manually create a system environment variable called `STACKSTATE_BASE_URL` or add the value manually as a string in the file `application_stackstate.conf`.
 
 The following configuration changes must be manually processed if you are using a customised version of a file:
 
@@ -133,6 +143,10 @@ The following configuration changes must be manually processed if you are using 
 
 * **processmanager/kafka-topics.conf`**
     * Added new section `kafka.topics.sts_topology_events`.
+    
+{% endtab %}
+{% endtabs %}
+
 
 ### Upgrade to 4.1.0
 
