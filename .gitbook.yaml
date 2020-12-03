@@ -166,3 +166,5 @@ redirects:
   use/perspectives/telemetry-perspective: ./use/views/telemetry_perspective.md
   use/perspectives/topology-perspective: ./use/views/topology_perspective.md
   use/perspectives/trace-perspective: ./use/views/traces_perspective.md
+  basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
+  basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
