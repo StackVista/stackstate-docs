@@ -20,20 +20,22 @@ Functions in StackState can be either synchronous or asynchronous (async).
 
 | Function | Synchronous | Async |
 |:---|:---:|:---:|
+| Event handler function | ✅ | ✅ \(from v4.2\) |
+| Propagation functions | ✅| ✅ |
 | Baseline function | ✅ | - |
 | Check function | ✅ | - |
 | Component mapper function | ✅ | - |
-| Event handler function | ✅ | - |
 | Id extractor function | ✅ | - |
-| Propagation functions | ✅| ✅ \(from v1.15.1\) |
 | Relation mapper function | ✅ | - |
 
 
 ### Async functions
 
-Propagation functions can optionally be created as asynchronous (async) functions. This gives the function access to the [Script APIs](/develop/reference/scripting/) and allows more functions to be run in parallel.
+Propagation functions and event handler functions can optionally be created as asynchronous (async) functions. This gives the function access to the StackState [Script APIs](/develop/reference/scripting/) and allows more functions to run in parallel.
 
-Read more about [propagation functions](/configure/topology/propagation.md#custom-propagation-functions).
+Read more about:
+ - [Propagation functions](/configure/topology/propagation.md#custom-propagation-functions).
+ - [Event handlers](/use/health-state-and-alerts/set-up-alerting.md)
 
 ### Synchronous functions
 
@@ -41,10 +43,9 @@ In StackState, functions are generally written in a synchronous blocking manner.
 
 Read more about:
 
-- [Baseline functions](/use/baselining.md#baseline-functions)
+- [Baseline functions](/use/health-state-and-alerts/anomaly-detection-with-baselines.md#baseline-functions)
 - [Check functions](/configure/telemetry/checks_and_streams.md#check-functions)
 - [Component mapper functions](/use/introduction-to-stackstate/mapping_functions.md)
-- [Event handler functions](/use/alerting.md#alerting-using-event-handlers)
 - [Id extractor functions](/use/introduction-to-stackstate/id_extraction.md)
 - [Propagation functions](/configure/topology/propagation.md#custom-propagation-functions)
 - [Relation mapper functions](/use/introduction-to-stackstate/mapping_functions.md)

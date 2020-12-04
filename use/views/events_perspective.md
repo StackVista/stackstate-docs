@@ -80,3 +80,9 @@ For example:
     - within the specified time window (this will be adjusted to fit the selected timestamp if required).
 
 ![Time window](/.gitbook/assets/v42_time-window.png)
+
+## See also
+
+- [Use events to trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md)
+- [Filtering data](/use/views/filters.md)
+- [Working with StackState views](/use/views/README.md)

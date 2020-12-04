@@ -7,7 +7,7 @@ kind: Documentation
 
 When preparing an instance specific template file, please keep in mind that you will use some of the identifiers that point to the shared template file. It is highly recommended to [prepare your shared template first](/develop/developer-guides/stackpack/prepare_shared_template.md).
 
-In this file you need to provide configuration blocks for the DataSource used by this instance, Topology information, QueryViews, etc. You can identify them in your export `.stj` file by identifier with `instance` entry, e.g. `"urn:stackpack:{{StackPackName}}:instance:{{instanceId}}:sync:test"`. However, this file also requires pointers to functions, Component templates, and Relation templates from the shared template file as in the below example:
+In this file you need to provide configuration blocks for the DataSource used by this instance, Topology information, QueryViews, etc. You can identify them in your export `.stj` file by identifier with `instance` entry, for example `"urn:stackpack:{{StackPackName}}:instance:{{instanceId}}:sync:test"`. However, this file also requires pointers to functions, Component templates, and Relation templates from the shared template file as in the below example:
 
 Also, in this file you need to provide mapping functions called `componentActions` from the shared-template file to execute on the instance nodes:
 

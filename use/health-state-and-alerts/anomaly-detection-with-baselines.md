@@ -17,7 +17,7 @@ The process for detecting anomalies using baselines consists out of two steps:
 1. A `baseline` enriches a metric stream with a baseline. The metric stream is transformed into a `baseline metric stream`. Baselines are continuously calculated by baseline functions based on given the batch size.
 2. A `check` determines the health state of a component or relation based on the metrics in the metric stream and its baseline. Once a metric stream is a baseline metric stream, check functions that support such baseline metric streams are available for selection.
 
-## Configure a baseline for a metric stream
+## Add a baseline to a metric stream
 
 {% hint style="info" %}
 Metric streams configured with a baseline will not be picked up for anomaly detection by the [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md). 
@@ -48,6 +48,11 @@ To configure a baseline for a metric stream:
 ## Baseline functions
 
 Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/reference/scripting/README.md). By default the following baseline functions are supplied:
+
+- [Stationary Auto-Tuned Baseline](#stationary-auto-tuned-baseline)
+- [Median Absolute Deviation](#median-absolute-deviation)
+- [Stationary Customizable Baseline based on EWMA](#stationary-customizable-baseline-based-on-ewma)
+- you can also [create your own custom baseline function](/configure/telemetry/baseline-functions.md)
 
 ### Stationary Auto-Tuned Baseline
 
@@ -102,7 +107,7 @@ When dealing with metric streams which are seasonal either by day or week. It al
 
 ### Stationary Customizable Baseline based on EWMA
 
-This baseline functions works well for stationary metrics \(e.g. data center temperature, average response time, error count\). It uses the Exponential Weighted Moving Average \(EWMA\) algorithm. It is the same as the `Stationary Auto-Tuned Baseline`, but leaves the tuning up to you.
+This baseline functions works well for stationary metrics, for example data center temperature, average response time and error count. It uses the Exponential Weighted Moving Average \(EWMA\) algorithm. It is the same as the `Stationary Auto-Tuned Baseline`, but leaves the tuning up to you.
 
 **Pros:**
 
@@ -128,7 +133,7 @@ This baseline functions works well for stationary metrics \(e.g. data center tem
 
 ## Check for anomalies on a baseline metric stream
 
-Once you have [added a baseline](#configure-a-baseline-for-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
+Once you have [added a baseline](#add-a-baseline-to-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
 
 1. Select the component/relation to open the Component/Relation properties pane with the baseline metric stream on it
 2. Click **+ ADD** next to **Health**.
@@ -143,10 +148,11 @@ Once you have [added a baseline](#configure-a-baseline-for-a-metric-stream) to a
 Once you have added the check function, it may take 5 or more minutes \(dependent on the baseline batch size\) before the check changes health state.
 {% endhint %}
 
-Alerting on baseline checks works exactly the same as with other health checks. For details on how to set this up, see [send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers).
+Alerting on baseline checks works exactly the same as with other health checks. Find out how to [set up alertubg](/use/health-state-and-alerts/set-up-alerting.md).
 
 ## See also
 
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
 - [Autonomous Anomaly detector add-on StackPack](/stackpacks/add-ons/aad.md)
-- [Send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers)
+- [Send alerts with event handlers](/use//health-state-and-alerts/set-up-alerting.md)
+- [Create custom baseline functions](/configure/telemetry/baseline-functions.md)

@@ -54,7 +54,7 @@ Create a new Mirror datasource:
 
 * **DataSourceUrl** - points to Prometheus mirror endpoint  [http://:9900](http://:9900)
 * **Api Key** - should be the same key as specified by `global.apiKey` mirror configuration
-* **Connection Details JSON** - the mirror configuration json, e.g.
+* **Connection Details JSON** - the mirror configuration json, for example:
 
   ```text
     {
@@ -96,7 +96,7 @@ Prometheus histogram and summary queries are **not** supported from the query in
 
 ### Tilda ~ query
 
-The query allows arbitrary Prometheus queries, e.g.
+The query allows arbitrary Prometheus queries, for example:
 
 ```text
     ~ = histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{instance='127.0.0.1:80', name='payment-service'}[1m])) by (name, le)) * 1000

@@ -8,7 +8,7 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 ## Install the StackState CLI
 
-A standalone executable is available to run the StackState CLI on [Linux](cli-install.md#linux-install) and [Windows](cli-install.md#windows-install). You can also run the CLI [inside a Docker container](cli-install.md#docker-install-linux-windows-mac) on Linux, Windows or MacOS.
+A standalone executable is available to run the StackState CLI on [Linux](#linux-install) and [Windows](#windows-install). You can also run the CLI [inside a Docker container](#docker-install-linux-windows-mac) on Linux, Windows or MacOS.
 
 ### Linux install
 
@@ -29,7 +29,7 @@ A standalone executable file is available to run the StackState CLI on Linux.
    ```
 
 3. \(optional\) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-4. Follow the steps below to [launch the configuration wizard](cli-install.md#wizard-configuration-linux-and-windows-install) or [manually configure](cli-install.md#manual-configuration) the StackState CLI.
+4. Follow the steps below to [launch the configuration wizard](#wizard-configuration-linux-and-windows-install) or [manually configure](#manual-configuration) the StackState CLI.
 
 ### Windows install
 
@@ -44,7 +44,7 @@ A standalone executable file is available to run the StackState CLI on Windows.
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `sts.exe`.
 3. \(optional\) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
-4. Follow the steps below to [launch the configuration wizard](cli-install.md#wizard-configuration-linux-and-windows-install) or [manually configure](cli-install.md#manual-configuration) the StackState CLI.
+4. Follow the steps below to [launch the configuration wizard](#wizard-configuration-linux-and-windows-install) or [manually configure](#manual-configuration) the StackState CLI.
 
 ### Docker install \(Linux, Windows, Mac\)
 
@@ -77,7 +77,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
    ```
 
 2. \(optional\) Put put the `bin` folder to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-3. Follow the steps below to [manually configure the StackState CLI](cli-install.md#manual-configuration).
+3. Follow the steps below to [manually configure the StackState CLI](#manual-configuration).
 
 ## Configure the StackState CLI
 
@@ -234,10 +234,10 @@ sts topic show <topic>
 
 You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send test topology or telemetry data to StackState.
 
-* [Send metrics data](cli-install.md#metrics)
-* [Send events data](cli-install.md#events)
-* [Send topology data](cli-install.md#topology)
-* [Send anomaly data](cli-install.md#anomaly)
+* [Send metrics data](#metrics)
+* [Send events data](#events)
+* [Send topology data](#topology)
+* [Send anomaly data](#anomaly)
 
 #### Metrics
 
@@ -315,9 +315,9 @@ sts anomaly send -h
 
 The StackState CLI can be used to manage the StackPacks in your StackState instance.
 
-* [Install a StackPack](cli-install.md#install-a-stackpack)
-* [Upgrade a StackPack](cli-install.md#upgrade-a-stackpack)
-* [Uninstall a StackPack](cli-install.md#uninstall-a-stackpack)
+* [Install a StackPack](#install-a-stackpack)
+* [Upgrade a StackPack](#upgrade-a-stackpack)
+* [Uninstall a StackPack](#uninstall-a-stackpack)
 
 #### Install a StackPack
 

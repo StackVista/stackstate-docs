@@ -1,8 +1,3 @@
----
-title: Configuring authentication
-kind: Documentation
----
-
 # Authentication
 
 Out of the box, StackState is configured with [file-based authentication](/setup/authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
@@ -184,7 +179,7 @@ helm install \
 stackstate/stackstate
 ```
 
-For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate/README.md).
+For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate).
 
 ## KeyCloak OIDC Authentication Server
 
@@ -241,7 +236,7 @@ In order to connect StackState to KeyCloak, you need to add a new client configu
 4. **Standard Flow Enabled** - This should be `Enabled`
 5. **Implicit Flow Enabled** - This should be `Disabled`
 6. **Root URL** - This should point to the root location of StackState
-7. **Valid redirect URIs** - This shoud be `/loginCallback/*`
+7. **Valid redirect URIs** - This should be `/loginCallback/*`
 8. **Base URL** - This should point to the root location of StackState
 
 ## REST API authentication

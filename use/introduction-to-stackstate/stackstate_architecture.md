@@ -20,7 +20,7 @@ StackState configuration and topology data are stored in the StackGraph database
 
 ## StackState User Interface and CLI
 
-The StackState User Interface visualizes all collected data in [perspectives](/use/views/perspectives.md). You can also customize your instance of StackState here by adding automization steps, such as event handlers and output to external systems.
+The StackState User Interface visualizes all collected data in [perspectives](/use/introduction-to-stackstate/perspectives.md). You can also customize your instance of StackState here by adding automization steps, such as event handlers and output to external systems.
 
 You can optionally install the [StackState CLI](/develop/reference/cli_reference.md) to control your StackState instance directly from the command line.
 
