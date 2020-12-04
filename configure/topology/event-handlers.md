@@ -90,7 +90,7 @@ The **view** and **event** properties described below can be used in **synchrono
 - `view.getIdentifier` - returns the globally unique URN value that identifies the view.
 - `view.getTags` - returns any user-specified metadata attached to a view when it was created.
 
-**Event** properties return details of the received event, these vary for different event types. Note that the default parameter name is`event`, this can be modified if you choose.
+**Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
         
 A **HealthStateChangedEvent** is generated when an element's own health state changes.
 - `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
@@ -122,7 +122,7 @@ The **view** and **event** properties described below can be used in **async** e
 - `view.identifier` - returns the globally unique URN value that identifies the view.
 - `view.tags` - returns any user-specified metadata attached to a view when it was created.
 
-**Event** properties return details of the received event, these vary for different event types. Note that the default parameter name is`event`, this can be modified if you choose.
+**Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
 **HealthStateChangedEvent** - generated when an element's own health state changes.
 - `event.HealthStateChengedEvent.triggeredTimestamp` - returns the time at which the state change occurred.
