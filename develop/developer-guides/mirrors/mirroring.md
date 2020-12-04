@@ -1,6 +1,4 @@
 ---
-title: Mirroring
-kind: documentation
 description: Pull telemetry from existing telemetry sources using the concept of mirroring.
 ---
 
@@ -24,7 +22,7 @@ There are however also some _disadvantages_:
 
 If you wish to use mirroring, but need a solution to any of the above disadvantages we recommend that you [contact us](http://support.stackstate.com).
 
-To get started with mirroring, have a look at our [mirroring tutorial](../../tutorials/mirror_tutorial.md).
+To get started with mirroring, have a look at our [mirroring tutorial](/develop/tutorials/mirror_tutorial.md).
 
 ## Mirror Architecture
 

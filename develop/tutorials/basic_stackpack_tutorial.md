@@ -120,7 +120,7 @@ In the Template function, replace the `streams` part with the following code:
 ```
 
 {% hint style="info" %}
-The [Push Integration tutorial](push_integration_tutorial.md) describes in more detail how to create this check.
+The [Push Integration tutorial](/develop/tutorials/push_integration_tutorial.md) describes in more detail how to create this check.
 {% endhint %}
 
 Use the **Preview** button to see what the resulting component will look like.

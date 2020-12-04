@@ -9,7 +9,7 @@ kind: documentation
 
 The StackState API-Integration StackPack enables the StackState synchronization for the StackState's API-Integration Agents.
 
-With API-Integration Agents you can run checks which connect to external systems like [ServiceNow](servicenow.md).
+With API-Integration Agents you can run checks which connect to external systems like [ServiceNow](/stackpacks/integrations/servicenow.md).
 
 The StackState API-Integration Agent is open source: [view the source code on GitHub](https://github.com/StackVista/sts-agent).
 

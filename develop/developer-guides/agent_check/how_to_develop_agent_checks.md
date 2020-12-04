@@ -1,8 +1,3 @@
----
-title: How to develop agent checks
-kind: Documentation
----
-
 # How to develop agent checks
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
@@ -241,7 +236,7 @@ self.event({
 })
 ```
 
-Learn more about the Agent Check Event API [here](checks_in_agent_v2.md)
+Learn more about the [Agent Check Event API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
 
 ### **Sending in Stream Definitions and Health Checks**
 
@@ -275,7 +270,7 @@ self.component("this-host-unique-identifier", "Host",
 
 We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list in our `this-host` component.
 
-Learn more about the Agent Check Telemetry API [here](checks_in_agent_v2.md#sending-streams-and-checks)
+Learn more about the [Agent Check Telemetry API](/develop/developer-guides/agent_check/checks_in_agent_v2.md#sending-streams-and-checks)
 
 ### Sending Service Checks
 
@@ -295,7 +290,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the Agent Check Service Check API [here](checks_in_agent_v2.md)
+Learn more about the [Agent Check Service Check API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
 
 ### Adding Python Dependencies
 

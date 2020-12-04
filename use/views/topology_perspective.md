@@ -73,7 +73,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 ## Problem clusters
 
-If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Overview pane](/use/views/README.md#view-overview).
+If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Details panel](/use/views/README.md#the-view-details-panel).
 
 ## Root cause outside current view
 
