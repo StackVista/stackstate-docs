@@ -24,7 +24,7 @@
   * [StackState CLI](setup/installation/cli-install.md)
   * [Troubleshooting](setup/installation/troubleshooting.md)
 * [Authentication](setup/authentication.md)
-* [Data management](setup/data/README.md)
+* [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)
     * [Kubernetes backup](setup/data-management/backup_restore/kubernetes_backup.md)
     * [Linux backup](setup/data-management/backup_restore/linux_backup.md)
@@ -143,7 +143,7 @@
 
 ## 📖 Develop
 
-  * [Developer guides](develop/guides/README.md)
+  * [Developer guides](develop/developer-guides/README.md)
       * [Develop StackPacks](develop/developer-guides/stackpack/README.md)
         * [Packaging](develop/developer-guides/stackpack/prepare_package.md)
         * [How to get a template file](develop/developer-guides/stackpack/how_to_get_a_template_file.md)
