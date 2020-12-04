@@ -155,7 +155,7 @@ Event handler functions use plugins to send notifications to external systems. T
 
 ### Logging
 
-You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/).
+You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/enable-logging.md).
 
 ## See also
 
