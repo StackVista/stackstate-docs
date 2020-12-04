@@ -47,7 +47,7 @@ Event handler functions can be written as async (default) or synchronous.
 
 #### Async event handler functions (default)
 
-An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function, this allows more extensive details around an event to be included in alerts sent to Slack, such as links to relevant data and a possible root cause. 
+An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request with a custom header using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function, this allows more extensive details around an event to be included in alerts sent to Slack, such as links to relevant data and a possible root cause. 
 
 Event handler functions use plugins to interact with external systems, not all plugins are available for use with async functions. See [plugins](#plugins) below for further details. The [available properties](#properties-for-async-functions) that can be retrieved from the default parameters are described below.
 
@@ -62,19 +62,19 @@ Event handler functions use plugins to interact with external systems, synchrono
 #### Properties for synchronous functions
 
 The `view` properties listed below can be used in **synchronous** event handler functions, they return details of the view the event handler is in. Note that `view`  or `scope` parameter name can be used, or an alias.
-- `view.getName` - returns the name of the view
-- `view.getDescription` - returns the description
-- `view.getQuery` - returns an STQL query of the view
-- `view.getIdentifier` - 
-- `view.getTags` - 
+- `view.getName` - returns the name of the view.
+- `view.getDescription` - returns the description.
+- `view.getQuery` - returns an STQL query of the view.
+- `view.getIdentifier` - returns the globally unique URN value that identifies the view.
+- `view.getTags` - returns any user-specified metadata attached to a view when it was created.
 
 The `event` properties for different event types below can be used in **synchronous** event handler functions, they return details of the received event. Note that `event` is the default parameter name, but this can be modified if you choose.
         
 - A **HealthStateChangedEvent** is generated when an element's own health state changes.
     - `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
     - `event.HealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the element.
-    - `event.HealthStateChangedEvent.getCauseId` -
-    - `event.HealthStateChangedEvent.getTriggeredTimestamp` -
+    - `event.HealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the element's state change.
+    - `event.HealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
 
 - A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
     - `event.PropagatedHealthStateChangedEvent.getStateChanges` - returns the chain og elements through which the health state change propagated.

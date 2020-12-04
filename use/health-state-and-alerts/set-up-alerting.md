@@ -18,7 +18,7 @@ The process to trigger an event is as follows:
 2. A [health check](/use/health-state-and-alerts/add-a-health-check.md) attached to the element listens to the available telemetry streams and reports a health state based on its configured parameters.
 3. When the reported health state of an element changes, a chain of [state change events](#state-change-events) are generated:
     - `HealthStateChangedEvent` for the element itself.
-    - `PropagatedStateChangedEvent` for all elements that depend on the element.
+    - `PropagatedStateChangedEvent` for all other elements that have been impacted by the element's state change.
     - `ViewStateChangedEvent` for each view containing the element. Note that this event type is only generated when a view's [view state configuration criteria](/use/health-state-and-alerts/configure-view-health.md) are met.
 4. Event handlers associated with each view listen to the generated state change events and [trigger the configured alerts and actions](#add-an-event-handler-to-a-view).
 
