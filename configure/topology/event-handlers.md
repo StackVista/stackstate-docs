@@ -59,10 +59,7 @@ Event handler functions use plugins to interact with external systems, synchrono
 
 ### Available properties
 
-There are different properties available for use by synchronous and async functions. These are described below:
-
-- [Properties for use in synchronous functions](#properties-for-synchronous-functions)
-- [Properties for use in async functions](#properties-for-async-functions)
+Different sets of properties are available for use in synchronous and async functions, these are described below.
 
 #### Properties for synchronous functions
 
@@ -99,7 +96,7 @@ A **ViewHealthStateChangedEvent** is generated when the health state of the enti
 #### Properties for async functions
 
 {% hint style="info" %}
-The `view` and `event` properties listed below can be used in **async** event handler functions. See the [properties for use in synchronous functions](#properties-for-synchonous-functions). 
+The `view` and `event` properties listed below can be used in **async** event handler functions. See the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
 {% endhint %}
 
 `view` properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
