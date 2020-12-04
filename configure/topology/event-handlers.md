@@ -66,7 +66,9 @@ There are different properties available for use by synchronous and async functi
 
 #### Properties for synchronous functions
 
-The `view` and `event` properties listed below can be used in **synchronous** event handler functions.
+{% hint style="info" %}
+The `view` and `event` properties listed below can be used in **synchronous** event handler functions. See the [properties for use in async functions](#properties-for-async-functions). 
+{% endhint %}
 
 `view` properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
 - `view.getName` - returns the name of the view.
@@ -96,7 +98,9 @@ A **ViewHealthStateChangedEvent** is generated when the health state of the enti
 
 #### Properties for async functions
 
-The `view` and `event` properties listed below can be used in **synchronous** event handler functions.
+{% hint style="info" %}
+The `view` and `event` properties listed below can be used in **async** event handler functions. See the [properties for use in synchronous functions](#properties-for-synchonous-functions). 
+{% endhint %}
 
 `view` properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
 - `view.name` - returns the view name.
