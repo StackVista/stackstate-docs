@@ -83,7 +83,7 @@ The **view** and **event** properties described below can be used in **synchrono
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
 - `view.getName` - returns the name of the view.
-- `view.getDescription` - returns the description.
+- `view.getDescription` - returns the view description.
 - `view.getQuery` - returns an STQL query of the view.
 - `view.getIdentifier` - returns the globally unique URN value that identifies the view.
 - `view.getTags` - returns any user-specified metadata attached to a view when it was created.
