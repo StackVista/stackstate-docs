@@ -31,11 +31,17 @@ Some of the event handler functions above will be installed as part of a StackPa
 
 ## Create a custom event handler function
 
-You can write custom event handler functions to react to propagated state changes and health state changes of an element or view and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function go to **Settings** > **Functions** > **Event Handler Functions** and click **ADD EVENT HANDLER FUNCTION**. The required settings as well as available parameters and properties are described below.
+You can write your own custom event handler functions that react to state change events and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function, go to **Settings** > **Functions** > **Event Handler Functions** and click **ADD EVENT HANDLER FUNCTION**. The required settings as well as available parameters and properties are described below.
 
 ### Parameters
 
-An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event parameters are described below, see [available properties](#available-properties)
+An event handler function takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. 
+
+- The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. 
+- An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. 
+- You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
+
+The properties that can be retrieved from the view and event parameters are described below, see [available properties](#available-properties)
 
 ### Supported event types
 
