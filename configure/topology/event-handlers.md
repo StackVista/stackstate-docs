@@ -80,17 +80,17 @@ Different sets of properties are available for use in synchronous and async func
 #### Properties for synchronous functions
 
 {% hint style="info" %}
-The `view` and `event` properties listed below can be used in **synchronous** event handler functions. See the [properties for use in async functions](#properties-for-async-functions). 
+The `view` and `event` properties described below can be used in **synchronous** event handler functions. See the [properties for use in async functions](#properties-for-async-functions). 
 {% endhint %}
 
-`view` properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
+**View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
 - `view.getName` - returns the name of the view.
 - `view.getDescription` - returns the description.
 - `view.getQuery` - returns an STQL query of the view.
 - `view.getIdentifier` - returns the globally unique URN value that identifies the view.
 - `view.getTags` - returns any user-specified metadata attached to a view when it was created.
 
-`event` properties return details of the received event, these vary for different event types. Note that the default parameter name is`event`, this can be modified if you choose.
+**Event** properties return details of the received event, these vary for different event types. Note that the default parameter name is`event`, this can be modified if you choose.
         
 A **HealthStateChangedEvent** is generated when an element's own health state changes.
 - `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
@@ -112,17 +112,17 @@ A **ViewHealthStateChangedEvent** is generated when the health state of the enti
 #### Properties for async functions
 
 {% hint style="info" %}
-The `view` and `event` properties listed below can be used in **async** event handler functions. See the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
+The **view** and **event** properties described below can be used in **async** event handler functions. See the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
 {% endhint %}
 
-`view` properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
+**View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
 - `view.name` - returns the view name.
 - `view.description` - returns the view description.
 - `view.query` -  returns an STQL query of the view.
 - `view.identifier` - returns the globally unique URN value that identifies the view.
 - `view.tags` - returns any user-specified metadata attached to a view when it was created.
 
-`event` properties return details of the received event, these vary for different event types. Note that the default parameter name is`event`, this can be modified if you choose.
+**Event** properties return details of the received event, these vary for different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
 **HealthStateChangedEvent** - generated when an element's own health state changes.
 - `event.HealthStateChengedEvent.triggeredTimestamp` - returns the time at which the state change occurred.
