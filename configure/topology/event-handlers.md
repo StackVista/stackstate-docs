@@ -39,13 +39,13 @@ An event handler function script takes system and user defined parameters. Syste
 
 ### Supported event types
 
-Three types of event can be chosen as being supported by an Event Handler Function:
+Three types of event can be chosen as being supported by an event handler function:
 
 - **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 - **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 - **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes. 
 
-You can add one or more supported event types for each Event Handler Function. These determine the trigger event types for which an event handler function can be selected when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view). For example, event handler functions with no supported event types will not be included in the **Run event handler** list for any event type when adding an event handler.
+You can add one or more supported event types for each event handler function. The supported event types are used to determine the trigger events for which an event handler function can be selected when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event.
 
 ### Async on/off
 
