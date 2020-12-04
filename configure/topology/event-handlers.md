@@ -37,6 +37,16 @@ You can write custom event handler functions to react to propagated state change
 
 An event handler function script takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. The properties that can be retrieved from the view and event parameters are described below, see [available properties](#available-properties)
 
+### Supported event types
+
+Three types of event can be chosen as being supported by an Event Handler Function:
+
+- **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
+- **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
+- **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes. 
+
+You can choose one or more event types. This list of **Supported Event Types** is used to filter which Event Handler Functions available when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view).
+
 ### Async on/off
 
 Event handler functions can be written as async (default) or synchronous. 
@@ -47,7 +57,7 @@ Event handler functions can be written as async (default) or synchronous.
 
 #### Async event handler functions (default)
 
-An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request with a custom header using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function, this allows more extensive details around an event to be included in alerts sent to Slack, such as links to relevant data and a possible root cause. 
+An async event handler function has access to the [StackState script APIs](/develop/reference/scripting/script-apis). This allows the function to make an HTTP request with a custom header using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function. As a result, more extensive details around an event can be included in alerts sent to Slack, such as links to relevant data and a possible root cause. 
 
 Event handler functions use plugins to interact with external systems, not all plugins are available for use with async functions. See [plugins](#plugins) below for further details. The [available properties](#properties-for-async-functions) that can be retrieved from the default parameters are described below.
 
