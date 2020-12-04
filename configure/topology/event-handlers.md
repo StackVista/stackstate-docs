@@ -19,7 +19,7 @@ Event handlers listen to events generated within the view, when the configured e
 StackState ships with the following event handler functions:
 
 - Send details of a health state change event and links to information that can assist with root cause analysis:
-    - **Slack** - at the configured Slack webhook URL. See [how to create a Slack webhook /(slack.com/)](https://api.slack.com/messaging/webhooks).
+    - **Slack** - at the configured Slack webhook URL. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks).
 - Send details of a health state change event:
     - **Email** - using the [configured SMTP server](/configure/topology/configure-email-alerts.md).
     - **SMS** - using MessageBird.
@@ -158,4 +158,4 @@ You can add logging statements to an event handler function for debug purposes, 
 - [Enable logging for functions](/configure/logging/enable-logging.md)
 - [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
 - [StackState script APIs](/develop/reference/scripting/script-apis)
-- [How to create a Slack webhook /(slack.com/)](https://api.slack.com/messaging/webhooks)
+- [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)
