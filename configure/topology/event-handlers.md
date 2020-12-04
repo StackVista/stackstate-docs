@@ -14,7 +14,7 @@ To trigger an alert or action, the event handler will run an [event handler func
 
 ## Event handler functions
 
-Event handlers listen to events generated within the view, when the configured event type is generated the configured event handler function is run to [trigger an alert or action](/use/health-state-and-alerts/set-up-alerting.md) in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create a custom event handler function](#create-a-custom-event-handler-function). 
+Event handlers listen to events generated within the view, when the configured event type is generated the configured event handler function is run to [trigger an alert or action](/use/health-state-and-alerts/set-up-alerting.md) in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create your own custom event handler functions](#create-a-custom-event-handler-function). 
 
 StackState ships with the following event handler functions:
 
@@ -31,7 +31,7 @@ Some of the event handler functions above will be installed as part of a StackPa
 
 ## Create a custom event handler function
 
-You can write custom event handler functions to react to propagated state changes and health state changes of an element or view and use a plugin to send an alert to a system outside of StackState. 
+You can write custom event handler functions to react to propagated state changes and health state changes of an element or view and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function go to **Settings** > **Functions** > **Event Handler Functions** and click **ADD EVENT HANDLER FUNCTION**. The required settings as well as available parameters and properties are described below.
 
 ### Parameters
 
