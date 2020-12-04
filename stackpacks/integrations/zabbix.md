@@ -22,7 +22,7 @@ The following prerequisites need to be met:
 
 To enable the Zabbix check and begin collecting data from your Zabbix instance:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/zabbix.d/conf.yaml` to include details of your Zabbix instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/zabbix.d/conf.yaml` to include details of your Zabbix instance:
     - **url**
     - **username** 
     - **password** - use [secrets management](/configure/security/secrets_management.md) to store passwords outside of the configuration file.
