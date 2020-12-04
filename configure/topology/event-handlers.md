@@ -45,7 +45,7 @@ Three types of event can be chosen as being supported by an Event Handler Functi
 - **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 - **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes. 
 
-You can choose one or more event types. This list of **Supported Event Types** is used to filter which Event Handler Functions available when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view).
+You can add one or more event types for each Event Handler Function. This **Supported Event Types** are used to determine which Event Handler Functions are available when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view). Event handler functions with no supported event types will not be listed in the **Run event handler** list when you add an event handler.
 
 ### Async on/off
 
