@@ -229,7 +229,7 @@ The code for the StackState ServiceNow check is open source and available on Git
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
 
 ## Uninstall
 
