@@ -39,7 +39,7 @@ An event handler function script takes system and user defined parameters. Syste
 
 ### Supported event types
 
-You can add one or more supported event types for each event handler function. The supported event types are used to determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types are used to determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 Up to three types of event can be chosen:
 
