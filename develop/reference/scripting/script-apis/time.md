@@ -1,6 +1,4 @@
 ---
-title: Specifying time
-kind: Documentation
 description: Functions related to time and timing.
 ---
 
