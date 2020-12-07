@@ -1,3 +1,7 @@
+---
+description: Required manual steps for upgrade to each supported StackState version.
+---
+
 # Version specific upgrade notes
 
 ## Upgrade to 4.2.0
