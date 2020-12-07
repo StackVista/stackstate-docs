@@ -11,6 +11,7 @@ Some scripting functions of StackState may accept a `currentTimeslice`, `Instant
 A time slice can be used to query all ongoing transactions. `Time.currentTimeslice()` returns a time slice for the current timestamp.
 
 **Returns**
+
 AsyncScriptResult: Timeslice
 
 **Examples**
