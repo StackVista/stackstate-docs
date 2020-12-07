@@ -1,6 +1,6 @@
 # StackPack versions
 
-The table below shows the versions of StackPacks chipped with each StackState release. Version numbers in **bold** have changed since the previous release and should be upgraded. Find out [how to upgrade a StackPack](). 
+The table below shows the versions of StackPacks chipped with each StackState release. Version numbers in **bold** have changed since the previous release and should be upgraded. Find out [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack). 
 
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
@@ -14,7 +14,7 @@ The table below shows the versions of StackPacks chipped with each StackState re
 | Cloudera | 1.2.1 | 1.2.1 | 1.1.0 |
 | Custom synchronization | 3.0.1 | | 3.0.0 |
 | DotNet APM | 3.11.0  | | |
-| Dynatrace | 1.0.0 | | |
+| Dynatrace | 1.0.0 | - | - |
 | Google Analytics | | | |
 | Humio | 1.0.0 | 1.0.0 | - |
 | Java APM | 3.11.0 | | |
