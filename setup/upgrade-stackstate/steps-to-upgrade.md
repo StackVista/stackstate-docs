@@ -30,7 +30,7 @@ If there are **hotfixes** installed in your StackState installation, contact Sta
  
 ### A new minor StackState release
 
-A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0.
+A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 4.1.0 or 4.0.1.
 
 If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
 
