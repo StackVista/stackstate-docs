@@ -24,7 +24,7 @@ Version numbers in **bold** have changed since the previous release and should b
 | SCOM (BETA) | 1.2.2 | 1.2.2 | 1.1.0 |
 | ServiceNow | **5.0.0** | 4.0.1 | 2.1.0 |
 | Splunk | 1.0.0 | 1.0.0 | - |
-| Static topology | 2.2.1| | 2.0.0 |
+| Static topology | 2.2.1| 2.2.1 | 2.0.0 |
 | VMware vSphere | 2.2.1 | 2.2.1 | 2.1.0 |
 | Zabbix | 3.0.1 | 3.0.1 | 2.2.0 |
 
