@@ -8,7 +8,7 @@ To start working with Component Actions, go to the Settings page and then in Act
 
 ## 1. Provide a name and description
 
-A Component Action requires a name that is displayed in the Quick Actions context menu; it is mandatory to provide a name. The Description, on the other hand, is optional. However, it is a good practice to provide a bit of explanation that gives more context about your Action.
+A Component Action requires a name that is displayed in the **Actions** context menu; it is mandatory to provide a name. The Description, on the other hand, is optional. However, it is a good practice to provide a bit of explanation that gives more context about your Action.
 
 Please note that the Component Action name is case-sensitive.
 

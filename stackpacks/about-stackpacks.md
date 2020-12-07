@@ -8,8 +8,8 @@ StackPacks are plugins for StackState that extend functionality and provide auto
 
 There are two types of Stackpack:
 
-* [Add-ons](add-ons/) extend the functionality of StackState.
-* [Integrations](integrations/) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
+* [Add-ons](/stackpacks/add-ons/README.md) extend the functionality of StackState.
+* [Integrations](/stackpacks/integrations/README.md) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
 
 ## StackPack instances
 
@@ -27,8 +27,8 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 The available StackPack add-ons and integrations can be found on the **StackPacks** page in StackState. You can also find details on these pages:
 
-* [add-ons](add-ons/)
-* [integrations](integrations/)
+* [add-ons](/stackpacks/add-ons/README.md)
+* [integrations](/stackpacks/integrations/README.md)
 
 ## Install or uninstall a StackPack
 

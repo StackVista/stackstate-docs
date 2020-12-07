@@ -4,14 +4,14 @@ description: See metrics of the components in your IT landscape.
 
 # Telemetry Perspective
 
-The Telemetry Perspective shows telemetry streams for your [view](/use/views/README.md) and provides an automatic dashboard. Instead of pre-defining which streams you want to see, StackState automatically delivers all the relevant information for any part of your landscape.
+The Telemetry Perspective shows telemetry streams for your [view](/use/views/README.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
 ## Telemetry and Components
 
 The Telemetry Perspective shows telemetry for up to **5** components. When you open the Telemetry Perspective, StackState will show the telemetry for the components in your view. If there are more than 5 components in your view, StackState selects the top 5 components as follows:
 
-* Select the 5 components that most recently changed their health state to either CRITICAL or DEVIATING
-* If there are no unhealthy components, select the 5 components that most recently changed their health state
+* The 5 components that most recently changed their health state to either CRITICAL or DEVIATING.
+* If there are no unhealthy components, the 5 components that most recently changed their health state.
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
@@ -27,7 +27,7 @@ The component selection can be adjusted as follows:
 
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](/use/views/filters.md#topology-filters)
 
 ## Charts
 

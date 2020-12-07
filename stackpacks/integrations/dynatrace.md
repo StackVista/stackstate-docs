@@ -35,7 +35,7 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** > **Integr
 
 To enable the Dynatrace check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
     - **url** - the URL of the Dynatrace instance.
     - **token** - an API token with access to the required [Dynatrace API endpoints](#rest-api-endpoints).
 
