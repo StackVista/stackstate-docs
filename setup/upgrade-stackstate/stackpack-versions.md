@@ -14,7 +14,7 @@ Version numbers in **bold** have changed since the previous release and should b
 | API integration | 2.3.1 | 2.3.1 | 2.1.0 |
 | Cloudera | 1.2.1 | 1.2.1 | 1.1.0 |
 | Custom synchronization | 3.0.1 | 3.0.1 | 3.0.0 |
-| Dynatrace | 1.0.0 | - | - |
+| Dynatrace | **1.0.0** | - | - |
 | Humio | 1.0.0 | 1.0.0 | - |
 | Kubernetes | 3.7.2 | 3.7.2 | 3.3.0 |
 | Manual topology | 2.0.1 | | |
