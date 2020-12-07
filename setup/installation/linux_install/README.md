@@ -33,7 +33,7 @@ StackState supports three different installation configurations:
 
 ## Upgrading
 
-To upgrade your StackState installation, see the instructions in our [upgrading guide](/setup/upgrading.md).
+To upgrade your StackState installation, see the instructions in our [upgrading guide](/setup/upgrade-stackstate/steps-to-upgrade.md).
 
 ## Authentication
 
