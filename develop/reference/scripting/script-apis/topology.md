@@ -22,7 +22,9 @@ Topology.query(query: String)
 
 **Builder methods:**
 
-* `at(time: Instant or currentTimeslice)` - specifes a [time](/develop/reference/scripting/script-apis/time.md) for which the query should be executed. Use an `instant` to query for transactions that started at a specific timestamp including at any point in the past. Use the `currentTimeslice` to query for all transactions currently started or in progress.
+* `at(time: Instant or currentTimeslice)` - specifes a [time](/develop/reference/scripting/script-apis/time.md) for which the query should be executed. 
+    - Use an `instant` to query for transactions that started at a specific timestamp including at any point in the past. 
+    - Use the `currentTimeslice` to query for all transactions currently started or in progress.
 * `repeatAt(time: Instant)` - repeats the same query but at a different exact [time](/develop/reference/scripting/script-apis/time.md).
 * `diff(queryResult: TopologyScriptApiQueryResponse)` - compares this query with another query. A query should be the result of a call to this function.
 * `diffWithPrev(queryResult: TopologyScriptApiQueryResponse)` - compares this query with the last query in the chain. A query should be the result of a call to this function. This builder method is only available after the `diff` builder method was called.
