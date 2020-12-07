@@ -37,7 +37,7 @@ CreateUrlBuilder
 **Builder methods:**
 
 - `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
-    - `at(time: instant or timeslice)` -  specifies a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
+    - `at(time: instant)` -  specifies a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
     - `withComponent(component)` - creates a view url with the specified component in focus.
     - `url()` - gives the final url of the view.
 
