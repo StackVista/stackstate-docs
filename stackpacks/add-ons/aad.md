@@ -91,7 +91,7 @@ Create the file `values.yaml` file including the configuration described below a
   * **tag** - the image version e.g `4.1.0-release`
   * **pullSecretUsername** - the image registry username \(from step 1\)
 * **stackstate:**
-  * **instance** - the StackState instance url. This must be a StackState internal url to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-server-headless:7070/` or `http://<releasename>-stackstate-server-headless:7070/`
+  * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-server-headless:7070/` or `http://<releasename>-stackstate-server-headless:7070/`
 * **ingress:** - Ingress provides access to the technical interface of the AAD Kubernetes service, this is useful for troubleshooting. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
   * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
   * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)

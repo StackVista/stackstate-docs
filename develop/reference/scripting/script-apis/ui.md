@@ -1,5 +1,5 @@
 ---
-description: Functions that control the user-interface.
+description: Functions that control the StackState user-interface.
 ---
 
 # Script API: UI
@@ -8,17 +8,48 @@ description: Functions that control the user-interface.
 These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](/configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}
 
-## Function: `baseUrl`
 
-Returns the base URL from the StackState configuration. This is the parameter `stackstate.web.baseUrl` or the environment variable `STACKSTATE_BASE_URL`.
+## Function: baseUrl
+
+Returns the baseUrl of the StackState instance as configured in the `application.conf` or `values.yaml`.
 
 **Examples:**
 
 Return the base URL from the StackState configuration.
 
-```text
+```
 UI.baseUrl()
 ```
+
+
+## Function: `createUrl`
+
+Creates a URL builder that can be used to generate URLs that can be linked back in Stackstate.
+
+**Args:**
+
+No arguments.
+
+**Return type:**
+
+CreateUrlBuilder
+
+**Builder methods:**
+
+- `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
+    - `at(time: instant)` -  specifies a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
+    - `withComponent(component)` - creates a view URL with the specified component in focus.
+    - `url()` - gives the final URL of the view.
+
+**Examples:**
+
+Create a URL to a view at a specific time.
+```
+View.getAll().then { views ->
+    UI.createUrl().view(views[0]).at('-15m').url()
+}
+```
+
 ## Function: `redirectToURL`
 
 Opens a new tab in the user's browser to some URL.
@@ -90,4 +121,15 @@ Redirects the user-interface to show the Azure topology.
 
 ```text
 UI.showTopologyByQuery('domain IN ("Azure")')
+```
+
+
+Create a URL to a view focussing on a component.
+
+```
+View.getAll().then { views ->
+	Component.withId(component).get().then { component ->
+		UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
+	}
+}
 ```
