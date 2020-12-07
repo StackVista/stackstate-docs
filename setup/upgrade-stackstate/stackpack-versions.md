@@ -4,7 +4,7 @@ The table below shows the versions of StackPacks chipped with each StackState re
 
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
-| Autonomous Anomaly Detector | 0.6.0 | 0.5.0 | - |
+| Autonomous Anomaly Detector (BETA) | **0.6.0** | 0.5.0 | - |
 | Health Forecast | 1.0.3 | 1.0.3 | 1.0.3 |
 | StackState Agent | 3.11.0 | 3.11.0 | 3.4.0 |
 | AWS | 5.0.1 | 5.0.1 | 4.0.0 |
@@ -19,13 +19,13 @@ The table below shows the versions of StackPacks chipped with each StackState re
 | Humio | 1.0.0 | 1.0.0 | - |
 | Java APM | 3.11.0 | | |
 | Kubernetes | 3.7.2 | 3.7.2 | 3.3.0 |
-| Logz.io | 0.0.2 | | |
+| Logz.io | | | |
 | Manual topology | 2.0.1 | | |
-| Nagios | 2.4.0 | 2.3.1 | 2.1.0 |
+| Nagios | **2.4.0** | 2.3.1 | 2.1.0 |
 | Openshift | 3.5.2 | 3.5.2 | 3.2.0 |
-| SAP | 1.2.0 | 1.1.0 | 1.0.1 |
+| SAP | **1.2.0** | 1.1.0 | 1.0.1 |
 | SCOM (BETA) | 1.2.2 | 1.2.2 | 1.1.0 |
-| ServiceNow | 5.0.0 | 4.0.1 | 2.1.0 |
+| ServiceNow | **5.0.0** | 4.0.1 | 2.1.0 |
 | Splunk | 1.0.0 | 1.0.0 | - |
 | Static topology | 2.2.1| | 2.0.0 |
 | Traefik (BETA) | 3.11.0 | | |
