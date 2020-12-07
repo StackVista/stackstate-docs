@@ -1,5 +1,5 @@
 ---
-description: Required manual steps for upgrade to each supported StackState version.
+description: Required manual steps for upgrade to each supported StackState version. Read this before you upgrade!
 ---
 
 # Version specific upgrade notes
