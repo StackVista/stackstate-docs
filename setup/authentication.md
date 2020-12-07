@@ -1,8 +1,3 @@
----
-title: Configuring authentication
-kind: Documentation
----
-
 # Authentication
 
 Out of the box, StackState is configured with [file-based authentication](/setup/authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
@@ -16,12 +11,15 @@ Authentication configuration is stored in the file `etc/application_stackstate.c
 
 ## User roles
 
-StackState ships with the default user roles **guest** and **administrator**:
+StackState ships with the default user roles **Guest**, **Power User** and **Administrator**:
 
-* **guest users** - able to see information but make no changes
-* **administrators** - able to see and change all configuration
+* **Guest** - able to see information but make no changes.
+* **Power User** - able to see and change all configuration and install StackPacks.
+* **Administrator** - able to see and change all configuration, install StackPacks, grant and revoke user permissions and upload (new versions of) StackPacks.
 
-It is also possible to add more roles, see the [Roles \(RBAC\)](/configure/security/how_to_set_up_roles.md) and the other RBAC documentation pages under [configure](/configure/README.md)
+When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
+
+It is also possible to add more roles, see the page [Roles \(RBAC\)](/configure/security/rbac/rbac_roles.md) and the other [RBAC documentation pages](/configure/security/rbac/README.md)
 
 ## Default username and password
 
@@ -30,7 +28,7 @@ StackState is configured by default with the following administrator account:
 {% tabs %}
 {% tab title="Kubernetes" %}
 * **username:** `admin`
-* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in `values.yaml`
+* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in MD5 hash format in `values.yaml`
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -41,9 +39,7 @@ StackState is configured by default with the following administrator account:
 
 ## File-based authentication
 
-To keep using configuration file based authentication but change the users here is an example to have 2 users, admin-demo and guest-demo, with the 2 default roles available, the md5 hash still needs to be generated and put in the example.
-
-Here is an example of authentication that configures two users: `admin/password` and `guest/password`. Place it within the `stackstate { api {` block of `etc/application_stackstate.conf`. Make sure to remove the line `authentication.enabled = false` in the `application_stackstate.conf` file. Restart StackState for changes to take effect.
+To keep using configuration file based authentication but change the users, here is an example to have 2 users, `admin-demo` and `guest-demo`, with the default roles Administrator and Guest.
 
 ```javascript
 authentication {
@@ -59,17 +55,16 @@ authentication {
 
     stackstateAuthServer {
       # echo -n "password" | md5sum
-      # Open http://www.md5.net/md5-generator/
-      # Enter your password and press submit, you will get an MD5 Hash
       # Set the MD5 Hash into `auth.password`
       logins = [
-        { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
-        { username = "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
+        { username = "admin-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["admin-demo-role"] }
+        { username = "guest-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["guest-demo-role"] }
       ]
     }
   }
-  adminGroups = ["stackstate-admin"]
-  guestGroups = ["stackstate-guest"]
+  adminGroups = ["stackstate-admin", "admin-demo-role"]
+  powerUserGroups = ["stackstate-power-user"]
+  guestGroups = ["stackstate-guest", "guest-demo-role"]
 }
 ```
 
@@ -79,8 +74,9 @@ Configuration field explanation:
 2. **authServer** - configures the authentication server StackState uses. It's configuration is specified below.
 3. **password** - the user's password in MD5 hash format.
 4. **roles** - the list of roles the user is a member of.
-5. **adminGroups** - the list of groups whose members StackState grants administrative privileges.
-6. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
+5. **adminGroups** - the list of roles that receive Administrator privileges.
+6. **powerUserGroups** - the list of roles that receive Power User privileges.
+7. **guestGroups** - the list of roles that have Guest access privileges \(read-only\) in StackState.
 
 ## LDAP authentication server
 
@@ -136,6 +132,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```
@@ -145,7 +142,7 @@ Configuration field explanation:
 1. **sessionLifeTime** - when users log into StackState, they start a session with StackState during which they can access the system. This setting controls the duration of those sessions.
 2. **authServer** - configures the authentication server StackState uses. It's configuration is specified below.
 3. **ldapAuthServer** - LDAP configuration requires information about connecting to the LDAP server and how to query the server for users.
-   * _**query, userQuery and groupQuery**_ - The set of parameters inside correspond to the base dn of your LDAP for where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an admin or a guest.
+   * _**query, userQuery and groupQuery**_ - The set of parameters inside correspond to the base dn of your LDAP for where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
    * _**sslType**_ - the type of LDAP secure connection `ssl` \| `startTls`
    * _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
    * _**trustStorePath**_ - optional, path to the trust store on the StackState server.
@@ -154,12 +151,13 @@ Configuration field explanation:
    * _**usernameKey**_ - the name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * _**groupMemberKey**_ - the name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `({groupMemberKey}=email=admin@sts.com,ou=management,o=stackstate,cn=people,dc=example,dc=com)`.
    * _**rolesKey**_ - the name of the attribute that stores the group name.
-4. **adminGroups** - the list of roles whose members StackState grants administrative privileges.
-5. **guestGroups** - the list of groups whose members have guest access privileges\(read-only\) in StackState.
+4. **adminGroups** - the list of roles that receive Administrator privileges.
+5. **powerUserGroups** - the list of roles that receive Power User privileges.
+6. **guestGroups** - the list of roles that have Guest access privileges \(read-only\) in StackState.
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](/configure/subject_configuration.md). With subjects created, you can start [setting up roles](/configure/security/how_to_set_up_roles.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](/configure/security/rbac/rbac_subjects.md). With subjects created, you can start [setting up roles](/configure/security/rbac/rbac_roles.md).
 
 ### Kubernetes LDAP configuration through Helm
 
@@ -181,7 +179,7 @@ helm install \
 stackstate/stackstate
 ```
 
-For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate/README.md).
+For more details of configuration through Helm, see the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate).
 
 ## KeyCloak OIDC Authentication Server
 
@@ -211,6 +209,7 @@ authentication {
     }
   }
   guestGroups = ["stackstate-guest"]
+  powerUserGroups = ["stackstate-power-user"]
   adminGroups = ["stackstate-admin"]
 }
 ```
@@ -237,7 +236,7 @@ In order to connect StackState to KeyCloak, you need to add a new client configu
 4. **Standard Flow Enabled** - This should be `Enabled`
 5. **Implicit Flow Enabled** - This should be `Disabled`
 6. **Root URL** - This should point to the root location of StackState
-7. **Valid redirect URIs** - This shoud be `/loginCallback/*`
+7. **Valid redirect URIs** - This should be `/loginCallback/*`
 8. **Base URL** - This should point to the root location of StackState
 
 ## REST API authentication

@@ -1,8 +1,3 @@
----
-title: Splunk StackPack
-kind: documentation
----
-
 # Splunk
 
 ## What is the Splunk StackPack?
@@ -11,7 +6,7 @@ The Splunk StackPack synchronizes topology, events and metrics from Splunk to St
 
 ## Prerequisites
 
-The Splunk StackPack depends on the [API Integration](../api-integration.md) StackPack.
+The Splunk StackPack depends on the [API Integration](/stackpacks/integrations/api-integration.md) StackPack.
 
 ## Synchronizing data from Splunk
 
@@ -44,15 +39,6 @@ To call a Splunk saved search `testsearch` with parameter `host` and a hostname 
 
 ## Further information
 
-### Synchronizing Splunk topology
-
-See [Splunk Topology integration](splunk_topology.md) for more information.
-
-### Synchronizing Splunk events
-
-See [Splunk Events integration](splunk_event.md) for more information.
-
-### Synchronizing Splunk metrics
-
-See [Splunk Metrics integration](splunk_metric.md) for more information.
-
+- [Synchronize Splunk topology](/stackpacks/integrations/splunk/splunk_topology.md) for more information.
+- [Synchronize Splunk events](/stackpacks/integrations/splunk/splunk_event.md) for more information.
+- [Synchronize Splunk metrics](/stackpacks/integrations/splunk/splunk_metric.md) for more information.

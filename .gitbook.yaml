@@ -1,8 +1,9 @@
 
 redirects:
-  develop/creating_stackpacks: ./develop/stackpack/README.md
+  develop/creating_stackpacks: ./develop/developer-guides/stackpack/README.md
   integrations/: ./stackpacks/README.md
-  integrations/available_stackpacks/: ./stackpacks/README.md
+  integrations/available_stackpacks: ./stackpacks/integrations/README.md
+  integrations/available_stackpacks/: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
   integrations/available_stackpacks/api-integration: stackpacks/integrations/api-integration.md
   integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
@@ -24,30 +25,146 @@ redirects:
   integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
   integrations/available_stackpacks/static_topology: ./stackpacks/integrations/static_topology.md
   integrations/available_stackpacks/vsphere: ./stackpacks/integrations/vsphere.md
-  integrations/available_stackpacks/zabbixL: ./stackpacks/integrations/zabbix.md
+  integrations/available_stackpacks/zabbix: ./stackpacks/integrations/zabbix.md
   integrations/introduction: ./stackpacks/about-stackpacks.md
-  integrations/mirrors: ./develop/mirrors/README.md
-  integrations/mirrors/prometheus-mirror: ./develop/mirrors/prometheus-mirror.md
+  integrations/mirrors: ./develop/developer-guides/mirrors/README.md
+  integrations/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
   integrations/sdk: ./stackpacks/sdk.md
-  setup/download: ./setup/linux_install/download.md
+  setup/download: ./setup/installation/linux_install/download.md
   setup/installation/authentication: ./setup/authentication.md
-  setup/installation/development-installation: ./setup/linux_install/development-installation.md
+  setup/installation/development-installation: ./setup/installation/linux_install/development-installation.md
   setup/installation/development-installation_pre1_15: ./setup/upgrading
-  setup/installation/how_to_setup_tls_without_reverse_proxy: ./setup/linux_install/how_to_setup_tls_without_reverse_proxy.md
-  setup/installation/index: ./setup/linux_install/index.md
-  setup/installation/install_stackstate: ./setup/linux_install/install_stackstate.md
+  setup/installation/how_to_setup_tls_without_reverse_proxy: ./setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy.md
+  setup/installation/index: ./setup/installation/linux_install/README.md
+  setup/installation/install_stackstate: ./setup/installation/linux_install/install_stackstate.md
   setup/installation/installing_pre1_14_5: ./setup/upgrading.md
   setup/installation/installing_pre1_15: ./setup/upgrading.md
   setup/installation/kubernetes/image_configuration: ./setup/kubernetes_install/image_configuration.md
   setup/installation/kubernetes/ingress: ./setup/installation/kubernetes_install/ingress.md
-  setup/installation/kubernetes/README: ./setup/kubernetes_install/README.md
-  setup/installation/kubernetes/storage: ./setup/kubernetes_install/storage.md
-  setup/installation/poc-installation: ./setup/linux_install/poc-installation.md
-  setup/installation/production-installation: ./setup/linux_install/production-installation.md
+  setup/installation/kubernetes/README: ./setup/installation/kubernetes_install/README.md
+  setup/installation/kubernetes/storage: ./setup/installation/kubernetes_install/storage.md
+  setup/installation/poc-installation: ./setup/installation/linux_install/poc-installation.md
+  setup/installation/production-installation: ./setup/installation/linux_install/production-installation.md
   setup/installation/production-installation_pre1_15: ./setup/upgrading.md
-  setup/installation/README: ./setup/linux_install/index.md
-  setup/installation/reindex: ./setup/troubleshooting.md
+  setup/installation/reindex: ./setup/installation/troubleshooting.md
   setup/installation/requirements: ./setup/requirements.md
-  setup/installation/reverse_proxy: ./setup/linux_install/reverse_proxy.md
-  setup/installation/troubleshooting: ./setup/troubleshooting.md
-
+  setup/installation/reverse_proxy: ./setup/installation/linux_install/reverse_proxy.md
+  setup/installation/troubleshooting: ./setup/installation/troubleshooting.md
+  configure/component_actions: configure/topology/component_actions.md
+  configure/how_to_configure_component_actions: ./configure/topology/how_to_configure_component_actions.md
+  configure/sync: ./configure/topology/sync.md
+  configure/how_to_create_manual_topology: ./configure/topology/how_to_create_manual_topology.md
+  configure/debugging_topology_synchronization: ./configure/topology/debugging_topology_synchronization.md
+  configure/naming_guide: ./configure/topology/naming_guide.md
+  configure/propagation: ./configure/topology/propagation.md
+  configure/tagging: ./configure/topology/tagging.md
+  configure/topology_synchronization: ./configure/topology/topology_synchronization.md
+  configure/telemetry_synchronized_topology: ./configure/telemetry/telemetry_synchronized_topology.md
+  configure/browse_telemetry: ./configure/telemetry/browse_telemetry.md
+  configure/checks_and_streams: ./configure/telemetry/checks_and_streams.md
+  configure/send_telemetry: ./configure/telemetry/send_telemetry.md
+  configure/how_to_use_the_priority_field_for_components: ./configure/telemetry/how_to_use_the_priority_field_for_components.md
+  configure/how_to_setup_traces: ./configure/traces/how_to_setup_traces.md
+  configure/configure_tracing: ./configure/traces/configure_tracing.md
+  configure/how_to_configure_ldap_authentication: ./configure/security/configure_ldap_authentication.md
+  configure/permissions: ./configure/security/rbac_permissions.md
+  configure/how_to_set_up_roles: ./configure/security/rbac_roles.md
+  configure/scopes_in_rbac: ./configure/security/rbac_scopes.md
+  configure/subject_configuration: ./configure/security/rbac_subjects.md
+  configure/secrets_management: ./configure/security/secrets_management.md
+  configure/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
+  configure/how_to_set_up_a_security_backend_for_windows: configure/security/set_up_a_security_backend_for_windows.md
+  configure/stackstate_log_files: ./setup/stackstate_log_files.md
+  configure/security/how_to_configure_ldap_authentication: ./configure/security/configure_ldap_authentication.md
+  configure/security/permissions: ./configure/security/rbac_permissions.md
+  configure/security/how_to_set_up_roles: ./configure/security/rbac_roles.md
+  configure/security/scopes_in_rbac: ./configure/security/rbac_scopes.md
+  configure/security/subject_configuration: ./configure/security/rbac_subjects.md
+  concepts/role_based_access_control: ./configure/security/role_based_access_control.md
+  configure/security/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
+  configure/security/how_to_set_up_a_security_backend_for_windows: ./configure/security/set_up_a_security_backend_for_windows.md
+  concepts/topology_sources: ./configure/topology/topology_sources.md
+  develop/agent_check:  ./develop/developer-guides/agent_check/README.md
+  develop/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/checks_in_agent_v2.md
+  develop/agent_check/how_to_develop_agent_checks: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
+  develop/custom_synchronization_stackpack: ./develop/developer-guides/custom_synchronization_stackpack/README.md
+  develop/custom_synchronization_stackpack/how_to_configure_custom_synchronization: ./develop/developer-guides/custom_synchronization_stackpack/how_to_configure_custom_synchronization.md
+  develop/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance.md
+  develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack: ./develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md
+  develop/functions: ./develop/developer-guides/functions.md
+  develop/integrating_external_services: ./develop/developer-guides/integrating_external_services.md
+  develop/mirrors: ./develop/developer-guides/mirrors/README.md
+  develop/mirroring: ./develop/developer-guides/mirrors/mirroring.md
+  develop/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
+  develop/stackpack: ./develop/developer-guides/stackpack
+  develop/stackpack/how_to_customize_a_stackpack: ./develop/developer-guides/stackpack/how_to_customize_a_stackpack.md
+  develop/stackpack/how_to_get_a_template_file: ./develop/developer-guides/stackpack/how_to_get_a_template_file.md
+  develop/stackpack/how_to_make_a_multi-instance_stackpack: ./develop/developer-guides/stackpack/how_to_make_a_multi-instance_stackpack.md
+  develop/stackpack/how_to_pack_and_upload_stackpack: ./develop/developer-guides/stackpack/how_to_pack_and_upload_stackpack.md
+  develop/stackpack/prepare_instance_template_file: ./develop/developer-guides/stackpack/prepare_instance_template_file.md
+  develop/stackpack/prepare_multi-instance_provisioning_script: ./develop/developer-guides/stackpack/prepare_multi-instance_provisioning_script.md
+  develop/stackpack/prepare_package: ./develop/developer-guides/stackpack/prepare_package.md
+  develop/stackpack/prepare_shared_template: ./develop/developer-guides/stackpack/prepare_shared_template.md
+  develop/stackpack/prepare_stackpack_provisioning_script: ./develop/developer-guides/stackpack/prepare_stackpack_provisioning_script.md
+  develop/stackpack/stackpack_resources: ./develop/developer-guides/stackpack/stackpack_resources.md
+  develop/stackpack/stackstate-common-layer: ./develop/developer-guides/stackpack/stackstate-common-layer.md
+  develop/synchronizations_and_templated_files: ./develop/developer-guides/synchronizations_and_templated_files.md
+  develop/scripting: ./develop/reference/scripting
+  develop/scripting/async_script_result: ./develop/reference/scripting/async_script_result.md
+  develop/scripting/script-apis: ./develop/reference/scripting/script-apis/README.md
+  develop/scripting/script-apis/async: ./develop/reference/scripting/script-apis/async.md
+  develop/scripting/script-apis/component: ./develop/reference/scripting/script-apis/component.md
+  develop/scripting/script-apis/http: ./develop/reference/scripting/script-apis/http.md
+  develop/scripting/script-apis/prediction: ./develop/reference/scripting/script-apis/prediction.md
+  develop/scripting/script-apis/stackpack: ./develop/reference/scripting/script-apis/stackpack.md
+  develop/scripting/script-apis/telemetry: ./develop/reference/scripting/script-apis/telemetry.md
+  develop/scripting/script-apis/time: ./develop/reference/scripting/script-apis/time.md
+  develop/scripting/script-apis/topology: ./develop/reference/scripting/script-apis/topology.md
+  develop/scripting/script-apis/ui: ./develop/reference/scripting/script-apis/ui.md
+  develop/scripting/script-apis/view: ./develop/reference/scripting/script-apis/view.md
+  develop/sts_template_language_intro: ./develop/reference/stj/
+  develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stj/stj_reference.md
+  concepts/component_and_relation_templates: ./develop/reference/stj/templates.md
+  develop/stml: ./develop/reference/stml/
+  develop/stml/tags: ./develop/reference/stml/tags.md
+  setup/backup_restore: ./setup/data-management/backup_restore/README.md
+  setup/backup_restore/configuration: ./setup/data-management/backup_restore/configuration_backup.md
+  setup/backup_restore/kubernetes_backup: ./setup/data-management/backup_restore/kubernetes_backup.md
+  setup/backup_restore/file: ./setup/data-management/backup_restore/linux_backup.md
+  setup/backup_restore/manual_topology: ./setup/data-management/backup_restore/manual_topology_backup.md
+  setup/clear_data: ./setup/data-management/clear_stored_data.md
+  setup/retention: ./setup/data-management/data_retention.md
+  setup/cli: ./setup/installation/cli-install.md
+  setup/kubernetes_install: ./setup/installation/kubernetes_install/
+  setup/kubernetes_install/customize_config: ./setup/installation/kubernetes_install/customize_config.md
+  setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/development_setup.md
+  setup/kubernetes_install/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
+  setup/kubernetes_install/ingress: ./setup/installation/kubernetes_install/ingress.md
+  setup/kubernetes_install/install_stackstate: ./setup/installation/kubernetes_install/install_stackstate.md
+  setup/kubernetes_install/storage: ./setup/installation/kubernetes_install/storage.md
+  setup/linux_install: ./setup/installation/linux_install/README.md
+  setup/linux_install/development-installation: ./setup/installation/linux_install/development-installation.md
+  setup/linux_install/download: ./setup/installation/linux_install/download.md
+  setup/linux_install/how_to_setup_tls_without_reverse_proxy: ./setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy.md
+  setup/linux_install/install_stackstate: ./setup/installation/linux_install/install_stackstate.md
+  setup/linux_install/poc-installation: ./setup/installation/linux_install/poc-installation.md
+  setup/linux_install/production-installation: ./setup/installation/linux_install/production-installation.md
+  setup/linux_install/reverse_proxy: ./setup/installation/linux_install/reverse_proxy.md
+  setup/troubleshooting: ./setup/installation/troubleshooting.md
+  use/queries: ./use/analytics.md
+  concepts/glossary: ./use/glossary.md
+  concepts/4t_data_model: ./use/introduction-to-stackstate/4t_data_model.md
+  concepts/components_and_relations: ./use/introduction-to-stackstate/components_and_relations.md
+  getting_started: ./use/introduction-to-stackstate/getting_started.md
+  concepts/id_extraction: ./use/introduction-to-stackstate/id_extraction.md
+  concepts/layers_domains_and_environments: ./use/introduction-to-stackstate/layers_domains_and_environments.md
+  concepts/component_and_relation_mapping_functions: ./use/introduction-to-stackstate/mapping_functions.md
+  use/views: ./use/views/README.md
+  use/perspectives/event-perspective: use/views/events_perspective.md
+  use/perspectives/filters: ./use/views/filters.md
+  use/perspectives: ./use/views/perspectives.md
+  use/perspectives/telemetry-perspective: ./use/views/telemetry_perspective.md
+  use/perspectives/topology-perspective: ./use/views/topology_perspective.md
+  use/perspectives/trace-perspective: ./use/views/traces_perspective.md
+  basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
+  basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components

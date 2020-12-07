@@ -1,13 +1,12 @@
 ---
-description: Build topology queries with STQL
+description: Build advanced topology queries with STQL
 ---
 
-The built-in StackState Query Language (STQL) can be used to run advanced queries in the StackState Topology perspective and Analytics environments.
+# Overview
 
-- **Topology**: Use STQL to build [advanced topology filters](/use/perspectives/filters.md#advanced-topology-filters) that zoom in on a specific area of your topology or highlight problem components and their root cause.
-- **Analytics**: Combine STQL with scripting to create powerful queries that access the entire 4T data model.
+This page describes how to use the built-in StackState Query Language (STQL) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](/use/views/filters.md#advanced-topology-filters) and can be combined with scripts in the [Analytics](/use/analytics.md) environment.
 
-STQL queries consist of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, from the complete topology.
+An STQL query consists of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, filtered from the complete topology. 
 
 # Component filters
 
@@ -20,7 +19,7 @@ The filters described below can be combined using boolean operators to achieve c
 
 ## Filters
 
-| Parameter | Default | Description |
+| Filter | Default | Description |
 |:---|:---|:---|
 | `domain` | "all" | Components in the specified domain(s). |
 | `environment` | "all" | Components in the named environment. |
@@ -32,7 +31,7 @@ The filters described below can be combined using boolean operators to achieve c
 
 ## Wildcard
 
-You can use * as a full wildcard in a component filter. It is not possible to filter for partial matches using a wildcard character.
+You can use `*` as a full wildcard in a component filter. It is not possible to filter for partial matches using a wildcard character.
 
 ## Examples
 
@@ -47,7 +46,7 @@ name = "serviceB"
 layer = "application"
 
 # Select all components named either "appA" or "appB" that do not have a label "bck"
-name in ("appA","appB") NOT label = "bck"
+name IN ("appA","appB") NOT label = "bck"
 
 # Select all components named "appA" that do not have a label "bck" or "test"
 name = "appA" NOT label in ("bck", "test")
@@ -85,7 +84,7 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 
 # See also
 
-- [Topology filter limits](/use/perspectives/filters.md#topology-filtering-limits)
-- [How to filter topology in the StackState UI](/use/perspectives/filters.md)
-- [How to use STQL queries in analytics](/use/queries.md)
-- [StackState scripting language (STSL)](/develop/scripting/README.md)
+- [Topology filter limits](/use/views/filters.md#topology-filtering-limits)
+- [How to filter topology in the StackState UI](/use/views/filters.md)
+- [How to use STQL queries in analytics](/use/analytics.md)
+- [StackState scripting language (STSL)](/develop/reference/scripting/README.md)

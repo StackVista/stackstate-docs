@@ -20,29 +20,27 @@ To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS s
 
 ### Installation
 
-The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also need to install the [AWS StackPack](aws.md) to see rest of you AWS topology and metrics.
+The AWS X-Ray check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md). You also need to install the [AWS StackPack](/stackpacks/integration/aws.md) to see rest of you AWS topology and metrics.
 
 ### Configuration
 
-1. Edit the `aws.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your Tomcat metrics and logs. See the sample `aws.d/conf.yaml.example` for all available configuration options.
-
-```text
-# Section used for global AWS check config
-init_config:
-    # optional
-    # cache_file: '/opt/stackstate-agent/tmp'
-
-instances:
-  # mandatory AWS credentials and config
-  - aws_access_key_id: 'abc'
-    aws_secret_access_key: 'cde'
-    role_arn: 'arn:aws:iam::0123456789:role/RoleName'
-    region: 'ijk'
-    # optional
-    # min_collection_interval: 60
-```
-
-1. Restart the Agent
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws.d/conf.yaml` to start collecting your Tomcat metrics and logs. See the sample `aws.d/conf.yaml.example` for all available configuration options.
+    ```text
+    # Section used for global AWS check config
+    init_config:
+        # optional
+        # cache_file: '/opt/stackstate-agent/tmp'
+    
+    instances:
+      # mandatory AWS credentials and config
+      - aws_access_key_id: 'abc'
+        aws_secret_access_key: 'cde'
+        role_arn: 'arn:aws:iam::0123456789:role/RoleName'
+        region: 'ijk'
+        # optional
+        # min_collection_interval: 60
+    ```
+2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
 Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
 

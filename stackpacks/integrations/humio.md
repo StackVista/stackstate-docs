@@ -11,8 +11,8 @@ Using this StackPack, you can:
 ## Prerequisites
 
 * A Humio cloud account
-* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration](https://docs.humio.com/integrations/ingest-logs-from-a-specific-system/kubernetes/)
-* Logging from each Kubernetes cluster must be stored in a **repository with the same name as your cluster** in Humio
+* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration](https://docs.humio.com/integrations/ingest-logs-from-a-specific-system/kubernetes/).
+* Logging from each Kubernetes cluster must be stored in a **repository with the same name as your cluster** in Humio.
 
 ## Using the Humio StackPack
 
