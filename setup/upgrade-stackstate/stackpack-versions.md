@@ -17,7 +17,7 @@ Version numbers in **bold** have changed since the previous release and should b
 | Dynatrace | **1.0.0** | - | - |
 | Humio | 1.0.0 | 1.0.0 | - |
 | Kubernetes | 3.7.2 | 3.7.2 | 3.3.0 |
-| Manual topology | 2.0.1 | | |
+| Manual topology | 2.0.1 | 2.0.1 | 2.0.0 |
 | Nagios | **2.4.0** | 2.3.1 | 2.1.0 |
 | Openshift | 3.5.2 | 3.5.2 | 3.2.0 |
 | SAP | [**1.2.0**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | 1.1.0 | 1.0.1 |
