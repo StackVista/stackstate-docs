@@ -5,31 +5,31 @@ The table below shows the versions of StackPacks chipped with each StackState re
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
 | Autonomous Anomaly Detector | | | |
-| Health Forecast | | | |
-| StackState Agent | | | |
-| AWS | | | |
+| Health Forecast | | | 1.0.3 |
+| StackState Agent | | | 3.4.0 |
+| AWS | | | 4.0.0 |
 | AWS X-ray | | | |
-| Azure | | | |
-| API integration | | | |
-| Cloudera | | | |
+| Azure | | | 2.1.0 |
+| API integration | | | 2.1.0 |
+| Cloudera | | | 1.1.0 |
 | Custom synchronization | | | |
 | DotNet APM | | | |
 | Dynatrace | | | |
 | Google Analytics | | | |
 | Humio | | | |
 | Java APM | | | |
-| Kubernetes | | | |
-| Logz.io | | | |
+| Kubernetes | | | 3.3.0 |
+| Logz.io | | | 0.0.2 |
 | Manual topology | | | |
-| Nagios | | | |
-| Openshift | | | |
-| SAP | | | |
-| SCOM (BETA) | | | |
-| ServiceNow | | | |
+| Nagios | | | 2.1.0 |
+| Openshift | | | 3.2.0 |
+| SAP | | | 1.0.1 |
+| SCOM (BETA) | | | 1.1.0 |
+| ServiceNow | | | 2.1.0 |
 | Splunk | | | |
-| Static topology | | | |
+| Static topology | | | 2.0.0 |
 | Traefik (BETA) | | | |
-| VMware vSphere | | | |
-| Zabbix | | | |
+| VMware vSphere | | | 2.1.0 |
+| Zabbix | | | 2.2.0 |
 
 
