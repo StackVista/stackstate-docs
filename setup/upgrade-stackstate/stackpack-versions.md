@@ -5,9 +5,9 @@ The table below shows the versions of StackPacks chipped with each StackState re
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
 | Autonomous Anomaly Detector (BETA) | **0.6.0** | 0.5.0 | - |
-| Health Forecast | 1.0.3 | 1.0.3 | 1.0.3 |
-| StackState Agent | 3.11.0 | 3.11.0 | 3.4.0 |
-| AWS | 5.0.1 | 5.0.1 | 4.0.0 |
+| Health Forecast | 1.0.3 | _1.0.3_ | _1.0.3_ |
+| StackState Agent | 3.11.0 | _3.11.0_ | _3.4.0_ |
+| AWS | 5.0.1 | _5.0.1_ | _4.0.0_ |
 | AWS X-ray | 3.11.0 | | |
 | Azure | 4.0.2 | 4.0.2 | 2.1.0 |
 | API integration | 2.3.1 | 2.3.1 | 2.1.0 |
