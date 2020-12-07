@@ -6,15 +6,10 @@ description: Functions related to time and timing.
 
 Some scripting functions of StackState may accept a `currentTimeslice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.
 
-## Type: `currentTimeslice`
+## Type: `TimeSlice`
 
-A time slice can be used to query all ongoing transactions. `Time.currentTimeslice()` returns a time slice for the current timestamp.
-
-**Returns**
-
-AsyncScriptResult: Timeslice
-
-**Examples**
+A time slice represents all ongoing transactions. `Time.currentTimeslice()` returns an [async script result](/develop/reference/scripting/async_script_result.md) with a time slice for the current timestamp.
+For example:
 
 ```
 Time.currentTimeSlice().then { slice -> 
