@@ -8,6 +8,68 @@ description: Functions that control the StackState user-interface.
 These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](/configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}
 
+
+## Function: baseUrl
+
+Returns the baseUrl of the StackState instance as configured in the `application.conf` or `values.yaml`.
+
+**Examples:**
+
+Return the base URL from the StackState configuration.
+
+```
+UI.baseUrl()
+```
+
+
+## Function: `createUrl`
+
+Creates a URL builder that can be used to generate URLs that can be linked back in Stackstate.
+
+**Args:**
+
+No arguments.
+
+**Return type:**
+
+CreateUrlBuilder
+
+**Builder methods:**
+
+- `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
+    - `at()` -  specifies a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
+    - `withComponent()` - 
+    - `url()` -
+
+**Examples:**
+
+Create a URL to a view at a specific time.
+```
+View.getAll().then { views ->
+    UI.createUrl().view(views[0]).at('-15m').url()
+}
+```
+
+## Function: `redirectToURL`
+
+Opens a new tab in the user's browser to some URL.
+
+**Args:**
+
+* `url` - the URL to redirect the browser to.
+
+**Return type:**
+
+* Async: URLRedirectResponse
+
+**Examples:**
+
+Open the stackstate.com website in a new tab in the browser.
+
+```text
+UI.redirectToUrl("http://wwww.stackstate.com")
+```
+
 ## Function: `showReport`
 
 Shows a report in the user-interface. The user-interface will open a dialog with the report in it. You can also see the result of these reports in the preview of the analytics environment.
@@ -61,53 +123,6 @@ Redirects the user-interface to show the Azure topology.
 UI.showTopologyByQuery('domain IN ("Azure")')
 ```
 
-## Function: `redirectToURL`
-
-Opens a new tab in the user's browser to some URL.
-
-**Args:**
-
-* `url` - the URL to redirect the browser to.
-
-**Return type:**
-
-* Async: URLRedirectResponse
-
-**Examples:**
-
-Open the stackstate.com website in a new tab in the browser.
-
-```text
-UI.redirectToUrl("http://wwww.stackstate.com")
-```
-
-## Function: `createUrl`
-
-Creates a URL builder that can be used to generate URLs that can be linked back in Stackstate.
-
-**Args:**
-
-No arguments.
-
-**Return type:**
-
-CreateUrlBuilder
-
-**Builder methods:**
-
-- `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
-    - `at()` -  specifes a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
-    - `withComponent()` - 
-    - `url()` -
-
-**Examples:**
-
-Create a URL to a view at a specific time.
-```
-View.getAll().then { views ->
-    UI.createUrl().view(views[0]).at('-15m').url()
-}
-```
 
 Create a URL to a view focussing on a component.
 
@@ -117,16 +132,4 @@ View.getAll().then { views ->
 		UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
 	}
 }
-```
-
-## Function: baseUrl
-
-Returns the baseUrl of the StackState instance as configured in the `application.conf` or `values.yaml`.
-
-**Examples:**
-
-Return the base URL from the StackState configuration.
-
-```
-UI.baseUrl()
 ```
