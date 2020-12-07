@@ -18,7 +18,7 @@ The table below shows the versions of StackPacks chipped with each StackState re
 | Manual topology | 2.0.1 | | |
 | Nagios | **2.4.0** | 2.3.1 | 2.1.0 |
 | Openshift | 3.5.2 | 3.5.2 | 3.2.0 |
-| SAP | **1.2.0** | 1.1.0 | 1.0.1 |
+| SAP | [**1.2.0**](https://raw.githubusercontent.com/StackVista/stackpack-sap/master/src/main/stackpack/resources/RELEASE.md) | 1.1.0 | 1.0.1 |
 | SCOM (BETA) | 1.2.2 | 1.2.2 | 1.1.0 |
 | ServiceNow | **5.0.0** | 4.0.1 | 2.1.0 |
 | Splunk | 1.0.0 | 1.0.0 | - |
