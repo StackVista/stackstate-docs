@@ -1,6 +1,8 @@
 # StackPack versions
 
-The table below shows the versions of StackPacks chipped with each StackState release. Version numbers in **bold** have changed since the previous release and should be upgraded, release notes are linked where available. Find out [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack). 
+The table below shows the StackPack version numbers shipped with each StackState release. 
+
+Version numbers in **bold** have changed since the previous release and should be upgraded, release notes are linked where available. Find out [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack). 
 
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
