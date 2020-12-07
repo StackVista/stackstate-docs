@@ -50,9 +50,9 @@ If you are upgrading to a new **major** StackState release, StackState and/or th
 A major upgrade consists of the following steps:
 
 1. [Create a backup](#create-a-backup)
-2. Optional: [Uninstall StackPacks](#uninstall-stackpacks) - check the version-specific upgrade instructions.
+2. Optional: [Uninstall StackPacks](#uninstall-stackpacks)
 3. [Upgrade StackState](#upgrade-stackstate)
-4. Optional: [Install StackPacks](#install-stackpacks) - check the version-specific upgrade instructions.
+4. Optional: [Install StackPacks](#install-stackpacks)
 5. [Verify the new installation](#verify-the-new-installation)
 
 ## Walkthrough of an upgrade
@@ -93,7 +93,11 @@ StackPacks must be uninstalled using the version of StackState prior to the upgr
 
 ### Upgrade StackState
 
-Find instructions to upgrade a StackState Kubernetes or Linux setup below.
+{% hint style="info" %}
+Remember to check the [version specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md) for specific changes that need to be made for the new StackState version you will upgrade to.
+{% endhint %}
+
+Instructions to upgrade a StackState Kubernetes or Linux setup can be found below. 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
