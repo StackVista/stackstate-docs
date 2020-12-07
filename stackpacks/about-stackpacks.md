@@ -30,11 +30,13 @@ The available StackPack add-ons and integrations can be found on the **StackPack
 * [add-ons](/stackpacks/add-ons/README.md)
 * [integrations](/stackpacks/integrations/README.md)
 
-## Install and uninstall StackPacks
+## Install or uninstall a StackPack
 
 StackPacks can be installed and uninstalled from the **StackPacks** page in StackState. Full install and uninstall instructions are provided.
 
 {% hint style="info" %}
+**Note that**
+
 * A StackPack may require **manual** installation steps or configuration of the external system. Please read the instructions provided carefully.
 * When a StackPack or StackPack instance is uninstalled, **all data received via the StackPack \(instance\) will be removed from StackState.**
 * Any \(manual\) configuration or installation of StackPack components in an external system may need to be uninstalled separately.

@@ -1,14 +1,16 @@
 ---
-description: Performing major and minor upgrades of StackState.
+description: Perform a major or minor upgrade of StackState.
 ---
 
 # Upgrade StackState
+
+## Overview
 
 This document describes the upgrade procedure for StackState.
 
 For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
 
-### Upgrade considerations
+### Before you upgrade
 
 When executing a StackState upgrade, please be aware of the following:
 
@@ -24,7 +26,7 @@ When upgrading a StackPack, **any changes you have made to configuration items f
 If there are **hotfixes** installed in your StackState installation, contact StackState technical support prior to upgrading.
 {% endhint %}
 
-### Upgrading to a new minor StackState release
+### Upgrade to a new minor StackState release
 
 A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 1.15.3. or 1.16.0.
 
@@ -32,11 +34,12 @@ If you are upgrading to a new **minor** StackState release, StackState itself an
 
 A minor upgrade consists of the following steps:
 
-* Create a backup
-* Upgrade StackState
-* Verify the new installation
+1. [Create a backup](#create-a-backup)
+2. [Upgrade StackState](#upgrade-stackstate)
+3. [Verify the new installation](#verify-the-new-installation)
+4. Check if any installed StackPacks require an upgrade
 
-### Upgrading to a new major StackState release
+### Upgrade to a new major StackState release
 
 A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
@@ -44,11 +47,11 @@ If you are upgrading to a new **major** StackState release, StackState and/or th
 
 A major upgrade consists of the following steps:
 
-* Create a backup
-* Uninstall StackPacks \(optional, check the version-specific upgrade instructions\)
-* Upgrade StackState
-* Install StackPacks \(optional, check the version-specific upgrade instructions\)
-* Verify the new installation
+1. [Create a backup](#create-a-backup)
+2. Optional: [Uninstall StackPacks](#uninstall-stackpacks) - check the version-specific upgrade instructions.
+3. [Upgrade StackState](#upgrade-stackstate)
+4. Optional: [Install StackPacks](#install-stackpacks) - check the version-specific upgrade instructions.
+5. [Verify the new installation](#verify-the-new-installation)
 
 ## Create a backup
 
@@ -78,10 +81,10 @@ Note that it will not be possible to restore the backup on the upgraded version 
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
 
 {% hint style="warning" %}
-The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
 {% endhint %}
 
 ## Upgrade StackState
@@ -107,7 +110,7 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
 
 ## Verify the new installation
 
