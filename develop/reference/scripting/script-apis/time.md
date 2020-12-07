@@ -4,7 +4,7 @@ description: Functions related to time and timing.
 
 # Script API: Time
 
-Some scripting functions of StackState may accept a `currentTimeslice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.
+Some scripting functions of StackState may accept a `TimeSlice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.
 
 ## Type: `TimeSlice`
 
