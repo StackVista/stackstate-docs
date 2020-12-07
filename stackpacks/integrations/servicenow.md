@@ -51,11 +51,11 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
       - url: "https://<instance_ID>.service-now.com"
         user: <instance_username>
         password: <instance_password>
-        # batch_size: 3000  
+        # batch_size: 1000  
         # change_request_bootstrap_days: 10
-        # change_request_process_limit: 2000 
+        # change_request_process_limit: 1000 
         # timeout: 20
-        # verify_https: false
+        # verify_https: true
     ```
 2. You can also add optional configuration and filters:
    - **batch_size** - the maximum number of records to be returned (default `2500`, max `10000`).
@@ -77,22 +77,27 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
     - `cmdb_ci_sysparm_query` - ServiceNow CMDB Configuration Items query.
     - `cmdb_rel_ci_sysparm_query` - ServiceNow CMDB Configuration Items Relations query.
     - `change_request_sysparm_query` - ServiceNow Change Request query.
-    - `custom_cmdb_ci_field` - ServiceNow CMDB Configuration Item custom field mapping
+    - `custom_cmdb_ci_field` - ServiceNow CMDB Configuration Item custom field mapping.
 4. Add the filter you copied from ServiceNow. For example
 
    ```
    ... 
-   # ServiceNow CMDB Configuration Items query. There is no default value.
-   # cmdb_ci_sysparm_query: company.nameSTARTSWITHstackstate
+   instances:
+     - url: "https://<instance_ID>.service-now.com"
+       user: <instance_username>
+       password: <instance_password>
    
-   # ServiceNow CMDB Configuration Items Relations query. There is no default value.
-   # cmdb_rel_ci_sysparm_query: parent.company.nameSTARTSWITHstackstate^ORchild.company.nameSTARTSWITHstackstate
-   
-   # ServiceNow Change Request query. There is no default value.
-   # change_request_sysparm_query: company.nameSTARTSWITHstackstate
-   
-   # ServiceNow CMDB Configuration Item custom field mapping. The default value is cmdb_ci.
-   # custom_cmdb_ci_field: u_configuration_item
+       # ServiceNow CMDB Configuration Items query. There is no default value.
+       # cmdb_ci_sysparm_query: company.nameSTARTSWITHstackstate
+       
+       # ServiceNow CMDB Configuration Items Relations query. There is no default value.
+       # cmdb_rel_ci_sysparm_query: parent.company.nameSTARTSWITHstackstate^ORchild.company.nameSTARTSWITHstackstate
+       
+       # ServiceNow Change Request query. There is no default value.
+       # change_request_sysparm_query: company.nameSTARTSWITHstackstate
+       
+       # ServiceNow CMDB Configuration Item custom field mapping. The default value is cmdb_ci.
+       # custom_cmdb_ci_field: u_configuration_item
    ...
    ```
    
@@ -224,13 +229,13 @@ The code for the StackState ServiceNow check is open source and available on Git
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
 
 ## Uninstall
 
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
-1. Go to the StackState UI StackPacks > Integrations > ServiceNow screen and click UNINSTALL.
+1. Go to the StackState UI **StackPacks** > **Integrations** > **ServiceNow** screen and click UNINSTALL.
     - All ServiceNow specific configuration will be removed from StackState.
 2. Remove or rename the Agent integration configuration file, for example:
     ```

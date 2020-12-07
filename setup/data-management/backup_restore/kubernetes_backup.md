@@ -4,6 +4,6 @@ Several mechanisms can be used for backups. When running in EKS or AKS, the easi
 
 See also:
 
-* [Manually created topology backup](manual_topology_backup.md)
-* [Configuration backup](configuration_backup.md)
+* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
+* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
 

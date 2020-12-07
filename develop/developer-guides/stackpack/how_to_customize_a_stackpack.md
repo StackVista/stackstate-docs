@@ -1,13 +1,8 @@
----
-title: How to customize a StackPack
-kind: Documentation
----
-
 # Customizing a StackPack
 
 ## StackPack configuration file
 
-The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](prepare_package.md) or follow the instructions below.
+The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](/develop/developer-guides/stackpack/prepare_package.md) or follow the instructions below.
 
 StackPack configuration file structure is as follows:
 
@@ -53,7 +48,7 @@ provision = "ExampleProvision"
 
 * Any relative/absolute path is considered as a resource inside the `resources` directory in the StackPack.
 * Any absolute URL with a scheme \(`http`/`https`\) refers to an externally hosted resource with the given URL.
-* Configuration URLs are representing [documentation and states files](stackpack_resources.md) that reside in the `resources` directory in the StackPack.
+* Configuration URLs are representing [documentation and states files](/develop/developer-guides/stackpack/stackpack_resources.md) that reside in the `resources` directory in the StackPack.
 
 ## Configuration input
 

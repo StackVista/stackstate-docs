@@ -1,6 +1,4 @@
 ---
-title: Clear data
-kind: Documentation
 description: Removing data from StackState.
 ---
 
@@ -12,7 +10,7 @@ The data in StackState is divided into three different sets:
 * Kafka Topic data
 * StackGraph data
 
-With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState. This can be configured according to your needs using the StackState CLI or manually on each machine. Find out more about [StackState data retention](data_retention.md).
+With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState. This can be configured according to your needs using the StackState CLI or manually on each machine. Find out more about [StackState data retention](/setup/data-management/data_retention.md).
 
 ## Clear data using the StackState CLI
 

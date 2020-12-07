@@ -37,7 +37,7 @@ UI.showReport(
 )
 ```
 
-Please note the `.stripMargin()` call. This is a Groovy function for strings that strips leading whitespace/control characters followed by '\|' from every line. This way indenting can be retained without introducing leading whitespace in the STML.
+Please note the `.stripMargin()` call. This is a Groovy function for strings that strips leading whitespace/control characters followed by '\|' from every line. This way, indenting can be retained without introducing leading whitespace in the STML.
 
 ## Function: `showTopologyByQuery`
 

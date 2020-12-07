@@ -1,8 +1,4 @@
 ---
-description: include a description
----
-
----
 description: StackPack description
 ---
 

@@ -13,7 +13,7 @@ If all of your configuration nodes already have been assigned to the right names
 
 ## Prepare the template file
 
-A `.stj` file contains a number of configuration nodes. Each of the configuration nodes represents a configuration item in StackState \(e.g. Layer, Domain, Environment, etc.\). This file contains all of the configuration of your StackState instance, which means you have to take out configuration nodes that are unnecessary for your StackPack. Take the steps below to prepare your template file:
+A `.stj` file contains a number of configuration nodes. Each of the configuration nodes represents a configuration item in StackState, for example Layer, Domain and Environment. This file contains all of the configuration of your StackState instance, which means you have to take out configuration nodes that are unnecessary for your StackPack. Take the steps below to prepare your template file:
 
 * Remove all configuration nodes that are owned by another StackPack. They all have a field called `ownedBy`.
 * Items that are extended from the `Custom Synchronization` StackPack, will have their urn `identifier` field with the following structure: `urn:stackpack:autosync:{type_name}:{object_name}`.

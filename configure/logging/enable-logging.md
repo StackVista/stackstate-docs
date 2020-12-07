@@ -186,6 +186,6 @@ The ID for a check or propagation on a specific component can be found in in the
 
 - [StackState CLI](/setup/installation/cli-install.md)
 - [Checks and check functions](/configure/telemetry/checks_and_streams.md#checks)
-- [Event handlers](/use/alerting.md#send-alerts-with-event-handlers)
+- [Event handler functions](/configure/topology/event-handlers.md)
 - [State propagation and propagation functions](/configure/topology/propagation.md)
-- [View state configuration functions](/configure/view_state_configuration.md)
+- [View state configuration functions](/configure/topology/view_state_configuration.md)
