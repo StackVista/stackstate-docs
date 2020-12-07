@@ -1,5 +1,7 @@
 # StackPack versions
 
+The table below shows the versions of StackPacks chipped with each StackState release. Version numbers in **bold** have changed since the previous release and should be upgraded. Find out [how to upgrade a StackPack](). 
+
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
 | Autonomous Anomaly Detector | | | |

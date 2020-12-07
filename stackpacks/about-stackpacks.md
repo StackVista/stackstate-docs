@@ -42,3 +42,8 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 * Any \(manual\) configuration or installation of StackPack components in an external system may need to be uninstalled separately.
 {% endhint %}
 
+## Upgrade a StackPack
+
+StackPacks can be upgraded from the **StackPacks** page in StackState. If a new version is available, the **UPGRADE** button will be available and you will have the option to read the release notes.
+
+Check the list of [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState. 
