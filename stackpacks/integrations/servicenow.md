@@ -276,7 +276,7 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 - Feature: Multi-instance support is available now.
 
 
-### 2.1.0 (2020-04-10)**
+**v2.1.0 (10-04-2020)**
 
 - Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
 
