@@ -251,24 +251,24 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## Release notes
 
-**v5.0.0 (17-11-2020)**
+**ServiceNow StackPack v5.0.0 (17-11-2020)**
 
 - Feature: Introduce the Instance Name for easy filtering and use.
 
-**v4.0.1 (18-08-2020)**
+**ServiceNow StackPack v4.0.1 (18-08-2020)**
 
 - Feature: Introduced the Release notes pop up for customer.
 
-**v4.0.0 (04-08-2020)**
+**ServiceNow StackPack v4.0.0 (04-08-2020)**
 
 - Bugfix: Fix and make Component mapping function per instance to support multi-instance.
 
-**v3.1.0 (04-08-2020)**
+**ServiceNow StackPack v3.1.0 (04-08-2020)**
 
 - Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
 - Improvement: Addition of new views.
 
-**v3.0.0 (30-04-2020)**
+**ServiceNow StackPack v3.0.0 (30-04-2020)**
 
 - Feature: Updated the requirement docs to use AgentV2 now.
 - Feature: Updated the installation details to use the new configuration parameters.
@@ -276,7 +276,7 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 - Feature: Multi-instance support is available now.
 
 
-**v2.1.0 (10-04-2020)**
+**ServiceNow StackPack v2.1.0 (10-04-2020)**
 
 - Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
 

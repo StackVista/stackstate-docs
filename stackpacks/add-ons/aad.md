@@ -208,7 +208,7 @@ Release notes for the [AAD StackPack](#aad-stackpack) and the [AAD Kubernetes se
 
 #### AAD StackPack v0.2.2 BETA (04-09-2020)
 
-- Releasing Autonomous Anomaly Detector service Beta.
+- Releasing Autonomous Anomaly Detector service BETA.
 
 
 ### AAD Kubernetes service
@@ -238,4 +238,4 @@ Changes in this version:
 
 Changes in this version:
 
-* Releasing Autonomous Anomaly Detector service Beta.
+* Releasing Autonomous Anomaly Detector service BETA.

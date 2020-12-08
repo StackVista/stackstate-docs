@@ -149,10 +149,9 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 
 ## Release notes
 
-### v1.0.0
+**Dynatrace Stackpack v1.0.0**
 
-**Features**
-- Gathers Topology from your Dynatrace instance and allows visualization of your Dynatrace components and the relations between them.
+- Feature: Gathers Topology from your Dynatrace instance and allows visualization of your Dynatrace components and the relations between them.
 
 
 ## See also
