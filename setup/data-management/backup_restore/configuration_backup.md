@@ -108,7 +108,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 Alternatively, in the StackState UI:
 
 1. Go to **Settings** > **Import/Export** > **Import Setttings**. 
-2. Choose the `*.stj` file you want to import configuration from.
+2. Choose the `*.stj` file that you want to import configuration from.
 3. Click on the button **START IMPORT**.
 
 ![Import configuration from the StackState UI](/.gitbook/assets/import_configuration.png)
