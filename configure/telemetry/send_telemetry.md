@@ -39,22 +39,29 @@ Depending on your StackState configuration, received metrics or events that are 
 
 ## Metrics
 
-Metrics can be sent to the receiver API using the `metrics` property. Every metric has a `name`, `timestamp`, `value`, `hostname`, `type` and optionally a set of `tags`.
+Metrics can be sent to the receiver API using the `metrics` property. Every metric has the following details:
+ 
+- **name** - The metric name
+- **timestamp** - The epoch timestamp of the metric.
+- **value** - The value of the metric.
+- **hostname** - The host this metric is from.
+- **tags** - Optional.  A list of key/value tags to associate with the metric.
+- **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
 
 Example of a single metric:
 
 ```javascript
 [
-  "test.metric", // string - name of the metric
-  1548857152, // int - the epoch timestamp for the metric
+  "test.metric", // the metric name
+  1548857152,
   10.0, // double - value of the metric
   {
-    "hostname": "localdocker.test", // the host this metric is from
-    "tags": [ // (optional) a list of key/value tags to associate with the metric.
+    "hostname": "localdocker.test",
+    "tags": [ 
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
     ],
-    "type": "gauge" // type of metric. Can be: gauge, count, rate, counter, raw
+    "type": "gauge"
   }
 ]
 ```
@@ -125,11 +132,11 @@ Metric names **cannot start with** any of the following prefixes:
 Events can be sent to the StackState receiver API using the `events` property. Every event has the following details:
 
 - **name** - The event name.
+- **timestamp** - The epoch timestamp for the event.
 - **msg_text** - Optional. The text body of the event.
 - **msg_title** - Optional. The title of the event.
 - **source_type_name** - Optional. The source type name.
 - **tags** - Optional. A list of key/value tags to associate with the event.
-- **timestamp** - The epoch timestamp for the event.
 
 Example of a single event:
 
