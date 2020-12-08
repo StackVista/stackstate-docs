@@ -28,11 +28,11 @@ If there are **hotfixes** installed in your StackState installation, contact Sta
 
 ## Steps to upgrade
  
-### A new minor StackState release
+### A new minor StackState release or a maintenance release
 
-A minor release of StackState is indicated by a change in the second or third digits of the version number, for example 4.1.0 or 4.0.1.
+A minor release of StackState is indicated by a change in the second digit of the version number, for example 4.1.0. Maintenance releases are identified by a change in the third digit of the version number, for example 4.1.1.
 
-If you are upgrading to a new **minor** StackState release, StackState itself and the StackPacks will be compatible with the current installation.
+If you are upgrading to a new **minor** StackState release or a **maintenance** release, StackState itself and the StackPacks will be compatible with the current installation.
 
 A minor upgrade consists of the following steps:
 

@@ -4,7 +4,13 @@ description: Required manual steps for upgrade to each supported StackState vers
 
 # Version specific upgrade notes
 
-## Upgrade to 4.2.0
+## Overview
+
+
+
+## Upgrade notes 
+
+### Upgrade to v4.2.0
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -37,7 +43,7 @@ The following configuration changes must be manually processed if you are using 
 {% endtabs %}
 
 
-## Upgrade to 4.1.0
+### Upgrade to v4.1.0
 
 {% hint style="info" %}
 Go to the [StackState v4.1 docs site](https://docs.stackstate.com/v/4.1/).
@@ -47,7 +53,7 @@ Go to the [StackState v4.1 docs site](https://docs.stackstate.com/v/4.1/).
   * The `sts-healthcheckuri` has been moved from port 7071 to 7080
   * The `startup-check` block has been removed completely
 
-## Upgrade to 4.0.0
+### Upgrade to v4.0.0
 
 {% hint style="info" %}
 Go to the [StackState v4.0 docs site](https://docs.stackstate.com/v/4.0/).
