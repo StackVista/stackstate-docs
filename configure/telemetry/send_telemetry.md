@@ -127,7 +127,7 @@ Events can be sent to the StackState receiver API using the `events` property. E
     - **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
     - **data** - Optional.  A list of key/value details about the event, for example a configuration version.
     - **source_id** - Optional. The original identifier of the event in the source system.
-    - **source_links** - Optional.  A list of key/value links related to the event, for example a dashboard or the event in the source system.
+    - **source_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
 - **event_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
 - **msg_text** - Optional. The text body of the event.
 - **msg_title** - Optional. The title of the event.
