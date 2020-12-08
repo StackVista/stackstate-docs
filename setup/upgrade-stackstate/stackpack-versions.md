@@ -10,7 +10,7 @@ Version numbers in **bold** have changed since the previous release and should b
 
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
-| Autonomous Anomaly Detector (BETA) | **v0.6.0** | v0.5.0 | - |
+| [Autonomous Anomaly Detector (BETA)](/stackpacks/add-ons/aad.md) | [**v0.6.0**](/stackpacks/add-ons/aad.md#release-notes) | v0.5.0 | - |
 | Health Forecast | v1.0.3 | v1.0.3 | v1.0.3 |
 | StackState Agent | 3.11.0 | 3.11.0 | 3.4.0 |
 | AWS | 5.0.1 | 5.0.1 | 4.0.0 |
