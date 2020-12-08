@@ -53,9 +53,9 @@ The following configuration changes must be manually processed if you are using 
 Go to the [StackState v4.1 docs site](https://docs.stackstate.com/v/4.1/).
 {% endhint %}
 
-* There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
-  * The `sts-healthcheckuri` has been moved from port 7071 to 7080
-  * The `startup-check` block has been removed completely
+There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
+* The `sts-healthcheckuri` has been moved from port 7071 to 7080
+* The `startup-check` block has been removed completely
 
 ### Upgrade to v4.0.0
 
