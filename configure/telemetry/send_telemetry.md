@@ -257,7 +257,7 @@ curl -X POST \
 ```
 sts event send "HealthStateChangedEvent" \
     --title "event_title" \
-    -i "element_identifier1" \
+    -i "element_identifier1" "element_identifier2" \
     -s "source_system" \
     -c "Changes" \
     -d '{"data_key1:data_value1", "data_key2:data_value2"}'
