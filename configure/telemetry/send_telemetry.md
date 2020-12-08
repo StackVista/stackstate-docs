@@ -41,7 +41,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 Metrics can be sent to the receiver API using the `metrics` property. Every metric has the following details:
  
-- **name** - The metric name. **Cannot start with** `host`, `name`, `timestamp`, `timeReceived`, `labels`, `tags` or `values`.
+- **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
 - **timestamp** - The epoch timestamp of the metric.
 - **value** - The value of the metric.
 - **hostname** - The host this metric is from.
@@ -115,23 +115,11 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-{% hint style="warning" %}
-Metric names **cannot start with** any of the following prefixes:
-
-* `host`
-* `name`
-* `timestamp`
-* `timeReceived`
-* `labels`
-* `tags`
-* `values`
-{% endhint %}
-
 ## Events
 
 Events can be sent to the StackState receiver API using the `events` property. Every event has the following details:
 
-- **name** - The event name.
+- **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 - **timestamp** - The epoch timestamp for the event.
 - **msg_text** - Optional. The text body of the event.
 - **msg_title** - Optional. The title of the event.
@@ -211,18 +199,3 @@ curl -X POST \
 ```
 {% endtab %}
 {% endtabs %}
-
-
-{% hint style="warning" %}
-Event names **cannot start with** any of the following prefixes:
-
-* `host`
-* `name`
-* `title`
-* `eventType`
-* `message`
-* `timestamp`
-* `timeReceived`
-* `labels`
-* `tags`
-{% endhint %}
