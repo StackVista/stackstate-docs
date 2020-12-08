@@ -6,9 +6,13 @@ StackState can either pull telemetry from a data source or can receive pushed te
 
 There are several ways to send telemetry to StackState. A large number of [integrations](/stackpacks/integrations) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](/setup/installation/cli-install.md).
 
-## Sending telemetry over HTTP
+## Send telemetry over HTTP
 
-StackState's receiver API is responsible for receiving both telemetry and topology. By default the receiver API is hosted at `https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>`. Both the base URL and API\_KEY are set during installation. For details see:
+The StackState receiver API is responsible for receiving both telemetry and topology. By default, the receiver API is hosted at:
+
+```https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>``` 
+
+Both the baseUrl and API\_KEY are set during installation, for details see:
 
 - [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
 - [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
@@ -18,16 +22,18 @@ Telemetry is sent to the receiver API via HTTP POST and has a common JSON object
 
 ```javascript
 {
-  "collection_timestamp": 1548855554, // int - the epoch timestamp for the collection
+  "collection_timestamp": 1548855554, // the epoch timestamp for the collection
   "events": {}, // see section on events
-  "internalHostname": "localdocker.test", // string - the host that is sending this data
-  "metrics": [], // see section on metrics
+  "internalHostname": "localdocker.test", // the host that is sending this data
+  "metrics": [], // see the section on "metrics", below
   "service_checks": [],
-  "topologies": [] // used for sending topological data
+  "topologies": [] // used for sending topology data
 }
 ```
 
-**Note:** Depending on your StackState configuration, metrics or events that are too old will be ignored.
+{% hint style="info" %}
+Depending on your StackState configuration, received metrics or events that are too old will be ignored.
+{% endhint %}
 
 ## Metrics
 
@@ -41,20 +47,22 @@ Example of a single metric:
   1548857152, // int - the epoch timestamp for the metric
   10.0, // double - value of the metric
   {
-    "hostname": "localdocker.test", // string - the host this metric is from
-    "tags": [ // (optional) list - a list of tags to associate with this metric. Colon separated key/value pairs.
+    "hostname": "localdocker.test", // the host this metric is from
+    "tags": [ // (optional) a list of key/value tags to associate with the metric.
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
     ],
-    "type": "gauge" // string - type of metric options: gauge, count, rate, counter, raw
+    "type": "gauge" // type of metric. Can be: gauge, count, rate, counter, raw
   }
 ]
 ```
 
 Multiple metrics can be sent in one message. The `timestamp` and `value` of the metric is what is used to plot the metrics as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
-curl example:
+You can send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metrics-send) command or as JSON via HTTP POST. For example:
 
+{% tabs %}
+{% tab title="curl" %}
 ```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
@@ -95,8 +103,8 @@ curl -X POST \
   "topologies": []
 }'
 ```
-
-You can also send metrics to StackState with the CLI `metric send` command.
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 Metric names **cannot start with** any of the following prefixes:
@@ -112,29 +120,31 @@ Metric names **cannot start with** any of the following prefixes:
 
 ## Events
 
-Events can be sent to the receiver API using the `events` property. Every event has a `name`, `timestamp`, and optionally `msg_title`, `msg_text`, `tags` and `source_type_name`.
+Events can be sent to the StackState receiver API using the `events` property. Every event has a `name`, `timestamp`, and optionally a `msg_title`, `msg_text`, `tags` and/or `source_type_name`.
 
 Example of a single event:
 
 ```javascript
-"event.test": [ // string - the event name
+"event.test": [ // the event name
   {
-    "msg_text": "event_text", // (optional) string - the text body of the event
-    "msg_title": "event_title", // (optional) string - the title of the event,
-    "source_type_name": "event.test", // (optional) string - the source type name
-    "tags": [ // (optional) list - a list of tags to associate with this event. Colon separated key/value pairs.
+    "msg_text": "event_text", // (optional) the text body of the event
+    "msg_title": "event_title", // (optional) the title of the event,
+    "source_type_name": "event.test", // (optional) the source type name
+    "tags": [ // (optional) a list of key/value tags to associate with the event.
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
     ],
-    "timestamp": 1548857342 // int - the epoch timestamp for the event
+    "timestamp": 1548857342 // the epoch timestamp for the event
   }
 ]
 ```
 
-Multiple events can be sent in one message. Any of an events' properties can be used to define an event stream in StackState.
+Multiple events can be sent in one message. Any of an event's properties can be used to define an event stream in StackState.
 
-curl example:
+You can also send events to StackState with the [StackState CLI `events send`](/develop/reference/cli_reference.md#sts-events-send) command or as JSON via HTTP POST. For example:
 
+{% tabs %}
+{% tab title="curl" %}
 ```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
@@ -183,8 +193,9 @@ curl -X POST \
   "topologies": []
 }'
 ```
+{% endtab %}
+{% endtabs %}
 
-You can also send events to StackState with the CLI `event send` command.
 
 {% hint style="warning" %}
 Event names **cannot start with** any of the following prefixes:
