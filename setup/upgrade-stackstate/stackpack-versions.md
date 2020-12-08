@@ -6,7 +6,7 @@ description: The StackPack versions shipped with each release of StackState.
 
 The table below shows the StackPack version numbers shipped with each StackState release. 
 
-Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes. If your current version of StackState includes a new release of a StackPack, you will need to manually upgrade it to gain access to new features and fixes. Find out [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack). 
+Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes. If a new release of a StackPack is included with your current version of StackState, you can [manually upgrade the StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack) to gain access to new features and fixes. 
 
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
