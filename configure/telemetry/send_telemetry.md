@@ -230,8 +230,8 @@ curl -X POST \
           "source": "source_system",
           "source_links": [
             {
-              "link_key1:link_value1",
-              "link_key2:link_value2"
+              "title": "link_title",
+              "url": "link_url"
             }
           ]
         },
