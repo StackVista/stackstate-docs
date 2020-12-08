@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the [StackState CLI](/setup/installation/cli-install.md) or using curl commands:
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -25,6 +25,10 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 ```
 {% endtab %}
 {% endtabs %}
+
+In the StackState UI, go to **Settings** > **Import/Export** > **Export Setttings** and click on the **STS-EXPORT-ALL** button.
+
+![Export configuration from the StackState UI](/.gitbook/assets/export_configuration.png)
 
 ### Export configuration with authentication \(curl\)
 
@@ -95,6 +99,11 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 ```
 {% endtab %}
 {% endtabs %}
+
+
+In the StackState UI, go to **Settings** > **Import/Export** > **Import Setttings**. Choose the `*.stj` file you want to import configuration from and click on the **START IMPORT** button.
+
+![Import configuration from the StackState UI](/.gitbook/assets/import_configuration.png)
 
 ## Import or export individual configuration items
 
