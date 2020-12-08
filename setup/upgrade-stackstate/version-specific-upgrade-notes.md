@@ -11,7 +11,7 @@ description: Required manual steps for upgrade to each supported StackState vers
 
 A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState (how StackState is reachable from external machines) and is exposed via the [UI script API](/develop/reference/scripting/script-apis/ui.md#function-baseurl). 
 
-The file `values.yaml` file should be updated to include the new `stackstate.baseUrl` parameter, the old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release. For StackState v4.2 only, when no `stackstate.baseUrl` is provided, the configured `stackstate.receiver.baseUrl` will be used instead.
+The file `values.yaml` file should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
 
 {% endtab %}
 {% tab title="Linux" %}
