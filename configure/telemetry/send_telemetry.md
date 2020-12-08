@@ -10,7 +10,9 @@ There are several ways to send telemetry to StackState. A large number of [integ
 
 The StackState receiver API is responsible for receiving both telemetry and topology. By default, the receiver API is hosted at:
 
-```https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>``` 
+```
+https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
+``` 
 
 Both the baseUrl and API\_KEY are set during installation, for details see:
 
