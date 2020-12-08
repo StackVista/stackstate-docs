@@ -47,7 +47,7 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 ## Upgrade a StackPack
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items].
 {% endhint %}
 
 StackPacks can be upgraded from the **StackPacks** page in StackState. If a new version is available, the **UPGRADE** button will be available and you will have the option to read the release notes.
