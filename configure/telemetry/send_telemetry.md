@@ -122,21 +122,28 @@ Metric names **cannot start with** any of the following prefixes:
 
 ## Events
 
-Events can be sent to the StackState receiver API using the `events` property. Every event has a `name`, `timestamp`, and optionally a `msg_title`, `msg_text`, `tags` and/or `source_type_name`.
+Events can be sent to the StackState receiver API using the `events` property. Every event has the following details:
+
+- **name** - The event name.
+- **msg_text** - Optional. The text body of the event.
+- **msg_title** - Optional. The title of the event.
+- **source_type_name** - Optional. The source type name.
+- **tags** - Optional. A list of key/value tags to associate with the event.
+- **timestamp** - The epoch timestamp for the event.
 
 Example of a single event:
 
 ```javascript
 "event.test": [ // the event name
   {
-    "msg_text": "event_text", // (optional) the text body of the event
-    "msg_title": "event_title", // (optional) the title of the event,
-    "source_type_name": "event.test", // (optional) the source type name
-    "tags": [ // (optional) a list of key/value tags to associate with the event.
+    "msg_text": "event_text",
+    "msg_title": "event_title",
+    "source_type_name": "event.test",
+    "tags": [
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
     ],
-    "timestamp": 1548857342 // the epoch timestamp for the event
+    "timestamp": 1548857342
   }
 ]
 ```
