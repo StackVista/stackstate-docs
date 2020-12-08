@@ -225,7 +225,7 @@ curl -X POST \
           },
           "element_identifiers": [
             "element_identifier1",
-            "element_identifier2"2
+            "element_identifier2"
           ],
           "source": "source_system",
           "source_links": [
@@ -235,7 +235,7 @@ curl -X POST \
             }
           ]
         },
-        "event_type": "event_typeEvent",
+        "event_type": "HealthStateChangedEvent",
         "msg_title": "event_title",
         "msg_text": "event_text",
         "source_type_name": "source_event_type",
@@ -256,11 +256,11 @@ curl -X POST \
 {% tab title="StackState CLI" %}
 ```
 sts event send "HealthStateChangedEvent" \
-    --title "Health state changed from CLEAR to CRITICAL" \
-    -i "urn:host:/Java Application Server FLX" \
-    -s "StackState" \
+    --title "event_title" \
+    -i "element_identifier1" \
+    -s "source_system" \
     -c "Changes" \
-    -d '{"oldState": "CLEAR", "newState": "CRITICAL"}'
+    -d '{"data_key1:data_value1", "data_key2:data_value2"}'
 ```
 {% endtab %}
 {% endtabs %}
