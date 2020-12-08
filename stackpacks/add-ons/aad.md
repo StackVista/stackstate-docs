@@ -198,7 +198,20 @@ Common questions that can be answered in the status UI:
 
 ## Release Notes
 
-Release notes for the AAD Kubernetes service are included below. AAD StackPack release notes can be found in the StackPack.
+Release notes for the [AAD StackPack](#aad-stackpack) and the [AAD Kubernetes service](#aad-kubernetes-service) are available below.
+
+### AAD StackPack
+
+Release notes for the AAD StackPack are included below.
+
+#### 0.6 (13-10-2020)
+
+- Documentation fixes and minor maintenance work.
+
+
+### AAD Kubernetes service
+
+Release notes for the AAD Kubernetes service are included below.
 
 **BETA Release**
 
