@@ -122,30 +122,53 @@ Events can be sent to the StackState receiver API using the `events` property. E
 - **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 - **timestamp** - The epoch timestamp for the event.
 - **context** - Includes details of the source system for an event:
+    - **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
     - **element_identifiers** - The [identifiers for the topology element\(s\)](/configure/identifiers.md#topology-identifiers) the event relates to. 
     - **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
-    - **source_id** - The original identifier of the event from the `source`.
-    - **source_links** - a set of links related to the event, for example a dashboard or the event in the source system.
+    - **data** - Optional. Details about the event, for example a configuration version.
+    - **source_id** - Optional. The original identifier of the event in the source system.
+    - **source_links** - Optional. a set of links related to the event, for example a dashboard or the event in the source system.
+- **event_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
 - **msg_text** - Optional. The text body of the event.
 - **msg_title** - Optional. The title of the event.
-- **source_type_name** - Optional. The source type name.
+- **source_type_name** - Optional. The source event type name.
 - **tags** - Optional. A list of key/value tags to associate with the event.
 
 Example of a single event:
 
 ```javascript
-"event.test": [ // the event name
+"event.test": [ // The event name
   {
-    "msg_text": "event_text",
+    "context": {
+      "category": "Changes",
+      "data": { 
+        "data_key1:data_value1",
+        "data_key2:data_value2"
+      },
+      "element_identifiers": [
+        "element_identifier1",
+        "element_identifier2"2
+      ],
+      "source": "source_system",
+      "source_links": [
+        {
+          "link_key1:link_value1",
+          "link_key2:link_value2"
+        }
+      ]
+    },
+    "event_type": "event_typeEvent",
     "msg_title": "event_title",
-    "source_type_name": "event.test",
+    "msg_text": "event_text",
+    "source_type_name": "source_event_type",
     "tags": [
       "tag_key1:tag_value1",
-      "tag_key2:tag_value2"
+      "tag_key2:tag_value2",
     ],
-    "timestamp": 1548857342
+    "timestamp": 1607432944
   }
 ]
+
 ```
 
 Multiple events can be sent in one message. Any of an event's properties can be used to define an event stream in StackState.
@@ -161,41 +184,68 @@ curl -X POST \
  -d '{
   "collection_timestamp": 1548857342,
   "events": {
-    "event.test01": [
+    "event.test01": [ // The event name
       {
-        "msg_text": "event_text",
+        "context": {
+          "category": "Changes",
+          "data": { 
+            "data_key1:data_value1",
+            "data_key2:data_value2"
+          },
+          "element_identifiers": [
+            "element_identifier1",
+            "element_identifier2"2
+          ],
+          "source": "source_system",
+          "source_links": [
+            {
+              "link_key1:link_value1",
+              "link_key2:link_value2"
+            }
+          ]
+        },
+        "event_type": "event_typeEvent",
         "msg_title": "event_title",
-        "source_type_name": "event.test",
+        "msg_text": "event_text",
+        "source_type_name": "source_event_type",
         "tags": [
           "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
+          "tag_key2:tag_value2",
         ],
-        "timestamp": 1548857342
-      },
-      {
-        "msg_text": "event_text",
-        "msg_title": "event_title",
-        "source_type_name": "event.test",
-        "tags": [
-          "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
-        ],
-        "timestamp": 1548857340
+        "timestamp": 1607432944
       }
     ],
-    "event.test02": [
+    "event.test02": [ // The event name
       {
-        "msg_text": "event_text",
+        "context": {
+          "category": "Changes",
+          "data": { 
+            "data_key1:data_value1",
+            "data_key2:data_value2"
+          },
+          "element_identifiers": [
+            "element_identifier1",
+            "element_identifier2"2
+          ],
+          "source": "source_system",
+          "source_links": [
+            {
+              "link_key1:link_value1",
+              "link_key2:link_value2"
+            }
+          ]
+        },
+        "event_type": "event_typeEvent",
         "msg_title": "event_title",
-        "source_type_name": "event.test",
+        "msg_text": "event_text",
+        "source_type_name": "source_event_type",
         "tags": [
           "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
+          "tag_key2:tag_value2",
         ],
-        "timestamp": 1548857342
+        "timestamp": 1607432944
       }
     ]
-  },
   "internalHostname": "localdocker.test",
   "metrics": [],
   "service_checks": [],
