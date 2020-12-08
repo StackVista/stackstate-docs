@@ -15,7 +15,7 @@ For instructions on how to upgrade StackPacks, see [the StackPacks documentation
 When executing a StackState upgrade, please be aware of the following:
 
 {% hint style="warning" %}
-**Always read the version-specific upgrade notes at the end of this document before upgrading StackState.**
+**Always read the [version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md) before upgrading StackState.**
 {% endhint %}
 
 {% hint style="warning" %}
@@ -45,7 +45,7 @@ A minor upgrade consists of the following steps:
 
 A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
-If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the version-specific upgrade instructions.
+If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md).
 
 A major upgrade consists of the following steps:
 
