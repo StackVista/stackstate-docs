@@ -117,7 +117,7 @@ curl -X POST \
 
 ## Events
 
-Events can be sent to the StackState receiver API using the `events` property. Every event has the following details:
+Events can be sent to the StackState receiver API using the `events` property. All events in StackState relate to an element or elements. Each event sent to the StackState receiver API is bound to an element by an `element_identifier` and has the following details:
 
 - **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 - **timestamp** - The epoch timestamp for the event.
@@ -171,7 +171,7 @@ Example of a single event:
 
 ```
 
-Multiple events can be sent in one message. Any of an event's properties can be used to define an event stream in StackState.
+Multiple events can be sent in one JSON message. Any of an event's properties can be used to define an event stream in StackState.
 
 You can send events to StackState with the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send) command or as JSON via HTTP POST. For example:
 
