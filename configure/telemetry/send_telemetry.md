@@ -41,7 +41,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 Metrics can be sent to the receiver API using the `metrics` property. Every metric has the following details:
  
-- **name** - The metric name
+- **name** - The metric name. **Cannot start with** `host`, `name`, `timestamp`, `timeReceived`, `labels`, `tags` or `values`.
 - **timestamp** - The epoch timestamp of the metric.
 - **value** - The value of the metric.
 - **hostname** - The host this metric is from.
