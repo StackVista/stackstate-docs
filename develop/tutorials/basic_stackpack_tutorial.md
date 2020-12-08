@@ -127,7 +127,7 @@ Use the **Preview** button to see what the resulting component will look like.
 
 ![](/.gitbook/assets/example-template-editor.png)
 
-Go ahead and save the template. Be aware that you may need to [_unlock_](/stackpacks/about-stackpacks.md#configuration-locking) it before this succeeds.
+Go ahead and save the template. Be aware that you may need to [_unlock_](/stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 
 ## Exporting the changed template
 
