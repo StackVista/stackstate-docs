@@ -168,6 +168,12 @@ To check the status of the ServiceNow integration, run the status subcommand and
 sudo stackstate-agent status
 ```
 
+### Upgrade
+
+When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **ServiceNow**. For a quick overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release. 
+
+For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
+
 ## Integration details
 
 ### Data retrieved
@@ -242,6 +248,37 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
     ```
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+## Release notes
+
+### 5.0.0 (2020-11-17)
+
+- Feature: Introduce the Instance Name for easy filtering and use.
+
+### 4.0.1 (2020-08-18)
+
+- Feature: Introduced the Release notes pop up for customer.
+
+### 4.0.0 (2020-08-04)
+
+- Bugfix: Fix and make Component mapping function per instance to support multi-instance.
+
+### 3.1.0 (2020-08-04)
+
+- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvement: Addition of new views.
+
+### 3.0.0 (2020-04-30)
+
+- Feature: Updated the requirement docs to use AgentV2 now.
+- Feature: Updated the installation details to use the new configuration parameters.
+- Feature: Replace resolveOrCreate with getOrCreate.
+- Feature: Multi-instance support is available now.
+
+
+### 2.1.0 (2020-04-10)
+
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
 
 ## See also
 

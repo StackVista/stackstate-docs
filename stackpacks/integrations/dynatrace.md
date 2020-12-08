@@ -70,7 +70,7 @@ sudo stackstate-agent status
 
 ### Upgrade
 
-When a new version of the Dynatrace StackPack is available, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **Dynatrace**. For a quick overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release. 
+When a new version of the Dynatrace StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **Dynatrace**. For a quick overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release. 
 
 For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
 

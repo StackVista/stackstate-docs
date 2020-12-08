@@ -88,4 +88,4 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 **v2.1.0 (2020-04-08)**
 
-- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
