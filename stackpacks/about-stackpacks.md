@@ -19,9 +19,9 @@ For example, the AWS StackPack can connect to multiple AWS accounts and combine 
 
 ## Locked configuration items
 
-StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. StackPacks can contain component templates, functions, component actions and views amongst other things. When a StackPack is upgraded to a newer version, **the configuration items installed by the previous version of the StackPack will be overwritten by those from the newer StackPack.** This means that any manual change made to these configuration items will be overwritten when the StackPack is upgraded.
+StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. Amongst other things, this could be component templates, functions, component actions and views. When a StackPack is upgraded, **the configuration items installed by the previous version of the StackPack will be overwritten by those from the newer StackPack.** This means that any manual change made to these configuration items will be overwritten when the StackPack is upgraded.
 
-To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, the configuration items are **locked** by default. This means that they are protected from being changed by the user. Configuration items must explicitly be **unlocked** before they can be changed.
+To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
 
 Note that the lock status of configuration items will not be exported as part of a [configuration backup](/setup/data-management/backup_restore/configuration_backup.md). 
 
