@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands:
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. 
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -26,7 +26,10 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 {% endtab %}
 {% endtabs %}
 
-In the StackState UI, go to **Settings** > **Import/Export** > **Export Setttings** and click on the **STS-EXPORT-ALL** button.
+Alternatively, in the StackState UI:
+
+1. Go to **Settings** > **Import/Export** > **Export Setttings** 
+2. Click on the button **STS-EXPORT-ALL**.
 
 ![Export configuration from the StackState UI](/.gitbook/assets/export_configuration.png)
 
@@ -62,7 +65,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import.
 
-To clear the StackState configuration and import from a file:
+To clear the StackState configuration and import from a file using the StackState CLI or curl:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -100,8 +103,11 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 {% endtab %}
 {% endtabs %}
 
+Alternatively, in the StackState UI:
 
-In the StackState UI, go to **Settings** > **Import/Export** > **Import Setttings**. Choose the `*.stj` file you want to import configuration from and click on the **START IMPORT** button.
+1. Go to **Settings** > **Import/Export** > **Import Setttings**. 
+2. Choose the `*.stj` file you want to import configuration from.
+3. Click on the button **START IMPORT**.
 
 ![Import configuration from the StackState UI](/.gitbook/assets/import_configuration.png)
 
