@@ -17,7 +17,7 @@ Version numbers in **bold** have changed since the previous release and should b
 | Azure | 4.0.2 | 4.0.2 | 2.1.0 |
 | API integration | 2.3.1 | 2.3.1 | 2.1.0 |
 | Cloudera | 1.2.1 | 1.2.1 | 1.1.0 |
-| Custom synchronization | 3.0.1 | 3.0.1 | 3.0.0 |
+| Custom synchronization | 3.0.1 | [**3.0.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.0 |
 | Dynatrace | **1.0.0** | - | - |
 | Humio | 1.0.0 | 1.0.0 | - |
 | Kubernetes | 3.7.2 | 3.7.2 | 3.3.0 |
@@ -27,7 +27,7 @@ Version numbers in **bold** have changed since the previous release and should b
 | SAP | [**1.2.0**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | 1.1.0 | 1.0.1 |
 | SCOM (BETA) | 1.2.2 | 1.2.2 | 1.1.0 |
 | ServiceNow | **5.0.0** | 4.0.1 | 2.1.0 |
-| Splunk | 1.0.0 | 1.0.0 | - |
+| Splunk | 1.0.0 | [**1.0.0**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | - |
 | Static topology | 2.2.1| 2.2.1 | 2.0.0 |
 | VMware vSphere | 2.2.1 | 2.2.1 | 2.1.0 |
 | Zabbix | 3.0.1 | 3.0.1 | 2.2.0 |
