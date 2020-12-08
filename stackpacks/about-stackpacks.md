@@ -23,12 +23,16 @@ StackPacks contain configuration information for StackState that is installed wh
 
 To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, the configuration items are **locked** by default. This means that they are protected from being changed by the user. Configuration items must explicitly be **unlocked** before they can be changed.
 
+{% hint style="info" %}
+Note that the lock status of configuration items will not be exported in a [configuration backup](/setup/data-management/backup_restore/configuration_backup.md) and will need to be set again when the configuration is imported.
+{% endhint %}
+
 ## Which StackPacks are available?
 
 The available StackPack add-ons and integrations can be found on the **StackPacks** page in StackState. You can also find details on these pages:
 
-* [add-ons](/stackpacks/add-ons/README.md)
-* [integrations](/stackpacks/integrations/README.md)
+* [Add-ons](/stackpacks/add-ons/README.md)
+* [Integrations](/stackpacks/integrations/README.md)
 
 ## Install or uninstall a StackPack
 
