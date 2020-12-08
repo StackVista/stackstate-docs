@@ -38,4 +38,4 @@ If a new release of a StackPack is included with your current version of StackSt
 
 - [How to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
 - [Steps to upgrade StackState](/setup/upgrade-stackstate/steps-to-upgrade.md)
-- [Version-specific upgrade notes for StackState](/setup/upgrade-stackstate/version-specific-upgrade-notes.md)
+- [Version-specific upgrade notes for StackState](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md)

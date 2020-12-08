@@ -2,13 +2,17 @@
 description: Required manual steps for upgrade to each supported StackState version. Read this before you upgrade!
 ---
 
-# Version specific upgrade notes
+# Version specific upgrade instructions
 
 ## Overview
 
+This page provides specific instructions for upgrading to each currently supported version of StackState. The instructions detail any significant changes that may impact how StackState runs after upgrade, such as a change in memory requirements or configuration.
 
+{% hint style="info" %}
+**Review the instructions provided below before you upgrade!**
+{% endhint %}
 
-## Upgrade notes 
+## Upgrade instructions 
 
 ### Upgrade to v4.2.0
 

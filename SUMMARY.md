@@ -34,7 +34,7 @@
   * [Clear stored data](setup/data-management/clear_stored_data.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
-  * [Version specific upgrade notes](setup/upgrade-stackstate/version-specific-upgrade-notes.md)
+  * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
   * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
 
 ## 👤 Use

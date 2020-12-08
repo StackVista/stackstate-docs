@@ -15,7 +15,7 @@ For instructions on how to upgrade StackPacks, see [the StackPacks documentation
 When executing a StackState upgrade, please be aware of the following:
 
 {% hint style="warning" %}
-**Always read the [version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md) before upgrading StackState.**
+**Always read the [version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md) before upgrading StackState.**
 {% endhint %}
 
 {% hint style="warning" %}
@@ -45,7 +45,7 @@ A minor upgrade consists of the following steps:
 
 A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
-If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md).
+If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
 A major upgrade consists of the following steps:
 
@@ -94,7 +94,7 @@ StackPacks must be uninstalled using the version of StackState prior to the upgr
 ### Upgrade StackState
 
 {% hint style="info" %}
-Remember to check the [version specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md) for specific changes that need to be made for the new StackState version you will upgrade to.
+Remember to check the [version specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md) for specific changes that need to be made for the new StackState version you will upgrade to.
 {% endhint %}
 
 Instructions to upgrade a StackState Kubernetes or Linux setup can be found below. 
@@ -129,4 +129,4 @@ Once StackState has been upgraded and started, verify that the new installation 
 
 - [Manually upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
 - [StackPack versions shipped with each StackState release](/setup/upgrade-stackstate/stackpack-versions.md)
-- [Version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md)
+- [Version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
