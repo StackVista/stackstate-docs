@@ -4,9 +4,11 @@ description: The StackPack versions shipped with each release of StackState.
 
 # StackPack versions
 
-The table below shows the StackPack version numbers shipped with each StackState release. 
+The table below shows the StackPack version numbers shipped with each StackState release. Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes. 
 
-Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes. If a new release of a StackPack is included with your current version of StackState, you can gain access to new features and fixes by [manually upgrading the StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack). 
+{% hint style="info" %}
+If a new release of a StackPack is included with your current version of StackState, you can gain access to new features and fixes by [manually upgrading the StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack). 
+{% endhint %}
 
 | StackPack | StackState<br />v4.2 | StackState<br />v4.1 | StackState<br />v4.0 |
 |:---|:---|:---|:---|
@@ -32,4 +34,8 @@ Version numbers in **bold** are the most recent release of the StackPack and lin
 | [VMware vSphere](/stackpacks/integrations/vsphere.md) | 2.2.1 | **2.2.1** | 2.1.0 |
 | [Zabbix](/stackpacks/integrations/zabbix.md) | 3.0.1 | **3.0.1** | 2.2.0 |
 
+## See also
 
+- [Manually upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
+- [Steps to upgrade StackState](/setup/upgrade-stackstate/steps-to-upgrade.md)
+- [Version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md)

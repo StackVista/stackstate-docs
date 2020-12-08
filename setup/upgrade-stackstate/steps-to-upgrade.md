@@ -8,7 +8,7 @@ description: Perform a major or minor upgrade of StackState.
 
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
 
 ## Before you upgrade
 
@@ -125,5 +125,8 @@ See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-or-uninstall
 Once StackState has been upgraded and started, verify that the new installation of StackState is reachable and that the application is running.
 
 
+## See also
 
-
+- [Manually upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
+- [StackPack versions shipped with each StackState release](/setup/upgrade-stackstate/stackpack-versions.md)
+- [Version-specific upgrade notes](/setup/upgrade-stackstate/version-specific-upgrade-notes.md)

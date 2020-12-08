@@ -71,3 +71,10 @@ Go to the [StackState v4.0 docs site](https://docs.stackstate.com/v/4.0/).
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
 * In this release a new way of scripting [propagation functions](https://docs.stackstate.com/v/4.0/configure/propagation#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+
+
+## See also
+
+- [Manually upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
+- [Steps to upgrade StackState](/setup/upgrade-stackstate/steps-to-upgrade.md)
+- [StackPack versions shipped with each StackState release](/setup/upgrade-stackstate/stackpack-versions.md)
