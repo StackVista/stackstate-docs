@@ -45,8 +45,8 @@ Metrics can be sent to the receiver API using the `metrics` property. Every metr
 - **timestamp** - The epoch timestamp of the metric.
 - **value** - The value of the metric.
 - **hostname** - The host this metric is from.
-- **tags** - Optional.  A list of key/value tags to associate with the metric.
 - **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
+- **tags** - Optional.  A list of key/value tags to associate with the metric.
 
 Example of a single metric:
 
@@ -66,7 +66,7 @@ Example of a single metric:
 ]
 ```
 
-Multiple metrics can be sent in one message. The `timestamp` and `value` of the metric is what is used to plot the metrics as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
+Multiple metrics can be sent in one message. The `timestamp` and `value` of the metric is used to plot the metrics as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
 You can send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metrics-send) command or as JSON via HTTP POST. For example:
 
@@ -121,6 +121,11 @@ Events can be sent to the StackState receiver API using the `events` property. E
 
 - **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 - **timestamp** - The epoch timestamp for the event.
+- **context** - Includes details of the source system for an event:
+    - **element_identifiers** - The [identifiers for the topology element\(s\)](/configure/identifiers.md#topology-identifiers) the event relates to. 
+    - **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
+    - **source_id** - The original identifier of the event from the `source`.
+    - **source_links** - a set of links related to the event, for example a dashboard or the event in the source system.
 - **msg_text** - Optional. The text body of the event.
 - **msg_title** - Optional. The title of the event.
 - **source_type_name** - Optional. The source type name.
