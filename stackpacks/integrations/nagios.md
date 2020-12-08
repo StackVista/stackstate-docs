@@ -58,43 +58,34 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 #### v2.4.1 (2020-11-02)
 
-**Bugfix**
-- Fix for Component State evaluation in Service check
+- Bugfix: Fix for Component State evaluation in Service check
 
 #### v2.4.0 (2020-09-25)
 
-**Feature**
-Added support for ITRS OP5 Monitor
+- Feature: Added support for ITRS OP5 Monitor
 
 #### v2.3.1 (2020-08-18)
 
-**Feature**
-- Introduced the Release notes pop up for customer
+- Feature: Introduced the Release notes pop up for customer
 
 #### v2.3.0 (2020-08-04)
 
-**Improvement**
-- Deprecated stackpack specific layers and introduced a new common layer structure.
-- Replace resolveOrCreate with getOrCreate.
+- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvement: Replace resolveOrCreate with getOrCreate.
 
 #### v2.2.0 (2020-07-27)
 
-**Improvements**
-- Updated integration page with StackState Agent V2 usage info.
+- Improvement: Updated integration page with StackState Agent V2 usage info.
 
 #### v2.1.2 (2020-07-22)
 
-**Bugfix**
-- Fixed StackPack installation.
+- Bugfix: Fixed StackPack installation.
 
 #### v2.1.1 (2020-06-25)
 
-**Bugfix**
-- Fixed the translation of host events to health state in the check function.
-- Fixed the minimal deviating health state on the Nagios view.
+- Bugfix: Fixed the translation of host events to health state in the check function.
+- Bugfix: Fixed the minimal deviating health state on the Nagios view.
 
 #### v2.1.0 (2020-04-08)
 
-**Improvements**
-
-- Updated StackPacks integration page, categories, and icons for the SaaS trial
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
