@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. Note that the lock status of custom StackPack configurations will not be included in the export, this will need to be manually set after the configuration has been imported.
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. Note that the lock status of custom StackPack configurations will not be included in the export and will need to be manually set again when the configuration is imported.
 
 To export configuration using the StackState CLI or curl:
 
