@@ -16,7 +16,7 @@ https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 
 Both the baseUrl and API\_KEY are set during installation, for details see:
 
-- [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+- [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 - [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 
@@ -68,7 +68,7 @@ Example of a single metric:
 
 Multiple metrics can be sent in one message. The `timestamp` and `value` of the metric is used to plot the metrics as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
-You can send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metrics-send) command or as JSON via HTTP POST. For example:
+You can send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send) command or as JSON via HTTP POST. For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -150,7 +150,7 @@ Example of a single event:
 
 Multiple events can be sent in one message. Any of an event's properties can be used to define an event stream in StackState.
 
-You can also send events to StackState with the [StackState CLI `events send`](/develop/reference/cli_reference.md#sts-events-send) command or as JSON via HTTP POST. For example:
+You can send events to StackState with the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send) command or as JSON via HTTP POST. For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -203,4 +203,5 @@ curl -X POST \
 }'
 ```
 {% endtab %}
+
 {% endtabs %}
