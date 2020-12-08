@@ -20,7 +20,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [API integration](/stackpacks/integrations/api-integration.md) | 2.3.1 | **2.3.1** | 2.1.0 |
 | [Cloudera](/stackpacks/integrations/cloudera.md) | 1.2.1 | **1.2.1** | 1.1.0 |
 | [Custom synchronization](/stackpacks/integrations/customsync.md) | 3.0.1 | [**3.0.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.0 |
-| [Dynatrace](/stackpacks/integrations/dynatrace.md) | **1.0.0** | - | - |
+| [Dynatrace](/stackpacks/integrations/dynatrace.md) | [**1.0.0**](/stackpacks/integrations/dynatrace.md#release-notes) | - | - |
 | [Humio](/stackpacks/integrations/humio.md) | 1.0.0 | **1.0.0** | - |
 | [Kubernetes](/stackpacks/integrations/kubernetes.md) | 3.7.2 | **3.7.2** | 3.3.0 |
 | [Manual topology](/stackpacks/integrations/manualtopo.md) | 2.0.1 | **2.0.1** | 2.0.0 |
