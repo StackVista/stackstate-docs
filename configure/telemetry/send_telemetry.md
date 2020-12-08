@@ -125,9 +125,9 @@ Events can be sent to the StackState receiver API using the `events` property. E
     - **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
     - **element_identifiers** - The [identifiers for the topology element\(s\)](/configure/identifiers.md#topology-identifiers) the event relates to. 
     - **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
-    - **data** - Optional. Details about the event, for example a configuration version.
+    - **data** - Optional.  A list of key/value details about the event, for example a configuration version.
     - **source_id** - Optional. The original identifier of the event in the source system.
-    - **source_links** - Optional. a set of links related to the event, for example a dashboard or the event in the source system.
+    - **source_links** - Optional.  A list of key/value links related to the event, for example a dashboard or the event in the source system.
 - **event_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
 - **msg_text** - Optional. The text body of the event.
 - **msg_title** - Optional. The title of the event.
@@ -253,5 +253,10 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-
+{% tab title="StackState CLI" %}
+```
+sts event send "HealthStateChangedEvent" --title "Health state changed from CLEAR to CRITICAL" -i "urn:host:/Java Application Server FLX" -s "StackState"
+ -c "Changes" -d '{"oldState": "CLEAR", "newState": "CRITICAL"}
+```
+{% endtab %}
 {% endtabs %}
