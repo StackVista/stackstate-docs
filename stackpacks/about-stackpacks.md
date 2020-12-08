@@ -54,8 +54,7 @@ StackPacks can be upgraded from the **StackPacks** page in StackState. If a new 
 
 If you have customized configuration, this will be overwritten when the StackPack is upgraded. To continue using your customized configuration after upgrade:
 
-1. During the upgrade process choose to **KEEP** the existing configuration.
-    - StackState will create a new configuration file for the upgraded StackPack version alongside the existing (old) configuration file.
+1. During the upgrade process choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing (old) configuration file.
 2. Custom configuration items can be copied from the old configuration file to the newly created configuration file.
 
 Check the list of [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState. 
