@@ -220,8 +220,8 @@ curl -X POST \
         "context": {
           "category": "Changes",
           "data": { 
-            "data_key1:data_value1",
-            "data_key2:data_value2"
+            "data_key1":"data_value1",
+            "data_key2":"data_value2"
           },
           "element_identifiers": [
             "element_identifier1",
@@ -260,7 +260,7 @@ sts event send "HealthStateChangedEvent" \
     -i "element_identifier1" "element_identifier2" \
     -s "source_system" \
     -c "Changes" \
-    -d '{"data_key1:data_value1", "data_key2:data_value2"}'
+    -d '{"data_key1":"data_value1", "data_key2":"data_value2"}'
 ```
 {% endtab %}
 {% endtabs %}
