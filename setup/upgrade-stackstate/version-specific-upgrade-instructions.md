@@ -85,6 +85,6 @@ Go to the [StackState v4.0 docs site](https://docs.stackstate.com/v/4.0/).
 
 ## See also
 
-- [Manually upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
+- [How to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack)
 - [Steps to upgrade StackState](/setup/upgrade-stackstate/steps-to-upgrade.md)
 - [StackPack versions shipped with each StackState release](/setup/upgrade-stackstate/stackpack-versions.md)
