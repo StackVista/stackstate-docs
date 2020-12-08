@@ -1,8 +1,3 @@
----
-title: Nagios StackPack
-kind: documentation
----
-
 # Nagios
 
 ## What is the Nagios StackPack?
@@ -59,3 +54,47 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
 
 Nagios StackState Agent check tails Nagios config and log files, so it should have permission to read those files. If you run StackState Agent with some other user than `root`, the StackState Agent user must be added to the same group that is attached to the config and log files. Note that manually setting read permission is not an option as the files can sometimes be recreated by Nagios.
 
+## Release notes
+
+### v2.4.1 (2020-11-02)
+
+**Bugfix**
+- Fix for Component State evaluation in Service check
+
+### v2.4.0 (2020-09-25)
+
+**Feature**
+Added support for ITRS OP5 Monitor
+
+### v2.3.1 (2020-08-18)
+
+**Feature**
+- Introduced the Release notes pop up for customer
+
+### v2.3.0 (2020-08-04)
+
+**Improvement**
+- Deprecated stackpack specific layers and introduced a new common layer structure.
+- Replace resolveOrCreate with getOrCreate.
+
+### v2.2.0 (2020-07-27)
+
+**Improvements**
+- Updated integration page with StackState Agent V2 usage info.
+
+### v2.1.2 (2020-07-22)
+
+**Bugfix**
+- Fixed StackPack installation.
+
+### v2.1.1 (2020-06-25)
+
+**Bugfix**
+- Fixed the translation of host events to health state in the check function.
+- Fixed the minimal deviating health state on the Nagios view.
+
+### v2.1.0 (2020-04-08)
+
+**Improvements**
+
+- Updated StackPacks integration page, categories, and icons for the SaaS trial
