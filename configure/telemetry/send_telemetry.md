@@ -142,8 +142,8 @@ Example of a single event:
     "context": {
       "category": "Changes",
       "data": { 
-        "data_key1:data_value1",
-        "data_key2:data_value2"
+        "data_key1":"data_value1",
+        "data_key2":"data_value2"
       },
       "element_identifiers": [
         "element_identifier1",
@@ -152,8 +152,8 @@ Example of a single event:
       "source": "source_system",
       "source_links": [
         {
-          "link_key1:link_value1",
-          "link_key2:link_value2"
+          "title": "link_title",
+          "url": "link_url"
         }
       ]
     },
