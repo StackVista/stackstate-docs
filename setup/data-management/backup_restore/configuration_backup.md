@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. Note that the [lock status](/stackpacks/about-stackpacks.md#configuration-locking) of custom StackPack configurations will not be included in the export and will need to be manually set again when the configuration is imported.
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. Note that the [lock status](/stackpacks/about-stackpacks.md#configuration-locking) of custom StackPack configurations will not be included in the export and will need to be set again when the configuration is imported.
 
 To export configuration using the StackState CLI or curl:
 
@@ -65,7 +65,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 ## Import configuration
 
-Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the [lock status](/stackpacks/about-stackpacks.md#configuration-locking) of custom StackPack configurations is not be included in configuration export files, this will need to be manually set after the configuration has been imported.
+Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the [lock status](/stackpacks/about-stackpacks.md#configuration-locking) of custom StackPack configurations is not be included in configuration export files, this will need to be set again after the configuration has been imported.
 
 To clear the StackState configuration and import from a file using the StackState CLI or curl:
 
