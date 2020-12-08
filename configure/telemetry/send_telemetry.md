@@ -261,6 +261,7 @@ sts event send "HealthStateChangedEvent" \
     -s "source_system" \
     -c "Changes" \
     -d '{"data_key1":"data_value1", "data_key2":"data_value2"}'
+    --links "link_title1: link_url1" "link_title2: link_url2"
 ```
 {% endtab %}
 {% endtabs %}
