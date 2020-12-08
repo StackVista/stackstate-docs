@@ -255,8 +255,12 @@ curl -X POST \
 {% endtab %}
 {% tab title="StackState CLI" %}
 ```
-sts event send "HealthStateChangedEvent" --title "Health state changed from CLEAR to CRITICAL" -i "urn:host:/Java Application Server FLX" -s "StackState"
- -c "Changes" -d '{"oldState": "CLEAR", "newState": "CRITICAL"}
+sts event send "HealthStateChangedEvent" \
+    --title "Health state changed from CLEAR to CRITICAL" \
+    -i "urn:host:/Java Application Server FLX" \
+    -s "StackState" \
+    -c "Changes" \
+    -d '{"oldState": "CLEAR", "newState": "CRITICAL"}'
 ```
 {% endtab %}
 {% endtabs %}
