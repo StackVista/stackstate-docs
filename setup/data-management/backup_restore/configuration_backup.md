@@ -4,7 +4,9 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. 
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. Note that the lock status of custom StackPack configurations will not be included in the export, this will need to be manually set after the configuration has been imported.
+
+To export configuration using the StackState CLI or curl:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -26,7 +28,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 {% endtab %}
 {% endtabs %}
 
-Alternatively, in the StackState UI:
+To export configuration from the StackState UI:
 
 1. Go to **Settings** > **Import/Export** > **Export Setttings** 
 2. Click on the button **STS-EXPORT-ALL**.
@@ -63,7 +65,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 ## Import configuration
 
-Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import.
+Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the lock status of custom StackPack configurations is not be included in configuration export files, this will need to be manually set after the configuration has been imported.
 
 To clear the StackState configuration and import from a file using the StackState CLI or curl:
 
@@ -130,8 +132,6 @@ For export: `sts graph export --namespace urn:stackpack:{stackpack_name}:`
 For import currently we have a curl way: `curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} --data @./filename -H 'Content-Type: application/json'`
 
 ## Configuration Export Versioning
-
-_Available since StackState version 1.14.0_
 
 As StackState evolves versioning of the exported Node elements is necessary. The export conf contains metadata stating the Node version \(`_version`\) which is useful in order to allow an autoupgrade to a more recent version of StackState and ensure compatibility.
 
