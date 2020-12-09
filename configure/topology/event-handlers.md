@@ -10,7 +10,7 @@ Event handlers can be attached to a StackState view to [trigger alerts and actio
 
 To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This is set in the StackState UI **Events Settings** > **ADD NEW EVENT HANDLER** dialogue as **Run event handler** .
 
-![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v41_event_handlers_tab.png)
 
 ## Event handler functions
 

@@ -37,7 +37,7 @@ Here is an example of using the basic filtering capabilities. This example shows
 
 The same topology selection can also be shown in list format:
 
-![Filtering\(list\)](/.gitbook/assets/basic_filtering_list.png)
+![Filtering\(list\)](/.gitbook/assets/v41_basic_filtering_list.png)
 
 ## Interactive navigation
 

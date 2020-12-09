@@ -13,7 +13,7 @@ The Priority field allows for ordering component's Telemetry streams in the righ
 
 Locate the component that you want to edit Telemetry streams for. Click on the component to open the component's properties pane - see screenshot below:
 
-![component telemetry](/.gitbook/assets/component_telemetry.png)
+![component telemetry](/.gitbook/assets/v41_component_telemetry.png)
 
 Here you can access the Component properties, Health status, and Telemetry Streams.
 
