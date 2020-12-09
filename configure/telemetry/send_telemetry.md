@@ -70,7 +70,7 @@ The `timestamp` and `value` are used to plot the metric as a time series. The `n
 {% endtab %}
 {% endtabs %}
 
-Multiple metrics can be sent in one JSON messagen via HTTP POST. You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send). For example:
+Multiple metrics can be sent in one JSON messagen via HTTP POST. For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -116,6 +116,8 @@ curl -X POST \
 ```
 {% endtab %}
 {% endtabs %}
+
+You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send). 
 
 ### Events
 
