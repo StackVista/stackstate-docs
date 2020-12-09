@@ -48,8 +48,10 @@ Metrics can be sent to the StackState receiver API using the `metrics` property.
 - **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
 - **tags** - Optional.  A list of key/value tags to associate with the metric.
 
-Example of a single metric:
+The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
+{% tabs %}
+{% tab title="JSON metric" %}
 ```javascript
 [
   "test.metric", // the metric name
@@ -65,10 +67,10 @@ Example of a single metric:
   }
 ]
 ```
+{% endtab %}
+{% endtabs %}
 
-Multiple metrics can be sent in one message. The `timestamp` and `value` of the metric is used to plot the metrics as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
-
-You can send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send) command or as JSON via HTTP POST. For example:
+Multiple metrics can be sent in one JSON messagen via HTTP POST. You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send). For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -117,7 +119,7 @@ curl -X POST \
 
 ### Events
 
-Events can be sent to the StackState receiver API using the `events` property. All events in StackState relate to an element or elements. Each event sent to the StackState receiver API is bound to an element by an `element_identifier` and has the following details:
+Events can be sent to the StackState receiver API using the `events` property. All events in StackState relate to an element or elements. Each event sent to the StackState receiver API is bound to an element by an `element_identifier` and has the following properties, any of which can be used to define an event stream in StackState:
 
 - **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 - **timestamp** - The epoch timestamp for the event.
@@ -134,8 +136,8 @@ Events can be sent to the StackState receiver API using the `events` property. A
 - **source_type_name** - Optional. The source event type name.
 - **tags** - Optional. A list of key/value tags to associate with the event.
 
-Example of a single event:
-
+{% tabs %}
+{% tab title="JSON event" %}
 ```javascript
 "event.test": [ // The event name
   {
@@ -170,10 +172,10 @@ Example of a single event:
 ]
 
 ```
+{% endtab %}
+{% endtabs %}
 
-Multiple events can be sent in one JSON message. Any of an event's properties can be used to define an event stream in StackState.
-
-You can send events to StackState with the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send) command or as JSON via HTTP POST. For example:
+Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send). For example:
 
 {% tabs %}
 {% tab title="curl" %}
