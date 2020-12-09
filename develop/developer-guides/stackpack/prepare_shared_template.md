@@ -1,8 +1,3 @@
----
-title: Prepare a shared template file
-kind: Documentation
----
-
 # Preparing a shared template
 
 Shared template file contains information that is going to be used across instances, like: Component Types, IdExtractor functions for components and relations, Component Template functions, Relation Template functions, or Layers. They can be derived from the exported `.stj` file, by exporting configuration nodes with `shared` in their identifiers, e.g. `"identifier": "urn:stackpack:{StackPackName}:shared:relation-template-function:test-relation-template",`.
@@ -165,5 +160,5 @@ Contains Relation name and direction.
     },
 ```
 
-The next step is: [Prepare an instance template file](prepare_instance_template_file.md)
+The next step is: [Prepare an instance template file](/develop/developer-guides/stackpack/prepare_instance_template_file.md)
 

@@ -1,3 +1,7 @@
+---
+description: Learn how to create your own StackPack integrations.
+---
+
 # Basic StackPack tutorial
 
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](/stackpacks/about-stackpacks.md) for more information.
