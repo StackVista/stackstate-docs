@@ -151,7 +151,7 @@ Events can be sent to the StackState receiver API using the `events` property. A
       },
       "element_identifiers": [
         "element_identifier1",
-        "element_identifier2"2
+        "element_identifier2"
       ],
       "source": "source_system",
       "source_links": [
@@ -264,7 +264,7 @@ sts event send "HealthStateChangedEvent" \
     -i "element_identifier1" "element_identifier2" \
     -s "source_system" \
     -c "Changes" \
-    -d '{"data_key1":"data_value1", "data_key2":"data_value2"}'
+    -d '{"data_key1":"data_value1", "data_key2":"data_value2"}' \
     --links "link_title1: link_url1" "link_title2: link_url2"
 ```
 {% endtab %}
