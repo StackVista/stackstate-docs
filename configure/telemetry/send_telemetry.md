@@ -14,7 +14,7 @@ The StackState receiver API is responsible for receiving both telemetry and topo
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ``` 
 
-Both the `baseUrl` and `API_KEY` are set during installation of StackState, for details see:
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see:
 
 - [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 - [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
