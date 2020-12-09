@@ -30,8 +30,8 @@ Multi-instance StackPack package looks a little different from a standard StackP
 
 Steps to get a multi-instance StackPack:
 
-1. [Prepare a shared template file](prepare_shared_template.md)
-2. [Prepare an instance template file](prepare_instance_template_file.md)
-3. [Prepare a multi-instance provisioning script](prepare_multi-instance_provisioning_script.md)
-4. [Pack and upload a StackPack](how_to_pack_and_upload_stackpack.md)
+1. [Prepare a shared template file](/develop/developer-guides/stackpack/prepare_shared_template.md)
+2. [Prepare an instance template file](/develop/developer-guides/stackpack/prepare_instance_template_file.md)
+3. [Prepare a multi-instance provisioning script](/develop/developer-guides/stackpack/prepare_multi-instance_provisioning_script.md)
+4. [Pack and upload a StackPack](/develop/developer-guides/stackpack/how_to_pack_and_upload_stackpack.md)
 
