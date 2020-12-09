@@ -51,7 +51,7 @@ Metrics can be sent to the StackState receiver API using the `metrics` property 
 The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
 {% tabs %}
-{% tab title="JSON metric" %}
+{% tab title="Example metric JSON" %}
 ```javascript
 [
   "test.metric", // the metric name
@@ -117,7 +117,7 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send). 
+You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send) command. 
 
 ### Events
 
@@ -138,10 +138,10 @@ Events can be sent to the StackState receiver API using the `events` property of
 - **source_type_name** - Optional. The source event type name.
 - **tags** - Optional. A list of key/value tags to associate with the event.
 
-The `element_identifier` is used to bind an event to a topology element. Any of the provided properties can be used to define an event stream in StackState
+The `element_identifier` is used to bind the event to a topology element or elements. Any of the provided properties can be used to define an event stream in StackState
 
 {% tabs %}
-{% tab title="JSON event" %}
+{% tab title="Example event JSON" %}
 ```javascript
 "event.test": [ // The event name
   {
@@ -179,7 +179,7 @@ The `element_identifier` is used to bind an event to a topology element. Any of 
 {% endtab %}
 {% endtabs %}
 
-Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send). For example:
+Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send) command. For example:
 
 {% tabs %}
 {% tab title="curl" %}
