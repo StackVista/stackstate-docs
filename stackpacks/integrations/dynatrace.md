@@ -68,6 +68,12 @@ To check the status of the Dynatrace integration, run the status subcommand and 
 sudo stackstate-agent status
 ```
 
+### Upgrade
+
+When a new version of the Dynatrace StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **Dynatrace**. For a quick overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release. 
+
+For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
+
 ## Integration details
 
 ### REST API endpoints
@@ -140,6 +146,13 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
     mv dynatrace.d/conf.yaml dynatrace.d/conf.yaml.bak
     ```
 3. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+
+## Release notes
+
+**Dynatrace StackPack v1.0.0**
+
+- Feature: Gathers Topology from your Dynatrace instance and allows visualization of your Dynatrace components and the relations between them.
+
 
 ## See also
 

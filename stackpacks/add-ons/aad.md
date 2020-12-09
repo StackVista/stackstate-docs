@@ -198,11 +198,22 @@ Common questions that can be answered in the status UI:
 
 ## Release Notes
 
-Release notes for the AAD Kubernetes service are included below. AAD StackPack release notes can be found in the StackPack.
+Release notes for the [AAD StackPack](#aad-stackpack) and the [AAD Kubernetes service](#aad-kubernetes-service) are available below.
 
-**BETA Release**
+### AAD StackPack
 
-### AAD Kubernetes service 4.1.2
+#### AAD StackPack v0.6 BETA (13-10-2020)
+
+- Documentation fixes and minor maintenance work.
+
+#### AAD StackPack v0.2.2 BETA (04-09-2020)
+
+- Releasing Autonomous Anomaly Detector service BETA.
+
+
+### AAD Kubernetes service
+
+#### AAD Kubernetes service v4.1.2 BETA
 
 **Helm chart version**: 4.1.24<br />**Image tag**: 4.1.2-release<br />**Release date**: 2020-11-27
 
@@ -210,7 +221,7 @@ Changes in this version:
 
 * Improved stream selection and ranking. Stream selection is able to handle timeouts gracefully. Stream ranking applies heuristic based stream prioritization.
 
-### AAD Kubernetes service 4.1.1
+#### AAD Kubernetes service v4.1.1 BETA
 
 **Helm chart version**: 4.1.18<br />**Image tag**: 4.1.1-release<br />**Release date**: 2020-10-09
 
@@ -221,10 +232,10 @@ Changes in this version:
 * Improved model selection efficiency.
 * Fixed various minor bugs.
 
-### AAD Kubernetes service 4.1.0
+#### AAD Kubernetes service v4.1.0 BETA
 
 **Helm chart version**: 4.1.15<br />**Image tag**: 4.1.0-release<br />**Release date**: 2020-09-04
 
 Changes in this version:
 
-* Releasing Autonomous Anomaly Detector service Beta.
+* Releasing Autonomous Anomaly Detector service BETA.
