@@ -14,7 +14,7 @@ The StackState receiver API is responsible for receiving both telemetry and topo
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ``` 
 
-Both the baseUrl and API\_KEY are set during installation, for details see:
+Both the `baseUrl` and `API_KEY` are set during installation of StackState, for details see:
 
 - [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 - [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
@@ -70,7 +70,7 @@ The `timestamp` and `value` are used to plot the metric as a time series. The `n
 {% endtab %}
 {% endtabs %}
 
-Multiple metrics can be sent in one JSON messagen via HTTP POST. For example:
+Multiple metrics can be sent in one JSON message via HTTP POST. For example:
 
 {% tabs %}
 {% tab title="curl" %}
