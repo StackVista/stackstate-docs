@@ -12,7 +12,7 @@ Elements in StackState can have a telemetry \(metrics and events\) stream assign
 
 Telemetry streams can be added to any element in the StackState Topology Perspective.
 
-![Add a telemetry stream to an element](/.gitbook/assets/v41_add_telemetry_stream.png)
+![Add a telemetry stream to an element](/.gitbook/assets/v42_add_telemetry_stream.png)
 
 1. Select the element that you want to add a telemetry stream to.
 2. Click **+ ADD** next to **Telemetry streams** on the right of the screen.

@@ -10,7 +10,7 @@ Reacting to each event in an environment can cause a lot of noise. This may be b
 
 StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an alert or automated action.
 
-![Views list with view health state](/.gitbook/assets/v41_views_list.png)
+![Views list with view health state](/.gitbook/assets/v42_views_list.png)
 
 ## Configure a view health state
 
@@ -26,7 +26,7 @@ View health state is calculated by a **view state configuration function**.  To 
 7. Click **UPDATE** to save the new configuration to the view. 
     - The view health will update immediately.
     
-![Edit query view](/.gitbook/assets/v41_edit_query_view.png)
+![Edit query view](/.gitbook/assets/v42_edit_query_view.png)
 
 ## React to view state changes
 
