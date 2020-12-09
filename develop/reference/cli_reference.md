@@ -95,26 +95,26 @@ sts anomaly send --component-name <Component> --stream-name <Metric Stream> --st
 | `--severity-score` | Optional | Anomaly severity score |
 | `-h` | Optional | See all available options |
 
-## sts events send
+## sts event send
 
-Use `sts events send` to send a single event with a given name.
+Use `sts event send` to send a single event with a given name.
 
 ```
-sts events send
+sts event send
 ```
 
 | Argument | Details |
 | :--- | :--- |
 | `-h` | Show usage information and available arguments. |
 
-## sts metrics send
+## sts metric send
 
 You can use the CLI to send one data point of a given value or to generate a set of values within a defined bandwidth. This is useful if you want to check a new configuration with predictable data.
 
 By default, generated metrics patterns are random between the specified bandwidth values. If a single bandwidth value is provided, the generated pattern will be a flat line. To generate a different type of pattern, use the arguments `--baseline` and `--linear`.
 
 ```
-sts metrics send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear ] --csv <file_name>
+sts metric send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | --linear ] --csv <file_name>
 ``` 
 
 | Argument | Details |
