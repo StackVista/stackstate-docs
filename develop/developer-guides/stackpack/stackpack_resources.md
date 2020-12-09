@@ -1,8 +1,3 @@
----
-title: StackPack Resources
-kind: Documentation
----
-
 # Resources in a StackPack
 
 The resources reside in `<your-stackpack>/src/main/stackpack/resources` directory. This folder contains files to be used mostly as display assets in the StackState UI as steps during the StackPack installation process. Some of the files are required for a StackPack to be displayed correctly:

@@ -1,8 +1,3 @@
----
-title: How to get a template file for a StackPack
-kind: Documentation
----
-
 # How to get a template file
 
 ## Export the StackState configuration

@@ -15,7 +15,7 @@ Multi-instance StackPack package looks a little different from a standard StackP
     │   │     └── ExampleProvision.groovy
     │   └── templates
     │       ├── instance template.json.handlebar
-  │       ├── shared template.json.handlebar
+    │       ├── shared template.json.handlebar
     │       └── application template.json.handlebar
     ├── resources
     │   ├── logo.png

@@ -1,8 +1,3 @@
----
-title: Prepare an instance template file
-kind: Documentation
----
-
 # Preparing instance template files
 
 When preparing an instance specific template file, please keep in mind that you will use some of the identifiers that point to the shared template file. It is highly recommended to [prepare your shared template first](/develop/developer-guides/stackpack/prepare_shared_template.md).
