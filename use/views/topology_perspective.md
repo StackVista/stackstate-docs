@@ -6,7 +6,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](/.gitbook/assets/topoview1.png)
+![](/.gitbook/assets/v42_topoview1.png)
 
 ## Components and relations
 
@@ -85,7 +85,7 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](/.gitbook/assets/show_root_cause_outside.png)
+![Root cause](/.gitbook/assets/v41_show_root_cause_outside.png)
 
 ## List mode
 
