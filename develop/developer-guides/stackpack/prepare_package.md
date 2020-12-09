@@ -88,16 +88,14 @@ upgradeInstructions = "upgrading.md"
 * `detailedOverviewUrl` - Optional Markdown resource that described the StackPack in a bit more detailed fashion. This is displayed in two columns below the installed instances section in the StackPack page. Markdown comment,  `[comment]: # (split)` is used to delimit the two columns in the markdown.
 * `configurationUrls` - Contains the Markdown resources relevant for various states of StackPack provisioning.
 * `faqs` - Frequently asked questions concerning the StackPack or its installation.
+ A list with each element having the following format:
 
-  It's a list with each element having the following format.
-
-  \`{
-
-  question = "question"
-
-  answer = "answer"
-
-  }\`
+  ```
+  {
+    question = "question"
+    answer = "answer"
+  }
+  ```
 
 * `steps` - Describes the configuration fields. See [Configuration input](stackpack_resources.md).
 * `provision` - Defines the provisioning script. For example, if the script is `ExampleProvision` then, `provisioning/ExampleProvision.groovy` is looked up to see if there is a groovy class named `ExampleProvision` which extends `com.stackstate.stackpack.ProvisioningScript` from `stackpack-sdk`.
