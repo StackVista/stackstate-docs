@@ -1,8 +1,3 @@
----
-title: How to make a multi-instance StackPack
-kind: Documentation
----
-
 # How to make a multi-instance StackPack
 
 This documentation set explains how to make a StackPack that can be installed as multiple instances in StackState. Below you can find the introduction to this topic and the steps to get a multi-instance StackPack. This
