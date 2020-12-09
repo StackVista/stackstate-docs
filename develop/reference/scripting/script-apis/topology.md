@@ -30,6 +30,7 @@ Topology.query(query: String)
 * `diffWithPrev(queryResult: TopologyScriptApiQueryResponse)` - compares this query with the last query in the chain. A query should be the result of a call to this function. This builder method is only available after the `diff` builder method was called.
 * `components()` - returns a summary of the components. After this builder method no more builder methods can be called.
 * `fullComponents()` - returns the component with all their data. After this builder method no more builder methods can be called.
+* `problems()` - returns problem clusters for a given query along with the root cause and its contributing problems.
 * `relations()` - returns a summary of the relations. After this builder method no more builder methods can be called.
 * `fullRelations()` - returns the relations with all their data. After this builder method no more builder methods can be called.
 
@@ -74,3 +75,13 @@ Topology.query(query: String)
     .thenCollect { it.name }
   ```
 
+* Get the first root problem's first failing check - likely a major root cause of a problem in the queried topology:
+
+    ```
+    Topology
+    .query('environments in ("test")')
+    .problems()
+    .then{ problems -> 
+        problems.isEmpty()? null : problems[0].failingCheckNames[0] 
+    }
+    ```
