@@ -37,7 +37,7 @@ Telemetry is sent to the receiver API via HTTP POST and has a common JSON object
 Depending on your StackState configuration, received metrics or events that are too old will be ignored.
 {% endhint %}
 
-## Metrics
+### Metrics
 
 Metrics can be sent to the StackState receiver API using the `metrics` property. Every metric has the following details:
  
@@ -115,7 +115,7 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-## Events
+### Events
 
 Events can be sent to the StackState receiver API using the `events` property. All events in StackState relate to an element or elements. Each event sent to the StackState receiver API is bound to an element by an `element_identifier` and has the following details:
 
