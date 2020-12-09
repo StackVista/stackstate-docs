@@ -39,7 +39,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 ### Metrics
 
-Metrics can be sent to the StackState receiver API using the `metrics` property. Every metric has the following details:
+Metrics can be sent to the StackState receiver API using the `metrics` property of the JSON object described above. Every metric has the following details:
  
 - **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
 - **timestamp** - The epoch timestamp of the metric.
@@ -121,7 +121,7 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 ### Events
 
-Events can be sent to the StackState receiver API using the `events` property. All events in StackState relate to an element or elements. Each event sent to the StackState receiver API is bound to an element by an `element_identifier` and has the following properties, any of which can be used to define an event stream in StackState:
+Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](#send-telemetry-over-http). All events in StackState relate to a topology element or elements and have the following properties:
 
 - **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 - **timestamp** - The epoch timestamp for the event.
@@ -137,6 +137,8 @@ Events can be sent to the StackState receiver API using the `events` property. A
 - **msg_title** - Optional. The title of the event.
 - **source_type_name** - Optional. The source event type name.
 - **tags** - Optional. A list of key/value tags to associate with the event.
+
+The `element_identifier` is used to bind an event to a topology element. Any of the provided properties can be used to define an event stream in StackState
 
 {% tabs %}
 {% tab title="JSON event" %}
