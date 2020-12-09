@@ -6,11 +6,17 @@ StackState can either pull telemetry from a data source or can receive pushed te
 
 There are several ways to send telemetry to StackState. A large number of [integrations](/stackpacks/integrations) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](/setup/installation/cli-install.md).
 
-## Sending telemetry over HTTP
+## Send telemetry over HTTP
 
-StackState's receiver API is responsible for receiving both telemetry and topology. By default the receiver API is hosted at `https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>`. Both the base URL and API\_KEY are set during installation. For details see:
+The StackState receiver API is responsible for receiving both telemetry and topology. By default, the receiver API is hosted at:
 
-- [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+```
+https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
+``` 
+
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see:
+
+- [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 - [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 
@@ -18,43 +24,56 @@ Telemetry is sent to the receiver API via HTTP POST and has a common JSON object
 
 ```javascript
 {
-  "collection_timestamp": 1548855554, // int - the epoch timestamp for the collection
-  "events": {}, // see section on events
-  "internalHostname": "localdocker.test", // string - the host that is sending this data
-  "metrics": [], // see section on metrics
+  "collection_timestamp": 1548855554, // the epoch timestamp for the collection
+  "events": {}, // see the section on "events", below
+  "internalHostname": "localdocker.test", // the host that is sending this data
+  "metrics": [], // see the section on "metrics", below
   "service_checks": [],
-  "topologies": [] // used for sending topological data
+  "topologies": [] // used for sending topology data
 }
 ```
 
-**Note:** Depending on your StackState configuration, metrics or events that are too old will be ignored.
+{% hint style="info" %}
+Depending on your StackState configuration, received metrics or events that are too old will be ignored.
+{% endhint %}
 
-## Metrics
+### Metrics
 
-Metrics can be sent to the receiver API using the `metrics` property. Every metric has a `name`, `timestamp`, `value`, `hostname`, `type` and optionally a set of `tags`.
+Metrics can be sent to the StackState receiver API using the `metrics` property of the JSON object described above. Every metric has the following details:
+ 
+- **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
+- **timestamp** - The epoch timestamp of the metric.
+- **value** - The value of the metric.
+- **hostname** - The host this metric is from.
+- **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
+- **tags** - Optional.  A list of key/value tags to associate with the metric.
 
-Example of a single metric:
+The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
+{% tabs %}
+{% tab title="Example metric JSON" %}
 ```javascript
 [
-  "test.metric", // string - name of the metric
-  1548857152, // int - the epoch timestamp for the metric
+  "test.metric", // the metric name
+  1548857152,
   10.0, // double - value of the metric
   {
-    "hostname": "localdocker.test", // string - the host this metric is from
-    "tags": [ // (optional) list - a list of tags to associate with this metric. Colon separated key/value pairs.
+    "hostname": "localdocker.test",
+    "tags": [ 
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
     ],
-    "type": "gauge" // string - type of metric options: gauge, count, rate, counter, raw
+    "type": "gauge"
   }
 ]
 ```
+{% endtab %}
+{% endtabs %}
 
-Multiple metrics can be sent in one message. The `timestamp` and `value` of the metric is what is used to plot the metrics as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
+Multiple metrics can be sent in one JSON message via HTTP POST. For example:
 
-curl example:
-
+{% tabs %}
+{% tab title="curl" %}
 ```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
@@ -95,46 +114,75 @@ curl -X POST \
   "topologies": []
 }'
 ```
+{% endtab %}
+{% endtabs %}
 
-You can also send metrics to StackState with the CLI `metric send` command.
+You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send) command. 
 
-{% hint style="warning" %}
-Metric names **cannot start with** any of the following prefixes:
+### Events
 
-* `host`
-* `name`
-* `timestamp`
-* `timeReceived`
-* `labels`
-* `tags`
-* `values`
-{% endhint %}
+Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](#send-telemetry-over-http). All events in StackState relate to a topology element or elements and have the following properties:
 
-## Events
+- **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
+- **timestamp** - The epoch timestamp for the event.
+- **context** - Includes details of the source system for an event:
+    - **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
+    - **element_identifiers** - The [identifiers for the topology element\(s\)](/configure/identifiers.md#topology-identifiers) the event relates to. 
+    - **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
+    - **data** - Optional.  A list of key/value details about the event, for example a configuration version.
+    - **source_id** - Optional. The original identifier of the event in the source system.
+    - **source_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
+- **event_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
+- **msg_text** - Optional. The text body of the event.
+- **msg_title** - Optional. The title of the event.
+- **source_type_name** - Optional. The source event type name.
+- **tags** - Optional. A list of key/value tags to associate with the event.
 
-Events can be sent to the receiver API using the `events` property. Every event has a `name`, `timestamp`, and optionally `msg_title`, `msg_text`, `tags` and `source_type_name`.
+The `element_identifier` is used to bind the event to a topology element or elements. Any of the provided properties can be used to define an event stream in StackState
 
-Example of a single event:
-
+{% tabs %}
+{% tab title="Example event JSON" %}
 ```javascript
-"event.test": [ // string - the event name
+"event.test": [ // The event name
   {
-    "msg_text": "event_text", // (optional) string - the text body of the event
-    "msg_title": "event_title", // (optional) string - the title of the event,
-    "source_type_name": "event.test", // (optional) string - the source type name
-    "tags": [ // (optional) list - a list of tags to associate with this event. Colon separated key/value pairs.
+    "context": {
+      "category": "Changes",
+      "data": { 
+        "data_key1":"data_value1",
+        "data_key2":"data_value2"
+      },
+      "element_identifiers": [
+        "element_identifier1",
+        "element_identifier2"
+      ],
+      "source": "source_system",
+      "source_links": [
+        {
+          "title": "link_title",
+          "url": "link_url"
+        }
+      ]
+    },
+    "event_type": "event_typeEvent",
+    "msg_title": "event_title",
+    "msg_text": "event_text",
+    "source_type_name": "source_event_type",
+    "tags": [
       "tag_key1:tag_value1",
-      "tag_key2:tag_value2"
+      "tag_key2:tag_value2",
     ],
-    "timestamp": 1548857342 // int - the epoch timestamp for the event
+    "timestamp": 1607432944
   }
 ]
+
 ```
+{% endtab %}
+{% endtabs %}
 
-Multiple events can be sent in one message. Any of an events' properties can be used to define an event stream in StackState.
+Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send) command. For example:
 
-curl example:
-
+{% tabs %}
+{% tab title="curl" %}
 ```javascript
 curl -X POST \
  'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
@@ -142,60 +190,90 @@ curl -X POST \
  -d '{
   "collection_timestamp": 1548857342,
   "events": {
-    "event.test01": [
+    "event.test01": [ // The event name
       {
-        "msg_text": "event_text",
+        "context": {
+          "category": "Changes",
+          "data": { 
+            "data_key1":"data_value1",
+            "data_key2":"data_value2"
+          },
+          "element_identifiers": [
+            "element_identifier1",
+            "element_identifier2"
+          ],
+          "source": "source_system",
+          "source_links": [
+            {
+              "title": "link_title",
+              "url": "link_url"
+            }
+          ]
+        },
+        "event_type": "HealthStateChangedEvent",
         "msg_title": "event_title",
-        "source_type_name": "event.test",
+        "msg_text": "event_text",
+        "source_type_name": "source_event_type",
         "tags": [
           "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
+          "tag_key2:tag_value2",
         ],
-        "timestamp": 1548857342
-      },
-      {
-        "msg_text": "event_text",
-        "msg_title": "event_title",
-        "source_type_name": "event.test",
-        "tags": [
-          "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
-        ],
-        "timestamp": 1548857340
+        "timestamp": 1607432944
       }
     ],
-    "event.test02": [
+    "event.test02": [ // The event name
       {
-        "msg_text": "event_text",
+        "context": {
+          "category": "Changes",
+          "data": { 
+            "data_key1":"data_value1",
+            "data_key2":"data_value2"
+          },
+          "element_identifiers": [
+            "element_identifier1",
+            "element_identifier2"
+          ],
+          "source": "source_system",
+          "source_links": [
+            {
+              "title": "link_title",
+              "url": "link_url"
+            }
+          ]
+        },
+        "event_type": "HealthStateChangedEvent",
         "msg_title": "event_title",
-        "source_type_name": "event.test",
+        "msg_text": "event_text",
+        "source_type_name": "source_event_type",
         "tags": [
           "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
+          "tag_key2:tag_value2",
         ],
-        "timestamp": 1548857342
+        "timestamp": 1607432944
       }
     ]
-  },
   "internalHostname": "localdocker.test",
   "metrics": [],
   "service_checks": [],
   "topologies": []
 }'
 ```
+{% endtab %}
+{% tab title="StackState CLI" %}
+```
+sts event send "HealthStateChangedEvent" \
+    --title "event_title" \
+    -i "element_identifier1" "element_identifier2" \
+    -s "source_system" \
+    -c "Changes" \
+    -d '{"data_key1":"data_value1", "data_key2":"data_value2"}' \
+    --links "link_title1: link_url1" "link_title2: link_url2"
+```
+{% endtab %}
+{% endtabs %}
 
-You can also send events to StackState with the CLI `event send` command.
+## See also
 
-{% hint style="warning" %}
-Event names **cannot start with** any of the following prefixes:
-
-* `host`
-* `name`
-* `title`
-* `eventType`
-* `message`
-* `timestamp`
-* `timeReceived`
-* `labels`
-* `tags`
-{% endhint %}
+- [StackState CLI reference](/develop/reference/cli_reference.md)
+- [StackState identifiers](/configure/identifiers.md)
+- [Events perspective](/use/views/events_perspective.md)

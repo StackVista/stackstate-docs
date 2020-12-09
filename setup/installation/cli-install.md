@@ -244,7 +244,7 @@ You may not always want to try a new configuration on real data. First, you migh
 The CLI provides some predefined settings to send metrics to StackState. Run the below command without any optional arguments to send one data point of the given value:
 
 ```text
-sts metrics send <MetricName> <OptionalNumberValue>
+sts metric send <MetricName> <OptionalNumberValue>
 ```
 
 You can also use optional arguments to create historical data for a test metric.
@@ -265,17 +265,17 @@ By default, a metrics pattern is random or, when a value is provided, a flatline
 To see all available options, use:
 
 ```text
-sts metrics send -h
+sts metric send -h
 ```
 
 #### Events
 
-The CLI can send events using `sts events send <eventName>` It will send one event with the given name.
+The CLI can send events using `sts evens send <eventName>` It will send one event with the given name.
 
 For help on sending events data, use:
 
 ```text
-sts events send -h
+sts event send -h
 ```
 
 #### Topology
