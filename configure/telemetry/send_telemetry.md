@@ -269,3 +269,9 @@ sts event send "HealthStateChangedEvent" \
 ```
 {% endtab %}
 {% endtabs %}
+
+## See also
+
+- [StackState CLI reference](/develop/reference/cli_reference.md)
+- [StackState identifiers](/configure/identifiers.md)
+- [Events perspective](/use/views/events_perspective.md)
