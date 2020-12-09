@@ -14,7 +14,7 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 ## Perspectives
 
-![Perspectives](/.gitbook/assets/v41_perspective_buttons.png)
+![Perspectives](/.gitbook/assets/v42_perspective_buttons.png)
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](/use/introduction-to-stackstate/perspectives.md). Each perspective shows different data from the filtered (or unfiltered) components. Use the perspective buttons across the top of the screen to switch between them: 
 
@@ -25,7 +25,7 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ## Add a filter
 
-![View Filters](/.gitbook/assets/v41_view_filters.png)
+![View Filters](/.gitbook/assets/v42_view_filters.png)
 
 You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](/use/views/filters.md).  
 
