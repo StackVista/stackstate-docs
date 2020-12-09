@@ -33,7 +33,7 @@ Layers, domains, and environments are a way to organize your topology. The healt
 
 Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
 
-![Filtering example](/.gitbook/assets/basic_filtering.png)
+![Filtering example](/.gitbook/assets/v41_basic_filtering.png)
 
 The same topology selection can also be shown in list format:
 
@@ -45,14 +45,14 @@ It is also possible to interactively navigate the topology. Right-click on a com
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
-![Actions](/.gitbook/assets/v41_quick_actions.png)
+![Actions](/.gitbook/assets/v41_quick-actions.png)
 
 **Actions** expands the topology selection in one of the following ways:
 
-* Show all dependencies -- shows all dependencies for selected component
-* Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selcted compontent
-* Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
-* Show Root Casue only -- limits displayed components to the root cause elements
+* Show all dependencies - shows all dependencies for selected component.
+* Show dependencies, 1 level, both directions - limits displayed dependencies to one level from selected component.
+* Show Root Cause - if the selected component is in a non-clear state, adds the root cause tree.
+* Show Root Cause only - limits displayed components to the root cause elements.
 
 ![Dependencies](/.gitbook/assets/dependencies.png)
 

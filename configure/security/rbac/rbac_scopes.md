@@ -22,7 +22,7 @@ The below example shows the same topology view called "All Infrastructure" for f
 
 ### This user is a part of StackState Admin group, so there is no scope:
 
-![Full view permissions](/.gitbook/assets/allperm.png)
+![Full view permissions](/.gitbook/assets/v41_allperm.png)
 
 The query for this view is the same as for the others, but without any prefix:
 
