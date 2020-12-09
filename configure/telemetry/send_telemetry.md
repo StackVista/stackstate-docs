@@ -25,7 +25,7 @@ Telemetry is sent to the receiver API via HTTP POST and has a common JSON object
 ```javascript
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection
-  "events": {}, // see section on events
+  "events": {}, // see the section on "events", below
   "internalHostname": "localdocker.test", // the host that is sending this data
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
