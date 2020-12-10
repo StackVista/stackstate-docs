@@ -32,7 +32,7 @@ stackstate-guest  access-view           everything
 ## List of all permissions in StackState
 
 | Permission | Purpose | Guest | Power-user | Administrator |
-| :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :---: | :---: | :---: |
 | access-explore | Access the Explore page | ✅ | ✅ | ✅ |
 | update-visualization | Change visualization settings | ✅ | ✅ | ✅ |
 | perform-custom-query | Access the topology filter | ✅ | ✅ | ✅ |
