@@ -37,7 +37,7 @@ The topology can also be navigated interactively. Hover over any component to br
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-A list of the available actions is included in the Component details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
+A list of the available actions is included in the component details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
 
 ![Actions](/.gitbook/assets/v42_actions.png)
 
