@@ -58,7 +58,7 @@ will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
 ### Reducing with `thenInject`
 
-Since version 4.1.0, arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
+Arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
 
 ```text
 ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->

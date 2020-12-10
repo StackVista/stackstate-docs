@@ -28,7 +28,7 @@ tls {
 }
 ```
 
-**b.** Enable TLS for topology/telemetry receiver by configuring a section `stackstate.tls` in `etc/stackstate-receiver/application.conf`:
+**b.** Enable TLS for topology/telemetry receiver by configuring a section `stackstate.receiver.tls` in `etc/stackstate-receiver/application.conf`:
 
 ```text
 tls {
