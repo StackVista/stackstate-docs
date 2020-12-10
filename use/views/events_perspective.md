@@ -6,7 +6,7 @@ description: Track changes in your IT landscape.
 
 The Events Perspective shows events and changes for the elements in the current [view](/use/views/README.md) or filtered topology. 
 
-![The Events Perspective](/.gitbook/assets/v42_event-perspective.png)
+![The Events Perspective](/.gitbook/assets/v42_events-perspective.png)
 
 ## Events
 
