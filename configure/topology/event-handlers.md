@@ -118,7 +118,6 @@ The **view** and **event** properties described below can be used in **async** e
 - `view.description` - returns the view description.
 - `view.query` -  returns an STQL query of the view.
 - `view.identifier` - returns the globally unique URN value that identifies the view.
-- `view.tags` - returns any user-specified metadata attached to a view when it was created.
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
