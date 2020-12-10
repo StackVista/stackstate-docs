@@ -78,7 +78,7 @@ Different sets of properties are available for use in synchronous and async func
 #### Properties for synchronous functions
 
 {% hint style="info" %}
-The **view** and **event** properties described below can be used in **synchronous** event handler functions. If your function runs as async, see the [properties for use in async functions](#properties-for-async-functions). 
+The **view** and **event** properties described below can be used in **synchronous event handler functions**. If your function runs as async, see the [properties for use in async functions](#properties-for-async-functions). 
 {% endhint %}
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
@@ -98,7 +98,7 @@ The **view** and **event** properties described below can be used in **synchrono
 #### Properties for async functions
 
 {% hint style="info" %}
-The **view** and **event** properties described below can be used in **async** event handler functions. If your function runs as synchronous, see the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
+The **view** and **event** properties described below can be used in **async event handler functions**. If your function runs as synchronous, see the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
 {% endhint %}
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
