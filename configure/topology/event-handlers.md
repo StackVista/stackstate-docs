@@ -114,7 +114,7 @@ The **view** and **event** properties described below can be used in **async eve
 - `event.newState` - returns the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
 - `event.oldState` - returns the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
 - `event.stackElement` - returns the node ID of the element that has changed its state. For HealthStateChangedEvents only.
-- `event.stateChanges` - returns the chain of elements through which the health state change propagated.For PropagatedHealthStateChangedEvents only.
+- `event.stateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
 - `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state. For ViewHealthStateChangedEvents only
 
 ### Plugins
