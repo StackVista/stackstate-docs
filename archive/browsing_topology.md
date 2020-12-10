@@ -33,7 +33,7 @@ Layers, domains, and environments are a way to organize your topology. The healt
 
 Here is an example of using the basic filtering capabilities. This example shows how to filter for particular components and customers.
 
-![Filtering example](/.gitbook/assets/v41_basic_filtering.png)
+![Filtering example](/.gitbook/assets/v42_basic_filtering.png)
 
 The same topology selection can also be shown in list format:
 
@@ -45,7 +45,7 @@ It is also possible to interactively navigate the topology. Right-click on a com
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
-![Actions](/.gitbook/assets/v41_quick-actions.png)
+![Actions](/.gitbook/assets/v42_quick-actions.png)
 
 **Actions** expands the topology selection in one of the following ways:
 

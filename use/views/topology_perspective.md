@@ -37,7 +37,7 @@ Hover over any component to bring up the component navigation menu. Select **Act
 * Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
 * Show Root Cause only -- limits displayed components to the root cause elements
 
-![Actions](/.gitbook/assets/v41_quick-actions.png)
+![Actions](/.gitbook/assets/v42_quick-actions.png)
 
 You can extend this list with [component actions](/configure/topology/component_actions.md) that are pre-defined in a StackPack or configure your own actions.
 
@@ -85,7 +85,7 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](/.gitbook/assets/v41_show_root_cause_outside.png)
+![Root cause](/.gitbook/assets/v42_show_root_cause_outside.png)
 
 ## List mode
 

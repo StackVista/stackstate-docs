@@ -15,7 +15,7 @@ Views permissions are a set of permissions that allow for CRUD operations with V
 StackState comes with three predefined roles - **Administrator**, **Power User** and **Guest**. 
 
 - Administrators have all permissions and access to all views. 
-- Power Users have all Administratorpermissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team(s).
+- Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team(s).
 - Guests have access to view, as you can see below:
 
 ```text
@@ -93,7 +93,7 @@ stackstate-guest  access-view           everything
 
 |  |  |  |
 | :---: | :---: | :---: |
-| ![TopologyCapabilities1](/.gitbook/assets/v41_topocap1.png) | ![TopologyCapabilities2](/.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](/.gitbook/assets/topocap3.png) |
+| ![TopologyCapabilities1](/.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](/.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](/.gitbook/assets/topocap3.png) |
 
 ### Topology views permissions
 
