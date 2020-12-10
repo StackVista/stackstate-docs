@@ -109,7 +109,6 @@ The **view** and **event** properties described below can be used in **async** e
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
-**HealthStateChangedEvent** - generated when an element's own health state changes.
 - `event.triggeredTimestamp` - returns the time  (epoch in ms) at which the state change occurred. 
 - `event.causeId` - returns the UUID of the event that triggered the health state change.
 - `event.newState` - returns the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
