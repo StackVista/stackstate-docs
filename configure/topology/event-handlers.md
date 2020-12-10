@@ -93,7 +93,7 @@ A **HealthStateChangedEvent** is generated when an element's own health state ch
 A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
 A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
 
-- `event.getCauseId` - returns the node ID for the original cause of the element's state change.
+- `event.getCauseId` - returns the UUID of the event that triggered the health state change.
 - `event.getTriggeredTimestamp` - returns the time (epoch in ms) at which the state change occurred. 
 - `event.getNewStateRef` - returns an object representing the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents only.
 - `event.getOldStateRef` - returns an object representing the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents only.
