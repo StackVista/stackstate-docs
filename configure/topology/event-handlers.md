@@ -10,7 +10,7 @@ Event handlers can be attached to a StackState view to [trigger alerts and actio
 
 To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This is set in the StackState UI **Events Settings** > **ADD NEW EVENT HANDLER** dialogue as **Run event handler** .
 
-![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v42_event_handlers_tab.png)
 
 ## Event handler functions
 
@@ -118,7 +118,6 @@ The **view** and **event** properties described below can be used in **async** e
 - `view.description` - returns the view description.
 - `view.query` -  returns an STQL query of the view.
 - `view.identifier` - returns the globally unique URN value that identifies the view.
-- `view.tags` - returns any user-specified metadata attached to a view when it was created.
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 

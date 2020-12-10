@@ -44,5 +44,5 @@ Give a list of databases.
 
 ## Scripting
 
-All queries are in-fact Groovy scripts. Find out more about [how StackState scripting works](/develop/reference/scripting/).
+All queries are in-fact Groovy scripts. Find out more about [how StackState scripting works](/develop/reference/scripting/README.md).
 

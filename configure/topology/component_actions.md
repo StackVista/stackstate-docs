@@ -1,8 +1,8 @@
 # Component actions
 
-Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu in the Topology View.
+Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component navigation menu or the component details pane in the [Topology Perspective](/use/views/topology_perspective.md).
 
-![Component Actions](/.gitbook/assets/quick_component_actions.png)
+![Component Actions](/.gitbook/assets/v42_actions.png)
 
 Component Actions can be configured within StackState Settings or can be predefined in a StackPack.
 
@@ -18,13 +18,13 @@ Component Actions allow for a wide range of operations on components, for exampl
 * Navigation actions - Navigate to the AWS Management Console of a component showing erratic behavior.
 * Reporting actions - Show a report that predicts the next 24 hours of CPU usage of a Kubernetes pod.
 
-## How to get Component Actions?
+## How to get Component Actions
 
 There are two ways of getting Component Actions in StackState:
 
 1. Import of Actions predefined in a StackPack
-2. Configuring a new Action in the Settings page
+2. Configure a new custom Action in the Settings page
 
-In the case of importing Components Actions with a StackPack, these Actions appear as locked items on the Settings page. Editing them unlocks the Component Action, but it may prevent the StackPack from correct upgrades in the future. It is possible to restore the locked status of a Component Action by reinstalling the StackPack that contains the definition of the unlocked Component Action.
+Components Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** > **Actions** > **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
 
-When configuring a new Component Action in the Settings page, follow the instructions from [How to configure Component Actions](/configure/topology/how_to_configure_component_actions.md) page.
+Fond out [How to configure Component Actions](/configure/topology/how_to_configure_component_actions.md).

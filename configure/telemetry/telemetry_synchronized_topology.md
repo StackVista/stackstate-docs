@@ -12,7 +12,7 @@ If you want to add a telemetry stream to all topology elements imported by a spe
 
 The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. The template editor can be accessed from the StackState UI.
 
-![Template editor](/.gitbook/assets/edit_template.png)
+![Template editor](/.gitbook/assets/v42_edit_template.png)
 
 1. Click on an element to open the **Component details** on the right of the screen.
 2. Click on **...** and select **Edit template**. 

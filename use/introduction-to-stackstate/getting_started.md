@@ -6,7 +6,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks).
 
-![StackPacks overview](/.gitbook/assets/v41_01_stackpacks.png)
+![StackPacks overview](/.gitbook/assets/v42_01_stackpacks.png)
 
 ## Explore topology
 
@@ -16,7 +16,7 @@ StackState visualizes components by the layer and domain they are placed in. The
 
 You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/views/filters.md) on the left side bar, or by [hovering over a component](/use/views/topology_perspective.md#interactive-navigation).
 
-![Explore topology](/.gitbook/assets/v41_02_topology.png)
+![Explore topology](/.gitbook/assets/v42_02_topology.png)
 
 ## Topology elements
 
@@ -35,13 +35,13 @@ The direction of a relation's arrow indicates dependency. For example, `app -> d
 
 The timeline at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the time that is currently selected. Normally, StackState is in the **live mode**, this means that StackState automatically displays the latest state of the stack.
 
-![Timeline](/.gitbook/assets/v41_06_timeline.png)
+![Timeline](/.gitbook/assets/v42_06_timeline.png)
 
 ## Component / relation details
 
 To see the details of a component or a relation, you can click on it. Click on "Show component properties" to see all details of a component.
 
-![Component details](/.gitbook/assets/v41_03_component_details.png)
+![Component details](/.gitbook/assets/v42_03_component_details.png)
 
 ## Metric inspector
 
@@ -65,14 +65,14 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
 
-![Component details](/.gitbook/assets/v41_04_problem_summary.png)
+![Component details](/.gitbook/assets/v42_04_problem_summary.png)
 
 ## Events
 
 To show all events for the selected Topology, select the Events perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/health-state-and-alerts/set-up-alerting.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
-![Events Perspective](/.gitbook/assets/event-perspective.png)
+![Events Perspective](/.gitbook/assets/v42_events-perspective.png)
 
 The Events perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
 
-![Events section](/.gitbook/assets/v41_events-section.png)
+![Events section](/.gitbook/assets/v42_events-section.png)

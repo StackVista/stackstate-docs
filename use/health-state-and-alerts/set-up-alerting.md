@@ -26,7 +26,7 @@ The process to trigger an event is as follows:
 
 Event handlers respond to health state change events and run event handler functions to generate alerts and trigger automated actions. You can add an event handler to a view from the StackState UI. 
 
-![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v42_event_handlers_tab.png)
 
 1. Select **Events Settings** on the left.
 2. Click **ADD NEW EVENT HANDLER**.
