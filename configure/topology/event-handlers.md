@@ -88,10 +88,6 @@ The **view** and **event** properties described below can be used in **synchrono
 - `view.getIdentifier` - returns the globally unique URN value that identifies the view.
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
-        
-A **HealthStateChangedEvent** is generated when an element's own health state changes.
-A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
-A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
 
 - `event.getCauseId` - returns the UUID of the event that triggered the health state change.
 - `event.getTriggeredTimestamp` - returns the time (epoch in ms) at which the state change occurred. 
