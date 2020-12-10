@@ -1,11 +1,3 @@
----
-title: Permissions
-kind: Documentation
-aliases:
-  - /concepts/permissions/
-  - /authentication/permissions/
----
-
 # Permissions \(RBAC\)
 
 ## Permissions in StackState
@@ -39,34 +31,34 @@ stackstate-guest  access-view           everything
 
 ## List of all permissions in StackState
 
-| Permission | Purpose |
-| :--- | :--- |
-| create-views | Permission to create views |
-| access-analytics | Permission to access the Analytics page |
-| execute-scripts | Permission to execute a query in the Analytics page |
-| read-settings | Permission to access the Settings page |
-| update-settings | Permission to update settings |
-| import-settings | Permission to import settings |
-| export-settings | Permission to export settings |
-| manage-topology-elements | Permission to create / update / delete topology elements |
-| access-explore | Permission to access the Explore page |
-| update-visualization | Permission to change visualization settings |
-| perform-custom-query | Permission to access the topology filter |
-| read-permissions | Permission to list all granted permissions across the entire system via the CLI |
-| update-permissions | Permission to grant/revoke permissions or modify subjects |
-| upload-stackpacks | Permission to upload new (versions of) StackPacks |
-| manage-stackpacks | Permission to install / upgrade / uninstall StackPacks |
-| manage-annotations | Permission to persist and fetch Anomaly annotations in StackState |
-| save-view | Permission to save views |
-| access-view | Permission to access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\) |
-| delete-view | Permission to delete views |
-| execute-component-actions | Permission to execute component actions |
-| manage-telemetry-streams | Permission to edit or create new streams for components via the UI |
-| access-log-data | Permission to access StackState logs via the CLI |
-| access-topic-data | Permission to access StackState receiver data via the CLI |
-| execute-component-templates | Permission to invoke a component template API extension \(**internal use only**\) |
-| execute-node-sync | Permission to reset or delete a synchronization |
-| access-admin-api | Permission to access the administrator API |
+| Permission | Purpose | Guest | Power-user | Administrator |
+| :--- | :--- | :---: | :---: | :---: |
+| access-explore | Access the Explore page | ✅ | ✅ | ✅ |
+| update-visualization | Change visualization settings | ✅ | ✅ | ✅ |
+| perform-custom-query | Access the topology filter | ✅ | ✅ | ✅ |
+| read-permissions | List all granted permissions across the entire system via the CLI | ✅ | ✅ | ✅ |
+| execute-component-actions | Execute component actions | ✅ | ✅ | ✅ |
+| create-views | Create views | - | ✅ | ✅ |
+| access-analytics | Access the Analytics page | - | ✅ | ✅ |
+| execute-scripts | Execute a query in the Analytics page | - | ✅ | ✅ |
+| read-settings | Access the Settings page | - | ✅ | ✅ |
+| update-settings | Update settings | - | ✅ | ✅ |
+| import-settings | Import settings | - | ✅ | ✅ |
+| export-settings | Export settings | - | ✅ | ✅ |
+| manage-topology-elements | Create/update/delete topology elements | - | ✅ | ✅ |
+| manage-stackpacks | Install/upgrade/uninstall StackPacks | - | ✅ | ✅ |
+| manage-annotations | Persist and fetch Anomaly annotations in StackState | - | ✅ | ✅ |
+| save-view | Save views | - | ✅ | ✅ |
+| access-view | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\) | - | ✅ | ✅ |
+| delete-view | Delete views | - | ✅ | ✅ |
+| manage-telemetry-streams | Edit or create new streams for components via the UI | - | ✅ | ✅ |
+| access-log-data | Access StackState logs via the CLI | - | ✅ | ✅ |
+| access-topic-data | Access StackState receiver data via the CLI | - | ✅ | ✅ |
+| execute-component-templates | Invoke a component template API extension \(**internal use only**\) | - | ✅ | ✅ |
+| execute-node-sync | Reset or delete a synchronization | - | ✅ | ✅ |
+| access-admin-api | Access the administrator API | - | ✅ | ✅ |
+| update-permissions | Grant/revoke permissions or modify subjects | - | - | ✅ | 
+| upload-stackpacks | Upload new (versions of) StackPacks | - | - | ✅ | 
 
 ## UI elements and permissions
 
