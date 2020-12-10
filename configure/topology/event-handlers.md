@@ -86,26 +86,18 @@ The **view** and **event** properties described below can be used in **synchrono
 - `view.getDescription` - returns the view description.
 - `view.getQuery` - returns an STQL query of the view.
 - `view.getIdentifier` - returns the globally unique URN value that identifies the view.
-- `view.getTags` - returns any user-specified metadata attached to a view when it was created.
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
         
 A **HealthStateChangedEvent** is generated when an element's own health state changes.
-- `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
-- `event.HealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the element.
-- `event.HealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the element's state change.
-- `event.HealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
-
 A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
-- `event.PropagatedHealthStateChangedEvent.getStateChanges` - returns the chain og elements through which the health state change propagated.
-- `event.PropagatedHealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the element's propagated state change.
-- `event.PropagatedHealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
-
 A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
-- `event.ViewHealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the view.
-- `event.ViewHealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the view.
-- `event.ViewHealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the view's state change.
-- `event.ViewHealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
+
+- `event.getCauseId` - returns the node ID for the original cause of the element's state change. (HealthStateChangedEvent, PropagatedHealthStateChangedEvent, ViewHealthStateChangedEvent)
+- `event.getTriggeredTimestamp` - returns the time (epoch in ms) at which the state change occurred. (HealthStateChangedEvent, PropagatedHealthStateChangedEvent, ViewHealthStateChangedEvent)
+- `event.getNewStateRef` - returns an object representing the current state of the element. (HealthStateChangedEvent, ViewHealthStateChangedEvent)
+- `event.getOldStateRef` - returns an object representing the previous state of the element. (HealthStateChangedEvent, ViewHealthStateChangedEvent)
+- `event.getStateChanges` - returns the chain of elements through which the health state change propagated. (PropagatedHealthStateChangedEvent)
 
 #### Properties for async functions
 
