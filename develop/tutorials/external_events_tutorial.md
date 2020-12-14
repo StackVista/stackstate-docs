@@ -83,7 +83,7 @@ The event will be visible in the StackState Events Perspective:
 If you don't have access to Vagrant, you can also submit the JSON to StackState directly using the command below. 
 
 {% hint style="info" %}
-If you execute this command locally instead of on the virtual machine, make sure you have the environment variables set properly.
+If you execute this command locally instead of on the virtual machine, make sure that you have the environment variables set properly.
 {% endhint %}
 
 ```text
