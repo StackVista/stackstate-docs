@@ -13,7 +13,7 @@ This tutorial shows how you can submit external events to StackState.
 
 ## Setup
 
-[This repository](https://github.com/StackVista/custom-events-tutorial) contains a sample project with a [Puppet \(puppet.com\) report processor](https://puppet.com/docs/puppet/7.0/reporting_about.html) that will process a report of a Puppet configuration run and send events to StackState.
+[This repository](https://github.com/StackVista/custom-events-tutorial) contains a sample project with a [Puppet report processor \(puppet.com\)](https://puppet.com/docs/puppet/7.0/reporting_about.html) that will process a report of a Puppet configuration run and send events to StackState.
 
 All events in StackState are bound to elements (components or relations). In our example, the events sent to StackState by the report processor will be bound to the host that Puppet runs on.
 
