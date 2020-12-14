@@ -213,6 +213,14 @@ Release notes for the [AAD StackPack](#aad-stackpack) and the [AAD Kubernetes se
 
 ### AAD Kubernetes service
 
+#### AAD Kubernetes service v4.2.0 BETA
+
+**Helm chart version**: 4.1.27<br />**Image tag**: 4.2.0-release<br />**Release date**: 2020-12-11
+
+Changes in this version:
+
+* Performance, stability and other bug fixes.
+
 #### AAD Kubernetes service v4.1.2 BETA
 
 **Helm chart version**: 4.1.24<br />**Image tag**: 4.1.2-release<br />**Release date**: 2020-11-27
