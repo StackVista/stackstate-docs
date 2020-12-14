@@ -15,17 +15,17 @@ This tutorial shows how you can submit external events to StackState.
 
 [This repository](https://github.com/StackVista/custom-events-tutorial) contains a sample project with a [Puppet \(puppet.com\) report processor](https://puppet.com/docs/puppet/7.0/reporting_about.html) that will process a report of a Puppet configuration run and send events to StackState.
 
+Clone the repository to your laptop to get started.
+
 All events in StackState are bound to elements (components or relations). In our example, the events sent to StackState by the report processor will be bound to the host that Puppet runs on.
 
-The project uses [Vagrant \(vagrantuo.com\)](https://www.vagrantup.com/) to provision a virtual machine with Puppet and the sample report processor installed installed. If you don't have access to Vagrant, read how you can [submit events directly](#submitting-external-events-directly).
-
-Clone the repository to your laptop to get started.
+The project uses [Vagrant \(vagrantup.com\)](https://www.vagrantup.com/) to provision a virtual machine with Puppet and the sample report processor installed. If you don't have access to Vagrant, read how you can [submit events directly](#submitting-external-events-directly).
 
 ## Preparing StackState
 
-Before you get started, StackState must be configured to handle the data that will be sent from the sample project. The project uses a StackState Agent installed on the virtual machine to send data in a format that is consumed by the built-in **Agent v2 StackPack**.
+Before you get started, StackState must be configured to handle the data that will be sent from the sample project. The project uses a StackState Agent installed on the virtual machine to send data in a format that is consumed by the StackState **Agent v2 StackPack**.
 
-The sample project will handle installation of the StackState Agent on the virtual machine. You will need to install the **Agent v2 StackPack** in StackState to interpret the data it sends. If you're running the tutorial on an existing instance of StackState, make sure to install a dedicated instance of the Agent v2 StackPack. This will allow you to easily clean up and remove all configuration and topology imported by the tutorial when you're finished.
+The sample project will handle installation of a StackState Agent on the virtual machine. You will need to install the **Agent v2 StackPack** in StackState to interpret the data it sends. If you're running the tutorial on an existing instance of StackState, we advise you to install a dedicated instance of the Agent v2 StackPack. This will allow you to easily clean up and remove all configuration and topology imported by the tutorial when you're finished.
 
 ## Preparing the tutorial
 
@@ -41,7 +41,7 @@ Vagrant will download a virtual machine image and provision a virtual machine. W
 vagrant ssh
 ```
 
-The rest of this tutorial assumes you run the sample as the `root` user. Use the following command to change to `root` in your virtual machine:
+The rest of this tutorial assumes you are running as the `root` user. Use the following command to change to `root` in your virtual machine:
 
 ```text
 sudo su -
@@ -54,7 +54,7 @@ export STS_API_KEY=your-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-That's it, you are now ready to run the sample.
+That's it, you are now ready to run the example.
 
 ## Running the example
 
@@ -82,16 +82,16 @@ The event will be visible in the StackState Events Perspective:
 
 If you don't have access to Vagrant, you can also submit the JSON to StackState directly using the command below. 
 
+{% hint style="info" %}
+If you execute this command locally instead of on the virtual machine, make sure you have the environment variables set properly.
+{% endhint %}
+
 ```text
 TS=`date +%s`; cat event.json | \
     sed -e "s/##TIMESTAMP##/$TS/" | \
     curl -H "Content-Type: application/json" -X POST \
     -d @- ${STS_STS_URL}/intake/\?api_key\=${STS_API_KEY}
 ```
-
-{% hint style="info" %}
-If you execute this command locally instead of on the virtual machine, make sure you have the environment variables set properly.
-{% endhint %}
 
 For these events to appear in StackState, the component representing the virtual machine must be present with the identifier `urn:host:/localhost.localdomain`. See how to [manually add a component](/configure/topology/how_to_create_manual_topology.md#how-to-create-components).
 
