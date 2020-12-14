@@ -109,3 +109,10 @@ vagrant destroy
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
 * Uninstall the **Agent v2 StackPack**. This will remove the configuration and data received \(topology\) from StackState.
+
+
+## See also
+
+- [StackState Events Perspective](/use/views/events_perspective.md)
+- [Send events to StackState over HTTP](configure/telemetry/send_telemetry.md#send-telemetry-over-http)
+- [Automate alerts and actions based on events](/configure/topology/event-handlers.md)
