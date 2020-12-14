@@ -13,8 +13,8 @@ STML is a valid superset of markdown. In other words, it is markdown plus extens
 ```text
 | To buy                              | Amount |
 |------------------------------- -----|--------|
-|[Apples](http://goolge.com/?q=apples)| 2      |
-|[Pears](http://goolge.com/?q=pears)  | 5      |
+|[Apples](http://google.com/?q=apples)| 2      |
+|[Pears](http://google.com/?q=pears)  | 5      |
 ```
 
 ## Tags

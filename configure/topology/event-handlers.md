@@ -10,7 +10,7 @@ Event handlers can be attached to a StackState view to [trigger alerts and actio
 
 To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This is set in the StackState UI **Events Settings** > **ADD NEW EVENT HANDLER** dialogue as **Run event handler** .
 
-![Add an event handler](/.gitbook/assets/event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v42_event_handlers_tab.png)
 
 ## Event handler functions
 
@@ -78,7 +78,7 @@ Different sets of properties are available for use in synchronous and async func
 #### Properties for synchronous functions
 
 {% hint style="info" %}
-The **view** and **event** properties described below can be used in **synchronous** event handler functions. If your function runs as async, see the [properties for use in async functions](#properties-for-async-functions). 
+The **view** and **event** properties described below can be used in **synchronous event handler functions**. If your function runs as async, see the [properties for use in async functions](#properties-for-async-functions). 
 {% endhint %}
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
@@ -86,31 +86,19 @@ The **view** and **event** properties described below can be used in **synchrono
 - `view.getDescription` - returns the view description.
 - `view.getQuery` - returns an STQL query of the view.
 - `view.getIdentifier` - returns the globally unique URN value that identifies the view.
-- `view.getTags` - returns any user-specified metadata attached to a view when it was created.
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
-        
-A **HealthStateChangedEvent** is generated when an element's own health state changes.
-- `event.HealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the element.
-- `event.HealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the element.
-- `event.HealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the element's state change.
-- `event.HealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
 
-A **PropagatedHealthStateChangedEvent** is generated when the propagated health state of an element changes.
-- `event.PropagatedHealthStateChangedEvent.getStateChanges` - returns the chain og elements through which the health state change propagated.
-- `event.PropagatedHealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the element's propagated state change.
-- `event.PropagatedHealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
-
-A **ViewHealthStateChangedEvent** is generated when the health state of the entire view changes.
-- `event.ViewHealthStateChangedEvent.getNewStateRef` - returns an object representing the current state of the view.
-- `event.ViewHealthStateChangedEvent.getOldStateRef` - returns an object representing the previous state of the view.
-- `event.ViewHealthStateChangedEvent.getCauseId` - returns the node ID for the original cause of the view's state change.
-- `event.ViewHealthStateChangedEvent.getTriggeredTimestamp` - returns the time at which the state change occurred.
+- `event.getCauseId` - returns the UUID of the event that triggered the health state change.
+- `event.getTriggeredTimestamp` - returns the time (epoch in ms) at which the state change occurred. 
+- `event.getNewStateRef` - returns an object representing the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
+- `event.getOldStateRef` - returns an object representing the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
+- `event.getStateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
 
 #### Properties for async functions
 
 {% hint style="info" %}
-The **view** and **event** properties described below can be used in **async** event handler functions. If your function runs as synchronous, see the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
+The **view** and **event** properties described below can be used in **async event handler functions**. If your function runs as synchronous, see the [properties for use in synchronous functions](#properties-for-synchronous-functions). 
 {% endhint %}
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view`  or `scope` can be used, or an alias.
@@ -118,28 +106,16 @@ The **view** and **event** properties described below can be used in **async** e
 - `view.description` - returns the view description.
 - `view.query` -  returns an STQL query of the view.
 - `view.identifier` - returns the globally unique URN value that identifies the view.
-- `view.tags` - returns any user-specified metadata attached to a view when it was created.
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
-**HealthStateChangedEvent** - generated when an element's own health state changes.
-- `event.HealthStateChengedEvent.triggeredTimestamp` - returns the time at which the state change occurred.
-- `event.HealthStateChengedEvent.stackElement` - returns the node ID of the element that has changed its state.
-- `event.HealthStateChengedEvent.newState` - returns the current state of the element.
-- `event.HealthStateChengedEvent.oldState` - returns the previous state of the element.
-- `event.HealthStateChengedEvent.causeId` - returns the node ID for the original cause of the element's state change.
-
-**PropagatedHealthStateChangedEvent**. Generated when the propagated health state of an element changes.
-- `event.PropagatedHealthStateChangedEvent.triggeredTimestamp` - returns the time at which the state change occurred.
-- `event.PropagatedHealthStateChangedEvent.stateChanges` - returns the chain of elements through which the health state change propagated.
-- `event.PropagatedHealthStateChangedEvent.causeId` - returns the node ID for the original cause of the propagated state change.
-
-**ViewHealthStateChangedEvent**: Generated when the health state of the entire view changes.
-- `event.ViewHealthStateChangedEvent.triggeredTimestamp` - returns the time at which the state change occurred.
-- `event.ViewHealthStateChangedEvent.viewHealthState` - returns the node ID of the health state object for the view that changed its state.
-- `event.ViewHealthStateChangedEvent.oldState` - returns the previous health state of the view.
-- `event.ViewHealthStateChangedEvent.newState` - returns the health state of the view.
-- `event.ViewHealthStateChangedEvent.causeId` - returns the node ID for the original cause of the view's state change.
+- `event.triggeredTimestamp` - returns the time  (epoch in ms) at which the state change occurred. 
+- `event.causeId` - returns the UUID of the event that triggered the health state change.
+- `event.newState` - returns the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
+- `event.oldState` - returns the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
+- `event.stackElement` - returns the node ID of the element that has changed its state. For HealthStateChangedEvents only.
+- `event.stateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
+- `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state. For ViewHealthStateChangedEvents only
 
 ### Plugins
 
@@ -155,7 +131,7 @@ Event handler functions use plugins to send notifications to external systems. T
 
 ### Logging
 
-You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/).
+You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/enable-logging.md).
 
 ## See also
 

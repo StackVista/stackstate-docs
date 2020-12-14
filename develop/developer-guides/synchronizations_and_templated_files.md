@@ -140,7 +140,7 @@ Each of the node elements represents a configuration item in StackState. This co
 * Typical `identifier` pattern that you can find across our StackPacks configuration is: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`
 * For StackPacks that can have multiple instances the identifier has a slightly different pattern: `urn:stackpack:{stackpack_name}:instance:{{instanceId}}:{type_name}:{object_name}` where `{{instanceId}}` is uniquely genrated for every instance of the StackPack.
 
-As of 1.14.13, the only way to add/modify the identifiers is the manual edit of the configuration file. This option will be available also through UI in the upcoming releases.
+The only way to add/modify the identifiers is the manual edit of the configuration file. This option will be available also through UI in the upcoming releases.
 
 After cleaning up the configuration file it is time to template out the variables exposed by your StackPack. As explained in the [Configuration input](/develop/developer-guides/stackpack/prepare_package.md) documentation section, it is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](/develop/stackpack/prepare_stackpack_provisioning_script.md). Any parameters or configuration item can be passed down to the `.stj` template file.
 

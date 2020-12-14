@@ -24,6 +24,7 @@ Functions in StackState can be either synchronous or asynchronous (async).
 | Propagation functions | ✅| ✅ |
 | Baseline function | ✅ | - |
 | Check function | ✅ | - |
+| Component actions | - | ✅ |
 | Component mapper function | ✅ | - |
 | Id extractor function | ✅ | - |
 | Relation mapper function | ✅ | - |
@@ -31,11 +32,12 @@ Functions in StackState can be either synchronous or asynchronous (async).
 
 ### Async functions
 
-Propagation functions and event handler functions can optionally be created as asynchronous (async) functions. This gives the function access to the StackState [Script APIs](/develop/reference/scripting/) and allows more functions to run in parallel.
+Propagation functions and event handler functions can be created as asynchronous (async) functions, while component action scripts always run as async. This gives them access to all StackState [Script APIs](/develop/reference/scripting/) and allows more functions to run in parallel.
 
 Read more about:
- - [Propagation functions](/configure/topology/propagation.md#custom-propagation-functions).
- - [Event handlers](/use/health-state-and-alerts/set-up-alerting.md)
+- [Component actions](/configure/topology/how_to_configure_component_actions)
+- [Event handlers](/use/health-state-and-alerts/set-up-alerting.md)
+- [Propagation functions](/configure/topology/propagation.md#custom-propagation-functions).
 
 ### Synchronous functions
 

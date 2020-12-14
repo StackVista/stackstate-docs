@@ -4,8 +4,6 @@
 
 The Custom Synchronization StackPack contains everything you need to automatically synchronize topology information from an external topology source.
 
-**NOTE**: _Custom Synchronization_ StackPack is available from StackState version _1.14.4_ and higher.
-
 **Use the Custom Synchronization StackPack if you want to connect an external topology source that is not listed as a standard StackPack.**
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-description: StackState version 4.1
+description: StackState version 4.2
 ---
 
 # Welcome to the StackState Docs!
@@ -23,7 +23,7 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 ## Other StackState versions
 
-You are currently reading the documentation for **StackState version 4.1**.
+You are currently reading the documentation for **StackState version 4.2**.
 
 Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](/setup/upgrade-stackstate/steps-to-upgrade.md).
 
