@@ -18,10 +18,10 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](/use/introduction-to-stackstate/perspectives.md). Each perspective shows different data from the filtered (or unfiltered) components. Use the perspective buttons across the top of the screen to switch between them: 
 
-* [Topology Perspective](/use/views/topology_perspective.md)
-* [Telemetry Perspective](/use/views/telemetry_perspective.md)
+* [Topology Perspective](/use/views/topology-perspective.md)
+* [Telemetry Perspective](/use/views/telemetry-perspective.md)
 * [Events Perspective](/use/views/events_perspective.md)
-* [Traces Perspective](/use/views/traces_perspective.md)
+* [Traces Perspective](/use/views/traces-perspective.md)
 
 ## Add a filter
 

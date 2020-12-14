@@ -42,7 +42,7 @@ All components in StackState have a component type. If your StackState instance 
 
 ### Create a component
 
-You can manually add a component in the StackState UI from the [Topology Perspective](/use/views/topology_perspective.md).
+You can manually add a component in the StackState UI from the [Topology Perspective](/use/views/topology-perspective.md).
 
 ![Add new component](/.gitbook/assets/new_component.png)
 
