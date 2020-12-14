@@ -277,3 +277,4 @@ sts event send "HealthStateChangedEvent" \
 - [StackState CLI reference](/develop/reference/cli_reference.md)
 - [StackState identifiers](/configure/identifiers.md)
 - [Events perspective](/use/views/events_perspective.md)
+- [Events tutorial](/develop/tutorials/events_tutorial.md)
