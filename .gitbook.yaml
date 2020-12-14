@@ -67,18 +67,18 @@ redirects:
   configure/how_to_setup_traces: ./configure/traces/how_to_setup_traces.md
   configure/configure_tracing: ./configure/traces/configure_tracing.md
   configure/how_to_configure_ldap_authentication: ./configure/security/configure_ldap_authentication.md
-  configure/permissions: ./configure/security/rbac_permissions.md
+  configure/permissions: ./configure/security/rbac/rbac_permissions.md
   configure/how_to_set_up_roles: ./configure/security/rbac_roles.md
   configure/scopes_in_rbac: ./configure/security/rbac_scopes.md
   configure/subject_configuration: ./configure/security/rbac_subjects.md
   configure/secrets_management: ./configure/security/secrets_management.md
   configure/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
   configure/how_to_set_up_a_security_backend_for_windows: configure/security/set_up_a_security_backend_for_windows.md
-  configure/stackstate_log_files: ./setup/stackstate_log_files.md
+  configure/stackstate_log_files: ./configure/logging/stackstate_log_files.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/configure_ldap_authentication.md
-  configure/security/permissions: ./configure/security/rbac_permissions.md
-  configure/security/how_to_set_up_roles: ./configure/security/rbac_roles.md
-  configure/security/scopes_in_rbac: ./configure/security/rbac_scopes.md
+  configure/security/permissions: ./configure/security/rbac/rbac_permissions.md
+  configure/security/how_to_set_up_roles: ./configure/security/rbac/rbac_roles.md
+  configure/security/scopes_in_rbac: ./configure/security/rbac/rbac_scopes.md
   configure/security/subject_configuration: ./configure/security/rbac_subjects.md
   concepts/role_based_access_control: ./configure/security/role_based_access_control.md
   configure/security/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
@@ -162,9 +162,17 @@ redirects:
   use/views: ./use/views/README.md
   use/perspectives/event-perspective: use/views/events_perspective.md
   use/perspectives/filters: ./use/views/filters.md
-  use/perspectives: ./use/views/perspectives.md
+  use/perspectives: .use/introduction-to-stackstate/perspectives.md
   use/perspectives/telemetry-perspective: ./use/views/telemetry_perspective.md
   use/perspectives/topology-perspective: ./use/views/topology_perspective.md
   use/perspectives/trace-perspective: ./use/views/traces_perspective.md
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
+
+# below were added for 4.2 docs
+
+  use/baselining: ./use/health-state-and-alerts/anomaly-detection-with-baselines.md
+  setup/stackstate_log_files: ./configure/logging/stackstate_log_files.md
+  use/alerting: ./use/health-state-and-alerts/set-up-alerting.md
+  configure/telemetry/browse_telemetry: ./use/views/browse_telemetry.md
+  setup/upgrading: ./setup/upgrade-stackstate/README.md
