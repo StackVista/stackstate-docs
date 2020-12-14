@@ -114,5 +114,5 @@ When you are done with this tutorial, you can remove the configuration from your
 ## See also
 
 - [StackState Events Perspective](/use/views/events_perspective.md)
-- [Send events to StackState over HTTP](configure/telemetry/send_telemetry.md#send-telemetry-over-http)
+- [Send events to StackState over HTTP](/configure/telemetry/send_telemetry.md#send-telemetry-over-http)
 - [Automate alerts and actions based on events](/configure/topology/event-handlers.md)
