@@ -52,17 +52,17 @@
   * [Explore mode](use/explore_mode.md)
   * [Views](use/views/README.md)
     * [Filter components in a view](use/views/filters.md)
-    * [Topology Perspective](use/views/topology_perspective.md)
-    * [Telemetry Perspective](use/views/telemetry_perspective.md)
+    * [Topology Perspective](use/views/topology-perspective.md)
+    * [Telemetry Perspective](use/views/telemetry-perspective.md)
     * [Events Perspective](use/views/events_perspective.md)
-    * [Traces Perspective](use/views/traces_perspective.md)
-    * [Browse telemetry](use/views/browse_telemetry.md)
+    * [Traces Perspective](use/views/traces-perspective.md)
+    * [Browse telemetry](use/views/browse-telemetry.md)
   * [Analytics](use/analytics.md)
   * [Health state and alerts](use/health-state-and-alerts/README.md)
     * [Add a health check](use/health-state-and-alerts/add-a-health-check.md)
     * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-element.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
-    * [Set up alerting](use/health-state-and-alerts/set-up-alerting.md)
+    * [Send alerts](use/health-state-and-alerts/send-alerts.md)
     * [Anomaly detection with baselines](use/health-state-and-alerts/anomaly-detection-with-baselines.md)
   * [Glossary](use/glossary.md)
 
@@ -142,7 +142,7 @@
 * [Identifiers](configure/identifiers.md)
 * [Logging](configure/logging/README.md)
     * [Enable logging for functions](configure/logging/enable-logging.md)
-    * [StackState log files](configure/logging/stackstate_log_files.md)
+    * [StackState log files](configure/logging/stackstate-log-files.md)
 
 ## 📖 Develop
 

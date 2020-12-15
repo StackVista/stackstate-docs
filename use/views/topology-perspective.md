@@ -63,7 +63,7 @@ Hover over any component to bring up the component navigation menu. Select Root 
 
 ![Root cause](/.gitbook/assets/root_cause_analysis.png)
 
-You can also [show root cause outside the current view](/use/views/topology_perspective.md#root-cause-outside-current-view)
+You can also [show root cause outside the current view](/use/views/topology-perspective.md#root-cause-outside-current-view)
 
 ## Component finder
 

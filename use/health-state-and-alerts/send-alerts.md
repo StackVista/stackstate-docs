@@ -2,11 +2,13 @@
 description: Use event handlers to trigger an alert or automated action on component or view state changes.
 ---
 
-# Set up alerting
+# Send alerts
 
 ## Overview
 
-When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
+When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, Slack message, mobile ping or an HTTP POST request to any URL. Alerts can contain detailed content on the trigger event and possible root cause. This guide will help you set this up.
+
+![StackState alert in Slack with possible root cause information](/.gitbook/assets/slack_alert.png)
 
 ## How an alert is triggered
 
@@ -32,7 +34,7 @@ Event handlers respond to health state change events and run event handler funct
 2. Click **ADD NEW EVENT HANDLER**.
 3. Select the trigger event and event handler to run: 
     - **On event** - the type of [state change events](#state-change-events) that should trigger the alert or automated action.
-    - **Run event handler** - the event handler function that will run whenever the selected state change event type is generated. StackState ships with event handler functions that can send a message via email, Slack or SMS, or POST to an HTTP webhook. You can also create your own custom functions. [Read more about event handlers](/configure/topology/event-handlers.md).
+    - **Run event handler** - the event handler function that will run whenever the selected state change event type is generated. StackState ships with event handler functions that can send an alert via email, Slack or SMS, or POST to an HTTP webhook. You can also create your own custom functions. [Read more about event handler functions](/configure/topology/event-handlers.md#event-handler-functions).
 4. Enter the required details, these will vary according to the event handler function you have selected.
 5. Click **SAVE**.
 

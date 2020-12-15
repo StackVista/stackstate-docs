@@ -12,10 +12,10 @@ All data in StackState is organized around [topology](/use/introduction-to-stack
 
 StackState offers the following perspectives via it's user interface:
 
-* [Topology Perspective](/use/views/topology_perspective.md)
-* [Telemetry Perspective](/use/views/telemetry_perspective.md)
+* [Topology Perspective](/use/views/topology-perspective.md)
+* [Telemetry Perspective](/use/views/telemetry-perspective.md)
 * [Events Perspective](/use/views/events_perspective.md)
-* [Traces Perspective](/use/views/traces_perspective.md)
+* [Traces Perspective](/use/views/traces-perspective.md)
 
 ## Time travel
 

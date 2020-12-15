@@ -33,7 +33,7 @@ StackState can send an email alert whenever the health state of an entity or vie
             }
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](/use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% tab title="Linux" %}
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
@@ -61,11 +61,11 @@ StackState can send an email alert whenever the health state of an entity or vie
    
     ``` 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](/use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% endtabs %}
 
 ## See also
 
-- [Add an event handler](/use/health-state-and-alerts/set-up-alerting.md#send-alerts-with-event-handlers)
+- [Add an event handler](/use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers)
 - [Event handler functions](/configure/topology/event-handlers.md)

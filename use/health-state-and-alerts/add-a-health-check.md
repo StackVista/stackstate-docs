@@ -6,7 +6,7 @@ description: Report the health state for an element.
 
 ## Overview
 
-Health checks use check functions to report the status of elements (components and relations) in StackState based on the data from telemetry streams. Any element in a StackState topology view with a telemetry stream attached can be monitored by a health check. When the status of an element changes, a state change event is generated. These events can be used to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md).
+Health checks use check functions to report the status of elements (components and relations) in StackState based on the data from telemetry streams. Any element in a StackState topology view with a telemetry stream attached can be monitored by a health check. When the status of an element changes, a state change event is generated. These events can be used to [trigger alerts and actions](/use/health-state-and-alerts/send-alerts.md).
 
 ## Add a health check to an element
 
@@ -57,4 +57,4 @@ The sliding windowing method groups metric data into overlapping windows. For ex
 
 - [Check functions](/configure/telemetry/checks_and_streams.md#check-functions)
 - [Add a telemetry stream to an element](/use/health-state-and-alerts/add-telemetry-to-element.md)
-- [Add an alert](/use/health-state-and-alerts/set-up-alerting.md)
+- [Add an alert](/use/health-state-and-alerts/send-alerts.md)

@@ -6,24 +6,24 @@ description: Automate alerts and actions based on events
 
 ## Overview
 
-Event handlers can be attached to a StackState view to [trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md) in response to health state change events generated within the view.
+Event handlers can be attached to a StackState view to [send alerts](/use/health-state-and-alerts/send-alerts.md) and trigger actions in response to health state change events generated within the view.
 
-To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This is set in the StackState UI **Events Settings** > **ADD NEW EVENT HANDLER** dialogue as **Run event handler** .
+To trigger an alert or action, the event handler will run an [event handler function](#event-handler-functions). This is set in the StackState UI **Events Settings** > **ADD NEW EVENT HANDLER** dialogue as **Run event handler**.
 
 ![Add an event handler](/.gitbook/assets/v42_event_handlers_tab.png)
 
 ## Event handler functions
 
-Event handlers listen to events generated within the view, when the configured event type is generated the configured event handler function is run to [trigger an alert or action](/use/health-state-and-alerts/set-up-alerting.md) in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create your own custom event handler functions](#create-a-custom-event-handler-function). 
+Event handlers listen to events generated within a view. When the configured event type is generated, the configured event handler function is run to [send an alert](/use/health-state-and-alerts/send-alerts.md) or trigger an action in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create your own custom event handler functions](#create-a-custom-event-handler-function). 
 
 StackState ships with the following event handler functions:
 
-- Send details of a health state change event and links to information that can assist with root cause analysis:
-    - **Slack** - at the configured Slack webhook URL. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks).
-- Send details of a health state change event:
-    - **Email** - using the [configured SMTP server](/configure/topology/configure-email-alerts.md).
-    - **SMS** - using MessageBird.
-- Send an HTTP webhook POST request to a specified URL.
+| Event handler function | Description |
+|:---|:---|
+| **Email** | Sends details of a health state change event using the [configured SMTP server](/configure/topology/configure-email-alerts.md).. |
+| **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
+| **Slack** | Sends an alert message to the configured Slack webhook URL. The message can contain detailed content on the trigger event and possible root cause.<br />See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
+| **SMS** | Sends details of a health state change event using MessageBird. |
 
 {% hint style="info" %}
 Some of the event handler functions above will be installed as part of a StackPack. A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** > **Functions** > **Event Handler Functions**
@@ -31,7 +31,22 @@ Some of the event handler functions above will be installed as part of a StackPa
 
 ## Create a custom event handler function
 
-You can write your own custom event handler functions that react to state change events and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function, go to **Settings** > **Functions** > **Event Handler Functions** and click **ADD EVENT HANDLER FUNCTION**. The required settings as well as available parameters and properties are described below.
+You can write your own custom event handler functions that react to state change events and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function:
+ 
+1. Go to **Settings** > **Functions** > **Event Handler Functions**.
+2. Click **ADD EVENT HANDLER FUNCTION**. 
+3. Enter the required settings:
+   - **Name** - A name to identify the event handler function.
+   - **Description** - Optional. A description of the event handler function.
+   - **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](#parameters) below.
+   - **Supported Event Types** - The type of event(s) that the event handler can respond to. For details, see the section on [supported event types](#supported-event-types) below.
+   - **Async** - Select **On** for Slack event handlers, select **Off** for email, SMS or HTTP webhook event handlers. For details, see the section on [async on/off](#async-on-off) below.
+   - **Script** - The script run by the function. For details, see the sections below on the [available properties](#available-properties) and [plugins](#plugins) and how you can [add logging to a function](#logging).
+   - **Identifier** - Optional. A unique identifier (URN) for the event handler function.
+4. Click **CREATE** to save the event handler function. 
+   - The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
+
+![Add a custom event handler function](/.gitbook/assets/v42_event_handler_functions.png)
 
 ### Parameters
 
@@ -43,7 +58,7 @@ An event handler function takes system and user defined parameters. System param
 
 ### Supported event types
 
-One or more supported event types can be added for each event handler function. The supported event types are used to determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](/use/health-state-and-alerts/set-up-alerting.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types are used to determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](/use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 Up to three types of event can be chosen:
 
@@ -136,6 +151,6 @@ You can add logging statements to an event handler function for debug purposes, 
 ## See also
 
 - [Enable logging for functions](/configure/logging/enable-logging.md)
-- [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
+- [Send alerts when a health state changes](/use/health-state-and-alerts/send-alerts.md)
 - [StackState script APIs](/develop/reference/scripting/script-apis)
 - [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)
