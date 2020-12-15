@@ -4,6 +4,11 @@ description: Get topology and telemetry information from Traefik
 
 # Traefik \(BETA\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 {% hint style="info" %}
 The Traefik integration is in **BETA**.
 {% endhint %}

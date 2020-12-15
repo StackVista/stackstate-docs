@@ -5,6 +5,11 @@ kind: Documentation
 
 # Templates
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Templates are functions defined by JSON template files and input parameters required by the template to render elements of StackState topology - components and relations. When executed, the template function substitutes all handlebar `{{paramName}}` parameter references with values of input parameters.
 
 Template functions are used in cooperation with Mapping Functions to create StackState topology elements. Mapping Function parses the topological data of an external system and prepares input parameters for the Template Functions.

@@ -4,6 +4,11 @@ description: Performing major and minor upgrades of StackState.
 
 # Upgrade StackState
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This document describes the upgrade procedure for StackState.
 
 For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).

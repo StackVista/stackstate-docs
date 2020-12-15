@@ -6,6 +6,11 @@ description: Functions to get access to specific component data.
 
 # Script API: Component
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Function `withId`
 
 Get access to a component by its id.

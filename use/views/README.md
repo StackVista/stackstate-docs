@@ -4,6 +4,11 @@ description: Bookmark and monitor parts of the 4T data model with views
 
 # Views
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The 4T data model in StackState is likely much bigger than what you care about at any given point in time. StackState allows you to filter the 4T data model and store it as a view. A view saves:
 
 * The topology filter you have selected.

@@ -1,5 +1,10 @@
 # Openshift
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Openshift StackPack?
 
 This StackPack is used to create a near real-time synchronization of topology and their internal services from a Openshift cluster to StackState.

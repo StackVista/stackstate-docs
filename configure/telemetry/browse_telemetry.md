@@ -8,6 +8,11 @@ listorder: 3
 
 # Browse telemetry
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This is an overview of the telemetry browser inside of StackState.
 
 ## Telemetry Browser

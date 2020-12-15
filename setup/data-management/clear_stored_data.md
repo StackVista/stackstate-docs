@@ -6,6 +6,11 @@ description: Removing data from StackState.
 
 # Clear stored data
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The data in StackState is divided into three different sets:
 
 * Elasticsearch data

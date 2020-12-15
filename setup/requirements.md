@@ -5,6 +5,11 @@ kind: Documentation
 
 # Requirements
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Kubernetes
 
 StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.15.x \(tested on Amazon EKS and Azure AKS\) and Helm 3.

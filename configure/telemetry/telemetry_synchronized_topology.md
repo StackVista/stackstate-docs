@@ -8,6 +8,11 @@ listorder: 3
 
 # Adding telemetry to synchronized topology
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 When you have synchronized topology, every component/relation is synchronized via the template it was created with. That means that every time an update is received for a component/relation, that update is executed using the template. The only way to add telemetry or health checks to your synchronized topology is to edit the template with which the component/relation is created. In order to do so, StackState provides a template editor. The following sections will explain how the template editor works.

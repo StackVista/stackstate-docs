@@ -1,5 +1,10 @@
 # Configure email alerts
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 To receive email alerts for changes in health state, the StackState configuration must include SMTP server details. 
 
 {% tabs %}

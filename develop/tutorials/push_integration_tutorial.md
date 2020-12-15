@@ -2,6 +2,10 @@
 description: Get started with pushing data to StackState from an external system.
 ---
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
 
 # Push-integration tutorial
 

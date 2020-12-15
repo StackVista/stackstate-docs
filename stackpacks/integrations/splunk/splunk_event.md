@@ -4,6 +4,11 @@ description: Retrieve events from Splunk
 
 # Splunk event
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The StackState Agent can be configured to execute Splunk saved searches and provide the results as generic events to the StackState receiver API. It will dispatch the saved searches periodically, specifying last event timestamp to start with up until now.

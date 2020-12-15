@@ -8,6 +8,11 @@ aliases:
 
 # Permissions \(RBAC\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Permissions in StackState
 
 Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow administrators to take control over actions that users can perform inside StackState, as well as adjusting users' UI to their roles. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.

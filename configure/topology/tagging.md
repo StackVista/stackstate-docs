@@ -8,6 +8,11 @@ listorder: 15
 
 # Tagging topology
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Introduction
 
 Tags \(also known as _labels_\) are a way of associating names with topology so it can be filtered.

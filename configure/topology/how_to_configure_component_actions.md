@@ -1,5 +1,10 @@
 # How to configure component actions
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This how-to describes the steps to create a Component Action that can be executed from the component context menu in a Topology View.
 
 To start working with Component Actions, go to the Settings page and then in Actions, select "Component Actions". There you can add a new Component Action or edit one that already exists.

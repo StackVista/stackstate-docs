@@ -1,5 +1,10 @@
 # How to set up traces
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](/use/views/traces_perspective.md).
 
 For traces to be available in StackState, the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed with one or more tracing integrations configured.

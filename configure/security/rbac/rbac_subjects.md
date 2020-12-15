@@ -5,6 +5,11 @@ kind: Documentation
 
 # Subjects \(RBAC\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Link your existing LDAP to StackState RBAC
 
 StackState authentication is configured in a [config file](/setup/authentication.md) that contains already predefined roles for the Guest user \(very limited permission level\) and the Admin user \(full permission level\). To change the configuration to use LDAP authentication, check out this document: [How to configure LDAP authentication](/configure/security/configure_ldap_authentication.md).

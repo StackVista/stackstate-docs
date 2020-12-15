@@ -4,6 +4,11 @@ description: Track changes in your IT landscape.
 
 # Events Perspective
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The Events Perspective shows events and changes for the components in your [view](/use/views/README.md).
 
 ![The Events Perspective](/.gitbook/assets/event-perspective.png)

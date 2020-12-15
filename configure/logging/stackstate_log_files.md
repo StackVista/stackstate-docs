@@ -4,6 +4,11 @@ description: Work with the StackState log files on Kubernetes and Linux
 
 # StackState log files
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 * [Kubernetes setup](#kubernetes)
 * [Linux setup](#linux)
 

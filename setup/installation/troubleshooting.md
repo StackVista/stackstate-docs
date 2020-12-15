@@ -1,5 +1,10 @@
 # Troubleshooting
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Quick troubleshooting guide
 
 Here is a quick guide for troubleshooting the startup of StackState on Kubernetes and Linux:

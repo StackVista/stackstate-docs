@@ -5,6 +5,11 @@ kind: Documentation
 
 # How to set up a security backend for Linux
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](/configure/security/secrets_management.md).
 
 ## Security agent requirements

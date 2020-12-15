@@ -4,6 +4,11 @@ description: Build topology out of Splunk data
 
 # Splunk topology
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The StackState Agent can execute Splunk queries and convert the result to topology elements, which are then synchronized to StackState. The StackState Agent expects the `saved searches` to return the latest snapshot of the topology.

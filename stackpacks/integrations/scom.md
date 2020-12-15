@@ -2,6 +2,11 @@
 description: Collect topology, health state and alerts from SCOM
 ---
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## SCOM (BETA)
 
 ### Overview

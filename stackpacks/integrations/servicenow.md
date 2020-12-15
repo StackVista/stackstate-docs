@@ -4,6 +4,11 @@ description: Collect topology data from ServiceNow
 
 # ServiceNow
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items (CIs) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations.

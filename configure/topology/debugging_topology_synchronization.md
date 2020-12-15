@@ -8,6 +8,11 @@ listorder: 10
 
 # Debugging topology synchronization
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](/configure/topology/topology_synchronization.md).

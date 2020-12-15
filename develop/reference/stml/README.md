@@ -4,6 +4,11 @@ description: Build reports with StackState's markup language.
 
 # StackState Markup Language \(STML\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 With StackState Markup Language \(STML\), you can create pretty formatted documents of StackState data. STML is a [markdown based language](https://en.wikipedia.org/wiki/Markdown) with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.
 
 ## Rich text formatting using Markdown
