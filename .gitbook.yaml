@@ -173,7 +173,7 @@ redirects:
 
   use/baselining: ./use/health-state-and-alerts/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  use/alerting: ./use/health-state-and-alerts/set-up-alerting.md
+  use/alerting: ./use/health-state-and-alerts/send-alerts.md
   configure/telemetry/browse_telemetry: ./use/views/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
   use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md

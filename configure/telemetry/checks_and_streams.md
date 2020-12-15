@@ -53,5 +53,5 @@ Read more about [anomaly detection with baselines](/use/health-state-and-alerts/
 - [Use templates to add telemetry streams to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
 - [Anomaly detection with baselines](/use/health-state-and-alerts/anomaly-detection-with-baselines.md)
 - [Baseline functions](/configure/telemetry/baseline-functions.md)
-- [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
+- [Send alerts when a health state changes](/use/health-state-and-alerts/send-alerts.md)
 

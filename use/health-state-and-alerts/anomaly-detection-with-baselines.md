@@ -148,11 +148,11 @@ Once you have [added a baseline](#add-a-baseline-to-a-metric-stream) to a metric
 Once you have added the check function, it may take 5 or more minutes \(dependent on the baseline batch size\) before the check changes health state.
 {% endhint %}
 
-Alerting on baseline checks works exactly the same as with other health checks. Find out how to [set up alertubg](/use/health-state-and-alerts/set-up-alerting.md).
+Alerting on baseline checks works exactly the same as with other health checks. Find out how to [set up alertubg](/use/health-state-and-alerts/send-alerts.md).
 
 ## See also
 
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
 - [Autonomous Anomaly detector add-on StackPack](/stackpacks/add-ons/aad.md)
-- [Send alerts with event handlers](/use//health-state-and-alerts/set-up-alerting.md)
+- [Send alerts with event handlers](/use/health-state-and-alerts/send-alerts.md)
 - [Create custom baseline functions](/configure/telemetry/baseline-functions.md)

@@ -83,7 +83,7 @@ For example:
 
 ## See also
 
-- [Use events to trigger alerts and actions](/use/health-state-and-alerts/set-up-alerting.md)
+- [Use events to trigger alerts and actions](/use/health-state-and-alerts/send-alerts.md)
 - [Filtering data](/use/views/filters.md)
 - [Working with StackState views](/use/views/README.md)
 - [Send events to StackState from external sources](/configure/telemetry/send_telemetry.md#events)

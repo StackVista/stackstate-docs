@@ -2,11 +2,13 @@
 description: Use event handlers to trigger an alert or automated action on component or view state changes.
 ---
 
-# Set up alerting
+# Send alerts
 
 ## Overview
 
-When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, private message, mobile ping or incident report. Additionally, StackState can trigger automation to take corrective measures. This guide will help you set this up.
+When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, private message, mobile ping or incident report. StackState can also send HTTP POST requests to trigger an external action. This guide will help you set this up.
+
+![StackState alert in Slack](./gitbook/assets/v42_slack_alert.png)
 
 ## How an alert is triggered
 

@@ -13,7 +13,7 @@ The full topology available in StackState is likely much larger than you need to
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [alerting and automation](/use/health-state-and-alerts/set-up-alerting.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+2. Views can be used for [alerting and automation](/use/health-state-and-alerts/send-alerts.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 ## Access a view
 
@@ -75,7 +75,7 @@ In the dialog the following options appear:
 
 ## Alert on view health state
 
-A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [alerting](/use/health-state-and-alerts/set-up-alerting.md) to understand how to set that up.
+A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [alerting](/use/health-state-and-alerts/send-alerts.md) to understand how to set that up.
 
 ## Deleting or editing views
 

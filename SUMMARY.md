@@ -62,7 +62,7 @@
     * [Add a health check](use/health-state-and-alerts/add-a-health-check.md)
     * [Add a telemetry stream](use/health-state-and-alerts/add-telemetry-to-element.md)
     * [Configure the view health](use/health-state-and-alerts/configure-view-health.md)
-    * [Set up alerting](use/health-state-and-alerts/set-up-alerting.md)
+    * [Send alerts](use/health-state-and-alerts/send-alerts.md)
     * [Anomaly detection with baselines](use/health-state-and-alerts/anomaly-detection-with-baselines.md)
   * [Glossary](use/glossary.md)
 
@@ -188,6 +188,7 @@
         * [Component - script API](develop/reference/scripting/script-apis/component.md)
         * [HTTP - script API](develop/reference/scripting/script-apis/http.md)
         * [Prediction - script API](develop/reference/scripting/script-apis/prediction.md)
+        * [StackPack - script API](develop/reference/scripting/script-apis/stackpack.md)
         * [StackPack - script API](develop/reference/scripting/script-apis/stackpack.md)
         * [Telemetry - script API](develop/reference/scripting/script-apis/telemetry.md)
         * [Time - script API](develop/reference/scripting/script-apis/time.md)

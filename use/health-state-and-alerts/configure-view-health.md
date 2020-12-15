@@ -30,7 +30,7 @@ View health state is calculated by a **view state configuration function**.  To 
 
 ## React to view state changes
 
-You can [set up alerting](/use/health-state-and-alerts/set-up-alerting.md) to trigger alerts and actions whenever a view state changes.
+You can [set up alerting](/use/health-state-and-alerts/send-alerts.md) to trigger alerts and actions whenever a view state changes.
 
 ## View health state configuration functions
 
@@ -48,4 +48,4 @@ The **MINIMUM HEALTH STATES** view health state configuration function should be
 
 - [Customize the view state configuration](/configure/topology/view_state_configuration.md)
 - [Add a health check](/use/health-state-and-alerts/add-a-health-check.md)
-- [Set up alerting](/use/health-state-and-alerts/set-up-alerting.md)
+- [Send alerts when a health state changes](/use/health-state-and-alerts/send-alerts.md)
