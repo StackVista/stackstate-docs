@@ -32,6 +32,8 @@ Some of the event handler functions above will be installed as part of a StackPa
 
 You can write your own custom event handler functions that react to state change events and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function, go to **Settings** > **Functions** > **Event Handler Functions** and click **ADD EVENT HANDLER FUNCTION**. The required settings as well as available parameters and properties are described below.
 
+![Add a custom event handler function](/.gitbook/assets/v42_event_handler_functions.png)
+
 ### Parameters
 
 An event handler function takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script. 
