@@ -8,7 +8,7 @@ description: Use event handlers to trigger an alert or automated action on compo
 
 When something goes wrong within your IT environment StackState can alert you or your team mates with a message in the form of an email, Slack message, mobile ping or an HTTP POST request to any URL. Alerts can contain detailed content on the trigger event and possible root cause. This guide will help you set this up.
 
-![StackState alert in Slack](./gitbook/assets/v42_slack_alert.png)
+![StackState alert in Slack](./gitbook/assets/slack_alert.png)
 
 ## How an alert is triggered
 
