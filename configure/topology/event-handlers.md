@@ -32,18 +32,18 @@ Some of the event handler functions above will be installed as part of a StackPa
 
 You can write your own custom event handler functions that react to state change events and use a plugin to send an alert to a system outside of StackState. To add a custom event handler function:
  
- 1, Go to **Settings** > **Functions** > **Event Handler Functions** 
- 2. Click **ADD EVENT HANDLER FUNCTION**. 
- 3. Enter the required settings:
-    - **Name** - A name to identify the event handler function.
-    - **Description** - Optional. A description of the event handler function.
-    - **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](#parameters) below.
-    - **Supported Event Types** - The type of event(s) that the event handler can respond to. For details, see the section on [supported event types](#supported-event-types) below.
-    - **Async** - Select **On** for Slack event handlers, select **Off** for email, SMS or HTTP webhook event handlers. For details see the section on [async on/off](#async-onoff) below.
-    - **Script** - The function script. See the sections below for details on the [available properties](#available-properties) and [plugins](#plugins) and how you can [add logging to a function](#logging).
-    - **Identifier** -
- 4. Click **CREATE** to save the event handler function. 
-    - The new event handler function will be listed on the **Event Handler FUnctions** page and available in the **Run event handler** drop-down menu when you [add an event handler](/use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view) to respond to one of the configured **Supported Event Types**.
+1. Go to **Settings** > **Functions** > **Event Handler Functions** 
+2. Click **ADD EVENT HANDLER FUNCTION**. 
+3. Enter the required settings:
+   - **Name** - A name to identify the event handler function.
+   - **Description** - Optional. A description of the event handler function.
+   - **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](#parameters) below.
+   - **Supported Event Types** - The type of event(s) that the event handler can respond to. For details, see the section on [supported event types](#supported-event-types) below.
+   - **Async** - Select **On** for Slack event handlers, select **Off** for email, SMS or HTTP webhook event handlers. For details see the section on [async on/off](#async-onoff) below.
+   - **Script** - The function script. See the sections below for details on the [available properties](#available-properties) and [plugins](#plugins) and how you can [add logging to a function](#logging).
+   - **Identifier** -
+4. Click **CREATE** to save the event handler function. 
+   - The new event handler function will be listed on the **Event Handler FUnctions** page and available in the **Run event handler** drop-down menu when you [add an event handler](/use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view) to respond to one of the configured **Supported Event Types**.
 
 ![Add a custom event handler function](/.gitbook/assets/v42_event_handler_functions.png)
 
