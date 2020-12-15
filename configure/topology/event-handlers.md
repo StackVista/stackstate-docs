@@ -42,7 +42,7 @@ You can write your own custom event handler functions that react to state change
    - **Supported Event Types** - The type of event(s) that the event handler can respond to. For details, see the section on [supported event types](#supported-event-types) below.
    - **Async** - Select **On** for Slack event handlers, select **Off** for email, SMS or HTTP webhook event handlers. For details, see the section on [async on/off](#async-on-off) below.
    - **Script** - The script run by the function. For details, see the sections below on the [available properties](#available-properties) and [plugins](#plugins) and how you can [add logging to a function](#logging).
-   - **Identifier** -
+   - **Identifier** - Optional. A unique identifier (URN) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
    - The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
 
