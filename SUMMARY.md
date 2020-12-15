@@ -189,7 +189,6 @@
         * [HTTP - script API](develop/reference/scripting/script-apis/http.md)
         * [Prediction - script API](develop/reference/scripting/script-apis/prediction.md)
         * [StackPack - script API](develop/reference/scripting/script-apis/stackpack.md)
-        * [StackPack - script API](develop/reference/scripting/script-apis/stackpack.md)
         * [Telemetry - script API](develop/reference/scripting/script-apis/telemetry.md)
         * [Time - script API](develop/reference/scripting/script-apis/time.md)
         * [Topology - script API](develop/reference/scripting/script-apis/topology.md)
