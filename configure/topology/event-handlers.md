@@ -14,7 +14,7 @@ To trigger an alert or action, the event handler will run an [event handler func
 
 ## Event handler functions
 
-Event handlers listen to events generated within the view, when the configured event type is generated the configured event handler function is run to [trigger an alert or action](/use/health-state-and-alerts/send-alerts.md) in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create your own custom event handler functions](#create-a-custom-event-handler-function). 
+Event handlers listen to events generated within a view. When the configured event type is generated, the configured event handler function is run to [trigger an alert or action](/use/health-state-and-alerts/send-alerts.md) in a system outside of StackState. For example, an alert handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create your own custom event handler functions](#create-a-custom-event-handler-function). 
 
 StackState ships with the following event handler functions:
 
