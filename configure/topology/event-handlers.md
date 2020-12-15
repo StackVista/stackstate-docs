@@ -18,7 +18,7 @@ Event handlers listen to events generated within the view, when the configured e
 
 StackState ships with the following event handler functions:
 
-| Event handler | Description |
+| Event handler function | Description |
 |:---|:---|
 | **Slack** | Sends an alert message to the configured Slack webhook URL. The message can contain detailed content on the trigger event and possible root cause.<br />See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
 | **Email**<br />**SMS** | Sends details of a health state change event using MessageBird (SMS) ot the [configured SMTP server](/configure/topology/configure-email-alerts.md) (email) |
