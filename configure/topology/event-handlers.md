@@ -21,7 +21,7 @@ StackState ships with the following event handler functions:
 | Event handler function | Description |
 |:---|:---|
 | **Slack** | Sends an alert message to the configured Slack webhook URL. The message can contain detailed content on the trigger event and possible root cause.<br />See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
-| **Email**<br />**SMS** | Sends details of a health state change event using MessageBird (SMS) ot the [configured SMTP server](/configure/topology/configure-email-alerts.md) (email) |
+| **Email**<br />**SMS** | Sends details of a health state change event using the [configured SMTP server](/configure/topology/configure-email-alerts.md) (email) or MessageBird (SMS). |
 | **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
 
 {% hint style="info" %}
