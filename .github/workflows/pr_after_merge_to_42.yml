@@ -4,7 +4,7 @@ name: CI
 # triggered on merge to 4.1 branch
 on:
   push:
-    branches: [ 4.1 ]
+    branches: [ 4.2 ]
 
 jobs:
   auto-pull-request:
@@ -16,5 +16,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: master
-          PULL_REQUEST_TITLE: "[AUTOMATED] New updates from live branch 4.1"
+          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 4.2"
           PULL_REQUEST_REVIEWERS: "gggina"
