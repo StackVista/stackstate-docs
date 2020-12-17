@@ -37,7 +37,7 @@ If you are upgrading to a new **minor** StackState release, StackState itself an
 
 A minor upgrade consists of the following steps:
 
-* Create a backup
+* Create a backup   
 * Upgrade StackState
 * Verify the new installation
 
@@ -146,9 +146,3 @@ Once StackState has been upgraded and started, verify that the new installation 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
 * In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
-
-### Upgrade to 1.15.0
-
-* Upgrading to 1.15.0 will require you to reregister your license information. Please contact support for details.
-* Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
-* The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
