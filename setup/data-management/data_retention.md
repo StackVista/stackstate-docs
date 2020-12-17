@@ -49,9 +49,9 @@ However, if you would like to perform data deletion without having to wait for a
 sts graph retention remove-expired-data --immediately
 ```
 
-# Retention of metrics, events and traces
+# Retention of events, metrics and traces
 
-## StackState metrics, events and traces data store
+## StackState events, metrics and traces data store
 
 If you are using the metric/event/traces store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time. 
 
@@ -149,6 +149,6 @@ For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be alloc
 | `kafkaTraceToES.elasticsearch.index{`<br />`   diskSpaceWeight = 0`<br />`maxIndicesRetained = 20`<br />` }` | 0MB | 0MB |
 
 
-## External metrics, events and traces data store
+## External events, metrics and traces data store
 
 If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store that you have connected.
