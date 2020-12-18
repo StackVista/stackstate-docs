@@ -21,6 +21,8 @@ stackstate.kafkaTraceToES.elasticsearch.index.maxIndicesRetained = 8 // defines 
 
 Restart the component for changes to take affect.
 
+For more details, see [how to configure the StackState metrics, events and traces data store](/setup/data-management/data_retention.md#stackstate-events-metrics-and-traces-data-store).
+
 ## Rate limits
 
 It is not advised to change the default settings for rate limits!
