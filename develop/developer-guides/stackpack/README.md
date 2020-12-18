@@ -4,7 +4,7 @@ description: >-
   script and StackState configuration.
 ---
 
-# Developing StackPacks
+# Develop StackPacks
 
 ## When to create a StackPack
 
@@ -14,10 +14,10 @@ As a rule of thumb each integration should have a StackPack. Without configurati
 
 Refer to:
 
-* [Prepare a StackPack package](/develop/developer-guides/stackpack/prepare_package.md)
-* [How to customize a StackPack](/develop/developer-guides/stackpack/how_to_customize_a_stackpack.md)
-* [How to get a template file](/develop/developer-guides/stackpack/how_to_get_a_template_file.md)
-* [Prepare a StackPack provisioning script](/develop/developer-guides/stackpack/prepare_stackpack_provisioning_script.md)
-* [How to pack and upload a StackPack](/develop/developer-guides/stackpack/how_to_pack_and_upload_stackpack.md)
-* [How to make a multi-instance StackPack](/develop/developer-guides/stackpack/how_to_make_a_multi-instance_stackpack.md)
+* [Prepare a StackPack package](prepare_package.md)
+* [How to customize a StackPack](how_to_customize_a_stackpack.md)
+* [How to get a template file](how_to_get_a_template_file.md)
+* [Prepare a StackPack provisioning script](prepare_stackpack_provisioning_script.md)
+* [How to pack and upload a StackPack](how_to_pack_and_upload_stackpack.md)
+* [How to make a multi-instance StackPack](how_to_make_a_multi-instance_stackpack.md)
 

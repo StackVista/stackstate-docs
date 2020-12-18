@@ -8,8 +8,8 @@ StackPacks are plugins for StackState that extend functionality and provide auto
 
 There are two types of Stackpack:
 
-* [Add-ons](/stackpacks/add-ons/README.md) extend the functionality of StackState.
-* [Integrations](/stackpacks/integrations/README.md) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
+* [Add-ons](add-ons/) extend the functionality of StackState.
+* [Integrations](integrations/) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
 
 ## StackPack instances
 
@@ -23,14 +23,14 @@ StackPacks contain configuration information for StackState that is installed wh
 
 To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
 
-Note that the lock status of configuration items will not be exported as part of a [configuration backup](/setup/data-management/backup_restore/configuration_backup.md). 
+Note that the lock status of configuration items will not be exported as part of a [configuration backup](../setup/data-management/backup_restore/configuration_backup.md).
 
 ## Which StackPacks are available?
 
 The available StackPack add-ons and integrations can be found on the **StackPacks** page in StackState. You can also find details on these pages:
 
-* [Add-ons](/stackpacks/add-ons/README.md)
-* [Integrations](/stackpacks/integrations/README.md)
+* [Add-ons](add-ons/)
+* [Integrations](integrations/)
 
 ## Install or uninstall a StackPack
 
@@ -47,14 +47,15 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 ## Upgrade a StackPack
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](#locked-configuration-items).
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 {% endhint %}
 
 StackPacks can be upgraded from the **StackPacks** page in StackState. If a new version is available, the **UPGRADE** button will be available and you will have the option to read the release notes.
 
 If you have customized configuration, this will be overwritten when the StackPack is upgraded. To continue using your customized configuration after upgrade:
 
-1. During the upgrade process choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing (old) configuration file.
+1. During the upgrade process choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
 2. Custom configuration items can be copied from the old configuration file to the newly created configuration file.
 
-Check the list of [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState. 
+Check the list of [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
+

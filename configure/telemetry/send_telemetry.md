@@ -1,24 +1,23 @@
-# Send telemetry
+# Send telemetry to StackState
 
 ## Overview
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integrations](/stackpacks/integrations) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](/setup/installation/cli-install.md).
+There are several ways to send telemetry to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](../../setup/installation/cli-install.md).
 
 ## Send telemetry over HTTP
 
 The StackState receiver API is responsible for receiving both telemetry and topology. By default, the receiver API is hosted at:
 
-```
+```text
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
-``` 
+```
 
 Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see:
 
-- [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
-- [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-
+* [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
 
@@ -40,13 +39,13 @@ Depending on your StackState configuration, received metrics or events that are 
 ### Metrics
 
 Metrics can be sent to the StackState receiver API using the `metrics` property of the JSON object described above. Every metric has the following details:
- 
-- **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
-- **timestamp** - The epoch timestamp of the metric.
-- **value** - The value of the metric.
-- **hostname** - The host this metric is from.
-- **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
-- **tags** - Optional.  A list of key/value tags to associate with the metric.
+
+* **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
+* **timestamp** - The epoch timestamp of the metric.
+* **value** - The value of the metric.
+* **hostname** - The host this metric is from.
+* **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
+* **tags** - Optional.  A list of key/value tags to associate with the metric.
 
 The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
@@ -117,26 +116,26 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-You can also send metrics to StackState using the [StackState CLI `metric send`](/develop/reference/cli_reference.md#sts-metric-send) command. 
+You can also send metrics to StackState using the [StackState CLI `metric send`](../../develop/reference/cli_reference.md#sts-metric-send) command.
 
 ### Events
 
-Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](#send-telemetry-over-http). All events in StackState relate to a topology element or elements and have the following properties:
+Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](send_telemetry.md#send-telemetry-over-http). All events in StackState relate to a topology element or elements and have the following properties:
 
-- **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
-- **timestamp** - The epoch timestamp for the event.
-- **context** - Includes details of the source system for an event:
-    - **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
-    - **element_identifiers** - The [identifiers for the topology element\(s\)](/configure/identifiers.md#topology-identifiers) the event relates to. 
-    - **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
-    - **data** - Optional.  A list of key/value details about the event, for example a configuration version.
-    - **source_id** - Optional. The original identifier of the event in the source system.
-    - **source_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
-- **event_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
-- **msg_text** - Optional. The text body of the event.
-- **msg_title** - Optional. The title of the event.
-- **source_type_name** - Optional. The source event type name.
-- **tags** - Optional. A list of key/value tags to associate with the event.
+* **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
+* **timestamp** - The epoch timestamp for the event.
+* **context** - Includes details of the source system for an event:
+  * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
+  * **element\_identifiers** - The [identifiers for the topology element\(s\)](../identifiers.md#topology-identifiers) the event relates to. 
+  * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
+  * **data** - Optional.  A list of key/value details about the event, for example a configuration version.
+  * **source\_id** - Optional. The original identifier of the event in the source system.
+  * **source\_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
+* **event\_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
+* **msg\_text** - Optional. The text body of the event.
+* **msg\_title** - Optional. The title of the event.
+* **source\_type\_name** - Optional. The source event type name.
+* **tags** - Optional. A list of key/value tags to associate with the event.
 
 The `element_identifier` is used to bind the event to a topology element or elements. Any of the provided properties can be used to define an event stream in StackState
 
@@ -174,12 +173,11 @@ The `element_identifier` is used to bind the event to a topology element or elem
     "timestamp": 1607432944
   }
 ]
-
 ```
 {% endtab %}
 {% endtabs %}
 
-Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](/develop/reference/cli_reference.md#sts-event-send) command. For example:
+Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](../../develop/reference/cli_reference.md#sts-event-send) command. For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -259,8 +257,9 @@ curl -X POST \
 }'
 ```
 {% endtab %}
+
 {% tab title="StackState CLI" %}
-```
+```text
 sts event send "HealthStateChangedEvent" \
     --title "event_title" \
     -i "element_identifier1" "element_identifier2" \
@@ -274,7 +273,8 @@ sts event send "HealthStateChangedEvent" \
 
 ## See also
 
-- [StackState CLI reference](/develop/reference/cli_reference.md)
-- [StackState identifiers](/configure/identifiers.md)
-- [Events perspective](/use/views/events_perspective.md)
-- [Events tutorial](/develop/tutorials/events_tutorial.md)
+* [StackState CLI reference](../../develop/reference/cli_reference.md)
+* [StackState identifiers](../identifiers.md)
+* [Events perspective](../../use/views/events_perspective.md)
+* [Events tutorial](../../develop/tutorials/events_tutorial.md)
+

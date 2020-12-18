@@ -1,8 +1,8 @@
-# Scopes \(RBAC\)
+# Scopes
 
 ## How do scopes work?
 
-The scope is an [STQL query](/develop/reference/stql_reference.md) that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
+The scope is an [STQL query](../../../develop/reference/stql_reference.md) that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` are not supported as they would not be performant in this context.
 
@@ -14,7 +14,7 @@ Users need to log out and authenticate again to StackState whenever any changes 
 
 Scopes are introduced as a security feature that is mandatory for every subject within StackState. The predefined StackState users Administrator, Power User and Guest roles have no scope defined.
 
-It is possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it is recommended to use one of the [predefined roles](/setup/authentication.md#user-roles) instead.
+It is possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it is recommended to use one of the [predefined roles](../../../setup/authentication.md#user-roles) instead.
 
 ## Examples
 
@@ -22,7 +22,7 @@ The below example shows the same topology view called "All Infrastructure" for f
 
 ### This user is a part of StackState Admin group, so there is no scope:
 
-![Full view permissions](/.gitbook/assets/v42_allperm.png)
+![Full view permissions](../../../.gitbook/assets/v42_allperm.png)
 
 The query for this view is the same as for the others, but without any prefix:
 
@@ -36,7 +36,7 @@ The query for this view is the same as for the others, but without any prefix:
 'domain = "Customer1"'
 ```
 
-![Limited view](/.gitbook/assets/v42_esx1perm.png)
+![Limited view](../../../.gitbook/assets/v42_esx1perm.png)
 
 Query with the prefix for this view is:
 
@@ -50,9 +50,9 @@ Query with the prefix for this view is:
 'domain = "Customer2"'
 ```
 
-gets this topology: 
+gets this topology:
 
-![Limited view](/.gitbook/assets/esx2perm.png)
+![Limited view](../../../.gitbook/assets/esx2perm.png)
 
 Query with the prefix for this view is:
 
@@ -74,6 +74,7 @@ Query with prefix for this user is then:
 '(domain = "Customer1" OR domain = "Customer2") AND (layer = "Infrastructure" AND domain IN ("Customer1", "Customer2"))'
 ```
 
-Which results in a following view: 
+Which results in a following view:
 
-![Full view permissions](/.gitbook/assets/v42_allperm.png)
+![Full view permissions](../../../.gitbook/assets/v42_allperm.png)
+

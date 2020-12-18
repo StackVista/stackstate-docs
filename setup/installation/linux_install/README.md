@@ -2,10 +2,10 @@
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/installation/kubernetes_install/README.md).
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
 {% endhint %}
 
-StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](/setup/installation/kubernetes_install/README.md).
+StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../kubernetes_install/).
 
 ## Choosing your installation type
 
@@ -17,30 +17,31 @@ Before setting up StackState, you need to choose whether you want to run StackSt
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet the StackState [installation requirements](/setup/requirements.md).
+Before starting the installation, ensure your system\(s\) meet the StackState [installation requirements](../../requirements.md).
 
 ## Packages
 
-There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](/setup/installation/linux_install/download.md).
+There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](download.md).
 
 ## Installation
 
 StackState supports three different installation configurations:
 
-* [**Production setup**](/setup/installation/linux_install/production-installation.md) suitable for production use.
-* [**Proof-of-concept \(POC\) setup**](/setup/installation/linux_install/poc-installation.md) suitable for proof of concepts. This is not suited for processing perpetual data streams.
-* [**Development setup**](/setup/installation/linux_install/development-installation.md) suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
+* [**Production setup**](production-installation.md) suitable for production use.
+* [**Proof-of-concept \(POC\) setup**](poc-installation.md) suitable for proof of concepts. This is not suited for processing perpetual data streams.
+* [**Development setup**](development-installation.md) suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
 
 ## Upgrading
 
-To upgrade your StackState installation, see the instructions in our [upgrading guide](/setup/upgrade-stackstate/steps-to-upgrade.md).
+To upgrade your StackState installation, see the instructions in our [upgrading guide](../../upgrade-stackstate/steps-to-upgrade.md).
 
 ## Authentication
 
-StackState provides Role Based Access Control functionality that works with LDAP authentication servers. See [RBAC](/configure/security/rbac/role_based_access_control.md) pages for more information on the topic. You can also find [how to configure LDAP servers](/setup/authentication.md).
+StackState provides Role Based Access Control functionality that works with LDAP authentication servers. See [RBAC](../../../configure/security/rbac/role_based_access_control.md) pages for more information on the topic. You can also find [how to configure LDAP servers](../../authentication.md).
 
-StackState also supports authentication against a KeyCloak OIDC Authentication server. Find out [how to configure a KeyCloak OIDC Authentication server](/setup/authentication.md#keycloak-oidc-authentication-server).
+StackState also supports authentication against a KeyCloak OIDC Authentication server. Find out [how to configure a KeyCloak OIDC Authentication server](../../authentication.md#keycloak-oidc-authentication-server).
 
 ## Troubleshooting
 
-If you have any issues installing StackState, refer to our [troubleshooting guide](/setup/installation/troubleshooting.md) or contact our technical support.
+If you have any issues installing StackState, refer to our [troubleshooting guide](../troubleshooting.md) or contact our technical support.
+

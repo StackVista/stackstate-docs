@@ -2,7 +2,7 @@
 description: Configure how the health state of a StackState view is calculated
 ---
 
-# View state configuration
+# Customize view health state reporting
 
 ## Overview
 
@@ -56,4 +56,5 @@ if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (
 
 ## See also
 
-- [Configure the view health](/use/health-state-and-alerts/configure-view-health.md)
+* [Configure the view health](../../use/health-state-and-alerts/configure-view-health.md)
+

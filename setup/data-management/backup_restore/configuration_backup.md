@@ -4,7 +4,7 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](/setup/installation/cli-install.md) or using curl commands. Note that the [lock status](/stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](../../installation/cli-install.md) or using curl commands. Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
 
 To export configuration using the StackState CLI or curl:
 
@@ -30,10 +30,10 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 
 To export configuration from the StackState UI:
 
-1. Go to **Settings** > **Import/Export** > **Export Settings** 
+1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings** 
 2. Click on the button **STS-EXPORT-ALL**.
 
-![Export configuration from the StackState UI](/.gitbook/assets/v42_export_configuration.png)
+![Export configuration from the StackState UI](../../../.gitbook/assets/v42_export_configuration.png)
 
 ### Export configuration with authentication \(curl\)
 
@@ -65,7 +65,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 ## Import configuration
 
-Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the [lock status](/stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - all configuration items will be unlocked after import.
+Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - all configuration items will be unlocked after import.
 
 To clear the StackState configuration and import from a file using the StackState CLI or curl:
 
@@ -107,11 +107,11 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 Alternatively, in the StackState UI:
 
-1. Go to **Settings** > **Import/Export** > **Import Settings**. 
+1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**. 
 2. Choose the `*.stj` file that you want to import configuration from.
 3. Click on the button **START IMPORT**.
 
-![Import configuration from the StackState UI](/.gitbook/assets/v42_import_configuration.png)
+![Import configuration from the StackState UI](../../../.gitbook/assets/v42_import_configuration.png)
 
 ## Import or export individual configuration items
 

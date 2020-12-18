@@ -1,14 +1,14 @@
 # Component actions
 
-Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component navigation menu or the component details pane in the [Topology Perspective](/use/views/topology-perspective.md).
+Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component navigation menu or the component details pane in the [Topology Perspective](../../use/views/topology-perspective.md).
 
-![Component Actions](/.gitbook/assets/v42_actions.png)
+![Component Actions](../../.gitbook/assets/v42_actions.png)
 
 Component Actions can be configured within StackState Settings or can be predefined in a StackPack.
 
 ## What is a Component Action?
 
-A Component Action is a script that can be executed for components bound to that script with an [STQL query](/develop/reference/stql_reference.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines the action's behavior. There are also optional fields for providing a description and an Identifier.
+A Component Action is a script that can be executed for components bound to that script with an [STQL query](../../develop/reference/stql_reference.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines the action's behavior. There are also optional fields for providing a description and an Identifier.
 
 ## Component Actions in use
 
@@ -25,6 +25,7 @@ There are two ways of getting Component Actions in StackState:
 1. Import of Actions predefined in a StackPack
 2. Configure a new custom Action in the Settings page
 
-Components Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** > **Actions** > **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
+Components Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** &gt; **Actions** &gt; **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
 
-Fond out [How to configure Component Actions](/configure/topology/how_to_configure_component_actions.md).
+Fond out [How to configure Component Actions](how_to_configure_component_actions.md).
+

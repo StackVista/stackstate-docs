@@ -31,7 +31,7 @@ Attributes can be passed as literal values using a double or single quote. Some 
 
 Not all tags display their content, but if they do, the content of a tag should be a valid STML.
 
-See the [tag reference](/develop/reference/stml/tags.md) for an overview of all tags, their purpose and attributes.
+See the [tag reference](tags.md) for an overview of all tags, their purpose and attributes.
 
 ## Passing script data to tags with STML variables
 

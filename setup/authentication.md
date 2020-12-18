@@ -1,9 +1,9 @@
 # Authentication
 
-Out of the box, StackState is configured with [file-based authentication](/setup/authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
+Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
 
-* [LDAP](/setup/authentication.md#ldap-authentication-server)
-* [KeyCloak OIDC](/setup/authentication.md#ckeycloak-oidc-authentication-server)
+* [LDAP](authentication.md#ldap-authentication-server)
+* [KeyCloak OIDC](authentication.md#ckeycloak-oidc-authentication-server)
 
 {% hint style="info" %}
 Authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
@@ -15,11 +15,11 @@ StackState ships with the default user roles **Guest**, **Power User** and **Adm
 
 * **Guest** - able to see information but make no changes.
 * **Power User** - able to see and change all configuration and install StackPacks.
-* **Administrator** - able to see and change all configuration, install StackPacks, grant and revoke user permissions and upload (new versions of) StackPacks.
+* **Administrator** - able to see and change all configuration, install StackPacks, grant and revoke user permissions and upload \(new versions of\) StackPacks.
 
 When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
 
-It is also possible to add more roles, see the page [Roles \(RBAC\)](/configure/security/rbac/rbac_roles.md) and the other [RBAC documentation pages](/configure/security/rbac/README.md)
+It is also possible to add more roles, see the page [Roles \(RBAC\)](../configure/security/rbac/rbac_roles.md) and the other [RBAC documentation pages](../configure/security/rbac/)
 
 ## Default username and password
 
@@ -157,7 +157,7 @@ Configuration field explanation:
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](/configure/security/rbac/rbac_subjects.md). With subjects created, you can start [setting up roles](/configure/security/rbac/rbac_roles.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](../configure/security/rbac/rbac_subjects.md). With subjects created, you can start [setting up roles](../configure/security/rbac/rbac_roles.md).
 
 ### Kubernetes LDAP configuration through Helm
 
@@ -256,3 +256,4 @@ authentication {
 
     }
 ```
+

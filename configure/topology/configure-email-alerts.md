@@ -2,15 +2,15 @@
 
 ## Overview
 
-StackState can send an email alert whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use. 
+StackState can send an email alert whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use.
 
 ## Configure an SMTP server to use for email alerting
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
 1. Update the StackState configuration in `values.yaml` to include SMTP server details:
-    ```
+
+   ```text
     stackstate:
       components:
         server:
@@ -31,13 +31,16 @@ StackState can send an email alert whenever the health state of an entity or vie
                 }
               }
             }
-    ``` 
+   ```
+
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](../../use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
+
 {% tab title="Linux" %}
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
-    ```
+
+   ```text
     stackstate{
       ...
 
@@ -55,17 +58,18 @@ StackState can send an email alert whenever the health state of an entity or vie
           password = "XXX"      # optional
         }
       }
-   
+
        ...
     }
-   
-    ``` 
+   ```
+
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](../../use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% endtabs %}
 
 ## See also
 
-- [Add an event handler](/use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers)
-- [Event handler functions](/configure/topology/event-handlers.md)
+* [Add an event handler](../../use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers)
+* [Event handler functions](event-handlers.md)
+

@@ -2,7 +2,7 @@
 description: Functions to execute http requests.
 ---
 
-# Script API: Http
+# HTTP - script API
 
 Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool. For example, to perform analysis using a custom Python script, a cloud service or an Machine Learning framework. StackState can call out to any external service via HTTP using the functions in this script API.
 
@@ -16,7 +16,7 @@ Submit HTTP get request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 
@@ -43,7 +43,7 @@ Submit HTTP put request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type, for example "application/text".
@@ -79,7 +79,7 @@ Submit HTTP post request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type, for example "application/text".
@@ -119,7 +119,7 @@ Submit HTTP delete request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 
@@ -157,7 +157,7 @@ Submit HTTP patch request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 * `.contentType(contentType: String)` -  specify the content type, for example "application/text".
@@ -191,7 +191,7 @@ Submit HTTP head request.
 
 **Builder methods:**
 
-* `.timeout(time: Duration)` - make the request timeout after [time](/develop/reference/scripting/script-apis/time.md) has elapsed.
+* `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header
 
