@@ -251,6 +251,12 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## Release notes
 
+
+**ServiceNow StackPack 5.1.0 (2020-12-16)**
+
+- Feature: Documentation update for new features of Change Requests and different filters added.
+
+
 **ServiceNow StackPack v5.0.0 (17-11-2020)**
 
 - Feature: Introduce the Instance Name for easy filtering and use.

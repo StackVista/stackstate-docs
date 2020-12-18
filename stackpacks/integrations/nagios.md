@@ -58,15 +58,15 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 **Nagios StackPack v2.4.1 (2020-11-02)**
 
-- Bugfix: Fix for Component State evaluation in Service check
+- Bugfix: Fix for Component State evaluation in Service check.
 
 **Nagios StackPack v2.4.0 (2020-09-25)**
 
-- Feature: Added support for ITRS OP5 Monitor
+- Feature: Added support for ITRS OP5 Monitor.
 
 **Nagios StackPack v2.3.1 (2020-08-18)**
 
-- Feature: Introduced the Release notes pop up for customer
+- Feature: Introduced the Release notes pop up for customer.
 
 **Nagios StackPack v2.3.0 (2020-08-04)**
 
