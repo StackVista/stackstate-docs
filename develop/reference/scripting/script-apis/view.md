@@ -4,7 +4,7 @@ kind: Documentation
 description: Fetch a list of views.
 ---
 
-# Script API: View
+# View - script API
 
 ## Function `getAll`
 
@@ -28,7 +28,7 @@ The `QueryView` type has the following fields:
 * `QueryView.name` - the name of the view
 * `QueryView.description` - the description of the view
 * `QueryView.state` - View state object, holding view state
-* `QueryView.query` - STQL query which can be used subsequently in getting topology using [Topology Script Api](/develop/reference/scripting/script-apis/topology.md)
+* `QueryView.query` - STQL query which can be used subsequently in getting topology using [Topology Script Api](topology.md)
 
 The `ViewInfo` type has the following fields:
 

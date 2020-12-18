@@ -2,12 +2,11 @@
 description: Functions that control the StackState user-interface.
 ---
 
-# Script API: UI
+# UI - script API
 
 {% hint style="info" %}
-These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](/configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
+These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](../../../../configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}
-
 
 ## Function: baseUrl
 
@@ -17,10 +16,9 @@ Returns the baseUrl of the StackState instance as configured in the `application
 
 Return the base URL from the StackState configuration.
 
-```
+```text
 UI.baseUrl()
 ```
-
 
 ## Function: `createUrl`
 
@@ -36,15 +34,16 @@ CreateUrlBuilder
 
 **Builder methods:**
 
-- `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
-    - `at(time: instant)` -  specifies a [time](/develop/reference/scripting/script-apis/time.md) for which the view query should be executed.
-    - `withComponent(component)` - creates a view URL with the specified component in focus.
-    - `url()` - gives the final URL of the view.
+* `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
+  * `at(time: instant)` -  specifies a [time](time.md) for which the view query should be executed.
+  * `withComponent(component)` - creates a view URL with the specified component in focus.
+  * `url()` - gives the final URL of the view.
 
 **Examples:**
 
 Create a URL to a view at a specific time.
-```
+
+```text
 View.getAll().then { views ->
     UI.createUrl().view(views[0]).at('-15m').url()
 }
@@ -77,7 +76,7 @@ Shows a report in the user-interface. The user-interface will open a dialog with
 **Args:**
 
 * `reportName` - Name of the report. In a dialog with the report, the name of the report will be in the title bar.
-* `stmlContent` - The report markup. See [StackState Markup Language](/develop/reference/stml/README.md) for more information on how to format a report.
+* `stmlContent` - The report markup. See [StackState Markup Language](../../stml/) for more information on how to format a report.
 * Optional `data` - A map with data elements that can be referenced by the STML.
 
 **Return type:**
@@ -109,7 +108,7 @@ If the user is currently in an unsaved view, the user receives a prompt dialog a
 
 **Args:**
 
-* `query` - [STQL query](/develop/reference/stql_reference.md) that selects what part of the topology is shown.
+* `query` - [STQL query](../../stql_reference.md) that selects what part of the topology is shown.
 
 **Return type:**
 
@@ -123,13 +122,13 @@ Redirects the user-interface to show the Azure topology.
 UI.showTopologyByQuery('domain IN ("Azure")')
 ```
 
-
 Create a URL to a view focussing on a component.
 
-```
+```text
 View.getAll().then { views ->
-	Component.withId(component).get().then { component ->
-		UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
-	}
+    Component.withId(component).get().then { component ->
+        UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
+    }
 }
 ```
+

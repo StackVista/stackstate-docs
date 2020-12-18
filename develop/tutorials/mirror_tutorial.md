@@ -4,7 +4,7 @@ description: Set up a mirror to retrieve telemetry data on-demand from an extern
 
 # Mirror integration tutorial
 
-StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch is not copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](/develop/developer-guides/mirroring.md).
+StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch is not copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](https://github.com/StackVista/stackstate-docs/tree/d2496325c86159cd6adbe80168d89f7ff825ca9f/develop/developer-guides/mirroring.md).
 
 Mirror integrations can be built in any language and run as a separate process. A mirror can:
 
@@ -51,11 +51,11 @@ Use the **Test Connection** button to verify connectivity from StackState to the
 
 Here is what that looks like:
 
-![](/.gitbook/assets/example-mirror.png)
+![](../../.gitbook/assets/example-mirror.png)
 
 ## Adding a mirror stream to a component
 
-Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](/develop/tutorials/push_integration_tutorial.md). Navigate to the component and open the Component Details pane.
+Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and open the Component Details pane.
 
 In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 
@@ -63,7 +63,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![](/.gitbook/assets/example-mirror-stream.png)
+![](../../.gitbook/assets/example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 

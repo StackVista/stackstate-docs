@@ -1,4 +1,4 @@
-# Permissions \(RBAC\)
+# Permissions
 
 ## Permissions in StackState
 
@@ -12,11 +12,11 @@ Views permissions are a set of permissions that allow for CRUD operations with V
 
 ## Predefined roles
 
-StackState comes with three predefined roles - **Administrator**, **Power User** and **Guest**. 
+StackState comes with three predefined roles - **Administrator**, **Power User** and **Guest**.
 
-- Administrators have all permissions and access to all views. 
-- Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team(s).
-- Guests have access to view, as you can see below:
+* Administrators have all permissions and access to all views. 
+* Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
+* Guests have access to view, as you can see below:
 
 ```text
 subject           permission            resource
@@ -57,8 +57,8 @@ stackstate-guest  access-view           everything
 | execute-component-templates | Invoke a component template API extension \(**internal use only**\) | - | ✅ | ✅ |
 | execute-node-sync | Reset or delete a synchronization | - | ✅ | ✅ |
 | access-admin-api | Access the administrator API | - | ✅ | ✅ |
-| update-permissions | Grant/revoke permissions or modify subjects | - | - | ✅ | 
-| upload-stackpacks | Upload new (versions of) StackPacks | - | - | ✅ | 
+| update-permissions | Grant/revoke permissions or modify subjects | - | - | ✅ |
+| upload-stackpacks | Upload new \(versions of\) StackPacks | - | - | ✅ |
 
 ## UI elements and permissions
 
@@ -68,12 +68,12 @@ stackstate-guest  access-view           everything
 2. StackPacks page - requires `manage-stackpacks` system permission. Without this permission, StackPacks section is hidden in the UI and it is not accessible via URL.
 3. Settings page - requires `read-settings` system permission. Without this permission, Settings section is hidden in the UI and it is not accessible via URL.
 4. Explore Mode page - requires `access-explore` system permission. Without this permission, Explore Mode section is hidden in the UI and it is not accessible via URL.
-5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or (as it is for the Administrator role) with `Everything` resource, allowing to see all views.
+5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or \(as it is for the Administrator role\) with `Everything` resource, allowing to see all views.
 6. Import Settings Page - requires `import-settings` system permission. Without this permission, Import Settings is removed from Settings Menu.
 7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
 8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
 
-![Pages1](/.gitbook/assets/pages1.png) ![Pages2](/.gitbook/assets/pages2.png)
+![Pages1](../../../.gitbook/assets/pages1.png) ![Pages2](../../../.gitbook/assets/pages2.png)
 
 ### Navigation Bar permissions
 
@@ -83,7 +83,7 @@ stackstate-guest  access-view           everything
 4. Delete a view - requires `delete-view` permission. It's dependant on `Everything` or the specific view permissions.
 5. Sidebar access - requires `save-view`, `delete-view` or both of them to access these options in the sidebar.
 
-![NavigationBar1](/.gitbook/assets/navbar1.png) ![NavigationBar2](/.gitbook/assets/navbar2.png)
+![NavigationBar1](../../../.gitbook/assets/navbar1.png) ![NavigationBar2](../../../.gitbook/assets/navbar2.png)
 
 ### Topology capabilities permissions
 
@@ -93,7 +93,7 @@ stackstate-guest  access-view           everything
 
 |  |  |  |
 | :---: | :---: | :---: |
-| ![TopologyCapabilities1](/.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](/.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](/.gitbook/assets/topocap3.png) |
+| ![TopologyCapabilities1](../../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../../../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../../../.gitbook/assets/topocap3.png) |
 
 ### Topology views permissions
 
@@ -101,7 +101,7 @@ stackstate-guest  access-view           everything
 2. Access to a node actions menu - requires `execute-component-actions` permission.  
 3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
 
-![TopologyView1](/.gitbook/assets/v42_topoview1.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
+![TopologyView1](../../../.gitbook/assets/v42_topoview1.png) ![TopologyView2](https://github.com/StackVista/stackstate-docs/tree/d2496325c86159cd6adbe80168d89f7ff825ca9f/.gitbook/assets/topoview2.png)
 
 ### Analytics Page permissions
 
@@ -109,7 +109,7 @@ stackstate-guest  access-view           everything
 
 |  |  |  |
 | :---: | :---: | :---: |
-|  | ![AnalyticsPage1](/.gitbook/assets/anpage1.png) |  |
+|  | ![AnalyticsPage1](../../../.gitbook/assets/anpage1.png) |  |
 
 ### Element Details permissions
 
@@ -122,7 +122,7 @@ stackstate-guest  access-view           everything
 
 |  |  |
 | :---: | :---: |
-| ![ElementDetails1](/.gitbook/assets/eldet1.png) | ![ElementDetails2](/.gitbook/assets/eldet2.png) |
+| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](https://github.com/StackVista/stackstate-docs/tree/d2496325c86159cd6adbe80168d89f7ff825ca9f/.gitbook/assets/eldet2.png) |
 
 ### Settings permissions
 
@@ -134,7 +134,7 @@ Below capabilities are shared across all settings pages.
 4. Export capability - requires `export-settings` system permission. Checkboxes are not available for the user without this permission.
 5. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
 
-![SettingsPermissions](/.gitbook/assets/settings1.png)
+![SettingsPermissions](../../../.gitbook/assets/settings1.png)
 
 ## Examples
 
@@ -172,4 +172,5 @@ sts permission grant [subject-handle] create-views system
 
 UI of a user without any permissions:
 
-![NoPermissions](/.gitbook/assets/noperm.png)
+![NoPermissions](../../../.gitbook/assets/noperm.png)
+

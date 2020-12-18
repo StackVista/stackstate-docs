@@ -118,11 +118,12 @@ stackstate-agent:
 ```
 
 #### Using Docker-Swarm mode
+
 To run the StackState Agent in Docker-Swarm mode as a docker-compose setup, use the above configuration in your compose file on each node where you want to run the Agent. After placing the compose file on each node, run the command `docker-compose up -d`.
 
-##### Limitation of Docker-Swarm mode
-Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between Containers, Processes and other resources while in Docker-Swarm mode. To run StackState Agent in Docker-Swarm mode, use a docker-compose setup.
+**Limitation of Docker-Swarm mode**
 
+Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between Containers, Processes and other resources while in Docker-Swarm mode. To run StackState Agent in Docker-Swarm mode, use a docker-compose setup.
 
 #### Using Self-Signed Certificate
 
@@ -166,24 +167,24 @@ STS_LOG_LEVEL: "DEBUG"
 
 {% tabs %}
 {% tab title="Linux" %}
-- StackState Agent configuration: `/etc/stackstate-agent/stackstate.yaml`
-- Integration configurations: `/etc/stackstate-agent/conf.d/`
+* StackState Agent configuration: `/etc/stackstate-agent/stackstate.yaml`
+* Integration configurations: `/etc/stackstate-agent/conf.d/`
 {% endtab %}
+
 {% tab title="Windows" %}
-- StackState Agent configuration: `C:\ProgramData\StackState\stackstate.yaml`
-- Integration configurations:`C:\ProgramData\StackState\conf.d`
+* StackState Agent configuration: `C:\ProgramData\StackState\stackstate.yaml`
+* Integration configurations:`C:\ProgramData\StackState\conf.d`
 {% endtab %}
 {% endtabs %}
 
 ## Troubleshooting
 
-Try running the [status](#status-and-information) command to see the state of the StackState Agent.
+Try running the [status](agent.md#status-and-information) command to see the state of the StackState Agent.
 
 ### Log files
 
 {% tabs %}
 {% tab title="Linux" %}
-
 Logs for the subsystems are in the following files:
 
 ```text
@@ -191,8 +192,8 @@ Logs for the subsystems are in the following files:
 /var/log/stackstate-agent/process-agent.log
 ```
 {% endtab %}
-{% tab title="Windows" %}
 
+{% tab title="Windows" %}
 Logs for the subsystems are in the following files:
 
 ```text
@@ -205,37 +206,39 @@ C:\ProgramData\StackState\logs\process-agent.log
 ## Start / stop / restart the StackState Agent
 
 {% hint style="info" %}
-- Commands require elevated privileges.
-- Restarting the StackState Agent will reload the configuration files.
+* Commands require elevated privileges.
+* Restarting the StackState Agent will reload the configuration files.
 {% endhint %}
 
 To manually start, stop or restart the StackState Agent:
 
 {% tabs %}
 {% tab title="Linux" %}
-```
+```text
 sudo service stackstate-agent start
 sudo service stackstate-agent stop
 sudo service stackstate-agent restart
 ```
 {% endtab %}
+
 {% tab title="Windows" %}
 **CMD**
+
 ```text
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
 ```
+
 **PowerShell**
-```
+
+```text
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
 & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
 ## Status and information
 
@@ -253,6 +256,7 @@ Tracebacks for errors can be retrieved by setting the `-v` flag:
 sudo service stackstate-agent status -v
 ```
 {% endtab %}
+
 {% tab title="Windows" %}
 To check if the StackState Agent is running and receive information about the Agent's state:
 
@@ -261,5 +265,4 @@ To check if the StackState Agent is running and receive information about the Ag
 ```
 {% endtab %}
 {% endtabs %}
-
 

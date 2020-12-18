@@ -6,7 +6,7 @@ The Google Analytics StackPack contains everything you need to import metrics fr
 
 ## Prerequisites
 
-* An API Integration Agent must be installed which can connect to Google Analytics and StackState. \(See the [API Integration StackPack](/stackpacks/integrations/api-integration.md) for more details\)
+* An API Integration Agent must be installed which can connect to Google Analytics and StackState. \(See the [API Integration StackPack](api-integration.md) for more details\)
 * The Google Analytics project must be visible at [https://console.developers.google.com](https://console.developers.google.com) and must have the Google Analytics API enabled
 * The StackPack requires credentials \(JSON format\) for a Service Account that has access to read Google Analytics \(see [https://analytics.google.com](https://analytics.google.com)\)
 
