@@ -6,7 +6,7 @@ aliases:
 listorder: 10
 ---
 
-# Debugging topology synchronization
+# Debug topology synchronization
 
 {% hint style="warning" %}
 This page describes StackState version 4.1.  
@@ -15,7 +15,7 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 ## Overview
 
-When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](/configure/topology/topology_synchronization.md).
+When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
 
 ## Why are components/elements I expect not in my topology?
 
@@ -32,7 +32,7 @@ Based on the information you see here, different actions can be taken:
     in new data, this is because StackState does not retroactively apply changes
 
   * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration
-  * Make sure data is ending up in StackState. The [StackState CLI](/setup/installation/cli-install.md) contains a way to see
+  * Make sure data is ending up in StackState. The [StackState CLI](../../setup/installation/cli-install.md) contains a way to see
 
     what data ends up on the synchronization topic.
 
@@ -60,3 +60,4 @@ This directory contains two log files for each synchronization.
 
   * Errors in template/mapping functions
   * Component types which have no mapping
+

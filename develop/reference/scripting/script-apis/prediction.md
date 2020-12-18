@@ -16,16 +16,16 @@ Predict metrics for any metric query coming from any data source.
 **Args:**
 
 * `predictorName` - the prediction preset to use: 
-    - **fft** - Fast Fourier Transformation. Used for seasonal metrics with a repeatable pattern that has a cycle.
-    - **linear** - used for metrics that have a linear trend.
-    - **hmn** - Harmonic Mean Normal. Used in difficult cases when metrics are not clearly seasonal or linear.
-* `horizon` - how much future to predict. The horizon is specified in [duration format](/develop/reference/scripting/script-apis/time.md).
+  * **fft** - Fast Fourier Transformation. Used for seasonal metrics with a repeatable pattern that has a cycle.
+  * **linear** - used for metrics that have a linear trend.
+  * **hmn** - Harmonic Mean Normal. Used in difficult cases when metrics are not clearly seasonal or linear.
+* `horizon` - how much future to predict. The horizon is specified in [duration format](time.md).
 * `query` - the metrics to use for the prediction. A telemetry query that returns metrics, created using the `Telemetry.query()` function followed by `.compileQuery()`.
 
 **Builder methods:**
 
 * `predictionPoints(points: Int)` - the number of points to the horizon.
-* `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](/develop/reference/scripting/script-apis/time.md). When not specifying the start and end the whole history will be included.
+* `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](time.md). When not specifying the start and end the whole history will be included.
 
 **Return type:**
 
@@ -61,3 +61,4 @@ Prediction.predictMetrics("linear", "4h",
         .compileQuery()
 ).includeHistory().predictionPoints(8)
 ```
+

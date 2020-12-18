@@ -9,7 +9,7 @@ This page describes StackState version 4.1.
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-The Telemetry Perspective shows telemetry streams for your [view](/use/views/README.md) and provides an automatic dashboard. Instead of pre-defining which streams you want to see, StackState automatically delivers all the relevant information for any part of your landscape.
+The Telemetry Perspective shows telemetry streams for your [view](./) and provides an automatic dashboard. Instead of pre-defining which streams you want to see, StackState automatically delivers all the relevant information for any part of your landscape.
 
 ## Telemetry and Components
 
@@ -20,7 +20,7 @@ The Telemetry Perspective shows telemetry for up to **5** components. When you o
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
-![](/.gitbook/assets/telemetry-components-selector.png)
+![](../../.gitbook/assets/telemetry-components-selector.png)
 
 The component selection can be adjusted as follows:
 
@@ -36,7 +36,7 @@ The View Filters pane on the left side of the screen in any View allows you to f
 
 ## Charts
 
-![Telemetry Perspective](/.gitbook/assets/telemetry-perspective.png)
+![Telemetry Perspective](../../.gitbook/assets/telemetry-perspective.png)
 
 Charts are showing Telemetry Data of selected components in near real-time - they are fetching data every 30 seconds. If a process is stopped and no more data is received, then eventually, the process will leave the chart as the data shifts left at least every 30 seconds. If there is more data that comes in during the 30 second interval it will be pushed to a chart. A single chart can display multiple lines for the same metric when multiple components are selected - this grouping is based on the name of the stream. It is possible to cycle through each of these streams and depict them as a single line in a single chart using the arrow controls on the chart.
 

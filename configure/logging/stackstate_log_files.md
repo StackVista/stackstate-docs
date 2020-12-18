@@ -9,12 +9,12 @@ This page describes StackState version 4.1.
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-* [Kubernetes setup](#kubernetes)
-* [Linux setup](#linux)
+* [Kubernetes setup](stackstate_log_files.md#kubernetes)
+* [Linux setup](stackstate_log_files.md#linux)
 
 ## Kubernetes
 
-In a Kubernetes setup, StackState functions are distributed [across different pods](#find-stackstate-logs-on-kubernetes-pods) and logs for each function are stored per pod and container. You can [access recent logs](#access-recent-logs) using `kubectl`, although for long term storage it is recommended to set up [log aggregation](#log-aggregation).
+In a Kubernetes setup, StackState functions are distributed [across different pods](stackstate_log_files.md#find-stackstate-logs-on-kubernetes-pods) and logs for each function are stored per pod and container. You can [access recent logs](stackstate_log_files.md#access-recent-logs) using `kubectl`, although for long term storage it is recommended to set up [log aggregation](stackstate_log_files.md#log-aggregation).
 
 ### Access recent logs
 
@@ -66,7 +66,7 @@ kubectl logs stackstate-server-0
 ```
 
 {% hint style="info" %}
-Note that logs stored on pods will be regularly removed. For long term access to logs, it is advised that you set up [log aggregation](#log-aggregation) for your Kubernetes cluster.
+Note that logs stored on pods will be regularly removed. For long term access to logs, it is advised that you set up [log aggregation](stackstate_log_files.md#log-aggregation) for your Kubernetes cluster.
 {% endhint %}
 
 ### Log aggregation
@@ -267,3 +267,4 @@ total 1043088
 ### Default log pattern
 
 StackState builds log files using the following default log pattern: `"%date [%thread] %-5level %logger{60} - %msg%n"`
+

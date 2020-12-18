@@ -11,7 +11,7 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../stackpacks/about-stackpacks.md).
 
 ### Upgrade considerations
 
@@ -22,7 +22,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](/stackpacks/about-stackpacks.md#configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../stackpacks/about-stackpacks.md#configuration-locking) for more information.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -63,17 +63,17 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
 
-* [Kubernetes backup](/setup/data-management/backup_restore/kubernetes_backup.md)
-* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
-* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
+* [Kubernetes backup](data-management/backup_restore/kubernetes_backup.md)
+* [Configuration backup](data-management/backup_restore/configuration_backup.md)
+* [Manually created topology backup](data-management/backup_restore/manual_topology_backup.md)
 {% endtab %}
 
 {% tab title="Linux" %}
 To create a backup on Linux, see:
 
-* [Linux backup](/setup/data-management/backup_restore/linux_backup.md)
-* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
-* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
+* [Linux backup](data-management/backup_restore/linux_backup.md)
+* [Configuration backup](data-management/backup_restore/configuration_backup.md)
+* [Manually created topology backup](data-management/backup_restore/manual_topology_backup.md)
 {% endtab %}
 {% endtabs %}
 
@@ -83,7 +83,7 @@ Note that it will not be possible to restore the backup on the upgraded version 
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Uninstalling StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 {% hint style="warning" %}
 The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
@@ -95,7 +95,7 @@ Find instructions to upgrade a StackState Kubernetes or Linux setup below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-For upgrading, the same command can be used as for the [first time Kubernetes installation](/setup/installation/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+For upgrading, the same command can be used as for the [first time Kubernetes installation](installation/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -112,7 +112,7 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Installing StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 ## Verify the new installation
 
@@ -145,4 +145,5 @@ Once StackState has been upgraded and started, verify that the new installation 
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#custom-propagation-functions) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+* In this release a new way of scripting [propagation functions](../configure/topology/propagation.md#custom-propagation-functions) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+

@@ -22,3 +22,4 @@ Using this StackPack, you can:
 ## Using the Humio StackPack
 
 Navigate to your Kubernetes cluster in StackState and use a Quick Action on one of the containers to jump into your logs.
+

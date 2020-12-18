@@ -10,7 +10,7 @@ This page describes StackState version 4.1.
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-StackState's templated json incorporates several functions helpful to resolve nodes either by name or [identifier](/configure/identifiers.md) that need to be addressed while creating other nodes, for example on a `ComponentTemplate` you want to attach to your about to be created `Component` a `Domain`.
+StackState's templated json incorporates several functions helpful to resolve nodes either by name or [identifier](../../../configure/identifiers.md) that need to be addressed while creating other nodes, for example on a `ComponentTemplate` you want to attach to your about to be created `Component` a `Domain`.
 
 ## Function: `get`
 

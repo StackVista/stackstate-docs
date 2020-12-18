@@ -88,8 +88,8 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
 
 To use the StackState CLI, you need to configure it with the API connection details for your StackState instance.
 
-* **Linux or Windows install**: A [wizard will guide you through configuration](#wizard-configuration-linux-and-windows-install) or you can [create the configuration file manually](#manual-configuration).
-* **Docker install**: [Create the configuration file manually](#manual-configuration).
+* **Linux or Windows install**: A [wizard will guide you through configuration](cli-install.md#wizard-configuration-linux-and-windows-install) or you can [create the configuration file manually](cli-install.md#manual-configuration).
+* **Docker install**: [Create the configuration file manually](cli-install.md#manual-configuration).
 
 ### Wizard configuration \(Linux and Windows install\)
 
@@ -209,7 +209,7 @@ The StackState configuration is stored in StackState's graph database in so-call
 sts graph list-types
 ```
 
-You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](/develop/reference/stj/) format.
+You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](../../develop/reference/stj/) format.
 
 For example:
 

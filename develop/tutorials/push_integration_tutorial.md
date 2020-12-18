@@ -2,12 +2,14 @@
 description: Get started with pushing data to StackState from an external system.
 ---
 
+# Push-integration tutorial
+
 {% hint style="warning" %}
 This page describes StackState version 4.1.  
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-# Push-integration tutorial
+## Push-integration tutorial
 
 This tutorial shows you how to create push-based integrations for StackState.
 
@@ -18,7 +20,7 @@ Push-based integrations are built in python and run as part of the StackState ag
 * convert the information into telemetry
 * send the data to StackState
 
-## Setup
+### Setup
 
 [This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an agent check called `example` that sends topology into StackState. It uses docker to run the StackState agent to execute the check.
 
@@ -31,7 +33,7 @@ The `example` check consists of two files:
 * `conf.d/example.d/conf.yaml` -- the check configuration file
 * `checks.d/example.py` -- the check Python code
 
-## Preparing StackState
+### Preparing StackState
 
 Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
 
@@ -42,7 +44,7 @@ Instance type (source identifier): example
 Instance URL: example://example-1
 ```
 
-## Preparing the tutorial
+### Preparing the tutorial
 
 The StackState agent container uses the root directory of this repository for it's configuration files.
 
@@ -61,7 +63,7 @@ export STS_STS_URL=https://host.docker.internal/stsAgent
 
 That's it, you are now ready to run the agent.
 
-## Running the sample check using the agent
+### Running the sample check using the agent
 
 The sample project contains a `run.sh` shell script that runs the StackState agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
@@ -71,17 +73,17 @@ Once the check has run successfully, the topology data produced by the `example`
 
 Press `ctrl-c` to stop the agent.
 
-## Seeing the topology in StackState
+### Seeing the topology in StackState
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
-![](/.gitbook/assets/example-topology.png)
+![](../../.gitbook/assets/example-topology.png)
 
 Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Click on the group to access the individual components that make up the group.
 
 Click on one of the components to open the **Component Details pane**. You'll see the component's labels and other meta-data the check sent.
 
-## Merging topology
+### Merging topology
 
 StackState creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If the data your check delivers should be merged with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
 
@@ -93,9 +95,9 @@ In our sample check, this code defines the extra identifiers:
     ...
 ```
 
-Our documentation contains a description of the [identifiers used by various StackPacks](/configure/identifiers.md).
+Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/identifiers.md).
 
-## Adding a custom telemetry stream to a component
+### Adding a custom telemetry stream to a component
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
@@ -111,11 +113,11 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](/.gitbook/assets/example-telemetry-stream.png)
+![](../../.gitbook/assets/example-telemetry-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
-## Adding a custom telemetry stream to all components of a type
+### Adding a custom telemetry stream to all components of a type
 
 The **some-application-1** component now has our telemetry stream. The sample check, however, also produces telemetry for the second application component. To map a stream to all components of a certain type, we need to update the component's _template_.
 
@@ -170,7 +172,7 @@ The end result should look something like this:
 }],
 ```
 
-![](/.gitbook/assets/example-template-editor.png)
+![](../../.gitbook/assets/example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 
@@ -178,7 +180,7 @@ Now, we need to reset the synchronization so it will reprocess the incoming data
 
 If you go back to the topology, you'll see that both application components \(and any you might add in the future\) will have the stream there.
 
-## Setting a component's health state from an external source
+### Setting a component's health state from an external source
 
 StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It is also possible to create your own check function that interprets events from an external source, such as another monitoring tool, and use it to set the component's health state. Let's try that out on our **a-host** component.
 
@@ -203,7 +205,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](/.gitbook/assets/example-check-function.png)
+![](../../.gitbook/assets/example-check-function.png)
 
 Finally save the check function.
 
@@ -224,7 +226,7 @@ In the Stream Creation screen, select the **Event stream** type at the top. Then
 
 Here is what that looks like:
 
-![](/.gitbook/assets/example-event-stream-editor.png)
+![](../../.gitbook/assets/example-event-stream-editor.png)
 
 You should already see the test events you sent. Go ahead and save the stream.
 
@@ -240,9 +242,9 @@ You can change the `alert_level` field in the `custom-event.json` file to try ou
 
 When the component turns `CRITICAL`, this is what you should see:
 
-![](/.gitbook/assets/example-health-state.png)
+![](../../.gitbook/assets/example-health-state.png)
 
-## Cleaning your StackState instance
+### Cleaning your StackState instance
 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 

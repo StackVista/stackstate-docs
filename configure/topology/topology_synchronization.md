@@ -27,7 +27,7 @@ StackState accepts topology data in JSON format. JSON files received pass throug
 
 The entire process can be represented visually as follows:
 
-![](/.gitbook/assets/topology_synchronization.png)
+![](../../.gitbook/assets/v42_topology_synchronization%20%287%29.png)
 
 ## Topology JSON format
 
@@ -128,4 +128,5 @@ Mandatory fields \(which can be empty, see other guides how to use them\):
 
 ## Getting started with custom topology
 
-The [push-integration tutorial](/develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into StackState.
+The [push-integration tutorial](../../develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into StackState.
+

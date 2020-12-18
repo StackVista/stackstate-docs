@@ -83,9 +83,9 @@ To install the Azure StackPack, we suggest that you create a separate resource g
     <Azure clientId> \
     <Azure clientSecret> \
     <Azure resourceGroupName>
-
 ```
 {% endtab %}
+
 {% tab title="Powershell" %}
 ```text
 az login

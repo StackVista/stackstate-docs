@@ -5,13 +5,13 @@ This page describes StackState version 4.1.
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-To receive email alerts for changes in health state, the StackState configuration must include SMTP server details. 
+To receive email alerts for changes in health state, the StackState configuration must include SMTP server details.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
 1. Update the StackState configuration in `values.yaml` to include SMTP server details:
-    ```
+
+   ```text
     stackstate:
       components:
         server:
@@ -32,13 +32,16 @@ To receive email alerts for changes in health state, the StackState configuratio
                 }
               }
             }
-    ``` 
+   ```
+
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/alerting.md#send-alerts-with-event-handlers).
+3. Add an email [event handler](../../use/alerting.md#send-alerts-with-event-handlers).
 {% endtab %}
+
 {% tab title="Linux" %}
 1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
-    ```
+
+   ```text
     stackstate{
       ...
 
@@ -56,12 +59,13 @@ To receive email alerts for changes in health state, the StackState configuratio
           password = "XXX"      # optional
         }
       }
-   
+
        ...
     }
-   
-    ``` 
+   ```
+
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](/use/alerting.md#send-alerts-with-event-handlers).
+3. Add an email [event handler](../../use/alerting.md#send-alerts-with-event-handlers).
 {% endtab %}
 {% endtabs %}
+

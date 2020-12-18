@@ -10,10 +10,10 @@ This page describes StackState version 4.1.
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-Out of the box, StackState is configured with [file-based authentication](/setup/authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
+Out of the box, StackState is configured with [file-based authentication](authentication.md#configuring-file-based-authentication), which authenticates users against a file on the server. In addition to this mode, StackState can also authenticate users against the following authentication servers:
 
-* [LDAP](/setup/authentication.md#ldap-authentication-server)
-* [KeyCloak OIDC](/setup/authentication.md#ckeycloak-oidc-authentication-server)
+* [LDAP](authentication.md#ldap-authentication-server)
+* [KeyCloak OIDC](authentication.md#ckeycloak-oidc-authentication-server)
 
 {% hint style="info" %}
 Authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
@@ -26,7 +26,7 @@ StackState ships with the default user roles **guest** and **administrator**:
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-It is also possible to add more roles, see the [Roles \(RBAC\)](/configure/security/rbac/rbac_roles.md) and the other RBAC documentation pages under [configure](/configure/README.md)
+It is also possible to add more roles, see the [Roles \(RBAC\)](../configure/security/rbac/rbac_roles.md) and the other RBAC documentation pages under [configure](https://github.com/StackVista/stackstate-docs/tree/4ccd8157baaac31853249918f02e9f0d6fbb2bfe/configure/README.md)
 
 ## Default username and password
 
@@ -162,7 +162,7 @@ Configuration field explanation:
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
 
-After editing the config file with the required LDAP details, move on to the [subject configuration doc](/configure/security/rbac/rbac_subjects.md). With subjects created, you can start [setting up roles](/configure/security/rbac/rbac_roles.md).
+After editing the config file with the required LDAP details, move on to the [subject configuration doc](../configure/security/rbac/rbac_subjects.md). With subjects created, you can start [setting up roles](../configure/security/rbac/rbac_roles.md).
 
 ### Kubernetes LDAP configuration through Helm
 
@@ -260,3 +260,4 @@ authentication {
 
     }
 ```
+

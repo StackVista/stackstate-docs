@@ -23,8 +23,8 @@ All fields described below are required in a Splunk query:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| **_time** | long | Data collection timestamp, millis since epoch. |
-| **metric%** | string | Name of the metric. This is the `metric_name_field` configured in [conf.d/splunk_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example).|
+| **\_time** | long | Data collection timestamp, millis since epoch. |
+| **metric%** | string | Name of the metric. This is the `metric_name_field` configured in [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example). |
 | **value%** | numeric | The value of the metric. |
 
 Example Splunk query:
@@ -122,3 +122,4 @@ The above authentication configuration are part of the [conf.d/splunk\_metric.ya
 
 1. Edit your `conf.d/splunk_metric.yaml` file.
 2. Restart the agent
+

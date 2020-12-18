@@ -19,7 +19,7 @@ This is an overview of the telemetry browser inside of StackState.
 
 The Telemetry Browser enables users to query events and metrics inside your data sources \(monitored systems\). These queries can be saved as telemetry streams on a Component or Relation entity in the topology of the 4T model. Also the Telemetry Browser allows you to play around with different graph settings in a more ad-hoc way.
 
-![Telemetry browser](/.gitbook/assets/telemetry_browser.png)
+![Telemetry browser](../../.gitbook/assets/telemetry_browser.png)
 
 ## How to access the telemetry browser
 
@@ -46,3 +46,4 @@ In the second step you have to select the output type of the telemetry stream. T
 Event telemetry streams are meant to be used for streams which contains 'Logs' and 'event's' which can be viewed from the User Interface and are visualized as a bar chart.
 
 Metric streams are used to display 'metrics' and have some aggregation methods available and will be visualized as a timeseries line chart.
+

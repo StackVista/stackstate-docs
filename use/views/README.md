@@ -23,7 +23,7 @@ Generally speaking, views serve two major purposes:
 ## Accessing views
 
 {% hint style="info" %}
-Not all views are manually created. Many [StackPacks](/stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
+Not all views are manually created. Many [StackPacks](../../stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
 {% endhint %}
 
 Views can be accessed by clicking on the **Views** menu item on the main menu. Views that you have starred will be presented directly in the main menu for easy access. Starred views are a personal preference that is stored onto your account.
@@ -55,7 +55,7 @@ To enable view health state put the `View Health State Enabled` to on when creat
 ## Creating views
 
 {% hint style="info" %}
-By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
+By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](../../configure/security/rbac/role_based_access_control.md).
 {% endhint %}
 
 To create a new view, navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the topology filtering settings a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
@@ -66,9 +66,9 @@ In the dialog the following options appear:
 | :--- | :--- |
 | View name | The name of your view. |
 | View health state enabled | Whether your view has a health state. If you disable this option your view's health state, depicted by the colored circle next to the view, will always color gray. The main reason for disabling is the fact that StackState's backend needs to spend resources on calculating the view health state each time the view changes. |
-| Configuration function | When view health state is enabled you can choose a [view state configuration function](/configure/view_state_configuration.md) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states** |
+| Configuration function | When view health state is enabled you can choose a [view state configuration function](../../configure/view_state_configuration.md) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states** |
 | Arguments | Arguments are dependent on the chosen function. See "Function: minimum health states" below. |
-| Identifier | \(Optional\) this field can be used to give an unique [identifier](/configure/identifiers.md) to the view. This makes the view uniquely referenceable from exported configuration, like the exported configuration in a StackPack. |
+| Identifier | \(Optional\) this field can be used to give an unique [identifier](../../configure/identifiers.md) to the view. This makes the view uniquely referenceable from exported configuration, like the exported configuration in a StackPack. |
 
 ## Function: minimum health states
 
@@ -96,10 +96,10 @@ To delete or edit a view:
 
 ## Securing views \(RBAC\)
 
-Through a combination of configuration of [permissions](/configure/security/rbac/rbac_permissions.md) and [scope](/configure/security/rbac/rbac_scopes.md), it is possible to give specific users:
+Through a combination of configuration of [permissions](../../configure/security/rbac/rbac_permissions.md) and [scope](../../configure/security/rbac/rbac_scopes.md), it is possible to give specific users:
 
 * access to a specific subset of the topology \(a so-called scope\) and allowing them to create their own views
 * access to specific views and disallowing them to create, modify or delete views
 
-Please refer to the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
+Please refer to the [RBAC documentation](../../configure/security/rbac/role_based_access_control.md).
 

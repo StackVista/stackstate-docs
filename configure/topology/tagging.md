@@ -6,7 +6,7 @@ aliases:
 listorder: 15
 ---
 
-# Tagging topology
+# Tag topology
 
 {% hint style="warning" %}
 This page describes StackState version 4.1.  
@@ -92,4 +92,5 @@ The most efficient method for assigning tags is to rely on your StackPacks. Tags
 
 ## Using Tags
 
-After you have assigned tags at the host and integration level, start using them to [create views](/use/views/README.md).
+After you have assigned tags at the host and integration level, start using them to [create views](../../use/views/).
+

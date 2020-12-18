@@ -22,7 +22,7 @@ The StackState Agent V2 Traefik integration provides the following functionality
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
 ### Configuration
 
@@ -99,7 +99,6 @@ or for a similar docker-compose configuration:
 
 To verify whether the StackState Trace Agent has received traces, set the logging level to debug and check the `trace-agent.log`:
 
-
 {% tabs %}
 {% tab title="stackstate.yaml" %}
 ```text
@@ -113,3 +112,4 @@ In Docker or Kubernetes, set the following environment variable for the StackSta
 ```text
 STS_LOG_LEVEL: "DEBUG"
 ```
+

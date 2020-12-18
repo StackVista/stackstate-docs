@@ -1,4 +1,4 @@
-# Preparing a shared template
+# Prepare a shared template
 
 {% hint style="warning" %}
 This page describes StackState version 4.1.  
@@ -165,5 +165,5 @@ Contains Relation name and direction.
     },
 ```
 
-The next step is: [Prepare an instance template file](/develop/developer-guides/stackpack/prepare_instance_template_file.md)
+The next step is: [Prepare an instance template file](prepare_instance_template_file.md)
 

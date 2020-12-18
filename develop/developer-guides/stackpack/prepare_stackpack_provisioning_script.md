@@ -1,4 +1,4 @@
-# Preparing a StackPack provisioning script
+# Prepare a StackPack provisioning script
 
 {% hint style="warning" %}
 This page describes StackState version 4.1.  

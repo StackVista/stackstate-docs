@@ -12,7 +12,7 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 {% endhint %}
 
 {% hint style="info" %}
-These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](/configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
+These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](../../../../configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}
 
 ## Function: `showReport`
@@ -22,7 +22,7 @@ Shows a report in the user-interface. The user-interface will open a dialog with
 **Args:**
 
 * `reportName` - Name of the report. In a dialog with the report, the name of the report will be in the title bar.
-* `stmlContent` - The report markup. See [StackState Markup Language](/develop/reference/stml/README.md) for more information on how to format a report.
+* `stmlContent` - The report markup. See [StackState Markup Language](../../stml/) for more information on how to format a report.
 * Optional `data` - A map with data elements that can be referenced by the STML.
 
 **Return type:**
@@ -54,7 +54,7 @@ If the user is currently in an unsaved view, the user receives a prompt dialog a
 
 **Args:**
 
-* `query` - [STQL query](/develop/reference/stql_reference.md) that selects what part of the topology is shown.
+* `query` - [STQL query](../../stql_reference.md) that selects what part of the topology is shown.
 
 **Return type:**
 
