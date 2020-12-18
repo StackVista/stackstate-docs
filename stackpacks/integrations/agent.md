@@ -268,7 +268,7 @@ To check if the StackState Agent is running and receive information about the Ag
 
 - Feature: Split error types in traces into:
     * 5xx errors - Use this in check function to determine critical status in the component.
-    * 4xx errors
+    * 4xx errors.
 
 **Agent V2 StackPack v3.11.0 (2020-09-03)**
 
@@ -278,8 +278,8 @@ To check if the StackState Agent is running and receive information about the Ag
 
 **Agent V2 StackPack v3.10.1 (2020-08-18)**
 
-- Feature: Introduced the Release notes pop up for customer
-- Feature: Introduced the Docker-Swarm mode setup docs in Docker integration
+- Feature: Introduced the Release notes pop up for customer.
+- Feature: Introduced the Docker-Swarm mode setup docs in Docker integration.
 
 **Agent V2 StackPack v3.10.0 (2020-08-04)**
 
@@ -293,7 +293,7 @@ To check if the StackState Agent is running and receive information about the Ag
 
 **Agent V2 StackPack v3.8.1 (2020-06-22)**
 
-- Bugfix: Fixed StackPack upgrade problem when there are Components in Host Layer
+- Bugfix: Fixed StackPack upgrade problem when there are Components in Host Layer.
 
 **Agent V2 StackPack v3.8.0 (2020-06-19)**
 
@@ -301,23 +301,22 @@ To check if the StackState Agent is running and receive information about the Ag
 
 **Agent V2 StackPack v3.7.1 (2020-06-03)**
 
-- Bugfix: Remove duplicate streams
+- Bugfix: Remove duplicate streams.
 
 **Agent V2 StackPack v3.7.0 (2020-05-27)**
 
-- Improvement: Fix component template to use `Service-Instance` and `Service` icon
+- Improvement: Fix component template to use `Service-Instance` and `Service` icon.
 
 **Agent V2 StackPack v3.6.0 (2020-05-26)**
 
-- Improvement: Switched to use of Host layer from Common StackPack
-- Improvement: Added icon for `Service-Instance` component type
+- Improvement: Switched to use of Host layer from Common StackPack.
+- Improvement: Added icon for `Service-Instance` component type.
 
 **Agent V2 StackPack v3.5.0 (2020-05-14)**
 
-- Improvement: Added priorities to metrics streams
-- Bugfix: Fixed service name extraction from tags for service names that contains a ":"
+- Improvement: Added priorities to metrics streams.
+- Bugfix: Fixed service name extraction from tags for service names that contains a ":".
 
 **Agent V2 StackPack v3.4.0 (2020-04-28)**
 
-- Improvement: Updated Trace Service and Service Instance templates to support domain traces
-
+- Improvement: Updated Trace Service and Service Instance templates to support domain traces.

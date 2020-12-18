@@ -138,7 +138,7 @@ These environment variables have the same names as AWS\_CLI utility uses. They c
 
 **AWS StackPack v5.0.1 (2020-08-18)**
 
-- Feature: Introduced the Release notes pop up for customer
+- Feature: Introduced the Release notes pop up for customer.
 
 **AWS StackPack v5.0.0 (2020-08-13)**
 
@@ -146,7 +146,7 @@ These environment variables have the same names as AWS\_CLI utility uses. They c
 
 **AWS StackPack v4.3.0 (2020-08-04)**
 
-- Improvements: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
 
 **AWS StackPack v4.2.2 (2020-07-16)**
 
@@ -154,31 +154,31 @@ These environment variables have the same names as AWS\_CLI utility uses. They c
 
 **AWS StackPack v4.2.1 (2020-06-22)**
 
-- Improvements: Fixed the icons for few component types of power 2.
+- Improvement: Fixed the icons for few component types of power 2.
 
 **AWS StackPack v4.2.0 (2020-06-19)**
 
-- Improvements: Set the stream priorities on all streams.
+- Improvement: Set the stream priorities on all streams.
 
 **AWS StackPack v4.1.0 (2020-06-01)**
 
-- Improvements: Manual installation zip has StackPack version number
-- Improvements: StackState resources created on AWS are taged with StackPack version 
+- Improvement: Manual installation zip has StackPack version number.
+- Improvement: StackState resources created on AWS are tagged with StackPack version.
 
 **AWS StackPack v4.0.2 (2020-06-03)**
 
-- Bugfix: Remove duplicate streams
+- Bugfix: Remove duplicate streams.
 
 **AWS StackPack v4.0.1 (2020-05-19)**
 
-- Bugfix: Fixed parsing CloudFormation when a resource has no Physical ID
+- Bugfix: Fixed parsing CloudFormation when a resource has no Physical ID.
 
 **AWS StackPack v4.0.0 (2020-04-10)**
 
-- Feature: Full installation of all lambdas or minimal installation of just Topology gathering lambda
-- Feature: Manual install script has help message with all parameters
-- Feature: Split AWS IAM policies in installation and uninstallation group for each type of installation
+- Feature: Full installation of all lambdas or minimal installation of just Topology gathering lambda.
+- Feature: Manual install script has help message with all parameters.
+- Feature: Split AWS IAM policies in installation and uninstallation group for each type of installation.
 
-- Improvements: Updated StackPacks integration page, categories, and icons for the SaaS trial
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
 
-- Bugfix: AWS resource tags are kept in original format 
+- Bugfix: AWS resource tags are kept in original format.
