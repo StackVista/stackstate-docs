@@ -66,7 +66,7 @@ It is also possible to interactively navigate the topology. Right-click on a com
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
-![Quick Actions](../../.gitbook/assets/quick_actions.png)
+![Quick Actions](../../.gitbook/assets/quick_actions%20%282%29.png)
 
 **Quick Actions** expands the topology selection in one of the following ways:
 

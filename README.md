@@ -102,9 +102,9 @@ You are currently reading the documentation for **StackState version 4.0**.
 
 Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](setup/upgrading.md).
 
-
 ## **Support Site**
 
 Any question? We love to help!
 
 Find our support team on our [support site](http://support.stackstate.com/).
+

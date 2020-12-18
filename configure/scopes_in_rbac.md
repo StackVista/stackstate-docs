@@ -35,7 +35,7 @@ The below example shows the same topology view called "All Infrastructure" for f
 
 ### This user is a part of StackState Admin group, so there is no scope:
 
-![Full view permissions](../.gitbook/assets/allperm%20%282%29.png)
+![Full view permissions](../.gitbook/assets/allperm%20%282%29%20%281%29.png)
 
 The query for this view is the same as for the others, but without any prefix:
 
@@ -49,7 +49,7 @@ The query for this view is the same as for the others, but without any prefix:
 'domain = "Customer1"'
 ```
 
-![Limited view](../.gitbook/assets/esx1perm.png)
+![Limited view](../.gitbook/assets/v42_esx1perm%20%282%29.png)
 
 Query with the prefix for this view is:
 
@@ -85,5 +85,5 @@ Query with prefix for this user is then:
 '(domain = "Customer1" OR domain = "Customer2") AND (layer = "Infrastructure" AND domain IN ("Customer1", "Customer2"))'
 ```
 
-Which results in a following view: ![Full view permissions](../.gitbook/assets/allperm%20%281%29%20%281%29.png)
+Which results in a following view: ![Full view permissions](../.gitbook/assets/allperm%20%282%29%20%281%29%20%282%29.png)
 
