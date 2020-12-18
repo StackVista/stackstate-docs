@@ -1,1 +1,2 @@
-# Configure traces
+# Traces
+

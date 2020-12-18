@@ -1,1 +1,2 @@
-# StackState scripting language
+# StackState Scripting Language \(STSL\)
+

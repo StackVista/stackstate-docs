@@ -3,9 +3,9 @@ title: How to set up a security backend for Linux
 kind: Documentation
 ---
 
-# How to set up a security backend for Linux
+# Set up a security backend for Linux
 
-This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](/configure/security/secrets_management.md).
+This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](secrets_management.md).
 
 ## Security agent requirements
 
@@ -182,3 +182,4 @@ sudo su stackstate-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\
 ```
 
 The stackstate-agent user is created when you install the StackState Agent.
+

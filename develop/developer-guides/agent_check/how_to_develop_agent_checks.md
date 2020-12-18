@@ -77,7 +77,7 @@ The _init\_config_ section allows you to have an arbitrary number of global conf
 
 ### instances
 
-The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about [developing StackPacks.](/develop/developer-guides/stackpack).
+The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about [developing StackPacks.](../stackpack/).
 
 To synchronize multiple instances in StackState you have to create a multi-tenant StackPack \(documentation not yet available\).
 
@@ -198,7 +198,7 @@ self.component("this-host-unique-identifier-integration-b", "Host", {
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the [Agent Check Topology API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
+Learn more about the [Agent Check Topology API](checks_in_agent_v2.md)
 
 ### Sending Metrics
 
@@ -206,7 +206,7 @@ The StackState Agent Check interface supports various types of metrics.
 
 Metric data can be submitted using i.e. the `self.gauge()` function, or the `self.count()` function in the `AgentCheck` interface. All metrics data is stored in the `StackSate Metrics` data source that can be mapped to a metric telemetry stream for a component/relation in StackState:
 
-![Metrics](/.gitbook/assets/metricstelemetrystream.png)
+![Metrics](../../../.gitbook/assets/metricstelemetrystream.png)
 
 The example below submits a gauge metric `system.cpu.usage` for our previously submitted `this-host` component:
 
@@ -216,13 +216,13 @@ self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the [Agent Check Metric API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
+Learn more about the [Agent Check Metric API](checks_in_agent_v2.md)
 
 ### Sending Events
 
 Events can be submitted using the `self.event()` function in the `AgentCheck` interface. Events data is stored in the `StackState Generic Events` data source that can be mapped to an event telemetry stream on a component in StackState:
 
-![EventsStream](/.gitbook/assets/genericevents.png)
+![EventsStream](../../../.gitbook/assets/genericevents.png)
 
 The example below submits an event to StackState when a call to the instance that is monitored exceeds some configured timeout:
 
@@ -236,7 +236,7 @@ self.event({
 })
 ```
 
-Learn more about the [Agent Check Event API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
+Learn more about the [Agent Check Event API](checks_in_agent_v2.md)
 
 ### **Sending in Stream Definitions and Health Checks**
 
@@ -270,7 +270,7 @@ self.component("this-host-unique-identifier", "Host",
 
 We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list in our `this-host` component.
 
-Learn more about the [Agent Check Telemetry API](/develop/developer-guides/agent_check/checks_in_agent_v2.md#sending-streams-and-checks)
+Learn more about the [Agent Check Telemetry API](checks_in_agent_v2.md#sending-streams-and-checks)
 
 ### Sending Service Checks
 
@@ -290,7 +290,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the [Agent Check Service Check API](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
+Learn more about the [Agent Check Service Check API](checks_in_agent_v2.md)
 
 ### Adding Python Dependencies
 
@@ -357,3 +357,4 @@ For Windows:
 ```
 
 If your issue continues, please reach out to Support with the help page that lists the paths it installs.
+

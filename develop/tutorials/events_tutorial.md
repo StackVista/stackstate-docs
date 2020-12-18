@@ -2,11 +2,11 @@
 description: Get started with sending events to StackState from an external system.
 ---
 
-# External Events tutorial
+# Events tutorial
 
 This tutorial shows you how to send events from external systems to StackState.
 
-StackState creates a real-time map over your IT landscape and tracks all changes that occur. These changes are visible as events in the [Events Perspective](/use/views/events_perspective.md).
+StackState creates a real-time map over your IT landscape and tracks all changes that occur. These changes are visible as events in the [Events Perspective](../../use/views/events_perspective.md).
 
 This tutorial shows how you can submit external events to StackState.
 
@@ -14,9 +14,9 @@ This tutorial shows how you can submit external events to StackState.
 
 [This repository](https://github.com/StackVista/events-tutorial) contains a sample project with a [Puppet report processor \(puppet.com\)](https://puppet.com/docs/puppet/7.0/reporting_about.html) that will process a report of a Puppet configuration run and send events to StackState.
 
-In StackState, the events visible in the Events Perspective are related to elements (components or relations). In our example, the events sent to StackState by the report processor will be related to the host that Puppet runs on.
+In StackState, the events visible in the Events Perspective are related to elements \(components or relations\). In our example, the events sent to StackState by the report processor will be related to the host that Puppet runs on.
 
-The sample project uses [Vagrant \(vagrantup.com\)](https://www.vagrantup.com/) to provision a virtual machine with Puppet and the sample report processor installed. If you don't have access to Vagrant, read how you can [submit events directly](#submitting-external-events-directly).
+The sample project uses [Vagrant \(vagrantup.com\)](https://www.vagrantup.com/) to provision a virtual machine with Puppet and the sample report processor installed. If you don't have access to Vagrant, read how you can [submit events directly](events_tutorial.md#submitting-external-events-directly).
 
 Clone the repository to your laptop to get started.
 
@@ -71,15 +71,15 @@ Now, go ahead and trigger the script:
 ./run.sh
 ```
 
-Once the Puppet run is finished, the report processor is invoked and formats a JSON message that it sends to StackState. You can see the [report processor code on GitHub]( https://github.com/StackVista/custom-events-tutorial/blob/main/puppet/modules/stackstate/lib/puppet/reports/stackstate.rb).
+Once the Puppet run is finished, the report processor is invoked and formats a JSON message that it sends to StackState. You can see the [report processor code on GitHub](https://github.com/StackVista/custom-events-tutorial/blob/main/puppet/modules/stackstate/lib/puppet/reports/stackstate.rb).
 
 The event will be visible in the StackState Events Perspective:
 
-![](/.gitbook/assets/example-event-perspective.png)
+![](../../.gitbook/assets/example-event-perspective.png)
 
 ## Submitting external events directly
 
-If you don't have access to Vagrant, you can also submit the JSON to StackState directly using the command below. 
+If you don't have access to Vagrant, you can also submit the JSON to StackState directly using the command below.
 
 {% hint style="info" %}
 If you execute this command locally instead of on the virtual machine, make sure that you have the environment variables set properly.
@@ -92,8 +92,7 @@ TS=`date +%s`; cat event.json | \
     -d @- ${STS_STS_URL}/intake/\?api_key\=${STS_API_KEY}
 ```
 
-For these events to appear in StackState, the component representing the virtual machine must be present with the identifier `urn:host:/localhost.localdomain`. See how to [manually add a component](/configure/topology/how_to_create_manual_topology.md#how-to-create-components).
-
+For these events to appear in StackState, the component representing the virtual machine must be present with the identifier `urn:host:/localhost.localdomain`. See how to [manually add a component](../../configure/topology/how_to_create_manual_topology.md#how-to-create-components).
 
 ## Terminating the virtual machine
 
@@ -109,9 +108,9 @@ When you are done with this tutorial, you can remove the configuration from your
 
 * Uninstall the **Agent v2 StackPack**. This will remove the configuration and data received \(topology\) from StackState.
 
-
 ## See also
 
-- [StackState Events Perspective](/use/views/events_perspective.md)
-- [Send events to StackState over HTTP](/configure/telemetry/send_telemetry.md#send-telemetry-over-http)
-- [Automate alerts and actions based on events](/configure/topology/event-handlers.md)
+* [StackState Events Perspective](../../use/views/events_perspective.md)
+* [Send events to StackState over HTTP](../../configure/telemetry/send_telemetry.md#send-telemetry-over-http)
+* [Automate alerts and actions based on events](../../configure/topology/event-handlers.md)
+

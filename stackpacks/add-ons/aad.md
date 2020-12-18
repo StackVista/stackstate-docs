@@ -1,4 +1,4 @@
-# Autonomous Anomaly Detector
+# Autonomous Anomaly Detector \(BETA\)
 
 ## What is the Autonomous Anomaly Detector StackPack?
 
@@ -19,8 +19,8 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 The stream selection algorithm works as follows:
 
 * Components in Views that have the most stars are selected.
-* From those components, only high priority metric streams are selected. See [how to set the priority for a stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md).
-* Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](/use/health-state-and-alerts/anomaly-detection-with-baselines.md).
+* From those components, only high priority metric streams are selected. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
+* Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](../../use/health-state-and-alerts/anomaly-detection-with-baselines.md).
 
 You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
 
@@ -34,7 +34,7 @@ The status UI of the AAD Kubernetes service provides various metrics and indicat
 
 ## Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](/setup/installation/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation.
+The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
@@ -119,8 +119,6 @@ ingress:
         nginx.ingress.kubernetes.io/ingress.class: nginx
     hosts:
         - host: <domain name>  # e.g. spotlight.domain.com
-
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -145,22 +143,23 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
 
 ## Upgrade the AAD Kubernetes service
 
-The AAD Kubernetes service is released independently from StackState, therefore you may benefit from upgrading often.
-To upgrade the AAD Kubernetes service:
+The AAD Kubernetes service is released independently from StackState, therefore you may benefit from upgrading often. To upgrade the AAD Kubernetes service:
 
-1. Check the [release notes](#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release.
-    - Update the image tag in `values.yaml`.
-    - Fetch the helm chart version:
-        ```text
-        helm fetch stackstate/anomaly-detection --version 4.1.18
-        ```
-4. Run the upgrade command below, specifying the [necessary parameters](#5-install-the-aad-kubernetes-service) as described in the install section.
-    ```text
+1. Check the [release notes](aad.md#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release.
+   * Update the image tag in `values.yaml`.
+   * Fetch the helm chart version:
+
+     ```text
+       helm fetch stackstate/anomaly-detection --version 4.1.18
+     ```
+2. Run the upgrade command below, specifying the [necessary parameters](aad.md#5-install-the-aad-kubernetes-service) as described in the install section.
+
+   ```text
     helm upgrade anomaly-detector stackstate/anomaly-detection \
         --namespace <stackstate-namespace> \
         --set image.pullSecretPassword=<image registry password>
         --values ./values.yaml
-    ```
+   ```
 
 ## Deactivate the AAD Kubernetes service
 
@@ -186,36 +185,43 @@ To access the status UI, the status interface Ingress must be configured in the 
 
 Common questions that can be answered in the status UI:
 
-**Is the AAD Kubernetes service running?**<br />If the status UI is accessible: The service is running.<br />If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
+**Is the AAD Kubernetes service running?**  
+If the status UI is accessible: The service is running.  
+If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
 
-**Can the AAD Kubernetes service reach StackState?**<br />Check the status UI sections **Top errors** and **Last stream polling results**.  Errors here usually indicate connection problems.
+**Can the AAD Kubernetes service reach StackState?**  
+Check the status UI sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
 
-**Has the AAD Kubernetes service selected streams for anomaly detection?**<br />The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
+**Has the AAD Kubernetes service selected streams for anomaly detection?**  
+The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
 
-**Is the AAD Kubernetes service detecting anomalies?**<br />The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected.  The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
+**Is the AAD Kubernetes service detecting anomalies?**  
+The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected. The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
 
-**Is the AAD Kubernetes service scheduling streams?**<br />The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
+**Is the AAD Kubernetes service scheduling streams?**  
+The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 ## Release Notes
 
-Release notes for the [AAD StackPack](#aad-stackpack) and the [AAD Kubernetes service](#aad-kubernetes-service) are available below.
+Release notes for the [AAD StackPack](aad.md#aad-stackpack) and the [AAD Kubernetes service](aad.md#aad-kubernetes-service) are available below.
 
 ### AAD StackPack
 
-#### AAD StackPack v0.6 BETA (13-10-2020)
+#### AAD StackPack v0.6 BETA \(13-10-2020\)
 
-- Documentation fixes and minor maintenance work.
+* Documentation fixes and minor maintenance work.
 
-#### AAD StackPack v0.2.2 BETA (04-09-2020)
+#### AAD StackPack v0.2.2 BETA \(04-09-2020\)
 
-- Releasing Autonomous Anomaly Detector service BETA.
-
+* Releasing Autonomous Anomaly Detector service BETA.
 
 ### AAD Kubernetes service
 
 #### AAD Kubernetes service v4.2.0 BETA
 
-**Helm chart version**: 4.1.27<br />**Image tag**: 4.2.0-release<br />**Release date**: 2020-12-11
+**Helm chart version**: 4.1.27  
+**Image tag**: 4.2.0-release  
+**Release date**: 2020-12-11
 
 Changes in this version:
 
@@ -223,7 +229,9 @@ Changes in this version:
 
 #### AAD Kubernetes service v4.1.2 BETA
 
-**Helm chart version**: 4.1.24<br />**Image tag**: 4.1.2-release<br />**Release date**: 2020-11-27
+**Helm chart version**: 4.1.24  
+**Image tag**: 4.1.2-release  
+**Release date**: 2020-11-27
 
 Changes in this version:
 
@@ -231,7 +239,9 @@ Changes in this version:
 
 #### AAD Kubernetes service v4.1.1 BETA
 
-**Helm chart version**: 4.1.18<br />**Image tag**: 4.1.1-release<br />**Release date**: 2020-10-09
+**Helm chart version**: 4.1.18  
+**Image tag**: 4.1.1-release  
+**Release date**: 2020-10-09
 
 Changes in this version:
 
@@ -242,8 +252,11 @@ Changes in this version:
 
 #### AAD Kubernetes service v4.1.0 BETA
 
-**Helm chart version**: 4.1.15<br />**Image tag**: 4.1.0-release<br />**Release date**: 2020-09-04
+**Helm chart version**: 4.1.15  
+**Image tag**: 4.1.0-release  
+**Release date**: 2020-09-04
 
 Changes in this version:
 
 * Releasing Autonomous Anomaly Detector service BETA.
+
