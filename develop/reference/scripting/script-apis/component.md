@@ -4,7 +4,7 @@ kind: Documentation
 description: Functions to get access to specific component data.
 ---
 
-# Script API: Component
+# Component - script API
 
 ## Function `withId`
 
@@ -121,8 +121,9 @@ arguments
 
 **Examples:**
 
-This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](/develop/reference/scripting/async_script_result.md) `then` function is used to get the name of the layer.
+This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](../async_script_result.md) `then` function is used to get the name of the layer.
 
 ```text
 Component.withId(123).layer().then { it.name }
 ```
+

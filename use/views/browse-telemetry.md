@@ -6,20 +6,21 @@ description: Inspect and filter data from a configured telemetry stream
 
 ## Overview
 
-The StackState UI displays a visualization of filtered data for each configured telemetry stream. 
+The StackState UI displays a visualization of filtered data for each configured telemetry stream.
 
-Telemetry streams are added to elements automatically when they are imported to StackState or you can manually [add a single telemetry stream] to a single component.
+Telemetry streams are added to elements automatically when they are imported to StackState or you can manually \[add a single telemetry stream\] to a single component.
 
 ## Telemetry Browser
 
 Click on any of the telemetry stream charts, or select **Inspect stream** from its context menu, to open the telemetry browser.
 
-![Telemetry browser](/.gitbook/assets/v42_telemetry_browser.png)
+![Telemetry browser](../../.gitbook/assets/v42_telemetry_browser.png)
 
 Within the telemetry browser you can adjust the filters, time window and aggregation applied to the data source.
 
 ## See also
 
-- [Add a single telemetry stream to a component](/use/health-state-and-alerts/add-telemetry-to-element.md)
-- [Use templates to add telemetry streams to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
-- [Monitor a telemetry stream with a health check](/use/health-state-and-alerts/add-a-health-check.md)
+* [Add a single telemetry stream to a component](../health-state-and-alerts/add-telemetry-to-element.md)
+* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md)
+* [Monitor a telemetry stream with a health check](../health-state-and-alerts/add-a-health-check.md)
+

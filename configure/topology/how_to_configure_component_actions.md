@@ -1,10 +1,10 @@
-# How to configure component actions
+# Configure component actions
 
 This how-to describes the steps to create a Component Action that can be executed from the component context menu in a Topology View.
 
 To start working with Component Actions, go to the Settings page and then in Actions, select "Component Actions". There you can add a new Component Action or edit one that already exists.
 
-![Component Actions](/.gitbook/assets/component_actions.png)
+![Component Actions](../../.gitbook/assets/component_actions.png)
 
 ## 1. Provide a name and description
 
@@ -14,7 +14,7 @@ Please note that the Component Action name is case-sensitive.
 
 ## 2. Bind components to your Action with an STQL query
 
-In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](/develop/reference/stql_reference.md).
+In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](../../develop/reference/stql_reference.md).
 
 The below example binds an Action to all components in the "Production" domain that are present in the "databases" layer.
 
@@ -26,7 +26,7 @@ The below example binds an Action to all components in the "Production" domain t
 
 This step determines Action's behavior when it is executed from the component context menu. The scripting language here is [Groovy](https://groovy-lang.org/), and you can script almost any action you need, from redirecting to another View with context, restarting remote components, to calling predictions for components.
 
-Find more about the possibilities of [scripting in StackState](/develop/reference/scripting/).
+Find more about the possibilities of [scripting in StackState](../../develop/reference/scripting/).
 
 ## 4. Provide a valid Identifier \(optional\)
 
@@ -102,3 +102,4 @@ Http.post("https://postman-echo.com/post")
     .timeout("30s")
 .jsonResponse()
 ```
+

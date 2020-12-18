@@ -27,6 +27,6 @@ In some cases you may even want to build two agent checks, one for each types of
 
 Refer to:
 
-* [How to create checks with agent v2](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md) 
-* [Agent v2 check reference](/develop/developer-guides/agent_check/checks_in_agent_v2.md)
+* [How to create checks with agent v2](how_to_develop_agent_checks.md) 
+* [Agent v2 check reference](checks_in_agent_v2.md)
 

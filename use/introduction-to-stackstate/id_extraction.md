@@ -11,7 +11,7 @@ Id extraction is used in the synchronization process to turn external data into 
 * an `externalId` - is the identifier with which the element is easily identifiable in the external source
 * `identifiers` \(multiple\) - a set of identifiers that identify the object internally in StackState.
 
-![Id extractor](/.gitbook/assets/idextractor.png)
+![Id extractor](../../.gitbook/assets/idextractor.png)
 
 Below you can find an Id Extractor function:
 

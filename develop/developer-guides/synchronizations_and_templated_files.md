@@ -35,7 +35,7 @@ Preparing a templated file is a process that requires some configuration of Stac
 
 ### 1. Prepare a check in StackState Agent
 
-The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](/stackpacks/integrations/agent.md).
+The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](../../stackpacks/integrations/agent.md).
 
 ### 2. Install Custom Synchronization StackPack
 
@@ -52,11 +52,11 @@ Once you have installed Custom Synchronization StackPack, you need to start prep
 
 There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 
-These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](/develop/reference/stj/stj_reference.md).
+These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](../reference/stj/stj_reference.md).
 
 ### 4. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](/use/introduction-to-stackstate/components_and_relations.md).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](../../use/introduction-to-stackstate/components_and_relations.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
 
@@ -64,31 +64,31 @@ Component types and Relation types can also be created automatically by StackSta
 
 When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
 
-Read more about [Id Extractors](/use/introduction-to-stackstate/id_extraction.md)
+Read more about [Id Extractors](../../use/introduction-to-stackstate/id_extraction.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 
 Component Mapping Functions are used by StackState to do some translation of incoming component data. They are applied in the Synchronization for a given source/component type.
 
-Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](/use/introduction-to-stackstate/mapping_functions.md).
+Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](../../use/introduction-to-stackstate/mapping_functions.md).
 
 ### 7. Configure Component and Relation Templates
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](/develop/reference/stj/templates.md).
+You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stj/templates.md).
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
 ### 8. Configure Sts Sources - Topology Sources
 
-Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](/configure/topology/topology_sources.md)
+Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](../../configure/topology/topology_sources.md)
 
 Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
 
 ### 9. Configure Synchronizations
 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](/configure/topology/topology_synchronization.md) or proceed to edit this synchronization with the instructions below:
+Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/topology_synchronization.md) or proceed to edit this synchronization with the instructions below:
 
 #### Step 1
 
@@ -142,7 +142,7 @@ Each of the node elements represents a configuration item in StackState. This co
 
 The only way to add/modify the identifiers is the manual edit of the configuration file. This option will be available also through UI in the upcoming releases.
 
-After cleaning up the configuration file it is time to template out the variables exposed by your StackPack. As explained in the [Configuration input](/develop/developer-guides/stackpack/prepare_package.md) documentation section, it is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](/develop/stackpack/prepare_stackpack_provisioning_script.md). Any parameters or configuration item can be passed down to the `.stj` template file.
+After cleaning up the configuration file it is time to template out the variables exposed by your StackPack. As explained in the [Configuration input](stackpack/prepare_package.md) documentation section, it is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](https://github.com/StackVista/stackstate-docs/tree/d2496325c86159cd6adbe80168d89f7ff825ca9f/develop/stackpack/prepare_stackpack_provisioning_script.md). Any parameters or configuration item can be passed down to the `.stj` template file.
 
 One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. Following code snippet shows how to create a function called `topicName` that generates a topic name for this instance based on the data provided by the user in the StackPack installation step.
 

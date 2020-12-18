@@ -2,16 +2,15 @@
 description: Functions related to time and timing.
 ---
 
-# Script API: Time
+# Time - script API
 
 Some scripting functions of StackState may accept a `TimeSlice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.
 
 ## Type: `TimeSlice`
 
-A time slice represents all ongoing transactions. `Time.currentTimeslice()` returns an [async script result](/develop/reference/scripting/async_script_result.md) with a time slice for the current timestamp.
-For example:
+A time slice represents all ongoing transactions. `Time.currentTimeslice()` returns an [async script result](../async_script_result.md) with a time slice for the current timestamp. For example:
 
-```
+```text
 Time.currentTimeSlice().then { slice -> 
     Topology.query('environments in ("Production")')
     .at(slice)
@@ -24,7 +23,6 @@ Time.currentTimeSlice().then { slice ->
     } 
 }
 ```
-
 
 ## Type: `Instant`
 
