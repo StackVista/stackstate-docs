@@ -6,7 +6,7 @@ description: See traces for the components in your IT landscape.
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
-![The Traces Perspective](../../.gitbook/assets/v42_traces-perspective.png)
+![The Traces Perspective](../../.gitbook/assets/traces-perspective%20%288%29.png)
 
 To find out more about how you can add traces to StackState, please read the [guide to setting up traces](../../configure/traces/how_to_setup_traces.md).
 
@@ -16,7 +16,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
-![Inspecting a trace](../../.gitbook/assets/v42_trace-inspection.png)
+![Inspecting a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29.png)
 
 Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to Postgres calls that are made when completing the request.
 
@@ -57,7 +57,7 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../.gitbook/assets/v42_trace-inspection.png)
+![The spans \(components\) of a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29.png)
 
 ![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
 
@@ -88,5 +88,5 @@ When using the Traces Perspective in live mode, you are constantly polling for t
 
 To avoid this, time will effectively be "paused" when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click the blue ribbon on top or in the timeline itself to resume live mode:
 
-![Pausing time when inspecting a trace](../../.gitbook/assets/v42_trace-inspection.png)
+![Pausing time when inspecting a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29.png)
 

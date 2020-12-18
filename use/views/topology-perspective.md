@@ -10,7 +10,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](./). Components that have one or more [checks](../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](https://github.com/StackVista/stackstate-docs/tree/d2496325c86159cd6adbe80168d89f7ff825ca9f/configure/health_state_and_alerting/propagation.md).
+The Topology Perspective shows components and relations in the selected [view](./). Components that have one or more [checks](../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](https://github.com/StackVista/stackstate-docs/tree/507d5edfe20d04f545d23495ea7864eaa633775e/configure/health_state_and_alerting/propagation.md).
 
 ## Component details
 
