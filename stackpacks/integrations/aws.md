@@ -132,9 +132,9 @@ These environment variables have the same names as AWS\_CLI utility uses. They c
 
 **AWS StackPack v5.0.2 (2020-11)**
 
-- Bugfix: Fixed and improved the parsing of custom stackstate identifier tags making it more flexible and ignoring case sensitivity
-- Bugfix: Fixed the merging between ECS service components with Traefik trace service components
-- Bugfix: Fixed profile selection doesn't work when you run `./install --profile`
+- Bugfix: Fixed and improved the parsing of custom stackstate identifier tags making it more flexible and ignoring case sensitivity.
+- Bugfix: Fixed the merging between ECS service components with Traefik trace service components.
+- Bugfix: Fixed profile selection doesn't work when you run `./install --profile`.
 
 **AWS StackPack v5.0.1 (2020-08-18)**
 
@@ -178,7 +178,5 @@ These environment variables have the same names as AWS\_CLI utility uses. They c
 - Feature: Full installation of all lambdas or minimal installation of just Topology gathering lambda.
 - Feature: Manual install script has help message with all parameters.
 - Feature: Split AWS IAM policies in installation and uninstallation group for each type of installation.
-
 - Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
-
 - Bugfix: AWS resource tags are kept in original format.
