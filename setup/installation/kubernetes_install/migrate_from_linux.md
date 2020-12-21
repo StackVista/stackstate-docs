@@ -6,15 +6,11 @@ This document describes how to migrate data from the Linux install of StackState
 
 To migrate from the Linux install to the Kubernetes install of StackState, the following high level steps will need to be performed:
 
-1. Install StackState on Kubernetes.
-1. Copy StackState configuration and topology data (StackGraph) and Telemetry data (ElasticSearch) from the Linux install to the Kubernetes install. Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) is not copied.
-1. Run both instances of StackState side by side for a number of days. This allows the telemetry data to be built back up.
+1. Install StackState on Kubernetes by following [the installation manual](install_stackstate.md).
+1. Copy StackState configuration and topology data (StackGraph) and Telemetry data (ElasticSearch) from the Linux install to the Kubernetes install. Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) is not copied. See below for the instruction to step 2.
+1. Run both instances of StackState side by side for a number of days to ensure 
 1. Stop the Linux install for StackState.
 1. Remove the Linux install for StackState.
-
-## Step 1 - Install StackState on Kubernetes
-
-1. Follow the documentation on how to [Install StackState on Kubernetes](install_stackstate.md).
 
 ## Step 2 - Migrate StackState configuration and topology data (StackGraph) and telemetry data (ElasticSearch)
 
@@ -28,13 +24,13 @@ Before you start this migration procedure, make sure you have the following info
 * Access to the Kubernetes cluster running your new StackState installation
 * Access to the `values.yaml` file used to install your StackState installation on Kubernetes
 * The following tools:
-    * `curl`
-    * `helm`
-    * `kubectl`
+    * [curl](https://curl.se/)
+    * [helm](https://helm.sh/)
+    * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 ### Step 2.1 - Export the StackGraph data
 
-To export the StackGraph data, execute the [regular backup procedures](../../data-management/backup_restore/linux_backup.md) as described below.
+<a name="export_stackgraph_data"></a>To export the StackGraph data, execute the [regular backup procedures](../../data-management/backup_restore/linux_backup.md) as described below.
 
 1. Ensure that the StackGraph node is up and running.
 
@@ -63,7 +59,7 @@ To export the StackGraph data, execute the [regular backup procedures](../../dat
 
 ### Step 2.2 - Export the ElasticSearch data
 
-To export the ElasticSearch data, follow the instruction below to create a "snapshot".
+<a name="export_elasticsearch_data"></a>To export the ElasticSearch data, follow the instruction below to create a "snapshot".
 
 1. Login to the StackState node as user `root`.
 
@@ -113,35 +109,37 @@ To export the ElasticSearch data, follow the instruction below to create a "snap
 
     ```json
     {
-        "snapshot" : {
-            "snapshot" : "export",
-            "uuid" : "yYVNJj5GQSSACrf34nIErg",
-            "version_id" : 7030299,
-            "version" : "7.3.2",
-            "indices" : [
-                "sts_internal_events-2020.11.12",
-                "sts_internal_events-2020.12.16",
-                "sts_internal_events-2020.12.18",
-                "sts_internal_events-2020.11.10"
-            ],
-            "include_global_state" : true,
-            "state" : "SUCCESS",
-            "start_time" : "2020-12-18T07:51:36.686Z",
-            "start_time_in_millis" : 1608277896686,
-            "end_time" : "2020-12-18T07:51:36.771Z",
-            "end_time_in_millis" : 1608277896771,
-            "duration_in_millis" : 85,
-            "failures" : [ ],
-            "shards" : {
-                "total" : 4,
-                "failed" : 0,
-                "successful" : 4
-            }
+      "snapshot" : {
+        "snapshot" : "export",
+        "uuid" : "yYVNJj5GQSSACrf34nIErg",
+        "version_id" : 7030299,
+        "version" : "7.3.2",
+        "indices" : [
+          "sts_internal_events-2020.11.12",
+          "sts_internal_events-2020.12.16",
+          "sts_internal_events-2020.12.18",
+          "sts_internal_events-2020.11.10"
+        ],
+        "include_global_state" : true,
+        "state" : "SUCCESS",
+        "start_time" : "2020-12-18T07:51:36.686Z",
+        "start_time_in_millis" : 1608277896686,
+        "end_time" : "2020-12-18T07:51:36.771Z",
+        "end_time_in_millis" : 1608277896771,
+        "duration_in_millis" : 85,
+        "failures" : [ ],
+        "shards" : {
+          "total" : 4,
+          "failed" : 0,
+          "successful" : 4
         }
+      }
     }
     ```
 
-1. Verify that the number of `failed shards` is 0 and that the data was written to the directory `opt/stackstate/migration/elastic` looks like this:
+    The number behind `failed` in the `shards` section should be 0.
+
+1. Verify that the data was written to the directory `opt/stackstate/migration/elastic` looks like this:
 
     ```text
     -rw-r--r--. 1 stackstate stackstate  503 Dec 18 11:48 index-0
@@ -184,7 +182,7 @@ To import the StackGraph data into the Kubernetes installation, create a Kuberne
 
 1. Wait for the `stackstate-server-0` pod to be terminated.
 
-1. Save the following YAML fragment that created a Kubernetes job to a file called `import-stackgraph-data.yaml`:
+1. Save the following YAML fragment that creates a Kubernetes job to a file called `import-stackgraph-data.yaml`:
     ```yaml
     apiVersion: batch/v1
     kind: Job
@@ -226,7 +224,7 @@ To import the StackGraph data into the Kubernetes installation, create a Kuberne
     import-stackgraph-data-p624n
     ```
 
-1. Copy the export file created in step 2.1 to the pod:
+1. Copy the export file created in [step 2.1](#export_stackgraph_data) to the pod:
     ```bash
     kubectl cp sts-export.graph ${STS_IMPORT_POD}:/tmp/sts-export.graph
     ```
@@ -269,12 +267,14 @@ To import the StackGraph data into the Kubernetes installation, create a Kuberne
 
 ### Step 2.4 - Import the ElasticSearch data
 
-To import the ElasticSearch data, install [MinIO](https://min.io/), copy the snapshot created in step 2.2 into the MinIO pod, configure ElasticSearch to connect to Minio, and then tell ElasticSearch to import the snapshot.
+To import the ElasticSearch data, install [MinIO](https://min.io/) in the Kubernetes cluster, copy the snapshot created in step 2.2 into the MinIO pod, configure ElasticSearch to connect to Minio, and then tell ElasticSearch to import the snapshot.
 
-1. In the Kubernetes setup, install minio into namespace where you installed StackState:
+1. In the Kubernetes setup, install minio into the namespace where you installed StackState:
 
     ```bash
-    helm install minio minio --repo https://helm.min.io/ --version '8.0.8' --set 'persistence.enabled=false' --set 'buckets[0].name=elastic,buckets[0].policy=none,buckets[0].purge=false'
+    helm install minio minio --repo https://helm.min.io/ --version '8.0.8' \
+        --set 'persistence.enabled=false' \
+        --set 'buckets[0].name=elastic,buckets[0].policy=none,buckets[0].purge=false'
     ```
 
 1. Determine which pod runs MinIO:
@@ -293,7 +293,7 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
     minio-6bd7bc5bf8-srwm2
     ```
 
-1. Copy the exported data from Step 2.2 into the pod:
+1. Copy the exported data from [step 2.2](#export_elasticsearch_data) into the pod:
 
     ```bash
     kubectl cp ./elastic ${STS_MINIO_POD}:/export
@@ -325,7 +325,9 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
 1. Create secrets to refer to from the ElasticSearch configuration:
 
     ```bash
-    kubectl create secret generic minio-keys --from-literal=access_key=${MINIO_ACCESS_KEY} --from-literal=secret_key=${MINIO_SECRET_KEY}
+    kubectl create secret generic minio-keys \
+        --from-literal=access_key=${MINIO_ACCESS_KEY} \
+        --from-literal=secret_key=${MINIO_SECRET_KEY}
     ```
 
 1. <a name="add_minio_keys_to_values"></a>Modify the `values.yaml` file you use to start StackState and add the following YAML fragment:
@@ -341,7 +343,7 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
               path: s3.client.minio.secret_key
     ```
 
-    **N.B.:** If you have an existing `elasticsearch` fragment, merge the `keystore` fragment.
+    **Note:** If you have an existing `elasticsearch` fragment, merge the `keystore` fragment.
 
 1. Reinstall StackState and wait for the pods to come back up:
 
@@ -349,7 +351,7 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
     helm upgrade stackstate stackstate/stackstate --values values.yaml
     ```
 
-    **N.B.:** This command assumes you named the Helm release `stackstate` when you installed StackState on Kubernetes. If you used a different name for the Helm release, change the first parameter to the `helm upgrade` command appropiately.
+    **Note:** This command assumes you named the Helm release `stackstate` when you installed StackState on Kubernetes. If you used a different name for the Helm release, change the first parameter to the `helm upgrade` command appropiately.
 
 1. Expose the ElasticSearch master port:
 
@@ -357,7 +359,7 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
     kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
     ```
 
-    **N.B.:** This command assumes you named the Helm release `stackstate` when you installed StackState on Kubernetes. If you used a different name for the Helm release, substitute the right service name.
+    **Note:** This command assumes you named the Helm release `stackstate` when you installed StackState on Kubernetes. If you used a different name for the Helm release, substitute the right service name.
 
 1. In a new terminal window, configure an ElasticSearch snapshot repository
 
@@ -384,24 +386,24 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
     The output should look like this:
     ```bash
     {
-    "snapshot" : {
+      "snapshot" : {
         "snapshot" : "export",
         "indices" : [
-            "sts_internal_events-2020.12.18",
-            "sts_internal_events-2020.11.10",
-            "sts_internal_events-2020.11.12",
-            "sts_internal_events-2020.12.16"
+          "sts_internal_events-2020.12.18",
+          "sts_internal_events-2020.11.10",
+          "sts_internal_events-2020.11.12",
+          "sts_internal_events-2020.12.16"
         ],
         "shards" : {
-            "total" : 4,
-            "failed" : 0,
-            "successful" : 4
+          "total" : 4,
+          "failed" : 0,
+          "successful" : 4
         }
-    }
+      }
     }
     ```
 
-1. Verify that the number of `failed shards` is 0.
+    The number behind `failed` in the `shards` section should be 0.
 
 1. Remove the YAML fragment that was added to the `values.yaml` file for this StackState installation that was added in [a previous step](#add_minio_keys_to_values).
 
@@ -411,7 +413,7 @@ To import the ElasticSearch data, install [MinIO](https://min.io/), copy the sna
     helm upgrade stackstate stackstate/stackstate --values values.yaml
     ```
 
-    **N.B.:** This command assumes you named the Helm release `stackstate` when you installed StackState on Kubernetes. If you used a different name for the Helm release, change the first parameter to the `helm upgrade` command appropiately.
+    **Note:** This command assumes you named the Helm release `stackstate` when you installed StackState on Kubernetes. If you used a different name for the Helm release, change the first parameter to the `helm upgrade` command appropiately.
 
 1. Remove the secrets created to store the MinIO keys:
 
