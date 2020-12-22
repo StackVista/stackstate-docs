@@ -9,7 +9,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](https://github.com/StackVista/stackstate-docs/tree/4ccd8157baaac31853249918f02e9f0d6fbb2bfe/stackpacks/about-stackpacks/README.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](../../stackpacks/about-stackpacks/README.md).
 
 ![StackPacks overview](../../.gitbook/assets/v42_01_stackpacks%20%281%29.png)
 

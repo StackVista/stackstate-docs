@@ -131,10 +131,10 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 
 ### Logging
 
-You can add user logging from the script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](https://github.com/StackVista/stackstate-docs/tree/4ccd8157baaac31853249918f02e9f0d6fbb2bfe/configure/logging/README.md).
+You can add user logging from the script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../configure/logging/README.md).
 
 ## See also
 
 * [StackState script APIs](../../develop/reference/scripting/script-apis/)
-* [Enable logging for functions](https://github.com/StackVista/stackstate-docs/tree/4ccd8157baaac31853249918f02e9f0d6fbb2bfe/configure/logging/README.md)
+* [Enable logging for functions](../../configure/logging/README.md)
 

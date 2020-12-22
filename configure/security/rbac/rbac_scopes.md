@@ -81,5 +81,5 @@ Query with prefix for this user is then:
 
 Which results in a following view:
 
-![Full view permissions](../../../.gitbook/assets/v42_allperm.png)
+![Full view permissions](../../../.gitbook/assets/allperm.png)
 

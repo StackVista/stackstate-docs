@@ -30,7 +30,7 @@ Functions in StackState can be either synchronous or asynchronous \(async\).
 | Component mapper function | ✅ | - |
 | Event handler function | ✅ | - |
 | Id extractor function | ✅ | - |
-| Propagation functions | ✅ | ✅ \(from v1.15.1\) |
+| Propagation functions | ✅ | ✅ |
 | Relation mapper function | ✅ | - |
 
 ### Async functions
