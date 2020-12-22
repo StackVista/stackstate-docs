@@ -1,12 +1,17 @@
 # Splunk
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Splunk StackPack?
 
 The Splunk StackPack synchronizes topology, events and metrics from Splunk to StackState.
 
 ## Prerequisites
 
-The Splunk StackPack depends on the [API Integration](/stackpacks/integrations/api-integration.md) StackPack.
+The Splunk StackPack depends on the [API Integration](../api-integration.md) StackPack.
 
 ## Synchronizing data from Splunk
 
@@ -39,6 +44,7 @@ To call a Splunk saved search `testsearch` with parameter `host` and a hostname 
 
 ## Further information
 
-- [Synchronize Splunk topology](/stackpacks/integrations/splunk/splunk_topology.md) for more information.
-- [Synchronize Splunk events](/stackpacks/integrations/splunk/splunk_event.md) for more information.
-- [Synchronize Splunk metrics](/stackpacks/integrations/splunk/splunk_metric.md) for more information.
+* [Synchronize Splunk topology](splunk_topology.md) for more information.
+* [Synchronize Splunk events](splunk_event.md) for more information.
+* [Synchronize Splunk metrics](splunk_metric.md) for more information.
+

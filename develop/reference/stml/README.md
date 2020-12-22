@@ -4,6 +4,11 @@ description: Build reports with StackState's markup language.
 
 # StackState Markup Language \(STML\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 With StackState Markup Language \(STML\), you can create pretty formatted documents of StackState data. STML is a [markdown based language](https://en.wikipedia.org/wiki/Markdown) with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.
 
 ## Rich text formatting using Markdown
@@ -12,7 +17,7 @@ STML is a valid superset of markdown. In other words, it is markdown plus extens
 
 ```text
 | To buy                              | Amount |
-|------------------------------- -----|--------|
+:--|:--|
 |[Apples](http://goolge.com/?q=apples)| 2      |
 |[Pears](http://goolge.com/?q=pears)  | 5      |
 ```
@@ -31,7 +36,7 @@ Attributes can be passed as literal values using a double or single quote. Some 
 
 Not all tags display their content, but if they do, the content of a tag should be a valid STML.
 
-See the [tag reference](/develop/reference/stml/tags.md) for an overview of all tags, their purpose and attributes.
+See the [tag reference](tags.md) for an overview of all tags, their purpose and attributes.
 
 ## Passing script data to tags with STML variables
 

@@ -1,10 +1,15 @@
 # Install StackState
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Before you start
 
 Before you start the installation of StackState:
 
-* Check that your Kubernetes environment meets the [requirements](/setup/requirements.md)
+* Check that your Kubernetes environment meets the [requirements](../../requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Add the StackState helm repository to the local helm client:
 
@@ -15,10 +20,10 @@ helm repo update
 
 ## Install StackState
 
-1. [Create the namespace where StackState will be installed](/setup/installation/kubernetes_install/install_stackstate.md#create-namespace)
-2. [Generate the `values.yaml` file](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml)
-3. [Deploy StackState with Helm](/setup/installation/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm)
-4. [Access the StackState UI](/setup/installation/kubernetes_install/install_stackstate.md#access-the-stackstate-ui)
+1. [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
+2. [Generate the `values.yaml` file](install_stackstate.md#generate-values-yaml)
+3. [Deploy StackState with Helm](install_stackstate.md#deploy-stackstate-with-helm)
+4. [Access the StackState UI](install_stackstate.md#access-the-stackstate-ui)
 
 ### Create namespace
 
@@ -59,9 +64,9 @@ The script requires the following configuration items:
 | License key | `-l` | The StackState license key. |
 | Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it. |
 | Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it. |
-| Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](install_stackstate.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md). |
+| Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](install_stackstate.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). |
 
-The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](/setup/installation/kubernetes_install/development_setup.md).
+The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
 
 {% hint style="info" %}
 Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.
@@ -109,12 +114,13 @@ StackState will now be available in your browser at `https://localhost:8080`. Lo
 
 Next steps are
 
-* Configure [ingress](/setup/installation/kubernetes_install/ingress.md)
-* Install a [StackPack](/stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](/setup/authentication.md).
+* Configure [ingress](ingress.md)
+* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
+* Give your [co-workers access](../../authentication.md).
 
 ## Automatic Kubernetes support
 
-StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
+StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
 
-The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md) page.
+The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
+

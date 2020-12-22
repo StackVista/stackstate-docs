@@ -6,6 +6,11 @@ description: Functions for accessing telemetry.
 
 # Script API: Telemetry
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Function `query`
 
 A telemetry query is a conjunction of equality conditions. E.g. `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine query time range, limit the number of points returned, or set a metric field.
@@ -30,9 +35,9 @@ As of yet telemetry queries only support metric queries. If you need event queri
 **Builder methods:**
 
 * `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`.
-* `start(time: Instant)` - sets the start [time](/develop/reference/scripting/script-apis/time.md) of the query, e.g `-3h`.
-* `end(time: Instant)` - sets the end [time](/develop/reference/scripting/script-apis/time.md) of the query, e.g `-1h`.
-* `window(start: Instant, end: Instant)` - sets query [time](/develop/reference/scripting/script-apis/time.md) range. Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
+* `start(time: Instant)` - sets the start [time](time.md) of the query, e.g `-3h`.
+* `end(time: Instant)` - sets the end [time](time.md) of the query, e.g `-1h`.
+* `window(start: Instant, end: Instant)` - sets query [time](time.md) range. Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
 * `limit(points: Int)` - limits the number of points returned, applicable to none aggregated queries.
 * `metricField(fieldName: String)` - sets a field that holds metric value.
 * `compileQuery()` - returns the telemetry query that was created with this function and the builder methods. After this builder method no more builder methods can be called.

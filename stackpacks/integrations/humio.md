@@ -1,5 +1,10 @@
 # Humio
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Humio StackPack?
 
 The Humio StackPack allows you to access your logs stored in Humio.
@@ -17,3 +22,4 @@ Using this StackPack, you can:
 ## Using the Humio StackPack
 
 Navigate to your Kubernetes cluster in StackState and use a Quick Action on one of the containers to jump into your logs.
+

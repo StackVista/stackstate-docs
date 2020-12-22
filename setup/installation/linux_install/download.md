@@ -4,9 +4,14 @@ description: Obtaining StackState software.
 
 # Download
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](/setup/installation/kubernetes_install/).
+In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
 {% endhint %}
 
 StackState and related software are distributed through our download website. The software distribution website is located at [download.stackstate.com](https://download.stackstate.com).

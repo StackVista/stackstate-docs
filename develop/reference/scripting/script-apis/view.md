@@ -6,6 +6,11 @@ description: Fetch a list of views.
 
 # Script API: View
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Function `getAll`
 
 Returns a list of all views.
@@ -28,7 +33,7 @@ The `QueryView` type has the following fields:
 * `QueryView.name` - the name of the view
 * `QueryView.description` - the description of the view
 * `QueryView.state` - View state object, holding view state
-* `QueryView.query` - STQL query which can be used subsequently in getting topology using [Topology Script Api](/develop/reference/scripting/script-apis/topology.md)
+* `QueryView.query` - STQL query which can be used subsequently in getting topology using [Topology Script Api](topology.md)
 
 The `ViewInfo` type has the following fields:
 

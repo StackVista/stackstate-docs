@@ -5,6 +5,11 @@ kind: documentation
 
 # Google Analytics
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Google Analytics StackPack?
 
 The Google Analytics StackPack contains everything you need to import metrics from Google Analytics into StackState. The StackPack supports both the Google Analytics Core Reporting and Real Time Reporting APIs.

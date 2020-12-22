@@ -6,6 +6,11 @@ description: Functions to get access to specific component data.
 
 # Script API: Component
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Function `withId`
 
 Get access to a component by its id.
@@ -121,8 +126,9 @@ arguments
 
 **Examples:**
 
-This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](/develop/reference/scripting/async_script_result.md) `then` function is used to get the name of the layer.
+This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](../async_script_result.md) `then` function is used to get the name of the layer.
 
 ```text
 Component.withId(123).layer().then { it.name }
 ```
+

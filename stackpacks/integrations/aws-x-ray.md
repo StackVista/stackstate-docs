@@ -1,5 +1,10 @@
 # AWS X-ray
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues, and opportunities for optimization.
@@ -25,12 +30,13 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also 
 ### Configuration
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws.d/conf.yaml` to start collecting your Tomcat metrics and logs. See the sample `aws.d/conf.yaml.example` for all available configuration options.
-    ```text
+
+   ```text
     # Section used for global AWS check config
     init_config:
         # optional
         # cache_file: '/opt/stackstate-agent/tmp'
-    
+
     instances:
       # mandatory AWS credentials and config
       - aws_access_key_id: 'abc'
@@ -39,8 +45,9 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also 
         region: 'ijk'
         # optional
         # min_collection_interval: 60
-    ```
-2. [Restart the StackState Agent\(s\)](/stackpacks/integrations/agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+   ```
+
+2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
 Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
 

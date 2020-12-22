@@ -4,6 +4,11 @@ description: Pull telemetry from Prometheus using mirroring.
 
 # Prometheus mirror
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Prometheus Mirror
 
 Prometheus mirror is a gateway between StackState and Prometheus that enables Prometheus telemetry in StackState.

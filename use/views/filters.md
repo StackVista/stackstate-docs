@@ -1,14 +1,19 @@
 # Filtering
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ## Topology Filters
 
 Topology Filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or use the StackState in-built query language \(STQL\) to build an advanced topology filter that zooms in on a specific area of your topology. Read more about:
 
-* [Basic filters](#basic-topology-filters)
-* [Advanced filters](#advanced-topology-filters)
-* [Topology filtering limits](#topology-filtering-limits)
+* [Basic filters](filters.md#basic-topology-filters)
+* [Advanced filters](filters.md#advanced-topology-filters)
+* [Topology filtering limits](filters.md#topology-filtering-limits)
 
 ### Basic topology filters
 
@@ -26,19 +31,19 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 Here is an example of using a basic filter to search for components by **Domains**.
 
-![Filtering example](/.gitbook/assets/v41_basic_filtering.png)
+![Filtering example](../../.gitbook/assets/v41_basic_filtering.png)
 
 ### Advanced topology filters
 
-You can use the in-built [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
+You can use the in-built [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
-![Filtering\(advanced filter\)](/.gitbook/assets/v41_advanced_filtering.png)
+![Filtering\(advanced filter\)](../../.gitbook/assets/advanced_filtering%20%281%29.png)
 
 ### Topology filtering limits
 
 To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 
-If a [basic filter](#basic-topology-filters) or [advanced filter query](#advanced-topology-filters) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
+If a [basic filter](filters.md#basic-topology-filters) or [advanced filter query](filters.md#advanced-topology-filters) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
 
 Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
 
@@ -53,9 +58,9 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters pane to filter the type of events shown in the [Events Perspective](/use/views/events_perspective.md#filter-events).
+You can use the View Filters pane to filter the type of events shown in the [Events Perspective](events_perspective.md#filter-events).
 
 ## Filter Traces
 
-The traces shown in the Traces Perspective can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](/use/views/traces_perspective.md#trace-filters)
+The traces shown in the Traces Perspective can be filtered by **Tags** or **Span Types**. Read more about [FIlter Traces](traces_perspective.md#trace-filters)
 

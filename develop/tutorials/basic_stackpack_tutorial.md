@@ -4,7 +4,12 @@ description: Learn how to create your own StackPack integrations.
 
 # Basic StackPack tutorial
 
-This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](/stackpacks/about-stackpacks.md) for more information.
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
+This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.
 
 ## Setup
 
@@ -36,7 +41,7 @@ zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/installation/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/installation/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
 
 The following command installes our new tutorial StackPack in StackState:
 
@@ -74,7 +79,7 @@ When the StackPack has received your data, it will show a message indicating suc
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
-![](/.gitbook/assets/screen-shot-2020-07-08-at-16.37.40.png)
+![](../../.gitbook/assets/screen-shot-2020-07-08-at-16.37.40.png)
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
@@ -125,9 +130,9 @@ The [Push Integration tutorial](push_integration_tutorial.md) describes in more 
 
 Use the **Preview** button to see what the resulting component will look like.
 
-![](/.gitbook/assets/example-template-editor.png)
+![](../../.gitbook/assets/example-template-editor.png)
 
-Go ahead and save the template. Be aware that you may need to [_unlock_](/stackpacks/about-stackpacks.md#configuration-locking) it before this succeeds.
+Go ahead and save the template. Be aware that you may need to [_unlock_](../../stackpacks/about-stackpacks.md#configuration-locking) it before this succeeds.
 
 ## Exporting the changed template
 
@@ -229,7 +234,7 @@ This should produce a `0.0.2` version of the StackPack. Upload the StackPack to 
 
 Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
-![](/.gitbook/assets/screen-shot-2020-07-09-at-13.32.55.png)
+![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.32.55.png)
 
 {% hint style="info" %}
 If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
@@ -237,22 +242,23 @@ If you don't see the Tutorial StackPack, or you see an older version of the Stac
 
 You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
 
-![](/.gitbook/assets/screen-shot-2020-07-09-at-13.33.25.png)
+![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.33.25.png)
 
 Push the **Overwrite** button to overwrite your local modifications with those in the new version of the StackPack. The component template will be locked again after the upgrade.
 
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
 
 {% hint style="info" %}
-It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](/setup/installation/cli-install.md) for more information.
+It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/installation/cli-install.md) for more information.
 {% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:
 
-![](/.gitbook/assets/screen-shot-2020-07-09-at-13.38.01.png)
+![](../../.gitbook/assets/screen-shot-2020-07-09-at-13.38.01.png)
 
 ## Cleaning your StackState instance
 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
 * Uninstall the **Tutorial StackPack**. This will remove the configuration and data received \(topology\) from StackState.
+

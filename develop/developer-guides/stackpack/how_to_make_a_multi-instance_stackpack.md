@@ -1,5 +1,10 @@
 # How to make a multi-instance StackPack
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This documentation set explains how to make a StackPack that can be installed as multiple instances in StackState. Below you can find the introduction to this topic and the steps to get a multi-instance StackPack. This
 
 StackPacks can be developed to support multiple instances of the same StackPack. This approach is useful in situations when there is a need to monitor more than one environment within the same technology. Multi-instance support can be achieved by splitting template files of your StackPack and tweaking the provisioning script in a way that supports multiple instances by keeping information that is shared between StackPacks separated from the instance-specific template.
@@ -25,8 +30,8 @@ Multi-instance StackPack package looks a little different from a standard StackP
 
 Steps to get a multi-instance StackPack:
 
-1. [Prepare a shared template file](/develop/developer-guides/stackpack/prepare_shared_template.md)
-2. [Prepare an instance template file](/develop/developer-guides/stackpack/prepare_instance_template_file.md)
-3. [Prepare a multi-instance provisioning script](/develop/developer-guides/stackpack/prepare_multi-instance_provisioning_script.md)
-4. [Pack and upload a StackPack](/develop/developer-guides/stackpack/how_to_pack_and_upload_stackpack.md)
+1. [Prepare a shared template file](prepare_shared_template.md)
+2. [Prepare an instance template file](prepare_instance_template_file.md)
+3. [Prepare a multi-instance provisioning script](prepare_multi-instance_provisioning_script.md)
+4. [Pack and upload a StackPack](how_to_pack_and_upload_stackpack.md)
 

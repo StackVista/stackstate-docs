@@ -6,7 +6,12 @@ aliases:
 listorder: 3
 ---
 
-# Adding telemetry to synchronized topology
+# Add telemetry to synchronized topology
+
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
 
 ## Overview
 
@@ -16,11 +21,11 @@ When you have synchronized topology, every component/relation is synchronized vi
 
 In the view, select a component that you'd like to add telemetry to. This opens a component pane on the right side of the screen, where next to the component you'll find a menu with options to edit the component. Click on Edit template.
 
-![](/.gitbook/assets/edit_template.png)
+![](../../.gitbook/assets/v41_edit_template.png)
 
 After selecting the edit template option from the menu, the template editing UI appears
 
-![](/.gitbook/assets/template_editor.png)
+![](../../.gitbook/assets/template_editor.png)
 
 Aside from self-explanatory fields like template, name and description, the template editor is divided into two text editors: The input parameters and the template function. The following sections explain how to add streams and checks to your component using these two editors.
 
@@ -162,16 +167,17 @@ After editing the input parameters and template function, you can preview how th
 }
 ```
 
-![](/.gitbook/assets/preview_new_stream.png)
+![](../../.gitbook/assets/preview_new_stream.png)
 
 If any mistakes were made during the editing of the template, the preview function will show you where the errors occurred.
 
-![](/.gitbook/assets/template_editor_error_feedback.png)
+![](../../.gitbook/assets/template_editor_error_feedback.png)
 
 You can also visit the history of previously executed templates. The historic representation will show both the input parameters and template function of a previously executed template, as well as the raw result of that execution. By clicking 'Load this template' you then replace your text editors on the left for the parameters and the function with the one you just loaded from the history.
 
-![](/.gitbook/assets/template_editor_history.png)
+![](../../.gitbook/assets/template_editor_history.png)
 
 You can also go to 'Template Examples' and get references on how to build templates. The examples tab also allows you to load an example into the text editors on the left by pressing 'Use this example'.
 
-![](/.gitbook/assets/template_editor_examples.png)
+![](../../.gitbook/assets/template_editor_examples.png)
+

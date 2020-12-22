@@ -4,11 +4,16 @@ description: How to configure anomaly detection with baselines.
 
 # Anomaly Detection with Baselines
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 Baselines are a way to detect anomalies in metric streams. Generally speaking, an anomaly is detected when a metric stream exceeds its baseline boundaries. A baseline consists of a lower and upper boundary. It forms a band that the metric, under normal conditions, is expected to remain inside of. Baselines are initially derived from historical data, but continuously update as new data flows in. Thus when an anomaly occurs, the baseline gradually updates to take the anomaly into account.
 
-![Baseline example](/.gitbook/assets/baseline_example.png)
+![Baseline example](../.gitbook/assets/baseline_example.png)
 
 ## How baseline anomaly detection works
 
@@ -20,34 +25,30 @@ The process for detecting anomalies using baselines consists out of two steps:
 ## Configure a baseline for a metric stream
 
 {% hint style="info" %}
-Metric streams configured with a baseline will not be picked up for anomaly detection by the [Autonomous Anomaly detector](/stackpacks/add-ons/aad.md). 
+Metric streams configured with a baseline will not be picked up for anomaly detection by the [Autonomous Anomaly detector](../stackpacks/add-ons/aad.md).
 {% endhint %}
 
 To configure a baseline for a metric stream:
 
 1. Go to the metric stream on a component or relation and select **Add baseline** from the metric stream context menu \(accessed through the triple dots next to the name of the metric stream\).
-
 2. In the baseline dialog, fill in the following values:
-    - **Name** - A name for later reference to the baseline.
-    - **Description** -  \(Optional\) A description for the baseline.
-    - **Aggregation** - The way metrics are aggregated before being fed to the baseline function for determining the baseline. This can only be modified by modifying the metric stream itself.
-    - **Batch size** - How often the metrics are aggregated before being fed to the baseline function.
-    - **Baseline function** - The type of baseline calculation to apply. See [baseline functions](#baseline-functions) below for details of the pros and cons of each type.
-    - **Arguments** - Vary according to the baseline function selected.
-
-3. You can run a preview of the configured baseline, to help tune the settings to your liking. 
-    - Select a time range for the preview.
-    - Click **PREVIEW**.
-
+   * **Name** - A name for later reference to the baseline.
+   * **Description** -  \(Optional\) A description for the baseline.
+   * **Aggregation** - The way metrics are aggregated before being fed to the baseline function for determining the baseline. This can only be modified by modifying the metric stream itself.
+   * **Batch size** - How often the metrics are aggregated before being fed to the baseline function.
+   * **Baseline function** - The type of baseline calculation to apply. See [baseline functions](baselining.md#baseline-functions) below for details of the pros and cons of each type.
+   * **Arguments** - Vary according to the baseline function selected.
+3. You can run a preview of the configured baseline, to help tune the settings to your liking.
+   * Select a time range for the preview.
+   * Click **PREVIEW**.
 4. When you are happy with the configured baseline, click **CREATE**.
-    - The baseline will be saved and its boundaries shown on the metric stream visualization.
-    - You can edit or delete the baseline from the metric stream context menu (the same menu you used to add it).
-
-5. You can now [add a check](#check-for-anomalies-on-a-baseline-metric-stream) to the metric stream to check for anomalies and set up alerting.
+   * The baseline will be saved and its boundaries shown on the metric stream visualization.
+   * You can edit or delete the baseline from the metric stream context menu \(the same menu you used to add it\).
+5. You can now [add a check](baselining.md#check-for-anomalies-on-a-baseline-metric-stream) to the metric stream to check for anomalies and set up alerting.
 
 ## Baseline functions
 
-Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/reference/scripting/README.md). By default the following baseline functions are supplied:
+Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](../develop/reference/scripting/). By default the following baseline functions are supplied:
 
 ### Stationary Auto-Tuned Baseline
 
@@ -128,25 +129,26 @@ This baseline functions works well for stationary metrics \(e.g. data center tem
 
 ## Check for anomalies on a baseline metric stream
 
-Once you have [added a baseline](#configure-a-baseline-for-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
+Once you have [added a baseline](baselining.md#configure-a-baseline-for-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
 
 1. Select the component/relation to open the Component/Relation properties pane with the baseline metric stream on it
 2. Click **+ ADD** next to **Health**.
-2. Select the **BASELINE ANOMALY DETECTION** check function.
+3. Select the **BASELINE ANOMALY DETECTION** check function.
 4. Enter the following arguments:
-    - **criticalValue** - how far the metric stream may exceed the baseline before a `CRITICAL` health state is returned. For example, if `criticalValue = 1.25` then a CRITICAL health state will be returned when the metric exceeds the baseline by more than 25%.
-    - **deviatingValue** - how far the metric stream may exceed the baseline before a `DEVITAING` health state is returned. For example, if `deviatingValue = 1` then a DEVIATING health state will be returned when the metric exceeds the baseline.
-    - **metrics** - the metric stream with a configured baseline that should be monitored for anomalies.
+   * **criticalValue** - how far the metric stream may exceed the baseline before a `CRITICAL` health state is returned. For example, if `criticalValue = 1.25` then a CRITICAL health state will be returned when the metric exceeds the baseline by more than 25%.
+   * **deviatingValue** - how far the metric stream may exceed the baseline before a `DEVITAING` health state is returned. For example, if `deviatingValue = 1` then a DEVIATING health state will be returned when the metric exceeds the baseline.
+   * **metrics** - the metric stream with a configured baseline that should be monitored for anomalies.
 5. Click `CREATE` to add the check.
 
 {% hint style="info" %}
 Once you have added the check function, it may take 5 or more minutes \(dependent on the baseline batch size\) before the check changes health state.
 {% endhint %}
 
-Alerting on baseline checks works exactly the same as with other health checks. For details on how to set this up, see [send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers).
+Alerting on baseline checks works exactly the same as with other health checks. For details on how to set this up, see [send alerts with event handlers](alerting.md#send-alerts-with-event-handlers).
 
 ## See also
 
-- [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
-- [Autonomous Anomaly detector add-on StackPack](/stackpacks/add-ons/aad.md)
-- [Send alerts with event handlers](/use/alerting.md#send-alerts-with-event-handlers)
+* [Anomaly detection](introduction-to-stackstate/anomaly-detection.md)
+* [Autonomous Anomaly detector add-on StackPack](../stackpacks/add-ons/aad.md)
+* [Send alerts with event handlers](alerting.md#send-alerts-with-event-handlers)
+

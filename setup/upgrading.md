@@ -4,9 +4,14 @@ description: Performing major and minor upgrades of StackState.
 
 # Upgrade StackState
 
+{% hint style="warning" %}
+This page describes StackState version 4.1.  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](/stackpacks/about-stackpacks.md).
+For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../stackpacks/about-stackpacks.md).
 
 ### Upgrade considerations
 
@@ -17,7 +22,7 @@ When executing a StackState upgrade, please be aware of the following:
 {% endhint %}
 
 {% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](/stackpacks/about-stackpacks.md#configuration-locking) for more information.
+When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. See [Configuration Locking](../stackpacks/about-stackpacks.md#configuration-locking) for more information.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -32,7 +37,7 @@ If you are upgrading to a new **minor** StackState release, StackState itself an
 
 A minor upgrade consists of the following steps:
 
-* Create a backup
+* Create a backup   
 * Upgrade StackState
 * Verify the new installation
 
@@ -58,17 +63,17 @@ Before upgrading StackState it is recommended to backup your configuration and t
 {% tab title="Kubernetes" %}
 To create a backup on Kubernetes, see:
 
-* [Kubernetes backup](/setup/data-management/backup_restore/kubernetes_backup.md)
-* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
-* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
+* [Kubernetes backup](data-management/backup_restore/kubernetes_backup.md)
+* [Configuration backup](data-management/backup_restore/configuration_backup.md)
+* [Manually created topology backup](data-management/backup_restore/manual_topology_backup.md)
 {% endtab %}
 
 {% tab title="Linux" %}
 To create a backup on Linux, see:
 
-* [Linux backup](/setup/data-management/backup_restore/linux_backup.md)
-* [Configuration backup](/setup/data-management/backup_restore/configuration_backup.md)
-* [Manually created topology backup](/setup/data-management/backup_restore/manual_topology_backup.md)
+* [Linux backup](data-management/backup_restore/linux_backup.md)
+* [Configuration backup](data-management/backup_restore/configuration_backup.md)
+* [Manually created topology backup](data-management/backup_restore/manual_topology_backup.md)
 {% endtab %}
 {% endtabs %}
 
@@ -78,7 +83,7 @@ Note that it will not be possible to restore the backup on the upgraded version 
 
 ## Uninstall StackPacks
 
-See [Uninstalling StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Uninstalling StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 {% hint style="warning" %}
 The StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
@@ -90,7 +95,7 @@ Find instructions to upgrade a StackState Kubernetes or Linux setup below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-For upgrading, the same command can be used as for the [first time Kubernetes installation](/setup/installation/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+For upgrading, the same command can be used as for the [first time Kubernetes installation](installation/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -107,7 +112,7 @@ Depending on your platform, you can use one of the following commands to upgrade
 
 ## Install StackPacks
 
-See [Installing StackPacks](/stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
+See [Installing StackPacks](../stackpacks/about-stackpacks.md#install-and-uninstall-stackpacks) for more information.
 
 ## Verify the new installation
 
@@ -140,10 +145,5 @@ Once StackState has been upgraded and started, verify that the new installation 
 
   `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
 
-* In this release a new way of scripting [propagation functions](/configure/topology/propagation.md#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
+* In this release a new way of scripting [propagation functions](../configure/topology/propagation.md#custom-propagation-functions) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
-### Upgrade to 1.15.0
-
-* Upgrading to 1.15.0 will require you to reregister your license information. Please contact support for details.
-* Configuration files for the processmanager \(`processmanager.conf` and `processmanager-properties.conf`\) have changed. If the current StackState installation has changes \(or if these are templated in tools like Puppet or Ansible\) they will need to be updated.
-* The old Elasticsearch data will remain available but is not automatically migrated and will not be available in StackState. This will result in missing history for stackstate events and all telemetry stored in StackState \(events and metrics\). After upgrading the data can be restored if needed. Please contact support for the details or use this knowledge base article [https://support.stackstate.com/hc/en-us/articles/360010136040](https://support.stackstate.com/hc/en-us/articles/360010136040). If there is no need to restore the data please manually remove the data to recover the disk space used by completely removing the `/opt/stackstate/var/lib/elasticsearch` directory.
