@@ -15,9 +15,9 @@ For a list of all docker images used see the [image overview](installation/kuber
 
 For a standard deployment, the StackState Helm chart will deploy storage services in a redundant setup with 3 instances of each service. The nodes required for different environments:
 
-* **Virtual machines:** 6 nodes with `16GB memory`, `4 vCPUs`
-* **Amazon EKS:** 6 instances of type `m5.xlarge` or `m4.xlarge`
-* **Azure AKS:** 6 instances of type `D4s v3` or `D4as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 7 nodes with `16GB memory`, `4 vCPUs`
+* **Amazon EKS:** 7 instances of type `m5.xlarge` or `m4.xlarge`
+* **Azure AKS:** 7 instances of type `D4s v3` or `D4as V4` \(Intel or AMD CPUs\)
 
 ### Storage
 
