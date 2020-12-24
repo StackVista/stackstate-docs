@@ -139,9 +139,9 @@ timeout = float(instance.get('timeout', default_timeout))
 
 Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
-- `self.start_snapshot()` to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
+- `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
 
-- `self.stop_snapshot()` to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
+- `self.stop_snapshot()` - used to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
 
 #### Disable snapshots
 
