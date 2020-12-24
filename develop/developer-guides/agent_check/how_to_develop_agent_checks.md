@@ -145,7 +145,7 @@ Components and relations can be sent as part of a snapshot. A snapshot represent
 
 #### Disable snapshots
 
-You can disable snapshots by setting `with_snapshots=False` when you define a `TopologyInstance`. This replaces the `start`/`stop_snapshot` invocations described above.
+You can disable snapshots by setting `with_snapshots=False` when you define a `TopologyInstance`. This replaces the `start`/`stop_snapshot()` invocations described above.
 
 ### Sending Topology
 
