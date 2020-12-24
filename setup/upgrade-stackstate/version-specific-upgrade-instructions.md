@@ -10,7 +10,7 @@ description: >-
 
 This page provides specific instructions for upgrading to each currently supported version of StackState. The instructions detail any significant changes that may impact how StackState runs after upgrade, such as a change in memory requirements or configuration.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **Review the instructions provided below before you upgrade!**
 {% endhint %}
 
@@ -20,9 +20,8 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).
-
-The file `values.yaml` file should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
+- [Node sizing requirements](/setup/requirements.md#node-sizing) have been increased.
+- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` file should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
 {% endtab %}
 
 {% tab title="Linux" %}
