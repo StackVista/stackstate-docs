@@ -5,7 +5,7 @@ description: install StackState on Kubernetes
 # Install StackState
 
 {% hint style="info" %}
-If you are installing StackState on OpenShift, refer to the [OpenShift installation instructions].
+If you are installing StackState on OpenShift, refer to the [OpenShift installation instructions](/setup/installation/openshift_install.md).
 {% endhint %}
 
 ## Before you start
