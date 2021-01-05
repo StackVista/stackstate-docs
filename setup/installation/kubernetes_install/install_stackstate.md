@@ -1,4 +1,12 @@
+---
+description: install StackState on Kubernetes
+---
+
 # Install StackState
+
+{% hint style="info" %}
+If you are installing StackState on OpenShift, refer to the [OpenShift installation instructions].
+{% endhint %}
 
 ## Before you start
 
