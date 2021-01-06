@@ -34,6 +34,10 @@ Start by creating the project where you want to install StackState. In our walkt
 oc new-project stackstate
 ```
 
+{% hint style="info" %}
+For `helm` and `kubectl` commands the project name is used as the namespace name in the `--namespace` flag
+{% endhint %}
+
 ### Generate `values.yaml`
 
 The `values.yaml` is required to deploy StackState with Helm. It contains your StackState license key, API key and other important information. The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the Helm chart will guide you through generating the file.
@@ -261,6 +265,54 @@ After these are applied, as administrator, execute the following commands to gra
 ```
 
 Once this is done, you can continue with the installation of the StackState Helm chart on OpenShift.
+
+### Deploy StackState with Helm
+
+Use the generated `values.yaml` and copied `openshift-values.yaml` files to deploy the latest StackState version to the `stackstate` namespace with the following command:
+
+```text
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --values openshift-values.yaml \
+stackstate \
+stackstate/stackstate
+```
+
+After the install, the StackState release should be listed in the StackState namespace and all pods should be running:
+
+```text
+# Check the release is listed
+helm list --namespace stackstate
+
+# Check pods are running
+# It may take some time for all pods to be installed or available
+kubectl get pods --namespace stackstate
+```
+
+### Access the StackState UI
+
+After StackState has been deployed you can check if all pods are up and running:
+
+```text
+kubectl get pods --namespace stackstate
+```
+
+When all pods are up, you can enable a port-forward:
+
+```text
+kubectl port-forward service/stackstate-router 8080:8080 --namespace stackstate
+```
+
+StackState will now be available in your browser at `https://localhost:8080`. Log in with the username `admin` and the default password provided in the `values.yaml` file.
+
+Next steps are
+
+* Configure [ingress](ingress.md)
+* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
+* Give your [co-workers access](../../authentication.md).
+
 
 ## See also
 
