@@ -8,7 +8,7 @@ description: install StackState on OpenShift
 
 Before you start the installation of StackState:
 
-* Check that your OpenShift environment meets the [requirements](../../requirements.md)
+* Check that your OpenShift environment meets the [requirements](../requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Ensure you have the OpenShift command line tools installed (`oc`)
 * Add the StackState helm repository to the local helm client:
@@ -70,9 +70,9 @@ The script requires the following configuration options:
 | License key | `-l` | The StackState license key. |
 | Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it. |
 | Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it. |
-| Kubernetes cluster name | `-k` | *NOTE: For OpenShift do not enable this* |
+| Kubernetes cluster name | `-k` | *NOTE: For OpenShift please follow the [instructions here](openshift_install.md#automatically-installing-the-cluster-agent-for-openshift)* |
 
-The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](development_setup.md).
+The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](kubernetes_install/development_setup.md).
 
 {% hint style="info" %}
 Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.
@@ -81,11 +81,10 @@ Store the `values.yaml` file somewhere safe. You can reuse this file for upgrade
 ### Additional OpenShift values file
 
 Because OpenShift has a more strict security model than plain Kubernetes, all of the standard security contexts in the deployment need to be disabled.
-Furthermore, the StackState installation needs to add two specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation. If you're installing using an administrator account it is possible to automatically create this.
+Furthermore, the StackState installation needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation. If you're installing using an administrator account it is possible to automatically create these as needed.
 
 | Pod(s) | Config key | Description |
 | :--- | :--- | :--- |
-| The Agent that runs the Kubernetes checks | `cluster-agent.agent.scc.enabled` | This process needs to run a privileged container with direct access to the host(network) and volumes. |
 | The HBase HDFS namenodes | `hbase.hdfs.scc.enabled` | These processes need to be able to run a `chmod` on their volumes and run with a specific (pre-known) UID, in order for the clients to write to the store. |
 
 If you're _not_ using an administrator account, Please follow the [instructions below](openshift_install.md#manually-create-securitycontextconfiguration-objects) to first install the `SecurityContextConfiguration` objects in OpenShift. After that install the StackState Helm chart with the above flags set to `false`.
@@ -104,11 +103,6 @@ stackstate:
     ui:
       securityContext:
         enabled: false
-  stackpacks:
-    installed:
-      - name: openshift
-        configuration:
-          openshift_cluster_name: <CLUSTER_NAME>
 elasticsearch:
   securityContext:
     enabled: false
@@ -142,6 +136,33 @@ hbase:
 zookeeper:
   securityContext:
     enabled: false
+```
+
+Store this file next to the generated `values.yaml` file and name it `openshift-values.yaml`
+
+### Automatically installing the Cluster Agent for OpenShift
+
+StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
+
+The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
+
+In order to automate this installation, the below values file can be added to the `helm install` command. The agent chart also needs an additional `SecurityContextConfiguration` on OpenShift. If you're installing as an administrator on the OpenShift cluster, it is possible to automatically create this. You can configure this using the following configuration option in the values file:
+
+| Pod(s) | Config key | Description |
+| :--- | :--- | :--- |
+| The Agent that runs the Kubernetes checks | `cluster-agent.agent.scc.enabled` | This process needs to run a privileged container with direct access to the host(network) and volumes. |
+
+If you're not installing as an administrator, please follow the [instructions below](openshift_install.md#manually-create-securitycontextconfiguration-objects) to first install the `SecurityContextConfiguration` objects in OpenShift. Then install the Helm chart with the flag set to `false`.
+
+The values file that automates the installation of the OpenShift StackPack and monitoring agent is:
+
+```yaml
+stacktate:
+  stackpacks:
+    installed:
+      - name: openshift
+        configuration:
+          openshift_cluster_name: <CLUSTER_NAME>
 cluster-agent:
   agent:
     scc:
@@ -165,11 +186,11 @@ Two placeholders in this file need to be given a value before this can be applie
 - `<CLUSTER_NAME>`: A name that StackState will use to identify the cluster
 - `<RANDOM_TOKEN>`: A 32 character random token. This can be generated by executing `head -c32 < /dev/urandom | md5sum  | cut -c-32`
 
-Store this file next to the generated `values.yaml` file and name it `openshift-values.yaml`
+Save this as `agent-values.yaml` and add it to the `helm install` command to enable this feature.
 
 ### Deploy StackState with Helm
 
-Use the generated `values.yaml` and copied `openshift-values.yaml` files to deploy the latest StackState version to the `stackstate` namespace with the following command:
+Use the generated `values.yaml` and copied `openshift-values.yaml` (and `agent-values.yaml`) files to deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
 helm upgrade \
@@ -210,9 +231,9 @@ StackState will now be available in your browser at `https://localhost:8080`. Lo
 
 Next steps are
 
-* Configure [ingress](ingress.md)
-* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](../../authentication.md).
+* Configure [ingress](kubernetes_install/ingress.md)
+* Install a [StackPack](../../stackpacks/about-stackpacks.md) or two
+* Give your [co-workers access](../authentication.md).
 
 
 ## Manually create `SecurityContextConfiguration` objects
@@ -315,5 +336,7 @@ After these are applied, as administrator, execute the following commands to gra
 Once this is done, you can continue with the installation of the StackState Helm chart on OpenShift.
 
 ## See also
+
+For other configuration and management options, please refer to the Kubernetes documentation:
 
 - [Manage a StackState Kubernetes installation](/setup/installation/kubernetes_install/README.md)
