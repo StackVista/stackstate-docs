@@ -61,30 +61,33 @@ To check the status of the Azure integration,
 
 #### Events
 
-
+The Azure integration does not retrieve any Events data.
 
 #### Metrics
 
-
+The Azure integration does not retrieve any Metrics data.
 
 #### Topology
 
-
+Each Azure integration retrieves topology data for resources associated with the associated Azure Service Principal.
 
 | Data | Description |
 |:---|:---|
-|  |  |
-|  |  | 
+| Components |  |
+| Relations |  | 
 
 #### Traces
 
-
+The Azure integration does not retrieve any Traces data.
 
 ### REST API endpoints
 
-
-### Open source
-
+| Table Name | REST API Endpoint |
+| :--- | :--- |
+| change\_request | `/api/now/table/change_request` |
+| cmdb\_ci | `/api/now/table/cmdb_ci` |
+| cmdb\_rel\_type | `/api/now/table/cmdb_rel_type` |
+| cmdb\_rel\_ci | `/api/now/table/cmdb_rel_ci` |
 
 ## Troubleshooting
 
@@ -94,6 +97,23 @@ Troubleshooting steps can be found in the StackState support Knowledge base [tro
 
 
 ## Release notes
+
+**Azure StackPack 4.0.1 (2020-08-18)**
+
+- Feature: Introduced the Release notes pop up for customer
+
+**Azure StackPack 4.0.0 (2020-08-04)**
+
+- Bugfix: Fix and make Component mapping function per instance to support multi-instance properly.
+- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+
+**Azure StackPack 3.0.1 (2020-06-10)**
+
+- Improvement: Added urn:host based identifiers for Azure VM's
+
+**Azure StackPack 3.0.0 (2020-05-19)**
+
+- Feature: Added multi-instance support for the Azure StackPack
 
 
 ## See also
