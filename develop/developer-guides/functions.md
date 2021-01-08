@@ -37,7 +37,8 @@ Read more about:
 
 * [Component actions](/configure/topology/how_to_configure_component_actions.md)
 * [Event handlers](../../use/health-state-and-alerts/send-alerts.md)
-* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions).
+* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
+
 
 ### Synchronous functions
 
