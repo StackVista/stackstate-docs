@@ -36,7 +36,7 @@ oc new-project stackstate
 ```
 
 {% hint style="info" %}
-For `helm` and `kubectl` commands the project name is used as the namespace name in the `--namespace` flag
+The project name is used in `helm` and `kubectl` commands as the namespace name in the `--namespace` flag
 {% endhint %}
 
 ### Generate `values.yaml`
@@ -80,14 +80,16 @@ Store the `values.yaml` file somewhere safe. You can reuse this file for upgrade
 
 ### Additional OpenShift values file
 
-Because OpenShift has a more strict security model than plain Kubernetes, all of the standard security contexts in the deployment need to be disabled.
-Furthermore, the StackState installation needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation. If you're installing using an administrator account it is possible to automatically create these as needed.
+Because OpenShift has stricter security model than plain Kubernetes, all of the standard security contexts in the deployment need to be disabled.
+Furthermore, the StackState installation needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
+
+If you're installing using an administrator account it is possible to automatically create these as needed.
 
 | Pod(s) | Config key | Description |
 | :--- | :--- | :--- |
-| The HBase HDFS namenodes | `hbase.hdfs.scc.enabled` | These processes need to be able to run a `chmod` on their volumes and run with a specific (pre-known) UID, in order for the clients to write to the store. |
+| The HBase HDFS namenodes | `hbase.hdfs.scc.enabled` | For the clients to write to the store, the HDFS processes require permissions to run `chmod` on their volumes and need  to run with a specific (pre-known) UID. |
 
-If you're _not_ using an administrator account, Please follow the [instructions below](openshift_install.md#manually-create-securitycontextconfiguration-objects) to first install the `SecurityContextConfiguration` objects in OpenShift. After that install the StackState Helm chart with the above flags set to `false`.
+If you're _not_ using an administrator account, please follow the instructions below to [first install the `SecurityContextConfiguration` objects in OpenShift](openshift_install.md#manually-create-securitycontextconfiguration-objects). After that install the StackState Helm chart with the above flag set to `false`.
 
 The values that are needed for an OpenShift deployment are:
 
@@ -138,21 +140,23 @@ zookeeper:
     enabled: false
 ```
 
-Store this file next to the generated `values.yaml` file and name it `openshift-values.yaml`
+Store this file next to the generated `values.yaml` file and name it `openshift-values.yaml`.
 
-### Automatically installing the Cluster Agent for OpenShift
+### Automatically install the Cluster Agent for OpenShift
 
-StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
+StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
 
 The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
 
-In order to automate this installation, the below values file can be added to the `helm install` command. The agent chart also needs an additional `SecurityContextConfiguration` on OpenShift. If you're installing as an administrator on the OpenShift cluster, it is possible to automatically create this. You can configure this using the following configuration option in the values file:
+To automate this installation, the below values file can be added to the `helm install` command. The agent chart also needs an additional `SecurityContextConfiguration` on OpenShift.
+
+If you're installing as an administrator on the OpenShift cluster, it is possible to automatically create this. You can configure this using the following configuration option in the values file:
 
 | Pod(s) | Config key | Description |
 | :--- | :--- | :--- |
 | The Agent that runs the Kubernetes checks | `cluster-agent.agent.scc.enabled` | This process needs to run a privileged container with direct access to the host(network) and volumes. |
 
-If you're not installing as an administrator, please follow the [instructions below](openshift_install.md#manually-create-securitycontextconfiguration-objects) to first install the `SecurityContextConfiguration` objects in OpenShift. Then install the Helm chart with the flag set to `false`.
+If you're not installing as an administrator, please follow the instructions below to [first install the `SecurityContextConfiguration` objects in OpenShift](openshift_install.md#manually-create-securitycontextconfiguration-objects). Then ensure that you set the above configuration flag to `false`.
 
 The values file that automates the installation of the OpenShift StackPack and monitoring agent is:
 
@@ -190,7 +194,7 @@ Save this as `agent-values.yaml` and add it to the `helm install` command to ena
 
 ### Deploy StackState with Helm
 
-Use the generated `values.yaml` and copied `openshift-values.yaml` (and `agent-values.yaml`) files to deploy the latest StackState version to the `stackstate` namespace with the following command:
+Use the generated `values.yaml` and copied `openshift-values.yaml` file to deploy the latest StackState version to the `stackstate` namespace with the command below. If you want to automatically install the Cluster Agent for OpenShift, you will also require the `agent-values.yaml` created in the previous step:
 
 ```text
 helm upgrade \
@@ -215,7 +219,7 @@ kubectl get pods --namespace stackstate
 
 ### Access the StackState UI
 
-After StackState has been deployed you can check if all pods are up and running:
+After StackState has been deployed, you can check if all pods are up and running:
 
 ```text
 kubectl get pods --namespace stackstate
@@ -238,10 +242,14 @@ Next steps are
 
 ## Manually create `SecurityContextConfiguration` objects
 
-If you cannot use an administrative account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
+If you cannot use an administrator account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
 
-{% tabs %}
-{% tab title="hdfs-scc.yaml" %}
+### HDFS
+
+{% hint style="warning" %}
+This is required for StackState to operate
+{% endhint %}
+
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -278,9 +286,23 @@ volumes:
 - projected
 - secret
 ```
-{% endtab %}
 
-{% tab title="agent-scc.yaml" %}
+Save this file as `hdfs-scc.yaml` and apply it as an administrator of the OpenShift cluster using the following command:
+
+```text
+oc apply -f hdfs-scc.yaml
+```
+
+After this file is applied, execute the following command as administrator to grant the service account access to this `SecurityContextConfiguration` object:
+
+```text
+> oc adm policy add-scc-to-user stackstate-hdfs-scc system:serviceaccount:stackstate:stackstate-hbase-hdfs
+```
+
+### Cluster Agent
+
+If you want to monitor the OpenShift cluster using the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) and Cluster Agent, the below `SecurityContextConfiguration` needs to be applied:
+
 ```yaml
 allowHostDirVolumePlugin: true
 allowHostIPC: true
@@ -323,17 +345,19 @@ volumes:
   - hostPath
   - secret
 ```
-{% endtab %}
-{% endtabs %}
 
-After these are applied, as administrator, execute the following commands to grant the service accounts access to these `SecurityContextConfiguration`s:
+
+Save this file as `agent-scc.yaml` and apply it as an administrator of the OpenShift cluster using the following command:
+
+```text
+oc apply -f agent-scc.yaml
+```
+
+After this file is applied, execute the following command as administrator to grant the service account access to this `SecurityContextConfiguration` object:
 
 ```text
 > oc adm policy add-scc-to-user stackstate-agent-scc system:serviceaccount:stackstate:stackstate-cluster-agent-agent
-> oc adm policy add-scc-to-user stackstate-hdfs-scc system:serviceaccount:stackstate:stackstate-hbase-hdfs
 ```
-
-Once this is done, you can continue with the installation of the StackState Helm chart on OpenShift.
 
 ## See also
 
