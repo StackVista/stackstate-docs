@@ -20,8 +20,8 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 ![Data flow](/.gitbook/assets/stackpack-azure2.png)
 
-- StackState Azure functions connect to the [Azure APIs](#rest-api-endpoints) every 2 hours to collect information about available resources.
-- The Azure function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
+- The StackState Azure Agent - a collection of Azure functions - connects to the [Azure APIs](#rest-api-endpoints) every 2 hours to collect information about available resources.
+- The StackState Azure Agent function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming data into topology components and relations.
 - The StackState Azure plugin pulls telemetry data on demand from Azure.
 - StackState maps retrieved telemetry onto the associated Azure components and relations.
