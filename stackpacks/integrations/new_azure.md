@@ -18,7 +18,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 | Compute Disks | Operations Management | |
 | Event Hubs | Public IP Addresses| |
 
-![Data flow](/.gitbook/assets/stackpack-azure.png)
+![Data flow](/.gitbook/assets/stackpack-azur.png)
 
 - StackState Azure functions connect to the [Azure APIs](#rest-api-endpoints) every 2 hours to collect information about available resources.
 - The Azure function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
