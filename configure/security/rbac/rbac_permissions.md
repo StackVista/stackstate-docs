@@ -122,7 +122,7 @@ stackstate-guest  access-view           everything
 
 |  |  |
 | :---: | :---: |
-| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](https://github.com/StackVista/stackstate-docs/tree/d2496325c86159cd6adbe80168d89f7ff825ca9f/.gitbook/assets/eldet2.png) |
+| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![/.gitbook/assets/eldet2.png) |
 
 ### Settings permissions
 
