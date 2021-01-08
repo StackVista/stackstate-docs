@@ -77,6 +77,7 @@
   * [AWS](stackpacks/integrations/aws.md)
   * [AWS X-ray](stackpacks/integrations/aws-x-ray.md)
   * [Azure](stackpacks/integrations/azure.md)
+  * [New Azure](stackpacks/integrations/new_azure.md)
   * [API integration](stackpacks/integrations/api-integration.md)
   * [Cloudera](stackpacks/integrations/cloudera.md)
   * [Custom Synchronization](stackpacks/integrations/customsync.md)
