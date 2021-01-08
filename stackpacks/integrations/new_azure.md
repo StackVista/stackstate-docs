@@ -83,12 +83,11 @@ The Azure integration does not retrieve any Traces data.
 
 ### REST API endpoints
 
-| Table Name | REST API Endpoint |
-| :--- | :--- |
-| change\_request | `/api/now/table/change_request` |
-| cmdb\_ci | `/api/now/table/cmdb_ci` |
-| cmdb\_rel\_type | `/api/now/table/cmdb_rel_type` |
-| cmdb\_rel\_ci | `/api/now/table/cmdb_rel_ci` |
+- Microsoft.AspNet.WebApi.Client" Version="5.2.7"
+- Microsoft.Azure.Management.ApplicationInsights" Version="0.2.0-preview"
+- Microsoft.Azure.OperationalInsights" Version="0.10.0-preview"
+- Microsoft.Azure.Management.Fluent" Version="1.18.0"
+- Microsoft.Azure.Management.ResourceManager.Fluent" Version="1.18.0"
 
 ## Troubleshooting
 
