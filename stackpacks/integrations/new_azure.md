@@ -88,7 +88,7 @@ To check the status of the Azure integration,
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=DynaTrace).
+Troubleshooting steps can be found in the StackState support Knowledge base [troubleshooting the StackState Azure StackPack guide](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=DynaTrace).
 
 ## Uninstall
 
