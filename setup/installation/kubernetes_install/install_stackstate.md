@@ -112,6 +112,8 @@ Next steps are
 * Configure [ingress](ingress.md)
 * Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
 * Give your [co-workers access](../../authentication.md).
+* Configure [Data retention](../../data-management/data_retention.md)
+* Configure [Limits](../../data-management/limits.md)
 
 ## Automatic Kubernetes support
 

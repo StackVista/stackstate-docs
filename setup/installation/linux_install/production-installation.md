@@ -32,6 +32,8 @@ After you have installed StackState, refer to the following pages for configurat
 
 * [Configuring authentication](../../authentication.md)
 * [Reverse Proxy](reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](how_to_setup_tls_without_reverse_proxy.md)
+* [Data retention](../../data-management/data_retention.md)
+* [Limits](../../data-management/limits.md)
 
 ### Starting and Stopping
 
