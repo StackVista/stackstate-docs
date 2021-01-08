@@ -30,9 +30,24 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 ### Pre-requisites
 
-### Install
+To set up the StackState Azure integration, you need to have:
 
-### Configure
+- PowerShell version >= 5.0 or Bash.
+- The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+- A Resource Group where the StackState resources can be deployed. We recommend that you create a new resource group for StackState.
+
+### Install StackPack
+
+Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+
+* **Azure instance name** - 
+* **Client Id** - the client id of the Azure Service Principal.
+* **Client Secret** - the client secret used to authenticate the client.
+* **Tenant Id** - the Id of the Azure Tenant / Active Directory.
+
+### Deploy Azure Agent
+
+To enable the Azure integration and begin collecting data from Azure you will need to deploy the StackState Azure Agent to your Azure instance. You can deploy one or more StackState Azure Agents, each will collect data from resources related to its configured Azure Service Principle.
 
 
 ### Status
