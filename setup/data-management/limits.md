@@ -10,7 +10,7 @@ In an installation of StackState, some features are subject to limits in terms o
 
 ## Amount of running checks
 
-A production setup on kubernetes or linux will support at least 40.000 running checks. The exact amount is logged at startup as the following logline:
+A production setup on kubernetes or linux will support at most 40.000 running checks. The exact amount is logged at startup as the following logline:
 
 ```text
 2020-12-02 10:22:56,905 [StackStateGlobalActorSystem-akka.actor.default-dispatcher-25] INFO  c.s.domainactors.DomainActorPoolImpl$DomainActorPoolActor - Starting domainActorPool with limit <limit> for Check
@@ -39,8 +39,10 @@ a limit to how much memory a process should have (around 8GB) for it to function
 {% tab title="Kubernetes > 4.2" %}
 Add to `values.yaml`
 
+```text
 stackstate.components.checks.resources.limits.memory = "<memory>"
 stackstate.components.checks.resources.requests.memory = "<memory>"
+```
 {% endtab %}
 
 {% tab title="Kubernetes < 4.2" %}
