@@ -19,7 +19,7 @@ A production setup on kubernetes or linux will support at most 40.000 running ch
 For different setups this resides in different logs:
 
 {% tabs %}
-{% tab title="Kubernetes > 4.2" %}
+{% tab title="Kubernetes >= 4.2" %}
 This is reported at the start of the podlogs of the `stackstate-checks` pod.
 {% endtab %}
 
