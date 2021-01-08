@@ -1,13 +1,10 @@
----
-title: Requirements
-kind: Documentation
----
-
 # Requirements
 
 ## Kubernetes
 
 StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.15.x \(tested on Amazon EKS and Azure AKS\) and Helm 3.
+
+For a list of all docker images used see the [image overview](installation/kubernetes_install/image_configuration.md).
 
 ### Node sizing
 
