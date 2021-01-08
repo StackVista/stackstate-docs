@@ -31,6 +31,7 @@
     * [Configuration backup](setup/data-management/backup_restore/configuration_backup.md)
     * [Manually created topology backup](setup/data-management/backup_restore/manual_topology_backup.md)
   * [Data retention](setup/data-management/data_retention.md)
+  * [Limits](setup/data-management/limits.md)
   * [Clear stored data](setup/data-management/clear_stored_data.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
