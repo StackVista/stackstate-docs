@@ -2,9 +2,9 @@
 
 A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it is possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
-## Custom configuration for StackState `server`
+## Custom configuration for StackState `api`
 
-For the StackState `server` service, custom configuration can be dropped directly into the Helm chart. This is the advised way to override the default configuration that StackState ships with and is especially convenient for customizing authentication. Configuration set in this way will be available to the StackState configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
+For the StackState `api` service, custom configuration can be dropped directly into the Helm chart. This is the advised way to override the default configuration that StackState ships with and is especially convenient for customizing authentication. Configuration set in this way will be available to the StackState configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
 
 For example, you can set a custom "forgot password link" for the StackState login page:
 
@@ -27,7 +27,7 @@ Note that custom configuration set here will be overridden by [environment varia
 
 ## Environment variables
 
-The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `server`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
+The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `api`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
 
 ```text
 # configuration item
@@ -55,7 +55,7 @@ stackstate:
 {% endtabs %}
 
 {% hint style="info" %}
-For the StackState `server` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-server).
+For the StackState `api` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-api).
 {% endhint %}
 
 * Full details on the naming of all the different services can be found in the in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate).
