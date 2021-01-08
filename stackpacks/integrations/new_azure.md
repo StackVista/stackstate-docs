@@ -35,6 +35,7 @@ To set up the StackState Azure integration, you need to have:
 - PowerShell version >= 5.0 or Bash.
 - The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 - A Resource Group where the StackState resources can be deployed. We recommend that you create a new resource group for StackState.
+- An Azure Service Principal (SPN) for the StackState Azure Agent.
 
 ### Install StackPack
 
