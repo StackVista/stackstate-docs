@@ -1,5 +1,5 @@
 ---
-description: StackPack description
+description: In-depth monitoring of Azure resource types
 ---
 
 # Azure
@@ -20,7 +20,11 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 ![Data flow](/.gitbook/assets/stackpack-azure.png)
 
-
+- StackState Azure functions connect to the [Azure APIs](#rest-api-endpoints) every 2 hours to collect information about available resources.
+- The Azure function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
+- StackState translates incoming data into topology components and relations.
+- The StackState Azure plugin pulls telemetry data on demand from Azure.
+- StackState maps retrieved telemetry onto the associated Azure components and relations.
 
 ## Setup
 
@@ -33,11 +37,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 ### Status
 
-To check the status of the DynaTrace integration, run the status subcommand and look for DynaTrace under `Running Checks`:
-
-```
-sudo stackstate-agent status
-```
+To check the status of the Azure integration,
 
 ## Integration details
 
