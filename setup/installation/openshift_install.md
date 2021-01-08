@@ -71,7 +71,8 @@ The script requires the following configuration options:
 | License key | `-l` | The StackState license key. |
 | Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it. |
 | Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it. |
-| Kubernetes cluster name | `-k` | *NOTE: For OpenShift please follow the [instructions here](openshift_install.md#automatically-install-the-cluster-agent-for-openshift)* |
+| Kubernetes cluster name | `-k` | Option only available for plain Kubernetes installation
+For OpenShift install, follow the instructions to [Automatically install the Cluster Agent](#automatically-install-the-cluster-agent-for-openshift). |
 
 The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](kubernetes_install/development_setup.md).
 
