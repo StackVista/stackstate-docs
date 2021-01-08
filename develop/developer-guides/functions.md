@@ -35,9 +35,10 @@ Propagation functions and event handler functions can be created as asynchronous
 
 Read more about:
 
-* [Component actions](https://github.com/StackVista/stackstate-docs/tree/507d5edfe20d04f545d23495ea7864eaa633775e/configure/topology/how_to_configure_component_actions/README.md)
+* [Component actions](/configure/topology/how_to_configure_component_actions.md)
 * [Event handlers](../../use/health-state-and-alerts/send-alerts.md)
-* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions).
+* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
+
 
 ### Synchronous functions
 

@@ -20,7 +20,7 @@ To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS s
 
 ### Installation
 
-The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also need to install the [AWS StackPack](https://github.com/StackVista/stackstate-docs/tree/a4ba487c2d219ec0532ca0de32300fd1bd71e272/stackpacks/integration/aws.md) to see rest of you AWS topology and metrics.
+The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also need to install the [AWS StackPack](/stackpacks/integrations/aws.md) to see rest of you AWS topology and metrics.
 
 ### Configuration
 

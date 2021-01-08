@@ -13,7 +13,7 @@ StackState can send an email alert whenever the health state of an entity or vie
    ```text
     stackstate:
       components:
-        server:
+        viewHealth:
           config: |
             stackstate{
               email {
