@@ -13,7 +13,7 @@ For example, you can set a custom "forgot password link" for the StackState logi
 ```text
 stackstate:
   components:
-    server:
+    api:
       config: |
         stackstate.api.authentication.forgotPasswordLink =
         "https://www.stackstate.com/forgotPassword.html"
@@ -44,7 +44,7 @@ For example, you can set a custom "forgot password link" for the StackState logi
 ```text
 stackstate:
   components:
-    server:
+    api:
       extraEnv:
         # Use 'secret:' to add configuration that should be stored as a secret
         open:
