@@ -51,9 +51,10 @@ Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integra
 To enable the Azure integration and begin collecting data from Azure you will need to deploy the StackState Azure Agent to your Azure instance. You can deploy one or more StackState Azure Agents, each will collect data from resources related to its configured Azure Service Principle.
 
 
+
 ### Status
 
-To check the status of the Azure integration,
+
 
 ## Integration details
 
@@ -91,7 +92,7 @@ The Azure integration does not retrieve any Traces data.
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base [troubleshooting the StackState Azure StackPack guide](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=DynaTrace).
+Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack).
 
 ## Uninstall
 
@@ -117,3 +118,5 @@ Troubleshooting steps can be found in the StackState support Knowledge base [tro
 
 
 ## See also
+
+- 
