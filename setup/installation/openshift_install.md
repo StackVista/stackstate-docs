@@ -23,9 +23,10 @@ helm repo update
 1. [Create the project where StackState will be installed](openshift_install.md#create-project)
 2. [Generate the `values.yaml` file](openshift_install.md#generate-values-yaml)
 3. [Additional OpenShift values file](openshift_install.md#additional-openshift-values-file)
-4. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
-5. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
-6. [Manually create `SecurityContextConfiguration` objects](openshift_install.md#manually-create-securitycontextconfiguration-objects)
+4. [Automatically install the Cluster Agent for OpenShift](openshift_install.md#automatically-install-the-cluster-agent-for-openshift)
+5. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
+6. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
+7. [Manually create `SecurityContextConfiguration` objects](openshift_install.md#manually-create-securitycontextconfiguration-objects)
 
 ### Create project
 
