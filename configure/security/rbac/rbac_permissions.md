@@ -122,7 +122,7 @@ stackstate-guest  access-view           everything
 
 |  |  |
 | :---: | :---: |
-| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![/.gitbook/assets/eldet2.png) |
+| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](/.gitbook/assets/eldet2.png) |
 
 ### Settings permissions
 
