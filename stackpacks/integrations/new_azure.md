@@ -102,7 +102,7 @@ There are a number of methods in the `TopologyDurableFunction` class:
 | **HandleSubscription** | Sub-orchestrator, contains the workflow:<br />**GetResourcesToInclude** -><br />**ConvertResourcesToStackStateData** (for each set of resources, grouped by type) |
 | **GetResourcesToInclude** | Fetches all resources in a subscription and filters out those that are ignored. |
 | **ConvertResourcesToStackStateData** | Receives a group of resources and calls the **ResourceTypeConverter** class in the Core project. |
-| **ConvertResourcesToStackStateDataInner** | Regular method containing the actual implementation of **ConvertResourcesToStackStateData**, which uses the **DurableActivityContext** class that we can't use from the CLI so we split the method in 2. Result is an instance of the class Synchronization. |
+| **ConvertResourcesToStackStateDataInner** | Regular method containing the actual implementation of **ConvertResourcesToStackStateData**. Result is an instance of the class Synchronization. |
 | **SendToStackState** |Receives a Synchronization object and sends it to StackState. |
 | **PurgeHistory** | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
 
