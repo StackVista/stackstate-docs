@@ -60,17 +60,17 @@ To enable the Azure integration and begin collecting data from Azure, you will n
 
 {% tabs %}
 {% tab title="Bash" %}
-./stackstate.monitor.sh \
+```./stackstate.monitor.sh \
     <Azure tenantId> \
     {{config.baseUrl}} \
     {{config.apiKey}} \
     <Azure subscriptionId> \
     <Azure clientId> \
     <Azure clientSecret> \
-    <Azure resourceGroupName>
+    <Azure resourceGroupName>```
 {% endtab %}
-{% tab title="SPowershell" %}
-az login
+{% tab title="Powershell" %}
+```az login
 az login
 ./stackstate.monitor.ps1 `
 -tenantId <your tenantId> `
@@ -80,6 +80,7 @@ az login
 -servicePrincipalId <Client Id> `
 -servicePrincipalSecret <Client Secret> `
 -resourceGroupName <Resource GroupName to deploy to>
+```
 {% endtab %}
 {% endtabs %}
 
