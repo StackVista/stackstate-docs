@@ -56,7 +56,7 @@ To enable the Azure integration and begin collecting data from Azure, you will n
 
 ### Status
 
-You can check the status of the Azure integration in Azure resource group. Open the **FunctionApp** and check the available metrics or the full list of **Functions** from the left menu the status of all functions should be **Enabled**.
+You can check the status of the Azure integration in Azure resource group. Open the **FunctionApp** and check the available metrics or the full list of **Functions** from the left menu. The status of all functions should be **Enabled**.
 
 ![Azure FunctionApp](/.gitbook/assets/stackpack_azure_functionApp.png)
 
