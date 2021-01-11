@@ -97,7 +97,7 @@ There are a number of methods in the `TopologyDurableFunction` class:
 |:---|:---|
 | **TimedStart** | Timed trigger to start the **MainOrchestrator**. Scheduled to execute every 2 hours. |
 | **HttpStart** | HTTP trigger to start the **MainOrchestrator** manually for testing or after a first deployment from the StackPack. |
-| **MainOrchestrator** | The orchestrator containing the main workflow:<br />**GetSubscriptions** -><br >**HandleSubscription** (called for each subscription) -><br />>**SendToStackState**. |
+| **MainOrchestrator** | The orchestrator containing the main workflow:<br />**GetSubscriptions** -><br >**HandleSubscription** (called for each subscription) -><br />**SendToStackState**. |
 | **GetSubscriptions** | Fetches all subscriptions that the service principle has access to. |
 | **HandleSubscription** | Sub-orchestrator, contains the workflow:<br />**GetResourcesToInclude** -><br />**ConvertResourcesToStackStateData** (for each set of resources, grouped by type) |
 | **GetResourcesToInclude** | Fetches all resources in a subscription and filters out those that are ignored. |
