@@ -99,11 +99,14 @@ You can check the status of the Azure integration in Azure resource group. Open 
 
 When a new version of the Azure StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **Azure**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 
-For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
+For considerations and instructions on upgrading a minor or patch release of a StackPack, see [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
 
-{% hint style="info" %}
-If you upgrade to a major new version of the Azure StackPack where the StackPack is uninstalled, it is advised to also remove all Azure resources for StackState. 
-{% endhint %}
+To upgrade to a new major release of the Azure StackPack:
+
+1. Completely remove the StackState Azure resources, either in Azure directly or using the provided deprovisioning script, and uninstall the current StackPack. For details see [uninstall the Azure StackPack](#uninstall).
+2. Install the new version from the page **StackPacks** &gt; **Integrations** &gt; **Azure**.
+3. Install the new StackState Azure resources using the install script, see [deploy the StackState Azure agent](#deploy-azure-agent).
+
 
 ## Integration details
 
