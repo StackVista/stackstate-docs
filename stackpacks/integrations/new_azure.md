@@ -95,16 +95,16 @@ There are a number of methods in the `TopologyDurableFunction` class:
 
 | Function | Descrtipion | 
 |:---|:---|
-| TimedStart | An Azure Function bound to a timed trigger, currently scheduled to execute every 2 hours. This function starts the MainOrchestrator. |
-| HttpStart | An Azure Function bound to a HTTP trigger, used for starting the MainOrchestrator manually for testing or after a first deployment from the StackPack. |
-| MainOrchestrator | The orchestrator containing the main workflow, which is "GetSubscriptions" -> "HandleSubscription" (called for each subscription) -> "SendToStackState". |
-| GetSubscriptions | An activity that fetches all subscriptions the service principle has access to. |
-| HandleSubscription | A sub-orchestrator, which starts activities of itself as part of its workflow, which is: "GetResourcesToInclude" -> "ConvertResourcesToStackStateData" (for each set of resources, grouped by type) |
-| GetResourcesToInclude | An activity that fetches all resources in a subscription and filters out those that are ignored. |
-| ConvertResourcesToStackStateData | An activity that receives a group of resources and calls the ResourceTypeConverter class in the Core project. |
-| ConvertResourcesToStackStateDataInner | Regular method containing the actual implementation of ConvertResourcesToStackStateData, which uses the DurableActivityContext class that we can't use from the CLI so we split the method in 2. Result is an instance of the class Synchronization. |
-| SendToStackState | An activity that receives a Synchronization object and sends it to StackState. |
-| PurgeHistory | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
+| `TimedStart` | This function starts the `MainOrchestrator` and is bound to a timed trigger scheduled to execute every 2 hours. |
+| `HttpStart` | Starts the `MainOrchestrator` manually for testing or after a first deployment from the StackPack. Bound to a HTTP trigger. |
+| `MainOrchestrator` | The orchestrator containing the main workflow, which is `GetSubscriptions` -> `HandleSubscription` (called for each subscription) -> `SendToStackState`. |
+| `GetSubscriptions` | Fetches all subscriptions that the service principle has access to. |
+| `HandleSubscription` | A sub-orchestrator, starts activities in the workflow: `GetResourcesToInclude` -> `ConvertResourcesToStackStateData` (for each set of resources, grouped by type) |
+| `GetResourcesToInclude` | Fetches all resources in a subscription and filters out those that are ignored. |
+| `ConvertResourcesToStackStateData` | Receives a group of resources and calls the `ResourceTypeConverter` class in the Core project. |
+| `ConvertResourcesToStackStateDataInner` | Regular method containing the actual implementation of `ConvertResourcesToStackStateData`, which uses the `DurableActivityContext` class that we can't use from the CLI so we split the method in 2. Result is an instance of the class Synchronization. |
+| `SendToStackState` |Receives a Synchronization object and sends it to StackState. |
+| `PurgeHistory` | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
 
 ## Troubleshooting
 
