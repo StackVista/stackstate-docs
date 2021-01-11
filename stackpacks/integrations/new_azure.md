@@ -95,6 +95,15 @@ You can check the status of the Azure integration in Azure resource group. Open 
 
 ![StackState Azure functions](/.gitbook/assets/stackpack_azure_all_functions.png)
 
+### Upgrade
+
+When a new version of the Azure StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **Azure**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+
+For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](/stackpacks/about-stackpacks.md#upgrade-a-stackpack).
+
+{% hint style="info" %}
+If you upgrade to a major new version of the Azure StackPack where the StackPack is uninstalled, it is advised to also remove all Azure resources for StackState. 
+{% endhint %}
 
 ## Integration details
 
