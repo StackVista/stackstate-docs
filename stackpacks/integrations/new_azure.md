@@ -6,11 +6,6 @@ description: In-depth monitoring of Azure resource types
 
 ## Overview
 
-{% hint style="info" %}
-* For StackState images in the table below, `$VERSION` should be replaced with the appropriate StackState version number.
-* Starting from version 4.2 StackState server will not be part of the standard deployment, it has been superseded by several separate pods, using the same server image.
-{% endhint %}
-
 Microsoft Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services. This StackPack enables in-depth monitoring of the following Azure resource types:
 
 | | | 
