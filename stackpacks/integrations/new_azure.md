@@ -76,7 +76,7 @@ Each Azure integration retrieves topology data for resources associated with the
 
 | Data | Description |
 |:---|:---|
-| Components | Components retrieved from Azure are tagged with `instance_name`, `resource_group` and `subscription_name`. |
+| Components | Components retrieved from Azure are tagged with the associated Azure `instance_name`, `resource_group` and `subscription_name`. |
 | Relations |  | 
 
 #### Traces
