@@ -147,4 +147,5 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 ## See also
 
-- 
+- [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack)
+- [Service principals in Azure \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
