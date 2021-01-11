@@ -8,6 +8,7 @@ description: In-depth monitoring of Azure resource types
 
 Microsoft Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services. This StackPack enables in-depth monitoring of the following Azure resource types:
 
+| | | 
 |:---|:---|:---|
 | Azure Kubernetes Service (AKS) | Function Apps | SQL Servers |
 | Application Gateways | Key Vault storage | Storage Accounts |
