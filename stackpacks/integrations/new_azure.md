@@ -48,7 +48,9 @@ Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integra
 
 ### Deploy Azure Agent
 
-To enable the Azure integration and begin collecting data from Azure you will need to deploy the StackState Azure Agent to your Azure instance. You can deploy one or more StackState Azure Agents, each will collect data from resources related to its configured Azure Service Principle.
+To enable the Azure integration and begin collecting data from Azure, you will need to deploy the StackState Azure Agent to your Azure instance. You can deploy one or more StackState Azure Agents, each will collect data from resources related to its configured Azure Service Principle.
+
+
 
 
 
@@ -74,7 +76,7 @@ Each Azure integration retrieves topology data for resources associated with the
 
 | Data | Description |
 |:---|:---|
-| Components |  |
+| Components | Components retrieved from Azure are tagged with `instance_name`, `resource_group` and `subscription_name`. |
 | Relations |  | 
 
 #### Traces
@@ -97,7 +99,7 @@ There are a number of methods in the `TopologyDurableFunction` class:
 |:---|:---|
 | **TimedStart** | Timed trigger to start the **MainOrchestrator**. Scheduled to execute every 2 hours. |
 | **HttpStart** | HTTP trigger to start the **MainOrchestrator** manually for testing or after a first deployment from the StackPack. |
-| **MainOrchestrator** | The orchestrator containing the main workflow:<br />**GetSubscriptions** -><br >**HandleSubscription** (called for each subscription) -><br />**SendToStackState**. |
+| **MainOrchestrator** | The orchestrator containing the main workflow:<br />**GetSubscriptions** -><br >**HandleSubscription** (for each subscription) -><br />**SendToStackState**. |
 | **GetSubscriptions** | Fetches all subscriptions that the service principle has access to. |
 | **HandleSubscription** | Sub-orchestrator, contains the workflow:<br />**GetResourcesToInclude** -><br />**ConvertResourcesToStackStateData** (for each set of resources, grouped by type) |
 | **GetResourcesToInclude** | Fetches all resources in a subscription and filters out those that are ignored. |
@@ -105,6 +107,10 @@ There are a number of methods in the `TopologyDurableFunction` class:
 | **ConvertResourcesToStackStateDataInner** | Regular method containing the actual implementation of **ConvertResourcesToStackStateData**. Result is an instance of the class Synchronization. |
 | **SendToStackState** |Receives a Synchronization object and sends it to StackState. |
 | **PurgeHistory** | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
+
+### Azure views in StackState
+
+When the Azure integration is enabled, a [view](/use/views/README.md) will be created in StackState for each instance of the StackPack. Each view shows components filtered by the Azure `instance_name` tag and is named **Azure_\[instance_name\]**.
 
 ## Troubleshooting
 
