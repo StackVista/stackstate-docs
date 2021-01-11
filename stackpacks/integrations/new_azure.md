@@ -95,11 +95,11 @@ There are a number of methods in the `TopologyDurableFunction` class:
 
 | Function | Descrtipion | 
 |:---|:---|
-| `TimedStart` | This function starts the `MainOrchestrator` and is bound to a timed trigger scheduled to execute every 2 hours. |
-| `HttpStart` | Starts the `MainOrchestrator` manually for testing or after a first deployment from the StackPack. Bound to a HTTP trigger. |
-| `MainOrchestrator` | The orchestrator containing the main workflow, which is `GetSubscriptions` -> `HandleSubscription` (called for each subscription) -> `SendToStackState`. |
+| `TimedStart` | Timed trigger to start the `MainOrchestrator`. Scheduled to execute every 2 hours. |
+| `HttpStart` | HTTP trigger to start the `MainOrchestrator` manually for testing or after a first deployment from the StackPack. |
+| `MainOrchestrator` | The orchestrator containing the main workflow,:<br />`GetSubscriptions` -> `HandleSubscription` (called for each subscription) -> `SendToStackState`. |
 | `GetSubscriptions` | Fetches all subscriptions that the service principle has access to. |
-| `HandleSubscription` | A sub-orchestrator, starts activities in the workflow: `GetResourcesToInclude` -> `ConvertResourcesToStackStateData` (for each set of resources, grouped by type) |
+| `HandleSubscription` | Sub-orchestrator, contains the workflow:<br />>`GetResourcesToInclude` -> `ConvertResourcesToStackStateData` (for each set of resources, grouped by type) |
 | `GetResourcesToInclude` | Fetches all resources in a subscription and filters out those that are ignored. |
 | `ConvertResourcesToStackStateData` | Receives a group of resources and calls the `ResourceTypeConverter` class in the Core project. |
 | `ConvertResourcesToStackStateDataInner` | Regular method containing the actual implementation of `ConvertResourcesToStackStateData`, which uses the `DurableActivityContext` class that we can't use from the CLI so we split the method in 2. Result is an instance of the class Synchronization. |
