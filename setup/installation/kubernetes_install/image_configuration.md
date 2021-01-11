@@ -27,7 +27,8 @@ To address this issue, you can copy all the images to a single registry, close t
 ## Configuration
 
 {% hint style="info" %}
-For StackState images in the table below, `$VERSION` should be replaced with the appropriate StackState version number.
+* For StackState images in the table below, `$VERSION` should be replaced with the appropriate StackState version number.
+* Starting from version 4.2 StackState server will not be part of the standard deployment, it has been superseded by several separate pods, using the same server image.
 {% endhint %}
 
 | Chart | Component | Image | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
@@ -60,5 +61,3 @@ For StackState images in the table below, `$VERSION` should be replaced with the
 | Kafka | JMX Exporter | `docker.io/bitnami/jmx-exporter` | `kafka.metrics.jmx.image.registry` | `kafka.metrics.jmx.image.repository` | `kafka.metrics.jmx.image.tag` |
 | Kafka | Kafka Exporter | `docker.io/bitnami/kafka-exporte` | `kafka.metrics.kafka.image.registry` | `kafka.metrics.kafka.image.repository` | `kafka.metrics.kafka.image.tag` |
 | Zookeeper |  | `docker.io/bitnami/zookeeper-exporter` | `zookeeper.image.registry` | `zookeeper.image.repository` | `zookeeper.image.tag` |
-
-Note: Starting from version 4.2 StackState server will not be part of the standard deployment, it has been superseded by several separate pods, using the same server image.
