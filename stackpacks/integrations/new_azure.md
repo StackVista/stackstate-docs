@@ -34,8 +34,10 @@ To set up the StackState Azure integration, you need to have:
 
 - PowerShell version >= 5.0 or Bash.
 - The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
-- A Resource Group where the StackState resources can be deployed. We recommend that you create a new resource group for StackState.
-- An Azure Service Principal (SPN) for the StackState Azure Agent.
+- A Resource Group where the StackState resources can be deployed. We recommend that you create a separate resource group for all the resources related to StackState.
+- An Azure Service Principal (SPN) for the StackState Azure Agent with the following permissions:
+    - `Contributor` role for the StackPack Resource Group to deploy and delete resources.
+    - `Reader` role for each of the subscriptions the StackPack instance will monitor.
 
 ### Install StackPack
 
@@ -48,11 +50,38 @@ Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integra
 
 ### Deploy Azure Agent
 
-To enable the Azure integration and begin collecting data from Azure, you will need to deploy the StackState Azure Agent to your Azure instance. You can deploy one or more StackState Azure Agents, each will collect data from resources related to its configured Azure Service Principle.
+To enable the Azure integration and begin collecting data from Azure, you will need to deploy the StackState Azure Agent to your Azure instance. The StackState Azure agent is a collection of [Azure functions](#stackstate-azure-functions) that connect to [Azure REST API endpoints](#rest-api-endpoints). You can deploy one or more StackState Azure Agents, each will collect data from resources related to the configured `Reader` roles in the Azure Service Principle.
 
+1. Download the manual installation zip file. This is included in the Azure StackPack and can be accessed at the link provided in StackState after you install the Azure StackPack.
 
+2. Make sure you have created a resource group in one of your subscriptions where the StackState Azure Agent can be deployed.
 
+3. Run one of the install scripts below, specifying the `Client Id` and `Client Secret` - these are the `appId` and `password` from the Service Principal you created before installing the Azure StackPack.
 
+{% tabs %}
+{% tab title="Bash" %}
+./stackstate.monitor.sh \
+    <Azure tenantId> \
+    {{config.baseUrl}} \
+    {{config.apiKey}} \
+    <Azure subscriptionId> \
+    <Azure clientId> \
+    <Azure clientSecret> \
+    <Azure resourceGroupName>
+{% endtab %}
+{% tab title="SPowershell" %}
+az login
+az login
+./stackstate.monitor.ps1 `
+-tenantId <your tenantId> `
+-stsApiUrl {{config.baseUrl} `
+-stsApiKey {{config.apiKey}} `
+-subscriptionId <azure subscriptionId> `
+-servicePrincipalId <Client Id> `
+-servicePrincipalSecret <Client Secret> `
+-resourceGroupName <Resource GroupName to deploy to>
+{% endtab %}
+{% endtabs %}
 
 ### Status
 
