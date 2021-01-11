@@ -8,7 +8,6 @@ description: In-depth monitoring of Azure resource types
 
 Microsoft Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services. This StackPack enables in-depth monitoring of the following Azure resource types:
 
-| | | |
 |:---|:---|:---|
 | Azure Kubernetes Service (AKS) | Function Apps | SQL Servers |
 | Application Gateways | Key Vault storage | Storage Accounts |
@@ -18,13 +17,13 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 | Compute Disks | Operations Management | |
 | Event Hubs | Public IP Addresses| |
 
-![Data flow](/.gitbook/assets/stackpack-azure2.png)
+![Data flow](/.gitbook/assets/stackpack-azure.svg)
 
 - The StackState Azure Agent is [a collection of Azure functions](#stackstate-azure-functions) that connect to the [Azure APIs](#rest-api-endpoints) every 2 hours to collect information about available resources.
 - The StackState Azure function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming data into topology components and relations.
-- The StackState Azure plugin pulls telemetry data on demand from Azure.
-- StackState maps retrieved telemetry (metrics and events) onto the associated Azure components and relations.
+- The StackState Azure plugin retrieves a list of supported metrics per resource and pulls telemetry data on demand from Azure.
+- StackState maps retrieved telemetry (metrics) onto the associated Azure components and relations.
 
 ## Setup
 
@@ -118,7 +117,7 @@ The Azure integration does not retrieve any Events data.
 
 #### Metrics
 
-The Azure integration does not retrieve any Metrics data.
+The Azure integration retrieves a list of the supported metrics per resource from the StackState Azure plugin. This list is then used to pull Metrics data on demand directly from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream. Retrieved metrics are mapped onto the associated topology component.
 
 #### Topology
 
@@ -137,11 +136,13 @@ The Azure integration does not retrieve any Traces data.
 
 The Azure integration uses the following Azure REST API endpoints:
 
-- Microsoft.AspNet.WebApi.Client Version="5.2.7"
-- Microsoft.Azure.Management.ApplicationInsights Version="0.2.0-preview"
-- Microsoft.Azure.OperationalInsight" Version="0.10.0-preview"
-- Microsoft.Azure.Management.Fluent Version="1.18.0"
-- Microsoft.Azure.Management.ResourceManager.Fluent Version="1.18.0"
+| API endpoint | SDK | Version |
+|:---|:---|:---|
+| | Microsoft.AspNet.WebApi.Client | 5.2.7 |
+| | Microsoft.Azure.Management.ApplicationInsights | 0.2.0-preview |
+| | Microsoft.Azure.OperationalInsight | 0.10.0-preview |
+| metricDefinitions | Microsoft.Azure.Management.Fluent | 1.18.0 |
+| | Microsoft.Azure.Management.ResourceManager.Fluent | 1.18.0 |
 
 ### StackState Azure functions
 
