@@ -154,6 +154,26 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 ## Uninstall
 
+The Azure StackPack can be uninstalled by clicking the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **Azure** screen. This will remove all Azure specific configuration in StackState. You can also stop and delete the created resources (within the resource group specified when running the manual installation). They have been labeled with the tag `StackState`.
+
+To do so, you can use the scripts in the manual installation zip file you downloaded when installing the StackState Azure agent. You can download this file again at anytime from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **Azure** screen.
+
+{% tabs %}
+{% tab title="Bash" %}
+```bash
+./stackstate.monitor.deprovisioning.sh \
+    <your TENANT_ID> \
+    {{config.baseUrl}}
+```
+{% endtab %}
+{% tab title="Powershell" %}
+```powershell
+./stackstate.monitor.deprovisioning.ps1 `
+-tenantId <your TENANT_ID> `
+-stsApiUrl {{config.baseUrl}}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Release notes
 
