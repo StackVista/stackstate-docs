@@ -11,7 +11,7 @@ Mirroring is a way to connect StackState to third-party telemetry data sources. 
 Mirroring has some major _advantages_:
 
 * Cost savings on both storage and bandwidth.
-* Data access is always fresh. 
+* Data access is always fresh.
 * All data is always available; in some cases throttling limits may prevent all data from being transferred, so mirroring is the only viable option.
 
 There are however also some _disadvantages_:
@@ -353,6 +353,8 @@ The following aggregation methods are supported by the Mirror Plugin:
 * `MIN` - minimum
 * `SUM` - sum
 * `EVENT_COUNT` - the number of occurrences during bucket interval
+* `SUM_NO_ZEROS` - sum of the values (missing values from a datasource won't be filled with zeros)
+* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval (missing values from a datasource won't be filled with zeros)
 
 An example response of an aggregated query request is given below:
 
@@ -415,4 +417,3 @@ In case of a Mirror request failure the Mirror may reply with the following erro
   "details": "Arbitrary remote error details"
   }
   ```
-
