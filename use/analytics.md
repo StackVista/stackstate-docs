@@ -34,8 +34,9 @@ Below are some queries to get you started and an example of the expected output.
 {% tabs %}
 {% tab title="Query" %}
 ```
-// Define a name for the component where we start the search. 
-def selectedComponent = "Invoicing"`
+// Define a name for the component where we start the search 
+def selectedComponent = "Invoicing"
+
 Topology.query("name = '" + selectedComponent + "'")
 ```
 {% endtab %}
@@ -51,8 +52,9 @@ query output
 {% tabs %}
 {% tab title="Query" %}
 ```
-// Define a name for the component where we start the search. 
-def selectedComponent = "srv02"`
+// Define a name for the component where we start the search 
+def selectedComponent = "srv02"
+
 Topology.query(
     "withNeighborsOf(
         direction = 'down', 
@@ -77,7 +79,7 @@ query output
 {% tabs %}
 {% tab title="Query" %}
 ```
-// Define a name for the component where we start the search. 
+// Define a name for the component where we start the search 
 def selectedComponent = "Payment_Service"
 
 // Define a search depth    
