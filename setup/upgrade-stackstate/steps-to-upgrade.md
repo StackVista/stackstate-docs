@@ -97,22 +97,24 @@ StackPacks must be uninstalled using the version of StackState prior to the upgr
 Remember to check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for specific changes that need to be made for the new StackState version you will upgrade to.
 {% endhint %}
 
-Instructions to upgrade a StackState Kubernetes or Linux setup can be found below.
+Instructions to upgrade a StackState Kubernetes or Linux setup can be found below.Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-For upgrading, the same command can be used as for the [first time Kubernetes installation](../installation/kubernetes_install/install_stackstate.md). Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+1. Get the latest helm, chart by running `helm repo update`.
+2. To upgrade, use the same command as for the [first time Kubernetes installation](../installation/kubernetes_install/install_stackstate.md). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 
 {% tab title="Linux" %}
-Depending on your platform, you can use one of the following commands to upgrade.
 
-* **Fedora, RedHat, CentOS:**
-  * using RPM: `rpm -U <stackstate>.rpm`
-  * using yum: `yum localinstall <stackstate>.rpm`
-* **Debian, Ubuntu:**
-  * using dpkg: `dpkg -i <stackstate>.deb`
-  * using apt: `apt-get upgrade <stackstate>.deb`
+1. Download the upgrade file from [https://download.stackstate.com](https://download.stackstate.com).
+2. Depending on your platform, use one of the following commands to upgrade:
+    * **Fedora, RedHat, CentOS:**
+      * using RPM: `rpm -U <stackstate>.rpm`
+      * using yum: `yum localinstall <stackstate>.rpm`
+    * **Debian, Ubuntu:**
+      * using dpkg: `dpkg -i <stackstate>.deb`
+      * using apt: `apt-get upgrade <stackstate>.deb`
 {% endtab %}
 {% endtabs %}
 
