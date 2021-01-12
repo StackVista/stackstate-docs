@@ -111,9 +111,9 @@ It is advised to choose the [default async function](#async-functions-default) t
 
 With Async set to **Off** the function will be run as synchronous.
 
-Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
-
 Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can be run in parallel.
+
+Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
 
 ### Properties for synchronous functions
 
