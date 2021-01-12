@@ -101,7 +101,7 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-1. Get the latest helm, chart by running `helm repo update`.
+1. Get the latest helm chart by running `helm repo update`.
 2. To upgrade, use the same command as for the [first time Kubernetes installation](../installation/kubernetes_install/install_stackstate.md). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 

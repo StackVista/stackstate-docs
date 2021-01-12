@@ -1,5 +1,5 @@
 ---
-description: Set up a mirror to retrieve telemetry data on-demand from an external system.
+description: Mirror integration tutorial.
 ---
 
 # Mirror integration tutorial
