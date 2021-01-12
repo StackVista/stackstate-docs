@@ -91,9 +91,9 @@ az login
 
 You can check the status of the Azure integration in Azure resource group. Open the **FunctionApp** and check the available metrics or the full list of **Functions** from the left menu. The status of all functions should be **Enabled**.
 
-![Azure FunctionApp](/.gitbook/assets/stackpack_azure_functionApp.png)
+![Azure FunctionApp](/.gitbook/assets/azure_functionApp.png)
 
-![StackState Azure functions](/.gitbook/assets/stackpack_azure_all_functions.png)
+![StackState Azure functions](/.gitbook/assets/azure_all_functions.png)
 
 ### Upgrade
 
