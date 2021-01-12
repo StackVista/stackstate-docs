@@ -26,8 +26,8 @@ description: Run queries against data from your IT environment.
 Below are some queries to get you started and an example of the expected output. You can find more code examples in the StackState UI Analytics environment.
 
 - [Get all components related to a specific component](#get-all-components-related-to-a-specific-component)
-- [List all components which depend on a specific component and have the state CRITICAL](#list-all-components-which-depend-on-a-specific-component-and-have-the-state-critical)
-- [List a service with components it is depending on down to N levels of depth]()
+- [List all components that depend on a specific component and have the state CRITICAL](#list-all-components-that-depend-on-a-specific-component-and-have-the-state-critical)
+- [List a service with components it is depending on down to N levels of depth](#list-a-service-with-components-it-is-depending-on-down-to-n-levels-of-depth)
 
 #### Get all components related to a specific component.
 
@@ -46,7 +46,7 @@ query output
 {% endtab %}
 {% endtabs %}
 
-#### List all components which depend on a specific component and have the state CRITICAL
+#### List all components that depend on a specific component and have the state CRITICAL
 
 {% tabs %}
 {% tab title="Query" %}
