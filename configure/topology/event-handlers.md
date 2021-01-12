@@ -106,7 +106,7 @@ The properties described below can be retrieved from the default parameters in a
 ## Synchronous functions \(async Off\)
 
 {% hint style="info" %}
-It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function, as synchronous functions will be deprecated in a future release of StackState.
+Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function. 
 {% endhint %}
 
 With Async set to **Off** the function will be run as synchronous.
