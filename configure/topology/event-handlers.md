@@ -76,13 +76,15 @@ You can add logging statements to an event handler function for debug purposes, 
 
 ## Async functions \(default\)
 
-With Async set to **On** the function will be run as async.
+With Async set to **On**, the event handler function will be run as async.
 
-An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function. This allows more extensive details around an event to be included in alerts sent to Slack, such as links to relevant data and a possible root cause. You could also use the Http script API to send an SMS or webhook post.
+An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
+
+The **Slack** event handler function shipped with StackState will run as an async function. This allows the alerts sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the Http script API to send an SMS or webhook post.
 
 ### Properties for async functions
 
-The properties below can be retrieved from the default async event handler function parameters.
+The properties described below can be retrieved from the default parameters in an async event handler function.
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
 
@@ -105,13 +107,13 @@ The properties below can be retrieved from the default async event handler funct
 
 With Async set to **Off** the function will be run as synchronous.
 
-All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. This places limitations on both the capability of what they can achieve and the number of functions that can be run in parallel.
+All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. This places limitations on both the capability of what they can achieve and the number of functions that can be run in parallel. Synchronous event handler functions will be deprecated in a future release of StackState, so it is best to choose the [default async function](#async-functions-default) type when writing a new event handler function.
 
 Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
 
 ### Properties for synchronous functions
 
-The properties that can be retrieved from the default synchronous event handler function parameters are described below.
+The properties described below can be retrieved from the default synchronous event handler function parameters.
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
 
