@@ -21,9 +21,9 @@ description: Run queries against data from your IT environment.
 
 ### Example queries
 
-Below are some queries to get you started and an example of the expected output. You can also find more code examples in the StackState UI Analytics environment.
+Below are some queries to get you started and an example of the expected output. You can find more code examples in the StackState UI Analytics environment.
 
-Get all components related to a specific component.
+#### Get all components related to a specific component.
 
 {% tabs %}
 {% tab title="Query" %}
