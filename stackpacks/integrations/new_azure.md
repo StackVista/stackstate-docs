@@ -18,7 +18,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 | Compute Disks | Operations Management | |
 | Event Hubs | Public IP Addresses| |
 
-![Data flow](/.gitbook/assets/stackpack-azure.svg)
+![Data flow](/.gitbook/assets/stackpack-azure.png)
 
 - The StackState Azure Agent is [a collection of Azure functions](#stackstate-azure-functions) that connect to the [Azure APIs](#rest-api-endpoints) at a configured interval to collect information about available resources.
 - The StackState Azure function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
