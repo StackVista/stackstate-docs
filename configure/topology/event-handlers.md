@@ -105,11 +105,15 @@ The properties described below can be retrieved from the default parameters in a
 
 ## Synchronous functions \(async Off\)
 
+{% hint style="info" %}
+It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function, as synchronous functions will be deprecated in a future release of StackState.
+{% endhint %}
+
 With Async set to **Off** the function will be run as synchronous.
 
 Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
 
-Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can be run in parallel. It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function as synchronous functions will be deprecated in a future release of StackState.
+Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can be run in parallel.
 
 ### Properties for synchronous functions
 
@@ -132,7 +136,7 @@ The properties described below can be retrieved from the default synchronous eve
 
 ### Plugins for synchronous functions
 
-Synchronous event handler functions use plugins to send notifications to external systems. The plugins available for use in custom event handler functions are listed below:
+Synchronous event handler functions use plugins to send notifications to external systems. The following plugins are available for use in custom event handler functions:
 
 | Plugin | Description |  |
 | :--- | :--- | :--- |
