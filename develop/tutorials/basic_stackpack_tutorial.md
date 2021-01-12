@@ -1,5 +1,5 @@
 ---
-description: Basic StackPack tutorial.
+description: Basic StackPack tutorial
 ---
 
 # Basic StackPack tutorial

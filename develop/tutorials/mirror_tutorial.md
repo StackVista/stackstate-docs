@@ -1,5 +1,5 @@
 ---
-description: Mirror integration tutorial.
+description: Mirror integration tutorial
 ---
 
 # Mirror integration tutorial

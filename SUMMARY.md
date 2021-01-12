@@ -197,7 +197,7 @@
       * [View - script API](develop/reference/scripting/script-apis/view.md)
 * [Tutorials](develop/tutorials/README.md)
   * [Push data to StackState from an external system](develop/tutorials/push_integration_tutorial.md)
-  * [Set up a mirror to retrieve telemetry data](develop/tutorials/mirror_tutorial.md)
-  * [Create a basic StackPack](develop/tutorials/basic_stackpack_tutorial.md)
+  * [Use a mirror to retrieve telemetry data from an external system](develop/tutorials/mirror_tutorial.md)
+  * [Create a simple StackPack](develop/tutorials/basic_stackpack_tutorial.md)
   * [Send events to StackState from an external system](develop/tutorials/events_tutorial.md)
 

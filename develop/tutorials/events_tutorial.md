@@ -1,5 +1,5 @@
 ---
-description: Events tutorial.
+description: Events tutorial
 ---
 
 # Events tutorial

@@ -1,5 +1,5 @@
 ---
-description: Push integration tutorial.
+description: Push integration tutorial
 ---
 
 # Push-integration tutorial
