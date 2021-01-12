@@ -12,7 +12,7 @@ description: Answer questions using queries.
 
 ?? Quick description of the screen. How do you get here? Write a query here, get result here, look at history of queries here (is this for all stackstate users or only current user?) and code examples here.
 
-![Analytics screenshot](/.gitbook/assets/analytics.png)
+![Analytics screenshot](/.gitbook/assets/new_analytics.png)
 
 
 ## Queries
@@ -28,7 +28,8 @@ Get all components which are related to a specific component.
 {% tabs %}
 {% tab title="Query" %}
 ```
-//Define a name for the component where we start the search. def selectedComponent = "Invoicing"`
+//Define a name for the component where we start the search. 
+def selectedComponent = "Invoicing"`
 `Topology.query("name = '" + selectedComponent + "'")
 ```
 {% endtab %}
