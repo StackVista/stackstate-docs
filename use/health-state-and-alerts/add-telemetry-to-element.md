@@ -35,9 +35,9 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 
 ## See also
 
-* [Set a priority for the telemetry stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md)
-* [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
+* [Set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
+* [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md)
 * [Monitor the health of an element](add-a-health-check.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md)
-* [Browse data in a telemetry stream](../views/browse-telemetry.md)
+* [Use templates to add telemetry streams to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
+* [Browse data in a telemetry stream](/views/browse-telemetry.md)
 
