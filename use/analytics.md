@@ -10,7 +10,9 @@ description: Run queries against data from your IT environment.
 
 ## The analytics environment
 
-?? Quick description of the screen. How do you get here? Write a query here, get result here, look at history of queries here (is this for all stackstate users or only current user?) and code examples here.
+?? Quick description of the screen. Cover:
+- How do you get here? 
+- Write a query here, get result here, look at history of queries here (is this for all stackstate users or only current user?), code examples here.
 
 ![Analytics screenshot](/.gitbook/assets/new_analytics.png)
 
