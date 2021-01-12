@@ -1,5 +1,5 @@
 ---
-description: Answer questions using queries.
+description: Run queries against data from your IT environment.
 ---
 
 # Analytics
