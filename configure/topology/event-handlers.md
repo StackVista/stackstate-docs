@@ -107,9 +107,9 @@ The properties described below can be retrieved from the default parameters in a
 
 With Async set to **Off** the function will be run as synchronous.
 
-All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. This places limitations on both the capability of what they can achieve and the number of functions that can be run in parallel. Synchronous event handler functions will be deprecated in a future release of StackState, so it is best to choose the [default async function](#async-functions-default) type when writing a new event handler function.
-
 Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
+
+Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can be run in parallel. It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function as synchronous functions will be deprecated in a future release of StackState.
 
 ### Properties for synchronous functions
 
