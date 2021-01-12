@@ -23,7 +23,7 @@ description: Answer questions using queries.
 
 Below are some queries to get you started and an example of the expected output. You can also find more code examples in the StackState UI Analytics environment.
 
-Get all components which are related to a specific component.
+Get all components related to a specific component.
 
 {% tabs %}
 {% tab title="Query" %}
@@ -48,7 +48,10 @@ query output
 - other useful links about queries and analytics
 
 
---------
+========
+========
+========
+
 
 StackState's 4T \(Topology, Telemetry, Traces and Time\) model can be queried within the analytical environment. Analytical queries can be written in Groovy and support the [StackState Query Language \(STQL\)](../develop/reference/stql_reference.md). StackState analytical environment can be found at: `<stackstate_url:7070>/#/analytics`. The analytical environment is a full-fledged scripting environment.
 
