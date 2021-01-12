@@ -23,7 +23,7 @@ description: Run queries against data from your IT environment.
 
 ### Example queries
 
-Below are some queries to get you started and an example of the expected output. You can find more code examples in the StackState UI Analytics environment.
+Below are some queries to get you started with an example of their expected output. You can find more code examples in the StackState UI Analytics environment.
 
 - [Get all components related to a specific component](#get-all-components-related-to-a-specific-component)
 - [List all components that depend on a specific component and have the state CRITICAL](#list-all-components-that-depend-on-a-specific-component-and-have-the-state-critical)
