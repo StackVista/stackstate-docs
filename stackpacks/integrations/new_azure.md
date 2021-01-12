@@ -137,7 +137,8 @@ The Azure integration does not retrieve any Traces data.
 
 The Azure integration uses the following Azure REST API endpoints:
 
-
+| Resource | Endpoint | SDK (Version) |
+| ----------- | ----------- | ----------- |
 |  ApplicationInsights     | GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Insights/components?api-version=2015-05-01       | Microsoft.Azure.Management.ApplicationInsights (0.2.0-preview)   | 2015-05-01        |
 |  KeyVault | GET https://management.azure.com/subscriptions/{subscriptionId}/resources?$filter=resourceType eq 'Microsoft.KeyVault/vaults'&api-version=2015-11-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | |
 
@@ -146,7 +147,6 @@ The Azure integration uses the following Azure REST API endpoints:
 |  AKS Managed Cluster     | Microsoft.ContainerService/managedClusters?api-version=2018-03-31       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   |
 |  Availability Sets     | Microsoft.Compute/availabilitySets?api-version=2018-06-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 
 |  ApplicationGateways     | Microsoft.Network/applicationGateways?api-version=2018-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   |
-
 |  Classic Storage Account     | Microsoft.ClassicStorage/storageAccounts?api-version=2016-11-01       | None |
 |  Classic Storage Account Keys | Microsoft.ClassicStorage/storageAccounts/{accountName}/listKeys?api-version=2016-11-01       | None |
 |  Classic Cloud Services     | Microsoft.ClassicCompute/domainNames?api-version=2018-06-01       | None |
