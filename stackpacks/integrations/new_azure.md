@@ -139,32 +139,32 @@ The Azure integration uses the following Azure REST API endpoints:
 
 | Resource | Endpoint | SDK (Version) | API Version |
 | ----------- | ----------- | ----------- | ----------- |
-|  AKS Managed Cluster     | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters?api-version=2018-03-31       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 2018-03-31        |
-|  Availability Sets     | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets?api-version=2018-06-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 2018-06-01        |
-|  ApplicationGateways     | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways?api-version=2018-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 2018-04-01        |
+|  AKS Managed Cluster     | Microsoft.ContainerService/managedClusters?api-version=2018-03-31       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 2018-03-31        |
+|  Availability Sets     | Microsoft.Compute/availabilitySets?api-version=2018-06-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 2018-06-01        |
+|  ApplicationGateways     | Microsoft.Network/applicationGateways?api-version=2018-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0)   | 2018-04-01        |
 |  ApplicationInsights     | GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Insights/components?api-version=2015-05-01       | Microsoft.Azure.Management.ApplicationInsights (0.2.0-preview)   | 2015-05-01        |
-|  Classic Storage Account     | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts?api-version=2016-11-01       | None | 2016-11-01        |
-|  Classic Storage Account Keys | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{accountName}/listKeys?api-version=2016-11-01       | None | 2016-11-01        |
-|  Classic Cloud Services     | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicCompute/domainNames?api-version=2018-06-01       | None | 2018-06-01        |
-|  Classic Cloud Services Deployment Slots | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicCompute/domainNames/{cloudServiceName}/deploymentSlots/{stage}?$expand=roles/instances?api-version=2018-06-01       | None | 2018-06-01        |
-|  Compute Disks | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks?api-version=2018-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  Eventhub Namespaces | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces?api-version=2017-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-04-01        |
+|  Classic Storage Account     | Microsoft.ClassicStorage/storageAccounts?api-version=2016-11-01       | None | 2016-11-01        |
+|  Classic Storage Account Keys | Microsoft.ClassicStorage/storageAccounts/{accountName}/listKeys?api-version=2016-11-01       | None | 2016-11-01        |
+|  Classic Cloud Services     | Microsoft.ClassicCompute/domainNames?api-version=2018-06-01       | None | 2018-06-01        |
+|  Classic Cloud Services Deployment Slots | Microsoft.ClassicCompute/domainNames/{cloudServiceName}/deploymentSlots/{stage}?$expand=roles/instances?api-version=2018-06-01       | None | 2018-06-01        |
+|  Compute Disks | Microsoft.Compute/disks?api-version=2018-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  Eventhub Namespaces | Microsoft.EventHub/namespaces?api-version=2017-04-01       | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-04-01        |
 |  KeyVault | GET https://management.azure.com/subscriptions/{subscriptionId}/resources?$filter=resourceType eq 'Microsoft.KeyVault/vaults'&api-version=2015-11-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2015-11-01        |
-|  LoadBalancers | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  NetworkInterfaces | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  NetworkSecurityGroups | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  PublicIPAddresses | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  RouteTables | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  ServerFarms | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms?api-version=2018-02-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-02-01        |
-|  SQL Servers | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers?api-version=2015-05-01-preview   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2015-05-01-preview        |
-|  SQL Server ElasticPools | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools?api-version=2014-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2014-04-01        |
-|  SQL Server Databases | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases?api-version=2014-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2014-04-01        |
-|  Storage Accounts | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts?api-version=2017-10-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-10-01        |
-|  Storage Account Keys | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys?api-version=2017-10-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-10-01        |
-|  Traffic Manager Profiles | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficmanagerprofiles?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  Virtual Machine | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2018-06-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-06-01        |
-|  Virtual Networks | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
-|  Web Apps | GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites?api-version=2017-10-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-10-01        |
+|  LoadBalancers | Microsoft.Network/loadBalancers?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  NetworkInterfaces | Microsoft.Network/networkInterfaces?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  NetworkSecurityGroups | Microsoft.Network/networkSecurityGroups?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  PublicIPAddresses | Microsoft.Network/publicIPAddresses?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  RouteTables | Microsoft.Network/routeTables?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  ServerFarms | Microsoft.Web/serverfarms?api-version=2018-02-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-02-01        |
+|  SQL Servers | Microsoft.Sql/servers?api-version=2015-05-01-preview   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2015-05-01-preview        |
+|  SQL Server ElasticPools | Microsoft.Sql/servers/{serverName}/elasticPools?api-version=2014-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2014-04-01        |
+|  SQL Server Databases | Microsoft.Sql/servers/{serverName}/databases?api-version=2014-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2014-04-01        |
+|  Storage Accounts | Microsoft.Storage/storageAccounts?api-version=2017-10-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-10-01        |
+|  Storage Account Keys | Microsoft.Storage/storageAccounts/{accountName}/listKeys?api-version=2017-10-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-10-01        |
+|  Traffic Manager Profiles | Microsoft.Network/trafficmanagerprofiles?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  Virtual Machine | Microsoft.Compute/virtualMachines?api-version=2018-06-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-06-01        |
+|  Virtual Networks | Microsoft.Network/virtualNetworks?api-version=2018-04-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2018-04-01        |
+|  Web Apps | Microsoft.Web/sites?api-version=2017-10-01   | Microsoft.Azure.Management.ResourceManager.Fluent (1.18.0) | 2017-10-01        |
 
 ### StackState Azure functions
 
