@@ -25,14 +25,42 @@ description: Run queries against data from your IT environment.
 
 Below are some queries to get you started and an example of the expected output. You can find more code examples in the StackState UI Analytics environment.
 
+- [Get all components related to a specific component](#get-all-components-related-to-a-specific-component)
+- [List all components which depend on a specific component and have the state CRITICAL]()
+
 #### Get all components related to a specific component.
 
 {% tabs %}
 {% tab title="Query" %}
 ```
-//Define a name for the component where we start the search. 
+// Define a name for the component where we start the search. 
 def selectedComponent = "Invoicing"`
-`Topology.query("name = '" + selectedComponent + "'")
+Topology.query("name = '" + selectedComponent + "'")
+```
+{% endtab %}
+{% tab title="Example result" %}
+```
+query output
+```
+{% endtab %}
+{% endtabs %}
+
+#### List all components which depend on a specific component and have the state CRITICAL
+
+{% tabs %}
+{% tab title="Query" %}
+```
+// Define a name for the component where we start the search. 
+def selectedComponent = "srv02"`
+Topology.query
+    ("withNeighborsOf(
+        direction = 'down', levels = '15', 
+        components = (
+            name = '" + selectedComponent + "'
+        )
+    ) 
+    and healthState = 'CRITICAL'"
+)
 ```
 {% endtab %}
 {% tab title="Example result" %}
