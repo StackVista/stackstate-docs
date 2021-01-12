@@ -81,7 +81,7 @@ query output
 def selectedComponent = "Payment_Service"
 
 //Define a search depth    
-def N = 3`
+def N = 3
 
 Topology.query(
     "withNeighborsOf(
