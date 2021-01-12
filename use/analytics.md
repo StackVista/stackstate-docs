@@ -52,14 +52,44 @@ query output
 ```
 // Define a name for the component where we start the search. 
 def selectedComponent = "srv02"`
-Topology.query
-    ("withNeighborsOf(
-        direction = 'down', levels = '15', 
+Topology.query(
+    "withNeighborsOf(
+        direction = 'down', 
+        levels = '15', 
         components = (
             name = '" + selectedComponent + "'
         )
     ) 
     and healthState = 'CRITICAL'"
+)
+```
+{% endtab %}
+{% tab title="Example result" %}
+```
+query output
+```
+{% endtab %}
+{% endtabs %}
+
+#### List a service with components it is depending on down to N levels of depth
+
+{% tabs %}
+{% tab title="Query" %}
+```
+// Define a name for the component where we start the search. 
+def selectedComponent = "Payment_Service"
+
+//Define a search depth    
+def N = 3`
+
+Topology.query(
+    "withNeighborsOf(
+        direction = 'down', 
+        levels = '" + N + "',
+        components = (
+            name = '" + selectedComponent + "'
+        ) 
+    )"
 )
 ```
 {% endtab %}
