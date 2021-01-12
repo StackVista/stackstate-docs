@@ -55,8 +55,7 @@ sts graph retention remove-expired-data --immediately
 
 ### StackState data store
 
-
-If you are using the event/metrics/traces store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time. 
+If you are using the event/metrics/traces store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time.
 
 #### Configure disk space for Elasticsearch
 
@@ -68,6 +67,7 @@ The settings can be adjusted by using environment variables to [override the def
 
 Note that `elasticsearchDiskSpaceMB` will scale automatically based on the disk space available to Elasticsearch in Kubernetes.
 {% endtab %}
+
 {% tab title="Linux" %}
 The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
 {% endtab %}
@@ -124,9 +124,10 @@ stackstate {
 
 Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
 
-**Allocate no disk space to an index group**<br />Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
+**Allocate no disk space to an index group**  
+Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
 
-**Distribute disk space unevenly across index groups**<br />The available disk space \(the configured `elasticsearchDiskSpaceMB`\) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared equally between the indicies in the index group \(the configured `maxIndicesRetained`\):
+**Distribute disk space unevenly across index groups**The available disk space \(the configured `elasticsearchDiskSpaceMB`\) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared equally between the indicies in the index group \(the configured `maxIndicesRetained`\):
 
 ```text
 # Total disk space allocated to an index group
@@ -147,7 +148,6 @@ For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be alloc
 | `kafkaStateEventsToES.elasticsearch.index{` `diskSpaceWeight = 4` `maxIndicesRetained = 20` `}` | 80000MB \(or 300000\*4/15\) | 4000MB \(or 80000/20\) |
 | `kafkaStsEventsToES.elasticsearch.index{` `diskSpaceWeight = 5` `maxIndicesRetained = 20` `}` | 100000MB \(or 300000\*5/15\) | 5000MB \(or 100000/20\) |
 | `kafkaTraceToES.elasticsearch.index{` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB | 0MB |
-
 
 ### External data store
 

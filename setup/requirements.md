@@ -1,8 +1,3 @@
----
-title: Requirements
-kind: Documentation
----
-
 # Requirements
 
 ## Kubernetes
