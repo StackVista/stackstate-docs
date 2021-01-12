@@ -27,6 +27,7 @@ Below are some queries to get you started and an example of the expected output.
 
 - [Get all components related to a specific component](#get-all-components-related-to-a-specific-component)
 - [List all components which depend on a specific component and have the state CRITICAL](#list-all-components-which-depend-on-a-specific-component-and-have-the-state-critical)
+- [List a service with components it is depending on down to N levels of depth]()
 
 #### Get all components related to a specific component.
 
