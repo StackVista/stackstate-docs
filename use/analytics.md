@@ -80,7 +80,7 @@ query output
 // Define a name for the component where we start the search. 
 def selectedComponent = "Payment_Service"
 
-//Define a search depth    
+// Define a search depth    
 def N = 3
 
 Topology.query(
