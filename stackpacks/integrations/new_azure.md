@@ -23,7 +23,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 - The StackState Azure Agent is [a collection of Azure functions](#stackstate-azure-functions) that connect to the [Azure APIs](#rest-api-endpoints) at a configured interval to collect information about available resources.
 - The StackState Azure function `SendToStackState` pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming data into topology components and relations.
-- The StackState Azure plugin pulls available telemetry data per resource on demand from Azure.
+- The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
 - StackState maps retrieved telemetry (metrics) onto the associated Azure components and relations.
 
 ## Setup
