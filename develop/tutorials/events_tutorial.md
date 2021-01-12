@@ -1,5 +1,5 @@
 ---
-description: Get started with sending events to StackState from an external system.
+description: Events tutorial
 ---
 
 # Events tutorial
