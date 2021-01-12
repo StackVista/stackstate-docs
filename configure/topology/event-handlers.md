@@ -20,9 +20,9 @@ StackState ships with the following event handler functions:
 
 | Event handler function | Description |
 | :--- | :--- |
+| **Slack** | Sends an alert message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
 | **Email** | Sends details of a health state change event using the [configured SMTP server](configure-email-alerts.md).. |
 | **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
-| **Slack** | Sends an alert message to the configured Slack webhook URL. The message can contain detailed content on the trigger event and possible root cause. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
 | **SMS** | Sends details of a health state change event using MessageBird. |
 
 {% hint style="info" %}
@@ -40,7 +40,9 @@ You can write your own custom event handler functions that react to state change
    * **Description** - Optional. A description of the event handler function.
    * **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
-   * **Async** - Select **On** for Slack event handlers, select **Off** for email, SMS or HTTP webhook event handlers. For details, see the section on [async on/off](event-handlers.md#async-on-off) below.
+   * **Async** - Event handler functions can be written as async \(default\) or synchronous:
+        - Select **On** for Slack, SMS or HTTP webhook event handlers. The function will run as [async](#async-functions) and have access to all functionality from the StackState script API.
+        - Select **Off** for email, SMS or HTTP webhook event handlers. The function will dun as [synchronous](#synchronous-functions)
    * **Script** - The script run by the function. For details, see the sections below on the [available properties](event-handlers.md#available-properties) and [plugins](event-handlers.md#plugins) and how you can [add logging to a function](event-handlers.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
@@ -48,15 +50,17 @@ You can write your own custom event handler functions that react to state change
 
 ![Add a custom event handler function](../../.gitbook/assets/v42_event_handler_functions.png)
 
-### Parameters
+## Parameters
 
 An event handler function takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script.
 
-* The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. See [available properties](event-handlers.md#available-properties).
-* An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. See [available properties](event-handlers.md#available-properties).
+* The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. 
+* An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function.
 * You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
 
-### Supported event types
+For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for async functions](event-handlers.md#properties-for-async-functions) and  [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
+
+## Supported event types
 
 One or more supported event types can be added for each event handler function. The supported event types are used to determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](../../use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
@@ -64,57 +68,23 @@ Up to three types of event can be chosen:
 
 * **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 * **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
-* **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes. 
+* **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes.
 
-### Async on/off
+## Logging
 
-Event handler functions can be written as async \(default\) or synchronous.
+You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/enable-logging.md).    
 
-* With Async set to **On** the function will be run as [async](event-handlers.md#async-event-handler-functions-default). This gives the function access to the StackState script APIs.
-* With Async set to **Off** the function will be run as [synchronous](event-handlers.md#synchronous-event-handler-functions-async-off).
+## Async functions \(default\)
 
-#### Async event handler functions \(default\)
+With Async set to **On**, the event handler function will be run as async.
 
-An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. Currently only the **Slack** event handler function shipped with StackState will run as an async function. As a result, more extensive details around an event can be included in alerts sent to Slack, such as links to relevant data and a possible root cause.
+An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
 
-Event handler functions use plugins to interact with external systems, not all plugins are available for use with async functions. See [plugins](event-handlers.md#plugins) below for further details. The [available properties](event-handlers.md#properties-for-async-functions) that can be retrieved from the default parameters are described below.
+The **Slack** event handler function shipped with StackState will run as an async function. This allows the alerts sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the Http script API to send an SMS or webhook post.
 
-#### Synchronous event handler functions \(async Off\)
+### Properties for async functions
 
-All event handler functions developed before StackState v4.2 and the email, SMS and HTTP webhook event handler functions shipped with StackState v4.2 run as synchronous functions. This places limitations on both the capability of what they can achieve and the number of functions that can be run in parallel.
-
-Event handler functions use plugins to interact with external systems, synchronous event handler functions can use all available plugins. See [plugins](event-handlers.md#plugins) below for further details. The [available properties](event-handlers.md#properties-for-synchronous-functions) that can be retrieved from the default parameters are described below.
-
-### Available properties
-
-Different sets of properties are available for use in synchronous and async functions, these are described below.
-
-#### Properties for synchronous functions
-
-{% hint style="info" %}
-The **view** and **event** properties described below can be used in **synchronous event handler functions**. If your function runs as async, see the [properties for use in async functions](event-handlers.md#properties-for-async-functions).
-{% endhint %}
-
-**View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
-
-* `view.getName` - returns the name of the view.
-* `view.getDescription` - returns the view description.
-* `view.getQuery` - returns an STQL query of the view.
-* `view.getIdentifier` - returns the globally unique URN value that identifies the view.
-
-**Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
-
-* `event.getCauseId` - returns the UUID of the event that triggered the health state change.
-* `event.getTriggeredTimestamp` - returns the time \(epoch in ms\) at which the state change occurred. 
-* `event.getNewStateRef` - returns an object representing the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
-* `event.getOldStateRef` - returns an object representing the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
-* `event.getStateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
-
-#### Properties for async functions
-
-{% hint style="info" %}
-The **view** and **event** properties described below can be used in **async event handler functions**. If your function runs as synchronous, see the [properties for use in synchronous functions](event-handlers.md#properties-for-synchronous-functions).
-{% endhint %}
+The properties described below can be retrieved from the default parameters in an async event handler function.
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
 
@@ -133,20 +103,46 @@ The **view** and **event** properties described below can be used in **async eve
 * `event.stateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
 * `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state. For ViewHealthStateChangedEvents only
 
-### Plugins
+## Synchronous functions \(async Off\)
 
-Event handler functions use plugins to send notifications to external systems. The plugins available for use in custom event handler functions are listed below. Note that not all plugins can be used in an async event handler function:
+{% hint style="info" %}
+Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function. 
+{% endhint %}
 
-| Plugin | Async | Description |  |
-| :--- | :--- | :--- | :--- |
-| email | - | Sends an email using the [configured SMTP server](configure-email-alerts.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
-| HTTP webhook | - | Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
-| Slack | ✅ | Sends a notification message to a Slack webhook. The message can contain detailed content on the trigger event and possible root cause. `slackPlugin.sendSlackMessage(slackWebHookUrl, "message")` |  |
-| SMS | - | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  |
+With Async set to **Off** the function will be run as synchronous.
 
-### Logging
+Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can run in parallel.
 
-You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/enable-logging.md).
+Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
+
+### Properties for synchronous functions
+
+The properties described below can be retrieved from the default synchronous event handler function parameters.
+
+**View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
+
+* `view.getName` - returns the name of the view.
+* `view.getDescription` - returns the view description.
+* `view.getQuery` - returns an STQL query of the view.
+* `view.getIdentifier` - returns the globally unique URN value that identifies the view.
+
+**Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.getCauseId` - returns the UUID of the event that triggered the health state change.
+* `event.getTriggeredTimestamp` - returns the time \(epoch in ms\) at which the state change occurred. 
+* `event.getNewStateRef` - returns an object representing the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
+* `event.getOldStateRef` - returns an object representing the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
+* `event.getStateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
+
+### Plugins for synchronous functions
+
+Synchronous event handler functions use plugins to send notifications to external systems. The following plugins are available for use in custom event handler functions:
+
+| Plugin | Description |  |
+| :--- | :--- | :--- |
+| email | Sends an email using the [configured SMTP server](configure-email-alerts.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
+| HTTP webhook |Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
+| SMS | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  |
 
 ## See also
 
