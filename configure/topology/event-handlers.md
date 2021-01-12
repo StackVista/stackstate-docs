@@ -54,9 +54,11 @@ You can write your own custom event handler functions that react to state change
 
 An event handler function takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script.
 
-* The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. See [available properties](event-handlers.md#available-properties).
-* An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function. See [available properties](event-handlers.md#available-properties).
+* The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. 
+* An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function.
 * You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
+
+For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for async functions](event-handlers.md#properties-for-async-functions) and  [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
 
 ## Supported event types
 
