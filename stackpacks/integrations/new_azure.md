@@ -118,7 +118,7 @@ The Azure integration does not retrieve any Events data.
 
 #### Metrics
 
-The Azure integration retrieves a list of the supported metrics per resource from the StackState Azure plugin. This list is then used to pull Metrics data on demand directly from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream. Retrieved metrics are mapped onto the associated topology component.
+Metrics data is pulled on demand directly from Azure by the StackState Azure plugin, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream. Retrieved metrics are mapped onto the associated topology component.
 
 #### Topology
 
@@ -172,7 +172,7 @@ There are a number of methods in the `TopologyDurableFunction` class:
 
 | Function | Descrtipion | 
 |:---|:---|
-| `TimedStart` | Timed trigger to start the MainOrchestrato*. Scheduled to execute every 2 hours. |
+| `TimedStart` | Timed trigger to start the MainOrchestrator. |
 | `HttpStart` | HTTP trigger to start the MainOrchestrator manually for testing or after a first deployment from the StackPack. |
 | `MainOrchestrator` | The orchestrator containing the main workflow:<br />GetSubscriptions -><br >HandleSubscription (for each subscription) -><br />SendToStackState. |
 | `GetSubscriptions` | Fetches all subscriptions that the service principle has access to. |
