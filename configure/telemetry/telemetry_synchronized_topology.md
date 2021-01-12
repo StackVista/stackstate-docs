@@ -17,7 +17,7 @@ The StackState template editor allows you to customize how StackState builds top
 1. Click on an element to open the **Component details** on the right of the screen.
 2. Click on **...** and select **Edit template**. 
 3. The template editor will open for the template that was used to create the selected element. Three sets of information are displayed:
-   * **input paramaters** - the raw data imported for a specific element.
+   * **input parameters** - the raw data imported for a specific element.
    * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stj/templates.md), which is used to build the **Component properties** you see on the right side of the StackState UI.
    * **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI **Component properties**.
 4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](telemetry_synchronized_topology.md#add-a-telemetry-stream-to-a-template-function).
@@ -30,14 +30,14 @@ Note that you are editing the template for the synchronization that imported the
 
 ### Add a telemetry stream to a template function
 
-The telemetry streams attached to topology elements during synchronization are configured in the template function as `streams: []`. To add a telemetry stream to a component the fields described below are required. The most important part of the stream configuraton is the `query`, this represents the conditions used to filter the stream:
+The telemetry streams attached to topology elements during synchronization are configured in the template function as `streams: []`. To add a telemetry stream to a component the fields described below are required. The most important part of the stream configuration is the `query`, this represents the conditions used to filter the stream:
 
 | Field | Allowed values | Description |
 | :--- | :--- | :--- |
 | `_type` | MetricStream EventStream | The type of Data Stream. |
 | `name` |  | A name for the Data Stream. |
 | `query._type` | MetricTelemetryQuery EventTelemetryQuery | The type of the Query |
-| `query.conditions` |  | A collection of `"key", "value"` attributes used to filter the stream. The keys are defined by the data source, wheras value can be any string, numeric or boolean. |
+| `query.conditions` |  | A collection of `"key", "value"` attributes used to filter the stream. The keys are defined by the data source and the value can be any string, numeric or boolean. |
 | `query.metricField` |  | Metric streams only. The metric to observe in the stream. |
 | `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM VALUE\_COUNT EVENT\_COUNT | Metric streams only. The function to apply to aggregate the data. |
 | `datasource` |  | The data source where to connect to fetch the data. |
@@ -73,7 +73,8 @@ For example, a CloudWatch metric stream:
 
 ## See also
 
-* [Add a single telemetry stream to a single component](../../use/health-state-and-alerts/add-telemetry-to-element.md)
-* [Reference guide: StackState template JSON](../../develop/reference/stj/)
-* [Browse telemetry streams](../../use/views/browse-telemetry.md)
+* [Add a single telemetry stream to a single component](/use/health-state-and-alerts/add-telemetry-to-element.md)
+* [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
+* [Browse telemetry streams](/use/views/browse-telemetry.md)
+* [Create a StackPack with a custom template](/develop/developer-guides/stackpack/README.md)
 
