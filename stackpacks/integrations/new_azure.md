@@ -135,7 +135,7 @@ The Azure integration does not retrieve any Traces data.
 
 ### REST API endpoints
 
-The Azure integration uses the following Azure REST API endpoints:
+The Azure integration uses the following Azure REST API endpoints, scroll right for the SDK details:
 
 | Resource | Endpoint | SDK (Version) |
 | ----------- | ----------- | ----------- |
