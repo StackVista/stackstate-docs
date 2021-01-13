@@ -135,9 +135,6 @@ The following AWS policies can be downloaded during the installation of AWS Stac
 * **Uninstall a full install** - `StackStateIntegrationPolicyUninstall.json`
 * **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
 
-### Status
-
-
 ## Integration details
 
 ### Data retrieved
@@ -160,8 +157,6 @@ Each AWS integration retrieves topology data for resources associated with the a
 #### Traces
 
 The AWS integration does not retrieve any Traces data.
-
-### REST API endpoints
 
 ### StackState AWS lambdas
 
