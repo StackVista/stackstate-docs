@@ -38,8 +38,8 @@ To set up the StackState AWS integration, you need to have:
 * An AWS user with the required access to retrieve Cloudwatch metrics:
     - `cloudwatch:GetMetricData`
     - `cloudwatch:ListMetrics`
-  A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**. See [policies for install and uninstall]#aws-iam-policies-for-install-and-uninstall, below.
-* An AWS user with the required access rights to install StackState monitoring in your account. Policy files to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS** after you have installed the AWS StackPack. See [policies for install and uninstall]#aws-iam-policies-for-install-and-uninstall, below.
+  A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** > **Integrations**  > **AWS**.
+* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](#aws-iam-policies), below.
 
 ### Install
 
@@ -85,7 +85,9 @@ AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{con
 AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+- For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+
+- The available [environment variables](#environment-variables) are documented below.
 
 #### Minimal install
 
@@ -114,7 +116,7 @@ AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{con
 
 For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
-#### AWS IAM Policies for install and uninstall
+### AWS IAM Policies
 
 The following AWS policies can be downloaded during the installation of AWS StackPack in your StackState instance:
 
@@ -124,9 +126,11 @@ The following AWS policies can be downloaded during the installation of AWS Stac
 * **Uninstall a full install** - `StackStateIntegrationPolicyUninstall.json`
 * **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
 
-#### Use environment variables to specify profile and role 
+### Environment variables
  
-For both the install and uninstall, you can specify the concrete AWS CLI profile to be used by setting the `AWS_PROFILE` environment variable. For example: 
+For both the install and uninstall, you can specify the concrete AWS CLI profile to be used by setting the `AWS_PROFILE` environment variable.  These environment variables have the same names used by the AWS_CLI utility.
+
+For example: 
 
 ```
 AWS_PROFILE=profile ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID
@@ -139,12 +143,13 @@ Alternatively, you can specify the role ARN of the IAM role you wish to use duri
 AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=externalId ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID
 ```
 
+{% hint style="info" %}
 Note that these environment variables will be overridden with options: 
-
 - `--profile`
 - `--role-arn`
 - `--session-name`
 - `--external-id`
+{% endhint %}
 
 ### Status
 
@@ -201,7 +206,7 @@ For example, in the StackState topology perspective:
 - Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 - Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
-## Tags and labels
+### Tags and labels
 
 The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
 
@@ -218,7 +223,7 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 To uninstall the StackState AWS Agent, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState. 
 
-Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Agent from the AWS account being monitored. To execute the manual uninstall folow these steps:
+Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Agent from the AWS account being monitored. To execute the manual uninstall follow these steps:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
@@ -237,13 +242,11 @@ AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
 ```
 
-Policy files to create a user with the correct rights to uninstall can be downloaded from the the StackState UI screen **StackPacks** > **Integrations**  > **AWS**. See [policies for install and uninstall]#aws-iam-policies-for-install-and-uninstall, below
-
 ## Release notes
 
 **AWS StackPack v5.0.2 \(2020-11\)**
 
-* Bugfix: Fixed and improved the parsing of custom stackstate identifier tags making it more flexible and ignoring case sensitivity.
+* Bugfix: Fixed and improved the parsing of custom StackState identifier tags making it more flexible and ignoring case sensitivity.
 * Bugfix: Fixed the merging between ECS service components with Traefik trace service components.
 * Bugfix: Fixed profile selection doesn't work when you run `./install --profile`.
 
@@ -253,7 +256,7 @@ Policy files to create a user with the correct rights to uninstall can be downlo
 
 **AWS StackPack v5.0.0 \(2020-08-13\)**
 
-* Bugfix: Fixed the upgradation of other stackpacks due to AWS old layers using common. 
+* Bugfix: Fixed the upgradation of other StackPacks due to AWS old layers using common. 
 
 **AWS StackPack v4.3.0 \(2020-08-04\)**
 
