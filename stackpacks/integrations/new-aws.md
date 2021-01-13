@@ -124,6 +124,24 @@ The following AWS policies can be downloaded during the installation of AWS Stac
 * `StackStateIntegrationPolicyUninstall.json` - used to uninstall a full installation.
 * `StackStateIntegrationPolicyTopoCronUninstall.json` - used to uninstall a minimal installation.
 
+#### Use environment variables to specify profile and role 
+ 
+For both the install and uninstall, you can specify the concrete AWS CLI profile to be used by setting the `AWS_PROFILE` environment variable:
+
+For example: 
+
+- `AWS_PROFILE=profile ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID`
+- `AWS_PROFILE=profile ./uninstall.sh`
+
+Alternatively, you can specify the role ARN of the IAM role you wish to use during installation:
+
+For example: 
+
+- `AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=externalId ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID`
+
+Note that these environment variables are overridden with options `--profile`, `--role-arn`, `--session-name`, and `--external-id`.
+
+
 ### Status
 
 
