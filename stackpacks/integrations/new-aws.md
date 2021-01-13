@@ -85,9 +85,13 @@ AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{con
 AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-- For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+These environment variables have the same names used by the AWS_CLI utility and will be overridden with options:
+`--profile`
+`--role-arn`
+`--session-name`
+`--external-id`.
 
-- The available [environment variables](#environment-variables) are documented below.
+For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 #### Minimal install
 
