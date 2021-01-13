@@ -6,7 +6,17 @@ description: StackPack description
 
 ## Overview
 
+Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of the following AWS services:
 
+| | | |
+|:---|:---|:---|
+| API Gateway | Elastic Load Balancer V2 (ELB) | Simple Storage Service (S3) |
+| Auto Scaling Group | Kinesis Data Firehose | Simple Notification Service (SNS) |
+| Cloud Formation | Kinesis Stream | Simple Queue Service (SQS) |
+| DynamoDB | Lambda | Virtual Private Cloud (VPC) |
+| Elastic Compute Cloud (EC2) | Relational Database Service (RDS) | VPN Gateway |
+| Elastic Container Services (ECS) | Redshift | |
+| Elastic Load Balancer Classic (ELB) | Route 53 | |
 
 ![Data flow](/.gitbook/assets/stackpack-NAME.png)
 
@@ -62,7 +72,7 @@ sudo stackstate-agent status
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=DynaTrace).
+Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack).
 
 ## Uninstall
 
@@ -122,4 +132,4 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## See also
 
--
+- [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)
