@@ -14,7 +14,7 @@ description: StackPack description
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
 
 ### Install
 
