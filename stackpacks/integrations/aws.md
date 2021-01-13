@@ -45,7 +45,7 @@ To set up the StackState AWS integration, you need to have:
 
 Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
-* **AWS instance name** - the user-defined name of AWS account shown in configurations such as views.
+* **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
 * **AWS Access Key id** - the access key for the user for retrieving Cloudwatch metrics.
 * **AWS Secret Access Key** - the secret key for the user for retrieving Cloudwatch metrics.
 * **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
@@ -127,7 +127,7 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ### AWS IAM Policies
 
-The following AWS policies can be downloaded during the installation of AWS StackPack in your StackState instance:
+The following AWS policies can be downloaded during the installation of the AWS StackPack in your StackState instance:
 
 * **Full install** - `StackStateIntegrationPolicyInstall.json`
 * **Minimal install** - `StackStateIntegrationPolicyTopoCronInstall.json` 
