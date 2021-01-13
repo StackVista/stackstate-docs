@@ -71,7 +71,8 @@ To complete a full install the of StackState AWS Agent, follow the steps below:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
-2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState.
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
+    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 3. From the command line, run the command:
 ```
@@ -91,8 +92,6 @@ These environment variables have the same names used by the AWS_CLI utility and 
 `--session-name`
 `--external-id`.
 
-For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-
 #### Minimal install
 
 The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
@@ -101,7 +100,8 @@ To complete a minimal install of the StackState AWS Agent, follow the steps belo
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
-2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState.
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
+    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
  
 3. From the command line, run the command:
 ```
@@ -124,7 +124,6 @@ These environment variables have the same names used by the AWS_CLI utility and 
 `--session-name`
 `--external-id`
 
-For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 ### AWS IAM Policies
 
@@ -212,7 +211,7 @@ Once the AWS StackPack has been uninstalled, you will need to manually uninstall
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
-2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState. 
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. 
     - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 3. From the command line, run the below command to deprovision all resources related to the StackPack instance:
