@@ -114,6 +114,12 @@ AWS_PROFILE=profile-name ./install.sh --topo-cron-only {{config.baseUrl}} {{conf
 AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
+These environment variables have the same names used by the AWS_CLI utility and will be overridden with options:
+`--profile`
+`--role-arn`
+`--session-name`
+`--external-id`
+
 For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 ### AWS IAM Policies
@@ -125,31 +131,6 @@ The following AWS policies can be downloaded during the installation of AWS Stac
 * **Minimal set of policies** - `StackStateIntegrationPolicyTopoCronMinimal.json` S3 bucket and role are provided by user.
 * **Uninstall a full install** - `StackStateIntegrationPolicyUninstall.json`
 * **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
-
-### Environment variables
- 
-For both the install and uninstall, you can specify the concrete AWS CLI profile to be used by setting the `AWS_PROFILE` environment variable.  These environment variables have the same names used by the AWS_CLI utility.
-
-For example: 
-
-```
-AWS_PROFILE=profile ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID
-AWS_PROFILE=profile ./uninstall.sh
-```
-
-Alternatively, you can specify the role ARN of the IAM role you wish to use during installation. For example: 
-
-```
-AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=externalId ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID
-```
-
-{% hint style="info" %}
-Note that these environment variables will be overridden with options: 
-- `--profile`
-- `--role-arn`
-- `--session-name`
-- `--external-id`
-{% endhint %}
 
 ### Status
 
@@ -241,6 +222,12 @@ If you wish to use a specific AWS profile or an IAM role during uninstallation, 
 AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
 ```
+
+These environment variables have the same names used by the AWS_CLI utility and will be overridden with options:
+`--profile`
+`--role-arn`
+`--session-name`
+`--external-id`
 
 ## Release notes
 
