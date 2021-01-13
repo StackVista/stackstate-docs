@@ -28,16 +28,28 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS integration, you need to have:
 
-* An installed and configured AWS CLI.
+* An AWS user with the required access to retrieve Cloudwatch metrics:
+    - `cloudwatch:GetMetricData`
+    - `cloudwatch:ListMetrics`
+    - A policy file to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen.
 * An AWS user with the required access rights for installing StackState monitoring in your account.
+    - policy files to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen after you have installed the AWS StackPack.
+* An installed and configured AWS CLI.
 
-Policy files for the access rights can be downloaded from the AWS StackPack installed in your StackState instance.
-
-For further information on authentication via the AWS CLI, refer to the [AWS documentation\(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 ### Install
 
-### Configure
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+
+* **AWS instance name** - the user-defined name of AWS account shown in configurations such as views.
+* **AWS Access Key id** - the access key for the user for retrieving Cloudwatch metrics.
+* **AWS Secret Access Key** - the secret key for the user for retrieving Cloudwatch metrics.
+* **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
+
+### Deploy AWS Agent
+
+#### Required access rights to install
 
 
 ### Status
@@ -78,6 +90,25 @@ For further information on authentication via the AWS CLI, refer to the [AWS doc
 Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack).
 
 ## Uninstall
+
+To uninstall the StackState AWS Agent, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState. 
+
+Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Agent from the AWS account being monitored. To execute the manual uninstall folow these steps:
+1. Download this [manual installation zip file](/api/stackpack/aws/resources/{{configurationVersion}}/stackstate-aws-manual-installation-{{stackPackVersion}}.zip) and extract it (if not done already).
+2. Make sure the AWS cli is logged in with the proper account and has the default region set to the region that should be monitored by StackState.
+3. From the command line, run the below command to deprovision all resources related to the StackPack instance:
+    ```
+    ./uninstall.sh {{configurationId}}
+    ```
+
+If you wish to use a specific AWS profile or an IAM role during uninstallation, run either of these two commands:
+
+```
+AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
+AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
+```
+
+For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 
 ## Release notes
@@ -136,3 +167,4 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 ## See also
 
 - [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)
+- [Using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
