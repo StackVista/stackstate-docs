@@ -20,8 +20,10 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](/.gitbook/assets/stackpack-aws.svg)
 
-- The StackState AWS Agent is [a collection of Lambdas](#stackstate-aws-lambdas) that connect to the [AWS APIs](#rest-api-endpoints) at a configured interval to collect information about available resources.
-- The StackState AWS lambda `stackstate-topo-publisher` pushes [retrieved data](#data-retrieved) to StackState.
+- The StackState AWS Agent is [a collection of Lambdas](#stackstate-aws-lambdas)
+- The StackState lambda `stackstate-topo-cron` connects to the [AWS APIs](#rest-api-endpoints) at a configured interval to collect information about available resources and publishes this to the StackState Kinesis Event Stream `stackstate-topo-kinesis`.
+- Changes made to AWS resources between scheduled updates are picked up as events by the StackState AWS lambda `stackstate-topo-cwevents` and published to the StackState Kinesis Event Stream `stackstate-topo-kinesis`.
+- The StackState AWS lambda `stackstate-topo-publisher` listens to the StackState Kinesis Event Stream `stackstate-topo-kinesis` and pushes [retrieved data](#data-retrieved) to StackState.
 - StackState translates incoming data into topology components and relations.
 - The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
 - StackState maps retrieved telemetry (metrics) onto the associated AWS components and relations.
