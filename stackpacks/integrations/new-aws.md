@@ -18,9 +18,13 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 | Elastic Container Services (ECS) | Redshift | |
 | Elastic Load Balancer Classic (ELB) | Route 53 | |
 
-![Data flow](/.gitbook/assets/stackpack-NAME.png)
+![Data flow](/.gitbook/assets/stackpack-aws.svg)
 
-
+- The StackState AWS Agent is [a collection of Lambdas](#stackstate-aws-lambdas) that connect to the [AWS APIs](#rest-api-endpoints) at a configured interval to collect information about available resources.
+- The StackState AWS lambda `stackstate-topo-publisher` pushes [retrieved data](#data-retrieved) to StackState.
+- StackState translates incoming data into topology components and relations.
+- The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
+- StackState maps retrieved telemetry (metrics) onto the associated AWS components and relations.
 
 ## Setup
 
@@ -29,12 +33,13 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 To set up the StackState AWS integration, you need to have:
 
 * An installed and configured AWS CLI.
+    - *Note:* AWS CLI version 2.0.0 has a bug that reports a false ValidationError on properly formatted YAML files. Upgrade AWS CLI to 2.0.4 version.
 * An AWS user with the required access to retrieve Cloudwatch metrics:
     - `cloudwatch:GetMetricData`
     - `cloudwatch:ListMetrics`
-    - A policy file to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen.
+    - A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**.
 * An AWS user with the required access rights to install StackState monitoring in your account.
-    - Policy files to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen after you have installed the AWS StackPack.
+    - Policy files to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS** after you have installed the AWS StackPack.
 
 For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
@@ -48,6 +53,25 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
 
 ### Deploy AWS Agent
+
+To install the StackState AWS Agent, follow these steps:
+
+1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
+
+2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState.
+    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+3. From the command line, run the command:
+```
+./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
+```
+
+If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
+
+```
+AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
+AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
+```
+
 
 #### Required access rights to install
 
@@ -91,7 +115,7 @@ To uninstall the StackState AWS Agent, click the *Uninstall* button from the Sta
 
 Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Agent from the AWS account being monitored. To execute the manual uninstall folow these steps:
 
-1. Download the manual installation zip file. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
+1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
 2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState. 
     - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
