@@ -24,7 +24,16 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
+
+To set up the StackState AWS integration, you need to have:
+
+* An installed and configured AWS CLI.
+* An AWS user with the required access rights for installing StackState monitoring in your account.
+
+Policy files for the access rights can be downloaded from the AWS StackPack installed in your StackState instance.
+
+For further information on authentication via the AWS CLI, refer to the [AWS documentation\(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 ### Install
 
