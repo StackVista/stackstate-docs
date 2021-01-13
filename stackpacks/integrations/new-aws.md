@@ -34,7 +34,7 @@ To set up the StackState AWS integration, you need to have:
     - `cloudwatch:ListMetrics`
     - A policy file to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen.
 * An AWS user with the required access rights to install StackState monitoring in your account.
-    - policy files to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen after you have installed the AWS StackPack.
+    - Policy files to create a user with the correct rights can be downloaded from the the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen after you have installed the AWS StackPack.
 
 For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
