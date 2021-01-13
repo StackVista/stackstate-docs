@@ -20,7 +20,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](/.gitbook/assets/stackpack-aws.svg)
 
-- The StackState AWS Agent is [a collection of Lambdas](#stackstate-aws-lambdas):
+- The StackState AWS Agent is a collection of Lambdas:
     - `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and publishes this to the StackState Kinesis Event Stream.
     - `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
     - `stackstate-topo-publisher` publishes [retrieved topology data](#data-retrieved) from a Kinesis stream to StackState.
