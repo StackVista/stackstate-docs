@@ -21,9 +21,9 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 ![Data flow](/.gitbook/assets/stackpack-aws.svg)
 
 - The StackState AWS Agent is [a collection of Lambdas](#stackstate-aws-lambdas):
-    - `stackstate-topo-cron` connects to the [AWS APIs](#rest-api-endpoints) every hour to collect information about available resources and publishes this to the StackState Kinesis Event Stream.
-    - `stackstate-topo-cwevents` listens for any changes made to AWS resources and publishes these directly to the StackState Kinesis Event Stream.
-    - `stackstate-topo-publisher` listens to the StackState Kinesis Event Stream and pushes [retrieved data](#data-retrieved) to StackState.
+    - `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and publishes this to the StackState Kinesis Event Stream.
+    - `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
+    - `stackstate-topo-publisher` publishes [retrieved topology data](#data-retrieved) from a Kinesis stream to StackState.
 - StackState translates incoming data into topology components and relations.
 - The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
 - StackState maps retrieved telemetry (metrics) onto the associated AWS components and relations.
@@ -38,8 +38,8 @@ To set up the StackState AWS integration, you need to have:
 * An AWS user with the required access to retrieve Cloudwatch metrics:
     - `cloudwatch:GetMetricData`
     - `cloudwatch:ListMetrics`
-  A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**.
-* An AWS user with the required access rights to install StackState monitoring in your account. Policy files to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS** after you have installed the AWS StackPack.
+  A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**. See [policies for install and uninstall]#aws-iam-policies-for-install-and-uninstall, below.
+* An AWS user with the required access rights to install StackState monitoring in your account. Policy files to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS** after you have installed the AWS StackPack. See [policies for install and uninstall]#aws-iam-policies-for-install-and-uninstall, below.
 
 ### Install
 
@@ -179,6 +179,15 @@ For example, in the StackState topology perspective:
 - Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 - Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
+## Tags and labels
+
+The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
+
+| Tag | Description |
+| :--- | :--- |
+| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
+| `stackstate-environment` | Places the StackState component in the environment specified |
+
 ## Troubleshooting
 
 Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack).
@@ -205,6 +214,8 @@ If you wish to use a specific AWS profile or an IAM role during uninstallation, 
 AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
 ```
+
+Policy files to create a user with the correct rights to uninstall can be downloaded from the the StackState UI screen **StackPacks** > **Integrations**  > **AWS**. See [policies for install and uninstall]#aws-iam-policies-for-install-and-uninstall, below
 
 ## Release notes
 
