@@ -178,7 +178,7 @@ When the AWS integration is enabled, three [views](/use/views/README.md) will be
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/use/views/topology-perspective.md#actions) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](/configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState topology perspective: 
 
