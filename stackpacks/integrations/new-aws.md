@@ -34,16 +34,12 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS integration, you need to have:
 
-* An installed and configured AWS CLI.
-    - *Note:* AWS CLI version 2.0.0 has a bug that reports a false ValidationError on properly formatted YAML files. Upgrade AWS CLI to 2.0.4 version.
+* An installed and configured AWS CLI. Note that AWS CLI version 2.0.0 has a bug that reports a false ValidationError on properly formatted YAML files. Upgrade AWS CLI to version 2.0.4.
 * An AWS user with the required access to retrieve Cloudwatch metrics:
     - `cloudwatch:GetMetricData`
     - `cloudwatch:ListMetrics`
-    - A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**.
-* An AWS user with the required access rights to install StackState monitoring in your account.
-    - Policy files to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS** after you have installed the AWS StackPack.
-
-For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+  A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**.
+* An AWS user with the required access rights to install StackState monitoring in your account. Policy files to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS** after you have installed the AWS StackPack.
 
 ### Install
 
@@ -107,7 +103,7 @@ To complete a minimal install of the StackState AWS Agent, follow the steps belo
 ```
    You can also optionally specify the following:
     - **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
-    - **--topo-cron-role** - a custom AWS IAM role. The role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
+    - **--topo-cron-role** - a custom AWS IAM role. Note that the role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
 
 If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
 
@@ -135,10 +131,10 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-| Data | Description |
-|:---|:---|
-| Components |  |
-| Relations |  | 
+Each AWS integration retrieves topology data for resources associated with the associated AWS access key.
+
+- Components
+- Relations
 
 #### Traces
 
@@ -148,10 +144,30 @@ The AWS integration does not retrieve any Traces data.
 
 ### StackState AWS lambdas
 
+The StackState AWS Agent installs the following AWS lambdas:
+
+| Lambda | Description |
+|:---|:---|
+| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and publishes to StackState. |
+| `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. |
+| `stackstate-topo-publisher` | Publishes topology from a Kinesis stream to StackState. |
+
 ### AWS views in StackState
+
+When the AWS integration is enabled, three [view](/use/views/README.md) will be created in StackState for each instance of the StackPack.
+
+- **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
+- **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
+- **AWS - \[instance_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
 ### AWS actions in StackState
 
+Components retrieved from AWS will have an additional [action](/use/views/topology-perspective.md#actions) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+
+For example, in the StackState topology perspective: 
+
+- Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
+- Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
 ## Troubleshooting
 
