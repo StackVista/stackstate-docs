@@ -126,21 +126,25 @@ The following AWS policies can be downloaded during the installation of AWS Stac
 
 #### Use environment variables to specify profile and role 
  
-For both the install and uninstall, you can specify the concrete AWS CLI profile to be used by setting the `AWS_PROFILE` environment variable:
+For both the install and uninstall, you can specify the concrete AWS CLI profile to be used by setting the `AWS_PROFILE` environment variable. For example: 
 
-For example: 
+```
+AWS_PROFILE=profile ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID
+AWS_PROFILE=profile ./uninstall.sh
+```
 
-- `AWS_PROFILE=profile ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID`
-- `AWS_PROFILE=profile ./uninstall.sh`
+Alternatively, you can specify the role ARN of the IAM role you wish to use during installation. For example: 
 
-Alternatively, you can specify the role ARN of the IAM role you wish to use during installation:
+```
+AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=externalId ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID
+```
 
-For example: 
+Note that these environment variables will be overridden with options: 
 
-- `AWS_ROLE_ARN=roleArn AWS_SESSION_NAME=sessionName AWS_EXTERNAL_ID=externalId ./install.sh YOUR_INTAKE_URL YOUR_API_KEY YOUR_CONFIG_INSTANCE_ID`
-
-Note that these environment variables are overridden with options `--profile`, `--role-arn`, `--session-name`, and `--external-id`.
-
+- `--profile`
+- `--role-arn`
+- `--session-name`
+- `--external-id`
 
 ### Status
 
