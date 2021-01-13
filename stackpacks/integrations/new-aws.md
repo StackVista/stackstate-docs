@@ -63,13 +63,15 @@ The StackState AWS Agent is deployed on your AWS account to enable topology moni
 
 #### Full install
 
-To complete a full install the of StackState AWS Agent, follow the steps below. This installs the following CloudFormation Stacks:
+This installs the following CloudFormation Stacks:
 
-+ stackstate-topo-cron
-+ stackstate-topo-kinesis
-+ stackstate-topo-cloudtrail
-+ stackstate-topo-cwevents
-+ stackstate-topo-publisher
+- stackstate-topo-cron
+- stackstate-topo-kinesis
+- stackstate-topo-cloudtrail
+- stackstate-topo-cwevents
+- stackstate-topo-publisher
+
+To complete a full install the of StackState AWS Agent, follow the steps below:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
@@ -89,7 +91,9 @@ AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{co
 
 #### Minimal install
 
-To complete a minimal install of the StackState AWS Agent, follow the steps below. The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
+
+To complete a minimal install of the StackState AWS Agent, follow the steps below:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
