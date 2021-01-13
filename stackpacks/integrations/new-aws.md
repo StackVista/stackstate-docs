@@ -54,21 +54,20 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 ### Status
 
+
 ## Integration details
 
 ### Data retrieved
 
 #### Events
 
-
+The AWS integration does not retrieve any Events data.
 
 #### Metrics
 
-
+The AWS integration does not retrieve any Metrics data.
 
 #### Topology
-
-
 
 | Data | Description |
 |:---|:---|
@@ -77,12 +76,9 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 #### Traces
 
-
+The AWS integration does not retrieve any Traces data.
 
 ### REST API endpoints
-
-
-### Open source
 
 
 ## Troubleshooting
@@ -97,12 +93,13 @@ Once the AWS StackPack has been uninstalled, you will need to manually uninstall
 
 1. Download the manual installation zip file. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
-2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState. 
+    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 3. From the command line, run the below command to deprovision all resources related to the StackPack instance:
-    ```
-    ./uninstall.sh {{configurationId}}
-    ```
+```
+./uninstall.sh {{configurationId}}
+```
 
 If you wish to use a specific AWS profile or an IAM role during uninstallation, run either of these two commands:
 
