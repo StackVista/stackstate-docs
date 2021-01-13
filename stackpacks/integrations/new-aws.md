@@ -33,12 +33,6 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ### Status
 
-To check the status of the DynaTrace integration, run the status subcommand and look for DynaTrace under `Running Checks`:
-
-```
-sudo stackstate-agent status
-```
-
 ## Integration details
 
 ### Data retrieved
