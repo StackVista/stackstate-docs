@@ -76,6 +76,7 @@
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](stackpacks/integrations/agent.md)
   * [AWS](stackpacks/integrations/aws.md)
+  * [new AWS](stackpacks/integrations/new-aws.md)
   * [AWS X-ray](stackpacks/integrations/aws-x-ray.md)
   * [Azure](stackpacks/integrations/azure.md)
   * [API integration](stackpacks/integrations/api-integration.md)
