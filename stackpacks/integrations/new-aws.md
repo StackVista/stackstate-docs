@@ -59,7 +59,7 @@ The StackState AWS Agent is deployed on your AWS account to enable topology moni
 
 #### Full install
 
-This installs the following CloudFormation Stacks:
+A full installation will install the following CloudFormation Stacks:
 
 - `stackstate-topo-cron`
 - `stackstate-topo-kinesis`
@@ -113,6 +113,16 @@ AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{con
 ```
 
 For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+
+#### AWS IAM Policies for install and uninstall
+
+The following AWS policies can be downloaded during the installation of AWS StackPack in your StackState instance:
+
+* `StackStateIntegrationPolicyInstall.json` - used for the full installation that deploys all CloudFormation Stacks.
+* `StackStateIntegrationPolicyTopoCronInstall.json` - used for the minimal install that only deploys the `stackstate-topo-cron` CloudFormation Stack.
+* `StackStateIntegrationPolicyTopoCronMinimal.json` - a minimal set of policies as the S3 bucket and the role are provided by user.
+* `StackStateIntegrationPolicyUninstall.json` - used to uninstall a full installation.
+* `StackStateIntegrationPolicyTopoCronUninstall.json` - used to uninstall a minimal installation.
 
 ### Status
 
