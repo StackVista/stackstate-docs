@@ -65,18 +65,18 @@ The StackState AWS Agent is deployed on your AWS account to enable topology moni
 
 This installs the following CloudFormation Stacks:
 
-- stackstate-topo-cron
-- stackstate-topo-kinesis
-- stackstate-topo-cloudtrail
-- stackstate-topo-cwevents
-- stackstate-topo-publisher
+- `stackstate-topo-cron`
+- `stackstate-topo-kinesis`
+- `stackstate-topo-cloudtrail`
+- `stackstate-topo-cwevents`
+- `stackstate-topo-publisher`
 
 To complete a full install the of StackState AWS Agent, follow the steps below:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
 2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState.
-    - For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+
 3. From the command line, run the command:
 ```
 ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
@@ -89,6 +89,8 @@ AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{con
 AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
+For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+
 #### Minimal install
 
 The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
@@ -98,14 +100,14 @@ To complete a minimal install of the StackState AWS Agent, follow the steps belo
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
 2. Make sure the AWS CLI is logged in with the proper account and has the default region set to the region that should be monitored by StackState.
-    - For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+ 
 3. From the command line, run the command:
 ```
 ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
    You can also optionally specify the following:
-    - `--topo-cron-bucket` - a custom S3 bucket to be used during deployment.
-    - `--topo-cron-role` - a custom AWS IAM role. The role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
+    - **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
+    - **--topo-cron-role** - a custom AWS IAM role. The role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
 
 If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
 
@@ -113,6 +115,8 @@ If you wish to use a specific AWS profile or an IAM role during installation, ru
 AWS_PROFILE=profile-name ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
+
+For details on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 
 ### Status
 
