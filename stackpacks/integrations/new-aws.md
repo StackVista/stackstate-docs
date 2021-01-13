@@ -20,7 +20,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](/.gitbook/assets/stackpack-aws.svg)
 
-- The StackState AWS Agent is a collection of Lambdas:
+- Three AWS Lambdas collect topology data from AWS and push this to StackState:
     - `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and publishes this to the StackState Kinesis Event Stream.
     - `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
     - `stackstate-topo-publisher` publishes [retrieved topology data](#data-retrieved) from a Kinesis stream to StackState.
@@ -34,7 +34,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS integration, you need to have:
 
-* AWS CLI version 2.0.4 or later, installed and configured.
+* AWS CLI version 2.0.4 or later installed and configured.
 * An AWS user with the required access to retrieve Cloudwatch metrics:
     - `cloudwatch:GetMetricData`
     - `cloudwatch:ListMetrics`
@@ -50,9 +50,9 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS Secret Access Key** - the secret key for the user for retrieving Cloudwatch metrics.
 * **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
 
-### Deploy AWS Agent
+### Deploy AWS Cloudformation stacks
 
-The StackState AWS Agent is deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
+The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
 
 * [Full install](#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
 * [Minimal install](#minimal-install) - changes will be picked up only at a configured interval.
@@ -67,7 +67,7 @@ A full installation will install the following CloudFormation Stacks:
 - `stackstate-topo-cwevents`
 - `stackstate-topo-publisher`
 
-To complete a full install the of StackState AWS Agent, follow the steps below:
+Follow the steps below to complete a full install:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
@@ -94,9 +94,9 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 #### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
 
-To complete a minimal install of the StackState AWS Agent, follow the steps below:
+Follow the steps below to complete a minimal install:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
@@ -160,13 +160,13 @@ The AWS integration does not retrieve any Traces data.
 
 ### StackState AWS lambdas
 
-The StackState AWS Agent installs the following AWS lambdas:
+The StackState AWS integration installs the following AWS lambdas:
 
 | Lambda | Description |
 |:---|:---|
 | `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and publishes to StackState. |
-| `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. |
-| `stackstate-topo-publisher` | Publishes topology from a Kinesis stream to StackState. |
+| `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only.|
+| `stackstate-topo-publisher` | Publishes topology from a Kinesis stream to StackState. Full install only. |
 
 ### AWS views in StackState
 
@@ -200,9 +200,9 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 ## Uninstall
 
-To uninstall the StackState AWS Agent, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState. 
+To uninstall the StackState AWS StackPack, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState. 
 
-Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Agent from the AWS account being monitored. To execute the manual uninstall follow these steps:
+Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 
