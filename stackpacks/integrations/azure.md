@@ -28,7 +28,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
 
 To set up the StackState Azure integration, you need to have:
 
