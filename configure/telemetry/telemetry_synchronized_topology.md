@@ -15,7 +15,7 @@ The StackState template editor allows you to customize how StackState builds top
 ![Template editor](../../.gitbook/assets/v42_edit_template.png)
 
 1. Click on an element to open the **Component details** on the right of the screen.
-2. Click on **...** and select **Edit template**. 
+2. Click on **...** and select **Edit template**.
 3. The template editor will open for the template that was used to create the selected element. Three sets of information are displayed:
    * **input parameters** - the raw data imported for a specific element.
    * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stj/templates.md), which is used to build the **Component properties** you see on the right side of the StackState UI.
@@ -39,7 +39,7 @@ The telemetry streams attached to topology elements during synchronization are c
 | `query._type` | MetricTelemetryQuery EventTelemetryQuery | The type of the Query |
 | `query.conditions` |  | A collection of `"key", "value"` attributes used to filter the stream. The keys are defined by the data source and the value can be any string, numeric or boolean. |
 | `query.metricField` |  | Metric streams only. The metric to observe in the stream. |
-| `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM VALUE\_COUNT EVENT\_COUNT | Metric streams only. The function to apply to aggregate the data. |
+| `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM SUM\_NO\_ZEROS EVENT\_COUNT\_NO\_ZEROS | Metric streams only. The function to apply to aggregate the data. |
 | `datasource` |  | The data source where to connect to fetch the data. |
 | `datatype` | METRICS EVENTS | The kind of data received on the stream. |
 
@@ -77,4 +77,3 @@ For example, a CloudWatch metric stream:
 * [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
 * [Browse telemetry streams](/use/views/browse-telemetry.md)
 * [Create a StackPack with a custom template](/develop/developer-guides/stackpack/README.md)
-
