@@ -21,7 +21,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 ![Data flow](/.gitbook/assets/stackpack-aws.png)
 
 - Three AWS Lambdas collect topology data from AWS and push this to StackState:
-    - `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and publishes this to the StackState Kinesis Event Stream.
+    - `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
     - `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
     - `stackstate-topo-publisher` publishes [retrieved topology data](#data-retrieved) from a Kinesis stream to StackState.
 - StackState translates incoming data into topology components and relations.
@@ -164,9 +164,9 @@ The StackState AWS integration installs the following AWS lambdas:
 
 | Lambda | Description |
 |:---|:---|
-| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and publishes to StackState. |
+| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to StackState. |
 | `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only.|
-| `stackstate-topo-publisher` | Publishes topology from a Kinesis stream to StackState. Full install only. |
+| `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to StackState. Full install only. |
 
 ### AWS views in StackState
 
