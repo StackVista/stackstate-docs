@@ -1,13 +1,13 @@
 # Authentication
 
-Out of the box, StackState is configured with [file-based authentication](file.md) with a [default configuration](README.md#default-username-and-password). This authenticates users against a file on the server. 
+Out of the box, StackState is configured with [file-based authentication](./file.md) with a [default username and password](README.md#default-username-and-password). This authenticates users against a file on the server. 
 
 StackState can be configured to use exactly one of the following authentication mechanisms:
 
-* [File based](file.md)
-* [LDAP](ldap.md)
-* [Open ID Connect (OIDC)](odic.md)
-* [KeyCloak (a specialized version of OIDC)](keycloak.md)
+* [File based](./file.md)
+* [LDAP](./ldap.md)
+* [Open ID Connect (OIDC)](./odic.md)
+* [KeyCloak (a specialized version of OIDC)](./keycloak.md)
 
 {% hint style="info" %}
 On Linux installations authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
