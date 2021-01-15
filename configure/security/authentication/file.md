@@ -23,6 +23,11 @@ stackstate:
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-power-user ]  
 ```
+Configuration field explanation:
+
+1. **username** - the users username for logging into StackState.
+2. **passwordMd5** - the user's password in MD5 hash format.
+3. **roles** - the list of roles the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles).
 
 {% hint style="info" %}
 * Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
@@ -54,9 +59,8 @@ Configuration field explanation:
 1. **username** - the users username for logging into StackState.
 2. **password** - the user's password in MD5 hash format.
 3. **roles** - the list of roles the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`. 
-4. **adminGroups** - the list of roles that receive Administrator privileges.
-5. **powerUserGroups** - the list of roles that receive Power User privileges.
-6. **guestGroups** - the list of roles that have Guest access privileges \(read-only\) in StackState.
-
 {% endtab %}
 
+{% endtabs %}
+
+For the permissions of the default roles and how to crate other roles see the [RBAC](../rbac/role_based_access_control.md) documentation.

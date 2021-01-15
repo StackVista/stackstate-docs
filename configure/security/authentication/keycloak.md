@@ -60,7 +60,7 @@ stackstate/stackstate
 
 
 {% tab title="Linux" %}
-Here is an example of an authentication configuration that uses a running KeyCloak server. Replace the existing `authentication` section in the `stackstate { api {` block of the `etc/application_stackstate.conf` with the example shown here. Make sure that authentication is enabled (which is the default) by having `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
+Here is an example of an authentication configuration that uses a KeyCloak server. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your Keycloak settings. Restart StackState to make the change take effect.
 
 ```javascript
 authentication {
@@ -101,4 +101,4 @@ Configuration field explanation:
 
 The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
 
-Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings. More roles can be created as well. See the [RBAC roles](../rbac/rbac_roles.md) documentation for the details.
+Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.

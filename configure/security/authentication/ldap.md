@@ -103,7 +103,7 @@ stackstate/stackstate
 {% endtab %}
 {% tab title="Linux" %}
 
-Replace the existing authentication block in the configuration file with this example and edit it to match your LDAP server configuration (see below the example for a description of all the fields).
+Here is an example of an authentication configuration that uses an OIDC provider. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your LDAP server configuration. Restart StackState to make the change take effect.
 
 ```javascript
 authentication {
@@ -167,8 +167,9 @@ The configuration fields are:
 11. _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
 
  
-Finally make sure that the groups in LDAP for your users are mapped to StackState groups using the `guestGroups`, `powerUserGroups` and `adminGroups` configurations. More roles can be created as well. See the [RBAC roles](../rbac/rbac_roles.md) documentation for the details.
+Finally make sure that the groups in LDAP for your users are mapped to StackState groups using the `guestGroups`, `powerUserGroups` and `adminGroups` configurations; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
 {% endtab %}
+{% endtabs %}
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.

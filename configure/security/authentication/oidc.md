@@ -56,7 +56,7 @@ stackstate/stackstate
 
 
 {% tab title="Linux" %}
-Here is an example of an authentication configuration that uses a running KeyCloak server. Replace the existing `authentication` section in the `stackstate { api {` block of the `etc/application_stackstate.conf` with the example shown here. Make sure that authentication is enabled (which is the default) by having `authentication.enabled = true` in the `application_stackstate.conf` file. Restart StackState to make the change take effect.
+Here is an example of an authentication configuration that uses an OIDC provider. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your OIDC settings. Restart StackState to make the change take effect.
 
 ```javascript
 authentication {
@@ -100,4 +100,4 @@ Configuration field explanation:
    1. **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however many providers omit this field. A good alternative is `email`.
    2. **groupsField** - The field from which StackState will read the role/group for a user. 
 
-Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings. More roles can be created as well. See the [RBAC roles](../rbac/rbac_roles.md) documentation for the details.
+Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
