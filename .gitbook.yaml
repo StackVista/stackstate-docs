@@ -31,7 +31,6 @@ redirects:
   integrations/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
   integrations/sdk: ./stackpacks/sdk.md
   setup/download: ./setup/installation/linux_install/download.md
-  setup/installation/authentication: ./setup/authentication.md
   setup/installation/development-installation: ./setup/installation/linux_install/development-installation.md
   setup/installation/development-installation_pre1_15: ./setup/upgrading
   setup/installation/how_to_setup_tls_without_reverse_proxy: ./setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy.md
@@ -66,7 +65,6 @@ redirects:
   configure/how_to_use_the_priority_field_for_components: ./configure/telemetry/how_to_use_the_priority_field_for_components.md
   configure/how_to_setup_traces: ./configure/traces/how_to_setup_traces.md
   configure/configure_tracing: ./configure/traces/configure_tracing.md
-  configure/how_to_configure_ldap_authentication: ./configure/security/configure_ldap_authentication.md
   configure/permissions: ./configure/security/rbac/rbac_permissions.md
   configure/how_to_set_up_roles: ./configure/security/rbac_roles.md
   configure/scopes_in_rbac: ./configure/security/rbac_scopes.md
@@ -75,7 +73,7 @@ redirects:
   configure/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
   configure/how_to_set_up_a_security_backend_for_windows: configure/security/set_up_a_security_backend_for_windows.md
   configure/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  configure/security/how_to_configure_ldap_authentication: ./configure/security/configure_ldap_authentication.md
+  configure/security/authentication: ./configure/security/authentication/README.md
   configure/security/permissions: ./configure/security/rbac/rbac_permissions.md
   configure/security/how_to_set_up_roles: ./configure/security/rbac/rbac_roles.md
   configure/security/scopes_in_rbac: ./configure/security/rbac/rbac_scopes.md

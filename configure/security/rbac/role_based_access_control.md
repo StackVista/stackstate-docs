@@ -21,6 +21,6 @@ A role in StackState is a combination of a [configured subject](rbac_subjects.md
 * [Permissions](rbac_permissions.md)
 * [Scopes](rbac_scopes.md)
 * [Subject Configuration](rbac_subjects.md)
-* [How to configure LDAP authentication](../configure_ldap_authentication.md)
+* [How to configure authentication](../../security/authentication/README.md)
 * [How to set up roles](rbac_roles.md)
 
