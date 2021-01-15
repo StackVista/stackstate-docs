@@ -132,7 +132,7 @@
   * [Authentication](configure/security/authentication/README.md)
     * [File based](configure/security/authentication/file.md)
     * [LDAP](configure/security/authentication/ldap.md)
-    * [Open ID Connect (OIDC)](configure/security/authentication/odic.md)
+    * [Open ID Connect (OIDC)](configure/security/authentication/oidc.md)
     * [KeyCloak](configure/security/authentication/keycloak.md)
   * [RBAC](configure/security/rbac/README.md)
     * [Role-based Access Control](configure/security/rbac/role_based_access_control.md)

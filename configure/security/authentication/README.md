@@ -6,7 +6,7 @@ StackState can be configured to use exactly one of the following authentication 
 
 * [File based](./file.md)
 * [LDAP](./ldap.md)
-* [Open ID Connect (OIDC)](./odic.md)
+* [Open ID Connect (OIDC)](./oidc.md)
 * [KeyCloak (a specialized version of OIDC)](./keycloak.md)
 
 {% hint style="info" %}
