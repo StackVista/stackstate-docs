@@ -24,7 +24,7 @@ The process to trigger an event is as follows:
    * `HealthStateChangedEvent` for the element itself.
    * `PropagatedStateChangedEvent` for all other elements that have been impacted by the element's state change.
    * `ViewStateChangedEvent` for each view containing the element. Note that this event type is only generated when a view's [view state configuration criteria](/use/health-state-and-alerts/configure-view-health.md) are met.
-4. Event handlers associated with each view listen to the generated state change events and [trigger the configured alerts and actions](/use/health-state-and-alerts/send-alerts.md#add-an-event-handler-to-a-view).
+4. Event handlers associated with each view listen to the generated state change events and trigger the configured alerts and actions.
 
 ## Add an event handler to a view
 
