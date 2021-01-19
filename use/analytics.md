@@ -31,6 +31,15 @@ Every query that you've executed while navigating to StackState is shown in the 
 
 ![Analytics screenshot](/.gitbook/assets/new_analytics.png)
 
+## Previews
+
+Results of queries are typically displayed in raw JSON form, unless there is a preview available. Previews are currently available for:
+ 
+ - Topology query results (see [Topology.query](develop/reference/scripting/script-apis/topology.md#function-query))
+ - Telemetry query results (see [Telemetry.query](develop/reference/scripting/script-apis/telemetry.md#function-query))
+ - Telemetry predictions (see [Prediction.predictMetrics](develop/reference/scripting/script-apis/prediction.md#function-predictmetrics))
+ - STML reports (see [UI.showReport](develop/reference/scripting/script-apis/ui.md#function-showreport))
+
 ## Queries
 
 In the analytics environment you use a combination of the [StackState Scripting Language \(STSL\)](develop/reference/scripting/README.md) and the [StackState Query Language \(STQL\)](develop/reference/stql_reference.md) to build your queries and scripts. 
@@ -43,7 +52,7 @@ As a part of a STSL script you can invoke the StackStake Query Language. A simpl
 Topology.query('environment in ("Production")').components()
 ```
 
-[Topology.query](develop/reference/scripting/script-apis/topology.md) is a regular script function which takes a STQL query (`environment in ("Production")`) as an argument. The `.components()` at the end ensures that only the components and not the relations between these components are retrieved from the topology.
+[Topology.query](develop/reference/scripting/script-apis/topology.md) is a regular script function which takes a STQL query (`environment in ("Production")`) as an argument. The `.components()` at the end, a so-called builder method, ensures that only the components and not the relations between these components are retrieved from the topology.
 
 The combination of STSL and STQL allows you to chain together multiple queries. The following example gets all metrics of all databases in the production environment of the last day:
 
@@ -65,11 +74,11 @@ The full list of available function can be found [here](develop/reference/script
 
 ### Example queries
 
-Below are some queries to get you started with an example of their expected output. You can find more code examples in the StackState UI Analytics environment.
+Below are some queries to get you started with an example of their expected output. You can find more examples in the StackState UI Analytics environment itself.
 
 - [Find the number of relations between two components](#find-the-number-of-relations-between-two-components)
-- [Compare the Staging environment to the Production environment](#compare-the-staging environment-to-the-production-environment)
-- [List a service with components it is depending on down to N levels of depth](#list-a-service-with-components-it-is-depending-on-down-to-n-levels-of-depth)
+- [Compare the Staging environment to the Production environment](#compare-the-staging-environment-to-the-production-environment)
+- [Predict disk space of a server for the next week ](#predict-disk-space-of-a-server-for-the-next-week)
 
 #### Find the number of relations between two components
 
@@ -125,7 +134,7 @@ Prediction.predictMetrics("linear", "7d",
     Telemetry.query("StackState metrics", 'host="lnx01" AND name="diskspace" AND mount="/dev/disk1s1"')
         .metricField("value")
         .aggregation("min", "1d")
-        .start("-4w")
+        .start("-4w") // based on last month
         .compileQuery()
 ).predictionPoints(7).then { result -> resut.prediction  }
 ```
