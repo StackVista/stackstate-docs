@@ -41,8 +41,9 @@ stackstate:
       powerUser: ["ldap-power-user-role-for-stackstate"]
       admin: ["ldap-admin-role-for-stackstate"]
 ```
+Update it with your own values and make sure that the roles users can have in LDAP are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
-Update it with your own values and use it to install, or update your running installation, of StackState with Helm. Store it together with the `values.yaml` from the installation instructions, it needs to be included on every `helm upgrade` command for StackState:
+Store the `authentication.yaml` together with the `values.yaml` from the installation instructions. To apply the changes run a Helm upgrade:
 
 ```
 helm upgrade \
@@ -54,7 +55,11 @@ stackstate \
 stackstate/stackstate
 ```
 
-Make sure that the groups in LDAP for your users are mapped to StackState groups using the `guestGroups`, `powerUserGroups` and `adminGroups` configurations. More roles can be created as well. See the [RBAC roles](../rbac/rbac_roles.md) documentation for the details.
+{% hint style="info" %}
+* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
+* The `authentication.yaml` needs to be included on every `helm upgrade` run
+* The authentication configuration is stored as a Kubernetes secret.
+{% endhint %}
 
 The configuration fields are:
 
@@ -96,11 +101,6 @@ helm upgrade \
 stackstate \
 stackstate/stackstate
 ```
-
-{% hint style="info" %}
-* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
-* The authentication configuration is stored as a Kubernetes secret.
-{% endhint %}
 
 {% endtab %}
 {% tab title="Linux" %}

@@ -23,15 +23,32 @@ stackstate:
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-power-user ]  
 ```
+
+Update it with your own values. See the [default roles](../rbac/rbac_permissions.md#predefined-roles) for details on the available roles. More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+
+Store the `authentication.yaml` together with the `values.yaml` from the installation instructions. To apply the changes run a Helm upgrade:
+
+```
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --values authentication.yaml \
+stackstate \
+stackstate/stackstate
+```
+
+{% hint style="info" %}
+* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
+* The `authentication.yaml` needs to be included on every `helm upgrade` run
+* The authentication configuration is stored as a Kubernetes secret.
+
 Configuration field explanation:
 
 1. **username** - the users username for logging into StackState.
 2. **passwordMd5** - the user's password in MD5 hash format.
 3. **roles** - the list of roles the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles).
 
-{% hint style="info" %}
-* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
-* The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 
 {% endtab %}

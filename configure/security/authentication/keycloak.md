@@ -40,7 +40,9 @@ stackstate:
 
 ```
 
-Use it to install, or update your running installation, of StackState with Helm. Store it together with the `values.yaml` from the installation instructions, it needs to be included on every `helm upgrade` command for StackState:
+Update it with your own values, The KeyCloak specific values can be obtained from the client configuration in KeyCloak, and make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+
+Store the `authentication.yaml` together with the `values.yaml` from the installation instructions. To apply the changes run a Helm upgrade:
 
 ```
 helm upgrade \
@@ -51,6 +53,13 @@ helm upgrade \
 stackstate \
 stackstate/stackstate
 ```
+
+{% hint style="info" %}
+* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
+* The `authentication.yaml` needs to be included on every `helm upgrade` run
+* The authentication configuration is stored as a Kubernetes secret.
+{% endhint %}
+
 Configuration field explanation:
 
 1. **clientId** - The ID of the KeyCloak client as configured in KeyCloak
@@ -64,14 +73,6 @@ Configuration field explanation:
    1. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
    2.  **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
-The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
-
-Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
-
-{% hint style="info" %}
-* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
-* The authentication configuration is stored as a Kubernetes secret.
-{% endhint %}
 {% endtab %}
 
 

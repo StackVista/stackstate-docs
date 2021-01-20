@@ -36,8 +36,9 @@ stackstate:
       admin: ["oidc-admin-role-for-stackstate"]
 ```
 
-Update it with your own values and use it to install, or update your running installation, of StackState with Helm. Store it together with the `values.yaml` from the installation instructions, it needs to be included on every `helm upgrade` command for StackState:
+Update it with your own values and make sure that the roles users can have in the OIDC provider are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
+Store the `authentication.yaml` together with the `values.yaml` from the installation instructions. To apply the changes run a Helm upgrade:
 ```
 helm upgrade \
   --install \
@@ -50,6 +51,7 @@ stackstate/stackstate
 
 {% hint style="info" %}
 * Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
+* The `authentication.yaml` needs to be included on every `helm upgrade` run
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 
@@ -65,7 +67,6 @@ Configuration field explanation:
    1. **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however many providers omit this field. A good alternative is `email`.
    2. **groupsField** - The field from which StackState will read the role/group for a user. 
 
-Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 {% endtab %}
 
 
