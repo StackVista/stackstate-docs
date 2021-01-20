@@ -56,6 +56,24 @@ ScriptApi.asyncFn1().then  {
 
 will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
+### Transforming a list using `thenCollect`
+
+Often it is desirable to transform a list of element coming from an `AsyncScriptResult`. 
+
+Assuming `ScriptApi.asyncFn1()` return an `AsyncScriptResult` that contains the list `[1,2,3]`, this can be transformed to `[2,3,4]` in the following way:
+
+```text
+ScriptApi.asyncFn1().then { result
+  result.collect { it + 1}
+}
+```
+
+However, since this pattern is seen so often a shortcut is available for `.then { it.collect { ...  }}`, which makes it possible to rewrite the above as:
+
+```text
+ScriptApi.asyncFn1().thenCollect { it + 1}
+```
+
 ### Reducing with `thenInject`
 
 Arrays of `AsyncScriptResult` can be automatically reduced when returned. For example:
