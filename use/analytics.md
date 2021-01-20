@@ -6,55 +6,54 @@ description: Run queries against data from your IT environment.
 
 ## Overview
 
-The analytics environment is where you can directly query the [4T data model](use/introduction-to-stackstate/4t_data_model.md). Additionally you can use the analytics environment to build and test your StackState scripts, since the analytics environment uses the StackState Scripting Language as a basis for querying StackState.
+The analytics environment allows you to directly query the [4T data model](/use/introduction-to-stackstate/4t_data_model.md). As the StackState Scripting Language is used as the basis for querying StackState, you can use the analytics environment to build and test your StackState scripts.
 
-Here are a few example of queries you could execute in the analytics environment:
- - Get all the names of all pods running in a namespace.
+Queries created in the analytics environment can be used to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
+
+ - Get the names of all pods running in a namespace.
  - Determine the maximum latency of a service since yesterday. 
  - Find all machines indirectly connected to a set of APIs.
  - Show which databases have been updated since last week.
 
-Queries that you create in the analytics environment can be used to investigate issues, automate processes and build reports. 
-
 ## The analytics environment
 
-If you have [permission](configure/security/rbac/rbac_permissions.md) to access the analytics menu (default for all power users and admins) then you can access the analytics environment from the main menu. There are also places in the user-interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
+If your StackState user has the permission `access-analytics`, then you can access the analytics environment from the main menu. This will be available by default for all [power users and admins](/configure/security/rbac/rbac_permissions.md). There are also places in the user interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
 
 The analytics environment is divided into two sections:
  
  * The query you want to execute on the left
  * The results and query history on the right.
 
-When executing a query for the first time, the result of the query is displayed in preview form if a preview is available for the type of data that is requested (e.g. a metric chart or a topology view), otherwise the data will be shown in Json form.
+When executing a query for the first time, the result of the query is displayed in preview form if a preview is available for the type of data that is requested, for example a metric chart or a topology view. If no preview is available, the data will be shown in JSON form.
 
-Every query that you've executed while navigating to StackState is shown in the query history with the result at that point in time.  
+Every query that you have executed in StackState is shown in the query history, together with the query result at that point in time.  
 
-![Analytics screenshot](/.gitbook/assets/new_analytics.png)
+![Analytics screenshot](/.gitbook/assets/v42_analytics.png)
 
 ## Previews
 
 Results of queries are typically displayed in raw JSON form, unless there is a preview available. Previews are currently available for:
  
- - Topology query results (see [Topology.query](develop/reference/scripting/script-apis/topology.md#function-query))
- - Telemetry query results (see [Telemetry.query](develop/reference/scripting/script-apis/telemetry.md#function-query))
- - Telemetry predictions (see [Prediction.predictMetrics](develop/reference/scripting/script-apis/prediction.md#function-predictmetrics))
- - STML reports (see [UI.showReport](develop/reference/scripting/script-apis/ui.md#function-showreport))
+ - Topology query results (see [Topology.query](/develop/reference/scripting/script-apis/topology.md#function-query))
+ - Telemetry query results (see [Telemetry.query](/develop/reference/scripting/script-apis/telemetry.md#function-query))
+ - Telemetry predictions (see [Prediction.predictMetrics](/develop/reference/scripting/script-apis/prediction.md#function-predictmetrics))
+ - STML reports (see [UI.showReport](/develop/reference/scripting/script-apis/ui.md#function-showreport))
 
 ## Queries
 
-In the analytics environment you use a combination of the [StackState Scripting Language \(STSL\)](develop/reference/scripting/README.md) and the [StackState Query Language \(STQL\)](develop/reference/stql_reference.md) to build your queries and scripts. 
+In the analytics environment, you use a combination of the [StackState Scripting Language \(STSL\)](/develop/reference/scripting/README.md) and the [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build your queries and scripts. 
 
-A query is a regular STSL script. For example when you run the query: `1+1` you will get the result `2`.
+A query is a regular STSL script. For example, when you run the query: `1+1` you will get the result `2`.
 
-As a part of a STSL script you can invoke the StackStake Query Language. A simple example of an analytical query that uses both STSL and STQL is:
+As a part of an STSL script, you can invoke the StackStake Query Language (STQL). A simple example of an analytical query that uses both STSL and STQL is:
 
 ```
 Topology.query('environment in ("Production")').components()
 ```
 
-[Topology.query](develop/reference/scripting/script-apis/topology.md) is a regular script function which takes a STQL query (`environment in ("Production")`) as an argument. The `.components()` at the end, a so-called builder method, ensures that only the components and not the relations between these components are retrieved from the topology.
+[Topology.query](/develop/reference/scripting/script-apis/topology.md) is a regular script function that takes ab STQL query (`environment in ("Production")` in the above example) as an argument. The `.components()` at the end, is a so-called builder method. This ensures that only the components, and not the relations between these components, are retrieved from the topology.
 
-The combination of STSL and STQL allows you to chain together multiple queries. The following example gets all metrics of all databases in the production environment of the last day:
+The combination of STSL and STQL allows you to chain together multiple queries. The following example gets all metrics of all databases in the production environment for the last day:
 
 ```
 Topology
@@ -68,9 +67,9 @@ Topology
     }
 ```
 
-This analytical query first gets all metrics streams of components from the `Production` environment which are of the type `Database`. The result of that query is used to build up telemetry queries against these metric streams.
+This analytical query first gets all metrics streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
 
-The full list of available function can be found [here](develop/reference/scripting/script-apis/README.md). Read about [async script results](develop/reference/scripting/async_script_result.md) to learn about chaining.
+The full list of available functions can be found [in the Script API documentation](/develop/reference/scripting/script-apis/README.md). To learn about chaining, see [async script results](/develop/reference/scripting/async_script_result.md).
 
 ### Example queries
 
@@ -110,7 +109,8 @@ Topology.query('environment = "Staging"')
             .result
             .addedComponents
             .collect { comp -> comp.name }
-    }```
+    }
+```
 {% endtab %}
 {% tab title="Example result" %}
 ```
@@ -185,6 +185,6 @@ Prediction.predictMetrics("linear", "7d",
 
 ## See also
 
-- [Scripting in StackState](/develop/reference/scripting/README.md)
+- [StackState scripting language \(STSL\)](/develop/reference/scripting/README.md)
 - [StackState script APIs](/develop/reference/scripting/script-apis)
-- [StackState Query Language STQL](/develop/reference/stql_reference.md)
+- [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md)
