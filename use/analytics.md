@@ -1,48 +1,190 @@
 ---
-description: Answer questions using queries.
+description: Run queries against data from your IT environment.
 ---
 
 # Analytics
 
-StackState's 4T \(Topology, Telemetry, Traces and Time\) model can be queried within the analytical environment. Analytical queries can be written in Groovy and support the [StackState Query Language \(STQL\)](../develop/reference/stql_reference.md). StackState analytical environment can be found at: `<stackstate_url:7070>/#/analytics`. The analytical environment is a full-fledged scripting environment.
+## Overview
 
-## Examples
+The analytics environment allows you to directly query the [4T data model](/use/introduction-to-stackstate/4t_data_model.md). The analytics environment uses the StackState Scripting Language (STSL) as the basis for querying StackState, so you can build and test your StackState scripts here.
 
-Get all components which are related to a specific component.
+Queries created in the analytics environment can be used to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
 
-`//Define a name for the component where we start the search. def selectedComponent = "Invoicing"`
+ - Get the names of all pods running in a namespace.
+ - Determine the maximum latency of a service since yesterday. 
+ - Find all machines indirectly connected to a set of APIs.
+ - Show which databases have been updated since last week.
 
-`Topology.query("name = '" + selectedComponent + "'")`
+## The analytics environment
 
-List all components which depend on a specific component and have the state CRITICAL
+If your StackState user has the permission `access-analytics`, then you can access the analytics environment from the main menu. This will be available by default for all [power users and admins](/configure/security/rbac/rbac_permissions.md). There are also places in the user interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
 
-`Define a name for the component where we start the search. def selectedComponent = "srv02"`
+The analytics environment is divided into two sections:
+ 
+ * The query you want to execute on the left
+ * The results and query history on the right.
 
-`Topology.query("withNeighborsOf(direction = 'down', levels = '15', components = (name = '" + selectedComponent + "')) and healthState = 'CRITICAL'")`
+When executing a query for the first time, the result of the query is displayed in preview form if a preview is available for the type of data that is requested, for example a metric chart or a topology view. If no preview is available, the data will be shown in JSON form.
 
-List a service with components it is depending on down to N levels of depth
+Every query that you have executed in StackState is shown in the query history, together with the query result at that point in time.  
 
-`//Define a name for the component where we start the search. def selectedComponent = "Payment_Service"`
+![Analytics screenshot](/.gitbook/assets/v42_analytics.png)
 
-`//Define a search depth    
-def N = 3`
+## Previews
 
-`Topology.query("withNeighborsOf(direction = 'down', components = (name = '" + selectedComponent + "'), levels = '" + N + "') ")`
+Results of queries are typically displayed in raw JSON form, unless there is a preview available. Previews are currently available for:
+ 
+ - Topology query results, see [Topology.query](/develop/reference/scripting/script-apis/topology.md#function-query)
+ - Telemetry query results, see [Telemetry.query](/develop/reference/scripting/script-apis/telemetry.md#function-query) 
+ - Telemetry predictions, see [Prediction.predictMetrics](/develop/reference/scripting/script-apis/prediction.md#function-predictmetrics)
+ - STML reports, see [UI.showReport](/develop/reference/scripting/script-apis/ui.md#function-showreport)
 
-List a service with components depending on it up to N levels of depth
+## Queries
 
-`//Define a name for the component where we start the search. def selectedComponent = "Payment_Service"`
+In the analytics environment, you use a combination of the [StackState Scripting Language \(STSL\)](/develop/reference/scripting/README.md) and the [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build your queries and scripts. 
 
-`//Define a search depth    
-def N = 3`
+A query is a regular STSL script. For example, when you run the query: `1+1` you will get the result `2`.
 
-`Topology.query("withNeighborsOf(direction = 'up', components = (name = '" + selectedComponent + "'), levels = '" + N + "') ")`
+As a part of an STSL script, you can invoke the StackStake Query Language (STQL). A simple example of an analytical query that uses both STSL and STQL is:
 
-Give a list of databases.
+```
+Topology.query('environment in ("Production")').components()
+```
 
-`Topology.query("Type = 'database'")`
+[Topology.query](/develop/reference/scripting/script-apis/topology.md) is a regular script function that takes ab STQL query (`environment in ("Production")` in the above example) as an argument. The `.components()` at the end, is a so-called builder method. This ensures that only the components, and not the relations between these components, are retrieved from the topology.
 
-## Scripting
+The combination of STSL and STQL allows you to chain together multiple queries. The following example gets all metrics of all databases in the production environment for the last day:
 
-All queries are in-fact Groovy scripts. Find out more about [how StackState scripting works](../develop/reference/scripting/).
+```
+Topology
+    .query('environment in ("Production") AND type = "Database"')
+    .components()
+    .metricStreams()
+    .thenCollect { metricStream -> 
+        Telemetry.query(metricStream)
+            .aggregation("95th percentile"", "15m")
+            .start("-1d")
+    }
+```
 
+This analytical query first gets all metrics streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
+
+The full list of available functions can be found [in the Script API documentation](/develop/reference/scripting/script-apis/README.md). To learn about chaining, see [async script results](/develop/reference/scripting/async_script_result.md).
+
+### Example queries
+
+Below are some queries to get you started with an example of their expected output. You can find more examples in the StackState UI Analytics environment itself.
+
+- [Find the number of relations between two components](#find-the-number-of-relations-between-two-components)
+- [Compare the Staging environment to the Production environment](#compare-the-staging-environment-to-the-production-environment)
+- [Predict disk space of a server for the next week ](#predict-disk-space-of-a-server-for-the-next-week)
+
+#### Find the number of relations between two components
+
+{% tabs %}
+{% tab title="Query" %}
+```
+Topology.query('name IN ("Alice", "Bob")')
+  .relations()
+  .count()
+```
+{% endtab %}
+{% tab title="Example result" %}
+```
+1
+```
+{% endtab %}
+{% endtabs %}
+
+#### Compare the Staging environment to the Production environment
+
+{% tabs %}
+{% tab title="Query" %}
+```
+Topology.query('environment = "Staging"')
+    .diff(Topology.query('environment = "Production"'))
+    .then { diff ->
+        diff
+            .diffResults[0]
+            .result
+            .addedComponents
+            .collect { comp -> comp.name }
+    }
+```
+{% endtab %}
+{% tab title="Example result" %}
+```
+[
+  "customer E_appl02",
+  "MobileApp",
+  "customer B_appl01",
+  "customer E_appl01",
+  "customer B_appl02"
+]
+```
+{% endtab %}
+{% endtabs %}
+
+#### Predict disk space of a server for the next week 
+
+{% tabs %}
+{% tab title="Query" %}
+```
+Prediction.predictMetrics("linear", "7d",
+    Telemetry.query("StackState metrics", 'host="lnx01" AND name="diskspace" AND mount="/dev/disk1s1"')
+        .metricField("value")
+        .aggregation("min", "1d")
+        .start("-4w") // based on last month
+        .compileQuery()
+).predictionPoints(7).then { result -> resut.prediction  }
+```
+{% endtab %}
+{% tab title="Example result" %}
+```
+{
+    "_type":"MetricTelemetryData",
+    "data":[
+        [
+            52.35911407877176,
+            1611091854483
+        ],
+        [
+            51.400303131762215,
+            1611092754483
+        ],
+        [
+            48.64705240252446,
+            1611093654483
+        ],
+        [
+            49.62017120667122,
+            1611094554483
+        ],
+        [
+            49.55251201458979,
+            1611095454483
+        ],
+        [
+            54.46042805305259,
+            1611096354483
+        ],
+        [
+            48.681355107261204,
+            1611097254483
+        ],
+    ],
+    "dataFormat":[
+        "value",
+        "timestamp"
+    ],
+    "isPartial":false
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## See also
+
+- [StackState scripting language \(STSL\)](/develop/reference/scripting/README.md)
+- [StackState script APIs](/develop/reference/scripting/script-apis)
+- [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md)
