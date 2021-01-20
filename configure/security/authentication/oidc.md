@@ -52,6 +52,20 @@ stackstate/stackstate
 * Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
+
+Configuration field explanation:
+
+1. **clientId** - The ID of the OIDC client from the first step
+2. **secret** - The secret for the OIDC client from the first step
+3. **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
+4. **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one it can be changed here
+5. **scope** - Should match (or be a subset of) the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
+6. **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overriden (must be a fully qualified URL that points to the `/loginCallback` path)
+7. **jwtClaims** - 
+   1. **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however many providers omit this field. A good alternative is `email`.
+   2. **groupsField** - The field from which StackState will read the role/group for a user. 
+
+Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 {% endtab %}
 
 
@@ -85,8 +99,6 @@ authentication {
   adminGroups = ["oidc-admin-role-for-stackstate"]
 }
 ```
-{% endtab %}
-{% endtabs %}
 
 Configuration field explanation:
 
@@ -95,9 +107,12 @@ Configuration field explanation:
 3. **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
 4. **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one it can be changed here
 5. **scope** - Should match (or be a subset of) the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
-6. **redirectUri** - The URI where the login callback endpoint of StackState is reachable (for Kuberentes this can be overriden but is by default populated based on the `stackstate.baseUrl` setting)
+6. **redirectUri** - The URI where the login callback endpoint of StackState is reachable (must be a fully qualified URL that points to the `/loginCallback` path)
 7. **jwtClaims** - 
    1. **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however many providers omit this field. A good alternative is `email`.
    2. **groupsField** - The field from which StackState will read the role/group for a user. 
 
 Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+{% endtab %}
+{% endtabs %}
+

@@ -1,8 +1,8 @@
 # Authentication
 
-Out of the box, StackState is configured with [file-based authentication](./file.md) with a [default username and password](README.md#default-username-and-password). This authenticates users against a file on the server. 
+Out of the box, StackState is configured with [file-based authentication](./file.md) with a [default username and password](README.md#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.
 
-StackState can be configured to use exactly one of the following authentication mechanisms:
+For better security StackState can be configured to use exactly one of the following authentication mechanisms (replacing the standard admin user):
 
 * [File based](./file.md)
 * [LDAP](./ldap.md)
@@ -17,7 +17,7 @@ For Kubernetes installations authentication configuration is part of the Helm ch
 
 ## User roles
 
-StackState ships with the default user roles **Guest**, **Power User** and **Administrator**:
+When a user has been authenticated permissions for that user are usually assigned based of the roles the user has. The documentation for the specific authentication mechanisms also contain examples on how to map the roles or groups from the external systems to the 3 standard roles of StackState:
 
 * **Guest** - able to see information but make no changes.
 * **Power User** - able to see and change all configuration and install StackPacks.
