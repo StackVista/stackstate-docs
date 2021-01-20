@@ -1,5 +1,7 @@
 ## LDAP authentication server
 
+StackState can use an LDAP server (including AD) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState. You either need anonymous query access or bind credentials that StackState can use to query the LDAP server.
+
 {% tabs %}
 {% tab title="Kubernetes" %}
 

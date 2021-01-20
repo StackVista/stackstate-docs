@@ -16,6 +16,20 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
+### Upgrade to v4.2.3
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+[Authentication configuration](../../configure/security/authentication/README.md) for the Kubernetes Helm chart has been made easier for this release. If the StackState authentication was customized it needs to be updated. This can be verified by verifying if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
+
+Please use the [Authentication configuration](../../configure/security/authentication/README.md) documentation to configure the same settings directly in the `values.yaml` file. After that the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
+{% endtab %}
+
+{% tab title="Linux" %}
+No manual action needed.
+{% endtab %}
+{% endtabs %}
+
 ### Upgrade to v4.2.0
 
 {% tabs %}
