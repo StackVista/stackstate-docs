@@ -6,7 +6,7 @@ description: Run queries against data from your IT environment.
 
 ## Overview
 
-The analytics environment allows you to directly query the [4T data model](/use/introduction-to-stackstate/4t_data_model.md). As the StackState Scripting Language is used as the basis for querying StackState, you can use the analytics environment to build and test your StackState scripts.
+The analytics environment allows you to directly query the [4T data model](/use/introduction-to-stackstate/4t_data_model.md). The analytics environment uses the StackState Scripting Language (STSL) as the basis for querying StackState, so you can build and test your StackState scripts here.
 
 Queries created in the analytics environment can be used to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
 
