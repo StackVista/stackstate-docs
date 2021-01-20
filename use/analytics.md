@@ -34,10 +34,10 @@ Every query that you have executed in StackState is shown in the query history, 
 
 Results of queries are typically displayed in raw JSON form, unless there is a preview available. Previews are currently available for:
  
- - Topology query results (see [Topology.query](/develop/reference/scripting/script-apis/topology.md#function-query))
- - Telemetry query results (see [Telemetry.query](/develop/reference/scripting/script-apis/telemetry.md#function-query))
- - Telemetry predictions (see [Prediction.predictMetrics](/develop/reference/scripting/script-apis/prediction.md#function-predictmetrics))
- - STML reports (see [UI.showReport](/develop/reference/scripting/script-apis/ui.md#function-showreport))
+ - Topology query results, see [Topology.query](/develop/reference/scripting/script-apis/topology.md#function-query)
+ - Telemetry query results, see [Telemetry.query](/develop/reference/scripting/script-apis/telemetry.md#function-query) 
+ - Telemetry predictions, see [Prediction.predictMetrics](/develop/reference/scripting/script-apis/prediction.md#function-predictmetrics)
+ - STML reports, see [UI.showReport](/develop/reference/scripting/script-apis/ui.md#function-showreport)
 
 ## Queries
 
