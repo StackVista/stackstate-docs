@@ -130,6 +130,7 @@
   * [Set up traces](configure/traces/how_to_setup_traces.md)
 * [Security](configure/security/README.md)
   * [Authentication](configure/security/authentication/README.md)
+    * [Authentication options](configure/security/authentication/authentication_options.md)
     * [File based](configure/security/authentication/file.md)
     * [LDAP](configure/security/authentication/ldap.md)
     * [Open ID Connect (OIDC)](configure/security/authentication/oidc.md)

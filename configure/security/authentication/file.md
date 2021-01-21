@@ -1,8 +1,8 @@
 ## File-based authentication
 
-In case no external authentication provider can be used you can use the file based authentication. This requires pre-configuring every user of StackState in the configuration file and (upon a change) a restart of StackState.
+In case no external authentication provider can be used, you can use file based authentication. This will require every StackState user to be pre-configured in the configuration file. For every change made to a user in the configuration file, StackState must be restarted.
 
-Here is an example to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest.
+If you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest.
 
 Passwords are stored as MD5 hashes and need to be provided as such, for example on a linux or Mac command line the `md5sum` or `md5` tools can be used.
 
