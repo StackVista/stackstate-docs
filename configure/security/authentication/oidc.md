@@ -86,6 +86,8 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 
 To configure StackState to use an OIDC authentication provider on Linux, OIDC details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
 
+{% tabs %}
+{% tab title="application_stackstate.conf" %}
 ```javascript
 authentication {
   enabled  = true
@@ -114,6 +116,9 @@ authentication {
   adminGroups = ["oidc-admin-role-for-stackstate"]
 }
 ```
+{% endtab %}
+{% endtabs %}
+
 Follow the steps below to configure StackState to authenticate using OIDC:
 
 1. Add details of the OIDC authentication provider to `application_stackstate.conf` - see the example above. This should replace the existing `authentication` section that is nested in `stackstate.api`:
