@@ -91,6 +91,8 @@ authentication {
 {% endtab %}
 {% endtabs %}
 
+Follow the steps below to configure users and apply changes:
+
 1. Add users to `authentication.yaml` - see the example above. The following configuration should be added for each user:
     - **username** - the username used to log into StackState.
     - **password** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
