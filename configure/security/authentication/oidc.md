@@ -28,7 +28,7 @@ stackstate:
     oidc:
       clientId: "<client-id-from-oidc-provider>"
       secret: "<secret-from-oidc-provider>"
-      discoveryUri: "https://oidc-provider.acme.com/.well-known/openid-configuration"
+      discoveryUri: "https://oidc-provider.acme.com/.well-known/openid-config"
       jwsAlgorithm: RS256
       scope: ["openid", "email"]
       jwtClaims:
