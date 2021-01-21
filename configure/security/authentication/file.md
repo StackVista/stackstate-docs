@@ -96,7 +96,7 @@ authentication {
     - **password** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
     - **roles** - the list of roles that the user is a member of. The [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](/configure/security/rbac/rbac_roles.md).
 
-2. Restart StackState for changes to take effect.
+2. Restart StackState to apply the changes.
 
 
 ## See also
