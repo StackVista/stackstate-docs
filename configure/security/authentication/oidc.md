@@ -2,11 +2,11 @@
 
 ## Overview 
 
-In order to configure StackState to authenticate using an OIDC authentication provider, you will need to configure both StackState and the provider to be able to talk to each other. The following sections describe the respective setups.
+StackState can authenticate using an OIDC authentication provider. To enable this, you will need to configure both StackState and the OIDC provider to be able to talk to each other. The following sections describe the respective setups.
 
 ## Configure the OIDC provider
 
-Before you can configure StackState to authenticate using OIDC, you will need create a client for StackState on your OIDC provider using the following settings (if required):
+Before you can configure StackState to authenticate using OIDC, you will need create a client for StackState on your OIDC provider. Create a client using the following settings (if required):
 
 * Use the OIDCAuthoirzation Flow
 * Set the **Redirect URI** to the base URL of StackState suffixed with `/loginCallback`. For example `https://stackstate.acme.com/loginCallback`. For some OIDC providers, such as Google, the **Redirect URI** must match exactly, including any query parameters. In that case, you should configure the URI like this `https://stackstate.acme.com/loginCallback?client_name=StsOidcClient`.
@@ -49,8 +49,8 @@ stackstate:
 Follow the steps below to configure StackState to authenticate using OIDC:
 
 1. Add details of the OIDC authentication provider to `authentication.yaml` - see the example above.
-    - **clientId** - The ID of the [OIDC client you created for StackState](#configure-oidc-provider).
-    - **secret** - The secret for the [OIDC client you created for StackState](#configure-oidc-provider)
+    - **clientId** - The ID of the [OIDC client you created for StackState](#configure-the-oidc-provider).
+    - **secret** - The secret for the [OIDC client you created for StackState](#configure-the-oidc-provider)
     - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
     - **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
     - **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
@@ -81,9 +81,6 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 * Include `authentication.yaml` on every `helm upgrade` run.
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
-
-Configuration field explanation:
-
 
 ### Linux
 
