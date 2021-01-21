@@ -10,7 +10,7 @@ StackState includes three default roles - Administrator, Power user and Guest. T
 
 ### Kubernetes
 
-To configure file based authentication on Kubernetes, StackState users need to be configured in the `authentication.yaml` file. For example:
+To configure file based authentication on Kubernetes, StackState users need to be added to the `authentication.yaml` file. For example:
 
 {% tabs %}
 {% tab title="authentication.yaml" %}
@@ -35,7 +35,7 @@ stackstate:
 {% endtab %}
 {% endtabs %}
 
-To configure users and apply changes, follow the steps below:
+Follow the steps below to configure users and apply changes:
 
 1. Add users to `authentication.yaml` - see the example above. The following configuration should be added for each user:
     - **username** - the username used to log into StackState.
