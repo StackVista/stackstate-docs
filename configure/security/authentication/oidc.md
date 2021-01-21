@@ -6,7 +6,7 @@ StackState can authenticate using an OIDC authentication provider. To enable thi
 
 ## Configure the OIDC provider
 
-Before you can configure StackState to authenticate using OIDC, you will need create a client for StackState on your OIDC provider. Create a client using the following settings (if required):
+Before you can configure StackState to authenticate using OIDC, you will need create a client for StackState on your OIDC provider. Create a client using the following settings (if the OIDC provider needs them):
 
 * Use the OIDCAuthoirzation Flow
 * Set the **Redirect URI** to the base URL of StackState suffixed with `/loginCallback`. For example `https://stackstate.acme.com/loginCallback`. For some OIDC providers, such as Google, the **Redirect URI** must match exactly, including any query parameters. In that case, you should configure the URI like this `https://stackstate.acme.com/loginCallback?client_name=StsOidcClient`.
