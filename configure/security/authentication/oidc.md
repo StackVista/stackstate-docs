@@ -18,7 +18,7 @@ The result of this configuration should produce a **clientId** and a **secret**.
 
 ### Kubernetes
 
-To configure StackState to use an OIDC authentication provider on Kubernetes, OIDC authentication details and user role mapping needs to be added to the `authentication.yaml` file. For example:
+To configure StackState to use an OIDC authentication provider on Kubernetes, OIDC authentication details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
 {% tabs %}
 {% tab title="authentication.yaml" %}
