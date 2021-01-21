@@ -40,7 +40,7 @@ Follow the steps below to configure users and apply changes:
 1. Add users to `authentication.yaml` - see the example above. The following configuration should be added for each user:
     - **username** - the username used to log into StackState.
     - **passwordMd5** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
-    - **roles** - the list of roles that the user is a member of. The [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
+    - **roles** - the list of roles that the user is a member of. The [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](/configure/security/rbac/rbac_roles.md).
 
 2. Store the `authentication.yaml` together with the `values.yaml` from the installation instructions.
 
