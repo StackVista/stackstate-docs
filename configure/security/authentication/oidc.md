@@ -18,8 +18,10 @@ The result of this configuration should produce a **clientId** and a **secret**.
 
 ### Kubernetes
 
+To configure StackState to use an OIDC authentication provider on Kubernetes, OIDC authentication details and user role mapping needs to be added to the `authentication.yaml` file. For example:
 
-
+{% tabs %}
+{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -39,8 +41,12 @@ stackstate:
       powerUser: ["oidc-power-user-role-for-stackstate"]
       admin: ["oidc-admin-role-for-stackstate"]
 ```
+{% endtab %}
+{% endtabs %}
 
-1. Update `authentication.yaml` to include the OIDC authentication details - see the example above.
+Follow the steps below to configure StackState to use OIDC:
+
+1. Add OIDC authentication details to `authentication.yaml` - see the example above.
     - **clientId** - The ID of the [OIDC client you created for StackState](#configure-oidc-provider).
     - **secret** - The secret for the [OIDC client you created for StackState](#configure-oidc-provider)
     - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
@@ -51,7 +57,7 @@ stackstate:
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
 
-2. Update `authentication.yaml` to map OIDC provider user roles to the correct subjects in StackState - see the example above.
+2. Map user roles from the OIDC provider to the correct StackState subjects in `authentication.yaml` - see the example above.
     - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Store the `authentication.yaml` together with the `values.yaml` from the installation instructions.
