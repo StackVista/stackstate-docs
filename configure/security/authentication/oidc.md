@@ -35,7 +35,8 @@ stackstate:
         usernameField: email
         groupsField: groups
 
-    # map the groups from OIDC provider to the 3 standard roles in StackState (guest, powerUser and admin)
+    # map the groups from OIDC provider  
+    # to the 3 standard roles in StackState (guest, powerUser and admin)
     roles:
       guest: ["oidc-guest-role-for-stackstate"]
       powerUser: ["oidc-power-user-role-for-stackstate"]
