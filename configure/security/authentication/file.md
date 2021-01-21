@@ -97,3 +97,8 @@ Provide the following configuration for each user:
 - **roles** - the list of roles that the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
 
 
+## See also
+
+- [Authentication options](/configure/security/authentication/authentication_options.md)
+- [RBAC in StackState](/configure/security/rbac/role_based_access_control.md)
+- [Pre-defined StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles)
