@@ -6,12 +6,16 @@ In case no external authentication provider can be used, you can use file based 
 
 StackState includes three default roles - Administrator, Power user and Guest. The permissions assigned to each default role and instructions on how to create other roles can be found in the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
 
-## Kubernetes
+## Set up file based authentication
 
-If you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest you would need to include the below configuration in the file `authentication.yaml`.
+### Kubernetes
+
+To configure file based authentication on Kubernetes, StackState users need to be configured in the `authentication.yaml` file.
+
+For example, if you want to have three users, `admin-demo`, `power-user-demo` and `guest-demo`, with the three default roles Administrator, Power user and Guest you would need to include the below configuration in `authentication.yaml`.
 
 {% tabs %}
-{% tab title="`authentication.yaml`" %}
+{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -58,12 +62,14 @@ Provide the following configuration for each user:
 {% endhint %}
 
 
-## Linux
+### Linux
 
-If you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest you would need to include the below configuration in the file `application_stackstate.conf`.
+To configure file based authentication on Linux, StackState users need to be configured in the `application_stackstate.conf` file.
+
+For example. if you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the three default roles Administrator, Power user and Guest you would need to include the below configuration in `application_stackstate.conf`.
 
 {% tabs %}
-{% tab title="`application_stackstate.conf`" %}
+{% tab title="application_stackstate.conf" %}
 
 ```javascript
 authentication {
