@@ -10,9 +10,32 @@ StackState includes three default roles - Administrator, Power user and Guest. T
 
 ### Kubernetes
 
-To configure file based authentication on Kubernetes, StackState users need to be configured in the `authentication.yaml` file.
+To configure file based authentication on Kubernetes, StackState users need to be configured in the `authentication.yaml` file. For example:
 
-1. Add users to `authentication.yaml` - see the [example below](#example). The following configuration should be added for each user:
+{% tabs %}
+{% tab title="authentication.yaml" %}
+```yaml
+# Three users, `admin-demo`, `power-user-demo` and `guest-demo`
+# with the three default roles Administrator, Power user and Guest
+
+stackstate:
+  authentication:
+    file:
+      logins:
+        - username: admin-demo
+          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          roles: [ stackstate-admin ]
+        - username: guest-demo
+          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          roles: [ stackstate-guest ]
+        - username: power-user-demo
+          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          roles: [ stackstate-power-user ]  
+```
+{% endtab %}
+{% endtabs %}
+
+1. Add users to `authentication.yaml` - see the example above. The following configuration should be added for each user:
     - **username** - the username used to log into StackState.
     - **passwordMd5** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
     - **roles** - the list of roles that the user is a member of. The [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
@@ -36,31 +59,6 @@ To configure file based authentication on Kubernetes, StackState users need to b
 * Include `authentication.yaml` on every `helm upgrade` run.
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
-
-#### Example
-
-For example, if you want to have three users, `admin-demo`, `power-user-demo` and `guest-demo`, with the three default roles Administrator, Power user and Guest you would need to include the below configuration in `authentication.yaml`.
-
-{% tabs %}
-{% tab title="authentication.yaml" %}
-```yaml
-stackstate:
-  authentication:
-    file:
-      logins:
-        - username: admin-demo
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
-          roles: [ stackstate-admin ]
-        - username: guest-demo
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
-          roles: [ stackstate-guest ]
-        - username: power-user-demo
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
-          roles: [ stackstate-power-user ]  
-```
-{% endtab %}
-{% endtabs %}
-
 
 ### Linux
 
