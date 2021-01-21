@@ -1,13 +1,17 @@
-## File-based authentication
+# File-based authentication
 
-In case no external authentication provider can be used, you can use file based authentication. This will require every StackState user to be pre-configured in the configuration file. For every change made to a user in the configuration file, StackState must be restarted.
+## Overview
 
-If you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest.
+In case no external authentication provider can be used, you can use file based authentication. This will require every StackState user to be pre-configured in the configuration file. For every change made to a user in the configuration, StackState must be restarted.
 
-Passwords are stored as MD5 hashes and need to be provided as such, for example on a linux or Mac command line the `md5sum` or `md5` tools can be used.
+StackState includes three default roles - Administrator, Power user and Guest. The permissions assigned to each default role and instructions on how to create other roles can be found in the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
+
+## Kubernetes
+
+If you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest you would need to include the below configuration in the file `authentication.yaml`.
 
 {% tabs %}
-{% tab title="Kubernetes" %}
+{% tab title="`authentication.yaml`" %}
 ```yaml
 stackstate:
   authentication:
@@ -23,6 +27,8 @@ stackstate:
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-power-user ]  
 ```
+{% endtab %}
+{% endtabs %}
 
 Update it with your own values. See the [default roles](../rbac/rbac_permissions.md#predefined-roles) for details on the available roles. More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
@@ -43,16 +49,21 @@ stackstate/stackstate
 * The `authentication.yaml` needs to be included on every `helm upgrade` run
 * The authentication configuration is stored as a Kubernetes secret.
 
-Configuration field explanation:
+Provide the following configuration for each user:
 
-1. **username** - the users username for logging into StackState.
-2. **passwordMd5** - the user's password in MD5 hash format.
-3. **roles** - the list of roles the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles).
+- **username** - the username for logging into StackState.
+- **password** - the password for logging into StackState. Passwords are stored in the configuration file as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
+- **roles** - the list of roles that the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
 
 {% endhint %}
 
-{% endtab %}
-{% tab title="Linux" %}
+
+## Linux
+
+If you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the default roles Administrator, Power user and Guest you would need to include the below configuration in the file `application_stackstate.conf`.
+
+{% tabs %}
+{% tab title="`application_stackstate.conf`" %}
 
 ```javascript
 authentication {
@@ -70,14 +81,13 @@ authentication {
   }
 }
 ```
-
-Configuration field explanation:
-
-1. **username** - the users username for logging into StackState.
-2. **password** - the user's password in MD5 hash format.
-3. **roles** - the list of roles the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`. 
 {% endtab %}
-
 {% endtabs %}
 
-For the permissions of the default roles and how to crate other roles see the [RBAC](../rbac/role_based_access_control.md) documentation.
+Provide the following configuration for each user:
+
+- **username** - the username for logging into StackState.
+- **password** - the password for logging into StackState.  Passwords are stored in the configuration file as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
+- **roles** - the list of roles that the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
+
+
