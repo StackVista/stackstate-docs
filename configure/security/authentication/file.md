@@ -64,14 +64,15 @@ Follow the steps below to configure users and apply changes:
 
 ### Linux
 
-To configure file based authentication on Linux, StackState users need to be configured in the `application_stackstate.conf` file.
-
-For example. if you want to have 3 users, `admin-demo`, `power-user-demo` and `guest-demo`, with the three default roles Administrator, Power user and Guest you would need to include the below configuration in `application_stackstate.conf`.
+To configure file based authentication on Linux, StackState users need to be added to the `application_stackstate.conf` file. For example:
 
 {% tabs %}
 {% tab title="application_stackstate.conf" %}
 
 ```javascript
+# Three users, `admin-demo`, `power-user-demo` and `guest-demo`
+# with the three default roles Administrator, Power user and Guest
+
 authentication {
   authServer {
     authServerType = "stackstateAuthServer"
@@ -90,11 +91,12 @@ authentication {
 {% endtab %}
 {% endtabs %}
 
-Provide the following configuration for each user:
+1. Add users to `authentication.yaml` - see the example above. The following configuration should be added for each user:
+    - **username** - the username used to log into StackState.
+    - **password** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
+    - **roles** - the list of roles that the user is a member of. The [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
 
-- **username** - the username for logging into StackState.
-- **password** - the password for logging into StackState.  Passwords are stored in the configuration file as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
-- **roles** - the list of roles that the user is a member of. Default available roles are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details see the [pre-defined roles](/configure/security/rbac/rbac_permissions.md#predefined-roles).
+2. Restart StackState for changes to take effect.
 
 
 ## See also
