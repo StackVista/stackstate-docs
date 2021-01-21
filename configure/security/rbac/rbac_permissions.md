@@ -12,7 +12,7 @@ Views permissions are a set of permissions that allow for CRUD operations with V
 
 ## Predefined roles
 
-StackState comes with three predefined roles - `stackstate-admin` (Adminstrator), `stackstate-power-user` (Power-user) and `stackstate-guest` (Guest user).
+StackState comes with three predefined roles - `stackstate-admin` (Adminstrator), `stackstate-power-user` (Power user) and `stackstate-guest` (Guest user).
 
 * Administrators have all permissions and access to all views. 
 * Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
