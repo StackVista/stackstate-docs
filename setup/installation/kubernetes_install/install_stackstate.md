@@ -119,7 +119,7 @@ Next steps are
 
 * Configure [ingress](ingress.md)
 * Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](../../authentication.md).
+* Give your [co-workers access](../../../configure/security/authentication/README.md).
 
 ## Automatic Kubernetes support
 

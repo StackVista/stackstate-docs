@@ -239,7 +239,7 @@ Next steps are
 
 * Configure [ingress](kubernetes_install/ingress.md)
 * Install a [StackPack](../../stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](../authentication.md).
+* Give your [co-workers access](../../../configure/security/authentication/README.md).
 
 
 ## Manually create `SecurityContextConfiguration` objects

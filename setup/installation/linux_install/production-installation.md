@@ -30,7 +30,7 @@ To prepare an additional node for running a StackState component, follow these s
 
 After you have installed StackState, refer to the following pages for configuration instructions:
 
-* [Configuring authentication](../../authentication.md)
+* [Configuring authentication](../../configure/authenticaton/README.md)
 * [Reverse Proxy](reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](how_to_setup_tls_without_reverse_proxy.md)
 
 ### Starting and Stopping
