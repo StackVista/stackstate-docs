@@ -12,7 +12,7 @@ Views permissions are a set of permissions that allow for CRUD operations with V
 
 ## Predefined roles
 
-StackState comes with three predefined roles - **Administrator**, **Power User** and **Guest**.
+StackState comes with three predefined roles - `stackstate-admin` (Adminstrator), `stackstate-power-user` (Power user) and `stackstate-guest` (Guest user).
 
 * Administrators have all permissions and access to all views. 
 * Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
@@ -28,6 +28,53 @@ stackstate-guest  read-permissions      system
 stackstate-guest  update-visualization  system
 stackstate-guest  access-view           everything
 ```
+
+The default names for these roles as mentioned above can be overriden, this mechanism can also be used to add extra roles that will have the same permissions. Here an example of how to do this for both Kubernetes and Linux instalaltions.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to replace the default role names with these custom role names.
+
+```yaml
+stackstate:
+  authentication:
+    roles:
+      guest: ["custom-guest-role"]
+      powerUser: ["custom-power-user-role"]
+      admin: ["custom-admin-role"]
+```
+
+Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
+
+To use it in for your StackState installation (or already running instance, note that it will restart the API):
+
+```
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --values authentication.yaml \
+stackstate \
+stackstate/stackstate
+```
+{% endtab %}
+
+
+{% tab title="Linux" %}
+Edit the existing keys in the `authentication` section (nested in `stackstate.api`) in the configuration file like in the example to replace the default role names with these custom role names. Restart StackState to make the change take effect.
+
+```javascript
+  guestGroups = ["custom-guest-role"]
+  powerUserGroups = ["custom-power-user-role"]
+  adminGroups = ["custom-admin-role"]
+}
+```
+
+Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
+
+{% endtab %}
+{% endtabs %}
 
 ## List of all permissions in StackState
 
