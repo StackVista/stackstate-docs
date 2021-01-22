@@ -1,12 +1,15 @@
-## LDAP authentication server
+# LDAP authentication server
+
+## Overview
 
 StackState can use an LDAP server (including AD) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState. You either need anonymous query access or bind credentials that StackState can use to query the LDAP server.
 
-{% tabs %}
-{% tab title="Kubernetes" %}
+## Kubernetes
 
 Here is an example of an authentication values YAML file that uses an LDAP server.
 
+{% tabs %}
+{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -41,6 +44,10 @@ stackstate:
       powerUser: ["ldap-power-user-role-for-stackstate"]
       admin: ["ldap-admin-role-for-stackstate"]
 ```
+{% endtab %}
+{% endtabs %}
+
+
 Update it with your own values and make sure that the roles users can have in LDAP are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
 Store the `authentication.yaml` together with the `values.yaml` from the installation instructions. To apply the changes run a Helm upgrade:
@@ -102,11 +109,12 @@ stackstate \
 stackstate/stackstate
 ```
 
-{% endtab %}
-{% tab title="Linux" %}
+## Linux
 
 Here is an example of an authentication configuration that uses an OIDC provider. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your LDAP server configuration. Restart StackState to make the change take effect.
 
+{% tabs %}
+{% tab title="application_stackstate.conf" %}
 ```javascript
 authentication {
   authServer {
@@ -153,6 +161,8 @@ authentication {
   adminGroups = ["ldap-admin-role-for-stackstate"]
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 The configuration fields are:
 
@@ -175,3 +185,9 @@ Finally make sure that the groups in LDAP for your users are mapped to StackStat
 {% endtabs %}
 
 Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
+
+## See also
+
+- [Authentication options](/configure/security/authentication/authentication_options.md)
+- [Permissions for pre-defined StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles)
+- [Create RBAC roles](/configure/security/rbac/rbac_roles.md)
