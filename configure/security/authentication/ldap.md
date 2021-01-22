@@ -4,6 +4,10 @@
 
 StackState can use an LDAP server (including AD) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState. You either need anonymous query access or bind credentials that StackState can use to query the LDAP server.
 
+{% hint style="info" %}
+StackState can check for user files in the LDAP main directory as well as in all subdirectories. To do this, **bind credentials** must be configured in the StackState LDAP configuration. The bind credentials are used to authenticate StackState on the LDAP server. After authentication, StackState passes the top LDAP directory name for the user that wants to log in to StackState.
+{% endhint %}
+
 ## Configure StackState for LDAP
 
 ### Kubernetes
@@ -124,15 +128,7 @@ stackstate/stackstate
 
 ### Linux
 
-To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `authentication.yaml`. 
-
-{% hint style="info" %}
-StackState can check for user files in the LDAP main directory as well as in all subdirectories. To do this, **bind credentials** must be configured in the StackState LDAP configuration. 
-
-The bind credentials are used to authenticate StackState on the LDAP server. After authentication, StackState passes the top LDAP directory name for the user that wants to log in to StackState.
-{% endhint %}
-
-For example:
+To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
 
 {% tabs %}
