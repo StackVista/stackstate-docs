@@ -13,7 +13,7 @@ Before you can configure StackState to authenticate using KeyCloak, you need to 
 * **Access Type** - Set to `confidential`, so that a secret is used to establish the connection between KeyCloak and StackState
 * **Standard Flow Enabled** - Set to `Enabled`
 * **Implicit Flow Enabled** - Set to `Disabled`
-* **Root URL** - Thhe root location of StackState (the same value configured in as base URL of the StackState configuration
+* **Root URL** - The root location of StackState (the same value configured in as base URL of the StackState configuration
 * **Valid redirect URIs** - This should be `/loginCallback/*`
 * **Base URL** - This should point to the root location of StackState
 
@@ -49,13 +49,13 @@ stackstate:
 
 Follow the steps below to configure StackState to authenticate using KeyCloak:
 
-1. In `authentication.yaml` - add details of the KeyCloack authentication provider (see the example above). The KeyCloak specific values can be obtained from the client configuration in KeyCloak:
+1. In `authentication.yaml` - add details of the KeyCloak authentication provider (see the example above). The KeyCloak specific values can be obtained from the client configuration in KeyCloak:
     - **url** - The base URI for the KeyCloak instance
     - **realm** - The KeyCloak realm to connect to
     - **authenticationMethod** - Set to `client_secret_basic`, this is currently the only supported value.
     - **clientId** - The ID of the KeyCloak client as configured in KeyCloak
     - **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak
-    - **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overriden (must be a fully qualified URL that points to the `/loginCallback` path)
+    - **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden (must be a fully qualified URL that points to the `/loginCallback` path)
     - **jwsAlgorithm** - Set this to `RS256`, this is currently the only supported value.
     - **jwtClaims** - Optional (not in the example): The roles or username can be retrieved from a different attribute than the Keycloak default behavior
        - **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
