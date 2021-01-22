@@ -38,7 +38,8 @@ stackstate:
         rolesKey: cn
         groupMemberKey: member
 
-    # map the groups from LDAP to the 3 standard subjects in StackState (guest, powerUser and admin)
+    # map the groups from LDAP to the 
+    # 3 standard subjects in StackState (guest, powerUser and admin)
     roles:
       guest: ["ldap-guest-role-for-stackstate"]
       powerUser: ["ldap-power-user-role-for-stackstate"]
@@ -70,17 +71,17 @@ stackstate/stackstate
 
 The configuration fields are:
 
-1. _**host**_ - The hostname of the LDAP server
-2. _**port**_ - The port the LDAP server is listening on
-3. _**sslType**_ - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
-4.  _**trustCertificates**_ - optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
-5.  _**trustStore**_ - optional, Java trust store file for SSL. \(if both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence\)
-6.  _**bind**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
-7.  _**userQuery and groupQuery parameters**_ - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
-8.  _**usernameKey**_ - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
-9.  _**emailKey**_ - The name of the attribute that is used as the email address in StackState
-10. _**rolesKey**_ - The name of the attribute that stores the group name.
-11. _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
+- _**host**_ - The hostname of the LDAP server
+- _**port**_ - The port the LDAP server is listening on
+- _**sslType**_ - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
+-  _**trustCertificates**_ - optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
+-  _**trustStore**_ - optional, Java trust store file for SSL. \(if both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence\)
+-  _**bind**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
+-  _**userQuery and groupQuery parameters**_ - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
+-  _**usernameKey**_ - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
+-  _**emailKey**_ - The name of the attribute that is used as the email address in StackState
+- _**rolesKey**_ - The name of the attribute that stores the group name.
+- _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
 
 
 For configuring certificates that should be used when connecting to LDAP use one of the 2 keys, `trustStore` or `trustCertificates`. Since these values usually are binary files they should be set from the command line instead of in a yaml file:
@@ -166,17 +167,17 @@ authentication {
 
 The configuration fields are:
 
-1. _**host**_ - The hostname of the LDAP server
-2. _**port**_ - The port the LDAP server is listening on
-3. _**sslType**_ - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
-4.  _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
-5.  _**trustStorePath**_ - optional, path to a Java trust store on the StackState server. \(if both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence\)
-6.  _**bindCredentials**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
-7.  _**userQuery and groupQuery parameters**_ - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
-8.  _**usernameKey**_ - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
-9.  _**emailKey**_ - The name of the attribute that is used as the email address in StackState
-10. _**rolesKey**_ - The name of the attribute that stores the group name.
-11. _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
+- _**host**_ - The hostname of the LDAP server
+- _**port**_ - The port the LDAP server is listening on
+- _**sslType**_ - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
+-  _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
+-  _**trustStorePath**_ - optional, path to a Java trust store on the StackState server. \(if both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence\)
+-  _**bindCredentials**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
+-  _**userQuery and groupQuery parameters**_ - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
+-  _**usernameKey**_ - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
+-  _**emailKey**_ - The name of the attribute that is used as the email address in StackState
+- _**rolesKey**_ - The name of the attribute that stores the group name.
+- _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
 
  
 Finally make sure that the groups in LDAP for your users are mapped to StackState groups using the `guestGroups`, `powerUserGroups` and `adminGroups` configurations; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
