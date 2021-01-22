@@ -28,10 +28,9 @@ stackstate:
     oidc:
       clientId: "<client-id-from-oidc-provider>"
       secret: "<secret-from-oidc-provider>"
-      discoveryUri: "https://oidc-provider.acme.com/.well-known/openid-config"
+      discoveryUri: "https://oidc.acme.com/.well-known/openid-configuration"
       jwsAlgorithm: RS256
       scope: ["openid", "email"]
-      redirectUri: "https://stackstate.acme.com/loginCallback"
       jwtClaims:
         usernameField: email
         groupsField: groups
@@ -98,7 +97,7 @@ authentication {
     oidcAuthServer {
       clientId = "<client-id-from-oidc-provider>"
       secret = "<secret-from-oidc-provider>"
-      discoveryUri = "https://oidc-provider.acme.com/.well-known/openid-config"
+      discoveryUri = "https://oidc.acme.com/.well-known/openid-configuration"
       jwsAlgorithm = RS256
       scope = ["openid", "email"]
       redirectUri = "https://stackstate.acme.com/loginCallback"
@@ -127,7 +126,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
     - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
     - **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
     - **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
-    - **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
+    - **redirectUri** - The URI where the login callback endpoint of StackState is reachable. This must be a fully qualified URL that points to the `/loginCallback` path.
     - **jwtClaims** - 
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
