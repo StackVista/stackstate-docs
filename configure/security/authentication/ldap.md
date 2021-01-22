@@ -56,8 +56,8 @@ Follow the steps below to configure StackState to authenticate using LDAP:
     - **host** - The hostname of the LDAP server.
     - **port** - The port the LDAP server is listening on.
     - **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used. 
-    - **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
-    - **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
+    - **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported. See [certificate configuration](#certificate-configuration) below.
+    - **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence. See [certificate configuration](#certificate-configuration) below.
     - **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
     - **userQuery parameters and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
     - **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
@@ -89,9 +89,11 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 
+#### Certificate configuration
 
+to configure the certificates that should be used when connecting to LDAP, use either `trustStore` or `trustCertificates`. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
 
-For configuring certificates that should be used when connecting to LDAP use one of the 2 keys, `trustStore` or `trustCertificates`. Since these values usually are binary files they should be set from the command line instead of in a yaml file:
+Since these values are usually binary files, they should be set from the command line instead of in a yaml file:
 
 ```bash
 helm upgrade \
