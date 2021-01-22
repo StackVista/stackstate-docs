@@ -74,7 +74,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 
 3. Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions.
 
-4. Run a Helm upgrade to apply the changes. If you are using SSL with custom certificates, the binary certificate files that should be used when connecting to LDAP should be set from the command line, see SSL with custom certificates:
+4. Run a Helm upgrade to apply the changes. If you are using SSL with custom certificates, the binary certificate files that should be used when connecting to LDAP should be set from the command line, use the command under **SSL with custom certificates**:
 
 {% tabs %}
 {% tab title="Plain LDAP or Secure LDAP" %}
