@@ -42,7 +42,7 @@ stackstate:
 
 Update it with your own values, The KeyCloak specific values can be obtained from the client configuration in KeyCloak, and make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
-Store the `authentication.yaml` together with the `values.yaml` from the StackState installation instructions. To apply the changes run a Helm upgrade:
+Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions. To apply the changes run a Helm upgrade:
 
 ```
 helm upgrade \
@@ -56,7 +56,7 @@ stackstate/stackstate
 
 {% hint style="info" %}
 * Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
-* The `authentication.yaml` needs to be included on every `helm upgrade` run
+* The file `authentication.yaml` needs to be included on every `helm upgrade` run
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 

@@ -61,7 +61,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 2. Map user roles from OIDC to the correct StackState subjects in `authentication.yaml` - see the example above.
     - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
-3. Store the `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
+3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
 
 4. Run a Helm upgrade to apply the changes:
     ```
