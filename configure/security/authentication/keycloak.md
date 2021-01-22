@@ -61,8 +61,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
        - **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
        - **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
-2. In `authentication.yaml` - map user roles from KeyCloak to the correct StackState subjects  using the `roles.guest`, `roles.powerUser` or `roles.admin` settings  (see the example above):
-    - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
+2. In `authentication.yaml` - map user roles from KeyCloak to the correct StackState subjects  using the `roles.guest`, `roles.powerUser` or `roles.admin` settings  (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
 
@@ -132,8 +131,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
        -. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
        -  **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
-2. In `application_stackstate.conf` - map user roles from KeyCloak to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings (see the example above):
-    - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
+2. In `application_stackstate.conf` - map user roles from KeyCloak to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Restart StackState to apply the changes.
 

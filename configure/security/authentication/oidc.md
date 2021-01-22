@@ -58,8 +58,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
 
-2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects using the `roles.guest`, `roles.powerUser` or `roles.admin` settings (see the example above):
-    - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
+2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects using the `roles.guest`, `roles.powerUser` or `roles.admin` settings (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
 
@@ -131,8 +130,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
 
-2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings (see the example above):
-    - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
+2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Restart StackState to apply the changes.
 
