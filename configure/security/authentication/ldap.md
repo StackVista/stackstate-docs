@@ -2,11 +2,9 @@
 
 ## Overview
 
-StackState can use an LDAP server (including AD) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState. You either need anonymous query access or bind credentials that StackState can use to query the LDAP server.
+StackState can use an LDAP server (including AD) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState.
 
-{% hint style="info" %}
-StackState can check for user files in the LDAP main directory as well as in all subdirectories. To do this, **bind credentials** must be configured in the StackState LDAP configuration. The bind credentials are used to authenticate StackState on the LDAP server. After authentication, StackState passes the top LDAP directory name for the user that wants to log in to StackState.
-{% endhint %}
+The LDAP main directory and all subdirectories will be checked for user files. The bind credentials in the StackState configuration are used to authenticate StackState on the LDAP server. After authentication, StackState passes the top LDAP directory name for the user that wants to log in to StackState.
 
 ## Configure StackState for LDAP
 
@@ -21,7 +19,7 @@ stackstate:
   authentication:
     ldap:
       host: sts-ldap
-      port: 10389 # For most LDAP servers 10389 for plain, 10636 for ssl connections
+      port: 389 # For most LDAP servers 389 for plain, 636 for ssl connections
       #ssl:
       #  sslType: ssl
       #  trustStore: <see below>

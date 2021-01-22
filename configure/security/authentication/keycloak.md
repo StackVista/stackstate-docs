@@ -1,26 +1,29 @@
 # KeyCloak
 
+## Overview
+
 In order to configure StackState to authenticate using KeyCloak OIDC as an authentication provider, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.
 
-## Configuring KeyCloak
+## Configure KeyCloak
 
 In order to connect StackState to KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
 
-1. **Client ID** - This is the ID of the client that is connecting, we recommend naming this `stackstate`
-2. **Client Protocol** - Set this to `openid-connect`
-3. **Access Type** - Set this to `confidential`, so that a secret is used to establish the connection between KeyCloak and StackState
-4. **Standard Flow Enabled** - This should be `Enabled`
-5. **Implicit Flow Enabled** - This should be `Disabled`
-6. **Root URL** - This should point to the root location of StackState (the same value configured in as base URL of the StackState configuration
+1. **Client ID** - The ID of the client that is connecting, we recommend naming this `stackstate`
+2. **Client Protocol** - Set to `openid-connect`
+3. **Access Type** - Set to `confidential`, so that a secret is used to establish the connection between KeyCloak and StackState
+4. **Standard Flow Enabled** - Set to `Enabled`
+5. **Implicit Flow Enabled** - Set to `Disabled`
+6. **Root URL** - Thhe root location of StackState (the same value configured in as base URL of the StackState configuration
 7. **Valid redirect URIs** - This should be `/loginCallback/*`
 8. **Base URL** - This should point to the root location of StackState
 
-## Configuring StackState
+## Configure StackState
 
-{% tabs %}
-{% tab title="Kubernetes" %}
+### Kubernetes
 Here is an example of a `authentication.yaml` file that uses the Keycloak server you just configured.
 
+{% tabs %}
+{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -39,6 +42,8 @@ stackstate:
       admin: ["keycloak-admin-role-for-stackstate"]
 
 ```
+{% endtab %}
+{% endtabs %}
 
 Update it with your own values, The KeyCloak specific values can be obtained from the client configuration in KeyCloak, and make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
 
@@ -73,12 +78,12 @@ Configuration field explanation:
    1. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
    2.  **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
-{% endtab %}
+### Linux 
 
-
-{% tab title="Linux" %}
 Here is an example of an authentication configuration that uses a KeyCloak server. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your Keycloak settings. Restart StackState to make the change take effect.
 
+{% tabs %}
+{% tab title="application_stackstate.conf" %}
 ```javascript
 authentication {
   authServer {
@@ -101,6 +106,9 @@ authentication {
   adminGroups = ["keycloak-admin-role-for-stackstate"]
 }
 ```
+{% endtab %}
+{% endtabs %}
+
 Configuration field explanation:
 
 1. **clientId** - The ID of the KeyCloak client as configured in KeyCloak
@@ -117,5 +125,9 @@ Configuration field explanation:
 The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
 
 Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
-{% endtab %}
-{% endtabs %}
+
+## See also
+
+- [Authentication options](/configure/security/authentication/authentication_options.md)
+- [Permissions for pre-defined StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles)
+- [Create RBAC roles](/configure/security/rbac/rbac_roles.md)
