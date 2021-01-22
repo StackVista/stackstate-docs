@@ -47,7 +47,7 @@ stackstate:
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 
-1. Add details of the OIDC authentication provider to `authentication.yaml` - see the example above.
+1. In `authentication.yaml` - add details of the OIDC authentication provider (see the example above).
     - **clientId** - The ID of the [OIDC client you created for StackState](#configure-the-oidc-provider).
     - **secret** - The secret for the [OIDC client you created for StackState](#configure-the-oidc-provider)
     - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
@@ -58,7 +58,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
 
-2. Map user roles from OIDC to the correct StackState subjects in `authentication.yaml` - see the example above.
+2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects (see the example above):
     - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
@@ -120,7 +120,7 @@ authentication {
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 
-1. Add details of the OIDC authentication provider to `application_stackstate.conf` - see the example above. This should replace the existing `authentication` section that is nested in `stackstate.api`:
+1. In `application_stackstate.conf` - add details of the OIDC authentication provider (see the example above). This should replace the existing `authentication` section that is nested in `stackstate.api`:
     - **clientId** - The ID of the [OIDC client you created for StackState](#configure-oidc-provider).
     - **secret** - The secret for the [OIDC client you created for StackState](#configure-oidc-provider)
     - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
@@ -131,7 +131,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
 
-2. Map user roles from OIDC to the correct StackState subjects in `application_stackstate.conf` - see the example above:
+2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects (see the example above):
     - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Restart StackState to apply the changes.

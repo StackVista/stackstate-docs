@@ -65,7 +65,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
     - **rolesKey** - The name of the attribute that stores the group name.
     - **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.
 
-2. In `authentication.yaml` - map user roles from LDAP to the correct StackState subjects. See the example above:
+2. In `authentication.yaml` - map user roles from LDAP to the correct StackState subjects (see the example above):
     - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions.
@@ -182,7 +182,7 @@ authentication {
 
 Follow the steps below to configure StackState to authenticate using LDAP:
 
-1. Add LDAP details to `application_stackstate.conf` - see the example above:
+1. In `application_stackstate.conf` - add LDAP details (see the example above):
     - **host** - The hostname of the LDAP server.
     - **port** - The port the LDAP server is listening on.
     - **sslType** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
@@ -195,7 +195,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
     - **rolesKey** - The name of the attribute that stores the group name.
     - **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.
 
-2. Map the LDAP groups to the correct StackState groups in `application_stackstate.conf` using **guestGroups**, **powerUserGroups** and **adminGroups** - see the example above. For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
+2. In `application_stackstate.conf` - map the LDAP groups to the correct StackState groups using **guestGroups**, **powerUserGroups** and **adminGroups** (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
 3. Restart StackState to apply the changes.
 
