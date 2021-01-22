@@ -121,20 +121,18 @@ stackstate/stackstate
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 
-#### Certificate configuration
-
-
-
 
 ### Linux
 
-Here is an example of an authentication configuration that uses an OIDC provider. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your LDAP server configuration. Restart StackState to make the change take effect.
+To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `authentication.yaml`. 
 
 {% hint style="info" %}
 StackState can check for user files in the LDAP main directory as well as in all subdirectories. To do this, **bind credentials** must be configured in the StackState LDAP configuration. 
 
 The bind credentials are used to authenticate StackState on the LDAP server. After authentication, StackState passes the top LDAP directory name for the user that wants to log in to StackState.
 {% endhint %}
+
+For example:
 
 
 {% tabs %}
