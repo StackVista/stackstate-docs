@@ -36,7 +36,8 @@ stackstate:
       secret: "8051a2e4-e367-4631-a0f5-98fc9cdc564d"
       jwsAlgorithm: RS256
 
-    # map the roles from Keycloak to the 3 standard subjects in StackState (guest, powerUser and admin)
+    # map the roles from Keycloak to the 
+    # 3 standard subjects in StackState (guest, powerUser and admin)
     roles:
       guest: ["keycloak-guest-role-for-stackstate"]
       powerUser: ["keycloak-power-user-role-for-stackstate"]
@@ -107,7 +108,8 @@ authentication {
     }
   }
 
-  // map the roles from Keycloak to the 3 standard subjects in StackState (guest, powerUser and admin)
+  // map the roles from Keycloak to the 
+  // 3 standard subjects in StackState (guest, powerUser and admin)
   guestGroups = ["keycloak-guest-role-for-stackstate"]
   powerUserGroups = ["keycloak-power-user-role-for-stackstate"]
   adminGroups = ["keycloak-admin-role-for-stackstate"]
