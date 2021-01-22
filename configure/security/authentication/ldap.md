@@ -8,7 +8,7 @@ StackState can use an LDAP server (including AD) to authenticate against and to 
 
 ### Kubernetes
 
-Here is an example of an authentication values YAML file that uses an LDAP server.
+To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
 {% tabs %}
 {% tab title="authentication.yaml" %}
@@ -50,8 +50,7 @@ stackstate:
 {% endtab %}
 {% endtabs %}
 
-
-Update it with your own values and make sure that the roles users can have in LDAP are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+Follow the steps below to configure StackState to authenticate using LDAP:
 
 1. Add LDAP details to `authentication.yaml` - see the example above:
     - **host** - The hostname of the LDAP server.
