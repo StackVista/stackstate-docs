@@ -217,6 +217,16 @@ Release notes for the [AAD StackPack](aad.md#aad-stackpack) and the [AAD Kuberne
 
 ### AAD Kubernetes service
 
+#### AAD Kubernetes service v4.3.0-pre.1 BETA
+
+**Helm chart version**: 4.3.0-pre.1  
+**Image tag**: 4.3.0-pre.1  
+**Release date**: 2021-01-14
+
+Changes in this version:
+
+* Detecting long anomalies and level changes.
+
 #### AAD Kubernetes service v4.2.0 BETA
 
 **Helm chart version**: 4.1.27  
@@ -259,4 +269,3 @@ Changes in this version:
 Changes in this version:
 
 * Releasing Autonomous Anomaly Detector service BETA.
-
