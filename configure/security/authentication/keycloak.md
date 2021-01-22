@@ -2,25 +2,26 @@
 
 ## Overview
 
-In order to configure StackState to authenticate using KeyCloak OIDC as an authentication provider, you will need to configure both of them to be able to talk to each other. The following sections describe the respective setups.
+StackState can authenticate using KeyCloak as an authentication provider, you will need to configure both StackState and KeyCloak to be able to talk to each other. The following sections describe the respective setups.
 
 ## Configure KeyCloak
 
-In order to connect StackState to KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
+Before you can configure StackState to authenticate using KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
 
-1. **Client ID** - The ID of the client that is connecting, we recommend naming this `stackstate`
-2. **Client Protocol** - Set to `openid-connect`
-3. **Access Type** - Set to `confidential`, so that a secret is used to establish the connection between KeyCloak and StackState
-4. **Standard Flow Enabled** - Set to `Enabled`
-5. **Implicit Flow Enabled** - Set to `Disabled`
-6. **Root URL** - Thhe root location of StackState (the same value configured in as base URL of the StackState configuration
-7. **Valid redirect URIs** - This should be `/loginCallback/*`
-8. **Base URL** - This should point to the root location of StackState
+* **Client ID** - The ID of the client that is connecting, we recommend naming this `stackstate`
+* **Client Protocol** - Set to `openid-connect`
+* **Access Type** - Set to `confidential`, so that a secret is used to establish the connection between KeyCloak and StackState
+* **Standard Flow Enabled** - Set to `Enabled`
+* **Implicit Flow Enabled** - Set to `Disabled`
+* **Root URL** - Thhe root location of StackState (the same value configured in as base URL of the StackState configuration
+* **Valid redirect URIs** - This should be `/loginCallback/*`
+* **Base URL** - This should point to the root location of StackState
 
 ## Configure StackState
 
 ### Kubernetes
-Here is an example of a `authentication.yaml` file that uses the Keycloak server you just configured.
+
+To configure StackState to authenticate using KeyCloak, KeyCloak details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
 {% tabs %}
 {% tab title="authentication.yaml" %}
@@ -45,42 +46,48 @@ stackstate:
 {% endtab %}
 {% endtabs %}
 
-Update it with your own values, The KeyCloak specific values can be obtained from the client configuration in KeyCloak, and make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `roles.guest`, `roles.powerUser` or `roles.admin` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+Follow the steps below to configure StackState to authenticate using KeyCloak:
 
-Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions. To apply the changes run a Helm upgrade:
+1. In `authentication.yaml` - add details of the KeyCloack authentication provider (see the example above). The KeyCloak specific values can be obtained from the client configuration in KeyCloak:
+    - **url** - The base URI for the KeyCloak instance
+    - **realm** - The KeyCloak realm to connect to
+    - **authenticationMethod** - Set to `client_secret_basic`, this is currently the only supported value.
+    - **clientId** - The ID of the KeyCloak client as configured in KeyCloak
+    - **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak
+    - **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overriden (must be a fully qualified URL that points to the `/loginCallback` path)
+    - **jwsAlgorithm** - Set this to `RS256`, this is currently the only supported value.
+    - **jwtClaims** - Optional (not in the example): The roles or username can be retrieved from a different attribute than the Keycloak default behavior
+       - **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
+       - **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
-```
-helm upgrade \
-  --install \
-  --namespace stackstate \
-  --values values.yaml \
-  --values authentication.yaml \
-stackstate \
-stackstate/stackstate
-```
+2. In `authentication.yaml` - map user roles from KeyCloak to the correct StackState subjects (see the example above):
+    - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
+
+3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
+
+4. Run a Helm upgrade to apply the changes:
+
+    ```
+    helm upgrade \
+      --install \
+      --namespace stackstate \
+      --values values.yaml \
+      --values authentication.yaml \
+    stackstate \
+    stackstate/stackstate
+    ```
 
 {% hint style="info" %}
-* Running the helm upgrade command for the first time will result in restarting of pods possibly causing a short interruption of availability.
-* The file `authentication.yaml` needs to be included on every `helm upgrade` run
+**Note:**
+* The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
+* Include `authentication.yaml` on every `helm upgrade` run.
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 
-Configuration field explanation:
-
-1. **clientId** - The ID of the KeyCloak client as configured in KeyCloak
-2. **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak
-3. **url** - The base URI for the KeyCloak instance
-4. **realm** - The KeyCloak realm to connect to
-5. **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overriden (must be a fully qualified URL that points to the `/loginCallback` path)
-6. **authenticationMethod** - Set this to `client_secret_basic` which is the only supported value for now
-7. **jwsAlgorithm** - Set this to `RS256`, which is the only supported value for now
-8. **jwtClaims** - Optional (not in example): The roles or username can be retrieved from a different attribute than the Keycloak default behavior
-   1. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
-   2.  **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
 ### Linux 
 
-Here is an example of an authentication configuration that uses a KeyCloak server. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your Keycloak settings. Restart StackState to make the change take effect.
+To configure StackState to use a KeyCloak authentication provider on Linux, KeyCloak details and user role mapping needs to be added to the file `application_stackstate.conf`. This should replace the existing `authentication` section that is nested in `stackstate.api`. For example:
 
 {% tabs %}
 {% tab title="application_stackstate.conf" %}
@@ -109,22 +116,25 @@ authentication {
 {% endtab %}
 {% endtabs %}
 
-Configuration field explanation:
+Follow the steps below to configure StackState to authenticate using KeyCloak:
 
-1. **clientId** - The ID of the KeyCloak client as configured in KeyCloak
-2. **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak
-3. **keycloakBaseUri** - The base URI for the KeyCloak instance
-4. **realm** - The KeyCloak realm to connect to
-5. **redirectUri** - The URI where the login callback endpoint of StackState is reachable (must be a fully qualified URL that points to the `/loginCallback` path)
-6. **authenticationMethod** - Set this to `client_secret_basic` which is the only supported value for now
-7. **jwsAlgorithm** - Set this to `RS256`, which is the only supported value for now
-8. **jwtClaims** - Optional (not in example): The roles or username can be retrieved from a different attribute than the Keycloak default behavior
-   1. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
-   2.  **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
+1. In `application_stackstate.conf` - add details of the KeyCloak authentication provider (see the example above). This should replace the existing `authentication` section that is nested in `stackstate.api`. The KeyCloak specific values can be obtained from the client configuration in KeyCloak. :
+    - **clientId** - The ID of the KeyCloak client as configured in KeyCloak.
+    - **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak.
+    - **keycloakBaseUri** - The base URI for the KeyCloak instance.
+    - **realm** - The KeyCloak realm to connect to.
+    - **redirectUri** - The URI where the login callback endpoint of StackState is reachable (must be a fully qualified URL that points to the `/loginCallback` path).
+    - **authenticationMethod** - Set this to `client_secret_basic` which is the only supported value for now.
+    - **jwsAlgorithm** - Set this to `RS256`, which is the only supported value for now.
+    - **jwtClaims** - Optional (not in example): The roles or username can be retrieved from a different attribute than the Keycloak default behavior.
+       -. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
+       -  **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
-The KeyCloak specific values can be obtained from the client configuration in KeyCloak.
+2. In `application_stackstate.conf` - map user roles from KeyCloak to the correct StackState subjects (see the example above):
+    - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
-Finally make sure that the roles users can have in Keycloak are mapped to the correct subjects in StackState using the `guestGroups`, `powerUserGroups` or `adminGroups` settings; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+3. Restart StackState to apply the changes.
+
 
 ## See also
 

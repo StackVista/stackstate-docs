@@ -6,7 +6,7 @@ StackState can authenticate using an OIDC authentication provider. To enable thi
 
 ## Configure the OIDC provider
 
-Before you can configure StackState to authenticate using OIDC, you will need create a client for StackState on your OIDC provider. Create a client using the following settings (if the OIDC provider needs them):
+Before you can configure StackState to authenticate using OIDC, you need to create a client for StackState on your OIDC provider. Use the following settings for the client (if needed by the OIDC provider):
 
 * Use the OIDCAuthoirzation Flow
 * Set the **Redirect URI** to the base URL of StackState suffixed with `/loginCallback`. For example `https://stackstate.acme.com/loginCallback`. For some OIDC providers, such as Google, the Redirect URI must match exactly, including any query parameters. In that case, you should configure the URI like this `https://stackstate.acme.com/loginCallback?client_name=StsOidcClient`.
@@ -47,13 +47,13 @@ stackstate:
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 
-1. In `authentication.yaml` - add details of the OIDC authentication provider (see the example above).
+1. In `authentication.yaml` - add details of the OIDC authentication provider (see the example above):
     - **clientId** - The ID of the [OIDC client you created for StackState](#configure-the-oidc-provider).
     - **secret** - The secret for the [OIDC client you created for StackState](#configure-the-oidc-provider)
     - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
     - **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
     - **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
-    - **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
+    - **redirectUri** - Optional (not in the example): The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
     - **jwtClaims** - 
        - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
        - **groupsField** - The field from which StackState will read the role/group for a user. 
@@ -83,7 +83,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 
 ### Linux
 
-To configure StackState to use an OIDC authentication provider on Linux, OIDC details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
+To configure StackState to use an OIDC authentication provider on Linux, OIDC details and user role mapping needs to be added to the file `application_stackstate.conf`. This should replace the existing `authentication` section that is nested in `stackstate.api`. For example:
 
 {% tabs %}
 {% tab title="application_stackstate.conf" %}
