@@ -8,7 +8,7 @@ description: Inspect and filter data from a configured telemetry stream
 
 The StackState UI displays a visualization of filtered data for each configured telemetry stream.
 
-Telemetry streams are added to elements automatically when they are imported to StackState or you can manually \[add a single telemetry stream\] to a single component.
+Telemetry streams are added to elements automatically when they are imported to StackState or you can manually [add a single telemetry stream](/use/health-state-and-alerts/add-telemetry-to-element.md) to a single component.
 
 ## Telemetry Browser
 
