@@ -4,7 +4,7 @@
 
 StackState can use an LDAP server (including AD) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState. You either need anonymous query access or bind credentials that StackState can use to query the LDAP server.
 
-## Configure StackState for OIDC
+## Configure StackState for LDAP
 
 ### Kubernetes
 
@@ -52,23 +52,23 @@ stackstate:
 
 Follow the steps below to configure StackState to authenticate using LDAP:
 
-1. Add LDAP details to `authentication.yaml` - see the example above:
+1. In `authentication.yaml` - add LDAP details (see the example above):
     - **host** - The hostname of the LDAP server.
     - **port** - The port the LDAP server is listening on.
-    - **sslType** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
-    - **trustCertificates** - optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
-    - **trustStore** - optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
-    - **bind** - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
-    - **userQuery and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
+    - **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used. 
+    - **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
+    - **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
+    - **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
+    - **userQuery parameters and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
     - **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
     - **emailKey** - The name of the attribute that is used as the email address in StackState.
     - **rolesKey** - The name of the attribute that stores the group name.
     - **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.
 
-2. Map user roles from LDAP to the correct StackState subjects in `authentication.yaml` - see the example above.
+2. In `authentication.yaml` - map user roles from LDAP to the correct StackState subjects. See the example above:
     - **roles** - for details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
-3. Store the `authentication.yaml` together with the `values.yaml` from the installation instructions.
+3. Store the `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
 
 4. Run a Helm upgrade to apply the changes:
 
