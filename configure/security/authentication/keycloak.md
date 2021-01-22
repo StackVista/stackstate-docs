@@ -119,7 +119,7 @@ authentication {
 
 Follow the steps below to configure StackState to authenticate using KeyCloak:
 
-1. In `application_stackstate.conf` - add details of the KeyCloak authentication provider (see the example above). This should replace the existing `authentication` section that is nested in `stackstate.api`. The KeyCloak specific values can be obtained from the client configuration in KeyCloak. :
+1. In `application_stackstate.conf` - add details of the KeyCloak authentication provider (see the example above). This should replace the existing `authentication` section that is nested in `stackstate.api`. The KeyCloak specific values can be obtained from the client configuration in KeyCloak:
     - **clientId** - The ID of the KeyCloak client as configured in KeyCloak.
     - **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak.
     - **keycloakBaseUri** - The base URI for the KeyCloak instance.
