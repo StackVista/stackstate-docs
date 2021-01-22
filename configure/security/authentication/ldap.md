@@ -70,31 +70,32 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 
 3. Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions.
 
-4. Run a Helm upgrade to apply the changes:
+4. Run a Helm upgrade to apply the changes. If you are using SSL with custom certificates, the binary certificate files that should be used when connecting to LDAP should be set from the command line, see SSL with custom certificates:
 
-    ```
-    helm upgrade \
-      --install \
-      --namespace stackstate \
-      --values values.yaml \
-      --values authentication.yaml \
-    stackstate \
-    stackstate/stackstate
-    ```
-   
-{% hint style="info" %}
-**Note:**
-* The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
-* Include `authentication.yaml` on every `helm upgrade` run.
-* The authentication configuration is stored as a Kubernetes secret.
-{% endhint %}
-
-#### Certificate configuration
-
-to configure the certificates that should be used when connecting to LDAP, use either `trustStore` or `trustCertificates`. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
-
-Since these values are usually binary files, they should be set from the command line instead of in a yaml file:
-
+{% tabs %}
+{% tab title="Plain LDAP or Secure LDAP" %}
+```
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --values authentication.yaml \
+stackstate \
+stackstate/stackstate
+```
+{% endtab %}
+{% tab title="SSL with custom certificates" %}
+```bash
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --values authentication.yaml \
+  --set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
+stackstate \
+stackstate/stackstate
+```
+or 
 ```bash
 helm upgrade \
   --install \
@@ -106,18 +107,22 @@ stackstate \
 stackstate/stackstate
 ```
 
-or 
+{% endtab %}
+{% endtabs %}
 
-```bash
-helm upgrade \
-  --install \
-  --namespace stackstate \
-  --values values.yaml \
-  --values authentication.yaml \
-  --set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
-stackstate \
-stackstate/stackstate
-```
+
+   
+{% hint style="info" %}
+**Note:**
+* The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
+* Include `authentication.yaml` on every `helm upgrade` run.
+* The authentication configuration is stored as a Kubernetes secret.
+{% endhint %}
+
+#### Certificate configuration
+
+
+
 
 ### Linux
 
