@@ -10,9 +10,8 @@ For better security StackState can be configured to use exactly one of the follo
 * [KeyCloak (a specialized version of OIDC)](./keycloak.md)
 
 {% hint style="info" %}
-On Linux installations authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
-
-For Kubernetes installations authentication configuration is part of the Helm chart, any changes will automatically triger a restart of the pods requiring that.
+- **Kubernetes** authentication configuration is part of the Helm chart, any changes will automatically triger a restart of the pods requiring that.
+- **Linux** authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
 {% endhint %}
 
 ## User roles
