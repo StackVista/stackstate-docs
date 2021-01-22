@@ -22,9 +22,9 @@ This page provides specific instructions for upgrading to each currently support
 {% tab title="Kubernetes" %}
 
 ####  v4.2.3
-[Authentication configuration](../../configure/security/authentication/README.md) for the Kubernetes Helm chart has been made easier for this release. If the StackState authentication was customized it needs to be updated. This can be verified by verifying if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
+Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If the StackState authentication was customized it needs to be updated. This can be verified by checking if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
 
-Please use the [Authentication configuration](../../configure/security/authentication/README.md) documentation to configure the same settings directly in the `values.yaml` file. After that the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
+Refer to the [Authentication configuration documentation](/configure/security/authentication/README.md) to configure the same settings directly in the `values.yaml` file. After that, the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
 
 #### v4.2.0
 
@@ -59,35 +59,6 @@ The following configuration changes must be manually processed if you are using 
 * **processmanager/kafka-topics.conf\`**
   * Added new section `kafka.topics.sts_topology_events`.
 
-{% endtab %}
-{% endtabs %}
-
-### Upgrade to v4.2.0
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-- [Node sizing requirements](/setup/requirements.md#node-sizing) have been increased.
-- The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
-    - Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
-    - Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
-- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
-{% endtab %}
-
-{% tab title="Linux" %}
-The following configuration must be manually added after upgrade:
-
-* **etc/application\_stackstate.conf**
-  * New mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl). You can manually create a system environment variable called `STACKSTATE_BASE_URL` or add the value manually as a string in the file `application_stackstate.conf`.
-
-The following configuration changes must be manually processed if you are using a customised version of a file:
-
-* **etc/stackstate-receiver/application.conf**
-  * Renamed the namespace `stackstate`. This is now `stackstate.receiver`.
-  * Renamed the parameter `apiKey`. This is now named `apiKeys` and should be a list in the format `[${stackstate.receiver.key}, ${?EXTRA_API_KEY}]`.
-* **processmanager.conf**
-  * Added new parameter `processes.kafkaToElasticsearch.topology-events`.
-* **processmanager/kafka-topics.conf\`**
-  * Added new section `kafka.topics.sts_topology_events`.
 {% endtab %}
 {% endtabs %}
 
