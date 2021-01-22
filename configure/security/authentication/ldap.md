@@ -114,6 +114,11 @@ stackstate/stackstate
 
 Here is an example of an authentication configuration that uses an OIDC provider. Replace the existing `authentication` section (nested in `stackstate.api`) in the configuration file with the example and edit it to match your LDAP server configuration. Restart StackState to make the change take effect.
 
+{% hint style="info" %}
+StackState can check for user files in the LDAP main directory as well as in all subdirectories. To do this, `bind credentials` must be configured in the StackState LDAP configuration. The bind credentials are used to authenticate StackState on the LDAP server, after authentication StackState passes the top LDAP directory name for the user that wants to log in to StackState.
+{% endhint %}
+
+
 {% tabs %}
 {% tab title="application_stackstate.conf" %}
 ```javascript
@@ -156,7 +161,8 @@ authentication {
     }
   }
 
-  // map the groups from the LDAP to the 3 standard subjects in StackState (guest, powerUser and admin)
+  // map the groups from the LDAP to the 
+  // 3 standard subjects in StackState (guest, powerUser and admin)
   guestGroups = ["ldap-guest-role-for-stackstate"]
   powerUserGroups = ["ldap-powerUser-role-for-stackstate"]
   adminGroups = ["ldap-admin-role-for-stackstate"]
@@ -165,27 +171,24 @@ authentication {
 {% endtab %}
 {% endtabs %}
 
-The configuration fields are:
+Follow the steps below to configure StackState to authenticate using LDAP:
 
-- _**host**_ - The hostname of the LDAP server
-- _**port**_ - The port the LDAP server is listening on
-- _**sslType**_ - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
--  _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
--  _**trustStorePath**_ - optional, path to a Java trust store on the StackState server. \(if both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence\)
--  _**bindCredentials**_ - optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
--  _**userQuery and groupQuery parameters**_ - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
--  _**usernameKey**_ - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
--  _**emailKey**_ - The name of the attribute that is used as the email address in StackState
-- _**rolesKey**_ - The name of the attribute that stores the group name.
-- _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
+1. Add LDAP details to `application_stackstate.conf`:
+    - _**host**_ - The hostname of the LDAP server
+    - _**port**_ - The port the LDAP server is listening on
+    - _**sslType**_ - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
+    -  _**trustCertificatesPath**_ - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
+    -  _**trustStorePath**_ - optional, path to a Java trust store on the StackState server. \(if both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence\)
+    -  _**bindCredentials**_ - optional, used to authenticate StackState on the LDAP server if the LDAP server does not support anonymous LDAP searches.
+    -  _**userQuery and groupQuery parameters**_ - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
+    -  _**usernameKey**_ - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
+    -  _**emailKey**_ - The name of the attribute that is used as the email address in StackState
+    - _**rolesKey**_ - The name of the attribute that stores the group name.
+    - _**groupMemberKey**_ - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter folows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`
 
- 
-Finally make sure that the groups in LDAP for your users are mapped to StackState groups using the `guestGroups`, `powerUserGroups` and `adminGroups` configurations; see also the [default roles](../rbac/rbac_permissions.md#predefined-roles). More roles can be created as well. See the [RBAC](../rbac/role_based_access_control.md) documentation for the details.
+2. Map the LDAP groups to the correct StackState groups in `application_stackstate.conf` using `guestGroups`, `powerUserGroups` and `adminGroups` - see the example above. For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
 
-{% endtab %}
-{% endtabs %}
-
-Please note that StackState can check for user files in LDAP main directory as well as in all subdirectories. To do that StackState LDAP configuration requires `bind credentials` configured. Bind credentials are used to authenticate StackState to LDAP server, only after that StackState passes the top LDAP directory name for the user that wants to login to StackState.
+3. Restart StackState to apply the changes.
 
 ## See also
 
