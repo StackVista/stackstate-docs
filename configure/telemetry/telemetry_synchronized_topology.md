@@ -39,7 +39,7 @@ The telemetry streams attached to topology elements during synchronization are c
 | `query._type` | MetricTelemetryQuery EventTelemetryQuery | The type of the Query |
 | `query.conditions` |  | A collection of `"key", "value"` attributes used to filter the stream. The keys are defined by the data source and the value can be any string, numeric or boolean. |
 | `query.metricField` |  | Metric streams only. The metric to observe in the stream. |
-| `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM SUM\_NO\_ZEROS EVENT\_COUNT\_NO\_ZEROS | Metric streams only. The function to apply to aggregate the data. |
+| `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM VALUE\_COUNT EVENT\_COUNT | Metric streams only. The function to apply to aggregate the data. |
 | `datasource` |  | The data source where to connect to fetch the data. |
 | `datatype` | METRICS EVENTS | The kind of data received on the stream. |
 
