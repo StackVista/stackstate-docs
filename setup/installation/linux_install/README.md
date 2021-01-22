@@ -35,11 +35,9 @@ StackState supports three different installation configurations:
 
 To upgrade your StackState installation, see the instructions in our [upgrading guide](../../upgrade-stackstate/steps-to-upgrade.md).
 
-## Authentication
+## Authentication and Authorization
 
-StackState provides Role Based Access Control functionality that works with LDAP authentication servers. See [RBAC](../../../configure/security/rbac/role_based_access_control.md) pages for more information on the topic. You can also find [how to configure LDAP servers](../../authentication.md).
-
-StackState also supports authentication against a KeyCloak OIDC Authentication server. Find out [how to configure a KeyCloak OIDC Authentication server](../../authentication.md#keycloak-oidc-authentication-server).
+StackState provides Role Based Access Control functionality that works with different authentication providers. See the [Authentication](../../configure/security/authentication/README.md) and [RBAC](../../../configure/security/rbac/role_based_access_control.md) pages for more information on the topic.
 
 ## Troubleshooting
 

@@ -14,7 +14,7 @@ Users need to log out and authenticate again to StackState whenever any changes 
 
 Scopes are introduced as a security feature that is mandatory for every subject within StackState. The predefined StackState users Administrator, Power User and Guest roles have no scope defined.
 
-It is possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it is recommended to use one of the [predefined roles](../../../setup/authentication.md#user-roles) instead.
+It is possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it is recommended to use one of the [predefined roles](./rbac_permissions.md#predefined-roles) instead.
 
 ## Examples
 
