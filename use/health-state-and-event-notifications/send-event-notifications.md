@@ -1,7 +1,6 @@
 ---
 description: >-
-  Use event handlers to trigger an event notification or automated action on component or
-  view state changes.
+  Use event handlers to send an event notification to an outside system when a component or view health state changes.
 ---
 
 # Send event notifications
