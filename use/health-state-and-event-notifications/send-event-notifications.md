@@ -13,7 +13,7 @@ When something goes wrong within your IT environment, StackState can send event 
 
 ## How an event notification is triggered
 
-Event notifications are triggered in response to health state changes on an element or view. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger alerts, however, this can result in a lot of noise.
+Event notifications are triggered in response to health state changes on an element or view. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger event notifications, however, this can result in a lot of noise.
 
 The process to trigger an event is as follows:
 

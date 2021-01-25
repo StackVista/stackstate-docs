@@ -144,7 +144,7 @@ Once you have [added a baseline](anomaly-detection-with-baselines.md#add-a-basel
 Once you have added the check function, it may take 5 or more minutes \(dependent on the baseline batch size\) before the check changes health state.
 {% endhint %}
 
-Event notifications for baseline checks work exactly the same as with other health checks. Find out how to [set up alertubg](send-event-notifications.md).
+Event notifications for baseline checks work exactly the same as with other health checks. Find out how to [set up event notifications](send-event-notifications.md).
 
 ## See also
 

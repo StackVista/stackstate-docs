@@ -2,7 +2,7 @@
 
 ## Overview
 
-StackState can send an event notification by email whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use.
+StackState can send an event notification by email whenever the health state of an entity or view changes. To enable email event notifications, the StackState configuration must include details of the SMTP server to use.
 
 ## Configure an SMTP server to use for email event notifications
 
