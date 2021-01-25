@@ -13,7 +13,7 @@ The full topology available in StackState is likely much larger than you need to
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [alerting and automation](../health-state-and-alerts/send-alerts.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+2. Views can be used for [Event notifications and automation](../health-state-and-event-notifications/send-event-notifications.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 ## Access a view
 
@@ -40,7 +40,7 @@ Whenever you first open a view you see a view details panel on the right side of
 
 ## View health state
 
-A view is also a tool to make a clear selection of components for which you want to get an alert for. Typically these are services which provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view. The calculation for the state for these components might be a simple count, but it could also be something more complex, for example:
+A view is also a tool to make a clear selection of components for which you want to get an event notification for. Typically these are services which provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view. The calculation for the state for these components might be a simple count, but it could also be something more complex, for example:
 
 * If service A and service B are working find, then the view health state should be `CLEAR`
 * If service A has a problem, set the view health state to `DEVIATING`
@@ -53,7 +53,7 @@ A view can be in the following health states:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - The view does not have a view health state.
 
-To enable view health state put the `View Health State Enabled` to on when creating or editing the view. Read more about how to [configure the view health state](../health-state-and-alerts/configure-view-health.md).
+To enable view health state put the `View Health State Enabled` to on when creating or editing the view. Read more about how to [configure the view health state](../health-state-and-event-notifications/configure-view-health.md).
 
 ## Create a view
 
@@ -73,9 +73,9 @@ In the dialog the following options appear:
 | Arguments | Arguments are dependent on the chosen function. See "Function: minimum health states" below. |
 | Identifier | \(Optional\) this field can be used to give an unique [identifier](../../configure/identifiers.md) to the view. This makes the view uniquely referenceable from exported configuration, like the exported configuration in a StackPack. |
 
-## Alert on view health state
+## Event notifications for view health state changes
 
-A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [alerting](../health-state-and-alerts/send-alerts.md) to understand how to set that up.
+A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [event notifications](../health-state-and-event-notifications/send-event-notifications.md) to understand how to set that up.
 
 ## Deleting or editing views
 

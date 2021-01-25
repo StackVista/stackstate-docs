@@ -31,5 +31,5 @@ The amount of time that is used to select the historical metrics that are used a
 ## See also
 
 * [Checks and telemetry streams](checks_and_streams.md)
-* [Anomaly detection with baselines](../../use/health-state-and-alerts/anomaly-detection-with-baselines.md)
+* [Anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 

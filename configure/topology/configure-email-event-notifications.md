@@ -1,10 +1,10 @@
-# Enable email alerts
+# Enable email event notifications
 
 ## Overview
 
-StackState can send an email alert whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use.
+StackState can send an event notification by email whenever the health state of an entity or view changes. To enable email alerts, the StackState configuration must include details of the SMTP server to use.
 
-## Configure an SMTP server to use for email alerting
+## Configure an SMTP server to use for email event notifications
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -34,7 +34,7 @@ StackState can send an email alert whenever the health state of an entity or vie
    ```
 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](../../use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#send-event-notifications-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -64,12 +64,12 @@ StackState can send an email alert whenever the health state of an entity or vie
    ```
 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](../../use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#send-event-notifications-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% endtabs %}
 
 ## See also
 
-* [Add an event handler](../../use/health-state-and-alerts/send-alerts.md#send-alerts-with-event-handlers)
+* [Add an event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#send-event-notifications-with-event-handlers)
 * [Event handler functions](event-handlers.md)
 

@@ -45,9 +45,9 @@ How to set role based permissions for a view.
 2. Then this.
 3. End with this.
 
-### Alert on view health state
+### Event notifications for view health state changes
 
-How to set a view to alert based on the health state of the full view topology.
+How to set a view to send an event notification based on the health state of the full view topology.
 
 1. Do this.
 2. Then this.

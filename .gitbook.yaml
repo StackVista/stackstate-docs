@@ -168,13 +168,13 @@ redirects:
 
 # below were added for 4.2 docs
 
-  use/baselining: ./use/health-state-and-alerts/anomaly-detection-with-baselines.md
+  use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  use/alerting: ./use/health-state-and-alerts/send-alerts.md
+  use/alerting: ./use/health-state-and-event-notifications/send-event-notifications.md
   configure/telemetry/browse_telemetry: ./use/views/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
   use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
-  configure/view_state_configuration: ./use/health-state-and-alerts/configure-view-health.md
+  configure/view_state_configuration: ./use/health-state-and-event-notifications/configure-view-health.md
   use/views/traces_perspective: ./use/views/traces-perspective.md
   use/views/topology_perspective: ./use/views/topology-perspective.md
   setup/installation/authentication: ./configure/security/authentication/README.md

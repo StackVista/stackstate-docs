@@ -8,7 +8,7 @@ description: Report the health state for a complete view.
 
 Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.
 
-StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an alert or automated action.
+StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
 
 ![Views list with view health state](../../.gitbook/assets/v42_views_list.png)
 
@@ -30,7 +30,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 ## React to view state changes
 
-You can [set up alerting](send-alerts.md) to trigger alerts and actions whenever a view state changes.
+You can [set up event handlers](send-event-notifications.md) to trigger event notifications and actions whenever a view state changes.
 
 ## View health state configuration functions
 
@@ -48,5 +48,5 @@ The **MINIMUM HEALTH STATES** view health state configuration function should be
 
 * [Customize the view state configuration](../../configure/topology/view_state_configuration.md)
 * [Add a health check](add-a-health-check.md)
-* [Send alerts when a health state changes](send-alerts.md)
+* [Send event notifications when a health state changes](send-event-notifications.md)
 

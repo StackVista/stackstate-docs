@@ -21,7 +21,7 @@ Read more about the [Autonomous Anomaly Detector \(BETA\)](../../stackpacks/add-
 
 ## Baseline anomaly detection
 
-Each metric stream can have metric baselines manually configured or set by a template. The baselines determine the normal operating values of a metric stream and can be used in health checks and to trigger alerts. Note that any metric stream with a base line configured will not be picked up for autonomous anomaly detection.
+Each metric stream can have metric baselines manually configured or set by a template. The baselines determine the normal operating values of a metric stream and can be used in health checks and to trigger event notifications. Note that any metric stream with a base line configured will not be picked up for autonomous anomaly detection.
 
-Read more about [anomaly detection with baselines](../health-state-and-alerts/anomaly-detection-with-baselines.md)
+Read more about [anomaly detection with baselines](../health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 
