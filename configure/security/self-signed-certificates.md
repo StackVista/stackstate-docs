@@ -5,13 +5,15 @@ kind: Documentation
 
 # Self-signed certificates
 
-StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. StackState will not be able to communicate witht these systems when they are secured with TLS using a self-signed certificate or a certificate that is not by default trusted by the JVM.
+StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState will not be able to communicate with these systems when they are secured with TLS using a self-signed certificate or a certificate that is not by default trusted by the JVM.
 
 To mitigate this StackState allows configuration of a custom trust store.
 
 ## Creating a custom trust store
 
-You need an installed JVM (the operating system you're on doesn't matter) to be able to create a new trust store. You also need to have the certificate available, if you don't have that [here](#retrieve-certificate-via-the-browser) is a way how to get it.
+To convert an existing TLS certificate file to the format that is needed by StackState, you'll need to use the keytool tool and the cacerts file that both are included in the Java Virtual Machine installation. You can run this on any machine, regardless of the type of operating system.
+
+You also need to have the certificate available, if you don't have that, [retrieve it via the browser](#retrieve-certificate-via-the-browser).
 
 With the JVM installed and the certificate saved as a file `site.cert` you can create a new trust store by taking the JVM's trust store and adding the extra certificate.
 
@@ -20,7 +22,7 @@ With the JVM installed and the certificate saved as a file `site.cert` you can c
    ```bash
    keytool -import -keystore custom_cacerts -alias <a-name-for-the-certificate>  -file site.cert
    ```
-   The alias needs to be a unique alias for the certificate, for example the domain name itself without any dots. Keytool will ask for a password, the JVM default password is `changeit`.
+   The alias needs to be a unique alias for the certificate, for example the domain name itself without any dots. Keytool will ask for a password. The password usually is `changeit`, the JVM default.
 
 The `custom_cacerts` store file will now include the `site.cert` certificate. You can verify that by searching for the alias in the output of
 
@@ -38,7 +40,6 @@ helm upgrade \
   --install \
   --namespace stackstate \
   --values values.yaml \
-  --values authentication.yaml \
   --set-file 'stackstate.java.trustStore'=custom_cacerts \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
