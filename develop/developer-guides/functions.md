@@ -36,7 +36,7 @@ Propagation functions and event handler functions can be created as asynchronous
 Read more about:
 
 * [Component actions](/configure/topology/how_to_configure_component_actions.md)
-* [Event handlers](../../use/health-state-and-alerts/send-alerts.md)
+* [Event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md)
 * [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
 
 
@@ -46,7 +46,7 @@ In StackState, functions are generally written in a synchronous blocking manner.
 
 Read more about:
 
-* [Baseline functions](../../use/health-state-and-alerts/anomaly-detection-with-baselines.md#baseline-functions)
+* [Baseline functions](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md#baseline-functions)
 * [Check functions](../../configure/telemetry/checks_and_streams.md#check-functions)
 * [Component mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
 * [Id extractor functions](../../use/introduction-to-stackstate/id_extraction.md)
