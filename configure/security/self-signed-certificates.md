@@ -11,24 +11,49 @@ To mitigate this StackState allows configuration of a custom trust store.
 
 ## Creating a custom trust store
 
-To convert an existing TLS certificate file to the format that is needed by StackState, you'll need to use the keytool tool and the cacerts file that both are included in the Java Virtual Machine installation. You can run this on any machine, regardless of the type of operating system.
+You need to have the custom TLS certificate available, if you don't have that, [retrieve it via the browser](#retrieve-certificate-via-the-browser).
 
-You also need to have the certificate available, if you don't have that, [retrieve it via the browser](#retrieve-certificate-via-the-browser).
+To convert an existing TLS certificate file to the format that is needed by StackState, you'll need to use the keytool tool and the cacerts file that both are included in the Java Virtual Machine (JVM) installation. You can run this on any machine, regardless of the type of operating system. If you don't have the JVM installed on your computer you can also use a JVM docker image instead.
+
+### Using the Java Virtual Machine installed on your computer
 
 With the JVM installed and the certificate saved as a file `site.cert` you can create a new trust store by taking the JVM's trust store and adding the extra certificate.
 
-1. Copy the `cacerts` file from `$JAVA_HOME/lib/security/cacerts` to `custom_cacerts` with `$JAVA_HOME` the location of your Java installation. This environment variable is normally set by the Java installation.
-2. Add the extra certificate(s) with 
+1. Create a working directory `workdir` into which you copy the certificate file `site.cert`.
+2. Change directory to the workdir and make a copy of the `cacerts` from your Java installation. `$JAVA_HOME` is an environment varialbe that contains the location of your Java installation. This is normally set when installing Java.
+   ```bash
+   cd workdir
+   cp $JAVA_HOME/lib/security/cacerts ./custom_cacerts
+   ```
+3. Run the following keytool command to add the certificate. The required password is `changeit`. The alias needs to be a unique alias for the certificate, for example the domain name itself without any dots.
    ```bash
    keytool -import -keystore custom_cacerts -alias <a-name-for-the-certificate>  -file site.cert
    ```
-   The alias needs to be a unique alias for the certificate, for example the domain name itself without any dots. Keytool will ask for a password. The password usually is `changeit`, the JVM default.
+4. The `custom_cacerts` store file will now include the `site.cert` certificate. You can verify that by searching for the alias in the output of
+   ```bash
+   keytool -list -keystore custom_cacerts
+   ```
 
-The `custom_cacerts` store file will now include the `site.cert` certificate. You can verify that by searching for the alias in the output of
+### Using the Java Virtual Machine from a Docker image
 
-```bash
-keytool -list -keystore custom_cacerts
-```
+1. Create a working directory `workdir` into which you copy the certificate file `site.cert`. 
+2. Start the Java docker container with the workdir mounted as a volume so it can be accessed:
+   ```bash
+   docker run -it -v `pwd`/workdir:/workdir  adoptopenjdk:11 bash
+   ```
+3. Change directory to the workdir and make a copy of the `cacerts` file in your workdir:
+   ```bash
+   cd /workdir
+   cp $JAVA_HOME/lib/security/cacerts ./custom_cacerts
+   ```
+4. Run the following keytool command to add the certificate. The required password is `changeit`. The alias needs to be a unique alias for the certificate, for example the domain name itself without any dots.
+   ```bash
+   keytool -import -keystore custom_cacerts -alias <a-name-for-the-certificate>  -file site.cert
+   ```
+5. The `custom_cacerts` store file will now include the `site.cert` certificate. You can verify that by searching for the alias in the output of
+    ```bash
+    keytool -list -keystore custom_cacerts
+    ```
 
 ## Using the custom trust store
 
