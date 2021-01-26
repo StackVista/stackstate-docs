@@ -14,7 +14,7 @@ A Script and Query Language provides access to all dimensions of the 4T Data Mod
 
 REST APIs are available for external services and are also used by our Command Line Interface. Every user interface is kept up to date by Websocket APIs.
 
-Alerts, notifications, tickets, webhooks, and API calls are just a few examples of output data sources to let you respond to
+Notifications, tickets, webhooks, and API calls are just a few examples of output data sources to let you respond to
 situations you observe in StackState.
 
 ![StackState architecture and data flow](../../.gitbook/assets/sts-architecture.svg)

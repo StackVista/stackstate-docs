@@ -78,7 +78,7 @@ When using the Traces Perspective, just like in other perspectives, you can eith
 
 Let's imagine a concrete scenario:
 
-* You received an alert saying that your payment processing application is not able to process any payments right now and your customers aren't being served.
+* You received an event notification saying that your payment processing application is not able to process any payments right now and your customers aren't being served.
 * In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a `CRITICAL` state. That moment corresponds to the point in time for which you fetch the snapshot of your IT infrastructure \(point **1** above\).
 * You can then select to see the hours that preceded that moment in order to fetch the traces that will hopefully point you to the root cause of your problem \(point **2** above\).
 

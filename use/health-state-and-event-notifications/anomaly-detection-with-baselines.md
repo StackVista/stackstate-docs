@@ -39,7 +39,7 @@ To configure a baseline for a metric stream:
 4. When you are happy with the configured baseline, click **CREATE**.
    * The baseline will be saved and its boundaries shown on the metric stream visualization.
    * You can edit or delete the baseline from the metric stream context menu \(the same menu you used to add it\).
-5. You can now [add a check](anomaly-detection-with-baselines.md#check-for-anomalies-on-a-baseline-metric-stream) to the metric stream to check for anomalies and set up alerting.
+5. You can now [add a check](anomaly-detection-with-baselines.md#check-for-anomalies-on-a-baseline-metric-stream) to the metric stream to check for anomalies and set up event notifications.
 
 ## Baseline functions
 
@@ -129,7 +129,7 @@ This baseline functions works well for stationary metrics, for example data cent
 
 ## Check for anomalies on a baseline metric stream
 
-Once you have [added a baseline](anomaly-detection-with-baselines.md#add-a-baseline-to-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to alert on anomalies.
+Once you have [added a baseline](anomaly-detection-with-baselines.md#add-a-baseline-to-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to change health states and optionally send event notifications on anomalies.
 
 1. Select the component/relation to open the Component/Relation properties pane with the baseline metric stream on it
 2. Click **+ ADD** next to **Health**.
@@ -144,12 +144,12 @@ Once you have [added a baseline](anomaly-detection-with-baselines.md#add-a-basel
 Once you have added the check function, it may take 5 or more minutes \(dependent on the baseline batch size\) before the check changes health state.
 {% endhint %}
 
-Alerting on baseline checks works exactly the same as with other health checks. Find out how to [set up alertubg](send-alerts.md).
+Event notifications for baseline checks work exactly the same as with other health checks. Find out how to [set up event notifications](send-event-notifications.md).
 
 ## See also
 
 * [Anomaly detection](../introduction-to-stackstate/anomaly-detection.md)
 * [Autonomous Anomaly detector add-on StackPack](../../stackpacks/add-ons/aad.md)
-* [Send alerts with event handlers](send-alerts.md)
+* [Send event notifications with event handlers](send-event-notifications.md)
 * [Create custom baseline functions](../../configure/telemetry/baseline-functions.md)
 

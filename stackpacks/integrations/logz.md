@@ -12,7 +12,7 @@ The Logz.io StackPack allows StackState to connect to Logz.io.
 Using this StackPack, you can:
 
 * plot log events from Logz.io onto your topology
-* monitor and create alerts based on Logz.io log events
+* monitor and create event notifications based on Logz.io log events
 
 ## Installation
 
