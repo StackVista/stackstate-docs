@@ -42,7 +42,7 @@ Read how to [add a telemetry stream to an element](../../use/health-state-and-ev
 
 ### Baselines
 
-A baseline can be attached to a metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. Checks can use the baseline values on a metric stream to trigger an event notification if a batch of metrics deviates from the baseline.
+A baseline can be attached to a metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. Checks can use the baseline values on a metric stream to trigger a health state change if a batch of metrics deviates from the baseline.
 
 Read more about [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md) and [baseline functions](baseline-functions.md).
 

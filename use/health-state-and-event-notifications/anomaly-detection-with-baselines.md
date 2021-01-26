@@ -129,7 +129,7 @@ This baseline functions works well for stationary metrics, for example data cent
 
 ## Check for anomalies on a baseline metric stream
 
-Once you have [added a baseline](anomaly-detection-with-baselines.md#add-a-baseline-to-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to send event notifications on anomalies.
+Once you have [added a baseline](anomaly-detection-with-baselines.md#add-a-baseline-to-a-metric-stream) to a metric stream and you see the baseline bounds drawn on top the metric stream chart you can now configure a check to change helaht states and optionally send event notifications on anomalies.
 
 1. Select the component/relation to open the Component/Relation properties pane with the baseline metric stream on it
 2. Click **+ ADD** next to **Health**.
