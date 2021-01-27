@@ -5,6 +5,10 @@ description: install StackState on Kubernetes
 # Install StackState
 
 {% hint style="info" %}
+If you are installing StackState on a Kubernetes cluster with limited permissions, first read the [required permissions](./required_permissions.md) and how your Kubernetes administrators can help out.
+{% endhint %}
+
+{% hint style="info" %}
 If you are installing StackState on OpenShift, refer to the [OpenShift installation instructions](/setup/installation/openshift_install.md).
 {% endhint %}
 
@@ -13,6 +17,7 @@ If you are installing StackState on OpenShift, refer to the [OpenShift installat
 Before you start the installation of StackState:
 
 * Check that your Kubernetes environment meets the [requirements](../../requirements.md)
+* Check that you have the [required permissions](./required_permissions.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Add the StackState helm repository to the local helm client:
 
