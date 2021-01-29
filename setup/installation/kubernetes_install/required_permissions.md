@@ -8,7 +8,7 @@ In case you and/or your Kubernetes administrators don't want this behavior it ca
 ```yaml
 elasticsearch:
   sysctlInitContainer:
-    enabled: true
+    enabled: false
 ```
 
 However when disabling this you still need to ensure the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. To inspect the current setting you can run the following command (note that it runs a privileged pod):
@@ -17,7 +17,12 @@ However when disabling this you still need to ensure the `vm.max_map_count` sett
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
 ```
 
-If it is not at least 262144 it needs to be increased in a different way.
+If it is not at least 262144 it needs to be increased in a different way. If you don't do this Elasticsearch will fail startup and its pods will be in a restart loop. The logs will contain an error message like this:
+
+```
+bootstrap checks failed
+max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+```
 
 ## Increasing Linux system settings for Elasticsearch
 
@@ -87,5 +92,5 @@ elasticsearch:
   nodeSelector:
     elasticsearch: yes
   sysctlInitContainer:
-    enabled: true
+    enabled: false
 ```
