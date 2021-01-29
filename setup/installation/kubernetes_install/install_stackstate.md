@@ -4,8 +4,6 @@ description: install StackState on Kubernetes
 
 # Install StackState
 
-test update
-
 {% hint style="info" %}
 If you are installing StackState on a Kubernetes cluster with limited permissions, first read the [required permissions](required_permissions.md) and how your Kubernetes administrators can help out.
 {% endhint %}
