@@ -35,7 +35,6 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: set-vm-max-map-count
-  namespace: default
   labels:
     k8s-app: set-vm-max-map-count
 spec:
