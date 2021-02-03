@@ -21,6 +21,9 @@ This page provides specific instructions for upgrading to each currently support
 {% tabs %}
 {% tab title="Kubernetes" %}
 
+#### v4.2.4
+For the Kubernetes installation of StackState 4.2.4 CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml` you most likely will now need to also set the CPU limit for the same pod(s).
+
 ####  v4.2.3
 Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If your StackState authentication was customized, it will need to be updated. To verify this, check if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
 
