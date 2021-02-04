@@ -21,7 +21,7 @@ elasticsearch:
 {% endtabs %}
 
 {% hint style="info" %}
-If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. 
+If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`  or Elasticsearch will fail to start up and its pods will be in a restart loop.
 {% endhint %}
 
 To inspect the current `vm.max_map_count` setting, run the following command. Note that it runs a privileged pod:
@@ -30,7 +30,7 @@ To inspect the current `vm.max_map_count` setting, run the following command. No
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
 ```
 
-If it is not at least `262144`, it will need to be increased in a different way or Elasticsearch will fail to start up and its pods will be in a restart loop. The logs will contain an error message like this:
+If the current `vm.max_map_count` setting is not at least `262144`, it will need to be increased in a different way or Elasticsearch will fail to start up and its pods will be in a restart loop. The logs will contain an error message like this:
 
 ```
 bootstrap checks failed
