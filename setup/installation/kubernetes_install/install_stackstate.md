@@ -7,8 +7,8 @@ description: install StackState on Kubernetes
 ## Before you start
 
 {% hint style="info" %}
-Extra notes for installation:
-* **Kubernetes cluster with limited permissions**: Read the [required permissions](required_permissions.md).
+Extra notes for installing on:
+* **Kubernetes clusters with limited permissions**: Read the [required permissions](required_permissions.md).
 * **OpenShift**: Refer to the [OpenShift installation instructions](/setup/installation/openshift_install.md).
 {% endhint %}
 
