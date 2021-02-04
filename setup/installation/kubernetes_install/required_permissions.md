@@ -3,6 +3,7 @@
 ## Overview
 
 All of StackState's own components can run without any extra permissions. However, StackState uses Elasticsearch, and there are some additional requirements for the nodes that this runs on. 
+
 As the `vm.max_map_count` Linux system setting is usually lower than required for Elasticsearch to start, an init container is used that runs in privileged mode and as the root user. The init container is enabled by default to allow the `vm.max_map_count` system setting to be changed.
 
 ## Disable the privileged Elasticsearch init container
