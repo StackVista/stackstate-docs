@@ -24,7 +24,7 @@ elasticsearch:
 If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. 
 {% endhint %}
 
-To inspect the current setting you can run the following command (note that it runs a privileged pod):
+To inspect the current `vm.max_map_count` setting, run the following command. Note that it runs a privileged pod:
 
 ```
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
