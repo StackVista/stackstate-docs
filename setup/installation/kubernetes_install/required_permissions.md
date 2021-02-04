@@ -21,7 +21,7 @@ elasticsearch:
 {% endtabs %}
 
 {% hint style="info" %}
-If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`  or Elasticsearch will fail to start up and its pods will be in a restart loop.
+If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. If this is not done Elasticsearch will fail to start up and its pods will be in a restart loop.
 {% endhint %}
 
 To inspect the current `vm.max_map_count` setting, run the following command. Note that it runs a privileged pod:
