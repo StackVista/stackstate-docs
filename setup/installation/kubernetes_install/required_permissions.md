@@ -110,4 +110,3 @@ elasticsearch:
 ## See also
 
 - [Install StackState on Kubernetes](/setup/installation/kubernetes_install/install_stackstate.md)
-- []
