@@ -1,34 +1,38 @@
 # Required permissions
-All of StackState's own components can run without any extra permissions. However StackState uses Elasticsearch which has some extra requirements on the nodes it runs on. To make sure those requirements are satisfied it uses an init container that runs in privileged mode and as the root user to change the `vm.max_map_count` Linux system setting on the nodes it is started on. This init container is enabled by default, because the setting usually is lower than required and would not allow Elasticsearch to start. 
+All of StackState's own components can run without any extra permissions. However, StackState uses Elasticsearch and this has some extra requirements on the nodes it runs on. In order to change the `vm.max_map_count` Linux system setting on these nodes, an init container is used that runs in privileged mode and as the root user. This init container is enabled by default, because the setting usually is lower than required and would not allow Elasticsearch to start. 
 
-## Disabling the privileged Elasticsearch init container
+## Disable the privileged Elasticsearch init container
 
-In case you and/or your Kubernetes administrators don't want this behavior it can be disabled via the values.yaml used to install StackState:
+In case you and/or your Kubernetes administrators don't want this behavior, it can be disabled via the file `values.yaml` used to install StackState:
 
+{% tabs %}
+{% tab title="values.yaml" %}
 ```yaml
 elasticsearch:
   sysctlInitContainer:
     enabled: false
 ```
+{% endtab %}
+{% endtabs %}
 
-However when disabling this you still need to ensure the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. To inspect the current setting you can run the following command (note that it runs a privileged pod):
+When disabling this, you will still need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. To inspect the current setting you can run the following command (note that it runs a privileged pod):
 
 ```
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
 ```
 
-If it is not at least 262144 it needs to be increased in a different way. If you don't do this Elasticsearch will fail startup and its pods will be in a restart loop. The logs will contain an error message like this:
+If it is not at least `262144`, it will need to be increased in a different way or Elasticsearch will fail to start up and its pods will be in a restart loop. The logs will contain an error message like this:
 
 ```
 bootstrap checks failed
 max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 ```
 
-## Increasing Linux system settings for Elasticsearch
+## Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes administrators prefer they could either set the `vm.max_map_count` to a higher default on all nodes by changing the default node configuration (for example via init scripts)  or by having a daemonset do this right after node startup. The former is very dependent on your Kuberentes cluster setup so there are no general solutions there.
+Depending on what your Kubernetes administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration (for example via init scripts) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kuberentes cluster setup, so there are no general solutions there.
 
-However here is an example that can be used as a starting point for a daemonset to change the setting:
+Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 
 ```yaml
 apiVersion: apps/v1
@@ -84,7 +88,7 @@ spec:
               memory: 50Mi
 ```
 
-To limit the number of nodes this is applied to nodes can be labeled and nodeSelectors on both this daemonset (as shown in the example) and the Elasticsearch deployment can be set to only run on nodes with the specific label. For Elasticsearch the node selector can be specified via the values:
+To limit the number of nodes that this is applied to, nodes can be labeled. NodeSelectors on both this DaemonSet, as shown in the example, and the Elasticsearch deployment can then be set to run only on nodes with the specific label. For Elasticsearch, the node selector can be specified via the values:
 
 ```yaml
 elasticsearch:
