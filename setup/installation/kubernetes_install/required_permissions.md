@@ -7,7 +7,7 @@ As the `vm.max_map_count` Linux system setting is usually lower than required fo
 
 ## Disable the privileged Elasticsearch init container
 
-In case you and/or your Kubernetes administrators don't want this behavior, it can be disabled via the file `values.yaml` used to install StackState:
+In case you and/or your Kubernetes administrators do not want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -19,7 +19,11 @@ elasticsearch:
 {% endtab %}
 {% endtabs %}
 
-When disabling this, you will still need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. To inspect the current setting you can run the following command (note that it runs a privileged pod):
+{% hint style="info" %}
+If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. 
+{% endhint %}
+
+To inspect the current setting you can run the following command (note that it runs a privileged pod):
 
 ```
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
