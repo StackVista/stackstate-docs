@@ -1,5 +1,8 @@
 # Required permissions
-All of StackState's own components can run without any extra permissions. However, StackState uses Elasticsearch and this has some extra requirements on the nodes it runs on. In order to change the `vm.max_map_count` Linux system setting on these nodes, an init container is used that runs in privileged mode and as the root user. This init container is enabled by default, because the setting usually is lower than required and would not allow Elasticsearch to start. 
+
+## Overview
+
+All of StackState's own components can run without any extra permissions. However, StackState uses Elasticsearch and this has some extra requirements on the nodes it runs on. In order to change the `vm.max_map_count` Linux system setting on the nodes ElasticSearch runs on, an init container is used that runs in privileged mode and as the root user. This init container is enabled by default, because the `vm.max_map_count` setting is usually lower than required and would not allow Elasticsearch to start. 
 
 ## Disable the privileged Elasticsearch init container
 
@@ -97,3 +100,8 @@ elasticsearch:
   sysctlInitContainer:
     enabled: false
 ```
+
+## See also
+
+- [Install StackState on Kubernetes](/setup/installation/kubernetes_install/install_stackstate.md)
+- []
