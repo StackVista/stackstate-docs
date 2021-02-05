@@ -1,5 +1,5 @@
 ---
-Configure topology sources in StackState
+description: Configure topology sources in StackState
 ---
 
 # Topology sources
@@ -53,9 +53,6 @@ See the JSON format description.
 
 
 
-
-
---------
 Old content
 
 The following advanced settings are also available:
