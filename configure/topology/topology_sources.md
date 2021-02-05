@@ -30,11 +30,11 @@ The screen contains the following fields:
 | **Identifier** | Optional. A valid URN. |
 
 {% hint style="info" %}
- **snapshot mode**
+ **Snapshot mode**
  
-When topology data is sent in snapshot mode it is not necessary to expire elements. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted. 
+When topology data is sent in snapshot mode, it is not necessary to expire elements. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted. 
 
-See the [Topology JSON format description](/configure/topology/topology_synchronization.md#topology-json-format).
+See the [Topology JSON format description](/configure/topology/topology_synchronization.md#topology-json-format) for details.
 {% endhint %}
 
 
