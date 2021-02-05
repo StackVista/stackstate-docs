@@ -26,6 +26,7 @@ The screen contains the following fields:
 | **Topic** | The Kafka topic to retrieve data from. Select from the dropdown list, which is populated based on the selected `instance type`. | 
 | **Maximum batch size** | The maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting. | 
 | **Expire elements** | When enabled, topology elements will be set to **expired** if they do not appear in this data source for a configured amount of time. Expired elements will be removed automatically | 
+| **Expire after (minutes)** | When **Expire elements** is enabled, this is thee time out period after which elements should be expired. |
 | **Identifier** | Optional. A valid URN. |
 
 {% hint style="info" %}
