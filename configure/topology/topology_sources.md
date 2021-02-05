@@ -27,38 +27,19 @@ The screen contains the following fields:
 | **Instance type** | The integration type. Select from the dropdown list. | 
 | **Topic** | The Kafka topic to retrieve data from. Select from the dropdown list, which is populated based on the selected `instance type`. | 
 | **Maximum batch size** | The maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting. | 
-| **Expire elements** | When enabled, topology elements will be set to **expired** if they do not appear in this data source for a configured amount of time. | 
-| **Identifier** | |
+| **Expire elements** | When enabled, topology elements will be set to **expired** if they do not appear in this data source for a configured amount of time. Expired elements will be removed automatically | 
+| **Identifier** | Optional. A valid URN. |
 
 {% hint style="info" %}
  **snapshot mode**
 Expiry of elements is not necessary when the topology data is sent in snapshot mode. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted. 
 
-See the JSON format description.
+See the [Topology JSON format description](/configure/topology/topology_synchronization.md#topology-json-format).
 {% endhint %}
 
 
 
 ## See also
 
-- 
-
-
-
-
-Old content
-
-The following advanced settings are also available:
-
-* `Maximum # of batches/second`: Specifies the maximum number of batches processed per second. Used for rate limiting.
-
-* `Cleanup expired elements`: Remove _expired_ topology elements from StackState if they have been expired for a configured amount of time.
-
-
-The screen contains the following buttons:
-
-* `Test Connection`: Verify that the target Kafka server is reachable.
-* `Refresh`: Refresh the lists of integration types and topics.
-* `Create`: Create the data source.
-* `Cancel`: Cancel creation of the data source.
-
+- [Topoology synchronization](/configure/topology/topology_synchronization.md)
+- [Topology JSON format](/configure/topology/topology_synchronization.md#topology-json-format)
