@@ -14,7 +14,7 @@ On this screen, each configured topology data source reports its connection stat
 
 To add a new topology data source, click **ADD STS DATA SOURCE** from the screen **Settings** > **Topology Synchronization** > **Sts sources** and enter the required configuration.
 
-![ADD STS DATA SOURCE screen](../../.gitbook/assets/v42_add_sts_data_sources.png)
+![ADD STS DATA SOURCE screen](../../.gitbook/assets/v42_add_sts_data_source.png)
 
 The screen contains the following fields:
 
