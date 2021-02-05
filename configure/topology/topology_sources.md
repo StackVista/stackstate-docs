@@ -14,16 +14,16 @@ On this screen, each configured topology data source reports its connection stat
 
 To add a new topology data source, click **ADD STS DATA SOURCE** from the screen **Settings** > **Topology Synchronization** > **Sts sources** and enter the required configuration.
 
-![ADD STS DATA SOURCE screen](../../.gitbook/assets/v42_add_sts_data_source.png)
+![ADD STS DATA SOURCE screen](../../.gitbook/assets/v42_add_sts_data_sources.png)
 
 The screen contains the following fields:
 
 | Field | Description |
 | :--- | :--- |
 | **Name** | The name of the data source. |
-| **Description** | A description of the data source. | 
+| **Description** | Optional. A description of the data source. | 
 | **Use StackState's default Kafka** | Use the default Kafka bus on the StackState server or a separate Kafka instance. | 
-| **Kafka host(s)** | |
+| **Kafka host(s)** | Required if StackState's default Kafka is not used. |
 | **Instance type** | The integration type. Select from the dropdown list. | 
 | **Topic** | The Kafka topic to retrieve data from. Select from the dropdown list, which is populated based on the selected `instance type`. | 
 | **Maximum batch size** | The maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting. | 
