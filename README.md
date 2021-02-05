@@ -14,6 +14,10 @@ description: StackState version 4.2
 
 {% page-ref page="stackpacks/integrations/" %}
 
+### StackState developer 
+
+{% page-ref page="develop/tutorials/" %}
+
 ## Can't find what you are looking for?
 
 **Search for it!** Use the search bar on the top right.  
