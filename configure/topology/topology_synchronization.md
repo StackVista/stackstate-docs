@@ -1,22 +1,14 @@
----
-title: Topology synchronization
-kind: Documentation
-aliases:
-  - /configuring/topology_synchronization/
-listorder: 2
----
-
 # Topology synchronization
 
 ## Overview
 
 StackState can synchronize topology information from different sources, including your own sources. StackState enables you to create a model of your complete landscape.
 
-## Topology using a StackPack
+## StackPack topology synchronization
 
 The easiest way to connect StackState to one of your data sources is to use a _StackPacks_. StackPacks are standard integrations that configure StackState to consume data from a particular data source or platform.
 
-## Custom topology
+## Custom topology synchronization
 
 StackState accepts topology data in JSON format. JSON files received pass through a number of processing steps. At the end of the synchronization pipeline, StackState stores the incoming data as part of it's topology, consisting of components and relations.
 
@@ -24,7 +16,7 @@ The entire process can be represented visually as follows:
 
 ![](../../.gitbook/assets/v42_topology_synchronization.png)
 
-## Topology JSON format
+### Topology JSON format
 
 StackState accepts topology information in the following JSON format:
 
@@ -115,13 +107,13 @@ The JSON contains the following fields:
   * `sourceId`: This refers to the source component externalId.
   * `targetId`: This refers to the target component externalId.
 
-Mandatory fields \(which can be empty, see other guides how to use them\):
+The following fields are mandatory, but can be left empty as seen in the example above. Refer to the links below for details on how to use them:
 
-* `events`
-* `metrics`
+* [events](/configure/telemetry/send_telemetry.md#events)
+* [metrics](/configure/telemetry/send_telemetry.md#metrics)
 * `service_checks`
 
-## Getting started with custom topology
+### Getting started with custom topology
 
 The [push-integration tutorial](../../develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into StackState.
 
