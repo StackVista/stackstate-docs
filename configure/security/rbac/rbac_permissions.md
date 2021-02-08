@@ -141,8 +141,8 @@ The permissions listed below are required to work with views in StackState:
 | Permission | Description | Guest | Power-user | Administrator |
 |:--- |:--- |
 | `execute-component-actions` | Execute actions from the component context menu. | ✅ | ✅ | ✅ |
-| `access-view` | Access a specific view (when granted on a view) or all views (when granted on the everything subject). | - | ✅ | ✅ |
-| `create-views` | Create a view.<br />If not granted, save buttons are not available. | - | ✅ | ✅ | 
+| `access-view` | Access a specific view (when granted on a view) or all views (when granted on the everything subject).<br />See the example [grant permission to open a view](rbac_permissions.md#open-a-view). | - | ✅ | ✅ |
+| `create-views` | Create a view.<br />If not granted, save buttons are not available.<br />See the example [create \(save\) views](rbac_permissions.md#create-save-views). | - | ✅ | ✅ | 
 | `delete-view` | Delete a view.<br />Dependant on `Everything` or the specific view permissions.  | - | ✅ | ✅ |
 | `save-view` | Edit a view or "save view as".<br />Dependant on `Everything` or the specific view permissions.| - | ✅ | ✅ |
 | `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
