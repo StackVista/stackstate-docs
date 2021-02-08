@@ -147,7 +147,7 @@ The permissions listed below are required to work with views in StackState:
 | `save-view` | Edit a view or "save view as".<br />Dependant on `Everything` or the specific view permissions.| - | ✅ | ✅ |
 | `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
 | `manage-topology-elements` | Drag and drop components. | - | ✅ | ✅ |
-| `manage-topology-elements`<br />`perform-custom-query`<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
+| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
 
