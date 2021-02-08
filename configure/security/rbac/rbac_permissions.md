@@ -141,13 +141,13 @@ The permissions listed below are required to work with views in StackState:
 | Permission | Description | Guest | Power-user | Administrator |
 |:--- |:--- |
 | `execute-component-actions` | Execute actions from the component context menu. | ✅ | ✅ | ✅ |
-| `access-view` | Access a specific view (when granted on a view) or all views (when granted on the everything subject). The Saved views page will be available in the StackState UI. | - | ✅ | ✅ |
-| `create-views` | Create a view. If not granted, save buttons are not available. | - | ✅ | ✅ | 
-| `delete-view` | Delete a view. Dependant on `Everything` or the specific view permissions.  | - | ✅ | ✅ |
-| `save-view` | Edit a view or "save view as". Dependant on `Everything` or the specific view permissions.| - | ✅ | ✅ |
-| `manage-event-handlers` | Add or edit event handlers. Without this permission, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
+| `access-view` | Access a specific view (when granted on a view) or all views (when granted on the everything subject). | - | ✅ | ✅ |
+| `create-views` | Create a view.<br />If not granted, save buttons are not available. | - | ✅ | ✅ | 
+| `delete-view` | Delete a view.<br />Dependant on `Everything` or the specific view permissions.  | - | ✅ | ✅ |
+| `save-view` | Edit a view or "save view as".<br />Dependant on `Everything` or the specific view permissions.| - | ✅ | ✅ |
+| `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
 | `manage-topology-elements` | Drag and drop components. | - | ✅ | ✅ |
-| `manage-topology-elements`<br />`perform-custom-query`<br />`read-settings` | To create relations between topology elements, all three permissions are required. | - | ✅ | ✅ |
+| `manage-topology-elements`<br />`perform-custom-query`<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
 
