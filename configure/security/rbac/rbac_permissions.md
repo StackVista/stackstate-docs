@@ -208,12 +208,30 @@ List all permissions:
 sts permission list
 ```
 
-### Open a view
+### Check StackState settings
+
+Provide a subject with system permission to check StackState settings:
+
+```text
+sts permission grant [subject-handle] read-settings system
+```
+
+### Grant permissions
+
+#### Open a view
 
 Provide a subject with permission to open a view:
 
 ```text
 sts permission grant [subject-handle] access-view [view-name]
+```
+
+#### Create (save) views
+
+Provide a subject with system permission to create \(save\) views:
+
+```text
+sts permission grant [subject-handle] create-views system
 ```
 
 ### Revoke permissions
@@ -224,23 +242,7 @@ Revoke permissions for a subject to open a view:
 sts permission revoke [subject-handle] access-view [view-name]
 ```
 
-### Check StackState settings
-
-Provide a subject with system permission to check StackState settings:
-
-```text
-sts permission grant [subject-handle] read-settings system
-```
-
-### Create (save) views
-
-Provide a subject with system permission to create \(save\) views:
-
-```text
-sts permission grant [subject-handle] create-views system
-```
-
-### UI with no permissions
+## StackState UI with no permissions
 
 UI of a user without any permissions:
 
