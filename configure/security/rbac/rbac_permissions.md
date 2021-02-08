@@ -202,14 +202,6 @@ List all permissions:
 sts permission list
 ```
 
-### Check StackState settings
-
-Provide a subject with system permission to check StackState settings:
-
-```text
-sts permission grant [subject-handle] read-settings system
-```
-
 ### Grant permissions
 
 #### Open a view
@@ -226,6 +218,14 @@ Provide a subject with system permission to create \(save\) views:
 
 ```text
 sts permission grant [subject-handle] create-views system
+```
+
+### Check StackState settings
+
+Provide a subject with system permission to check StackState settings:
+
+```text
+sts permission grant [subject-handle] read-settings system
 ```
 
 ### Revoke permissions
