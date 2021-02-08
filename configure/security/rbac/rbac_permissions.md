@@ -157,8 +157,8 @@ The permissions listed below are required to access and execute scripts in the S
 
 | Permission | Description | Guest | Power-user | Administrator |
 |:--- |:--- |
-| `access-analytics` | Access the **Analytics** page in the StackState UI. Without this permission, Analytics section is hidden in the UI, and it is not accessible via URL. | | | |
-| `execute-scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. | | | |
+| `access-analytics` | Access the **Analytics** page in the StackState UI. Without this permission, Analytics section is hidden in the UI, and it is not accessible via URL. | - | ✅ | ✅ |
+| `execute-scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. | - | ✅ | ✅ |
 | `execute-restricted-scripts` | Additional permission required to execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md). |  - | - | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
