@@ -153,6 +153,8 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 ### Analytics Page permissions
 
+The permissions listed below are required to access and execute scripts in the StackState UI analytics environment.
+
 | Permission | Description | 
 |:--- |:--- |
 | `access-analytics` | Access the **Analytics** page in the StackState UI. |
