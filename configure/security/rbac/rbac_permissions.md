@@ -87,7 +87,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | execute-component-actions | Execute component actions. | ✅ | ✅ | ✅ |
 | create-views | Create views. | - | ✅ | ✅ |
 | access-analytics | Access the Analytics page. | - | ✅ | ✅ |
-| execute-scripts | Execute a query in the StackState UI Analytics environment. See also execute-restricted-scripts. | - | ✅ | ✅ |
+| execute-scripts | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
 | read-settings | Access the Settings page. | - | ✅ | ✅ |
 | update-settings | Update settings. | - | ✅ | ✅ |
 | import-settings | Import settings. | - | ✅ | ✅ |
@@ -153,7 +153,9 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 ### Analytics Page permissions
 
-1. Executing scripts - requires `execute scripts` system permission. **Execute** button will not be present for users without this permission.
+1. To access the Analytics page in the StackState UI, users require the permission `access-analytics`.
+2. To execute most scripts in the StackState UI analytics environment, users require the permission `execute scripts`. Without this permission, the **Execute** button will not be available.
+3. To execute scripts that use the HTTP script API, users require both the permissions `execute scripts` and `execute-restricted-scripts`.
 
 |  |  |  |
 | :---: | :---: | :---: |

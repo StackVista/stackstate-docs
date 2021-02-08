@@ -6,6 +6,10 @@ description: Functions to execute http requests.
 
 Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool. For example, to perform analysis using a custom Python script, a cloud service or an Machine Learning framework. StackState can call out to any external service via HTTP using the functions in this script API.
 
+{% hint style="info" %}
+Only users with the permission `execute-restricted-scripts` will be able to execute scripts using the HTTP script API in the StackState UI analytics environment. For details, see the [analytics page permissions](/configure/security/rbac/rbac_permissions.md#analytics-page-permissions).
+{% endhint %}
+
 ## Function: `get`
 
 Submit HTTP get request.
