@@ -87,7 +87,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | execute-component-actions | Execute component actions | ✅ | ✅ | ✅ |
 | create-views | Create views | - | ✅ | ✅ |
 | access-analytics | Access the Analytics page | - | ✅ | ✅ |
-| execute-scripts | Execute a query in the Analytics page | - | ✅ | ✅ |
+| execute-scripts | Execute a query in the Analytics page. See also execute-restricted-scripts. | - | ✅ | ✅ |
 | read-settings | Access the Settings page | - | ✅ | ✅ |
 | update-settings | Update settings | - | ✅ | ✅ |
 | import-settings | Import settings | - | ✅ | ✅ |
@@ -104,6 +104,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | execute-component-templates | Invoke a component template API extension \(**internal use only**\) | - | ✅ | ✅ |
 | execute-node-sync | Reset or delete a synchronization | - | ✅ | ✅ |
 | access-admin-api | Access the administrator API | - | ✅ | ✅ |
+| execute-restricted-scripts | Execute scripts using the Http and Graph API s via the analytics environment. Also requires execute-scripts.  | - | - | ✅ |
 | update-permissions | Grant/revoke permissions or modify subjects | - | - | ✅ |
 | upload-stackpacks | Upload new \(versions of\) StackPacks | - | - | ✅ |
 
