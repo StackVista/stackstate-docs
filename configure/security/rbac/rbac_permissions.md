@@ -155,9 +155,11 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 | Permission | Description | 
 |:--- |:--- |
-| `access-analytics` | Access the Analytics page in the StackState UI. |
+| `access-analytics` | Access the **Analytics** page in the StackState UI. |
 | `execute scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. |
 | `execute-restricted-scripts` | Additional permission required to execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md). | 
+
+See the [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
 
 ### Element Details permissions
 
