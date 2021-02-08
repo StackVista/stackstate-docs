@@ -80,33 +80,33 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 | Permission | Purpose | Guest | Power-user | Administrator |
 | :--- | :--- | :---: | :---: | :---: |
-| access-explore | Access the Explore page | ✅ | ✅ | ✅ |
-| update-visualization | Change visualization settings | ✅ | ✅ | ✅ |
-| perform-custom-query | Access the topology filter | ✅ | ✅ | ✅ |
-| read-permissions | List all granted permissions across the entire system via the CLI | ✅ | ✅ | ✅ |
-| execute-component-actions | Execute component actions | ✅ | ✅ | ✅ |
-| create-views | Create views | - | ✅ | ✅ |
-| access-analytics | Access the Analytics page | - | ✅ | ✅ |
+| access-explore | Access the Explore page. | ✅ | ✅ | ✅ |
+| update-visualization | Change visualization settings. | ✅ | ✅ | ✅ |
+| perform-custom-query | Access the topology filter. | ✅ | ✅ | ✅ |
+| read-permissions | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ |
+| execute-component-actions | Execute component actions. | ✅ | ✅ | ✅ |
+| create-views | Create views. | - | ✅ | ✅ |
+| access-analytics | Access the Analytics page. | - | ✅ | ✅ |
 | execute-scripts | Execute a query in the StackState UI Analytics environment. See also execute-restricted-scripts. | - | ✅ | ✅ |
-| read-settings | Access the Settings page | - | ✅ | ✅ |
-| update-settings | Update settings | - | ✅ | ✅ |
-| import-settings | Import settings | - | ✅ | ✅ |
-| export-settings | Export settings | - | ✅ | ✅ |
-| manage-topology-elements | Create/update/delete topology elements | - | ✅ | ✅ |
-| manage-stackpacks | Install/upgrade/uninstall StackPacks | - | ✅ | ✅ |
-| manage-annotations | Persist and fetch Anomaly annotations in StackState | - | ✅ | ✅ |
-| save-view | Save views | - | ✅ | ✅ |
-| access-view | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\) | - | ✅ | ✅ |
-| delete-view | Delete views | - | ✅ | ✅ |
-| manage-telemetry-streams | Edit or create new streams for components via the UI | - | ✅ | ✅ |
-| access-log-data | Access StackState logs via the CLI | - | ✅ | ✅ |
-| access-topic-data | Access StackState receiver data via the CLI | - | ✅ | ✅ |
-| execute-component-templates | Invoke a component template API extension \(**internal use only**\) | - | ✅ | ✅ |
-| execute-node-sync | Reset or delete a synchronization | - | ✅ | ✅ |
-| access-admin-api | Access the administrator API | - | ✅ | ✅ |
-| execute-restricted-scripts | Execute scripts using the Http script API in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
-| update-permissions | Grant/revoke permissions or modify subjects | - | - | ✅ |
-| upload-stackpacks | Upload new \(versions of\) StackPacks | - | - | ✅ |
+| read-settings | Access the Settings page. | - | ✅ | ✅ |
+| update-settings | Update settings. | - | ✅ | ✅ |
+| import-settings | Import settings. | - | ✅ | ✅ |
+| export-settings | Export settings. | - | ✅ | ✅ |
+| manage-topology-elements | Create/update/delete topology elements. | - | ✅ | ✅ |
+| manage-stackpacks | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
+| manage-annotations | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |
+| save-view | Save views. | - | ✅ | ✅ |
+| access-view | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
+| delete-view | Delete views. | - | ✅ | ✅ |
+| manage-telemetry-streams | Edit or create new streams for components via the UI. | - | ✅ | ✅ |
+| access-log-data | Access StackState logs via the CLI. | - | ✅ | ✅ |
+| access-topic-data | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
+| execute-component-templates | Invoke a component template API extension \(**internal use only**\). | - | ✅ | ✅ |
+| execute-node-sync | Reset or delete a synchronization. | - | ✅ | ✅ |
+| access-admin-api | Access the administrator API. | - | ✅ | ✅ |
+| execute-restricted-scripts | Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
+| update-permissions | Grant/revoke permissions or modify subjects. | - | - | ✅ |
+| upload-stackpacks | Upload new \(versions of\) StackPacks. | - | - | ✅ |
 
 ## UI elements and permissions
 
