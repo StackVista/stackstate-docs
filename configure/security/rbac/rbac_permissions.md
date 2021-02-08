@@ -157,7 +157,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 |:--- |:--- |
 | `access-analytics` | Access the Analytics page in the StackState UI. |
 | `execute scripts` | Execute most scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. |
-| `execute scripts` and `execute-restricted-scripts` | Execute scripts that use the HTTP script API in the StackState UI analytics environment. | 
+| `execute-restricted-scripts` | Additional permission required to execute scripts that use the HTTP script API. | 
 
 1. To access the Analytics page in the StackState UI, users require the permission `access-analytics`.
 2. To execute most scripts in the StackState UI analytics environment, users require the permission `execute scripts`. Without this permission, the **Execute** button will not be available.
