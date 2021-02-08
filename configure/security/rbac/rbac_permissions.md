@@ -98,6 +98,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | save-view | Save views. | - | ✅ | ✅ |
 | access-view | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
 | delete-view | Delete views. | - | ✅ | ✅ |
+| manage-event-handlers | Edit or create event handlers. | - | ✅ | ✅ |
 | manage-telemetry-streams | Edit or create new streams for components via the UI. | - | ✅ | ✅ |
 | access-log-data | Access StackState logs via the CLI. | - | ✅ | ✅ |
 | access-topic-data | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
@@ -157,8 +158,8 @@ The permissions listed below are required to access and execute scripts in the S
 
 | Permission | Description | 
 |:--- |:--- |
-| `access-analytics` | Access the **Analytics** page in the StackState UI. |
-| `execute scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. |
+| `access-analytics` | Access the **Analytics** page in the StackState UI. Without this permission, Analytics section is hidden in the UI, and it is not accessible via URL. |
+| `execute-scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. |
 | `execute-restricted-scripts` | Additional permission required to execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md). | 
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
