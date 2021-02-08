@@ -220,7 +220,7 @@ Provide a subject with system permission to create \(save\) views:
 sts permission grant [subject-handle] create-views system
 ```
 
-### Check StackState settings
+#### Check StackState settings
 
 Provide a subject with system permission to check StackState settings:
 
