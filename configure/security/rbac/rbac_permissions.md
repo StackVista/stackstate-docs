@@ -12,11 +12,11 @@ Views permissions are a set of permissions that allow for CRUD operations with V
 
 ## Predefined roles
 
-StackState comes with three predefined roles - `stackstate-admin` (Adminstrator), `stackstate-power-user` (Power user) and `stackstate-guest` (Guest user).
+StackState comes with three predefined roles:
 
-* Administrators have all permissions and access to all views. 
-* Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
-* Guests have access to view, as you can see below:
+* **Administrators** (`stackstate-admin`): Have all permissions and access to all views. 
+* **Power Users** (`stackstate-power-user`): Have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
+* **Guests** (`stackstate-guest`): Have read access, as you can see below:
 
 ```text
 subject           permission            resource
@@ -28,8 +28,9 @@ stackstate-guest  read-permissions      system
 stackstate-guest  update-visualization  system
 stackstate-guest  access-view           everything
 ```
+### Role names
 
-The default names for these roles as mentioned above can be overriden, this mechanism can also be used to add extra roles that will have the same permissions. Here an example of how to do this for both Kubernetes and Linux instalaltions.
+The default names for the pre-defined roles (`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -45,7 +46,7 @@ stackstate:
       admin: ["custom-admin-role"]
 ```
 
-Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
+It is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
 
 To use it in for your StackState installation (or already running instance, note that it will restart the API):
 
