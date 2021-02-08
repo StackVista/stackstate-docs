@@ -1,5 +1,5 @@
 ---
-description: Functions to execute http requests.
+description: Functions to execute HTTP requests.
 ---
 
 # HTTP - script API
