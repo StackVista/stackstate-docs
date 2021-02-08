@@ -134,7 +134,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | :---: | :---: | :---: |
 | ![TopologyCapabilities1](../../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../../../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../../../.gitbook/assets/topocap3.png) |
 
-### Topology views permissions
+### Views permissions
 
 The permissions listed below are required to work with views in StackState:
 
@@ -150,9 +150,6 @@ The permissions listed below are required to work with views in StackState:
 | `manage-topology-elements`, `perform-custom-query`, and `read-settings` | To create relations between topology elements, all three permissions are required. | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
-
-
-![TopologyView1](../../../.gitbook/assets/v42_topoview1.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
 
 ### Analytics Page permissions
 
