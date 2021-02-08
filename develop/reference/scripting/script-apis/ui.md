@@ -92,7 +92,7 @@ View.getAll().then { views ->
 }
 ```
 
-Create a URL to topology perspective with all components from production environment that in critical state with full root cause tree.
+Create a URL to the topology perspective explore mode with filters in place to show all components from the production environment that are in critical state and showing the full root cause tree
 
 ```groovy
 UI.createUrl().explore().topologyQuery('environment IN ("Production") AND healthstate IN ("CRITICAL")').fullCauseTree().url()
@@ -170,4 +170,3 @@ Redirects the user-interface to show the Azure topology.
 ```groovy
 UI.showTopologyByQuery('domain IN ("Azure")')
 ```
-
