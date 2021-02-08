@@ -161,7 +161,7 @@ The permissions listed below are required to access and execute scripts in the S
 | `execute scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. |
 | `execute-restricted-scripts` | Additional permission required to execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md). | 
 
-See the [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
 
 ### Element Details permissions
 
