@@ -1,7 +1,5 @@
 # Permissions
 
-## Permissions in StackState
-
 ## Overview
 
 Permissions in StackState allow Administrators to manage the actions that each user or user group can perform inside StackState and the information that will be shown in their StackState UI. Only the feature set relevant to each user's active role will be presented. The actions, information and pages that a user does not have access to are simply not displayed in their StackState UI.
@@ -36,7 +34,7 @@ stackstate-guest  read-permissions      system
 stackstate-guest  update-visualization  system
 stackstate-guest  access-view           everything
 ```
-### Role names
+### Default and custom role names
 
 The default names for the pre-defined roles (`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
