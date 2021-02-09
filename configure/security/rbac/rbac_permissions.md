@@ -125,15 +125,20 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 ![Pages1](../../../.gitbook/assets/pages1.png) ![Pages2](../../../.gitbook/assets/pages2.png)
 
-### Topology capabilities permissions
+### Topology permissions
 
-1. Basic and Advanced filtering - `perform-custom-query` is required to access filtering tools. Filtering options are hidden for users without this permission.
-2. Component pane - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`. Component pane is hidden for users without this set of permissions.
-3. Visualization Settings - requires `update-visualization` system permission. Visualization settings are hidden for users without this permission.
+The permissions listed below are required to work with topology in StackState:
 
-|  |  |  |
-| :---: | :---: | :---: |
-| ![TopologyCapabilities1](../../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../../../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../../../.gitbook/assets/topocap3.png) |
+| Permission | Description | Guest | Power-user | Administrator |
+|:--- |:--- |:--- |:--- |:---|
+| `execute-component-actions` | Execute actions from the component context menu. | ✅ | ✅ | ✅ |
+| `perform-custom-query` | Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | ✅ | ✅ | ✅ |
+| `update-visualization` | Access and edit the visualization settings.<br />If not granted, visualization settings will be hidden. | ✅ | ✅ | ✅ |
+| `manage-topology-elements` | Drag and drop components. | - | ✅ | ✅ |
+| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Component details pane.<br />Without all three permissions, the component details pane will be hidden.  | - | ✅ | ✅ |
+| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
+
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
 
 ### Views permissions
 
@@ -141,14 +146,11 @@ The permissions listed below are required to work with views in StackState:
 
 | Permission | Description | Guest | Power-user | Administrator |
 |:--- |:--- |
-| `execute-component-actions` | Execute actions from the component context menu. | ✅ | ✅ | ✅ |
 | `access-view` | Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#open-a-view). | - | ✅ | ✅ |
-| `create-views` | Create a view.<br />If not granted, save buttons are not available.<br />Example: [Grant permissions to create views](rbac_permissions.md#create-save-views). | - | ✅ | ✅ | 
-| `delete-view` | Delete a view.<br />Dependant on `Everything` or the specific view permissions.  | - | ✅ | ✅ |
-| `save-view` | Edit a view or "save view as".<br />Dependant on `Everything` or the specific view permissions.| - | ✅ | ✅ |
+| `create-views` | Create a view.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#create-save-views). | - | ✅ | ✅ | 
+| `delete-view` | Delete a view.<br />For all views (`Everything`) or for a specific view.  | - | ✅ | ✅ |
+| `save-view` | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| - | ✅ | ✅ |
 | `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
-| `manage-topology-elements` | Drag and drop components. | - | ✅ | ✅ |
-| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
 
