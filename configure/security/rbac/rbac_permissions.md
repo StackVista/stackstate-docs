@@ -205,7 +205,7 @@ sts permission list
 
 ### Grant permissions
 
-#### Open a view
+#### Allow a user to open a view
 
 Provide a subject with permission to open a view:
 
@@ -213,7 +213,7 @@ Provide a subject with permission to open a view:
 sts permission grant [subject-handle] access-view [view-name]
 ```
 
-#### Create (save) views
+#### Allow a user to create (save) views
 
 Provide a subject with system permission to create \(save\) views:
 
@@ -221,7 +221,7 @@ Provide a subject with system permission to create \(save\) views:
 sts permission grant [subject-handle] create-views system
 ```
 
-#### Check StackState settings
+#### Allow a user to check StackState settings
 
 Provide a subject with system permission to check StackState settings:
 
@@ -239,7 +239,7 @@ sts permission revoke [subject-handle] access-view [view-name]
 
 ## StackState UI with no permissions
 
-UI of a user without any permissions:
+Below is an example of how the StackState UI would look for a user without any permissions:
 
 ![No permissions](../../../.gitbook/assets/noperm.png)
 
