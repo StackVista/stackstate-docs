@@ -83,7 +83,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 {% endtab %}
 {% endtabs %}
 
-## List of all permissions in StackState
+## All permissions in StackState
 
 | Permission | Purpose | Guest | Power-user | Administrator |
 | :--- | :--- | :---: | :---: | :---: |
@@ -116,20 +116,24 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ |
 | `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ |
 
-## UI elements and permissions
+## Permissions by action
 
 ### Pages permissions
 
-1. Analytics page - requires `access-analytics` permission. Without this permission, Analytics section is hidden in the UI, and it is not accessible via URL.
-2. StackPacks page - requires `manage-stackpacks` system permission. Without this permission, StackPacks section is hidden in the UI and it is not accessible via URL.
-3. Settings page - requires `read-settings` system permission. Without this permission, Settings section is hidden in the UI and it is not accessible via URL.
-4. Explore Mode page - requires `access-explore` system permission. Without this permission, Explore Mode section is hidden in the UI and it is not accessible via URL.
-5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or \(as it is for the Administrator role\) with `Everything` resource, allowing to see all views.
-6. Import Settings Page - requires `import-settings` system permission. Without this permission, Import Settings is removed from Settings Menu.
-7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
-8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
+The permissions listed below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
 
-![Pages1](../../../.gitbook/assets/pages1.png) ![Pages2](../../../.gitbook/assets/pages2.png)
+| Permission | Description | Guest | Power-user | Administrator |
+|:--- |:--- |:--- |:--- |:---|
+| `access-explore` | The Explore Mode page. | ✅ | ✅ | ✅ |
+| `access-analytics` | The Analytics page. | - | ✅ | ✅ |
+| `manage-stackpacks` | The StackPacks page. | - | ✅ | ✅ |
+| `read-settings` | The Settings page. | - | ✅ | ✅ |
+| `access-view`  | The Views page.<br />It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or \(as it is for the Administrator role\) with `Everything` resource, allowing to see all views. | - | ✅ | ✅ |
+| `import-settings`  | The Import Settings page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | - | ✅ | ✅ |
+| `export-settings`  | The Export Settings page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | - | ✅ | ✅ |
+| `access-admin-api`  | The Admin API page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | - | ✅ | ✅ |
+
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
 ### Topology permissions
 
@@ -144,7 +148,7 @@ The permissions listed below are required to work with topology in StackState:
 | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Component details pane.<br />Without all three permissions, the component details pane will be hidden.  | - | ✅ | ✅ |
 | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
 ### Views permissions
 
@@ -158,7 +162,7 @@ The permissions listed below are required to work with views in StackState:
 | `save-view` | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| - | ✅ | ✅ |
 | `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
 ### Analytics Page permissions
 
@@ -170,7 +174,7 @@ The permissions listed below are required to access and execute scripts in the S
 | `execute-scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. | - | ✅ | ✅ |
 | `execute-restricted-scripts` | Additional permission required to execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md). |  - | - | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
 ### Element Details permissions
 
