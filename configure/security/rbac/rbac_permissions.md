@@ -88,30 +88,30 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | Permission | Purpose | Guest | Power-user | Administrator |
 | :--- | :--- | :---: | :---: | :---: |
 | `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ |
-| `update-visualization` | Change visualization settings. | ✅ | ✅ | ✅ |
+| `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ |
 | `perform-custom-query` | Access the topology filter. | ✅ | ✅ | ✅ |
 | `read-permissions` | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ |
-| `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ |
-| `create-views` | Create views. | - | ✅ | ✅ |
+| `update-visualization` | Change visualization settings. | ✅ | ✅ | ✅ |
+| `access-admin-api` | Access the administrator API. | - | ✅ | ✅ |
 | `access-analytics` | Access the Analytics page. | - | ✅ | ✅ |
-| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
-| `read-settings` | Access the Settings page. | - | ✅ | ✅ |
-| `update-settings` | Update settings. | - | ✅ | ✅ |
-| `import-settings` | Import settings. | - | ✅ | ✅ |
-| `export-settings` | Export settings. | - | ✅ | ✅ |
-| `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ |
-| `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
-| `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |
-| `save-view` | Save views. | - | ✅ | ✅ |
-| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
-| `delete-view` | Delete views. | - | ✅ | ✅ |
-| `manage-event-handlers` | Edit or create event handlers. | - | ✅ | ✅ |
-| `manage-telemetry-streams` | Edit or create new streams for components via the UI. | - | ✅ | ✅ |
 | `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ |
 | `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
+| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
+| `create-views` | Create views. | - | ✅ | ✅ |
+| `delete-view` | Delete views. | - | ✅ | ✅ |
 | `execute-component-templates` | Invoke a component template API extension \(**internal use only**\). | - | ✅ | ✅ |
 | `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ |
-| `access-admin-api` | Access the administrator API. | - | ✅ | ✅ |
+| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
+| `import-settings` | Import settings. | - | ✅ | ✅ |
+| `export-settings` | Export settings. | - | ✅ | ✅ |
+| `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |
+| `manage-event-handlers` | Edit or create event handlers. | - | ✅ | ✅ |
+| `manage-telemetry-streams` | Edit or create new streams for components via the UI. | - | ✅ | ✅ |
+| `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ |
+| `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
+| `read-settings` | Access the Settings page. | - | ✅ | ✅ |
+| `save-view` | Save views. | - | ✅ | ✅ |
+| `update-settings` | Update settings. | - | ✅ | ✅ |
 | `execute-restricted-scripts` | Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
 | `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ |
 | `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ |
@@ -125,13 +125,13 @@ The permissions listed below are required to access specific pages in the StackS
 | Permission | Description | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
 | `access-explore` | The Explore Mode page. | ✅ | ✅ | ✅ |
+| `access-admin-api`  | The Admin API page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | - | ✅ | ✅ |
 | `access-analytics` | The Analytics page. | - | ✅ | ✅ |
+| `access-view`  | The Views page.<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | - | ✅ | ✅ |
+| `export-settings`  | The Export Settings page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | - | ✅ | ✅ |
+| `import-settings`  | The Import Settings page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | - | ✅ | ✅ |
 | `manage-stackpacks` | The StackPacks page. | - | ✅ | ✅ |
 | `read-settings` | The Settings page. | - | ✅ | ✅ |
-| `access-view`  | The Views page.<br />It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or \(as it is for the Administrator role\) with `Everything` resource, allowing to see all views. | - | ✅ | ✅ |
-| `import-settings`  | The Import Settings page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | - | ✅ | ✅ |
-| `export-settings`  | The Export Settings page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | - | ✅ | ✅ |
-| `access-admin-api`  | The Admin API page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
@@ -145,8 +145,7 @@ The permissions listed below are required to work with topology in StackState:
 | `perform-custom-query` | Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | ✅ | ✅ | ✅ |
 | `update-visualization` | Access and edit the visualization settings.<br />If not granted, visualization settings will be hidden. | ✅ | ✅ | ✅ |
 | `manage-topology-elements` | Drag and drop components. | - | ✅ | ✅ |
-| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Component details pane.<br />Without all three permissions, the component details pane will be hidden.  | - | ✅ | ✅ |
-| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Create relations between topology elements.<br />Note - all three permissions are required. | - | ✅ | ✅ |
+| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Component details pane.<br />Create relations between topology elements.<br />Without all three permissions, the component details pane will be hidden.  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
@@ -159,8 +158,8 @@ The permissions listed below are required to work with views in StackState:
 | `access-view` | Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | - | ✅ | ✅ |
 | `create-views` | Create a view.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | - | ✅ | ✅ | 
 | `delete-view` | Delete a view.<br />For all views (`Everything`) or for a specific view.  | - | ✅ | ✅ |
-| `save-view` | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| - | ✅ | ✅ |
 | `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
+| `save-view` | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
