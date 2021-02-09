@@ -122,16 +122,16 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 The permissions listed below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
 
-| Permission | Description | Guest | Power-user | Administrator |
+| Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
-| `access-explore` | The Explore Mode page. | ✅ | ✅ | ✅ |
-| `access-admin-api`  | The Admin API page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | - | ✅ | ✅ |
-| `access-analytics` | The Analytics page. | - | ✅ | ✅ |
-| `access-view`  | The Views page.<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | - | ✅ | ✅ |
-| `export-settings`  | The Export Settings page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | - | ✅ | ✅ |
-| `import-settings`  | The Import Settings page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | - | ✅ | ✅ |
-| `manage-stackpacks` | The StackPacks page. | - | ✅ | ✅ |
-| `read-settings` | The Settings page. | - | ✅ | ✅ |
+| The Explore Mode page. | `access-explore` | ✅ | ✅ | ✅ |
+| The Admin API page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
+| The Analytics page. | `access-analytics` | - | ✅ | ✅ |
+| The Views page.<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view`  | - | ✅ | ✅ |
+| The Export Settings page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | `export-settings`  | - | ✅ | ✅ |
+| The Import Settings page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | `import-settings`  | - | ✅ | ✅ |
+| The StackPacks page. | `manage-stackpacks` | - | ✅ | ✅ |
+| The Settings page. | `read-settings` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
@@ -139,13 +139,13 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below are required to work with topology in StackState:
 
-| Permission | Description | Guest | Power-user | Administrator |
+| Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
-| `execute-component-actions` | Execute actions from the component context menu. | ✅ | ✅ | ✅ |
-| `perform-custom-query` | Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | ✅ | ✅ | ✅ |
-| `update-visualization` | Access and edit the visualization settings.<br />If not granted, visualization settings will be hidden. | ✅ | ✅ | ✅ |
-| `manage-topology-elements` | Drag and drop components. | - | ✅ | ✅ |
-| `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | Component details pane.<br />Create relations between topology elements.<br />Without all three permissions, the component details pane will be hidden.  | - | ✅ | ✅ |
+| Execute actions from the component context menu. | `execute-component-actions` | ✅ | ✅ | ✅ |
+| Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | `perform-custom-query` | ✅ | ✅ | ✅ |
+| Access and edit the visualization settings.<br />If not granted, visualization settings will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
+| Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ |
+| Component details pane.<br />Create relations between topology elements.<br />Without all three permissions, the component details pane will be hidden.  | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
@@ -153,13 +153,13 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below are required to work with views in StackState:
 
-| Permission | Description | Guest | Power-user | Administrator |
+| Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
-| `access-view` | Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | - | ✅ | ✅ |
-| `create-views` | Create a view.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | - | ✅ | ✅ | 
-| `delete-view` | Delete a view.<br />For all views (`Everything`) or for a specific view.  | - | ✅ | ✅ |
-| `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
-| `save-view` | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| - | ✅ | ✅ |
+| Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
+| Create a view.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
+| Delete a view.<br />For all views (`Everything`) or for a specific view.  | `delete-view` | - | ✅ | ✅ |
+| Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| `manage-event-handlers` | - | ✅ | ✅ |
+| Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| `save-view` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
