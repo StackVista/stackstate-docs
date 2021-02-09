@@ -2,13 +2,21 @@
 
 ## Permissions in StackState
 
-Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow Administrators to take control over actions that users can perform inside StackState, as well as adjusting a user's UI to fit their role. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.
+## Overview
 
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
+Permissions in StackState allow Administrators to manage the actions that each user or user group can perform inside StackState and the information that will be shown in their StackState UI. Only the feature set relevant to each user's active role will be presented. The actions, information and pages that a user does not have access to are simply not displayed in their StackState UI.
 
-## Views permissions and system permissions
+{% hint style="info" %}
+Permissions are stored in StackGraph. This means that:
 
-Views permissions are a set of permissions that allow for CRUD operations with Views in StackState. System permissions are scoping user capabilities like access to settings, query execution or scripting.
+- If you perform an upgrade with "clear all data", permission setup will also be removed. 
+- To completely remove a user, they must also be manually removed from StackGraph.
+{% endhint %}
+
+There are two types of permission in StackState: 
+
+- **System permissions** - Scope user capabilities, such as access to settings, query execution and scripting.
+- **View permissions** - Allow for CRUD operations with StackState Views.
 
 ## Predefined roles
 
@@ -146,8 +154,8 @@ The permissions listed below are required to work with views in StackState:
 
 | Permission | Description | Guest | Power-user | Administrator |
 |:--- |:--- |
-| `access-view` | Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#open-a-view). | - | ✅ | ✅ |
-| `create-views` | Create a view.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#create-save-views). | - | ✅ | ✅ | 
+| `access-view` | Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | - | ✅ | ✅ |
+| `create-views` | Create a view.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | - | ✅ | ✅ | 
 | `delete-view` | Delete a view.<br />For all views (`Everything`) or for a specific view.  | - | ✅ | ✅ |
 | `save-view` | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| - | ✅ | ✅ |
 | `manage-event-handlers` | Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.| - | ✅ | ✅ |
