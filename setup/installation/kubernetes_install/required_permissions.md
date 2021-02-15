@@ -20,7 +20,7 @@ cluster-role:
 {% endtabs %}
 
 {% hint style="info" %}
-If this is disabled, the Autonomous Anomaly Detector will not be able to authenticate against the running StackState installation
+If this is disabled, the Autonomous Anomaly Detector will not be able to authenticate against the running StackState installation, unless you [manually create the cluster-wide resources](required_permissions.md#manually-creating-the-cluster-wide-resources)
 {% endhint %}
 
 ### Manually creating the cluster-wide resources
