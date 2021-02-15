@@ -56,16 +56,16 @@ The merge strategy is applied when multiple components get synchronized which ha
 
 Mergable fields in the component are set fields \(like streams and checks\) and optional fields \(like version, description\). Mandatory fields \(like name, layer\) cannot be merged, for these always one has to be picked based on Mine/Theirs configuration.
 
-## Mapping Function
+## Mapping Functions
 
-Mapping function is defined by a groovy script and input parameters that groovy script requires. The goal of mapping function is to process topology data of external system and prepare parameters for template function. Thus mapping function is likely plugin specific.
+Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapping function is to process topology data from an external system and prepare parameters for a template function. A mapping function is thus likely to be plugin specific.
 
-There are 2 specific to a mapping function parameters.
+There are two parameters that are specific to a mapping function:
 
-* ExtTopoComponent/ExtTopoRelation - these are required, system parameters. Every Mapping Function must define one of these. They are used internally by StackState and cannot be changed using API. They indicate the type of element component or relation the mapping function supports.
-* TemplateLambda - this is optional parameter that specifies which template functions must be used with a mapping function.
+* `ExtTopoComponent` or `ExtTopoRelation` - these are required, system parameters. Every Mapping Function must define one of these. They are used internally by StackState and cannot be changed using the API. They indicate the type of element (component or relation) that the mapping function supports.
+* `TemplateLambda` - this is an optional parameter that specifies the template functions that must be used with a mapping function.
 
-The example of simple mapping function script is given below:
+For example, below is a simple mapping function script:
 
 ```text
      def params = [
@@ -80,7 +80,7 @@ The example of simple mapping function script is given below:
 
 Mapping functions can be created from the **Settings** page in the StackState UI.
 
-## Template function
+## Template functions
 
 Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
 
