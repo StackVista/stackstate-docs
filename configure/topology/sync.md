@@ -76,54 +76,56 @@ The example of simple mapping function script is given below:
      context.runTemplate(template, params)
 ```
 
-## Creating mapping functions
+### Create a mapping function
 
-Mapping function can be created from the Settings page.
+Mapping functions can be created from the **Settings** page in the StackState UI.
 
-## Template Function
+## Template function
 
-Template functions is defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
+Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
 
 Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapping function parse topological data of external system and prepares input parameters for Template function.
 
-### Creating Template Functions from Existing Components and Relations
+### Create template functions from existing components and relations
 
 An easy way to create template functions is to create them based on existing component or relation. This option is available in context menu of Component or Relations details as _+ Add as template_. After adding component or relation as template, its template function will appear in the Templates list in the Templates pane.
 
-### Manually creating Template Functions
+### Manually create a template function
 
-The example below is a simple template that creates component. Its Template Function must define the parameters with the following names: name, description, componentTypeId, layerId, domainId, environmentId.
+Below are some examples templates to create components. Note that a template is not limited to rendering only components and relations. It can render json for any StackState domain object that is supported by restapi, for example a Domain, Layer, Check or Stream. and also not only single object, but several multiple objects with one template.
 
-```text
-      [{
-        "_type": "Component",
-        "checks": [],
-        "streams": [],
-        "labels": [],
-        "name": "{{ name }}",
-        "description": "{{ description }}",
-        "type" : {{ componentTypeId }},
-        "layer": {{ layerId }},
-        "domain": {{ domainId }},
-        "environments": [{{ environmentId }}]
-      }]
-```
+* A simple template that creates a component. Its template function must define the parameters with the following names: `name`, `description`, `componentTypeId`, `layerId`, `domainId` and `environmentId`.
 
-The template below will create relation between components `{{ sourceId }}` to `{{ targetId }}`. Template Function must define parameters with the following names: name, description, relationTypeId, sourceId, targetId.
+    ```text
+          [{
+            "_type": "Component",
+            "checks": [],
+            "streams": [],
+            "labels": [],
+            "name": "{{ name }}",
+            "description": "{{ description }}",
+            "type" : {{ componentTypeId }},
+            "layer": {{ layerId }},
+            "domain": {{ domainId }},
+            "environments": [{{ environmentId }}]
+          }]
+    ```
 
-```text
-     [{
-       "_type": "Relation",
-       "checks": [],
-       "streams": [],
-       "labels": [],
-       "name": "{{ name }}",
-       "description": "{{ description }}",
-       "type": {{ relationTypeId }},
-       "source": {{ sourceId }},
-       "target": {{ targetId }}
-     }]
-```
+* A template to create a relation between the components `{{ sourceId }}` and `{{ targetId }}`. Its template Function must define parameters with the following names: `name`, `description`, `relationTypeId`, `sourceId` and `targetId`.
 
-Note that template is not limited to rendering only components and relations. It can render json for any StackState domain object that is supported by !restapi!, e.g. Domain, Layer, Check, Stream etc. and also not only single object, but several multiple objects with one template.
+    ```text
+         [{
+           "_type": "Relation",
+           "checks": [],
+           "streams": [],
+           "labels": [],
+           "name": "{{ name }}",
+           "description": "{{ description }}",
+           "type": {{ relationTypeId }},
+           "source": {{ sourceId }},
+           "target": {{ targetId }}
+         }]
+    ```
+
+
 
