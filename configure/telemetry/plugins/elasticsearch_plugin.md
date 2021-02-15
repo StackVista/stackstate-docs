@@ -1,5 +1,5 @@
 ---
-description: how to set up a custom Elasticsearch data source using the Elasticsearch plugin
+description: How to set up a custom Elasticsearch data source using the Elasticsearch plugin
 ---
 
 # Elasticsearch plugin
