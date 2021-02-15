@@ -1,18 +1,27 @@
 # Configure synchronizations
 
+## Overview
+
 Synchronization allows you to automatically synchronize the topology of your stack to StackState based on information from such diverse systems as discovery tools, service registries, container management tools and CMDBs.
 
 A synchronization is defined by a data source and a number of mappings from the external system topology data into StackState topology elements. The following image gives an overview of a synchronization pipeline:
 
 ![](../../.gitbook/assets/v42_topology_synchronization.png)
 
-Broadly speaking, the synchronization framework makes two models to turn external data into StackState internal components and relation. There is an 'External Topology' model which interprets data and turns it into a graph as the data looks outside of StackState. The second model is 'StackState Topology', which are components as viewed in StackState. A synchronization pipeline takes data through these models using configurable scripts. We now explain more in-depth the concepts in the pipeline.
+##Synchronization pipeline
 
-**Data source**
+Broadly speaking, the synchronization framework makes two models to turn external data into StackState internal components and relations. 
+
+* The **External Topology model** interprets data and turns it into a graph as the data looks outside of StackState. 
+* The **StackState Topology model** is a graph of components as viewed in StackState. 
+
+A synchronization pipeline takes data through these two models using configurable scripts. The concepts in the pipeline are explained in depth below.
+
+### Data source
 
 The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It is possible to define several synchronizations for the same data source.
 
-**Id Extraction**
+### Id Extraction
 
 `https://<my_instance>/#/settings/idextractors`
 
@@ -27,7 +36,7 @@ To turn external data into 'External Topology', we use id extraction. The goal o
 
 StackState comes with some default identity extractor functions, which should be suitable for most cases.
 
-**Mapping**
+### Mapping
 
 Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by model element type name that is coming from external system, mapping functions and mapping functions parameters.
 
