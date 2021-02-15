@@ -2,7 +2,7 @@
 
 ## Overview
 
-Checks are the mechanisms through which elements \(components and relations\) get a health state. The state of an element is determined from data in the associated telemetry streams.
+> Checks are the mechanisms through which elements \(components and relations\) get a health state. The state of an element is determined from data in the associated telemetry streams.
 
 * Read more about [checks](checks_and_streams.md#checks)
 * Read more about [telemetry streams](checks_and_streams.md#telemetry-streams)
