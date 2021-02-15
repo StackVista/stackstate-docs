@@ -27,7 +27,7 @@ Submit HTTP get request.
 Example:
 
 ```text
-Http.get("http://localhost:7070/api/service")
+Http.get("https://www.google.com/?q=apples")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -60,7 +60,7 @@ Submit HTTP put request.
 Example:
 
 ```text
-Http.put("http://localhost:7070/api/service")
+Http.put("http://http_server:8080/api")
   .timeout("30s")
   .param("name", "value")
   .header("name", "value")
@@ -96,7 +96,7 @@ Submit HTTP post request.
 Example:
 
 ```text
-Http.post("http://localhost:7070/api/service")
+Http.post("http://http_server:8080/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -130,7 +130,7 @@ Submit HTTP delete request.
 Example:
 
 ```text
-Http.delete("http://localhost:7070/api/service")
+Http.delete("http://http_server:8080/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -141,7 +141,7 @@ Http.delete("http://localhost:7070/api/service")
 Submit HTTP options request.
 
 ```text
-Http.options("http://localhost:7070/api/service")
+Http.options("http://http_server:8080/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -174,7 +174,7 @@ Submit HTTP patch request.
 Example:
 
 ```text
-Http.patch("http://localhost:7070/api/service")
+Http.patch("http://http_server:8080/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -202,7 +202,7 @@ Submit HTTP head request.
 Example:
 
 ```text
-Http.head("http://localhost:7070/api/service")
+Http.head("http://http_server:8080/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
