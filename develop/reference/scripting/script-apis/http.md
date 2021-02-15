@@ -60,7 +60,7 @@ Submit HTTP put request.
 Example:
 
 ```text
-Http.put("http://http_server_uri/api")
+Http.put("http://http_server/api")
   .timeout("30s")
   .param("name", "value")
   .header("name", "value")
@@ -96,7 +96,7 @@ Submit HTTP post request.
 Example:
 
 ```text
-Http.post("http://http_server_uri/api")
+Http.post("http://http_server/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -130,7 +130,7 @@ Submit HTTP delete request.
 Example:
 
 ```text
-Http.delete("http://http_server_uri/api")
+Http.delete("http://http_server/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -141,7 +141,7 @@ Http.delete("http://http_server_uri/api")
 Submit HTTP options request.
 
 ```text
-Http.options("http://http_server_uri/api")
+Http.options("http://http_server/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -174,7 +174,7 @@ Submit HTTP patch request.
 Example:
 
 ```text
-Http.patch("http://http_server_uri/api")
+Http.patch("http://http_server/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
@@ -202,7 +202,7 @@ Submit HTTP head request.
 Example:
 
 ```text
-Http.head("http://http_server_uri/api")
+Http.head("http://http_server/api")
     .timeout("30s")
     .param("name", "value")
     .header("name", "value")
