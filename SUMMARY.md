@@ -122,6 +122,8 @@
   * [Health state propagation](configure/topology/propagation.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Understanding checks and streams](configure/telemetry/checks_and_streams.md)
+  * [Plugins](configure/plugins/README.md)
+    * [Elasticsearch plugin](configure/telemetry/plugins/elasticsearch_plugin.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
