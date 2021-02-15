@@ -6,7 +6,7 @@ description: Add incoming telemetry (metrics and events) data to an element.
 
 ## Overview
 
-Elements in StackState can have a telemetry \(metrics and events\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
+Elements in StackState can have a telemetry \(metrics and events\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](/use/health-state-and-event-notifications/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
 ## Add a telemetry stream to an element
 
@@ -37,7 +37,7 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 
 * [Set a priority for the telemetry stream](/configure/telemetry/how_to_use_the_priority_field_for_components.md)
 * [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md)
-* [Monitor the health of an element](add-a-health-check.md)
+* [Monitor the health of an element](/use/health-state-and-event-notifications/add-a-health-check.md)
 * [Use templates to add telemetry streams to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
 * [Browse data in a telemetry stream](/views/browse-telemetry.md)
 
