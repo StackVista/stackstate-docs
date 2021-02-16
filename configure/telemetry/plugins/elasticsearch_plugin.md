@@ -29,7 +29,7 @@ To add an Elasticsearch data source:
 3. Enter the required settings:
     - **Name** - the name to identify the Elasticsearch data source in StackState.
     - **Base URL** - the URL of the REST API of your Elasticsearch instance (default port 9200). Note that this must be reachable by StackState.
-    - **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time.
+    - **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](#find-the-elasticsearch-index-pattern).
     - **Time zone** - the timezone of the timestamps stored in the elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
     - **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
     - **Time field format** - the format of the value in the specified **Time field**.
@@ -39,6 +39,22 @@ To add an Elasticsearch data source:
     - The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
 
 ![Add Elasticsearch data source](/.gitbook/assets/v42_elasticsearch_data_source.png)    
+
+#### FInd the Elasticsearch index pattern
+
+You can find the index pattern used in an Elasticsearch instance with the command `curl <elasticsearch_node>:<port>/_cat/indices?v`. 
+
+For example, in the example below the index pattern would be `[sts_internal_events-]yyyy.MM.dd`:
+
+```
+curl localhost:9200/_cat/indices?v
+
+> health status index                          uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+> green  open   sts_internal_events-2020.10.04 KhhFdcOFR5StiWC3zAMEJg   1   0      48262            0     18.6mb         18.6mb
+> green  open   sts_internal_events-2020.10.05 SiycHLkORrGe0tCUWbby2w   1   0      47456            0     18.7mb         18.7mb
+> green  open   sts_internal_events-2020.10.06 INYPKojcSMWnyyjMQvTEow   1   0      40890            0     16.4mb         16.4mb
+> green  open   sts_internal_events-2020.10.07 AagKIOInRaetkeQF8TO_rA   1   0      47125            0     18.3mb         18.3mb
+```
 
 ### Work with Elasticsearch data in StackState
 
