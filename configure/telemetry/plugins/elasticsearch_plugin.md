@@ -44,16 +44,22 @@ To add an Elasticsearch data source:
 
 Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](/use/health-state-and-event-notifications/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synhronization, for details see how to [add telemetry during topology synchronization](/configure/telemetry/telemetry_synchronized_topology.md).
 
-### Advanced plugin settings
+## Advanced plugin settings
+
+### Timeout settings
 
 The timeout settings can be tweaked when dealing with exceptionally large result sets or a slower Elasticsearch cluster:
 
 - **Read timeout (seconds)** - the timeout when retrieving data directly from Elasticsearch.
 - **Request timeout ui (seconds)** - the timeout when retrieving Elasticsearch data through the StackState API.
 
+### Kibana
+
 Elasticsearch can optionally be accessed through Kibana. To do this, use the API endpoint provided by Kibana as the **Base URL** and set the Kibana version:
 
 - **Kibana version** - the Kibana version used when a Kibana API endpoint is given in the **Base URL** field. This is required for XSS mitigation.
+
+### Enable wildcards
 
 Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards (`*`, `?`) used in telemetry query values. If required, this behavior can be disabled.
 
