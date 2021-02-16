@@ -195,12 +195,13 @@ The permissions listed below are required to access and manage settings in the S
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
 | Access the **Settings** page in the StackState UI. Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ |
-| Edit capability.<br />Without this permission, the three dots menu will not be displayed. | `update-settings` | | | |
-| Add New capability.<br />This permission unlocks the **ADD...** buttons on all Settings Pages | `update-settings` | | | |
-| Export capability.<br />Without this permission, checkboxes are not available on the settings page and the *EXPORT ...** buttons will remain grayed out. | `export-settings` | | | |
-| Delete capability,<br />Without this permission, the three dots menu and delete option will not be displayed. | `update-settings` | | | |
-| Delete and Reset synchronization capabilities. | `execute-node-sync` | | | |
+| Edit capability.<br />Without this permission, the three dots menu will not be displayed. | `update-settings` | - | ✅ | ✅ |
+| Add New capability.<br />This permission unlocks the **ADD...** buttons on all Settings Pages | `update-settings` | - | ✅ | ✅ |
+| Export capability.<br />Without this permission, checkboxes are not available on the settings page and the *EXPORT ...** buttons will remain grayed out. | `export-settings` | - | ✅ | ✅ |
+| Delete capability,<br />Without this permission, the three dots menu and delete option will not be displayed. | `update-settings` | - | ✅ | ✅ |
+| Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ |
 
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
 ## Example CLI commands
 
