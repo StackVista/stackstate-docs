@@ -2,7 +2,9 @@
 
 ## Overview
 
-Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be build in StackState, such as the layer it belongs to, the health checks to add and any telemetry streams that should be attached to it. The StackPacks provided with StackState already include templates with the relevant telemetry streams for each imported element type. If you create your own integrations or have additional telemetry streams you would like to link with imported components, you can edit the template used during synchronization to automatically add these to imported topology.
+Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be built in StackState, such as the layer it should belong to, the health checks that should be added and any telemetry streams that should be attached to it. 
+
+The StackPacks shipped with StackState already include templates with the relevant telemetry streams for each imported element type. If you create your own integrations or have additional telemetry streams that you would like to link with imported components, you can edit the template used during synchronization to automatically add these to imported topology.
 
 ## Add telemetry streams to the synchronization template
 
@@ -10,9 +12,11 @@ If you want to add a telemetry stream to all topology elements imported by a spe
 
 ### Edit a template function with the template editor
 
-The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. The template editor can be accessed from the StackState UI.
+The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. You can open the template editor in the StackState UI component details pane.
 
-![Template editor](../../.gitbook/assets/v42_edit_template.png)
+{% hint style="info" %}
+Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template.
+{% endhint %}
 
 1. Click on an element to open the **Component details** on the right of the screen.
 2. Click on **...** and select **Edit template**.
@@ -22,11 +26,13 @@ The StackState template editor allows you to customize how StackState builds top
    * **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI **Component properties**.
 4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](telemetry_synchronized_topology.md#add-a-telemetry-stream-to-a-template-function).
 
+![Template editor](../../.gitbook/assets/v42_edit_template.png)
+
+![](../../.gitbook/assets/template_editor.png)
+
 {% hint style="info" %}
 Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template.
 {% endhint %}
-
-![](../../.gitbook/assets/template_editor.png)
 
 ### Add a telemetry stream to a template function
 
