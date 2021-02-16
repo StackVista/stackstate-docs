@@ -44,8 +44,6 @@ To add an Elasticsearch data source:
 
 You can find the index pattern used in an Elasticsearch instance with the command `curl <elasticsearch_node>:<port>/_cat/indices?v`. 
 
-For example: 
-
 In the example below, the index pattern would be `[sts_internal_events-]yyyy.MM.dd`.
 
 ```
