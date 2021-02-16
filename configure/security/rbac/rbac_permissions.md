@@ -163,13 +163,13 @@ The permissions listed below are required to work with views in StackState:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Analytics Page permissions
+### Analytics environment permissions
 
 The permissions listed below are required to access and execute scripts in the StackState UI analytics environment:
 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
-| Access the **Analytics** page in the StackState UI. Without this permission, the Analytics section will be hidden in the UI, and it will not be accessible via its URL. |`access-analytics` | - | ✅ | ✅ |
+| Access the **Analytics** page in the StackState UI. Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. |`access-analytics` | - | ✅ | ✅ |
 | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. | `execute-scripts` | - | ✅ | ✅ |
 | Execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md).<br />Also requires `access-analytics` and `execute-scripts`. |`execute-restricted-scripts` | - | - | ✅ |
 
@@ -190,15 +190,17 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 ### Settings permissions
 
-Below capabilities are shared across all settings pages.
+The permissions listed below are required to access and manage settings in the StackState UI:
 
-1. Add New capability - requires `update-settings` system permission. It unlocks **Add...** buttons on all Settings Pages.
-2. Edit capability - requires `update-settings` system permission. Three dots menu \(kebab menu\) is not displayed for the users without that permission.
-3. Delete capability - requires `update-settings` system permission. Delete option is not displayed for the users without this permission.
-4. Export capability - requires `export-settings` system permission. Checkboxes are not available for the user without this permission.
-5. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
+| Action | Permission | Guest | Power-user | Administrator |
+|:--- |:--- |
+| Access the **Settings** page in the StackState UI. Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ |
+| Edit capability.<br />Without this permission, the three dots menu will not be displayed. | `update-settings` | | | |
+| Add New capability.<br />This permission unlocks the **ADD...** buttons on all Settings Pages | `update-settings` | | | |
+| Export capability.<br />Without this permission, checkboxes are not available on the settings page and the *EXPORT ...** buttons will remain grayed out. | `export-settings` | | | |
+| Delete capability,<br />Without this permission, the three dots menu and delete option will not be displayed. | `update-settings` | | | |
+| Delete and Reset synchronization capabilities. | `execute-node-sync` | | | |
 
-![SettingsPermissions](../../../.gitbook/assets/settings1.png)
 
 ## Example CLI commands
 
