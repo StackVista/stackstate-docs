@@ -124,14 +124,14 @@ The permissions listed below are required to access specific pages in the StackS
 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
-| The Explore Mode page. | `access-explore` | ✅ | ✅ | ✅ |
-| The Admin API page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
-| The Analytics page. | `access-analytics` | - | ✅ | ✅ |
+| The **Explore Mode** page. | `access-explore` | ✅ | ✅ | ✅ |
+| The **Analytics** page. | `access-analytics` | - | ✅ | ✅ |
 | The Views page.<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view`  | - | ✅ | ✅ |
-| The Export Settings page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | `export-settings`  | - | ✅ | ✅ |
-| The Import Settings page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | `import-settings`  | - | ✅ | ✅ |
-| The StackPacks page. | `manage-stackpacks` | - | ✅ | ✅ |
-| The Settings page. | `read-settings` | - | ✅ | ✅ |
+| The **StackPacks** page. | `manage-stackpacks` | - | ✅ | ✅ |
+| The **Settings** page. | `read-settings` | - | ✅ | ✅ |
+| The **Settings** > **Export Settings** page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | `export-settings`  | - | ✅ | ✅ |
+| The **Settings** > **Import Settings** page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | `import-settings`  | - | ✅ | ✅ |
+| The **Admin API** page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
