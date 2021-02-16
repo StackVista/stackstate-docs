@@ -46,7 +46,7 @@ You can write your own custom event handler functions that react to state change
    * **Script** - The script run by the function. For details, see the sections below on:
         - [Async functions](#async-functions-default).
         - [Synchronous functions](#synchronous-functions-async-off).
-        - How you can [add logging to a function](event-handlers.md#logging).
+        - How to [add logging to a function](event-handlers.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
    * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
