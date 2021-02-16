@@ -28,12 +28,12 @@ To add an Elasticsearch data source:
 2. Click on **ADD ELASTICSEARCH DATA SOURCE**.
 3. Enter the required settings:
     - **Name** - the name to identify the Elasticsearch data source in StackState.
-    - **Base URL** - the URL of the REST api of your Elasticsearch instance (default port 9200). Note that this must be reachable by StackState.
+    - **Base URL** - the URL of the REST API of your Elasticsearch instance (default port 9200). Note that this must be reachable by StackState.
     - **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time.
     - **Time zone** - the timezone of the timestamps stored in the elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
-    - **Time field** - the field in the elasticsearch documents which contains the timestamp of the event/metric.
-    - **Time field format** - the format of the value in the **Time field**.
-    - The UI contains more settings that may be tweaked in non-standard use-cases. See [Advanced plugin settings](#advanced-plugin-settings)
+    - **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
+    - **Time field format** - the format of the value in the specified **Time field**.
+    - A number of additional settings can be tweaked in non-standard use-cases. See [advanced plugin settings](#advanced-plugin-settings), below.
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.
 5. Click **CREATE** to save the Elasticsearch data source settings.
     - The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
@@ -46,14 +46,18 @@ Elasticsearch data sources can be used to add telemetry streams to components an
 
 ### Advanced plugin settings
 
-The timeout settings can be tweaked when dealing with excptionally large result sets or a slower Elasticsearch cluster:
-- **Read timeout (seconds)** - Timeout when retrieving data directly from Elasticsearch
-- **Request timeout ui (seconds)** - Timeout when retrieving ElasticSearch data through the StackState api
+The timeout settings can be tweaked when dealing with exceptionally large result sets or a slower Elasticsearch cluster:
 
-ElasticSearch can be accessed through kibana. To do this, use the api endpoint provided by kibana and set the kibana version:
-- **Kibana verion** - Kibana version used when requesting data from kibana (this is required for XSS mitigation)
+- **Read timeout (seconds)** - the timeout when retrieving data directly from Elasticsearch.
+- **Request timeout ui (seconds)** - the timeout when retrieving Elasticsearch data through the StackState API.
 
-Wildcards can be slow in Elasticsearch. Tweaking the **Support wildcards in values** will tell StackState to either escape or not escape wildcards in telemetry query values (*, ?).
+Elasticsearch can optionally be accessed through Kibana. To do this, use the API endpoint provided by Kibana as the **Base URL** and set the Kibana version:
+
+- **Kibana version** - the Kibana version used when requesting data from kibana. This is required for XSS mitigation.
+
+Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards (`*`, `?`) used in telemetry query values. If required, this behavior can be disabled.
+
+- **Support wildcards in values** - when enabled, StackState will include wildcards (`*`, `?`) in telemetry query values.
 
 ## See also
 
