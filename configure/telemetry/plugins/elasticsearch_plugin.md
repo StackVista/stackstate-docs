@@ -55,13 +55,14 @@ The timeout settings can be tweaked when dealing with exceptionally large result
 
 ### Kibana
 
-Elasticsearch can optionally be accessed through Kibana. To do this, use the API endpoint provided by Kibana as the **Base URL** and set the Kibana version:
+Elasticsearch can optionally be accessed through Kibana. To do this, the following settings must be provided:
 
-- **Kibana version** - the Kibana version used when a Kibana API endpoint is given in the **Base URL** field. This is required for XSS mitigation.
+- **Base URL** - the URL of the REST API endpoint provided by Kibana. Note that this must be reachable by StackState.
+- **Kibana version** - the Kibana version used. This is required for XSS mitigation.
 
 ### Enable wildcards
 
-Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards (`*`, `?`) used in telemetry query values. If required, this behavior can be disabled.
+Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
 
 - **Support wildcards in values** - when enabled, StackState will include wildcards (`*`, `?`) in telemetry query values.
 
