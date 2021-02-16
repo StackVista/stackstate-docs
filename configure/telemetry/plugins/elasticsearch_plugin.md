@@ -33,18 +33,20 @@ To add an Elasticsearch data source:
     - **Time zone** - the timezone of the timestamps stored in the elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
     - **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
     - **Time field format** - the format of the value in the specified **Time field**.
-    - A number of additional settings can be tweaked in non-standard use-cases. See the [advanced plugin settings](#advanced-plugin-settings), below.
+    - A number of additional settings can be tweaked in non-standard use-cases. See the [advanced plugin settings](#advanced-plugin-settings).
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.
 5. Click **CREATE** to save the Elasticsearch data source settings.
     - The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
 
 ![Add Elasticsearch data source](/.gitbook/assets/v42_elasticsearch_data_source.png)    
 
-#### FInd the Elasticsearch index pattern
+#### Find the Elasticsearch index pattern
 
 You can find the index pattern used in an Elasticsearch instance with the command `curl <elasticsearch_node>:<port>/_cat/indices?v`. 
 
-For example, in the example below the index pattern would be `[sts_internal_events-]yyyy.MM.dd`:
+For example: 
+
+In the example below, the index pattern would be `[sts_internal_events-]yyyy.MM.dd`.
 
 ```
 curl localhost:9200/_cat/indices?v
