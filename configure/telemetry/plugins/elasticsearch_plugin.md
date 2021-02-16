@@ -46,7 +46,7 @@ Elasticsearch data sources can be used to add telemetry streams to components an
 
 ## Advanced plugin settings
 
-### Errors
+### Error management
 
 To reduce noise resulting from intermittent failure of the data source, StackState can be configured to only emit errors after they exist for a specified time.
 
