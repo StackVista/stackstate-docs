@@ -8,7 +8,7 @@ A synchronization is defined by a data source and a number of mappings from the 
 
 ![](../../.gitbook/assets/v42_topology_synchronization.png)
 
-##Synchronization pipeline
+## Synchronization pipeline
 
 Broadly speaking, the synchronization framework makes two models to turn external data into StackState internal components and relations. 
 
