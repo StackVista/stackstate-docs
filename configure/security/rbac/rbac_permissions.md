@@ -177,16 +177,14 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 ### Element Details permissions
 
-1. Data streams actions - requires `manage-topology-elements` system permission. Without this permission only "Inspect" action is available.
-2. Add data streams - requires `manage-topology-elements` system permission. Without this permission, user cannot see the **Add** button.
-3. Health check - requires `manage-topology-elements` system permission. Without this permission, user cannot see any actions.
-4. Add health check - requires `manage-topology-elements` system permission. Without that permission, user cannot see the **Add** button.
-5. Delete element - requires `manage-topology-elements` system permission. **Delete** button is not present if the user does not have this permission.
-6. Edit element \(also edit element template\) - requires `manage-topology-elements`, `perform-custom-query`, and `read-settings` system permissions.
+| Action | Permission | Guest | Power-user | Administrator |
+|:--- |:--- |
+| Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| Add a new health check.<br />Edit / delete an existing health check. <br />Without this permission the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| Delete an element or element template.<br /> |  `manage-topology-elements` | - | ✅ | ✅ |
+| Edit an element or element template.<br /> |  `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings`  | - | ✅ | ✅ |
 
-|  |  |
-| :---: | :---: |
-| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](/.gitbook/assets/eldet2.png) |
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
 ### Settings permissions
 
@@ -195,8 +193,8 @@ The permissions listed below are required to access and manage settings in the S
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
 | Access the **Settings** page in the StackState UI.<br />Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ |
-| Add / Edit / Delete capability.<br />This permission unlocks the **...** menu and the **ADD...** buttons on all Settings Pages | `update-settings` | - | ✅ | ✅ |
-| Export capability.<br />Without this permission, checkboxes are not available on the settings page and the *EXPORT ...** buttons will remain grayed out. | `export-settings` | - | ✅ | ✅ |
+| Add / Edit / Delete capability.<br />This permission unlocks the **...** menu and the **ADD** buttons on all Settings Pages. | `update-settings` | - | ✅ | ✅ |
+| Export capability.<br />Without this permission, checkboxes are not available on the settings page. | `export-settings` | - | ✅ | ✅ |
 | Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
