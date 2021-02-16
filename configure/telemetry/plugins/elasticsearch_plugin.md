@@ -53,7 +53,7 @@ The timeout settings can be tweaked when dealing with exceptionally large result
 
 Elasticsearch can optionally be accessed through Kibana. To do this, use the API endpoint provided by Kibana as the **Base URL** and set the Kibana version:
 
-- **Kibana version** - the Kibana version used when requesting data from kibana. This is required for XSS mitigation.
+- **Kibana version** - the Kibana version used when a Kibana API endpoint is given in the **Base URL** field. This is required for XSS mitigation.
 
 Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards (`*`, `?`) used in telemetry query values. If required, this behavior can be disabled.
 
