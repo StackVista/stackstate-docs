@@ -14,9 +14,9 @@ StackState can be configured to pull data from your own Elasticsearch instance. 
 
 To connect StackState to your Elasticsearch instance and retrieve telemetry data you will need to have:
 
-- A running Elasticsearch instance reachable from StackState
-- An Elasticsearch index to retrieve
-- A time field with a timestamp in the Elasticsearch data
+- A running Elasticsearch instance reachable from StackState.
+- An Elasticsearch index to retrieve.
+- A time field with a timestamp in the Elasticsearch data.
 
 ### Add an Elasticsearch datasource to StackState
 
