@@ -46,11 +46,11 @@ Elasticsearch data sources can be used to add telemetry streams to components an
 
 ## Advanced plugin settings
 
-### Enable wildcards
+### Errors
 
-Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
+To reduce noise resulting from intermittent failure of the data source, StackState can be configured to only emit errors after they exist for a specified time.
 
-- **Support wildcards in values** - when enabled, StackState will include wildcards (`*`, `?`) in telemetry query values.
+- **Propagate errors only after (minutes)** - the time after which errors should be reported. 
 
 ### Kibana
 
@@ -59,12 +59,19 @@ Elasticsearch can optionally be accessed through Kibana. To do this, the followi
 - **Base URL** - the URL of the REST API endpoint provided by Kibana. Note that this must be reachable by StackState.
 - **Kibana version** - the Kibana version used. This is required for XSS mitigation.
 
-### Timeout settings
+### Timeouts
 
 The timeout settings can be tweaked when dealing with exceptionally large result sets or a slower Elasticsearch cluster:
 
 - **Read timeout (seconds)** - the timeout when retrieving data directly from Elasticsearch.
 - **Request timeout ui (seconds)** - the timeout when retrieving Elasticsearch data through the StackState API.
+
+
+### Wildcards
+
+Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
+
+- **Support wildcards in values** - when enabled, StackState will include wildcards (`*`, `?`) in telemetry query values.
 
 ## See also
 
