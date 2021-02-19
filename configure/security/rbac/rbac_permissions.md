@@ -135,7 +135,7 @@ The permissions listed below are required to access specific pages in the StackS
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Topology permissions
+### Topology perspective permissions
 
 The permissions listed below are required to work with topology in StackState:
 
