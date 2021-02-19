@@ -125,12 +125,12 @@ The permissions listed below are required to access specific pages in the StackS
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
 | The **Explore Mode** page. | `access-explore` | ✅ | ✅ | ✅ |
-| The **Analytics** page.<br />For details see [analytics environment permissions](#analytics-environment-permissions) | `access-analytics` | - | ✅ | ✅ |
+| The **Analytics** page.<br />For details see [analytics environment permissions](#analytics-environment-permissions). | `access-analytics` | - | ✅ | ✅ |
 | The **Views** page.<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view`  | - | ✅ | ✅ |
 | The **StackPacks** page. | `manage-stackpacks` | - | ✅ | ✅ |
-| The **Settings** page. | `read-settings` | - | ✅ | ✅ |
-| The **Settings** > **Export Settings** page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu. | `export-settings`  | - | ✅ | ✅ |
-| The **Settings** > **Import Settings** page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. | `import-settings`  | - | ✅ | ✅ |
+| The **Settings** page.<br />For details see [settomgs [age permissions](#settings-page-permissions). | `read-settings` | - | ✅ | ✅ |
+| The **Settings** > **Export Settings** page, also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see [settomgs [age permissions](#settings-page-permissions). | `export-settings`  | - | ✅ | ✅ |
+| The **Settings** > **Import Settings** page, also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see [settomgs [age permissions](#settings-page-permissions). | `import-settings`  | - | ✅ | ✅ |
 | The **Admin API** page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
