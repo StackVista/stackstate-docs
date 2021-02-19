@@ -143,8 +143,8 @@ The permissions listed below are required to work with topology in StackState:
 |:--- |:--- |:--- |:--- |:---|
 | Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
 | Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | `perform-custom-query` | ✅ | ✅ | ✅ |
-| Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ |
 | Execute actions from the component context menu. | `execute-component-actions` | ✅ | ✅ | ✅ |
+| Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ |
 | Add components button.<br />Create relations between topology elements. | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
