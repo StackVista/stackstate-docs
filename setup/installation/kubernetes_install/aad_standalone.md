@@ -110,7 +110,7 @@ stackstate:
   apiToken: <stackstate api token>
     ...
 ```
-* Cookie authentication. This type of auth is not recommended and exists only for testing purposes.
+* Cookie authentication. This type of auth is not recommended and exists only for troubleshooting/testing purposes.
 ```
     ...
 stackstate:
@@ -134,7 +134,7 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
 
 ## Upgrade the AAD Kubernetes service
 
-The AAD Kubernetes service is released and upgraded together with StackState. In case of standalone installation the service upgrade is driven by availablity of the new version of the helm chart. One can follow the install steps starting from step 3 - fetching new AAD chart.
+The AAD Kubernetes service is released and upgraded together with StackState. In case of standalone installation the service upgrade is driven by availability of the new version of the helm chart therefore for upgrading one can follow the steps starting from step 3 - fetching new AAD chart.
 
 ## Deactivate the AAD Kubernetes service
 

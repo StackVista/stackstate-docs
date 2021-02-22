@@ -56,7 +56,7 @@ To access the status UI, one can run kubectl proxy. The UI will be accessible by
 ```text
 http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
 ```
-Optionally the status interface Ingress can be configured in the anomaly-detection chart \(for the details see [AAD Standalone Deployment](../../setup/installation/kubernetes_install/aad_standalone.md)\).
+Optionally to access the status UI, the AAD service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](../../setup/installation/kubernetes_install/aad_standalone.md)\).
 
 Common questions that can be answered in the status UI:
 
