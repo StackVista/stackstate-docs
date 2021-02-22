@@ -185,4 +185,4 @@ redirects:
 # from custom sync stackpack
 
   configure/sync/: ./configure/topology/sync.md
-  configure/topology_synchronization/#topology-json-format: ./configure/topology_synchronization.md#topology-json-format
+  develop/agent_check/how_to_develop_agent_checks/: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
