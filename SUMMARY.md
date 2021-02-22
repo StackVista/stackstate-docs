@@ -14,6 +14,7 @@
     * [Configure storage](setup/installation/kubernetes_install/storage.md)
     * [Configure Ingress](setup/installation/kubernetes_install/ingress.md)
     * [StackState images](setup/installation/kubernetes_install/image_configuration.md)
+    * [AAD Standalone Deployment](setup/installation/kubernetes_install/aad_standalone.md)
   * [Linux install](setup/installation/linux_install/README.md)
     * [Download](setup/installation/linux_install/download.md)
     * [Install StackState](setup/installation/linux_install/install_stackstate.md)

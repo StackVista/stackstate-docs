@@ -32,150 +32,21 @@ The AAD ensures that prioritized metric streams are checked for anomalies in a t
 
 The status UI of the AAD Kubernetes service provides various metrics and indicators, including details of what it is currently doing.
 
-## Prerequisites
+## Installation
+
+### Prerequisites
 
 The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
-### Node sizing
-
-A minimal deployment of the AAD Kubernetes service with the default options requires one of the following instance types:
-
-* Amazon EKS: 1 instance of type `m4.xlarge`
-* Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
-* Self-hosted Kubernetes: 1 instance with 4 CPUs and 6 Gb memory
-
-To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://support.stackstate.com/hc/en-us).
-
-The AAD Kubernetes service is stateless and survives restarts. It can be relocated on a different Kubernetes node or bounced. To take full advantage of this capability it is recommended to run the service on low cost AWS Spot Instances and Azure Low Priority VM.
-
-## Installation
-
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
 Install the AAD StackPack from the StackPacks page in StackState.
 
-{% hint style="info" %}
-To use the AAD StackPack, the AAD Kubernetes service must also be installed.
-{% endhint %}
+## Deinstall the Autonomous Anomaly Detector \(AAD\) StackPack
 
-### Install the Autonomous Anomaly Detector \(AAD\) Kubernetes service
-
-After installing the AAD StackPack, install the AAD Kubernetes service.
-
-#### 1. Get access to quay.io
-
-To be able to pull the Docker image, you will need access to quay.io. Access credentials can be requested from [StackState support](https://support.stackstate.com/hc/en-us).
-
-#### 2. Install Helm
-
-* Install Helm \(version 3\). See the Helm docs [https://helm.sh/docs/intro/install](https://helm.sh/docs/intro/install/)
-* Add the StackState Helm repo:
-
-```text
-helm repo add stackstate https://helm.stackstate.io`
-```
-
-#### 3. Get the latest AAD Kubernetes service
-
-```text
-helm fetch stackstate/anomaly-detection
-```
-
-#### 4. Configure AAD Kubernetes service
-
-Create the file `values.yaml` file including the configuration described below and save it to disk:
-
-* **image:**
-  * **tag** - the image version e.g `4.1.0-release`
-  * **pullSecretUsername** - the image registry username \(from step 1\)
-* **stackstate:**
-  * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-server-headless:7070/` or `http://<releasename>-stackstate-server-headless:7070/`
-* **ingress:** - Ingress provides access to the technical interface of the AAD Kubernetes service, this is useful for troubleshooting. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
-  * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
-  * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
-  * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
-
-{% tabs %}
-{% tab title="values.yaml" %}
-```text
-image:
-    tag: <image tag>
-    pullSecretUsername: <image registry username>
-
-stackstate:
-    # Stackstate instance URL
-    instance: <stackstate instance url>
-
-# status UI ingress (the configuration below is example for nginx ingress controller)
-ingress:
-    enabled: true
-    hostname: <domain name> # e.g. spotlight.domain.com
-    port: 8090              # status page will be available on spotlight.domain.com:8090
-    annotations:        
-        external-dns.alpha.kubernetes.io/hostname: <domain name> # e.g. spotlight.domain.com
-        kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/ingress.class: nginx
-    hosts:
-        - host: <domain name>  # e.g. spotlight.domain.com
-```
-{% endtab %}
-{% endtabs %}
-
-Details of all configuration options are available in the anomaly-detection chart documentation.
-
-```text
-helm show all stackstate/anomaly-detection
-```
-
-#### 5. Install the AAD Kubernetes service
-
-Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState.
-
-```text
-helm upgrade anomaly-detector stackstate/anomaly-detection \
-    --install \
-    --namespace <stackstate-namespace> \
-    --set image.pullSecretPassword=<image registry password>
-    --values ./values.yaml
-```
-
-## Upgrade the AAD Kubernetes service
-
-The AAD Kubernetes service is released independently from StackState, therefore you may benefit from upgrading often. To upgrade the AAD Kubernetes service:
-
-1. Check the [release notes](aad.md#release-notes) section at the bottom of this page to find the required image tag and helm chart version for the release.
-   * Update the image tag in `values.yaml`.
-   * Fetch the helm chart version:
-
-     ```text
-       helm fetch stackstate/anomaly-detection --version 4.1.18
-     ```
-2. Run the upgrade command below, specifying the [necessary parameters](aad.md#5-install-the-aad-kubernetes-service) as described in the install section.
-
-   ```text
-    helm upgrade anomaly-detector stackstate/anomaly-detection \
-        --namespace <stackstate-namespace> \
-        --set image.pullSecretPassword=<image registry password>
-        --values ./values.yaml
-   ```
-
-## Deactivate the AAD Kubernetes service
-
-To deactivate the AAD Kubernetes service, uninstall the AAD StackPack. The AAD Kubernetes service will continue to run and reserve its compute resources, but anomaly detection will not be executed.
-
-To re-enable the AAD Kubernetes service, you can simply install the AAD StackPack again. It is not necessary to repeat the installation of the AAD Kubernetes service.
-
-## Full uninstall
-
-* Uninstall the AAD Kubernetes service:
-
-  ```text
-  helm delete anomaly-detector
-  ```
-
-* Uninstall the AAD StackPack
+Deinstall the AAD StackPack from the StackPacks page in StackState.
 
 ## Troubleshooting
 
@@ -206,6 +77,10 @@ The status UI tab **Job Progress** shows a ranked list of streams with schedulin
 Release notes for the [AAD StackPack](aad.md#aad-stackpack) and the [AAD Kubernetes service](aad.md#aad-kubernetes-service) are available below.
 
 ### AAD StackPack
+
+#### AAD StackPack v0.7 BETA \(19-02-2021\)
+
+* Autonomous Anomaly Detector service GA.
 
 #### AAD StackPack v0.6 BETA \(13-10-2020\)
 
