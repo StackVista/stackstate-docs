@@ -52,7 +52,11 @@ Deinstall the AAD StackPack from the StackPacks page in StackState.
 
 The status UI provides details on the technical state of the AAD Kubernetes service. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
 
-To access the status UI, the status interface Ingress must be configured in the anomaly-detection chart \(see the `Install` section\).
+To access the status UI, one can run kubectl proxy. The UI will be accessible by URL:
+```text
+http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
+```
+Optionally the status interface Ingress can be configured in the anomaly-detection chart \(for the details see [AAD Standalone Deployment](../../setup/installation/kubernetes_install/aad_standalone.md)\).
 
 Common questions that can be answered in the status UI:
 
