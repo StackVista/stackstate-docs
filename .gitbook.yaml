@@ -185,4 +185,4 @@ redirects:
 # from custom sync stackpack
 
   configure/sync/: ./configure/topology/sync.md
-  configure/topology_synchronization: ./configure/topology_synchronization.md
+  configure/topology_synchronization/#topology-json-format: ./configure/topology_synchronization.md#topology-json-format
