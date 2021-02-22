@@ -186,3 +186,4 @@ redirects:
 
   configure/sync/: ./configure/topology/sync.md
   develop/agent_check/how_to_develop_agent_checks/: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
+  configure/topology_synchronization/: ./configure/topology/topology_synchronization.md
