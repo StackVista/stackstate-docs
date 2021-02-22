@@ -120,19 +120,19 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 ### Page access permissions
 
-The permissions listed below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
+The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
 
 ![Main menu with all permissions granted](/.gitbook/assets/v42_main_menu.png)
 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
-| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view`  | - | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />For details see [view permissions](#view-permissions). | `access-view`  | - | ✅ | ✅ |
 | **Analytics**<br />For details see [analytics environment permissions](#analytics-environment-permissions). | `access-analytics` | - | ✅ | ✅ |
 | **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
-| **Settings**<br />For details see [settomgs [age permissions](#settings-page-permissions). | `read-settings` | - | ✅ | ✅ |
-| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see [settomgs [age permissions](#settings-page-permissions). | `export-settings`  | - | ✅ | ✅ |
-| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see [settomgs [age permissions](#settings-page-permissions). | `import-settings`  | - | ✅ | ✅ |
+| **Settings**<br />For details see [settings page permissions](#settings-page-permissions). | `read-settings` | - | ✅ | ✅ |
+| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page-permissions). | `export-settings`  | - | ✅ | ✅ |
+| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page-permissions). | `import-settings`  | - | ✅ | ✅ |
 | The **Admin API** page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
@@ -157,7 +157,7 @@ The permissions listed below can be set for all views (when granted on `Everythi
 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
-| Access a specific view (when granted on a view) or all views (when granted on `Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
+| Access all views (`Everything`) or a specific view.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
 | Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| `save-view` | - | ✅ | ✅ |
 | Delete a view.<br />For all views (`Everything`) or for a specific view.  | `delete-view` | - | ✅ | ✅ |
 
