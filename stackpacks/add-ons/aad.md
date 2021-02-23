@@ -42,17 +42,21 @@ If you are not sure that you have a Kubernetes setup or would you like to know m
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
-Install the AAD StackPack from the StackPacks page in StackState.
+To install the AAD StackPack, simply press the install button. No other actions need to be taken.
 
-## Deinstall the Autonomous Anomaly Detector \(AAD\) StackPack
+## Uninstall the Autonomous Anomaly Detector \(AAD\) StackPack
 
-Deinstall the AAD StackPack from the StackPacks page in StackState.
+To uninstall the AAD StackPack, simply press the uninstall button. No other actions need to be taken.
 
 ## Troubleshooting
 
 The status UI provides details on the technical state of the AAD Kubernetes service. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
 
-To access the status UI, one can run kubectl proxy. The UI will be accessible by URL:
+To access the status UI, one can run kubectl proxy.
+```text
+kubectl proxy  
+```
+The UI will be accessible by URL:
 ```text
 http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
 ```
