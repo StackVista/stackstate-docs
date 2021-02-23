@@ -17,7 +17,7 @@ To migrate from the Linux install to the Kubernetes install of StackState, the f
 1. [Migrate telemetry data (ElasticSearch)](#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
 
 {% hint style="info" %}
-Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) is not copied. 
+Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) will not be copied. 
 {% endhint %}
 
 After the migration: 
