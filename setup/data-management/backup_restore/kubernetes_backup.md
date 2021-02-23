@@ -180,6 +180,7 @@ By default, a snapshot is created for all ElasticSearch indices. This can be cha
 Scripts to list and restore can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore). To use the scripts, download them from the GitHub site or check out the repository.
 
 Before you use the scripts, ensure that:
+
 1. You have the `kubectl` binary installed.
 2. The `kubectl` binary is configured to connect to the Kubernetes cluster and the namespace within that cluster that run StackState.
 
