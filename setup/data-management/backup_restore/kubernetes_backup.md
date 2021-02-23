@@ -13,10 +13,10 @@ The following data can be automatically backed up:
 
 The following data will NOT be backed up:
 
-* In transit topology and telemetry updates stored in Kafka - these only have temporary value and would be of no use when a backup is restored
-* Master node negotiations state stored in ZooKeeper - this runtime state would be incorrect when restored and will be automatically determined at runtime
-* Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing StackState and restoring the backups.
-* Kubernetes logs - these are ephemeral.
+* **In transit topology and telemetry updates stored in Kafka** - these only have temporary value and would be of no use when a backup is restored
+* **Master node negotiations state stored in ZooKeeper** - this runtime state would be incorrect when restored and will be automatically determined at runtime
+* **Kubernetes configuration state and raw persistent volume state** - this state can be rebuilt by re-installing StackState and restoring the backups.
+* **Kubernetes logs** - these are ephemeral.
 
 ### Storage options
 
