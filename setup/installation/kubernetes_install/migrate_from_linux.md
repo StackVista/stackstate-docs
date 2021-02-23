@@ -22,7 +22,7 @@ Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) is n
 
 After the migration: 
 
-1. Run both instances of StackState side by side for a number of days to ensure the new instance runs correctly.
+1. Run both instances of StackState side by side for a number of days to ensure that the new instance runs correctly.
 1. Stop the Linux install for StackState.
 1. Remove the Linux install for StackState.
 
@@ -43,7 +43,7 @@ Before you start the migration procedure, make sure you have the following infor
 
 ### Export StackGraph data
 
-<a name="export_stackgraph_data"></a>To export the StackGraph data, execute the [regular backup procedures](../../data-management/backup_restore/linux_backup.md) as described below.
+To export the StackGraph data, execute the regular StackState Linux backup procedures as described below.
 
 1. Ensure that the StackGraph node is up and running.
 
@@ -82,8 +82,8 @@ To import the StackGraph data into the Kubernetes installation, the same [MinIO 
 the backup/restore functionality will be used. 
 
 {% hint style="info" %}
-Note that the StackState automatic backup functionality should not be enabled until after the migration procedure has completed.
-{ endhint }
+Note that the [StackState automatic Kubernetes backup functionality](/setup/data-management/backup_restore/kubernetes_backup.md) should not be enabled until after the migration procedure has completed.
+{% endhint %}
 
 1. Enable the MinIO component by adding the following YAML fragment to the `values.yaml` file that is used to install StackState
 
@@ -193,8 +193,7 @@ Note that the StackState automatic backup functionality should not be enabled un
 
 ## Step 3 - Migrate telemetry data (ElasticSearch)
 
-Use the [reindex from remote\(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html) functionality to migrate
-ElasticSearch data from one instance to another.
+Use the [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html) functionality to migrate ElasticSearch data from one instance to another.
 
 Notes:
 * To access the ElasticSearch instance that runs as part of the Kubernetes installation for StackState, execute the following command:
