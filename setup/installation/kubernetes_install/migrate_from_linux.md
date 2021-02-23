@@ -193,7 +193,7 @@ Note that the [StackState automatic Kubernetes backup functionality](/setup/data
 
 ## Step 3 - Migrate telemetry data (ElasticSearch)
 
-Use the [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html) functionality to migrate ElasticSearch data from one instance to another.
+To migrate ElasticSearch data from the Linux install to the Kubernetes install, use the functionality [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html).
 
 Notes:
 * To access the ElasticSearch instance that runs as part of the Kubernetes installation for StackState, execute the following command:
