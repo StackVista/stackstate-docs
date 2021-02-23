@@ -31,11 +31,12 @@ Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) will
 
 Before you start the migration procedure, make sure you have the following information and tools available:
 
-* Access to the Linux machines running your old StackState installation.
-* Access to the Kubernetes cluster running your new StackState installation.
-* Access to the `values.yaml` file used to install your StackState installation on Kubernetes.
-* Access to the restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
-* The following tools:
+* Access to:
+    * The Linux machines running your old StackState installation.
+    * The Kubernetes cluster running your new StackState installation.
+    * The `values.yaml` file used to install your StackState installation on Kubernetes.
+    * The restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
+* Tools:
     * [helm \(helm.sh\)](https://helm.sh/)
     * [mc - the MinIO client \(min.io\)](https://docs.min.io/docs/minio-client-quickstart-guide.html)
 
