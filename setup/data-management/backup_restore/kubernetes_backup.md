@@ -4,7 +4,7 @@
 
 The Kubernetes setup for StackState has a built-in backup and restore mechanism that can be configured to store backups to the local clusters, to AWS S3 or to Azure Blob Storage.
 
-## Data backed up
+### Data backed up
 
 The following data can be automatically backed up:
 
@@ -18,7 +18,7 @@ The following data will NOT be backed up:
 * Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing StackState and restoring the backups.
 * Kubernetes logs - these are ephemeral.
 
-## Backup storage options
+### Storage options
 
 StackGraph and ElasticSearch backups are sent to an instance of [MinIO \(min.io\)](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3 \(min.io\)](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage \(min.io\)](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
 
