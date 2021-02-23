@@ -16,11 +16,9 @@ To migrate from the Linux install to the Kubernetes install of StackState, the f
 1. [Migrate StackState configuration and topology data \(StackGraph\)](#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes install.
 1. [Migrate telemetry data (ElasticSearch)](#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
 
-{% hint style="info" %}
 Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) will not be copied. 
-{% endhint %}
 
-After the migration: 
+**After the migration:**
 
 1. Run both instances of StackState side by side for a number of days to ensure that the new instance runs correctly.
 1. Stop the Linux install for StackState.
