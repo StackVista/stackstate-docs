@@ -4,7 +4,7 @@
 
 The Kubernetes setup for StackState has a built-in backup and restore mechanism that can be configured to store backups to the local clusters, to AWS S3 or to Azure Blob Storage.
 
-### Data backed up
+### Scope of backup
 
 The following data can be automatically backed up:
 
@@ -339,7 +339,3 @@ curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
   "acknowledged" : true
 }
 ```
-
-## See also
-
-- 
