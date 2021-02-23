@@ -1,33 +1,36 @@
 # Kubernetes backup
 
+## Overview
+
 The Kubernetes setup for StackState has a built-in backup and restore mechanism that can be configured to store backups to the local clusters, to AWS S3 or to Azure Blob Storage.
 
-## Scope
+## Data backed up
 
 The following data can be automatically backed up:
 
-* Configuration and topology data stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
-* Telemetry data stored in StackState's ElasticSearch instance is backed up when the Helm value `backup.elasticSearch.enabled` is set to `true`.
+* **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
+* **Telemetry data** stored in StackState's ElasticSearch instance is backed up when the Helm value `backup.elasticSearch.enabled` is set to `true`.
 
-The following data is NOT backed up by the mechanism:
+The following data will NOT be backed up:
 
-* In transit topology and telemetry updates stored in Kafka &mdash; these only have temporary value and would be of no use when a backup is restored
-* Master node negotiations state stored in ZooKeeper &mdash; this runtime state would be incorrect when restored and will be automatically determined at runtime
-* Kubernetes configuration state and raw persistent volume state &mdash; this state can be rebuilt by re-installing StackState and restoring the backups.
-* Kubernetes logs &mdash; these are ephemereal.
+* In transit topology and telemetry updates stored in Kafka - these only have temporary value and would be of no use when a backup is restored
+* Master node negotiations state stored in ZooKeeper - this runtime state would be incorrect when restored and will be automatically determined at runtime
+* Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing StackState and restoring the backups.
+* Kubernetes logs - these are ephemeral.
 
+## Backup storage options
 
-## Backup storage
-<a name="backup_storage"></a>
-
-StackGraph and ElasticSearch backups are sent to an instance of [MinIO](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
+StackGraph and ElasticSearch backups are sent to an instance of [MinIO \(min.io\)](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3 \(min.io\)](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage \(min.io\)](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
 
 The built-in MinIO instance can be configured to store the backups in three locations:
-1. AWS S3
-1. Azure Blob Storage
-1. Kubernetes storage
 
-### Backup to AWS S3
+* AWS S3
+* Azure Blob Storage
+* Kubernetes storage
+
+## Enable backups
+
+### AWS S3
 
 To enable backups to AWS S3 buckets, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
@@ -91,7 +94,7 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
 }
 ```
 
-### Backup to Azure Blob Storage
+### Azure Blob Storage
 
 To enable backups to an Azure Blob Storage account, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
@@ -109,11 +112,11 @@ backup:
     enabled: true
 ```
 
-Replace `AZURE_STORAGE_ACCOUNT_NAME` with the [Azure storage account name](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) and replace `AZURE_STORAGE_ACCOUNT_KEY` with the [Azure storage account key](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
+Replace `AZURE_STORAGE_ACCOUNT_NAME` with the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) and replace `AZURE_STORAGE_ACCOUNT_KEY` with the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
 The StackGraph and ElasticSearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticSearch.bucketName` respectively.
 
-### Backup to Kubernetes storage
+### Kubernetes storage
 
 To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
@@ -136,51 +139,51 @@ Replace `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` with the credentials that will b
 
 ## Configuration and topology data (StackGraph)
 
-The configuration snippets shown in [the section on backup storage](#backup_storage) enable daily StackGraph backups.
+The configuration snippets shown in [the section on backup storage](#backup-storage) enable daily StackGraph backups.
 
 The StackGraph backups are full backups, stored in a single file with the extension `.graph`. Each file contains a full backup and can be moved, copied or deleted as such.
 
 To disable StackGraph backups, set the Helm value `backup.stackGraph.enabled` to `false`.
 
-### StackGraph backup schedule
+### Backup schedule
 
-By default, the StackGraph backups are created daily at 3:00 AM server time. This can be changed with the Helm value `backup.stackGraph.schedule`, which is specified in [Kubernetes cron schedule syntax](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
+By default, the StackGraph backups are created daily at 3:00 AM server time. This can be changed with the Helm value `backup.stackGraph.schedule`, which is specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
 
-### StackGraph backup retention
+### Backup retention
 
-By default, the StackGraph backups are kept for 30 days. Because StackGraph backups are full backups, this can cause a lot of storage to be required. This can be changed with the Helm value `backup.stackGraph.backupRetentionTimeDelta`, which is specified in [Python timedelta format](https://docs.python.org/3/library/datetime.html#timedelta-objects).
+By default, the StackGraph backups are kept for 30 days. Because StackGraph backups are full backups, this can cause a lot of storage to be required. This can be changed with the Helm value `backup.stackGraph.backupRetentionTimeDelta`, which is specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
 
 ## Telemetry data (ElasticSearch)
 
-The configuration snippets shown in [the section on backup storage](#backup_storage) enable daily ElasticSearch snapshots.
+The configuration snippets shown in [the section on backup storage](#backup-storage) enable daily ElasticSearch snapshots.
 
 The ElasticSearch snapshots are incremental and stored in files with the extension `.dat`. The files in the ElasticSearch backup storage location should be treated as a single whole and can only be moved, copied or deleted as such.
 
 To disable ElasticSearch snapshots, set the Helm value `backup.elasticSearch.enabled` to `false`.
 
-### ElasticSearch snapshot schedule
+### Snapshot schedule
 
-By default, the ElasticSearch snapshots are created daily at 3:00 AM server time. This can be changed with the Helm value `backup.elasticSearch.schedule`, which is specified in in [ElastichSearch cron schedule syntax](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html).
+By default, the ElasticSearch snapshots are created daily at 3:00 AM server time. This can be changed with the Helm value `backup.elasticSearch.schedule`, which is specified in in [ElasticSearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html).
 
-### ElasticSearch snapshot retention
+### Snapshot retention
 
-By default, the ElasticSearch snapshots are kept for 30 days, with a minimum of 5 snapshots and a maximum of 30 snapshots. This can be changed with the Helm values `backup.elasticSearch.snapshotRetentionExpireAfter`, which is specified in in [ElasticSearch time units](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units), `backup.elasticSearch.snapshotRetentionMinCount` and `backup.elasticSearch.snapshotRetentionMaxCount`.
+By default, the ElasticSearch snapshots are kept for 30 days, with a minimum of 5 snapshots and a maximum of 30 snapshots. This can be changed with the Helm values `backup.elasticSearch.snapshotRetentionExpireAfter`, which is specified in in [ElasticSearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units), `backup.elasticSearch.snapshotRetentionMinCount` and `backup.elasticSearch.snapshotRetentionMaxCount`.
 
-Note that, by default, the retention task itself [runs daily at 1:30 AM UTC](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/slm-settings.html#slm-retention-schedule). If you set snapshots to expire faster than within a day (e.g. for testing purposes), you will need to change the schedule for the retention task.
+Note that, by default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/slm-settings.html#slm-retention-schedule). If you set snapshots to expire faster than within a day (e.g. for testing purposes), you will need to change the schedule for the retention task.
 
-### ElasticSearch snapshot indices
+### Snapshot indices
 
-By default, a snapshot is created for all ElasticSearch indices. This can be changed with the Helm value `backup.elasticSearch.indices`, which is specified in [JSON array format](https://www.w3schools.com/js/js_json_arrays.asp)
+By default, a snapshot is created for all ElasticSearch indices. This can be changed with the Helm value `backup.elasticSearch.indices`, which is specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp)
 
-## Restoring backups and snapshots
+## Restore backups and snapshots
 
-Scripts to list and restore can be found in the [restore directory of the StackState Helm chart repository](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore). To use the scripts, download them from the GitHub site or check out the repository.
+Scripts to list and restore can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore). To use the scripts, download them from the GitHub site or check out the repository.
 
 Before you use the scripts, ensure that:
 1. You have the `kubectl` binary installed.
 2. The `kubectl` binary is configured to connect to the Kubernetes cluster and the namespace within that cluster that run StackState.
 
-### Listing StackGraph backups
+### List StackGraph backups
 
 To list the StackGraph backups, execute the following command:
 
@@ -212,7 +215,7 @@ The timestamp when the backup was taken is part of the backup name.
 The lines that starts with `Error from server (BadRequest):` are expected. They appear when the script is waiting for the pod to start.
 {% endhint %}
 
-### Restoring a StackGraph backup
+### Restore a StackGraph backup
 
 To restore a StackGraph backup, select a backup name and pass it as the first parameter in the following command like:
 
@@ -246,7 +249,7 @@ The lines that starts with `WARNING:` are expected. They are generated by Groovy
 {% endhint %}
 
 
-### Listing ElasticSearch snapshots
+### List ElasticSearch snapshots
 
 To list the ElasticSearch snapshots, execute the following command:
 
@@ -272,16 +275,16 @@ job.batch "elasticsearch-list-snapshots-20210224t133115" deleted
 
 The timestamp when the backup was taken is part of the backup name.
 
-### Restoring an ElasticSearch snapshot
+### Restore an ElasticSearch snapshot
 
-To restore an ElasticSearch snapshot, selet a snapshot name and pass it as the first parameter in the following command line:
+To restore an ElasticSearch snapshot, select a snapshot name and pass it as the first parameter in the following command line:
 
 ```bash
 ./restore/restore-elasticsearch-snapshot.sh sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk
 ```
 
 {% hint style="danger" %}
-When a snapshot is restored, existing indices will NOT be overwritten. Use ElasticSearch's [Delete index API](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See below for some examples.
+When a snapshot is restored, existing indices will NOT be overwritten. Use ElasticSearch's [Delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See below for some examples.
 {% endhint %}
 
 The output should look like this:
@@ -309,9 +312,9 @@ Waiting for job to start...
 job.batch "elasticsearch-restore-20210229t152530" deleted
 ```
 
-The indices restored are listed in the output, as well as the number of failed and succesful restore actions.
+The indices restored are listed in the output, as well as the number of failed and successful restore actions.
 
-### Deleting ElasticSearch indices
+### Delete ElasticSearch indices
 
 To delete existing ElasticSearch indices so that a snapshot can be restored, follow these steps.
 
@@ -335,3 +338,7 @@ curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
   "acknowledged" : true
 }
 ```
+
+## See also
+
+- 
