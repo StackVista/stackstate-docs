@@ -91,7 +91,7 @@ For a Linux installation, the trust store and password need to be added to the J
 
 3. Finally, restart StackState to use the new settings:
     ```
-    systemcl restart stackstate
+    systemctl restart stackstate
     ```
 
 ## Retrieve certificate via the browser
@@ -103,5 +103,5 @@ The certificate can be directly downloaded from the Chrome browser. The steps in
 3. Click on **Certificate**.
 4. Select **Details**.
 5. Select **Export**.
-6. Save using the default export file type (Base64 ASCII encoded)
+6. Save using the default export file type (Base64 ASCII encoded).
   
