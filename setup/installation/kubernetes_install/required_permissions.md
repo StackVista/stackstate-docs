@@ -22,7 +22,7 @@ cluster-role:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that if automatic creation of cluster-wide resources is disabled the Autonomous Anomaly Detector will NOT be able to authenticate against the running StackState installation unless you [manually create the cluster-wide resources](required_permissions.md#manually-create-the-cluster-wide-resources). 
+Note that if automatic creation of cluster-wide resources is disabled the Autonomous Anomaly Detector will NOT be able to authenticate against the running StackState installation unless you [manually create the cluster-wide resources](required_permissions.md#manually-create-cluster-wide-resources). 
 {% endhint %}
 
 ### Manually create cluster-wide resources
