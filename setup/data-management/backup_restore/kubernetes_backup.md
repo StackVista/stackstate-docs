@@ -155,7 +155,7 @@ By default, the StackGraph backups are created daily at 03:00 AM server time.
 
 The backup schedule can be configured using the Helm value:
  
- * `backup.stackGraph.schedule` - specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax)
+ * `backup.stackGraph.schedule` - in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax)
 
 ### Backup retention
 
@@ -163,7 +163,7 @@ By default, the StackGraph backups are kept for 30 days. As StackGraph backups a
 
 The backup retention delta can be configured using the Helm value:
  
- * `backup.stackGraph.backupRetentionTimeDelta` - specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects)
+ * `backup.stackGraph.backupRetentionTimeDelta` - in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects)
 
 ## Telemetry data (Elasticsearch)
 
@@ -181,9 +181,7 @@ To disable Elasticsearch snapshots, set the Helm value `backup.elasticSearch.ena
 
 By default, Elasticsearch snapshots are created daily at 03:00 AM server time. 
 
-The backup schedule can be configured using the Helm value:
- 
- * `backup.elasticSearch.schedule` - specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html)
+The backup schedule can be configured using the Helm value `backup.elasticSearch.schedule`, specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html)
 
 ### Snapshot retention
 
@@ -191,7 +189,7 @@ By default, Elasticsearch snapshots are kept for 30 days, with a minimum of 5 sn
 
 The retention time and number of snapshots kept can be configured using the Helm values:
  
- * `backup.elasticSearch.snapshotRetentionExpireAfter` - specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units)
+ * `backup.elasticSearch.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units)
  * `backup.elasticSearch.snapshotRetentionMinCount` 
  * `backup.elasticSearch.snapshotRetentionMaxCount`
 
@@ -203,9 +201,7 @@ By default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)]
 
 By default, a snapshot is created for all Elasticsearch indices. 
 
-This indices for which a snapshot is created can be configured using the Helm value: 
-
-* `backup.elasticSearch.indices` - specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp)
+This indices for which a snapshot is created can be configured using the Helm value `backup.elasticSearch.indices`, specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp)
 
 ## Restore backups and snapshots
 
