@@ -4,11 +4,13 @@
 
 All of StackState's own components can run without any extra permissions. However in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
-## Configure ClusterRole and ClusterRoleBindings
-If you want to run the Autonomous Anomaly Detector, or prepare your Kubernetes cluster for running it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. If you're not a Kubernetes administrator, creating these cluster-wide resources is often prohibited.
+## StackState Autonomous Anomaly Detector (AAD)
 
-### Disable automatically creating cluster-wide resources
-In order to disable automatically creating the cluster-wide resources together with the installation of StackState, add the following section to the `values.yaml` file used to install StackState:
+In order to run the [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md), or prepare your Kubernetes cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes administrator.
+
+### Disable automatic creation of cluster-wide resources
+
+The automatic creation of cluster-wide resources during installation of StackState can be disabled by adding the following section to the `values.yaml` file used to install StackState:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -20,14 +22,15 @@ cluster-role:
 {% endtabs %}
 
 {% hint style="info" %}
-If this is disabled, the Autonomous Anomaly Detector will not be able to authenticate against the running StackState installation, unless you [manually create the cluster-wide resources](required_permissions.md#manually-creating-the-cluster-wide-resources)
+Note that if automatic creation of cluster-wide resources is disabled, you will need to [manually create the cluster-wide resources](required_permissions.md#manually-create-the-cluster-wide-resources) for the Autonomous Anomaly Detector to authenticate against the running StackState installation.
 {% endhint %}
 
-### Manually creating the cluster-wide resources
-If you need to manually create the cluster-wide resources, ask your Kubernetes administrator to create the below 3 resources in the Kubernetes cluster.
+### Manually create the cluster-wide resources
+
+If you need to manually create the cluster-wide resources, ask your Kubernetes administrator to create the 3 resources below in the Kubernetes cluster.
 
 {% hint style="info" %}
-Ensure that for both `ClusterRoleBinding` resources you specify the correct namespace for the bound `ServiceAccount`
+Ensure that you specify the correct namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources.
 {% endhint %}
 
 {% tabs %}
@@ -45,6 +48,8 @@ rules:
   verbs:
   - list
 ```
+{% endtab %}
+{% endtabs %}
 
 {% tabs %}
 {% tab title="clusterrolebinding-authentication.yaml" %}
