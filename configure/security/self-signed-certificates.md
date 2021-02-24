@@ -12,7 +12,7 @@ You need to have the custom TLS certificate available. If you don't have that, y
 
 To convert an existing TLS certificate file to the format that is needed by StackState, you will need to use the keytool tool and the `cacerts` file that are included in the JVM (Java Virtual Machine) installation. You can run this on any machine, regardless of the type of operating system. 
 
-If you don't have the JVM installed on your computer, you can also [use a JVM docker image](#docker-java-virtual-machine) instead.
+If you don't have the JVM installed on your computer, you can also [use a JVM docker image](#using-a-docker-jvm) instead.
 
 ### Using an installed JVM
 
@@ -33,7 +33,7 @@ With the JVM installed on your computer and the certificate saved as a file `sit
    keytool -list -keystore custom_cacerts
    ```
 
-### Using Docker JVM
+### Using a Docker JVM
 
 If you do not have JVM installed on your computer, you can use a JVM Docker image. The certificate should be retrieved and saved as a file `site.cert`.
 
