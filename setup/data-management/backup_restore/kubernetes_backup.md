@@ -159,7 +159,7 @@ The backup schedule can be configured using the Helm value `backup.stackGraph.sc
 
 By default, the StackGraph backups are kept for 30 days. As StackGraph backups are full backups, this can require a lot of storage. 
 
-The backup retention delta can be configured using the Helm value `backup.stackGraph.backupRetentionTimeDelta, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
+The backup retention delta can be configured using the Helm value `backup.stackGraph.backupRetentionTimeDelta`, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
 
 ## Telemetry data (Elasticsearch)
 
