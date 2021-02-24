@@ -4,7 +4,7 @@
 
 All of StackState's own components can run without any extra permissions. However in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
-## StackState Autonomous Anomaly Detector (AAD)
+## Autonomous Anomaly Detector (AAD)
 
 In order to run the [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md), or prepare your Kubernetes cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes administrator.
 
