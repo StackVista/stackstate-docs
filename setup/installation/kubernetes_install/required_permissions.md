@@ -22,10 +22,12 @@ cluster-role:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that if automatic creation of cluster-wide resources is disabled, you will need to [manually create the cluster-wide resources](required_permissions.md#manually-create-the-cluster-wide-resources) for the Autonomous Anomaly Detector to authenticate against the running StackState installation.
+Note that if automatic creation of cluster-wide resources is disabled the Autonomous Anomaly Detector to authenticate against the running StackState installation.
+
+You will need to [manually create the cluster-wide resources](required_permissions.md#manually-create-the-cluster-wide-resources). 
 {% endhint %}
 
-### Manually create the cluster-wide resources
+### Manually create cluster-wide resources
 
 If you need to manually create the cluster-wide resources, ask your Kubernetes administrator to create the 3 resources below in the Kubernetes cluster.
 
@@ -197,4 +199,5 @@ elasticsearch:
 
 ## See also
 
+- [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md)
 - [Install StackState on Kubernetes](/setup/installation/kubernetes_install/install_stackstate.md)
