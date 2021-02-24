@@ -185,9 +185,9 @@ The backup schedule can be configured using the Helm value `backup.elasticSearch
 
 By default, Elasticsearch snapshots are kept for 30 days, with a minimum of 5 snapshots and a maximum of 30 snapshots. 
 
-The retention time and number of snapshots kept can be configured using the Helm values:
+The retention time and number of snapshots kept can be configured using the following Helm values:
  
- * `backup.elasticSearch.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units)
+ * `backup.elasticSearch.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units).
  * `backup.elasticSearch.snapshotRetentionMinCount` 
  * `backup.elasticSearch.snapshotRetentionMaxCount`
 
