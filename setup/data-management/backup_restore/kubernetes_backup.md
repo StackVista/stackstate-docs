@@ -153,15 +153,13 @@ To disable StackGraph backups, set the Helm value `backup.stackGraph.enabled` to
 
 By default, the StackGraph backups are created daily at 03:00 AM server time. 
 
-The backup schedule can be configured using the Helm value:
- 
- * `backup.stackGraph.schedule` - in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax)
+The backup schedule can be configured using the Helm value `backup.stackGraph.schedule`, specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
 
 ### Backup retention
 
 By default, the StackGraph backups are kept for 30 days. As StackGraph backups are full backups, this can require a lot of storage. 
 
-The backup retention delta can be configured using the Helm value `backup.stackGraph.backupRetentionTimeDelta` - in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
+The backup retention delta can be configured using the Helm value `backup.stackGraph.backupRetentionTimeDelta, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
 
 ## Telemetry data (Elasticsearch)
 
