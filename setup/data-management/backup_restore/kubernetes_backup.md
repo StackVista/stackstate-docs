@@ -145,7 +145,7 @@ Configuration and topology data (StackGraph) backups are full backups, stored in
 
 The configuration snippets provided in the section [enable backups](#enable-backups) will enable daily StackGraph backups.
 
-## Disable backups
+### Disable backups
 
 To disable StackGraph backups, set the Helm value `backup.stackGraph.enabled` to `false`.
 
@@ -155,7 +155,7 @@ By default, the StackGraph backups are created daily at 03:00 AM server time.
 
 The backup schedule can be configured using the Helm value:
  
- * `backup.stackGraph.schedule` (specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax))
+ * `backup.stackGraph.schedule` - specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax)
 
 ### Backup retention
 
@@ -163,7 +163,7 @@ By default, the StackGraph backups are kept for 30 days. As StackGraph backups a
 
 The backup retention delta can be configured using the Helm value:
  
- * `backup.stackGraph.backupRetentionTimeDelta` (specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects))
+ * `backup.stackGraph.backupRetentionTimeDelta` - specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects)
 
 ## Telemetry data (Elasticsearch)
 
@@ -183,7 +183,7 @@ By default, Elasticsearch snapshots are created daily at 03:00 AM server time.
 
 The backup schedule can be configured using the Helm value:
  
- * `backup.elasticSearch.schedule` (specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html))
+ * `backup.elasticSearch.schedule` - specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html)
 
 ### Snapshot retention
 
@@ -191,7 +191,7 @@ By default, Elasticsearch snapshots are kept for 30 days, with a minimum of 5 sn
 
 The retention time and number of snapshots kept can be configured using the Helm values:
  
- * `backup.elasticSearch.snapshotRetentionExpireAfter` (specified in in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units))
+ * `backup.elasticSearch.snapshotRetentionExpireAfter` - specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units)
  * `backup.elasticSearch.snapshotRetentionMinCount` 
  * `backup.elasticSearch.snapshotRetentionMaxCount`
 
@@ -205,7 +205,7 @@ By default, a snapshot is created for all Elasticsearch indices.
 
 This indices for which a snapshot is created can be configured using the Helm value: 
 
-* `backup.elasticSearch.indices` (specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp))
+* `backup.elasticSearch.indices` - specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp)
 
 ## Restore backups and snapshots
 
@@ -244,14 +244,16 @@ job.batch "stackgraph-list-backups-20210222t111942" deleted
 
 The timestamp when the backup was taken is part of the backup name.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Lines in the output that start with `Error from server (BadRequest):` are expected. They appear when the script is waiting for the pod to start.
 {% endhint %}
 
 ### Restore a StackGraph backup
 
-{% hint style="info" %}
-When a backup is restored, the existing data in the StackGraph database will be overwritten. Only execute the restore command when you are sure want to restore the backup.
+{% hint style="warning" %}
+**When a backup is restored, the existing data in the StackGraph database will be overwritten.**
+
+Only execute the restore command when you are sure that you want to restore the backup.
 {% endhint %}
 
 To restore a StackGraph backup, select a backup name and pass it as the first parameter in the following command:
