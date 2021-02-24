@@ -14,7 +14,7 @@ To convert an existing TLS certificate file to the format that is needed by Stac
 
 If you don't have the JVM installed on your computer, you can also [use a JVM docker image](#docker-java-virtual-machine) instead.
 
-### With Java Virtual Machine installed
+### Using an installed JVM
 
 With the JVM installed on your computer and the certificate saved as a file `site.cert`, you can create a new trust store by taking the JVM's trust store and adding the extra certificate.
 
@@ -33,7 +33,7 @@ With the JVM installed on your computer and the certificate saved as a file `sit
    keytool -list -keystore custom_cacerts
    ```
 
-### Docker Java Virtual Machine
+### Using Docker JVM
 
 If you do not have JVM installed on your computer, you can use a JVM Docker image. The certificate should be retrieved and saved as a file `site.cert`.
 
