@@ -10,7 +10,21 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.2.x
 
-### 4.2.3
+### v4.2.4
+
+**Improvements**
+
+* It is now possible to configure whether ClusterRoles and ClusterRoleBindings need to be installed by the Helm chart using the `cluster-role.enabled` flag. STAC-11749
+* Added support for interacting with external systems using self-signed certificates. STAC-11738
+* Added documentation and support for backup and restore for self-hosted Kubernetes setup. STAC-11548
+
+**Bugfixes**
+
+* Fix issue blocking the sync service and not letting process topology any more. STAC-12116
+* Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
+* Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
+
+### v4.2.3
 
 **Improvements**
 
@@ -23,16 +37,16 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 - Fixed issue that prevented traces from being ingested into StackState. STAC-11733
 - Fixed issue that caused the StackState helm chart to fail with custom image registries. STAC-11717
-- Fixed issue that prevented copy_images.sh script from working with containers without a docker.io prefix. STAC-11697
+- Fixed issue that prevented `copy_images.sh` script from working with containers without a docker.io prefix. STAC-11697
 - Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
 
-### 4.2.2
+### v4.2.2
 
 **Bug fixes**
 
 - Fix for Stackstate helm chart to include correct version of AAD sub chart. STAC-11654
 
-### 4.2.1
+### v4.2.1
 
 **Improvements**
 
@@ -42,7 +56,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 - Fixed issue that prevents StackState distributed Kubernetes installation from starting when the database initialisation process fails due to a pod restart. STAC-11618
 
-### 4.2.0
+### v4.2.0
 
 **Features**
 
@@ -56,7 +70,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- Fixed issue where duplicate negative ids in a component template leads to lastUpdateTimstampField missing. STAC-11495
+- Fixed issue where duplicate negative ids in a component template leads to `lastUpdateTimstampField` missing. STAC-11495
 - Fix issue where kafkaToES would not log when it is dropping data. STAC-11434
 - Fixed issue where kafkaToES would not adhere to the index size boundaries when historic data is stored. STAC-11433
 - Upload of a new StackPack now returns more details on why an uploaded StackPack is not valid. STAC-11094
@@ -74,14 +88,14 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.1.x
 
-### 4.1.3
+### v4.1.3
 
 **Bug fixes**
 
 - Fixed issue that caused the CLI to fail to run on systems with an older GLIBC library. STAC-10609
 - Fixed issue that prevented historical data from displaying in the Health Forecast Report. STAC-11207
 
-### 4.1.2
+### v4.1.2
 
 **Bug fixes**
 
@@ -93,14 +107,14 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 - Introduced configuration setting `stackstate.topologyQueryService.maxLoadedElementsPerQuery` configuration to tweak the amount of loaded elements we allow during query execution. STAC-11009
 
-### 4.1.1
+### v4.1.1
 
 **Bug fixes**
 
 - Fixed issue that prevented users from deleting certain metric streams. STAC-10623
 - Fixed issue that caused an error when StackState attempted to connect to an LDAP server using LDAPS on certain versions of the JVM. STAC-10606
 
-### 4.1.0
+### v4.1.0
 
 **Features**
 
@@ -130,28 +144,28 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.0.x
 
-### 4.0.4
+### v4.0.4
 
 **Bug fixes**
 
-- Fix issue where the readcache sometimes produces the wrong data, causing intermittent failures in state and view calculation -- STAC-10328
+- Fix issue where the readcache sometimes produces the wrong data, causing intermittent failures in state and view calculation. STAC-10328
 
-### 4.0.3
-
-**Bug fixes**
-
-- Fixed issue that prevented time travel under certain circumstances - STAC-9551
-
-### 4.0.2
+### v4.0.3
 
 **Bug fixes**
 
-- Support Splunk token-based authentication for Splunk versions 7.3 and later -- STAC-9032
-- Fixed bug that prevented the health check metric chart from opening -- STAC-9251
-- Fixed bug that caused multi param propagation function values to be lost after a component update -- STAC-9582
-- Fixed bug that caused the log to be spammed with messages for a deleted checkstate -- STAC-9323
+- Fixed issue that prevented time travel under certain circumstances. STAC-9551
 
-### 4.0.1
+### v4.0.2
+
+**Bug fixes**
+
+- Support Splunk token-based authentication for Splunk versions 7.3 and later. STAC-9032
+- Fixed bug that prevented the health check metric chart from opening. STAC-9251
+- Fixed bug that caused multi param propagation function values to be lost after a component update. STAC-9582
+- Fixed bug that caused the log to be spammed with messages for a deleted checkstate. STAC-9323
+
+### v4.0.1
 
 **Bug fixes**
 
@@ -159,7 +173,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Fix some cases when checks on new or updated components would fail to start and remain in an "Unknown" state. STAC-7949
 - Fix an issue that in some cases prevented properly storing security subjects from CLI. STAC-7569
 
-### 4.0.0
+### v4.0.0
 
 **Features**
 
@@ -172,13 +186,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- This release deprecates the withCauseOf stql construct. See https://l.stackstate.com/R8opqs for more info on how to migrate existing view. STAC-7884.
+- This release deprecates the withCauseOf stql construct. See [https://l.stackstate.com/R8opqs](https://l.stackstate.com/R8opqs) for more info on how to migrate existing view. STAC-7884.
 - The groovy sandboxing has been improved to cover a number of edge cases.
 - The groovy sandbox is stricter and favors security at the cost of flexibility
-  All accessible classes and packages are listed in the <stackstate dir>/etc/sandbox.conf. STAC-5032
+  All accessible classes and packages are listed in the `<stackstate dir>/etc/sandbox.conf`. STAC-5032
 - Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 - Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
-- processmanager-properties.conf was merged into processmanager.conf for both stackstate and stackgraph. If you have changes to either one of those configuration files, you changes will need to be reaplied after upgrade. STAC-8473
-- The authentication for the admin API (port 7071 by default) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api (by default not) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the application_stackstate.conf.example file for an explanation on how to do both. STAC-7993
+- `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, you changes will need to be reaplied after upgrade. STAC-8473
+- The authentication for the admin API (port 7071 by default) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api (by default not) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
 - It is now possible to configure a proxy for event handlers, see https://l.stackstate.com/FcUps8 for how to set this up. STAC-7784
 - Allow STS process manager to perform HTTPS health check. STAC-7718

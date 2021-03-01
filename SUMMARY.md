@@ -38,7 +38,6 @@
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
   * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
-  * [StackState Agent](setup/upgrade-stackstate/sts-agent.md)
   * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 
 ## 👤 Use
