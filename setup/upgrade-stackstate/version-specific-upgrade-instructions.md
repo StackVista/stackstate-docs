@@ -37,10 +37,17 @@ No manual action needed.
 
 {% endtab %}
 {% endtabs %}
+
+
 ### Upgrade to v4.2.x
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+
+####  v4.2.4
+
+No manual action needed.
+
 ####  v4.2.3
 Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If your StackState authentication was customized, it will need to be updated. To verify this, check if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
 
@@ -57,6 +64,10 @@ Refer to the [Authentication configuration documentation](/configure/security/au
 {% endtab %}
 
 {% tab title="Linux" %}
+
+####  v4.2.4
+
+No manual action needed.
 
 ####  v4.2.3
 
