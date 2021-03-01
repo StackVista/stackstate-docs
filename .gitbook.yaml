@@ -181,3 +181,9 @@ redirects:
   configure/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/authentication: ./configure/security/authentication/README.md
+
+# from custom sync stackpack
+
+  configure/sync/: ./configure/topology/sync.md
+  develop/agent_check/how_to_develop_agent_checks/: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
+  configure/topology_synchronization/: ./configure/topology/topology_synchronization.md

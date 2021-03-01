@@ -145,7 +145,7 @@ The AWS integration does not retrieve any Events data.
 
 #### Metrics
 
-Metrics data is pulled at a configured interval directly from AWS by the StackState ClourWatch plugin. Retrieved metrics are mapped onto the associated topology component.
+Metrics data is pulled at a configured interval directly from AWS by the StackState CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
 
 #### Topology
 
