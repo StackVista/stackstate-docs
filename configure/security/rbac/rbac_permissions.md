@@ -131,7 +131,7 @@ See also the full list of [system permissions](#system-permissions).
 
 ## Permissions by action
 
-### Page access permissions
+### Page access
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
 
@@ -150,7 +150,7 @@ The permissions in the table below are required to access specific pages in the 
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Topology perspective permissions
+### Topology perspective
 
 The permissions listed below are required to work with topology in StackState:
 
@@ -164,7 +164,18 @@ The permissions listed below are required to work with topology in StackState:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### View management permissions
+### Component/relation details
+
+| Action | Permission | Guest | Power-user | Administrator |
+|:--- |:--- |
+| **Telemetry streams**<br />Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| **Health checks**<br />Add a new health check.<br />Edit / delete an existing health check. <br />Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| **Elements**<br />Delete an element or element template.<br /> |  `manage-topology-elements` | - | ✅ | ✅ |
+| **Elements**<br />Edit an element or element template.<br /> |  `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings`  | - | ✅ | ✅ |
+
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+
+### View management
 
 The permissions listed below can be set to access and work with views:
 
@@ -179,7 +190,7 @@ The permissions listed below can be set to access and work with views:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Analytics environment permissions
+### Analytics environment
 
 The permissions listed below are required to access and execute scripts in the StackState UI analytics environment:
 
@@ -191,18 +202,7 @@ The permissions listed below are required to access and execute scripts in the S
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Element details pane permissions
-
-| Action | Permission | Guest | Power-user | Administrator |
-|:--- |:--- |
-| **Telemetry streams**<br />Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ |
-| **Health checks**<br />Add a new health check.<br />Edit / delete an existing health check. <br />Without this permission the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
-| **Elements**<br />Delete an element or element template.<br /> |  `manage-topology-elements` | - | ✅ | ✅ |
-| **Elements**<br />Edit an element or element template.<br /> |  `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings`  | - | ✅ | ✅ |
-
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
-
-### Settings page permissions
+### Settings page
 
 The permissions listed below are required to access and manage settings in the StackState UI:
 
