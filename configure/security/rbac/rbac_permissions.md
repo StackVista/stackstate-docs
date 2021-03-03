@@ -85,6 +85,10 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 ## All permissions in StackState
 
+### System permissions
+
+System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system wide.
+
 | Permission | Purpose | Guest | Power-user | Administrator |
 | :--- | :--- | :---: | :---: | :---: |
 | `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ |
@@ -96,9 +100,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | `access-analytics` | Access the Analytics page. | - | ✅ | ✅ |
 | `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ |
 | `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
-| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
 | `create-views` | Create views. | - | ✅ | ✅ |
-| `delete-view` | Delete views. | - | ✅ | ✅ |
 | `execute-component-templates` | Invoke a component template API extension \(**internal use only**\). | - | ✅ | ✅ |
 | `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ |
 | `execute-scripts` | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
@@ -110,11 +112,22 @@ Of course it is also possible to leave the defaults in place, for example the `g
 | `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ |
 | `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
 | `read-settings` | Access the Settings page. | - | ✅ | ✅ |
-| `save-view` | Save views. | - | ✅ | ✅ |
 | `update-settings` | Update settings. | - | ✅ | ✅ |
 | `execute-restricted-scripts` | Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
 | `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ |
 | `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ |
+
+### View permissions
+
+View permissions allow for CRUD operations with StackState Views. They can be set for all views (`Everything`) or for a specific view.
+
+| Permission | Purpose | Guest | Power-user | Administrator |
+| :--- | :--- | :---: | :---: | :---: |
+| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
+| `delete-view` | Delete views. | - | ✅ | ✅ |
+| `save-view` | Save views. | - | ✅ | ✅ |
+
+See also the full list of [system permissions](#system-permissions).
 
 ## Permissions by action
 
@@ -151,26 +164,18 @@ The permissions listed below are required to work with topology in StackState:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### View permissions
+### View management permissions
 
-The permissions listed below can be set for all views (when granted on `Everything`) or for a specific view (when granted on a view):
+The permissions listed below can be set to access and work with views:
 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
 | Access all views (`Everything`) or a specific view.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
-| Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| `save-view` | - | ✅ | ✅ |
-| Delete a view.<br />For all views (`Everything`) or for a specific view.  | `delete-view` | - | ✅ | ✅ |
-
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
-
-#### Additional system permissions for working with views
-
-| Action | Permission | Guest | Power-user | Administrator |
-|:--- |:--- |
 | Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
 | Add or edit event handlers for all views.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.<br />Example: [Grant permissions to manage event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
 | Create and save views.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
-
+| Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| `save-view` | - | ✅ | ✅ |
+| Delete a view.<br />For all views (`Everything`) or for a specific view.  | `delete-view` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
