@@ -14,7 +14,7 @@ Permissions are stored in StackGraph. This means that:
 There are two types of permission in StackState: 
 
 - **System permissions** - Scope user capabilities, such as access to settings, query execution and scripting.
-- **View permissions** - Allow for CRUD operations with StackState Views.
+- **View permissions** - Allow for CRUD operations on StackState Views.
 
 ## Predefined roles
 
@@ -119,7 +119,7 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 ### View permissions
 
-View permissions allow for CRUD operations with StackState Views. They can be set for all views (`Everything`) or for a specific view.
+View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`Everything`).
 
 | Permission | Purpose | Guest | Power-user | Administrator |
 | :--- | :--- | :---: | :---: | :---: |
@@ -181,12 +181,12 @@ The permissions listed below can be set to access and work with views:
 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
-| Access all views (`Everything`) or a specific view.<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
+| Access a specific view or all views (`Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
 | Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
 | Add or edit event handlers for all views.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.<br />Example: [Grant permissions to manage event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
 | Create and save views.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
-| Edit a view or "save view as".<br />For all views (`Everything`) or for a specific view.| `save-view` | - | ✅ | ✅ |
-| Delete a view.<br />For all views (`Everything`) or for a specific view.  | `delete-view` | - | ✅ | ✅ |
+| Edit a view or "save view as".<br />For a specific view or all views (`Everything`).| `save-view` | - | ✅ | ✅ |
+| Delete a view.<br />For a specific view or all views (`Everything`).  | `delete-view` | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
