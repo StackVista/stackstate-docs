@@ -36,7 +36,7 @@ The query for this view is the same as for the others, but without any prefix:
 'domain = "Customer1"'
 ```
 
-![Limited view](../../../.gitbook/assets/v42_esx1perm%20%282%29.png)
+![Limited view](../../../.gitbook/assets/v42_esx1perm.png)
 
 Query with the prefix for this view is:
 
