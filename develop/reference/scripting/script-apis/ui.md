@@ -16,7 +16,7 @@ Returns the baseUrl of the StackState instance as configured in the `application
 
 Return the base URL from the StackState configuration.
 
-```text
+```groovy
 UI.baseUrl()
 ```
 
@@ -30,23 +30,72 @@ No arguments.
 
 **Return type:**
 
-CreateUrlBuilder
+PerspectiveUrlBuilder
 
 **Builder methods:**
 
-* `view()` - returns a `ViewUrlBuilder` for the specified view with the following methods:
+* `view(view)` or `explore()` - returns a `PerspectiveUrlBuilder` for either the specified view or the exploration mode with the following methods:
   * `at(time: instant)` -  specifies a [time](time.md) for which the view query should be executed.
+  * `topologyQuery(query: String)` - specifies a topology query
   * `withComponent(component)` - creates a view URL with the specified component in focus.
+  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the telemetry perspective 
+  
+  * `eventsPerspective()` - points the URL to the Events perspective
+  * `tracesPerspective()` - points the URL to the Traces perspective
+  * `telemetryPerspective()` - points the URL to the Telemetry perspective 
+  * `topologyPerspective()` - points the URL to the Topology perspective 
+  
+  * `noRootCause()` - disable root cause analysis for the topology perspective
+  * `rootCauseOnly()` - show root cause on the topology perspective
+  * `fullCauseTree()` - show full cause tree on the topology perspective
+  
+  * `topologyListMode()` - use list mode on topology perspective
+  * `topologyGraphMode()` - use graph mode on topology perspective
+  
+  * `withEventType(value: String)` - adds type to events filtering
+  * `withEventTag(value: String)` - adds tag to events filtering
+  * `withEventCategory(value: String)` - adds categories to events filtering
+  * `withEventSource(value: String)` - adds a source to events filtering
+  
+  * `withTraceTag(value: String)` - adds tag to traces filtering
+  * `withTraceSpanType(value: String)` - adds span type to traces filtering
+  
+  * `domainGrid(enabled: Boolean)` - enables or disables domain grid for the topology in graph mode 
+  * `layerGrid(enabled: Boolean)` - enables or disables layer grid for the topology in graph mode 
+  
+  * `noGrouping()` - disables grouping of components on the topology in graph mode
+  * `autoGrouping()` - enables automatic grouping of components on the topology in graph mode
+  * `groupingByTypeAndState()` or `groupingByTypeAndState(minimumGroupSize: Int)` - enables grouping of components on the topology in graph mode by component type and state and specifies a minimum number of components to form a group
+  * `groupingByTypeStateAndRelations()` or `groupingByTypeStateAndRelations(minimumGroupSize: Int)` - enables grouping of components on the topology in graph mode by component type, state and relations and specifies a minimum number of components to form a group
+  
+  * `showIndirectRelations()` - enables rendering of indirect relations on the topology perspective
+    
   * `url()` - gives the final URL of the view.
 
 **Examples:**
 
 Create a URL to a view at a specific time.
 
-```text
+```groovy
 View.getAll().then { views ->
     UI.createUrl().view(views[0]).at('-15m').url()
 }
+```
+
+Create a URL to a view focussing on a component.
+
+```groovy
+View.getAll().then { views ->
+    Component.withId(component).get().then { component ->
+        UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
+    }
+}
+```
+
+Create a URL to the topology perspective explore mode with filters in place to show all components from the production environment that are in critical state and showing the full root cause tree
+
+```groovy
+UI.createUrl().explore().topologyQuery('environment IN ("Production") AND healthstate IN ("CRITICAL")').fullCauseTree().url()
 ```
 
 ## Function: `redirectToURL`
@@ -65,7 +114,7 @@ Opens a new tab in the user's browser to some URL.
 
 Open the stackstate.com website in a new tab in the browser.
 
-```text
+```groovy
 UI.redirectToUrl("http://wwww.stackstate.com")
 ```
 
@@ -87,7 +136,7 @@ Shows a report in the user-interface. The user-interface will open a dialog with
 
 The following example will show a nice shopping list report:
 
-```text
+```groovy
 UI.showReport(
     "My shopping list",
     """# To buy
@@ -118,17 +167,6 @@ If the user is currently in an unsaved view, the user receives a prompt dialog a
 
 Redirects the user-interface to show the Azure topology.
 
-```text
+```groovy
 UI.showTopologyByQuery('domain IN ("Azure")')
 ```
-
-Create a URL to a view focussing on a component.
-
-```text
-View.getAll().then { views ->
-    Component.withId(component).get().then { component ->
-        UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
-    }
-}
-```
-

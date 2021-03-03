@@ -2,7 +2,7 @@
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
+In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](/setup/installation/kubernetes_install/migrate_from_linux.md).
 {% endhint %}
 
 StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../kubernetes_install/).
@@ -37,7 +37,7 @@ To upgrade your StackState installation, see the instructions in our [upgrading 
 
 ## Authentication and Authorization
 
-StackState provides Role Based Access Control functionality that works with different authentication providers. See the [Authentication](../../configure/security/authentication/README.md) and [RBAC](../../../configure/security/rbac/role_based_access_control.md) pages for more information on the topic.
+StackState provides Role Based Access Control functionality that works with different authentication providers. See the [Authentication](/configure/security/authentication/authentication_options.md) and [RBAC](../../../configure/security/rbac/role_based_access_control.md) pages for more information on the topic.
 
 ## Troubleshooting
 

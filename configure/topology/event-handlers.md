@@ -41,9 +41,12 @@ You can write your own custom event handler functions that react to state change
    * **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
    * **Async** - Event handler functions can be written as async \(default\) or synchronous:
-        - Select **On** for Slack, SMS or HTTP webhook event handlers. The function will run as [async](#async-functions) and have access to all functionality from the StackState script API.
-        - Select **Off** for email, SMS or HTTP webhook event handlers. The function will dun as [synchronous](#synchronous-functions)
-   * **Script** - The script run by the function. For details, see the sections below on the [available properties](event-handlers.md#available-properties) and [plugins](event-handlers.md#plugins) and how you can [add logging to a function](event-handlers.md#logging).
+        - Select **On** for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
+        - Select **Off** for event handlers that generate email, SMS or HTTP webhook event notifications. The function will run as synchronous.
+   * **Script** - The script run by the function. For details, see the sections below on:
+        - [Async functions](#async-functions-default).
+        - [Synchronous functions](#synchronous-functions-async-off).
+        - How to [add logging to a function](event-handlers.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
    * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.

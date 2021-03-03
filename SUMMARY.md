@@ -14,6 +14,7 @@
     * [Configure storage](setup/installation/kubernetes_install/storage.md)
     * [Configure Ingress](setup/installation/kubernetes_install/ingress.md)
     * [StackState images](setup/installation/kubernetes_install/image_configuration.md)
+    * [Migrate from Linux install](setup/installation/kubernetes_install/migrate_from_linux.md)
   * [Linux install](setup/installation/linux_install/README.md)
     * [Download](setup/installation/linux_install/download.md)
     * [Install StackState](setup/installation/linux_install/install_stackstate.md)
@@ -37,6 +38,7 @@
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
   * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
+  * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 
 ## 👤 Use
 
@@ -121,9 +123,11 @@
   * [Event handlers](configure/topology/event-handlers.md)
   * [Health state propagation](configure/topology/propagation.md)
 * [Telemetry](configure/telemetry/README.md)
+  * [Understanding checks and streams](configure/telemetry/checks_and_streams.md)
+  * [Plugins](configure/plugins/README.md)
+    * [Elasticsearch plugin](configure/telemetry/plugins/elasticsearch_plugin.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
-  * [Checks and telemetry streams](configure/telemetry/checks_and_streams.md)
-  * [Send telemetry to StackState](configure/telemetry/send_telemetry.md)
+  * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
   * [Baseline functions](configure/telemetry/baseline-functions.md)
 * [Traces](configure/traces/README.md)
@@ -143,6 +147,7 @@
     * [Scopes](configure/security/rbac/rbac_scopes.md)
     * [Subjects](configure/security/rbac/rbac_subjects.md)
   * [Secrets management](configure/security/secrets_management.md)
+  * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
 * [Identifiers](configure/identifiers.md)
