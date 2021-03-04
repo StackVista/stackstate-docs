@@ -102,7 +102,7 @@
   * [Static Topology](stackpacks/integrations/static_topology.md)
   * [Traefik \(BETA\)](stackpacks/integrations/traefik.md)
   * [VMware vSphere](stackpacks/integrations/vsphere.md)
-  * [NEW VMware vSphere](stackpacks/integrations/new_vsphere.md)
+  * [NEW VMware vSphere](stackpacks/integrations/vsphere-new.md)
   * [Zabbix](stackpacks/integrations/zabbix.md)
 * [Develop your own StackPacks](stackpacks/sdk.md)
 
