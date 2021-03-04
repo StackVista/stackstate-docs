@@ -141,9 +141,9 @@ View permissions allow for CRUD operations on StackState Views. They can be set 
 
 | Permission | Purpose | Guest | Power-user | Administrator |
 | :--- | :--- | :---: | :---: | :---: |
-| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
-| `delete-view` | Delete views. | - | ✅ | ✅ |
-| `save-view` | Save views. | - | ✅ | ✅ |
+| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `Everything`\). | - | ✅ | ✅ |
+| `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `Everything`\). | - | ✅ | ✅ |
+| `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `Everything`\). | - | ✅ | ✅ |
 
 See also the full list of [system permissions](#system-permissions).
 
