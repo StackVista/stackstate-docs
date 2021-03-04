@@ -21,7 +21,7 @@ There are two types of permission in StackState:
 StackState comes with three predefined roles:
 
 * **Administrators** (`stackstate-admin`): Have all permissions and access to all views. 
-* **Power Users** (`stackstate-power-user`): This role is typically granted to users that will not manage the entire StackState installation, but do need to configure StackState for their team\(s\).Have all Administrator permissions _except_: 
+* **Power Users** (`stackstate-power-user`): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for: 
     - `execute-restricted-scripts`
     - `update-permissions`
     - `upload-stackpacks`
@@ -122,7 +122,7 @@ System permissions scope user capabilities, such as access to settings, query ex
 | `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ |
 | `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
 | `create-views` | Create views. | - | ✅ | ✅ |
-| `execute-component-templates` | Invoke a component template API extension \(**internal use only**\). | - | ✅ | ✅ |
+| `execute-component-templates` | Invoke a component template API extension \(internal use only\). | - | ✅ | ✅ |
 | `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ |
 | `execute-scripts` | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
 | `import-settings` | Import settings. | - | ✅ | ✅ |
@@ -158,20 +158,20 @@ The permissions in the table below are required to access specific pages in the 
 
 ![Main menu with all permissions granted](/.gitbook/assets/v42_main_menu.png)
 
-| Action | Permission | Guest | Power-user | Admin |
+| Page | Permission | Guest | Power-user | Admin |
 |:--- |:--- |:--- |:--- |:---|
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
-| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />For details see [view permissions](#view-management). | `access-view`  | - | ✅ | ✅ |
-| **Analytics**<br />For details see [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />For details see the [view management permissions](#view-management). | `access-view`  | - | ✅ | ✅ |
+| **Analytics**<br />For details see the [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
 | **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
-| **Settings**<br />For details see [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
-| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
-| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
+| **Settings**<br />For details see the [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
+| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see the [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
+| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see the [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
 | The **Admin API** page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Topology perspective
+### Topology
 
 The permissions listed below are required to work with topology in StackState:
 
