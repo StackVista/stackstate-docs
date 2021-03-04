@@ -11,11 +11,6 @@ Permissions are stored in StackGraph. This means that:
 - To completely remove a user, they must also be manually removed from StackGraph.
 {% endhint %}
 
-There are two types of permission in StackState: 
-
-- **System permissions** - Scope user capabilities, such as access to settings, query execution and scripting.
-- **View permissions** - Allow for CRUD operations on StackState Views.
-
 ## Predefined roles
 
 StackState comes with three predefined roles:
@@ -84,6 +79,11 @@ Of course it is also possible to leave the defaults in place, for example the `g
 {% endtabs %}
 
 ## All permissions in StackState
+
+There are two types of permission in StackState: 
+
+- [System permissions](#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
+- [View permissions](#view-permissions) - Allow for CRUD operations on StackState Views.
 
 ### System permissions
 
@@ -197,7 +197,7 @@ The permissions listed below are required to access and execute scripts in the S
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |
 | Access the **Analytics** page in the StackState UI. Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. |`access-analytics` | - | ✅ | ✅ |
-| Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. | `execute-scripts` | - | ✅ | ✅ |
+| Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available.<br />Also requires `access-analytics`. | `execute-scripts` | - | ✅ | ✅ |
 | Execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md).<br />Also requires `access-analytics` and `execute-scripts`. |`execute-restricted-scripts` | - | - | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
