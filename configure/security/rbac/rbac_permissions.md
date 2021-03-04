@@ -99,7 +99,7 @@ There are two types of permission in StackState:
 
 System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system wide.
 
-| Permission | Purpose | Guest | Power-user | Admin |
+| Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ |
 | `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ |
@@ -131,7 +131,7 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`everything`).
 
-| Permission | Purpose | Guest | Power-user | Admin |
+| Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
@@ -147,7 +147,7 @@ The permissions in the table below are required to access specific pages in the 
 
 ![Main menu with all permissions granted](/.gitbook/assets/v42_main_menu.png)
 
-| Page | Permission | Guest | Power-user | Admin |
+| Page | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
 | **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details see the [view management permissions](#view-management). | `access-view`  | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
@@ -163,7 +163,7 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below are required to work with topology in StackState:
 
-| Action | Permission | Guest | Power-user | Admin |
+| Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
 | Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | `perform-custom-query` | ✅ | ✅ | ✅ |
@@ -177,7 +177,7 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below are required to carry out specific actions in the component or relation details pane.
 
-| Action | Permission | Guest | Power-user | Admin |
+| Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | **Telemetry streams**<br />Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ |
 | **Health checks**<br />Add a new health check.<br />Edit / delete an existing health check. <br />Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
@@ -190,7 +190,7 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below can be set to access and work with views:
 
-| Action | Permission | Guest | Power-user | Admin |
+| Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | Access a specific view or all views (`everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | Access and edit the view visualization settings.<br />If not granted, the **visualization settings** button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
@@ -205,7 +205,7 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below are required to access and execute scripts in the StackState UI analytics environment:
 
-| Action | Permission | Guest | Power-user | Admin |
+| Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | Access the **Analytics** page in the StackState UI.<br />Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. |`access-analytics` | - | ✅ | ✅ |
 | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available.<br />Also requires `access-analytics`. | `execute-scripts` | - | ✅ | ✅ |
@@ -217,7 +217,7 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 The permissions listed below are required to access and manage settings in the StackState UI:
 
-| Action | Permission | Guest | Power-user | Admin |
+| Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | Access the **Settings** page in the StackState UI.<br />Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ |
 | Add / Edit / Delete capabilities.<br />This permission unlocks the **...** menu and the **ADD** buttons on all Settings Pages. | `update-settings` | - | ✅ | ✅ |
