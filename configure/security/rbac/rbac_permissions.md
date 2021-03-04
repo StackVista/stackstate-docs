@@ -11,13 +11,18 @@ Permissions are stored in StackGraph. This means that:
 - To completely remove a user, they must also be manually removed from StackGraph.
 {% endhint %}
 
+There are two types of permission in StackState: 
+
+- [System permissions](#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
+- [View permissions](#view-permissions) - Allow for CRUD operations on StackState Views.
+
 ## Predefined roles
 
 StackState comes with three predefined roles:
 
 * **Administrators** (`stackstate-admin`): Have all permissions and access to all views. 
-* **Power Users** (`stackstate-power-user`): Have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
-* **Guests** (`stackstate-guest`): Have read access, as you can see below:
+* **Power Users** (`stackstate-power-user`): Have all Administrator permissions _except_ `execute-restricted-scripts`, `update-permissions` and `upload-stackpacks`. This role is typically granted to users that will not manage the entire StackState installation, but do need to configure StackState for their team\(s\).
+* **Guests** (`stackstate-guest`): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
 
 ```text
 subject           permission            resource
@@ -29,6 +34,19 @@ stackstate-guest  read-permissions      system
 stackstate-guest  update-visualization  system
 stackstate-guest  access-view           everything
 ```
+
+```
+$ sts permission show stackstate-guest                    
+subject           permission                 resource
+----------------  -------------------------  ----------
+stackstate-guest  access-explore             system
+stackstate-guest  perform-custom-query       system
+stackstate-guest  read-permissions           system
+stackstate-guest  update-visualization       system
+stackstate-guest  execute-component-actions  system
+stackstate-guest  access-view                everything
+```
+
 ### Default and custom role names
 
 The default names for the pre-defined roles (`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
@@ -140,12 +158,12 @@ The permissions in the table below are required to access specific pages in the 
 | Action | Permission | Guest | Power-user | Administrator |
 |:--- |:--- |:--- |:--- |:---|
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
-| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />For details see [view permissions](#view-permissions). | `access-view`  | - | ✅ | ✅ |
-| **Analytics**<br />For details see [analytics environment permissions](#analytics-environment-permissions). | `access-analytics` | - | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />For details see [view permissions](#view-management). | `access-view`  | - | ✅ | ✅ |
+| **Analytics**<br />For details see [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
 | **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
-| **Settings**<br />For details see [settings page permissions](#settings-page-permissions). | `read-settings` | - | ✅ | ✅ |
-| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page-permissions). | `export-settings`  | - | ✅ | ✅ |
-| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page-permissions). | `import-settings`  | - | ✅ | ✅ |
+| **Settings**<br />For details see [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
+| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
+| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
 | The **Admin API** page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
@@ -221,12 +239,18 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 **Important note:** All permissions in StackState are case sensitive.
 {% endhint %}
 
-### List  all permissions
+### List all permissions
 
 List all permissions:
 
 ```text
 sts permission list
+```
+
+### Show granted permissions
+
+```
+sts permission show [role-name]
 ```
 
 ### Grant permissions
