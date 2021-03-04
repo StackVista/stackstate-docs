@@ -9,7 +9,7 @@ The Kubernetes setup for StackState has a built-in backup and restore mechanism 
 The following data can be automatically backed up:
 
 * **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
-* **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticSearch.enabled` is set to `true`.
+* **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
 
 The following data will NOT be backed up:
 
@@ -28,30 +28,26 @@ The built-in MinIO instance can be configured to store the backups in three loca
 * Azure Blob Storage
 * Kubernetes storage
 
-## Enable automatic backups
+## Enable backups
 
 ### Backup to AWS S3
 
-To enable backups to AWS S3 buckets, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
+To enable scheduled backups to AWS S3 buckets, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
 ```yaml
-minio:
+backup:
   enabled: true
+  stackGraph:
+    bucketName: AWS_STACKGRAPH_BUCKET
+  elasticsearch:
+    bucketName: AWS_ELASTICSEARCH_BUCKET
+minio:
   accessKey: YOUR_ACCESS_KEY
   secretKey: YOUR_SECRET_KEY
   s3gateway:
     enabled: true
     accessKey: AWS_ACCESS_KEY
     secretKey: AWS_SECRET_KEY
-  persistence:
-    enabled: false
-backup:
-  stackGraph:
-    enabled: true
-    bucketName: AWS_STACKGRAPH_BUCKET
-  elasticSearch:
-    enabled: true
-    bucketName: AWS_ELASTICSEARCH_BUCKET
 ```
 
 Replace the following values:
@@ -99,39 +95,30 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
 To enable backups to an Azure Blob Storage account, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
 ```yaml
-minio:
+backup:
   enabled: true
+minio:
   accessKey: AZURE_STORAGE_ACCOUNT_NAME
   secretKey: AZURE_STORAGE_ACCOUNT_KEY
   azuregateway:
-    enabled: true
-backup:
-  stackGraph:
-    enabled: true
-  elasticSearch:
     enabled: true
 ```
 
 Replace `AZURE_STORAGE_ACCOUNT_NAME` with the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) and replace `AZURE_STORAGE_ACCOUNT_KEY` with the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
-The StackGraph and Elasticsearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticSearch.bucketName` respectively.
+The StackGraph and Elasticsearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticsearch.bucketName` respectively.
 
 ### Backup to Kubernetes storage
 
 To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
 ```yaml
-minio:
+backup:
   enabled: true
+minio:
   accessKey: YOUR_ACCESS_KEY
   secretKey: YOUR_SECRET_KEY
   persistence:
-    enabled: true
-backup:
-  stackGraph:
-    enabled: true
-backup:
-  elasticSearch:
     enabled: true
 ```
 
@@ -141,43 +128,45 @@ Replace `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` with the credentials that will b
 
 Configuration and topology data (StackGraph) backups are full backups, stored in a single file with the extension `.graph`. Each file contains a full backup and can be moved, copied or deleted as required.
 
-### Enable backups
+### Disable scheduled backups
 
-The configuration snippets provided in the section [enable backups](#enable-backups) will enable daily StackGraph backups.
+When `backup.enabled` is set to `true`, scheduled StackGraph backups are enabled by default. To disable scheduled StackGraph backups only, set the Helm value `backup.stackGraph.scheduled.enabled` to `false`.
 
-### Disable backups
+### Disable restores
 
-To disable StackGraph backups, set the Helm value `backup.stackGraph.enabled` to `false`.
+When `backup.enabled` is set to `true`, StackGraph restores are enabled by default. To disable StackGraph restore functionality only, set the Helm value `backup.stackGraph.restore.enabled` to `false`.
 
 ### Backup schedule
 
 By default, the StackGraph backups are created daily at 03:00 AM server time. 
 
-The backup schedule can be configured using the Helm value `backup.stackGraph.schedule`, specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
+The backup schedule can be configured using the Helm value `backup.stackGraph.scheduled.schedule`, specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
 
 ### Backup retention
 
 By default, the StackGraph backups are kept for 30 days. As StackGraph backups are full backups, this can require a lot of storage. 
 
-The backup retention delta can be configured using the Helm value `backup.stackGraph.backupRetentionTimeDelta`, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
+The backup retention delta can be configured using the Helm value `backup.stackGraph.scheduled.backupRetentionTimeDelta`, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
 
 ## Telemetry data (Elasticsearch)
 
 The telemetry data (Elasticsearch) snapshots are incremental and stored in files with the extension `.dat`. The files in the Elasticsearch backup storage location should be treated as a single whole and can only be moved, copied or deleted as a whole.
 
-### Enable backups 
-
 The configuration snippets provided in the section [enable backups](#enable-backups) will enable daily Elasticsearch snapshots.
 
-### Disable backups
+### Disable scheduled snapshots
 
-To disable Elasticsearch snapshots, set the Helm value `backup.elasticSearch.enabled` to `false`.
+When `backup.enabled` is set to `true`, scheduled Elasticsearch snapshots are enabled by default. To disable scheduled Elasticsearch snapshots only, set the Helm value `backup.elasticsearch.scheduled.enabled` to `false`.
+
+### Disable restores
+
+When `backup.enabled` is set to `true`, Elasticsearch restores are enabled by default. To disable Elasticsearch restore functionality only, set the Helm value `backup.elasticsearch.restore.enabled` to `false`.
 
 ### Snapshot schedule
 
 By default, Elasticsearch snapshots are created daily at 03:00 AM server time. 
 
-The backup schedule can be configured using the Helm value `backup.elasticSearch.schedule`, specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html).
+The backup schedule can be configured using the Helm value `backup.elasticsearch.scheduled.schedule`, specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html).
 
 ### Snapshot retention
 
@@ -185,9 +174,9 @@ By default, Elasticsearch snapshots are kept for 30 days, with a minimum of 5 sn
 
 The retention time and number of snapshots kept can be configured using the following Helm values:
 
- * `backup.elasticSearch.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units).
- * `backup.elasticSearch.snapshotRetentionMinCount` 
- * `backup.elasticSearch.snapshotRetentionMaxCount`
+ * `backup.elasticsearch.scheduled.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units).
+ * `backup.elasticsearch.scheduled.snapshotRetentionMinCount` 
+ * `backup.elasticsearch.scheduled.snapshotRetentionMaxCount`
 
 {% hint style="info" %}
 By default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/slm-settings.html#slm-retention-schedule). If you set snapshots to expire faster than within a day, for example for testing purposes, you will need to change the schedule for the retention task.
@@ -197,7 +186,7 @@ By default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)]
 
 By default, a snapshot is created for all Elasticsearch indices. 
 
-This indices for which a snapshot is created can be configured using the Helm value `backup.elasticSearch.indices`, specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp).
+This indices for which a snapshot is created can be configured using the Helm value `backup.elasticsearch.scheduled.indices`, specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp).
 
 ## Restore backups and snapshots
 
@@ -205,8 +194,11 @@ Scripts to list and restore backups and snapshots can be found in the [restore d
 
 Before you use the scripts, ensure that:
 
-1. You have the `kubectl` binary installed.
+1. The `kubectl` binary has been installed.
 2. The `kubectl` binary is configured to connect to the Kubernetes cluster and the namespace within that cluster that runs StackState.
+3. The Helm value `backup.enabled` is set to `true`.
+4. The Helm value `backup.stackGraph.restore.enabled` is not set to `false` (to access StackGraph backups).
+5. The Helm value `backup.elasticsearch.restore.enabled` is not set to `false` (to access Elasticsearch snapshots).
 
 ### List StackGraph backups
 
@@ -290,7 +282,7 @@ The output should look like this:
 job.batch/elasticsearch-list-snapshots-20210224t133115 created
 Waiting for job to start...
 Waiting for job to start...
-=== Listing ElasticSearch snapshots in snapshot repository "sts-backup" in bucket "sts-elasticsearch-backup"...
+=== Listing Elasticsearch snapshots in snapshot repository "sts-backup" in bucket "sts-elasticsearch-backup"...
 sts-backup-20210219-0300-mref7yrvrswxa02aqq213w
 sts-backup-20210220-0300-yrn6qexkrdgh3pummsrj7e
 sts-backup-20210221-0300-p481sih8s5jhre9zy4yw2o
@@ -319,7 +311,7 @@ The output should look like this:
 job.batch/elasticsearch-restore-20210229t152530 created
 Waiting for job to start...
 Waiting for job to start...
-=== Restoring ElasticSearch snapshot "sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk" from snapshot repository "sts-backup" in bucket "sts-elasticsearch-backup"...
+=== Restoring Elasticsearch snapshot "sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk" from snapshot repository "sts-backup" in bucket "sts-elasticsearch-backup"...
 {
   "snapshot" : {
     "snapshot" : "sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk",
