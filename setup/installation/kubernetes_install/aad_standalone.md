@@ -61,9 +61,9 @@ Create the file `values.yaml` file, including the configuration described below,
   * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. For example, `http://stackstate-router:8080/` or `http://<releasename>-stackstate-router:8080/`.
 * **ingress:** - Ingress provides access to the technical interface of the AAD Kubernetes service, this is useful for troubleshooting. The technical interface can be accessed using the kube proxy command: `kubectl proxy`. Once proxy is running, the technical interface can be accessed at the path below:
 
-    ```text
-    http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
-    ```
+```text
+http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
+```
 
 Optionally, the technical interface can be exposed using ingress configuration. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
   * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
@@ -103,35 +103,40 @@ helm show all stackstate/anomaly-detection
 
 #### 5. Authentication with StackState
 
-By default, the AAD Kubernetes Service is configured to use Kubernetes `token` authentication. This means that, when the AAD Kubernetes service is installed in the same cluster and namespace as StackState, no additional configuration is required. 
+By default, the AAD Kubernetes Service is configured to use Kubernetes `token` authentication. When the AAD Kubernetes service is installed in the same cluster and namespace as StackState, no additional configuration is required. 
 
-If this is is not possible, there are two other options for authentication:
+If the AAD Kubernetes service is **not** installed in the same cluster and namespace as StackState, there are two other options for authentication:
 
 * Stackstate Api Token authentication.
     
     The **api-token** can be obtained from the **User Profile** page in the StackState UI.
     ```
-        ...
+    ...
     stackstate:
       authType: api-token
       apiToken: <stackstate api token>
-        ...
+    ...
     ```
   
 * Cookie authentication. 
-This type of auth is not recommended and exists only for troubleshooting/testing purposes.
+
+    This type of auth is not recommended and exists only for troubleshooting/testing purposes.
     ```
-        ...
+    ...
     stackstate:
       authType: cookie
       username: <username>
       password: <password>
-        ...
+    ...
     ```
 
 #### 6. Install the AAD Kubernetes service
 
-Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState to be able to use default token authentication. If this is not possible, consider the [other types of authentication](#5-authentication-with-stackstate) described above.
+{% hint style="info" %}
+To use the default token authentication, the AAD Kubernetes service must be installed in the same namespace as StackState. If this is not possible, consider the [other types of authentication](#5-authentication-with-stackstate) described above.
+{% endhint %}
+
+To install the AAD Kubernetes service, run the command below, specifying the StackState namespace and the image registry password. 
 
 ```text
 helm upgrade anomaly-detector stackstate/anomaly-detection \
@@ -145,7 +150,7 @@ helm upgrade anomaly-detector stackstate/anomaly-detection \
 
 The AAD Kubernetes service is released and upgraded together with StackState. 
 
-In case of standalone installation, the AAD Kubernetes service can be upgraded upgraded whenever a new version of the Helm Chart is available. To upgrade, follow the installation steps starting from [step 3 - fetching new AAD chart](#3-get-the-latest-aad-kubernetes-service-helm-chart).
+A standalone installation of the AAD Kubernetes service can be upgraded upgraded whenever a new version of the Helm Chart is available. To upgrade, follow the installation steps starting from [step 3 - fetching new AAD chart](#3-get-the-latest-aad-kubernetes-service-helm-chart).
 
 ## Deactivate the AAD Kubernetes service
 
@@ -165,6 +170,6 @@ To completely remove the AAD Kubernetes service and AAD StackPack:
 
 * Uninstall the AAD StackPack
 
-# See also
+## See also
 
 * [Autonomous Anomaly Detector StackPack](/stackpacks/add-ons/aad.md) 
