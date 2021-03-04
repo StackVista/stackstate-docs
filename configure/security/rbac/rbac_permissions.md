@@ -150,12 +150,12 @@ The permissions in the table below are required to access specific pages in the 
 | Page | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
-| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details see the [view management permissions](#view-management). | `access-view`  | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
-| **Analytics**<br />For details see the [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details, see the [view management permissions](#view-management). | `access-view`  | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
+| **Analytics**<br />For details, see the [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
 | **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
-| **Settings**<br />For details see the [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
-| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see the [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
-| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see the [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
+| **Settings**<br />For details, see the [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
+| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details, see the [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
+| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details, see the [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
