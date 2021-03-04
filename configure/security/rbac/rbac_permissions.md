@@ -27,17 +27,6 @@ StackState comes with three predefined roles:
     - `upload-stackpacks`
 * **Guests** (`stackstate-guest`): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
 
-    ```text
-    subject           permission            resource
-    ----------------  --------------------  ----------
-    stackstate-guest  read-settings         system
-    stackstate-guest  access-explore        system
-    stackstate-guest  perform-custom-query  system
-    stackstate-guest  read-permissions      system
-    stackstate-guest  update-visualization  system
-    stackstate-guest  access-view           everything
-    ```
-    
     ```
     $ sts permission show stackstate-guest                    
     subject           permission                 resource
@@ -140,13 +129,13 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 ### View permissions
 
-View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`Everything`).
+View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`everything`).
 
 | Permission | Purpose | Guest | Power-user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
-| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `Everything`\). | - | ✅ | ✅ |
-| `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `Everything`\). | - | ✅ | ✅ |
-| `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `Everything`\). | - | ✅ | ✅ |
+| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
+| `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
+| `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
 
 See also the full list of [system permissions](#system-permissions).
 
@@ -161,13 +150,12 @@ The permissions in the table below are required to access specific pages in the 
 | Page | Permission | Guest | Power-user | Admin |
 |:--- |:--- |:--- |:--- |:---|
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
-| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `Everything` resource.<br />For details see the [view management permissions](#view-management). | `access-view`  | - | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details see the [view management permissions](#view-management). | `access-view`  | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | **Analytics**<br />For details see the [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
 | **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
 | **Settings**<br />For details see the [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
 | **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details see the [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
 | **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details see the [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
-| The **Admin API** page, also requires `read-settings`.<br />Without this permission, Admin API is removed from Settings Menu. | `access-admin-api`  | - | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
@@ -204,12 +192,12 @@ The permissions listed below can be set to access and work with views:
 
 | Action | Permission | Guest | Power-user | Admin |
 |:--- |:--- |
-| Access a specific view or all views (`Everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | - | ✅ | ✅ |
+| Access a specific view or all views (`everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
 | Add or edit event handlers for all views.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.<br />Example: [Grant permissions to manage event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
 | Create and save views.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
-| Edit a view or "save view as".<br />For a specific view or all views (`Everything`).| `save-view` | - | ✅ | ✅ |
-| Delete a view.<br />For a specific view or all views (`Everything`).  | `delete-view` | - | ✅ | ✅ |
+| Edit a view or "save view as".<br />For a specific view or all views (`everything`).| `save-view` | - | ✅<br />`everything` | ✅<br />`everything` |
+| Delete a view.<br />For a specific view or all views (`everything`).  | `delete-view` | - | ✅<br />`everything` | ✅<br />`everything` |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
