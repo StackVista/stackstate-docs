@@ -195,8 +195,8 @@ The permissions listed below can be set to access and work with views:
 | Access a specific view or all views (`everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
 | Add or edit event handlers for all views.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.<br />Example: [Grant permissions to manage event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
-| Create and save views.<br />If not granted, save buttons will not be available.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
-| Edit a view or "save view as".<br />For a specific view or all views (`everything`).| `save-view` | - | ✅<br />`everything` | ✅<br />`everything` |
+| Create views.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
+| Save updates to a view.<br />For a specific view or all views (`everything`).| `save-view` | - | ✅<br />`everything` | ✅<br />`everything` |
 | Delete a view.<br />For a specific view or all views (`everything`).  | `delete-view` | - | ✅<br />`everything` | ✅<br />`everything` |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
