@@ -1,5 +1,5 @@
 ---
-description: How to retrieve and work with data from a custom Elasticsearch data source in StackState
+description: Retrieve data from a custom Elasticsearch data source
 ---
 
 # Elasticsearch
