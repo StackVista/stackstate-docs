@@ -1,10 +1,10 @@
 ---
-description: Pull telemetry from Prometheus using mirroring.
+description: Pull telemetry from Prometheus using mirroring
 ---
 
 # Prometheus mirror
 
-## Prometheus Mirror
+## Overview
 
 Prometheus mirror is a gateway between StackState and Prometheus that enables Prometheus telemetry in StackState.
 
@@ -102,3 +102,7 @@ The query allows arbitrary Prometheus queries, for example:
     ~ = histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{instance='127.0.0.1:80', name='payment-service'}[1m])) by (name, le)) * 1000
 ```
 
+## See also
+
+- [Developer guide - mirroring telemetry](/develop/developer-guides/mirroring.md)
+- [Developer tutorial - Set up a mirror to pull telemetry data from an external system](/develop/tutorials/mirror_tutorial.md)
