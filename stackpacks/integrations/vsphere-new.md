@@ -89,11 +89,9 @@ sudo stackstate-agent status
 
 #### Events
 
-vSphere events are sent to StackState in a telemetry stream. These are mapped to components and relations, they will not be visible in the StackState events perspective.
+vSphere events are sent to StackState in a telemetry stream. These can be mapped to components and relations in the StackState topology, however, they will not be visible in the StackState events perspective.
 
-The vSphere check watches the vCenter Event Manager for the events listed below. These events are sent to StackState in a telemetry stream and mapped to relevant components. You can manually add the vSphere events telemetry stream to a component using the **???** data source.
-
-Events retrieved from vSphere:
+The vSphere check watches the vCenter Event Manager for the events listed below:
 
 * AlarmStatusChangedEvent:Gray
 * VmBeingHotMigratedEvent
