@@ -1,8 +1,8 @@
 ---
-description: How to retrieve and work with data from a custom Elasticsearch data source in StackState
+description: Retrieve data from a custom Elasticsearch data source
 ---
 
-# Elasticsearch plugin
+# Elasticsearch
 
 ## Overview
 
@@ -33,7 +33,7 @@ To add an Elasticsearch data source:
     - **Time zone** - the timezone of the timestamps stored in the elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
     - **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
     - **Time field format** - the format of the value in the specified **Time field**.
-    - A number of additional settings can be tweaked in non-standard use-cases. See the [advanced plugin settings](#advanced-plugin-settings).
+    - A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](#advanced-settings).
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.
 5. Click **CREATE** to save the Elasticsearch data source settings.
     - The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
@@ -58,9 +58,9 @@ curl localhost:9200/_cat/indices?v
 
 ### Work with Elasticsearch data in StackState
 
-Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](/use/health-state-and-event-notifications/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synhronization, for details see how to [add telemetry during topology synchronization](/configure/telemetry/telemetry_synchronized_topology.md).
+Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](/use/health-state-and-event-notifications/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](/configure/telemetry/telemetry_synchronized_topology.md).
 
-## Advanced plugin settings
+## Advanced settings
 
 ### Error management
 

@@ -27,8 +27,8 @@ redirects:
   integrations/available_stackpacks/vsphere: ./stackpacks/integrations/vsphere.md
   integrations/available_stackpacks/zabbix: ./stackpacks/integrations/zabbix.md
   integrations/introduction: ./stackpacks/about-stackpacks.md
-  integrations/mirrors: ./develop/developer-guides/mirrors/README.md
-  integrations/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
+  integrations/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
+  integrations/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
   integrations/sdk: ./stackpacks/sdk.md
   setup/download: ./setup/installation/linux_install/download.md
   setup/installation/development-installation: ./setup/installation/linux_install/development-installation.md
@@ -90,9 +90,9 @@ redirects:
   develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack: ./develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md
   develop/functions: ./develop/developer-guides/functions.md
   develop/integrating_external_services: ./develop/developer-guides/integrating_external_services.md
-  develop/mirrors: ./develop/developer-guides/mirrors/README.md
-  develop/mirroring: ./develop/developer-guides/mirrors/mirroring.md
-  develop/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
+  develop/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
+  develop/mirroring: ./develop/developer-guides/mirroring.md
+  develop/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
   develop/stackpack: ./develop/developer-guides/stackpack
   develop/stackpack/how_to_customize_a_stackpack: ./develop/developer-guides/stackpack/how_to_customize_a_stackpack.md
   develop/stackpack/how_to_get_a_template_file: ./develop/developer-guides/stackpack/how_to_get_a_template_file.md
@@ -166,7 +166,7 @@ redirects:
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
 
-# below were added for 4.2 docs
+# added for 4.2 docs
 
   use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
@@ -181,6 +181,8 @@ redirects:
   configure/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/authentication: ./configure/security/authentication/README.md
+  develop/developer-guides/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
+  configure/telemetry/plugins/elasticsearch_plugin: ./configure/telemetry/data-sources/elasticsearch.md
 
 # from custom sync stackpack
 
