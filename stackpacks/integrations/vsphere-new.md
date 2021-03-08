@@ -45,7 +45,7 @@ To set up the StackState VMWare vSphere integration, you need to have:
 
 The VMWare vSphere StackPack can be installed from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
-- **VSphere Host Name | the VMWare vSphere host name from which data will be collected.
+- **VSphere Host Name** - the VMWare vSphere host name from which data will be collected.
 
 ### Configure
 
