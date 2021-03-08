@@ -20,14 +20,14 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
-* StackState Agent V2 connects to the configured VMWare vSphere instance at port 443.
-* Topology data for the configured resources are retrieved (all or those matching the optionally configured `vm_include_only_regex`).
-* Metrics data for the configured resources are retrieved (all or those matching the optionally configured `host_include_only_regex` and `include_only_marked`). The actual metrics retrieved can also be optionally configured in the StackState VMWare vSphere check configuration.
-* StackState Agent V2 watches the vCenter Event Manager for events related to the configured resources (all or those matching the optionally configured `vm_include_only_regex`).
-* StackState Agent V2 pushes retrieved data to StackState at port 7077.
-* StackState translates incoming topology data into components and relations, including any tags defined in VMWare vSphere.
-* Metrics data is automatically mapped to associated components and relations in StackState.
-* Events data is available in StackState as a telemetry stream.
+* StackState Agent V2 connects to the configured VMWare vSphere instance at port 443 to:
+    * retrieve topology data for the configured resources (all or those matching the optionally configured `vm_include_only_regex`).
+    * retrieve metrics data for the configured resources (all or those matching the optionally configured `host_include_only_regex` and `include_only_marked`). The actual metrics retrieved can also be optionally configured in the StackState VMWare vSphere check configuration.
+    * watch the vCenter Event Manager for events related to the configured resources (all or those matching the optionally configured `vm_include_only_regex`).
+* StackState Agent V2 pushes retrieved data and events to StackState at port 7077.
+    * Topology data is translated into components and relations, including any tags defined in VMWare vSphere.
+    * Metrics data is automatically mapped to associated components and relations in StackState.
+    * Events data is available in StackState as a telemetry stream.
 
 
 ## Setup
