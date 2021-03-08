@@ -11,6 +11,7 @@ Before you can configure StackState to authenticate using OIDC, you need to crea
 * Use the OIDCAuthoirzation Flow
 * Set the **Redirect URI** to the base URL of StackState suffixed with `/loginCallback`. For example `https://stackstate.acme.com/loginCallback`. For some OIDC providers, such as Google, the Redirect URI must match exactly, including any query parameters. In that case, you should configure the URI like this `https://stackstate.acme.com/loginCallback?client_name=StsOidcClient`.
 * Give StackState access to at least the scopes `openid` and `email` or the equivalent of these for your OIDC provider.
+* StackState needs OIDC offline access. For some identity providers this requires an extra scope, usually called `offline_access`
 
 The result of this configuration should produce a **clientId** and a **secret**. Copy those and keep them around for configuring StackState. Also write down the **discoveryUri** of the provider. Usually this is either in the same screen or can be found in the documentation.
 
