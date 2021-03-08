@@ -16,7 +16,7 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * Data stores
 * Data centers
 
-![Data flow](/.gitbook/assets/stackpack-vmware_draft.png)
+![Data flow](/.gitbook/assets/stackpack-vmware_draft.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
@@ -157,24 +157,24 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## Release notes
 
-### VMWare vSphere StackPack v2.2.1 (2020-08-18)
+**VMWare vSphere StackPack v2.2.1 (2020-08-18)**
 
 - Feature: Introduced the Release notes pop up for customer
 
-### VMWare vSphere StackPack v2.2.0 (2020-08-04)
+**VMWare vSphere StackPack v2.2.0 (2020-08-04)**
 
 - Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
 - Improvement: Replace resolveOrCreate with getOrCreate.
 
-### VMWare vSphere StackPack v2.1.0 (2020-04-10)
+**VMWare vSphere StackPack v2.1.0 (2020-04-10)**
 
 - Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
 
-## VMWare vSphere StackPack v2.0.1 (2020-04-03)
+**VMWare vSphere StackPack v2.0.1 (2020-04-03)**
 
 - Improvement: Upgrade the requirement of VSphere to use AgentV2 now.
 
-### VMWare vSphere StackPack v2.0.0 (2019-10-30)
+**VMWare vSphere StackPack v2.0.0 (2019-10-30)**
 
 - Feature: Gathers Topology from your VSphere instance and allows visualization of your VSphere components and the relations between them.
 
