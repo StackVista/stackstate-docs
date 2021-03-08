@@ -20,6 +20,15 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
+* StackState Agent V2 connects to the configured VMWare vSphere instance at port 443.
+* Topology data for the configured resources are retrieved (all or those matching the optionally configured `vm_include_only_regex`).
+* Metrics data for the configured resources are retrieved (all or those matching the optionally configured `host_include_only_regex` and `include_only_marked`). The actual metrics retrieved can also be optionally configured in the StackState VMWare vSphere check configuration.
+* StackState Agent V2 watches the vCenter Event Manager for events related to the configured resources (all or those matching the optionally configured `vm_include_only_regex`).
+* StackState Agent V2 pushes retrieved data to StackState at port 7077.
+* StackState translates incoming topology data into components and relations, including any tags defined in VMWare vSphere.
+* Metrics data is automatically mapped to associated components and relations in StackState.
+* Events data is available in StackState as a telemetry stream.
+
 
 ## Setup
 
@@ -67,8 +76,8 @@ To enable the VMWare vSphere check and begin collecting data from your VSphere V
     * **host_include_only_regex** - fetch metrics only for ESXi hosts that match the specified regex pattern and the VMs running on them.
     * **vm_include_only_regex** - include only VMs that match the specified regex pattern.
     * **include_only_marked** -  set to `true` to only collect metrics on VMWare vSphere VMs that are marked by a custom field with the value `StackStateMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM <MyVMName> | Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"`
-    * **all_metrics** - set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not care about. When set to `false` (default), a selected set of metrics that are interesting to monitor will be collected.
-    * **collection_level** - specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html). **all_metrics** must be set to `false`.
+    * **all_metrics** - set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` (default), a selected set of metrics that are interesting to monitor will be collected.
+    * **collection_level** - specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html).
     * **collect_vcenter_alarms** - set to `true` to send vCenter alarms as events.
     
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
