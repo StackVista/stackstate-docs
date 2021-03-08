@@ -148,6 +148,7 @@
     * [Subjects](configure/security/rbac/rbac_subjects.md)
   * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Secrets management](configure/security/secrets_management.md)
+  * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
 * [Identifiers](configure/identifiers.md)

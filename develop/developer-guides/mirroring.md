@@ -353,6 +353,8 @@ The following aggregation methods are supported by the Mirror Plugin:
 * `MIN` - minimum
 * `SUM` - sum
 * `EVENT_COUNT` - the number of occurrences during bucket interval
+* `SUM_NO_ZEROS` - sum of the values (missing values from a data source won't be filled with zeros)
+* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval (missing values from a data source won't be filled with zeros)
 
 An example response of an aggregated query request is given below:
 
