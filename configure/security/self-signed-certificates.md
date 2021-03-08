@@ -104,4 +104,3 @@ The certificate can be directly downloaded from the Chrome browser. The steps in
 4. Select **Details**.
 5. Select **Export**.
 6. Save using the default export file type (Base64 ASCII encoded).
-  
