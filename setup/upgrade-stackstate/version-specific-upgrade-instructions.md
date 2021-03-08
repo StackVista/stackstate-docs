@@ -16,28 +16,6 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
-### Upgrade to v4.3.x
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-
-#### v4.3.0
-
-For the Kubernetes installation of StackState 4.3.0 CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml` you most likely will now need to also set the CPU limit for the same pod(s). 
-
-At the same time CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number of [required nodes from 7 to 9](../requirements.md).
-
-{% endtab %}
-
-{% tab title="Linux" %}
-
-#### v4.3.0
-
-No manual action needed.
-
-{% endtab %}
-{% endtabs %}
-
 ### Upgrade to v4.2.x
 
 {% tabs %}
