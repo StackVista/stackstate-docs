@@ -70,7 +70,7 @@ To enable the VMWare vSphere check and begin collecting data from your VSphere V
        password: <password> 
 
      ```
-2. You can also add optional configuration:
+2. You can also add other [optional configuration](#optional-configuration) to the file `/etc/stackstate-agent/conf.d/vsphere.d/conf.yaml`.
     
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
