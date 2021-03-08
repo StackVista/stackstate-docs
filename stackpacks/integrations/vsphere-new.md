@@ -16,7 +16,7 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * DataStores
 * DataCenters
 
-![Data flow](/.gitbook/assets/stackpack-vmware_draft2.svg)
+![Data flow](/.gitbook/assets/stackpack-vmware_draft3.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
@@ -52,10 +52,10 @@ The VMWare vSphere StackPack can be installed from the StackState UI **StackPack
 To enable the VMWare vSphere check and begin collecting data from your VSphere VCenter instance:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/vsphere.d/conf.yaml` to include details of your VSphere VCenter instance:
-   * **name | a unique key representing your vCenter instance.
-   * **host | the same as the `VSphere Host Name` used when the StackPack was installed.
-   * **username | the username to use when connecting to VMWare vSphere.
-   * **password | use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
+   * **name** - a unique key representing your vCenter instance.
+   * **host** - the same as the `VSphere Host Name` used when the StackPack was installed.
+   * **username** - the username to use when connecting to VMWare vSphere.
+   * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
      ```text
      # Section used for global vsphere check config
