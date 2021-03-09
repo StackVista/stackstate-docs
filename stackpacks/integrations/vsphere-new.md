@@ -70,7 +70,7 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password> 
 
      ```
-2. If required, you can customise the integration using the available [advanced configuration options](#advanced-configuration).
+2. If required, you can customise the integration using the [advanced configuration options](#advanced-configuration).
     
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
