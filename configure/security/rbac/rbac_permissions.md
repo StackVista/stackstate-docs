@@ -117,8 +117,8 @@ System permissions scope user capabilities, such as access to settings, query ex
 | `import-settings` | Import settings. | - | ✅ | ✅ |
 | `export-settings` | Export settings. | - | ✅ | ✅ |
 | `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |
-| `manage-event-handlers` | Edit or create event handlers. | - | ✅ | ✅ |
-| `manage-telemetry-streams` | Edit or create new streams for components via the UI. | - | ✅ | ✅ |
+| `manage-event-handlers` | Create or edit event handlers. | - | ✅ | ✅ |
+| `manage-telemetry-streams` | Create or edit new streams for components via the UI. | - | ✅ | ✅ |
 | `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ |
 | `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
 | `read-settings` | Access the Settings page. | - | ✅ | ✅ |
@@ -194,7 +194,7 @@ The permissions listed below can be set to access and work with views:
 | :--- | :--- | :---: | :---: | :---: |
 | Access a specific view or all views (`everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | Access and edit the view visualization settings.<br />If not granted, the **visualization settings** button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
-| Add or edit event handlers.<br />If not granted, the ADD NEW EVENT HANDLER button will not be available.<br />Example: [Grant permissions to manage event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
+| Add or edit event handlers.<br />If not granted, the **ADD NEW EVENT HANDLER** button will not be available, however, users will be able to view details of existing event handlers.<br />Example: [Grant permissions to add and edit event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
 | Create views.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
 | Save updates to a view.<br />For a specific view or all views (`everything`).| `save-view` | - | ✅<br />`everything` | ✅<br />`everything` |
 | Delete a view.<br />For a specific view or all views (`everything`).  | `delete-view` | - | ✅<br />`everything` | ✅<br />`everything` |
@@ -276,7 +276,7 @@ sts permission grant [subject-handle] read-settings system
 
 #### Allow a user to add or edit event handlers
 
-Provide a subject with system permission to manage event handlers:
+Provide a subject with system permission to add new event handlers and edit existing event handlers:
 
 ```text
 sts permission grant [subject-handle] manage-event-handlers system
