@@ -1,35 +1,47 @@
 # Permissions
 
-## Permissions in StackState
+## Overview
 
-Permissions in StackState are twofold: System permissions and View permissions. These two sets of permissions are prepared to allow Administrators to take control over actions that users can perform inside StackState, as well as adjusting a user's UI to fit their role. This means that StackState can present a completely different interface and feature set according to the user's active role. UI elements that users don't have access to are simply not displayed in their UI.
+Permissions in StackState allow Administrators to manage the actions that each user or user group can perform inside StackState and the information that will be shown in their StackState UI. Only the feature set relevant to each user's active role will be presented. The actions, information and pages that a user does not have access to are simply not displayed in their StackState UI.
 
-Please note that permissions are stored in StackGraph, so performing an upgrade with clear all data will also remove permission setup. Because permissions exist in StackGraph, in order to completely remove the user it needs to be removed from LDAP and from StackGraph manually.
+{% hint style="info" %}
+Permissions are stored in StackGraph. This means that:
 
-## Views permissions and system permissions
+- If you perform an upgrade with "clear all data", permission setup will also be removed. 
+- To completely remove a user, they must also be manually removed from StackGraph.
+{% endhint %}
 
-Views permissions are a set of permissions that allow for CRUD operations with Views in StackState. System permissions are scoping user capabilities like access to settings, query execution or scripting.
+There are two types of permission in StackState: 
+
+- [System permissions](#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
+- [View permissions](#view-permissions) - Allow for CRUD operations on StackState Views.
 
 ## Predefined roles
 
-StackState comes with three predefined roles - `stackstate-admin` (Adminstrator), `stackstate-power-user` (Power user) and `stackstate-guest` (Guest user).
+StackState comes with three predefined roles:
 
-* Administrators have all permissions and access to all views. 
-* Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
-* Guests have access to view, as you can see below:
+* **Administrators** (`stackstate-admin`): Have all permissions and access to all views. 
+* **Power Users** (`stackstate-power-user`): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for: 
+    - `execute-restricted-scripts`
+    - `update-permissions`
+    - `upload-stackpacks`
+* **Guests** (`stackstate-guest`): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
 
-```text
-subject           permission            resource
-----------------  --------------------  ----------
-stackstate-guest  read-settings         system
-stackstate-guest  access-explore        system
-stackstate-guest  perform-custom-query  system
-stackstate-guest  read-permissions      system
-stackstate-guest  update-visualization  system
-stackstate-guest  access-view           everything
-```
+    ```
+    $ sts permission show stackstate-guest                    
+    subject           permission                 resource
+    ----------------  -------------------------  ----------
+    stackstate-guest  access-explore             system
+    stackstate-guest  perform-custom-query       system
+    stackstate-guest  read-permissions           system
+    stackstate-guest  update-visualization       system
+    stackstate-guest  execute-component-actions  system
+    stackstate-guest  access-view                everything
+    ```
 
-The default names for these roles as mentioned above can be overriden, this mechanism can also be used to add extra roles that will have the same permissions. Here an example of how to do this for both Kubernetes and Linux instalaltions.
+### Default and custom role names
+
+The default names for the pre-defined roles (`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -45,7 +57,7 @@ stackstate:
       admin: ["custom-admin-role"]
 ```
 
-Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
+It is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
 
 To use it in for your StackState installation (or already running instance, note that it will restart the API):
 
@@ -76,121 +88,153 @@ Of course it is also possible to leave the defaults in place, for example the `g
 {% endtab %}
 {% endtabs %}
 
-## List of all permissions in StackState
+## All permissions in StackState
 
-| Permission | Purpose | Guest | Power-user | Administrator |
+There are two types of permission in StackState: 
+
+- [System permissions](#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
+- [View permissions](#view-permissions) - Allow for CRUD operations on StackState Views.
+
+### System permissions
+
+System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system wide.
+
+See also the full list of [view permissions](#view-permissions).
+
+| Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
-| access-explore | Access the Explore page. | ✅ | ✅ | ✅ |
-| update-visualization | Change visualization settings. | ✅ | ✅ | ✅ |
-| perform-custom-query | Access the topology filter. | ✅ | ✅ | ✅ |
-| read-permissions | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ |
-| execute-component-actions | Execute component actions. | ✅ | ✅ | ✅ |
-| create-views | Create views. | - | ✅ | ✅ |
-| access-analytics | Access the Analytics page. | - | ✅ | ✅ |
-| execute-scripts | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
-| read-settings | Access the Settings page. | - | ✅ | ✅ |
-| update-settings | Update settings. | - | ✅ | ✅ |
-| import-settings | Import settings. | - | ✅ | ✅ |
-| export-settings | Export settings. | - | ✅ | ✅ |
-| manage-topology-elements | Create/update/delete topology elements. | - | ✅ | ✅ |
-| manage-stackpacks | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
-| manage-annotations | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |
-| save-view | Save views. | - | ✅ | ✅ |
-| access-view | Access a specific view \(when granted on a view\) or all views \(when granted on the `everything` subject\). | - | ✅ | ✅ |
-| delete-view | Delete views. | - | ✅ | ✅ |
-| manage-telemetry-streams | Edit or create new streams for components via the UI. | - | ✅ | ✅ |
-| access-log-data | Access StackState logs via the CLI. | - | ✅ | ✅ |
-| access-topic-data | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
-| execute-component-templates | Invoke a component template API extension \(**internal use only**\). | - | ✅ | ✅ |
-| execute-node-sync | Reset or delete a synchronization. | - | ✅ | ✅ |
-| access-admin-api | Access the administrator API. | - | ✅ | ✅ |
-| execute-restricted-scripts | Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
-| update-permissions | Grant/revoke permissions or modify subjects. | - | - | ✅ |
-| upload-stackpacks | Upload new \(versions of\) StackPacks. | - | - | ✅ |
+| `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ |
+| `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ |
+| `perform-custom-query` | Access the topology filter. | ✅ | ✅ | ✅ |
+| `read-permissions` | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ |
+| `update-visualization` | Change visualization settings. | ✅ | ✅ | ✅ |
+| `access-admin-api` | Access the administrator API. | - | ✅ | ✅ |
+| `access-analytics` | Access the Analytics page. | - | ✅ | ✅ |
+| `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ |
+| `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
+| `create-views` | Create views. | - | ✅ | ✅ |
+| `execute-component-templates` | Invoke a component template API extension \(internal use only\). | - | ✅ | ✅ |
+| `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ |
+| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
+| `import-settings` | Import settings. | - | ✅ | ✅ |
+| `export-settings` | Export settings. | - | ✅ | ✅ |
+| `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |
+| `manage-event-handlers` | Create or edit event handlers. | - | ✅ | ✅ |
+| `manage-telemetry-streams` | Create or edit new streams for components via the UI. | - | ✅ | ✅ |
+| `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ |
+| `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
+| `read-settings` | Access the Settings page. | - | ✅ | ✅ |
+| `update-settings` | Update settings. | - | ✅ | ✅ |
+| `execute-restricted-scripts` | Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
+| `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ |
+| `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ |
 
-## UI elements and permissions
+### View permissions
 
-### Pages permissions
+View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`everything`).
 
-1. Analytics page - requires `access-analytics` permission. Without this permission, Analytics section is hidden in the UI, and it is not accessible via URL.
-2. StackPacks page - requires `manage-stackpacks` system permission. Without this permission, StackPacks section is hidden in the UI and it is not accessible via URL.
-3. Settings page - requires `read-settings` system permission. Without this permission, Settings section is hidden in the UI and it is not accessible via URL.
-4. Explore Mode page - requires `access-explore` system permission. Without this permission, Explore Mode section is hidden in the UI and it is not accessible via URL.
-5. Saved views page - Requires `access-view` permission and a resource. It is possible to grant access for specific views by adding `accesss-view` permission with a specific view ID or \(as it is for the Administrator role\) with `Everything` resource, allowing to see all views.
-6. Import Settings Page - requires `import-settings` system permission. Without this permission, Import Settings is removed from Settings Menu.
-7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
-8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
+See also the full list of [system permissions](#system-permissions).
 
-![Pages1](../../../.gitbook/assets/pages1.png) ![Pages2](../../../.gitbook/assets/pages2.png)
+| Permission | Purpose | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
+| `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
+| `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
 
-### Navigation Bar permissions
+## Permissions by action
 
-1. Create a view - requires `create-views` system permission. If not granted, save buttons are not present for the user.  
-2. Save as... - requires `save-view` permission. It's dependant on `Everything` or the specific view permissions.
-3. Edit a view - requires `save-view` permission. It's dependant on `Everything` or the specific view permissions.
-4. Delete a view - requires `delete-view` permission. It's dependant on `Everything` or the specific view permissions.
-5. Sidebar access - requires `save-view`, `delete-view` or both of them to access these options in the sidebar.
+### Page access
 
-![NavigationBar1](../../../.gitbook/assets/navbar1.png) ![NavigationBar2](../../../.gitbook/assets/navbar2.png)
+The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
 
-### Topology capabilities permissions
+![Main menu with all permissions granted](/.gitbook/assets/v42_main_menu.png)
 
-1. Basic and Advanced filtering - `perform-custom-query` is required to access filtering tools. Filtering options are hidden for users without this permission.
-2. Component pane - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`. Component pane is hidden for users without this set of permissions.
-3. Visualization Settings - requires `update-visualization` system permission. Visualization settings are hidden for users without this permission.
+| Page | Permission | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details, see the [view management permissions](#view-management). | `access-view`  | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
+| **Analytics**<br />For details, see the [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
+| **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
+| **Settings**<br />For details, see the [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
+| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details, see the [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
+| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details, see the [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
 
-|  |  |  |
-| :---: | :---: | :---: |
-| ![TopologyCapabilities1](../../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../../../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../../../.gitbook/assets/topocap3.png) |
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Topology views permissions
+### Topology
 
-1. Drag and drop components - requires `manage-topology-elements` system permission.
-2. Access to a node actions menu - requires `execute-component-actions` permission.  
-3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
+The permissions listed below are required to work with topology in StackState:
 
-![TopologyView1](../../../.gitbook/assets/v42_topoview1.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
+| Action | Permission | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| Access and edit the view visualization settings.<br />If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
+| Basic and Advanced filtering.<br />If not granted, filtering options will be hidden. | `perform-custom-query` | ✅ | ✅ | ✅ |
+| Execute actions from the component context menu. | `execute-component-actions` | ✅ | ✅ | ✅ |
+| Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ |
+| Add components button.<br />Create relations between topology elements. | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | - | ✅ | ✅ |
 
-### Analytics Page permissions
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+
+### Component/relation details
+
+The permissions listed below are required to carry out specific actions in the component or relation details pane.
+
+| Action | Permission | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| **Telemetry streams**<br />Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| **Health checks**<br />Add a new health check.<br />Edit / delete an existing health check. <br />Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| **Elements**<br />Delete an element or element template.<br /> |  `manage-topology-elements` | - | ✅ | ✅ |
+| **Elements**<br />Edit an element or element template.<br /> |  `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings`  | - | ✅ | ✅ |
+
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+
+### View management
+
+The permissions listed below can be set to access and work with views:
+
+| Action | Permission | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| Access a specific view or all views (`everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
+| Access and edit the view visualization settings.<br />If not granted, the **visualization settings** button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
+| Add or edit event handlers.<br />If not granted, the **ADD NEW EVENT HANDLER** button will not be available, however, users will be able to view details of existing event handlers.<br />Example: [Grant permissions to add and edit event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
+| Create views.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
+| Save updates to a view.<br />For a specific view or all views (`everything`).| `save-view` | - | ✅<br />`everything` | ✅<br />`everything` |
+| Delete a view.<br />For a specific view or all views (`everything`).  | `delete-view` | - | ✅<br />`everything` | ✅<br />`everything` |
+
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+
+### Analytics environment
 
 The permissions listed below are required to access and execute scripts in the StackState UI analytics environment:
 
-| Permission | Description | 
-|:--- |:--- |
-| `access-analytics` | Access the **Analytics** page in the StackState UI. |
-| `execute scripts` | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. |
-| `execute-restricted-scripts` | Additional permission required to execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md). | 
+| Action | Permission | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| Access the **Analytics** page in the StackState UI.<br />Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. |`access-analytics` | - | ✅ | ✅ |
+| Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available.<br />Also requires `access-analytics`. | `execute-scripts` | - | ✅ | ✅ |
+| Execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md).<br />Also requires `access-analytics` and `execute-scripts`. |`execute-restricted-scripts` | - | - | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#list-of-all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-### Element Details permissions
+### Settings page
 
-1. Data streams actions - requires `manage-topology-elements` system permission. Without this permission only "Inspect" action is available.
-2. Add data streams - requires `manage-topology-elements` system permission. Without this permission, user cannot see the **Add** button.
-3. Health check - requires `manage-topology-elements` system permission. Without this permission, user cannot see any actions.
-4. Add health check - requires `manage-topology-elements` system permission. Without that permission, user cannot see the **Add** button.
-5. Delete element - requires `manage-topology-elements` system permission. **Delete** button is not present if the user does not have this permission.
-6. Edit element \(also edit element template\) - requires `manage-topology-elements`, `perform-custom-query`, and `read-settings` system permissions.
+The permissions listed below are required to access and manage settings in the StackState UI:
 
-|  |  |
-| :---: | :---: |
-| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](/.gitbook/assets/eldet2.png) |
+| Action | Permission | Guest | Power user | Admin |
+| :--- | :--- | :---: | :---: | :---: |
+| Access the **Settings** page in the StackState UI.<br />Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ |
+| Add / Edit / Delete capabilities.<br />This permission unlocks the **...** menu and the **ADD** buttons on all Settings Pages. | `update-settings` | - | ✅ | ✅ |
+| Export capability.<br />Without this permission, checkboxes are not available on the settings page. | `export-settings` | - | ✅ | ✅ |
+| Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ |
 
-### Settings permissions
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
 
-Below capabilities are shared across all settings pages.
+## Example CLI commands
 
-1. Add New capability - requires `update-settings` system permission. It unlocks **Add...** buttons on all Settings Pages.
-2. Edit capability - requires `update-settings` system permission. Three dots menu \(kebab menu\) is not displayed for the users without that permission.
-3. Delete capability - requires `update-settings` system permission. Delete option is not displayed for the users without this permission.
-4. Export capability - requires `export-settings` system permission. Checkboxes are not available for the user without this permission.
-5. Delete and Reset synchronization capabilities - requires `execute-node-sync` system permission.
+{% hint style="info" %}
+**Important note:** All permissions in StackState are case sensitive.
+{% endhint %}
 
-![SettingsPermissions](../../../.gitbook/assets/settings1.png)
-
-## Examples
-
-Important note: all permissions in StackState are case sensitive.
+### List all permissions
 
 List all permissions:
 
@@ -198,11 +242,49 @@ List all permissions:
 sts permission list
 ```
 
+### Show granted permissions
+
+Show the permissions granted to a specific role.
+
+```
+sts permission show [role-name]
+```
+
+### Grant permissions
+
+#### Allow a user to open a view
+
 Provide a subject with permission to open a view:
 
 ```text
 sts permission grant [subject-handle] access-view [view-name]
 ```
+
+#### Allow a user to create (save) views
+
+Provide a subject with the system permission to create \(save\) views:
+
+```text
+sts permission grant [subject-handle] create-views system
+```
+
+#### Allow a user to check StackState settings
+
+Provide a subject with the system permission to check StackState settings:
+
+```text
+sts permission grant [subject-handle] read-settings system
+```
+
+#### Allow a user to add or edit event handlers
+
+Provide a subject with the system permission to add new event handlers and edit existing event handlers:
+
+```text
+sts permission grant [subject-handle] manage-event-handlers system
+```
+
+### Revoke permissions
 
 Revoke permissions for a subject to open a view:
 
@@ -210,18 +292,8 @@ Revoke permissions for a subject to open a view:
 sts permission revoke [subject-handle] access-view [view-name]
 ```
 
-Provide a subject with system permission to check StackState settings:
+## StackState UI with no permissions
 
-```text
-sts permission grant [subject-handle] read-settings system
-```
+Below is an example of how the StackState UI would look for a user without any permissions:
 
-Provide a subject with system permission to create \(save\) views:
-
-```text
-sts permission grant [subject-handle] create-views system
-```
-
-UI of a user without any permissions:
-
-![NoPermissions](../../../.gitbook/assets/noperm.png)
+![No permissions](../../../.gitbook/assets/noperm.png)
