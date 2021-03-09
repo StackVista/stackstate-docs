@@ -99,6 +99,8 @@ There are two types of permission in StackState:
 
 System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system wide.
 
+See also the full list of [view permissions](#view-permissions).
+
 | Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ |
@@ -131,13 +133,13 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`everything`).
 
+See also the full list of [system permissions](#system-permissions).
+
 | Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
 | `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
 | `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
-
-See also the full list of [system permissions](#system-permissions).
 
 ## Permissions by action
 
