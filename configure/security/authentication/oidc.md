@@ -11,7 +11,7 @@ Before you can configure StackState to authenticate using OIDC, you need to crea
 * Use the OIDCAuthoirzation Flow
 * Set the **Redirect URI** to the base URL of StackState suffixed with `/loginCallback`. For example `https://stackstate.acme.com/loginCallback`. For some OIDC providers, such as Google, the Redirect URI must match exactly, including any query parameters. In that case, you should configure the URI like this `https://stackstate.acme.com/loginCallback?client_name=StsOidcClient`.
 * Give StackState access to at least the scopes `openid` and `email` or the equivalent of these for your OIDC provider.
-* StackState needs OIDC offline access. For some identity providers this requires an extra scope, usually called `offline_access`
+* StackState needs OIDC offline access. For some identity providers, this requires an extra scope, usually called `offline_access`.
 
 The result of this configuration should produce a **clientId** and a **secret**. Copy those and keep them around for configuring StackState. Also write down the **discoveryUri** of the provider. Usually this is either in the same screen or can be found in the documentation.
 
@@ -141,11 +141,19 @@ This section contains additional settings needed for specific OIDC providers.
 ### Microsoft Identity Platform
 To authenticate StackState via OIDC with the Microsoft Identity Platform, the additional scope `offline_access` needs to be granted and requested during authentication.
 
-In order to grant this, ensure that on the consent page of the authorization code flow, you approve the permission *"Maintain access to data you have given it access to"*.
+In Microsoft Azure, approve the permission *"Maintain access to data you have given it access to"* on the consent page of the authorization code flow.
 
-To request this scope, ensure that in the StackState configurations described above, you add the `offline_access` scope, in addition to the `openid` and `email` scopes.
+In the StackState configuration described above, add the scope `offline_access`, in addition to `openid` and `email`. For example:
 
-Also see: [Permissions and consent in the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+```yaml
+jwsAlgorithm: RS256
+      scope: ["openid", "email", "offline_access"]
+      jwtClaims:
+        usernameField: preferred_username
+        groupsField: groups
+```
+
+For further details, see [Permissions and consent in the Microsoft identity platform (docs.microsoft.com)](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
 
 ## See also
 
