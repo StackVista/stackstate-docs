@@ -235,4 +235,3 @@ To use the StackState GUI, you must use one of the following web browsers:
 
 * Chrome
 * Firefox
-
