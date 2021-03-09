@@ -25,10 +25,10 @@ The VMware StackPack collects all topology data for the components and relations
     * retrieve metrics data for the configured resources. The actual metrics retrieved can also be optionally configured in the StackState VMWare vSphere check configuration.
     * watch the vCenter Event Manager for events related to the configured resources.
 * StackState Agent V2 pushes retrieved data and events to StackState at port 7077.
-    * Topology data is translated into components and relations.
-    * Tags defined in VMWare vSphere are added to components and relations in StackState
-    * Metrics data is automatically mapped to associated components and relations in StackState.
-    * Events data is available in StackState as a telemetry stream.
+    * [Topology data](#topology) is translated into components and relations.
+    * [Tags](#tags) defined in VMWare vSphere are added to components and relations in StackState.
+    * [Metrics data](#metrics) is automatically mapped to associated components and relations in StackState.
+    * [Events](#events) are available in StackState as a telemetry stream.
 
 ## Setup
 
@@ -78,7 +78,7 @@ To enable the VMWare vSphere check and begin collecting data from your VSphere V
 
 #### Optional configuration
 
-The configuration options described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the file [`conf.yaml.example`](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)
+The configuration options described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the file [`conf.yaml.example`](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example).
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
@@ -103,6 +103,13 @@ sudo stackstate-agent status
 ## Integration details
 
 ### Data retrieved
+
+The VMWare vSphere integration retrieves the following data:
+
+- [Events](#events)
+- [Metrics](#metrics)
+- [Tags](#tags)
+- [Topology](#topology)
 
 #### Events
 
@@ -140,6 +147,16 @@ The VMWare vSphere integration retrieves the following topology data:
 #### Traces
 
 The VMWare vSphere integration does not retrieve any traces data.
+
+#### Tags
+
+All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState. 
+
+The vSphere StackPack also understands the following special tags:
+
+| Tag | Description |
+| :--- | :--- |
+| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component. |
 
 
 ### REST API endpoints
