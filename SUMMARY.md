@@ -72,7 +72,7 @@
 
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
-  * [Autonomous Anomaly Detector \(BETA\)](stackpacks/add-ons/aad.md)
+  * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](stackpacks/integrations/agent.md)
@@ -128,7 +128,8 @@
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
-  * [Baseline functions](configure/telemetry/baseline-functions.md)
+  * [Alerting on Anomalies](configure/telemetry/alerting-on-anomalies.md)
+  * [Baseline functions (Deprecated)](configure/telemetry/baseline-functions.md)  
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
   * [Set up traces](configure/traces/how_to_setup_traces.md)

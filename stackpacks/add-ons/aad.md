@@ -1,10 +1,6 @@
-# Autonomous Anomaly Detector \(BETA\)
+# Autonomous Anomaly Detector
 
 ## What is the Autonomous Anomaly Detector StackPack?
-
-{% hint style="info" %}
-The Autonomous Anomaly Detector add-on is in **BETA**.
-{% endhint %}
 
 Anomaly detection identifies incidents in your fast-changing IT environment and provides insights into their root cause. This directs the attention of IT operators to the root cause of incidents.
 
@@ -16,13 +12,14 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. Streams with the highest priority will be examined first. The prioritization of streams is computed by an algorithm that learns to maximize the probability of preventing an IT issue. To operate in large environments, attention must be allocated where it matters the most. The AAD achieves this based on its knowledge of streams that are intrinsically important \(such as KPIs and SLAs\), ongoing and historical issues, relations between streams and other relevant factors.
 
-The stream selection algorithm works as follows:
+The stream selection algorithm prioritizes streams based on the criteria below:
 
+* The top priority is given to metric streams with alerting checks based on check functions from AAD stackpack. See [alerting on anomalies](../../configure/telemetry/alerting_on_anomalies.md).
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md).
 
-You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high`.
+You cannot directly control the stream selected, but you can steer the selection by starring Views and setting the priority of streams to `high` or creating the alerting check on a stream.
 
 ## How fast are anomalies detected?
 
@@ -30,7 +27,7 @@ The AAD ensures that prioritized metric streams are checked for anomalies in a t
 
 ## How do I know what the AAD is working on?
 
-The status UI of the AAD Kubernetes service provides various metrics and indicators, including details of what it is currently doing.
+The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing (please see # `TODO techincal UI` technical details in [Standalone Deployment AAD](../../setup/installation/kubernetes_install/aad_stanalone.md).
 
 ## Installation
 
@@ -48,43 +45,16 @@ To install the AAD StackPack, simply press the install button. No other actions 
 
 To uninstall the AAD StackPack, simply press the uninstall button. No other actions need to be taken.
 
-## Troubleshooting
-
-The status UI provides details on the technical state of the AAD Kubernetes service. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
-
-To access the status UI, one can run kubectl proxy.
-```text
-kubectl proxy  
-```
-The UI will be accessible by URL:
-```text
-http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
-```
-Optionally to access the status UI, the AAD service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](../../setup/installation/kubernetes_install/aad_standalone.md)\).
-
-Common questions that can be answered in the status UI:
-
-**Is the AAD Kubernetes service running?**  
-If the status UI is accessible: The service is running.  
-If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
-
-**Can the AAD Kubernetes service reach StackState?**  
-Check the status UI sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
-
-**Has the AAD Kubernetes service selected streams for anomaly detection?**  
-The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
-
-**Is the AAD Kubernetes service detecting anomalies?**  
-The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected. The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
-
-**Is the AAD Kubernetes service scheduling streams?**  
-The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
-
 ## Release Notes
 
-Release notes for the [AAD StackPack](aad.md#aad-stackpack) and the [AAD Kubernetes service](aad.md#aad-kubernetes-service) are available below.
+Release notes for the [AAD StackPack](aad.md#aad-stackpack) and [AAD Kubernetes service](aad.md#aad-kubernetes-service) are given below.
+Note that from release 4.3 [AAD Kubernetes service](aad.md#aad-kubernetes-service) is configured, installed and upgraded as a part of StackState installation, therefore its releases are no longer mentioned below.
 
 ### AAD StackPack
+
+#### AAD StackPack v0.8 \(19-03-2021\)
+
+* Check Function to support alerting on anomalies.
 
 #### AAD StackPack v0.7 BETA \(19-02-2021\)
 
@@ -99,6 +69,8 @@ Release notes for the [AAD StackPack](aad.md#aad-stackpack) and the [AAD Kuberne
 * Releasing Autonomous Anomaly Detector service BETA.
 
 ### AAD Kubernetes service
+
+#### Starting from release v4.3.0 AAD Kubernetes service is released as a part of StackState helm chart and it is version is consistent with StackState release version.
 
 #### AAD Kubernetes service v4.3.0-pre.1 BETA
 
