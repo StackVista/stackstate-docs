@@ -78,7 +78,7 @@ To enable the VMWare vSphere check and begin collecting data from your VSphere V
 
 #### Optional configuration
 
-The configuration options described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the file [`conf.yaml.example`](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example).
+The configuration options described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the file [`conf.yaml.example` \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example).
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
@@ -196,7 +196,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 **VMWare vSphere StackPack v2.2.0 (2020-08-04)**
 
-- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
 - Improvement: Replace resolveOrCreate with getOrCreate.
 
 **VMWare vSphere StackPack v2.1.0 (2020-04-10)**
@@ -217,4 +217,5 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 * [StackState Agent V2](agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
+* [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)
 * [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html).
