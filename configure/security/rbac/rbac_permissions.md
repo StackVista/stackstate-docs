@@ -260,7 +260,7 @@ sts permission grant [subject-handle] access-view [view-name]
 
 #### Allow a user to create (save) views
 
-Provide a subject with system permission to create \(save\) views:
+Provide a subject with the system permission to create \(save\) views:
 
 ```text
 sts permission grant [subject-handle] create-views system
@@ -268,7 +268,7 @@ sts permission grant [subject-handle] create-views system
 
 #### Allow a user to check StackState settings
 
-Provide a subject with system permission to check StackState settings:
+Provide a subject with the system permission to check StackState settings:
 
 ```text
 sts permission grant [subject-handle] read-settings system
@@ -276,7 +276,7 @@ sts permission grant [subject-handle] read-settings system
 
 #### Allow a user to add or edit event handlers
 
-Provide a subject with system permission to add new event handlers and edit existing event handlers:
+Provide a subject with the system permission to add new event handlers and edit existing event handlers:
 
 ```text
 sts permission grant [subject-handle] manage-event-handlers system
