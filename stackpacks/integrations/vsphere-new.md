@@ -21,8 +21,8 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
 * StackState Agent V2 connects to the configured VMWare vSphere instance at port 443 to:
-    * retrieve topology data for the configured resources.
-    * retrieve metrics data for the configured resources. The actual metrics retrieved can also be optionally configured in the StackState VMWare vSphere check configuration.
+    * retrieve topology data and tags for the configured resources.
+    * retrieve metrics data for the configured resources.
     * watch the vCenter Event Manager for events related to the configured resources.
 * StackState Agent V2 pushes retrieved data and events to StackState at port 7077.
     * [Topology data](#topology) is translated into components and relations.
