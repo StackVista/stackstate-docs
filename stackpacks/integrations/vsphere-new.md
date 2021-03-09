@@ -16,7 +16,7 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * DataStores
 * DataCenters
 
-![Data flow](/.gitbook/assets/stackpack-vmware_draft3.svg)
+![Data flow](/.gitbook/assets/stackpack-vmware_draft4.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
@@ -70,26 +70,26 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password> 
 
      ```
-2. If required, you can customise the integration using the available [optional configuration](#optional-configuration).
+2. If required, you can customise the integration using the available [advanced configuration options](#advanced-configuration).
     
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
 4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
-#### Optional configuration
+#### Advanced configuration
 
-The configuration options described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the [example configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example).
+The advanced configuration items described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the [example configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example).
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
 | `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
 | `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
-| **vm_include_only_regex** | No | Use a regex to include only VMs that match the specified pattern. |
-| **include_only_marked** | No |  Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`.<br />To set this custom field with PowerCLI, use the command: <code>Get-VM <MyVMName> &#124; Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"</code>  |
-| **all_metrics** | No | Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` a selected set of metrics that are interesting to monitor will be collected. |
-| **collection_level** | No | Specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html) (a number between 1 and 4). |
-| **collect_vcenter_alarms** | No | set to `true` to send vCenter alarms as events. |
+| `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |
+| `include_only_marked` | No |  Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`.<br />To set this custom field with PowerCLI, use the command: <code>Get-VM <MyVMName> &#124; Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"</code>  |
+| `all_metrics` | No | Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false`, a selected set of metrics that are interesting to monitor will be collected. |
+| `collection_level` | No | Specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html) (a number between 1 and 4). |
+| `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. |
 
 
 ### Status
