@@ -30,7 +30,7 @@ The possible (relevant) parameters for anomaly check function are:
 
 ### StackState events
 
-The parameters specifies a type of topology events check function should receive. The anomaly events are selected by specifying `Anomaly Events` when check is configured.
+The parameter specifies what type of topology events the check function should receive. The anomaly events are selected by specifying `Anomaly Events` when check is configured.
 
 The anomaly event is a topology event with the following fields:
 
@@ -47,9 +47,9 @@ The anomaly event is a topology event with the following fields:
 | event.getEventTimestamp() | Long | The time when event has been generated, e.g. anomaly start time |
 | event.getObservedTimestamp() | Long | The time when even has been processed by StackState |
 | event.getTags() | An array of String | An array of event tags, e.g. anomalyDirection:RISE, severity:HIGH |
-| event.getData() | TopologyEventData | The event specific data, e.g. Metric Anomaly Event Data |
+| event.getData() | TopologyEventData | The type specific event data, e.g. *Metric Stream Anomaly Data* |
 
-#### Metric Anomaly Event data fields
+#### Metric Stream Anomaly Data fields
 
 | Field Name | Type | Description |
 | :--- | :--- | :--- |
