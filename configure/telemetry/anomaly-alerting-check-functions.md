@@ -41,12 +41,12 @@ The anomaly event is a topology event with the following fields:
 | event.getIdentifier() | String | The event identifier. |
 | event.getElementIdentifiers() | an array of String | The identifiers of topology component related to the event. |
 | event.getCategory() | String | The event category, e.g. "Anomalies" |
-| event.getType() | String | The type of event, e.g. "Metric Stream Anomaly" |
+| event.getType() | String | The type of event. For anomaly events it is "Metric Stream Anomaly". |
 | event.getName() | String | The event summary, e.g. "Sudden Rise Detected" |
 | event.getDescription() | Optional of String | The detailed description of event |
 | event.getEventTimestamp() | Long | The time when event has been generated, e.g. anomaly start time |
 | event.getObservedTimestamp() | Long | The time when even has been processed by StackState |
-| event.getTags() | An array of String | An array of event tags, e.g. anomalyDirection:RISE, severity:HIGH |
+| event.getTags() | An array of String | An array of event tags, for anomaly events available tags are - `anomalyDirection:RISE`, `anomalyDirection:DROP`, `severity:HIGH`, `severity:MEDIUM`, `severity:LOW` |
 | event.getData() | TopologyEventData | The type specific event data, e.g. *Metric Stream Anomaly Data* |
 
 #### Metric Stream Anomaly Data fields

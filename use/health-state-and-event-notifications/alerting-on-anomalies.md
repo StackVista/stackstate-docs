@@ -17,7 +17,6 @@ The anomaly events can be viewed in the [event perspective](../../use/views/even
 ## How alerting on anomalies works
 
 In order to direct user attention to a proper part of IT Landscape an alerting check can be created for a MetricStream.
-In order to do that one needs to install [AAD]() StackPack and select the check function
 
 ## Alerting check functions
 
