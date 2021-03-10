@@ -10,7 +10,7 @@ The anomaly annotations are displayed in the metric charts as on the example bel
 
 ![Anomaly example](../../.gitbook/assets/anomaly-chart-write-latency.png)
 
-The anomaly events are collected in the [event perspective](../../use/views/events_perspective.md).
+The anomaly events can be viewed in the [event perspective](../../use/views/events_perspective.md) when event category `Anomalies` is selected in the filter.
 
 ![Anomaly events](../../.gitbook/assets/anomaly-events-in-events-perspective.png)
 
