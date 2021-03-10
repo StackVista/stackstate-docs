@@ -24,7 +24,7 @@ The VMware StackPack collects all topology data for the components and relations
     * Topology data and tags are retrieved for the configured resources.
     * Metrics data is retrieved for the configured resources.
     * The Agent watches the vCenter Event Manager for events related to the configured resources.
-* StackState Agent V2 pushes retrieved data and events to StackState at port 7077.
+* StackState Agent V2 pushes retrieved data and events to StackState at port 7077:
     * [Topology data](#topology) is translated into components and relations.
     * [Tags](#tags) defined in VMWare vSphere are added to components and relations in StackState.
     * [Metrics data](#metrics) is automatically mapped to associated components and relations in StackState.
