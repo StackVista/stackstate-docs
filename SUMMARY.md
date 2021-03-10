@@ -128,7 +128,7 @@
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
-  * [Alerting on Anomalies](configure/telemetry/alerting_on_anomalies.md)
+  * [Anomaly Alerting Check Functions](configure/telemetry/anomaly_alerting_check_functions.md)
   * [Baseline functions (Deprecated)](configure/telemetry/baseline-functions.md)  
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
