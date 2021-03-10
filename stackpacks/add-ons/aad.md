@@ -14,7 +14,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 The stream selection algorithm prioritizes streams based on the criteria below:
 
-* The top priority is given to metric streams with alerting checks based on check functions from AAD StackPack. See [alerting on anomalies](../../configure/telemetry/alerting_on_anomalies.md).
+* The top priority is given to metric streams with alerting checks based on check functions from AAD StackPack. See [alerting on anomalies](../../configure/telemetry/alerting-on-anomalies.md).
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md).
@@ -27,7 +27,7 @@ The AAD ensures that prioritized metric streams are checked for anomalies in a t
 
 ## How do I know what the AAD is working on?
 
-The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing (please see # `TODO techincal UI` technical details in [Standalone Deployment AAD](../../setup/installation/kubernetes_install/aad_stanalone.md).
+The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing (please see # `TODO techincal UI` technical details in [Standalone Deployment AAD](../../setup/installation/kubernetes_install/aad_standalone.md).
 
 ## Installation
 
