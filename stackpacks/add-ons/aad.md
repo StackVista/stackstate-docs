@@ -48,6 +48,7 @@ To uninstall the AAD StackPack, simply press the uninstall button. No other acti
 ## Release Notes
 
 Release notes for the [AAD StackPack](aad.md#aad-stackpack) are given below.
+
 Note that from release 4.3 AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
 ### AAD StackPack

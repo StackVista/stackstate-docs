@@ -1,5 +1,5 @@
 ---
-title: Anomaly Alerting Check Functions
+title: Anomaly alerting check functions
 kind: documentation
 ---
 
