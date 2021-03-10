@@ -30,7 +30,7 @@ The functions triggers DEVIATING health state for a metric stream and anomaly di
 | :--- | :--- | :--- |
 | metricStream | Metric Stream Id | The id of the metric stream from the component the check is created on. |
 | event | StackState Events | The topology event is the anomaly event if the check is configured with `Anomaly Events` filter. |
-| anomalyDirection | Anomaly Direction | The direction of anomaly in metric stream: RISE/DROP/ANY. |
+| anomalyDirection | Anomaly Direction | The direction of the anomaly: RISE/DROP/ANY. |
 
 ## See also
 
