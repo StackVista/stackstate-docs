@@ -211,4 +211,3 @@ Http.head("http://http_server:8080/api")
     .param("name", "value")
     .header("name", "value")
 ```
-

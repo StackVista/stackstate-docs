@@ -38,6 +38,7 @@
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
   * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
+  * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 
 ## 👤 Use
 
@@ -124,8 +125,9 @@
   * [Health state propagation](configure/topology/propagation.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Understanding checks and streams](configure/telemetry/checks_and_streams.md)
-  * [Plugins](configure/plugins/README.md)
-    * [Elasticsearch plugin](configure/telemetry/plugins/elasticsearch_plugin.md)
+  * [Data sources](configure/telemetry/data-sources/README.md)
+    * [Elasticsearch](configure/telemetry/data-sources/elasticsearch.md)
+    * [Prometheus mirror](configure/telemetry/data-sources/prometheus-mirror.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
@@ -147,7 +149,9 @@
     * [Roles](configure/security/rbac/rbac_roles.md)
     * [Scopes](configure/security/rbac/rbac_scopes.md)
     * [Subjects](configure/security/rbac/rbac_subjects.md)
+  * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Secrets management](configure/security/secrets_management.md)
+  * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
 * [Identifiers](configure/identifiers.md)
@@ -180,8 +184,6 @@
     * [How to develop agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
   * [Extend StackState with functions](develop/developer-guides/functions.md)
   * [Mirroring Telemetry](develop/developer-guides/mirroring.md)
-  * [Mirrors](develop/developer-guides/mirrors/README.md)
-    * [Prometheus mirror](develop/developer-guides/mirrors/prometheus-mirror.md)
   * [Integrate external services](develop/developer-guides/integrating_external_services.md)
 * [Reference](develop/reference/README.md)
   * [StackState CLI](develop/reference/cli_reference.md)

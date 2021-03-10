@@ -4,7 +4,6 @@
 StackState prefers Kubernetes!  
 In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../kubernetes_install/).
 {% endhint %}
-
 This document provides the steps to set up TLS on StackState application side with no reverse proxy configured.
 
 ## Prerequisites

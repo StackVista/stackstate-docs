@@ -6,4 +6,3 @@ See also:
 
 * [Manually created topology backup](manual_topology_backup.md)
 * [Configuration backup](configuration_backup.md)
-

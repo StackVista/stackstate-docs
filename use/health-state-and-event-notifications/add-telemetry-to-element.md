@@ -39,5 +39,5 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 * [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md)
 * [Monitor the health of an element](/use/health-state-and-event-notifications/add-a-health-check.md)
 * [Use templates to add telemetry streams to your own integrations](/configure/telemetry/telemetry_synchronized_topology.md)
-* [Browse data in a telemetry stream](/views/browse-telemetry.md)
+* [Browse data in a telemetry stream](/use/views/browse-telemetry.md)
 

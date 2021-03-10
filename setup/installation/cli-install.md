@@ -8,7 +8,7 @@ The StackState CLI can be used to configure StackState, work with data, and help
 
 ## Install the StackState CLI
 
-A standalone executable is available to run the StackState CLI on [Linux](cli-install.md#linux-install) and [Windows](cli-install.md#windows-install). You can also run the CLI [inside a Docker container](cli-install.md#docker-install-linux-windows-mac) on Linux, Windows or MacOS.
+A standalone executable is available to run the StackState CLI on [Linux](cli-install.md#linux-install) and [Windows](cli-install.md#windows-install). You can also run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) on Linux, Windows or MacOS.
 
 ### Linux install
 
@@ -46,7 +46,7 @@ A standalone executable file is available to run the StackState CLI on Windows.
 3. \(optional\) Place the file under your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. Follow the steps below to [launch the configuration wizard](cli-install.md#wizard-configuration-linux-and-windows-install) or [manually configure](cli-install.md#manual-configuration) the StackState CLI.
 
-### Docker install \(Linux, Windows, Mac\)
+### Docker install \(Mac, Linux, Windows\)
 
 The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that help you run the CLI without needing to worry about Docker invocations.
 
