@@ -16,7 +16,7 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * DataStores
 * DataCenters
 
-![Data flow](/.gitbook/assets/stackpack-vmware_draft4.svg)
+![Data flow](/.gitbook/assets/stackpack-vsphere.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
