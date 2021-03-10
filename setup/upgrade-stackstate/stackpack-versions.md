@@ -31,7 +31,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | [**5.1.0**](../../stackpacks/integrations/servicenow.md#release-notes) | 4.0.1 | 2.1.0 |
 | [Splunk](../../stackpacks/integrations/splunk/) | 1.0.0 | [**1.0.0**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | - |
 | [Static topology](../../stackpacks/integrations/static_topology.md) | 2.2.1 | **2.2.1** | 2.0.0 |
-| [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.2.1 | **2.2.1** | 2.1.0 |
+| [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.2.1 | [**2.2.1**](/stacpacks/integrations/vsphere.md#release-notes) | 2.1.0 |
 | [Zabbix](../../stackpacks/integrations/zabbix.md) | 3.0.1 | **3.0.1** | 2.2.0 |
 
 ## See also
