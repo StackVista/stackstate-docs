@@ -65,7 +65,7 @@
   * [Add a telemetry stream](use/health-state-and-event-notifications/add-telemetry-to-element.md)
   * [Configure the view health](use/health-state-and-event-notifications/configure-view-health.md)
   * [Send event notifications](use/health-state-and-event-notifications/send-event-notifications.md)
-  * [Alerting on Anomalies](use/health-state-and-event-notifications/alerting-on-anomalies.md)
+  * [Alerting on anomalies](use/health-state-and-event-notifications/alerting-on-anomalies.md)
   * [Anomaly detection with baselines (Deprecated)](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 * [Glossary](use/glossary.md)
 
