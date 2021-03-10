@@ -47,9 +47,9 @@ The event types generated when an element state changes are described in the tab
 
 | Event type | Description |
 | :--- | :--- |
-| `HealthStateChangedEvent` | **State change of an element** Generated when the health state of an element changes. These events will be listed in the StackState UI [Events Perspective](/use/views/events_perspective.md). |
-| `PropagatedStateChangedEvent` | **Propagated state change of an element** Generated whenever the health state of one of an element’s dependencies changes. These events are not visible in the StackState UI, but can be used for trigger an event notification. |
-| `ViewStateChangedEvent` | **State change of entire view** Generated only when the health state of a significant number of elements in a view changes. These events are not visible in the StackState UI, but can be used to trigger event notifications. |
+| `HealthStateChangedEvent` | **State change of an element**<br />Generated when the health state of an element changes. These events will be listed in the StackState UI [Events Perspective](/use/views/events_perspective.md). |
+| `PropagatedStateChangedEvent` | **Propagated state change of an element**<br />Generated whenever the health state of one of an element’s dependencies changes. These events are not visible in the StackState UI, but can be used for trigger an event notification. |
+| `ViewStateChangedEvent` | **State change of entire view**<br />Generated only when the health state of a significant number of elements in a view changes. These events are not visible in the StackState UI, but can be used to trigger event notifications.<br /Note that there may be a slight delay between the generation of a HealthStateChangedEvent for an element and the resulting ViewStateChangedEvent. This can cause the reported state of a view to differ from the actual state of elements within it. |
 
 You can [add an event handler to a view](#add-an-event-handler-to-a-view) to trigger event notifications or automated actions on specific state change events.
 
