@@ -35,7 +35,7 @@ Returns resources originating from the StackPack
 
 **Examples:**
 
-The example below will return the AsyncScriptResult of the array of resources with type `"CheckFunction"` from from `"agent"` StackPack.
+The example below will return the AsyncScriptResult of the array of resources with type `"CheckFunction"` from the `"agent"` StackPack.
 
 ```text
 StackPack.getResources("agent", "CheckFunction")
