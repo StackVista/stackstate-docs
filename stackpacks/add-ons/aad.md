@@ -14,7 +14,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 The stream selection algorithm prioritizes streams based on the criteria below:
 
-* The top priority is given to metric streams with alerting checks based on check functions from AAD StackPack. See [alerting on anomalies](../../use/health-state-and-event-notifications/alerting-on-anomalies.md).
+* The top priority is given to metric streams with checks based on check functions from AAD StackPack. See [alerting on anomalies](../../use/health-state-and-event-notifications/alerting-on-anomalies.md).
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md).
@@ -66,62 +66,5 @@ Note that from release 4.3 AAD is configured, installed and upgraded as a part o
 * Documentation fixes and minor maintenance work.
 
 #### AAD StackPack v0.2.2 BETA \(04-09-2020\)
-
-* Releasing Autonomous Anomaly Detector service BETA.
-
-### AAD Kubernetes service
-
-#### Starting from release v4.3.0 AAD Kubernetes service is released as a part of StackState helm chart and it is version is consistent with StackState release version.
-
-#### AAD Kubernetes service v4.3.0-pre.1 BETA
-
-**Helm chart version**: 4.3.0-pre.1  
-**Image tag**: 4.3.0-pre.1  
-**Release date**: 2021-01-14
-
-Changes in this version:
-
-* Detecting long anomalies and level changes.
-
-#### AAD Kubernetes service v4.2.0 BETA
-
-**Helm chart version**: 4.1.27  
-**Image tag**: 4.2.0-release  
-**Release date**: 2020-12-11
-
-Changes in this version:
-
-* Performance, stability and other bug fixes.
-
-#### AAD Kubernetes service v4.1.2 BETA
-
-**Helm chart version**: 4.1.24  
-**Image tag**: 4.1.2-release  
-**Release date**: 2020-11-27
-
-Changes in this version:
-
-* Improved stream selection and ranking. Stream selection is able to handle timeouts gracefully. Stream ranking applies heuristic based stream prioritization.
-
-#### AAD Kubernetes service v4.1.1 BETA
-
-**Helm chart version**: 4.1.18  
-**Image tag**: 4.1.1-release  
-**Release date**: 2020-10-09
-
-Changes in this version:
-
-* Upgraded various ML libraries.
-* Added support for username/password authentication.
-* Improved model selection efficiency.
-* Fixed various minor bugs.
-
-#### AAD Kubernetes service v4.1.0 BETA
-
-**Helm chart version**: 4.1.15  
-**Image tag**: 4.1.0-release  
-**Release date**: 2020-09-04
-
-Changes in this version:
 
 * Releasing Autonomous Anomaly Detector service BETA.
