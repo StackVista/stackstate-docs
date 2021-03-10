@@ -1,7 +1,7 @@
 
 redirects:
   develop/creating_stackpacks: ./develop/developer-guides/stackpack/README.md
-  integrations/: ./stackpacks/README.md
+  integrations: ./stackpacks/README.md
   integrations/available_stackpacks: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
@@ -21,14 +21,15 @@ redirects:
   integrations/available_stackpacks/scom: ./stackpacks/integrations/scom.md
   integrations/available_stackpacks/servicenow: ./stackpacks/integrations/servicenow.md
   integrations/available_stackpacks/splunk: ./stackpacks/integrations/splunk/README.md
-  integrations/available_stackpacks/splunk/splunk_event: ./stackpacks/integration/splunk/splunk_event.md
+  integrations/available_stackpacks/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_event.md
   integrations/available_stackpacks/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metric.md
+  integrations/available_stackpacks/splunk/splunk_topology: ./stackpacks/integrations/splunk/splunk_topology.md
   integrations/available_stackpacks/static_topology: ./stackpacks/integrations/static_topology.md
   integrations/available_stackpacks/vsphere: ./stackpacks/integrations/vsphere.md
   integrations/available_stackpacks/zabbix: ./stackpacks/integrations/zabbix.md
   integrations/introduction: ./stackpacks/about-stackpacks.md
-  integrations/mirrors: ./develop/developer-guides/mirrors/README.md
-  integrations/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
+  integrations/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
+  integrations/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
   integrations/sdk: ./stackpacks/sdk.md
   setup/download: ./setup/installation/linux_install/download.md
   setup/installation/development-installation: ./setup/installation/linux_install/development-installation.md
@@ -40,7 +41,7 @@ redirects:
   setup/installation/installing_pre1_15: ./setup/upgrading.md
   setup/installation/kubernetes/image_configuration: ./setup/kubernetes_install/image_configuration.md
   setup/installation/kubernetes/ingress: ./setup/installation/kubernetes_install/ingress.md
-  setup/installation/kubernetes/README: ./setup/installation/kubernetes_install/README.md
+  setup/installation/kubernetes: ./setup/installation/kubernetes_install/README.md
   setup/installation/kubernetes/storage: ./setup/installation/kubernetes_install/storage.md
   setup/installation/poc-installation: ./setup/installation/linux_install/poc-installation.md
   setup/installation/production-installation: ./setup/installation/linux_install/production-installation.md
@@ -49,6 +50,9 @@ redirects:
   setup/installation/requirements: ./setup/requirements.md
   setup/installation/reverse_proxy: ./setup/installation/linux_install/reverse_proxy.md
   setup/installation/troubleshooting: ./setup/installation/troubleshooting.md
+  concepts/component_and_relation_templates: ./develop/reference/stj/templates.md
+  concepts/role_based_access_control: ./configure/security/rbac/role_based_access_control.md
+  concepts/topology_sources: ./configure/topology/topology_sources.md
   configure/component_actions: configure/topology/component_actions.md
   configure/how_to_configure_component_actions: ./configure/topology/how_to_configure_component_actions.md
   configure/sync: ./configure/topology/sync.md
@@ -58,17 +62,18 @@ redirects:
   configure/propagation: ./configure/topology/propagation.md
   configure/tagging: ./configure/topology/tagging.md
   configure/topology_synchronization: ./configure/topology/topology_synchronization.md
+  configure/topology_selection_advanced: ./develop/reference/stql_reference.md
   configure/telemetry_synchronized_topology: ./configure/telemetry/telemetry_synchronized_topology.md
   configure/browse_telemetry: ./configure/telemetry/browse-telemetry.md
   configure/checks_and_streams: ./configure/telemetry/checks_and_streams.md
+  configure/scopes_in_rbac: ./configure/security/rbac/rbac_scopes.md
   configure/send_telemetry: ./configure/telemetry/send_telemetry.md
   configure/how_to_use_the_priority_field_for_components: ./configure/telemetry/how_to_use_the_priority_field_for_components.md
   configure/how_to_setup_traces: ./configure/traces/how_to_setup_traces.md
+  configure/how_to_set_up_roles: ./configure/security/rbac/rbac_roles.md
   configure/configure_tracing: ./configure/traces/configure_tracing.md
   configure/permissions: ./configure/security/rbac/rbac_permissions.md
-  configure/how_to_set_up_roles: ./configure/security/rbac_roles.md
-  configure/scopes_in_rbac: ./configure/security/rbac_scopes.md
-  configure/subject_configuration: ./configure/security/rbac_subjects.md
+  configure/subject_configuration: ./configure/security/rbac/rbac_subjects.md
   configure/secrets_management: ./configure/security/secrets_management.md
   configure/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
   configure/how_to_set_up_a_security_backend_for_windows: configure/security/set_up_a_security_backend_for_windows.md
@@ -77,10 +82,8 @@ redirects:
   configure/security/how_to_set_up_roles: ./configure/security/rbac/rbac_roles.md
   configure/security/scopes_in_rbac: ./configure/security/rbac/rbac_scopes.md
   configure/security/subject_configuration: ./configure/security/rbac_subjects.md
-  concepts/role_based_access_control: ./configure/security/role_based_access_control.md
   configure/security/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
   configure/security/how_to_set_up_a_security_backend_for_windows: ./configure/security/set_up_a_security_backend_for_windows.md
-  concepts/topology_sources: ./configure/topology/topology_sources.md
   develop/agent_check:  ./develop/developer-guides/agent_check/README.md
   develop/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/checks_in_agent_v2.md
   develop/agent_check/how_to_develop_agent_checks: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
@@ -90,9 +93,9 @@ redirects:
   develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack: ./develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md
   develop/functions: ./develop/developer-guides/functions.md
   develop/integrating_external_services: ./develop/developer-guides/integrating_external_services.md
-  develop/mirrors: ./develop/developer-guides/mirrors/README.md
-  develop/mirroring: ./develop/developer-guides/mirrors/mirroring.md
-  develop/mirrors/prometheus-mirror: ./develop/developer-guides/mirrors/prometheus-mirror.md
+  develop/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
+  develop/mirroring: ./develop/developer-guides/mirroring.md
+  develop/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
   develop/stackpack: ./develop/developer-guides/stackpack
   develop/stackpack/how_to_customize_a_stackpack: ./develop/developer-guides/stackpack/how_to_customize_a_stackpack.md
   develop/stackpack/how_to_get_a_template_file: ./develop/developer-guides/stackpack/how_to_get_a_template_file.md
@@ -119,10 +122,9 @@ redirects:
   develop/scripting/script-apis/topology: ./develop/reference/scripting/script-apis/topology.md
   develop/scripting/script-apis/ui: ./develop/reference/scripting/script-apis/ui.md
   develop/scripting/script-apis/view: ./develop/reference/scripting/script-apis/view.md
-  develop/sts_template_language_intro: ./develop/reference/stj/
+  develop/sts_template_language_intro: ./develop/reference/stj/README.md
   develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stj/stj_reference.md
-  concepts/component_and_relation_templates: ./develop/reference/stj/templates.md
-  develop/stml: ./develop/reference/stml/
+  develop/stml: ./develop/reference/stml/README.md
   develop/stml/tags: ./develop/reference/stml/tags.md
   setup/backup_restore: ./setup/data-management/backup_restore/README.md
   setup/backup_restore/configuration: ./setup/data-management/backup_restore/configuration_backup.md
@@ -132,6 +134,7 @@ redirects:
   setup/clear_data: ./setup/data-management/clear_stored_data.md
   setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/installation/cli-install.md
+  setup/kubernetes/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
   setup/kubernetes_install: ./setup/installation/kubernetes_install/
   setup/kubernetes_install/customize_config: ./setup/installation/kubernetes_install/customize_config.md
   setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/development_setup.md
@@ -166,7 +169,7 @@ redirects:
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
 
-# below were added for 4.2 docs
+# added for 4.2 docs
 
   use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
@@ -181,6 +184,8 @@ redirects:
   configure/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/authentication: ./configure/security/authentication/README.md
+  develop/developer-guides/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
+  configure/telemetry/plugins/elasticsearch_plugin: ./configure/telemetry/data-sources/elasticsearch.md
 
 # from custom sync stackpack
 
