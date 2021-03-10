@@ -14,7 +14,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 The stream selection algorithm prioritizes streams based on the criteria below:
 
-* The top priority is given to metric streams with alerting checks based on check functions from AAD StackPack. See [alerting on anomalies](../../configure/telemetry/alerting-on-anomalies.md).
+* The top priority is given to metric streams with alerting checks based on check functions from AAD StackPack. See [alerting on anomalies](../../use/health-state-and-event-notifications/alerting-on-anomalies.md).
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md).
