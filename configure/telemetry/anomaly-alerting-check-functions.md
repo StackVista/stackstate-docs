@@ -32,24 +32,28 @@ The possible (relevant) parameters for anomaly check function are:
 
 The parameters specifies a type of topology events check function should receive. The anomaly events are selected by specifying `Anomaly Events` when check is configured.
 
-The anomaly event is a topology event with the following fields available:
+The anomaly event is a topology event with the following fields:
 
 #### Generic Topology Event fields
 
-* event.getIdentifier() - event identifier
-* event.getElementIdentifiers() - the identifiers of topology component
-* event.getCategory() - event category, e.g. "Anomalies"
-* event.getType() - the type of event, e.g. "Metric Stream Anomaly"
-* event.getName() - the event summary, e.g. "Sudden Rise Detected"
-* event.getDescription() - detailed description of event
-* event.getEventTimestamp() - the time when event has been generated
-* event.getObservedTimestamp() - the time when even has been processed by StackState
-* event.getTags() - an array of event tags, e.g. anomalyDirection:RISE, severity:HIGH
-* event.getData() - an event specific data, e.g. Metric Anomaly Event Data
+| Field Name | Type | Description |
+| :--- | :--- | :--- |
+| event.getIdentifier() | String | The event identifier. |
+| event.getElementIdentifiers() | an array of String | The identifiers of topology component related to the event. |
+| event.getCategory() | String | The event category, e.g. "Anomalies" |
+| event.getType() | String | The type of event, e.g. "Metric Stream Anomaly" |
+| event.getName() | String | The event summary, e.g. "Sudden Rise Detected" |
+| event.getDescription() | Optional of String | The detailed description of event |
+| event.getEventTimestamp() | Long | The time when event has been generated, e.g. anomaly start time |
+| event.getObservedTimestamp() | Long | The time when even has been processed by StackState |
+| event.getTags() | An array of String | An array of event tags, e.g. anomalyDirection:RISE, severity:HIGH |
+| event.getData() | TopologyEventData | The event specific data, e.g. Metric Anomaly Event Data |
 
 #### Metric Anomaly Event data fields
 
-* event.getData().getStreamId() - id of the MetricStream where anomaly has been found
+| Field Name | Type | Description |
+| :--- | :--- | :--- |
+| event.getData().getStreamId() | Long | The id of the MetricStream where anomaly has been found. |
 
 ### Anomaly Direction
 
