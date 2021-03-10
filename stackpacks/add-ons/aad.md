@@ -27,7 +27,7 @@ The AAD ensures that prioritized metric streams are checked for anomalies in a t
 
 ## How do I know what the AAD is working on?
 
-The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing (see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#Troubleshooting)).
+The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing (see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)).
 
 ## Installation
 
