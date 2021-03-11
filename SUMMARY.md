@@ -101,7 +101,7 @@
     * [Splunk event](stackpacks/integrations/splunk/splunk_event.md)
   * [Static Topology](stackpacks/integrations/static_topology.md)
   * [Traefik \(BETA\)](stackpacks/integrations/traefik.md)
-  * [VMware vSphere](stackpacks/integrations/vsphere.md)
+  * [VMWare vSphere](stackpacks/integrations/vsphere.md)
   * [Zabbix](stackpacks/integrations/zabbix.md)
 * [Develop your own StackPacks](stackpacks/sdk.md)
 
