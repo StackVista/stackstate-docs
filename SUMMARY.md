@@ -66,7 +66,7 @@
   * [Add a telemetry stream](use/health-state-and-event-notifications/add-telemetry-to-element.md)
   * [Configure the view health](use/health-state-and-event-notifications/configure-view-health.md)
   * [Send event notifications](use/health-state-and-event-notifications/send-event-notifications.md)
-  * [Alerting on anomalies](use/health-state-and-event-notifications/alerting-on-anomalies.md)
+  * [Anomaly detection checks](use/health-state-and-event-notifications/anomaly-detection-checks.md)
   * [Anomaly detection with baselines (Deprecated)](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 * [Glossary](use/glossary.md)
 
@@ -131,7 +131,7 @@
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
-  * [Anomaly alerting check functions](configure/telemetry/anomaly-alerting-check-functions.md)
+  * [Anomaly check functions](configure/telemetry/anomaly-check-functions.md)
   * [Baseline functions (Deprecated)](configure/telemetry/baseline-functions.md)  
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)

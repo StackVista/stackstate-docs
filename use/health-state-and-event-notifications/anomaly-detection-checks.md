@@ -1,5 +1,5 @@
 ---
-title: Alerting on anomalies
+title: Anomaly detection checks
 kind: documentation
 ---
 
@@ -14,11 +14,11 @@ The anomaly events can be viewed in the [event perspective](../../use/views/even
 
 ![Anomaly events](../../.gitbook/assets/anomaly-events-in-events-perspective.png)
 
-## How alerting on anomalies works
+## How anomaly checks work
 
-In order to direct user attention to a proper part of IT Landscape an alerting check can be created for a MetricStream.
+In order to direct user attention to a proper part of IT Landscape an anomaly check can be created for a MetricStream.
 
-## Alerting check functions
+## Anomaly check functions
 
 ### Autonomous metric stream anomaly detection
 
@@ -35,5 +35,5 @@ The functions triggers DEVIATING health state for a metric stream and anomaly di
 ## See also
 
 * [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
-* [Anomaly alerting check functions](../../configure/telemetry/anomaly-alerting-check-functions.md)
+* [Anomaly check functions](../../configure/telemetry/anomaly-check-functions.md)
 * [Checks and telemetry streams](checks_and_streams.md)

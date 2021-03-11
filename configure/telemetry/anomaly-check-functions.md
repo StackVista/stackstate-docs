@@ -1,13 +1,13 @@
 ---
-title: Anomaly alerting check functions
+title: Anomaly check functions
 kind: documentation
 ---
 
 ## Overview
 
-Anomaly alerting check function is a function that gives a possibility to configure a health check that triggers DEVIATING health state if anomaly with certain parameters is found for a MetricStream.
+Anomaly check function gives a possibility to configure a health check that triggers DEVIATING health state if anomaly with certain parameters is found for a MetricStream.
 
-The function body is specified as a groovy script. Below is an example of an anomaly alerting check function with `metricStream` input parameter name that indicates metric stream id from anomaly event. The function checks if the incoming event is the anomaly event and if the metric stream id from the event matches `metricStream` argument. If there is a match the function will trigger DEVIATING state when the anomaly event is received and hold it for 1 minute (60000 milliseconds) and then switch the state to UNKNOWN.
+The function body is specified as a groovy script. Below is an example of an anomaly check function with `metricStream` input parameter name that indicates metric stream id from anomaly event. The function checks if the incoming event is the anomaly event and if the metric stream id from the event matches `metricStream` argument. If there is a match the function will trigger DEVIATING state when the anomaly event is received and hold it for 1 minute (60000 milliseconds) and then switch the state to UNKNOWN.
 
   ```text
   if (event.getType() == "Metric Stream Anomaly" && event.getData().getStreamId() == metricStream) {
@@ -21,7 +21,7 @@ The function body is specified as a groovy script. Below is an example of an ano
   }
   ```
 
-## Anomaly Alerting Check Function parameters
+## Anomaly Check Function parameters
 
 The possible (relevant) parameters for anomaly check function are:
 * StackState Events
@@ -68,7 +68,7 @@ The code snippet below shows how the anomaly direction can be matched with param
 
 ### Metric Stream Id
 
-The identifier of the Metric Stream for which anomaly detection and anomaly alerting is executed. The alerting check function should match this is with id of the metric stream from anomaly event. See example below
+The identifier of the Metric Stream for which anomaly check is executed. The anomaly check function should match this is with id of the metric stream from anomaly event. See example below
 
   ```text
     def metricStreamIdMatch = event.getData().getStreamId() == metricStream
