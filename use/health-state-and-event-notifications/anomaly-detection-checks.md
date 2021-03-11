@@ -5,18 +5,11 @@ kind: documentation
 
 ## Overview
 
-[Autonomous Anomaly Detector (AAD)](../../stackpacks/add-ons/aad.md) looks for anomalies in the IT environment and annotates telemetry with anomalies and also sends anomaly events.
-The anomaly annotations are displayed in the metric charts as on the example below:
+[Autonomous Anomaly Detector (AAD)](../../stackpacks/add-ons/aad.md) looks for deviations in the IT environment and annotates telemetry with anomalies and also sends anomaly events. The anomaly events can be viewed in the [event perspective](../../use/views/events_perspective.md) and also can be an input for an anomaly check.
 
-![Anomaly example](../../.gitbook/assets/anomaly-chart-write-latency.png)
+Anomaly check can be created based on default anomaly check function available from [AAD StackPack](../../stackpacks/add-ons/aad.md). The description of default check function is given [below](anomaly-detection-checks.md#autonomous-metric-stream-anomaly-detection).
 
-The anomaly events can be viewed in the [event perspective](../../use/views/events_perspective.md) when event category `Anomalies` is selected in the filter.
-
-![Anomaly events](../../.gitbook/assets/anomaly-events-in-events-perspective.png)
-
-## How anomaly checks work
-
-In order to direct user attention to a proper part of IT Landscape an anomaly check can be created for a MetricStream.
+There is an options to create custom anomaly check function. More information on parameters and available fields can be found in [anomaly-check-functions](../../configure/telemetry/anomaly-check-functions.md) section.
 
 ## Anomaly check functions
 
