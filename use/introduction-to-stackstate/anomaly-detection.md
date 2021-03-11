@@ -27,7 +27,7 @@ Additionally, identified anomalies are available as StackState Events and can be
 
 Finally, [anomaly detection checks](../health-state-and-event-notifications/anomaly-detection-checks.md) can be configured for the most important metric streams. They will point operator's attention to the most severe deviations.
 
-Read more about the [Autonomous Anomaly Detector)](../../stackpacks/add-ons/aad.md).
+Read more about the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
 
 ## Baseline anomaly detection
 
