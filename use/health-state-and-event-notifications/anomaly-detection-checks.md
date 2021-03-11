@@ -9,7 +9,7 @@ kind: documentation
 
 The anomaly check can be created based on the default anomaly check function available from [AAD StackPack](../../stackpacks/add-ons/aad.md). The description of the default check function is given [below](anomaly-detection-checks.md#autonomous-metric-stream-anomaly-detection).
 
-Optionally, custom anomaly check function can be created. More information on custom anomaly check function, parameters and available fields can be found in [anomaly-check-functions](../../configure/telemetry/anomaly-check-functions.md) section.
+Optionally, custom anomaly check function can be created. More information on custom anomaly check function, parameters and available fields can be found in [anomaly check functions](../../configure/telemetry/anomaly-check-functions.md) section.
 
 ## Anomaly check functions
 
