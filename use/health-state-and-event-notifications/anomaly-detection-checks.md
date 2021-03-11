@@ -7,9 +7,9 @@ kind: documentation
 
 [Autonomous Anomaly Detector (AAD)](../../stackpacks/add-ons/aad.md) looks for deviations in the IT environment and annotates telemetry with anomalies and also sends anomaly events. The anomaly events can be viewed in the [event perspective](../../use/views/events_perspective.md) and also can be an input for an anomaly check.
 
-Anomaly check can be created based on default anomaly check function available from [AAD StackPack](../../stackpacks/add-ons/aad.md). The description of default check function is given [below](anomaly-detection-checks.md#autonomous-metric-stream-anomaly-detection).
+The anomaly check can be created based on the default anomaly check function available from [AAD StackPack](../../stackpacks/add-ons/aad.md). The description of the default check function is given [below](anomaly-detection-checks.md#autonomous-metric-stream-anomaly-detection).
 
-There is an options to create custom anomaly check function. More information on parameters and available fields can be found in [anomaly-check-functions](../../configure/telemetry/anomaly-check-functions.md) section.
+Optionally, custom anomaly check function can be created. More information on custom anomaly check function, parameters and available fields can be found in [anomaly-check-functions](../../configure/telemetry/anomaly-check-functions.md) section.
 
 ## Anomaly check functions
 
