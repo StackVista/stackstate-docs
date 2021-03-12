@@ -9,7 +9,7 @@ stackpack-name: Kubernetes
 
 The Kubernetes StackPack is used to create a near real-time synchronization of topology and associated internal services from a Kubernetes cluster to StackState. This StackPack allows monitoring of the following:
 
-* Different types of workloads
+* Workloads
 * Nodes, pods, containers and services
 
 ![Data flow](/.gitbook/assets/stackpack-kubernetes_draft1.svg)
@@ -60,9 +60,47 @@ TODO: Required steps
 
 #### Traces
 
+#### Tags
+
+All tags defined in Kubernetes will be retrieved and added to the associated components and relations in StackState. 
 
 
 ### REST API endpoints
+
+The StackState Kubernetes Cluster Agent connects to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The API endpoints used are described in the table below.
+
+| Resource | Description |
+|:---|:---|
+| componentstatuses | [https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/component-status-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/component-status-v1/) |
+| events | [https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) |
+| namespaces | [https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/namespace-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/namespace-v1/) |  
+| nodes | [https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/node-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/node-v1/) |
+| endpoints | [https://kubernetes.io/docs/reference/kubernetes-api/services-resources/endpoints-v1/](https://kubernetes.io/docs/reference/kubernetes-api/services-resources/endpoints-v1/) |
+| ingresses | [https://kubernetes.io/docs/reference/kubernetes-api/services-resources/ingress-v1/](https://kubernetes.io/docs/reference/kubernetes-api/services-resources/ingress-v1/) |
+| services | [https://kubernetes.io/docs/reference/kubernetes-api/services-resources/service-v1/](https://kubernetes.io/docs/reference/kubernetes-api/services-resources/service-v1/) |
+| cronjobs | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/cron-job-v1beta1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/cron-job-v1beta1/) |
+| daemonsets | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/daemon-set-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/daemon-set-v1/) |
+| deployments | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/deployment-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/deployment-v1/) |
+| jobs | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/job-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/job-v1/) |
+| pods | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/) |
+| replicasets | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/replica-set-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/replica-set-v1/) |
+| statefulsets | [https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/stateful-set-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/stateful-set-v1/) |
+| secrets | [https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/secret-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/secret-v1/) |
+| configmaps | [https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/) |
+| persistentvolumes | [https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/) |
+| persistentvolumeclaims | [https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/) |
+| volumeattachments | [https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/volume-attachment-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/volume-attachment-v1/) |
+
+
+
+
+
+| "/version" | |
+| "/healthz" | |
+
+
+
+For further details see the [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/).
 
 
 ### Open source
@@ -144,4 +182,4 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## See also
 
--
+- [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/)
