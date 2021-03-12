@@ -88,6 +88,7 @@
   * [Humio](stackpacks/integrations/humio.md)
   * [Java APM](stackpacks/integrations/java-apm.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
+  * [NEW Kubernetes](stackpacks/integrations/kubernetes_new.md)
   * [Logz.io](stackpacks/integrations/logz.md)
   * [Manual Topology](stackpacks/integrations/manualtopo.md)
   * [Nagios](stackpacks/integrations/nagios.md)
