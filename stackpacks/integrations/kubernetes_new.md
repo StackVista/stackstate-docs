@@ -14,7 +14,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](/.gitbook/assets/stackpack_kubernetes_draft1.svg)
 
-The Kubernetes integration collects all topology data for components and the relations between them as well as telemetry and events.
+The Kubernetes integration collects topology data for nodes, pods, containers and services in a Kubernetes cluster as well as metrics and events.
 
 - StackState Agent V2 is deployed **on each node** in the Kubernetes cluster:
     - Topology data and tags are retrieved for all pods, containers and services on the host.
