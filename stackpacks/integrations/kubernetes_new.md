@@ -25,10 +25,11 @@ The Kubernetes integration collects all topology data for components and the rel
     - Cluster wide information is retrieved from the Kubernetes API.
 - Each StackState Agent pushes retrieved data to StackState via the StackState Agent StackPack.
 - The StackState Cluster Agent pushes retrieved data to StackState via the Kubernetes StackPack.
-- [Topology data](#topology) is translated into components and relations.
-- [Tags](#tags) defined in Kubernetes are added to components and relations in StackState.
-- [Metrics data](#metrics) retrieved by the StackState Agents and the StackState Cluster Agent is mapped to associated components and relations in StackState.
-- [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+- In StackState:
+    - [Topology data](#topology) is translated into components and relations.
+    - [Tags](#tags) defined in Kubernetes are added to components and relations in StackState.
+    - [Metrics data](#metrics) retrieved by the StackState Agents and the StackState Cluster Agent is mapped to associated components and relations in StackState.
+    - [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 
 ## Setup
@@ -50,7 +51,7 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** > **Integ
 
 ### Deploy the StackState Agent and Cluster Agent
 
-To retrieve topology, events and metrics data from you Kubernetes cluster, you will need to install the StackState Agent, the StackState Cluster Agent and kube-state-metrics. This can be done using the [Cluster Agent Helm Chart](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+To retrieve topology, events and metrics data from you Kubernetes cluster, you will need to install the StackState Agent, the StackState Cluster Agent and kube-state-metrics. This can be done using the [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
 TODO: Required steps
 
@@ -154,6 +155,9 @@ The StackState Kubernetes Cluster Agent connects to the Kubernetes API to retrie
 
 ### Open source
 
+The code for the StackState Agent Kubernetes check is open source and available on GitHub at:
+
+- [https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 
 ## Troubleshooting
 
@@ -161,6 +165,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
+TODO - how to uninstall agent and cluster agent
 
 ## Release notes
 
@@ -231,4 +236,6 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## See also
 
+- [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
+- [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
 - [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/)
