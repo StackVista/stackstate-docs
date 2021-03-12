@@ -12,7 +12,7 @@ The Kubernetes StackPack is used to create a near real-time synchronization of t
 * Workloads
 * Nodes, pods, containers and services
 
-![Data flow](/.gitbook/assets/stackpack-kubernetes_draft1.svg)
+![Data flow](/.gitbook/assets/stackpack_kubernetes_draft1.svg)
 
 
 
