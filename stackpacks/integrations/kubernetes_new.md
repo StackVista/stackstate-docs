@@ -53,8 +53,9 @@ If you have not done so already, you will also need to install the [Agent StackP
 ### Deploy the StackState Agent and Cluster Agent
 
 For the Kubernetes integration to retrieve topology, events and metrics data, you will need to have the following installed on your Kubernetes cluster:
-- the StackState Agent on each node in the cluster
-- the StackState Cluster Agent on one node
+
+- a StackState Agent on each node in the cluster
+- StackState Cluster Agent on one node
 - `kube-state-metrics`
 
 These can be installed together using the [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
@@ -63,7 +64,7 @@ TODO: Required steps to install with the helm chart
 
 ### Status
 
-
+TODO: How to check the agent, cluster agent and integration status?
 
 ## Integration details
 
