@@ -48,6 +48,7 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** > **Integ
 
 - **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
 
+If you have not done so already, you will also need to install the [Agent StackPack](/stackpacks/integrations/agent.md).
 
 ### Deploy the StackState Agent and Cluster Agent
 
