@@ -51,7 +51,12 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** > **Integ
 
 ### Deploy the StackState Agent and Cluster Agent
 
-To retrieve topology, events and metrics data from you Kubernetes cluster, you will need to install the StackState Agent, the StackState Cluster Agent and kube-state-metrics. This can be done using the [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+To retrieve topology, events and metrics data from you Kubernetes cluster, you will need to install:
+- the StackState Agent on each node in the cluster
+- the StackState Cluster Agent on one node
+- kube-state-metrics
+
+This can be done in one step using the [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
 TODO: Required steps
 
