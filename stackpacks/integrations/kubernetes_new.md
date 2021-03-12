@@ -113,7 +113,7 @@ The StackState Cluster Agent retrieves the events listed below from Kubernetes a
 
 #### Metrics
 
-
+TODO: Add details of metrics retrieved
 
 #### Topology
 
