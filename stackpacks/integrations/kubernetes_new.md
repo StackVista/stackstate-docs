@@ -7,13 +7,28 @@ stackpack-name: Kubernetes
 
 ## Overview
 
-The Kubernetes StackPack is used to create a near real-time synchronization of topology and associated internal services from a Kubernetes cluster to StackState. This StackPack allows monitoring of the following:
+The Kubernetes integration is used to create a near real-time synchronization of topology and associated internal services from a Kubernetes cluster to StackState. This StackPack allows monitoring of the following:
 
 * Workloads
 * Nodes, pods, containers and services
 
 ![Data flow](/.gitbook/assets/stackpack_kubernetes_draft1.svg)
 
+The Kubernetes integration collects all topology data for components and the relations between them as well as telemetry and events.
+
+- StackState Agent V2 is deployed **on each node** in the Kubernetes cluster:
+    - Topology data and tags are retrieved for all pods, containers and services on the host.
+    - Metrics data is retrieved from `kubelet` running on the node.
+- StackState Cluster Agent is deployed **on one node** in the Kubernetes cluster:
+    - Metrics data is retrieved from `kube-state-metrics`.
+    - Events are retrieved from the Kubernetes API.
+    - Cluster wide information is retrieved from the Kubernetes API.
+- Each StackState Agent pushes retrieved data to StackState via the StackState Agent StackPack.
+- The StackState Cluster Agent pushes retrieved data to StackState via the Kubernetes StackPack.
+- [Topology data](#topology) is translated into components and relations.
+- [Tags](#tags) defined in Kubernetes are added to components and relations in StackState.
+- [Metrics data](#metrics) retrieved by the StackState Agents and the StackState Cluster Agent is mapped to associated components and relations in StackState.
+- [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 
 ## Setup
@@ -47,8 +62,45 @@ TODO: Required steps
 
 ### Data retrieved
 
+The Kubernetes integration retrieves the following data:
+
+- [Events](#events)
+- [Metrics](#metrics)
+- [Tags](#tags)
+- [Topology](#topology)
+
 #### Events
 
+The StackState Cluster Agent retrieves the events listed below from Kubernetes and makes these available in StackState:
+
+| Event | Event category | Description | 
+|:---|:---|:---|
+| Created | Changes | Created container |
+| Started | Activities | Started container |
+| Killing | Activities | Killing container |
+| Preempting | Activities | Preempt container |
+| BackOff | Activities | BackOffStartContainer |
+| ExceededGracePeriod | Activities | ExceededGracePeriod |
+| Pulling | Activities | Pulling image|
+| Pulled | Activities | Pulled image |
+| NodeReady| Changes | Node ready |
+| NodeNotReady | Activities | Node not ready |
+| NodeSchedulable | Activities | Node schedulable |
+| Starting | Activities | Starting Kubelet |
+| VolumeResizeSuccessful | Activities | Volume resize success |
+| FileSystemResizeSuccessful | Activities | File system resize success |
+| SuccessfulDetachVolume | Activities | Successful detach volume |
+| SuccessfulAttachVolume | Activities | Successful attach volume |
+| SuccessfulMountVolume | Activities | Successful mount volume |
+| SuccessfulUnMountVolume | Activities | Successful unmount volume |
+| Rebooted | Activities | Node rebooted |
+| ContainerGCFailed | Activities | Container GC failed |
+| ImageGCFailed | Activities | Image GC failed |
+| NodeAllocatableEnforced | Activities | Successful node allocatable enforcement |
+| SandboxChanged | Changes | Sandbox changed |
+| SuccesfulCreate | Changes | |
+| Scheduled | Activities | |
+| NotTriggerScaleUp | Alerts | |
 
 
 #### Metrics
@@ -57,8 +109,13 @@ TODO: Required steps
 
 #### Topology
 
+The Kubernetes integration retrieves the following topology data:
+* Components
+* Relations
 
 #### Traces
+
+The Kubernetes integration does not retrieve any traces data.
 
 #### Tags
 
@@ -69,7 +126,7 @@ All tags defined in Kubernetes will be retrieved and added to the associated com
 
 The StackState Kubernetes Cluster Agent connects to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The API endpoints used are described in the table below.
 
-| Resource | Description |
+| Resource | Kubernetes API documentation \(kubernetes.io\) |
 |:---|:---|
 | componentstatuses | [/cluster-resources/component-status-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/component-status-v1/) |
 | events | [/cluster-resources/event-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) |
@@ -93,9 +150,6 @@ The StackState Kubernetes Cluster Agent connects to the Kubernetes API to retrie
 | "/version" | |
 | "/healthz" | |
 
-
-
-For further details see the [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/).
 
 
 ### Open source
