@@ -40,7 +40,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 Metrics can be sent to the StackState receiver API using the `metrics` property of the [JSON object](send_telemetry.md#send-telemetry-over-http). 
 
-### Example metric
+### Metric JSON
 
 {% tabs %}
 {% tab title="Example metric JSON" %}
@@ -61,8 +61,6 @@ Metrics can be sent to the StackState receiver API using the `metrics` property 
 ```
 {% endtab %}
 {% endtabs %}
-
-### Metric properties
 
 Every metric has the following details:
 
@@ -130,9 +128,9 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 Events can be sent to the StackState receiver API using the `events` property of the [JSON object](send_telemetry.md#send-telemetry-over-http). 
 
-All events in StackState relate to a topology element or elements. 
+All events in StackState relate to a topology element or elements. Any of the event properties can be used to define an event stream in StackState.
 
-### Example event
+### Event JSON
 
 {% tabs %}
 {% tab title="Example event JSON" %}
@@ -172,9 +170,7 @@ All events in StackState relate to a topology element or elements.
 {% endtab %}
 {% endtabs %}
 
-### Event properties
-
-Any of the event properties can be used to define an event stream in StackState:
+Events have the following details:
 
 * An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 * **context** - Includes details of the source system for an event:
