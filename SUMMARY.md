@@ -75,6 +75,7 @@
   * [Autonomous Anomaly Detector \(BETA\)](stackpacks/add-ons/aad.md)
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
+  * [Available integrations](stackpacks/integrations/available_integrations.md)
   * [💠 StackState Agent](stackpacks/integrations/agent.md)
   * [💠 AWS](stackpacks/integrations/aws.md)
   * [💠 AWS X-ray](stackpacks/integrations/aws-x-ray.md)
