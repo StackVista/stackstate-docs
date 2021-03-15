@@ -36,18 +36,11 @@ Telemetry is sent to the receiver API via HTTP POST and has a common JSON object
 Depending on your StackState configuration, received metrics or events that are too old will be ignored.
 {% endhint %}
 
-### Metrics
+## Metrics
 
-Metrics can be sent to the StackState receiver API using the `metrics` property of the JSON object described above. Every metric has the following details:
+Metrics can be sent to the StackState receiver API using the `metrics` property of the [JSON object](send_telemetry.md#send-telemetry-over-http). 
 
-* **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
-* **timestamp** - The epoch timestamp of the metric.
-* **value** - The value of the metric.
-* **hostname** - The host this metric is from.
-* **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
-* **tags** - Optional.  A list of key/value tags to associate with the metric.
-
-The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
+### Example metric
 
 {% tabs %}
 {% tab title="Example metric JSON" %}
@@ -68,6 +61,21 @@ The `timestamp` and `value` are used to plot the metric as a time series. The `n
 ```
 {% endtab %}
 {% endtabs %}
+
+### Metric properties
+
+Every metric has the following details:
+
+* **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
+* **timestamp** - The epoch timestamp of the metric.
+* **value** - The value of the metric.
+* **hostname** - The host this metric is from.
+* **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
+* **tags** - Optional.  A list of key/value tags to associate with the metric.
+
+The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
+
+### Send metrics
 
 Multiple metrics can be sent in one JSON message via HTTP POST. For example:
 
@@ -118,9 +126,13 @@ curl -X POST \
 
 You can also send metrics to StackState using the [StackState CLI `metric send`](../../develop/reference/cli_reference.md#sts-metric-send) command.
 
-### Events
+## Events
 
-Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](send_telemetry.md#send-telemetry-over-http). 
+Events can be sent to the StackState receiver API using the `events` property of the [JSON object](send_telemetry.md#send-telemetry-over-http). 
+
+All events in StackState relate to a topology element or elements. 
+
+### Example event
 
 {% tabs %}
 {% tab title="Example event JSON" %}
@@ -160,7 +172,9 @@ Events can be sent to the StackState receiver API using the `events` property of
 {% endtab %}
 {% endtabs %}
 
-All events in StackState relate to a topology element or elements and have the following properties, any of which can be used to define an event stream in StackState:
+### Event properties
+
+Any of the event properties can be used to define an event stream in StackState:
 
 * An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 * **context** - Includes details of the source system for an event:
@@ -177,7 +191,11 @@ All events in StackState relate to a topology element or elements and have the f
 * **tags** - Optional. A list of key/value tags to associate with the event.
 * **timestamp** - The epoch timestamp for the event.
 
+
+### Send events
+
 Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](../../develop/reference/cli_reference.md#sts-event-send) command. For example:
+
 
 {% tabs %}
 {% tab title="curl" %}
