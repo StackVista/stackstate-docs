@@ -73,7 +73,7 @@ Every metric has the following details:
 
 The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
-### Send metrics
+### Send metrics to StackState
 
 Multiple metrics can be sent in one JSON message via HTTP POST. For example:
 
@@ -188,7 +188,7 @@ Events have the following details:
 * **timestamp** - The epoch timestamp for the event.
 
 
-### Send events
+### Send events to StackState
 
 Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](../../develop/reference/cli_reference.md#sts-event-send) command. For example:
 
