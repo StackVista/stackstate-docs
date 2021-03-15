@@ -51,7 +51,6 @@ Submit HTTP put request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the json of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
 * `.jsonBody()` - get the body of the json response.
 * `.jsonResponse()`  - get the json response.
-* `.textResponse()`  - get the text response.
 
 **Return type:**
 
@@ -86,8 +85,7 @@ Submit HTTP post request.
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the json of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
 * `.jsonBody()` - get the body of the json response.
-* `.jsonResponse()`  - get the json response.
-* `.textResponse()`  - get the text response.
+* `.jsonResponse()` - get the json response.
 
 **Return type:**
 
@@ -165,7 +163,6 @@ Submit HTTP patch request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the json of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
 * `.jsonBody()` - get the body of the json response.
 * `.jsonResponse()`  - get the json response.
-* `.textResponse()`  - get the text response.
 
 **Return type:**
 
