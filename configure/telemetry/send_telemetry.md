@@ -120,24 +120,7 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 ### Events
 
-Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](send_telemetry.md#send-telemetry-over-http). All events in StackState relate to a topology element or elements and have the following properties:
-
-* **name** - The event name. Must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
-* **timestamp** - The epoch timestamp for the event.
-* **context** - Includes details of the source system for an event:
-  * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
-  * **element\_identifiers** - The [identifiers for the topology element\(s\)](../identifiers.md#topology-identifiers) the event relates to. 
-  * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
-  * **data** - Optional.  A list of key/value details about the event, for example a configuration version.
-  * **source\_id** - Optional. The original identifier of the event in the source system.
-  * **source\_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
-* **event\_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvemt`.
-* **msg\_text** - Optional. The text body of the event.
-* **msg\_title** - Optional. The title of the event.
-* **source\_type\_name** - Optional. The source event type name.
-* **tags** - Optional. A list of key/value tags to associate with the event.
-
-The `element_identifier` is used to bind the event to a topology element or elements. Any of the provided properties can be used to define an event stream in StackState
+Events can be sent to the StackState receiver API using the `events` property of the [JSON object described above](send_telemetry.md#send-telemetry-over-http). 
 
 {% tabs %}
 {% tab title="Example event JSON" %}
@@ -176,6 +159,23 @@ The `element_identifier` is used to bind the event to a topology element or elem
 ```
 {% endtab %}
 {% endtabs %}
+
+All events in StackState relate to a topology element or elements and have the following properties, any of which can be used to define an event stream in StackState:
+
+* An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
+* **context** - Includes details of the source system for an event:
+  * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
+  * **element\_identifiers** - The [identifiers for the topology element\(s\)](../identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements. 
+  * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
+  * **data** - Optional.  A list of key/value details about the event, for example a configuration version.
+  * **source\_identifier** - Optional. The original identifier of the event in the source system.
+  * **source\_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
+* **event\_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvent`.
+* **msg\_text** - Optional. The text body of the event.
+* **msg\_title** - Optional. The title of the event.
+* **source\_type\_name** - Optional. The source event type name.
+* **tags** - Optional. A list of key/value tags to associate with the event.
+* **timestamp** - The epoch timestamp for the event.
 
 Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](../../develop/reference/cli_reference.md#sts-event-send) command. For example:
 
