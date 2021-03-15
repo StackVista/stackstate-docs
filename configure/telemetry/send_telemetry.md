@@ -38,7 +38,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 ## Metrics
 
-Metrics can be sent to the StackState receiver API using the `metrics` property of the [JSON object](send_telemetry.md#send-telemetry-over-http). 
+Metrics can be sent to the StackState receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http). 
 
 ### Metric JSON
 
@@ -126,7 +126,7 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 ## Events
 
-Events can be sent to the StackState receiver API using the `events` property of the [JSON object](send_telemetry.md#send-telemetry-over-http). 
+Events can be sent to the StackState receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http). 
 
 All events in StackState relate to a topology element or elements. Any of the event properties can be used to define an event stream in StackState.
 
