@@ -5,7 +5,7 @@
 This document describes how to migrate data from the Linux install of StackState to the Kubernetes install.
 
 {% hint style="info" %}
-The Kubernetes installation of StackState should be v4.2.4 or higher to execute this procedure.
+The Kubernetes installation of StackState should be v4.2.5 or higher to execute this procedure.
 {% endhint %}
 
 ## High level steps
