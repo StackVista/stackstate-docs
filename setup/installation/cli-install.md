@@ -129,18 +129,18 @@ Follow the steps below to create a configuration file manually \(required for Do
 4. Edit the file and add:
    * URLs to the StackState APIs.
    * Any required authentication details for the APIs.
+   * The `base_api` API has support for API Tokens. You can copy your private API Token from the **CLI** page in the StackState UI.
    * Client details.
 
-The `base_api` API has support for API Tokens. You can copy your private API Token from the "User Profile" page on the UI of StackState.
-
-For example:
-
+{% tabs %}
+{% tab title="Example conf.yaml" %}
 ```yaml
 instances:
  default:
    base_api:
      url: "https://localhost:7070"
      ## StackState authentication. This type of authentication is exclusive to the `base_api`.
+     ## You can copy your private API Token from the CLI page in the StackState UI.
      apitoken_auth:
       token: "your API Token"
    receiver_api:
@@ -163,12 +163,14 @@ instances:
    ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
    clients:
      default:
-       api_key: "???"
+       api_key: "default_api_key"
        ## The name of the host that is passed to StackState when sending. Leave these values unchanged
        ## if you have no idea what to fill here.
        hostname: "hostname"
        internal_hostname: "internal_hostname"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Multiple configurations
 
