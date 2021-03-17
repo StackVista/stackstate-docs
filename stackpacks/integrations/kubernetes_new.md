@@ -171,7 +171,7 @@ The following [actions](use/views/topology-perspective.md#actions) are added to 
 
 | Action | Available for<br />component types | Description|
 |:---|:---|:---|
-| **Show configuration and storag**e | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
+| **Show configuration and storage** | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
 | **Show dependencies (deep)** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob<br />pod | Displays all dependencies (up to 6 levels deep) of the selected pod or workload. |
 | **Show pods** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob | Displays the pods for the selected workload. |
 | **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
