@@ -54,17 +54,10 @@ Note: If a check is already running, there is no need to schedule another one, a
 Topology is sent by calling the following methods:
 
 ```text
-self.component(id, type, data):    
-    # Creates a component within StackState
-
-self.relation(source_id, target_id, type, data):    
-    # Creates a relation between two components to StackState   
-
-self.start_snapshot():
-    # Start a topology snapshot for a specific topology instance source
-
-self.stop_snapshot():
-    # Stop a topology snapshot for a specific topology instance source
+self.component(id, type, data):                     # Creates a component within StackState
+self.relation(source_id, target_id, type, data):    # Creates a relation between two components to StackState
+self.start_snapshot():                              # Start a topology snapshot for a specific topology instance source
+self.stop_snapshot():                               # Stop a topology snapshot for a specific topology instance source
 ```
 
 The above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState. 
