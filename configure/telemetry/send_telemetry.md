@@ -128,7 +128,7 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 Events can be sent to the StackState receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http). 
 
-All events in StackState relate to a topology element or elements. Any of the event properties can be used to define an event stream in StackState.
+All events in StackState relate to a topology element or elements. Any of the event properties can be used to define a log stream in StackState.
 
 ### Event JSON
 

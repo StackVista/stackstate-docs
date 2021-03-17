@@ -9,7 +9,7 @@ Checks are the mechanisms through which elements \(components and relations\) ge
 
 ## Checks
 
-Checks determine the health state of an element by monitoring one or more telemetry streams. Each telemetry stream supplies either metrics \(time-series\) or events \(logs and events\) data.
+Checks determine the health state of an element by monitoring one or more telemetry streams. Each telemetry stream supplies either metrics \(time-series\) or logs \(logs and events\) data.
 
 ### Check Functions
 
@@ -23,16 +23,16 @@ A check function receives parameter inputs and returns an output health state. E
 
 ## Telemetry streams
 
-A telemetry stream is a real-time stream of either metric or event data coming from an external monitoring system.
+A telemetry stream is a real-time stream of either metric or log data coming from an external monitoring system.
 
 | Data | Description |
 | :--- | :--- |
 | **Metrics** | Metric, or time-series, data are numeric values over time. A metric can represent any kind of measurement, like a count or a percentage. |
-| **Events** | An event is a \(JSON style\) data object with some properties. Each event may represent a log entry or even some state information coming from an external system. StackState is able to synchronize the checks of external systems, like OpsView or Nagios. These systems report check changes to StackState as events. These events are then checked for their data by a check, which in turn can translate this into an element's state in StackState. |
+| **Logs** | A log entry is a \(JSON style\) data object with some properties. Each log entry may represent an event or even some state information coming from an external system. StackState is able to synchronize the checks of external systems, such as OpsView or Nagios. These systems report check changes to StackState as events in a log stream. These events are then checked for their data by a check, which in turn can translate into an element state change in StackState. |
 
 ### Telemetry stream providers
 
-Telemetry streams are supplied via plugins. Different plugins provide one or multiple types of telemetry streams. For example, the Graphite plugin provides StackState with a metrics telemetry stream, while the Elasticsearch plugin provides metrics and events telemetry streams.
+Telemetry streams are supplied via plugins. Different plugins provide one or multiple types of telemetry streams. For example, the Graphite plugin provides StackState with a metrics telemetry stream, while the Elasticsearch plugin provides metric and log telemetry streams.
 
 ### Add telemetry streams
 

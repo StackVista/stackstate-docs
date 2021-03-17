@@ -49,9 +49,9 @@ Both components and relations can have one or multiple telemetry streams. The mo
 
 ![Metric inspector](../../.gitbook/assets/031_component_details_inspect_metric_stream.png)
 
-If you click on an event stream, you can see the event/log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
+If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
 
-![Event inspector](../../.gitbook/assets/032_component_details_inspect_event_stream.png)
+![Event inspector](../../.gitbook/assets/032_component_details_inspect_log_stream.png)
 
 ## Problem clusters
 
