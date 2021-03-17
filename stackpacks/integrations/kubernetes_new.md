@@ -79,37 +79,14 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
-The StackState Cluster Agent retrieves the events listed below from Kubernetes and makes these available in StackState:
+The Kubernetes integration retrieves all events from the Kubernetes cluster. The table below shows which event category will be assigned to each event type in StackState:
 
-| Event | Event category | Description | 
-|:---|:---|:---|
-| Created | Changes | Created container |
-| Started | Activities | Started container |
-| Killing | Activities | Killing container |
-| Preempting | Activities | Preempt container |
-| BackOff | Activities | BackOffStartContainer |
-| ExceededGracePeriod | Activities | ExceededGracePeriod |
-| Pulling | Activities | Pulling image|
-| Pulled | Activities | Pulled image |
-| NodeReady| Changes | Node ready |
-| NodeNotReady | Activities | Node not ready |
-| NodeSchedulable | Activities | Node schedulable |
-| Starting | Activities | Starting Kubelet |
-| VolumeResizeSuccessful | Activities | Volume resize success |
-| FileSystemResizeSuccessful | Activities | File system resize success |
-| SuccessfulDetachVolume | Activities | Successful detach volume |
-| SuccessfulAttachVolume | Activities | Successful attach volume |
-| SuccessfulMountVolume | Activities | Successful mount volume |
-| SuccessfulUnMountVolume | Activities | Successful unmount volume |
-| Rebooted | Activities | Node rebooted |
-| ContainerGCFailed | Activities | Container GC failed |
-| ImageGCFailed | Activities | Image GC failed |
-| NodeAllocatableEnforced | Activities | Successful node allocatable enforcement |
-| SandboxChanged | Changes | Sandbox changed |
-| SuccesfulCreate | Changes | |
-| Scheduled | Activities | |
-| NotTriggerScaleUp | Alerts | |
-
+| StackState event category | Kubernetes events | 
+|:---|:---|
+| Activities | BackOff<br />ContainerGCFailed<br />ExceededGracePeriod<br />FileSystemResizeSuccessful<br />ImageGCFailed<br />Killing<br />NodeAllocatableEnforced<br />NodeNotReady<br />NodeSchedulable<br />Preempting<br />Pulling<br />Pulled<br />Rebooted<br />Scheduled<br />Starting<br />Started<br />SuccessfulAttachVolume<br />SuccessfulDetachVolume<br />SuccessfulMountVolume<br />SuccessfulUnMountVolume<br />VolumeResizeSuccessful |
+| Alerts | NotTriggerScaleUp |
+| Changes | Created (created container)<br />NodeReady<br />SandboxChanged<br />SuccesfulCreate |
+| Others | All other events. |
 
 #### Metrics
 
@@ -129,36 +106,33 @@ The Kubernetes integration does not retrieve any traces data.
 
 All tags defined in Kubernetes will be retrieved and added to the associated components and relations in StackState. 
 
-
 ### REST API endpoints
 
-The StackState Kubernetes Cluster Agent connects to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The API endpoints used are described in the table below.
+The StackState Agent and Cluster Agent connect to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The following API endpoints used:
 
-| Resource | Kubernetes API documentation \(kubernetes.io\) |
-|:---|:---|
-| componentstatuses | [/cluster-resources/component-status-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/component-status-v1/) |
-| events | [/cluster-resources/event-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) |
-| namespaces | [/cluster-resources/namespace-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/namespace-v1/) |  
-| nodes | [/cluster-resources/node-v1/](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/node-v1/) |
-| endpoints | [/services-resources/endpoints-v1/](https://kubernetes.io/docs/reference/kubernetes-api/services-resources/endpoints-v1/) |
-| ingresses | [/services-resources/ingress-v1/](https://kubernetes.io/docs/reference/kubernetes-api/services-resources/ingress-v1/) |
-| services | [/services-resources/service-v1/](https://kubernetes.io/docs/reference/kubernetes-api/services-resources/service-v1/) |
-| cronjobs | [/workloads-resources/cron-job-v1beta1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/cron-job-v1beta1/) |
-| daemonsets | [/workloads-resources/daemon-set-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/daemon-set-v1/) |
-| deployments | [/workloads-resources/deployment-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/deployment-v1/) |
-| jobs | [/workloads-resources/job-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/job-v1/) |
-| pods | [/workloads-resources/pod-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/) |
-| replicasets | [/workloads-resources/replica-set-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/replica-set-v1/) |
-| statefulsets | [/workloads-resources/stateful-set-v1/](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/stateful-set-v1/) |
-| secrets | [/config-and-storage-resources/secret-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/secret-v1/) |
-| configmaps | [/config-and-storage-resources/config-map-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/) |
-| persistentvolumes | [/config-and-storage-resources/persistent-volume-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/) |
-| persistentvolumeclaims | [/config-and-storage-resources/persistent-volume-claim-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/) |
-| volumeattachments | [/config-and-storage-resources/volume-attachment-v1/](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/volume-attachment-v1/) |
-| "/version" | |
-| "/healthz" | |
+* ComponentStatus: /api/v1/componentstatuses
+* Event:  /apis/events.k8s.io/v1/events !
+* Namespace: /api/v1/namespaces 
+* Node: /api/v1/nodes
+* Endpoints: /api/v1/endpoints !
+* Ingress: /apis/networking.k8s.io/v1/ingresses !
+* Service: /api/v1/services !
+* CronJob: /apis/batch/v1beta1/cronjobs !
+* DaemonSet: apis/apps/v1/daemonsets ! 
+* Deployment: /apis/apps/v1/deployments !
+* Job: /apis/batch/v1/jobs
+* Pod: /api/v1/pods !
+* ReplicaSet: /apis/apps/v1/replicasets !
+* StatefulSet: /apis/apps/v1/statefulsets !
+* Secret: /api/v1/secrets !
+* ConfigMap: /api/v1/configmaps ! 
+* PersistentVolume: /api/v1/persistentvolumes
+* PersistentVolumeClaimSpec: /api/v1/persistentvolumeclaims !
+* VolumeAttachment: /apis/storage.k8s.io/v1/volumeattachments
+* /version
+* /healthz
 
-
+For further details, refer to the [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/).
 
 ### Open source
 
@@ -168,11 +142,17 @@ The code for the StackState Agent Kubernetes check is open source and available 
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](???).
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&query=kubernetes).
 
 ## Uninstall
 
-TODO - how to uninstall agent and cluster agent
+To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** > **Integrations** > **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
+
+To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes cluster, run a Helm uninstall:
+
+```
+helm uninstall <release_name> <namespace>
+```
 
 ## Release notes
 
