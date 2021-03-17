@@ -147,7 +147,7 @@ Components and relations can be sent as part of a snapshot. A snapshot represent
 
 You can disable snapshots by setting `with_snapshots=False` when you define a `TopologyInstance`. This replaces the `start`/`stop_snapshot()` invocations described above.
 
-### Sending Topology
+### Send Topology
 
 Topology data can be submitted using the `self.component()` and `self.relation()` functions in the `AgentCheck` interface. The example below shows how to submit two components with a relation between them:
 
@@ -178,7 +178,7 @@ This creates two components in StackState. One for the host named `this-host` an
 
 The identifiers and the external identifier, for example `some-application-unique-identifier` will be used as the StackState Id. The `external identifer` should be unique within this integration.
 
-#### Merging Identifiers
+#### Merge Identifiers
 
 The `identifiers` are used within StackState to merge components across different integrations. Components with a matching identifier will be merged within StackState.
 
@@ -202,7 +202,7 @@ These two components will be merged into a single component called `this-host` c
 
 Learn more about the [Agent Check Topology API](checks_in_agent_v2.md)
 
-### Sending Metrics
+### Send Metrics
 
 The StackState Agent Check interface supports various types of metrics.
 
@@ -220,7 +220,7 @@ Note: It is important to have a tag or combination of tags that you can use to u
 
 Learn more about the [Agent Check Metric API](checks_in_agent_v2.md)
 
-### Sending Events
+### Send Events
 
 Events can be submitted using the `self.event()` function in the `AgentCheck` interface. Events data is stored in the `StackState Generic Events` data source that can be mapped to a log telemetry stream on a component in StackState:
 
@@ -240,7 +240,7 @@ self.event({
 
 Learn more about the [Agent Check Event API](checks_in_agent_v2.md)
 
-### **Sending in Stream Definitions and Health Checks**
+### Send in Stream Definitions and Health Checks
 
 Stream Definitions and Health Checks for StackState can be sent in with Topology. This allows you to map telemetry streams with health checks onto components in your integration, leaving no work to be done in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
 
@@ -274,7 +274,7 @@ We create a `MetricStream` on the `system.cpu.usage` metric with some conditions
 
 Learn more about the [Agent Check Telemetry API](checks_in_agent_v2.md#sending-streams-and-checks)
 
-### Sending Service Checks
+### Send Service Checks
 
 Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
@@ -294,7 +294,7 @@ The service check can produce the following states:
 
 Learn more about the [Agent Check Service Check API](checks_in_agent_v2.md)
 
-### Adding Python Dependencies
+### Add Python Dependencies
 
 Sometimes your check may require some external dependencies. To solve this problem the StackState agent is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
 
@@ -310,7 +310,7 @@ For Windows, you should find it at:
 C:\Program Files\StackState\StackState Agent\embedded\bin\pip.exe
 ```
 
-### Testing your Check
+### Test your Check
 
 Custom Agent checks need to be called by the agent. To test this, run:
 
