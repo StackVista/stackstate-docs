@@ -17,20 +17,14 @@ The Kubernetes integration is used to create a near real-time synchronization of
 The Kubernetes integration collects topology data for nodes, pods, containers and services in a Kubernetes cluster as well as metrics and events.
 
 - StackState Agent V2 is deployed **on each node** in the Kubernetes cluster:
-    - Topology data and tags are retrieved for all pods, containers and services on the host.
-    - Metrics data is retrieved from `kubelet` running on the node.
+
 - StackState Cluster Agent is deployed **on one node** in the Kubernetes cluster:
-    - Metrics data is retrieved from `kube-state-metrics`.
-    - Events are retrieved from the Kubernetes API.
-    - Cluster wide information is retrieved from the Kubernetes API.
-- Each StackState Agent pushes retrieved data to StackState via the StackState Agent StackPack.
-- The StackState Cluster Agent pushes retrieved data to StackState via the Kubernetes StackPack.
+
 - In StackState:
     - [Topology data](#topology) is translated into components and relations.
     - [Tags](#tags) defined in Kubernetes are added to components and relations in StackState.
-    - [Metrics data](#metrics) retrieved by the StackState Agents and the StackState Cluster Agent is mapped to associated components and relations in StackState.
+    - Relevant [metrics data](#metrics) is mapped to associated components and relations in StackState. All metrics data is stored and is accessible in StackState.
     - [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
-
 
 ## Setup
 
@@ -48,36 +42,39 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** > **Integ
 
 - **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
 
-If the Agent StackPack is not already installed, this will be automatically installed together with the Kubernetes StackPack.
+If the Agent StackPack is not already installed, this will be automatically installed together with the Kubernetes StackPack. This is required to work with the StackState Agent, which will need to be installed on each node in the Kubernetes cluster.
 
 ### Deploy the StackState Agent and Cluster Agent
 
 For the Kubernetes integration to retrieve topology, events and metrics data, you will need to have the following installed on your Kubernetes cluster:
 
-- a StackState Agent on each node in the cluster
+- A StackState Agent on each node in the cluster
 - StackState Cluster Agent on one node
-- `kube-state-metrics`
+- kube-state-metrics
 
-These can be installed together using the [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+These can be installed together using the Cluster Agent Helm Chart:
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
     ```
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
-2. Deploy the StackState Agent and Cluster Agent with the command below. The following variables should be provided:
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm install command below. The following variables should be provided:
     * `stackstate.apiKey`
     * `stackstate.cluster.name`
     * `stackstate.url`
     * It is also recommended to provide a `stackstate.cluster.authToken`. This is an optional variable, however, if one is not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
-   ```
-    helm install \
-    --set-string 'stackstate.apiKey'='<your-api-key>' \
-    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
-    --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
-    --set-string 'stackstate.url'='<your-stackstate-url>' \
-    stackstate/cluster-agent
-   ```
+
+```
+helm install \
+--set-string 'stackstate.apiKey'='<your-api-key>' \
+--set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+--set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
+--set-string 'stackstate.url'='<your-stackstate-url>' \
+stackstate/cluster-agent
+```
+
+Full details of the available values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
 ### Status
 
@@ -86,10 +83,10 @@ To check the status of the Kubernetes integration, check that the StackState Clu
 ```
 ❯ kubectl get deployment,daemonset --namespace monitoring
 
-NAME                                                     READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
-NAME                                                          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/stackstate-cluster-agent-agent             10        10        10      10           10          <none>          5h14m
+NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
 
 ## Integration details
@@ -118,7 +115,9 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 
 The Kubernetes integration makes all metrics from the Kubernetes cluster available in StackState. Relevant metrics are automatically mapped to the associated components. 
 
-All metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics. 
+All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics. 
+
+![Add a Kubernetes metrics stream to a component](/.gitbook/assets/v43_add_k8s_data_stream.png)
 
 #### Topology
 
