@@ -12,14 +12,19 @@ The Kubernetes integration is used to create a near real-time synchronization of
 * Workloads
 * Nodes, pods, containers and services
 
-![Data flow](/.gitbook/assets/stackpack_kubernetes_draft1.svg)
+![Data flow](/.gitbook/assets/stackpack_kubernetes_draft2.svg)
 
 The Kubernetes integration collects topology data for nodes, pods, containers and services in a Kubernetes cluster as well as metrics and events.
 
 - StackState Agent V2 is deployed **on each node** in the Kubernetes cluster:
-
+    * Host information is retrieved from the Kubernetes API
+    * Container information is collected from the Docker daemon
+    * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node
+    * Events ???
 - StackState Cluster Agent is deployed **on one node** in the Kubernetes cluster:
-
+    * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
+    * Control plane metrics are retrieved from the Kubernetes API
+- Retrieved data is pushed to StackState via the Agent StackPack (StackState Agent V2) and the Kubernetes StackPack (StackState Cluster Agent).
 - In StackState:
     - [Topology data](#topology) is translated into components and relations.
     - [Tags](#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -41,7 +46,7 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** > **Integ
 
 - **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
 
-If the Agent StackPack is not already installed, this will be automatically installed together with the Kubernetes StackPack. This is required to work with the StackState Agent, which will need to be installed on each node in the Kubernetes cluster.
+If the Agent StackPack is not already installed, this will be automatically installed together with the Kubernetes StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the Kubernetes cluster.
 
 ### Deploy the StackState Agent and Cluster Agent
 
