@@ -23,18 +23,17 @@ The Kubernetes integration collects topology data for nodes, pods, containers an
 - In StackState:
     - [Topology data](#topology) is translated into components and relations.
     - [Tags](#tags) defined in Kubernetes are added to components and relations in StackState.
-    - Relevant [metrics data](#metrics) is mapped to associated components and relations in StackState. All metrics data is stored and is accessible in StackState.
+    - Relevant [metrics data](#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
     - [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 ## Setup
 
 ### Prerequisites
 
-The following prerequisites are required for manual installation:
+The following prerequisites are required to install the Kubernetes StackPack and deploy the StackState Agent and Cluster Agent:
 
-* A Kubernetes Cluster must be up and running
-* `Kubectl(1.14+)` binary
-* Cluster KubeConfig must be properly set in the path
+* A Kubernetes Cluster must be up and running, and you must be able to connect to it from StackState.
+* A recent version of Helm 3
 
 ### Install
 
