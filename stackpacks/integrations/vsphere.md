@@ -218,4 +218,4 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 * [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)
-* [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html).
+* [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html)
