@@ -165,6 +165,31 @@ The StackState Agent and Cluster Agent connect to the Kubernetes API to retrieve
 
 For further details, refer to the [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/).
 
+### Component actions
+
+The following [actions](use/views/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component.
+
+| Action | Available for | Description|
+|:---|:---|:---|
+| Show configuration and storage | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
+| Show dependencies (deep) | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob<br />pod | Displays all dependencies (up to 6 levels deep) of the selected pod or workload. |
+| Show pods | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob | Displays the pods for the selected workload. |
+| Show pods & services | namespace | Opens a view for the pods/services in the selected namespace |
+| Show services | namespace | Open a view for the service and ingress components in the selected namespace |
+| Show workloads | namespace | Show workloads in the selected namespace |
+
+Details of installed actions can be found in the StackState UI **Settings** > **Actions** > **Component Actions** screen.
+
+### Kubernetes views in StackState
+
+When the Kubernetes integration is enabled, the following Kubernetes views are available in StackState for each cluster:
+
+* Kubernetes - Applications - <instance_name>
+* Kubernetes - Infrastructure - <instance_name>
+* Kubernetes - Namespaces - <instance_name>
+* Kubernetes - Workload Controllers - <instance_name>
+
+
 ### Open source
 
 The code for the StackState Agent Kubernetes check is open source and available on GitHub at:
