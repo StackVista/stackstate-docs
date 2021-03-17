@@ -87,7 +87,7 @@
     * [Splunk metrics](stackpacks/integrations/splunk/splunk_metric.md)
     * [Splunk topology](stackpacks/integrations/splunk/splunk_topology.md)
     * [Splunk event](stackpacks/integrations/splunk/splunk_event.md)
-  * [VMWare vSphere](stackpacks/integrations/vsphere.md)
+  * [💠 VMWare vSphere](stackpacks/integrations/vsphere.md)
   * [Azure](stackpacks/integrations/azure.md)
   * [API integration](stackpacks/integrations/api-integration.md)
   * [Cloudera](stackpacks/integrations/cloudera.md)
