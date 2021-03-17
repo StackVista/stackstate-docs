@@ -2,7 +2,11 @@
 
 ## Overview
 
-StackState integrations are split into three groups, core integrations, curated integrations and community integrations.
+StackState integrations are split into three groups:
+ 
+* [Core integrations](#core-integrations)
+* [Curated integrations](#curated-integrations)
+* [Community integrations](#community-integrations)
 
 ## Core integrations
 
