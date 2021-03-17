@@ -82,7 +82,7 @@ Full details of the available values can be found in the [Cluster Agent Helm Cha
 
 ### Status
 
-To check the status of the Kubernetes integration, check that the StackState Cluster Agent (`...cluster-agent`) pod and all of the StackState Agent (`...cluster-agent-agent`) pods have status ready.
+To check the status of the Kubernetes integration, check that the StackState Cluster Agent (`cluster-agent`) pod and all of the StackState Agent (`cluster-agent-agent`) pods have status ready.
 
 ```
 ❯ kubectl get deployment,daemonset --namespace monitoring
