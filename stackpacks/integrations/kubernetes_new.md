@@ -48,7 +48,7 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** > **Integ
 
 - **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
 
-If you have not done so already, you will also need to install the [Agent StackPack](/stackpacks/integrations/agent.md).
+If the Agent StackPack is not already installed, this will be automatically installed together with the Kubernetes StackPack.
 
 ### Deploy the StackState Agent and Cluster Agent
 
@@ -60,11 +60,37 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 
 These can be installed together using the [Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
-TODO: Required steps to install with the helm chart
+1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+    ```
+    helm repo add stackstate https://helm.stackstate.io
+    helm repo update
+    ```
+2. Deploy the StackState Agent and Cluster Agent with the command below. The following variables should be provided:
+    * `stackstate.apiKey`
+    * `stackstate.cluster.name`
+    * `stackstate.url`
+    * It is also recommended to provide a `stackstate.cluster.authToken`. This is an optional variable, however, if one is not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
+   ```
+    helm install \
+    --set-string 'stackstate.apiKey'='<your-api-key>' \
+    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+    --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
+    --set-string 'stackstate.url'='<your-stackstate-url>' \
+    stackstate/cluster-agent
+   ```
 
 ### Status
 
-TODO: How to check the agent, cluster agent and integration status?
+To check the status of the Kubernetes integration, check that the StackState Cluster Agent (`...cluster-agent`) pod and all of the StackState Agent (`...cluster-agent-agent`) pods have status ready.
+
+```
+❯ kubectl get deployment,daemonset --namespace monitoring
+
+NAME                                                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
+NAME                                                          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/stackstate-cluster-agent-agent             10        10        10      10           10          <none>          5h14m
+```
 
 ## Integration details
 
@@ -83,14 +109,16 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 
 | StackState event category | Kubernetes events | 
 |:---|:---|
-| Activities | BackOff<br />ContainerGCFailed<br />ExceededGracePeriod<br />FileSystemResizeSuccessful<br />ImageGCFailed<br />Killing<br />NodeAllocatableEnforced<br />NodeNotReady<br />NodeSchedulable<br />Preempting<br />Pulling<br />Pulled<br />Rebooted<br />Scheduled<br />Starting<br />Started<br />SuccessfulAttachVolume<br />SuccessfulDetachVolume<br />SuccessfulMountVolume<br />SuccessfulUnMountVolume<br />VolumeResizeSuccessful |
-| Alerts | NotTriggerScaleUp |
-| Changes | Created (created container)<br />NodeReady<br />SandboxChanged<br />SuccesfulCreate |
-| Others | All other events. |
+| **Activities** | `BackOff`<br />`ContainerGCFailed`<br />`ExceededGracePeriod`<br />`FileSystemResizeSuccessful`<br />`ImageGCFailed`<br />`Killing`<br />`NodeAllocatableEnforced`<br />`NodeNotReady`<br />`NodeSchedulable`<br />`Preempting`<br />`Pulling`<br />`Pulled`<br />`Rebooted`<br />`Scheduled`<br />`Starting`<br />`Started`<br />`SuccessfulAttachVolume`<br />`SuccessfulDetachVolume`<br />`SuccessfulMountVolume`<br />`SuccessfulUnMountVolume`<br />`VolumeResizeSuccessful` |
+| **Alerts** | `NotTriggerScaleUp` |
+| **Changes** | `Created` (created container)<br />`NodeReady`<br />`SandboxChanged`<br />`SuccesfulCreate` |
+| **Others** | All other events |
 
 #### Metrics
 
-TODO: Add details of metrics retrieved
+The Kubernetes integration makes all metrics from the Kubernetes cluster available in StackState. Relevant metrics are automatically mapped to the associated components. 
+
+All metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics. 
 
 #### Topology
 
@@ -110,25 +138,25 @@ All tags defined in Kubernetes will be retrieved and added to the associated com
 
 The StackState Agent and Cluster Agent connect to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The following API endpoints used:
 
-* ComponentStatus: /api/v1/componentstatuses
-* Event:  /apis/events.k8s.io/v1/events !
-* Namespace: /api/v1/namespaces 
-* Node: /api/v1/nodes
-* Endpoints: /api/v1/endpoints !
-* Ingress: /apis/networking.k8s.io/v1/ingresses !
-* Service: /api/v1/services !
-* CronJob: /apis/batch/v1beta1/cronjobs !
-* DaemonSet: apis/apps/v1/daemonsets ! 
-* Deployment: /apis/apps/v1/deployments !
-* Job: /apis/batch/v1/jobs
-* Pod: /api/v1/pods !
-* ReplicaSet: /apis/apps/v1/replicasets !
-* StatefulSet: /apis/apps/v1/statefulsets !
-* Secret: /api/v1/secrets !
-* ConfigMap: /api/v1/configmaps ! 
-* PersistentVolume: /api/v1/persistentvolumes
-* PersistentVolumeClaimSpec: /api/v1/persistentvolumeclaims !
-* VolumeAttachment: /apis/storage.k8s.io/v1/volumeattachments
+* ComponentStatus
+* Event
+* Namespace
+* Node
+* Endpoints
+* Ingress
+* Service
+* CronJob
+* DaemonSet 
+* Deployment
+* Job
+* Pod
+* ReplicaSet
+* StatefulSet
+* Secret
+* ConfigMap 
+* PersistentVolume
+* PersistentVolumeClaimSpec
+* VolumeAttachment
 * /version
 * /healthz
 
