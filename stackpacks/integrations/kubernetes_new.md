@@ -169,14 +169,14 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 The following [actions](use/views/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component.
 
-| Action | Available for | Description|
+| Action | Available for<br />component types | Description|
 |:---|:---|:---|
-| Show configuration and storage | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
-| Show dependencies (deep) | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob<br />pod | Displays all dependencies (up to 6 levels deep) of the selected pod or workload. |
-| Show pods | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob | Displays the pods for the selected workload. |
-| Show pods & services | namespace | Opens a view for the pods/services in the selected namespace |
-| Show services | namespace | Open a view for the service and ingress components in the selected namespace |
-| Show workloads | namespace | Show workloads in the selected namespace |
+| **Show configuration and storag**e | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
+| **Show dependencies (deep)** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob<br />pod | Displays all dependencies (up to 6 levels deep) of the selected pod or workload. |
+| **Show pods** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob | Displays the pods for the selected workload. |
+| **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
+| **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
+| **Show workloads** | namespace | Show workloads in the selected namespace |
 
 Details of installed actions can be found in the StackState UI **Settings** > **Actions** > **Component Actions** screen.
 
