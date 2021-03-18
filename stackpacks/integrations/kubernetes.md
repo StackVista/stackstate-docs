@@ -135,9 +135,20 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 
 The Kubernetes integration retrieves components and relations for the Kubernetes cluster. 
 
-##### Components
+**Components**
 
 The following Kubernetes topology data is available in StackState as components:
+
+| | |
+|:---|:---|
+| Cluster | Deployment |
+| Namespace | Ingress |
+| Node | Job |
+| Pod | Persistent Volume |
+| Container | ReplicaSet |
+| ConfigMap | Secret |
+| CronJob | Service |
+| DaemonSet | StatefulSet |
 
 - Cluster
 - Namespace
@@ -147,6 +158,7 @@ The following Kubernetes topology data is available in StackState as components:
 - ConfigMap
 - CronJob
 - DaemonSet
+
 - Deployment
 - Ingress
 - Job
@@ -156,7 +168,7 @@ The following Kubernetes topology data is available in StackState as components:
 - Service
 - StatefulSet
 
-##### Relations
+**Relations**
 
 The following relations between components are retrieved:
 
