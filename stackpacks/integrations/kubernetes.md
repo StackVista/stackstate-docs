@@ -150,24 +150,6 @@ The following Kubernetes topology data is available in StackState as components:
 | CronJob | Service |
 | DaemonSet | StatefulSet |
 
-- Cluster
-- Namespace
-- Node
-- Pod
-- Container
-- ConfigMap
-- CronJob
-- DaemonSet
-
-- Deployment
-- Ingress
-- Job
-- Persistent Volume
-- ReplicaSet
-- Secret
-- Service
-- StatefulSet
-
 **Relations**
 
 The following relations between components are retrieved:
