@@ -11,17 +11,18 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 * Workloads
 * Nodes, pods, containers and services
+* Configmaps, secrets and volumes
 
 ![Data flow](/.gitbook/assets/stackpack_kubernetes_draft2.svg)
 
-The Kubernetes integration collects topology data for nodes, pods, containers and services in a Kubernetes cluster as well as metrics and events.
+The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
-- StackState Agent V2 is deployed **on each node** in the Kubernetes cluster:
+- StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
     * Host information is retrieved from the Kubernetes API
     * Container information is collected from the Docker daemon
     * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node
     * Events ???
-- StackState Cluster Agent is deployed **on one node** in the Kubernetes cluster:
+- StackState Cluster Agent is deployed with a Deployment. There is one instance for the entire Kubernetes cluster:
     * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
     * Control plane metrics are retrieved from the Kubernetes API
 - Retrieved data is pushed to StackState via the Agent StackPack (StackState Agent V2) and the Kubernetes StackPack (StackState Cluster Agent).
@@ -37,7 +38,10 @@ The Kubernetes integration collects topology data for nodes, pods, containers an
 
 The following prerequisites are required to install the Kubernetes StackPack and deploy the StackState Agent and Cluster Agent:
 
-* A Kubernetes Cluster must be up and running, and you must be able to connect to it from StackState.
+* A Kubernetes Cluster must be up and running.
+* A user with permissions to create privileged pods and to create `ClusterRoles` and `ClusterRoleBindings`:
+    - `ClusterRole` and `ClusterRoleBinding` are needed such that the StackState Agents are granted permissions to access the Kubernetes API.
+    - The StackState Agent gathers information on network connections and host information, which both require it to run in a privileged pod.
 * A recent version of Helm 3
 
 ### Install
@@ -63,20 +67,26 @@ These can be installed together using the Cluster Agent Helm Chart:
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm install command below. The following variables should be provided:
-    * `stackstate.apiKey`
-    * `stackstate.cluster.name`
-    * `stackstate.url`
-    * It is also recommended to provide a `stackstate.cluster.authToken`. This is an optional variable, however, if one is not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm install command provided in the StackState UI after you have installed the StackPack.
+
+{% hint style="info" %}
+**stackstate.cluster.authToken**
+
+In addition to the variables included in the provided helm command, it is also recommended to provide a `stackstate.cluster.authToken`. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
+
+For example:
 
 ```
 helm install \
+--namespace monitoring \
 --set-string 'stackstate.apiKey'='<your-api-key>' \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
 --set-string 'stackstate.url'='<your-stackstate-url>' \
 stackstate/cluster-agent
 ```
+
+{% endhint %}
 
 Full details of the available values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
@@ -121,7 +131,7 @@ The Kubernetes integration makes all metrics from the Kubernetes cluster availab
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics. 
 
-![Add a Kubernetes metrics stream to a component](/.gitbook/assets/v43_add_k8s_data_stream.png)
+![Add a Kubernetes metrics stream to a component](/.gitbook/assets/v43_add_k8s_stream.png)
 
 #### Topology
 
@@ -194,6 +204,8 @@ When the Kubernetes integration is enabled, the following Kubernetes views are a
 
 The code for the StackState Agent Kubernetes check is open source and available on GitHub at:
 
+- [https://github.com/StackVista/stackstate-agent/tree/master/pkg/collector/corechecks/cluster](https://github.com/StackVista/stackstate-agent/tree/master/pkg/collector/corechecks/cluster)
+- [https://github.com/stackvista/stackstate-agent](https://github.com/stackvista/stackstate-agent)
 - [https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 
 ## Troubleshooting
