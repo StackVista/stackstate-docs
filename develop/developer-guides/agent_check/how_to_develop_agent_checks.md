@@ -222,9 +222,9 @@ Learn more about the [Agent Check Metric API](checks_in_agent_v2.md)
 
 ### Send Events
 
-Events can be submitted using the `self.event()` function in the `AgentCheck` interface. Events data is stored in the `StackState Generic Events` data source that can be mapped to a log telemetry stream on a component in StackState:
+Events can be submitted using the `self.event()` function in the `AgentCheck` interface. Events data is stored in the `StackState Generic Events` data source that can be mapped to a telemetry stream on a component in StackState:
 
-![EventsStream](../../../.gitbook/assets/genericevents.png)
+![Add telemetry stream](../../../.gitbook/assets/genericevents.png)
 
 The example below submits an event to StackState when a call to the instance that is monitored exceeds some configured timeout:
 

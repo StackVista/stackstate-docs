@@ -99,9 +99,9 @@ self.component("urn:example:/host:this_host", "Host",
 ```
 
 
-### Log stream with events
+### Events
 
-A log stream containing events can be added to a component using the `EventStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. A few checks are supported out of the box supported that can be mapped using the stream identifier.
+Events can be published for a component using the `EventStream` class. It expects a stream `name` and `conditions` for the telemetry query in StackState. A few checks are supported out of the box supported that can be mapped using the stream identifier.
 
 ```text
 class EventStream(TelemetryStream):
