@@ -39,10 +39,10 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 The following prerequisites are required to install the Kubernetes StackPack and deploy the StackState Agent and Cluster Agent:
 
 * A Kubernetes Cluster must be up and running.
-* A user with permissions to create privileged pods and to create `ClusterRoles` and `ClusterRoleBindings`:
-    - `ClusterRole` and `ClusterRoleBinding` are needed such that the StackState Agents are granted permissions to access the Kubernetes API.
-    - The StackState Agent gathers information on network connections and host information, which both require it to run in a privileged pod.
-* A recent version of Helm 3
+* A recent version of Helm 3.
+* A user with permissions to create privileged pods, ClusterRoles and ClusterRoleBindings:
+    - ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
+    - StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Install
 
