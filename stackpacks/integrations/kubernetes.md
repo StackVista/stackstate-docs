@@ -178,7 +178,7 @@ All tags defined in Kubernetes will be retrieved and added to the associated com
 
 The StackState Agent and Cluster Agent connect to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The following API endpoints used:
 
-| Resource | Endpoint |
+| Resource | REST API Endpoint |
 |:---|:---|
 | Cluster > ComponentStatus | `GET /api/v1/componentstatuses` |
 | Cluster > Event | `GET /apis/events.k8s.io/v1/events` | 
