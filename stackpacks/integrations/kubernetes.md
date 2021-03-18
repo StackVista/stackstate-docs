@@ -12,7 +12,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
 
-![Data flow](/.gitbook/assets/stackpack_kubernetes.svg)
+![Data flow](/.gitbook/assets/stackpack_kubernetes2.svg)
 
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
