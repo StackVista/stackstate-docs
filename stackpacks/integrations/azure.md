@@ -1,5 +1,5 @@
 ---
-description: In-depth monitoring of Azure resource types
+old-description: In-depth monitoring of Azure resource types
 ---
 
 # Azure

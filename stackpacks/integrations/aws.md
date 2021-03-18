@@ -1,5 +1,5 @@
 ---
-description: Get topology and telemetry data from AWS services
+old-description: Get topology and telemetry data from AWS services
 ---
 
 # AWS StackPack
