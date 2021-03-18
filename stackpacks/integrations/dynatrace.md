@@ -1,5 +1,5 @@
 ---
-description: Collect Smartscape topology data from Dynatrace
+old-description: Collect Smartscape topology data from Dynatrace
 ---
 
 # Dynatrace

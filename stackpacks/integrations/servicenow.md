@@ -1,5 +1,5 @@
 ---
-description: Collect topology data from ServiceNow
+old-description: Collect topology data from ServiceNow
 ---
 
 # ServiceNow
