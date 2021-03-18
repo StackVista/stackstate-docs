@@ -141,27 +141,31 @@ The following Kubernetes topology data is available in StackState as components:
 
 | | |
 |:---|:---|
-| Cluster | Deployment |
-| Namespace | Ingress |
-| Node | Job |
-| Pod | Persistent Volume |
-| Container | ReplicaSet |
-| ConfigMap | Secret |
-| CronJob | Service |
-| DaemonSet | StatefulSet |
-
+| Cluster | Ingress |
+| Namespace | Job |
+| Node | Persistent Volume |
+| Pod | ReplicaSet |
+| Container | Secret |
+| ConfigMap | Service |
+| CronJob | StatefulSet |
+| DaemonSet | Volume |
+| Deployment | 
 **Relations**
 
 The following relations between components are retrieved:
 
 - Container → Volume
 - CronJob → Job
+- DaemonSet → Pod
 - Deployment → ReplicaSet
+- Job → Pod
 - Ingress → Service
 - Namespace → CronJob, DaemonSet, Deployment, Job, Pod, ReplicaSet, Service, StatefulSet
 - Node → Cluster relation
-- Pod → ConfigMap, Container, DaemonSet, Deployment, Job, Node, ReplicaSet, Secret, StatefulSet, Volume
+- Pod → ConfigMap, Container, Deployment, Node, Secret, Volume
+- ReplicaSet →  Pod
 - Service → ExternalService, Pod
+- StatefulSet → Pod
 - Direct communication between processes
 - Process → Process communication via Kubernetes service
 - Process → Process communication via headless Kubernetes service
