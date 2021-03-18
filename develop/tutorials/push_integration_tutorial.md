@@ -219,7 +219,7 @@ In the Stream Creation screen, select to output as a **Log stream** at the top. 
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/ev43_xample-event-stream-editor.png)
+![](../../.gitbook/assets/v43_example-event-stream-editor.png)
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 

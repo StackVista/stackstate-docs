@@ -20,7 +20,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **domain** - used to logically group components, e.g., business units, teams, application.
 * **element** - component or relation in the topology.
 * **environment** - used to divide the IT landscape into smaller logical units according to their intended purpose. e.g., creating DTAP \(Develop, Test, Acceptance, Production\) environments. One component can belong to multiple environments.
-* **event** - StackState records every change detected in the IT environment as an event.
+* **event** - StackState records every change detected in the IT environment as an event. Events are always bound to one or more topology elements.
 * **event handler** - performs an action defined for a specific type of event occurrence.
 * **gremlin** - is a graph traversal language. Find out more on Gremlin [here](https://tinkerpop.apache.org/gremlin.html).
 * **groovy** - is a multi-faceted language for the Java platform. Find out more about Groovy [here](https://groovy-lang.org/).
