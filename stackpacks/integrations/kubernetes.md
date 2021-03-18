@@ -150,6 +150,7 @@ The following Kubernetes topology data is available in StackState as components:
 | CronJob | StatefulSet |
 | DaemonSet | Volume |
 | Deployment | 
+
 **Relations**
 
 The following relations between components are retrieved:
