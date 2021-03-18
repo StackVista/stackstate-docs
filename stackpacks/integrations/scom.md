@@ -1,5 +1,5 @@
 ---
-description: 'Collect topology, health state and alerts from SCOM'
+old-description: 'Collect topology, health state and alerts from SCOM'
 ---
 
 # SCOM \(BETA\)
