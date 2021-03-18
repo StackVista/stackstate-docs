@@ -1,5 +1,4 @@
 ---
-description: StackPack description
 stackpack-name: Kubernetes
 ---
 
@@ -13,7 +12,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
 
-![Data flow](/.gitbook/assets/stackpack_kubernetes_draft2.svg)
+![Data flow](/.gitbook/assets/stackpack_kubernetes.svg)
 
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
@@ -21,7 +20,6 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
     * Host information is retrieved from the Kubernetes API
     * Container information is collected from the Docker daemon
     * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node
-    * Events ???
 - StackState Cluster Agent is deployed with a Deployment. There is one instance for the entire Kubernetes cluster:
     * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
     * Control plane metrics are retrieved from the Kubernetes API
@@ -135,9 +133,44 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 
 #### Topology
 
-The Kubernetes integration retrieves the following topology data:
-* Components
-* Relations
+The Kubernetes integration retrieves components and relations for the Kubernetes cluster. 
+
+##### Components
+
+The following Kubernetes topology data is available in StackState as components:
+
+- Cluster
+- Namespace
+- Node
+- Pod
+- Container
+- ConfigMap
+- CronJob
+- DaemonSet
+- Deployment
+- Ingress
+- Job
+- Persistent Volume
+- ReplicaSet
+- Secret
+- Service
+- StatefulSet
+
+##### Relations
+
+The following relations between components are retrieved:
+
+- Container -> Volume
+- CronJob -> Job
+- Deployment -> ReplicaSet
+- Ingress -> Service
+- Namespace -> CronJob, DaemonSet, Deployment, Job, Pod, ReplicaSet, Service, StatefulSet
+- Node -> Cluster relation
+- Pod -> ConfigMap, Container, DaemonSet, Deployment, Job, Node, ReplicaSet, Secret, StatefulSet, Volume
+- Service -> ExternalService, Pod
+- Direct communication between processes
+- Process -> Process communication via Kubernetes service
+- Process -> Process communication via headless Kubernetes service
 
 #### Traces
 
@@ -151,27 +184,29 @@ All tags defined in Kubernetes will be retrieved and added to the associated com
 
 The StackState Agent and Cluster Agent connect to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The following API endpoints used:
 
-* ComponentStatus
-* Event
-* Namespace
-* Node
-* Endpoints
-* Ingress
-* Service
-* CronJob
-* DaemonSet 
-* Deployment
-* Job
-* Pod
-* ReplicaSet
-* StatefulSet
-* Secret
-* ConfigMap 
-* PersistentVolume
-* PersistentVolumeClaimSpec
-* VolumeAttachment
-* /version
-* /healthz
+| Resource | Endpoint |
+|:---|:---|
+| Cluster > ComponentStatus | `GET /api/v1/componentstatuses` |
+| Cluster > Event | `GET /apis/events.k8s.io/v1/events` | 
+| Cluster > Namespace | `GET /api/v1/namespaces` |
+| Cluster > Node | `GET /api/v1/nodes` |
+| Services > Endpoints | `GET /api/v1/namespaces/{namespace}/endpoints` | 
+| Services > Ingress | `GET /apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses` |
+| Services > Service | `GET /api/v1/namespaces/{namespace}/services` |
+| Workloads > CronJob | `GET /apis/batch/v1beta1/namespaces/{namespace}/cronjobs` |
+| Workloads > DaemonSet | `GET /apis/apps/v1/namespaces/{namespace}/daemonsets` |
+| Workloads > Deployment | `GET /apis/apps/v1/namespaces/{namespace}/deployments` |
+| Workloads > Job | `GET /apis/batch/v1/namespaces/{namespace}/jobs` |
+| Workloads > Pod | `GET /api/v1/namespaces/{namespace}/pods` |
+| Workloads > ReplicaSet | `GET /apis/apps/v1/namespaces/{namespace}/replicasets` |
+| Workloads > StatefulSet | `GET /apis/apps/v1/namespaces/{namespace}/statefulsets` |
+| Config and Storage > ConfigMap | `GET /api/v1/namespaces/{namespace}/configmaps` |
+| Config and Storage > Secret | `GET /api/v1/secrets` |
+| Config and Storage > PersistentVolume | `GET /api/v1/persistentvolumes` |
+| Config and Storage > PersistentVolumeClaimSpec | `GET /api/v1/namespaces/{namespace}/persistentvolumeclaims` |
+| Config and Storage > VolumeAttachment | `GET /apis/storage.k8s.io/v1/volumeattachments` |
+| | `/version` |
+| | `/healthz` |
 
 For further details, refer to the [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/).
 
