@@ -76,7 +76,7 @@ For example:
 
 ```
 helm install \
---namespace monitoring \
+--namespace stackstate-agent \
 --set-string 'stackstate.apiKey'='<your-api-key>' \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
@@ -211,7 +211,7 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 ### Component actions
 
-The following [actions](use/views/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component.
+A number of [actions](use/views/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the topology perspective
 
 | Action | Available for<br />component types | Description|
 |:---|:---|:---|

@@ -1,5 +1,6 @@
 ---
 description: Get topology and telemetry data from AWS services
+stackpack-name: AWS
 ---
 
 # AWS StackPack
