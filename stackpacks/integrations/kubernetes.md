@@ -161,7 +161,7 @@ The following relations between components are retrieved:
 - Deployment → ReplicaSet
 - Job → Pod
 - Ingress → Service
-- Namespace → CronJob, DaemonSet, Deployment, Job, Pod, ReplicaSet, Service, StatefulSet
+- Namespace → CronJob, DaemonSet, Deployment, Job, ReplicaSet, Service, StatefulSet
 - Node → Cluster relation
 - Pod → ConfigMap, Container, Deployment, Node, Secret, Volume
 - ReplicaSet →  Pod
