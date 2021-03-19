@@ -76,12 +76,13 @@ For example:
 
 ```
 helm install \
---namespace stackstate-agent \
+--namespace stackstate \
+--create-namespace \
 --set-string 'stackstate.apiKey'='<your-api-key>' \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
 --set-string 'stackstate.url'='<your-stackstate-url>' \
-stackstate/cluster-agent
+stackstate-cluster-agent stackstate/cluster-agent 
 ```
 
 {% endhint %}
@@ -254,6 +255,9 @@ To uninstall the StackState Cluster Agent and the StackState Agent from your Kub
 
 ```
 helm uninstall <release_name> <namespace>
+
+# If you used the standard install command provided when you installed the StackPack
+helm uninstall stackstate-cluster-agent --namespace stackstate
 ```
 
 ## Release notes
