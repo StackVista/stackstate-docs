@@ -20,18 +20,17 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **domain** - used to logically group components, e.g., business units, teams, application.
 * **element** - component or relation in the topology.
 * **environment** - used to divide the IT landscape into smaller logical units according to their intended purpose. e.g., creating DTAP \(Develop, Test, Acceptance, Production\) environments. One component can belong to multiple environments.
-* **event** - StackState records every change detected in the IT environment as an event.
-* **event stream** - shows all events defined for the active view.
-* **event stream** \(II\) - event data that is coming from an external system.
+* **event** - StackState records every change detected in the IT environment as an event. Events are always bound to one or more topology elements.
 * **event handler** - performs an action defined for a specific type of event occurrence.
 * **gremlin** - is a graph traversal language. Find out more on Gremlin [here](https://tinkerpop.apache.org/gremlin.html).
 * **groovy** - is a multi-faceted language for the Java platform. Find out more about Groovy [here](https://groovy-lang.org/).
 * **health state** - representation of the health status of components and relations in the IT landscape.
 * **integration** - a link between an external data source and StackState as defined in a StackPack.
 * **layer** - represents a hierarchy that determines the relations and dependencies in your stack - typically top to bottom.
+* **log stream** - a telemetry stream with log or event data that is coming from an external system.
 * **mapping** - in the synchronization process it specifies the transformation of external system topological data into StackState based on component/relation type.
 * **mapping function** - allows the user to transform data before applying a template during the synchronization process.
-* **metric stream** - metric data that is coming from an external system; Allows for baseline checks.
+* **metric stream** - a telemetry stream with metric data that is coming from an external system; Allows for baseline checks.
 * **permission** - defines an access to specific actions for users.
 * **prefix** - STQL query that is specific to a role. It is added as a query prefix to every query executed by users in that role.
 * **propagation** - defines how a component affects its health state based on dependencies and relations. Health state propagates in the opposite direction of the dependency, e.g., a virtual machine crash will influence applications running on it.
