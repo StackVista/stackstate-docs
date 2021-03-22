@@ -1,5 +1,7 @@
 # Filter components in a view
 
+## Overview
+
 The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ## Topology Filters
