@@ -67,7 +67,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 ## Uninstall
 
 
-## Release nots
+## Release notes
 
 
 ## See also
