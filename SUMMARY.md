@@ -53,7 +53,7 @@
   * [ID extraction](use/introduction-to-stackstate/id_extraction.md)
   * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
 * [Explore mode](use/explore_mode.md)
-* [Views](use/views/README.md)
+* [Perspectives and views](use/views/README.md)
   * [Filter components in a view](use/views/filters.md)
   * [Topology Perspective](use/views/topology-perspective.md)
   * [Telemetry Perspective](use/views/telemetry-perspective.md)
@@ -67,6 +67,10 @@
   * [Configure the view health](use/health-state-and-event-notifications/configure-view-health.md)
   * [Send event notifications](use/health-state-and-event-notifications/send-event-notifications.md)
   * [Anomaly detection with baselines](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
+* [Problem investigation](use/problem-investigation/README.md)
+  * [Problem identification](use/problem-investigation/problem_identification.md)
+  * [Problem navigation](use/problem-investigation/problem_navigation.md)
+  * [Probable causes](use/problem-investigation/probable_causes.md)
 * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks
