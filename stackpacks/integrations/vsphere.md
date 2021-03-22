@@ -82,13 +82,12 @@ The advanced configuration items described below can optionally be added to the 
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
+| `all_metrics` | Yes | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` (default), a selected set of metrics that are interesting to monitor will be collected. |
 | `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
 | `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
 | `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |
 | `include_only_marked` | No |  Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`.<br />To set this custom field with PowerCLI, use the command: <code>Get-VM <MyVMName> &#124; Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"</code>  |
-| `all_metrics` | No | Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false`, a selected set of metrics that are interesting to monitor will be collected. |
-| `collection_level` | No | Specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html) (a number between 1 and 4). |
 | `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. |
 
 
@@ -135,7 +134,7 @@ The VMWare vSphere check watches the vCenter Event Manager for the events listed
 
 #### Metrics
 
-The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration items **collection_level** and **all_metrics**. For details see how to [configure the VMWare vSphere check](#configure), above and the vmware docs on  [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html).
+The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration item **all_metrics**. For details see how to [configure the VMWare vSphere check](#configure).
 
 #### Topology
 
