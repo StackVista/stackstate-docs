@@ -41,6 +41,14 @@ To set up the StackState AWS integration, you need to have:
   A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** > **Integrations**  > **AWS**.
 * An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](#aws-iam-policies), below.
 
+### Proxy URL
+
+If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work.
+You can configure a proxy URL environment variable or JVM system property.
+
+- Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
+- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
+
 ### Install
 
 Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
@@ -135,6 +143,9 @@ The following AWS policies can be downloaded during the installation of the AWS 
 * **Uninstall a full install** - `StackStateIntegrationPolicyUninstall.json`
 * **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
 
+### Timeout
+The default read timeout for AWS is set to 30 seconds. You can specify custom read timeout with the `AWS_CLI_READ_TIMEOUT` environment variable. 
+
 ## Integration details
 
 ### Data retrieved
@@ -167,6 +178,10 @@ The StackState AWS integration installs the following AWS lambdas:
 | `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to StackState. |
 | `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only.|
 | `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to StackState. Full install only. |
+
+### Costs
+
+The AWS lightweight agent uses Amazon resources (Lambda and Kinesis) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
 ### AWS views in StackState
 
