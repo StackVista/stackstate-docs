@@ -73,9 +73,9 @@ Locate a specific component in the view by typing the first few letters of it's 
 
 There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
 
-## Problem clusters
+## Problems
 
-If one or more components have a critical state, StackState will show the related components and their states as a Problem Cluster in the [View Details panel](./#the-view-details-panel).
+If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details panel](./#the-view-details-panel).
 
 ## Root cause outside current view
 

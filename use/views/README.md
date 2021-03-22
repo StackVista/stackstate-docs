@@ -35,7 +35,7 @@ Whenever you first open a view you see a view details panel on the right side of
 
 * **View properties** -- shows the view query and last updated timestamp.
 * **Components** -- shows a summary of the number of components in the view.
-* **Problem Clusters** -- shows the problem clusters for any problems in the view.
+* **Problems** -- shows the problems for unhealthy components in the view.
 * **Events** -- shows the 5 most recent events that occurred for components in the view. Click **View all** to show the [Events Perspective](events_perspective.md).
 
 ## View health state
