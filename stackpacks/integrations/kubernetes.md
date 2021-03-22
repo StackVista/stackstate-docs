@@ -94,7 +94,7 @@ Full details of the available values can be found in the [Cluster Agent Helm Cha
 To check the status of the Kubernetes integration, check that the StackState Cluster Agent (`cluster-agent`) pod and all of the StackState Agent (`cluster-agent-agent`) pods have status ready.
 
 ```
-❯ kubectl get deployment,daemonset --namespace monitoring
+❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
@@ -182,6 +182,8 @@ All tags defined in Kubernetes will be retrieved and added to the associated com
 
 ### REST API endpoints
 
+The StackState Agent talks to the kubelet and kube-state-metrics API.
+
 The StackState Agent and Cluster Agent connect to the Kubernetes API to retrieve cluster wide information and Kubernetes events. The following API endpoints used:
 
 | Resource type | REST API endpoint |
@@ -254,7 +256,7 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** > 
 To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes cluster, run a Helm uninstall:
 
 ```
-helm uninstall <release_name> <namespace>
+helm uninstall <release_name> --namespace <namespace>
 
 # If you used the standard install command provided when you installed the StackPack
 helm uninstall stackstate-cluster-agent --namespace stackstate
