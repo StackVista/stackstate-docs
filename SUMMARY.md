@@ -54,6 +54,7 @@
   * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
 * [Explore mode](use/explore_mode.md)
 * [Filtering](use/views/filters.md)
+* [Views](use/views.md)
 * [Perspectives](use/views/README.md)
   * [Topology Perspective](use/views/topology-perspective.md)
   * [Telemetry Perspective](use/views/telemetry-perspective.md)
