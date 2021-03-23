@@ -6,13 +6,16 @@ old-description: Collect Smartscape topology data from Dynatrace
 
 ## Overview
 
-The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology from the last 72 hours will be added to the topology in StackState.
+The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` (default 1 hour) will be available in StackState.
 
-![Data flow](../../.gitbook/assets/stackpack-dynatrace.png)
 
-* Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve Smartscape topology data from the last 72 hours.
+![Data flow](../../.gitbook/assets/stackpack-dynatrace_v110.png)
+
+* Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve Smartscape topology and events data.
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
-* StackState translates incoming Dynatrace data into topology components and relations. 
+* [Topology data](#topology) is translated into components and relations. 
+* [Tags](#tags) defined in Dynatrace are added to components and relations in StackState.
+* [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 ## Setup
 
@@ -22,7 +25,7 @@ To set up the Dynatrace integration you will need to have:
 
 * [StackState Agent V2](agent.md) installed on a machine that can connect to both Dynatrace and StackState.
 * A running Dynatrace instance.
-* A Dynatrace API Token with access to read the Smartscape Topology, see [REST API endpoints](dynatrace.md#rest-api-endpoints).
+* A Dynatrace API Token with access to read the Smartscape Topology and Events, see [REST API endpoints](dynatrace.md#rest-api-endpoints).
 
 ### Install
 
@@ -35,7 +38,7 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Int
 
 To enable the Dynatrace check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the URL of the Dynatrace instance.
    * **token** - an API token with access to the required [Dynatrace API endpoints](dynatrace.md#rest-api-endpoints).
 
@@ -46,12 +49,16 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, add the 
      instances:
      # mandatory
      - url: <url> # URL of the Dynatrace instance
-       token: <token> # API-Token to connect to Dynatrace
+       token: <token>  # API-Token to connect to Dynatrace
        # verify: True  # By default its True
+       # timeout: 10
        # cert: /path/to/cert.pem
        # keyfile: /path/to/key.pem
        # domain: <domain>  # default 'dynatrace'
-       # environment: <environment>    # default 'production'
+       # environment: <environment>  # default 'production'
+       # relative_time : <relative_time> # default 'hour'
+       # events_bootstrap_days: 5  # default 5 days
+       # events_process_limit: 10000  # default 10k events
        # tags:
        #   - foo:bar
      ```
@@ -84,6 +91,7 @@ The API Token configured in StackState Agent V2 must have the permission **Acces
 * `/api/v1/entity/infrastructure/processes`
 * `/api/v1/entity/infrastructure/process-groups`
 * `/api/v1/entity/services`
+* `/api/vi/events`
 
 {% hint style="info" %}
 Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token).
@@ -93,11 +101,16 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 #### Events
 
-The Dynatrace check does not retrieve any events data.
+The Dynatrace check retrieves all events and their parameters from Dynatrace for the configured `relative_time` (default 1 hour). Retrieved events are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 #### Metrics
 
 The Dynatrace check does not retrieve any metrics data.
+
+#### Tags
+
+All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState.
+The Dynatrace integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
 
 #### Topology
 
@@ -105,7 +118,7 @@ The Dynatrace check retrieves the following topology data from Dynatrace:
 
 | Data | Description |
 | :--- | :--- |
-| Components | Smartscape Applications, Hosts, Processes, Process-Groups and Services from the last 72 hours. |
+| Components | Smartscape Applications, Hosts, Processes, Process-Groups and Services. |
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace. |
 
 #### Traces
