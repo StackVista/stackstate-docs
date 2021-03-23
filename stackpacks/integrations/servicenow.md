@@ -57,13 +57,19 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
        # change_request_process_limit: 1000 
        # timeout: 20
        # verify_https: true
+       # cert: /path/to/cert.pem
+       # keyfile: /path/to/key.pem
+
      ```
 2. You can also add optional configuration and filters:
    * **batch\_size** - the maximum number of records to be returned \(default `2500`, max `10000`\).
    * **change\_request\_bootstrap\_days** - On first start, all change requests that have been updated in last N days will be retrieved \(default `100`\).
    * **change\_request\_process\_limit** - The maximum number of change requests that should be processed \(default `1000`\).
    * **timeout** - Timeout for requests to the ServiceNow API in seconds \(default `20`\).
-   * **verify\_https** - Verify certificate when using https \(default `true`\).
+   * **verify_https** - Verify the certificate when using https (default `true`).
+   * **cert** - Path to the certificate file for https verification.
+   * **keyfile** - Path to the public key of certificate for https verification.
+
    * Use queries to [filter change requests retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow \(default all\).
    * Use queries to [filter the CI types retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) \(default all\).
    * [Specify the CI types](servicenow.md#specify-ci-types-to-retrieve) that should be retrieved \(default all\).
