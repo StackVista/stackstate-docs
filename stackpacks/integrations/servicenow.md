@@ -190,6 +190,12 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 The ServiceNow check does not retrieve any metrics data.
 
+
+#### Tags
+
+All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState.
+The ServiceNow integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+
 #### Topology
 
 The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:

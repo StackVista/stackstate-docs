@@ -99,6 +99,11 @@ The Dynatrace check does not retrieve any events data.
 
 The Dynatrace check does not retrieve any metrics data.
 
+#### Tags
+
+All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState.
+The Dynatrace integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+
 #### Topology
 
 The Dynatrace check retrieves the following topology data from Dynatrace:

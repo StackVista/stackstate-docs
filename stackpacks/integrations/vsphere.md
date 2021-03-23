@@ -136,6 +136,12 @@ The VMWare vSphere check watches the vCenter Event Manager for the events listed
 
 The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration item **all_metrics**. For details see how to [configure the VMWare vSphere check](#configure).
 
+
+#### Tags
+
+All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState.
+The VMWare vSphere integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+
 #### Topology
 
 The VMWare vSphere integration retrieves the following topology data:
@@ -146,17 +152,6 @@ The VMWare vSphere integration retrieves the following topology data:
 #### Traces
 
 The VMWare vSphere integration does not retrieve any traces data.
-
-#### Tags
-
-All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState. 
-
-The vSphere StackPack also understands the following special tags:
-
-| Tag | Description |
-| :--- | :--- |
-| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component. |
-
 
 ### REST API endpoints
 
