@@ -26,7 +26,7 @@ The `example` check consists of two files:
 * `conf.d/example.d/conf.yaml` -- the check configuration file
 * `checks.d/example.py` -- the check Python code
 
-## Preparing StackState
+## Prepare StackState
 
 Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
 
@@ -37,7 +37,7 @@ Instance type (source identifier): example
 Instance URL: example://example-1
 ```
 
-## Preparing the tutorial
+## Prepare the tutorial
 
 The StackState agent container uses the root directory of this repository for it's configuration files.
 
@@ -56,7 +56,7 @@ export STS_STS_URL=https://host.docker.internal/stsAgent
 
 That's it, you are now ready to run the agent.
 
-## Running the sample check using the agent
+## Run the sample check using the Agent
 
 The sample project contains a `run.sh` shell script that runs the StackState agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
@@ -66,7 +66,7 @@ Once the check has run successfully, the topology data produced by the `example`
 
 Press `ctrl-c` to stop the agent.
 
-## Seeing the topology in StackState
+## See the topology in StackState
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
@@ -76,7 +76,7 @@ Note that the components you see are hardcoded in the `example` agent check. The
 
 Click on one of the components to open the **Component Details pane**. You'll see the component's labels and other meta-data the check sent.
 
-## Merging topology
+## Merge topology
 
 StackState creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If the data your check delivers should be merged with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
 
@@ -90,7 +90,7 @@ In our sample check, this code defines the extra identifiers:
 
 Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/identifiers.md).
 
-## Adding a custom telemetry stream to a component
+## Add a custom telemetry stream to a component
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
@@ -110,7 +110,7 @@ The stream preview on the right should show the incoming metric values. Here is 
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
-## Adding a custom telemetry stream to all components of a type
+## Add a custom telemetry stream to all components of a type
 
 The **some-application-1** component now has our telemetry stream. The sample check, however, also produces telemetry for the second application component. To map a stream to all components of a certain type, we need to update the component's _template_.
 
@@ -173,19 +173,19 @@ Now, we need to reset the synchronization so it will reprocess the incoming data
 
 If you go back to the topology, you'll see that both application components \(and any you might add in the future\) will have the stream there.
 
-## Setting a component's health state from an external source
+## Set a component's health state from an external source
 
-StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It is also possible to create your own check function that interprets events from an external source, such as another monitoring tool, and use it to set the component's health state. Let's try that out on our **a-host** component.
+StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It is also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
 
 Let's start by creating the check function that takes the incoming data and translates it to a health state. Go to the **Settings** area and find the **Check functions** page. Click the **Add Check function** button to create a new check function. Name the function **External monitor state**.
 
-Our check functions will work on an event stream, so add a parameter to the function using the **plus** button. The parameter name is `eventstream` and it's type is, indeed, `Event stream`.
+Our check functions will work on a log stream, so add a parameter to the function using the **+ Add parameter** button. The parameter name is `logstream` and its type is, indeed, `Log stream`.
 
 Use the following code for the check function:
 
 ```text
-event = eventstream[eventstream.size() - 1]
-tags = event.point.getStructOrEmpty("tags")
+logitem = logstream[logstream.size() - 1]
+tags = logitem.point.getStructOrEmpty("tags")
 healthStateOpt = tags.getString("alert_level")
 healthState = healthStateOpt.orElse("unknown").toLowerCase()
 switch(healthState) {
@@ -198,7 +198,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/example-check-function.png)
+![](../../.gitbook/assets/v43_example-check-function.png)
 
 Finally save the check function.
 
@@ -210,20 +210,20 @@ TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "
 
 Just execute a few of these so we have a few datapoints to work with.
 
-Next, let's create an _event stream_ for the component. Find the **a-host** component and open the Component Details pane. In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+Next, let's create a _log stream_ for the component. Find the **a-host** component and open the Component Details pane. In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
 
-In the Stream Creation screen, select the **Event stream** type at the top. Then fill in the following parameters:
+In the Stream Creation screen, select to output as a **Log stream** at the top. Then fill in the following parameters:
 
 * Time window: Last hour
 * Filters: `host` = `host_fqdn`
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/example-event-stream-editor.png)
+![](../../.gitbook/assets/v43_example-event-stream-editor.png)
 
-You should already see the test events you sent. Go ahead and save the stream.
+You should already see the test events you sent in the log stream. Go ahead and save the stream.
 
-The last thing to do is to add a health check to the **a-host** component. In the **Health** section, click on the **Add** button. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** event stream. Save the check by clicking the **Create** button.
+The last thing to do is to add a health check to the **a-host** component. In the **Health** section, click on the **Add** button. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
 
 Now, sending in the events using the command below should set the health state to `CRITICAL`:
 

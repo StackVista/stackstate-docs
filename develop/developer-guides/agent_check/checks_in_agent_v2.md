@@ -1,11 +1,13 @@
----
-title: Agent Check Reference
-kind: Documentation
----
-
 # Checks in Agent v2
 
-This document covers Agent V2 functionality to create checks with Agent V2 Check API. In below sections following topics are covered: sending checks on topology, metrics, events, and service checks, as well as overriding base class methods, logging, and error handling in checks. Code examples lead to StackState's [stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations) repository on GitHub.
+This document covers Agent V2 functionality to create checks with Agent V2 Check API. The following topics are covered: 
+
+* How to send checks on topology
+* Metrics, events, and service checks
+* Overriding base class methods
+* Logging, and error handling in checks. 
+
+Code examples lead to the StackState GitHub repository: [stackstate-agent-integrations \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations).
 
 ## Agent V2 Check API
 
@@ -33,23 +35,23 @@ instances:
     port: 6379
 ```
 
-Here is an example of the [config file](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/data/conf.yaml.example).
+Here is an example of the [config file \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/data/conf.yaml.example).
 
-Any mapping provided in `instances` is passed to the `check` method using declared `instance` value.
+Any mapping provided in `instances` is passed to the `check` method using the declared `instance` value.
 
-The `AgentCheck` class provides following methods and attributes:
+The `AgentCheck` class provides the following methods and attributes:
 
 * `self.name` - a name of the check
 * `self.init_config` - `init_config` that corresponds in the check configuration
-* `self.log` - a [logger](https://docs.python.org/2/library/logging.html)
+* `self.log` - a [logger \(python.org\)](https://docs.python.org/2/library/logging.html)
 
 ## Scheduling
 
-Note: If there is a check already running, there is no need to schedule another one, as multiple instances of the same check will run concurrently.
+Note: If a check is already running, there is no need to schedule another one, as multiple instances of the same check will run concurrently.
 
 ## Sending topology
 
-Sending topology is done by calling the following methods:
+Topology is sent by calling the following methods:
 
 ```text
 self.component(id, type, data):                     # Creates a component within StackState
@@ -58,17 +60,19 @@ self.start_snapshot():                              # Start a topology snapshot 
 self.stop_snapshot():                               # Stop a topology snapshot for a specific topology instance source
 ```
 
-Above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and `RelationTemplateFunction` within StackState. Following example shows usage of `self.component` for [MySQL topology check](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
+The above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState. 
 
-All submitted topologies are collected and flushed with all the other Agent metrics by StackState at the end of `check` function.
+An example of usage of `self.component` can be found in the [MySQL topology check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
 
-### Sending Streams and Checks
+All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
 
-Streams and Checks can be sent in with a component, which will then be mapped in StackState to give you telemetry streams and health states on your components. We support a few different streams and checks out of the box which are described below.
+## Sending Streams and Checks
 
-All of the telemetry classes and methods can be imported from `stackstate_checks.base`
+Streams and Checks can be sent in with a component, these will then be mapped in StackState to give you telemetry streams and health states on your components. The streams and checks described below are supported out of the box.
 
-Given the following example:
+All of the telemetry classes and methods can be imported from `stackstate_checks.base`.
+
+In the example below,  a `MetricStream` is created on the `system.cpu.usage` metric with some conditions specific to a component. A `maximum_average` check is then created on this metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list for the component `this-host`.
 
 ```text
 this_host_cpu_usage = MetricStream("Host CPU Usage", "system.cpu.usage",
@@ -94,11 +98,10 @@ self.component("urn:example:/host:this_host", "Host",
                checks=[cpu_max_average_check])
 ```
 
-We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check is then added to the streams and checks list in our `this-host` component.
 
-#### Events Stream
+### Events
 
-An Event stream can be added to a component using the `EventStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. Event Streams have a few out of the box supported checks which can be mapped using the stream identifier.
+Events can be published for a component using the `EventStream` class. It expects a stream `name` and `conditions` for the telemetry query in StackState. A few checks are supported out of the box supported that can be mapped using the stream identifier.
 
 ```text
 class EventStream(TelemetryStream):
@@ -148,7 +151,7 @@ class EventHealthChecks(object):
         """
 ```
 
-#### Metric Stream
+### Metric Stream
 
 A Metric stream can be added to a component using the `MetricStream` class. It expects a stream `name` , `metricField`, `conditions` and optionally also `unit_of_measure`, `aggregation` and `priority` for the metric telemetry query in StackState. Metric Streams have a few out of the box supported checks which can be mapped using the stream identifier. Some of the Metric checks require multiple streams in which case they are referred to as the `denominator_stream_id` and `numerator_stream_id` used for ratio calculations.
 
@@ -308,7 +311,7 @@ class MetricHealthChecks(object):
         """
 ```
 
-#### Service Check
+### Service Check
 
 A Service Check stream can be added to a component using the `ServiceCheckStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. Service Check Streams has one out of the box supported check which can be mapped using the stream identifier.
 
@@ -335,7 +338,7 @@ class ServiceCheckHealthChecks(object):
         """
 ```
 
-### Sending metrics
+## Sending metrics
 
 Following methods can be called from anywhere in the check:
 

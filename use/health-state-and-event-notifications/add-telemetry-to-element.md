@@ -1,12 +1,12 @@
 ---
-description: Add incoming telemetry (metrics and events) data to an element.
+description: Add incoming telemetry (metrics and logs) data to an element.
 ---
 
 # Add a telemetry stream
 
 ## Overview
 
-Elements in StackState can have a telemetry \(metrics and events\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](/use/health-state-and-event-notifications/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
+Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](/use/health-state-and-event-notifications/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
 ## Add a telemetry stream to an element
 
@@ -20,9 +20,9 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
    * **Name** - A name for the telemetry stream. This will be visible in the StackState UI. 
    * **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in **Settings** &gt; **Telemetry Sources**.
 4. Click **NEXT**
-5. At the top of the **Add a new stream** popup, select whether to output the telemetry stream as a Metric stream or an Event stream:
+5. At the top of the **Add a new stream** popup, select whether to output the telemetry stream as a Metric stream or a Log stream:
    * **Metric stream** \(default\) - use for metrics. Allows for various aggregation methods and will be visualized as a timeseries line chart.
-   * **Event stream** - use for streams that contain logs and events. Will be visualized as a bar chart.
+   * **Log stream** - use for streams that contain logs and events. Will be visualized as a bar chart.
 6. Provide the following details:
    * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.

@@ -1,5 +1,5 @@
 ---
-description: Get topology and telemetry information from Traefik
+old-description: Get topology and telemetry information from Traefik
 ---
 
 # Traefik \(BETA\)

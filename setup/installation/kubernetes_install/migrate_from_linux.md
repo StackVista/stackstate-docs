@@ -5,7 +5,7 @@
 This document describes how to migrate data from the Linux install of StackState to the Kubernetes install.
 
 {% hint style="info" %}
-The Kubernetes installation of StackState should be v4.2.4 or higher to execute this procedure.
+The Kubernetes installation of StackState should be v4.2.5 or higher to execute this procedure.
 {% endhint %}
 
 ## High level steps
@@ -14,7 +14,7 @@ To migrate from the Linux install to the Kubernetes install of StackState, the f
 
 1. [Install StackState](install_stackstate.md) on Kubernetes.
 1. [Migrate StackState configuration and topology data \(StackGraph\)](#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes install.
-1. [Migrate telemetry data (ElasticSearch)](#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
+1. [Migrate telemetry data (Elasticsearch)](#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
 
 Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) will not be copied. 
 
@@ -87,16 +87,30 @@ Note that the [StackState automatic Kubernetes backup functionality](/setup/data
 1. Enable the MinIO component by adding the following YAML fragment to the `values.yaml` file that is used to install StackState
 
     ```yaml
+    backup:
+      enabled: true
+      stackGraph:
+        scheduled:
+          enabled: false
+      elasticsearch:
+        restore:
+          enabled: false
+        scheduled:
+          enabled: false
     minio:
+      accessKey: MINIO_ACCESS_KEY
+      secretKey: MINIO_SECRET_KEY
+      persistence:
         enabled: true
-        accessKey: MINIO_ACCESS_KEY
-        secretKey: MINIO_SECRET_KEY
     ```
 
     Include the credentials to access the MinIO instance:
     
     - Replace `MINIO_ACCESS_KEY` with 5 to 20 alphanumerical characters.
     - Replace `MINIO_SECRET_KEY` with 8 to 40 alphanumerical characters.
+
+
+    The Helm values `backup.stackGraph.scheduled.enabled`, `backup.elasticsearch.restore.enabled` and `backup.elasticsearch.scheduled.enabled` have been set to `false` to prevent scheduled backups from overwriting the backups that we will upload to MinIO.
 
 1. Run the appropriate `helm upgrade` command for your installation to enable MinIO.
 
@@ -190,12 +204,14 @@ Note that the [StackState automatic Kubernetes backup functionality](/setup/data
     job.batch "stackgraph-restore-20210222t171035" deleted
     ```
 
-## Step 3 - Migrate telemetry data (ElasticSearch)
+1. Remove the YAML snippet added in step 1 and run the appropriate `helm upgrade` command for your installation to disable MinIO.
 
-To migrate ElasticSearch data from the Linux install to the Kubernetes install, use the functionality [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html).
+## Step 3 - Migrate telemetry data (Elasticsearch)
+
+To migrate Elasticsearch data from the Linux install to the Kubernetes install, use the functionality [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html).
 
 Notes:
-* To access the ElasticSearch instance that runs as part of the Kubernetes installation for StackState, execute the following command:
+* To access the Elasticsearch instance that runs as part of the Kubernetes installation for StackState, execute the following command:
 
     ```bash
     kubectl port-forward service/stackstate-elasticsearch-master 9200:9200

@@ -129,18 +129,18 @@ Follow the steps below to create a configuration file manually \(required for Do
 4. Edit the file and add:
    * URLs to the StackState APIs.
    * Any required authentication details for the APIs.
+   * The `base_api` API has support for API Tokens. You can copy your private API Token from the **CLI** page in the StackState UI.
    * Client details.
 
-The `base_api` API has support for API Tokens. You can copy your private API Token from the "User Profile" page on the UI of StackState.
-
-For example:
-
+{% tabs %}
+{% tab title="Example conf.yaml" %}
 ```yaml
 instances:
  default:
    base_api:
      url: "https://localhost:7070"
      ## StackState authentication. This type of authentication is exclusive to the `base_api`.
+     ## You can copy your private API Token from the CLI page in the StackState UI.
      apitoken_auth:
       token: "your API Token"
    receiver_api:
@@ -163,12 +163,14 @@ instances:
    ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
    clients:
      default:
-       api_key: "???"
+       api_key: "default_api_key"
        ## The name of the host that is passed to StackState when sending. Leave these values unchanged
        ## if you have no idea what to fill here.
        hostname: "hostname"
        internal_hostname: "internal_hostname"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Multiple configurations
 
@@ -196,200 +198,8 @@ sts --instance <instance_name> ...
 
 ## Use the StackState CLI
 
-### Import and export StackState configuration
+For details on how to work with the StackState CLI, see the [CLI reference guide](/develop/reference/cli_reference.md) or refer to the help provided in the CLI.
 
-The StackState configuration is stored in StackState's graph database in so-called configuration nodes. These nodes can be inspected, imported and exported using the CLI.
-
-```text
-# See all types of configuration nodes:
-sts graph list-types
 ```
-
-You can use the `sts graph export` and `sts graph import` commands to export and import different types of configuration nodes from and to StackState. Nodes are stored in [StackState Templated Json](../../develop/reference/stj/) format.
-
-For example:
-
-```text
-# Write all check functions to disk
-sts graph list --ids CheckFunction | xargs sts graph export --ids > mycheckfunctions.stj
-
-# Import check functions from file
-sts graph import < mycheckfunctions.stj
+sts --help
 ```
-
-### Inspect data
-
-All data flowing through StackState \(e.g. topology, telemetry, traces, etc.\) flows through so-called topics. For debugging purposes, these topics can be inspected using the CLI. This can come in handy, for example, to make sure that StackState is receiving data correctly when you write your own integrations.
-
-For example:
-
-```text
-# See all topics
-sts topic list
-
-# Inspect a topic
-sts topic show <topic>
-```
-
-### Send data
-
-You may not always want to try a new configuration on real data. First, you might want to see if it works correctly with predictable data. The CLI makes it easy to send test topology or telemetry data to StackState.
-
-* [Send metrics data](cli-install.md#metrics)
-* [Send events data](cli-install.md#events)
-* [Send topology data](cli-install.md#topology)
-* [Send anomaly data](cli-install.md#anomaly)
-
-#### Metrics
-
-The CLI provides some predefined settings to send metrics to StackState. Run the below command without any optional arguments to send one data point of the given value:
-
-```text
-sts metric send <MetricName> <OptionalNumberValue>
-```
-
-You can also use optional arguments to create historical data for a test metric.
-
-| Argument | Details |
-| :--- | :--- |
-| `-p` | Time period. This can be in weeks `w`, days `d`, hours `h`, minutes `m` and/or seconds `s`. For example: `-p 4w2d6h30m15s` |
-| `-b` | The bandwidth between which values will be generated. For example: `-b 100-250` |
-
-By default, a metrics pattern is random or, when a value is provided, a flatline. This can be changed using the pattern arguments `--linear` and `--baseline`.
-
-| Argument | Details |
-| :--- | :--- |
-| `--linear` | Creates a line between the values given for `-b` plotted over the time given for `-p` |
-| `--baseline` | Creates a daily usage curve. On Saturday and Sunday, the metric is much lower than on weekdays. The min and max of the curve are set by `-b` and `-p` |
-| `--csv` | Reads a CSV file from the stdin and sends it to StackState. The content of the CSV file should be in the format `timestamp,value` |
-
-To see all available options, use:
-
-```text
-sts metric send -h
-```
-
-#### Events
-
-The CLI can send events using `sts evens send <eventName>` It will send one event with the given name.
-
-For help on sending events data, use:
-
-```text
-sts event send -h
-```
-
-#### Topology
-
-Please refer to `usage.md` in the CLI zip archive for detailed instructions.
-
-For help on sending topology data, use:
-
-```text
-sts topology send -h
-```
-
-#### Anomaly
-
-The CLI provides an `anomaly` command used to send anomaly data for a metric stream of a component.
-
-```text
-sts anomaly send --component-name <Component> --stream-name <Metric Stream> --start-time=-30m
-```
-
-You can also use the optional arguments below to create a specific anomaly.
-
-| Argument | Details |
-| :--- | :--- |
-| `--duration` | Anomaly duration \(seconds\) |
-| `--severity` | Anomaly severity \(HIGH, MEDIUM, LOW\) |
-| `--severity-score` | Anomaly severity score |
-| `--description` | Anomaly description field contents |
-
-For help on sending anomaly data, use:
-
-```text
-sts anomaly send -h
-```
-
-### Manage StackPacks
-
-The StackState CLI can be used to manage the StackPacks in your StackState instance.
-
-* [Install a StackPack](cli-install.md#install-a-stackpack)
-* [Upgrade a StackPack](cli-install.md#upgrade-a-stackpack)
-* [Uninstall a StackPack](cli-install.md#uninstall-a-stackpack)
-
-#### Install a StackPack
-
-To install a StackPack, you must first upload it to the StackState server.
-
-```text
-# Upload a StackPack
-sts stackpack upload /path/to/MyStackPack-1.0.0.sts
-
-# Install an uploaded StackPack
-sts stackpack install MyStackPack
-
-# Provide parameters for StackPack install:
-sts stackpack install -p param1 value1 -p param2 value2 MyStackPack
-```
-
-For example, the open-source [SAP StackPack](https://github.com/StackVista/stackpack-sap) requires the parameter [sap\_host](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/stackpack.conf#L24) during installation. This command kicks off that installation:
-
-```text
-sts stackpack install -p sap_host sap1.acme.com sap
-```
-
-#### Upgrade a StackPack
-
-If you want to upgrade a StackPack, first upload the new StackPack version to the StackState server, then trigger the upgrade with the following command:
-
-```text
-# Upload new StackPack version
-sts stackpack upload /path/to/MyStackPack-1.0.1.sts
-
-# Upgrade to the uploaded StackPack
-sts stackpack upgrade MyStackPack
-```
-
-{% hint style="info" %}
-Note that StackState will upgrade to the latest StackPack version available on the StackState server.
-{% endhint %}
-
-#### Uninstall a StackPack
-
-Uninstall a StackPack as follows:
-
-```text
-sts stackpack uninstall MyStackPack
-```
-
-### Scripting
-
-It is possible to execute scripts using the StackState CLI. Use `sts script` to execute a script via standard input. For example:
-
-```text
-echo "Topology.query(\"label IN ('stackpack:aws')\")" | sts script execute
-```
-
-{% hint style="info" %}
-Note that the script provided as input must use proper quoting.
-{% endhint %}
-
-### License
-
-The StackState CLI can check your license validity and update a license key when needed, for example in case of expiration.
-
-```text
-# check license key validity
-sts subscription show
-
-# Update license key
-sts subscription update new-license-key
-```
-
-{% hint style="info" %}
-Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
-{% endhint %}
-

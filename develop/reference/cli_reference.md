@@ -131,7 +131,7 @@ sts metric send [-b | -h | -p] <MetricName> <OptionalNumberValue> [--baseline | 
 Please refer to `usage.md` in the CLI zip archive for detailed instructions.
 
 ```text
-
+sts topology send -h
 ```
 
 | Argument | Details |
@@ -162,7 +162,7 @@ sts topic show <topic>
 
 | Argument | Format | Description |
 | :--- | :--- | :--- |
-| \ | string | The Kafka topic to show data for. Topic names can be retrieved using [sts topic list](cli_reference.md#sts-topic-list). |
+| `<topic>` | string | The Kafka topic to show data for. Topic names can be retrieved using [sts topic list](cli_reference.md#sts-topic-list). |
 
 ## Manage StackPacks
 
