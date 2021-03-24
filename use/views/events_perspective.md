@@ -50,7 +50,7 @@ The events listed in the Events Perspective can be filtered in two ways using th
 
 ### Timeline
 
-The Events Perspective shows events matching the time window selected in the timeline control. Specify a time window to filter the events shown by time.
+The Events Perspective shows events matching the **Time Window** selected in the timeline control. Specify a time window to filter the events shown by time.
 
 ## Time travel
 
