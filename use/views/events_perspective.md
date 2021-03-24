@@ -44,7 +44,7 @@ The events listed in the Events Perspective can be filtered in two ways using th
 
 * [**Topology filters**](/use/filters.md#topology-filters) define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible.
 
-* [**Event filters**](/use/filters.md#event-filters) allow you to refine the events displayed based on event category or type, source system and tags.
+* [**Event filters**](/use/filters.md#event-filters) allow you to further refine the events displayed based on event category or type, source system and tags.
 
 ### Time filter
 
