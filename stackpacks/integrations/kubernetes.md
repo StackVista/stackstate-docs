@@ -17,9 +17,9 @@ The Kubernetes integration is used to create a near real-time synchronization of
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
 - StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
-    * Host information is retrieved from the Kubernetes API
-    * Container information is collected from the Docker daemon
-    * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node
+    * Host information is retrieved from the Kubernetes API.
+    * Container information is collected from the Docker daemon.
+    * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 - StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
     * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
     * Control plane metrics are retrieved from the Kubernetes API
