@@ -264,7 +264,58 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
+**Openshift StackPack v3.6.0 (2021-03-08)**
 
+- Feature: Namespaces are now a component in StackState with a namespaces view for each cluster
+- Feature: New component actions for quick navigation on workloads, pods and namespaces
+- Feature: Added a "Pod Scheduled" metric stream to pods
+- Feature: Secrets are now a component in StackState
+- Improvement: The "Desired vs Ready" checks on workloads now use the "Ready replicas" stream instead of the replicas stream.
+- Improvement: Use standard (blue) Kubernetes icons
+- Bug Fix: Fixed Kubernetes synchronization when a component had no labels but only tags
+
+**Openshift StackPack v3.5.2 (2020-08-18)**
+
+- Feature: Introduced the Release notes pop up for customer
+
+**Openshift StackPack v3.5.1 (2020-08-10)**
+
+- Feature: Introduced Kubernetes specific component identifiers
+
+**Openshift StackPack v3.5.0 (2020-08-04)**
+
+- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+
+**Openshift StackPack v3.4.0 (2020-06-19)**
+
+- Improvement: Set the stream priorities on all streams.
+
+**Openshift StackPack v3.3.0 (2020-05-27)**
+
+- Feature: Removing the Container restart check
+
+**Openshift StackPack v3.2.0 (2020-04-10)**
+
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
+
+**Openshift StackPack v3.1.0 (2020-04-03)**
+
+- Improvement: Openshift tracing documentation updated.
+- Improvement: Kube state metrics installation documentation added.
+
+**Openshift StackPack v3.0.0 (2020-03-12)**
+
+- Improvement: Use Full Cause Tree visibility on all views to show root cause analysis. (Breaking Change)
+
+**Openshift StackPack v2.2.0 (2020-03-09)**
+
+- Feature: Added cluster name (and optional namespace) to all metric / event telemetry query conditions to support multiple Openshift clusters.
+- Bug Fix: Fixed the monitoring of Openshift Cron Jobs to view all successful and failed jobs.
+
+**Openshift StackPack v2.1.1 (2019-12-19)**
+
+- Improvement: Packaging of Openshift manifests in the build pipeline.
+- Bug Fix: Fixed Openshift synchronization to support multiple Openshift clusters as domains in StackState.
 
 ## See also
 
