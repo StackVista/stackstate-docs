@@ -46,7 +46,7 @@ The [Topology filters](/use/filters.md#topology-filters) in the the **View Filte
 
 ### Filter by event properties
  
-The [**Event filters**](/use/filters.md#event-filters) in the **View Filters** pane on the left side of the StackState UI allow you to refine the events displayed based on event category or type, source system and tags.
+The [Event filters](/use/filters.md#event-filters) in the **View Filters** pane on the left side of the StackState UI allow you to refine the events displayed based on event category or type, source system and tags.
 
 ### Filter by timestamp 
 
