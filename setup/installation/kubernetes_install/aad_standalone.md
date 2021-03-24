@@ -199,4 +199,5 @@ The status UI section **Top Anomalous Streams** shows the streams with the highe
 The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 ## See also
-[Autonomous Anomaly Detector StackPack](/stackpacks/add-ons/aad.md)
+
+ * [Autonomous Anomaly Detector StackPack](/stackpacks/add-ons/aad.md)
