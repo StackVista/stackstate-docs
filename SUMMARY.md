@@ -70,7 +70,6 @@
 * [Problem investigation](use/problem-investigation/README.md)
   * [Problem identification](use/problem-investigation/problem_identification.md)
   * [Navigating a problem](use/problem-investigation/problem_navigation.md)
-  * [Probable causes](use/problem-investigation/probable_causes.md)
 * [Analytics](use/analytics.md)
 * [Glossary](use/glossary.md)
 
