@@ -48,7 +48,7 @@ The events listed in the Events Perspective can be filtered in two ways using th
 
 * [**Event filters**](/use/filters.md#event-filters) allow you to further refine the events displayed based on event category or type, source system and tags.
 
-### Time filter
+### Timeline
 
 The Events Perspective shows events matching the time window selected in the timeline control. Specify a time window to filter the events shown by time.
 
