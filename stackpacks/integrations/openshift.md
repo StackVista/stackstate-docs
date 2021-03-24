@@ -131,8 +131,6 @@ The Openshift integration makes all metrics from the Openshift cluster available
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `openshift` in the **Select** box to get a full list of all available metrics. 
 
-![Add an Openshift metrics stream to a component](/.gitbook/assets/v43_add_k8s_stream.png)
-
 #### Topology
 
 The Openshift integration retrieves components and relations for the Openshift cluster. 
