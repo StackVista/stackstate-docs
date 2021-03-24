@@ -20,7 +20,7 @@ The Openshift integration collects topology data in an Openshift cluster as well
     * Host information is retrieved from the Openshift API
     * Container information is collected from the Docker daemon
     * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node
-- StackState Cluster Agent is deployed with a Deployment. There is one instance for the entire Openshift cluster:
+- StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Openshift cluster:
     * Topology and events data for all resources in the cluster are retrieved from the Openshift API
     * Control plane metrics are retrieved from the Openshift API
 - Retrieved data is pushed to StackState via the Agent StackPack (StackState Agent V2) and the Openshift StackPack (StackState Cluster Agent).
@@ -38,7 +38,7 @@ The following prerequisites are required to install the Openshift StackPack and 
 
 * An Openshift Cluster must be up and running.
 * A recent version of Helm 3.
-* A user with permissions to create privileged pods, ClusterRoles and ClusterRoleBindings:
+* A user with permissions to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
     - ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Openshift API.
     - StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
@@ -82,6 +82,7 @@ helm install \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
 --set-string 'stackstate.url'='<your-stackstate-url>' \
+--set-string 'agent.scc.enabled'='true' \
 stackstate-cluster-agent stackstate/cluster-agent 
 ```
 
@@ -156,7 +157,7 @@ The following Openshift topology data is available in StackState as components:
 
 The following relations between components are retrieved:
 
-- Container → Volume
+- Container → PersistentVolume, Volume
 - CronJob → Job
 - DaemonSet → Pod
 - Deployment → ReplicaSet
@@ -164,7 +165,7 @@ The following relations between components are retrieved:
 - Ingress → Service
 - Namespace → CronJob, DaemonSet, Deployment, Job, ReplicaSet, Service, StatefulSet
 - Node → Cluster relation
-- Pod → ConfigMap, Container, Deployment, Node, Secret, Volume
+- Pod → ConfigMap, Container, Deployment, Node, PersistentVolume, Secret, Volume
 - ReplicaSet →  Pod
 - Service → ExternalService, Pod
 - StatefulSet → Pod
@@ -188,29 +189,29 @@ The StackState Agent and Cluster Agent connect to the Openshift API to retrieve 
 
 | Resource type | REST API endpoint |
 |:---|:---|
-| Cluster > ComponentStatus | `GET /api/v1/componentstatuses` |
-| Cluster > Event | `GET /apis/events.k8s.io/v1/events` | 
-| Cluster > Namespace | `GET /api/v1/namespaces` |
-| Cluster > Node | `GET /api/v1/nodes` |
-| Services > Endpoints | `GET /api/v1/namespaces/{namespace}/endpoints` | 
-| Services > Ingress | `GET /apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses` |
-| Services > Service | `GET /api/v1/namespaces/{namespace}/services` |
+| Metadata > ComponentStatus | `GET /api/v1/componentstatuses` |
+| Metadata > ConfigMap | `GET /api/v1/namespaces/{namespace}/configmaps` |
+| Metadata > Event | `GET /apis/events.k8s.io/v1/events` | 
+| Metadata > Namespace | `GET /api/v1/namespaces` |
+| Network > Endpoints | `GET /api/v1/namespaces/{namespace}/endpoints` | 
+| Network > Ingress | `GET /apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses` |
+| Network > Service | `GET /api/v1/namespaces/{namespace}/services` |
+| Node > Node | `GET /api/v1/nodes` |
+| Security > Secret | `GET /api/v1/secrets` |
+| Storage > PersistentVolumeClaimSpec | `GET /api/v1/namespaces/{namespace}/persistentvolumeclaims` |
+| Storage > VolumeAttachment | `GET /apis/storage.k8s.io/v1/volumeattachments` |
 | Workloads > CronJob | `GET /apis/batch/v1beta1/namespaces/{namespace}/cronjobs` |
 | Workloads > DaemonSet | `GET /apis/apps/v1/namespaces/{namespace}/daemonsets` |
 | Workloads > Deployment | `GET /apis/apps/v1/namespaces/{namespace}/deployments` |
 | Workloads > Job | `GET /apis/batch/v1/namespaces/{namespace}/jobs` |
+| Workloads > PersistentVolume | `GET /api/v1/persistentvolumes` |
 | Workloads > Pod | `GET /api/v1/namespaces/{namespace}/pods` |
 | Workloads > ReplicaSet | `GET /apis/apps/v1/namespaces/{namespace}/replicasets` |
 | Workloads > StatefulSet | `GET /apis/apps/v1/namespaces/{namespace}/statefulsets` |
-| Config and Storage > ConfigMap | `GET /api/v1/namespaces/{namespace}/configmaps` |
-| Config and Storage > Secret | `GET /api/v1/secrets` |
-| Config and Storage > PersistentVolume | `GET /api/v1/persistentvolumes` |
-| Config and Storage > PersistentVolumeClaimSpec | `GET /api/v1/namespaces/{namespace}/persistentvolumeclaims` |
-| Config and Storage > VolumeAttachment | `GET /apis/storage.k8s.io/v1/volumeattachments` |
 | | `/version` |
 | | `/healthz` |
 
-For further details, refer to the [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/).
+For further details, refer to the [Openshift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html).
 
 ### Component actions
 
@@ -304,4 +305,4 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 - [Agent StackPack](/stackpacks/integrations/agent.md)
 - [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 - [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
-- [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/)
+- [Openshift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)

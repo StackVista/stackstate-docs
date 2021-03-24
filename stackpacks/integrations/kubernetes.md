@@ -20,7 +20,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
     * Host information is retrieved from the Kubernetes API
     * Container information is collected from the Docker daemon
     * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node
-- StackState Cluster Agent is deployed with a Deployment. There is one instance for the entire Kubernetes cluster:
+- StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
     * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
     * Control plane metrics are retrieved from the Kubernetes API
 - Retrieved data is pushed to StackState via the Agent StackPack (StackState Agent V2) and the Kubernetes StackPack (StackState Cluster Agent).
