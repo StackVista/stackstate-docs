@@ -14,7 +14,7 @@ A problem in StackState is the collection of elements that relate to a single ro
 * **Root cause** - Each problem has a single root cause. This is the unhealthy element at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all unhealthy elements, other than the root cause, that are included in the problem.
 
-{% hint style="success" %}
+{% hint style="hint" %}
 A problem includes more components than would be shown by selecting to show the full root cause tree for unhealthy components in a view. Problems contain:
  
  - the root cause
