@@ -40,15 +40,15 @@ Click on an event to display an overview of the event details in the **Event pro
 
 ## Filter displayed events
 
-### View filters pane
+### By source component
 
-The events listed in the Events Perspective can be filtered in two ways using the **View Filters** pane on the left side of the StackState UI:
+The [Topology filters](/use/filters.md#topology-filters) in the the **View Filters** pane on the left side of the StackState UI define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
 
-* [**Topology filters**](/use/filters.md#topology-filters) define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible.
+## By event properties
+ 
+The [**Event filters**](/use/filters.md#event-filters) in the **View Filters** pane on the left side of the StackState UI allow you to further refine the events displayed based on event category or type, source system and tags.
 
-* [**Event filters**](/use/filters.md#event-filters) allow you to further refine the events displayed based on event category or type, source system and tags.
-
-### Timeline
+### By timestamp 
 
 The Events Perspective shows events matching the **Time Window** selected in the timeline control. Specify a time window to filter the events shown by time.
 
