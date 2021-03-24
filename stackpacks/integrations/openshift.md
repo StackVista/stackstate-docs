@@ -298,24 +298,6 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 - Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
 
-**Openshift StackPack v3.1.0 (2020-04-03)**
-
-- Improvement: Openshift tracing documentation updated.
-- Improvement: Kube state metrics installation documentation added.
-
-**Openshift StackPack v3.0.0 (2020-03-12)**
-
-- Improvement: Use Full Cause Tree visibility on all views to show root cause analysis. (Breaking Change)
-
-**Openshift StackPack v2.2.0 (2020-03-09)**
-
-- Feature: Added cluster name (and optional namespace) to all metric / event telemetry query conditions to support multiple Openshift clusters.
-- Bug Fix: Fixed the monitoring of Openshift Cron Jobs to view all successful and failed jobs.
-
-**Openshift StackPack v2.1.1 (2019-12-19)**
-
-- Improvement: Packaging of Openshift manifests in the build pipeline.
-- Bug Fix: Fixed Openshift synchronization to support multiple Openshift clusters as domains in StackState.
 
 ## See also
 
