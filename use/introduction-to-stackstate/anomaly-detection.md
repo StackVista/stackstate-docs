@@ -25,14 +25,14 @@ Additionally, identified anomalies are available as StackState Events and can be
 
 ![Anomaly events](../../.gitbook/assets/anomaly-events-in-events-perspective.png)
 
-Finally, [anomaly detection checks](../health-state-and-event-notifications/anomaly-detection-checks.md) can be configured for the most important metric streams. They will point operator's attention to the most severe deviations.
+Finally, [anomaly detection checks](../health-state-and-event-notifications/anomaly-detection-checks.md) can be configured for the most important metric streams. This can help prevent problems by means of early detection.
 
 Read more about the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
 
 ## Baseline anomaly detection
 
 {% hint style="info" %}
-Baseline anomaly detection is **Deprecated** and will be removed in 4.4 release. Please use [Autonomous Anomaly Detector)](anomaly-detection.md#autonomous-anomaly-detection).
+Baseline anomaly detection is **deprecated** and will be removed in the StackState 4.4 release. Please use the [Autonomous Anomaly Detector)](anomaly-detection.md#autonomous-anomaly-detection).
 {% endhint %}
 
 Each metric stream can have metric baselines manually configured or set by a template. The baselines determine the normal operating values of a metric stream and can be used in health checks and to trigger health state changes. Note that any metric stream with a base line configured will not be picked up for autonomous anomaly detection.

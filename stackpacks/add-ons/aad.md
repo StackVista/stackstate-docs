@@ -1,6 +1,6 @@
 # Autonomous Anomaly Detector
 
-## What is the Autonomous Anomaly Detector StackPack?
+## Overview
 
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning.
 
@@ -55,24 +55,27 @@ Release notes for the [AAD StackPack](aad.md#aad-stackpack) are given below.
 
 Note that from release 4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
-### AAD StackPack
-
-#### 0.8.1 (22-03-2021)
+**Autonomous Anomaly Detector StackPack v0.8.1 (22-03-2021)**
 
 * Check function has been moved to common StackPack
 
-#### v0.8.0 \(19-03-2021\)
+**Autonomous Anomaly Detector StackPack v0.8.0 \(19-03-2021\)**
 
 * Autonomous metric stream anomaly detection check function.
 
-#### v0.7 \(19-02-2021\)
+**Autonomous Anomaly Detector StackPack v0.7 \(19-02-2021\)**
 
 * Autonomous Anomaly Detector service GA.
 
-#### v0.6 BETA \(13-10-2020\)
+**Autonomous Anomaly Detector StackPack v0.6 BETA \(13-10-2020\)**
 
 * Documentation fixes and minor maintenance work.
 
-#### v0.2.2 BETA \(04-09-2020\)
+**Autonomous Anomaly Detector StackPack v0.2.2 BETA \(04-09-2020\)**
 
 * Releasing Autonomous Anomaly Detector service BETA.
+
+## See also
+
+  * [Anomaly detection](../../use/introduction-to-stackstate/anomaly-detection.md)
+  * [Anomaly detection checks](../../use/health-state-and-event-notifications/anomaly-detection-checks.md)
