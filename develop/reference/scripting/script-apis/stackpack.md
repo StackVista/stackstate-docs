@@ -6,7 +6,7 @@ description: Functions to work with StackPacks
 
 # StackPack - script API
 
-The StackPack script API provides handy operations to get the status of a StackPack or resources that provided or originated from a StackPack
+The StackPack script API provides handy operations to get the status of a StackPack or resources that are provided by a StackPack.
 
 ## Function `isInstalled`
 
@@ -26,7 +26,7 @@ StackPack.isInstalled("agent")
 
 ## Function `getResources`
 
-Returns resources originating from the StackPack
+Returns resources originating from the StackPack.
 
 **Args:**
 
@@ -35,7 +35,7 @@ Returns resources originating from the StackPack
 
 **Examples:**
 
-The example below will return the AsyncScriptResult of the array of resources with type `"CheckFunction"` from the `"agent"` StackPack.
+The example below will return an AsyncScriptResult of an array of resources with type `CheckFunction` from the `agent` StackPack.
 
 ```text
 StackPack.getResources("agent", "CheckFunction")
