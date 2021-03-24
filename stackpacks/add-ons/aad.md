@@ -14,7 +14,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 The stream selection algorithm prioritizes streams based on the criteria below:
 
-* The top priority is given to metric streams with checks based on check functions from AAD StackPack. See [anomaly detection checks](../../use/health-state-and-event-notifications/anomaly-detection-checks.md).
+* The top priority is given to metric streams with anomaly checks. See [anomaly detection checks](../../use/health-state-and-event-notifications/anomaly-detection-checks.md).
 * Components in Views that have the most stars are selected.
 * From those components, only high priority metric streams are selected. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Metric streams with a configured baseline will not be selected. See [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md).
@@ -53,18 +53,22 @@ Note that from release 4.3 AAD is configured, installed and upgraded as a part o
 
 ### AAD StackPack
 
-#### AAD StackPack v0.8 \(19-03-2021\)
+#### 0.8.1 (22-03-2021)
+
+* Check function has been moved to common StackPack
+
+#### v0.8.0 \(19-03-2021\)
 
 * Autonomous metric stream anomaly detection check function.
 
-#### AAD StackPack v0.7 BETA \(19-02-2021\)
+#### v0.7 BETA \(19-02-2021\)
 
 * Autonomous Anomaly Detector service GA.
 
-#### AAD StackPack v0.6 BETA \(13-10-2020\)
+#### v0.6 BETA \(13-10-2020\)
 
 * Documentation fixes and minor maintenance work.
 
-#### AAD StackPack v0.2.2 BETA \(04-09-2020\)
+#### v0.2.2 BETA \(04-09-2020\)
 
 * Releasing Autonomous Anomaly Detector service BETA.

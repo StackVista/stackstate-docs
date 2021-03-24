@@ -7,7 +7,7 @@ kind: documentation
 
 Anomaly check function gives a possibility to configure a health check that triggers DEVIATING health state if anomaly with certain parameters is found for a MetricStream.
 
-The function body is specified as a groovy script. Below is an example of an anomaly check function with `metricStream` input parameter name that indicates metric stream id from anomaly event. The function checks if the incoming event is the anomaly event and if the metric stream id from the event matches `metricStream` argument. If there is a match the function will trigger DEVIATING state when the anomaly event is received and hold it for 1 minute (60000 milliseconds) and then switch the state to UNKNOWN.
+The function body is specified as a groovy script. Below is an example of an anomaly check function with `metricStream` input parameter name that indicates metric stream id from an anomaly event. The function checks if the incoming `event` is the anomaly event and if the metric stream id from the event matches `metricStream` argument. If there is a match the function will trigger DEVIATING state when the anomaly event is received and hold it for 1 minute (60000 milliseconds) and then switch the state to UNKNOWN. Additionally, the return value `causingEvents` returns the event reference which indicates the cause of the state change.
 
   ```text
   if (event.getType() == "Metric Stream Anomaly" && event.getData().getStreamId() == metricStream) {
@@ -16,6 +16,14 @@ The function body is specified as a groovy script. Below is an example of an ano
          expiration: [
              duration: 60000,
              expireTo: UNKNOWN
+         ],
+         causingEvents: [
+           [
+               title: event.getName(),
+               eventId: event.getIdentifier(),
+               eventTimestamp: event.getEventTimestamp(),
+               eventType: event.getType()
+           ]            
          ]
      ];
   }
