@@ -42,7 +42,7 @@ Click on an event to display an overview of the event details in the **Event pro
 
 The events listed in the Events Perspective can be filtered in two ways using the **View Filters** pane on the left side of the StackState UI:
 
-* **Topology filters** define the elements \(components and relations\) for which events will be displayed.<br />Only events relating to elements matching the applied topology filters or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/filters.md#topology-filters) at any time to list the events for a different set of elements.
+* **Topology filters** define the elements \(components and relations\) for which events will be displayed.<br />Only events relating to elements that match the applied topology filters or the view itself will be visible. See [how to change the topology filters](/use/filters.md#topology-filters).
 
 * **Event filters** refine events displayed based on category, type, source and tags.<br />The events displayed in the Events Perspective can be filtered. See [how to change the event filters](/use/filters.md#event-filters).
 
