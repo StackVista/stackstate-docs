@@ -47,16 +47,11 @@ The events listed in the Events Perspective can be filtered in two ways:
 
 ### Topology Filters
 
-The elements \(components and relations\) included in a view are defined by the topology filters in the **View Filters** &gt; **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](filters.md) at any time to list the events for a different set of elements.
+The elements \(components and relations\) included in a view are defined by the topology filters in the **View Filters** &gt; **Topology Filters** pane on the left side of the screen. Only events relating to these elements or the view itself will be visible in the Events Perspective. You can [change the topology filters](/use/filters.md#topology-filters) at any time to list the events for a different set of elements.
 
 ### Event filters
 
-The events displayed in the Events Perspective can be filtered using the **View Filters** &gt; **Filter Events** pane on the left side of the screen. Two filters are available to help you quickly locate relevant information:
-
-| Filter | Description |
-| :--- | :--- |
-| **Event Types** | Click on the **Event Types** filter box to open a list of all event types currently included in the Events Perspective. You can select one or more event types to refine the events displayed. |
-| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment. |
+The events displayed in the Events Perspective can be filtered using the **View Filters** pane on the left side of the StackState UI. See [how to change the event filters](/use/filters.md#event-filters)
 
 ### Time filter
 
@@ -84,7 +79,7 @@ For example:
 ## See also
 
 * [Use events to trigger event notifications and actions](../health-state-and-event-notifications/send-event-notifications.md)
-* [Filtering data](filters.md)
+* [Filtering data](/use/filters.md)
 * [Working with StackState views](./)
 * [Send events to StackState from external sources](../../configure/telemetry/send_telemetry.md#events)
 

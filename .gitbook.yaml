@@ -161,7 +161,7 @@ redirects:
   concepts/component_and_relation_mapping_functions: ./use/introduction-to-stackstate/mapping_functions.md
   use/views: ./use/views/README.md
   use/perspectives/event-perspective: use/views/events_perspective.md
-  use/perspectives/filters: ./use/views/filters.md
+  use/perspectives/filters: ./use/filters.md
   use/perspectives: .use/introduction-to-stackstate/perspectives.md
   use/perspectives/telemetry-perspective: ./use/views/telemetry-perspective.md
   use/perspectives/topology-perspective: ./use/views/topology-perspective.md
@@ -192,3 +192,8 @@ redirects:
   configure/sync/: ./configure/topology/sync.md
   develop/agent_check/how_to_develop_agent_checks/: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
   configure/topology_synchronization/: ./configure/topology/topology_synchronization.md
+
+# added for 4.3 docs
+
+  use/views/filters: ./use/filters.md
+
