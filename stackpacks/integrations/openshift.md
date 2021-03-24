@@ -12,7 +12,7 @@ The Openshift integration is used to create a near real-time synchronization of 
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
 
-![Data flow](/.gitbook/assets/stackpack_openshift.svg)
+![Data flow](/.gitbook/assets/stackpack-openshift.svg)
 
 The Openshift integration collects topology data in an Openshift cluster as well as metrics and events.
 
