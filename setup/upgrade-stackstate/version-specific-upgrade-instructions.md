@@ -24,13 +24,9 @@ This page provides specific instructions for upgrading to each currently support
 #### v4.3.0
 
 * StackState is tested to run on Kubernetes v1.17 and v1.18, or the equivalent OpenShift release (version 4.4 or 4.5).
-* Change in the node sizing requirements 
-* CPU limits
+* CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod(s).
+* CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](/use/requirements.md#node-sizing)
 * **Dynatrace StackPack** - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
-
-For the Kubernetes installation of StackState 4.3.0 CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml` you most likely will now need to also set the CPU limit for the same pod(s). 
-
-At the same time CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number of [required nodes from 7 to 9](../requirements.md).
 
 {% endtab %}
 
