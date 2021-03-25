@@ -16,7 +16,9 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ### Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
+The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation. 
+
+It is also possible to [install the AAD standalone](../../setup/installation/kubernetes_install/aad_standalone.md) within Kubernetes.
 
 If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 

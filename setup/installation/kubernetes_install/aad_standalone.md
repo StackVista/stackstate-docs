@@ -189,7 +189,7 @@ If the status UI is not available: Either the service is not running, or the Ing
 **Can the AAD Kubernetes service reach StackState?**  
 Check the status UI sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
 
-**Has the AAD Kubernetes service selected streams for anomaly detection?**  
+**Has the AAD Kubernetes service selected metric streams for anomaly detection?**  
 The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
 
 **Is the AAD Kubernetes service detecting anomalies?**  
