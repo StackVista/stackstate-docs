@@ -31,11 +31,11 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Metric streams with a configured baseline will not be selected at all. See [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md).
 
-You cannot directly control the stream selected, but you can steer the selection by starring views and setting the priority of streams to `high` or creating an [anomaly check](../../use/anomaly-detection-checks.md) for the stream.
+You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above mentioned factors.
 
 ### Can I get alerted based on anomalies?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly checks](../../use/anomaly-detection-checks.md) can be placed on components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications via event handlers.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly checks](../../use/health-state-and-event-notifications/anomaly-detection-checks.md) can be placed on components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications via event handlers.
 
 ### How fast are anomalies detected?
 
