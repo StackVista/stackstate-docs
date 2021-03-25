@@ -48,18 +48,18 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Check the view health state
 
-A view can have any of the health states listed below. The view health state is reported as a colored dot next to the view name. The health states and colors used are the same as those used to report component and relation health state - if a view is healthy the circle will be green, if there are problems it will be orange or red. When the view health state is not enabled, the circle will be gray:
+The view health state is reported as a colored dot next to the view name. The health states and colors used are the same as those used to report component and relation health state - if a view is healthy the circle will be green, if there are problems it will be orange or red. When the view health state is not enabled, the circle will be gray. A view can have any of the health states listed below:
 
 * Green - `CLEAR` - There is nothing to worry about.
 * Orange - `DEVIATING` - Something may require your attention.
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - The view does not have a view health state.
 
-In the StackState UI, the view health state is reported next to the view name. You will find the health state for a view:
+You can check the view health state in the following places in the StackState UI:
 
-* **All views**: The view overview screen lists all views together with their health state.
-* **Starred views**: The main menu lists all starred views together with their health state.
-* **The current view**: The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the view details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
+* **Health state of all views**: The view overview screen lists all views together with their health state.
+* **Health state of starred views**: The main menu lists all starred views together with their health state.
+* **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the view details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
 
 ![View health state in main menu](/.gitbook/assets/v42_view_health_main_menu.png)
 
