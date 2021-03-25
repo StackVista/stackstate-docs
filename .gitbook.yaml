@@ -159,13 +159,13 @@ redirects:
   concepts/id_extraction: ./use/introduction-to-stackstate/id_extraction.md
   concepts/layers_domains_and_environments: ./use/introduction-to-stackstate/layers_domains_and_environments.md
   concepts/component_and_relation_mapping_functions: ./use/introduction-to-stackstate/mapping_functions.md
-  use/views: ./use/views/README.md
-  use/perspectives/event-perspective: use/views/events_perspective.md
+  use/views: ./use/perspectives/README.md
+  use/perspectives/event-perspective: use/perspectives/events_perspective.md
   use/perspectives/filters: ./use/filters.md
   use/perspectives: .use/introduction-to-stackstate/perspectives.md
-  use/perspectives/telemetry-perspective: ./use/views/telemetry-perspective.md
-  use/perspectives/topology-perspective: ./use/views/topology-perspective.md
-  use/perspectives/trace-perspective: ./use/views/traces-perspective.md
+  use/perspectives/telemetry-perspective: ./use/perspectives/telemetry-perspective.md
+  use/perspectives/topology-perspective: ./use/perspectives/topology-perspective.md
+  use/perspectives/trace-perspective: ./use/perspectives/traces-perspective.md
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
 
@@ -174,12 +174,12 @@ redirects:
   use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
   use/alerting: ./use/health-state-and-event-notifications/send-event-notifications.md
-  configure/telemetry/browse_telemetry: ./use/views/browse-telemetry.md
+  configure/telemetry/browse_telemetry: ./use/perspectives/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
   use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
   configure/view_state_configuration: ./use/health-state-and-event-notifications/configure-view-health.md
-  use/views/traces_perspective: ./use/views/traces-perspective.md
-  use/views/topology_perspective: ./use/views/topology-perspective.md
+  use/views/traces_perspective: ./use/perspectives/traces-perspective.md
+  use/views/topology_perspective: ./use/perspectives/topology-perspective.md
   setup/installation/authentication: ./configure/security/authentication/README.md
   configure/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
