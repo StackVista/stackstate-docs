@@ -115,7 +115,7 @@ See also the full list of [view permissions](#view-permissions).
 | `create-views` | Create views. | - | ✅ | ✅ |
 | `execute-component-templates` | Invoke a component template API extension \(internal use only\). | - | ✅ | ✅ |
 | `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ |
-| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The execute-restricted-scripts is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
+| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The `execute-restricted-scripts` permission is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ |
 | `import-settings` | Import settings. | - | ✅ | ✅ |
 | `export-settings` | Export settings. | - | ✅ | ✅ |
 | `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ |

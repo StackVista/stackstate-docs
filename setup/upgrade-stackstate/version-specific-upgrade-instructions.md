@@ -27,6 +27,7 @@ This page provides specific instructions for upgrading to each currently support
 * CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod(s).
 * CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](/use/requirements.md#node-sizing)
 * **Dynatrace StackPack** - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
+* Two new permissions have been added - `manage-event-handlers` and `execute-restricted-scripts`. Admin users will not be affected, but Guest users will no longer be able to create or edit event handlers, and Power Users will no longer be able to execute scripts using the HTTP script API. For details, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 {% endtab %}
 
