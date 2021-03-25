@@ -1,5 +1,10 @@
 # StackState Agent
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Agent StackPack?
 
 The StackState Agent provides the following functionality:

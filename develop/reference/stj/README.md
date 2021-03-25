@@ -6,6 +6,11 @@ description: All configuration of StackState is described using StackState Templ
 
 # StackState Template Json \(STJ\)
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Templates are used to convert raw synchronization data to components. Templates are defined in JSON extended with support for parameters, loops and conditions.
 
 ## Handlebars syntax
