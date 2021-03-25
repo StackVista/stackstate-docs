@@ -14,7 +14,7 @@ Returns a flag indicating if the StackPack is installed
 
 **Args:**
 
-* `name` - the name of a StackPack
+* `name` - the name of a StackPack. The name must match exactly (case sensitive). The name of a StackPack is visible in the breadcrumb of the StackPack in the user-interface or can be gotten by executing the [CLI](/setup/installation/cli-install.md) command: `sts stackpack list`.
 
 **Examples:**
 
@@ -30,8 +30,8 @@ Returns resources originating from the StackPack.
 
 **Args:**
 
-* `name` - the name of a StackPack
-* `resourceType` - the type of resource, e.g. CheckFunction
+* `namespaceName` - the name of the URN namespace of the StackPack. For example `aad` checks for resources in the namespace `urn:stackpack:aad`.
+* `nodeType` - the type of node, e.g. `CheckFunction`, `QueryView`, etc. You can get a full listing of all types by executing the [CLI](/setup/installation/cli-install.md) command: `sts graph list-types`.
 
 **Examples:**
 
