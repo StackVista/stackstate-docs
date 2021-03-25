@@ -2,7 +2,7 @@
 
 {% hint style="warning" %}
 
-This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Out of the box, StackState is configured with [file-based authentication](./file.md) with a [default username and password](README.md#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.

@@ -2,7 +2,7 @@
 
 {% hint style="warning" %}
 
-This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The standard Kubernetes deployment of StackState is a production ready setup with many processes running multiple replicas. For development and testing purposes, it can be desirable to run StackState with lower resource requirements. Several example `values.yaml` files are provided in the [Helm chart repository](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation/examples):
