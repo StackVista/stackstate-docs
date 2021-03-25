@@ -1,17 +1,17 @@
 ---
-title: Anomaly detection checks
+title: Anomaly health checks
 kind: documentation
 ---
 
 ## Overview
 
 {% hint style="info" %}
-To use anomaly detection checks the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) StackPack must be installed.
+To use anomaly health checks the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) StackPack must be installed.
 {% endhint %}
 
-The [Autonomous Anomaly Detector (AAD)](../../stackpacks/add-ons/aad.md) looks for deviations in metric streams. It annotates the metric streams with anomalies and emits corresponding anomaly events. The anomaly events can be viewed in the [event perspective](../../use/views/events_perspective.md) and also serve as an input for anomaly checks. Anomaly checks determine whether a component receives the `DEVIATING` health status based on anomalies that are found. Without an anomaly check a component will never change its health status based on found anomalies.
+The [Autonomous Anomaly Detector (AAD)](../../stackpacks/add-ons/aad.md) looks for deviations in metric streams. It annotates the metric streams with anomalies and emits corresponding anomaly events. The anomaly events can be viewed in the [event perspective](../../use/views/events_perspective.md) and also serve as an input for anomaly health checks. Anomaly health checks react to anomaly events and set the component to the `DEVIATING` (orange) health status. Without an anomaly check a component will never change its health status based on found anomalies.
 
-Anomaly checks for anomalies found by the AAD are either automatically placed on components by the StackPacks or can be manually created. After manual creation you can of course automate the creation of such checks, like any other checks, using the [component templates](../../configure/telemetry/telemetry_synchronized_topology.md).
+Anomaly health checks are either automatically placed on components by the StackPacks or can be manually created. After manual creation you can of course automate the creation of such checks, like any other checks, using the [component templates](../../configure/telemetry/telemetry_synchronized_topology.md).
 
 ## Manually placing an anomaly check on a component
 
