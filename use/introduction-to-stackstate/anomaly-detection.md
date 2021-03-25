@@ -25,7 +25,7 @@ Additionally, identified anomalies are available as StackState Events and can be
 
 ![Anomaly events](../../.gitbook/assets/anomaly-events-in-events-perspective.png)
 
-Finally, [anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md) can be configured for the most important metric streams. This can help prevent problems by means of early detection.
+Finally, [anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
 
 Read more about the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
 
