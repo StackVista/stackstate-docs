@@ -172,7 +172,6 @@ redirects:
   use/alerting: ./use/health-state-and-event-notifications/send-event-notifications.md
   configure/telemetry/browse_telemetry: ./use/perspectives/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
-  use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
   configure/view_state_configuration: ./use/health-state-and-event-notifications/configure-view-health.md
   use/views/traces_perspective: ./use/perspectives/traces-perspective.md
   use/views/topology_perspective: ./use/perspectives/topology-perspective.md
