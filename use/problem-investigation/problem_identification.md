@@ -14,21 +14,11 @@ A problem in StackState is the collection of elements that relate to a single ro
 * **Root cause** - Each problem has a single root cause. This is the unhealthy element at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all unhealthy elements, other than the root cause, that are included in the problem.
 
-{% hint style="hint" %}
-A problem includes more components than would be shown by selecting to show the full root cause tree for unhealthy components in a view. Problems contain:
- 
- - the root cause
- - all contributing causes 
- - all healthy components connected to the root cause or a contributing cause component
-{% endhint %}
-
 It is possible for a single unhealthy component to be part of two separate problems. If there are two potential root cause components for a single unhealthy component, this will be seen as two separate problems in the StackState. It is possible that a future update to the health state of other components in the landscape may result in these two problems in fact being shown to have a single root cause. In this case, the more recent of the two problems will be subsumed by the older problem, and the older problem will have its root cause updated.
 
-
-## Problem time window
+## Time window of a problem
 
 A problem is considered to start at the point in time when the oldest unhealthy component changed state to an unhealthy state. This does not need to be the root cause component. The end of the problem is seen as five minutes after the last change to an unhealthy state of a component included in the problem. If a new component changes state and is added to the problem, the problem time window will be extended to include this.
-
 
 ## Problem resolution
 
