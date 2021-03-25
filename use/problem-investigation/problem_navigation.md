@@ -8,23 +8,17 @@ Unhealthy components in a view are grouped into [problems](/use/problem-investig
 
 ## Problem Details pane
 
-The Problem Details pane gathers together information about unhealthy components in a problem (the root cause and contributing causes), as well as a list of events that may have triggered the problem ([probably causes](#probable-causes)). It's a great place to start investigating a problem.
+The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes). Events that may have triggered the unhealthy state changes in the problem are listed as the [probable causes](#probable-causes).
 
-Click the **SHOW AS SUBVIEW** button to open the components and relations in a problem in a dedicated, temporary subview.
+Click the **SHOW AS SUBVIEW** button to open all components and relations in a problem in a dedicated, temporary [problem subview](#problem-subview).
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to the problem. These are all events of type **Version changed**, **Anomaly** or **Element properties changed** for components in the problem that occur within the problem time window. If no relevant events are available in StackState, the list will be empty.
+For each reported problem, StackState will list all events that are likely to have contributed to the problem. Events of type **Anomaly**, **Element properties changed** or **Version changed** for components in the problem that occur within the [problem time window](/use/problem-investigation/problem_identification.md#time-window-of-a-problem)could be considered as probable causes. If no relevant events are available in StackState, the list will be empty.
 
-Note that the probable causes in a problem details pane may include events that occurred outside of the current time window.
-
-## Problem subview
-
-From the problem details pane, click the **SHOW AS SUBVIEW** button to open the components and relations in a problem in a dedicated, temporary subview. A problem subview includes more components than would be shown by selecting to show the full root cause tree for unhealthy components in a view. The following components are included in the subview:
- 
- - the problem root cause
- - all contributing causes 
- - all healthy components connected to the root cause or a contributing cause component
+{% hint style="info" %}
+Note that the probable causes in a problem details pane may include events that occurred outside of the current time window. You may need to adjust the time window to open an event.
+{% endhint %}
 
 ### Anomaly events
 
@@ -35,6 +29,22 @@ From the problem details pane, click the **SHOW AS SUBVIEW** button to open the 
 
 ### Version changed events
 
+
+## Problem subview
+
+A problem subview is a temporary StackState view with filters that return components and relations related to the problem and a time window that matches the [problem time window](/use/problem-investigation/problem_identification.md#time-window-of-a-problem)
+
+All components that are related to the problem are included in the problem subview. This includes more components than would be shown by selecting to show the [full root cause tree](/use/views/topology-perspective.md#root-cause-outside-current-view). The following components are included in the problem subview:
+ 
+ - the root cause of the problem
+ - all contributing causes 
+ - all healthy components connected to the root cause or a contributing cause component
+ 
+Within the problem subview you have access to all perspectives with data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview, including your modifications, with other StackState users using the link.
+
+To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
+
+![Breadcrumbs with view name]
 
 ## See also
 
