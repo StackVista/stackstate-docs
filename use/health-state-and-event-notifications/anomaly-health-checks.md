@@ -43,4 +43,4 @@ Optionally, advanced users of StackState can create their own custom anomaly che
 
 * [Autonomous Anomaly Detector StackPack](../../stackpacks/add-ons/aad.md)
 * [Anomaly check functions](../../develop/developer-guides/anomaly-check-functions.md)
-* [Checks and telemetry streams](checks_and_streams.md)
+* [Add a health check](add-a-health-check.md)
