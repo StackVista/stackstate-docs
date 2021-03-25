@@ -18,7 +18,7 @@ Returns a flag indicating if the StackPack is installed
 
 **Examples:**
 
-The example below will return the AsyncScriptResult of the boolean indicating if the `"agent"` StackPack is installed
+The example below will return an `AsyncScriptResult` of a boolean indicating if the `agent` StackPack is installed
 
 ```text
 StackPack.isInstalled("agent")
@@ -30,13 +30,13 @@ Returns resources originating from the StackPack.
 
 **Args:**
 
-* `namespaceName` - the name of the URN namespace of the StackPack. For example `aad` checks for resources in the namespace `urn:stackpack:aad`.
+* `stackPackNamespace` - the name of the URN namespace of the StackPack. For example `aad` checks for resources in the namespace `urn:stackpack:aad`.
 * `nodeType` - the type of node, e.g. `CheckFunction`, `QueryView`, etc. You can get a full listing of all types by executing the [CLI](/setup/installation/cli-install.md) command: `sts graph list-types`.
 
 **Examples:**
 
-The example below will return an AsyncScriptResult of an array of resources with type `CheckFunction` from the `agent` StackPack.
+The example below will return an `AsyncScriptResult` of an array of resources with type `QueryView` from the `agent` StackPack.
 
 ```text
-StackPack.getResources("agent", "CheckFunction")
+StackPack.getResources("agent", "QueryView")
 ```
