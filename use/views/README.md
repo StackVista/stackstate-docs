@@ -59,7 +59,7 @@ In the StackState UI, the view health state is always reported next to the view 
 * Starred views: The view overview screen and the main menu
 * The current view: The view details pane and the top bar
 
-![View health state in details pane and top bar]
+![View health state in details pane and top bar](/.gitbook/assets/v42_view_health_bar_pane.png)
 
 
 To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. Read more about how to [configure the view health state](../health-state-and-event-notifications/configure-view-health.md).
