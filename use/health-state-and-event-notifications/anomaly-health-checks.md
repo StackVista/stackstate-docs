@@ -1,6 +1,5 @@
 ---
-title: Anomaly health checks
-kind: documentation
+description: How to setup alerting based on anomalies coming from the Autonomous Anomaly Detector.
 ---
 
 ## Overview
