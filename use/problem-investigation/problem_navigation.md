@@ -22,13 +22,15 @@ Note that the probable causes in a problem details pane may include events that 
 
 ### Anomaly events
 
-
+TODO: Describe.
 
 ### Element properties changed events
 
+TODO: Describe.
 
 ### Version changed events
 
+TODO: Describe.
 
 ## Problem subview
 
