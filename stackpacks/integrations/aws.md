@@ -5,8 +5,8 @@ old-description: Get topology and telemetry data from AWS services
 # AWS StackPack
 
 {% hint style="warning" %}
-This page describes StackState version 4.2.
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+
+This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview

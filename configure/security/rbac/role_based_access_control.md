@@ -1,8 +1,8 @@
 # Role-based Access Control
 
 {% hint style="warning" %}
-This page describes StackState version 4.2.
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+
+This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Role Based Access Control \(RBAC\) is a critical function for any Managed Service Provider \(MSP\) organization, but its use is not limited to MSPs. Access Management helps you manage who has access to the specific topology elements, UI elements, and which APIs they can call.

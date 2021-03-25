@@ -5,8 +5,8 @@ description: Report the health state for an element.
 # Add a health check
 
 {% hint style="warning" %}
-This page describes StackState version 4.2.
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+
+This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview

@@ -6,8 +6,8 @@ kind: Documentation
 # Checks in Agent v2
 
 {% hint style="warning" %}
-This page describes StackState version 4.2.
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+
+This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This document covers Agent V2 functionality to create checks with Agent V2 Check API. In below sections following topics are covered: sending checks on topology, metrics, events, and service checks, as well as overriding base class methods, logging, and error handling in checks. Code examples lead to StackState's [stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations) repository on GitHub.

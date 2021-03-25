@@ -6,8 +6,8 @@ kind: Documentation
 # Templates
 
 {% hint style="warning" %}
-This page describes StackState version 4.2.
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+
+This page describes StackState version 4.2.<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Templates are functions defined by JSON template files and input parameters required by the template to render elements of StackState topology - components and relations. When executed, the template function substitutes all handlebar `{{paramName}}` parameter references with values of input parameters.
