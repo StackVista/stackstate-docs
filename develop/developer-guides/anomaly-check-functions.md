@@ -1,6 +1,5 @@
 ---
-title: Anomaly check functions
-kind: documentation
+description: How to create your own health checks using anomaly events.
 ---
 
 ## Overview
