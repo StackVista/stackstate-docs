@@ -46,26 +46,28 @@ A view is also a tool to define a clear selection of components for which you wa
 * If service A has a problem, the view health state should be `DEVIATING`.
 * If service B is is not in a `CLEAR` state, set the view health state to `CRITICAL`.
 
-A view can have any of the health states listed below, it is reported as a coloured dot using the same colors as used for component and relation health state.  If the view is healthy, the circle will be green, if there are problems it will be orange or red. If the view health state is not enabled, the circle will be grey.:
+### Check the view health state
+
+A view can have any of the health states listed below, it is reported as a colored dot using the same colors as used for component and relation health state.  If the view is healthy, the circle will be green, if there are problems it will be orange or red. If the view health state is not enabled, the circle will be gray.:
 
 * Green - `CLEAR` - There is nothing to worry about.
 * Orange - `DEVIATING` - Something may require your attention.
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - The view does not have a view health state.
 
-### Check the view health state
-
 In the StackState UI, the view health state is always reported next to the view name. You will find the health state for a view:
 
-* All views: The view overview screen lists all views together with their health state.
-* Starred views: The main menu lists all starred views together with their health state.
-* The current view: The current view health state is visible in the top bar and also next to the view name in the view details pane on the right of the StackState UI. Historical view health state information can be seen in the timeline **Health** line.
+* **All views**: The view overview screen lists all views together with their health state.
+* **Starred views**: The main menu lists all starred views together with their health state.
+* **The current view**: The current view health state is visible in the top bar and also next to the view name in the view details pane on the right of the StackState UI. Historical view health state information can be seen in the timeline **Health** line.
 
 ![View health state in main menu](/.gitbook/assets/v42_view_health_main_menu.png)
 
-### Enable view health state
+### Enable or disable view health state
 
-To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. Read more about how to [configure the view health state](../health-state-and-event-notifications/configure-view-health.md).
+To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. To disable a view health state, [edit the view](#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
+
+Read more about how to [configure the view health state](../health-state-and-event-notifications/configure-view-health.md).
 
 ## Create a view
 
