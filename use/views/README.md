@@ -89,7 +89,7 @@ In the dialog the following options appear:
 
 A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [event notifications](../health-state-and-event-notifications/send-event-notifications.md) to understand how to set that up.
 
-## Deleting or editing views
+## Delete or edit a view
 
 {% hint style="info" %}
 It is not recommended to delete or edit views created by StackPacks. When doing so, you will get a warning that the view is locked. If you proceed anyway the issue needs to be resolved when upgrading the StackPack that created the view.
