@@ -57,7 +57,7 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 If a new StackPack version is available, an UPGRADE button will be displayed on the StackState UI StackPack page and you will have the option to read the release notes.
 
-| Upgrade type | Instructions |
+| Upgrade to | Instructions |
 |:---|:---|
 | **Minor StackPack release** | To upgrade to a new minor release of a StackPack, click **UPGRADE** on the StackPack page in the StackState UI. Note that any custom configuration items will be overwritten when you upgrade, to keep using a custom configuration, follow the instructions under [keep customized configuration](#keep-customized-configuration). | 
 | **Major StackPack release** | To upgrade to a new major release of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. |
