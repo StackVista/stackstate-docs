@@ -45,19 +45,19 @@ The StackState events user parameter specifies the type of topology events that 
 
 The following properties return details of a received anomaly event:
 
-| Property | Type | Description |
+| Property | Type | Returns |
 | :--- | :--- | :--- |
 | `event.getIdentifier()` | String | The event identifier. |
-| `event.getElementIdentifiers()` | an array of String | The identifiers of topology component related to the event. |
+| `event.getElementIdentifiers()` | An array of String | The identifiers of topology components related to the event. |
 | `event.getCategory()` | String | The event category. For example, "Anomalies" |
 | `event.getType()` | String | The type of event.<br />For anomaly events, the type is "Metric Stream Anomaly". |
 | `event.getName()` | String | The event summary. For example, "Sudden Rise Detected". |
-| `event.getDescription()` | Optional of String | The detailed description of event. |
-| `event.getEventTimestamp()` | Long | The time when event has been generated. For example, anomaly start time. |
-| `event.getObservedTimestamp()` | Long | The time when even has been processed by StackState. |
-| `event.getTags() | An array of String | An array of event tags.<br />For anomaly events, available tags are `anomalyDirection:RISE`, `anomalyDirection:DROP`, `severity:HIGH`, `severity:MEDIUM`, `severity:LOW`. |
+| `event.getDescription()` | Optional of String | The detailed description of the event. |
+| `event.getEventTimestamp()` | Long | The time that the event was generated. For example, anomaly start time. |
+| `event.getObservedTimestamp()` | Long | The time that the even was processed by StackState. |
+| `event.getTags()` | An array of String | An array of event tags.<br />For anomaly events, available tags are `anomalyDirection:RISE`, `anomalyDirection:DROP`, `severity:HIGH`, `severity:MEDIUM`, `severity:LOW`. |
 | `event.getData()` | TopologyEventData | The type specific event data. For example, *Metric Stream Anomaly Data*. |
-| `event.getData().getStreamId()` | Long | The id of the MetricStream where anomaly has been found. |
+| `event.getData().getStreamId()` | Long | The ID of the MetricStream where the anomaly has been found. |
 
 ### Anomaly direction
 
