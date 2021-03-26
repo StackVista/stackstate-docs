@@ -26,7 +26,7 @@ This page provides specific instructions for upgrading to each currently support
 * StackState is tested to run on Kubernetes v1.17 and v1.18, or the equivalent OpenShift release (version 4.4 or 4.5).
 * CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod(s).
 * CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](/use/requirements.md#node-sizing).
-* Two new permissions have been added - `manage-event-handlers` and `execute-restricted-scripts`. For details, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md):
+* Two new [permissions](/configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
     - Guest users will no longer be able to create or edit event handlers.
     - Power Users will no longer be able to execute scripts using the HTTP script API.
     - Admin users will not be affected.
@@ -38,7 +38,7 @@ This page provides specific instructions for upgrading to each currently support
 
 #### v4.3.0
 
-* Two new permissions have been added - `manage-event-handlers` and `execute-restricted-scripts`. For details, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md):
+* Two new [permissions](/configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
     - Guest users will no longer be able to create or edit event handlers.
     - Power Users will no longer be able to execute scripts using the HTTP script API.
     - Admin users will not be affected.
