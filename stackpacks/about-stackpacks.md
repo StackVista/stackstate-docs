@@ -61,7 +61,7 @@ Follow the instructions below to upgrade. Note that any custom configuration ite
 
 | | |
 |:---|:---|
-| **Minor StackPack release** | To upgrade to a new minor release of a StackPack, click **UPGRADE** on the StackPack page in the StackState UI. | 
+| **Minor StackPack release** | To upgrade to a new minor release of a StackPack, click **UPGRADE** on the StackPack page in the StackState UI. To keep using a custom configuration, follow the instructions under [keep customized configuration](#keep-customized-configuration). | 
 | **Major StackPack release** | To upgrade to a new major release of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. |
 
 
