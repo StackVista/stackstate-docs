@@ -56,10 +56,11 @@ The sliding windowing method groups metric data into overlapping windows. For ex
 
 ### Check function: Autonomous metric stream anomaly detection  
 
-The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and set the component to the `DEVIATING` (orange) health status. Read more about [anomaly health checks](anomaly-health-checks.md).
+The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` (orange). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
 
 ## See also
 
+* [Anomaly health checks](anomaly-health-checks.md)
 * [Check functions](../../configure/telemetry/checks_and_streams.md#check-functions)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
 * [Add an event notification](send-event-notifications.md)

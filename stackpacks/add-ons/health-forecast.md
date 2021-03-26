@@ -1,5 +1,5 @@
 ---
-description: How to install and use the Health forecasting.
+description: How to install and use the health forecasting
 ---
 
 # Health Forecast

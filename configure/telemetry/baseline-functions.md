@@ -1,7 +1,7 @@
 # Baseline functions (Deprecated)
 
 {% hint style="info" %}
-Baseline anomaly detection is **Deprecated** and will be removed in 4.4 release. Please use [Autonomous Anomaly Detector)](../../stackpacks/add-ons/aad.md).
+Baseline anomaly detection is **Deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector)](../../stackpacks/add-ons/aad.md).
 {% endhint %}
 
 ## Overview
