@@ -14,9 +14,7 @@ Anomaly health checks are either automatically placed on components by the Stack
 
 ## Manually add an anomaly health check to a component
 
-To add an anomaly check to a component.
-
-![Autonomous metric stream anomaly detection check](../../.gitbook/assets/v43_autonomous_metric_stream_anomaly_detection_check.png)
+Follow the instructions below to add an anomaly health check to a component.
 
 1. In the StackState UI topology perspective, select the component that you want to add an anomaly health check to.
 2. Click on the the **+ ADD** button under the **Health** section in the component details pane on the right of the screen. 
@@ -25,7 +23,9 @@ To add an anomaly check to a component.
     - **anomalyDirection** - the direction the found anomaly must have for the check to go to the `DEVIATING` health status.  You can choose from `Rise`, `Drop` or `Any`. Choose `Rise` when you want to detect peaks, for example in a latency metric stream. Choose `Drop` when you want to detect sudden drops, for example in the number of threads free in a thread pool. Choose `Any` to detect both rises and drops, for example when detecting both hot and cold deviations in data center temperature.
     - **metricStream** - a metric stream that is available on the component to detect the anomalies on.
     - **event** - leave unchanged. This is an instance of an anomaly event that the check will react to. 
-5. Click on the **CREATE** button to activate the check. 
+5. Click **CREATE** to activate the check. 
+
+![Autonomous metric stream anomaly detection check](../../.gitbook/assets/v43_autonomous_metric_stream_anomaly_detection_check.png)
 
 ## Check function: Autonomous metric stream anomaly detection
 
