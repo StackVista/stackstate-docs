@@ -48,24 +48,24 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 
 ## Upgrade a StackPack
 
-StackPacks can be upgraded from the StackPack pages in the StackState UI. If a new version is available, an UPGRADE button will be displayed and you will have the option to read the release notes.
-
-{% hint style="info" %}
-Note that any custom configuration items will be overwritten when you upgrade. See [customized configuration](#customized-configuration), below for details on how to keep using customized configuration after upgrade.
+{% hint style="warning" %}
+When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see:
+ 
+ * [Locked configuration items](about-stackpacks.md#locked-configuration-items)
+ * [Keep customized configuration](#keep-customized-configuration)
 {% endhint %}
 
-Follow the instructions below to upgrade.
+StackPacks can be upgraded from the StackPack pages in the StackState UI. If a new version is available, an UPGRADE button will be displayed and you will have the option to read the release notes.
+
+
+Follow the instructions below to upgrade. Note that any custom configuration items will be overwritten: 
 
 * **Minor StackPack release**: To upgrade to a new minor release of a StackPack, click **UPGRADE**.
 * **Major StackPack release**: To upgrade to a new major release of a StackPack, you will need to [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack.
 
 Check the list of [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
 
-### Customized configuration
-
-{% hint style="warning" %}
-When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
-{% endhint %}
+### Keep customized configuration
 
 If you have customized configuration, this will be overwritten when the StackPack is upgraded. Follow the steps below to continue using your customized configuration after upgrade:
 
