@@ -1,12 +1,12 @@
 ---
-description: How to create your own health checks using anomaly events.
+description: How to create your own health checks using anomaly events
 ---
 
 ## Overview
 
-Anomaly check functions makes it possible to configure a health check that triggers the `DEVIATING` health status if an anomaly with certain parameters is found for a metric stream.
+Anomaly check functions make it possible to configure a health check that triggers the DEVIATING health status if an anomaly with certain parameters is found for a metric stream.
 
-The function body is specified as a groovy script. Below is an example of an anomaly check function with `metricStream` input parameter name that indicates metric stream id from an anomaly event. The function checks if the incoming `event` is the anomaly event and if the metric stream id from the event matches `metricStream` argument. If there is a match the function will trigger DEVIATING state when the anomaly event is received and hold it for 1 minute (60000 milliseconds) and then switch the state to UNKNOWN. Additionally, the return value `causingEvents` returns the event reference which indicates the cause of the state change.
+An anomaly check function body is specified as a groovy script. Below is an example of an anomaly check function. In this example, the `metricStream` input parameter specifies the metric stream ID to monitor for anomalies. The function checks if an incoming `event` is a `Metric Stream Anomaly` event and if the metric stream ID from the event matches that provided in the `metricStream` argument. If there is a match, the function will trigger a DEVIATING health state, hold it for 1 minute (60000 milliseconds) and then switch the health state to UNKNOWN. Additionally, the return value `causingEvents` will return details of the event that caused the state change.
 
   ```text
   if (event.getType() == "Metric Stream Anomaly" && event.getData().getStreamId() == metricStream) {
@@ -28,54 +28,54 @@ The function body is specified as a groovy script. Below is an example of an ano
   }
   ```
 
-## Anomaly Check Function parameters
+## Anomaly check function parameters
 
-The possible (relevant) parameters for anomaly check function are:
-* StackState Events
-* Anomaly Direction
-* Metric Stream Id
+The relevant **User Parameters** to provide for an anomaly check function are:
+* [StackState events](#stackstate-events)
+* [Anomaly direction](#anomaly-direction)
+* [Metric stream id](#metric-stream-id)
 
 ### StackState events
 
-The parameter specifies what type of topology events the check function should receive. The anomaly events are selected by specifying `Anomaly Events` when check is configured.
+The StackState events user parameter specifies the type of topology events that the check function should receive. Anomaly events are selected by specifying `Anomaly Events` when the check is configured.
 
-The anomaly event is a topology event with the following fields:
+An anomaly event is a topology event with the following generic topology event and metric stream anomaly data fields:
 
-#### Generic Topology Event fields
+**Generic topology event fields**
 
 | Field Name | Type | Description |
 | :--- | :--- | :--- |
 | event.getIdentifier() | String | The event identifier. |
 | event.getElementIdentifiers() | an array of String | The identifiers of topology component related to the event. |
-| event.getCategory() | String | The event category, e.g. "Anomalies" |
-| event.getType() | String | The type of event. For anomaly events it is "Metric Stream Anomaly". |
-| event.getName() | String | The event summary, e.g. "Sudden Rise Detected" |
-| event.getDescription() | Optional of String | The detailed description of event |
-| event.getEventTimestamp() | Long | The time when event has been generated, e.g. anomaly start time |
-| event.getObservedTimestamp() | Long | The time when even has been processed by StackState |
-| event.getTags() | An array of String | An array of event tags, for anomaly events available tags are - `anomalyDirection:RISE`, `anomalyDirection:DROP`, `severity:HIGH`, `severity:MEDIUM`, `severity:LOW` |
-| event.getData() | TopologyEventData | The type specific event data, e.g. *Metric Stream Anomaly Data* |
+| event.getCategory() | String | The event category. For example, "Anomalies" |
+| event.getType() | String | The type of event.<br />For anomaly events, the type is "Metric Stream Anomaly". |
+| event.getName() | String | The event summary. For example, "Sudden Rise Detected". |
+| event.getDescription() | Optional of String | The detailed description of event. |
+| event.getEventTimestamp() | Long | The time when event has been generated. For example, anomaly start time. |
+| event.getObservedTimestamp() | Long | The time when even has been processed by StackState. |
+| event.getTags() | An array of String | An array of event tags.<br />For anomaly events, available tags are `anomalyDirection:RISE`, `anomalyDirection:DROP`, `severity:HIGH`, `severity:MEDIUM`, `severity:LOW`. |
+| event.getData() | TopologyEventData | The type specific event data. For example, *Metric Stream Anomaly Data*. |
 
-#### Metric Stream Anomaly Data fields
+**Metric stream anomaly data fields**
 
 | Field Name | Type | Description |
 | :--- | :--- | :--- |
 | event.getData().getStreamId() | Long | The id of the MetricStream where anomaly has been found. |
 
-### Anomaly Direction
+### Anomaly direction
 
-The parameter specifies the direction of deviation of metric telemetry - RISE, DROP or ANY (RISE or DROP). The parameter gives fine-grained control over alerting on anomaly events. For example, for latency one may be interested only in anomalies with RISE direction, and for request count - DROP.
+The Anomaly direction parameter specifies the direction of deviation of metric telemetry. It can be set as `RISE`, `DROP` or `ANY` (either RISE or DROP). The parameter gives fine-grained control over alerting on anomaly events. For example, the direction `RISE` may be interesting to track latency, while `DROP` might be useful to track request count.
 
-The code snippet below shows how the anomaly direction can be matched with parameters of incoming anomaly event. The incoming event has tags list containing anomaly direction tags in the format "anomalyDirection:RISE" or "anomalyDirection:DROP".
+The code snippet below shows how the anomaly direction can be matched with parameters of an incoming anomaly event. The incoming event has a tags list containing an anomaly direction tag in the format `anomalyDirection:RISE` or `anomalyDirection:DROP`.
 
   ```text
     def tags = event.getTags()
     def anomalyDirectionMatch = tags.contains("anomalyDirection:" + anomalyDirection.toString())
   ```
 
-### Metric Stream Id
+### Metric stream id
 
-The identifier of the Metric Stream for which anomaly check is executed. The anomaly check function should match this is with id of the metric stream from anomaly event. See example below
+The Metric stream id parameter specifies the identifier of the Metric Stream for which the anomaly check is executed. The anomaly check function should match this with the id of the metric stream from an incoming anomaly event. See the example below:
 
   ```text
     def metricStreamIdMatch = event.getData().getStreamId() == metricStream
@@ -84,4 +84,4 @@ The identifier of the Metric Stream for which anomaly check is executed. The ano
 ## See also
 
 * [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
-* [Checks and telemetry streams](checks_and_streams.md)
+* [Checks and telemetry streams](/configure/telemetry/checks_and_streams.md)
