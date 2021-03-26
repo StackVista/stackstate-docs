@@ -32,6 +32,8 @@ The available StackPack add-ons and integrations can be found on the **StackPack
 * [Add-ons](add-ons/)
 * [Integrations](integrations/)
 
+The StackPack versions shipped with each supported release of StackState can be found on the page [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md).
+
 ## Install or uninstall a StackPack
 
 StackPacks can be installed and uninstalled from the **StackPacks** page in StackState. Full install and uninstall instructions are provided.
@@ -46,16 +48,24 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 
 ## Upgrade a StackPack
 
-{% hint style="warning" %}
-When upgrading a StackPack, **any changes you have made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
-{% endhint %}
+StackPacks can be upgraded from the **StackPacks** page in StackState. If a new version is available, the **UPGRADE** button will be displayed and you will have the option to read the release notes.
 
-StackPacks can be upgraded from the **StackPacks** page in StackState. If a new version is available, the **UPGRADE** button will be available and you will have the option to read the release notes.
-
-If you have customized configuration, this will be overwritten when the StackPack is upgraded. To continue using your customized configuration after upgrade:
-
-1. During the upgrade process choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
-2. Custom configuration items can be copied from the old configuration file to the newly created configuration file.
+* For a **new minor release of a StackPack**, click **UPGRADE** to upgrade the StackPack. Note that any [custom configuration items](#customized-configuration) will be overwritten.
+* For a **new major release of a StackPack**, the StackPack should be [uninstalled and reinstalled](#install-or-uninstall-a-stackpack) to upgrade. Note that any [custom configuration items](#customized-configuration) will be overwritten.
 
 Check the list of [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
+
+### Customized configuration
+
+{% hint style="warning" %}
+When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
+{% endhint %}
+
+If you have customized configuration, this will be overwritten when the StackPack is upgraded. Follow the steps below to continue using your customized configuration after upgrade:
+
+1. During the upgrade process choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
+2. Copy custom configuration items from the old configuration file to the newly created configuration file.
+
+
+
 
