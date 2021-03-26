@@ -43,7 +43,7 @@ The relevant **User Parameters** to provide for an anomaly check function are:
 
 The StackState events user parameter specifies the type of topology events that the check function should receive. Anomaly events are selected by specifying `Anomaly Events` when the check is configured.
 
-The following properties are available for anomaly events:
+The following properties return details of a received anomaly event:
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
