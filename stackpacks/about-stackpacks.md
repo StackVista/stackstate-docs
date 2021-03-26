@@ -57,7 +57,6 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 StackPacks can be upgraded from the StackPack pages in the StackState UI. If a new version is available, an UPGRADE button will be displayed and you will have the option to read the release notes.
 
-
 Follow the instructions below to upgrade. Note that any custom configuration items will be overwritten: 
 
 * **Minor StackPack release**: To upgrade to a new minor release of a StackPack, click **UPGRADE**.
