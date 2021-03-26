@@ -30,7 +30,7 @@ This page provides specific instructions for upgrading to each currently support
     - Guest users will no longer be able to create or edit event handlers.
     - Power Users will no longer be able to execute scripts using the HTTP script API.
     - Admin users will not be affected.
-* **Dynatrace StackPack** - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
+* **Dynatrace StackPack** - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 
 {% endtab %}
 
@@ -42,7 +42,7 @@ This page provides specific instructions for upgrading to each currently support
     - Guest users will no longer be able to create or edit event handlers.
     - Power Users will no longer be able to execute scripts using the HTTP script API.
     - Admin users will not be affected.
-* **Dynatrace StackPack** - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
+* **Dynatrace StackPack** - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 
 {% endtab %}
 {% endtabs %}
