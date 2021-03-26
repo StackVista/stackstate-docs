@@ -50,10 +50,14 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 
 StackPacks can be upgraded from the StackPack pages in the StackState UI. If a new version is available, an UPGRADE button will be displayed and you will have the option to read the release notes.
 
-Follow the instrunctions below to upgrade. Note that any [custom configuration items](#customized-configuration) will be overwritten.
+{% hint style="info" %}
+Note that any custom configuration items will be overwritten when you upgrade. See [customized configuration](#customized-configuration), below for details on how to keep using customized configuration after upgrade.
+{% endhint %}
 
-* **Minor release**: To upgrade to a new minor release of a StackPack, click **UPGRADE**.
-* **Major release**: To upgrade to a new major release of a StackPack, you will need to [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack.
+Follow the instructions below to upgrade.
+
+* **Minor StackPack release**: To upgrade to a new minor release of a StackPack, click **UPGRADE**.
+* **Major StackPack release**: To upgrade to a new major release of a StackPack, you will need to [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack.
 
 Check the list of [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
 
@@ -65,7 +69,7 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 If you have customized configuration, this will be overwritten when the StackPack is upgraded. Follow the steps below to continue using your customized configuration after upgrade:
 
-1. During the upgrade process choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
+1. During the upgrade process, choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
 2. Copy custom configuration items from the old configuration file to the newly created configuration file.
 
 
