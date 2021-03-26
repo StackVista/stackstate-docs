@@ -52,13 +52,13 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items)
  {% endhint %}
 
-If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes.
+If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
 
 ### New Minor StackPack version
 
-To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. Note that any custom configuration items will be overwritten when you upgrade, to keep using a custom configuration after upgrade:
+To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. Note that any custom configuration items will be overwritten when you upgrade. To keep using a custom configuration after upgrade:
 
 1. During the upgrade process, choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
 2. Copy custom configuration items from the old configuration file to the newly created configuration file.
