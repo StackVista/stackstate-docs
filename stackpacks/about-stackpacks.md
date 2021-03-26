@@ -55,14 +55,17 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
  * [Keep customized configuration](#keep-customized-configuration)
 {% endhint %}
 
-StackPacks can be upgraded from the StackPack pages in the StackState UI. If a new version is available, an UPGRADE button will be displayed and you will have the option to read the release notes.
+If a new StackPack version is available, an UPGRADE button will be displayed on the StackState UI StackPack page and you will have the option to read the release notes.
 
-Follow the instructions below to upgrade. Note that any custom configuration items will be overwritten: 
+Follow the instructions below to upgrade. Note that any custom configuration items will be overwritten when you upgrade:
 
-* **Minor StackPack release**: To upgrade to a new minor release of a StackPack, click **UPGRADE**.
-* **Major StackPack release**: To upgrade to a new major release of a StackPack, you will need to [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack.
+| | |
+|:---|:---|
+| **Minor StackPack release** | To upgrade to a new minor release of a StackPack, click **UPGRADE** on the StackPack page in the StackState UI. | 
+| **Major StackPack release** | To upgrade to a new major release of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. |
 
-Check the list of [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
+
+A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
 
 ### Keep customized configuration
 
