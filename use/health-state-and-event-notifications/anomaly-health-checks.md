@@ -3,7 +3,7 @@ description: How to setup event notifications based on anomalies coming from the
 ---
 
 {% hint style="info" %}
-To use anomaly health checks the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) StackPack must be installed.
+To use anomaly health checks, the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) StackPack must be installed.
 {% endhint %}
 
 ## Overview
@@ -18,14 +18,17 @@ Follow the instructions below to add an anomaly health check to a component.
 
 1. In the StackState UI topology perspective, select the component that you want to add an anomaly health check to.
 2. Click on the the **+ ADD** button under the **Health** section in the component details pane on the right of the screen. 
-3. Select the check function [Autonomous metric stream anomaly detection](#check-function-autonomous-metric-stream-anomaly-detection).
+3. Select the **Check function** [Autonomous metric stream anomaly detection](#check-function-autonomous-metric-stream-anomaly-detection).
 4. Add the following arguments:
-    - **anomalyDirection** - the direction the found anomaly must have for the check to go to the `DEVIATING` health status.  You can choose from `Rise`, `Drop` or `Any`. Choose `Rise` when you want to detect peaks, for example in a latency metric stream. Choose `Drop` when you want to detect sudden drops, for example in the number of threads free in a thread pool. Choose `Any` to detect both rises and drops, for example when detecting both hot and cold deviations in data center temperature.
+    - **anomalyDirection** - the direction the found anomaly must have for the check to go to a `DEVIATING` (orange) health state. You can choose from:
+        - `Rise` - to detect peaks, for example in a latency metric stream.
+        - `Drop` - to detect sudden drops, for example in the number of threads free in a thread pool.
+        - `Any` - to detect both rises and drops, for example when detecting both hot and cold deviations in data center temperature.
     - **metricStream** - a metric stream that is available on the component to detect the anomalies on.
     - **event** - leave unchanged. This is an instance of an anomaly event that the check will react to. 
 5. Click **CREATE** to activate the check. 
 
-![Autonomous metric stream anomaly detection check](../../.gitbook/assets/v43_autonomous_metric_stream_anomaly_detection_check.png)
+![Add an autonomous metric stream anomaly detection check](../../.gitbook/assets/v43_autonomous_metric_stream_anomaly_detection_check.png)
 
 ## Check function: Autonomous metric stream anomaly detection
 
@@ -39,7 +42,7 @@ When enabled, the autonomous metric stream anomaly detection check function will
  
 ## Custom anomaly check functions
 
-Optionally, advanced users of StackState can create their own custom anomaly check functions. More information on custom anomaly check functions, parameters and available fields can be found in the [anomaly check functions developer guide](/develop/developer-guides/anomaly-check-functions.md) section. Note, that you have to adjust an identifier of a custom anomaly check function such that it is recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com).
+Optionally, advanced users of StackState can create their own custom anomaly check functions. More information on custom anomaly check functions, parameters and available fields can be found in the [anomaly check functions developer guide](/develop/developer-guides/anomaly-check-functions.md). Note that you have to adjust an identifier of a custom anomaly check function such that it is recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com).
 
 ## See also
 
