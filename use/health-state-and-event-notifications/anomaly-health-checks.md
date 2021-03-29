@@ -29,7 +29,7 @@ Follow the instructions below to add an anomaly health check to a component.
 
 ## Check function: Autonomous metric stream anomaly detection
 
-When enabled, the Autonomous metric stream anomaly detection check function will behave as follows:
+When enabled, the autonomous metric stream anomaly detection check function will behave as follows:
 
  * The `Autonomous metric stream anomaly detection` check will remain in an `UNKNOWN` (gray) health state unless an anomaly is found. 
  * When an anomaly is found, the check will go to a `DEVIATING` (orange) health state. 
