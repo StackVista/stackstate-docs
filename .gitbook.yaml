@@ -197,3 +197,8 @@ redirects:
   use/views/events_perspective: ./use/perspectives/events_perspective.md
   use/views/telemetry-perspective: ./use/perspectives/telemetry-perspective.md
   use/views/browse-telemetry: ./use/perspectives/browse-telemetry.md
+  setup/authentication: ./configure/security/authentication/authentication_options.md
+  configure/logging/stackstate_log_files: ./configure/logging/stackstate-log-files.md
+  use/views/telemetry_perspective: ./use/perspectives/telemetry-perspective.md
+  configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
+  configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
