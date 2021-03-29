@@ -25,13 +25,13 @@ Views marked with a star will be included directly in the main menu for easy acc
 
 To access a list of all views, click **Views** from the main menu.
 
-## The View Details panel
+## The View Details pane
 
 {% hint style="info" %}
-To reopen the view details panel at any time, simply click on the white background in the topology visualization.
+To reopen the view details pane at any time, simply click on the white background in the topology visualization.
 {% endhint %}
 
-Whenever you first open a view you see a view details panel on the right side of the screen. This panel shows the following information.
+Whenever you first open a view you see a view details pane on the right side of the screen. This panel shows the following information.
 
 * **View properties** -- shows the view query and last updated timestamp.
 * **Components** -- shows a summary of the number of components in the view.
@@ -86,7 +86,7 @@ It is not recommended to delete or edit views created by StackPacks. When doing 
 To delete or edit a view:
 
 1. Go to the list of views by clicking **Views** in the .
-2. In the view details panel on the right side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
+2. In the view details pane on the right side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
 3. Select the **Delete** or **Edit** menu item.
 
 ## Securing views \(RBAC\)

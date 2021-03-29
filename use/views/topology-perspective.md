@@ -75,7 +75,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 ## Problems
 
-If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details panel](./#the-view-details-panel).
+If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](./#the-view-details-pane).
 
 ## Root cause outside current view
 
