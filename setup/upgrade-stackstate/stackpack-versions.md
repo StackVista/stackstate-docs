@@ -25,7 +25,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Kubernetes](../../stackpacks/integrations/kubernetes.md) | 3.7.2 | **3.7.2** | 3.3.0 |
 | [Manual topology](../../stackpacks/integrations/manualtopo.md) | 2.0.1 | **2.0.1** | 2.0.0 |
 | [Nagios](../../stackpacks/integrations/nagios.md) | [**2.4.0**](../../stackpacks/integrations/nagios.md#release-notes) | 2.3.1 | 2.1.0 |
-| [Openshift](../../stackpacks/integrations/openshift.md) | 3.5.2 | **3.5.2** | 3.2.0 |
+| [Openshift](../../stackpacks/integrations/openshift.md) | 3.5.2 | [**3.5.2**](/stackpacks/integrations/openshift.md#release-notes) | 3.2.0 |
 | [SAP](../../stackpacks/integrations/sap.md) | [**1.2.0**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | 1.1.0 | 1.0.1 |
 | [SCOM \(BETA\)](../../stackpacks/integrations/scom.md) | 1.2.2 | **1.2.2** | 1.1.0 |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | [**5.1.0**](../../stackpacks/integrations/servicenow.md#release-notes) | 4.0.1 | 2.1.0 |
