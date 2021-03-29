@@ -69,6 +69,7 @@
   * [Send event notifications](use/health-state-and-event-notifications/send-event-notifications.md)
   * [Anomaly health checks](use/health-state-and-event-notifications/anomaly-health-checks.md)
   * [Anomaly detection with baselines (Deprecated)](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
+* [Analytics](use/analytics.md)
 * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks

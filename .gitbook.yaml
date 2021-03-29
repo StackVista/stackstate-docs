@@ -196,3 +196,4 @@ redirects:
   use/views/topology-perspective: ./use/perspectives/topology-perspective.md
   use/views/events_perspective: ./use/perspectives/events_perspective.md
   use/views/telemetry-perspective: ./use/perspectives/telemetry-perspective.md
+  use/views/browse-telemetry: ./use/perspectives/browse-telemetry.md
