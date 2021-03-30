@@ -69,6 +69,9 @@
   * [Send event notifications](use/health-state-and-event-notifications/send-event-notifications.md)
   * [Anomaly health checks](use/health-state-and-event-notifications/anomaly-health-checks.md)
   * [Anomaly detection with baselines (Deprecated)](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
+* [Problem investigation](use/problem-investigation/README.md)
+  * [Problem identification](use/problem-investigation/problem_identification.md)
+  * [Navigating a problem](use/problem-investigation/problem_navigation.md)
 * [Analytics](use/analytics.md)
 * [Glossary](use/glossary.md)
 
