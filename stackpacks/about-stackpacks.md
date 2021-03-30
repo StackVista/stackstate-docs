@@ -54,7 +54,7 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
 
-A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) to see if a new StackPack version is available in the latest release of StackState.
+A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 
 ### New Minor StackPack version
 
