@@ -8,7 +8,7 @@ description: How to install the Autonomous Anomaly Detector.
 
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning.
 
-Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState user interface. An `Metric Stream Anomaly Event` for the incident will also be generated which can be inspected at on the [Events Perspective](../../use/views/events_perspective.md).
+Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState user interface. An `Metric Stream Anomaly Event` for the incident will also be generated which can be inspected at on the [Events Perspective](/use/perspectives/events_perspective.md).
 
 The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to and the appropriate machine learning algorithms to use for each.
 
