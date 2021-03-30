@@ -30,7 +30,7 @@ TODO: Describe.
 
 ### Version changed events
 
-TODO: Describe.
+Version changed events are generated whenever the `version` tag of a component is updated. 
 
 ## Problem subview
 
