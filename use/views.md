@@ -63,6 +63,10 @@ You can check the view health state in the following places in the StackState UI
 
 ![View health state in main menu](/.gitbook/assets/v42_view_health_main_menu.png)
 
+### Time travel with the view health state
+
+The health state of the current view over time is indicated by the colour of the **Health** line in the timeline at the bottom of the screen. When the playhead on the timeline is moved to time travel to a moment in the past, the health state shown for the current view will change to match the state that it was at the selected point in time. The health state reported in the StackState main menu, however, will always report the current health state of all views.
+
 ### Enable or disable view health state
 
 To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. To disable a view health state, [edit the view](#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
