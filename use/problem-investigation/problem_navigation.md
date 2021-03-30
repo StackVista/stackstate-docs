@@ -22,15 +22,37 @@ Note that the probable causes in a problem details pane may include events that 
 
 ### Anomaly events
 
-TODO: Describe.
+Anomaly events are generated whenever an anomaly is detected by the [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md). For metric stream anomalies, details of the metric stream where the anomaly was found are available in the event details pane.
+
+1. Click on a Metric stream anomaly event in the Events Perspective
+    - The event details pane opens on the right of the screen.
+    - The affected stream is displayed highlighting the detected anomaly.
+2. Click on the metric stream graph or select **inspect** from the menu (...) to open the [telemetry browser](/use/views/browse-telemetry.md) and inspect the stream in more detail.
+
+![Metric stream anomaly event details](/.gitbook/assets/v43_event_metric_stream_anomaly.png) 
 
 ### Element properties changed events
 
-TODO: Describe.
+Element properties changed events are generated whenever any of the properties of a component are updated. Exact details of the change are available from the event details pane.
+
+1. Click on an Element properties changed event in the Events Perspective.
+    - The event details pane opens on the right of the screen.
+2. Click **Show all changes** in the event details pane.
+    - A diff of the old and new properties is displayed.
+    
+![View all changes](/.gitbook/assets/v43_event_view_all_changes.png)
 
 ### Version changed events
 
-Version changed events are generated whenever the `version` tag of a component is updated. 
+Version changed events are generated whenever the `version` property of a component is updated. Details of the old version and new version are included in the full list of event properties.
+
+1. Click on a Version changed event in the Events Perspective.
+    - The event details pane opens on the right of the screen.
+2. Click on SHOW EVENT PROPERTIES in the event details pane.
+    - The full list of event properties are displayed.
+3. Scroll down to find the old and new version numbers.
+
+![Event properties - old and new version details](/.gitbook/assets/v43_event_properties_version_changed.png)
 
 ## Problem subview
 
