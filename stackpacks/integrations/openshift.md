@@ -213,7 +213,7 @@ For further details, refer to the [Openshift API documentation \(openshift.com\)
 
 ### Component actions
 
-A number of [actions](/use/views/topology-perspective.md#actions) are added to StackState when the Openshift StackPack is installed. They are available from the **Actions** section on the right of the screen when an Openshift component is selected or from the component context menu, displayed when you hover over an Openshift component in the topology perspective
+A number of [actions](/use/perspectives/topology-perspective.md#actions) are added to StackState when the Openshift StackPack is installed. They are available from the **Actions** section on the right of the screen when an Openshift component is selected or from the component context menu, displayed when you hover over an Openshift component in the topology perspective
 
 | Action | Available for<br />component types | Description|
 |:---|:---|:---|

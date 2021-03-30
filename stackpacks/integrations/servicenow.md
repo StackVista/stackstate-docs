@@ -190,7 +190,7 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 | Data | Description |
 | :--- | :--- |
-| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/views/events_perspective.md). |
+| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/perspectives/events_perspective.md). |
 
 #### Metrics
 
