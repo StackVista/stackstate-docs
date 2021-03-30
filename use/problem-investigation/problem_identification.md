@@ -6,7 +6,7 @@ When a component or relation reports a DEVIATING (orange) or CRITICAL (red) stat
 
 ## What is a StackState problem?
 
-A problem in StackState is the collection of components that relate to a single root cause. A problem is created when a component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause and their relations will be added to the same problem. Each problem contains the following components:
+A problem in StackState is the collection of components that relate to a single root cause. A problem is created when a component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause and their relations will be added to the same problem. This is a larger set of components than would be shown by selecting to show the [full root cause tree](/use/views/topology-perspective.md#root-cause-outside-current-view). The following components will be included in a problem:
 
 * **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.

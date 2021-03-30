@@ -56,11 +56,9 @@ Version changed events are generated whenever the `version` property of a compon
 
 ## Problem subview
 
-A problem subview is a temporary StackState view with filters that return components and relations related to the problem and a time window that matches the [problem time window](#time-window-of-a-problem)
+A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the [problem](/use/problem-investigation/problem_identification.md#what-is-a-stackstate-problem) root cause and any contributing causes within the [problem time window](#time-window-of-a-problem).
 
-All components in the [problem](/use/problem-investigation/problem_identification.md#what-is-a-stackstate-problem) are included in the problem subview. This includes more components than would be shown by selecting to show the [full root cause tree](/use/views/topology-perspective.md#root-cause-outside-current-view). 
- 
-Within the problem subview, you have access to all perspectives with data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview, including your modifications, with other StackState users as a link.
+Within the problem subview, you have access to all perspectives with data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview, including any modifications you make, with other StackState users as a link.
 
 To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
 
@@ -68,7 +66,7 @@ To exit the Problem Subview, click on the view name in the top bar of the StackS
 
 ### Time window of a problem
 
-A problem is considered to start one hour before the timestamp of the first reported unhealthy state it contains. Note that this might not have been reported by the root cause component. The end of the problem is seen as five minutes after the last change to an unhealthy state. If a new component changes state and is added to the problem, the problem time window will be extended to include this.
+A problem is considered to start one hour before the timestamp of the first reported unhealthy state it contains and end five minutes after the last change to an unhealthy state. Note that the first unhealthy state in the problem might not have been reported by the root cause component. If a new component changes state and is added to the problem, the problem time window will be extended to include this.
 
 ## See also
 
