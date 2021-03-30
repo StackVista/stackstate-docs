@@ -2,7 +2,7 @@
 
 ## Kubernetes
 
-StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.15.x \(tested on Amazon EKS and Azure AKS\) and Helm 3.
+StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.17.x, 1.18.x \(tested on Amazon EKS and Azure AKS\) and Helm 3.
 
 For a list of all docker images used see the [image overview](installation/kubernetes_install/image_configuration.md).
 
@@ -10,9 +10,19 @@ For a list of all docker images used see the [image overview](installation/kuber
 
 For a standard deployment, the StackState Helm chart will deploy storage services in a redundant setup with 3 instances of each service. The nodes required for different environments:
 
-* **Virtual machines:** 9 nodes with `16GB memory`, `4 vCPUs`
-* **Amazon EKS:** 9 instances of type `m5.xlarge` or `m4.xlarge`
-* **Azure AKS:** 9 instances of type `D4s v3` or `D4as V4` \(Intel or AMD CPUs\)
+{% tabs %}
+{% tab title="Recommended" %}
+* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+{% endtab %}
+{% tab title="Minimal" %}
+* **Virtual machines:** 4 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 4 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+{% endtab %}
+{% endtabs %}
+
 
 ### Storage
 
