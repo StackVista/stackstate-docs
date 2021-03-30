@@ -1,11 +1,3 @@
----
-title: Tagging Guide
-kind: Documentation
-aliases:
-  - /configuring/tagging/
-listorder: 15
----
-
 # Tag topology
 
 ## Introduction
@@ -84,6 +76,19 @@ It is recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are 
 ## StackPack Inheritance
 
 The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they are brought into StackState.
+
+### Common tags
+
+A number of StackState integrations understand common tags. These are special tags that can be placed on items in the source system and are used by StackState when the topology is retrieved.
+
+| Tag | Description |
+|:---|:---|
+| `stackstate-layer` | The component will be placed in the specified layer in StackState. |
+| `stackstate-domain` | The component will be placed in the specified domain in StackState. |
+| `stackstate-environment` | The component will be placed in the specified environment in StackState. |
+| `stackstate-identifiers` | The specified value will be as an identifier to the StackState component. |
+
+For example, an application in vSphere with the tag `stackstate-layer:databases` would be placed in the StackState topology layer `databases` by the StackState vSphere integration. 
 
 ## Using Tags
 

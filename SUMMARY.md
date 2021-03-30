@@ -15,6 +15,7 @@
     * [Configure Ingress](setup/installation/kubernetes_install/ingress.md)
     * [StackState images](setup/installation/kubernetes_install/image_configuration.md)
     * [Migrate from Linux install](setup/installation/kubernetes_install/migrate_from_linux.md)
+    * [AAD Standalone Deployment](setup/installation/kubernetes_install/aad_standalone.md)
   * [Linux install](setup/installation/linux_install/README.md)
     * [Download](setup/installation/linux_install/download.md)
     * [Install StackState](setup/installation/linux_install/install_stackstate.md)
@@ -66,14 +67,15 @@
   * [Add a telemetry stream](use/health-state-and-event-notifications/add-telemetry-to-element.md)
   * [Configure the view health](use/health-state-and-event-notifications/configure-view-health.md)
   * [Send event notifications](use/health-state-and-event-notifications/send-event-notifications.md)
-  * [Anomaly detection with baselines](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
+  * [Anomaly health checks](use/health-state-and-event-notifications/anomaly-health-checks.md)
+  * [Anomaly detection with baselines (Deprecated)](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks
 
 * [What is a StackPack?](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
-  * [Autonomous Anomaly Detector \(BETA\)](stackpacks/add-ons/aad.md)
+  * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](stackpacks/integrations/agent.md)
@@ -130,7 +132,7 @@
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Push telemetry to StackState over HTTP](configure/telemetry/send_telemetry.md)
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
-  * [Baseline functions](configure/telemetry/baseline-functions.md)
+  * [Baseline functions (Deprecated)](configure/telemetry/baseline-functions.md)  
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
   * [Set up traces](configure/traces/how_to_setup_traces.md)
@@ -181,6 +183,7 @@
     * [Checks in Agent v2](develop/developer-guides/agent_check/checks_in_agent_v2.md)
     * [How to develop agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
   * [Extend StackState with functions](develop/developer-guides/functions.md)
+  * [Anomaly check functions](develop/developer-guides/anomaly-check-functions.md)
   * [Mirroring Telemetry](develop/developer-guides/mirroring.md)
   * [Integrate external services](develop/developer-guides/integrating_external_services.md)
 * [Reference](develop/reference/README.md)
@@ -210,4 +213,3 @@
   * [Push data to StackState from an external system](develop/tutorials/push_integration_tutorial.md)
   * [Send events to StackState from an external system](develop/tutorials/events_tutorial.md)
   * [Set up a mirror to pull telemetry data from an external system](develop/tutorials/mirror_tutorial.md)
-  
