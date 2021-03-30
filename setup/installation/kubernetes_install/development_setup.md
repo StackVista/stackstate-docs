@@ -2,7 +2,7 @@
 
 The standard Kubernetes deployment of StackState is a production ready setup with many processes running multiple replicas. For development and testing purposes, it can be desirable to run StackState with lower resource requirements. Several example `values.yaml` files are provided in the [Helm chart repository](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation/examples):
 
-* `test_values.yaml` sets the replica count for all services to 1, this effectively reduces the number of required nodes from 7 to 3.
+* `test_values.yaml` sets the replica count for all services to 1, this effectively reduces the number of required nodes to 3.
 * `micro_test_values.yaml` goes even further and also reduces the memory footprint of most services, thereby making it possible to run StackState within about 16GB of memory.
 
 Note that the generated `values.yaml` should also still be included on the Helm command line, e.g.:
