@@ -10,11 +10,11 @@ The first step to take is integrating StackState with your IT systems. This can 
 
 ## Explore topology
 
-After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](../views/) from your installed StackPacks.
+After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](/use/views.md) from your installed StackPacks.
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
-You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](../views/filters.md) on the left side bar, or by [hovering over a component](../views/topology-perspective.md#interactive-navigation).
+You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](../filters.md) on the left side bar, or by [hovering over a component](../perspectives/topology-perspective.md#interactive-navigation).
 
 ![Explore topology](../../.gitbook/assets/v42_02_topology.png)
 

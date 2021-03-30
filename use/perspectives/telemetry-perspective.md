@@ -27,7 +27,7 @@ The component selection can be adjusted as follows:
 
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](/use/filters.md#topology-filters)
 
 ## Charts
 

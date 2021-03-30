@@ -10,7 +10,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](/use/views/README.md). Components that have one or more [checks](/configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](/configure/topology/propagation.md).
+The Topology Perspective shows components and relations in the selected [view](/use/views.md). Components that have one or more [checks](/configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](/configure/topology/propagation.md).
 
 ## Component details
 
@@ -22,7 +22,7 @@ When a component is selected by clicking on it, the Component Details pane is sh
 
 ## Filtering
 
-The View Filters pane on the left side of the screen in any View allows you to filter the topology components displayed. Read more about [Topology Filters](filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to [filter the topology components displayed](/use/filters.md#topology-filters). You can also [filter the events displayed](filters.md#event-filters) in the **Events** list in the view details pane on the right of the StackState UI.
 
 ## Interactive navigation
 
