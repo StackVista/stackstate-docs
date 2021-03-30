@@ -66,7 +66,7 @@ To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the S
 
 ### New Major StackPack version
 
-To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that any custom configuration items will be overwritten when the upgrade StackPack is installed.
+To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that any custom configuration items will be overwritten when the upgraded StackPack is installed.
 
 
 
