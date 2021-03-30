@@ -33,7 +33,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
 
 ### Element properties changed events
 
-Element properties changed events are generated whenever any of the properties of a component are updated. Exact details of the change are available from the event details pane.
+Element properties changed events are generated whenever relevant properties of a component are updated at the synchronization source. For example, if AWS security rules are changed or a load balancer has increased its capacity. Exact details of the change are available from the event details pane.
 
 1. Click on an Element properties changed event in the Events Perspective.
     - The event details pane opens on the right of the screen.
@@ -56,7 +56,13 @@ Version changed events are generated whenever the `version` property of a compon
 
 ## Problem subview
 
-A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the [problem](/use/problem-investigation/problem_identification.md#what-is-a-stackstate-problem) root cause and any contributing causes within the [problem time window](#time-window-of-a-problem).
+A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](/use/views/topology-perspective.md#root-cause-outside-current-view). The following components will be included:
+
+* **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
+* **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
+* **Healthy components** - A number of healthy components are also included in a problem. These are:
+    - Upstream dependencies of the root cause or one of the contributing causes.
+    - Downstream components with an unhealthy [propagated state](/configure/topology/propagation.md) that originates from either the root cause or one of the contributing causes.
 
 Within a problem subview, you have access to all perspectives containing data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
