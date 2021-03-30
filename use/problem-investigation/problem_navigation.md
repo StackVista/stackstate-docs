@@ -8,16 +8,16 @@ Unhealthy components in a view are grouped into [problems](/use/problem-investig
 
 ## Problem Details pane
 
-The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes). Events that may have triggered the unhealthy state changes in the problem are listed as the [probable causes](#probable-causes).
+The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed under [Probable Causes](#probable-causes).
 
 Click the **INVESTIGATE IN SUBVIEW** button to open all components and relations in a problem in a dedicated, temporary [problem subview](#problem-subview).
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to the problem. Events of type **Anomaly**, **Element properties changed** or **Version changed** for components in the problem that occur within the [problem time window](/use/problem-investigation/problem_identification.md#time-window-of-a-problem) could be considered as probable causes. If no relevant events are available in StackState, the list will be empty.
+For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](/use/problem-investigation/problem_identification.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
 
 {% hint style="info" %}
-Note that the probable causes in a problem details pane may include events that occurred outside of the current time window. You may need to adjust the time window to open an event.
+Note that the probable causes in a problem details pane may include events that occurred outside of the currently selected time window. You may need to adjust the time window in the timeline to open an event.
 {% endhint %}
 
 ### Anomaly events
@@ -58,7 +58,7 @@ Version changed events are generated whenever the `version` property of a compon
 
 A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the [problem](/use/problem-investigation/problem_identification.md#what-is-a-stackstate-problem) root cause and any contributing causes within the [problem time window](#time-window-of-a-problem).
 
-Within the problem subview, you have access to all perspectives with data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview, including any modifications you make, with other StackState users as a link.
+Within a problem subview, you have access to all perspectives containing data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
 To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
 
@@ -66,7 +66,7 @@ To exit the Problem Subview, click on the view name in the top bar of the StackS
 
 ### Time window of a problem
 
-A problem is considered to start one hour before the timestamp of the first reported unhealthy state it contains and end five minutes after the last change to an unhealthy state. Note that the first unhealthy state in the problem might not have been reported by the root cause component. If a new component changes state and is added to the problem, the problem time window will be extended to include this.
+A problem is considered to start one hour before the timestamp of the first reported unhealthy state it contains and end five minutes after the last change to an unhealthy state. Note that the first unhealthy state in the problem might not have been reported by the root cause component. If a component in the problem changes to an unhealthy state or a new component is added to the problem, the problem time window will be extended to include this state change.
 
 ## See also
 
