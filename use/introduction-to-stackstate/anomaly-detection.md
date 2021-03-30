@@ -21,7 +21,7 @@ Once the anomalies are identified, they are displayed in the MetricStream charts
 
 ![Anomaly example](../../.gitbook/assets/anomaly-chart-write-latency.png)
 
-Additionally, identified anomalies are available as StackState Events and can be viewed in the [events perspective](../../use/views/events_perspective.md) when event category `Anomalies` is selected in the filter.
+Additionally, identified anomalies are available as StackState Events and can be viewed in the [events perspective](../../use/perspectives/events_perspective.md) when event category `Anomalies` is selected in the filter.
 
 ![Anomaly events](../../.gitbook/assets/anomaly-events-in-events-perspective.png)
 

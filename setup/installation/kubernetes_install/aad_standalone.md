@@ -178,7 +178,7 @@ The UI will be accessible by URL:
     ```text
     http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
     ```
-Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](../../setup/installation/kubernetes_install/aad_standalone.md#4-configure-aad-kubernetes-service)\).
+Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](#4-configure-aad-kubernetes-service)\).
 
 Common questions that can be answered in the status UI:
 
