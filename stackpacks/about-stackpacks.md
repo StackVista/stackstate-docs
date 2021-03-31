@@ -65,10 +65,23 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 ### New Major StackPack version
 
 {% hint style="info" %}
-Note that all StackPack configuration items will be overwritten after a major StackPack upgrade. Before you upgrade, export any customised items. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
+Note that all StackPack configuration items will be overwritten after a major StackPack upgrade. Before you upgrade, export any customized items. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 {% endhint %}
 
 To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. 
+
+Note that all StackPack configuration items will be overwritten when you upgrade. Follow the steps below to continue using any changes made to these items.
+
+1. Before you upgrade, export each customized item:
+    - Go to the **Settings** page in the StackState UI.
+    - Click on **Export** in the **...** menu for each customized item.
+2. Upgrade the StackPack (uninstall and reinstall).
+3. Change the `name` and `identifier` for each exported item:
+    - Open the export file in a text editor.
+    - Edit the top-level `name` and `identifier` fields.
+    - Save the export.
+4. [Import](setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file(s).
+5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
 
 
 
