@@ -113,7 +113,7 @@ The properties described below can be retrieved from the default parameters in a
 
 `event.causeId`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`<br />Returns the UUID of the event that triggered the health state change.
 
-* `event.newState`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`<br />Returns the current state of the element.
+* `event.newState` - returns the current state of the element.<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`
 * `event.oldState`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`<br />Returns the previous state of the element.
 * `event.stackElement`<br />**Event types**: `HealthStateChangedEvent`<br />Returns the node ID of the element that has changed its state.
 * `event.stateChanges`<br />**Event types**: `PropagatedHealthStateChangedEvent`<br />Returns the chain of elements through which the health state change propagated.
