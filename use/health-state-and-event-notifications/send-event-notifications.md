@@ -13,9 +13,11 @@ When something goes wrong within your IT environment, StackState can send event 
 
 ## How an event notification is triggered
 
-Event notifications are triggered in response to health state changes on an element or view or problem events. The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger event notifications, however, this can result in a lot of noise. StackState will group unhealthy components together into [problems](/use/problem-investigation/problem_identification.md) and generate events that track changes to them.
+Event notifications are triggered in response to health state change events or problem events generated in a view. 
 
-The process to trigger a **health state changed** event notification is as follows:
+### Health state changed event notifications
+
+The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger event notifications, however, this can result in a lot of noise. The process to trigger a health state changed event notification is as follows:
 
 1. [Telemetry streams](add-telemetry-to-element.md) attached to an element provide metrics and events data.
 2. A [health check](add-a-health-check.md) attached to the element listens to the available telemetry streams and reports a health state based on its configured parameters.
@@ -25,16 +27,13 @@ The process to trigger a **health state changed** event notification is as follo
    * `ViewStateChangedEvent` for each view containing the element. Note that this event type is only generated when a view's [view state configuration criteria](/use/health-state-and-event-notifications/configure-view-health.md) are met.
 4. Event handlers associated with each view listen to the generated state change events and trigger the configured event notifications and actions.
 
-The process to trigger a **problem changed** event notification is as follows:
+### Problem event notifications
 
-1. A component in a view changes its health state to DEVIATING (orange) or CRITICAL (red).
-2. StackState adds this component to an existing problem, or creates a new problem containing the unhealthy component.
-3. A [problem event](/use/problem-investigation/problem_identification.md#events-generated-by-problems) is generated.
-4. Event handlers associated with each view listen to the problem events generated and trigger the configured event notifications and actions.
+StackState will group unhealthy components together into [problems](/use/problem-investigation/problem_identification.md) and generate events that track changes to them. Event handlers associated with a view can listen to the generated problem events and trigger a configured event notification or action.
 
 ## Add an event handler to a view
 
-Event handlers respond to health state change events and run event handler functions to generate event notifications and trigger automated actions. You can add an event handler to a view from the StackState UI.
+Event handlers listen to health state change events or problem events in a view, and run event handler functions that trigger event notifications and automated actions. You can add an event handler to a view from the StackState UI.
 
 ![Add an event handler](/.gitbook/assets/v42_event_handlers_tab.png)
 
@@ -66,7 +65,7 @@ You can [add an event handler to a view](#add-an-event-handler-to-a-view) to tri
 
 ### Problem events
 
-StackState will group unhealthy components in a view into problems and generate [problem events](#problem-events) that track changes to them. Event handlers can listen to the generated events to trigger event notifications and actions. If you choose to run an event handler in response to problem events in a view, you will need to write a compatible [event handler function](/configure/topology/event-handlers.md).
+StackState will group unhealthy components in a view into problems and [generate problem events](/use/problem-investigation/problem_identification.md#events-generated-by-problems) that track changes to them. Event handlers can listen to the generated events to trigger event notifications and actions. If you choose to run an event handler in response to problem events in a view, you will need to write a compatible [event handler function](/configure/topology/event-handlers.md).
 
 ## See also
 
