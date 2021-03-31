@@ -37,7 +37,7 @@ To run an event handler in response to problem events generated in a view, you w
 
 ## Create a custom event handler function
 
-You can write your own custom event handler functions that react to state change events and use a plugin to send an event notification to a system outside of StackState. To add a custom event handler function:
+You can write your own custom event handler functions that react to state change events and use the StackState HTTP script API or a plugin to send an event notification to a system outside of StackState. To add a custom event handler function:
 
 1. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
 2. Click **ADD EVENT HANDLER FUNCTION**. 
@@ -49,7 +49,7 @@ You can write your own custom event handler functions that react to state change
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
    * **Execution** - Event handler functions can be run as either Asynchronous \(default\) or Synchronous:
         - **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
-        - **Synchronous** - use for event handlers that generate email, SMS or HTTP webhook event notifications. The function will run as synchronous.
+        - **Synchronous** - use for event handlers that generate email, SMS or HTTP webhook event notifications. The function will use plugins to send notifications to external systems.
    * **Script** - The script run by the function. For details, see the sections below on:
         - [Functions with Asynchronous execution](#asynchronous-execution-default).
         - [Functions with Synchronous execution](#synchronous-execution).
@@ -89,7 +89,7 @@ You can add logging statements to an event handler function for debug purposes, 
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function also has access to the [StackState script APIs](/develop/reference/scripting/script-apis/README.md). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
+An asynchronous event handler function also has access to the [StackState script APIs](/develop/reference/scripting/script-apis/README.md). This allows the function to make an HTTP request with a custom header using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
 
 The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
