@@ -105,32 +105,65 @@ The properties described below can be retrieved from the default parameters in a
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
-`event.triggeredTimestamp`
-    
-* **Event types**: All
-* Returns the time \(epoch in ms\) at which the event was generated. 
+* [HealthStateChangedEvent](#healthstatechangedevent-properties) properties
+* ViewHealthStateChangedEvent properties
+* [PropagatedHealthStateChangedEvent properties](#propagatedhealthstatechangedevent-properties)
+* ProblemCreatedEvent properties
+* ProblemUpdatedEvent properties
+* ProblemSubsumedEvent properties
+* ProblemResolvedEvent properties
 
 
-`event.causeId`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`<br />Returns the UUID of the event that triggered the health state change.
+#### HealthStateChangedEvent properties
 
-| Property | Description | 
-|:---|:---|
-| `event.causeId` |Returns the UUID of the event that triggered the health state change. For event types: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent` |
-| `event.causeId` | For event types: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`<br />Returns the UUID of the event that triggered the health state change. |
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
+* `event.causeId` - returns the UUID of the event that triggered the health state change. 
+* `event.newState` - returns the current state of the element.
+* `event.oldState` - returns the previous state of the element.
+* `event.stackElement` - returns the node ID of the element that has changed its state.
 
+#### ViewHealthStateChangedEvent properties
 
-* `event.newState` - returns the current state of the element.<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`
-* `event.oldState`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`<br />Returns the previous state of the element.
-* `event.stackElement`<br />**Event types**: `HealthStateChangedEvent`<br />Returns the node ID of the element that has changed its state.
-* `event.stateChanges`<br />**Event types**: `PropagatedHealthStateChangedEvent`<br />Returns the chain of elements through which the health state change propagated.
-* `event.viewHealthState`<br />**Event types**: `ViewHealthStateChangedEvent`<br />Returns the node ID of the health state object for the view that changed its state.
-* `event.identifier`<br />**Event types**: `ProblemCreatedEvent`, `ProblemUpdatedEvent`, `ProblemSubsumedEvent`, `ProblemResolvedEvent`<br />The unique event identifier.
-* `event.problemId`<br />**Event types**: `ProblemCreatedEvent`, `ProblemUpdatedEvent`, `ProblemSubsumedEvent`, `ProblemResolvedEvent`<br />The (node) ID of the problem.
-* `event.rootCause`<br />**Event types**: `ProblemCreatedEvent`, `ProblemUpdatedEvent`<br />The node ID of the root cause component.
-* `event.nodes`<br />**Event types**: `ProblemCreatedEvent`, `ProblemUpdatedEvent`<br />A list of node IDs of all the components that are related to the problem, i.e. the root- and contributing causes.
-* `event.nodes`<br />**Event types**: `ProblemSubsumedEvent`<br />The list of node ids of all the components that were related to the problem before it was subsumed.
-* `event.nodes`<br />**Event types**: `ProblemResolvedEvent`<br />The list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
-* `event.superProblemIds`<br />**Event types**: `ProblemResolvedEvent`<br />The list of problem IDs that now contain the subsumed problem.
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
+* `event.causeId` - returns the UUID of the event that triggered the health state change. 
+* `event.newState` - returns the current state of the element.
+* `event.oldState` - returns the previous state of the element.
+* `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state.
+
+#### PropagatedHealthStateChangedEvent properties
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
+* `event.causeId` - returns the UUID of the event that triggered the health state change. 
+* `event.stateChanges` -returns the chain of elements through which the health state change propagated.
+
+#### ProblemCreatedEvent properties
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.rootCause` - returns the node ID of the root cause component.
+
+#### ProblemUpdatedEvent properties
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.rootCause` - returns the node ID of the root cause component.
+
+#### ProblemSubsumedEvent properties
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.nodes` - returns the list of node ids of all the components that were related to the problem before it was subsumed.
+
+#### ProblemResolvedEvent properties
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
+* `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 
 -------
 
