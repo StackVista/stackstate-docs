@@ -79,8 +79,8 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 3. Change the `name` and `identifier` for each exported item:
     - Open the export file in a text editor.
     - Edit the top-level `name` and `identifier` fields.
-    - Save the export
-4. [Import](setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file(s)
+    - Save the export.
+4. [Import](setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file(s).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
 
 
