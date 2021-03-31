@@ -64,7 +64,11 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 
 ### New Major StackPack version
 
-To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that  all StackPack configuration items will be overwritten when the upgraded StackPack is installed. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
+{% hint style="info" %}
+Note that all StackPack configuration items will be overwritten after a major StackPack upgrade. Before you upgrade, export any customised items. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
+{% endhint %}
+
+To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. 
 
 
 
