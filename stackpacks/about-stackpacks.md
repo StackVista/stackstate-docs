@@ -6,10 +6,10 @@ description: What is a StackPack?
 
 StackPacks are plugins for StackState that extend functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.
 
-There are two types of Stackpack:
+There are two types of StackPack:
 
-* [Add-ons](add-ons/) extend the functionality of StackState.
-* [Integrations](integrations/) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
+* [Add-ons](add-ons/README.md) extend the functionality of StackState.
+* [Integrations](integrations/README.md) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
 
 ## StackPack instances
 
@@ -29,8 +29,8 @@ Note that the lock status of configuration items will not be exported as part of
 
 The available StackPack add-ons and integrations can be found on the **StackPacks** page in StackState. You can also find details on these pages:
 
-* [Add-ons](add-ons/)
-* [Integrations](integrations/)
+* [Add-ons](add-ons/README.md)
+* [Integrations](integrations/README.md)
 
 The StackPack versions shipped with each supported release of StackState can be found on the page [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md).
 
@@ -62,7 +62,7 @@ To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the S
 
 ### New Major StackPack version
 
-To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that  all [locked configuration items](#locked-configuration-items) will be overwritten when the upgraded StackPack is installed.
+To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that all [locked configuration items](#locked-configuration-items) will be overwritten when the upgraded StackPack is installed.
 
 
 
