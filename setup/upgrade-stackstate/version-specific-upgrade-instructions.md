@@ -57,7 +57,7 @@ The following configuration must be manually added after upgrade:
 * **etc/application\_stackstate.conf**
   * New mandatory parameter `stackstate.web.baseUrl`. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl). You can manually create a system environment variable called `STACKSTATE_BASE_URL` or add the value manually as a string in the file `application_stackstate.conf`.
 
-The following configuration changes must be manually processed if you are using a customised version of a file:
+The following configuration changes must be manually processed if you are using a customized version of a file:
 
 * **etc/stackstate-receiver/application.conf**
   * Renamed the namespace `stackstate`. This is now `stackstate.receiver`.
@@ -76,7 +76,7 @@ The following configuration changes must be manually processed if you are using 
 Go to the [StackState v4.1 docs site](https://docs.stackstate.com/v/4.1/).
 {% endhint %}
 
-There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customised version of this file:
+There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customized version of this file:
 
 * The `sts-healthcheckuri` has been moved from port 7071 to 7080
 * The `startup-check` block has been removed completely
