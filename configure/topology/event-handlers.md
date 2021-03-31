@@ -46,12 +46,12 @@ You can write your own custom event handler functions that react to state change
    * **Description** - Optional. A description of the event handler function.
    * **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
-   * **Async** - Event handler functions can be written as async \(default\) or synchronous:
-        - Select **On** for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
-        - Select **Off** for event handlers that generate email, SMS or HTTP webhook event notifications. The function will run as synchronous.
+   * **Execution** - Event handler functions can be run as either Asynchronous \(default\) or Synchronous:
+        - **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
+        - **Synchronous** - use for event handlers that generate email, SMS or HTTP webhook event notifications. The function will run as synchronous.
    * **Script** - The script run by the function. For details, see the sections below on:
-        - [Async functions](#async-functions-default).
-        - [Synchronous functions](#synchronous-functions-async-off).
+        - [Functions with Asynchronous execution](#asynchronous-execution-default).
+        - [Functions with Synchronous execution](#synchronous-execution).
         - How to [add logging to a function](event-handlers.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
@@ -67,7 +67,7 @@ An event handler function takes system and user defined parameters. System param
 * An **event** user parameter is also required, these are the events that the event handler function will listens to.
 * You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
 
-For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for async functions](event-handlers.md#properties-for-async-functions) and  [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
+For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for asynchronous functions](event-handlers.md#properties-for-asynchronous-functions) and  [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
 
 ## Supported event types
 
@@ -84,17 +84,17 @@ One or more of the following events can be selected:
 
 You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/enable-logging.md).    
 
-## Async functions \(default\)
+## Asynchronous execution \(default\)
 
-With Async set to **On**, the event handler function will be run as async.
+When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
+An asynchronous event handler function also has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
 
-The **Slack** event handler function shipped with StackState will run as an async function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the Http script API to send an SMS or webhook post.
+The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
-### Properties for async functions
+### Properties for asynchronous functions
 
-The properties described below can be retrieved from the default parameters in an async event handler function.
+The properties described below can be retrieved from the default parameters in an event handler function with asynchroinous execution.
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
 
@@ -106,18 +106,18 @@ The properties described below can be retrieved from the default parameters in a
 **Event** properties return details of a received event and vary for the different event types:
 
 * Health state change events:
-    * [HealthStateChangedEvent](#healthstatechangedevent-properties-async)
-    * [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties-async)
-    * [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties-async)
+    * [HealthStateChangedEvent](#healthstatechangedevent-properties-asynchronous)
+    * [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties-asynchronous)
+    * [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties-asynchronous)
 * Problem events:
-    * [ProblemCreatedEvent](#problemcreatedevent-properties-async) 
-    * [ProblemUpdatedEvent](#problemupdatedevent-properties-async) 
-    * [ProblemSubsumedEvent](#problemsubsumedevent-properties-async) 
-    * [ProblemResolvedEvent](#problemresolvedevent-properties-async) 
+    * [ProblemCreatedEvent](#problemcreatedevent-properties-asynchronous) 
+    * [ProblemUpdatedEvent](#problemupdatedevent-properties-asynchronous) 
+    * [ProblemSubsumedEvent](#problemsubsumedevent-properties-asynchronous) 
+    * [ProblemResolvedEvent](#problemresolvedevent-properties-asynchronous) 
 
-#### HealthStateChangedEvent properties (async)
+#### HealthStateChangedEvent properties (Asynchronous)
 
-The properties listed below return details of a `HealthStateChangedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `HealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -125,9 +125,9 @@ The properties listed below return details of a `HealthStateChangedEvent`. Note 
 * `event.oldState` - returns the previous state of the element.
 * `event.stackElement` - returns the node ID of the element that has changed its state.
 
-#### ViewHealthStateChangedEvent properties (async)
+#### ViewHealthStateChangedEvent properties (Asynchronous)
 
-The properties listed below return details of a `ViewHealthStateChangedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ViewHealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -135,44 +135,44 @@ The properties listed below return details of a `ViewHealthStateChangedEvent`. N
 * `event.oldState` - returns the previous state of the element.
 * `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state.
 
-#### PropagatedHealthStateChangedEvent properties (async)
+#### PropagatedHealthStateChangedEvent properties (Asynchronous)
 
-The properties listed below return details of a `PropagatedHealthStateChangedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
 * `event.stateChanges` -returns the chain of elements through which the health state change propagated.
 
-#### ProblemCreatedEvent properties (async)
+#### ProblemCreatedEvent properties (Asynchronous)
 
-The properties listed below return details of a `ProblemCreatedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemCreatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.rootCause` - returns the node ID of the root cause component.
 
-#### ProblemUpdatedEvent properties (async)
+#### ProblemUpdatedEvent properties (Asynchronous)
 
-The properties listed below return details of a `ProblemUpdatedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemUpdatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.rootCause` - returns the node ID of the root cause component.
 
-#### ProblemSubsumedEvent properties (async)
+#### ProblemSubsumedEvent properties (Asynchronous)
 
-The properties listed below return details of a `ProblemSubsumedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemSubsumedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.nodes` - returns the list of node ids of all the components that were related to the problem before it was subsumed.
 
-#### ProblemResolvedEvent properties (async)
+#### ProblemResolvedEvent properties (Asynchronous)
 
-The properties listed below return details of a `ProblemResolvedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemResolvedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
@@ -180,15 +180,15 @@ The properties listed below return details of a `ProblemResolvedEvent`. Note tha
 * `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 
-## Synchronous functions \(async Off\)
+## Synchronous execution
 
 {% hint style="info" %}
-Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function. 
+Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default asynchronous execution](#asynchronous-execution-default) type when writing a new event handler function. 
 {% endhint %}
 
-With Async set to **Off** the function will be run as synchronous.
+When execution is set to **Synchronous**, the event handler function will run as a synchronous function.
 
-Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can run in parallel.
+Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to asynchronous functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can run in parallel.
 
 Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
 
@@ -202,6 +202,86 @@ The properties described below can be retrieved from the default synchronous eve
 * `view.getDescription` - returns the view description.
 * `view.getQuery` - returns an STQL query of the view.
 * `view.getIdentifier` - returns the globally unique URN value that identifies the view.
+
+**Event** properties return details of a received event and vary for the different event types:
+
+* Health state change events:
+    * [HealthStateChangedEvent](#healthstatechangedevent-properties-synchronous)
+    * [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties-synchronous)
+    * [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties-synchronous)
+* Problem events:
+    * [ProblemCreated](#problemcreated-properties-synchronous) 
+    * [ProblemUpdated](#problemupdated-properties-synchronous) 
+    * [ProblemSubsumed](#problemsubsumed-properties-synchronous) 
+    * [ProblemResolved](#problemresolved-properties-synchronous) 
+
+#### HealthStateChangedEvent properties (Synchronous)
+
+The properties listed below return details of a `HealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.getTriggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
+* `event.getCauseId` - returns the UUID of the event that triggered the health state change. 
+* `event.getNewStateRef` - returns the current state of the element.
+* `event.getOldStateRef` - returns the previous state of the element.
+
+#### ViewHealthStateChangedEvent properties (Synchronous)
+
+The properties listed below return details of a `ViewHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.getTriggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
+* `event.getCauseId` - returns the UUID of the event that triggered the health state change. 
+* `event.getNewStateRef` - returns the current state of the element.
+* `event.getOldStateRef` - returns the previous state of the element.
+
+#### PropagatedHealthStateChanged properties (Synchronous)
+
+The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.getTriggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
+* `event.getCauseId` - returns the UUID of the event that triggered the health state change. 
+* `event.getStateChanges` -returns the chain of elements through which the health state change propagated.
+
+#### ProblemCreated properties (Synchronous)
+
+The properties listed below return details of a `ProblemCreatedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.rootCause` - returns the node ID of the root cause component.
+
+#### ProblemUpdated properties (Synchronous)
+
+The properties listed below return details of a `ProblemUpdatedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.rootCauseNodeId` - returns the node ID of the root cause component.
+
+#### ProblemSubsumed properties (Synchronous)
+
+The properties listed below return details of a `ProblemSubsumedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.nodes` - returns the list of node ids of all the components that were related to the problem before it was subsumed.
+
+#### ProblemResolved properties (Synchronous)
+
+The properties listed below return details of a `ProblemResolvedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+
+* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
+* `event.identifier` - returns the unique event identifier.
+* `event.problemId` - returns the (node) ID of the problem.
+* `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
+* `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
+
+
+
+
+
 
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
