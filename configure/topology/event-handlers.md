@@ -89,13 +89,13 @@ You can add logging statements to an event handler function for debug purposes, 
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function also has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
+An asynchronous event handler function also has access to the [StackState script APIs](/develop/reference/scripting/script-apis/README.md). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
 
 The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
 ### Properties for asynchronous functions
 
-The properties described below can be retrieved from the default parameters in an event handler function with asynchroinous execution.
+The properties described below can be retrieved from the default parameters in an event handler function with asynchronous execution.
 
 **View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
 
@@ -291,8 +291,8 @@ Synchronous event handler functions use plugins to send notifications to externa
 
 ## See also
 
-* [Enable logging for functions](../logging/enable-logging.md)
-* [Send event notifications when a health state changes](../../use/health-state-and-event-notifications/send-event-notifications.md)
-* [StackState script APIs](../../develop/reference/scripting/script-apis/)
+* [Enable logging for functions](/configure/logging/enable-logging.md)
+* [Send event notifications when a health state changes](/use/health-state-and-event-notifications/send-event-notifications.md)
+* [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
 * [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)
 
