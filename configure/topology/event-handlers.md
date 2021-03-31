@@ -113,7 +113,6 @@ The properties described below can be retrieved from the default parameters in a
 * [ProblemSubsumedEvent](#problemsubsumedevent-properties) 
 * [ProblemResolvedEvent](#problemresolvedevent-properties) 
 
-
 #### HealthStateChangedEvent properties
 
 The properties listed below return details of a HealthStateChangedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
@@ -178,17 +177,6 @@ The properties listed below return details of a ProblemResolvedEvent. Note that 
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
-
--------
-
-
-* `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
-* `event.causeId` - returns the UUID of the event that triggered the health state change.
-* `event.newState` - returns the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
-* `event.oldState` - returns the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
-* `event.stackElement` - returns the node ID of the element that has changed its state. For HealthStateChangedEvents only.
-* `event.stateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
-* `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state. For ViewHealthStateChangedEvents only
 
 ## Synchronous functions \(async Off\)
 
