@@ -106,12 +106,17 @@ The properties described below can be retrieved from the default parameters in a
 **Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
 
 `event.triggeredTimestamp`
-
+    
 * **Event types**: All
-* Returns the time  \(epoch in ms\) at which the state change occurred. 
+* Returns the time \(epoch in ms\) at which the event was generated. 
 
 
 `event.causeId`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`<br />Returns the UUID of the event that triggered the health state change.
+
+| Property | Description | 
+|:---|:---|
+| `event.causeId` |Returns the UUID of the event that triggered the health state change. For event types: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent` |
+
 
 * `event.newState` - returns the current state of the element.<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`
 * `event.oldState`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`<br />Returns the previous state of the element.
