@@ -105,13 +105,13 @@ The properties described below can be retrieved from the default parameters in a
 
 **Event** properties return details of a received event and vary for the different event types:
 
-* [HealthStateChangedEvent](#healthstatechangedevent-properties) properties
+* [HealthStateChangedEvent](#healthstatechangedevent-properties)
 * [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties)
-* Properties for a [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties)
-* ProblemCreatedEvent properties
-* ProblemUpdatedEvent properties
-* ProblemSubsumedEvent properties
-* ProblemResolvedEvent properties
+* [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties)
+* [ProblemCreatedEvent](#problemcreatedevent-properties) 
+* [ProblemUpdatedEvent](#problemupdatedevent-properties) 
+* [ProblemSubsumedEvent](#problemsubsumedevent-properties) 
+* [ProblemResolvedEvent](#problemresolvedevent-properties) 
 
 
 #### HealthStateChangedEvent properties
