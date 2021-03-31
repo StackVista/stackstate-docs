@@ -12,12 +12,12 @@ If a new release of a StackPack is included with your current version of StackSt
 
 | StackPack | StackState v4.3 | StackState v4.2 | StackState v4.1 |
 | :--- | :--- | :--- | :--- |
-| [Autonomous Anomaly Detector \(BETA\)](../../stackpacks/add-ons/aad.md) | | [**0.6.0**](../../stackpacks/add-ons/aad.md#release-notes) | 0.5.0 |
-| [Health Forecast](../../stackpacks/add-ons/health-forecast.md) | | 1.0.3 | 1.0.3 |
+| [Autonomous Anomaly Detector \(BETA\)](../../stackpacks/add-ons/aad.md) | [**1.0.0**](../../stackpacks/add-ons/aad.md#release-notes) | 0.6.0 | 0.5.0 |
+| [Health Forecast](../../stackpacks/add-ons/health-forecast.md) | 1.0.3 | 1.0.3 | 1.0.3 |
 | [StackState Agent](../../stackpacks/integrations/agent.md) | | [**3.12.0**](../../stackpacks/integrations/agent.md#release-notes) | 3.11.0 |
-| [AWS](../../stackpacks/integrations/aws.md) | | [**5.0.2**](../../stackpacks/integrations/aws.md#release-notes) | 5.0.1 |
+| [AWS](../../stackpacks/integrations/aws.md) | [**6.0.3**](../../stackpacks/integrations/aws.md#release-notes) | 5.0.2 | 5.0.1 |
 | [Azure](../../stackpacks/integrations/azure.md) | | 4.0.2 | [**4.0.2**](/stackpacks/integrations/azure.md#release-notes) |
-| [API integration](../../stackpacks/integrations/api-integration.md) | | 2.3.1 | **2.3.1** |
+| [API integration](../../stackpacks/integrations/api-integration.md) | **3.0.3** | 2.3.1 | 2.3.1 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | | 1.2.1 | **1.2.1** |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | | 3.0.1 | [**3.0.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | | [**1.0.0**](../../stackpacks/integrations/dynatrace.md#release-notes) | - | - |
