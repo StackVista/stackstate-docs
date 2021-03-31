@@ -58,15 +58,11 @@ A full list of the StackPacks shipped with each supported version of StackState 
 
 ### New Minor StackPack version
 
-To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. Note that any custom configuration items will be overwritten when you upgrade. To keep using a custom configuration after upgrade:
-
-1. During the upgrade process, choose to **KEEP** the existing configuration. StackState will create a new configuration file for the upgraded StackPack version alongside the existing \(old\) configuration file.
-2. Copy custom configuration items from the old configuration file to the newly created configuration file.
-
+To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. Note that all [locked configuration items](#locked-configuration-items) will be overwritten when you upgrade. To continue using any changes made to these, choose to **KEEP** the existing configuration when you upgrade the StackPack. 
 
 ### New Major StackPack version
 
-To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that any custom configuration items will be overwritten when the upgraded StackPack is installed.
+To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that  all [locked configuration items](#locked-configuration-items) will be overwritten when the upgraded StackPack is installed.
 
 
 
