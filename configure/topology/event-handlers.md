@@ -278,19 +278,6 @@ The properties listed below return details of a `ProblemResolvedEvent` in functi
 * `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 
-
-
-
-
-
-**Event** properties return details of a received event and vary for the different event types. Note that the default parameter name is`event`, this can be modified if you choose.
-
-* `event.getCauseId` - returns the UUID of the event that triggered the health state change.
-* `event.getTriggeredTimestamp` - returns the time \(epoch in ms\) at which the state change occurred. 
-* `event.getNewStateRef` - returns an object representing the current state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
-* `event.getOldStateRef` - returns an object representing the previous state of the element. For HealthStateChangedEvents and  ViewHealthStateChangedEvents.
-* `event.getStateChanges` - returns the chain of elements through which the health state change propagated. For PropagatedHealthStateChangedEvents only.
-
 ### Plugins for synchronous functions
 
 Synchronous event handler functions use plugins to send notifications to external systems. The following plugins are available for use in custom event handler functions:
