@@ -292,7 +292,7 @@ Synchronous event handler functions use plugins to send notifications to externa
 ## See also
 
 * [Enable logging for functions](/configure/logging/enable-logging.md)
-* [Send event notifications when a health state changes](/use/health-state-and-event-notifications/send-event-notifications.md)
+* [Send event notifications using an event handler function](/use/health-state-and-event-notifications/send-event-notifications.md)
 * [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
 * [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)
 
