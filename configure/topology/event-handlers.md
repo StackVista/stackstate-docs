@@ -106,16 +106,16 @@ The properties described below can be retrieved from the default parameters in a
 **Event** properties return details of a received event and vary for the different event types:
 
 * Health state change events:
-    * [HealthStateChangedEvent](#healthstatechangedevent-properties)
-    * [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties)
-    * [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties)
+    * [HealthStateChangedEvent](#healthstatechangedevent-properties-async)
+    * [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties-async)
+    * [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties-async)
 * Problem events:
-    * [ProblemCreatedEvent](#problemcreatedevent-properties) 
-    * [ProblemUpdatedEvent](#problemupdatedevent-properties) 
-    * [ProblemSubsumedEvent](#problemsubsumedevent-properties) 
-    * [ProblemResolvedEvent](#problemresolvedevent-properties) 
+    * [ProblemCreatedEvent](#problemcreatedevent-properties-async) 
+    * [ProblemUpdatedEvent](#problemupdatedevent-properties-async) 
+    * [ProblemSubsumedEvent](#problemsubsumedevent-properties-async) 
+    * [ProblemResolvedEvent](#problemresolvedevent-properties-async) 
 
-#### HealthStateChangedEvent properties
+#### HealthStateChangedEvent properties (async)
 
 The properties listed below return details of a `HealthStateChangedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
@@ -125,7 +125,7 @@ The properties listed below return details of a `HealthStateChangedEvent`. Note 
 * `event.oldState` - returns the previous state of the element.
 * `event.stackElement` - returns the node ID of the element that has changed its state.
 
-#### ViewHealthStateChangedEvent properties
+#### ViewHealthStateChangedEvent properties (async)
 
 The properties listed below return details of a `ViewHealthStateChangedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
@@ -135,7 +135,7 @@ The properties listed below return details of a `ViewHealthStateChangedEvent`. N
 * `event.oldState` - returns the previous state of the element.
 * `event.viewHealthState` - returns the node ID of the health state object for the view that changed its state.
 
-#### PropagatedHealthStateChangedEvent properties
+#### PropagatedHealthStateChangedEvent properties (async)
 
 The properties listed below return details of a `PropagatedHealthStateChangedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
@@ -143,7 +143,7 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
 * `event.stateChanges` -returns the chain of elements through which the health state change propagated.
 
-#### ProblemCreatedEvent properties
+#### ProblemCreatedEvent properties (async)
 
 The properties listed below return details of a `ProblemCreatedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
@@ -152,7 +152,7 @@ The properties listed below return details of a `ProblemCreatedEvent`. Note that
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.rootCause` - returns the node ID of the root cause component.
 
-#### ProblemUpdatedEvent properties
+#### ProblemUpdatedEvent properties (async)
 
 The properties listed below return details of a `ProblemUpdatedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
@@ -161,7 +161,7 @@ The properties listed below return details of a `ProblemUpdatedEvent`. Note that
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.rootCause` - returns the node ID of the root cause component.
 
-#### ProblemSubsumedEvent properties
+#### ProblemSubsumedEvent properties (async)
 
 The properties listed below return details of a `ProblemSubsumedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
@@ -170,7 +170,7 @@ The properties listed below return details of a `ProblemSubsumedEvent`. Note tha
 * `event.problemId` - returns the (node) ID of the problem.
 * `event.nodes` - returns the list of node ids of all the components that were related to the problem before it was subsumed.
 
-#### ProblemResolvedEvent properties
+#### ProblemResolvedEvent properties (async)
 
 The properties listed below return details of a `ProblemResolvedEvent`. Note that the default parameter name is`event`, this can be modified if you choose.
 
