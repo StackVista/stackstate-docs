@@ -111,9 +111,7 @@ The properties described below can be retrieved from the default parameters in a
 * Returns the time  \(epoch in ms\) at which the state change occurred. 
 
 
-`event.causeId`
-**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`
-Returns the UUID of the event that triggered the health state change.
+`event.causeId`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`<br />Returns the UUID of the event that triggered the health state change.
 
 * `event.newState`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`<br />Returns the current state of the element.
 * `event.oldState`<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`<br />Returns the previous state of the element.
