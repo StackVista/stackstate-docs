@@ -116,6 +116,7 @@ The properties described below can be retrieved from the default parameters in a
 | Property | Description | 
 |:---|:---|
 | `event.causeId` |Returns the UUID of the event that triggered the health state change. For event types: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent` |
+| `event.causeId` | For event types: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`, `PropagatedHealthStateChangedEvent`<br />Returns the UUID of the event that triggered the health state change. |
 
 
 * `event.newState` - returns the current state of the element.<br />**Event types**: `HealthStateChangedEvent`, `ViewHealthStateChangedEvent`
