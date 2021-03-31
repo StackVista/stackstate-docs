@@ -70,7 +70,7 @@ Note that all StackPack configuration items will be overwritten after a major St
 
 To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. 
 
-Note that all StackPack configuration items will be overwritten when you upgrade. To continue using any changes made to these:
+Note that all StackPack configuration items will be overwritten when you upgrade. Follow the steps below to continue using any changes made to these items.
 
 1. Before you upgrade, export each customized item:
     - Go to the **Settings** page in the StackState UI.
