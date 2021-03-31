@@ -106,7 +106,7 @@ The properties described below can be retrieved from the default parameters in a
 **Event** properties return details of a received event and vary for the different event types:
 
 * [HealthStateChangedEvent](#healthstatechangedevent-properties) properties
-* ViewHealthStateChangedEvent properties
+* [ViewHealthStateChangedEvent](#viewhealthstatechangedevent-properties)
 * Properties for a [PropagatedHealthStateChangedEvent](#propagatedhealthstatechangedevent-properties)
 * ProblemCreatedEvent properties
 * ProblemUpdatedEvent properties
@@ -116,7 +116,7 @@ The properties described below can be retrieved from the default parameters in a
 
 #### HealthStateChangedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a HealthStateChangedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -126,7 +126,7 @@ Note that the default parameter name is`event`, this can be modified if you choo
 
 #### ViewHealthStateChangedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a ViewHealthStateChangedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -136,7 +136,7 @@ Note that the default parameter name is`event`, this can be modified if you choo
 
 #### PropagatedHealthStateChangedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a PropagatedHealthStateChangedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -144,7 +144,7 @@ Note that the default parameter name is`event`, this can be modified if you choo
 
 #### ProblemCreatedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a ProblemCreatedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
 * `event.identifier` - returns the unique event identifier.
@@ -153,7 +153,7 @@ Note that the default parameter name is`event`, this can be modified if you choo
 
 #### ProblemUpdatedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a ProblemUpdatedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
@@ -162,7 +162,7 @@ Note that the default parameter name is`event`, this can be modified if you choo
 
 #### ProblemSubsumedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a ProblemSubsumedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
@@ -171,7 +171,7 @@ Note that the default parameter name is`event`, this can be modified if you choo
 
 #### ProblemResolvedEvent properties
 
-Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a ProblemResolvedEvent. Note that the default parameter name is`event`, this can be modified if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
