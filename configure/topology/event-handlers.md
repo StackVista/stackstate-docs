@@ -44,7 +44,8 @@ You can write your own custom event handler functions that react to state change
 3. Enter the required settings:
    * **Name** - A name to identify the event handler function.
    * **Description** - Optional. A description of the event handler function.
-   * **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
+   * **System parameters** - predefined parameters passed automatically to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
+   * **User parameters** - parameters that must be entered by the user when an event handler is added to the view. Event handler functions also include the predefined user parameter **event**. For details, see the section on [parameters](event-handlers.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
    * **Execution** - Event handler functions can be run as either Asynchronous \(default\) or Synchronous:
         - **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
@@ -61,13 +62,13 @@ You can write your own custom event handler functions that react to state change
 
 ## Parameters
 
-An event handler function takes system and user defined parameters. System parameters are predefined parameters passed automatically to the script.
+An event handler function includes predefined system and user parameters that are passed automatically to the event handler function script.
 
-* The **view** system parameter is passed to every event handler function and provides details of the view the event handler is in. 
-* An **event** user parameter is also required, these are the events that the event handler function will listens to.
+* The **view** system parameter is passed provides details of the view that the event handler is in. 
+* The **event** user parameter provides the events that the event handler function will listen to.
 * You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
 
-For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for asynchronous functions](event-handlers.md#properties-for-asynchronous-functions) and  [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
+For details of the properties that can be retrieved from the default **view** and **event** parameters, see [properties for asynchronous functions](event-handlers.md#properties-for-asynchronous-functions) and [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
 
 ## Supported event types
 
@@ -233,7 +234,7 @@ The properties listed below return details of a `ViewHealthStateChangedEvent` in
 * `event.getNewStateRef` - returns the current state of the element.
 * `event.getOldStateRef` - returns the previous state of the element.
 
-#### PropagatedHealthStateChanged properties (Synchronous)
+#### PropagatedHealthStateChangedEvent properties (Synchronous)
 
 The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
