@@ -49,7 +49,7 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 ## Upgrade a StackPack
 
 {% hint style="warning" %}
-When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items)
+When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
  {% endhint %}
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
@@ -58,11 +58,13 @@ A full list of the StackPacks shipped with each supported version of StackState 
 
 ### New Minor StackPack version
 
-To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. Note that all [locked configuration items](#locked-configuration-items) will be overwritten when you upgrade. To continue using any changes made to these, choose to **KEEP** the existing configuration when you upgrade the StackPack. 
+To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. Note that all StackPack configuration items will be overwritten when you upgrade. To continue using any changes made to these, choose to **KEEP** the existing configuration when you upgrade the StackPack.
+
+For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 
 ### New Major StackPack version
 
-To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that all [locked configuration items](#locked-configuration-items) will be overwritten when the upgraded StackPack is installed.
+To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. Note that  all StackPack configuration items will be overwritten when the upgraded StackPack is installed. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 
 
 
