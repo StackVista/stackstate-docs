@@ -6,7 +6,7 @@ Problems in StackState generate events that can be used to trigger event notific
 
 ## See also
 
-- [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)
-- [Event handlers](/configure/topology/event-handlers.md)
 - [What is a problem?](/use/problems/problems.md)
 - [Problem navigation](/use/problems/problem_navigation.md)
+- [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)
+- [Event handlers](/configure/topology/event-handlers.md)
