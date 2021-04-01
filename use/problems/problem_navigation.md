@@ -16,10 +16,6 @@ Click the **INVESTIGATE IN SUBVIEW** button to open all components and relations
 
 For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](/use/problems/problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
 
-{% hint style="info" %}
-Note that the probable causes in a problem details pane may include events that occurred outside of the currently selected time window. You may need to adjust the time window in the timeline to open an event.
-{% endhint %}
-
 ### Anomaly events
 
 Anomaly events are generated whenever an anomaly is detected by the [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md). For metric stream anomalies, details of the metric stream where the anomaly was found are available in the event details pane.
@@ -44,15 +40,7 @@ Element properties changed events are generated whenever relevant properties of 
 
 ### Version changed events
 
-Version changed events are generated whenever the `version` property of a component is updated. Details of the old version and new version are included in the full list of event properties.
-
-1. Click on a Version changed event in the Events Perspective.
-    - The event details pane opens on the right of the screen.
-2. Click on SHOW EVENT PROPERTIES in the event details pane.
-    - The full list of event properties are displayed.
-3. Scroll down to find the old and new version numbers.
-
-![Event properties - old and new version details](/.gitbook/assets/v43_event_properties_version_changed.png)
+Version changed events are generated whenever the `version` property of a component is updated.
 
 ## Problem subview
 
