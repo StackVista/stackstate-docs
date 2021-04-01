@@ -27,7 +27,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Nagios](../../stackpacks/integrations/nagios.md) | [**3.0.2**](../../stackpacks/integrations/nagios.md#release-notes) | 2.4.0 | 2.3.1 | 
 | [Openshift](../../stackpacks/integrations/openshift.md) | [**4.0.2**](/stackpacks/integrations/openshift.md#release-notes) | 3.5.2 | 3.5.2 |
 | [SAP](../../stackpacks/integrations/sap.md) | [**2.0.2**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | 1.2.0 | 1.1.0 |
-| [SCOM](../../stackpacks/integrations/scom.md) | **3.0.2** | 1.2.2 | 1.2.2 |
+| [SCOM \(BETA\)](../../stackpacks/integrations/scom.md) | **3.0.2** | 1.2.2 | 1.2.2 |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | [**6.0.2**](../../stackpacks/integrations/servicenow.md#release-notes) | 5.1.0 | 4.0.1 |
 | Slack | **0.0.4** | - | - |
 | [Splunk](../../stackpacks/integrations/splunk/) | [**2.0.3**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | 1.0.0 | 1.0.0 |
