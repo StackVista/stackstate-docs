@@ -42,10 +42,50 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
        username: <username> # Admin
        password: <password> # cloudera
 
-       # Cloudra API version
+       # Cloudera API version
        # mandatory
        api_version: <api_version> # v18
      ```
 2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
+## Release notes
+
+** Cloudera StackPack v2.0.2 (2021-03-30)**
+
+- Bugfix: Common bumped from 2.4.3 to 3.0.0
+
+** Cloudera StackPack v2.0.1 (2021-03-29)**
+
+- Bugfix: Update the minimum required StackState version to 4.3.0.
+
+** Cloudera StackPack v2.0.0 (2021-03-26)**
+
+- Improvements: Enable auto grouping on generated views.
+- Improvements: Update documentation.
+- Improvements: Common bumped from 2.2.3 to 2.4.3
+- Improvements: Removal of deprecated layers 
+
+** Cloudera StackPack v1.2.1 (2020-08-18)**
+
+- Feature: Introduced the Release notes pop up for customer
+
+** Cloudera StackPack v1.2.0 (2020-08-04)**
+
+- Improvements: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvements: Replace resolveOrCreate with getOrCreate.
+
+** Cloudera StackPack v1.1.0 (2020-04-10)**
+
+- Improvements: Updated StackPacks integration page, categories, and icons for the SaaS trial
+
+** Cloudera StackPack v1.0.1 (2020-04-03)**
+
+- Bugfix: Change pre-requisite to AgentV2 and improve documentation texts
+
+** Cloudera StackPack v1.0.0 (2020-01-15)**
+
+This is the first public release of the Cloudera StackPack that provides support to monitor your Cloudera Manager instance. **NOTE**:- We support Cloudera version 5.11.
+
+- Feature: Gathers Topology from your Cloudera Manager instance and allows visualization of your Cloudera components and the relations between them.
+- Feature: Monitoring of your Cloudera components, including health statuses of all your components.
