@@ -32,7 +32,7 @@ Traces and components are tightly related. The traces visible in the Traces Pers
 
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which traces are displayed. Read more about [Topology Filters](/use/filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which traces are displayed. Read more about [Topology Filters](/use/view_filters.md#topology-filters)
 
 ### Trace Filters
 

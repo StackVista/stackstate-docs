@@ -48,7 +48,7 @@ You can write your own custom event handler functions that react to state change
    * **User parameters** - parameters that must be entered by the user when an event handler is added to the view. Event handler functions also include the predefined user parameter **event**. For details, see the section on [parameters](event-handlers.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
    * **Execution** - Event handler functions can be run as either Asynchronous \(default\) or Synchronous:
-        - **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
+        - **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function script will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
         - **Synchronous** - use for event handlers that generate email, SMS or HTTP webhook event notifications. The function will use plugins to send notifications to external systems.
    * **Script** - The script run by the function. For details, see the sections below on:
         - [Functions with Asynchronous execution](#asynchronous-execution-default).
@@ -64,22 +64,23 @@ You can write your own custom event handler functions that react to state change
 
 An event handler function includes predefined system and user parameters that are passed automatically to the event handler function script.
 
-* The **view** system parameter is passed provides details of the view that the event handler is in. 
+* The **view** system parameter provides details of the view that the event handler has been added to. 
 * The **event** user parameter provides the events that the event handler function will listen to.
-* You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
+
+You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
 
 For details of the properties that can be retrieved from the default **view** and **event** parameters, see [properties for asynchronous functions](event-handlers.md#properties-for-asynchronous-functions) and [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
 
 ## Supported event types
 
-One or more supported event types can be added for each event handler function. The supported event types are used to determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 One or more of the following events can be selected:
 
 * **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 * **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 * **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes.
-* **Problem changed events** - For functions that will react to `ProblemCreatedEvent`, `ProblemUpdatedEvent`, `ProblemSubsumedEvent` or `ProblemResolvedEvent`. These events are generated for changes to [problems](/use/problem-investigation/problem_identification.md) in the view.
+* **Problem changed events** - For functions that will react to `ProblemCreatedEvent`, `ProblemUpdatedEvent`, `ProblemSubsumedEvent` or `ProblemResolvedEvent`. These events are generated for changes to [problems](/use/problems/problems.md) in the view.
 
 ## Logging
 

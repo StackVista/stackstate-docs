@@ -2,7 +2,7 @@
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](/use/problem-investigation/problem_identification.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](#problem-details-pane) with further information about the problem.
+Unhealthy components in a view are grouped into [problems](/use/problems/problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](#problem-details-pane) with further information about the problem.
 
 ![View Details pane](/.gitbook/assets/v43_view_details_problems.png)
 
@@ -14,7 +14,7 @@ Click the **INVESTIGATE IN SUBVIEW** button to open all components and relations
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](/use/problem-investigation/problem_identification.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
+For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](/use/problems/problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
 
 {% hint style="info" %}
 Note that the probable causes in a problem details pane may include events that occurred outside of the currently selected time window. You may need to adjust the time window in the timeline to open an event.
@@ -76,6 +76,6 @@ A problem is considered to start one hour before the timestamp of the first repo
 
 ## See also
 
-- [Problem identification](/use/problem-investigation/problem_identification.md)
+- [Problem identification](/use/problems/problems.md)
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
 - [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)

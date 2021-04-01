@@ -29,7 +29,7 @@ The health state of an element is derived from metrics and events data in the te
 
 ### Problem event notifications
 
-StackState will group unhealthy components together into [problems](/use/problem-investigation/problem_identification.md) and generate events that track changes to them. Event handlers associated with a view can listen to the generated problem events and trigger a configured event notification or action.
+StackState will group unhealthy components together into [problems](/use/problems/problems.md) and generate events that track changes to them. Event handlers associated with a view can listen to the generated problem events and trigger a configured event notification or action.
 
 ## Add an event handler to a view
 
@@ -65,7 +65,7 @@ You can [add an event handler to a view](#add-an-event-handler-to-a-view) to tri
 
 ### Problem events
 
-StackState will group unhealthy components in a view into problems and [generate problem events](/use/problem-investigation/problem_identification.md#events-generated-by-problems) that track changes to them. Event handlers can listen to the generated events to trigger event notifications and actions. If you choose to run an event handler in response to problem events in a view, you will need to write a compatible [event handler function](/configure/topology/event-handlers.md).
+StackState will group unhealthy components in a view into problems and [generate problem events](/use/problems/problems.md#events-generated-by-problems) that track changes to them. Event handlers can listen to the generated events to trigger event notifications and actions. If you choose to run an event handler in response to problem events in a view, you will need to write a compatible [event handler function](/configure/topology/event-handlers.md).
 
 ## See also
 

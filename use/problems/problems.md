@@ -53,6 +53,6 @@ The following events will be generated:
 
 ## See also
 
-- [How to navigate through a problem in the StackState UI](/use/problem-investigation/problem_navigation.md)
+- [How to navigate through a problem in the StackState UI](/use/problems/problem_navigation.md)
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
 - [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)
