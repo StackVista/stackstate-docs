@@ -23,7 +23,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**2.1.0**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.0.0 | - | - |
 | [Humio](../../stackpacks/integrations/humio.md) | 1.0.0 | 1.0.0 | 1.0.0 |
 | [Kubernetes](../../stackpacks/integrations/kubernetes.md) | **4.0.2** | 3.7.2 | 3.7.2 |
-| [Manual topology](../../stackpacks/integrations/manualtopo.md) | | 2.0.1 | **2.0.1** |
+| [Manual topology](../../stackpacks/integrations/manualtopo.md) | **3.0.1** | 2.0.1 | 2.0.1 |
 | [Nagios](../../stackpacks/integrations/nagios.md) | [**3.0.2**](../../stackpacks/integrations/nagios.md#release-notes) | 2.4.0 | 2.3.1 | 
 | [Openshift](../../stackpacks/integrations/openshift.md) | [**4.0.2**](/stackpacks/integrations/openshift.md#release-notes) | 3.5.2 | 3.5.2 |
 | [SAP](../../stackpacks/integrations/sap.md) | [**2.0.2**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | 1.2.0 | 1.1.0 |
