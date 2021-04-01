@@ -264,6 +264,23 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
+**Kubernetes StackPack v4.0.2 (2021-03-30)**
+
+- Bug fix: Common bumped from 2.4.3 to 3.0.0
+- Bug fix: K8S-common bumped from 3.0.0 to 3.0.1
+
+**Kubernetes StackPack v4.0.1 (2021-03-29)**
+
+- Bug fix: Update the minimum required StackState version to 4.3.0.
+
+**Kubernetes StackPack v4.0.0 (2021-03-26)**
+
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Update documentation.
+- Improvement: Common bumped from 2.4.1 to 2.4.3
+- Improvement: K8S-common bumped from 2.5.0 to 3.0.0
+
+
 **Kubernetes StackPack v3.8.0 (2021-03-08)**
 
 - Feature: Namespaces are now a component in StackState with a namespaces view for each cluster
@@ -289,45 +306,6 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 **Kubernetes StackPack v3.6.0 (2020-06-19)**
 
 - Improvement: Set the stream priorities on all streams.
-
-**Kubernetes StackPack v3.5.0 (2020-05-27)**
-
-- Feature: Removing the Container restart check
-
-**Kubernetes StackPack v3.4.0 (2020-05-25)**
-
-- Feature: Added Kubernetes topology expiration.
-
-**Kubernetes StackPack v3.3.0 (2020-04-10)**
-
-- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
-
-
-**Kubernetes StackPack v3.2.0 (2020-04-03)**
-
-- Improvement: Added Kubernetes topology expiration.
-
-**Kubernetes StackPack v3.1.0 (2020-03-23)**
-
-- Improvement: Kubernetes tracing documentation updated.
-- Improvement: Kube state metrics installation documentation added.
-
-**Kubernetes StackPack v3.0.0 (2020-03-12)**
-
-- Improvement: Use Full Cause Tree visibility on all views to show root cause analysis. (Breaking Change)
-
-**Kubernetes StackPack v2.2.1 (2020-03-09)**
-
-- Bug fix: Fixed the monitoring of Kubernetes Cron Jobs to view all successful and failed jobs.
-
-**Kubernetes StackPack v2.2.0 (2020-03-09)**
-
-- Feature: Added cluster name (and optional namespace) to all metric / event telemetry query conditions to support multiple Kubernetes clusters.
-
-**Kubernetes StackPack v2.1.1 (2019-12-19)**
-
-- Improvement: Packaging of Kubernetes manifests in the build pipeline.
-- Bug fix: Fixed Kubernetes synchronization to support multiple kubernetes clusters as domains in StackState.
 
 ## See also
 

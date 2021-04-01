@@ -22,7 +22,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | [**4.0.2**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 | 3.0.1 |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**2.1.0**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.0.0 | - | - |
 | [Humio](../../stackpacks/integrations/humio.md) | 1.0.0 | 1.0.0 | 1.0.0 |
-| [Kubernetes](../../stackpacks/integrations/kubernetes.md) | **4.0.2** | 3.7.2 | 3.7.2 |
+| [Kubernetes](../../stackpacks/integrations/kubernetes.md) | [**4.0.2**](/stackpacks/integrations/kubernetes.md#release-notes) | 3.7.2 | 3.7.2 |
 | [Manual topology](../../stackpacks/integrations/manualtopo.md) | [**3.0.1**](/stackpacks/integrations/manualtopo.md#release-notes) | 2.0.1 | 2.0.1 |
 | [Nagios](../../stackpacks/integrations/nagios.md) | [**3.0.2**](../../stackpacks/integrations/nagios.md#release-notes) | 2.4.0 | 2.3.1 | 
 | [Openshift](../../stackpacks/integrations/openshift.md) | [**4.0.2**](/stackpacks/integrations/openshift.md#release-notes) | 3.5.2 | 3.5.2 |
