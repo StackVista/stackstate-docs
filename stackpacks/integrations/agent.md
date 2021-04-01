@@ -268,6 +268,44 @@ To check if the StackState Agent is running and receive information about the Ag
 
 ## Release notes
 
+**Agent V2 StackPack v5.0.2 (2021-03-30)**
+
+- Bugfix: Common bumped from 2.4.3 to 3.0.0.
+
+**Agent V2 StackPack v5.0.1 (2021-03-29)**
+
+- Bugfix: Update the minimum required StackState version to 4.3.0.
+
+**Agent V2 StackPack v5.0.0 (2021-03-26)**
+
+- Features: Introduced swarm services as components and relations with containers.
+- Features: Report desired replicas and active replicas for swarm services.
+- Features: Health check added for swarm service on active replicas.
+- Improvements: Enable auto grouping on generated views.
+- Improvements: Common bumped from 2.3.1 to 2.4.3
+- Improvements: Removal of deprecated layers 
+
+**Agent V2 StackPack v4.2.1 (2021-03-11)**
+
+- Bugfix: Fix for trace service types causing spurious updates on StackState.
+
+**Agent V2 StackPack v4.2.0 (2021-02-26)**
+
+- Features: Map the container restart event stream as metric stream.
+- Features: Introduced the container health check for restart event.
+- Features: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
+- Features: Separate Sync and DataSource added for Disk Type.
+
+**Agent V2 StackPack v4.1.0 (2021-02-08)**
+
+- Improvements: Updated the "Agent Container Mapping Function" and "Agent Container Template" to map the container name instead of the container id to the identifier 
+  
+- Bugfix: Fix the error stream for the traces not coming from traefik.
+
+**Agent V2 StackPack v4.0.0 (2021-01-29)**
+
+- Bugfix: Major bump the version for installation fix
+
 **Agent V2 StackPack v3.12.0 \(2020-12-15\)**
 
 * Feature: Split error types in traces into:
@@ -284,44 +322,4 @@ To check if the StackState Agent is running and receive information about the Ag
 
 * Feature: Introduced the Release notes pop up for customer.
 * Feature: Introduced the Docker-Swarm mode setup docs in Docker integration.
-
-**Agent V2 StackPack v3.10.0 \(2020-08-04\)**
-
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-
-**Agent V2 StackPack v3.9.0 \(2020-07-22\)**
-
-* Feature: Add metrics to trace call relations
-* Improvement: Remove Openshift integration from StackState Agent V2
-* Improvement: Improve Docker integration in StackState Agent V2.
-
-**Agent V2 StackPack v3.8.1 \(2020-06-22\)**
-
-* Bugfix: Fixed StackPack upgrade problem when there are Components in Host Layer.
-
-**Agent V2 StackPack v3.8.0 \(2020-06-19\)**
-
-* Improvement: Set the stream priorities on all streams.
-
-**Agent V2 StackPack v3.7.1 \(2020-06-03\)**
-
-* Bugfix: Remove duplicate streams.
-
-**Agent V2 StackPack v3.7.0 \(2020-05-27\)**
-
-* Improvement: Fix component template to use `Service-Instance` and `Service` icon.
-
-**Agent V2 StackPack v3.6.0 \(2020-05-26\)**
-
-* Improvement: Switched to use of Host layer from Common StackPack.
-* Improvement: Added icon for `Service-Instance` component type.
-
-**Agent V2 StackPack v3.5.0 \(2020-05-14\)**
-
-* Improvement: Added priorities to metrics streams.
-* Bugfix: Fixed service name extraction from tags for service names that contains a ":".
-
-**Agent V2 StackPack v3.4.0 \(2020-04-28\)**
-
-* Improvement: Updated Trace Service and Service Instance templates to support domain traces.
 
