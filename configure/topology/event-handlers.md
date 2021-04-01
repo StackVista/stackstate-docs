@@ -170,7 +170,7 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
-* `event.nodes` - returns the list of node ids of all the components that were related to the problem before it was subsumed.
+* `event.nodes` - returns the list of node IDs of all the components that were related to the problem before it was subsumed.
 
 #### ProblemResolvedEvent properties (Asynchronous)
 
@@ -179,7 +179,7 @@ The properties listed below return details of a `ProblemResolvedEvent` in functi
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
-* `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
+* `event.nodes` - returns the list of node IDs of all the components (usually just one) that were related to the problem before it was resolved.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 
 ## Synchronous execution
@@ -268,7 +268,7 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
-* `event.nodes` - returns the list of node ids of all the components that were related to the problem before it was subsumed.
+* `event.nodes` - returns the list of node IDs of all the components that were related to the problem before it was subsumed.
 
 #### ProblemResolved properties (Synchronous)
 
@@ -277,7 +277,7 @@ The properties listed below return details of a `ProblemResolvedEvent` in functi
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the (node) ID of the problem.
-* `event.nodes` - returns the list of node ids of all the components (usually just one) that were related to the problem before it was resolved.
+* `event.nodes` - returns the list of node IDs of all the components (usually just one) that were related to the problem before it was resolved.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 
 ### Plugins for synchronous functions

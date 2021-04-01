@@ -74,7 +74,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- Fixed issue where duplicate negative ids in a component template leads to `lastUpdateTimstampField` missing. STAC-11495
+- Fixed issue where duplicate negative IDs in a component template leads to `lastUpdateTimstampField` missing. STAC-11495
 - Fix issue where kafkaToES would not log when it is dropping data. STAC-11434
 - Fixed issue where kafkaToES would not adhere to the index size boundaries when historic data is stored. STAC-11433
 - Upload of a new StackPack now returns more details on why an uploaded StackPack is not valid. STAC-11094
