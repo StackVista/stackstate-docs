@@ -21,7 +21,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | **2.0.2** | 1.2.1 | 1.2.1 |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | [**4.0.2**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 | 3.0.1 |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**2.1.0**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.0.0 | - | - |
-| [Humio](../../stackpacks/integrations/humio.md) |  | 1.0.0 | 1.0.0 |
+| [Humio](../../stackpacks/integrations/humio.md) | 1.0.0 | 1.0.0 | 1.0.0 |
 | [Kubernetes](../../stackpacks/integrations/kubernetes.md) | **4.0.2** | 3.7.2 | 3.7.2 |
 | [Manual topology](../../stackpacks/integrations/manualtopo.md) | | 2.0.1 | **2.0.1** |
 | [Nagios](../../stackpacks/integrations/nagios.md) | [**3.0.2**](../../stackpacks/integrations/nagios.md#release-notes) | 2.4.0 | 2.3.1 | 
@@ -29,6 +29,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [SAP](../../stackpacks/integrations/sap.md) | [**2.0.2**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | 1.2.0 | 1.1.0 |
 | [SCOM](../../stackpacks/integrations/scom.md) | **3.0.2** | 1.2.2 | 1.2.2 |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | [**6.0.2**](../../stackpacks/integrations/servicenow.md#release-notes) | 5.1.0 | 4.0.1 |
+| Slack | **0.0.4** | - | - |
 | [Splunk](../../stackpacks/integrations/splunk/) | [**2.0.3**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | 1.0.0 | 1.0.0 |
 | [Static topology](../../stackpacks/integrations/static_topology.md) | **3.0.2** | 2.2.1 | 2.2.1 |
 | [VMware vSphere](../../stackpacks/integrations/vsphere.md) | [**3.0.2**](/stackpacks/integrations/vsphere.md#release-notes) | 2.2.1 | 2.2.1 |
