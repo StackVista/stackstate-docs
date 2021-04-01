@@ -65,7 +65,7 @@ You can [add an event handler to a view](#add-an-event-handler-to-a-view) to tri
 
 ### Problem events
 
-StackState will group unhealthy components in a view into problems and [generate problem events](/use/problems/problems.md#events-generated-by-problems) that track changes to them. Event handlers can listen to the generated events to trigger event notifications and actions. If you choose to run an event handler in response to problem events in a view, you will need to write a compatible [event handler function](/configure/topology/event-handlers.md).
+StackState will group unhealthy components in a view into problems and [generate problem events](/use/problems/problem_notifications.md#events-generated-by-problems) that track changes to them. Event handlers can listen to the generated events to trigger event notifications and actions. If you choose to run an event handler in response to problem events in a view, you will need to write a compatible [event handler function](/configure/topology/event-handlers.md).
 
 ## See also
 

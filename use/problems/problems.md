@@ -22,7 +22,7 @@ When the root cause and all contributing cause components have changed to a CLEA
 
 If the components change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
 
-## Changes to root cause
+## Changes to problem root cause
 
 Updates to the health state of components in the landscape may result in a change to the root cause of problems. Perhaps an existing root cause switches to a healthy state or a previously healthy upstream dependency switches to an unhealthy state. 
 
