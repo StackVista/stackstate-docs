@@ -181,7 +181,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Features**
 
-- Telemetry perspective to see all Telemetry streams for a set of components. This first release is limited to 5 components at a time. In later releases this will be improved with a larger set of components which will be supported.
+- Telemetry Perspective to see all Telemetry streams for a set of components. This first release is limited to 5 components at a time. In later releases this will be improved with a larger set of components which will be supported.
 
 **Improvements**
 

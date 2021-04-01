@@ -69,11 +69,11 @@ Not all components displayed in the problem pane are necessarily also visible in
 
 ## Events
 
-To show all events for the selected Topology, select the Events perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](../health-state-and-event-notifications/send-event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
+To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](../health-state-and-event-notifications/send-event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
 ![Events Perspective](../../.gitbook/assets/v42_events-perspective.png)
 
-The Events perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
+The Events Perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
 
 ![Events section](../../.gitbook/assets/v42_events-section.png)
 
