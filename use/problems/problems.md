@@ -39,7 +39,7 @@ The following events will be generated:
 If the root cause component of a problem switches its state to healthy, the next unhealthy component at the bottom of the dependency chain will become the new root cause. If there are two or more potential new root causes, StackState will split the problem. As each problem can only have one root cause, a new problem will be created for each potential root cause. 
 
 The following events will be generated:
-- One `Problem updated` event for the problem that has the new root cause with the oldest health state change timestamp. 
+- One `Problem updated` event for the problem whose new root cause with the oldest health state change timestamp of all new root causes. 
 - `Problem created` events for all other new problems.
 
 ## See also
