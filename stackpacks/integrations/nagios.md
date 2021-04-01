@@ -77,7 +77,7 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 - Feature: Added event stream for passive service state events
 - Feature: Added event stream for service notification events
 - Feature: Added event stream and health check for service flapping events  
-- Feature: Added event stream and healh check for host flapping alerts
+- Feature: Added event stream and health check for host flapping alerts
 
 
 **Nagios StackPack v2.4.1 \(2020-11-02\)**
