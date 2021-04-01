@@ -8,9 +8,9 @@ Unhealthy components in a view are grouped into [problems](/use/problems/problem
 
 ## Problem Details pane
 
-The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed under [Probable Causes](#probable-causes).
+The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](#probable-causes).
 
-Click the **INVESTIGATE IN SUBVIEW** button to open all components and relations in a problem in a dedicated, temporary [problem subview](#problem-subview).
+Click the **INVESTIGATE IN SUBVIEW** button to open all components in a problem in a dedicated, temporary [problem subview](#problem-subview).
 
 ## Probable causes
 
@@ -64,6 +64,6 @@ A problem is considered to start one hour before the timestamp of the first repo
 
 ## See also
 
-- [Problem identification](/use/problems/problems.md)
+- [What is a problem?](/use/problems/problems.md)
+- [Problem notifications](/use/problems/problem_notifications.md)
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
-- [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)

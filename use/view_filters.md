@@ -2,9 +2,7 @@
 
 ## Overview
 
-The **View Filters** pane on the left side of the StackState UI allows you to filter the components, events and traces displayed in each perspective.
-
-The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
+The **View Filters** pane on the left side of the StackState UI allows you to filter the components (topology), events and traces displayed in each perspective.
 
 ## Topology filters
 
