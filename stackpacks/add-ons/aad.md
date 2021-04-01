@@ -16,7 +16,7 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ### Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation. 
+The AAD StackPack can only be installed within a [Kubernetes setup](/setup/installation/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation. 
 
 It is also possible to [install the AAD standalone](../../setup/installation/kubernetes_install/aad_standalone.md) within Kubernetes.
 
@@ -57,9 +57,13 @@ To uninstall the AAD StackPack, simply press the uninstall button. No other acti
 
 ## Release Notes
 
-Release notes for the [AAD StackPack](aad.md#aad-stackpack) are given below.
+Release notes for the AAD StackPack are given below.
 
 Note that from release 4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
+
+**Autonomous Anomaly Detector StackPack v1.0.0 (30-03-2021)**
+
+* Common version bumped from 2.4.3 to 3.0.0
 
 **Autonomous Anomaly Detector StackPack v0.8.1 (22-03-2021)**
 
