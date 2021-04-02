@@ -22,9 +22,9 @@ View health state is calculated by a **view state configuration function**. To c
 4. Select a **Configuration function** to use to calculate the view health. 
    * You can use the standard view state configuration function or [create your own](/configure/topology/view_state_configuration.md).
    * For details of the available configuration functions, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
-5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the standard [MINIMUM HEALTH STATES](#minimum-health-states) configuration function:
-    * **minCriticalHealthStates** - Set to at least `1`. The number of CRITICAL (red) health states required for the view to report a CRITICAL health state.
-    * **minDeviatingHealthStates** - Set to at least `1`. The number of DEVIATING (orange) health states required for the view to report a DEVIATING health state.
+5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the default [MINIMUM HEALTH STATES](#minimum-health-states) configuration function:
+    * **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL (red) health states required for the view to report a CRITICAL health state.
+    * **minDeviatingHealthStates** - Set to at least **1**. This is the number of DEVIATING (orange) health states required for the view to report a DEVIATING health state.
 6. Click **UPDATE** to save the new configuration to the view. 
    * The view health will update immediately.
 
@@ -39,7 +39,7 @@ You can [set up event handlers](send-event-notifications.md) to trigger event no
 ### MINIMUM HEALTH STATES
 
 {% hint style="info" %}
-**minCriticalHealthStates** and **minDeviatingHealthStates** must be set to `1` or higher, or the view will always report a critical health state.
+**minCriticalHealthStates** and **minDeviatingHealthStates** must be set to **1** or higher, or the view will always report a critical health state.
 {% endhint %}
 
 The **MINIMUM HEALTH STATES** view health state configuration function calculates the health state of the view as follows:
