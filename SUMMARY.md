@@ -71,7 +71,7 @@
   * [Anomaly detection with baselines (Deprecated)](use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 * [Problems](use/problems/README.md)
   * [What is a problem?](use/problems/problems.md)
-  * [Navigating a problem](use/problems/problem_navigation.md)
+  * [Investigate a problem](use/problems/problem_investigation.md)
   * [Problem notifications](use/problems/problem_notifications.md)
 * [Analytics](use/analytics.md)
 * [Glossary](use/glossary.md)

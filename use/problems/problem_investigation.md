@@ -1,4 +1,4 @@
-# Problem navigation
+# Problem investigation
 
 ## Overview
 
@@ -8,7 +8,7 @@ Unhealthy components in a view are grouped into [problems](/use/problems/problem
 
 ## Problem Details pane
 
-The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](#probable-causes).
+Click on a problem to open the **Problem details pane**. This gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](#probable-causes).
 
 Click the **INVESTIGATE IN SUBVIEW** button to open all components in a problem in a dedicated, temporary [problem subview](#problem-subview).
 
