@@ -80,7 +80,7 @@ One or more of the following events can be selected:
 * **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 * **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 * **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes.
-* **Problem changed events** - For functions that will react to `ProblemCreatedEvent`, `ProblemUpdatedEvent`, `ProblemSubsumedEvent` or `ProblemResolvedEvent`. These events are generated for changes to [problems](/use/problems/problems.md) in the view.
+* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](/use/problems/problems.md) in the view.
 
 ## Logging
 
