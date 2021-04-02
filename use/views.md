@@ -6,7 +6,9 @@ description: Bookmark and monitor parts of your IT landscape with views
 
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
-* The topology filter used to add elements \(components and relations\) to the view.
+* The [View filters](/use/view_filters.md):
+    - Topology filters are used to add elements \(components and relations\) to the view.
+    - Events and Traces filters refine the traces and events displayed.
 * Topology visualization settings.
 * Configuration to calculate the [view health state](#view-health-state).
 
@@ -79,7 +81,7 @@ Read more about how to [configure the view health state](/use/health-state-and-e
 By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](/configure/security/rbac/role_based_access_control.md).
 {% endhint %}
 
-To create a new view, navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the topology filtering settings a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
+To create a new view, navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the [View filters](/use/view_filters.md), a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
 
 In the dialog the following options appear:
 
