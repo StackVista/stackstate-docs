@@ -54,7 +54,7 @@
   * [ID extraction](use/introduction-to-stackstate/id_extraction.md)
   * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
 * [Explore mode](use/explore_mode.md)
-* [Filters for views](use/view_filters.md)
+* [View filters](use/view_filters.md)
 * [Views](use/views.md)
 * [Perspectives](use/perspetives/README.md)
   * [Topology Perspective](use/perspectives/topology-perspective.md)
