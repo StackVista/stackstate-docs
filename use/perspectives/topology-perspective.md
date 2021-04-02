@@ -26,7 +26,7 @@ The [topology filters](/use/view_filters.md#filter-topology) in the the **View F
 
 ## Filter displayed events
 
-The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the view details pane on the right of the StackState UI.
+The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the View Details pane on the right of the StackState UI.
 
 ## Interactive navigation
 

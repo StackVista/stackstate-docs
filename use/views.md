@@ -27,18 +27,14 @@ Views marked with a star will be included directly in the main menu for easy acc
 
 To access a list of all views, click **Views** from the main menu.
 
-## The View Details panel
+## The View Details pane
 
-{% hint style="info" %}
-To reopen the view details panel at any time, simply click on the white background in the topology visualization.
-{% endhint %}
+When you first open a view, the View Details pane will be visible on the right side of the StackState UI. This shows the following information:
 
-Whenever you first open a view you see a view details panel on the right side of the screen. This panel shows the following information.
-
-* **View properties** -- shows the view query and last updated timestamp.
-* **Components** -- shows a summary of the number of components in the view.
-* **Problem Clusters** -- shows the problem clusters for any problems in the view.
-* **Events** -- shows the 5 most recent events that occurred for components in the view. Click **View all** to show the [Events Perspective](/use/perspectives/events_perspective.md).
+* **View properties** - the view health state, query and last updated timestamp.
+* **Components** - a summary of the number of components in the view.
+* **Problems** -- any [problems](/use/problems/problems.md) in the view.
+* **Events** -- the most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](/use/perspectives/events_perspective.md).
 
 ## View health state
 
@@ -61,7 +57,7 @@ You can check the view health state in the following places in the StackState UI
 
 * **Health state of all views**: The view overview screen lists all views together with their health state.
 * **Health state of starred views**: The main menu lists all starred views together with their health state.
-* **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the view details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
+* **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the View Details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
 
 ![View health state in main menu](/.gitbook/assets/v42_view_health_main_menu.png)
 
@@ -106,7 +102,7 @@ It is not recommended to delete or edit views created by StackPacks. When doing 
 To delete or edit a view:
 
 1. Go to the list of views by clicking **Views** in the .
-2. In the view details panel on the right side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
+2. In the View Details pane on the right side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
 3. Select the **Delete** or **Edit** menu item.
 
 ## Secure views with RBAC

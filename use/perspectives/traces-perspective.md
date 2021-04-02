@@ -50,7 +50,7 @@ The Traces Perspective shows events matching the **Time Window** selected in the
 
 ## Filter displayed events
 
-The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the view details pane on the right of the StackState UI.
+The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the View Details pane on the right of the StackState UI.
 
 ## Traces and Topology
 

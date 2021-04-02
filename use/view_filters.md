@@ -66,7 +66,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters pane to filter the events shown in the [Events Perspective](/use/perspectives/events_perspective.md) and in the **Event** list in the view details pane on the right of the StackState UI. 
+You can use the View Filters pane to filter the events shown in the [Events Perspective](/use/perspectives/events_perspective.md) and in the **Event** list in the View Details pane on the right of the StackState UI. 
 
 The following event filters are available:
 
