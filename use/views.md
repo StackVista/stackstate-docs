@@ -13,7 +13,7 @@ The full topology available in StackState is likely much larger than you need to
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [Event notifications and automation](/use/health-state-and-event-notifications/send-event-notifications.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+2. Views can be used for [event notifications and automation](/use/health-state-and-event-notifications/send-event-notifications.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 ## Access a view
 

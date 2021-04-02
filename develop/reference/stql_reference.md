@@ -72,7 +72,7 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 #### Example
 
-The example below will return all components in the application layer that have a healthstate of either "CRITICAL" or "DEVIATING". Components with names "appA" or "appB" and their neighbors will also be included.
+The example below will return all components in the application layer that have a health state of either "CRITICAL" or "DEVIATING". Components with names "appA" or "appB" and their neighbors will also be included.
 
 ```text
 layer = "application"

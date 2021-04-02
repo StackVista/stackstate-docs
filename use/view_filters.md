@@ -1,8 +1,8 @@
-# Filter components in a view
+# View filters
 
 ## Overview
 
-The **View Filters** pane on the left side of the StackState UI allows you to filter the components (topology), events and traces displayed in each perspective.
+The **View Filters** pane on the left side of the StackState UI allows you to filter the components (topology), events and traces displayed in each perspective. Applied filters can be saved as a view to open directly in the future, views also allow you to generate a combined health state for the included elements and send event notifications. Read more about [StackState views](/use/views.md).
 
 ## Topology filters
 
@@ -29,7 +29,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `bambDB`
 
-![Filtering example](../../.gitbook/assets/v42_basic_filter_example.png)
+![Filtering example](/.gitbook/assets/v42_basic_filter_example.png)
 
 This could also be written as an advanced filter, see [advanced topology filters](view_filters.md#advanced-topology-filters).
 
@@ -40,10 +40,10 @@ You can use the in-built [StackState Query Language \(STQL\)](/develop/reference
 The example below uses an advanced filter to return components that match the following conditions:
 
 * In the domain `security check`
-* AND has a healthstate of `CLEAR` OR `DEVIATING`
+* AND has a health state of `CLEAR` OR `DEVIATING`
 * OR has the name `bambDB`
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v42_advanced_filter_example.png)
+![Filtering \(advanced filter\)](/.gitbook/assets/v42_advanced_filter_example.png)
 
 This could also be done using basic filters, see [basic topology filters](view_filters.md#basic-topology-filters).
 
