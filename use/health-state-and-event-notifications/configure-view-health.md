@@ -38,7 +38,7 @@ You can [set up event handlers](send-event-notifications.md) to trigger event no
 
 ### MINIMUM HEALTH STATES
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **minCriticalHealthStates** and **minDeviatingHealthStates** must be set to **1** or higher, or the view will always report a critical health state.
 {% endhint %}
 
