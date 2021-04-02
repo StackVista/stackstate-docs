@@ -38,19 +38,19 @@ PerspectiveUrlBuilder
   * `at(time: instant)` -  specifies a [time](time.md) for which the view query should be executed.
   * `topologyQuery(query: String)` - specifies a topology query
   * `withComponent(component)` - creates a view URL with the specified component in focus.
-  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the telemetry perspective 
+  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the Telemetry Perspective 
   
-  * `eventsPerspective()` - points the URL to the Events perspective
-  * `tracesPerspective()` - points the URL to the Traces perspective
-  * `telemetryPerspective()` - points the URL to the Telemetry perspective 
-  * `topologyPerspective()` - points the URL to the Topology perspective 
+  * `eventsPerspective()` - points the URL to the Events Perspective
+  * `tracesPerspective()` - points the URL to the Traces Perspective
+  * `telemetryPerspective()` - points the URL to the Telemetry Perspective 
+  * `topologyPerspective()` - points the URL to the Topology Perspective 
   
-  * `noRootCause()` - disable root cause analysis for the topology perspective
-  * `rootCauseOnly()` - show root cause on the topology perspective
-  * `fullCauseTree()` - show full cause tree on the topology perspective
+  * `noRootCause()` - disable root cause analysis for the Topology Perspective
+  * `rootCauseOnly()` - show root cause on the Topology Perspective
+  * `fullCauseTree()` - show full cause tree on the Topology Perspective
   
-  * `topologyListMode()` - use list mode on topology perspective
-  * `topologyGraphMode()` - use graph mode on topology perspective
+  * `topologyListMode()` - use list mode on Topology Perspective
+  * `topologyGraphMode()` - use graph mode on Topology Perspective
   
   * `withEventType(value: String)` - adds type to events filtering
   * `withEventTag(value: String)` - adds tag to events filtering
@@ -68,7 +68,7 @@ PerspectiveUrlBuilder
   * `groupingByTypeAndState()` or `groupingByTypeAndState(minimumGroupSize: Int)` - enables grouping of components on the topology in graph mode by component type and state and specifies a minimum number of components to form a group
   * `groupingByTypeStateAndRelations()` or `groupingByTypeStateAndRelations(minimumGroupSize: Int)` - enables grouping of components on the topology in graph mode by component type, state and relations and specifies a minimum number of components to form a group
   
-  * `showIndirectRelations()` - enables rendering of indirect relations on the topology perspective
+  * `showIndirectRelations()` - enables rendering of indirect relations on the Topology Perspective
     
   * `url()` - gives the final URL of the view.
 
@@ -92,7 +92,7 @@ View.getAll().then { views ->
 }
 ```
 
-Create a URL to the topology perspective explore mode with filters in place to show all components from the production environment that are in critical state and showing the full root cause tree
+Create a URL to the Topology Perspective explore mode with filters in place to show all components from the production environment that are in critical state and showing the full root cause tree
 
 ```groovy
 UI.createUrl().explore().topologyQuery('environment IN ("Production") AND healthstate IN ("CRITICAL")').fullCauseTree().url()

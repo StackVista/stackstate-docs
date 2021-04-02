@@ -214,7 +214,7 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 ### Component actions
 
-A number of [actions](/use/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the topology perspective
+A number of [actions](/use/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
 
 | Action | Available for<br />component types | Description|
 |:---|:---|:---|

@@ -1,24 +1,20 @@
-# Problem navigation
+# Problem investigation
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](/use/problem-investigation/problem_identification.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](#problem-details-pane) with further information about the problem.
+Unhealthy components in a view are grouped into [problems](/use/problems/problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](#problem-details-pane) with further information about the problem.
 
 ![View Details pane](/.gitbook/assets/v43_view_details_problems.png)
 
 ## Problem Details pane
 
-The Problem Details pane gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed under [Probable Causes](#probable-causes).
+Click on a problem to open the **Problem details pane**. This gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem (the root cause and contributing causes) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](#probable-causes).
 
-Click the **INVESTIGATE IN SUBVIEW** button to open all components and relations in a problem in a dedicated, temporary [problem subview](#problem-subview).
+Click the **INVESTIGATE IN SUBVIEW** button to open all components in a problem in a dedicated, temporary [problem subview](#problem-subview).
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](/use/problem-investigation/problem_identification.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
-
-{% hint style="info" %}
-Note that the probable causes in a problem details pane may include events that occurred outside of the currently selected time window. You may need to adjust the time window in the timeline to open an event.
-{% endhint %}
+For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](/use/problems/problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
 
 ### Anomaly events
 
@@ -44,15 +40,7 @@ Element properties changed events are generated whenever relevant properties of 
 
 ### Version changed events
 
-Version changed events are generated whenever the `version` property of a component is updated. Details of the old version and new version are included in the full list of event properties.
-
-1. Click on a Version changed event in the Events Perspective.
-    - The event details pane opens on the right of the screen.
-2. Click on SHOW EVENT PROPERTIES in the event details pane.
-    - The full list of event properties are displayed.
-3. Scroll down to find the old and new version numbers.
-
-![Event properties - old and new version details](/.gitbook/assets/v43_event_properties_version_changed.png)
+Version changed events are generated whenever the `version` property of a component is updated.
 
 ## Problem subview
 
@@ -76,6 +64,6 @@ A problem is considered to start one hour before the timestamp of the first repo
 
 ## See also
 
-- [Problem identification](/use/problem-investigation/problem_identification.md)
+- [What is a problem?](/use/problems/problems.md)
+- [Problem notifications](/use/problems/problem_notifications.md)
 - [Anomaly detection](/use/introduction-to-stackstate/anomaly-detection.md)
-- [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)
