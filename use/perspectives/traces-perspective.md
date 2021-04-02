@@ -32,19 +32,29 @@ Traces and components are tightly related. The traces visible in the Traces Pers
 
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which traces are displayed. Read more about [Topology Filters](/use/view_filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which traces are displayed. Read more about [Topology Filters](/use/view_filters.md#filter-topology)
 
-### Trace Filters
+## Filter displayed traces
 
-A trace can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the filters menu where you see filters for topology, events and traces:
+### Filter by source component
 
-![The Traces Perspective and its filters](../../.gitbook/assets/v42_trace-filters.png)
+The [topology filters](/use/view_filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which traces are displayed by updating the topology filters.
 
-For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
+### Filter by trace properties
+
+The [trace filters](/use/view_filters.md#filter-traces) in the the **View Filters** pane on the left side of the StackState UI allow you to refine the traces displayed based on span type and tags.
+
+### Filter by timestamp 
+
+The Traces Perspective shows events matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time time.
+
+## Filter displayed events
+
+The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the view details pane on the right of the StackState UI.
 
 ## Traces and Topology
 
-In StackState, a [view](./) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our agent](../../configure/traces/how_to_setup_traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
+In StackState, a [view](/use/views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our agent](../../configure/traces/how_to_setup_traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
 
 For example, let's imagine that among your IT infrastructure the following components exist:
 

@@ -20,9 +20,13 @@ When a component is selected by clicking on it, the Component Details pane is sh
 * [health checks](../../configure/telemetry/checks_and_streams.md#checks)
 * [telemetry streams](../../configure/telemetry/checks_and_streams.md#data-streams)
 
-## Filtering
+## Filter displayed components
 
-The View Filters pane on the left side of the screen in any View allows you to [filter the topology components displayed](/use/view_filters.md#topology-filters). You can also [filter the events displayed](filters.md#event-filters) in the **Events** list in the view details pane on the right of the StackState UI.
+The [topology filters](/use/view_filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI allow you to filter the topology components displayed. 
+
+## Filter displayed events
+
+The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the view details pane on the right of the StackState UI.
 
 ## Interactive navigation
 
