@@ -30,7 +30,7 @@ This page provides specific instructions for upgrading to each currently support
     - Guest users will no longer be able to create or edit event handlers.
     - Power Users will no longer be able to execute scripts using the HTTP script API.
     - Admin users will not be affected.
-* Baseline have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](/use/health-state-and-event-notifications/anomaly-health-checks.md).
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](/use/health-state-and-event-notifications/anomaly-health-checks.md).
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 
 {% endtab %}
@@ -68,7 +68,7 @@ Refer to the [Authentication configuration documentation](/configure/security/au
 - The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
     - Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
     - Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
-- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
+- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
 
 {% endtab %}
 
