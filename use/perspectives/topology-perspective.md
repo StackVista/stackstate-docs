@@ -22,7 +22,7 @@ When a component is selected by clicking on it, the Component Details pane is sh
 
 ## Filtering
 
-The View Filters pane on the left side of the screen in any View allows you to [filter the topology components displayed](/use/filters.md#topology-filters). You can also [filter the events displayed](filters.md#event-filters) in the **Events** list in the view details pane on the right of the StackState UI.
+The View Filters pane on the left side of the screen in any View allows you to [filter the topology components displayed](/use/view_filters.md#topology-filters). You can also [filter the events displayed](filters.md#event-filters) in the **Events** list in the view details pane on the right of the StackState UI.
 
 ## Interactive navigation
 

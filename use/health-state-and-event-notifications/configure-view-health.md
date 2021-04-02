@@ -10,7 +10,7 @@ Reacting to each event in an environment can cause a lot of noise. This may be b
 
 StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
 
-![Views list with view health state](../../.gitbook/assets/v42_views_list.png)
+![Views list with view health state](/.gitbook/assets/v42_views_list.png)
 
 ## Configure a view health state
 
@@ -20,13 +20,15 @@ View health state is calculated by a **view state configuration function**. To c
 2. Click on the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
 4. Select a **Configuration function** to use to calculate the view health. 
-   * You can use the standard view state configuration function or [create your own](../../configure/topology/view_state_configuration.md).
+   * You can use the standard view state configuration function or [create your own](/configure/topology/view_state_configuration.md).
    * For details of the available configuration functions, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
-5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the standard [MINIMUM HEALTH STATES](configure-view-health.md#view-health-state-configuration-function-minimum-health-states) configuration function.
+5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the default [MINIMUM HEALTH STATES](#minimum-health-states) configuration function:
+    * **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL (red) health states required for the view to report a CRITICAL health state.
+    * **minDeviatingHealthStates** - Set to at least **1**. This is the number of DEVIATING (orange) health states required for the view to report a DEVIATING health state.
 6. Click **UPDATE** to save the new configuration to the view. 
    * The view health will update immediately.
 
-![Edit query view](../../.gitbook/assets/v42_edit_query_view.png)
+![Edit query view](/.gitbook/assets/v42_edit_query_view.png)
 
 ## React to view state changes
 
@@ -36,17 +38,22 @@ You can [set up event handlers](send-event-notifications.md) to trigger event no
 
 ### MINIMUM HEALTH STATES
 
+{% hint style="warning" %}
+**minCriticalHealthStates** and **minDeviatingHealthStates** must be set to **1** or higher. When set to 0, the view will always report a critical or deviating health state.
+{% endhint %}
+
 The **MINIMUM HEALTH STATES** view health state configuration function calculates the health state of the view as follows:
 
 * The view has a `CRITICAL` health state when more than the **minCriticalHealthStates** components inside the view have a `CRITICAL` health state. This does not count propagated health states.
 * The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
-The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to \[create a custom view health state configuration function\](/configure/topology/view_state_configuration.md#write-a-custom-view-health-state-configuration-function).
+The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function](/configure/topology/view_state_configuration.md#write-a-custom-view-health-state-configuration-function).
 
 ## See also
 
-* [Customize the view state configuration](../../configure/topology/view_state_configuration.md)
+* [Customize the view state configuration](/configure/topology/view_state_configuration.md)
+* [Create a custom view health state configuration function](/configure/topology/view_state_configuration.md#write-a-custom-view-health-state-configuration-function)
 * [Add a health check](add-a-health-check.md)
 * [Send event notifications when a health state changes](send-event-notifications.md)
 

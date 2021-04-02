@@ -195,7 +195,7 @@ When the AWS integration is enabled, three [views](/use/views.md) will be create
 
 Components retrieved from AWS will have an additional [action](/configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
-For example, in the StackState topology perspective: 
+For example, in the StackState Topology Perspective: 
 
 - Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 - Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.

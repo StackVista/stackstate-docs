@@ -160,7 +160,7 @@ redirects:
   concepts/layers_domains_and_environments: ./use/introduction-to-stackstate/layers_domains_and_environments.md
   concepts/component_and_relation_mapping_functions: ./use/introduction-to-stackstate/mapping_functions.md
   use/perspectives/event-perspective: use/perspectives/events_perspective.md
-  use/perspectives/filters: ./use/filters.md
+  use/perspectives/filters: ./use/view_filters.md
   use/perspectives: .use/introduction-to-stackstate/perspectives.md
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
@@ -190,7 +190,7 @@ redirects:
 
 # added for 4.3 docs
 
-  use/views/filters: ./use/filters.md
+  use/views/filters: ./use/view_filters.md
   use/views: ./use/views.md
   use/views/traces-perspective: ./use/perspectives/traces-perspective.md
   use/views/topology-perspective: ./use/perspectives/topology-perspective.md

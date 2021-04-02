@@ -72,7 +72,7 @@ The code snippet below shows how the anomaly direction can be matched with param
 
 ### Metric stream id
 
-The Metric stream id parameter specifies the identifier of the Metric Stream for which the anomaly check is executed. The anomaly check function should match this with the id of the metric stream from an incoming anomaly event. See the example below:
+The Metric stream ID parameter specifies the identifier of the Metric Stream for which the anomaly check is executed. The anomaly check function should match this with the ID of the metric stream from an incoming anomaly event. See the example below:
 
   ```text
     def metricStreamIdMatch = event.getData().getStreamId() == metricStream
