@@ -4,8 +4,8 @@ description: How to configure anomaly detection with baselines.
 
 # Anomaly detection with baselines
 
-{% hint style="info" %}
-Baseline anomaly detection is **deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector)](../../stackpacks/add-ons/aad.md).
+{% hint style="warning" %}
+Baseline anomaly detection is **deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector)](/stackpacks/add-ons/aad.md).
 {% endhint %}
 
 ## Overview
@@ -47,7 +47,7 @@ To configure a baseline for a metric stream:
 
 ## Baseline functions
 
-Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](../../develop/reference/scripting/). By default the following baseline functions are supplied:
+Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/reference/scripting/README.md). By default the following baseline functions are supplied:
 
 * [Stationary Auto-Tuned Baseline](anomaly-detection-with-baselines.md#stationary-auto-tuned-baseline)
 * [Median Absolute Deviation](anomaly-detection-with-baselines.md#median-absolute-deviation)

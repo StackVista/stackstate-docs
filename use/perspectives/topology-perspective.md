@@ -4,6 +4,8 @@ description: See the real time state of your IT landscape
 
 # Topology Perspective
 
+## Overview
+
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
 ![](../../.gitbook/assets/v42_topoview1.png)
@@ -20,9 +22,15 @@ When a component is selected by clicking on it, the Component Details pane is sh
 * [health checks](../../configure/telemetry/checks_and_streams.md#checks)
 * [telemetry streams](../../configure/telemetry/checks_and_streams.md#data-streams)
 
-## Filtering
+## Filter displayed components
 
-The View Filters pane on the left side of the screen in any View allows you to [filter the topology components displayed](/use/view_filters.md#topology-filters). You can also [filter the events displayed](filters.md#event-filters) in the **Events** list in the view details pane on the right of the StackState UI.
+The [topology filters](/use/view_filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI allow you to filter the topology components displayed. 
+
+Click on a label in the [component details pane](#component-details) to add this as a filter.
+
+## Filter displayed events
+
+The [event filters](filters.md#filter-events) can be used to filter the events shown in the **Events** list in the View Details pane on the right of the StackState UI.
 
 ## Interactive navigation
 
@@ -95,3 +103,10 @@ The components in the topology visualization can also be shown in a list instead
 
 ![Filtering\(list format\)](../../.gitbook/assets/v42_basic_filtering_list.png)
 
+### Export as CSV
+
+From list mode, the component list can be exported as a CSV file. The CSV file includes `name`, `state`, `type` and `updated` details for each component in the view.
+
+1. From the topology perspective, click the **List mode** icon on the top right of the screen to open the topology in list mode.
+2. Click **Download as CSV** from the top of the page.
+    - The component list will be downloaded as a CSV file named `<view_name>.csv`.

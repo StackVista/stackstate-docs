@@ -31,7 +31,7 @@ Read more about the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.m
 
 ## Baseline anomaly detection
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Baseline anomaly detection is **deprecated** and will be removed in the StackState 4.4 release. Please use the [Autonomous Anomaly Detector)](anomaly-detection.md#autonomous-anomaly-detection).
 {% endhint %}
 

@@ -4,7 +4,7 @@ description: See metrics of the components in your IT landscape.
 
 # Telemetry Perspective
 
-The Telemetry Perspective shows telemetry streams for your [view](./) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
+The Telemetry Perspective shows telemetry streams for your [view](/use/views.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
 ## Telemetry and Components
 
@@ -27,7 +27,7 @@ The component selection can be adjusted as follows:
 
 ### Topology Filters
 
-The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](/use/view_filters.md#topology-filters)
+The View Filters pane on the left side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](/use/view_filters.md#filter-topology)
 
 ## Charts
 
