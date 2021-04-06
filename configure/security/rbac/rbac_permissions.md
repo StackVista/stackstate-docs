@@ -296,4 +296,4 @@ sts permission revoke [subject-handle] access-view [view-name]
 
 Below is an example of how the StackState UI would look for a user without any permissions:
 
-![No permissions](../../../.gitbook/assets/noperm.png)
+![No permissions](/.gitbook/assets/noperm.png)

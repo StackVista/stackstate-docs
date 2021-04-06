@@ -16,7 +16,7 @@ Most elements in the StackState topology will have a relevant health check added
 Health checks require [telemetry streams](add-telemetry-to-element.md).
 {% endhint %}
 
-![Add a health check to an element](../../.gitbook/assets/v42_add_health_check.png)
+![Add a health check to an element](/.gitbook/assets/v42_add_health_check.png)
 
 1. Select the element that you want to assign a health check to.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](add-telemetry-to-element.md).
