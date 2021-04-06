@@ -2,15 +2,7 @@
 
 ## Overview
 
-The **View Filters** pane on the left side of the StackState UI allows you to filter the components (topology), events and traces displayed in each perspective. 
-
-### Save filters as a view
-
-Applied filters can be saved as a view to open directly in the future, views also allow you to generate a combined health state for the included elements and send event notifications. At the top of the screen, click **Save view** to update the existing view with new filters or **Save view as** to save the currently applied filters as a new view. Read more about [StackState views](/use/views.md).
-
-### Clear applied filters
-
-To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the View details pane on the right of the screen.
+The **View Filters** pane on the left side of the StackState UI allows you to filter the components (topology), events and traces displayed in each perspective. Applied filters can be [saved as a view](#save-filters-as-a-view) to open directly in the future.
 
 ## Filter Topology
 
@@ -89,6 +81,14 @@ The following event filters are available:
 
 The traces shown in the [Traces Perspective](/use/perspectives/traces-perspective.md) can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the **View filters** pane, where you can add filters for topology, events and traces:
 
-![The Traces Perspective and its filters](../../.gitbook/assets/v42_trace-filters.png)
+![The Traces Perspective and its filters](/.gitbook/assets/v42_trace-filters.png)
 
 For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
+
+## Save filters as a view
+
+To update the existing view with the currently applied filters, click **Save view** at the top of the screen. To save the current filters as a new view, click **Save view as**. Read more about [StackState views](/use/views.md).
+
+## Clear applied filters
+
+To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the View details pane on the right of the screen.
