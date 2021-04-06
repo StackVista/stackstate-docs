@@ -4,9 +4,13 @@
 
 The **View Filters** pane on the left side of the StackState UI allows you to filter the components (topology), events and traces displayed in each perspective. 
 
-* Applied filters can be saved as a view to open directly in the future, views also allow you to generate a combined health state for the included elements and send event notifications. Read more about [StackState views](/use/views.md).
+### Save filters as a view
 
-* To clear any additional filters and return to the saved view filters, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the View details pane on the right of the screen.
+Applied filters can be saved as a view to open directly in the future, views also allow you to generate a combined health state for the included elements and send event notifications. At the top of the screen, click **Save view** to update the existing view with new filters or **Save view as** to save the currently applied filters as a new view. Read more about [StackState views](/use/views.md).
+
+### Clear applied filters
+
+To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the View details pane on the right of the screen.
 
 ## Filter Topology
 
