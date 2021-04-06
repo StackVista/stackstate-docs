@@ -43,27 +43,28 @@ To see the details of a component or a relation, you can click on it. Click on "
 
 ![Component details](../../.gitbook/assets/v42_03_component_details.png)
 
-## Metric inspector
+## Telemetry browser
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Metric inspector](../../.gitbook/assets/031_component_details_inspect_metric_stream.png)
+![Telemetry browser](../../.gitbook/assets/031_component_details_inspect_metric_stream.png)
 
 If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
 
-![Event inspector](../../.gitbook/assets/032_component_details_inspect_log_stream.png)
+![Telemetry browser](../../.gitbook/assets/032_component_details_inspect_log_stream.png)
 
 ## Problems
 
-To quickly find the cause of any deviating component, head to the right-hand pane in the selected view where you can find the **Problems** section of the sidebar. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problem clusters pane will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
+To quickly find the cause of any deviating component, head to the right-hand pane in the selected view where you can find the **Problems** section of the sidebar. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems section pane will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
 
 Problems and issues are displayed in the following order order:
 
-* Problems are prioritized by the number of issues related to the specific problem. More affected components means higher priority on the list.
-* In case of multiple problems having the same number of issues, StackState prioritizes the most recent one and presents the rest from the newest on the top to the oldest on the bottom.
-* Component-specific issues grouped inside problems are displayed from the oldest ones at the top to the most recent issue at the bottom of the list.
+* StackState prioritizes the most oldest problem and presents the rest from the oldest on the top to the most recent on the bottom.
+* Component-specific issues grouped inside problems are displayed from the most recent ones at the top to the oldest at the bottom of the list.
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
+
+* Read more about [problems](/use/problems/problems.md)
 
 ![Component details](../../.gitbook/assets/v42_04_problem_summary.png)
 

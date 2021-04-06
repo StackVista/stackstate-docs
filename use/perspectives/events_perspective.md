@@ -42,15 +42,15 @@ Click on an event to display an overview of the event details in the **Event pro
 
 ### Filter by source component
 
-The [Topology filters](/use/view_filters.md#topology-filters) in the the **View Filters** pane on the left side of the StackState UI define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
+The [topology filters](/use/view_filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
 
 ### Filter by event properties
  
-The [Event filters](/use/view_filters.md#event-filters) in the **View Filters** pane on the left side of the StackState UI allow you to refine the events displayed based on event category or type, source system and tags.
+The [event filters](/use/view_filters.md#filter-events) in the **View Filters** pane on the left side of the StackState UI allow you to refine the events displayed based on event category or type, source system and tags.
 
 ### Filter by timestamp 
 
-The Events Perspective shows events matching the **Time Window** selected in the timeline control. Specify a time window to filter the events shown by time.
+The Events Perspective shows events matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only events that were generated at that time time.
 
 ## Time travel
 
@@ -69,12 +69,12 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified time window \(this will be adjusted to fit the selected timestamp if required\).
 
-![Time window](../../.gitbook/assets/v42_time-window.png)
+![Timeline](../../.gitbook/assets/v42_timeline.png)
 
 ## See also
 
 * [Use events to trigger event notifications and actions](../health-state-and-event-notifications/send-event-notifications.md)
 * [Filtering data](/use/view_filters.md)
-* [Working with StackState views](./)
+* [Working with StackState views](/use/views.md)
 * [Send events to StackState from external sources](../../configure/telemetry/send_telemetry.md#events)
 
