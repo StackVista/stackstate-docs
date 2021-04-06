@@ -4,6 +4,8 @@ description: See the real time state of your IT landscape
 
 # Topology Perspective
 
+## Overview
+
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
 ![](../../.gitbook/assets/v42_topoview1.png)
@@ -101,3 +103,10 @@ The components in the topology visualization can also be shown in a list instead
 
 ![Filtering\(list format\)](../../.gitbook/assets/v42_basic_filtering_list.png)
 
+### Export as CSV
+
+From list mode, the component list can be exported as a CSV file. 
+
+1. From the topology perspective, click the **List mode** icon on the top right of the screen to open the topology in list mode.
+2. Click **Download as CSV** from the top of the page.
+    - The component list will be downloaded as a CSV file named `<view_name>.csv`.

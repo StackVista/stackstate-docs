@@ -4,6 +4,8 @@ description: See traces for the components in your IT landscape.
 
 # Traces Perspective
 
+## Overview
+
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
 ![The Traces Perspective](../../.gitbook/assets/v42_traces-perspective.png)
