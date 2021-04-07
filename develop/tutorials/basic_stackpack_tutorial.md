@@ -125,7 +125,7 @@ The [Push Integration tutorial](push_integration_tutorial.md) describes in more 
 
 Use the **Preview** button to see what the resulting component will look like.
 
-![](/.gitbook/assets/example-template-editor.png)
+![](/.gitbook/assets/v42_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to [_unlock_](../../stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 

@@ -106,7 +106,7 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](/.gitbook/assets/example-telemetry-stream.png)
+![](/.gitbook/assets/v42_example-telemetry-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
@@ -165,7 +165,7 @@ The end result should look something like this:
 }],
 ```
 
-![](/.gitbook/assets/example-template-editor.png)
+![](/.gitbook/assets/v42_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 

@@ -47,11 +47,11 @@ To see the details of a component or a relation, you can click on it. Click on "
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Telemetry browser](/.gitbook/assets/031_component_details_inspect_metric_stream.png)
+![Telemetry browser](/.gitbook/assets/v42_031_component_details_inspect_metric_stream.png)
 
 If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
 
-![Telemetry browser](/.gitbook/assets/032_component_details_inspect_log_stream.png)
+![Telemetry browser](/.gitbook/assets/v42_032_component_details_inspect_log_stream.png)
 
 ## Problems
 
