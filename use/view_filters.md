@@ -29,7 +29,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `bambDB`
 
-![Filtering example](/.gitbook/assets/v42_basic_filter_example.png)
+![Filtering example](/.gitbook/assets/v43_basic_filter_example.png)
 
 This could also be written as an advanced filter, see [advanced topology filters](view_filters.md#advanced-topology-filters).
 
@@ -43,7 +43,7 @@ The example below uses an advanced filter to return components that match the fo
 * AND has a health state of `CLEAR` OR `DEVIATING`
 * OR has the name `bambDB`
 
-![Filtering \(advanced filter\)](/.gitbook/assets/v42_advanced_filter_example.png)
+![Filtering \(advanced filter\)](/.gitbook/assets/v43_advanced_filter_example.png)
 
 This could also be done using basic filters, see [basic topology filters](view_filters.md#basic-topology-filters).
 
