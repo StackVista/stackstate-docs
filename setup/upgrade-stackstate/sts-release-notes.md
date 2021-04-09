@@ -25,7 +25,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - The Autonomous Anomaly Detector (AAD) is now enabled by default in the Kubernetes distribution. STAC-12024
 - It is now possible to configure whether ClusterRoles and ClusterRoleBindings need to be installed by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 - StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
-- Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-certificates-1.md). STAC-11738
+- Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-cert.md). STAC-11738
 - The field specifying the [role to use for Keycloak authentication](/configure/security/authentication/keycloak.md) (default field name: `roles`) is now configurable using the `groupsField` configuration parameter. STAC-11609
 - StackState now supports [API tokens for authentication of the StackState CLI](/setup/installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 - Added support for [backup and restore procedure for self-hosted Kubernetes](/setup/data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
