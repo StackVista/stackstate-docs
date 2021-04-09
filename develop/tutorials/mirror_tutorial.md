@@ -51,7 +51,7 @@ Use the **Test Connection** button to verify connectivity from StackState to the
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/example-mirror.png)
+![](/.gitbook/assets/example-mirror.png)
 
 ## Adding a mirror stream to a component
 
@@ -63,7 +63,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/example-mirror-stream.png)
+![](/.gitbook/assets/v43_example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 
