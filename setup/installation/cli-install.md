@@ -196,7 +196,7 @@ sts --instance <instance_name> ...
 
 The StackState CLI predominantly uses two APIs: the Base API and the Receiver API. StackState receives topology, telemetry and trace data via the Receiver API. All other operations use the Base API.
 
-### Base API: API token
+### Base API - API token
 
 {% hint style="warning" %}
 Base API authentication using username/password will be deprecated in a future release of StackState. It is recommended to switch to token based authentication. The CLI will issue a warning to this effect when username/password authentication is used.
@@ -204,7 +204,7 @@ Base API authentication using username/password will be deprecated in a future r
 
 Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account. You can find your API token in the StackState UI on the page **Main menu** > **CLI**. 
 
-### Receiver API: API key
+### Receiver API - API key
 
 StackState receives topology, telemetry and trace data via the receiver API. If you want to push information to StackState using the CLI, you will need to provide a receiver API key. This is the same API key that is used by the StackState Agent, which is configured by your administrator.
 
