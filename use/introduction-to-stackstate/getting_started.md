@@ -35,7 +35,7 @@ The direction of a relation's arrow indicates dependency. For example, `app -> d
 
 The timeline at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the time that is currently selected. Normally, StackState is in the **live mode**, this means that StackState automatically displays the latest state of the stack.
 
-![Timeline](/.gitbook/assets/v42_timeline)
+![Timeline](/.gitbook/assets/v42_timeline.png)
 
 ## Component / relation details
 
