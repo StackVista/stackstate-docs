@@ -1,5 +1,5 @@
 ---
-description: Managing StackState using the CLI.
+description: Managing StackState using the CLI
 ---
 
 # StackState CLI
@@ -32,7 +32,7 @@ The steps below describe how to install the StackState CLI on Linux using the st
 
 3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 4. To configure the StackState CLI, do one of the following:
-    - [Launch the configuration wizard](cli-install.md#wizard-configuration-linux-and-windows-install).
+    - [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
     - [Manually add configuration](cli-install.md#manual-configuration).
 
 ### Windows install
@@ -49,7 +49,7 @@ The steps below describe how to install the StackState CLI on Windows using the 
 2. Rename the downloaded file to be `sts.exe`.
 3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. To configure the StackState CLI, do one of the following:
-    - [Launch the configuration wizard](cli-install.md#wizard-configuration-linux-and-windows-install).
+    - [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
     - [Manually add configuration](cli-install.md#manual-configuration).
 
 ### Docker install \(Mac, Linux, Windows\)
@@ -202,7 +202,9 @@ The StackState CLI predominantly uses two APIs: the Base API and the Receiver AP
 Base API authentication using username/password will be deprecated in a future release of StackState. It is recommended to switch to token based authentication. The CLI will issue a warning to this effect when username/password authentication is used.
 {% endhint %}
 
-Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account. You can find your API token in the StackState UI on the page **Main menu** > **CLI**. 
+Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account. 
+
+You can find your API token in the StackState UI on the page **Main menu** > **CLI**. 
 
 ### Receiver API - API key
 
