@@ -8,7 +8,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](/.gitbook/assets/v43_topoview1.png)
+![Topology Perspective](/.gitbook/assets/v44_topoview1.png)
 
 ## Components and relations
 
@@ -47,7 +47,7 @@ The topology can also be navigated interactively. Hover over any component to br
 
 A list of the available actions is included in the component details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
 
-![Actions](/.gitbook/assets/v43_actions.png)
+![Actions](/.gitbook/assets/v44_actions.png)
 
 The default list of actions can be extended with [component actions](/configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](/configure/topology/how_to_configure_component_actions.md) custom component action functions.
 
@@ -95,13 +95,13 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](/.gitbook/assets/v43_show_full_root_cause_tree.png)
+![Root cause](/.gitbook/assets/v44_show_full_root_cause_tree.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](/.gitbook/assets/v43_list_mode.png)
+![Filtering\(list format\)](/.gitbook/assets/v44_list_mode.png)
 
 ### Export as CSV
 

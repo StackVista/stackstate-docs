@@ -13,7 +13,7 @@ Start with a brief intro explaining:
 
 This section is basically a UI manual. It describes where this screen/concept sits in the StackState UI and the elements that it controls and can control it.
 
-![screen/concept where](/.gitbook/assets/v43_list_mode.png)
+![screen/concept where](/.gitbook/assets/v44_list_mode.png)
 
 Includes at least one screenshot that should be annotated to clearly show influence of the screen/concept.
 
