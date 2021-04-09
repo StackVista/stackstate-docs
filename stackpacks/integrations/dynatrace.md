@@ -9,7 +9,7 @@ old-description: Collect Smartscape topology data from Dynatrace
 The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` (default 1 hour) will be available in StackState.
 
 
-![Data flow](../../.gitbook/assets/stackpack-dynatrace_v110.svg)
+![Data flow](/.gitbook/assets/stackpack-dynatrace.svg)
 
 * Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve Smartscape topology and events data.
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
@@ -136,7 +136,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v42_dynatrace-filter.png)
+![Use a Dynatrace topology filter](/.gitbook/assets/v43_dynatrace-filter.png)
 
 ### Open source
 

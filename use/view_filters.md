@@ -29,7 +29,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `bambDB`
 
-![Filtering example](/.gitbook/assets/v42_basic_filter_example.png)
+![Filtering example](/.gitbook/assets/v43_basic_filter_example.png)
 
 This could also be written as an advanced filter, see [advanced topology filters](view_filters.md#advanced-topology-filters).
 
@@ -43,7 +43,7 @@ The example below uses an advanced filter to return components that match the fo
 * AND has a health state of `CLEAR` OR `DEVIATING`
 * OR has the name `bambDB`
 
-![Filtering \(advanced filter\)](/.gitbook/assets/v42_advanced_filter_example.png)
+![Filtering \(advanced filter\)](/.gitbook/assets/v43_advanced_filter_example.png)
 
 This could also be done using basic filters, see [basic topology filters](view_filters.md#basic-topology-filters).
 
@@ -79,9 +79,7 @@ The following event filters are available:
 
 ## Filter Traces
 
-The traces shown in the [Traces Perspective](/use/perspectives/traces-perspective.md) can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the **View filters** pane, where you can add filters for topology, events and traces:
-
-![The Traces Perspective and its filters](/.gitbook/assets/v42_trace-filters.png)
+The traces shown in the [Traces Perspective](/use/perspectives/traces-perspective.md) can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the **View filters** pane, where you can add filters for topology, events and traces.
 
 For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
 

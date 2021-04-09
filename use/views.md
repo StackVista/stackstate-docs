@@ -59,7 +59,7 @@ You can check the view health state in the following places in the StackState UI
 * **Health state of starred views**: The main menu lists all starred views together with their health state.
 * **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the View Details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
 
-![View health state in main menu](/.gitbook/assets/v42_view_health_main_menu.png)
+![View health state in main menu](/.gitbook/assets/v43_view_health_main_menu.png)
 
 ### Time travel with the view health state
 

@@ -35,7 +35,7 @@ StackState will group unhealthy components together into [problems](/use/problem
 
 Event handlers listen to health state change events or problem events in a view, and run event handler functions that trigger event notifications and automated actions. You can add an event handler to a view from the StackState UI.
 
-![Add an event handler](/.gitbook/assets/v42_event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v43_event_handlers_tab.png)
 
 1. Select **Events Settings** on the left.
 2. Click **ADD NEW EVENT HANDLER**.

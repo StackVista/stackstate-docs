@@ -17,7 +17,7 @@ REST APIs are available for external services and are also used by our Command L
 Notifications, tickets, webhooks, and API calls are just a few examples of output data sources to let you respond to
 situations you observe in StackState.
 
-![StackState architecture and data flow](../../.gitbook/assets/sts-architecture.svg)
+![StackState architecture and data flow](/.gitbook/assets/sts-architecture.svg)
 
 ## Data sources
 
