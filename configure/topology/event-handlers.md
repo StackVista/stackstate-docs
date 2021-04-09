@@ -10,7 +10,7 @@ Event handlers can be attached to a StackState view to [send event notifications
 
 To generate an event notification or trigger an action, the event handler will run an [event handler function](event-handlers.md#event-handler-functions). This is set in the StackState UI **Events Settings** &gt; **ADD NEW EVENT HANDLER** dialogue as **Run event handler**.
 
-![Add an event handler](/.gitbook/assets/v44_event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v43_event_handlers_tab.png)
 
 ## Event handler functions
 
@@ -58,7 +58,7 @@ You can write your own custom event handler functions that react to state change
 4. Click **CREATE** to save the event handler function. 
    * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
 
-![Add a custom event handler function](/.gitbook/assets/v44_event_handler_functions.png)
+![Add a custom event handler function](/.gitbook/assets/v43_event_handler_functions.png)
 
 ## Parameters
 

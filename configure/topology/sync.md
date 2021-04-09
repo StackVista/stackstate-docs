@@ -6,7 +6,7 @@ Synchronization allows you to automatically synchronize the topology of your sta
 
 A synchronization is defined by a data source and a number of mappings from the external system topology data into StackState topology elements. The following image gives an overview of a synchronization pipeline:
 
-![](/.gitbook/assets/v44_topology_synchronization.png)
+![](/.gitbook/assets/v43_topology_synchronization.png)
 
 ## Synchronization pipeline
 

@@ -28,7 +28,7 @@ When executing a query for the first time, the result of the query is displayed 
 
 Every query that you have executed in StackState is shown in the query history, together with the query result at that point in time.  
 
-![Analytics screenshot](/.gitbook/assets/v44_analytics.png)
+![Analytics screenshot](/.gitbook/assets/v43_analytics.png)
 
 ## Previews
 
