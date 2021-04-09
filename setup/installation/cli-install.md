@@ -200,8 +200,7 @@ The StackState CLI predominantly uses two APIs: the Base API and the Receiver AP
 
 {% hint style="warning" %}
 **Base API authentication using username/password will be deprecated.**
-
-It is recommended to switch to token based authentication. The CLI will issue a warning to this effect when username/password authentication is used.
+The CLI will issue a warning when username/password authentication is used. It is recommended to switch to token based authentication.
 {% endhint %}
 
 Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account. 
