@@ -74,7 +74,7 @@ To show all events for the selected Topology, select the Events Perspective from
 
 ![Events Perspective](/.gitbook/assets/v43_events-perspective.png)
 
-The Events Perspective is not the only place you can find events; you can find the latest 5 events in the Events section of the right-hand pane that presents information about the selected Topology.
+The Events Perspective is not the only place you can find events; you can find the latest events in the Events section of the View Details pane on the right of the screen.
 
 ![Events section](/.gitbook/assets/v43_events-section.png)
 
