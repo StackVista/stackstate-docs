@@ -7,7 +7,7 @@ kind: Documentation
 
 Mapping Function is defined by a groovy script and input parameters that groovy script requires. The goal of Mapping Function is to process topology data of the external system and prepare parameters for the template function.
 
-![Mapping function](../../.gitbook/assets/mapping_function.png)
+![Mapping function](/.gitbook/assets/mapping_function.png)
 
 There are two specific Mapping Function parameters:
 

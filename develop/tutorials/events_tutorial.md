@@ -75,7 +75,7 @@ Once the Puppet run is finished, the report processor is invoked and formats a J
 
 The event will be visible in the StackState Events Perspective:
 
-![](../../.gitbook/assets/example-event-perspective.png)
+![](/.gitbook/assets/example-event-perspective.png)
 
 ## Submitting external events directly
 

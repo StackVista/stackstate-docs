@@ -6,7 +6,7 @@ description: Track changes in your IT landscape.
 
 The Events Perspective shows events and changes for the elements in the current [view](/use/views.md) or filtered topology.
 
-![The Events Perspective](../../.gitbook/assets/v42_events-perspective.png)
+![The Events Perspective](/.gitbook/assets/v43_events-perspective.png)
 
 ## Events
 
@@ -36,7 +36,7 @@ Click on an event to display an overview of the event details in the **Event pro
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
 
-![Event properties](../../.gitbook/assets/v42_event-properties.png)
+![Event properties](/.gitbook/assets/v43_event-properties.png)
 
 ## Filter displayed events
 
@@ -69,7 +69,7 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified time window \(this will be adjusted to fit the selected timestamp if required\).
 
-![Timeline](../../.gitbook/assets/v42_timeline.png)
+![Timeline](/.gitbook/assets/v43_timeline.png)
 
 ## See also
 
