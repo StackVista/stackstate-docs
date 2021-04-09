@@ -79,9 +79,7 @@ The following event filters are available:
 
 ## Filter Traces
 
-The traces shown in the [Traces Perspective](/use/perspectives/traces-perspective.md) can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the **View filters** pane, where you can add filters for topology, events and traces:
-
-![The Traces Perspective and its filters](/.gitbook/assets/v42_trace-filters.png)
+The traces shown in the [Traces Perspective](/use/perspectives/traces-perspective.md) can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the **View filters** pane, where you can add filters for topology, events and traces.
 
 For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
 

@@ -145,7 +145,7 @@ See also the full list of [system permissions](#system-permissions).
 
 ### Page access
 
-The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL:
+The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
 ![Main menu with all permissions granted](/.gitbook/assets/v42_main_menu.png)
 
