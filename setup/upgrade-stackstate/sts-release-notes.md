@@ -14,9 +14,9 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Features**
 
-- Show configuration changes for faster root cause analysis. STAC-12441
-- Alert on anomalies detected by the Autonomous Anomaly Detector. STAC-11798
-- Drill down on Problems for faster investigation. STAC-10481
+- [Show configuration changes](/use/problems/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
+- [Alert on anomalies](/use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
+- [Drill down on Problems](/use/problems/problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 
@@ -25,21 +25,21 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - The Autonomous Anomaly Detector (AAD) is now enabled by default in the Kubernetes distribution. STAC-12024
 - It is now possible to configure whether ClusterRoles and ClusterRoleBindings need to be installed by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 - StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
-- Added support for interacting with external systems using self-signed certificates. STAC-11738
-- The field specifying the role to use for Keycloak authentication (default field name: `roles`) is now configurable using the `groupsField` configuration parameter. STAC-11609
-- StackState now supports API tokens for authentication of the StackState CLI. This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
-- Added support for backup and restore procedure for self-hosted Kubernetes setup. STAC-11548
+- Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-certificates.md). STAC-11738
+- The field specifying the [role to use for Keycloak authentication](/configure/security/authentication/keycloak.md) (default field name: `roles`) is now configurable using the `groupsField` configuration parameter. STAC-11609
+- StackState now supports [API tokens for authentication of the StackState CLI](/setup/installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+- Added support for [backup and restore procedure for self-hosted Kubernetes](/setup/data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
 - It is now possible to use component actions when time-traveling. STAC-11462
 - Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
 - Authentication settings are now directly configurable on the Helm chart. STAC-11237
-- Added permission `manage-event-handlers` to protect creation of event handlers. STAC-11172
-- Allow filtering Events by source. STAC-10644
-- Allow filtering Events by category. STAC-10643
-- Events of type Anomaly now display a metric chart including the anomaly in the Event Details pane. STAC-10031
-- Added a permission to protect usage of `Http` and `Graph` script APIs in Analytics. STAC-9834
+- Added permission `manage-event-handlers` to [protect creation of event handlers](/configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
+- Allow [filtering Events](/use/view_filters#filter-events) by source. STAC-10644
+- Allow [filtering Events](/use/view_filters#filter-events) by category. STAC-10643
+- Events of type Anomaly now display a [metric chart including the anomaly](/use/problems/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
+- Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](/configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
 - Added ability to filter on labels in the Component Details pane. STAC-11824
 - Added ability to search and filter components in the Topology perspective List mode. STAC-11413
-- Added ability to export component list as a CSV file in the Topology perspective List mode. STAC-3593
+- Added ability to [export component list as a CSV file](/use/perspectives/topology-perspective.md#export-as-csv) in the Topology perspective List mode. STAC-3593
 - Added ability to search telemetry streams on the Component Details pane. STAC-3194
 
 **Bug fixes**
