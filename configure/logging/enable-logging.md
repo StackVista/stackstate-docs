@@ -6,6 +6,7 @@ description: Set the logging level for an instance of a StackState function
 
 {% hint style="warning" %}
 This page describes StackState version 4.2.
+
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
