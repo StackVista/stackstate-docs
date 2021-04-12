@@ -167,7 +167,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 * Feature: Gather Events from your Dynatrace instance and provides Health info about Dynatrace components.
 * Feature: Support for Dynatrace tags.
 * Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.0
+* Improvement: Common bumped from 2.2.3 to 2.5.1
 * Improvement: StackState min version bumped to 4.3.0
 
 **Dynatrace StackPack v1.0.0**

@@ -102,7 +102,7 @@ Execute the info command and verify that the integration check has passed. The o
 **StaticTopology StackPack v2.3.1 (2021-04-02)**
 
 - Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **StaticTopology StackPack v2.2.1 (2020-08-18)**

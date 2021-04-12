@@ -253,7 +253,7 @@ These environment variables have the same names used by the AWS_CLI utility and 
 - Bugfix: Updated the manual_trigger.sh to verify if the lambda exists, Trigger and monitor the lambda outcome and if it failed then the error will be displayed with a possible solution to allow the user to fix the problem and 'press any key' to retry
 - Improvement: Update documentation.
 - Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **AWS StackPack v5.1.3 (2021-03-01)**

@@ -50,7 +50,7 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
 
 - Improvement: Enable auto grouping on generated views.
 - Improvement: Update documentation.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **Cloudera StackPack v1.2.1 (2020-08-18)**
