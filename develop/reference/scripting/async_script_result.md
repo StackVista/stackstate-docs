@@ -1,8 +1,8 @@
 # Async script result
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
@@ -63,7 +63,7 @@ will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
 ### Transforming a list using `thenCollect`
 
-Often it is desirable to transform a list of element coming from an `AsyncScriptResult`. 
+Often it is desirable to transform a list of element coming from an `AsyncScriptResult`.
 
 Assuming `ScriptApi.asyncFn1()` return an `AsyncScriptResult` that contains the list `[1,2,3]`, this can be transformed to `[2,3,4]` in the following way:
 
@@ -73,7 +73,7 @@ ScriptApi.asyncFn1().then { result
 }
 ```
 
-However, since this pattern is seen so often a shortcut is available for `.then { it.collect { ...  }}`, which makes it possible to rewrite the above as:
+However, since this pattern is seen so often a shortcut is available for `.then { it.collect { ... }}`, which makes it possible to rewrite the above as:
 
 ```text
 ScriptApi.asyncFn1().thenCollect { it + 1}

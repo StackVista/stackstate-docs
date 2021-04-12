@@ -2,11 +2,11 @@
 description: Push integration tutorial
 ---
 
-# Push-integration tutorial
+# Push data to StackState from an external system
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This tutorial shows you how to create push-based integrations for StackState.
@@ -111,7 +111,7 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](../../.gitbook/assets/example-telemetry-stream.png)
+![](../../.gitbook/assets/v43_example-telemetry-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
@@ -170,7 +170,7 @@ The end result should look something like this:
 }],
 ```
 
-![](../../.gitbook/assets/example-template-editor.png)
+![](../../.gitbook/assets/v42_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 

@@ -5,8 +5,8 @@ description: Pull telemetry from Prometheus using mirroring
 # Prometheus mirror
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -109,5 +109,6 @@ The query allows arbitrary Prometheus queries, for example:
 
 ## See also
 
-- [Developer guide - mirroring telemetry](/develop/developer-guides/mirroring.md)
-- [Developer tutorial - Set up a mirror to pull telemetry data from an external system](/develop/tutorials/mirror_tutorial.md)
+* [Developer guide - mirroring telemetry](../../../develop/developer-guides/mirroring.md)
+* [Developer tutorial - Set up a mirror to pull telemetry data from an external system](../../../develop/tutorials/mirror_tutorial.md)
+

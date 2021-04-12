@@ -1,8 +1,8 @@
 # Permissions
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Permissions in StackState
@@ -17,7 +17,7 @@ Views permissions are a set of permissions that allow for CRUD operations with V
 
 ## Predefined roles
 
-StackState comes with three predefined roles - `stackstate-admin` (Adminstrator), `stackstate-power-user` (Power user) and `stackstate-guest` (Guest user).
+StackState comes with three predefined roles - `stackstate-admin` \(Adminstrator\), `stackstate-power-user` \(Power user\) and `stackstate-guest` \(Guest user\).
 
 * Administrators have all permissions and access to all views. 
 * Power Users have all Administrator permissions _except_ update-permissions and upload-stackpacks. This role is typically granted to users that are not managing the entire StackState installation, but do need to configure StackState for their team\(s\).
@@ -38,7 +38,6 @@ The default names for these roles as mentioned above can be overriden, this mech
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
 Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to replace the default role names with these custom role names.
 
 ```yaml
@@ -52,9 +51,9 @@ stackstate:
 
 Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
 
-To use it in for your StackState installation (or already running instance, note that it will restart the API):
+To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
 
-```
+```text
 helm upgrade \
   --install \
   --namespace stackstate \
@@ -65,9 +64,8 @@ stackstate/stackstate
 ```
 {% endtab %}
 
-
 {% tab title="Linux" %}
-Edit the existing keys in the `authentication` section (nested in `stackstate.api`) in the configuration file like in the example to replace the default role names with these custom role names. Restart StackState to make the change take effect.
+Edit the existing keys in the `authentication` section \(nested in `stackstate.api`\) in the configuration file like in the example to replace the default role names with these custom role names. Restart StackState to make the change take effect.
 
 ```javascript
   guestGroups = ["custom-guest-role"]
@@ -77,7 +75,6 @@ Edit the existing keys in the `authentication` section (nested in `stackstate.ap
 ```
 
 Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
-
 {% endtab %}
 {% endtabs %}
 
@@ -125,7 +122,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 7. Export Settings page - requires `export-settings` system permission. Without this permission, Export Settings is removed from Settings Menu.
 8. Admin API - requires `access-admin-api` system permission. Without this permission, Admin API is removed from Settings Menu.
 
-![Pages1](../../../.gitbook/assets/pages1.png) ![Pages2](../../../.gitbook/assets/pages2.png)
+![Pages1](../../../.gitbook/assets/pages1.png) ![Pages2](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/pages2.png)
 
 ### Navigation Bar permissions
 
@@ -135,7 +132,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 4. Delete a view - requires `delete-view` permission. It's dependant on `Everything` or the specific view permissions.
 5. Sidebar access - requires `save-view`, `delete-view` or both of them to access these options in the sidebar.
 
-![NavigationBar1](../../../.gitbook/assets/navbar1.png) ![NavigationBar2](../../../.gitbook/assets/navbar2.png)
+![NavigationBar1](../../../.gitbook/assets/navbar1.png) ![NavigationBar2](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/navbar2.png)
 
 ### Topology capabilities permissions
 
@@ -145,7 +142,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 |  |  |  |
 | :---: | :---: | :---: |
-| ![TopologyCapabilities1](../../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../../../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../../../.gitbook/assets/topocap3.png) |
+| ![TopologyCapabilities1](../../../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/topocap3.png) |
 
 ### Topology views permissions
 
@@ -153,7 +150,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 2. Access to a node actions menu - requires `execute-component-actions` permission.  
 3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
 
-![TopologyView1](../../../.gitbook/assets/v42_topoview1.png) ![TopologyView2](/.gitbook/assets/topoview2.png)
+![TopologyView1](../../../.gitbook/assets/v43_topoview1.png) ![TopologyView2](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/topoview2.png)
 
 ### Analytics Page permissions
 
@@ -161,7 +158,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 |  |  |  |
 | :---: | :---: | :---: |
-|  | ![AnalyticsPage1](../../../.gitbook/assets/anpage1.png) |  |
+|  | ![AnalyticsPage1](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/anpage1.png) |  |
 
 ### Element Details permissions
 
@@ -174,7 +171,7 @@ Of course it is also possible to leave the defaults in place, for example the `g
 
 |  |  |
 | :---: | :---: |
-| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](/.gitbook/assets/eldet2.png) |
+| ![ElementDetails1](../../../.gitbook/assets/eldet1.png) | ![ElementDetails2](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/.gitbook/assets/eldet2.png) |
 
 ### Settings permissions
 
@@ -225,3 +222,4 @@ sts permission grant [subject-handle] create-views system
 UI of a user without any permissions:
 
 ![NoPermissions](../../../.gitbook/assets/noperm.png)
+

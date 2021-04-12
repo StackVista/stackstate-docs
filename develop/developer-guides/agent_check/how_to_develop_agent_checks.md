@@ -1,8 +1,8 @@
 # How to develop agent checks
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
@@ -144,9 +144,8 @@ timeout = float(instance.get('timeout', default_timeout))
 
 Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
-- `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
-
-- `self.stop_snapshot()` - used to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
+* `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
+* `self.stop_snapshot()` - used to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
 
 #### Disable snapshots
 

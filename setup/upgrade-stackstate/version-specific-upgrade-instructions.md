@@ -7,8 +7,8 @@ description: >-
 # Version specific upgrade instructions
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -25,33 +25,31 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
-####  v4.2.4
+#### v4.2.4
 
 No manual action needed.
 
-####  v4.2.3
-Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If your StackState authentication was customized, it will need to be updated. To verify this, check if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
+#### v4.2.3
 
-Refer to the [Authentication configuration documentation](/configure/security/authentication/README.md) to configure the same settings directly in the `values.yaml` file. After that, the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
+Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If your StackState authentication was customized, it will need to be updated. To verify this, check if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file\(s\) used for installation.
+
+Refer to the [Authentication configuration documentation](../../configure/security/authentication/) to configure the same settings directly in the `values.yaml` file. After that, the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
 
 #### v4.2.0
 
-- [Node sizing requirements](/setup/requirements.md#node-sizing) have been increased.
-- The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
-    - Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
-    - Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
-- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
-
+* [Node sizing requirements](../requirements.md#node-sizing) have been increased.
+* The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
+  * Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
+  * Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
+* A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl). The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
 {% endtab %}
 
 {% tab title="Linux" %}
-
-####  v4.2.4
+#### v4.2.4
 
 No manual action needed.
 
-####  v4.2.3
+#### v4.2.3
 
 No manual action needed.
 
@@ -71,7 +69,6 @@ The following configuration changes must be manually processed if you are using 
   * Added new parameter `processes.kafkaToElasticsearch.topology-events`.
 * **processmanager/kafka-topics.conf\`**
   * Added new section `kafka.topics.sts_topology_events`.
-
 {% endtab %}
 {% endtabs %}
 

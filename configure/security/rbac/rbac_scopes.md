@@ -1,8 +1,8 @@
 # Scopes
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## How do scopes work?
@@ -27,7 +27,7 @@ The below example shows the same topology view called "All Infrastructure" for f
 
 ### This user is a part of StackState Admin group, so there is no scope:
 
-![Full view permissions](../../../.gitbook/assets/v42_allperm.png)
+![Full view permissions](../../../.gitbook/assets/v43_allperm.png)
 
 The query for this view is the same as for the others, but without any prefix:
 
@@ -41,7 +41,7 @@ The query for this view is the same as for the others, but without any prefix:
 'domain = "Customer1"'
 ```
 
-![Limited view](../../../.gitbook/assets/v42_esx1perm.png)
+![Limited view](../../../.gitbook/assets/v43_esx1perm.png)
 
 Query with the prefix for this view is:
 
@@ -57,7 +57,7 @@ Query with the prefix for this view is:
 
 gets this topology:
 
-![Limited view](../../../.gitbook/assets/v42_esx2perm.png)
+![Limited view](../../../.gitbook/assets/v43_esx2perm.png)
 
 Query with the prefix for this view is:
 
@@ -81,5 +81,5 @@ Query with prefix for this user is then:
 
 Which results in a following view:
 
-![Full view permissions](../../../.gitbook/assets/v42_allperm.png)
+![Full view permissions](../../../.gitbook/assets/v43_allperm.png)
 

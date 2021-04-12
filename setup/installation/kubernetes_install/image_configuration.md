@@ -1,8 +1,8 @@
 # StackState images
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.
@@ -24,16 +24,17 @@ To address this issue, you can copy all the images to a single registry, close t
 
    * The script will detect when an ECR registry is used and will automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it.
    * The script has a dry-run option that can be activated with the `-t` flag, for example:
-      ```bash
+
+     ```bash
       $ ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com -t
       Copying justwatch/elasticsearch_exporter:1.1.0 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/justwatch/elasticsearch_exporter:1.1.0 (dry-run)
       Copying quay.io/stackstate/stackgraph-console:3.6.14 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackgraph-console:3.6.14 (dry-run)
       Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
       Copying quay.io/stackstate/wait:1.0.0 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/wait:1.0.0 (dry-run)
       Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
-      ```
+     ```
 
-      This will show the images that will be copied without actually copying them.
+     This will show the images that will be copied without actually copying them.
 
    * The `-c` and `-r` flags can be used when running the script to specify a different chart or a different repository to use.
 
@@ -46,21 +47,21 @@ To address this issue, you can copy all the images to a single registry, close t
 
    * A separate entry must be made for the image used by the `elasticsearch-exporter` subchart as this cannot be configured with the `global.imageRegistry` setting. For example:
 
-      ```yaml
+     ```yaml
       elasticsearch:
         elasticsearch-exporter:
           image:
             repository: 57413481473.dkr.ecr.eu-west-1.amazonaws.com/justwatch/elasticsearch_exporter
-      ```
+     ```
 
 ## Configuration
 
 {% hint style="info" %}
 * Starting from version 4.2 StackState server will not be part of the standard deployment, it has been superseded by several separate pods, using the same server image.
-* If the registry for an image can be configured with a specific value (for example `stackstate.components.all.image.registry`), it can also be overridden with the global value `global.imageRegistry`. Some images (from other sources) do not support this and need to be configured seperately.
+* If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured seperately.
 {% endhint %}
 
-| Chart | Component | Image (without tag) | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
+| Chart | Component | Image \(without tag\) | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | StackState | Correlate | `quay.io/stackstate/stackstate-correlate` | `stackstate.components.all.image.registry` | `stackstate.components.correlate.image.repository` | `stackstate.components.correlate.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
 | StackState | Kafka-to-ElasticSearch \(3x\) | `quay.io/stackstate/stackstate-kafka-to-es` | `stackstate.components.all.image.registry` | `stackstate.components.k2es.image.repository` | `stackstate.components.k2es.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
@@ -80,7 +81,7 @@ To address this issue, you can copy all the images to a single registry, close t
 | StackState | multiple | `quay.io/stackstate/container-tools` | `stackstate.components.containerTools.image.registry` | `stackstate.components.containerTools.image.repository` | `stackstate.components.containerTools.image.tag` |
 | StackState | kafka-topic-create job | `docker.io/bitnami/kafka` | `stackstate.components.kafkaTopicCreate.image.registry` | `stackstate.components.kafkaTopicCreate.image.repository` | `stackstate.components.kafkaTopicCreate.image.tag` |
 | Elasticsearch |  | `docker.elastic.co/elasticsearch/elasticsearch` | `elasticSearch.imageRegistry` | `elasticsearch.imageRepository` | `elasticsearch.imageTag` |
-| Elasticsearch Exporer | | `justwatch/elasticsearch_exporter`  | N/A | `elasticsearch.elasticsearch-exporter.image.repository` | `elasticsearch.elasticsearch-exporter.image.tag`
+| Elasticsearch Exporer |  | `justwatch/elasticsearch_exporter` | N/A | `elasticsearch.elasticsearch-exporter.image.repository` | `elasticsearch.elasticsearch-exporter.image.tag` |
 | HBase | StackGraph Console | `quay.io/stackstate/stackgraph-console` | `hbase.all.image.registry` | `hbase.console.image.repository` | `hbase.console.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
 | HBase | Master | `quay.io/stackstate/hbase-master` | `hbase.all.image.registry` | `hbase.hbase.master.image.repository` | `hbase.hbase.master.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
 | HBase | RegionServer | `quay.io/stackstate/hbase-regionserver` | `hbase.all.image.registry` | `hbase.hbase.regionserver.image.repository` | `hbase.hbase.regionserver.image.tag` \(defaults to `stackgraph.image.tag`\) |
@@ -91,3 +92,4 @@ To address this issue, you can copy all the images to a single registry, close t
 | Kafka | JMX Exporter | `docker.io/bitnami/jmx-exporter` | `kafka.metrics.jmx.image.registry` | `kafka.metrics.jmx.image.repository` | `kafka.metrics.jmx.image.tag` |
 | Kafka | Kafka Exporter | `docker.io/bitnami/kafka-exporte` | `kafka.metrics.kafka.image.registry` | `kafka.metrics.kafka.image.repository` | `kafka.metrics.kafka.image.tag` |
 | Zookeeper |  | `docker.io/bitnami/zookeeper-exporter` | `zookeeper.image.registry` | `zookeeper.image.repository` | `zookeeper.image.tag` |
+

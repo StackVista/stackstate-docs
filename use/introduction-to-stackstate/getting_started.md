@@ -1,17 +1,17 @@
 # Getting Started
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Hi! So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](../../stackpacks/about-stackpacks.md).
 
-![StackPacks overview](../../.gitbook/assets/v42_01_stackpacks.png)
+![StackPacks overview](../../.gitbook/assets/v43_stackpacks.png)
 
 ## Explore topology
 
@@ -21,7 +21,7 @@ StackState visualizes components by the layer and domain they are placed in. The
 
 You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](../views/filters.md) on the left side bar, or by [hovering over a component](../views/topology-perspective.md#interactive-navigation).
 
-![Explore topology](../../.gitbook/assets/v42_02_topology.png)
+![Explore topology](../../.gitbook/assets/v42_topology.png)
 
 ## Topology elements
 
@@ -46,17 +46,17 @@ The timeline at the bottom of the screen gives you the ability to go to any poin
 
 To see the details of a component or a relation, you can click on it. Click on "Show component properties" to see all details of a component.
 
-![Component details](../../.gitbook/assets/v42_03_component_details.png)
+![Component details](../../.gitbook/assets/v42_component_details.png)
 
 ## Metric inspector
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Metric inspector](../../.gitbook/assets/031_component_details_inspect_metric_stream.png)
+![Metric inspector](../../.gitbook/assets/v43_component_details_inspect_metric_stream.png)
 
 If you click on an event stream, you can see the event/log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
 
-![Event inspector](../../.gitbook/assets/032_component_details_inspect_event_stream.png)
+![Event inspector](../../.gitbook/assets/v43_component_details_inspect_log_stream.png)
 
 ## Problem clusters
 
@@ -70,7 +70,7 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
 
-![Component details](../../.gitbook/assets/v42_04_problem_summary.png)
+![Component details](../../.gitbook/assets/v42_problem_summary.png)
 
 ## Events
 

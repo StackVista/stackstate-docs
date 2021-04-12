@@ -5,8 +5,8 @@ description: Perform a major or minor upgrade of StackState.
 # Steps to upgrade
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -111,15 +111,14 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 {% endtab %}
 
 {% tab title="Linux" %}
-
 1. Download the upgrade file from [https://download.stackstate.com](https://download.stackstate.com).
 2. Depending on your platform, use one of the following commands to upgrade:
-    * **Fedora, RedHat, CentOS:**
-      * using RPM: `rpm -U <stackstate>.rpm`
-      * using yum: `yum localinstall <stackstate>.rpm`
-    * **Debian, Ubuntu:**
-      * using dpkg: `dpkg -i <stackstate>.deb`
-      * using apt: `apt-get upgrade <stackstate>.deb`
+   * **Fedora, RedHat, CentOS:**
+     * using RPM: `rpm -U <stackstate>.rpm`
+     * using yum: `yum localinstall <stackstate>.rpm`
+   * **Debian, Ubuntu:**
+     * using dpkg: `dpkg -i <stackstate>.deb`
+     * using apt: `apt-get upgrade <stackstate>.deb`
 {% endtab %}
 {% endtabs %}
 

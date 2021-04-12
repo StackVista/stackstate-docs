@@ -1,17 +1,17 @@
-# Required permissions
+# Required Permissions
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
 
 All of StackState's own components can run without any extra permissions. However in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
-## Autonomous Anomaly Detector (AAD)
+## Autonomous Anomaly Detector \(AAD\)
 
-In order to run the [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md), or prepare your Kubernetes cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes administrator.
+In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your Kubernetes cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes administrator.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -27,7 +27,7 @@ cluster-role:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that if automatic creation of cluster-wide resources is disabled the Autonomous Anomaly Detector will NOT be able to authenticate against the running StackState installation unless you [manually create the cluster-wide resources](required_permissions.md#manually-create-cluster-wide-resources). 
+Note that if automatic creation of cluster-wide resources is disabled the Autonomous Anomaly Detector will NOT be able to authenticate against the running StackState installation unless you [manually create the cluster-wide resources](required_permissions.md#manually-create-cluster-wide-resources).
 {% endhint %}
 
 ### Manually create cluster-wide resources
@@ -95,6 +95,7 @@ subjects:
 {% endtabs %}
 
 ## Elasticsearch
+
 StackState uses Elasticsearch to store its indices. There are some additional requirements for the nodes that Elasticsearch runs on.
 
 As the `vm.max_map_count` Linux system setting is usually lower than required for Elasticsearch to start, an init container is used that runs in privileged mode and as the root user. The init container is enabled by default to allow the `vm.max_map_count` system setting to be changed.
@@ -119,20 +120,20 @@ If this is disabled, you will need to ensure that the `vm.max_map_count` setting
 
 To inspect the current `vm.max_map_count` setting, run the following command. Note that it runs a privileged pod:
 
-```
+```text
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
 ```
 
 If the current `vm.max_map_count` setting is not at least `262144`, it will need to be increased in a different way or Elasticsearch will fail to start up and its pods will be in a restart loop. The logs will contain an error message like this:
 
-```
+```text
 bootstrap checks failed
 max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 ```
 
 ### Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration (for example via init scripts) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kuberentes cluster setup, so there are no general solutions there.
+Depending on what your Kubernetes administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kuberentes cluster setup, so there are no general solutions there.
 
 Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 
@@ -202,5 +203,6 @@ elasticsearch:
 
 ## See also
 
-- [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md)
-- [Install StackState on Kubernetes](/setup/installation/kubernetes_install/install_stackstate.md)
+* [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
+* [Install StackState on Kubernetes](install_stackstate.md)
+

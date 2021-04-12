@@ -5,8 +5,8 @@ description: See traces for the components in your IT landscape.
 # Traces Perspective
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
@@ -29,7 +29,7 @@ Span types are colored differently according to the information on the right. Fo
 
 When inspecting a trace and seeing the list of its spans, you can click on any span to see further details. The image below illustrates this action.
 
-![Inspecting a span](../../.gitbook/assets/v42_span-details.png)
+![Inspecting a span](../../.gitbook/assets/v43_span-details.png)
 
 ## Filtering
 
@@ -64,7 +64,7 @@ By installing our agent and its integrations to gather traces from these technol
 
 ![The spans \(components\) of a trace](../../.gitbook/assets/v42_trace-inspection.png)
 
-![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
+![The topology for which you fetch traces](../../.gitbook/assets/v42_topology-traces.png)
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
 

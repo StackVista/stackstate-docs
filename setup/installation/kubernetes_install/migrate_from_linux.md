@@ -1,8 +1,8 @@
-# Migrate from Linux install to Kubernetes install
+# Migrate from Linux install
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -18,80 +18,75 @@ The Kubernetes installation of StackState should be v4.2.5 or higher to execute 
 To migrate from the Linux install to the Kubernetes install of StackState, the following high level steps need to be performed:
 
 1. [Install StackState](install_stackstate.md) on Kubernetes.
-1. [Migrate StackState configuration and topology data \(StackGraph\)](#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes install.
-1. [Migrate telemetry data (Elasticsearch)](#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
+2. [Migrate StackState configuration and topology data \(StackGraph\)](migrate_from_linux.md#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes install.
+3. [Migrate telemetry data \(Elasticsearch\)](migrate_from_linux.md#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
 
-Incoming data from agents (Kafka) and node synchronisation data (Zookeeper) will not be copied. 
+Incoming data from agents \(Kafka\) and node synchronisation data \(Zookeeper\) will not be copied.
 
 **After the migration:**
 
 1. Run both instances of StackState side by side for a number of days to ensure that the new instance runs correctly.
-1. Stop the Linux install for StackState.
-1. Remove the Linux install for StackState.
+2. Stop the Linux install for StackState.
+3. Remove the Linux install for StackState.
 
-
-## Step 2 - Migrate StackState configuration and topology data (StackGraph)
+## Step 2 - Migrate StackState configuration and topology data \(StackGraph\)
 
 ### Prerequisites
 
 Before you start the migration procedure, make sure you have the following information and tools available:
 
 * Access to:
-    * The Linux machines running your old StackState installation.
-    * The Kubernetes cluster running your new StackState installation.
-    * The `values.yaml` file used to install your StackState installation on Kubernetes.
-    * The restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
+  * The Linux machines running your old StackState installation.
+  * The Kubernetes cluster running your new StackState installation.
+  * The `values.yaml` file used to install your StackState installation on Kubernetes.
+  * The restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
 * Tools:
-    * [helm \(helm.sh\)](https://helm.sh/)
-    * [mc - the MinIO client \(min.io\)](https://docs.min.io/docs/minio-client-quickstart-guide.html)
+  * [helm \(helm.sh\)](https://helm.sh/)
+  * [mc - the MinIO client \(min.io\)](https://docs.min.io/docs/minio-client-quickstart-guide.html)
 
 ### Export StackGraph data
 
 To export the StackGraph data, execute the regular StackState Linux backup procedures as described below.
 
 1. Ensure that the StackGraph node is up and running.
+2. Login to the StackState node as user `root`.
+3. Stop the StackState service:
 
-1. Login to the StackState node as user `root`.
-
-1. Stop the StackState service:
-
-    ```bash
+   ```bash
     systemctl stop stackstate.service
-    ```
+   ```
 
-1. Create a directory to store the exported data:
+4. Create a directory to store the exported data:
 
-    ```bash
+   ```bash
     sudo -u stackstate mkdir -p /opt/stackstate/migration
-    ```
+   ```
 
-1. Export the StackGraph data by creating a backup:
+5. Export the StackGraph data by creating a backup:
 
-    ```bash
+   ```bash
     sudo -u stackstate /opt/stackstate/bin/sts-standalone.sh export \
         --file /opt/stackstate/migration/sts-export.graph --graph default
-    ```
+   ```
 
-1. Copy the file `/opt/stackstate/migration/sts-export.graph` to a safe location.
+6. Copy the file `/opt/stackstate/migration/sts-export.graph` to a safe location.
+7. Start the StackState service:
 
-1. Start the StackState service:
-
-    ```bash
+   ```bash
     systemctl start stackstate.service
-    ```
+   ```
 
 ### Import StackGraph data
 
-To import the StackGraph data into the Kubernetes installation, the same [MinIO \(min.io\)](https://min.io/) component that is used for
-the backup/restore functionality will be used. 
+To import the StackGraph data into the Kubernetes installation, the same [MinIO \(min.io\)](https://min.io/) component that is used for the backup/restore functionality will be used.
 
 {% hint style="info" %}
-Note that the [StackState automatic Kubernetes backup functionality](/setup/data-management/backup_restore/kubernetes_backup.md) should not be enabled until after the migration procedure has completed.
+Note that the [StackState automatic Kubernetes backup functionality](../../data-management/backup_restore/kubernetes_backup.md) should not be enabled until after the migration procedure has completed.
 {% endhint %}
 
 1. Enable the MinIO component by adding the following YAML fragment to the `values.yaml` file that is used to install StackState
 
-    ```yaml
+   ```yaml
     backup:
       enabled: true
       stackGraph:
@@ -107,73 +102,73 @@ Note that the [StackState automatic Kubernetes backup functionality](/setup/data
       secretKey: MINIO_SECRET_KEY
       persistence:
         enabled: true
-    ```
+   ```
 
-    Include the credentials to access the MinIO instance:
-    
-    - Replace `MINIO_ACCESS_KEY` with 5 to 20 alphanumerical characters.
-    - Replace `MINIO_SECRET_KEY` with 8 to 40 alphanumerical characters.
+   Include the credentials to access the MinIO instance:
 
+   * Replace `MINIO_ACCESS_KEY` with 5 to 20 alphanumerical characters.
+   * Replace `MINIO_SECRET_KEY` with 8 to 40 alphanumerical characters.
 
-    The Helm values `backup.stackGraph.scheduled.enabled`, `backup.elasticsearch.restore.enabled` and `backup.elasticsearch.scheduled.enabled` have been set to `false` to prevent scheduled backups from overwriting the backups that we will upload to MinIO.
+```text
+The Helm values `backup.stackGraph.scheduled.enabled`, `backup.elasticsearch.restore.enabled` and `backup.elasticsearch.scheduled.enabled` have been set to `false` to prevent scheduled backups from overwriting the backups that we will upload to MinIO.
+```
 
 1. Run the appropriate `helm upgrade` command for your installation to enable MinIO.
+2. Start a port-forward to the MinIO service in your StackState instance:
 
-1. Start a port-forward to the MinIO service in your StackState instance:
-
-    ```bash
+   ```bash
     kubectl port-forward service/stackstate-minio 9000:9000
-    ```
+   ```
 
-1. In a new terminal window, configure the MinIO client to connect to that MinIO service:
+3. In a new terminal window, configure the MinIO client to connect to that MinIO service:
 
-    ```bash
+   ```bash
     mc alias set minio-backup http://localhost:9000 ke9Dm7eFhk9kP53rXlUI mNOWCpoYrhwati7QcOrEwnI7Mtcf0jxg2JzNOMk6
-    ```
+   ```
 
-1. Verify that access has been configured correctly:
+4. Verify that access has been configured correctly:
 
-    ```bash
+   ```bash
     mc ls minio-backup
-    ```
+   ```
 
-    The output should be empty, as we have not created any buckets yet. 
-    
-    If the output is not empty, the automatic backup functionality has been enabled. Disable the automatic backup functionality and configure MinIO as described above (i.e. not as a gateway to AWS S3 or Azure Blob Storage and without any local storage).
+   The output should be empty, as we have not created any buckets yet.
 
-1. Create the bucket that is used to store StackGraph buckets:
+   If the output is not empty, the automatic backup functionality has been enabled. Disable the automatic backup functionality and configure MinIO as described above \(i.e. not as a gateway to AWS S3 or Azure Blob Storage and without any local storage\).
 
-    ```bash
+5. Create the bucket that is used to store StackGraph buckets:
+
+   ```bash
     mc mb minio-backup/sts-stackgraph-backup
-    ```
+   ```
 
-    The output should look like this:
+   The output should look like this:
 
-    ```
+   ```text
     Bucket created successfully `minio-backup/sts-stackgraph-backup`.
-    ```
+   ```
 
-1. Upload the backup file created in the previous step when [StackGraph data was exported](#export-stackgraph-data) from the Linux install:
+6. Upload the backup file created in the previous step when [StackGraph data was exported](migrate_from_linux.md#export-stackgraph-data) from the Linux install:
 
-    ```bash
+   ```bash
     mc cp sts-export.graph minio-backup/sts-stackgraph-backup/
-    ```
+   ```
 
-    The output should look like this:
+   The output should look like this:
 
-    ```
+   ```text
     sts-export.graph:                             15.22 KiB / 15.22 KiB  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  42.61 KiB/s 0s
-    ```
+   ```
 
-1. Verify that the backup file was uploaded to the correct location:
+7. Verify that the backup file was uploaded to the correct location:
 
-    ```bash
+   ```bash
     ./restore/list-stackgraph-backups.sh
-    ```
+   ```
 
-    The output should look like this:
+   The output should look like this:
 
-    ```
+   ```text
     job.batch/stackgraph-list-backups-20210222t122522 created
     Waiting for job to start...
     Waiting for job to start...
@@ -181,19 +176,19 @@ Note that the [StackState automatic Kubernetes backup functionality](/setup/data
     sts-export.graph
     ===
     job.batch "stackgraph-list-backups-20210222t122522" deleted
-    ```
+   ```
 
-    Most importantly, the backup file uploaded in the previous step should be listed here.
+   Most importantly, the backup file uploaded in the previous step should be listed here.
 
-1. Restore the backup:
+8. Restore the backup:
 
-    ```bash
+   ```bash
     ./restore/restore-stackgraph-backup.sh sts-export.graph
-    ```
+   ```
 
-    The output should look like this:
+   The output should look like this:
 
-    ```
+   ```text
     job.batch/stackgraph-restore-20210222t171035 created
     Waiting for job to start...
     Waiting for job to start...
@@ -207,38 +202,39 @@ Note that the [StackState automatic Kubernetes backup functionality](/setup/data
     WARNING: All illegal access operations will be denied in a future release
     ===
     job.batch "stackgraph-restore-20210222t171035" deleted
-    ```
+   ```
 
-1. Remove the YAML snippet added in step 1 and run the appropriate `helm upgrade` command for your installation to disable MinIO.
+9. Remove the YAML snippet added in step 1 and run the appropriate `helm upgrade` command for your installation to disable MinIO.
 
-## Step 3 - Migrate telemetry data (Elasticsearch)
+## Step 3 - Migrate telemetry data \(Elasticsearch\)
 
 To migrate Elasticsearch data from the Linux install to the Kubernetes install, use the functionality [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html).
 
 Notes:
+
 * To access the Elasticsearch instance that runs as part of the Kubernetes installation for StackState, execute the following command:
 
-    ```bash
+  ```bash
     kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
-    ```
+  ```
 
-    and access it on `http://localhost:9200`.
+  and access it on `http://localhost:9200`.
 
 * To modify the `elasticsearch.yml` configuration file, use the Helm chart value `stackstate.elasticsearch.esConfig`.
 
-    For example:
+  For example:
 
-    ```yaml
+  ```yaml
     stackstate:
         elasticsearch:
             esConfig:
                 elasticsearch.yml: |
                     reindex.remote.whitelist: oldhost:9200
-    ```
-
+  ```
 
 ## See also
 
-- [Install StackState on Kubernetes](install_stackstate.md)
-- [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore)
-- [StackState Linux backup](../../data-management/backup_restore/linux_backup.md)
+* [Install StackState on Kubernetes](install_stackstate.md)
+* [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore)
+* [StackState Linux backup](../../data-management/backup_restore/linux_backup.md)
+

@@ -5,8 +5,8 @@ description: Explore your full IT environment
 # Explore mode
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -19,7 +19,7 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 ## Perspectives
 
-![Perspectives](../.gitbook/assets/v42_perspective_buttons.png)
+![Perspectives](../.gitbook/assets/v43_perspective_buttons.png)
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](introduction-to-stackstate/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
 
@@ -30,13 +30,13 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ## Add a filter
 
-![View Filters](../.gitbook/assets/v42_view_filters.png)
+![View Filters](../.gitbook/assets/v43_view_filters.png)
 
 You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](views/filters.md).
 
 ## Save filters as a view
 
-![Save view as](../.gitbook/assets/v42_save_view_as.png)
+![Save view as](../.gitbook/assets/v43_save_view_as.png)
 
 When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](views/) menu.
 

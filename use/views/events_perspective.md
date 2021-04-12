@@ -5,8 +5,8 @@ description: Track changes in your IT landscape.
 # Events Perspective
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The Events Perspective shows events and changes for the elements in the current [view](./) or filtered topology.
@@ -84,7 +84,7 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified time window \(this will be adjusted to fit the selected timestamp if required\).
 
-![Time window](../../.gitbook/assets/v42_time-window.png)
+![Time window](../../.gitbook/assets/v43_timeline.png)
 
 ## See also
 

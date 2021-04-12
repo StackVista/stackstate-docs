@@ -5,15 +5,15 @@ old-description: Collect topology data from ServiceNow
 # ServiceNow
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
 
 The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items \(CIs\) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations. ServiceNow change request events are also retrieved.
 
-![Data flow](../../.gitbook/assets/v500_servicenow.png)
+![Data flow](../../.gitbook/assets/stackpack-servicenow%20%281%29.png)
 
 * Agent V2 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).
 * CIs and dependencies for the configured CI types are retrieved from the ServiceNow CMDB \(default all\). Change request events are retrieved in the same run.

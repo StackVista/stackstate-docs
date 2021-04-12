@@ -5,8 +5,8 @@ description: The StackPack versions shipped with each release of StackState.
 # StackPack versions
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The table below shows the StackPack version numbers shipped with each StackState release. Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes.
@@ -21,7 +21,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Health Forecast](../../stackpacks/add-ons/health-forecast.md) | 1.0.3 | 1.0.3 | **1.0.3** |
 | [StackState Agent](../../stackpacks/integrations/agent.md) | [**3.12.0**](../../stackpacks/integrations/agent.md#release-notes) | 3.11.0 | 3.4.0 |
 | [AWS](../../stackpacks/integrations/aws.md) | [**5.0.2**](../../stackpacks/integrations/aws.md#release-notes) | 5.0.1 | 4.0.0 |
-| [Azure](../../stackpacks/integrations/azure.md) | 4.0.2 | [**4.0.2**](/stackpacks/integrations/azure.md#release-notes) | 2.1.0 |
+| [Azure](../../stackpacks/integrations/azure.md) | 4.0.2 | [**4.0.2**](../../stackpacks/integrations/azure.md#release-notes) | 2.1.0 |
 | [API integration](../../stackpacks/integrations/api-integration.md) | 2.3.1 | **2.3.1** | 2.1.0 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | 1.2.1 | **1.2.1** | 1.1.0 |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | 3.0.1 | [**3.0.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.0 |
@@ -36,7 +36,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | [**5.1.0**](../../stackpacks/integrations/servicenow.md#release-notes) | 4.0.1 | 2.1.0 |
 | [Splunk](../../stackpacks/integrations/splunk/) | 1.0.0 | [**1.0.0**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | - |
 | [Static topology](../../stackpacks/integrations/static_topology.md) | 2.2.1 | **2.2.1** | 2.0.0 |
-| [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.2.1 | [**2.2.1**](/stackpacks/integrations/vsphere.md#release-notes) | 2.1.0 |
+| [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.2.1 | [**2.2.1**](../../stackpacks/integrations/vsphere.md#release-notes) | 2.1.0 |
 | [Zabbix](../../stackpacks/integrations/zabbix.md) | 3.0.1 | **3.0.1** | 2.2.0 |
 
 ## See also

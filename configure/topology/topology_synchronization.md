@@ -1,8 +1,8 @@
 # Topology synchronization
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -19,7 +19,7 @@ StackState accepts topology data in JSON format. JSON files received pass throug
 
 The entire process can be represented visually as follows:
 
-![](../../.gitbook/assets/v42_topology_synchronization.png)
+![](../../.gitbook/assets/v43_topology_synchronization.png)
 
 ### Topology JSON format
 
@@ -114,8 +114,8 @@ The JSON contains the following fields:
 
 The following fields are mandatory, but can be left empty as seen in the example above. Refer to the links below for details on how to use them:
 
-* [events](/configure/telemetry/send_telemetry.md#events)
-* [metrics](/configure/telemetry/send_telemetry.md#metrics)
+* [events](../telemetry/send_telemetry.md#events)
+* [metrics](../telemetry/send_telemetry.md#metrics)
 * `service_checks`
 
 ### Getting started with custom topology

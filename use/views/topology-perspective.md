@@ -5,17 +5,17 @@ description: See the real time state of your IT landscape
 # Topology Perspective
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/v42_topoview1.png)
+![](../../.gitbook/assets/v43_topoview1.png)
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](/use/views/README.md). Components that have one or more [checks](/configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](/configure/topology/propagation.md).
+The Topology Perspective shows components and relations in the selected [view](./). Components that have one or more [checks](../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](../../configure/topology/propagation.md).
 
 ## Component details
 
@@ -92,11 +92,11 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v42_show_root_cause_outside.png)
+![Root cause](../../.gitbook/assets/v42_show_full_root_cause_tree.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../.gitbook/assets/v42_basic_filtering_list.png)
+![Filtering\(list format\)](../../.gitbook/assets/v42_list_mode.png)
 

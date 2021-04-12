@@ -1,8 +1,8 @@
-# Open ID Connect (OIDC)
+# Open ID Connect \(OIDC\)
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -11,7 +11,7 @@ StackState can authenticate using an OIDC authentication provider. To enable thi
 
 ## Configure the OIDC provider
 
-Before you can configure StackState to authenticate using OIDC, you need to create a client for StackState on your OIDC provider. Use the following settings for the client (if needed by the OIDC provider):
+Before you can configure StackState to authenticate using OIDC, you need to create a client for StackState on your OIDC provider. Use the following settings for the client \(if needed by the OIDC provider\):
 
 * Use the OIDCAuthoirzation Flow
 * Set the **Redirect URI** to the base URL of StackState suffixed with `/loginCallback`. For example `https://stackstate.acme.com/loginCallback`. For some OIDC providers, such as Google, the Redirect URI must match exactly, including any query parameters. In that case, you should configure the URI like this `https://stackstate.acme.com/loginCallback?client_name=StsOidcClient`.
@@ -53,23 +53,21 @@ stackstate:
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 
-1. In `authentication.yaml` - add details of the OIDC authentication provider (see the example above):
-    - **clientId** - The ID of the [OIDC client you created for StackState](#configure-the-oidc-provider).
-    - **secret** - The secret for the [OIDC client you created for StackState](#configure-the-oidc-provider)
-    - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
-    - **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
-    - **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
-    - **redirectUri** - Optional (not in the example): The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
-    - **jwtClaims** -
-       - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
-       - **groupsField** - The field from which StackState will read the role/group for a user.
-
-2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects using the `roles.guest`, `roles.powerUser` or `roles.admin` settings (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
-
+1. In `authentication.yaml` - add details of the OIDC authentication provider \(see the example above\):
+   * **clientId** - The ID of the [OIDC client you created for StackState](oidc.md#configure-the-oidc-provider).
+   * **secret** - The secret for the [OIDC client you created for StackState](oidc.md#configure-the-oidc-provider)
+   * **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
+   * **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
+   * **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
+   * **redirectUri** - Optional \(not in the example\): The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
+   * **jwtClaims** -
+     * **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
+     * **groupsField** - The field from which StackState will read the role/group for a user.
+2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects using the `roles.guest`, `roles.powerUser` or `roles.admin` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Store the file `authentication.yaml` together with the `values.yaml` file from the StackState installation instructions.
-
 4. Run a Helm upgrade to apply the changes:
-    ```
+
+   ```text
     helm upgrade \
       --install \
       --namespace stackstate \
@@ -77,10 +75,11 @@ Follow the steps below to configure StackState to authenticate using OIDC:
       --values authentication.yaml \
     stackstate \
     stackstate/stackstate
-    ```
+   ```
 
 {% hint style="info" %}
 **Note:**
+
 * The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
 * Include `authentication.yaml` on every `helm upgrade` run.
 * The authentication configuration is stored as a Kubernetes secret.
@@ -91,7 +90,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 To configure StackState to use an OIDC authentication provider on Linux, OIDC details and user role mapping needs to be added to the file `application_stackstate.conf`. This should replace the existing `authentication` section that is nested in `stackstate.api`. For example:
 
 {% tabs %}
-{% tab title="application_stackstate.conf" %}
+{% tab title="application\_stackstate.conf" %}
 ```javascript
 authentication {
   enabled  = true
@@ -125,28 +124,28 @@ authentication {
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 
-1. In `application_stackstate.conf` - add details of the OIDC authentication provider (see the example above). This should replace the existing `authentication` section that is nested in `stackstate.api`:
-    - **clientId** - The ID of the [OIDC client you created for StackState](#configure-oidc-provider).
-    - **secret** - The secret for the [OIDC client you created for StackState](#configure-oidc-provider)
-    - **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
-    - **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
-    - **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
-    - **redirectUri** - The URI where the login callback endpoint of StackState is reachable. This must be a fully qualified URL that points to the `/loginCallback` path.
-    - **jwtClaims** -
-       - **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
-       - **groupsField** - The field from which StackState will read the role/group for a user.
-
-2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings (see the example above). For details, see the [default StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](/configure/security/rbac/README.md).
-
+1. In `application_stackstate.conf` - add details of the OIDC authentication provider \(see the example above\). This should replace the existing `authentication` section that is nested in `stackstate.api`:
+   * **clientId** - The ID of the [OIDC client you created for StackState](oidc.md#configure-oidc-provider).
+   * **secret** - The secret for the [OIDC client you created for StackState](oidc.md#configure-oidc-provider)
+   * **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
+   * **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
+   * **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
+   * **redirectUri** - The URI where the login callback endpoint of StackState is reachable. This must be a fully qualified URL that points to the `/loginCallback` path.
+   * **jwtClaims** -
+     * **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
+     * **groupsField** - The field from which StackState will read the role/group for a user.
+2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Restart StackState to apply the changes.
 
 ## Additional settings for specific OIDC providers
+
 This section contains additional settings needed for specific OIDC providers.
 
 ### Microsoft Identity Platform
+
 To authenticate StackState via OIDC with the Microsoft Identity Platform, the additional scope `offline_access` needs to be granted and requested during authentication.
 
-In Microsoft Azure, approve the permission *"Maintain access to data you have given it access to"* on the consent page of the authorization code flow.
+In Microsoft Azure, approve the permission _"Maintain access to data you have given it access to"_ on the consent page of the authorization code flow.
 
 In the StackState configuration described above, add the scope `offline_access`, in addition to `openid` and `email`. For example:
 
@@ -158,12 +157,11 @@ jwsAlgorithm: RS256
         groupsField: groups
 ```
 
-For further details, see [Permissions and consent in the Microsoft identity platform (docs.microsoft.com)](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+For further details, see [Permissions and consent in the Microsoft identity platform \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
 
 ## See also
 
-- [Authentication options](/configure/security/authentication/authentication_options.md)
-- [Permissions for pre-defined StackState roles](/configure/security/rbac/rbac_permissions.md#predefined-roles)
-- [Create RBAC roles](/configure/security/rbac/rbac_roles.md)
-
+* [Authentication options](authentication_options.md)
+* [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
+* [Create RBAC roles](../rbac/rbac_roles.md)
 

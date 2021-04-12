@@ -1,13 +1,13 @@
 # Install with production configuration
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](/setup/installation/kubernetes_install/migrate_from_linux.md).
+In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_install/migrate_from_linux.md).
 {% endhint %}
 
 ## Requirements
@@ -35,7 +35,7 @@ To prepare an additional node for running a StackState component, follow these s
 
 After you have installed StackState, refer to the following pages for configuration instructions:
 
-* [Configuring authentication](/configure/security/authentication/authentication_options.md)
+* [Configuring authentication](../../../configure/security/authentication/authentication_options.md)
 * [Reverse Proxy](reverse_proxy.md) \(recommended setup\) or [TLS without reverse proxy](how_to_setup_tls_without_reverse_proxy.md)
 
 ### Starting and Stopping

@@ -1,22 +1,22 @@
 # Authentication options
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
-Out of the box, StackState is configured with [file-based authentication](./file.md) with a [default username and password](README.md#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.
+Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](./#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.
 
-For better security StackState can be configured to use exactly one of the following authentication mechanisms (replacing the standard admin user):
+For better security StackState can be configured to use exactly one of the following authentication mechanisms \(replacing the standard admin user\):
 
-* [File based](./file.md)
-* [LDAP](./ldap.md)
-* [Open ID Connect (OIDC)](./oidc.md)
-* [KeyCloak (a specialized version of OIDC)](./keycloak.md)
+* [File based](file.md)
+* [LDAP](ldap.md)
+* [Open ID Connect \(OIDC\)](oidc.md)
+* [KeyCloak \(a specialized version of OIDC\)](keycloak.md)
 
 {% hint style="info" %}
-- **Kubernetes** authentication configuration is part of the Helm chart, any changes will automatically triger a restart of the pods requiring that.
-- **Linux** authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
+* **Kubernetes** authentication configuration is part of the Helm chart, any changes will automatically triger a restart of the pods requiring that.
+* **Linux** authentication configuration is stored in the file `etc/application_stackstate.conf` in the StackState installation directory. Restart StackState for any changes made to this file to take effect.
 {% endhint %}
 
 ## User roles
@@ -29,7 +29,7 @@ When a user has been authenticated permissions for that user are usually assigne
 
 When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
 
-It is also possible to add more roles, see the page [Roles \(RBAC\)](../rbac/rbac_roles.md) and the other [RBAC documentation pages](../configure/security/rbac/)
+It is also possible to add more roles, see the page [Roles \(RBAC\)](../rbac/rbac_roles.md) and the other [RBAC documentation pages](https://github.com/StackVista/stackstate-docs/tree/8a6e4a7109d28416bcdab199fe3f363a90971a09/configure/security/configure/security/rbac/README.md)
 
 ## Default username and password
 
@@ -46,3 +46,4 @@ StackState is configured by default with the following administrator account:
 * **password:** `topology-telemetry-time`
 {% endtab %}
 {% endtabs %}
+

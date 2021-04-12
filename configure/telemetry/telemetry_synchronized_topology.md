@@ -1,13 +1,13 @@
 # Add telemetry during topology synchronization
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
 
-Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be built in StackState, such as the layer it should belong to, the health checks that should be added and any telemetry streams that should be attached to it. 
+Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be built in StackState, such as the layer it should belong to, the health checks that should be added and any telemetry streams that should be attached to it.
 
 The StackPacks shipped with StackState already include templates with the relevant telemetry streams for each imported element type. If you create your own integrations or have additional telemetry streams that you would like to link with imported components, you can edit the template used during synchronization to automatically add these to imported topology.
 
@@ -84,7 +84,8 @@ For example, a CloudWatch metric stream:
 
 ## See also
 
-* [Add a single telemetry stream to a single component](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
-* [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
-* [Browse telemetry streams](/use/views/browse-telemetry.md)
-* [Create a StackPack with a custom template](/develop/developer-guides/stackpack/README.md)
+* [Add a single telemetry stream to a single component](../../use/health-state-and-event-notifications/add-telemetry-to-element.md)
+* [Reference guide: StackState template JSON](../../develop/reference/stj/)
+* [Browse telemetry streams](../../use/views/browse-telemetry.md)
+* [Create a StackPack with a custom template](../../develop/developer-guides/stackpack/)
+

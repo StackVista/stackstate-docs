@@ -5,8 +5,8 @@ description: Report the health state for a complete view.
 # Configure the view health
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -15,7 +15,7 @@ Reacting to each event in an environment can cause a lot of noise. This may be b
 
 StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
 
-![Views list with view health state](../../.gitbook/assets/v42_views_list.png)
+![Views list with view health state](../../.gitbook/assets/v43_views_list.png)
 
 ## Configure a view health state
 
@@ -47,7 +47,7 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 * The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
-The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to \[create a custom view health state configuration function\](/configure/topology/view_state_configuration.md#write-a-custom-view-health-state-configuration-function).
+The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to \[create a custom view health state configuration function\]\(/configure/topology/view\_state\_configuration.md\#write-a-custom-view-health-state-configuration-function\).
 
 ## See also
 

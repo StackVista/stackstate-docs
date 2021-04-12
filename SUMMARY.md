@@ -139,7 +139,7 @@
     * [Authentication options](configure/security/authentication/authentication_options.md)
     * [File based](configure/security/authentication/file.md)
     * [LDAP](configure/security/authentication/ldap.md)
-    * [Open ID Connect (OIDC)](configure/security/authentication/oidc.md)
+    * [Open ID Connect \(OIDC\)](configure/security/authentication/oidc.md)
     * [KeyCloak](configure/security/authentication/keycloak.md)
   * [RBAC](configure/security/rbac/README.md)
     * [Role-based Access Control](configure/security/rbac/role_based_access_control.md)
@@ -149,7 +149,7 @@
     * [Subjects](configure/security/rbac/rbac_subjects.md)
   * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Secrets management](configure/security/secrets_management.md)
-  * [Self-signed certificates](configure/security/self-signed-certificates.md)
+  * [Self-signed certificates](configure/security/self-signed-certificates-1.md)
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
 * [Identifiers](configure/identifiers.md)
@@ -210,4 +210,4 @@
   * [Push data to StackState from an external system](develop/tutorials/push_integration_tutorial.md)
   * [Send events to StackState from an external system](develop/tutorials/events_tutorial.md)
   * [Set up a mirror to pull telemetry data from an external system](develop/tutorials/mirror_tutorial.md)
-  
+

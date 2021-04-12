@@ -1,8 +1,8 @@
 # Kubernetes backup
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -56,13 +56,14 @@ minio:
 ```
 
 Replace the following values:
+
 * `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` are the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They are also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
 * `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are the AWS credentials for the IAM user that has access to the S3 buckets where the backups will be stored. See below for the permission policy that needs to be attached to that user.
-* `AWS_STACKGRAPH_BUCKET` and `AWS_ELASTICSEARCH_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name (`sts-elasticsearch-backup` and `sts-stackgraph-backup`) will probably not be available.
+* `AWS_STACKGRAPH_BUCKET` and `AWS_ELASTICSEARCH_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup` and `sts-stackgraph-backup`\) will probably not be available.
 
 The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configured with the following permission policy to access the S3 buckets:
 
-```json
+```javascript
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -129,9 +130,9 @@ minio:
 
 Replace `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` with the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They are also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
 
-## Configuration and topology data (StackGraph)
+## Configuration and topology data \(StackGraph\)
 
-Configuration and topology data (StackGraph) backups are full backups, stored in a single file with the extension `.graph`. Each file contains a full backup and can be moved, copied or deleted as required.
+Configuration and topology data \(StackGraph\) backups are full backups, stored in a single file with the extension `.graph`. Each file contains a full backup and can be moved, copied or deleted as required.
 
 ### Disable scheduled backups
 
@@ -143,21 +144,21 @@ When `backup.enabled` is set to `true`, StackGraph restores are enabled by defau
 
 ### Backup schedule
 
-By default, the StackGraph backups are created daily at 03:00 AM server time. 
+By default, the StackGraph backups are created daily at 03:00 AM server time.
 
 The backup schedule can be configured using the Helm value `backup.stackGraph.scheduled.schedule`, specified in [Kubernetes cron schedule syntax \(kubernetes.io\)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
 
 ### Backup retention
 
-By default, the StackGraph backups are kept for 30 days. As StackGraph backups are full backups, this can require a lot of storage. 
+By default, the StackGraph backups are kept for 30 days. As StackGraph backups are full backups, this can require a lot of storage.
 
 The backup retention delta can be configured using the Helm value `backup.stackGraph.scheduled.backupRetentionTimeDelta`, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
 
-## Telemetry data (Elasticsearch)
+## Telemetry data \(Elasticsearch\)
 
-The telemetry data (Elasticsearch) snapshots are incremental and stored in files with the extension `.dat`. The files in the Elasticsearch backup storage location should be treated as a single whole and can only be moved, copied or deleted as a whole.
+The telemetry data \(Elasticsearch\) snapshots are incremental and stored in files with the extension `.dat`. The files in the Elasticsearch backup storage location should be treated as a single whole and can only be moved, copied or deleted as a whole.
 
-The configuration snippets provided in the section [enable backups](#enable-backups) will enable daily Elasticsearch snapshots.
+The configuration snippets provided in the section [enable backups](kubernetes_backup.md#enable-backups) will enable daily Elasticsearch snapshots.
 
 ### Disable scheduled snapshots
 
@@ -169,19 +170,19 @@ When `backup.enabled` is set to `true`, Elasticsearch restores are enabled by de
 
 ### Snapshot schedule
 
-By default, Elasticsearch snapshots are created daily at 03:00 AM server time. 
+By default, Elasticsearch snapshots are created daily at 03:00 AM server time.
 
 The backup schedule can be configured using the Helm value `backup.elasticsearch.scheduled.schedule`, specified in [Elasticsearch cron schedule syntax \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/cron-expressions.html).
 
 ### Snapshot retention
 
-By default, Elasticsearch snapshots are kept for 30 days, with a minimum of 5 snapshots and a maximum of 30 snapshots. 
+By default, Elasticsearch snapshots are kept for 30 days, with a minimum of 5 snapshots and a maximum of 30 snapshots.
 
 The retention time and number of snapshots kept can be configured using the following Helm values:
 
- * `backup.elasticsearch.scheduled.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units).
- * `backup.elasticsearch.scheduled.snapshotRetentionMinCount` 
- * `backup.elasticsearch.scheduled.snapshotRetentionMaxCount`
+* `backup.elasticsearch.scheduled.snapshotRetentionExpireAfter`, specified in [Elasticsearch time units \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/common-options.html#time-units).
+* `backup.elasticsearch.scheduled.snapshotRetentionMinCount` 
+* `backup.elasticsearch.scheduled.snapshotRetentionMaxCount`
 
 {% hint style="info" %}
 By default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/slm-settings.html#slm-retention-schedule). If you set snapshots to expire faster than within a day, for example for testing purposes, you will need to change the schedule for the retention task.
@@ -189,7 +190,7 @@ By default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)]
 
 ### Snapshot indices
 
-By default, a snapshot is created for all Elasticsearch indices. 
+By default, a snapshot is created for all Elasticsearch indices.
 
 This indices for which a snapshot is created can be configured using the Helm value `backup.elasticsearch.scheduled.indices`, specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp).
 
@@ -202,8 +203,8 @@ Before you use the scripts, ensure that:
 1. The `kubectl` binary has been installed.
 2. The `kubectl` binary is configured to connect to the Kubernetes cluster and the namespace within that cluster that runs StackState.
 3. The Helm value `backup.enabled` is set to `true`.
-4. The Helm value `backup.stackGraph.restore.enabled` is not set to `false` (to access StackGraph backups).
-5. The Helm value `backup.elasticsearch.restore.enabled` is not set to `false` (to access Elasticsearch snapshots).
+4. The Helm value `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
+5. The Helm value `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
 
 ### List StackGraph backups
 
@@ -272,7 +273,6 @@ job.batch "stackgraph-restore-20210222t112142" deleted
 Lines that starts with `WARNING:` are expected. They are generated by Groovy running in JDK 11 and can be ignored.
 {% endhint %}
 
-
 ### List Elasticsearch snapshots
 
 To list the Elasticsearch snapshots, execute the following command:
@@ -302,7 +302,7 @@ The timestamp when the backup was taken is part of the backup name.
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-When a snapshot is restored, existing indices will NOT be overwritten. Use Elasticsearch's [Delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See [delete Elasticsearch indices](#delete-elasticsearch-indices), below.
+When a snapshot is restored, existing indices will NOT be overwritten. Use Elasticsearch's [Delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices), below.
 {% endhint %}
 
 To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line:
@@ -312,7 +312,8 @@ To restore an Elasticsearch snapshot, select a snapshot name and pass it as the 
 ```
 
 The output should look like this:
-```
+
+```text
 job.batch/elasticsearch-restore-20210229t152530 created
 Waiting for job to start...
 Waiting for job to start...
@@ -343,22 +344,28 @@ The indices restored are listed in the output, as well as the number of failed a
 To delete existing Elasticsearch indices so that a snapshot can be restored, follow these steps.
 
 1. Open a port-forward to the Elasticsearch master:
-  ```bash
-  kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
-  ```
+
+   ```bash
+   kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
+   ```
 
 2. Delete an index with a following command:
-```bash
-curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
-```
-Replace `INDEX_NAME` with the name of the index to delete, for example
-```bash
-curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
-```
+
+   ```bash
+   curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
+   ```
+
+   Replace `INDEX_NAME` with the name of the index to delete, for example
+
+   ```bash
+   curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
+   ```
 
 3. The output should be:
-```json
-{
-  "acknowledged" : true
-}
-```
+
+   ```javascript
+   {
+   "acknowledged" : true
+   }
+   ```
+

@@ -5,8 +5,8 @@ old-description: Collect Smartscape topology data from Dynatrace
 # Dynatrace
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -128,7 +128,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v42_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v43_dynatrace-filter.png)
 
 ### Open source
 

@@ -7,8 +7,8 @@ description: >-
 # Custom Synchronization StackPack
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The Custom Synchronization StackPack is a StackPack that is meant to ease the setup of a custom [topology synchronization](../../../configure/topology/topology_synchronization.md). It works well with agent checks and can be a first step before making a StackPack.

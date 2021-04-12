@@ -5,8 +5,8 @@ description: Automate event notifications and actions based on events
 # Event handlers
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -46,12 +46,12 @@ You can write your own custom event handler functions that react to state change
    * **Parameters** - Parameters that are made available to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
    * **Async** - Event handler functions can be written as async \(default\) or synchronous:
-        - Select **On** for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
-        - Select **Off** for event handlers that generate email, SMS or HTTP webhook event notifications. The function will run as synchronous.
+     * Select **On** for Slack, SMS or HTTP webhook event handlers. The function will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
+     * Select **Off** for event handlers that generate email, SMS or HTTP webhook event notifications. The function will run as synchronous.
    * **Script** - The script run by the function. For details, see the sections below on:
-        - [Async functions](#async-functions-default).
-        - [Synchronous functions](#synchronous-functions-async-off).
-        - How to [add logging to a function](event-handlers.md#logging).
+     * [Async functions](event-handlers.md#async-functions-default).
+     * [Synchronous functions](event-handlers.md#synchronous-functions-async-off).
+     * How to [add logging to a function](event-handlers.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
    * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
@@ -66,7 +66,7 @@ An event handler function takes system and user defined parameters. System param
 * An **event** user parameter is also required, this is the event stream that will be used to trigger the event handler function.
 * You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
 
-For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for async functions](event-handlers.md#properties-for-async-functions) and  [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
+For details of the properties that can be retrieved from the default **view** and **event** properties, see [properties for async functions](event-handlers.md#properties-for-async-functions) and [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
 
 ## Supported event types
 
@@ -80,13 +80,13 @@ Up to three types of event can be chosen:
 
 ## Logging
 
-You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/enable-logging.md).    
+You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/enable-logging.md).
 
 ## Async functions \(default\)
 
 With Async set to **On**, the event handler function will be run as async.
 
-An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry. 
+An async event handler function has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
 
 The **Slack** event handler function shipped with StackState will run as an async function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the Http script API to send an SMS or webhook post.
 
@@ -114,14 +114,14 @@ The properties described below can be retrieved from the default parameters in a
 ## Synchronous functions \(async Off\)
 
 {% hint style="info" %}
-Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default async function](#async-functions-default) type when writing a new event handler function. 
+Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default async function](event-handlers.md#async-functions-default) type when writing a new event handler function.
 {% endhint %}
 
 With Async set to **Off** the function will be run as synchronous.
 
 Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to async functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can run in parallel.
 
-Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details. 
+Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details.
 
 ### Properties for synchronous functions
 
@@ -149,7 +149,7 @@ Synchronous event handler functions use plugins to send notifications to externa
 | Plugin | Description |  |
 | :--- | :--- | :--- |
 | email | Sends an email using the [configured SMTP server](configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
-| HTTP webhook |Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
+| HTTP webhook | Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
 | SMS | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  |
 
 ## See also

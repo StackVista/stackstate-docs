@@ -5,16 +5,17 @@ description: install StackState on Kubernetes
 # Install StackState
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Before you start
 
 {% hint style="info" %}
 Extra notes for installing on:
+
 * **Kubernetes clusters with limited permissions**: Read the [required permissions](required_permissions.md).
-* **OpenShift**: Refer to the [OpenShift installation instructions](/setup/installation/openshift_install.md).
+* **OpenShift**: Refer to the [OpenShift installation instructions](../openshift_install.md).
 {% endhint %}
 
 Before you start the installation of StackState:
@@ -127,7 +128,7 @@ Next steps are
 
 * Configure [ingress](ingress.md)
 * Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](../../../configure/security/authentication/README.md).
+* Give your [co-workers access](../../../configure/security/authentication/).
 
 ## Automatic Kubernetes support
 

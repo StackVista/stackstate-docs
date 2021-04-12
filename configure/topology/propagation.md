@@ -5,8 +5,8 @@ description: Propagate health states from dependencies to dependents
 # Health state propagation
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
@@ -22,7 +22,7 @@ A propagated state is returned as one of the following health states:
 
 A component's propagated state is calculated using a [propagation function](propagation.md#propagation-functions). This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
 
-![Edit component propagation](../../.gitbook/assets/v42_edit-component-propagation.png)
+![Edit component propagation](../../.gitbook/assets/v43_edit-component-propagation.png)
 
 ## Propagation functions
 

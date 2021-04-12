@@ -2,11 +2,11 @@
 description: Basic StackPack tutorial
 ---
 
-# Basic StackPack tutorial
+# Create a simple StackPack
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.
@@ -79,7 +79,7 @@ When the StackPack has received your data, it will show a message indicating suc
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/v42_tutorial_component.png)
+![](../../.gitbook/assets/v43_tutorial_component.png)
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
@@ -130,7 +130,7 @@ The [Push Integration tutorial](push_integration_tutorial.md) describes in more 
 
 Use the **Preview** button to see what the resulting component will look like.
 
-![](../../.gitbook/assets/example-template-editor.png)
+![](../../.gitbook/assets/v42_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to [_unlock_](../../stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 
@@ -234,7 +234,7 @@ This should produce a `0.0.2` version of the StackPack. Upload the StackPack to 
 
 Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
-![](../../.gitbook/assets/v42_stackpack_upgrade_available.png)
+![](../../.gitbook/assets/v43_stackpack_upgrade_available.png)
 
 {% hint style="info" %}
 If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
@@ -242,7 +242,7 @@ If you don't see the Tutorial StackPack, or you see an older version of the Stac
 
 You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
 
-![](../../.gitbook/assets/v42_stackpack_upgrade_warning.png)
+![](../../.gitbook/assets/v43_stackpack_upgrade_warning.png)
 
 Push the **Overwrite** button to overwrite your local modifications with those in the new version of the StackPack. The component template will be locked again after the upgrade.
 
@@ -254,7 +254,7 @@ It is also possible to install and upgrade a StackPack via the CLI, see the [CLI
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:
 
-![](../../.gitbook/assets/v42_myDummyApp_stream.png)
+![](../../.gitbook/assets/v43_myDummyApp_stream.png)
 
 ## Cleaning your StackState instance
 

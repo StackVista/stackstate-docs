@@ -2,11 +2,11 @@
 description: Events tutorial
 ---
 
-# Events tutorial
+# Send events to StackState from an external system
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This tutorial shows you how to send events from external systems to StackState.

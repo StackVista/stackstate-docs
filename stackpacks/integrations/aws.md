@@ -2,36 +2,36 @@
 old-description: Get topology and telemetry data from AWS services
 ---
 
-# AWS StackPack
+# AWS
 
 {% hint style="warning" %}
-
-**This page describes StackState version 4.2**<br />Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.2**  
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ## Overview
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of the following AWS services:
 
-| | | |
-|:---|:---|:---|
-| API Gateway | Elastic Load Balancer V2 (ELB) | Simple Storage Service (S3) |
-| Auto Scaling Group | Kinesis Data Firehose | Simple Notification Service (SNS) |
-| Cloud Formation | Kinesis Stream | Simple Queue Service (SQS) |
-| DynamoDB | Lambda | Virtual Private Cloud (VPC) |
-| Elastic Compute Cloud (EC2) | Relational Database Service (RDS) | VPN Gateway |
-| Elastic Container Services (ECS) | Redshift | |
-| Elastic Load Balancer Classic (ELB) | Route 53 | |
+|  |  |  |
+| :--- | :--- | :--- |
+| API Gateway | Elastic Load Balancer V2 \(ELB\) | Simple Storage Service \(S3\) |
+| Auto Scaling Group | Kinesis Data Firehose | Simple Notification Service \(SNS\) |
+| Cloud Formation | Kinesis Stream | Simple Queue Service \(SQS\) |
+| DynamoDB | Lambda | Virtual Private Cloud \(VPC\) |
+| Elastic Compute Cloud \(EC2\) | Relational Database Service \(RDS\) | VPN Gateway |
+| Elastic Container Services \(ECS\) | Redshift |  |
+| Elastic Load Balancer Classic \(ELB\) | Route 53 |  |
 
-![Data flow](/.gitbook/assets/stackpack-aws.png)
+![Data flow](../../.gitbook/assets/stackpack-aws.png)
 
-- Three AWS Lambdas collect topology data from AWS and push this to StackState:
-    - `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
-    - `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
-    - `stackstate-topo-publisher` publishes [retrieved topology data](#data-retrieved) from a Kinesis stream to StackState.
-- StackState translates incoming data into topology components and relations.
-- The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
-- StackState maps retrieved telemetry (metrics) onto the associated AWS components and relations.
+* Three AWS Lambdas collect topology data from AWS and push this to StackState:
+  * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
+  * `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
+  * `stackstate-topo-publisher` publishes [retrieved topology data](aws.md#data-retrieved) from a Kinesis stream to StackState.
+* StackState translates incoming data into topology components and relations.
+* The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
+* StackState maps retrieved telemetry \(metrics\) onto the associated AWS components and relations.
 
 ## Setup
 
@@ -41,18 +41,18 @@ To set up the StackState AWS integration, you need to have:
 
 * AWS CLI version 2.0.4 or later installed and configured.
 * An AWS user with the required access to retrieve Cloudwatch metrics:
-    - `cloudwatch:GetMetricData`
-    - `cloudwatch:ListMetrics`
-  A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** > **Integrations**  > **AWS**.
-* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](#aws-iam-policies), below.
+  * `cloudwatch:GetMetricData`
+  * `cloudwatch:ListMetrics`
+
+    A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**.
+* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws.md#aws-iam-policies), below.
 
 ### Proxy URL
 
-If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work.
-You can configure a proxy URL environment variable or JVM system property.
+If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work. You can configure a proxy URL environment variable or JVM system property.
 
-- Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
-- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
+* Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
+* Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Install
 
@@ -67,76 +67,67 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
 
-* [Full install](#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [Minimal install](#minimal-install) - changes will be picked up only at a configured interval.
+* [Full install](aws.md#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
+* [Minimal install](aws.md#minimal-install) - changes will be picked up only at a configured interval.
 
 #### Full install
 
 A full installation will install the following CloudFormation Stacks:
 
-- `stackstate-topo-cron`
-- `stackstate-topo-kinesis`
-- `stackstate-topo-cloudtrail`
-- `stackstate-topo-cwevents`
-- `stackstate-topo-publisher`
+* `stackstate-topo-cron`
+* `stackstate-topo-kinesis`
+* `stackstate-topo-cloudtrail`
+* `stackstate-topo-cwevents`
+* `stackstate-topo-publisher`
 
 Follow the steps below to complete a full install:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-
 2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
-    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-
+   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 3. From the command line, run the command:
-```
-./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-```
+
+   ```text
+   ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
+   ```
 
 If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
 
-```
+```text
 AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS_CLI utility and will be overridden with options:
-`--profile`
-`--role-arn`
-`--session-name`
-`--external-id`.
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: `--profile` `--role-arn` `--session-name` `--external-id`.
 
 #### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState.
 
 Follow the steps below to complete a minimal install:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-
 2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
-    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
- 
+   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 3. From the command line, run the command:
-```
-./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-```
+
+   ```text
+   ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
+   ```
+
    You can also optionally specify the following:
-    - **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
-    - **--topo-cron-role** - a custom AWS IAM role. Note that the role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
+
+   * **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
+   * **--topo-cron-role** - a custom AWS IAM role. Note that the role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
 
 If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
 
-```
+```text
 AWS_PROFILE=profile-name ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS_CLI utility and will be overridden with options:
-`--profile`
-`--role-arn`
-`--session-name`
-`--external-id`
-
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: `--profile` `--role-arn` `--session-name` `--external-id`
 
 ### AWS IAM Policies
 
@@ -149,7 +140,8 @@ The following AWS policies can be downloaded during the installation of the AWS 
 * **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
 
 ### Timeout
-The default read timeout for AWS is set to 30 seconds. You can specify custom read timeout with the `AWS_CLI_READ_TIMEOUT` environment variable. 
+
+The default read timeout for AWS is set to 30 seconds. You can specify custom read timeout with the `AWS_CLI_READ_TIMEOUT` environment variable.
 
 ## Integration details
 
@@ -167,8 +159,8 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 Each AWS integration retrieves topology data for resources associated with the associated AWS access key.
 
-- Components
-- Relations
+* Components
+* Relations
 
 #### Traces
 
@@ -179,31 +171,31 @@ The AWS integration does not retrieve any Traces data.
 The StackState AWS integration installs the following AWS lambdas:
 
 | Lambda | Description |
-|:---|:---|
+| :--- | :--- |
 | `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to StackState. |
-| `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only.|
+| `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only. |
 | `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to StackState. Full install only. |
 
 ### Costs
 
-The AWS lightweight agent uses Amazon resources (Lambda and Kinesis) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
+The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
 ### AWS views in StackState
 
-When the AWS integration is enabled, three [views](/use/views/README.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../use/views/) will be created in StackState for each instance of the StackPack.
 
-- **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
-- **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
-- **AWS - \[instance_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
+* **AWS - \[instance\_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
+* **AWS - \[instance\_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
+* **AWS - \[instance\_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
-For example, in the StackState topology perspective: 
+For example, in the StackState topology perspective:
 
-- Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
-- Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
+* Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
+* Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
 ### Tags and labels
 
@@ -220,32 +212,27 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 ## Uninstall
 
-To uninstall the StackState AWS StackPack, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState. 
+To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
 
 Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
 
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. 
-    - For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
+   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 3. From the command line, run the below command to deprovision all resources related to the StackPack instance:
-```
-./uninstall.sh {{configurationId}}
-```
+
+   ```text
+   ./uninstall.sh {{configurationId}}
+   ```
 
 If you wish to use a specific AWS profile or an IAM role during uninstallation, run either of these two commands:
 
-```
+```text
 AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS_CLI utility and will be overridden with options:
-`--profile`
-`--role-arn`
-`--session-name`
-`--external-id`
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: `--profile` `--role-arn` `--session-name` `--external-id`
 
 ## Release notes
 
@@ -302,5 +289,6 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ## See also
 
-- [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)
-- [Using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
+* [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)
+* [Using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
+
