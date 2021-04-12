@@ -21,8 +21,8 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 **Improvements**
 
 - The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
-- Introduced check functions that alert on anomalies detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
-- The Autonomous Anomaly Detector (AAD) is now enabled by default in the Kubernetes distribution. STAC-12024
+- Introduced [check functions that alert on anomalies](/use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
+- The [Autonomous Anomaly Detector (AAD)](/stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 - It is now possible to configure whether ClusterRoles and ClusterRoleBindings need to be installed by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 - StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
 - Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-cert.md). STAC-11738
