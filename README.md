@@ -10,7 +10,7 @@ description: StackState version 4.3
 * Find out what's new in the StackState v4.3 release blog.
 * Check the [StackState v4.3 release notes and upgrade instructions](/setup/upgrade-stackstate/README.md).
 
-With this release, StackState v4.0 reaches end of life and is no longer supported. If you are running version 4.0, please [upgrade StackState](/setup/upgrade-stackstate/README.md) to a supported version. 
+With the release of StackState v4.3, StackState v4.0 reaches end of life and will no longer be supported. If you are running version 4.0, please [upgrade StackState](/setup/upgrade-stackstate/README.md) to a supported version. 
 
 {% endhint %}
 
