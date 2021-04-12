@@ -43,7 +43,7 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
 **Zabbix StackPack v3.1.1 (2021-03-30)**
 
 - Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **Zabbix StackPack v3.0.1 (2020-08-18)**

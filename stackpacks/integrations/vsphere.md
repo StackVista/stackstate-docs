@@ -187,7 +187,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 - Improvement: Changed synchronization's merge strategy from 'merge, prefer theirs' to 'merge, prefer mine'.
 - Improvement: Enable auto grouping on generated views.
 - Improvement: Update documentation.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **VMWare vSphere StackPack v2.2.1 (2020-08-18)**

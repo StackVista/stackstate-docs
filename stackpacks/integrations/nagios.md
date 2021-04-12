@@ -65,7 +65,7 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 - Improvement: Enable auto grouping on generated views.
 - Improvement: Update documentation.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **Nagios StackPack v2.5.0 (2021-02-05)**

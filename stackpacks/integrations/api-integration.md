@@ -76,7 +76,7 @@ If you need further assistance, our [support team](https://support.stackstate.co
 
 - Improvement: Update documentation.
 - Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Common bumped from 2.2.3 to 2.5.1
 - Improvement: StackState min version bumped to 4.3.0
 
 **API Integration StackPack v3.0.2 (2021-03-29)**
