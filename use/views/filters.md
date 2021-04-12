@@ -1,5 +1,11 @@
 # Filter components in a view
 
+{% hint style="warning" %}
+**This page describes StackState version 4.2.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The View Filters pane on the left side of the StackState UI allows you to filter the components and other information displayed in each perspective.
 
 ## Topology Filters

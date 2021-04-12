@@ -5,6 +5,12 @@ kind: Documentation
 
 # How to connect an agent check with StackState
 
+{% hint style="warning" %}
+**This page describes StackState version 4.2.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 The recommended way to connect your agent check and visualize the data within StackState is to install the `Custom Synchronization` StackPack.
 
 To install this StackPack go to StackState’s StackPacks page and locate the “Custom Synchronization” in Other StackPacks. During the installation process, you need to provide the following information:

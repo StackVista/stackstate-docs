@@ -4,6 +4,12 @@ description: install StackState on OpenShift
 
 # Install StackState
 
+{% hint style="warning" %}
+**This page describes StackState version 4.2.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Before you start
 
 Before you start the installation of StackState:

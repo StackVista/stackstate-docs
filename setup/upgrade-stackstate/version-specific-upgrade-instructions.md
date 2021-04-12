@@ -6,6 +6,12 @@ description: >-
 
 # Version specific upgrade instructions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.2.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 This page provides specific instructions for upgrading to each currently supported version of StackState. The instructions detail any significant changes that may impact how StackState runs after upgrade, such as a change in memory requirements or configuration.
@@ -36,7 +42,7 @@ Refer to the [Authentication configuration documentation](/configure/security/au
 - The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
     - Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
     - Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
-- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in the next release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
+- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
 
 {% endtab %}
 

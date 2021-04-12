@@ -1,5 +1,11 @@
 # Java APM
 
+{% hint style="warning" %}
+**This page describes StackState version 4.2.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The Java APM Integration of the Agent V2 StackPack provides tracing support for Java JVM based systems. With this Agent you will get:

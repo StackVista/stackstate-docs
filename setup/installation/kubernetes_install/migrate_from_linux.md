@@ -1,5 +1,11 @@
 # Migrate from Linux install to Kubernetes install
 
+{% hint style="warning" %}
+**This page describes StackState version 4.2.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 This document describes how to migrate data from the Linux install of StackState to the Kubernetes install.
