@@ -95,7 +95,7 @@ Loop over an array or map of data.
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
-Please [have a look]](stj_reference.md).
+Please [have a look](stj_reference.md).
 
 ## Component and Relation templates
 
