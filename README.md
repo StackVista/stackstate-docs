@@ -9,6 +9,10 @@ description: StackState version 4.3
 
 **StackState version 4.3** is now available - [read the release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-3-x).
 
+**StackState version 4.3** is now available - [check the release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-3-x).
+
+**StackState version 4.3** is now available - check the [release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-3-x) for details.
+
 With the release of StackState v4.3, StackState v4.0 reaches end of life and will no longer be supported. If you are running version 4.0, please [upgrade StackState](/setup/upgrade-stackstate/README.md) to a supported version. 
 
 {% endhint %}
