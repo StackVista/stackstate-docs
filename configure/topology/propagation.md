@@ -4,6 +4,11 @@ description: Propagate health states from dependencies to dependents
 
 # Health state propagation
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.

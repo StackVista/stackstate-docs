@@ -5,6 +5,11 @@ kind: documentation
 
 # Kubernetes
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Kubernetes StackPack?
 
 This StackPack is used to create a near real-time synchronization of topology and their internal services from a Kubernetes cluster to StackState.

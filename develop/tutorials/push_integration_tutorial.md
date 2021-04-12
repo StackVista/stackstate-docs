@@ -4,6 +4,11 @@ description: Push integration tutorial
 
 # Push-integration tutorial
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 This tutorial shows you how to create push-based integrations for StackState.
 
 Push-based integrations are built in python and run as part of the StackState agent. Each python integration is called a `check` and it can:

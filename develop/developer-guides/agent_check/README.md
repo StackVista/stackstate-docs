@@ -4,6 +4,11 @@ description: Extend the StackState agent using custom agent checks.
 
 # Agent checks
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Agent checks are Python scripts that are periodically executed by an agent. They are an easy way to periodically pull data \(i.e. polling\) from the system you are integrating with and push it to StackState.
 
 ## When to use agent checks

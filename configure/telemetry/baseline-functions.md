@@ -1,5 +1,10 @@
 # Baseline functions
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 A Baseline function defines a calculation that produces a baseline, which is an average, a lowerDeviation and a higherDeviation for a single input metric stream. The metric stream is batched and downsampled. A metric stream that has a baseline calculation attached to it can be used as an input for other functions, like checks.

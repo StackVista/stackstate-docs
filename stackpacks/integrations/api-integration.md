@@ -5,6 +5,11 @@ kind: documentation
 
 # API integration
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the API-Integration StackPack?
 
 The StackState API-Integration StackPack enables the StackState synchronization for the StackState's API-Integration Agents.

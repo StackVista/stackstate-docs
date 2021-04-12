@@ -4,6 +4,11 @@ old-description: Collect Smartscape topology data from Dynatrace
 
 # Dynatrace
 
+{% hint style="warning" %}
+This page describes StackState version 4.2.
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology from the last 72 hours will be added to the topology in StackState.
