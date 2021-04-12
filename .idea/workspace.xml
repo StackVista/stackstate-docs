@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b555f6b8-16f8-45c9-9398-b0180d2c1f60" name="Default Changelist" comment="">
+      <change afterPath="$USER_HOME$/opt/drive/repos/doc-tools/test_md_repo/v42_header.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <list id="1be6df64-f879-4a40-9333-e091a000c0c1" name="Revert &quot;add header message to 4.1 files&quot;" comment="Revert &quot;add header message to 4.1 files&quot;&#10;&#10;This reverts commit 9a1377d9" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="include-link-text" />
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="4.2" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProjectId" id="1iH3IVnl29iIal6k8xGY7gCeLUT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/opt/drive/repos/doc-tools/test_md_repo" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="md_tool" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="md_tool" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/opt/drive/repos/doc-tools/test_md_repo" />
+      <recent name="$PROJECT_DIR$/archive" />
+      <recent name="$PROJECT_DIR$/stackpacks/integrations/new_splunk" />
+      <recent name="$PROJECT_DIR$/.gitbook/assets" />
+      <recent name="$PROJECT_DIR$/stackpacks/integrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.gitbook/assets" />
+      <recent name="$PROJECT_DIR$/use" />
+      <recent name="$PROJECT_DIR$/archive" />
+      <recent name="$PROJECT_DIR$/configure/telemetry/data-sources" />
+      <recent name="$PROJECT_DIR$/archive/21-03-02" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="md_tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/drive/repos/md_tool/venv_md_tool/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/opt/drive/repos" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/opt/drive/repos/md_tool" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="md-tool" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="md_tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/opt/drive/repos/md_tool" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/opt/drive/repos/md_tool/md-tool" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b555f6b8-16f8-45c9-9398-b0180d2c1f60" name="Default Changelist" comment="" />
+      <created>1601550611730</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601550611730</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revert &quot;add header message to 4.1 files&quot;&#10;&#10;This reverts commit 9a1377d9" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;add header message to 4.1 files&quot;&#10;&#10;This reverts commit 9a1377d9" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="611" y="400" key="#Notifications" timestamp="1612863254818">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="611" y="400" key="#Notifications/0.25.1792.1095@0.25.1792.1095" timestamp="1612863254818" />
+    <state x="629" y="398" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614764877953">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="629" y="398" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1792.1095@0.25.1792.1095" timestamp="1614764877953" />
+    <state x="634" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616583134256">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="634" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1792.1095@0.25.1792.1095" timestamp="1616583134256" />
+    <state x="634" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1610470795746" />
+    <state x="179" y="120" key="DiffContextDialog" timestamp="1614777036083">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="179" y="120" key="DiffContextDialog/0.25.1792.1095@0.25.1792.1095" timestamp="1614777036083" />
+    <state x="683" y="331" key="FileChooserDialogImpl" timestamp="1617956705802">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="683" y="331" key="FileChooserDialogImpl/1792.65.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1617956705802" />
+    <state x="0" y="25" width="1792" height="1095" key="MergeDialog" timestamp="1617115717934">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="0" y="25" width="1792" height="1095" key="MergeDialog/0.25.1792.1095@0.25.1792.1095" timestamp="1617115717934" />
+    <state x="1792" y="25" width="1920" height="1055" key="MergeDialog/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1615373063295" />
+    <state x="0" y="25" width="1792" height="1095" key="MultipleFileMergeDialog" timestamp="1617115718002">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="0" y="25" width="1792" height="1095" key="MultipleFileMergeDialog/0.25.1792.1095@0.25.1792.1095" timestamp="1617115718002" />
+    <state x="0" y="25" width="1792" height="1095" key="MultipleFileMergeDialog/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1615373063392" />
+    <state x="405" y="208" key="SettingsEditor" timestamp="1617956718442">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="405" y="208" key="SettingsEditor/1792.65.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1617956718442" />
+    <state x="0" y="25" width="1792" height="1095" key="Vcs.Push.Dialog.v2" timestamp="1614777076279">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="0" y="25" width="1792" height="1095" key="Vcs.Push.Dialog.v2/0.25.1792.1095@0.25.1792.1095" timestamp="1614777076279" />
+    <state x="47" y="43" width="1669" height="990" key="find.popup" timestamp="1618234653417">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="400" y="110" width="1171" height="889" key="find.popup/0.25.1792.1095@0.25.1792.1095" timestamp="1617716102546" />
+    <state x="401" y="110" width="936" height="786" key="find.popup/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1615387628290" />
+    <state x="2173" y="141" width="1002" height="757" key="find.popup/1792.25.1920.1055/0.25.1792.1095@1792.25.1920.1055" timestamp="1610457988164" />
+    <state x="47" y="43" width="1669" height="990" key="find.popup/1792.65.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1618234653417" />
+    <state x="1842" y="82" width="1789" height="954" key="find.popup/1792.65.1920.1055/0.25.1792.1095@1792.65.1920.1055" timestamp="1617973640361" />
+    <state x="513" y="293" width="670" height="675" key="search.everywhere.popup" timestamp="1617026910776">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="513" y="293" width="670" height="675" key="search.everywhere.popup/0.25.1792.1095@0.25.1792.1095" timestamp="1617026910776" />
+    <state x="513" y="293" width="670" height="675" key="search.everywhere.popup/1792.25.1920.1055/0.25.1792.1095@0.25.1792.1095" timestamp="1610545582436" />
+    <state x="594" y="505" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1614072845527">
+      <screen x="0" y="25" width="1792" height="1095" />
+    </state>
+    <state x="594" y="505" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.25.1792.1095@0.25.1792.1095" timestamp="1614072845527" />
+  </component>
+</project>
