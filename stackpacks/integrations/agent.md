@@ -268,35 +268,34 @@ To check if the StackState Agent is running and receive information about the Ag
 
 ## Release notes
 
-**Agent V2 StackPack v4.3.1 (2021-04-02)**
+**Agent V2 StackPack v4.3.1 \(2021-04-02\)**
 
-- Features: Introduced swarm services as components and relations with containers.
-- Features: Report desired replicas and active replicas for swarm services.
-- Features: Health check added for swarm service on active replicas.
-- Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.3.1 to 2.5.0
-- Improvement: StackState min version bumped to 4.3.0
+* Features: Introduced swarm services as components and relations with containers.
+* Features: Report desired replicas and active replicas for swarm services.
+* Features: Health check added for swarm service on active replicas.
+* Improvement: Enable auto grouping on generated views.
+* Improvement: Common bumped from 2.3.1 to 2.5.0
+* Improvement: StackState min version bumped to 4.3.0
 
-**Agent V2 StackPack v4.2.1 (2021-03-11)**
+**Agent V2 StackPack v4.2.1 \(2021-03-11\)**
 
-- Bugfix: Fix for trace service types causing spurious updates on StackState.
+* Bugfix: Fix for trace service types causing spurious updates on StackState.
 
-**Agent V2 StackPack v4.2.0 (2021-02-26)**
+**Agent V2 StackPack v4.2.0 \(2021-02-26\)**
 
-- Features: Map the container restart event stream as metric stream.
-- Features: Introduced the container health check for restart event.
-- Features: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
-- Features: Separate Sync and DataSource added for Disk Type.
+* Features: Map the container restart event stream as metric stream.
+* Features: Introduced the container health check for restart event.
+* Features: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
+* Features: Separate Sync and DataSource added for Disk Type.
 
-**Agent V2 StackPack v4.1.0 (2021-02-08)**
+**Agent V2 StackPack v4.1.0 \(2021-02-08\)**
 
-- Improvement: Updated the "Agent Container Mapping Function" and "Agent Container Template" to map the container name instead of the container id to the identifier 
-  
-- Bugfix: Fix the error stream for the traces not coming from traefik.
+* Improvement: Updated the "Agent Container Mapping Function" and "Agent Container Template" to map the container name instead of the container id to the identifier
+* Bugfix: Fix the error stream for the traces not coming from traefik.
 
-**Agent V2 StackPack v4.0.0 (2021-01-29)**
+**Agent V2 StackPack v4.0.0 \(2021-01-29\)**
 
-- Bugfix: Major bump the version for installation fix
+* Bugfix: Major bump the version for installation fix
 
 **Agent V2 StackPack v3.12.0 \(2020-12-15\)**
 

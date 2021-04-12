@@ -14,7 +14,7 @@ description: StackState version 4.3
 
 {% page-ref page="stackpacks/integrations/" %}
 
-### StackState developer 
+### StackState developer
 
 {% page-ref page="develop/tutorials/" %}
 

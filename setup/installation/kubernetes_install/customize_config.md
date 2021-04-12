@@ -59,5 +59,5 @@ For the StackState `api` service, environment variables will override [custom co
 {% endhint %}
 
 * Full details on the naming of all the different services can be found in the in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/blob/master/stable/stackstate).
-* Find more details on [customizing authentication](../../../configure/security/authentication/README.md).
+* Find more details on [customizing authentication](../../../configure/security/authentication/).
 

@@ -2,12 +2,13 @@
 description: Standalone Deployment of the Autonomous Anomaly Detector
 ---
 
+# AAD Standalone Deployment
+
 ## Overview
 
-Autonomous Anomaly Detector (AAD) is a StackState service configured and deployed as a part of standard installation. In some cases the AAD can be deployed standalone using the AAD helm chart, e.g. when StackState and the AAD are deployed in separate kubernetes clusters. The standalone AAD deployment option is recommended only for the users with advanced knowledge of Kubernetes.
+Autonomous Anomaly Detector \(AAD\) is a StackState service configured and deployed as a part of standard installation. In some cases the AAD can be deployed standalone using the AAD helm chart, e.g. when StackState and the AAD are deployed in separate kubernetes clusters. The standalone AAD deployment option is recommended only for the users with advanced knowledge of Kubernetes.
 
-The Autonomous Anomaly Detector consists of two components: AAD Kubernetes service and a AAD StackPack.
-The sections below explain how to configure AAD Kubernetes service and AAD StackPack in order to perform standalone deployment.
+The Autonomous Anomaly Detector consists of two components: AAD Kubernetes service and a AAD StackPack. The sections below explain how to configure AAD Kubernetes service and AAD StackPack in order to perform standalone deployment.
 
 ## Node sizing
 
@@ -42,15 +43,15 @@ To be able to pull the Docker image, you will need access to quay.io. Access cre
 1. Install Helm \(version 3\). See the Helm docs [https://helm.sh/docs/intro/install](https://helm.sh/docs/intro/install/)
 2. Add the StackState Helm repo:
 
-    ```text
+   ```text
     helm repo add stackstate https://helm.stackstate.io`
-    ```
+   ```
 
 #### 3. Get the latest AAD Kubernetes service Helm Chart
 
-    ```text
+```text
     helm fetch stackstate/anomaly-detection
-    ```
+```
 
 #### 4. Configure AAD Kubernetes service
 
@@ -61,10 +62,13 @@ Create the file `values.yaml` file, including the configuration described below,
 * **stackstate:**
   * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-router:8080/` or `http://<releasename>-stackstate-router:8080/`
 * **ingress:** - Ingress provides access to the technical interface of the AAD, this is useful for troubleshooting. The technical interface can be accessed using kube proxy command: `kubectl proxy`. After proxy is running the technical interface can be accessed using the path below.
-    ```text
+
+  ```text
     http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
-    ```
-Optionally, the technical interface can be exposed using ingress configuration. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
+  ```
+
+  Optionally, the technical interface can be exposed using ingress configuration. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
+
   * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
   * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
   * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
@@ -96,16 +100,17 @@ ingress:
 
 Details of all configuration options are available in the anomaly-detection chart with the command below.
 
-    ```text
+```text
     helm show all stackstate/anomaly-detection
-    ```
+```
 
 #### 5. Authentication with StackState
 
 By default, AAD Kubernetes Service is configured to use kubernetes `token` authentication, so one does not need to configure anything additional to that AAD Kubernetes service must be installed into the same cluster and namespace as StackState. If this is is not possible there are two other options for authentication:
+
 * Stackstate Api Token authentication. One can obtain token from User Profile page.
 
-  ```
+  ```text
       ...
   stackstate:
     authType: api-token
@@ -115,7 +120,7 @@ By default, AAD Kubernetes Service is configured to use kubernetes `token` authe
 
 * Cookie authentication. This type of auth is not recommended and exists only for troubleshooting/testing purposes.
 
-  ```
+  ```text
       ...
   stackstate:
     authType: cookie
@@ -126,15 +131,15 @@ By default, AAD Kubernetes Service is configured to use kubernetes `token` authe
 
 #### 6. Install the AAD Kubernetes service
 
-Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState to be able to use default token authentication (Otherwise consider other types of authentication above).
+Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState to be able to use default token authentication \(Otherwise consider other types of authentication above\).
 
-    ```text
+```text
     helm upgrade anomaly-detector stackstate/anomaly-detection \
         --install \
         --namespace <stackstate-namespace> \
         --set image.pullSecretPassword=<image registry password>
         --values ./values.yaml
-    ```
+```
 
 ## Upgrade the standalone AAD instance
 
@@ -171,14 +176,18 @@ To completely remove the AAD Kubernetes service and AAD StackPack:
 The status UI provides details on the technical state of the AAD. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
 
 To access the status UI, one can run kubectl proxy.
-    ```text
-    kubectl proxy  
-    ```
+
+```text
+    kubectl proxy
+```
+
 The UI will be accessible by URL:
-    ```text
+
+```text
     http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
-    ```
-Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](#4-configure-aad-kubernetes-service)\).
+```
+
+Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](aad_standalone.md#4-configure-aad-kubernetes-service)\).
 
 Common questions that can be answered in the status UI:
 
@@ -200,4 +209,5 @@ The status UI tab **Job Progress** shows a ranked list of streams with schedulin
 
 ## See also
 
- * [Autonomous Anomaly Detector StackPack](/stackpacks/add-ons/aad.md)
+* [Autonomous Anomaly Detector StackPack](../../../stackpacks/add-ons/aad.md)
+

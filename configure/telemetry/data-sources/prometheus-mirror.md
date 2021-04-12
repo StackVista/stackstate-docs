@@ -104,5 +104,6 @@ The query allows arbitrary Prometheus queries, for example:
 
 ## See also
 
-- [Developer guide - mirroring telemetry](/develop/developer-guides/mirroring.md)
-- [Developer tutorial - Set up a mirror to pull telemetry data from an external system](/develop/tutorials/mirror_tutorial.md)
+* [Developer guide - mirroring telemetry](../../../develop/developer-guides/mirroring.md)
+* [Developer tutorial - Set up a mirror to pull telemetry data from an external system](../../../develop/tutorials/mirror_tutorial.md)
+

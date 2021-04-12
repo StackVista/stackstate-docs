@@ -3,7 +3,7 @@ old-description: Near real-time synchronization with VMWare vSphere
 stackpack-name: VMWare vSphere StackPack
 ---
 
-# VMWare vSphere StackPack
+# VMWare vSphere
 
 ## Overview
 
@@ -16,19 +16,19 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * DataStores
 * DataCenters
 
-![Data flow](/.gitbook/assets/stackpack-vsphere.svg)
+![Data flow](../../.gitbook/assets/stackpack-vsphere.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
 * StackState Agent V2 connects to the configured VMWare vSphere instance:
-    * Topology data and tags are retrieved for the configured resources.
-    * Metrics data is retrieved for the configured resources.
-    * The Agent watches the vCenter Event Manager for events related to the configured resources.
+  * Topology data and tags are retrieved for the configured resources.
+  * Metrics data is retrieved for the configured resources.
+  * The Agent watches the vCenter Event Manager for events related to the configured resources.
 * StackState Agent V2 pushes retrieved data and events to StackState:
-    * [Topology data](#topology) is translated into components and relations.
-    * [Tags](#tags) defined in VMWare vSphere are added to components and relations in StackState.
-    * [Metrics data](#metrics) is automatically mapped to associated components and relations in StackState.
-    * [Events](#events) are available as a telemetry stream in StackState.
+  * [Topology data](vsphere.md#topology) is translated into components and relations.
+  * [Tags](vsphere.md#tags) defined in VMWare vSphere are added to components and relations in StackState.
+  * [Metrics data](vsphere.md#metrics) is automatically mapped to associated components and relations in StackState.
+  * [Events](vsphere.md#events) are available as a telemetry stream in StackState.
 
 ## Setup
 
@@ -43,7 +43,7 @@ To set up the StackState VMWare vSphere integration, you need to have:
 
 The VMWare vSphere StackPack can be installed from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
-- **VSphere Host Name** - the VMWare vSphere host name from which data will be collected.
+* **VSphere Host Name** - the VMWare vSphere host name from which data will be collected.
 
 ### Configure
 
@@ -65,13 +65,10 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        host: <host_name> # for example vcenter.domain.com
 
        username: <username>
-       password: <password> 
-
+       password: <password>
      ```
-2. If required, you can customise the integration using the [advanced configuration options](#advanced-configuration).
-    
+2. If required, you can customise the integration using the [advanced configuration options](vsphere.md#advanced-configuration).
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
-
 4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
 #### Advanced configuration
@@ -80,20 +77,19 @@ The advanced configuration items described below can optionally be added to the 
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
-| `all_metrics` | Yes | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` (default), a selected set of metrics that are interesting to monitor will be collected. |
+| `all_metrics` | Yes | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. |
 | `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
 | `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
 | `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |
-| `include_only_marked` | No |  Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`.<br />To set this custom field with PowerCLI, use the command: <code>Get-VM <MyVMName> &#124; Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"</code>  |
+| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM | Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"` |
 | `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. |
-
 
 ### Status
 
 To check the status of the VMWare vSphere integration, run the status subcommand and look for vSphere under `Running Checks`:
 
-```
+```text
 sudo stackstate-agent status
 ```
 
@@ -103,10 +99,10 @@ sudo stackstate-agent status
 
 The VMWare vSphere integration retrieves the following data:
 
-- [Events](#events)
-- [Metrics](#metrics)
-- [Tags](#tags)
-- [Topology](#topology)
+* [Events](vsphere.md#events)
+* [Metrics](vsphere.md#metrics)
+* [Tags](vsphere.md#tags)
+* [Topology](vsphere.md#topology)
 
 #### Events
 
@@ -132,13 +128,11 @@ The VMWare vSphere check watches the vCenter Event Manager for the events listed
 
 #### Metrics
 
-The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration item **all_metrics**. For details see how to [configure the VMWare vSphere check](#configure).
-
+The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration item **all\_metrics**. For details see how to [configure the VMWare vSphere check](vsphere.md#configure).
 
 #### Tags
 
-All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState.
-The VMWare vSphere integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState. The VMWare vSphere integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
 
 #### Topology
 
@@ -155,10 +149,9 @@ The VMWare vSphere integration does not retrieve any traces data.
 
 The VMWare vSphere integration connects to VMWare vSphere using the VMWare vSphere client library and Python modules `pyvim` and `pyVmomi`. No API endpoints are used.
 
-
 ### Open source
 
-The code for the StackState VMware vSphere check is open source and available on GitHub at: 
+The code for the StackState VMware vSphere check is open source and available on GitHub at:
 
 [https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 
@@ -182,35 +175,34 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## Release notes
 
-**VMWare vSphere StackPack v2.3.1 (2021-04-02)**
+**VMWare vSphere StackPack v2.3.1 \(2021-04-02\)**
 
-- Improvement: Changed synchronization's merge strategy from 'merge, prefer theirs' to 'merge, prefer mine'.
-- Improvement: Enable auto grouping on generated views.
-- Improvement: Update documentation.
-- Improvement: Common bumped from 2.2.3 to 2.5.1
-- Improvement: StackState min version bumped to 4.3.0
+* Improvement: Changed synchronization's merge strategy from 'merge, prefer theirs' to 'merge, prefer mine'.
+* Improvement: Enable auto grouping on generated views.
+* Improvement: Update documentation.
+* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: StackState min version bumped to 4.3.0
 
-**VMWare vSphere StackPack v2.2.1 (2020-08-18)**
+**VMWare vSphere StackPack v2.2.1 \(2020-08-18\)**
 
-- Feature: Introduced the Release notes pop up for customer
+* Feature: Introduced the Release notes pop up for customer
 
-**VMWare vSphere StackPack v2.2.0 (2020-08-04)**
+**VMWare vSphere StackPack v2.2.0 \(2020-08-04\)**
 
-- Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
-- Improvement: Replace resolveOrCreate with getOrCreate.
+* Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
+* Improvement: Replace resolveOrCreate with getOrCreate.
 
-**VMWare vSphere StackPack v2.1.0 (2020-04-10)**
+**VMWare vSphere StackPack v2.1.0 \(2020-04-10\)**
 
-- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
+* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
 
-**VMWare vSphere StackPack v2.0.1 (2020-04-03)**
+**VMWare vSphere StackPack v2.0.1 \(2020-04-03\)**
 
-- Improvement: Upgrade the requirement of vSphere to use AgentV2 now.
+* Improvement: Upgrade the requirement of vSphere to use AgentV2 now.
 
-**VMWare vSphere StackPack v2.0.0 (2019-10-30)**
+**VMWare vSphere StackPack v2.0.0 \(2019-10-30\)**
 
-- Feature: Gathers Topology from your vSphere instance and allows visualization of your vSphere components and the relations between them.
-
+* Feature: Gathers Topology from your vSphere instance and allows visualization of your vSphere components and the relations between them.
 
 ## See also
 
@@ -219,3 +211,4 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 * [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 * [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)
 * [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html)
+

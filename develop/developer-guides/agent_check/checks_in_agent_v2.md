@@ -1,6 +1,6 @@
 # Checks in Agent v2
 
-This document covers Agent V2 functionality to create checks with Agent V2 Check API. The following topics are covered: 
+This document covers Agent V2 functionality to create checks with Agent V2 Check API. The following topics are covered:
 
 * How to send checks on topology
 * Metrics, events, and service checks
@@ -60,7 +60,7 @@ self.start_snapshot():                              # Start a topology snapshot 
 self.stop_snapshot():                               # Stop a topology snapshot for a specific topology instance source
 ```
 
-The above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState. 
+The above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
 
 An example of usage of `self.component` can be found in the [MySQL topology check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
 
@@ -72,7 +72,7 @@ Streams and Checks can be sent in with a component, these will then be mapped in
 
 All of the telemetry classes and methods can be imported from `stackstate_checks.base`.
 
-In the example below,  a `MetricStream` is created on the `system.cpu.usage` metric with some conditions specific to a component. A `maximum_average` check is then created on this metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list for the component `this-host`.
+In the example below, a `MetricStream` is created on the `system.cpu.usage` metric with some conditions specific to a component. A `maximum_average` check is then created on this metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list for the component `this-host`.
 
 ```text
 this_host_cpu_usage = MetricStream("Host CPU Usage", "system.cpu.usage",
@@ -97,7 +97,6 @@ self.component("urn:example:/host:this_host", "Host",
                streams=[this_host_cpu_usage],
                checks=[cpu_max_average_check])
 ```
-
 
 ### Events
 

@@ -14,9 +14,9 @@ StackState can be configured to pull data from your own Elasticsearch instance. 
 
 To connect StackState to your Elasticsearch instance and retrieve telemetry data you will need to have:
 
-- A running Elasticsearch instance reachable from StackState.
-- An Elasticsearch index to retrieve.
-- A time field with a timestamp in the Elasticsearch data.
+* A running Elasticsearch instance reachable from StackState.
+* An Elasticsearch index to retrieve.
+* A time field with a timestamp in the Elasticsearch data.
 
 ### Add an Elasticsearch data source to StackState
 
@@ -24,29 +24,29 @@ An Elasticsearch data source should be added in StackState for each Elasticsearc
 
 To add an Elasticsearch data source:
 
-1. In the StackState UI, go to **Settings** > **Telemetry Sources** > **Elasticsearch sources**.
+1. In the StackState UI, go to **Settings** &gt; **Telemetry Sources** &gt; **Elasticsearch sources**.
 2. Click on **ADD ELASTICSEARCH DATA SOURCE**.
 3. Enter the required settings:
-    - **Name** - the name to identify the Elasticsearch data source in StackState.
-    - **Base URL** - the URL of the REST API of your Elasticsearch instance (default port 9200). Note that this must be reachable by StackState.
-    - **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](#find-the-elasticsearch-index-pattern).
-    - **Time zone** - the timezone of the timestamps stored in the elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
-    - **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
-    - **Time field format** - the format of the value in the specified **Time field**.
-    - A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](#advanced-settings).
+   * **Name** - the name to identify the Elasticsearch data source in StackState.
+   * **Base URL** - the URL of the REST API of your Elasticsearch instance \(default port 9200\). Note that this must be reachable by StackState.
+   * **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
+   * **Time zone** - the timezone of the timestamps stored in the elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
+   * **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
+   * **Time field format** - the format of the value in the specified **Time field**.
+   * A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](elasticsearch.md#advanced-settings).
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.
 5. Click **CREATE** to save the Elasticsearch data source settings.
-    - The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
+   * The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
 
-![Add Elasticsearch data source](/.gitbook/assets/v43_elasticsearch_data_source.png)    
+![Add Elasticsearch data source](../../../.gitbook/assets/v43_elasticsearch_data_source.png)
 
 #### Find the Elasticsearch index pattern
 
-You can find the index pattern used in an Elasticsearch instance with the command `curl <elasticsearch_node>:<port>/_cat/indices?v`. 
+You can find the index pattern used in an Elasticsearch instance with the command `curl <elasticsearch_node>:<port>/_cat/indices?v`.
 
 In the example below, the index pattern would be `[sts_internal_events-]yyyy.MM.dd`.
 
-```
+```text
 curl localhost:9200/_cat/indices?v
 
 > health status index                          uuid                   pri rep docs.count docs.deleted store.size pri.store.size
@@ -58,7 +58,7 @@ curl localhost:9200/_cat/indices?v
 
 ### Work with Elasticsearch data in StackState
 
-Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](/use/health-state-and-event-notifications/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](/configure/telemetry/telemetry_synchronized_topology.md).
+Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](../../../use/health-state-and-event-notifications/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
 
 ## Advanced settings
 
@@ -66,30 +66,30 @@ Elasticsearch data sources can be used to add telemetry streams to components an
 
 To reduce noise resulting from intermittent failure of the data source, StackState can be configured to only emit errors after they exist for a specified time.
 
-- **Propagate errors only after (minutes)** - the time after which errors should be reported. 
+* **Propagate errors only after \(minutes\)** - the time after which errors should be reported. 
 
 ### Kibana
 
 Elasticsearch can optionally be accessed through Kibana. To do this, the following settings must be provided:
 
-- **Base URL** - the URL of the REST API endpoint provided by Kibana. Note that this must be reachable by StackState.
-- **Kibana version** - the Kibana version used. This is required for XSS mitigation.
+* **Base URL** - the URL of the REST API endpoint provided by Kibana. Note that this must be reachable by StackState.
+* **Kibana version** - the Kibana version used. This is required for XSS mitigation.
 
 ### Timeouts
 
 The timeout settings can be tweaked when dealing with exceptionally large result sets or a slower Elasticsearch cluster:
 
-- **Read timeout (seconds)** - the timeout when retrieving data directly from Elasticsearch.
-- **Request timeout ui (seconds)** - the timeout when retrieving Elasticsearch data through the StackState API.
-
+* **Read timeout \(seconds\)** - the timeout when retrieving data directly from Elasticsearch.
+* **Request timeout ui \(seconds\)** - the timeout when retrieving Elasticsearch data through the StackState API.
 
 ### Wildcards
 
 Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
 
-- **Support wildcards in values** - when enabled, StackState will include wildcards (`*`, `?`) in telemetry query values.
+* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`, `?`\) in telemetry query values.
 
 ## See also
 
-- [Add a telemetry stream to a component or relation](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
-- [Add telemetry during topology synchronization](/configure/telemetry/telemetry_synchronized_topology.md)
+* [Add a telemetry stream to a component or relation](../../../use/health-state-and-event-notifications/add-telemetry-to-element.md)
+* [Add telemetry during topology synchronization](../telemetry_synchronized_topology.md)
+

@@ -2,9 +2,9 @@
 description: Mirror integration tutorial
 ---
 
-# Mirror integration tutorial
+# Set up a mirror to pull telemetry data from an external system
 
-StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch is not copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](/develop/developer-guides/mirroring.md).
+StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch is not copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](../developer-guides/mirroring.md).
 
 Mirror integrations can be built in any language and run as a separate process. A mirror can:
 
@@ -51,7 +51,7 @@ Use the **Test Connection** button to verify connectivity from StackState to the
 
 Here is what that looks like:
 
-![](/.gitbook/assets/example-mirror.png)
+![](../../.gitbook/assets/example-mirror.png)
 
 ## Adding a mirror stream to a component
 
@@ -63,7 +63,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![](/.gitbook/assets/v43_example-mirror-stream.png)
+![](../../.gitbook/assets/v43_example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 

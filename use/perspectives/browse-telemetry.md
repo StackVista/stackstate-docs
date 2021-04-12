@@ -8,13 +8,13 @@ description: Inspect and filter data from a configured telemetry stream
 
 The StackState UI displays a visualization of filtered data for each configured telemetry stream.
 
-Telemetry streams are added to elements automatically when they are imported to StackState or you can manually [add a single telemetry stream](/use/health-state-and-event-notifications/add-telemetry-to-element.md) to a single component.
+Telemetry streams are added to elements automatically when they are imported to StackState or you can manually [add a single telemetry stream](../health-state-and-event-notifications/add-telemetry-to-element.md) to a single component.
 
 ## Telemetry Browser
 
 Click on any of the telemetry stream charts, or select **Inspect stream** from its context menu, to open the telemetry browser.
 
-![Telemetry browser](/.gitbook/assets/v43_telemetry-browser.png)
+![Telemetry browser](../../.gitbook/assets/v43_telemetry-browser.png)
 
 Within the telemetry browser you can adjust the filters, time window and aggregation applied to the data source.
 

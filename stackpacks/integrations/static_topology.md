@@ -99,21 +99,22 @@ Execute the info command and verify that the integration check has passed. The o
 
 ## Release notes
 
-**StaticTopology StackPack v2.3.1 (2021-04-02)**
+**StaticTopology StackPack v2.3.1 \(2021-04-02\)**
 
-- Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.5.1
-- Improvement: StackState min version bumped to 4.3.0
+* Improvement: Enable auto grouping on generated views.
+* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: StackState min version bumped to 4.3.0
 
-**StaticTopology StackPack v2.2.1 (2020-08-18)**
+**StaticTopology StackPack v2.2.1 \(2020-08-18\)**
 
-- Feature: Introduced the Release notes pop up for customer
+* Feature: Introduced the Release notes pop up for customer
 
-**StaticTopology StackPack v2.2.0 (2020-08-04)**
+**StaticTopology StackPack v2.2.0 \(2020-08-04\)**
 
-- Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
-- Improvement: Replace resolveOrCreate with getOrCreate.
+* Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
+* Improvement: Replace resolveOrCreate with getOrCreate.
 
-**StaticTopology StackPack v2.1.0 (2020-04-23)**
+**StaticTopology StackPack v2.1.0 \(2020-04-23\)**
 
-- Improvement: Upgrade the requirement and documentation of Static Topology to use AgentV2.
+* Improvement: Upgrade the requirement and documentation of Static Topology to use AgentV2.
+
