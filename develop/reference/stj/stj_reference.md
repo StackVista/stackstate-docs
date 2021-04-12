@@ -288,8 +288,8 @@ Include an image:
 {
   "_type": "ComponentType",
   "identifier": "urn:stackpack:aws:shared:component-type:aws.cloudformation",
-  "name": "aws.cloudformation"
-  "iconbase64": "{{ include "./icons/aws.cloudformation.png" "base64" }}",
+  "name": "aws.cloudformation",
+  "iconbase64": "{{ include "./icons/aws.cloudformation.png" "base64" }}"
 }
 ```
 {% endtab %}
@@ -303,9 +303,8 @@ The file `/provisioning/icons/aws.cloudformation.png` contains an image of the A
 {
   "_type": "ComponentType",
   "identifier": "urn:stackpack:aws:shared:component-type:aws.cloudformation",
-  "name": "aws.cloudformation"
-  "iconbase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAfkYAhBBGAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEL65P8BEaL9HlGPnesAAAAASUVORK5CYII", 
-  "identifier": "urn:stackpack:demo-stackpack:component-type:insights", "ow",
+  "name": "aws.cloudformation",
+  "iconbase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAfkYAhBBGAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEL65P8BEaL9HlGPnesAAAAASUVORK5CYII"
 }
 ```
 {% endtab %}
