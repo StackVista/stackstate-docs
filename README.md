@@ -32,11 +32,11 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 ## Supported StackState versions
 
-The versions of StackState listed below are currently supported:
+The supported versions of StackState listed below:
 
-- StackState v4.3 - You are currently reading the documentation for **StackState version 4.3**.
-- StackState v4.2 - [read the 4.2 docs](https://docs.stackstate.com/v/4.2/).
-- StackState v4.1 - [read the 4.1 docs](https://docs.stackstate.com/v/4.1/).
+- **StackState v4.3** - You are currently reading the documentation for StackState version 4.3.
+- **StackState v4.2** - [read the v4.2 docs](https://docs.stackstate.com/v/4.2/).
+- **StackState v4.1** - [switch to the v4.1 docs](https://docs.stackstate.com/v/4.1/).
 
 For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/README.md).
 
