@@ -24,7 +24,7 @@ To set up the StackState ServiceNow integration, you need to have:
 
 * [StackState Agent V2](agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and StackState.
 * A running ServiceNow instance.
-* A ServiceNow user with access to the required [ServiceNow API endopints](servicenow.md#rest-api-endpoints).
+* A ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints).
 
 ### Install
 
@@ -39,7 +39,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
    * **url** - the REST API URL, uses HTTPS protocol for communication.
-   * **user** - a ServiceNow user with access to the required [ServiceNow API endopints](servicenow.md#rest-api-endpoints)
+   * **user** - a ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints)
    * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
      ```text
@@ -264,7 +264,18 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## Release notes
 
-**ServiceNow StackPack 5.1.0 \(2020-12-16\)**
+**ServiceNow StackPack v5.3.1 (2021-04-02)**
+
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
+
+**ServiceNow StackPack v5.2.0 (2021-03-23)**
+
+- Improvement: Set `tags`, `domain`, `layer` and `environment` coming from ServiceNow integration.
+- Improvement: Enable auto grouping on generated views. 
+- Improvement: Added configuration options for SSL certificate included with Agent 2.11.0 release.
+
+**ServiceNow StackPack v5.1.0 \(2020-12-16\)**
 
 * Feature: Documentation update for new features of Change Requests and different filters added.
 

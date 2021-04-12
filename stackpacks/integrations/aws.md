@@ -244,6 +244,48 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ## Release notes
 
+**AWS StackPack v5.2.2 (2021-04-09)**
+
+- Bugfix: Fixed upgrading AWS StackPack when you upgrade StackState from 4.2.x to 4.3.x
+
+**AWS StackPack v5.2.1 (2021-04-02)**
+
+- Bugfix: Updated the manual_trigger.sh to verify if the lambda exists, Trigger and monitor the lambda outcome and if it failed then the error will be displayed with a possible solution to allow the user to fix the problem and 'press any key' to retry
+- Improvement: Update documentation.
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
+
+**AWS StackPack v5.1.3 (2021-03-01)**
+
+- Features: Added support for security groups
+- Features: Give RDS databases an identifier so that they can be referred to by other StackPacks
+- Bugfix: Fixed the EC2 instances being stranded. Relationship restored to either a Subnet or VPC fallback.
+- Bugfix: Added a delete event for the removal of a ELB Target Group
+- Bugfix: Fixed the ELB, ELB Target Group and ELB Target Group Instance not mapping on cloud watch events
+- Bugfix: Restored the EC2 identifier to the i-* mapping instead of urn:aws/i-*
+- Bugfix: Updated the ELB Instance identifier to map to urn:aws/target-group-instance/i-* instead of i-*
+
+**AWS StackPack v5.1.2 (2021-02-01)**
+
+- Bugfix: Merged the `elb_v2_target_group_instance` and `ec2-instance`. The `elb_v2_target_group_instance` will no longer display as a generic aws resource but rather show up as the merged EC2 instance.
+
+**AWS StackPack v5.1.1 (2021-01-22)**
+
+- Features: New component type `elb_v2_gateway` and its metrics added. 
+- Features: Metrics added for type `elb_v2_network`.
+- Improvement: Metrics fixed for different target group based on load balancer type 
+- Improvement: Restricted the full, minimal and uninstall policies resources from all (*) to only certain resources. This will restrict the IAM user to only access resources created by StackState or Specified by the user
+- Improvement: Lambda version is send in the payload
+- Improvement: Better error logs
+- Improvement: Cloudformation memory cache improvements
+
+**AWS StackPack v5.1.0 (2021-01-04)**
+
+- Features: Added support for EC2 Nitro based metrics EBSWriteBytes and EBSReadBytes.
+- Improvement: Check if `TargetGrouArn` exist in the loadBalancer for relation.
+
+
 **AWS StackPack v5.0.2 \(2020-11\)**
 
 * Bugfix: Fixed and improved the parsing of custom StackState identifier tags making it more flexible and ignoring case sensitivity.
@@ -258,42 +300,6 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 * Bugfix: Fixed the upgradation of other StackPacks due to AWS old layers using common. 
 
-**AWS StackPack v4.3.0 \(2020-08-04\)**
-
-* Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
-
-**AWS StackPack v4.2.2 \(2020-07-16\)**
-
-* Bugfix: AWS Lambda uninstall scripts now properly deletes Cloudtrail S3 bucket.
-
-**AWS StackPack v4.2.1 \(2020-06-22\)**
-
-* Improvement: Fixed the icons for few component types of power 2.
-
-**AWS StackPack v4.2.0 \(2020-06-19\)**
-
-* Improvement: Set the stream priorities on all streams.
-
-**AWS StackPack v4.1.0 \(2020-06-01\)**
-
-* Improvement: Manual installation zip has StackPack version number.
-* Improvement: StackState resources created on AWS are tagged with StackPack version.
-
-**AWS StackPack v4.0.2 \(2020-06-03\)**
-
-* Bugfix: Remove duplicate streams.
-
-**AWS StackPack v4.0.1 \(2020-05-19\)**
-
-* Bugfix: Fixed parsing CloudFormation when a resource has no Physical ID.
-
-**AWS StackPack v4.0.0 \(2020-04-10\)**
-
-* Feature: Full installation of all lambdas or minimal installation of just Topology gathering lambda.
-* Feature: Manual install script has help message with all parameters.
-* Feature: Split AWS IAM policies in installation and uninstallation group for each type of installation.
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
-* Bugfix: AWS resource tags are kept in original format.
 
 ## See also
 

@@ -263,6 +263,13 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
+**Openshift StackPack v3.7.1 (2021-04-02)**
+
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Update documentation.
+- Improvement: Common bumped from 2.4.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
+
 **Openshift StackPack v3.6.0 (2021-03-08)**
 
 - Feature: Namespaces are now a component in StackState with a namespaces view for each cluster
@@ -288,14 +295,6 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 **Openshift StackPack v3.4.0 (2020-06-19)**
 
 - Improvement: Set the stream priorities on all streams.
-
-**Openshift StackPack v3.3.0 (2020-05-27)**
-
-- Feature: Removing the Container restart check
-
-**Openshift StackPack v3.2.0 (2020-04-10)**
-
-- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
 
 
 ## See also

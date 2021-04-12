@@ -1,8 +1,3 @@
----
-title: Zabbix StackPack
-kind: documentation
----
-
 # Zabbix
 
 ## What is the Zabbix StackPack?
@@ -43,3 +38,51 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
 2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
+## Release notes
+
+**Zabbix StackPack v3.1.1 (2021-03-30)**
+
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
+
+**Zabbix StackPack v3.0.1 (2020-08-18)**
+
+- Feature: Introduced the Release notes pop up for customer
+
+
+**Zabbix StackPack v3.0.0 (2020-08-04)**
+
+- Bugfix: Fix and make Component mapping function per instance to support multi-instance properly.
+- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvement: Replace resolveOrCreate with getOrCreate.
+
+
+**Zabbix StackPack v2.2.2 (2020-06-08)**
+
+- Bugfix: Fix typo in Zabbix component template for zabbix and add host filter in the event stream for multi-instance support.
+
+
+**Zabbix StackPack v2.2.1 (2020-04-30)**
+
+- Bugfix: Fix redirecting to false URL from Zabbix check function message.
+
+
+**Zabbix StackPack v2.2.0 (2020-04-10)**
+
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
+
+
+**Zabbix StackPack v2.1.0 (2020-03-27)**
+
+- Improvement: Change pre-requisite of Zabbix from AgentV1 to AgentV2
+
+
+**Zabbix StackPack v2.0.2 (2020-01-17)**
+This release of the Zabbix StackPack that provides support to monitor your Cloudera Manager instance.
+Improvements and Bugfixes
+
+- Bugfix: Fixing the upgrade problem from older version to new version in last StackState version.
+- Improvement: Moving the instance name attribute to first parameter of input field.
+
+NOTE:- We support Zabbix version 3 and 4.

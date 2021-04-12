@@ -216,20 +216,27 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 
 ## Release notes
 
-**Azure StackPack 4.0.1 (2020-08-18)**
+**Azure StackPack v4.1.1 (2021-04-02)**
+
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: Update documentation.
+- Improvement: StackState min version bumped to 4.3.0
+
+**Azure StackPack v4.0.1 (2020-08-18)**
 
 - Feature: Introduced the Release notes pop up for customer
 
-**Azure StackPack 4.0.0 (2020-08-04)**
+**Azure StackPack v4.0.0 (2020-08-04)**
 
 - Bugfix: Fix and make Component mapping function per instance to support multi-instance properly.
 - Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
 
-**Azure StackPack 3.0.1 (2020-06-10)**
+**Azure StackPack v3.0.1 (2020-06-10)**
 
 - Improvement: Added urn:host based identifiers for Azure VM's
 
-**Azure StackPack 3.0.0 (2020-05-19)**
+**Azure StackPack v3.0.0 (2020-05-19)**
 
 - Feature: Added multi-instance support for the Azure StackPack
 

@@ -1,8 +1,3 @@
----
-title: API Integration StackPack
-kind: documentation
----
-
 # API integration
 
 ## What is the API-Integration StackPack?
@@ -75,3 +70,40 @@ Install the API-Integration StackPack by using the following sequence of steps:
 
 If you need further assistance, our [support team](https://support.stackstate.com/hc/en-us) will be glad to help.
 
+## Release notes
+
+**API Integration StackPack v2.4.1 (2021-04-02)**
+
+- Improvement: Update documentation.
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
+
+**API Integration StackPack v3.0.2 (2021-03-29)**
+
+- Bugfix: Update the minimum required StackState version to 4.3.0.
+
+**API Integration StackPack v3.0.1 (2021-03-25)**
+
+- Improvement: Update documentation.
+
+**API Integration StackPack v3.0.0 (2021-03-25)**
+
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Common bumped from 2.2.3 to 2.4.3
+
+**API Integration StackPack v2.3.1 (2020-08-18)**
+
+- Features: Introduced the Release notes pop up for customer
+- Features: Use the latest StackState Agent V1
+
+**API Integration StackPack v2.3.0 (2020-08-04)**
+
+- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+- Improvement: Replace resolveOrCreate with getOrCreate.
+
+**API Integration StackPack v2.2.0 (2020-06-04)**
+
+- Features: Token based authentication supported for Splunk.
+- Features: Updated Splunk integration documents for metrics, events and topology.
+- Features: Short link for doc site updated.

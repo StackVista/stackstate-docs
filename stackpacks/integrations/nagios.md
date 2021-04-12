@@ -56,6 +56,27 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 ## Release notes
 
+
+**Nagios StackPack v2.6.2 (2021-04-09)**
+
+* Bugfix: Fixed upgrading Nagios StackPack when you upgrade StackState from 4.2.x to 4.3.x
+
+**Nagios StackPack v2.6.1 (2021-04-02)**
+
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Update documentation.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
+
+**Nagios StackPack v2.5.0 (2021-02-05)**
+
+- Improvement: Separated event streams and health checks for Host Alert and Service Alert events
+- Feature: Added event stream for passive service state events
+- Feature: Added event stream for service notification events
+- Feature: Added event stream and health check for service flapping events  
+- Feature: Added event stream and health check for host flapping alerts
+
+
 **Nagios StackPack v2.4.1 \(2020-11-02\)**
 
 * Bugfix: Fix for Component State evaluation in Service check.
@@ -72,21 +93,4 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 * Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
 * Improvement: Replace resolveOrCreate with getOrCreate.
-
-**Nagios StackPack v2.2.0 \(2020-07-27\)**
-
-* Improvement: Updated integration page with StackState Agent V2 usage info.
-
-**Nagios StackPack v2.1.2 \(2020-07-22\)**
-
-* Bugfix: Fixed StackPack installation.
-
-**Nagios StackPack v2.1.1 \(2020-06-25\)**
-
-* Bugfix: Fixed the translation of host events to health state in the check function.
-* Bugfix: Fixed the minimal deviating health state on the Nagios view.
-
-**Nagios StackPack v2.1.0 \(2020-04-08\)**
-
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
 

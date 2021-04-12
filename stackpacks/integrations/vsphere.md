@@ -20,11 +20,11 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
-* StackState Agent V2 connects to the configured VMWare vSphere instance at port 443:
+* StackState Agent V2 connects to the configured VMWare vSphere instance:
     * Topology data and tags are retrieved for the configured resources.
     * Metrics data is retrieved for the configured resources.
     * The Agent watches the vCenter Event Manager for events related to the configured resources.
-* StackState Agent V2 pushes retrieved data and events to StackState at port 7077:
+* StackState Agent V2 pushes retrieved data and events to StackState:
     * [Topology data](#topology) is translated into components and relations.
     * [Tags](#tags) defined in VMWare vSphere are added to components and relations in StackState.
     * [Metrics data](#metrics) is automatically mapped to associated components and relations in StackState.
@@ -36,9 +36,7 @@ The VMware StackPack collects all topology data for the components and relations
 
 To set up the StackState VMWare vSphere integration, you need to have:
 
-* [StackState Agent V2](agent.md) installed on a single machine that can connect to both vSphere vCenter and StackState. StackState Agent V2 connects to the VMWare vSphere instance on TCP port 443 and the StackState API on TCP port 7077.
-    - If the Agent is installed on the StackState host, then port 7077 is localhost communication.
-    - If the Agent is installed on a different host, you will need a network path between the Agent and StackState on port 7077/tcp, and between the Agent and VMWare vSphere on 443/tcp port.
+* [StackState Agent V2](agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
 * A running vSphere vCenter instance.
 
 ### Install
@@ -183,6 +181,14 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 
 ## Release notes
+
+**VMWare vSphere StackPack v2.3.1 (2021-04-02)**
+
+- Improvement: Changed synchronization's merge strategy from 'merge, prefer theirs' to 'merge, prefer mine'.
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Update documentation.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **VMWare vSphere StackPack v2.2.1 (2020-08-18)**
 
