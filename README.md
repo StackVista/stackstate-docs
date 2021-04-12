@@ -7,7 +7,7 @@ description: StackState version 4.3
 {% hint style="success" %}
 **StackState version 4.3** is now available - [check the release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-3-x) for details.
 
-With the release of StackState v4.3, StackState v4.0 reaches end of life and will no longer be supported. If you are running version 4.0, please [upgrade StackState](/setup/upgrade-stackstate/README.md) to a supported version. 
+With the release of StackState v4.3, StackState v4.0 reaches end of life and will no longer be supported. If you are running version 4.0, please upgrade StackState to a [supported version](#supported-stackstate-versions). 
 
 {% endhint %}
 
@@ -32,15 +32,15 @@ If you believe any documentation is missing, please let us know on the [StackSta
 
 ## Supported StackState versions
 
-The currently supported StackState versions are:
+The versions of StackState listed below are currently supported:
 
 - StackState v4.3 - You are currently reading the documentation for **StackState version 4.3**.
 - StackState v4.2 - [read the 4.2 docs](https://docs.stackstate.com/v/4.2/).
 - StackState v4.1 - [read the 4.1 docs](https://docs.stackstate.com/v/4.1/).
 
-To find documentation for previous StackState versions, use the drop-down menu on the top left of the docs site 
+For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/README.md).
 
-For details on changes and how to upgrade your version of StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/README.md).
+To find documentation for previous StackState versions, use the drop-down menu on the top left of this page.
 
 ## Support and troubleshooting
 
