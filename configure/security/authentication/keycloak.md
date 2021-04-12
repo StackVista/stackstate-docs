@@ -35,6 +35,9 @@ stackstate:
       clientId: stackstate
       secret: "8051a2e4-e367-4631-a0f5-98fc9cdc564d"
       jwsAlgorithm: RS256
+      # jwtClaims:
+      #   usernameField: preferred_username
+      #   groupsField: roles
 
     # map the roles from Keycloak to the 
     # 3 standard subjects in StackState (guest, powerUser and admin)
@@ -57,7 +60,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
     - **secret** - The secret attached to the KeyCloak client, which is used to authenticate this client to KeyCloak
     - **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden (must be a fully qualified URL that points to the `/loginCallback` path)
     - **jwsAlgorithm** - Set this to `RS256`, this is currently the only supported value.
-    - **jwtClaims** - Optional (not in the example): The roles or username can be retrieved from a different attribute than the Keycloak default behavior
+    - **jwtClaims** - Optional: The roles or username can be retrieved from a different attribute than the Keycloak default behavior
        - **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
        - **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 
