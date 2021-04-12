@@ -6,11 +6,13 @@ description: All configuration of StackState is described using StackState Templ
 
 # StackState Template Json \(STJ\)
 
-Templates are used to convert raw synchronization data to components. Templates are defined in JSON extended with support for parameters, loops and conditions.
+StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of (often repetitive) JSON, StackState comes with the StackState Template Json format (STJ). 
+
+STJ is based on [handlebars](https://handlebarsjs.com/) and comes with a number of [StackState functions]](stj_reference.md).
 
 ## Handlebars syntax
 
-StackState template files are using handlebars - a content that is placed between double curly brackets `{{ some content }}`. Below example shows a few handlebars used by a component template:
+StackState template files are using handlebars. Content that is placed between double curly brackets `{{ some content }}` is included in the output. Below example shows a few handlebars used by a component template:
 
 ```text
 [{
@@ -27,13 +29,78 @@ StackState template files are using handlebars - a content that is placed betwee
 }]
 ```
 
-StackState extends on that concept and allows to include different types of content within handlebars inside `.stj` files:
+### Conditionals: #if / else
 
-* you can include a script \(Groovy\): `{{ include "path/to/script.groovy" }}`
-* you can include an icon: `{{ include "path/to/icon.png" "base64" }}`
-* you can include a template: `{{ include "path/to/template.handlebars" }}`
+Run some template code conditionally if a variable has a value.
+
+{% tabs %}
+{% tab title="Template" %}
+```text
+{{# if description }}
+"description": "{{ description }}",
+{{else}}
+"description": "noop",
+{{/ if }}
+```
+{% endtab %}
+
+{% tab title="Data" %}
+```text
+[ description: "hello world" ]
+```
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+"description": "hello world"
+```
+{% endtab %}
+{% endtabs %}
+
+### Looping: #each
+
+Loop over an array or map of data.
+
+{% tabs %}
+{% tab title="Template" %}
+```text
+[
+  {{# each names }}
+  "hello {{this}}",
+  {{/ each }}
+  "bye y'all!"
+]
+```
+{% endtab %}
+
+{% tab title="Data" %}
+```text
+[ names: [ "stackstate", "handlebars" ]]
+```
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+[
+  "hello stackstate",
+  "hello handlebars",
+  "bye y'all!"
+]
+```
+{% endtab %}
+{% endtabs %}
+
+
+## StackState Functions
+
+StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
+
+Please [have a look]](stj_reference.md).
 
 ## Component and Relation templates
 
-Please find more information on the [Component and Relation templates page.](../../../use/introduction-to-stackstate/components_and_relations.md)
+Templates are used to create topology. Please find more information on the [Component and Relation templates page.](../../../use/introduction-to-stackstate/components_and_relations.md).
 
+## See also
+
+* [StackState Template Language Functions](stj_reference.md)

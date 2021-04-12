@@ -1,11 +1,11 @@
 ---
-title: StackState Template Language Functions
+title: StackState Template Functions
 kind: documentation
 ---
 
-# Template functions
+# StackState Template Functions
 
-StackState's templated json incorporates several functions helpful to resolve nodes either by name or [identifier](../../../configure/identifiers.md) that need to be addressed while creating other nodes, for example on a `ComponentTemplate` you want to attach to your about to be created `Component` a `Domain`.
+StackState's templated json incorporates several custom handlebars functions that can be used to get existing nodes from the graph, create new nodes, join texts together, etc. See a full listing of all StackState functions below.
 
 ## Function: `get`
 
@@ -61,7 +61,7 @@ The `concat` function concatenates two values:
 concat "Type=ComponentType;Name=" element.type.name
 ```
 
-## Function: join
+## Function: #join
 
 Joins array or map data as a text usign a separator, prefix and suffix. This is especially handy when producing JSON arrays.
 
@@ -149,7 +149,7 @@ Joins a map of labels to create a JSON array of objects:
 
 ## Function: add
 
-The `add` function adds number variables together.
+Adds number variables together.
 
 ### Arguments:
 
@@ -179,7 +179,7 @@ Two or more number variables.
 
 ## Function: getFirstExisting
 
-The `getFirstExisting` gets the first node from a list of node identifiers (URNs).
+Gets the first node from a list of node identifiers (URNs).
 
 ### Arguments:
 
@@ -201,6 +201,112 @@ This example assumes `urn:stackpack:aws:domain:unknown` does not exist, whereas 
 {% tab title="Result" %}
 ```text
 urn:stackpack:aws:domain:MyDomain
+```
+{% endtab %}
+{% endtabs %}
+
+
+## Function: include
+
+{% hint style="warning" %}
+This function only works when the template is loaded from a StackPack.
+{% endhint %}
+
+Includes the content of another file inside this template. This can come in handy when template files become exceedingly large, when working with images or when you want to reuse the same template fragments in multiple locations.
+
+### Arguments:
+
+ 1. filename - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories (see (StackPack packaging)[/develop/developer-guides/stackpack/prepare_package.md]).
+ 1. encoding (optional, default = `handlebars`) - Choice of:
+  * `handlebars` - Included file will be interpreted as StackState Templated JSON.
+  * `identity` - Included file will be not be interpreted, but simply will be included as text.
+  * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
+  
+
+### Examples:
+
+Include a script:
+
+{% tabs %}
+{% tab title="Template" %}
+```text
+{
+  "_type": "CheckFunction",
+  "description": "Converts AWS state to Stackstate run state",
+  "identifier": "urn:stackpack:aws:shared:check-function:aws-event-run-state",
+  "name": "AWS event run state",
+  "parameters": [
+    {
+      "_type": "Parameter",
+      "multiple": false,
+      "name": "events",
+      "required": true,
+      "system": false,
+      "type": "EVENT_STREAM"
+    }
+  ],
+  "returnTypes": [ "RUN_STATE" ],
+  "script": "{{ include "./scripts/AWS event run state.groovy" }}"
+}
+```
+{% endtab %}
+
+{% tab title="Data" %}
+The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack contains `return RUNNING`
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+{
+  "_type": "CheckFunction",
+  "description": "Converts AWS state to Stackstate run state",
+  "identifier": "urn:stackpack:aws:shared:check-function:aws-event-run-state",
+  "name": "AWS event run state",
+  "parameters": [
+    {
+      "_type": "Parameter",
+      "multiple": false,
+      "name": "events",
+      "required": true,
+      "system": false,
+      "type": "EVENT_STREAM"
+    }
+  ],
+  "returnTypes": [ "RUN_STATE" ],
+  "script": "return RUNNING"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+Include an image:
+
+{% tabs %}
+{% tab title="Template" %}
+```text
+{
+  "_type": "ComponentType",
+  "identifier": "urn:stackpack:aws:shared:component-type:aws.cloudformation",
+  "name": "aws.cloudformation"
+  "iconbase64": "{{ include "./icons/aws.cloudformation.png" "base64" }}",
+}
+```
+{% endtab %}
+
+{% tab title="Data" %}
+The file `/provisioning/icons/aws.cloudformation.png` contains an image of the AWS CloudFormation logo.
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+{
+  "_type": "ComponentType",
+  "identifier": "urn:stackpack:aws:shared:component-type:aws.cloudformation",
+  "name": "aws.cloudformation"
+  "iconbase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAfkYAhBBGAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEL65P8BEaL9HlGPnesAAAAASUVORK5CYII", 
+  "identifier": "urn:stackpack:demo-stackpack:component-type:insights", "ow",
+}
 ```
 {% endtab %}
 {% endtabs %}
