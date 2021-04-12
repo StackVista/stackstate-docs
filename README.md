@@ -25,11 +25,6 @@ With the release of StackState v4.3, StackState v4.0 reaches End of Life (EOL) a
 
 {% page-ref page="develop/tutorials/" %}
 
-## Can't find what you are looking for?
-
-**Search for it!** Use the search bar on the top right.  
-If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
-
 ## Supported StackState versions
 
 The supported versions of StackState listed below:
@@ -42,7 +37,12 @@ For details on changes in each release and how to upgrade StackState, check the 
 
 To find documentation for previous StackState versions, use the drop-down menu at the top left of this page.
 
-## Support and troubleshooting
+## Can't find what you are looking for?
+
+**Search for it!** Use the search bar on the top right.  
+If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
+
+## Troubleshooting and support
 
 Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
 
