@@ -10,7 +10,49 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
+### v4.3.0
 
+**Features**
+
+- [Show configuration changes](/use/problems/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
+- [Alert on anomalies](/use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
+- [Drill down on Problems](/use/problems/problems.md) for faster investigation. STAC-10481
+
+**Improvements**
+
+- Introduced [check functions that alert on anomalies](/use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
+- The [Autonomous Anomaly Detector (AAD)](/stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
+- It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](/setup/installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
+- StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
+- Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-cert.md). STAC-11738
+- The field specifying the [role to use for Keycloak authentication](/configure/security/authentication/keycloak.md) (default field name: `roles`) is now configurable using the `groupsField` configuration parameter. STAC-11609
+- StackState now supports [API tokens for authentication of the StackState CLI](/setup/installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+- The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
+- Added support for [backup and restore procedure for self-hosted Kubernetes](/setup/data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
+- It is now possible to use component actions when time-traveling. STAC-11462
+- Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
+- Authentication settings are now directly configurable on the Helm chart. STAC-11237
+- Added permission `manage-event-handlers` to [protect creation of event handlers](/configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
+- Allow [filtering Events](/use/view_filters.md#filter-events) by source. STAC-10644
+- Allow [filtering Events](/use/view_filters.md#filter-events) by category. STAC-10643
+- Events of type Anomaly now display a [metric chart including the anomaly](/use/problems/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
+- Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](/configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
+- Added ability to filter on labels in the Component Details pane. STAC-11824
+- Added ability to search and filter components in the Topology perspective List mode. STAC-11413
+- Added ability to [export component list as a CSV file](/use/perspectives/topology-perspective.md#export-as-csv) in the Topology perspective List mode. STAC-3593
+- Added ability to search telemetry streams on the Component Details pane. STAC-3194
+
+**Bug fixes**
+
+- Fixed issue that prevented view event handlers from being updated. STAC-12296
+- Fixed issue that prevented proxy settings from being picked up in asynchronous event handlers. STAC-12097
+- Fixed memory consumption issue in slicer pod that caused intermittent out of memory errors. Any custom memory settings for the slicer pod can be removed. STAC-11841
+- Fixed issue that caused the Slack event handler to fail when sending a notification of a view health state change event. STAC-11831
+- Fixed issue that caused the StackState helm chart to fail with custom image registries. STAC-11717
+- Fixed issue that prevented copy_images.sh script from working with containers without a docker.io prefix. STAC-11697
+- Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
+- Fixed issue that prevented exports produced by the CLI on Windows from being imported. STAC-11096
+- Fixed issue that caused incorrect anomalies to be detected on CloudWatch metrics by introducing two new aggregation methods: COUNT_NO_ZEROS and SUM_NO_ZEROS. Aggregation methods COUNT and SUM keep the existing behavior of filling gaps in metrics with zeroes, with a configurable delay. STAC-11079
 
 ## StackState v4.2.x
 
@@ -48,7 +90,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- Fix for Stackstate helm chart to include correct version of AAD sub chart. STAC-11654
+- Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
 
 ### v4.2.1
 
@@ -190,7 +232,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- This release deprecates the withCauseOf stql construct. See [https://l.stackstate.com/R8opqs](https://l.stackstate.com/R8opqs) for more info on how to migrate existing view. STAC-7884.
+- This release deprecates the `withCauseOf` stql construct. See [https://l.stackstate.com/R8opqs](https://l.stackstate.com/R8opqs) for more info on how to migrate existing view. STAC-7884.
 - The groovy sandboxing has been improved to cover a number of edge cases.
 - The groovy sandbox is stricter and favors security at the cost of flexibility
   All accessible classes and packages are listed in the `<stackstate dir>/etc/sandbox.conf`. STAC-5032
