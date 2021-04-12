@@ -20,7 +20,6 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Improvements**
 
-- The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 - Introduced [check functions that alert on anomalies](/use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
 - The [Autonomous Anomaly Detector (AAD)](/stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 - It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](/setup/installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
@@ -28,6 +27,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-cert.md). STAC-11738
 - The field specifying the [role to use for Keycloak authentication](/configure/security/authentication/keycloak.md) (default field name: `roles`) is now configurable using the `groupsField` configuration parameter. STAC-11609
 - StackState now supports [API tokens for authentication of the StackState CLI](/setup/installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+- The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 - Added support for [backup and restore procedure for self-hosted Kubernetes](/setup/data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
 - It is now possible to use component actions when time-traveling. STAC-11462
 - Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
@@ -90,7 +90,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- Fix for Stackstate helm chart to include correct version of AAD sub chart. STAC-11654
+- Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
 
 ### v4.2.1
 
@@ -232,7 +232,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- This release deprecates the withCauseOf stql construct. See [https://l.stackstate.com/R8opqs](https://l.stackstate.com/R8opqs) for more info on how to migrate existing view. STAC-7884.
+- This release deprecates the `withCauseOf` stql construct. See [https://l.stackstate.com/R8opqs](https://l.stackstate.com/R8opqs) for more info on how to migrate existing view. STAC-7884.
 - The groovy sandboxing has been improved to cover a number of edge cases.
 - The groovy sandbox is stricter and favors security at the cost of flexibility
   All accessible classes and packages are listed in the `<stackstate dir>/etc/sandbox.conf`. STAC-5032
