@@ -5,7 +5,7 @@ description: How to configure anomaly detection with baselines.
 # Anomaly detection with baselines
 
 {% hint style="warning" %}
-This page describes StackState version 4.2.
+**This page describes StackState version 4.2.**
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
