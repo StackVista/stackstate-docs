@@ -13,10 +13,7 @@ Read up on [how to create manual topology](../../configure/topology/how_to_creat
 
 ## Release notes
 
-**Manual Topology StackPack v3.0.1 (2021-03-30)**
+**Manual Topology StackPack v2.1.1 (2021-04-02)**
 
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
-
-**Manual Topology StackPack v3.0.0 (2021-03-26)**
-
-- Improvement: Common bumped from 2.3.1 to 2.4.3
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0

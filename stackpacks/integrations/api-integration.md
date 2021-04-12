@@ -72,9 +72,12 @@ If you need further assistance, our [support team](https://support.stackstate.co
 
 ## Release notes
 
-**API Integration StackPack v3.0.3 (2021-03-30)**
+**API Integration StackPack v2.4.1 (2021-04-02)**
 
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
+- Improvement: Update documentation.
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **API Integration StackPack v3.0.2 (2021-03-29)**
 

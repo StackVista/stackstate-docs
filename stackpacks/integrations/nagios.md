@@ -57,19 +57,16 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 ## Release notes
 
 
-**Nagios StackPack v3.0.2 (2021-03-30)**
+**Nagios StackPack v2.6.2 (2021-04-09)**
 
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
+* Bugfix: Fixed upgrading Nagios StackPack when you upgrade StackState from 4.2.x to 4.3.x
 
-**Nagios StackPack v3.0.1 (2021-03-29)**
-
-- Bugfix: Update the minimum required StackState version to 4.3.0.
-
-**Nagios StackPack v3.0.0 (2021-03-26)**
+**Nagios StackPack v2.6.1 (2021-04-02)**
 
 - Improvement: Enable auto grouping on generated views.
 - Improvement: Update documentation.
-- Improvement: Common bumped from 2.2.3 to 2.4.3
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **Nagios StackPack v2.5.0 (2021-02-05)**
 

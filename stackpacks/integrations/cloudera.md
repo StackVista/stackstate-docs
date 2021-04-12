@@ -1,8 +1,3 @@
----
-title: Cloudera StackPack
-kind: documentation
----
-
 # Cloudera
 
 ## What is the Cloudera StackPack?
@@ -24,8 +19,8 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/cloudera.d/conf.yaml` to include details of your Cloudera instance:
    * **url**
-   * **username** 
-   * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
+   * **username**
+   * **password**- use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
      ```text
      # Section used for global Cloudera check config
@@ -51,39 +46,31 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
 
 ## Release notes
 
-** Cloudera StackPack v2.0.2 (2021-03-30)**
+**Cloudera StackPack v1.3.1 (2021-04-02)**
 
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
+- Improvement: Enable auto grouping on generated views.
+- Improvement: Update documentation.
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
-** Cloudera StackPack v2.0.1 (2021-03-29)**
-
-- Bugfix: Update the minimum required StackState version to 4.3.0.
-
-** Cloudera StackPack v2.0.0 (2021-03-26)**
-
-- Improvements: Enable auto grouping on generated views.
-- Improvements: Update documentation.
-- Improvements: Common bumped from 2.2.3 to 2.4.3
-- Improvements: Removal of deprecated layers 
-
-** Cloudera StackPack v1.2.1 (2020-08-18)**
+**Cloudera StackPack v1.2.1 (2020-08-18)**
 
 - Feature: Introduced the Release notes pop up for customer
 
-** Cloudera StackPack v1.2.0 (2020-08-04)**
+**Cloudera StackPack v1.2.0 (2020-08-04)**
 
-- Improvements: Deprecated stackpack specific layers and introduced a new common layer structure.
-- Improvements: Replace resolveOrCreate with getOrCreate.
+- Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
+- Improvement: Replace resolveOrCreate with getOrCreate.
 
-** Cloudera StackPack v1.1.0 (2020-04-10)**
+**Cloudera StackPack v1.1.0 (2020-04-10)**
 
-- Improvements: Updated StackPacks integration page, categories, and icons for the SaaS trial
+- Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
 
-** Cloudera StackPack v1.0.1 (2020-04-03)**
+**Cloudera StackPack v1.0.1 (2020-04-03)**
 
 - Bugfix: Change pre-requisite to AgentV2 and improve documentation texts
 
-** Cloudera StackPack v1.0.0 (2020-01-15)**
+**Cloudera StackPack v1.0.0 (2020-01-15)**
 
 This is the first public release of the Cloudera StackPack that provides support to monitor your Cloudera Manager instance. **NOTE**:- We support Cloudera version 5.11.
 

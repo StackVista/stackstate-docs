@@ -61,9 +61,10 @@ Release notes for the AAD StackPack are given below.
 
 Note that from release 4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
-**Autonomous Anomaly Detector StackPack v1.0.0 (30-03-2021)**
+**Autonomous Anomaly Detector StackPack v0.9.2 (02-04-2021)**
 
 * Common version bumped from 2.4.3 to 3.0.0
+* StackState min version bumped to 4.3.0
 
 **Autonomous Anomaly Detector StackPack v0.8.1 (22-03-2021)**
 

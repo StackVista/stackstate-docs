@@ -264,18 +264,10 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## Release notes
 
-**ServiceNow StackPack v6.0.2 (2021-03-30)**
+**ServiceNow StackPack v5.3.1 (2021-04-02)**
 
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
-
-**ServiceNow StackPack v6.0.1 (2021-03-29)**
-
-- Bugfix: Update the minimum required StackState version to 4.3.0.
-
-**ServiceNow StackPack v6.0.0 (2021-03-26)**
-
-- Improvement: Common bumped from 2.2.3 to 2.4.3
-- Improvement: Removal of deprecated layers 
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **ServiceNow StackPack v5.2.0 (2021-03-23)**
 

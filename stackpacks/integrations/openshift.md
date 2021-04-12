@@ -263,21 +263,12 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
-**Openshift StackPack v4.0.2 (2021-03-30)**
-
-- Bug Fix: Common bumped from 2.4.3 to 3.0.0
-- Bug Fix: K8S-common bumped from 3.0.0 to 3.0.1
-
-**Openshift StackPack v4.0.1 (2021-03-29)**
-
-- Bug Fix: Update the minimum required StackState version to 4.3.0.
-
-**Openshift StackPack v4.0.0 (2021-03-26)**
+**Openshift StackPack v3.7.1 (2021-04-02)**
 
 - Improvement: Enable auto grouping on generated views.
 - Improvement: Update documentation.
-- Improvement: Common bumped from 2.4.1 to 2.4.3
-- Improvement: K8S-common bumped from 2.5.0 to 3.0.0
+- Improvement: Common bumped from 2.4.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **Openshift StackPack v3.6.0 (2021-03-08)**
 

@@ -264,22 +264,12 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
-**Kubernetes StackPack v4.0.2 (2021-03-30)**
-
-- Bug fix: Common bumped from 2.4.3 to 3.0.0
-- Bug fix: K8S-common bumped from 3.0.0 to 3.0.1
-
-**Kubernetes StackPack v4.0.1 (2021-03-29)**
-
-- Bug fix: Update the minimum required StackState version to 4.3.0.
-
-**Kubernetes StackPack v4.0.0 (2021-03-26)**
+**Kubernetes StackPack v3.9.1 (2021-04-02)**
 
 - Improvement: Enable auto grouping on generated views.
 - Improvement: Update documentation.
-- Improvement: Common bumped from 2.4.1 to 2.4.3
-- Improvement: K8S-common bumped from 2.5.0 to 3.0.0
-
+- Improvement: Common bumped from 2.4.1 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **Kubernetes StackPack v3.8.0 (2021-03-08)**
 

@@ -216,20 +216,12 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 
 ## Release notes
 
-**Azure StackPack v5.0.2 (2021-03-30)**
-
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
-
-**Azure StackPack v5.0.1 (2021-03-29)**
-
-- Bugfix: Update the minimum required StackState version to 4.3.0.
-
-**Azure StackPack v5.0.0 (2021-03-25)**
+**Azure StackPack v4.1.1 (2021-04-02)**
 
 - Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.4.3
-- Improvement: Removal of deprecated layers 
+- Improvement: Common bumped from 2.2.3 to 2.5.0
 - Improvement: Update documentation.
+- Improvement: StackState min version bumped to 4.3.0
 
 **Azure StackPack v4.0.1 (2020-08-18)**
 

@@ -244,27 +244,17 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ## Release notes
 
-**AWS StackPack v6.0.4 (2021-03-31)**
+**AWS StackPack v5.2.2 (2021-04-09)**
+
+- Bugfix: Fixed upgrading AWS StackPack when you upgrade StackState from 4.2.x to 4.3.x
+
+**AWS StackPack v5.2.1 (2021-04-02)**
 
 - Bugfix: Updated the manual_trigger.sh to verify if the lambda exists, Trigger and monitor the lambda outcome and if it failed then the error will be displayed with a possible solution to allow the user to fix the problem and 'press any key' to retry
-
-**AWS StackPack v6.0.3 (2021-03-30)**
-
-- Bugfix: Common bumped from 2.4.3 to 3.0.0
-
-**AWS StackPack v6.0.2 (2021-03-29)**
-
-- Bugfix: Update the minimum required StackState version to 4.3.0.
-
-**AWS StackPack v6.0.1 (2021-03-25)**
-
 - Improvement: Update documentation.
-
-**AWS StackPack v6.0.0 (2021-03-25)**
-
 - Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.4.3
-- Improvement: Removal of deprecated layers 
+- Improvement: Common bumped from 2.2.3 to 2.5.0
+- Improvement: StackState min version bumped to 4.3.0
 
 **AWS StackPack v5.1.3 (2021-03-01)**
 
