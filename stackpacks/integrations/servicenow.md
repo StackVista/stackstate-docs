@@ -8,7 +8,7 @@ old-description: Collect topology data from ServiceNow
 
 The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items \(CIs\) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations. ServiceNow change request events are also retrieved.
 
-![Data flow](/.gitbook/assets/stackpack-servicenow.png)
+![Data flow](../../.gitbook/assets/stackpack-servicenow.png)
 
 * Agent V2 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).
 * CIs and dependencies for the configured CI types are retrieved from the ServiceNow CMDB \(default all\). Change request events are retrieved in the same run.
@@ -59,17 +59,15 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
        # verify_https: true
        # cert: /path/to/cert.pem
        # keyfile: /path/to/key.pem
-
      ```
 2. You can also add optional configuration and filters:
    * **batch\_size** - the maximum number of records to be returned \(default `2500`, max `10000`\).
    * **change\_request\_bootstrap\_days** - On first start, all change requests that have been updated in last N days will be retrieved \(default `100`\).
    * **change\_request\_process\_limit** - The maximum number of change requests that should be processed \(default `1000`\).
    * **timeout** - Timeout for requests to the ServiceNow API in seconds \(default `20`\).
-   * **verify_https** - Verify the certificate when using https (default `true`).
+   * **verify\_https** - Verify the certificate when using https \(default `true`\).
    * **cert** - Path to the certificate file for https verification.
    * **keyfile** - Path to the public key of certificate for https verification.
-
    * Use queries to [filter change requests retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow \(default all\).
    * Use queries to [filter the CI types retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) \(default all\).
    * [Specify the CI types](servicenow.md#specify-ci-types-to-retrieve) that should be retrieved \(default all\).
@@ -196,11 +194,9 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 The ServiceNow check does not retrieve any metrics data.
 
-
 #### Tags
 
-All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState.
-The ServiceNow integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState. The ServiceNow integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
 
 #### Topology
 
@@ -264,16 +260,16 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## Release notes
 
-**ServiceNow StackPack v5.3.1 (2021-04-02)**
+**ServiceNow StackPack v5.3.1 \(2021-04-02\)**
 
-- Improvement: Common bumped from 2.2.3 to 2.5.1
-- Improvement: StackState min version bumped to 4.3.0
+* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: StackState min version bumped to 4.3.0
 
-**ServiceNow StackPack v5.2.0 (2021-03-23)**
+**ServiceNow StackPack v5.2.0 \(2021-03-23\)**
 
-- Improvement: Set `tags`, `domain`, `layer` and `environment` coming from ServiceNow integration.
-- Improvement: Enable auto grouping on generated views. 
-- Improvement: Added configuration options for SSL certificate included with Agent 2.11.0 release.
+* Improvement: Set `tags`, `domain`, `layer` and `environment` coming from ServiceNow integration.
+* Improvement: Enable auto grouping on generated views. 
+* Improvement: Added configuration options for SSL certificate included with Agent 2.11.0 release.
 
 **ServiceNow StackPack v5.1.0 \(2020-12-16\)**
 

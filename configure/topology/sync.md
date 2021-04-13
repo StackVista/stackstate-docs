@@ -6,11 +6,11 @@ Synchronization allows you to automatically synchronize the topology of your sta
 
 A synchronization is defined by a data source and a number of mappings from the external system topology data into StackState topology elements. The following image gives an overview of a synchronization pipeline:
 
-![](/.gitbook/assets/v43_topology_synchronization.png)
+![](../../.gitbook/assets/v43_topology_synchronization.png)
 
 ## Synchronization pipeline
 
-Broadly speaking, the synchronization framework makes two models to turn external data into StackState internal components and relations. 
+Broadly speaking, the synchronization framework makes two models to turn external data into StackState internal components and relations.
 
 * The **External Topology model** interprets data and turns it into a graph as the data looks outside of StackState. 
 * The **StackState Topology model** is a graph of components as viewed in StackState. 
@@ -62,7 +62,7 @@ Mapping functions are defined by a groovy script and the input parameters that g
 
 There are two parameters that are specific to a mapping function:
 
-* `ExtTopoComponent` or `ExtTopoRelation` - these are required, system parameters. Every Mapping Function must define one of these. They are used internally by StackState and cannot be changed using the API. They indicate the type of element (component or relation) that the mapping function supports.
+* `ExtTopoComponent` or `ExtTopoRelation` - these are required, system parameters. Every Mapping Function must define one of these. They are used internally by StackState and cannot be changed using the API. They indicate the type of element \(component or relation\) that the mapping function supports.
 * `TemplateLambda` - this is an optional parameter that specifies the template functions that must be used with a mapping function.
 
 For example, below is a simple mapping function script:
@@ -96,7 +96,7 @@ Below are some examples templates to create components. Note that a template is 
 
 * A simple template that creates a component. Its template function must define the parameters with the following names: `name`, `description`, `componentTypeId`, `layerId`, `domainId` and `environmentId`.
 
-    ```text
+  ```text
           [{
             "_type": "Component",
             "checks": [],
@@ -109,11 +109,11 @@ Below are some examples templates to create components. Note that a template is 
             "domain": {{ domainId }},
             "environments": [{{ environmentId }}]
           }]
-    ```
+  ```
 
 * A template to create a relation between the components `{{ sourceId }}` and `{{ targetId }}`. Its template Function must define parameters with the following names: `name`, `description`, `relationTypeId`, `sourceId` and `targetId`.
 
-    ```text
+  ```text
          [{
            "_type": "Relation",
            "checks": [],
@@ -125,7 +125,5 @@ Below are some examples templates to create components. Note that a template is 
            "source": {{ sourceId }},
            "target": {{ targetId }}
          }]
-    ```
-
-
+  ```
 

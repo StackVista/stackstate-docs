@@ -1,4 +1,4 @@
-# Checks and telemetry streams
+# Understanding checks and streams
 
 ## Overview
 
@@ -54,5 +54,4 @@ Read more about [anomaly detection with baselines](../../use/health-state-and-ev
 * [Anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
 * [Baseline functions](baseline-functions.md)
 * [Send notifications when a health state changes](../../use/health-state-and-event-notifications/send-event-notifications.md)
-
 

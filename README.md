@@ -21,7 +21,7 @@ With the release of StackState v4.3, StackState v4.0 reaches End of Life (EOL) a
 
 {% page-ref page="stackpacks/integrations/" %}
 
-### StackState developer 
+### StackState developer
 
 {% page-ref page="develop/tutorials/" %}
 

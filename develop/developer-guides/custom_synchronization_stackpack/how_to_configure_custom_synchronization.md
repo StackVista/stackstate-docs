@@ -1,7 +1,8 @@
 # How to configure a custom synchronization
 
-## Overview 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](/develop/developer-guides/synchronizations_and_templated_files.md) or proceed to edit `default auto synchronization` following the instructions below.
+## Overview
+
+Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../synchronizations_and_templated_files.md) or proceed to edit `default auto synchronization` following the instructions below.
 
 ## Edit default auto synchronization
 

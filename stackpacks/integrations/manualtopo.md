@@ -10,10 +10,10 @@ The Manual Topology StackPack contains everything you need to manually create to
 
 Read up on [how to create manual topology](../../configure/topology/how_to_create_manual_topology.md).
 
-
 ## Release notes
 
-**Manual Topology StackPack v2.1.1 (2021-04-02)**
+**Manual Topology StackPack v2.1.1 \(2021-04-02\)**
 
-- Improvement: Common bumped from 2.2.3 to 2.5.1
-- Improvement: StackState min version bumped to 4.3.0
+* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: StackState min version bumped to 4.3.0
+

@@ -32,8 +32,8 @@ The steps below describe how to install the StackState CLI on Linux using the st
 
 3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 4. To configure the StackState CLI, do one of the following:
-    - [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-    - [Manually add configuration](cli-install.md#manual-configuration-docker).
+   * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
+   * [Manually add configuration](cli-install.md#manual-configuration-docker).
 
 ### Windows install
 
@@ -49,8 +49,8 @@ The steps below describe how to install the StackState CLI on Windows using the 
 2. Rename the downloaded file to be `sts.exe`.
 3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. To configure the StackState CLI, do one of the following:
-    - [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-    - [Manually add configuration](cli-install.md#manual-configuration-docker).
+   * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
+   * [Manually add configuration](cli-install.md#manual-configuration-docker).
 
 ### Docker install \(Mac, Linux, Windows\)
 
@@ -89,7 +89,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
 
 After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on Mac, Linux or Windows, the configuration file must be manually created.
 
-* **Linux or Windows install (standalone executable)**: [Configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
+* **Linux or Windows install \(standalone executable\)**: [Configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
 * **Docker install**: [Create the configuration file manually](cli-install.md#manual-configuration-docker).
 
 ### Configuration wizard \(Linux and Windows install\)
@@ -110,7 +110,7 @@ Receiver API key (default - API_KEY):
 Hostname used for receiver ingestion via the CLI (default - mycli):
 ```
 
-### Manual configuration (Docker)
+### Manual configuration \(Docker\)
 
 Follow the steps below to create a configuration file manually. This is required for a Docker install and optional for a Linux or Windows install using a standalone executable file.
 
@@ -204,9 +204,9 @@ The StackState CLI predominantly uses two APIs: the Base API and the Receiver AP
 The CLI will issue a warning when username/password authentication is used. It is recommended to switch to token based authentication.
 {% endhint %}
 
-Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account. 
+Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account.
 
-You can find your API token in the StackState UI on the page **Main menu** > **CLI**. 
+You can find your API token in the StackState UI on the page **Main menu** &gt; **CLI**.
 
 ### Receiver API - API key
 
@@ -214,8 +214,9 @@ StackState receives topology, telemetry and trace data via the receiver API. If 
 
 ## Use the StackState CLI
 
-For details on how to work with the StackState CLI, see the [CLI reference guide](/develop/reference/cli_reference.md) or refer to the help provided in the CLI.
+For details on how to work with the StackState CLI, see the [CLI reference guide](../../develop/reference/cli_reference.md) or refer to the help provided in the CLI.
 
-```
+```text
 sts --help
 ```
+

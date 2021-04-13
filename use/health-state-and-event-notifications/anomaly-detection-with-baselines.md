@@ -2,17 +2,17 @@
 description: How to configure anomaly detection with baselines.
 ---
 
-# Anomaly detection with baselines
+# Anomaly detection with baselines \(Deprecated\)
 
 {% hint style="warning" %}
-Baseline anomaly detection is **deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector)](/stackpacks/add-ons/aad.md).
+Baseline anomaly detection is **deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector\)](../../stackpacks/add-ons/aad.md).
 {% endhint %}
 
 ## Overview
 
 Baselines are a way to detect anomalies in metric streams. Generally speaking, an anomaly is detected when a metric stream exceeds its baseline boundaries. A baseline consists of a lower and upper boundary. It forms a band that the metric, under normal conditions, is expected to remain inside of. Baselines are initially derived from historical data, but continuously update as new data flows in. Thus when an anomaly occurs, the baseline gradually updates to take the anomaly into account.
 
-![Baseline example](/.gitbook/assets/baseline_example.png)
+![Baseline example](../../.gitbook/assets/baseline_example.png)
 
 ## How baseline anomaly detection works
 
@@ -47,7 +47,7 @@ To configure a baseline for a metric stream:
 
 ## Baseline functions
 
-Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](/develop/reference/scripting/README.md). By default the following baseline functions are supplied:
+Baseline functions are configurable in StackState and can be coded in the [StackState Scripting Language](../../develop/reference/scripting/). By default the following baseline functions are supplied:
 
 * [Stationary Auto-Tuned Baseline](anomaly-detection-with-baselines.md#stationary-auto-tuned-baseline)
 * [Median Absolute Deviation](anomaly-detection-with-baselines.md#median-absolute-deviation)
@@ -156,3 +156,4 @@ Event notifications for baseline checks work exactly the same as with other heal
 * [Autonomous Anomaly detector add-on StackPack](../../stackpacks/add-ons/aad.md)
 * [Send event notifications with event handlers](send-event-notifications.md)
 * [Create custom baseline functions](../../configure/telemetry/baseline-functions.md)
+

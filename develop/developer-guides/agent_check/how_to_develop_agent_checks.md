@@ -139,9 +139,8 @@ timeout = float(instance.get('timeout', default_timeout))
 
 Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
-- `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
-
-- `self.stop_snapshot()` - used to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
+* `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
+* `self.stop_snapshot()` - used to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
 
 #### Disable snapshots
 
@@ -208,7 +207,7 @@ The StackState Agent Check interface supports various types of metrics.
 
 Metric data can be submitted using i.e. the `self.gauge()` function, or the `self.count()` function in the `AgentCheck` interface. All metrics data is stored in the `StackSate Metrics` data source that can be mapped to a metric telemetry stream for a component/relation in StackState:
 
-![Metrics](/.gitbook/assets/metricstelemetrystream.png)
+![Metrics](../../../.gitbook/assets/metricstelemetrystream.png)
 
 The example below submits a gauge metric `system.cpu.usage` for our previously submitted `this-host` component:
 
@@ -224,7 +223,7 @@ Learn more about the [Agent Check Metric API](checks_in_agent_v2.md)
 
 Events can be submitted using the `self.event()` function in the `AgentCheck` interface. Events data is stored in the `StackState Generic Events` data source that can be mapped to a telemetry stream on a component in StackState:
 
-![Add telemetry stream](/.gitbook/assets/genericevents.png)
+![Add telemetry stream](../../../.gitbook/assets/genericevents.png)
 
 The example below submits an event to StackState when a call to the instance that is monitored exceeds some configured timeout:
 

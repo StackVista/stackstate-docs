@@ -20,34 +20,30 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
 #### v4.3.0
 
-* StackState is tested to run on Kubernetes v1.17, v1.18 and v1.19, or the equivalent OpenShift release (version 4.4, 4.5 or 4.6).
-* CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod(s).
-* CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](/setup/requirements.md#node-sizing).
-* Two new [permissions](/configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
-    - Guest users will no longer be able to create or edit event handlers.
-    - Power Users will no longer be able to execute scripts using the HTTP script API.
-    - Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](/use/health-state-and-event-notifications/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`. 
+* StackState is tested to run on Kubernetes v1.17, v1.18 and v1.19, or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\).
+* CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod\(s\).
+* CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](../requirements.md#node-sizing).
+* Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
+  * Guest users will no longer be able to create or edit event handlers.
+  * Power Users will no longer be able to execute scripts using the HTTP script API.
+  * Admin users will not be affected.
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`. 
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
-
 {% endtab %}
 
 {% tab title="Linux" %}
-
 #### v4.3.0
 
-* Two new [permissions](/configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
-    - Guest users will no longer be able to create or edit event handlers.
-    - Power Users will no longer be able to execute scripts using the HTTP script API.
-    - Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](/use/health-state-and-event-notifications/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`. 
+* Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
+  * Guest users will no longer be able to create or edit event handlers.
+  * Power Users will no longer be able to execute scripts using the HTTP script API.
+  * Admin users will not be affected.
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`. 
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
-
 {% endtab %}
 {% endtabs %}
 
@@ -55,33 +51,31 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
-####  v4.2.4
+#### v4.2.4
 
 No manual action needed.
 
-####  v4.2.3
-Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If your StackState authentication was customized, it will need to be updated. To verify this, check if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file(s) used for installation.
+#### v4.2.3
 
-Refer to the [Authentication configuration documentation](/configure/security/authentication/README.md) to configure the same settings directly in the `values.yaml` file. After that, the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
+Authentication configuration for the Kubernetes Helm chart has been made easier for this release. If your StackState authentication was customized, it will need to be updated. To verify this, check if there is a `stackstate.server.config` or `stackstate.api.config` value that contains an `authentication` section in the `values.yaml` file\(s\) used for installation.
+
+Refer to the [Authentication configuration documentation](../../configure/security/authentication/) to configure the same settings directly in the `values.yaml` file. After that, the `authentication` section can be completely removed. If this results in an empty `config` value it can be removed as well.
 
 #### v4.2.0
 
-- [Node sizing requirements](/setup/requirements.md#node-sizing) have been increased.
-- The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
-    - Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
-    - Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
-- A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl).<br />The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
-
+* [Node sizing requirements](../requirements.md#node-sizing) have been increased.
+* The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
+  * Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
+  * Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
+* A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl). The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
 {% endtab %}
 
 {% tab title="Linux" %}
-
-####  v4.2.4
+#### v4.2.4
 
 No manual action needed.
 
-####  v4.2.3
+#### v4.2.3
 
 No manual action needed.
 
@@ -101,7 +95,6 @@ The following configuration changes must be manually processed if you are using 
   * Added new parameter `processes.kafkaToElasticsearch.topology-events`.
 * **processmanager/kafka-topics.conf\`**
   * Added new section `kafka.topics.sts_topology_events`.
-
 {% endtab %}
 {% endtabs %}
 
@@ -146,3 +139,4 @@ Go to the [StackState v4.0 docs site](https://docs.stackstate.com/v/4.0/).
 * [How to upgrade a StackPack](../../stackpacks/about-stackpacks.md#upgrade-a-stackpack)
 * [Steps to upgrade StackState](steps-to-upgrade.md)
 * [StackPack versions shipped with each StackState release](stackpack-versions.md)
+
