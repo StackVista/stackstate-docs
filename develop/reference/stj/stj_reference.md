@@ -65,29 +65,6 @@ get "urn:stackpack:aws:environment:production"
 get "urn:stackpack:aws:check_function:basic" "Type=Parameter;Name=metrics"
 ```
 
-### `getOrCreate`
-
-The `getOrCreate` function first tries to resolve a node by its identifier and then by the fallback create-identifier. If none are found, the function will create a node using the specified `Type` and `Name` arguments and the newly created node will be identified with the create-identifier value.
-
-```text
-getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
-```
-
-Note that:
-
-* `getOrCreate` works only with the following \(simple\) types: Environment, Layer, Domain, ComponentType and RelationType.
-* `create-identifier` must be a value in the "urn:system:auto" namespace.
-
-We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
-
-#### Examples
-
-Find the `Production` `Environment` by its identifier and fallback identifier, or otherwise create it:
-
-```text
-getOrCreate "urn:stackpack:aws:environment:production" "urn:system:auto:stackpack:aws:environment:production" "Type=Environment;Name=Production"
-```
-
 ### `getFirstExisting`
 
 Gets the first node from a list of node identifiers (URNs).
@@ -115,6 +92,29 @@ urn:stackpack:aws:domain:New
 ```
 {% endtab %}
 {% endtabs %}
+
+### `getOrCreate`
+
+The `getOrCreate` function first tries to resolve a node by its identifier and then by the fallback create-identifier. If none are found, the function will create a node using the specified `Type` and `Name` arguments and the newly created node will be identified with the create-identifier value.
+
+```text
+getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
+```
+
+Note that:
+
+* `getOrCreate` works only with the following \(simple\) types: Environment, Layer, Domain, ComponentType and RelationType.
+* `create-identifier` must be a value in the "urn:system:auto" namespace.
+
+We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
+
+#### Examples
+
+Find the `Production` `Environment` by its identifier and fallback identifier, or otherwise create it:
+
+```text
+getOrCreate "urn:stackpack:aws:environment:production" "urn:system:auto:stackpack:aws:environment:production" "Type=Environment;Name=Production"
+```
 
 ### `identifier`
 
