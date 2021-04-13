@@ -86,6 +86,6 @@ As of yet telemetry queries only support metric queries. If you need event queri
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value") // determines which field to interpret as containing the metric values
+    .metricField("value")
     .limit(100)
   ```
