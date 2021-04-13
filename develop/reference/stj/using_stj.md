@@ -4,6 +4,8 @@ description: All configuration of StackState is described using StackState Templ
 
 # StackState Template JSON \(STJ\)
 
+## Overview
+
 StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of (often repetitive) JSON, StackState comes with the StackState Template JSON format (STJ). 
 
 STJ is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](stj_reference.md).
