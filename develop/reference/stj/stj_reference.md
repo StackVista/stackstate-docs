@@ -1,16 +1,21 @@
 # StackState Template Functions
 
+## Overview
+
 StackState Template JSON \(STJ\) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
 
-## Function: add
+## Functions
+
+### `add`
+
 
 Adds number variables together.
 
-### Arguments
+#### Arguments
 
 Two or more number variables.
 
-### Examples
+#### Examples
 
 {% tabs %}
 {% tab title="Template" %}
@@ -32,7 +37,7 @@ Two or more number variables.
 {% endtab %}
 {% endtabs %}
 
-## Function: concat
+### `concat`
 
 The `concat` function concatenates two values:
 
@@ -40,7 +45,7 @@ The `concat` function concatenates two values:
 concat "Type=ComponentType;Name=" element.type.name
 ```
 
-## Function: `get`
+### `get`
 
 The `get` function finds a node of a certain type by its unique identifier without needing to specify the type of the node. The function finds a node in a nested way, first finding the identifier and then finding the type and name in the scope of the first resolved node.
 
@@ -48,7 +53,7 @@ The `get` function finds a node of a certain type by its unique identifier witho
 get <identifier> Type=<type>;Name=<name>
 ```
 
-### Examples
+#### Examples
 
 * Resolve the `Production` `Environment` using:
 ```text
@@ -60,7 +65,7 @@ get "urn:stackpack:aws:environment:production"
 get "urn:stackpack:aws:check_function:basic" "Type=Parameter;Name=metrics"
 ```
 
-## Function: `getOrCreate`
+### `getOrCreate`
 
 The `getOrCreate` function first tries to resolve a node by its identifier and then by the fallback create-identifier. If none are found, the function will create a node using the specified `Type` and `Name` arguments and the newly created node will be identified with the create-identifier value.
 
@@ -75,7 +80,7 @@ Note that:
 
 We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
 
-### Examples
+#### Examples
 
 Find the `Production` `Environment` by its identifier and fallback identifier, or otherwise create it:
 
@@ -83,15 +88,15 @@ Find the `Production` `Environment` by its identifier and fallback identifier, o
 getOrCreate "urn:stackpack:aws:environment:production" "urn:system:auto:stackpack:aws:environment:production" "Type=Environment;Name=Production"
 ```
 
-## Function: getFirstExisting
+### `getFirstExisting`
 
 Gets the first node from a list of node identifiers (URNs).
 
-### Arguments
+#### Arguments
 
 Two or more URNs strings.
 
-### Examples
+#### Examples
 
 {% tabs %}
 {% tab title="Template" %}
@@ -111,7 +116,7 @@ urn:stackpack:aws:domain:New
 {% endtab %}
 {% endtabs %}
 
-## Function: identifier
+### `identifier`
 
 The `identifier` function creates an identifier out of an identifier prefix, a component type and a component name.
 
@@ -119,7 +124,7 @@ The `identifier` function creates an identifier out of an identifier prefix, a c
 identifier "urn:stackpack:common" "ComponentType" element.type.name
 ```
 
-## Function: include
+### `include`
 
 {% hint style="warning" %}
 This function will only work when the template is loaded from a StackPack.
@@ -127,7 +132,7 @@ This function will only work when the template is loaded from a StackPack.
 
 Includes the content of another file inside this template. This can come in handy when template files become exceedingly large, when working with images or when you want to reuse the same template fragments in multiple locations.
 
-### Arguments
+#### Arguments
 
  1. **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories (see [StackPack packaging](/develop/developer-guides/stackpack/prepare_package.md).
  1. **encoding** (optional, default = `handlebars`) - Choice of:
@@ -139,7 +144,7 @@ Includes the content of another file inside this template. This can come in hand
 include "<filename>" "<encoding>"
 ```
 
-### Examples
+#### Examples
 
 * Include a script:
 {% tabs %}
@@ -224,11 +229,11 @@ The file `/provisioning/icons/aws.cloudformation.png` contains an image of the A
 {% endtab %}
 {% endtabs %}
 
-## Function: join
+### `join`
 
 Joins array or map data as a text usign a separator, prefix and suffix. This is especially handy when producing JSON arrays.
 
-### Arguments
+#### Arguments
 
  1. **iteratee** - the element to repeat and join together.
  1. **separator** - the text that is used to separate the elements.
@@ -239,7 +244,7 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 # join <iteratee> "<separator>" "<prefix>" "<suffix>"
 ```
 
-### Examples
+#### Examples
 
 * Join an array of labels to create a JSON array of objects:
 {% tabs %}
