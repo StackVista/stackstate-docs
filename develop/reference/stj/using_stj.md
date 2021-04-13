@@ -1,5 +1,5 @@
 ---
-description: All configuration of StackState is described using StackState Template JSON \(STJ\).
+description: All configuration of StackState is described using StackState Template JSON (STJ).
 ---
 
 # StackState Template JSON \(STJ\)

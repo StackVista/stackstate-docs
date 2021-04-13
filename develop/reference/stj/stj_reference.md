@@ -316,3 +316,6 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 {% endtab %}
 {% endtabs %}
 
+## See also
+
+* [Using StackState Template JSON \(STJ\)](using_stj.md)
