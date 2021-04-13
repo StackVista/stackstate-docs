@@ -38,38 +38,29 @@ PerspectiveUrlBuilder
   * `at(time: instant)` -  specifies a [time](time.md) for which the view query should be executed.
   * `topologyQuery(query: String)` - specifies a topology query
   * `withComponent(component)` - creates a view URL with the specified component in focus.
-  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the Telemetry Perspective 
-  
+  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the Telemetry Perspective
   * `eventsPerspective()` - points the URL to the Events Perspective
   * `tracesPerspective()` - points the URL to the Traces Perspective
   * `telemetryPerspective()` - points the URL to the Telemetry Perspective 
-  * `topologyPerspective()` - points the URL to the Topology Perspective 
-  
+  * `topologyPerspective()` - points the URL to the Topology Perspective
   * `noRootCause()` - disable root cause analysis for the Topology Perspective
   * `rootCauseOnly()` - show root cause on the Topology Perspective
   * `fullCauseTree()` - show full cause tree on the Topology Perspective
-  
   * `topologyListMode()` - use list mode on Topology Perspective
   * `topologyGraphMode()` - use graph mode on Topology Perspective
-  
   * `withEventType(value: String)` - adds type to events filtering
   * `withEventTag(value: String)` - adds tag to events filtering
   * `withEventCategory(value: String)` - adds categories to events filtering
   * `withEventSource(value: String)` - adds a source to events filtering
-  
   * `withTraceTag(value: String)` - adds tag to traces filtering
   * `withTraceSpanType(value: String)` - adds span type to traces filtering
-  
-  * `domainGrid(enabled: Boolean)` - enables or disables domain grid for the topology in graph mode 
-  * `layerGrid(enabled: Boolean)` - enables or disables layer grid for the topology in graph mode 
-  
+  * `domainGrid(enabled: Boolean)` - enables or disables domain grid for the topology in graph mode
+  * `layerGrid(enabled: Boolean)` - enables or disables layer grid for the topology in graph mode
   * `noGrouping()` - disables grouping of components on the topology in graph mode
   * `autoGrouping()` - enables automatic grouping of components on the topology in graph mode
   * `groupingByTypeAndState()` or `groupingByTypeAndState(minimumGroupSize: Int)` - enables grouping of components on the topology in graph mode by component type and state and specifies a minimum number of components to form a group
   * `groupingByTypeStateAndRelations()` or `groupingByTypeStateAndRelations(minimumGroupSize: Int)` - enables grouping of components on the topology in graph mode by component type, state and relations and specifies a minimum number of components to form a group
-  
   * `showIndirectRelations()` - enables rendering of indirect relations on the Topology Perspective
-    
   * `url()` - gives the final URL of the view.
 
 **Examples:**
@@ -170,3 +161,4 @@ Redirects the user-interface to show the Azure topology.
 ```groovy
 UI.showTopologyByQuery('domain IN ("Azure")')
 ```
+

@@ -8,8 +8,8 @@ StackPacks are plugins for StackState that extend functionality and provide auto
 
 There are two types of StackPack:
 
-* [Add-ons](add-ons/README.md) extend the functionality of StackState.
-* [Integrations](integrations/README.md) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
+* [Add-ons](add-ons/) extend the functionality of StackState.
+* [Integrations](integrations/) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
 
 ## StackPack instances
 
@@ -29,8 +29,8 @@ Note that the lock status of configuration items will not be exported as part of
 
 The available StackPack add-ons and integrations can be found on the **StackPacks** page in StackState. You can also find details on these pages:
 
-* [Add-ons](add-ons/README.md)
-* [Integrations](integrations/README.md)
+* [Add-ons](add-ons/)
+* [Integrations](integrations/)
 
 The StackPack versions shipped with each supported release of StackState can be found on the page [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md).
 
@@ -50,7 +50,7 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 
 {% hint style="warning" %}
 When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
- {% endhint %}
+{% endhint %}
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
 
@@ -58,7 +58,7 @@ A full list of the StackPacks shipped with each supported version of StackState 
 
 ### New Minor StackPack version
 
-To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI. 
+To upgrade to a new minor version of a StackPack, click **UPGRADE NOW** on the StackPack page in the StackState UI.
 
 Note that all StackPack configuration items will be overwritten when you upgrade. To continue using any changes made to these, choose to **KEEP** the existing configuration when you upgrade the StackPack. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 
@@ -68,20 +68,18 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 Note that all StackPack configuration items will be overwritten after a major StackPack upgrade. Before you upgrade, export any customized items. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 {% endhint %}
 
-To upgrade to a new major version of a StackPack, [uninstall and reinstall](#install-or-uninstall-a-stackpack) the StackPack. 
+To upgrade to a new major version of a StackPack, [uninstall and reinstall](about-stackpacks.md#install-or-uninstall-a-stackpack) the StackPack.
 
 Note that all StackPack configuration items will be overwritten when you upgrade. Follow the steps below to continue using any changes made to these items.
 
 1. Before you upgrade, export each customized item:
-    - Go to the **Settings** page in the StackState UI.
-    - Click on **Export** in the **...** menu for each customized item.
-2. Upgrade the StackPack (uninstall and reinstall).
+   * Go to the **Settings** page in the StackState UI.
+   * Click on **Export** in the **...** menu for each customized item.
+2. Upgrade the StackPack \(uninstall and reinstall\).
 3. Change the `name` and `identifier` for each exported item:
-    - Open the export file in a text editor.
-    - Edit the top-level `name` and `identifier` fields.
-    - Save the export.
-4. [Import](/setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file(s).
+   * Open the export file in a text editor.
+   * Edit the top-level `name` and `identifier` fields.
+   * Save the export.
+4. [Import](../setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file\(s\).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
-
-
 

@@ -16,7 +16,7 @@ Most elements in the StackState topology will have a relevant health check added
 Health checks require [telemetry streams](add-telemetry-to-element.md).
 {% endhint %}
 
-![Add a health check to an element](/.gitbook/assets/v43_add_health_check.png)
+![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)
 
 1. Select the element that you want to assign a health check to.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](add-telemetry-to-element.md).
@@ -54,9 +54,9 @@ The batching windowing method groups metric data into strictly separate windows 
 
 The sliding windowing method groups metric data into overlapping windows. For example, with `window size` set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected. Note that runs of the check will adhere to the `Minimum live stream polling interval` configured for the data source.
 
-### Check function: Autonomous metric stream anomaly detection  
+### Check function: Autonomous metric stream anomaly detection
 
-The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` (orange). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
+The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
 
 ## See also
 

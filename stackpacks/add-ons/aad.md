@@ -8,7 +8,7 @@ description: How to install the Autonomous Anomaly Detector.
 
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning.
 
-Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState user interface. An `Metric Stream Anomaly Event` for the incident will also be generated which can be inspected at on the [Events Perspective](/use/perspectives/events_perspective.md).
+Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState user interface. An `Metric Stream Anomaly Event` for the incident will also be generated which can be inspected at on the [Events Perspective](../../use/perspectives/events_perspective.md).
 
 The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to and the appropriate machine learning algorithms to use for each.
 
@@ -16,7 +16,7 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ### Prerequisites
 
-The AAD StackPack can only be installed within a [Kubernetes setup](/setup/installation/kubernetes_install/README.md). Please make sure that this is supported by your StackState installation. 
+The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
 
 It is also possible to [install the AAD standalone](../../setup/installation/kubernetes_install/aad_standalone.md) within Kubernetes.
 
@@ -30,7 +30,7 @@ To install the AAD StackPack, simply press the install button. No other actions 
 
 ### How does the AAD decide what to work on?
 
-The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback.  The metric stream selection algorithm ranks metric streams based on the criteria below:
+The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. The metric stream selection algorithm ranks metric streams based on the criteria below:
 
 * The top ranking is given to metric streams with [anomaly health checks](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
@@ -49,7 +49,7 @@ The AAD ensures that prioritized metric streams are checked for anomalies in a t
 
 ### How do I know what the AAD is working on?
 
-The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing (see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)).
+The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)\).
 
 ## Uninstall
 
@@ -61,12 +61,12 @@ Release notes for the AAD StackPack are given below.
 
 Note that from release 4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
-**Autonomous Anomaly Detector StackPack v0.9.2 (02-04-2021)**
+**Autonomous Anomaly Detector StackPack v0.9.2 \(02-04-2021\)**
 
 * Common version bumped from 2.4.3 to 3.0.0
 * StackState min version bumped to 4.3.0
 
-**Autonomous Anomaly Detector StackPack v0.8.1 (22-03-2021)**
+**Autonomous Anomaly Detector StackPack v0.8.1 \(22-03-2021\)**
 
 * Check function has been moved to common StackPack
 
@@ -88,5 +88,6 @@ Note that from release 4.3 the AAD is configured, installed and upgraded as a pa
 
 ## See also
 
-  * [Anomaly detection](../../use/introduction-to-stackstate/anomaly-detection.md)
-  * [Anomaly health checks](../../use/health-state-and-event-notifications/anomaly-health-checks.md)
+* [Anomaly detection](../../use/introduction-to-stackstate/anomaly-detection.md)
+* [Anomaly health checks](../../use/health-state-and-event-notifications/anomaly-health-checks.md)
+

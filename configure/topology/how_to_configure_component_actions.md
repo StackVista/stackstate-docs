@@ -4,7 +4,7 @@ This how-to describes the steps to create a Component Action that can be execute
 
 To start working with Component Actions, go to the Settings page and then in Actions, select "Component Actions". There you can add a new Component Action or edit one that already exists.
 
-![Component Actions](/.gitbook/assets/component_actions.png)
+![Component Actions](../../.gitbook/assets/component_actions.png)
 
 ## 1. Provide a name and description
 

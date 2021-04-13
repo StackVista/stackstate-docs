@@ -35,10 +35,9 @@ Propagation functions and event handler functions can be created as asynchronous
 
 Read more about:
 
-* [Component actions](/configure/topology/how_to_configure_component_actions.md)
+* [Component actions](../../configure/topology/how_to_configure_component_actions.md)
 * [Event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md)
 * [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
-
 
 ### Synchronous functions
 

@@ -1,4 +1,4 @@
-# Send telemetry to StackState
+# Push telemetry to StackState over HTTP
 
 ## Overview
 
@@ -38,7 +38,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 ## Metrics
 
-Metrics can be sent to the StackState receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http). 
+Metrics can be sent to the StackState receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http).
 
 ### Metric JSON
 
@@ -126,7 +126,7 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 ## Events
 
-Events can be sent to the StackState receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http). 
+Events can be sent to the StackState receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http).
 
 All events in StackState relate to a topology element or elements. Any of the event properties can be used to define a log stream in StackState.
 
@@ -187,11 +187,9 @@ Events have the following details:
 * **tags** - Optional. A list of key/value tags to associate with the event.
 * **timestamp** - The epoch timestamp for the event.
 
-
 ### Send events to StackState
 
 Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](../../develop/reference/cli_reference.md#sts-event-send) command. For example:
-
 
 {% tabs %}
 {% tab title="curl" %}

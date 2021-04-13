@@ -2,7 +2,7 @@
 
 ## Overview
 
-Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be built in StackState, such as the layer it should belong to, the health checks that should be added and any telemetry streams that should be attached to it. 
+Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be built in StackState, such as the layer it should belong to, the health checks that should be added and any telemetry streams that should be attached to it.
 
 The StackPacks shipped with StackState already include templates with the relevant telemetry streams for each imported element type. If you create your own integrations or have additional telemetry streams that you would like to link with imported components, you can edit the template used during synchronization to automatically add these to imported topology.
 
@@ -26,9 +26,9 @@ Note that you are editing the template for the synchronization that imported the
    * **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI **Component properties**.
 4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](telemetry_synchronized_topology.md#add-a-telemetry-stream-to-a-template-function).
 
-![Template editor](/.gitbook/assets/v43_edit_template.png)
+![Template editor](../../.gitbook/assets/v43_edit_template.png)
 
-![](/.gitbook/assets/v43_example-template-editor.png)
+![](../../.gitbook/assets/v43_example-template-editor.png)
 
 {% hint style="info" %}
 Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template.
@@ -79,7 +79,8 @@ For example, a CloudWatch metric stream:
 
 ## See also
 
-* [Add a single telemetry stream to a single component](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
-* [Reference guide: StackState template JSON](/develop/reference/stj/README.md)
-* [Browse telemetry streams](/use/perspectives/browse-telemetry.md)
-* [Create a StackPack with a custom template](/develop/developer-guides/stackpack/README.md)
+* [Add a single telemetry stream to a single component](../../use/health-state-and-event-notifications/add-telemetry-to-element.md)
+* [Reference guide: StackState template JSON](../../develop/reference/stj/)
+* [Browse telemetry streams](../../use/perspectives/browse-telemetry.md)
+* [Create a StackPack with a custom template](../../develop/developer-guides/stackpack/)
+

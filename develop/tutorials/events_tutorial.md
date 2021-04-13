@@ -2,7 +2,7 @@
 description: Events tutorial
 ---
 
-# Events tutorial
+# Send events to StackState from an external system
 
 This tutorial shows you how to send events from external systems to StackState.
 
@@ -75,7 +75,7 @@ Once the Puppet run is finished, the report processor is invoked and formats a J
 
 The event will be visible in the StackState Events Perspective:
 
-![](/.gitbook/assets/example-event-perspective.png)
+![](../../.gitbook/assets/example-event-perspective.png)
 
 ## Submitting external events directly
 

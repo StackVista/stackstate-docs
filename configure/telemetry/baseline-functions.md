@@ -1,7 +1,7 @@
-# Baseline functions (Deprecated)
+# Baseline functions \(Deprecated\)
 
 {% hint style="info" %}
-Baseline anomaly detection is **Deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector)](../../stackpacks/add-ons/aad.md).
+Baseline anomaly detection is **Deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector\)](../../stackpacks/add-ons/aad.md).
 {% endhint %}
 
 ## Overview
@@ -36,3 +36,4 @@ The amount of time that is used to select the historical metrics that are used a
 
 * [Checks and telemetry streams](checks_and_streams.md)
 * [Anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
+

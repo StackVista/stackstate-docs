@@ -6,16 +6,15 @@ old-description: Collect Smartscape topology data from Dynatrace
 
 ## Overview
 
-The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` (default 1 hour) will be available in StackState.
+The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in StackState.
 
-
-![Data flow](/.gitbook/assets/stackpack-dynatrace.svg)
+![Data flow](../../.gitbook/assets/stackpack-dynatrace.svg)
 
 * Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve Smartscape topology and events data.
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
-* [Topology data](#topology) is translated into components and relations. 
-* [Tags](#tags) defined in Dynatrace are added to components and relations in StackState.
-* [Events](#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+* [Topology data](dynatrace.md#topology) is translated into components and relations. 
+* [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState.
+* [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 ## Setup
 
@@ -101,7 +100,7 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 #### Events
 
-The Dynatrace check retrieves all events and their parameters from Dynatrace for the configured `relative_time` (default 1 hour). Retrieved events are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+The Dynatrace check retrieves all events and their parameters from Dynatrace for the configured `relative_time` \(default 1 hour\). Retrieved events are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 #### Metrics
 
@@ -109,8 +108,7 @@ The Dynatrace check does not retrieve any metrics data.
 
 #### Tags
 
-All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState.
-The Dynatrace integration also understands [common tags](/configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState. The Dynatrace integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
 
 #### Topology
 
@@ -136,7 +134,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](/.gitbook/assets/v43_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v43_dynatrace-filter.png)
 
 ### Open source
 
@@ -162,7 +160,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 
 ## Release notes
 
-**Dynatrace StackPack v1.1.1 (2021-04-02)**
+**Dynatrace StackPack v1.1.1 \(2021-04-02\)**
 
 * Feature: Gather Events from your Dynatrace instance and provides Health info about Dynatrace components.
 * Feature: Support for Dynatrace tags.

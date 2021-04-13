@@ -7,27 +7,27 @@ Permissions in StackState allow Administrators to manage the actions that each u
 {% hint style="info" %}
 Permissions are stored in StackGraph. This means that:
 
-- If you perform an upgrade with "clear all data", permission setup will also be removed. 
-- To completely remove a user, they must also be manually removed from StackGraph.
+* If you perform an upgrade with "clear all data", permission setup will also be removed. 
+* To completely remove a user, they must also be manually removed from StackGraph.
 {% endhint %}
 
-There are two types of permission in StackState: 
+There are two types of permission in StackState:
 
-- [System permissions](#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
-- [View permissions](#view-permissions) - Allow for CRUD operations on StackState Views.
+* [System permissions](rbac_permissions.md#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
+* [View permissions](rbac_permissions.md#view-permissions) - Allow for CRUD operations on StackState Views.
 
 ## Predefined roles
 
 StackState comes with three predefined roles:
 
-* **Administrators** (`stackstate-admin`): Have all permissions and access to all views. 
-* **Power Users** (`stackstate-power-user`): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for: 
-    - `execute-restricted-scripts`
-    - `update-permissions`
-    - `upload-stackpacks`
-* **Guests** (`stackstate-guest`): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
+* **Administrators** \(`stackstate-admin`\): Have all permissions and access to all views. 
+* **Power Users** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for: 
+  * `execute-restricted-scripts`
+  * `update-permissions`
+  * `upload-stackpacks`
+* **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
 
-    ```
+  ```text
     $ sts permission show stackstate-guest                    
     subject           permission                 resource
     ----------------  -------------------------  ----------
@@ -37,15 +37,14 @@ StackState comes with three predefined roles:
     stackstate-guest  update-visualization       system
     stackstate-guest  execute-component-actions  system
     stackstate-guest  access-view                everything
-    ```
+  ```
 
 ### Default and custom role names
 
-The default names for the pre-defined roles (`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
+The default names for the pre-defined roles \(`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`\) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-
 Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to replace the default role names with these custom role names.
 
 ```yaml
@@ -59,9 +58,9 @@ stackstate:
 
 It is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
 
-To use it in for your StackState installation (or already running instance, note that it will restart the API):
+To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
 
-```
+```text
 helm upgrade \
   --install \
   --namespace stackstate \
@@ -72,9 +71,8 @@ stackstate/stackstate
 ```
 {% endtab %}
 
-
 {% tab title="Linux" %}
-Edit the existing keys in the `authentication` section (nested in `stackstate.api`) in the configuration file like in the example to replace the default role names with these custom role names. Restart StackState to make the change take effect.
+Edit the existing keys in the `authentication` section \(nested in `stackstate.api`\) in the configuration file like in the example to replace the default role names with these custom role names. Restart StackState to make the change take effect.
 
 ```javascript
   guestGroups = ["custom-guest-role"]
@@ -84,22 +82,21 @@ Edit the existing keys in the `authentication` section (nested in `stackstate.ap
 ```
 
 Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
-
 {% endtab %}
 {% endtabs %}
 
 ## All permissions in StackState
 
-There are two types of permission in StackState: 
+There are two types of permission in StackState:
 
-- [System permissions](#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
-- [View permissions](#view-permissions) - Allow for CRUD operations on StackState Views.
+* [System permissions](rbac_permissions.md#system-permissions) - Scope user capabilities, such as access to settings, query execution and scripting.
+* [View permissions](rbac_permissions.md#view-permissions) - Allow for CRUD operations on StackState Views.
 
 ### System permissions
 
 System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system wide.
 
-See also the full list of [view permissions](#view-permissions).
+See also the full list of [view permissions](rbac_permissions.md#view-permissions).
 
 | Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
@@ -125,21 +122,21 @@ See also the full list of [view permissions](#view-permissions).
 | `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ |
 | `read-settings` | Access the Settings page. | - | ✅ | ✅ |
 | `update-settings` | Update settings. | - | ✅ | ✅ |
-| `execute-restricted-scripts` | Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
+| `execute-restricted-scripts` | Execute scripts using the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ |
 | `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ |
 | `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ |
 
 ### View permissions
 
-View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views (`everything`).
+View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views \(`everything`\).
 
-See also the full list of [system permissions](#system-permissions).
+See also the full list of [system permissions](rbac_permissions.md#system-permissions).
 
 | Permission | Purpose | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
-| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
-| `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
-| `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅<br />`everything` | ✅<br />`everything` |
+| `access-view` | Access a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | ✅ <br />`everything` | ✅ <br />`everything` | ✅ <br />`everything` |
+| `delete-view` | Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅ <br />`everything` | ✅ <br />`everything` |
+| `save-view` | Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). | - | ✅ <br />`everything` | ✅ <br />`everything` |
 
 ## Permissions by action
 
@@ -147,19 +144,19 @@ See also the full list of [system permissions](#system-permissions).
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
-![Main menu with all permissions granted](/.gitbook/assets/v43_main_menu.png)
+![Main menu with all permissions granted](../../../.gitbook/assets/v43_main_menu.png)
 
 | Page | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ |
-| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details, see the [view management permissions](#view-management). | `access-view`  | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
-| **Analytics**<br />For details, see the [analytics environment permissions](#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
+| **Views**<br />Access can be granted either for a specific view using the view ID or for all views using the `everything` resource.<br />For details, see the [view management permissions](rbac_permissions.md#view-management). | `access-view` | ✅ <br />`everything` | ✅ <br />`everything` | ✅ <br />`everything` |
+| **Analytics**<br />For details, see the [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ |
 | **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ |
-| **Settings**<br />For details, see the [settings page permissions](#settings-page). | `read-settings` | - | ✅ | ✅ |
-| **Settings** > **Export Settings**<br />Also requires `read-settings`.<br />Without this permission, Export Settings is removed from Settings Menu.<br />For details, see the [settings page permissions](#settings-page). | `export-settings`  | - | ✅ | ✅ |
-| **Settings** > **Import Settings** <br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu.<br />For details, see the [settings page permissions](#settings-page). | `import-settings`  | - | ✅ | ✅ |
+| **Settings**<br />For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ |
+| **Settings** &gt; **Export Settings**<br />Also requires `read-settings`. Without this permission, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` | - | ✅ | ✅ |
+| **Settings** &gt; **Import Settings**<br />Also requires `read-settings`.<br />Without this permission, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` | - | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Topology
 
@@ -173,7 +170,7 @@ The permissions listed below are required to work with topology in StackState:
 | Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ |
 | Add components button.<br />Create relations between topology elements. | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | - | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Component/relation details
 
@@ -182,11 +179,11 @@ The permissions listed below are required to carry out specific actions in the c
 | Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
 | **Telemetry streams**<br />Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ |
-| **Health checks**<br />Add a new health check.<br />Edit / delete an existing health check. <br />Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
-| **Elements**<br />Delete an element or element template.<br /> |  `manage-topology-elements` | - | ✅ | ✅ |
-| **Elements**<br />Edit an element or element template.<br /> |  `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings`  | - | ✅ | ✅ |
+| **Health checks**<br />Add a new health check.<br />Edit / delete an existing health check.<br />Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ |
+| **Elements**<br />Delete an element or element template.  | `manage-topology-elements` | - | ✅ | ✅ |
+| **Elements**<br />Edit an element or element template.  | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | - | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### View management
 
@@ -194,14 +191,14 @@ The permissions listed below can be set to access and work with views:
 
 | Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
-| Access a specific view or all views (`everything`).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅<br />`everything` | ✅<br />`everything` | ✅<br />`everything` |
-| Access and edit the view visualization settings.<br />If not granted, the **visualization settings** button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
-| Add or edit event handlers.<br />If not granted, the **ADD NEW EVENT HANDLER** button will not be available, however, users will be able to view details of existing event handlers.<br />Example: [Grant permissions to add and edit event handlers](#allow-a-user-to-add-or-edit-event-handlers).| `manage-event-handlers` | - | ✅ | ✅ |
-| Create views.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | 
-| Save updates to a view.<br />For a specific view or all views (`everything`).| `save-view` | - | ✅<br />`everything` | ✅<br />`everything` |
-| Delete a view.<br />For a specific view or all views (`everything`).  | `delete-view` | - | ✅<br />`everything` | ✅<br />`everything` |
+| Access a specific view or all views \(`everything`\).<br />Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅ <br />`everything` | ✅ <br />`everything` | ✅ <br />`everything` |
+| Access and edit the view visualization settings. If not granted, the **visualization settings** button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ |
+| Add or edit event handlers.<br />If not granted, the **ADD NEW EVENT HANDLER** button will not be available, however, users will be able to view details of existing event handlers.<br />Example: [Grant permissions to add and edit event handlers](rbac_permissions.md#allow-a-user-to-add-or-edit-event-handlers). | `manage-event-handlers` | - | ✅ | ✅ |
+| Create views.<br />Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ |
+| Save updates to a view.<br />For a specific view or all views \(`everything`\). | `save-view` | - | ✅ <br />`everything` | ✅ <br />`everything` |
+| Delete a view.<br />For a specific view or all views \(`everything`\). | `delete-view` | - | ✅ <br />`everything` | ✅ <br />`everything` |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Analytics environment
 
@@ -209,11 +206,11 @@ The permissions listed below are required to access and execute scripts in the S
 
 | Action | Permission | Guest | Power user | Admin |
 | :--- | :--- | :---: | :---: | :---: |
-| Access the **Analytics** page in the StackState UI.<br />Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. |`access-analytics` | - | ✅ | ✅ |
+| Access the **Analytics** page in the StackState UI.<br />Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. | `access-analytics` | - | ✅ | ✅ |
 | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available.<br />Also requires `access-analytics`. | `execute-scripts` | - | ✅ | ✅ |
-| Execute scripts that use the [HTTP script API](/develop/reference/scripting/script-apis/http.md).<br />Also requires `access-analytics` and `execute-scripts`. |`execute-restricted-scripts` | - | - | ✅ |
+| Execute scripts that use the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md).<br />Also requires `access-analytics` and `execute-scripts`. | `execute-restricted-scripts` | - | - | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Settings page
 
@@ -226,7 +223,7 @@ The permissions listed below are required to access and manage settings in the S
 | Export capability.<br />Without this permission, checkboxes are not available on the settings page. | `export-settings` | - | ✅ | ✅ |
 | Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) (above).
+See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ## Example CLI commands
 
@@ -246,7 +243,7 @@ sts permission list
 
 Show the permissions granted to a specific role.
 
-```
+```text
 sts permission show [role-name]
 ```
 
@@ -260,7 +257,7 @@ Provide a subject with permission to open a view:
 sts permission grant [subject-handle] access-view [view-name]
 ```
 
-#### Allow a user to create (save) views
+#### Allow a user to create \(save\) views
 
 Provide a subject with the system permission to create \(save\) views:
 
@@ -296,4 +293,5 @@ sts permission revoke [subject-handle] access-view [view-name]
 
 Below is an example of how the StackState UI would look for a user without any permissions:
 
-![No permissions](/.gitbook/assets/noperm.png)
+![No permissions](../../../.gitbook/assets/noperm.png)
+

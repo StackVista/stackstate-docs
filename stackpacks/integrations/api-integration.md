@@ -72,38 +72,39 @@ If you need further assistance, our [support team](https://support.stackstate.co
 
 ## Release notes
 
-**API Integration StackPack v2.4.1 (2021-04-02)**
+**API Integration StackPack v2.4.1 \(2021-04-02\)**
 
-- Improvement: Update documentation.
-- Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.5.1
-- Improvement: StackState min version bumped to 4.3.0
+* Improvement: Update documentation.
+* Improvement: Enable auto grouping on generated views.
+* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: StackState min version bumped to 4.3.0
 
-**API Integration StackPack v3.0.2 (2021-03-29)**
+**API Integration StackPack v3.0.2 \(2021-03-29\)**
 
-- Bugfix: Update the minimum required StackState version to 4.3.0.
+* Bugfix: Update the minimum required StackState version to 4.3.0.
 
-**API Integration StackPack v3.0.1 (2021-03-25)**
+**API Integration StackPack v3.0.1 \(2021-03-25\)**
 
-- Improvement: Update documentation.
+* Improvement: Update documentation.
 
-**API Integration StackPack v3.0.0 (2021-03-25)**
+**API Integration StackPack v3.0.0 \(2021-03-25\)**
 
-- Improvement: Enable auto grouping on generated views.
-- Improvement: Common bumped from 2.2.3 to 2.4.3
+* Improvement: Enable auto grouping on generated views.
+* Improvement: Common bumped from 2.2.3 to 2.4.3
 
-**API Integration StackPack v2.3.1 (2020-08-18)**
+**API Integration StackPack v2.3.1 \(2020-08-18\)**
 
-- Features: Introduced the Release notes pop up for customer
-- Features: Use the latest StackState Agent V1
+* Features: Introduced the Release notes pop up for customer
+* Features: Use the latest StackState Agent V1
 
-**API Integration StackPack v2.3.0 (2020-08-04)**
+**API Integration StackPack v2.3.0 \(2020-08-04\)**
 
-- Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-- Improvement: Replace resolveOrCreate with getOrCreate.
+* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
+* Improvement: Replace resolveOrCreate with getOrCreate.
 
-**API Integration StackPack v2.2.0 (2020-06-04)**
+**API Integration StackPack v2.2.0 \(2020-06-04\)**
 
-- Features: Token based authentication supported for Splunk.
-- Features: Updated Splunk integration documents for metrics, events and topology.
-- Features: Short link for doc site updated.
+* Features: Token based authentication supported for Splunk.
+* Features: Updated Splunk integration documents for metrics, events and topology.
+* Features: Short link for doc site updated.
+
