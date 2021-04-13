@@ -42,7 +42,7 @@ As of yet telemetry queries only support metric queries. If you need event queri
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value") // determines which field to interpret as containing the metric values
+    .metricField("value")
   ```
 
 * Get metric aggregated using Mean during with bucket size 1 minute:
@@ -50,7 +50,7 @@ As of yet telemetry queries only support metric queries. If you need event queri
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value") // determines which field to interpret as containing the metric values
+    .metricField("value")
     .aggregation("99th percentile", "1m") // get 99th percentile of each minute
   ```
 
@@ -59,7 +59,7 @@ As of yet telemetry queries only support metric queries. If you need event queri
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value") // determines which field to interpret as containing the metric values
+    .metricField("value")
     .start("-3h") // starting from 3 hours ago
   ```
 
@@ -68,6 +68,7 @@ As of yet telemetry queries only support metric queries. If you need event queri
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value")
     .end("-1h") // ending 1 hour ago
   ```
 
@@ -76,7 +77,7 @@ As of yet telemetry queries only support metric queries. If you need event queri
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value") // determines which field to interpret as containing the metric values
+    .metricField("value")
     .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
 
