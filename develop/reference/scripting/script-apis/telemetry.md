@@ -13,7 +13,7 @@ Telemetry.query(dataSourceName: String, query: String)
 ```
 
 {% hint style="warning" %}
-As of yet telemetry queries only support metric queries. If you need event queries please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
+As of yet, telemetry queries only support metric queries. If you need event queries please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
 {% endhint %}
 
 **Args:**
@@ -27,7 +27,7 @@ As of yet telemetry queries only support metric queries. If you need event queri
 
 **Builder methods:**
 
-* `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](#aggregation-methods), below.
+* `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](#aggregation-methods).
 * `start(time: Instant)` - sets the [start time](time.md) of the query, for example `-3h`.
 * `end(time: Instant)` - sets the [end time](time.md) of the query, for example `-1h`.
 * `window(start: Instant, end: Instant)` - sets query [time range](time.md). Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
