@@ -104,7 +104,7 @@ getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
 Note that:
 
 * `getOrCreate` works only with the following \(simple\) types: Environment, Layer, Domain, ComponentType and RelationType.
-* `create-identifier` must be a value in the "urn:system:auto" namespace.
+* `create-identifier` must be a value in the `"urn:system:auto"` namespace.
 
 We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
 
@@ -134,16 +134,16 @@ Includes the content of another file inside this template. This can come in hand
 
 #### Arguments
 
+```
+include "<filename>" "<encoding>"
+```
+
  1. **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories (see [StackPack packaging](/develop/developer-guides/stackpack/prepare_package.md).
  1. **encoding** (optional, default = `handlebars`) - Choice of:
   * `handlebars` - Included file will be interpreted as StackState Templated JSON.
   * `identity` - Included file will be not be interpreted, but simply will be included as text.
   * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
   
-```
-include "<filename>" "<encoding>"
-```
-
 #### Examples
 
 * Include a script:
@@ -235,14 +235,14 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 
 #### Arguments
 
+```
+# join <iteratee> "<separator>" "<prefix>" "<suffix>"
+```
+
  1. **iteratee** - the element to repeat and join together.
  1. **separator** - the text that is used to separate the elements.
  1. **prefix** (optional) - text that is placed at the beginning of the joined text.
  1. **suffix** (optional) - text is appended at the end of the joined text.
-
-```
-# join <iteratee> "<separator>" "<prefix>" "<suffix>"
-```
 
 #### Examples
 
