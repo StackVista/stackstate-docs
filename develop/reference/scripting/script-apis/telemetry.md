@@ -1,7 +1,5 @@
 ---
-title: Script API - Telemetry
-kind: Documentation
-description: Functions for accessing telemetry.
+description: Functions for accessing telemetry
 ---
 
 # Telemetry - script API
@@ -42,36 +40,51 @@ As of yet telemetry queries only support metric queries. If you need event queri
 * Get raw metric by query
 
   ```text
-  Telemetry.query("Sts Metrics", "name='system.load.norm.15' and host='localhost'")
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value") // determines which field to interpret as containing the metric values
   ```
 
 * Get metric aggregated using Mean during with bucket size 1 minute:
 
   ```text
-  Telemetry.query("Sts Metrics", "name='system.load.norm.15' and host='localhost'").aggregation("MEAN", "1m")
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value") // determines which field to interpret as containing the metric values
+    .aggregation("99th percentile", "1m") // get 99th percentile of each minute
   ```
 
 * Query metrics starting 3 hours ago till now:
 
   ```text
-  Telemetry.query("Sts Metrics", "name='system.load.norm.15' and host='localhost'").start("-3h")
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value") // determines which field to interpret as containing the metric values
+    .start("-3h") // starting from 3 hours ago
   ```
 
 * Query metrics starting beginning of the data till last hour ago:
 
   ```text
-  Telemetry.query("Sts Metrics", "name='system.load.norm.15' and host='localhost'").end("-1h")
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .end("-1h") // ending 1 hour ago
   ```
 
 * Query metrics within time range starting 3 hours ago up to 1 hour ago:
 
   ```text
-  Telemetry.query("Sts Metrics", "name='system.load.norm.15' and host='localhost'").window("-3h", "-1h")
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value") // determines which field to interpret as containing the metric values
+    .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
 
 * Query metrics from field "value" and limits points returned:
 
   ```text
-  Telemetry.query("Sts Metrics", "name='system.load.norm.15' and host='localhost'").metricField("value").limit(100)
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value") // determines which field to interpret as containing the metric values
+    .limit(100)
   ```
-
