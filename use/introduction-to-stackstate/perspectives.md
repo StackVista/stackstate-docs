@@ -6,7 +6,7 @@ description: Access data via perspectives.
 
 StackState and its [4T data model](4t_data_model.md) collect real-time data about your IT landscape. **Perspectives** allow you to look at this data from various angles and to relate different types of data to each other.
 
-All data in StackState is organized around [topology](4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](https://github.com/StackVista/stackstate-docs/tree/970bef9136e30384bfbbb6f4b2ba706996912c66/use/perspectives/README.md), that represents the application, layer or set of components that you care about, is the context that the perspectives operate in.
+All data in StackState is organized around [topology](4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](../views.md), that represents the application, layer or set of components that you care about, is the context that the perspectives operate in.
 
 ## Perspectives
 
