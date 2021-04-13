@@ -194,7 +194,7 @@
 * [Reference](develop/reference/README.md)
   * [StackState CLI](develop/reference/cli_reference.md)
   * [StackState Template Json \(STJ\)](develop/reference/stj/README.md)
-    * [Templates](develop/reference/stj/templates.md)
+    * [Using STJ](develop/reference/stj/using-stj.md)
     * [Template functions](develop/reference/stj/stj_reference.md)
   * [StackState Markup Language \(STML\)](develop/reference/stml/README.md)
     * [STML Tags](develop/reference/stml/tags.md)

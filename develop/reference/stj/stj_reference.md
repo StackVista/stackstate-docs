@@ -1,49 +1,49 @@
----
-title: StackState Template Functions
-kind: documentation
----
-
 # StackState Template Functions
 
-StackState's templated json incorporates several custom handlebars functions that can be used to get existing nodes from the graph, create new nodes, join texts together, etc. See a full listing of all StackState functions below.
+StackState Template JSON \(STJ\) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
 
 ## Function: `get`
 
-The `get` function finds a node of a certain type by its unique identifier without needing to specify the type of the node.
+The `get` function finds a node of a certain type by its unique identifier without needing to specify the type of the node. The function finds a node in a nested way, first finding the identifier and then finding the type and name in the scope of the first resolved node.
 
 ```text
 get <identifier> Type=<type>;Name=<name>
 ```
 
-Example: resolve the `Production` `Environment` using
+### Examples
 
+* Resolve the `Production` `Environment` using:
 ```text
 get "urn:stackpack:aws:environment:production"
 ```
 
-The `get` function finds a node in a nested way by first finding the identifier and then finding the type and name in the scope of the first resolved node. For example it is possible to resolve the `Parameters` `metrics` from the CheckFunction identified by `urn:stackpack:aws:check_function:basic` by
-
+* Resolve the `Parameters` `metrics` from the CheckFunction identified by `urn:stackpack:aws:check_function:basic` using:
 ```text
 get "urn:stackpack:aws:check_function:basic" "Type=Parameter;Name=metrics"
 ```
 
 ## Function: `getOrCreate`
 
-The `getOrCreate` function tries to resolve a node by first its identifier and then by the fallback create-identifier. If it can't find any it'll create it using the type and name argument and it'll identify the newly created node with the create-identifier value.
+The `getOrCreate` function first tries to resolve a node by its identifier and then by the fallback create-identifier. If none are found, the function will create a node using the specified `Type` and `Name` arguments and the newly created node will be identified with the create-identifier value.
 
 ```text
 getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
 ```
 
-Example: find the `Production` `Environment` by its identifier and by its fallback identifier or otherwise create it
+Note that:
+
+* `getOrCreate` works only with the following \(simple\) types: Environment, Layer, Domain, ComponentType and RelationType.
+* `create-identifier` must be a value in the "urn:system:auto" namespace.
+
+We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
+
+### Examples
+
+Find the `Production` `Environment` by its identifier and fallback identifier, or otherwise create it:
 
 ```text
 getOrCreate "urn:stackpack:aws:environment:production" "urn:system:auto:stackpack:aws:environment:production" "Type=Environment;Name=Production"
 ```
-
-Note that `getOrCreate` works only with the following \(simple\) types: Environment, Layer, Domain, ComponentType and RelationType. Note that `create-identifier` must be a value in the "urn:system:auto" namespace.
-
-We strongly encourage to use `get` and `getOrCreate` as resolving nodes by identifier is safer than by name due to the unique constraint enforced in the `identifier` values.
 
 ## Function: identifier
 
@@ -65,17 +65,20 @@ concat "Type=ComponentType;Name=" element.type.name
 
 Joins array or map data as a text usign a separator, prefix and suffix. This is especially handy when producing JSON arrays.
 
-### Arguments:
+### Arguments
 
  1. **iteratee** - the element to repeat and join together.
  1. **separator** - the text that is used to separate the elements.
  1. **prefix** (optional) - text that is placed at the beginning of the joined text.
  1. **suffix** (optional) - text is appended at the end of the joined text.
 
-### Examples:
+```
+# join <iteratee> "<separator>" "<prefix>" "<suffix>"
+```
 
-Joins an array of labels to create a JSON array of objects:
+### Examples
 
+* Join an array of labels to create a JSON array of objects:
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -110,8 +113,7 @@ Joins an array of labels to create a JSON array of objects:
 {% endtab %}
 {% endtabs %}
 
-Joins a map of labels to create a JSON array of objects:
-
+* Join a map of labels to create a JSON array of objects:
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -151,11 +153,11 @@ Joins a map of labels to create a JSON array of objects:
 
 Adds number variables together.
 
-### Arguments:
+### Arguments
 
 Two or more number variables.
 
-### Examples:
+### Examples
 
 {% tabs %}
 {% tab title="Template" %}
@@ -181,26 +183,26 @@ Two or more number variables.
 
 Gets the first node from a list of node identifiers (URNs).
 
-### Arguments:
+### Arguments
 
 Two or more URNs strings.
 
-### Examples:
+### Examples
 
 {% tabs %}
 {% tab title="Template" %}
 ```text
-{{ getFirstExisting "urn:stackpack:aws:domain:unknown" "urn:stackpack:aws:domain:MyDomain" }}
+{{ getFirstExisting "urn:stackpack:aws:domain:Old" "urn:stackpack:aws:domain:New" }}
 ```
 {% endtab %}
 
 {% tab title="Data" %}
-This example assumes `urn:stackpack:aws:domain:unknown` does not exist, whereas `urn:stackpack:aws:domain:MyDomain` does exist.
+This example assumes `urn:stackpack:aws:Old:` does not exist, whereas `urn:stackpack:aws:domain:New` does exist.
 {% endtab %}
 
 {% tab title="Result" %}
 ```text
-urn:stackpack:aws:domain:MyDomain
+urn:stackpack:aws:domain:New
 ```
 {% endtab %}
 {% endtabs %}
@@ -209,12 +211,12 @@ urn:stackpack:aws:domain:MyDomain
 ## Function: include
 
 {% hint style="warning" %}
-This function only works when the template is loaded from a StackPack.
+This function will only work when the template is loaded from a StackPack.
 {% endhint %}
 
 Includes the content of another file inside this template. This can come in handy when template files become exceedingly large, when working with images or when you want to reuse the same template fragments in multiple locations.
 
-### Arguments:
+### Arguments
 
  1. **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories (see [StackPack packaging](/develop/developer-guides/stackpack/prepare_package.md).
  1. **encoding** (optional, default = `handlebars`) - Choice of:
@@ -222,11 +224,13 @@ Includes the content of another file inside this template. This can come in hand
   * `identity` - Included file will be not be interpreted, but simply will be included as text.
   * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
   
+```
+include "<filename>" "<encoding>"
+```
 
-### Examples:
+### Examples
 
-Include a script:
-
+* Include a script:
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -280,8 +284,7 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 {% endtabs %}
 
 
-Include an image:
-
+* Include an image:
 {% tabs %}
 {% tab title="Template" %}
 ```text
