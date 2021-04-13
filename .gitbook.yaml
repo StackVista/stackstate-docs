@@ -50,7 +50,7 @@ redirects:
   setup/installation/requirements: ./setup/requirements.md
   setup/installation/reverse_proxy: ./setup/installation/linux_install/reverse_proxy.md
   setup/installation/troubleshooting: ./setup/installation/troubleshooting.md
-  concepts/component_and_relation_templates: ./develop/reference/stj/templates.md
+  concepts/component_and_relation_templates: ./develop/reference/stj/using_stj.md
   concepts/role_based_access_control: ./configure/security/rbac/role_based_access_control.md
   concepts/topology_sources: ./configure/topology/topology_sources.md
   configure/component_actions: configure/topology/component_actions.md
