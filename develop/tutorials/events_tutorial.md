@@ -71,7 +71,7 @@ Now, go ahead and trigger the script:
 ./run.sh
 ```
 
-Once the Puppet run is finished, the report processor is invoked and formats a JSON message that it sends to StackState. You can see the [report processor code on GitHub](https://github.com/StackVista/custom-events-tutorial/blob/main/puppet/modules/stackstate/lib/puppet/reports/stackstate.rb).
+Once the Puppet run is finished, the report processor is invoked and formats a JSON message that it sends to StackState. You can see the [report processor code on GitHub](https://github.com/StackVista/events-tutorial/blob/main/puppet/modules/stackstate/lib/puppet/reports/stackstate.rb).
 
 The event will be visible in the StackState Events Perspective:
 

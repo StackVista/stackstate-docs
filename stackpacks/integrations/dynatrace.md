@@ -140,7 +140,7 @@ For example, to filter a view by Dynatrace Management Zone, add the key `dynatra
 
 ### Open source
 
-The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace\_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
 
 ## Troubleshooting
 
@@ -177,7 +177,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 ## See also
 
 * [StackState Agent V2](agent.md)
-* [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+* [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
 * [How to generate a Dynatrace API token \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 * [Permissions for Dynatrace API tokens \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
 
