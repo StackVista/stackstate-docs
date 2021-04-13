@@ -93,7 +93,12 @@ AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{con
 AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: `--profile` `--role-arn` `--session-name` `--external-id`.
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: 
+
+* `--profile`
+* `--role-arn`
+* `--session-name`
+* `--external-id`
 
 #### Minimal install
 
@@ -122,7 +127,12 @@ AWS_PROFILE=profile-name ./install.sh --topo-cron-only {{config.baseUrl}} {{conf
 AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: `--profile` `--role-arn` `--session-name` `--external-id`
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: 
+
+* `--profile`
+* `--role-arn`
+* `--session-name`
+* `--external-id`
 
 ### AWS IAM Policies
 
@@ -227,7 +237,12 @@ AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
 AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: `--profile` `--role-arn` `--session-name` `--external-id`
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
+
+* `--profile`
+* `--role-arn`
+* `--session-name`
+* `--external-id`
 
 ## Release notes
 
