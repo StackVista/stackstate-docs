@@ -2,6 +2,44 @@
 
 StackState Template JSON \(STJ\) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
 
+## Function: add
+
+Adds number variables together.
+
+### Arguments
+
+Two or more number variables.
+
+### Examples
+
+{% tabs %}
+{% tab title="Template" %}
+```text
+{{# add a b c }}
+```
+{% endtab %}
+
+{% tab title="Data" %}
+```text
+[ a: 1, b: 2, c: 3 ]
+```
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+6
+```
+{% endtab %}
+{% endtabs %}
+
+## Function: concat
+
+The `concat` function concatenates two values:
+
+```text
+concat "Type=ComponentType;Name=" element.type.name
+```
+
 ## Function: `get`
 
 The `get` function finds a node of a certain type by its unique identifier without needing to specify the type of the node. The function finds a node in a nested way, first finding the identifier and then finding the type and name in the scope of the first resolved node.
@@ -45,140 +83,6 @@ Find the `Production` `Environment` by its identifier and fallback identifier, o
 getOrCreate "urn:stackpack:aws:environment:production" "urn:system:auto:stackpack:aws:environment:production" "Type=Environment;Name=Production"
 ```
 
-## Function: identifier
-
-The `identifier` function creates an identifier out of an identifier prefix, a component type and a component name.
-
-```text
-identifier "urn:stackpack:common" "ComponentType" element.type.name
-```
-
-## Function: concat
-
-The `concat` function concatenates two values:
-
-```text
-concat "Type=ComponentType;Name=" element.type.name
-```
-
-## Function: #join
-
-Joins array or map data as a text usign a separator, prefix and suffix. This is especially handy when producing JSON arrays.
-
-### Arguments
-
- 1. **iteratee** - the element to repeat and join together.
- 1. **separator** - the text that is used to separate the elements.
- 1. **prefix** (optional) - text that is placed at the beginning of the joined text.
- 1. **suffix** (optional) - text is appended at the end of the joined text.
-
-```
-# join <iteratee> "<separator>" "<prefix>" "<suffix>"
-```
-
-### Examples
-
-* Join an array of labels to create a JSON array of objects:
-{% tabs %}
-{% tab title="Template" %}
-```text
-{{# join labels "," "[" "]" }}
-{
-  "_type": "Label",
-  "name": "{{this}}"
-}
-{{/ join }}
-```
-{% endtab %}
-
-{% tab title="Data" %}
-```text
-[ labels: [ 
-    "hello", 
-    "world" 
-] ]
-```
-{% endtab %}
-
-{% tab title="Result" %}
-```text
-[{
-  "_type": "Label",
-  "name": "hello"
-},{
-  "_type": "Label",
-  "name": "world"
-}]
-```
-{% endtab %}
-{% endtabs %}
-
-* Join a map of labels to create a JSON array of objects:
-{% tabs %}
-{% tab title="Template" %}
-```text
-{{# join labels "," "[" "]" }}
-{
-  "_type": "Label",
-  "name": "{{key}}:{{this}}"
-}
-{{/ join }}
-```
-{% endtab %}
-
-{% tab title="Data" %}
-```text
-[ labels: [ 
-    "key1": "hello", 
-    "key2": "world" 
-] ]
-```
-{% endtab %}
-
-{% tab title="Result" %}
-```text
-[{
-  "_type": "Label",
-  "name": "key1:hello"
-},{
-  "_type": "Label",
-  "name": "key2:world"
-}]
-```
-{% endtab %}
-{% endtabs %}
-
-
-## Function: add
-
-Adds number variables together.
-
-### Arguments
-
-Two or more number variables.
-
-### Examples
-
-{% tabs %}
-{% tab title="Template" %}
-```text
-{{# add a b c }}
-```
-{% endtab %}
-
-{% tab title="Data" %}
-```text
-[ a: 1, b: 2, c: 3 ]
-```
-{% endtab %}
-
-{% tab title="Result" %}
-```text
-6
-```
-{% endtab %}
-{% endtabs %}
-
 ## Function: getFirstExisting
 
 Gets the first node from a list of node identifiers (URNs).
@@ -207,6 +111,13 @@ urn:stackpack:aws:domain:New
 {% endtab %}
 {% endtabs %}
 
+## Function: identifier
+
+The `identifier` function creates an identifier out of an identifier prefix, a component type and a component name.
+
+```text
+identifier "urn:stackpack:common" "ComponentType" element.type.name
+```
 
 ## Function: include
 
@@ -312,3 +223,91 @@ The file `/provisioning/icons/aws.cloudformation.png` contains an image of the A
 ```
 {% endtab %}
 {% endtabs %}
+
+## Function: join
+
+Joins array or map data as a text usign a separator, prefix and suffix. This is especially handy when producing JSON arrays.
+
+### Arguments
+
+ 1. **iteratee** - the element to repeat and join together.
+ 1. **separator** - the text that is used to separate the elements.
+ 1. **prefix** (optional) - text that is placed at the beginning of the joined text.
+ 1. **suffix** (optional) - text is appended at the end of the joined text.
+
+```
+# join <iteratee> "<separator>" "<prefix>" "<suffix>"
+```
+
+### Examples
+
+* Join an array of labels to create a JSON array of objects:
+{% tabs %}
+{% tab title="Template" %}
+```text
+{{# join labels "," "[" "]" }}
+{
+  "_type": "Label",
+  "name": "{{this}}"
+}
+{{/ join }}
+```
+{% endtab %}
+
+{% tab title="Data" %}
+```text
+[ labels: [ 
+    "hello", 
+    "world" 
+] ]
+```
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+[{
+  "_type": "Label",
+  "name": "hello"
+},{
+  "_type": "Label",
+  "name": "world"
+}]
+```
+{% endtab %}
+{% endtabs %}
+
+* Join a map of labels to create a JSON array of objects:
+{% tabs %}
+{% tab title="Template" %}
+```text
+{{# join labels "," "[" "]" }}
+{
+  "_type": "Label",
+  "name": "{{key}}:{{this}}"
+}
+{{/ join }}
+```
+{% endtab %}
+
+{% tab title="Data" %}
+```text
+[ labels: [ 
+    "key1": "hello", 
+    "key2": "world" 
+] ]
+```
+{% endtab %}
+
+{% tab title="Result" %}
+```text
+[{
+  "_type": "Label",
+  "name": "key1:hello"
+},{
+  "_type": "Label",
+  "name": "key2:world"
+}]
+```
+{% endtab %}
+{% endtabs %}
+
