@@ -337,24 +337,7 @@ Sample aggregated metric request:
  }
 ```
 
-The request is the same as for raw query with one exception, The `aggregation` field is not empty and holds the aggregation `method` and aggregation bucket size `bucketSizeMillis`. The aggregation is done using the batching windowing method.
-
-The following aggregation methods are supported by the Mirror Plugin:
-
-* `MEAN` - mean
-* `PERCENTILE_25` - 25 percentile
-* `PERCENTILE_50` - 50 percentile
-* `PERCENTILE_75` - 75 percentile
-* `PERCENTILE_90` - 90 percentile
-* `PERCENTILE_95` - 95 percentile
-* `PERCENTILE_98` - 98 percentile
-* `PERCENTILE_99` - 99 percentile
-* `MAX` - maximum
-* `MIN` - minimum
-* `SUM` - sum
-* `EVENT_COUNT` - the number of occurrences during bucket interval
-* `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
-* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
+The request is the same as for raw query with one exception, The `aggregation` field is not empty and holds the aggregation `method` and aggregation bucket size `bucketSizeMillis`. The aggregation is done using the batching windowing method. See the [available aggregation methods](/develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
 
 An example response of an aggregated query request is given below:
 

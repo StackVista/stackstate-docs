@@ -27,12 +27,12 @@ As of yet telemetry queries only support metric queries. If you need event queri
 
 **Builder methods:**
 
-* `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`.
-* `start(time: Instant)` - sets the start [time](time.md) of the query, for example `-3h`.
-* `end(time: Instant)` - sets the end [time](time.md) of the query, for example `-1h`.
-* `window(start: Instant, end: Instant)` - sets query [time](time.md) range. Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
+* `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](#aggregation-methods), below.
+* `start(time: Instant)` - sets the [start time](time.md) of the query, for example `-3h`.
+* `end(time: Instant)` - sets the [end time](time.md) of the query, for example `-1h`.
+* `window(start: Instant, end: Instant)` - sets query [time range](time.md). Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
 * `limit(points: Int)` - limits the number of points returned, applicable to none aggregated queries.
-* `metricField(fieldName: String)` - sets a field that holds metric value.
+* `metricField(fieldName: String)` - optional, but may be required for some data sources. Sets a field that holds metric value. 
 * `compileQuery()` - returns the telemetry query that was created with this function and the builder methods. After this builder method no more builder methods can be called.
 
 **Examples:**
@@ -89,3 +89,22 @@ As of yet telemetry queries only support metric queries. If you need event queri
     .metricField("value")
     .limit(100)
   ```
+
+## Aggregation methods
+
+The following aggregation methods are available for use with telemetry:
+
+* `MEAN` - mean
+* `PERCENTILE_25` - 25 percentile
+* `PERCENTILE_50` - 50 percentile
+* `PERCENTILE_75` - 75 percentile
+* `PERCENTILE_90` - 90 percentile
+* `PERCENTILE_95` - 95 percentile
+* `PERCENTILE_98` - 98 percentile
+* `PERCENTILE_99` - 99 percentile
+* `MAX` - maximum
+* `MIN` - minimum
+* `SUM` - sum
+* `EVENT_COUNT` - the number of occurrences during bucket interval
+* `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
+* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
