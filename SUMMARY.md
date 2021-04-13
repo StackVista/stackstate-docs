@@ -17,6 +17,7 @@
     * [Migrate from Linux install](setup/installation/kubernetes_install/migrate_from_linux.md)
     * [AAD Standalone Deployment](setup/installation/kubernetes_install/aad_standalone.md)
   * [Linux install](setup/installation/linux_install/README.md)
+    * [Before you install](setup/installation/linux_install/before_you_install.md)
     * [Download](setup/installation/linux_install/download.md)
     * [Install StackState](setup/installation/linux_install/install_stackstate.md)
     * [Install with production configuration](setup/installation/linux_install/production-installation.md)
