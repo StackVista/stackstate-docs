@@ -39,7 +39,7 @@ To call a Splunk saved search `testsearch` with parameter `host` and a hostname 
 
 ## Further information
 
-* [Synchronize Splunk topology](splunk_topology.md) for more information.
-* [Synchronize Splunk events](splunk_event.md) for more information.
-* [Synchronize Splunk metrics](splunk_metric.md) for more information.
+* [Synchronize Splunk topology](/stackpacks/integrations/splunk/splunk_topology.md) for more information.
+* [Synchronize Splunk events](/stackpacks/integrations/splunk/splunk_event.md) for more information.
+* [Synchronize Splunk metrics](/stackpacks/integrations/splunk/splunk_metric.md) for more information.
 
