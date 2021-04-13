@@ -140,7 +140,7 @@ For example, to filter a view by Dynatrace Management Zone, add the key `dynatra
 
 ### Open source
 
-The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace\_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
 
 ## Troubleshooting
 
