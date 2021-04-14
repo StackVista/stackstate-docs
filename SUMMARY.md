@@ -6,7 +6,6 @@
 
 * [Requirements](setup/requirements.md)
 * [Installation](setup/installation/README.md)
-  * [First run guide](/setup/installation/quickstart.md)
   * [Kubernetes install](setup/installation/kubernetes_install/README.md)
     * [Install StackState](setup/installation/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/installation/kubernetes_install/required_permissions.md)
@@ -27,6 +26,7 @@
     * [Set up a reverse proxy](setup/installation/linux_install/reverse_proxy.md)
     * [Set up TLS without reverse proxy](setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy.md)
   * [OpenShift install](setup/installation/openshift_install.md)
+  * [Initial run guide](/setup/installation/initial_run_guide.md)
   * [StackState CLI](setup/installation/cli-install.md)
   * [Troubleshooting](setup/installation/troubleshooting.md)
 * [Data management](setup/data-management/README.md)
