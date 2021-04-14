@@ -5,7 +5,7 @@ description: StackState version 4.4
 # Welcome to the StackState Docs!
 
 {% hint style="warning" %}
-**DRAFT DOCS SITE** - docs on the master branch will go live with v4.4
+**DRAFT DOCS SITE** - docs on the master branch will go live with StackState v4.4
 {% endhint %}
 
 {% hint style="success" %}
