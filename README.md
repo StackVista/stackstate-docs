@@ -4,6 +4,10 @@ description: StackState version 4.4
 
 # Welcome to the StackState Docs!
 
+{% hint style="warning" %}
+**DRAFT DOCS SITE** - docs on the master branch will go live with v4.4
+{% endhint %}
+
 {% hint style="success" %}
 **StackState version 4.4** is now available - [check the release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-4-x) for details.
 
