@@ -6,6 +6,7 @@
 
 * [Requirements](setup/requirements.md)
 * [Installation](setup/installation/README.md)
+  * [First run guide](/setup/installation/quickstart.md)
   * [Kubernetes install](setup/installation/kubernetes_install/README.md)
     * [Install StackState](setup/installation/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/installation/kubernetes_install/required_permissions.md)
