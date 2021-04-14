@@ -16,6 +16,22 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
+### Upgrade to v4.4.x
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+#### v4.4.0
+
+
+{% endtab %}
+
+{% tab title="Linux" %}
+#### v4.4.0
+
+
+{% endtab %}
+{% endtabs %}
+
 ### Upgrade to v4.3.x
 
 {% tabs %}
@@ -98,41 +114,6 @@ The following configuration changes must be manually processed if you are using 
 {% endtab %}
 {% endtabs %}
 
-### Upgrade to v4.1.0
-
-{% hint style="info" %}
-Go to the [StackState v4.1 docs site](https://docs.stackstate.com/v/4.1/).
-{% endhint %}
-
-There are several changes to the `processmanager.conf` file that must be manually processed if you are using a customized version of this file:
-
-* The `sts-healthcheckuri` has been moved from port 7071 to 7080
-* The `startup-check` block has been removed completely
-
-### Upgrade to v4.0.0
-
-{% hint style="info" %}
-Go to the [StackState v4.0 docs site](https://docs.stackstate.com/v/4.0/).
-{% endhint %}
-
-* With this version the minimal system requirements for the StackState node of the production setup raised from 16GB to 20GB
-* The configuration `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, you changes will need to be reapplied after upgrade.
-* For trace processing StackState Agent needs an upgrade to version 2.5.0.
-* This release deprecates the `withCauseOf` topology query filter, in favor of the \`Root
-
-  Cause Analysis\` topology visualization setting. Stored views
-
-  which require make use of the `withCauseOf` construct will need to be manually adapted.
-
-  New versions of StackPacks already contain these changes, for custom views, the following
-
-  script can be used in the StackState Analytics panel to list the views that need
-
-  migrating.
-
-  `Graph.query { it.V().hasLabel("QueryView").forceLoadBarrier().filter(__.has("query", TextP.containing('withCauseOf'))).properties("name").value() }`
-
-* In this release a new way of scripting [propagation functions](https://docs.stackstate.com/v/4.0/configure/propagation#propagation-function) has been introduced so that the script APIs can be used. Propagation functions using the old script style will still work, but have been made read-only via the UI. Old style propagation functions can still be created via StackPacks, the CLI and API.
 
 ## See also
 

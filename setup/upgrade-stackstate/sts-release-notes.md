@@ -8,6 +8,16 @@ description: Release notes up to v4.3.x of StackState
 StackPack release notes can be found on each StackPack page. See [StackPack versions](stackpack-versions.md).
 {% endhint %}
 
+## StackState v4.4.x
+
+### v4.4.0
+
+**Features**
+
+**Improvements**
+
+**Bug fixes**
+
 ## StackState v4.3.x
 
 ### v4.3.0

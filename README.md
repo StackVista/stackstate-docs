@@ -1,13 +1,13 @@
 ---
-description: StackState version 4.3
+description: StackState version 4.4
 ---
 
 # Welcome to the StackState Docs!
 
 {% hint style="success" %}
-**StackState version 4.3** is now available - [check the release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-3-x) for details.
+**StackState version 4.4** is now available - [check the release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-4-x) for details.
 
-With the release of StackState v4.3, StackState v4.0 reaches End of Life (EOL) and will no longer be supported. We encourage customers still running the 4.0 version range to upgrade. Check the [supported StackState versions](README.md#supported-stackstate-versions). 
+With the release of StackState v4.4, StackState v4.1 reaches End of Life (EOL) and will no longer be supported. We encourage customers still running the 4.1 version range to upgrade. Check the [supported StackState versions](README.md#supported-stackstate-versions). 
 
 {% endhint %}
 
@@ -29,9 +29,9 @@ With the release of StackState v4.3, StackState v4.0 reaches End of Life (EOL) a
 
 The supported versions of StackState are listed below:
 
-- **StackState v4.3** - You are currently reading the documentation for StackState version 4.3.
+- **StackState v4.4** - You are currently reading the documentation for StackState version 4.4.
+- **StackState v4.3** - [switch to the v4.2 docs](https://docs.stackstate.com/v/4.3/).
 - **StackState v4.2** - [switch to the v4.2 docs](https://docs.stackstate.com/v/4.2/).
-- **StackState v4.1** - [switch to the v4.1 docs](https://docs.stackstate.com/v/4.1/).
 
 For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/README.md).
 
