@@ -1,5 +1,5 @@
 ---
-description: Steps to troubleshoot a StackState installation
+description: Steps to troubleshoot a StackState install
 ---
 
 
