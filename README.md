@@ -41,7 +41,7 @@ For details on changes in each release and how to upgrade StackState, check the 
 
 To find documentation for previous StackState versions, use the drop-down menu at the top left of this page.
 
-## Can't finds something?
+## Can't find something?
 
 **Search for it!** Use the search bar on the top right.  
 If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
