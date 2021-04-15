@@ -1,6 +1,6 @@
 # Authentication options
 
-Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.
+Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](/setup/installation/initial_run_guide.md#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.
 
 For better security StackState can be configured to use exactly one of the following authentication mechanisms \(replacing the standard admin user\):
 
@@ -25,20 +25,4 @@ When a user has been authenticated permissions for that user are usually assigne
 When deciding on the roles to assign your users it is strongly advised to have only a small group of Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
 
 It is also possible to add more roles, see the page [Roles \(RBAC\)](../rbac/rbac_roles.md) and the other [RBAC documentation pages](/configure/security/rbac/)
-
-## Default username and password
-
-StackState is configured by default with the following administrator account:
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-* **username:** `admin`
-* **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in MD5 hash format in `values.yaml`
-{% endtab %}
-
-{% tab title="Linux" %}
-* **username:** `admin`
-* **password:** `topology-telemetry-time`
-{% endtab %}
-{% endtabs %}
 
