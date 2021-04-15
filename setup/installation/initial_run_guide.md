@@ -39,7 +39,7 @@ After installation, the StackState UI can be accessed at the address and port be
 {% endtab %}
 
 {% tab title="Linux" %}
-**http://<STACKSTATE_BASE_URL>:7077/**
+**http://\<STACKSTATE_BASE_URL\>:7077/**
 {% endtab %}
 
 {% tab title="Openshift" %}
