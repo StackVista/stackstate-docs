@@ -28,18 +28,24 @@ Install StackState on [Openshift](/setup/installation/openshift_install.md).
 
 ## Address and port
 
-After installation, the StackState UI can be accessed at the following address and port:
+After installation, the StackState UI can be accessed at the address and port below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
 
+1. [Enable a port-forward](/setup/installation/kubernetes_install/install_stackstate.md#access-the-stackstate-ui)
+2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
+
 {% endtab %}
 
 {% tab title="Linux" %}
-
+**http://<STACKSTATE_BASE_URL>:7077/**
 {% endtab %}
 
 {% tab title="Openshift" %}
+
+1. [Enable a port-forward](/setup/installation/openshift_install.md#access-the-stackstate-ui)
+2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
 
 {% endtab %}
 {% endtabs %}
