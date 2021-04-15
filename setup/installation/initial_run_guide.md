@@ -33,7 +33,7 @@ After installation, the StackState UI can be accessed at the address and port be
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-1. [Enable a port-forward](/setup/installation/kubernetes_install/install_stackstate.md#access-the-stackstate-ui)
+1. [Enable a port-forward](/setup/installation/kubernetes_install/install_stackstate.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
 
 {% endtab %}
@@ -44,7 +44,7 @@ After installation, the StackState UI can be accessed at the address and port be
 
 {% tab title="Openshift" %}
 
-1. [Enable a port-forward](/setup/installation/openshift_install.md#access-the-stackstate-ui)
+1. [Enable a port-forward](/setup/installation/openshift_install.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
 
 {% endtab %}
