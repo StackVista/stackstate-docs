@@ -6,13 +6,29 @@ description: Important details for the first time you run a new StackState insta
 
 ## Overview
 
-Follow the instructions provided to install StackState on [Kubernetes](/setup/installation/kubernetes_install), [Linux](/setup/installation/linux_install) or [Openshift](/setup/installation/openshift_install.md). 
+This page provides all the information you need to install and run StackState.
 
-After installation, you can use the details provided on this page to access StackState and troubleshoot any issues you encounter.
+## Installation instructions
+
+Instructions to install StackState can be found on the pages linked below.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+Install StackState on [Kubernetes](/setup/installation/kubernetes_install).
+{% endtab %}
+
+{% tab title="Linux" %}
+Install StackState on [Linux](/setup/installation/linux_install).
+{% endtab %}
+
+{% tab title="Openshift" %}
+Install StackState on [Openshift](/setup/installation/openshift_install.md). 
+{% endtab %}
+{% endtabs %}
 
 ## Address and port
 
-The StackState UI can be accessed at the following address and port:
+After installation, the StackState UI can be accessed at the following address and port:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
