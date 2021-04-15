@@ -10,8 +10,6 @@ This page provides all the information you need to install and run StackState.
 
 ## Installation instructions
 
-Instructions to install StackState can be found on the pages linked below.
-
 {% tabs %}
 {% tab title="Kubernetes" %}
 Install StackState on [Kubernetes](/setup/installation/kubernetes_install).
@@ -28,10 +26,9 @@ Install StackState on [Openshift](/setup/installation/openshift_install.md).
 
 ## Address and port
 
-After installation, the StackState UI can be accessed at the address and port below.
-
 {% tabs %}
 {% tab title="Kubernetes" %}
+To access the StackState UI:
 
 1. [Enable a port-forward](/setup/installation/kubernetes_install/install_stackstate.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
@@ -39,10 +36,14 @@ After installation, the StackState UI can be accessed at the address and port be
 {% endtab %}
 
 {% tab title="Linux" %}
+
+The StackState UI can be accessed using the `STACKSTATE_BASE_URL` specified during installation:
+
 `https://STACKSTATE_BASE_URL:7077`
 {% endtab %}
 
 {% tab title="Openshift" %}
+To access the StackState UI:
 
 1. [Enable a port-forward](/setup/installation/openshift_install.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
@@ -52,20 +53,24 @@ After installation, the StackState UI can be accessed at the address and port be
 
 ## Default username and password
 
-StackState is configured by default with the following administrator account:
-
 {% tabs %}
 {% tab title="Kubernetes" %}
+StackState is configured by default with the following administrator account:
+
 * **username:** `admin`
 * **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in MD5 hash format in `values.yaml`
 {% endtab %}
 
 {% tab title="Linux" %}
+StackState is configured by default with the following administrator account:
+
 * **username:** `admin`
 * **password:** `topology-telemetry-time`
 {% endtab %}
 
 {% tab title="Openshift" %}
+StackState is configured by default with the following administrator account:
+
 * **username:** `admin`
 * **password:** Set during installation. This is collected by the `generate_values.sh` script and stored in MD5 hash format in `values.yaml`
 {% endtab %}
