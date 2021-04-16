@@ -83,3 +83,6 @@ If you run into any problems during the installation of StackState or first run,
 ## Next steps
 
 Once you have StackState up and running, you can get started setting up integrations
+
+- [Install StackPacks to integrate with external systems](/stackpacks/about-stackpacks.md)
+- 
