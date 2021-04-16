@@ -79,3 +79,7 @@ StackState is configured by default with the following administrator account:
 ## Troubleshooting
 
 If you run into any problems during the installation of StackState or first run, check the [StackState installation troubleshooting guide](/setup/installation/troubleshooting.md).
+
+## Next steps
+
+Once you have StackState up and running, you can get started setting up integrations
