@@ -149,6 +149,7 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 
 The properties listed below return details of a `ProblemCreatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemCreatedEvent`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -159,6 +160,7 @@ The properties listed below return details of a `ProblemCreatedEvent` in functio
 
 The properties listed below return details of a `ProblemUpdatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemUpdatedEvent`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -169,6 +171,7 @@ The properties listed below return details of a `ProblemUpdatedEvent` in functio
 
 The properties listed below return details of a `ProblemSubsumedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemSubsumedEvent`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -179,6 +182,7 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 
 The properties listed below return details of a `ProblemResolvedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemResolvedEvent`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -247,8 +251,9 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 
 #### ProblemCreated properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemCreatedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemCreated` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemCreated`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -257,8 +262,9 @@ The properties listed below return details of a `ProblemCreatedEvent` in functio
 
 #### ProblemUpdated properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemUpdatedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemUpdated` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemUpdated`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -267,8 +273,9 @@ The properties listed below return details of a `ProblemUpdatedEvent` in functio
 
 #### ProblemSubsumed properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemSubsumedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemSubsumed` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemSubsumed`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -277,8 +284,9 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 
 #### ProblemResolved properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemResolvedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemResolved` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
+* `event._type` - returns the event type (`ProblemResolved`).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.

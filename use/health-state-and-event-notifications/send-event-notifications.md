@@ -75,7 +75,7 @@ The event types generated when a problem changes are described in the table belo
 | Event type | Description |
 | :--- | :--- |
 | `ProblemCreated` | A new problem has been created. |
-| `ProblemUpdate` | New information is available for a problem. For example, a new root cause or contributing cause being added to the problem, or an update to a check on an existing unhealthy component. |
+| `ProblemUpdated` | New information is available for a problem. For example, a new root cause or contributing cause being added to the problem, or an update to a check on an existing unhealthy component. |
 | `ProblemSubsumed` | A change in root cause has caused an existing problem to be [joined with another problem](../problems/problems.md#two-problems-one-root-cause). |
 | `ProblemResolved` | The root cause component and all contributing cause components have reported a CLEAR \(green\) health state. No unhealthy components remain in the problem. |
 
