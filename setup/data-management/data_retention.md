@@ -126,10 +126,14 @@ Use the `diskSpaceWeight` configuration parameter to adjust how available disk s
 
 **Allocate no disk space to an index group**  
 Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. 
-For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups by setting `kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0`.
+For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups:
+
+ ```
+ kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0
+```
 
 **Distribute disk space unevenly across index groups**
-The available disk space (the configured `elasticsearchDiskSpaceMB`) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared equally between the indices in the index group (the configured `maxIndicesRetained`):
+The available disk space \(the configured `elasticsearchDiskSpaceMB`\) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared between the indices in the index group:
 
 ```text
 # Total disk space allocated to an index group
@@ -141,12 +145,12 @@ For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be alloc
 | Parameter | Index group disk space |
 | :--- | :--- | :--- |
 | `kafkaMetricsToES.elasticsearch.index {` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
-| `kafkaMultiMetricsToES.elasticsearch.index {` `diskSpaceWeight = 1` `maxIndicesRetained = 20` `}` | 20000MB \(or 300000\*1/15\) |
-| `kafkaGenericEventsToES.elasticsearch.index{` `diskSpaceWeight = 2` `maxIndicesRetained = 20` `}` | 40000MB \(or 300000\*2/15\) |
-| `kafkaTopologyEventsToES.elasticsearch.index{` `diskSpaceWeight = 3` `maxIndicesRetained = 20` `}` | 60000MB \(or 300000\*3/15\) |
-| `kafkaStateEventsToES.elasticsearch.index{` `diskSpaceWeight = 4` `maxIndicesRetained = 20` `}` | 80000MB \(or 300000\*4/15\) |
-| `kafkaStsEventsToES.elasticsearch.index{` `diskSpaceWeight = 5` `maxIndicesRetained = 20` `}` | 100000MB \(or 300000\*5/15\) |
-| `kafkaTraceToES.elasticsearch.index{` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB | 0MB |
+| `kafkaMultiMetricsToES.elasticsearch.index {` `diskSpaceWeight = 1` `maxIndicesRetained = 20` `}` | 20,000MB \(or 300,000\*1/15\) |
+| `kafkaGenericEventsToES.elasticsearch.index{` `diskSpaceWeight = 2` `maxIndicesRetained = 20` `}` | 40,000MB \(or 300,000\*2/15\) |
+| `kafkaTopologyEventsToES.elasticsearch.index{` `diskSpaceWeight = 3` `maxIndicesRetained = 20` `}` | 60,000MB \(or 300000\*3/15\) |
+| `kafkaStateEventsToES.elasticsearch.index{` `diskSpaceWeight = 4` `maxIndicesRetained = 20` `}` | 80,000MB \(or 300,000\*4/15\) |
+| `kafkaStsEventsToES.elasticsearch.index{` `diskSpaceWeight = 5` `maxIndicesRetained = 20` `}` | 100000MB \(or 300,000\*5/15\) |
+| `kafkaTraceToES.elasticsearch.index{` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
 
 ### External data store
 
