@@ -94,7 +94,7 @@ After installation, the StackState CLI must be configured with the API connectio
 
 ### Configuration wizard \(Linux and Windows install\)
 
-If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file exists, the StackState CLI will use this and the configuration wizard will not run. 
+If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the StackState CLI will use this and the configuration wizard will not run. 
 
 The configuration wizard is not available when the CLI is running inside a Docker container on Mac OS, Linux or Windows.
 
@@ -102,8 +102,8 @@ The configuration wizard is not available when the CLI is running inside a Docke
 To configure the CLI, you will need your [authentication credentials](cli-install.md#authentication).
 {% endhint %}
 
-{% tabs %}
-{% tab title="Example CLI configuration wizard" %}
+Example configuration wizard:
+
 ```text
 $ sts graph list-types
 No config was found. Would you like to configure the CLI using this wizard? (Y/n): Y
@@ -117,8 +117,7 @@ Hostname used for receiver ingestion via the CLI (default: mycli):
 
 Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
 ```
-{% endtab %}
-{% endtabs %}
+
 
 ### Manual configuration \(Docker\)
 
@@ -219,7 +218,12 @@ sts --instance <instance_name> ...
 
 The StackState CLI exposes a number of APIs: the Base API, the Admin API and the Receiver API. StackState receives topology, telemetry and trace data via the Receiver API. All other operations happen via the Base API and the Admin API. These APIs are secured differently.
 
-### Base and Admin API - API token
+
+### API key - Receiver API
+
+StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent, which is configured by your administrator.
+
+### API token - Base API and Admin API
 
 {% hint style="warning" %}
 **Base API and Admin API authentication using username/password will be deprecated.**
@@ -232,10 +236,6 @@ Base API and Admin API access are required for all operations other than sending
 The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To use the Admin API, you need the `access-admin-api` [permission](/configure/security/rbac/rbac_permissions.md). 
 
 You can find your API token in the StackState UI on the page **Main menu** &gt; **CLI**.
-
-### Receiver API - API key
-
-StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent, which is configured by your administrator.
 
 ## Use the StackState CLI
 
