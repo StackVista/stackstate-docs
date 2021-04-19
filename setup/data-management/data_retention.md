@@ -146,7 +146,7 @@ For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be alloc
 | `kafkaMetricsToES.elasticsearch.index {` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
 | `kafkaMultiMetricsToES.elasticsearch.index {` `diskSpaceWeight = 1` `maxIndicesRetained = 20` `}` | 20,000MB or 300,000\*1/15 |
 | `kafkaGenericEventsToES.elasticsearch.index{` `diskSpaceWeight = 2` `maxIndicesRetained = 20` `}` | 40,000MB or 300,000\*2/15 |
-| `kafkaTopologyEventsToES.elasticsearch.index{` `diskSpaceWeight = 3` `maxIndicesRetained = 20` `}` | 60,000MB or 300000\*3/15 |
+| `kafkaTopologyEventsToES.elasticsearch.index{` `diskSpaceWeight = 3` `maxIndicesRetained = 20` `}` | 60,000MB or 300,000\*3/15 |
 | `kafkaStateEventsToES.elasticsearch.index{` `diskSpaceWeight = 4` `maxIndicesRetained = 20` `}` | 80,000MB or 300,000\*4/15 |
 | `kafkaStsEventsToES.elasticsearch.index{` `diskSpaceWeight = 5` `maxIndicesRetained = 20` `}` | 100000MB or 300,000\*5/15 |
 | `kafkaTraceToES.elasticsearch.index{` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
