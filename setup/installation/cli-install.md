@@ -100,14 +100,16 @@ For example:
 
 ```text
 $ sts graph list-types
-
 No config was found. Would you like to configure the CLI using this wizard? (Y/n): Y
 
-StackState base URL: https://stackstate.mycompany.com
-Your API token (see https://stackstate.mycompany.com#/cli): 
-Receiver API URL (default - https://stackstate.mycompany.com/receiver):
-Receiver API key (default - API_KEY):
-Hostname used for receiver ingestion via the CLI (default - mycli):
+StackState URL: https://company.stackstate.com/
+Your API token (see https://company.stackstate.com/#/cli ): X1Dtux258pUuS643OpCamzE_d_LF6UN
+Admin API URL (default: https://company.stackstate.com/admin):
+Receiver API URL (default: https://company.stackstate.com/receiver):
+Receiver API key (default: API_KEY): Fa5DGSDxxg3234x6xz
+Hostname used for receiver ingestion via the CLI (default: mycli):
+
+Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
 ```
 
 ### Manual configuration \(Docker\)
@@ -131,39 +133,48 @@ Follow the steps below to create a configuration file manually. This is required
 {% tabs %}
 {% tab title="Example conf.yaml" %}
 ```yaml
+## The CLI uses an instance of StackState for all its commands.
+## Unless the `--instance` argument is passed the CLI will pick the `default` instance as configured below.
+## Other instances follow the exact same configuration pattern as the instance below.
 instances:
- default:
-   base_api:
-     url: "https://localhost:7070"
-     ## StackState authentication. This type of authentication is exclusive to the `base_api`.
-     ## You can copy your private API Token from the CLI page in the StackState web interface.
-     apitoken_auth:
-      token: "your API Token"
-   receiver_api:
-     url: "https://???:7077"
-     ## HTTP basic authentication.
-     #basic_auth:
-       #username: "validUsername"
-       #password: "safePassword"
-   admin_api:
-     url: "https://???:7071"
-     ## HTTP basic authentication.
-     #basic_auth:
-       #username: "adminUsername"
-       #password: "safePassword"
+  default:
+    base_api:
+      url: "https://stackstate.mycompany.com"
+      # Get the api token from the user interface, see https://stackstate.mycompany.com/#/cli
+      apitoken_auth:
+        token: '???'
+      ## HTTP basic authentication.
+      #basic_auth:
+        #username: '???'
+        #password: '???'
+    receiver_api:
+      url: "https://stackstate.mycompany.com/receiver"
+      ## HTTP basic authentication.
+      #basic_auth:
+        #username: '???'
+        #password: '???'
+    admin_api:
+      url: "https://stackstate.mycompany.com/admin"
+      # Get the api token from the user interface, see https://stackstate.mycompany.com/#/cli
+      apitoken_auth:
+        token: '???'
+      ## HTTP basic authentication.
+      #basic_auth:
+        #username: '???'
+        #password: '???'
 
-   ## The CLI uses a client configuration to identify who is sending to the StackState instance. The client
-   ## is used to send topology and/or telemetry to the receiver API.
-   ##
-   ## Unless the `--client` argument is passed the CLI will pick the `default` instance as configured below.
-   ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
-   clients:
-     default:
-       api_key: "default_api_key"
-       ## The name of the host that is passed to StackState when sending. Leave these values unchanged
-       ## if you have no idea what to fill here.
-       hostname: "hostname"
-       internal_hostname: "internal_hostname"
+    ## The CLI uses a client configuration to identify who is sending to the StackState instance. The client
+    ## is used to send topology and/or telemetry to the receiver API.
+    ##
+    ## Unless the `--client` argument is passed the CLI will pick the `default` instance as configured below.
+    ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
+    clients:
+      default:
+        api_key: "API_KEY"
+        ## The name of the host that is passed to StackState when sending. Leave these values unchanged
+        ## if you have no idea what to fill here.
+        hostname: "hostname"
+        internal_hostname: "internal_hostname"
 ```
 {% endtab %}
 {% endtabs %}
@@ -177,6 +188,10 @@ instances:
  default:
    base_api:
      ...
+   admin_api:
+    ...
+   receiver_api:
+    ...
    clients:
      ...
  Preproduction:
@@ -194,17 +209,19 @@ sts --instance <instance_name> ...
 
 ## Authentication
 
-The StackState CLI predominantly uses two APIs: the Base API and the Receiver API. StackState receives topology, telemetry and trace data via the Receiver API. All other operations use the Base API.
+The StackState CLI exposes a number of APIs: the Base API, the Admin API and the Receiver API. StackState receives topology, telemetry and trace data via the Receiver API. All other operations happen via the Base & Admin API. These API's are secured differently.
 
-### Base API - API token
+### Base & Admin API - API token
 
 {% hint style="warning" %}
-**Base API authentication using username/password will be deprecated.**
+**Base & Admin API authentication using username/password will be deprecated.**
 
 The CLI will issue a warning when username/password authentication is used. It is recommended to switch to token based authentication.
 {% endhint %}
 
-Base API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base API using a unique API token that is auto-generated for your user account.
+Base & admin API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base & admin API using a unique API token that is auto-generated for your user account.
+
+The Base API is used for most operations. The admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To use the admin API, you need the `access-admin-api` [permission](/configure/security/rbac/rbac_permissions.md). 
 
 You can find your API token in the StackState UI on the page **Main menu** &gt; **CLI**.
 
