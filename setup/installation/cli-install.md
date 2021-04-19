@@ -94,23 +94,31 @@ After installation, the StackState CLI must be configured with the API connectio
 
 ### Configuration wizard \(Linux and Windows install\)
 
-The binary files downloaded in the Linux and Windows install methods described above include a configuration wizard to generate the StackState CLI configuration file. The first time you run any `sts` command, for example `sts graph list-types`, the StackState CLI will look for a configuration file. If no valid configuration file is found, the wizard will guide you through creating one and store it under the user's home directory. You will need to enter your [authentication credentials](cli-install.md#authentication).
+If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file exists, the StackState CLI will use this and the configuration wizard will not run. 
 
-For example:
+The configuration wizard is not available when the CLI is running inside a Docker container on Mac OS, Linux or Windows.
 
+{% hint style="info" %}
+To configure the CLI, you will need your [authentication credentials](cli-install.md#authentication).
+{% endhint %}
+
+{% tabs %}
+{% tab title="Example CLI configuration wizard" %}
 ```text
 $ sts graph list-types
 No config was found. Would you like to configure the CLI using this wizard? (Y/n): Y
 
 StackState URL: https://company.stackstate.com/
-Your API token (see https://company.stackstate.com/#/cli ): X1Dtux258pUuS643OpCamzE_d_LF6UN
+Your API token (see https://company.stackstate.com/#/cli ):
 Admin API URL (default: https://company.stackstate.com/admin):
 Receiver API URL (default: https://company.stackstate.com/receiver):
-Receiver API key (default: API_KEY): Fa5DGSDxxg3234x6xz
+Receiver API key (default: API_KEY):
 Hostname used for receiver ingestion via the CLI (default: mycli):
 
 Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Manual configuration \(Docker\)
 
@@ -209,25 +217,25 @@ sts --instance <instance_name> ...
 
 ## Authentication
 
-The StackState CLI exposes a number of APIs: the Base API, the Admin API and the Receiver API. StackState receives topology, telemetry and trace data via the Receiver API. All other operations happen via the Base & Admin API. These API's are secured differently.
+The StackState CLI exposes a number of APIs: the Base API, the Admin API and the Receiver API. StackState receives topology, telemetry and trace data via the Receiver API. All other operations happen via the Base API and the Admin API. These APIs are secured differently.
 
-### Base & Admin API - API token
+### Base and Admin API - API token
 
 {% hint style="warning" %}
-**Base & Admin API authentication using username/password will be deprecated.**
+**Base API and Admin API authentication using username/password will be deprecated.**
 
-The CLI will issue a warning when username/password authentication is used. It is recommended to switch to token based authentication.
+The CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication.
 {% endhint %}
 
-Base & admin API access is required for all operations, other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the base & admin API using a unique API token that is auto-generated for your user account.
+Base API and Admin API access are required for all operations other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your user account.
 
-The Base API is used for most operations. The admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To use the admin API, you need the `access-admin-api` [permission](/configure/security/rbac/rbac_permissions.md). 
+The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To use the Admin API, you need the `access-admin-api` [permission](/configure/security/rbac/rbac_permissions.md). 
 
 You can find your API token in the StackState UI on the page **Main menu** &gt; **CLI**.
 
 ### Receiver API - API key
 
-StackState receives topology, telemetry and trace data via the receiver API. If you want to push information to StackState using the CLI, you will need to provide a receiver API key. This is the same API key that is used by the StackState Agent, which is configured by your administrator.
+StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent, which is configured by your administrator.
 
 ## Use the StackState CLI
 
