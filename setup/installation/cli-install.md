@@ -121,7 +121,7 @@ Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
 
 ### Manual configuration \(Docker\)
 
-Follow the steps below to create a configuration file manually. This is required for a Docker install and optional for a Linux or Windows install using a standalone executable file.
+The CLI configuration file can be manually created or edited using the steps below. This is required for a Docker install and optional for a Linux or Windows install using a standalone executable file.
 
 1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com). If you ran the Docker install, you can skip this step and use the ZIP archive you already downloaded.
 2. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the following directories:
@@ -188,7 +188,7 @@ instances:
 
 ### Add multiple configurations
 
-The `conf.yaml` configuration file can hold multiple configurations. Other StackState instances can be added on the same level as the default configuration. For example:
+The `conf.yaml` CLI configuration file can hold multiple configurations. Other StackState instances can be added on the same level as the default configuration. For example:
 
 ```yaml
 instances:
