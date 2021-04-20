@@ -10,6 +10,8 @@ stackpack-name: Splunk events, metrics and topology
 
 ![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
+* Agent V1 connects to the configured 
+
 
 ## Setup
 
