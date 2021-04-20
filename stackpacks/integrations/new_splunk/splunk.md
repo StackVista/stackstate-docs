@@ -47,35 +47,11 @@ Details of how to configure each of these checks can be found on the pages liste
 
 The Splunk integration provides two authentication mechanisms to connect to your Splunk instance:
 
+
+- [Token-based authentication \(recommended\)](#token-based-authentication)
 - [HTTP basic authentication](#http-basic-authentication)
-- [Token-based authentication](#token-based-authentication)
 
 Authentication details are included in the StackState Agent V1 configuration file for each Splunk check - [conf.d/splunk\_events.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example), [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example) and [conf.d/splunk\_topology.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example).
-
-#### HTTP basic authentication
-
-With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is be used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
-
-{% tabs %}
-{% tab title="Example check configuration with HTTP basic authentication" %}
-```text
-instances:
-    - url: "https://localhost:8089"
-
-    # username: "admin" ## deprecated; use basic_auth.username under authentication section
-    # password: "admin" ## deprecated; use basic_auth.password under authentication section
-
-    # verify_ssl_certificate: false
-
-    ## Integration supports either basic authentication or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
-    authentication:
-      basic_auth:
-        username: "admin"
-        password: "admin"
-```
-{% endtab %}
-{% endtabs %}
 
 #### Token-based Authentication
 
@@ -85,11 +61,11 @@ Token-based authentication information will override basic authentication in cas
 
 The following parameters are available:
 
-* `name` - Name of the user who will be using this token.
-* `initial_token` - An initial, valid token. This will be replaced with a new generated token requested by the integration.
-* `audience` - JWT audience name, which is purpose of token.
-* `token_expiration_days` - Validity of the newly requested token. Default 90 days.
-* `renewal_days` - Number of days before the token should refresh. Default 10 days.
+* **name** - Name of the user who will be using this token.
+* **initial_token** - An initial, valid token. This will be replaced with a new generated token requested by the integration.
+* **audience** - JWT audience name, which is purpose of token.
+* **token_expiration_days** - Validity of the newly requested token. Default 90 days.
+* **renewal_days** - Number of days before a new token should be refreshed. Default 10 days.
 
 {% tabs %}
 {% tab title="Example check configuration with token-based authentication" %}
@@ -97,39 +73,65 @@ The following parameters are available:
 instances:
     - url: "https://localhost:8089"
 
-    # username: "admin" ## deprecated; use basic_auth.username under authentication section
-    # password: "admin" ## deprecated; use basic_auth.password under authentication section
+    # username: "admin" ## deprecated
+    # password: "admin" ## deprecated
 
     # verify_ssl_certificate: false
 
-    ## Integration supports either basic authentication or token based authentication.
+    ## Integration supports either basic or token based authentication.
     ## Token based authentication is preferred before basic authentication.
     authentication:
-      # basic_auth:
-        # username: "admin"
-        # password: "admin"
-
       token_auth:
-        ## Token for the user who will be using it
+        ## Name of the user who will use the token
         name: "api-user"
 
-        ## The initial valid token which will be exchanged with new generated token as soon as the check starts
-        ## first time and in case of restart, this token will not be used anymore
+        ## The provided initial token will be exchanged for a new token
+        ## the first time the check runs and in case of restart
         initial_token: "my-initial-token-hash"
 
         ## JWT audience used for purpose of token
         audience: "search"
 
-        ## When a token is about to expire, a new token is requested from Splunk. The validity of the newly requested
-        ## token is requested to be `token_expiration_days` days. After `renewal_days` days the token will be renewed
-        ## for another `token_expiration_days` days.
+        ## When a token is about to expire, a new token will be requested 
+        ## from Splunk with a validity of `token_expiration_days`, default 90 days.
         token_expiration_days: 90
 
-        ## the number of days before when token should refresh, by default it's 10 days.
+        ## the number of days before when token should refresh, default 10 days.
+        ## After the configured `renewal_days` days, the token will be renewed
+        ## for another `token_expiration_days` days.
         renewal_days: 10
 ```
 {% endtab %}
 {% endtabs %}
+
+
+#### HTTP basic authentication
+
+With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is be used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
+
+It is recommended to use [token-based authentication](#token-based-authentication).
+
+{% tabs %}
+{% tab title="Example check configuration with HTTP basic authentication" %}
+```text
+instances:
+    - url: "https://localhost:8089"
+
+    # username: "admin" ## deprecated
+    # password: "admin" ## deprecated
+
+    # verify_ssl_certificate: false
+
+    ## Integration supports either basic or token based authentication.
+    ## Token based authentication is preferred before basic authentication.
+    authentication:
+      basic_auth:
+        username: "admin"
+        password: "admin"
+```
+{% endtab %}
+{% endtabs %}
+
 
 
 ### Status
