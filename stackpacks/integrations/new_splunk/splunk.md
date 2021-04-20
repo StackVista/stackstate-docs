@@ -1,5 +1,3 @@
-# Splunk
-
 ---
 stackpack-name: Splunk events, metrics and topology
 ---
@@ -10,7 +8,7 @@ stackpack-name: Splunk events, metrics and topology
 
 
 
-![Data flow](/.gitbook/assets/stackpack-splunk.png)
+![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
 
 ## Setup
@@ -63,13 +61,15 @@ For further details, see the [Splunk API documentation \(docs.splunk.com\)](http
 
 ### Open source
 
-The Splunk Topology StackPack is open source and available on GitHub at [https://github.com/StackVista/stackpack-splunk](https://github.com/StackVista/stackpack-splunk).
+The Splunk Topology StackPack is open source and available on GitHub at:
 
-The Splunk Events, Metrics and Topology checks are open source and available on GitHub at:
+* Splunk Topology StackPack [https://github.com/StackVista/stackpack-splunk](https://github.com/StackVista/stackpack-splunk).
 
-* Splunk Events: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
-* Splunk Metrics: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
-* Splunk Topology: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
+The Agent checks for Splunk events, metrics and topology are open source and available on GitHub at:
+
+* Splunk events check: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
+* Splunk metrics check: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
+* Splunk topology check: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
 
 ## Troubleshooting
 
