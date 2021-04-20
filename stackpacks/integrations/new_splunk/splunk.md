@@ -115,8 +115,6 @@ instances:
 
     # verify_ssl_certificate: false
 
-    ## Integration supports either basic or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
     authentication:
       basic_auth:
         username: "admin"
