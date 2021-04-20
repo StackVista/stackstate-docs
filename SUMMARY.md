@@ -105,7 +105,7 @@
   * [SCOM \(BETA\)](stackpacks/integrations/scom.md)
   * [ServiceNow](stackpacks/integrations/servicenow.md)
   * [NEW Splunk](stackpacks/integrations/new_splunk/README.md)
-    * [The Splunk StackPack](stackpacks/integrations/new_splunk/splunk_stackpack.md)
+    * [The Splunk StackPack](stackpacks/integrations/new_splunk/splunk.md)
     * [New Splunk metrics](stackpacks/integrations/new_splunk/splunk_metric.md)
     * [New Splunk topology](stackpacks/integrations/new_splunk/splunk_topology.md)
     * [New Splunk event](stackpacks/integrations/new_splunk/splunk_event.md)
