@@ -29,11 +29,17 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 ### Prerequisites
 
 
+
 ### Install
 
 
 ### Configure
 
+For each type of data you want to retrieve from Splunk (topology, metrics and events), an associated check must be configured on StackState Agent V1. Details of how to configure each of these checks can be found on the pages listed below:
+
+* [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md)
+* [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md)
+* [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_event.md)
 
 ### Status
 
@@ -97,9 +103,9 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 ## Further information
 
 Configure the StackState Splunk checks:
-* [The Splunk Topology check](/stackpacks/integrations/new_splunk/splunk_topology.md)
-* [The Splunk events check](/stackpacks/integrations/new_splunk/splunk_event.md)
-* [The Splunk metrics check](/stackpacks/integrations/new_splunk/splunk_metric.md)
+* [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md)
+* [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_event.md)
+* [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md)
 
 Other resources:
 * [Splunk API documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/RESTREF/RESTprolog)
