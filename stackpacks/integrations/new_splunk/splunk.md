@@ -76,7 +76,7 @@ For further details, see the [Splunk API documentation \(docs.splunk.com\)](http
 
 The Splunk Topology StackPack and he Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
 
-* [Splunk Topology StackPack \(github.com\)](https://github.com/StackVista/stackpack-splunk).
+* [Splunk Topology StackPack \(github.com\)](https://github.com/StackVista/stackpack-splunk)
 * [Splunk events check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
 * [Splunk metrics check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
 * [Splunk topology check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
@@ -102,4 +102,4 @@ Configure the StackState Splunk checks:
 * [The Splunk metrics check](/stackpacks/integrations/new_splunk/splunk_metric.md)
 
 Other resources:
-* [Splunk API documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/RESTREF/RESTprolog).
+* [Splunk API documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/RESTREF/RESTprolog)
