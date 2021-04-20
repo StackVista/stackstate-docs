@@ -6,24 +6,14 @@ old-description: Get topology and telemetry data from AWS services
 
 ## Overview
 
-Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of the following AWS services:
-
-|  |  |  |
-| :--- | :--- | :--- |
-| API Gateway | Elastic Load Balancer V2 \(ELB\) | Simple Storage Service \(S3\) |
-| Auto Scaling Group | Kinesis Data Firehose | Simple Notification Service \(SNS\) |
-| Cloud Formation | Kinesis Stream | Simple Queue Service \(SQS\) |
-| DynamoDB | Lambda | Virtual Private Cloud \(VPC\) |
-| Elastic Compute Cloud \(EC2\) | Relational Database Service \(RDS\) | VPN Gateway |
-| Elastic Container Services \(ECS\) | Redshift |  |
-| Elastic Load Balancer Classic \(ELB\) | Route 53 |  |
+Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
 
 ![Data flow](../../.gitbook/assets/stackpack-aws.png)
 
 * Three AWS Lambdas collect topology data from AWS and push this to StackState:
   * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
   * `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
-  * `stackstate-topo-publisher` publishes [retrieved topology data](aws.md#data-retrieved) from a Kinesis stream to StackState.
+  * `stackstate-topo-publisher` publishes [retrieved topology data](aws.md#topology) from a Kinesis stream to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
 * StackState maps retrieved telemetry \(metrics\) onto the associated AWS components and relations.
@@ -164,8 +154,52 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 Each AWS integration retrieves topology data for resources associated with the associated AWS access key.
 
-* Components
-* Relations
+##### Components
+
+The following AWS service data is available in StackState as components:
+
+| | | |
+|:--- |:--- |:--- |
+| API Gateway Resource | API Gateway Stage | API Getaway Method |
+| AutoScaling Group | CloudFormation Stack | DynamoDB Stream |
+| DynamoDB Table | EC2 Instance | ECS Cluster |
+| ECS Service | ECS Task | Firehose Delivery Stream |
+| Kinesis Stream | Lambda | Lambda Alias |
+| Load Balancer Classic | Load Balancer V2 | RDS Instance |
+| Redshift Cluster | Route53 Domain | Route53 Hosted Zone |
+| S3 bucket | Security Group | SNS Topic |
+| SQS Queue | Subnet | Target Group |
+| Target Group Instance | VPC | VPN Gateway |
+
+##### Relations
+
+The following relations between components are retrieved:
+
+* API Gateway Method → (Service) Integration Resource (varies)
+* API Gateway Resource → API Gateways Method
+* API Gateway Stage → API Gateway Resource
+* AutoScaling Group → EC2 Instance, Load Balancer Classic
+* CloudFormation Stack → Any Resource (many supported), CloudFormation Stack Parent
+* DynamoDB Table → DynamoDB Stream
+* EC2 Instance → Security Group, Subnet, VPC
+* ECS Cluster → EC2 Instance, ECS Task (when no group service)
+* ECS Service → ECS Cluster, ECS Task, Route53 Hosted Zone, Target Group
+* ECS Task → ECS Cluster
+* Firehose Delivery Stream → Kinesis Source, S3 Bucket Destination(s)
+* Lambda → Event Source Mapping, Security Group, VPC
+* Lambda Alias → VPC
+* Load Balancer Classic → EC2 Instance, VPC
+* Load Balancer V2 → Security Group, Target Group, VPC
+* RDS Cluster → RDS Instance
+* RDS Instance → Security Group, VPC
+* Redshift Cluster → VPC
+* S3 Bucket → Lambda (notification configuration of the bucket)
+* Security Group → VPC
+* SNS Topic → Subscription
+* Subnet → VPC
+* Target Group → AutoScaling Group, EC2 Instance, VPC
+* VPN Gateway → VPC
+
 
 #### Traces
 
@@ -224,7 +258,7 @@ Once the AWS StackPack has been uninstalled, you will need to manually uninstall
 1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
 2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
    * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-3. From the command line, run the below command to deprovision all resources related to the StackPack instance:
+3. From the command line, run the below command to de-provision all resources related to the StackPack instance:
 
    ```text
    ./uninstall.sh {{configurationId}}
