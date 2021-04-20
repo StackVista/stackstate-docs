@@ -67,6 +67,14 @@ The following parameters are available:
 * **token_expiration_days** - Validity of the newly requested token. Default 90 days.
 * **renewal_days** - Number of days before a new token should be refreshed. Default 10 days.
 
+        ## The provided initial token will be exchanged for a new token
+        ## the first time the check runs
+        ## When a token is about to expire, a new token will be requested 
+        ## from Splunk with a validity of `token_expiration_days`, default 90 days.
+        ## the number of days before when token should refresh, default 10 days.
+        ## After the configured `renewal_days` days, the token will be renewed
+        ## for another `token_expiration_days` days.
+
 {% tabs %}
 {% tab title="Example check configuration with token-based authentication" %}
 ```text
@@ -78,27 +86,12 @@ instances:
 
     # verify_ssl_certificate: false
 
-    ## Integration supports either basic or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
     authentication:
       token_auth:
-        ## Name of the user who will use the token
         name: "api-user"
-
-        ## The provided initial token will be exchanged for a new token
-        ## the first time the check runs and in case of restart
         initial_token: "my-initial-token-hash"
-
-        ## JWT audience used for purpose of token
         audience: "search"
-
-        ## When a token is about to expire, a new token will be requested 
-        ## from Splunk with a validity of `token_expiration_days`, default 90 days.
         token_expiration_days: 90
-
-        ## the number of days before when token should refresh, default 10 days.
-        ## After the configured `renewal_days` days, the token will be renewed
-        ## for another `token_expiration_days` days.
         renewal_days: 10
 ```
 {% endtab %}
