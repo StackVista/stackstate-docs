@@ -12,6 +12,10 @@ StackState has several points of interaction with external systems, for example 
 
 To mitigate this, StackState allows configuration of a custom trust store.
 
+{% hint style="info" %}
+Self signed certificates can be used with **StackState v4.2.4 and later**. [Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md#v-4-2-4).
+{% endhint %}
+
 ## Create a custom trust store
 
 You need to have the custom TLS certificate available. If you don't have that, you will need to [retrieve it via the browser](#retrieve-certificate-via-the-browser).
