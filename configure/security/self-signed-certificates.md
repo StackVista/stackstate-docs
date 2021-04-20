@@ -14,6 +14,7 @@ To mitigate this, from v4.2.4, StackState allows configuration of a custom trust
 
 {% hint style="info" %}
 Self signed certificates can be used with StackState v4.2.4 and later. 
+
 [Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md#v-4-2-4).
 {% endhint %}
 
