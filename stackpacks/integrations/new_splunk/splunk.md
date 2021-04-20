@@ -61,15 +61,12 @@ For further details, see the [Splunk API documentation \(docs.splunk.com\)](http
 
 ### Open source
 
-The Splunk Topology StackPack is open source and available on GitHub at:
+The Splunk Topology StackPack and he Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
 
-* Splunk Topology StackPack [https://github.com/StackVista/stackpack-splunk](https://github.com/StackVista/stackpack-splunk).
-
-The Agent checks for Splunk events, metrics and topology are open source and available on GitHub at:
-
-* Splunk events check: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
-* Splunk metrics check: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
-* Splunk topology check: [https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
+* [Splunk Topology StackPack \(github.com\)](https://github.com/StackVista/stackpack-splunk).
+* [Splunk events check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
+* [Splunk metrics check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
+* [Splunk topology check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
 
 ## Troubleshooting
 
