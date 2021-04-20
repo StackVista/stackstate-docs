@@ -100,11 +100,11 @@ instances:
 
 #### HTTP basic authentication
 
-With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is be used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
-
 {% hint style="info" %}
 It is recommended to use [token-based authentication](#token-based-authentication).
 {% endhint %}
+
+With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is be used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
