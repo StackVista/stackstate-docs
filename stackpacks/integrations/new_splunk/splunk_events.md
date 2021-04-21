@@ -11,7 +11,7 @@ The StackState Agent V1 Splunk events check will execute the saved searches peri
 
 ## Splunk saved search
 
-StackState Agent V1 executes all Splunk saved searches configured in the [Agent Splunk events check configuration file](#agent-splunk-events-check-configuration) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results a saved search are sent to StackState:
+StackState Agent V1 executes all Splunk saved searches configured in the [Agent Splunk events check configuration file](#agent-splunk-events-check-configuration) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
