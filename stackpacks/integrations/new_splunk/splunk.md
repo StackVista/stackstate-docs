@@ -57,9 +57,9 @@ Authentication details are included in the StackState Agent V1 configuration fil
 
 Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. Before the configured token expires, a new token with an expiration of `token_expiration_days` days will be requested. 
 
-Token-based authentication information will override basic authentication in case both are configured.
+Token-based authentication is preferred over HTTP basic authentication and will override basic authentication in case both are configured.
 
-The following parameters are available:
+To enable token-based authentication, the following parameters should be configured in the `authentcation.token_auth` section of each Agent Splunk check configuration file:
 
 * **name** - Name of the user who will be using this token.
 * **initial_token** - An initial, valid token. This will be replaced with a new generated token requested by the integration.
