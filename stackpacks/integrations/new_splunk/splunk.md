@@ -20,7 +20,7 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 * StackState translates incoming data:
   * [Topology data](#topology) is translated into components and relations.
   * [Metrics data](#metrics) is ???.
-  * [Events](#events) are
+  * [Events](#events) are ???.
 
 
 ## Setup
