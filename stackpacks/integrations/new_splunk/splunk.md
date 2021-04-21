@@ -45,13 +45,12 @@ Details of how to configure each of these checks can be found on the pages liste
 
 ### Authentication
 
-The Splunk integration provides two authentication mechanisms to connect to your Splunk instance:
-
+Each Splunk Agent check configuration file (`conf.d/splunk\_topology.yaml`, `conf.d/splunk\_metric.yaml` and `conf.d/splunk\_events.yaml`) includes authentication details to allow the Agent to connect to the Splunk instance and execute the configured Splunk saved searches. Two authentication mechanisms are available to connect to your Splunk instance:
 
 - [Token-based authentication \(recommended\)](#token-based-authentication)
 - [HTTP basic authentication](#http-basic-authentication)
 
-Authentication details are included in the StackState Agent V1 configuration file for each Splunk check - [conf.d/splunk\_events.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example), [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example) and [conf.d/splunk\_topology.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example).
+For details 
 
 #### Token-based Authentication
 
@@ -91,14 +90,13 @@ instances:
 {% endtab %}
 {% endtabs %}
 
-
 #### HTTP basic authentication
 
 {% hint style="info" %}
 It is recommended to use [token-based authentication](#token-based-authentication).
 {% endhint %}
 
-With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
+With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration files are used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
@@ -119,8 +117,6 @@ instances:
 {% endtab %}
 {% endtabs %}
 
-
-
 ### Status
 
 
@@ -135,7 +131,7 @@ instances:
 
 #### Metrics
 
-
+When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches.
 
 #### Topology
 
@@ -146,7 +142,7 @@ The StackState Splunk integration does not retrieve any trace data.
 
 ### REST API endpoints
 
-StackState Agent v1 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
+StackState Agent V1 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
 
 | Endpoint | Description |
 |:--- |:--- |
@@ -160,7 +156,7 @@ For further details, see the [Splunk API documentation \(docs.splunk.com\)](http
 
 ### Open source
 
-The Splunk Topology StackPack and he Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
+The Splunk Topology StackPack and the Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
 
 * [Splunk Topology StackPack \(github.com\)](https://github.com/StackVista/stackpack-splunk)
 * [Splunk events check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
