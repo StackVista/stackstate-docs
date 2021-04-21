@@ -22,7 +22,9 @@ StackState Agent V1 expects the results of a saved search to follow the format d
 | **source\_type\_name** | string | Source type name. |
 | All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
-In the example below ??? 
+The example Splunk saved search below would result in an event in StackState with the following data:
+* **\_time** = `_time`
+* **tags** = `hostname:<hostname>`, `status:[CRITICAL|ERROR|WARNING|OK]`, `description:<description` 
 
 {% tabs %}
 {% tab title="Example Splunk query" %}
