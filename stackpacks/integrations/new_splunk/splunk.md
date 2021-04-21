@@ -23,34 +23,41 @@ The StackState Splunk integration synchronizes events, metrics and topology data
   * [Events](#events) are
 
 
-
 ## Setup
 
 ### Prerequisites
 
-
+* Agent V1 installed on a machine that can connect to both Splunk and StackState.
+* A running Splunk instance.
+* A Splunk user account with access to Splunk saved searches. The user should have the capability `search` to dispatch and read Splunk saved searches.
 
 ### Install
 
+To retrieve data from Splunk, the [API Integration StackPack](/stackpacks/integrations/api-integration.md) must be installed in your StackState instance. This is required for StackState to communicate with Agent V1 and, once the required Splunk Agent checks have been configured, will directly make Splunk metrics and events available in StackState.
+
+To retrieve topology data from Splunk, you must also install the Splunk Topology StackPack. Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+
+* **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
+* **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
 
 ### Configure
 
-For each type of data you want to retrieve from Splunk (topology, metrics and events), an associated check must be configured on StackState Agent V1. 
+StackState Agent V1 must be configured with a Splunk Agent check for each type of data you want to retrieve from Splunk (topology, metrics and events). 
 
 Details of how to configure each of these checks can be found on the pages listed below:
 
 * [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md)
 * [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md)
-* [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_event.md)
+* [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md)
 
 ### Authentication
 
-Each Splunk Agent check configuration file (`conf.d/splunk\_topology.yaml`, `conf.d/splunk\_metric.yaml` and `conf.d/splunk\_events.yaml`) includes authentication details to allow the Agent to connect to the Splunk instance and execute the configured Splunk saved searches. Two authentication mechanisms are available to connect to your Splunk instance:
+Each Splunk Agent check must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches. Authentication details are added to the [Agent check configuration file](#configure). 
+
+Two authentication mechanisms are available:
 
 - [Token-based authentication \(recommended\)](#token-based-authentication)
 - [HTTP basic authentication](#http-basic-authentication)
-
-For details 
 
 #### Token-based Authentication
 
@@ -127,14 +134,15 @@ instances:
 
 #### Events
 
-
+When the Splunk events Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches.
 
 #### Metrics
 
-When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches.
+When the Splunk metrics Agent check is configured, events will be retrieved from the configured Splunk saved search or searches.
 
 #### Topology
 
+When the Splunk Topology StackPack is installed and the Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved search or searches.
 
 #### Traces
 
@@ -180,7 +188,7 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 
 Configure the StackState Splunk checks:
 * [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md)
-* [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_event.md)
+* [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md)
 * [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md)
 
 Other resources:

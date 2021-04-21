@@ -108,7 +108,7 @@
     * [Splunk](stackpacks/integrations/new_splunk/splunk.md)
     * [Agent check: Splunk topology](stackpacks/integrations/new_splunk/splunk_topology.md)
     * [Agent check: Splunk metrics](stackpacks/integrations/new_splunk/splunk_metric.md)
-    * [Agent check: Splunk events](stackpacks/integrations/new_splunk/splunk_event.md)
+    * [Agent check: Splunk events](stackpacks/integrations/new_splunk/splunk_events.md)
   * [Splunk](stackpacks/integrations/splunk/README.md)
     * [The Splunk StackPack](stackpacks/integrations/splunk/splunk_stackpack.md)
     * [Splunk event](stackpacks/integrations/splunk/splunk_event.md)
