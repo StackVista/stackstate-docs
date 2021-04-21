@@ -22,12 +22,6 @@ StackState Agent V1 executes all Splunk saved searches configured in the [Agent 
 | **source\_type\_name** | string | Source type name. |
 | All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
-The example Splunk saved search below would result in an event in StackState with the following data:
-* **\_time**: `_time`
-* **tags**: 
-    * `hostname:<hostname>`
-    * `status:[CRITICAL|ERROR|WARNING|OK]`
-    * `description:<description>` 
 
 {% tabs %}
 {% tab title="Example Splunk query" %}
@@ -39,6 +33,13 @@ index=monitor alias_hostname=*
 ```
 {% endtab %}
 {% endtabs %}
+
+The example Splunk saved search above would result in an event in StackState with the following data:
+* **\_time**: `_time`
+* **tags**: 
+    * `hostname:<hostname>`
+    * `status:[CRITICAL|ERROR|WARNING|OK]`
+    * `description:<description>` 
 
 ## Agent Splunk events check configuration
 
