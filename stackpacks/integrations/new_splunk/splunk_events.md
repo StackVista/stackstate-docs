@@ -23,8 +23,11 @@ StackState Agent V1 expects the results of a saved search to follow the format d
 | All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
 The example Splunk saved search below would result in an event in StackState with the following data:
-* **\_time** = `_time`
-* **tags** = `hostname:<hostname>`, `status:[CRITICAL|ERROR|WARNING|OK]`, `description:<description` 
+* **\_time**: `_time`
+* **tags**: 
+    * `hostname:<hostname>`
+    * `status:[CRITICAL|ERROR|WARNING|OK]`
+    * `description:<description>` 
 
 {% tabs %}
 {% tab title="Example Splunk query" %}
@@ -58,7 +61,6 @@ To enable the Splunk events check and begin collecting events data from your Spl
      * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-saved-search-record). Default `_bkt` and `_cd`.
      * **parameters** - 
      * **tags** - 
-
 
 3. Restart StackState Agent V1 to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
