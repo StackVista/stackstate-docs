@@ -67,7 +67,7 @@ To enable token-based authentication, the following parameters should be configu
 * **token_expiration_days** - Validity of the newly requested token. Default 90 days.
 * **renewal_days** - Number of days before a new token should be refreshed. Default 10 days.
 
-The provided `initial_token` will be exchanged for a new tokenthe first time the check runs. After the configured `renewal_days` days, a new token will be requested from Splunk with a validity of `token_expiration_days`.
+The first time the check runs, the configured `initial_token` will be exchanged for a new token. After the configured `renewal_days` days, a new token will be requested from Splunk with a validity of `token_expiration_days`.
 
 {% tabs %}
 {% tab title="Example check configuration with token-based authentication" %}
@@ -98,7 +98,7 @@ instances:
 It is recommended to use [token-based authentication](#token-based-authentication).
 {% endhint %}
 
-With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is be used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
+With HTTP basic authentication, the `username` and `password` specified in the Agent V1 check configuration file is used to connect to Splunk. These parameters are specified in `authentication.basic_auth`.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
