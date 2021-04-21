@@ -67,13 +67,7 @@ To enable token-based authentication, the following parameters should be configu
 * **token_expiration_days** - Validity of the newly requested token. Default 90 days.
 * **renewal_days** - Number of days before a new token should be refreshed. Default 10 days.
 
-        ## The provided initial token will be exchanged for a new token
-        ## the first time the check runs
-        ## When a token is about to expire, a new token will be requested 
-        ## from Splunk with a validity of `token_expiration_days`, default 90 days.
-        ## the number of days before when token should refresh, default 10 days.
-        ## After the configured `renewal_days` days, the token will be renewed
-        ## for another `token_expiration_days` days.
+The provided `initial_token` will be exchanged for a new tokenthe first time the check runs. After the configured `renewal_days` days, a new token will be requested from Splunk with a validity of `token_expiration_days`.
 
 {% tabs %}
 {% tab title="Example check configuration with token-based authentication" %}
