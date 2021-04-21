@@ -33,9 +33,15 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 ### Install
 
+#### Splunk metrics and events
+
 To retrieve data from Splunk, the [API Integration StackPack](/stackpacks/integrations/api-integration.md) must be installed in your StackState instance. This is required for StackState to communicate with Agent V1 and, once the required Splunk Agent checks have been configured, will directly make Splunk metrics and events available in StackState.
 
-To retrieve topology data from Splunk, you must also install the Splunk Topology StackPack. Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+#### Splunk topology
+
+To retrieve topology data from Splunk, in addition to the [API Integration StackPack](/stackpacks/integrations/api-integration.md), which is required to communicate with Agent V1, you will also need to install the **Splunk Topology StackPack**. 
+
+Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
