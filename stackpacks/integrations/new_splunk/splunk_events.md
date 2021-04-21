@@ -48,7 +48,7 @@ To enable the Splunk events check and begin collecting events data from your Spl
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
    * **saved_searches** - The Splunk saved search or searches that the check will execute. For each, provide the following details:
-     * **name** - The name of the saved search in Splunk.
+     * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
      * **match** - 
      * **app** -
      * **request_timeout_seconds** - Default 10.
