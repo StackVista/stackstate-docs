@@ -11,11 +11,11 @@ The StackState Agent V1 Splunk events check will execute the saved searches peri
 
 ## Splunk saved search
 
-StackState Agent V1 expects the results of a saved search to follow the format described below.
+StackState Agent V1 executes all Splunk saved searches configured in the [Agent Splunk events check configuration file](#agent-splunk-events-check-configuration) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| **\_time** | long | Required. The data collection timestamp, milliseconds since epoch. |
+| **\_time** | long | Required. The data collection timestamp, in milliseconds since epoch. |
 | **event\_type** | string | Event type, for example `server_created`. |
 | **msg\_title** | string | Message title. |
 | **msg\_text** | string | Message text. |
