@@ -24,12 +24,6 @@ For a standard deployment, the StackState Helm chart will deploy storage service
 {% endtab %}
 {% endtabs %}
 
-### Namespace resource limits
-
-The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns such as Deployment or DaemonSet scaling. **It is not recommended to set a ResourceQuota as this can interfere with resource requests**, however, if this is necessary for your implementation then then the namespace resource limit should be set to match the node sizing requirements. 
-
-For example, using the recommended node sizing for virtual machines (5 nodes with `32GB memory`, `8 vCPUs`), the namespace resource limit should be `5*32GB = 160GB` and `5*8 vCPUs = 40 vCPUs`.
-
 ### Storage
 
 StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
@@ -47,6 +41,12 @@ kubectl port-forward service/<helm-release-name>-distributed-router 8080:8080
 When configuring Ingress, make sure to allow for large request body sizes \(50MB\) that may be sent occasionally by data sources like the StackState Agent or the AWS integration.
 
 For more details on configuring Ingress, have a look at the page [Configure Ingress docs](installation/kubernetes_install/ingress.md).
+
+### Namespace resource limits
+
+The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns such as Deployment or DaemonSet scaling. 
+
+**It is not recommended to set a ResourceQuota as this can interfere with resource requests**. If this is necessary for your implementation then the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines (5 nodes with `32GB memory`, `8 vCPUs`), the namespace resource limit should be `5*32GB = 160GB` and `5*8 vCPUs = 40 vCPUs`.
 
 ## Linux
 
