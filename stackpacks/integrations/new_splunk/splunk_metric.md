@@ -55,7 +55,7 @@ The example Splunk saved search above would result in the following metric data 
 
 ### Configure a Splunk metrics check
 
-To enable the Splunk metrics check and begin collecting metrics data from your Splunk instance, a Splunk metrics check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk metrics Agent check. 
+To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, a Splunk metrics check must be configured on Agent V1. The check configuration provides the details required to connect to your Splunk instance and execute a Splunk saved search. Follow the instructions below to configure the Splunk metrics Agent check. 
 
 {% hint style="info" %}
 Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
