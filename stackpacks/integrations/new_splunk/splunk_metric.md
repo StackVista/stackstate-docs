@@ -11,6 +11,8 @@ The Splunk metrics check on StackState Agent V1 will execute all configured Splu
 
 ## Splunk saved search
 
+### Fields used
+
 StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#splunk-metrics-agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
@@ -19,7 +21,7 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | `metric_name_field` | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
 | `metric_value_field` | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
 
-### Example
+### Example query
 
 {% tabs %}
 {% tab title="Splunk query" %}
@@ -49,7 +51,9 @@ The example Splunk saved search above would result in the following metric data 
 | **metric** | Splunk `<metricCpuUsageAverage>` field. |
 | **value** | Splunk `<valueCpuUsageAverage>` field. |
 
-## Splunk metrics Agent check
+## Agent check
+
+### Configure a Splunk metrics check
 
 To enable the Splunk metrics check and begin collecting metrics data from your Splunk instance, a Splunk metrics check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk metrics Agent check. 
 
