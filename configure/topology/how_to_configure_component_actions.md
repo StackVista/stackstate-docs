@@ -8,9 +8,7 @@ To start working with Component Actions, go to the Settings page and then in Act
 
 ## Name 
 
-A Component Action requires a name that is displayed in the **Actions** context menu; it is mandatory to provide a name. 
-
-Please note that the Component Action name is case-sensitive.
+The component action's name is used to display to users which component actions are available. The component action's name is case-sensitive.
 
 ## Description
 
@@ -28,7 +26,7 @@ The below example binds an Action to all components in the "Production" domain t
 
 ## Script
 
-This step determines action's behavior when it is executed from the component context menu. Using the [StackState Scripting Language](/develop/reference/scripting/) you can script almost any action you need, from redirecting the user to another view with context, restarting remote components, to calling predictions for components. See the example scripts below.
+This step determines action's behavior when it is executed from the component context menu. Using the [StackState Scripting Language](/develop/reference/scripting/scripting-in-stackstate.md) you can script almost any action you need, from redirecting the user to another view with context, restarting remote components, to calling predictions for components. See the example scripts below.
 
 Action scripts have access to a `component` variable, representing the component the action was invoked on.
 
@@ -92,5 +90,5 @@ urn:stackpack:{stackpack-name}:component-action:{component-action-name}
 ## See also
 
 * [StackState Query Language (STQL)](/develop/reference/stql_reference.md)    
-* [Scripting in StackState)](/develop/reference/scripting/scripting-in-stackstate.md)
+* [Scripting in StackState](/develop/reference/scripting/scripting-in-stackstate.md)
 * [Component script API](/develop/reference/scripting/script-apis/component.md)
