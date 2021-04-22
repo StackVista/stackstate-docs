@@ -61,7 +61,7 @@ To enable the Splunk metrics integration and begin collecting metrics data from 
 Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
 {% endhint %}
 
-To configure the Splunk metrics Agent check. 
+To configure the Splunk metrics Agent check:
 
 1. Edit the Agent V1 integration configuration file `???`.
 2. Under **instances**, add details of your Splunk instance:
