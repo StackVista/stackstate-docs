@@ -6,13 +6,17 @@ To start working with Component Actions, go to the Settings page and then in Act
 
 ![Component Actions](../../.gitbook/assets/component_actions.png)
 
-## 1. Provide a name and description
+## Name 
 
-A Component Action requires a name that is displayed in the **Actions** context menu; it is mandatory to provide a name. The Description, on the other hand, is optional. However, it is a good practice to provide a bit of explanation that gives more context about your Action.
+A Component Action requires a name that is displayed in the **Actions** context menu; it is mandatory to provide a name. 
 
 Please note that the Component Action name is case-sensitive.
 
-## 2. Bind components to your Action with an STQL query
+## Description
+
+The description is used to populate the tooltip. The tooltip becomes visible to users who hover over the component action in the user interface.
+
+## STQL query
 
 In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](../../develop/reference/stql_reference.md).
 
@@ -22,80 +26,52 @@ The below example binds an Action to all components in the "Production" domain t
 (domain IN ("Production") AND layer IN ("databases"))
 ```
 
-## 3. Write a script for your Action to execute
+## Script
 
-This step determines Action's behavior when it is executed from the component context menu. The scripting language here is [Groovy](https://groovy-lang.org/), and you can script almost any action you need, from redirecting to another View with context, restarting remote components, to calling predictions for components.
+This step determines action's behavior when it is executed from the component context menu. Using the [StackState Scripting Language](/develop/reference/scripting/) you can script almost any action you need, from redirecting the user to another view with context, restarting remote components, to calling predictions for components. See the example scripts below.
 
-Find more about the possibilities of [scripting in StackState](../../develop/reference/scripting/).
-
-## 4. Provide a valid Identifier \(optional\)
-
-A valid Identifier for an Action is a URN that follows the below convention:
-
-```text
-urn:stackpack:{stackpack-name}:component-action:{component-action-name}
-```
-
-## Examples
-
-Actions have access to a `component` object, representing the component the Action was invoked on.
+Action scripts have access to a `component` variable, representing the component the action was invoked on.
 
 Component properties can be accessed directly:
 
-```text
-def podName = component.name
-```
+| Property | Type | Returns |
+| :--- | :--- | :--- |
+| component.id | Long | The StackGraph id of the component. |
+| component.lastUpdateTimestamp | Long | The timestamp the component was last updated. |
+| component.name | String| The name of the component. | 
+| component.description | Option[String] | The description of the component |
+| component.labels | Set[Label] | Set of labels, each containing a `name` property. |  
+| state.healthState | HealthStateValue | The health state of the component. Either `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| state.propagatedHealthState | HealthStateValue | The propagated health state of the component. Either `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| layer | Long | The StackGraph id of the layer the component is on. |
+| domain | Long | The StackGraph id of the domain the component is on. |
+| environments | Set[Long] | The StackGraph ids of the environments the component is on. |
 
-Component labels can be accessed via the `labels` property:
+Also see the [Component script API](/develop/reference/scripting/script-apis/component.md) for accessing other component properties.
 
-```text
-def cluster = (component.labels.find {it -> it.name.startsWith("cluster-name") }).name.split(':')[1]
-```
+### Example: Showing a topology query
 
-Using `GraphQL`, it is possible to access a specific StackPack's metadata:
-
-```text
-def k8sSync = component.synced.find { s ->
-    Graph.query({
-        it
-        .V(s.sync)[0]
-        .property('name').value().contains("Kubernetes")
-    })
-}
-def containerId = k8sSync.extTopologyElement.data.containerId
-```
-
-### Showing a topology query
-
-The Action can direct StackState to open a new topology query:
+The action can direct the StackState User Interface to open a new topology query:
 
 ```text
 def componentId = component.id.longValue()
 UI.showTopologyByQuery("withNeighborsOf(direction = 'both', components = (id = '${componentId}'), levels = '15') and label = 'stackpack:openshift'")
 ```
 
-### Navigating to an external URL
+### Example: Navigating the user to an external URL
 
-The Action can direct StackState to navigate to a specific URL:
+The action can direct the StackState User Interface to navigate to a specific URL:
 
 ```text
-def awsSync = component.synced.find { s ->
-    Graph.query({
-        it
-        .V(s.sync)[0]
-        .property('name').value().contains("AWS")
-    })
-}
-
-def region = awsSync.extTopologyElement.data.Location.AwsRegion
+def region = (component.labels.find {it -> it.name.startsWith("region") }).name.split(':')[1]
 def url = "https://${region}.console.aws.amazon.com/ec2/home?region=${region}#Instances:sort=instanceId"
 
 UI.redirectToURL(url)
 ```
 
-### Making HTTP requests
+### Example: Making HTTP requests
 
-The Action can invoke an HTTP request to a remote URL:
+The action can invoke an HTTP request to a remote URL:
 
 ```text
 Http.post("https://postman-echo.com/post")
@@ -103,3 +79,18 @@ Http.post("https://postman-echo.com/post")
 .jsonResponse()
 ```
 
+This call is made from the StackState server.
+
+## Identifier
+
+Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](/configure/identifiers.md) for a component action is a URN that follows the below convention:
+
+```text
+urn:stackpack:{stackpack-name}:component-action:{component-action-name}
+```
+
+## See also
+
+* [StackState Query Language (STQL)](/develop/reference/stql_reference.md)    
+* [Scripting in StackState)](/develop/reference/scripting/scripting-in-stackstate.md)
+* [Component script API](/develop/reference/scripting/script-apis/component.md)
