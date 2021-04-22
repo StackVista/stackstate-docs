@@ -64,13 +64,13 @@ To enable the Splunk events check and begin collecting events data from your Spl
        * **initial_history_time_seconds** - Default 0.
        * **max_restart_history_seconds** - Default 86400.
        * **max_query_chunk_seconds** - Default 3600.
-       * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-saved-search-record). Default `_bkt` and `_cd`.
+       * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
        * **parameters** - 
 
 3. Restart StackState Agent V1 to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
-### Uniquely identify a saved search record
+### Uniquely identify a record
 
 To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk events Agent check configuration. The specified `unique_key_fields` fields become mandatory for each record. 
 
