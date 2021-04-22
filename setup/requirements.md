@@ -24,6 +24,10 @@ For a standard deployment, the StackState Helm chart will deploy storage service
 {% endtab %}
 {% endtabs %}
 
+### Namespace resource limits
+
+The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns such as Deployment or DaemonSet scaling. It is recommended to not set a ResourceQuota as this can interfere with resource requests. If this is necessary for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines (5 nodes with `32GB memory`, `8 vCPUs`), the namespace resource limits should be `5*32GB = 160GB` and `5*8 = 40vCPUs`.
+
 ### Storage
 
 StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
