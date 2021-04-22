@@ -2,7 +2,7 @@
 
 ## Overview
 
-The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
+The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that, in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the events data you want to retrieve.
 * [In StackState Agent V1](#splunk-events-agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
@@ -71,7 +71,7 @@ To enable the Splunk events check and begin collecting events data from your Spl
 
 ### Uniquely identify a record
 
-To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk events Agent check configuration. The specified `unique_key_fields` fields become mandatory for each record. 
+To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk events Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
 
 If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` (an empty list).
 

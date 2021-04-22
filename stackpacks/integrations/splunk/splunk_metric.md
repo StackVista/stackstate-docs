@@ -32,6 +32,8 @@ index=vms MetricId=cpu.usage.average
 | eval type = "CpuUsageAverage"
 ```
 
+
+
 ## Authentication
 
 The Splunk integration provides various authentication mechanisms to connect to your Splunk instance.
