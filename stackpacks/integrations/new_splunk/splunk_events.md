@@ -5,7 +5,7 @@
 The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that, in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the events data you want to retrieve.
-* [In StackState Agent V1](#splunk-events-agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
+* [In StackState Agent V1](#agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
 
 The Splunk events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now.
 
@@ -13,7 +13,7 @@ The Splunk events check on StackState Agent V1 will execute all configured Splun
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](#splunk-events-agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |

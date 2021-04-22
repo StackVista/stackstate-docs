@@ -5,7 +5,7 @@
 The StackState Splunk integration collects metrics from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk metrics check configuration. This means that, in order to receive Splunk metrics data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the metrics data you want to retrieve.
-* [In StackState Agent V1](#splunk-metrics-agent-check), a Splunk metrics check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
+* [In StackState Agent V1](#agent-check), a Splunk metrics check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
 
 The Splunk metrics check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
 
@@ -13,13 +13,13 @@ The Splunk metrics check on StackState Agent V1 will execute all configured Splu
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#splunk-metrics-agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | **\_time** | long | Data collection timestamp, millis since epoch. |
-| `metric_name_field` | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
-| `metric_value_field` | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
+| `metric_name_field` | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-check). |
+| `metric_value_field` | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-check). |
 
 ### Example query
 
