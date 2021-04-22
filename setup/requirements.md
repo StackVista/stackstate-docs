@@ -26,7 +26,9 @@ For a standard deployment, the StackState Helm chart will deploy storage service
 
 ### Namespace resource limits
 
-The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns such as Deployment or DaemonSet scaling. It is recommended to not set a ResourceQuota as this can interfere with resource requests. If this is necessary for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines (5 nodes with `32GB memory`, `8 vCPUs`), the namespace resource limits should be `5*32GB = 160GB` and `5*8 = 40vCPUs`.
+The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns such as Deployment or DaemonSet scaling. **It is not recommended to set a ResourceQuota as this can interfere with resource requests**, however, if this is necessary for your implementation then then the namespace resource limit should be set to match the node sizing requirements. 
+
+For example, using the recommended node sizing for virtual machines (5 nodes with `32GB memory`, `8 vCPUs`), the namespace resource limit should be `5*32GB = 160GB` and `5*8 vCPUs = 40 vCPUs`.
 
 ### Storage
 
