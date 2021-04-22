@@ -22,6 +22,8 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | **source\_type\_name** | string | Source type name. |
 | All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
+### Example
+
 {% tabs %}
 {% tab title="Example Splunk query" %}
 ```text
