@@ -4,10 +4,10 @@
 
 The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
-* [In Splunk](#splunk-saved-search), there should be a saved search that generates the events data you want to retrieve.
-* [In StackState Agent V1](#splunk-events-agent-check), a Splunk events check should be configured to execute the relevant Splunk saved search and filter data as required.
+* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the events data you want to retrieve.
+* [In StackState Agent V1](#splunk-events-agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
 
-The StackState Agent V1 Splunk events check will execute the saved searches periodically, retrieving data from the last received event timestamp up until now. 
+The Splunk events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now.
 
 ## Splunk saved search
 
@@ -21,7 +21,6 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | **msg\_text** | string | Message text. |
 | **source\_type\_name** | string | Source type name. |
 | All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
-
 
 {% tabs %}
 {% tab title="Example Splunk query" %}
