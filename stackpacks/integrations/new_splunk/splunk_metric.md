@@ -64,7 +64,7 @@ Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metri
 To configure the Splunk metrics Agent check. 
 
 1. Edit the Agent V1 integration configuration file `???`.
-2. Under **instances**, include details of your Splunk instance:
+2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
    * **tags** - 
@@ -84,8 +84,9 @@ To configure the Splunk metrics Agent check.
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
        * **parameters** -
 
-4. Save the configuration file and restart StackState Agent V1 to apply the configuration changes.
-5. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
+4. Save the configuration file.
+5. Restart StackState Agent V1 to apply the configuration changes.
+6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
 ### Uniquely identify a record
 
