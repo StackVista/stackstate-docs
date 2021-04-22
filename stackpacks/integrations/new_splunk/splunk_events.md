@@ -5,13 +5,13 @@
 The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be a saved search that generates the events data you want to retrieve.
-* [In StackState Agent V1](#agent-splunk-events-check-configuration), a Splunk events check should be configured to execute the relevant Splunk saved search and filter data as required.
+* [In StackState Agent V1](#splunk-events-agent-check-configuration), a Splunk events check should be configured to execute the relevant Splunk saved search and filter data as required.
 
 The StackState Agent V1 Splunk events check will execute the saved searches periodically, retrieving data from the last received event timestamp up until now. 
 
 ## Splunk saved search
 
-StackState Agent V1 executes all Splunk saved searches configured in the [Agent Splunk events check configuration file](#agent-splunk-events-check-configuration) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](#splunk-events-agent-check-configuration) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -34,34 +34,38 @@ index=monitor alias_hostname=*
 {% endtab %}
 {% endtabs %}
 
-The example Splunk saved search above would result in an event in StackState with the following data:
-* **\_time**: `_time`
-* **tags**: 
-    * `hostname:<hostname>`
-    * `status:[CRITICAL|ERROR|WARNING|OK]`
-    * `description:<description>` 
+The example Splunk saved search above would result in the following event data in StackState:
 
-## Agent Splunk events check configuration
+| Field | Data |
+| :--- | :--- |
+| **\_time** | Splunk `_time` field. |
+| **event\_type** | - |
+| **msg\_title** | - |
+| **msg\_text** | - |
+| **source\_type\_name** | - |
+| **tags** | `hostname:<hostname>`<br />`status:<status>`<br />`description:<description>` |
+
+## Splunk events Agent check configuration
 
 To enable the Splunk events check and begin collecting events data from your Splunk instance:
 
-1. Edit the Agent V1 integration configuration file `???` to include details of your Splunk instance and Splunk saved searches:
+1. Edit the Agent V1 integration configuration file `???` to include details of your Splunk instance under **instances:**:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
-   * **saved_searches** - The Splunk saved search or searches that the check will execute. For each, provide the following details:
+   * **tags** - 
+2. In the same the Agent V1 integration configuration file, add details of each [Splunk saved search](#splunk-saved-search) that the check should execute under **saved_searches:**. 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
-     * **match** - 
-     * **app** -
-     * **request_timeout_seconds** - Default 10.
-     * **search_max_retry_count** - Default 5.
-     * **search_seconds_between_retries** - Default 1.
-     * **batch_size** - Default 1000.
-     * **initial_history_time_seconds** - Default 0.
-     * **max_restart_history_seconds** - Default 86400.
-     * **max_query_chunk_seconds** - Default 3600.
-     * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-saved-search-record). Default `_bkt` and `_cd`.
-     * **parameters** - 
-     * **tags** - 
+       * **match** - 
+       * **app** -
+       * **request_timeout_seconds** - Default 10.
+       * **search_max_retry_count** - Default 5.
+       * **search_seconds_between_retries** - Default 1.
+       * **batch_size** - Default 1000.
+       * **initial_history_time_seconds** - Default 0.
+       * **max_restart_history_seconds** - Default 86400.
+       * **max_query_chunk_seconds** - Default 3600.
+       * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-saved-search-record). Default `_bkt` and `_cd`.
+       * **parameters** - 
 
 3. Restart StackState Agent V1 to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
