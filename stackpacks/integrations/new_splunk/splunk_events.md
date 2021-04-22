@@ -5,13 +5,13 @@
 The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be a saved search that generates the events data you want to retrieve.
-* [In StackState Agent V1](#splunk-events-agent-check-configuration), a Splunk events check should be configured to execute the relevant Splunk saved search and filter data as required.
+* [In StackState Agent V1](#splunk-events-agent-check), a Splunk events check should be configured to execute the relevant Splunk saved search and filter data as required.
 
 The StackState Agent V1 Splunk events check will execute the saved searches periodically, retrieving data from the last received event timestamp up until now. 
 
 ## Splunk saved search
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](#splunk-events-agent-check-configuration) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](#splunk-events-agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -45,9 +45,9 @@ The example Splunk saved search above would result in the following event data i
 | **source\_type\_name** | - |
 | **tags** | `hostname:<hostname>`<br />`status:<status>`<br />`description:<description>` |
 
-## Splunk events Agent check configuration
+## Splunk events Agent check
 
-To enable the Splunk events check and begin collecting events data from your Splunk instance:
+To enable the Splunk events check and begin collecting events data from your Splunk instance, a Splunk events check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk events Agent check.
 
 1. Edit the Agent V1 integration configuration file `???` to include details of your Splunk instance under **instances**:
    * **url** - The URL of your Splunk instance.
