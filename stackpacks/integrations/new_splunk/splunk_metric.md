@@ -18,8 +18,8 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | **\_time** | long | Data collection timestamp, millis since epoch. |
-| `metric_name_field` | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-check). |
-| `metric_value_field` | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-check). |
+| **metric** | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-check). |
+| **value** | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-check). |
 
 ### Example query
 
