@@ -16,11 +16,13 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | **\_time** | long | Data collection timestamp, millis since epoch. |
-| **metric** | string | Name of the metric. This is taken from the `metric_name_field` configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
-| **value** | numeric | The value of the metric. This is taken from the `metric_value_field` configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
+| `metric_name_field` | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
+| `metric_value_field` | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-splunk-metrics-check). |
+
+### Example
 
 {% tabs %}
-{% tab title="Example Splunk query" %}
+{% tab title="Splunk query" %}
 ```text
 index=vms MetricId=cpu.usage.average
 | table _time VMName Value    
@@ -29,12 +31,15 @@ index=vms MetricId=cpu.usage.average
 | eval type = "CpuUsageAverage"
 ```
 {% endtab %}
+{% tab title="Splunk metrics Agent check configuration" %}
+```
+...
+metric_name_field: "metricCpuUsageAverage"
+metric_value_field: "valueCpuUsageAverage"
+...
+```
+{% endtab %}
 {% endtabs %}
-
-With Agent check configuration:
-
-* `metric_name_field: "metricCpuUsageAverage"`
-* `metric_value_field: "valueCpuUsageAverage"`
 
 The example Splunk saved search above would result in the following metric data in StackState:
 
@@ -44,7 +49,7 @@ The example Splunk saved search above would result in the following metric data 
 | **metric** | Splunk `<metricCpuUsageAverage>` field. |
 | **value** | Splunk `<valueCpuUsageAverage>` field. |
 
-## Agent Splunk metrics check
+## Splunk metrics Agent check
 
 
 
@@ -58,4 +63,4 @@ If it is not possible to uniquely identify a record by a combination of specific
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/new_splunk/splunk.md)
-* [Example Splunk metrics configuration file - splunk\_metrics.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metrics/conf.yaml.example)
+* [Example Splunk metrics configuration file - splunk\_metrics.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
