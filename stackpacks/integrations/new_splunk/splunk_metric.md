@@ -51,14 +51,36 @@ The example Splunk saved search above would result in the following metric data 
 
 ## Splunk metrics Agent check
 
+To enable the Splunk metrics check and begin collecting metrics data from your Splunk instance, a Splunk metrics check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk metrics Agent check. An example Splunk metrics configuration file is available on GitHub - [conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example).
 
+1. Edit the Agent V1 integration configuration file `???` to include details of your Splunk instance under **instances**:
+   * **url** - The URL of your Splunk instance.
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
+   * **tags** - 
+2. In the same the Agent V1 integration configuration file under **saved_searches**, add details of each [Splunk saved search](#splunk-saved-search) that the check should execute: 
+     * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
+       * **metric_name_field** - The field in the Splunk results that will contain the metric name. Default - `"metric"`.
+       * **metric_value_field** - The field in the Splunk results that will contain numerical data. Default `value`.
+       * **match:** - Default `metrics.*`.
+       * **app** - Default `"search"
+       * **request_timeout_seconds** - Default `10`
+       * **search_max_retry_count** - Default `5`
+       * **search_seconds_between_retries** - Default `1`
+       * **batch_size** - Default `1000`
+       * **initial_history_time_seconds** - Default `0`
+       * **max_restart_history_seconds** - Default `86400`
+       * **max_query_chunk_seconds** - Default `3600`
+       * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
+       * **parameters** -
+
+3. Restart StackState Agent V1 to apply the configuration changes.
+4. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
 ### Uniquely identify a record
 
 To prevent sending duplicate metrics over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk metrics Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
 
 If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` (an empty list).
-
 
 ## See also
 
