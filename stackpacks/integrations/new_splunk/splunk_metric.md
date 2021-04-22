@@ -54,14 +54,14 @@ The example Splunk saved search above would result in the following metric data 
 To enable the Splunk metrics check and begin collecting metrics data from your Splunk instance, a Splunk metrics check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk metrics Agent check. 
 
 {% hint style="info" %}
-Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example).
+Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
 {% endhint %}
 
 1. Edit the Agent V1 integration configuration file `???` to include details of your Splunk instance under **instances**:
    * **url** - The URL of your Splunk instance.
-   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
    * **tags** - 
-2. In the same the Agent V1 integration configuration file under **saved_searches**, add details of each [Splunk saved search](#splunk-saved-search) that the check should execute: 
+2. In the same the Agent V1 integration configuration file under **saved_searches**, add details of each Splunk saved search that the check should execute: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
        * **metric_name_field** - The field in the Splunk results that will contain the metric name. Default `"metric"`.
        * **metric_value_field** - The field in the Splunk results that will contain numerical data. Default `value`.
