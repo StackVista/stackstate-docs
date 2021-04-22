@@ -48,7 +48,11 @@ The example Splunk saved search above would result in the following event data i
 
 ## Splunk events Agent check
 
-To enable the Splunk events check and begin collecting events data from your Splunk instance, a Splunk events check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk events Agent check. An example Splunk events configuration file is available on GitHub - [conf.d/splunk_event.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example).
+To enable the Splunk events check and begin collecting events data from your Splunk instance, a Splunk events check on Agent V1 must be configured to connect to your Splunk instance and execute at least one Splunk saved search. Follow the instructions below to configure the Splunk events Agent check. 
+
+{% hint style="info" %}
+Example Splunk events Agent check configuration file: [conf.d/splunk_event.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example).
+{% endhint %}
 
 1. Edit the Agent V1 integration configuration file `???` to include details of your Splunk instance under **instances**:
    * **url** - The URL of your Splunk instance.
