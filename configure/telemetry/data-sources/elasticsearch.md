@@ -60,16 +60,18 @@ curl localhost:9200/_cat/indices?v
 
 The **Time field format** specified in the StackState Elasticsearch data source settings should fit the date format used in the Elasticsearch index that will be retrieved.
 
-**Find the date format from the Elasticsearch index mapping**
-You can find the date format used in a specific Elasticsearch index with the command `curl <elasticsearch_node>:<port>/<index_name>/_mapping?pretty`. This returns the index mapping, including the format of any date values.
+
+**Find the date format used in the Elasticsearch index**
+
+You can find the date format used in a specific Elasticsearch index with the command `curl <elasticsearch_node>:<port>/<index_name>/_mapping?pretty`. This returns the index mapping, which includes the format of any date values.
 
 In the example below, the date format would be `date`.
 
 ```text
-curl localhost:9200/sts_internal_events/_mapping?pretty
+curl localhost:9200/my_es_index/_mapping?pretty
 
 > {
->   sts_internal_events {
+>   my_es_index {
 >       mappings {
 >           ...
 >           "properties" : {
@@ -84,7 +86,11 @@ curl localhost:9200/sts_internal_events/_mapping?pretty
 ```
 
 **Find the correct time field format**
-Look up the date format from your Elasticsearch index in the [Elasticsearch built in formats \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html). For the date format `date` this would be `yyyy-MM-dd`. You may need to adjust the format provided to fit your implementation, for example `yyyy-MM-dd’T’HH:mm:ss[.SSS]ZZZZZ` for a timestamp pattern with millis that can have 1, 2 or 3 digits.
+
+To find the correct time field format to specify in the StackState Elasticsearch data source settings, look up the date format from your Elasticsearch index in the [Elasticsearch built in formats \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html). You may need to adjust the format provided to fit your implementation, for example:
+
+* `yyyy-MM-dd` for the date format `date`.
+* `yyyy-MM-dd’T’HH:mm:ss[.SSS]ZZZZZ` for a timestamp pattern with millis that can have 1, 2 or 3 digits.
 
 ### Work with Elasticsearch data in StackState
 
