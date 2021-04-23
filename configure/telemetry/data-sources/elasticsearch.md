@@ -32,7 +32,7 @@ To add an Elasticsearch data source:
    * **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
    * **Time zone** - the timezone of the timestamps stored in the Elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
    * **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
-   * **Time field format** - the format of the value in the specified **Time field**. Find the format that matches your Elasticsearch instance in the [Elasticsearch built in formats \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html) and adjust as required, for example `yyyy-MM-dd’T’HH:mm:ss[.SSS]ZZZZZ`.
+   * **Time field format** - the format of the value in the specified **Time field**. Use the date format from your Elasticsearch index as shown in the [Elasticsearch built in formats \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html) and adjust as required, for example `yyyy-MM-dd’T’HH:mm:ss[.SSS]ZZZZZ`. See [how to find the date format used in an Elasticsearch index](elasticsearch.md#find-the-date-format-used-in-an-elasticsearch-index).
    * A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](elasticsearch.md#advanced-settings).
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.
 5. Click **CREATE** to save the Elasticsearch data source settings.
@@ -54,6 +54,16 @@ curl localhost:9200/_cat/indices?v
 > green  open   sts_internal_events-2020.10.05 SiycHLkORrGe0tCUWbby2w   1   0      47456            0     18.7mb         18.7mb
 > green  open   sts_internal_events-2020.10.06 INYPKojcSMWnyyjMQvTEow   1   0      40890            0     16.4mb         16.4mb
 > green  open   sts_internal_events-2020.10.07 AagKIOInRaetkeQF8TO_rA   1   0      47125            0     18.3mb         18.3mb
+```
+
+#### Find the date format used in an Elasticsearch index
+
+You can find the date format used in a specific Elasticsearch index with the command `curl <elasticsearch_node>:<port>/<index_name>/_mapping?pretty`. This returns the index mapping, including the format of any date values.
+
+In the example below, the date format would be `???`.
+
+```text
+
 ```
 
 ### Work with Elasticsearch data in StackState
