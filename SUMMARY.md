@@ -119,7 +119,7 @@
 
 * [Topology](configure/topology/README.md)
   * [Component actions](configure/topology/component_actions.md)
-  * [Configure component actions](configure/topology/how_to_configure_component_actions.md)
+  * [How to: Configure component actions](configure/topology/how_to_configure_component_actions.md)
   * [Create a topology manually](configure/topology/how_to_create_manual_topology.md)
   * [Configure synchronizations](configure/topology/sync.md)
   * [Customize view health state reporting](configure/topology/view_state_configuration.md)
