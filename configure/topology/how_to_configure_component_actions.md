@@ -1,101 +1,93 @@
-# Configure component actions
+# How too: Configure component actions
 
-This how-to describes the steps to create a Component Action that can be executed from the component context menu in a Topology View.
 
-To start working with Component Actions, go to the Settings page and then in Actions, select "Component Actions". There you can add a new Component Action or edit one that already exists.
+## Overview 
+
+This how to describes the steps to create a [component action](/configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the details pane on the right of the StackState UI.
+
+## Add or edit a component action
+
+The component actions available in StackState can be managed in the StackState UI from the page **Settings** > **Actions** > **Component Actions**.
+
+* To add a new component action, click the **ADD COMPONENT ACTION** button.
+* To edit an existing component action, click on the **...** menu to the right of its description and select **Edit**.
 
 ![Component Actions](../../.gitbook/assets/component_actions.png)
 
-## 1. Provide a name and description
+Each component action includes the following details:
 
-A Component Action requires a name that is displayed in the **Actions** context menu; it is mandatory to provide a name. The Description, on the other hand, is optional. However, it is a good practice to provide a bit of explanation that gives more context about your Action.
+* **Name** - The name displayed to users in the StackState UI when the component action is available for a component. The component action name is case-sensitive.
+* **Description** - The text shown in the tooltip when a user hovers over the component action name in the StackState UI.
+* **STQL Query** - An advanced topology query that returns all components for which this component action should be available. For details, see the [STQL Query](#stql-query) section below.
+* **Script** - A script written in StackState Scripting Language that is run whenever the component action is executed in the StackState UI. For details, see the [script](#script) section and the [example scripts](#example-scripts) below.
+* **Identifier** - Optional. A unique identifier for the component action. For details, see the [identifier](#identifier) section below.
 
-Please note that the Component Action name is case-sensitive.
+### STQL query
 
-## 2. Bind components to your Action with an STQL query
-
-In this step, you determine which components of your topology are going to be able to use this Action. To do that, provide an STQL query that selects all components that should have access to this specific Action. You can find more about queries in StackState on our page about [using STQL](../../develop/reference/stql_reference.md).
-
-The below example binds an Action to all components in the "Production" domain that are present in the "databases" layer.
+The STQL query specified in a component action determines which components of the topology will be able to use this component action. This should be an advanced topology query that returns all of the components that should have access to this specific component action. For example, to bind a component action to all components in the "Production" domain that are present in the "databases" layer, you would use the STQL query:
 
 ```text
-(domain IN ("Production") AND layer IN ("databases"))
+(domain IN ("Production") AND layer IN ("databases")) 
 ```
 
-## 3. Write a script for your Action to execute
+You can find more information about writing advanced topology queries in StackState on the page [using STQL](/develop/reference/stql_reference.md).
 
-This step determines Action's behavior when it is executed from the component context menu. The scripting language here is [Groovy](https://groovy-lang.org/), and you can script almost any action you need, from redirecting to another View with context, restarting remote components, to calling predictions for components.
+### Script
 
-Find more about the possibilities of [scripting in StackState](../../develop/reference/scripting/).
+The script determines behavior of the component action when it is executed by a user. YOu can use the [StackState Scripting Language](/develop/reference/scripting/scripting-in-stackstate.md) to script almost any action you need, such as redirecting a user to another view with a specific context, restarting remote components, or calling predictions for components. Some [example scripts](#example-scripts) are available below to help you get started.
 
-## 4. Provide a valid Identifier \(optional\)
+Component action scripts always have access to a `component` variable, this represents the component for which the component action was invoked.
 
-A valid Identifier for an Action is a URN that follows the below convention:
+The properties in the table below can be accessed directly in the component action script:
+
+| Property | Type | Returns |
+| :--- | :--- | :--- |
+| `component.id` | Long | The StackGraph ID of the component. |
+| `component.lastUpdateTimestamp` | Long | The timestamp when the component was last updated. |
+| `component.name` | String| The name of the component. | 
+| `component.description` | Option\[String\] | The description of the component. |
+| `component.labels` | Set\[Label\] | Set of labels, each containing a `name` property. |  
+| `state.healthState` | HealthStateValue | The health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| `state.propagatedHealthState` | HealthStateValue | The propagated health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| `layer` | Long | The StackGraph ID of the layer that the component is in. |
+| `domain` | Long | The StackGraph ID of the domain that the component is in. |
+| `environments` | Set\[Long\] | The StackGraph IDs of all environments that the component is in. |
+
+Other component properties can also be accessed using the [component script API](/develop/reference/scripting/script-apis/component.md).
+
+### Identifier
+
+Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](/configure/identifiers.md) for a component action is a URN that follows the convention:
 
 ```text
 urn:stackpack:{stackpack-name}:component-action:{component-action-name}
 ```
 
-## Examples
+## Example scripts
 
-Actions have access to a `component` object, representing the component the Action was invoked on.
+### Show a topology query
 
-Component properties can be accessed directly:
-
-```text
-def podName = component.name
-```
-
-Component labels can be accessed via the `labels` property:
-
-```text
-def cluster = (component.labels.find {it -> it.name.startsWith("cluster-name") }).name.split(':')[1]
-```
-
-Using `GraphQL`, it is possible to access a specific StackPack's metadata:
-
-```text
-def k8sSync = component.synced.find { s ->
-    Graph.query({
-        it
-        .V(s.sync)[0]
-        .property('name').value().contains("Kubernetes")
-    })
-}
-def containerId = k8sSync.extTopologyElement.data.containerId
-```
-
-### Showing a topology query
-
-The Action can direct StackState to open a new topology query:
+The component action script below will direct the StackState UI to open a new topology query:
 
 ```text
 def componentId = component.id.longValue()
 UI.showTopologyByQuery("withNeighborsOf(direction = 'both', components = (id = '${componentId}'), levels = '15') and label = 'stackpack:openshift'")
 ```
 
-### Navigating to an external URL
+### Navigate the user to an external URL
 
-The Action can direct StackState to navigate to a specific URL:
+The component action script below will direct the StackState UI to navigate to a specific URL:
 
 ```text
-def awsSync = component.synced.find { s ->
-    Graph.query({
-        it
-        .V(s.sync)[0]
-        .property('name').value().contains("AWS")
-    })
-}
-
-def region = awsSync.extTopologyElement.data.Location.AwsRegion
+def region = (component.labels.find {it -> it.name.startsWith("region") }).name.split(':')[1]
 def url = "https://${region}.console.aws.amazon.com/ec2/home?region=${region}#Instances:sort=instanceId"
 
 UI.redirectToURL(url)
 ```
 
-### Making HTTP requests
+### Make HTTP requests
 
-The Action can invoke an HTTP request to a remote URL:
+The component action script below will invoke an HTTP request to a remote URL. This call is made from the StackState server:
 
 ```text
 Http.post("https://postman-echo.com/post")
@@ -103,3 +95,8 @@ Http.post("https://postman-echo.com/post")
 .jsonResponse()
 ```
 
+## See also
+
+* [StackState Query Language (STQL)](/develop/reference/stql_reference.md)    
+* [Scripting in StackState](/develop/reference/scripting/scripting-in-stackstate.md)
+* [Component script API](/develop/reference/scripting/script-apis/component.md)
