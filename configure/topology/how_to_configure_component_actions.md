@@ -44,21 +44,21 @@ The properties in the table below can be accessed directly in the component acti
 | Property | Type | Returns |
 | :--- | :--- | :--- |
 | `component.id` | Long | The StackGraph ID of the component. |
-| `component.lastUpdateTimestamp` | Long | The timestamp the component was last updated. |
+| `component.lastUpdateTimestamp` | Long | The timestamp when the component was last updated. |
 | `component.name` | String| The name of the component. | 
-| `component.description` | Option\[String\] | The description of the component |
+| `component.description` | Option\[String\] | The description of the component. |
 | `component.labels` | Set\[Label\] | Set of labels, each containing a `name` property. |  
-| `state.healthState` | HealthStateValue | The health state of the component. Either `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| `state.propagatedHealthState` | HealthStateValue | The propagated health state of the component. Either `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| `layer` | Long | The StackGraph ID of the layer the component is on. |
-| `domain` | Long | The StackGraph ID of the domain the component is on. |
-| `environments` | Set\[Long\] | The StackGraph ids of the environments the component is on. |
+| `state.healthState` | HealthStateValue | The health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| `state.propagatedHealthState` | HealthStateValue | The propagated health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| `layer` | Long | The StackGraph ID of the layer that the component is in. |
+| `domain` | Long | The StackGraph ID of the domain that the component is in. |
+| `environments` | Set\[Long\] | The StackGraph IDs of all environments that the component is in. |
 
 Other component properties can also be accessed using the [component script API](/develop/reference/scripting/script-apis/component.md).
 
 ### Identifier
 
-Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](/configure/identifiers.md) for a component action is a URN that follows the below convention:
+Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](/configure/identifiers.md) for a component action is a URN that follows the convention:
 
 ```text
 urn:stackpack:{stackpack-name}:component-action:{component-action-name}
