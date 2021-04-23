@@ -18,9 +18,9 @@ Each component action includes the following details:
 
 * **Name** - The name displayed to users in the StackState UI when the component action is available for a component. The component action name is case-sensitive.
 * **Description** - The text shown in the tooltip when a user hovers over the component action name in the StackState UI.
-* **STQL Query** - An advanced topology query that returns all components for which this component action should be available. For details see the [STQL Query](#stql-query) section below.
-* **Script** - A script written in StackState Scripting Language that is run whenever the component action is executed in the StackState UI. For details see the [script](#script) section and the [example scripts](#example-scripts) below.
-* **Identifier** - Optional. A unique identifier for the component action. For details see the [identifier](#identifier) section below.
+* **STQL Query** - An advanced topology query that returns all components for which this component action should be available. For details, see the [STQL Query](#stql-query) section below.
+* **Script** - A script written in StackState Scripting Language that is run whenever the component action is executed in the StackState UI. For details, see the [script](#script) section and the [example scripts](#example-scripts) below.
+* **Identifier** - Optional. A unique identifier for the component action. For details, see the [identifier](#identifier) section below.
 
 ### STQL query
 
