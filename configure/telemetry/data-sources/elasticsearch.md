@@ -58,8 +58,7 @@ curl localhost:9200/_cat/indices?v
 
 #### Find the correct time field format for an Elasticsearch index
 
-The **Time field format** specified in the StackState Elasticsearch data source settings should fit the date format used in the Elasticsearch index that will be retrieved.
-
+The **Time field format** specified in the StackState Elasticsearch data source settings should fit the date format used in the Elasticsearch index that will be retrieved. Follow the instructions below to find the date format used in the Elasticsearch index and then use this to identify the correct time field format.
 
 **Find the date format used in the Elasticsearch index**
 
