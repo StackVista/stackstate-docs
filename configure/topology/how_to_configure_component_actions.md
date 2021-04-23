@@ -33,7 +33,7 @@ The STQL query specified in a component action determines which components of th
 
 You can find more information about writing advanced topology queries in StackState on the page [using STQL](/develop/reference/stql_reference.md).
 
-## Script
+### Script
 
 The script determines behavior of the component action when it is executed by a user. YOu can use the [StackState Scripting Language](/develop/reference/scripting/scripting-in-stackstate.md) to script almost any action you need, such as redirecting a user to another view with a specific context, restarting remote components, or calling predictions for components. Some [example scripts](#example-scripts) are available below to help you get started.
 
@@ -56,7 +56,7 @@ The properties in the table below can be accessed directly in the component acti
 
 Other component properties can also be accessed using the [component script API](/develop/reference/scripting/script-apis/component.md).
 
-## Identifier
+### Identifier
 
 Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](/configure/identifiers.md) for a component action is a URN that follows the below convention:
 
