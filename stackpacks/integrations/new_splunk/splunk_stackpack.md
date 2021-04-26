@@ -132,7 +132,11 @@ instances:
 
 ### Status
 
+To check the status of the Splunk integration, run the status subcommand and look for Splunk under `Running Checks`:
 
+```text
+sudo stackstate-agent status
+```
 
 ## Integration details
 
@@ -142,13 +146,19 @@ instances:
 
 When the Splunk events Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches.
 
+For details, see the [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md).
+
 #### Metrics
 
 When the Splunk metrics Agent check is configured, events will be retrieved from the configured Splunk saved search or searches.
 
+For details. see the [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md).
+
 #### Topology
 
 When the Splunk Topology StackPack is installed and the Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved search or searches.
+
+For details, see the [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md).
 
 #### Traces
 
@@ -192,7 +202,7 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 
 ## Further information
 
-Configure the StackState Splunk checks:
+Configure the StackState Agent Splunk checks:
 * [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md)
 * [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md)
 * [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md)

@@ -66,7 +66,7 @@ To configure the Splunk metrics Agent check:
 1. Edit the Agent V1 integration configuration file `???`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
-   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk.md#authentication).
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk_stackpack.md#authentication).
    * **tags** - 
 3. Under **saved_searches**, add details of each Splunk saved search that the check should execute: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
@@ -96,5 +96,5 @@ If it is not possible to uniquely identify a record by a combination of specific
 
 ## See also
 
-* [StackState Splunk integration details](/stackpacks/integrations/new_splunk/splunk.md)
+* [StackState Splunk integration details](/stackpacks/integrations/new_splunk/splunk_stackpack.md)
 * [Example Splunk metrics configuration file - splunk\_metrics.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)

@@ -13,22 +13,17 @@ The Splunk topology check on StackState Agent V1 will execute all configured Spl
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the two tables below.
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
 
-| Component field | Type | Description |
-| :--- | :--- | :--- |
-| **ID** | string |  |
-| **type** | string |  |
-| **name** | string |  |
-| **label.<identifier_name>** | string |  |
-| **identifier.<label_name>** | string |  |
-
-
-| Relations field | Type | Description |
-| :--- | :--- | :--- |
-| **type** | string |  |
-| **sourceId** | string |  |
-| **targetId** | string |  |
+| Field | Components | Relations | Type | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **type** | ✅ | ✅ | string | The type of component or relation.  |
+| **id** | ✅ | - | string | The unique identifier for the component.  |
+| **identifier.\<identifier_name\** | ✅ | - | string |  |
+| **label.\<label_name\>** | ✅ | - | string | The value will be added as a label on the component in the format `label_name:value` |
+| **name** | ✅ | - | string | The value will be used as the component name. |
+| **sourceId** | - | ✅ | string | The ID of the component that is the source of the relation. |
+| **targetId** | - | ✅ | string | The ID of the component that is the target of the relation.  |
 
 ### Example queries
 
@@ -39,4 +34,4 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 
 ## See also
 
-* [StackState Splunk integration details](/stackpacks/integrations/new_splunk/splunk.md)
+* [StackState Splunk integration details](/stackpacks/integrations/new_splunk/splunk_stackpack.md)
