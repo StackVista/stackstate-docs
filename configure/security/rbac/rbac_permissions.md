@@ -109,6 +109,7 @@ See also the full list of [view permissions](rbac_permissions.md#view-permission
 | `access-analytics` | Access the Analytics page. | - | ✅ | ✅ |
 | `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ |
 | `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ |
+| `access-synchronization-data` | Access StackState synchronization status and data via the CLI. | - | ✅ | ✅ |
 | `create-views` | Create views. | - | ✅ | ✅ |
 | `execute-component-templates` | Invoke a component template API extension \(internal use only\). | - | ✅ | ✅ |
 | `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ |
