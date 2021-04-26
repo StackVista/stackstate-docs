@@ -75,7 +75,36 @@ The example Splunk saved search above would result in the following topology rel
 
 ### Configure the Splunk topology check
 
+To enable the Splunk topology integration and begin collecting component and relation data from your Splunk instance, the Splunk topology check must be configured on Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+
+{% hint style="info" %}
+Example Splunk events Agent check configuration file:<br />[conf.d/splunk_topology.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+{% endhint %}
+
+To configure the Splunk events Agent check:
+
+1. Edit the Agent V1 integration configuration file `???`.
+2. Under **instances**, add details of your Splunk instance:
+   * **url** - The URL of your Splunk instance.
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/new_splunk/splunk_stackpack.md#authentication).
+   * **ignore_saved_search_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
+   * **tags** - 
+3. Under **component_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
+     * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
+       * **match** - 
+       * **app** -
+       * **request_timeout_seconds** - Default `10`.
+       * **search_max_retry_count** - Default `5`.
+       * **search_seconds_between_retries** - Default `1`.
+       * **batch_size** - Default `1000`.
+       * **parameters** - 
+4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components.
+5. Save the configuration file.
+6. Restart StackState Agent V1 to apply the configuration changes.
+7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/new_splunk/splunk_stackpack.md)
+* [Example Splunk topology configuration file - splunk_topology.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 

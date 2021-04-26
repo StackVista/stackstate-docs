@@ -69,13 +69,13 @@ To configure the Splunk events Agent check:
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
        * **match** - 
        * **app** -
-       * **request_timeout_seconds** - Default 10.
-       * **search_max_retry_count** - Default 5.
-       * **search_seconds_between_retries** - Default 1.
-       * **batch_size** - Default 1000.
-       * **initial_history_time_seconds** - Default 0.
-       * **max_restart_history_seconds** - Default 86400.
-       * **max_query_chunk_seconds** - Default 3600.
+       * **request_timeout_seconds** - Default `10`.
+       * **search_max_retry_count** - Default `5`.
+       * **search_seconds_between_retries** - Default `1`.
+       * **batch_size** - Default `1000`.
+       * **initial_history_time_seconds** - Default `0`.
+       * **max_restart_history_seconds** - Default `86400`.
+       * **max_query_chunk_seconds** - Default `3600`.
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
        * **parameters** - 
 4. Save the configuration file.
