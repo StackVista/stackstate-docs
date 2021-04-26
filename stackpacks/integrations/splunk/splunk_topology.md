@@ -103,6 +103,18 @@ To configure the Splunk events Agent check:
 6. Restart StackState Agent V1 to apply the configuration changes.
 7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
+### Disable the Agent check
+
+To disable the Splunk topology Agent check:
+
+1. Remove or rename the Agent integration configuration file, for example:
+
+   ```text
+    mv conf.d/splunk_topology.yaml conf.d/splunk_topology.yaml.bak
+   ```
+
+2. Restart the StackState Agent\(s\) to apply the configuration changes.
+
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)

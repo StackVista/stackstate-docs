@@ -15,13 +15,12 @@ The StackState Splunk integration synchronizes events, metrics and topology data
   * Metrics data is retrieved using the Splunk saved search configured in the Splunk metrics Agent check.
   * Events data is retrieved using the Splunk saved search configured in the Splunk events Agent check.
 * StackState Agent V1 pushes retrieved data and events to StackState:
-  * Topology data requires the Splunk Topology StackPack.
-  * Metrics data and events require the API Integration StackPack.
+  * The API Integration StackPack is required for all Splunk data.
+  * Splunk topology data also requires the Splunk Topology StackPack to be installed.
 * StackState translates incoming data:
-  * [Topology data](#topology) is translated into components and relations.
-  * [Metrics data](#metrics) is ???.
-  * [Events](#events) are ???.
-
+  * [Topology data](#topology) from the Splunk saved searches configured in the Splunk topology Agent check is translated into components and relations.
+  * [Metrics data](#metrics) from the Splunk saved search(es) configured in the Splunk metrics Agent check is available in StackState as a metrics telemetry stream.
+  * [Events](#events) from the Splunk saved search(es) configured in the Splunk events Agent check is available in StackState as a log telemetry stream.
 
 ## Setup
 
@@ -53,7 +52,7 @@ StackState Agent V1 must be configured with a Splunk Agent check for each type o
 Details of how to configure each of these checks can be found on the pages listed below:
 
 * [Splunk topology check configuration](/stackpacks/integrations/splunk/splunk_topology.md)
-* [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metric.md)
+* [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md)
 * [Splunk events check configuration](/stackpacks/integrations/splunk/splunk_events.md)
 
 ### Authentication
@@ -142,6 +141,12 @@ sudo stackstate-agent status
 
 ### Data retrieved
 
+The Splunk integration can retrieve the following data:
+
+* [Events](#events)
+* [Metrics](#metrics)
+* [Topology](#topology)
+
 #### Events
 
 When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream, which can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
@@ -152,7 +157,7 @@ For details of the events retrieved, see the [Splunk events check configuration]
 
 When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream, which can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
-For details of the metrics retrieved, see the [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metric.md).
+For details of the metrics retrieved, see the [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md).
 
 #### Topology
 
@@ -193,6 +198,13 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
+To uninstall the Splunk topology StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Splunk topology** screen and click UNINSTALL. All Splunk topology specific configuration will be removed from StackState.
+
+For instructions on how to disable the Splunk Agent checks, see:
+
+* [Disable the Splunk topology Agent check]()
+* [Disable the Splunk metrics Agent check]()
+* [Disable the Splunk events Agent check]()
 
 ## Release notes
 
@@ -205,7 +217,7 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 Configure the StackState Agent V1 Splunk checks:
 * [Splunk topology check configuration](/stackpacks/integrations/splunk/splunk_topology.md)
 * [Splunk events check configuration](/stackpacks/integrations/splunk/splunk_events.md)
-* [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metric.md)
+* [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md)
 
 Other resources:
 * [Set up Splunk authentication with tokens \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).

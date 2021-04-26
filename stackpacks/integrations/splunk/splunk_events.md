@@ -88,6 +88,18 @@ To prevent sending duplicate events over multiple check runs, received saved sea
 
 If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` (an empty list).
 
+### Disable the Agent check
+
+To disable the Splunk events Agent check:
+
+1. Remove or rename the Agent integration configuration file, for example:
+
+   ```text
+    mv conf.d/splunk_event.yaml conf.d/splunk_event.yaml.bak
+   ```
+
+2. Restart the StackState Agent\(s\) to apply the configuration changes.
+
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)

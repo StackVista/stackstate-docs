@@ -203,3 +203,4 @@ redirects:
   configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
   configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
+  stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
