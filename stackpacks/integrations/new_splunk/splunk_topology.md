@@ -19,11 +19,12 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | :--- | :--- | :--- | :--- | :--- |
 | **type** | ✅ | ✅ | string | The type of component or relation.  |
 | **id** | ✅ | - | string | The unique identifier for the component.  |
-| **identifier.\<identifier_name\>** | ✅ | - | string |  |
-| **label.\<label_name\>** | ✅ | - | string | The value will be added as a label on the component in the format `label_name:value` |
+| **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | The value will be included as identifier of the component. |
+| **label.&lt;label\_name&gt;** | ✅ | - | string | The value will be added as a label on the component in the format `label_name:value` |
 | **name** | ✅ | - | string | The value will be used as the component name. |
 | **sourceId** | - | ✅ | string | The ID of the component that is the source of the relation. |
 | **targetId** | - | ✅ | string | The ID of the component that is the target of the relation.  |
+| All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in the `data` map as key:value pairs in the format `field`:`value`. |
 
 ### Example queries
 
@@ -46,11 +47,9 @@ The example Splunk saved search above would result in the following topology com
 | :--- | :--- |
 | **type** | Splunk `type` field.  |
 | **id** | Splunk `id` field. |
-| **identifier.\<identifier_name\>** | - |
-| **label.\<label_name\>** | - |
-| **name** | - |
-| **sourceId** | - |
-| **targetId** | - |
+| **identifier.&lt;identifier\_name&gt;** | - |
+| **label.&lt;label\_name&gt;** | - |
+| **name** | Splunk `name` field.|
 
 {% tabs %}
 {% tab title="Splunk query for relations" %}
@@ -69,12 +68,8 @@ The example Splunk saved search above would result in the following topology rel
 | Field | Data |
 | :--- | :--- |
 | **type** | Splunk `type` field.  |
-| **id** | - |
-| **identifier.&lt;identifier\_name&gt;** | - |
-| **label.&lt;label\_name&gt;** | - |
-| **name** | - |
-| **sourceId** | `<sourceId>` |
-| **targetId** | `<targetId>` |
+| **sourceId** | `<sourceId>` (`Application`) |
+| **targetId** | `<targetId>` (`VMName`) |
 
 ## Agent check
 
