@@ -15,20 +15,20 @@ To configure file based authentication on Kubernetes, StackState users need to b
 {% tabs %}
 {% tab title="authentication.yaml" %}
 ```yaml
-# Three users, `admin-demo`, `power-user-demo` and `guest-demo`
+# Three users, `admin`, `power-user` and `guest`
 # with the three default roles Administrator, Power user and Guest
 
 stackstate:
   authentication:
     file:
       logins:
-        - username: admin-demo
+        - username: admin
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-admin ]
-        - username: guest-demo
+        - username: guest
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-guest ]
-        - username: power-user-demo
+        - username: power-user
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-power-user ]
 ```
@@ -69,7 +69,7 @@ To configure file based authentication on Linux, StackState users need to be add
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
-# Three users, `admin-demo`, `power-user-demo` and `guest-demo`
+# Three users, `admin`, `power-user` and `guest`
 # with the three default roles Administrator, Power user and Guest
 
 authentication {
@@ -79,9 +79,9 @@ authentication {
     stackstateAuthServer {
       # echo -n "password" | md5sum
       logins = [
-        { username = "admin-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
-        { username = "power-user-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-power-user"] }
-        { username = "guest-demo", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
+        { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
+        { username = "power-user", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-power-user"] }
+        { username = "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
       ]
     }
   }
