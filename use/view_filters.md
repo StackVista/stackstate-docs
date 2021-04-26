@@ -66,7 +66,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-You can use the View Filters pane to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the View Details pane on the right of the StackState UI.
+The **View Filters** pane on the left side of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the View Details pane on the right of the StackState UI.
 
 The following event filters are available:
 
@@ -79,9 +79,12 @@ The following event filters are available:
 
 ## Filter Traces
 
-The traces shown in the [Traces Perspective](perspectives/traces-perspective.md) can be filtered based on two properties of its spans: **span types** and **span tags**. The image below shows the **View filters** pane, where you can add filters for topology, events and traces.
+Traces shown in the [Traces Perspective](perspectives/traces-perspective.md) can be filtered based on two properties of the spans they contain: 
 
-For example, if you filter the trace list for all spans of type **database**, this will return all traces that have at least one span whose type is **database**.
+* Span types
+* Span tags
+ 
+For example, if you filter the trace list for all spans of type `database`, this will return all traces that have at least one span whose type is `database`.
 
 ## Save filters as a view
 
