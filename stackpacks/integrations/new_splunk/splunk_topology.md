@@ -19,13 +19,62 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | :--- | :--- | :--- | :--- | :--- |
 | **type** | ✅ | ✅ | string | The type of component or relation.  |
 | **id** | ✅ | - | string | The unique identifier for the component.  |
-| **identifier.\<identifier_name\** | ✅ | - | string |  |
+| **identifier.\<identifier_name\>** | ✅ | - | string |  |
 | **label.\<label_name\>** | ✅ | - | string | The value will be added as a label on the component in the format `label_name:value` |
 | **name** | ✅ | - | string | The value will be used as the component name. |
 | **sourceId** | - | ✅ | string | The ID of the component that is the source of the relation. |
 | **targetId** | - | ✅ | string | The ID of the component that is the target of the relation.  |
 
 ### Example queries
+
+{% tabs %}
+{% tab title="Splunk query for components" %}
+```text
+| loadjob savedsearch=:servers
+| search OrganizationPart="*" OrgGrp="*" company="*"
+| table name | dedup name
+| eval name = upper(name)
+| eval id = 'name', type="vm"
+| table id type name
+```
+{% endtab %}
+{% endtabs %}
+
+The example Splunk saved search above would result in the following topology component data in StackState:
+
+| Field | Data |
+| :--- | :--- |
+| **type** | Splunk `type` field.  |
+| **id** | Splunk `id` field. |
+| **identifier.\<identifier_name\>** | - |
+| **label.\<label_name\>** | - |
+| **name** | - |
+| **sourceId** | - |
+| **targetId** | - |
+
+{% tabs %}
+{% tab title="Splunk query for relations" %}
+```text
+index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
+| eval VMName=lower(VMName)
+| rename Application as sourceId, VMName as targetId
+| eval type="is-hosted-on"
+| table sourceId targetId type
+```
+{% endtab %}
+{% endtabs %}
+
+The example Splunk saved search above would result in the following topology relation data in StackState:
+
+| Field | Data |
+| :--- | :--- |
+| **type** | Splunk `type` field.  |
+| **id** | - |
+| **identifier.\<identifier_name\>** | - |
+| **label.\<label_name\>** | - |
+| **name** | - |
+| **sourceId** | `<sourceId>` |
+| **targetId** | `<targetId>` |
 
 ## Agent check
 
