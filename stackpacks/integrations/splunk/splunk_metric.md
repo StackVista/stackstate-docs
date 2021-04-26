@@ -1,29 +1,30 @@
----
-description: Retrieve metrics from Splunk
----
-
-# Splunk metrics
+# Splunk metrics Agent check
 
 ## Overview
 
-The StackState Agent can be configured to execute Splunk saved searches and provide the results as metrics to the StackState receiver API. It will dispatch the saved searches periodically, specifying last metric timestamp to start with up until now.
+The StackState Splunk integration collects metrics from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk metrics check configuration. This means that, in order to receive Splunk metrics data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
 
-The StackState Agent expects the results of the saved searches to contain certain fields, as described below in the Metric Query Format. If there are other fields present in the result, they will be mapped to tags, where the column name is the key, and the content the value. The Agent will filter out Splunk default fields \(except `_time`\), like e.g. `_raw`, see the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) for more information about default fields.
+* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the metrics data you want to retrieve.
+* [In StackState Agent V1](#agent-check), a Splunk metrics check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
 
-The agent check prevents sending duplicate metrics over multiple check runs. The received saved search records have to be uniquely identified for comparison. By default, a record's identity is composed of Splunk's default fields `_bkt` and `_cd`. The default behavior can be changed for each saved search by setting the `unique_key_fields` in the check's configuration. Please note that the specified `unique_key_fields` fields become mandatory for each record. In case the records cannot be uniquely identified by a combination of fields, then the whole record can be used by setting `unique_key_fields` to `[]`, i.e. empty list.
+The Splunk metrics check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
 
-### Required fields
+## Splunk saved search
 
-All fields described below are required in a Splunk query:
+### Fields used
+
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | **\_time** | long | Data collection timestamp, millis since epoch. |
-| **metric%** | string | Name of the metric. This is the `metric_name_field` configured in [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example). |
-| **value%** | numeric | The value of the metric. |
+| **metric** | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-check). |
+| **value** | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-check). |
 
-Example Splunk query:
+### Example query
 
+{% tabs %}
+{% tab title="Splunk query" %}
 ```text
 index=vms MetricId=cpu.usage.average
 | table _time VMName Value    
@@ -31,92 +32,69 @@ index=vms MetricId=cpu.usage.average
 | rename VMName as metricCpuUsageAverage, Value as valueCpuUsageAverage
 | eval type = "CpuUsageAverage"
 ```
-
-
-
-## Authentication
-
-The Splunk integration provides various authentication mechanisms to connect to your Splunk instance.
-
-### HTTP Basic Authentication
-
-With HTTP basic authentication, the `username` and `password` specified in the `splunk_metric.yaml` can be used to connect to Splunk. These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
-
-_As an example, see the below config :_
-
-```text
-instances:
-    - url: "https://localhost:8089"
-
-    # username: "admin" ## deprecated; use basic_auth.username under authentication section
-    # password: "admin" ## deprecated; use basic_auth.password under authentication section
-
-    # verify_ssl_certificate: false
-
-    ## Integration supports either basic authentication or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
-    authentication:
-      basic_auth:
-        username: "admin"
-        password: "admin"
+{% endtab %}
+{% tab title="Splunk metrics Agent check configuration" %}
 ```
-
-### Token-based Authentication
-
-Token-based authentication mechanism supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. The integration's authentication mechanism will request a new token before expiration, respecting the `renewal_days` setting, with an expiration of `token_expiration_days` days.
-
-Token-based authentication information overrides basic authentication in case both are configured.
-
-The following new parameters are available:
-
-* `name` - Name of the user who will be using this token.
-* `initial_token` - First initial valid token which will be exchanged with new generated token in the integration..
-* `audience` - JWT audience name which is purpose of token.
-* `token_expiration_days` - Validity of the newly requested token after first initial token and by default it's 90 days.
-* `renewal_days` - Number of days before when token should refresh, by default it's 10 days.
-
-_As an example, see the below config :_
-
-```text
-instances:
-    - url: "https://localhost:8089"
-
-    # username: "admin" ## deprecated; use basic_auth.username under authentication section
-    # password: "admin" ## deprecated; use basic_auth.password under authentication section
-
-    # verify_ssl_certificate: false
-
-    ## Integration supports either basic authentication or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
-    authentication:
-      # basic_auth:
-        # username: "admin"
-        # password: "admin"
-
-      token_auth:
-        ## Token for the user who will be using it
-        name: "api-user"
-
-        ## The initial valid token which will be exchanged with new generated token as soon as the check starts
-        ## first time and in case of restart, this token will not be used anymore
-        initial_token: "my-initial-token-hash"
-
-        ## JWT audience used for purpose of token
-        audience: "search"
-
-        ## When a token is about to expire, a new token is requested from Splunk. The validity of the newly requested
-        ## token is requested to be `token_expiration_days` days. After `renewal_days` days the token will be renewed
-        ## for another `token_expiration_days` days.
-        token_expiration_days: 90
-
-        ## the number of days before when token should refresh, by default it's 10 days.
-        renewal_days: 10
+...
+metric_name_field: "metricCpuUsageAverage"
+metric_value_field: "valueCpuUsageAverage"
+...
 ```
+{% endtab %}
+{% endtabs %}
 
-The above authentication configuration are part of the [conf.d/splunk\_metric.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example) file.
+The example Splunk saved search above would result in the following metric data in StackState:
 
-## Configuration
+| Field | Data |
+| :--- | :--- |
+| **\_time** | Splunk `_time` field. |
+| **metric** | Splunk `<metricCpuUsageAverage>` field. |
+| **value** | Splunk `<valueCpuUsageAverage>` field. |
 
-1. Edit your `conf.d/splunk_metric.yaml` file.
-2. Restart the agent
+## Agent check
 
+### Configure the Splunk metrics check
+
+To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, the Splunk metrics check must be configured on Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+
+{% hint style="info" %}
+Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
+{% endhint %}
+
+To configure the Splunk metrics Agent check:
+
+1. Edit the Agent V1 integration configuration file `???`.
+2. Under **instances**, add details of your Splunk instance:
+   * **url** - The URL of your Splunk instance.
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
+   * **tags** - 
+3. Under **saved_searches**, add details of each Splunk saved search that the check should execute: 
+     * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
+       * **metric_name_field** - The field in the Splunk results that will contain the metric name. Default `"metric"`.
+       * **metric_value_field** - The field in the Splunk results that will contain numerical data. Default `value`.
+       * **match:** - Default `metrics.*`.
+       * **app** - Default `"search"
+       * **request_timeout_seconds** - Default `10`
+       * **search_max_retry_count** - Default `5`
+       * **search_seconds_between_retries** - Default `1`
+       * **batch_size** - Default `1000`
+       * **initial_history_time_seconds** - Default `0`
+       * **max_restart_history_seconds** - Default `86400`
+       * **max_query_chunk_seconds** - Default `3600`
+       * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
+       * **parameters** -
+
+4. Save the configuration file.
+5. Restart StackState Agent V1 to apply the configuration changes.
+6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
+
+### Uniquely identify a record
+
+To prevent sending duplicate metrics over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk metrics Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
+
+If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` (an empty list).
+
+## See also
+
+* [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
+* [Example Splunk metrics configuration file - splunk\_metrics.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
