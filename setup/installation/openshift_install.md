@@ -1,5 +1,5 @@
 ---
-description: install StackState on OpenShift
+description: Install StackState on OpenShift
 ---
 
 # OpenShift install
