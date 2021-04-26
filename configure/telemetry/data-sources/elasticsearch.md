@@ -32,7 +32,7 @@ To add an Elasticsearch data source:
    * **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
    * **Time zone** - the timezone of the timestamps stored in the Elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
    * **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
-   * **Time field format** - the format of the value in the specified **Time field**. See [how to find the Elasticsearch time field format](elasticsearch.md#find-the-correct-time-field-format-for-an-elasticsearch-index).
+   * **Time field format** - the format of the value in the specified **Time field**. See [how to find the Elasticsearch time field format](elasticsearch.md#find-the-elasticsearch-time-field-format).
    * A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](elasticsearch.md#advanced-settings).
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.
 5. Click **CREATE** to save the Elasticsearch data source settings.
