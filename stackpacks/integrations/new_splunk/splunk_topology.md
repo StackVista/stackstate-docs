@@ -70,8 +70,8 @@ The example Splunk saved search above would result in the following topology rel
 | :--- | :--- |
 | **type** | Splunk `type` field.  |
 | **id** | - |
-| **identifier.\<identifier_name\>** | - |
-| **label.\<label_name\>** | - |
+| **identifier.\<identifier\_name\>** | - |
+| **label.\<label\_name\>** | - |
 | **name** | - |
 | **sourceId** | `<sourceId>` |
 | **targetId** | `<targetId>` |
