@@ -67,15 +67,15 @@ Two authentication mechanisms are available:
 
 #### Token-based Authentication
 
-Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. Before the configured token expires, a new token with an expiration of `token_expiration_days` days will be requested. 
+Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. Before the configured token expires, a new token with an expiration of `token_expiration_days` days will be requested. For details on using token based authentication with Splunk, see the [Splunk documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).
 
 Token-based authentication is preferred over HTTP basic authentication and will override basic authentication in case both are configured.
 
 To enable token-based authentication, the following parameters should be configured in the `authentcation.token_auth` section of each Agent Splunk check configuration file:
 
 * **name** - Name of the user who will be using this token.
-* **initial_token** - An initial, valid token. This will be replaced with a new generated token requested by the integration.
-* **audience** - JWT audience name, which is purpose of token.
+* **initial_token** - An initial, valid token. This token will be used once only and then replaced with a new generated token requested by the integration.
+* **audience** - The Splunk token audience.
 * **token_expiration_days** - Validity of the newly requested token. Default 90 days.
 * **renewal_days** - Number of days before a new token should be refreshed. Default 10 days.
 
@@ -117,8 +117,8 @@ With HTTP basic authentication, the `username` and `password` specified in the A
 instances:
     - url: "https://localhost:8089"
 
-    # username: "admin" ## deprecated
-    # password: "admin" ## deprecated
+    # username: "admin" ## deprecated - do not use
+    # password: "admin" ## deprecated - do not use
 
     # verify_ssl_certificate: false
 
@@ -144,21 +144,21 @@ sudo stackstate-agent status
 
 #### Events
 
-When the Splunk events Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches.
+When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream, which can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
-For details, see the [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md).
+For details of the events retrieved, see the [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md).
 
 #### Metrics
 
-When the Splunk metrics Agent check is configured, events will be retrieved from the configured Splunk saved search or searches.
+When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream, which can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
-For details. see the [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md).
+For details of the metrics retrieved, see the [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md).
 
 #### Topology
 
 When the Splunk Topology StackPack is installed and the Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved search or searches.
 
-For details, see the [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md).
+For details of the components and relations retrieved, see the [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md).
 
 #### Traces
 
@@ -202,10 +202,11 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 
 ## Further information
 
-Configure the StackState Agent Splunk checks:
+Configure the StackState Agent V1 Splunk checks:
 * [Splunk topology check configuration](/stackpacks/integrations/new_splunk/splunk_topology.md)
 * [Splunk events check configuration](/stackpacks/integrations/new_splunk/splunk_events.md)
 * [Splunk metrics check configuration](/stackpacks/integrations/new_splunk/splunk_metric.md)
 
 Other resources:
+* [Set up Splunk authentication with tokens \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).
 * [Splunk API documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/RESTREF/RESTprolog)
