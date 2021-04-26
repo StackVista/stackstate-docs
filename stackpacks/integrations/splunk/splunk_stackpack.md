@@ -149,13 +149,13 @@ The Splunk integration can retrieve the following data:
 
 #### Events
 
-When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream, which can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 For details of the events retrieved, see the [Splunk events check configuration](/stackpacks/integrations/splunk/splunk_events.md).
 
 #### Metrics
 
-When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream, which can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 For details of the metrics retrieved, see the [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md).
 

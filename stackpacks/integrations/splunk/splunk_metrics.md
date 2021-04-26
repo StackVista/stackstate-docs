@@ -106,6 +106,10 @@ To disable the Splunk metrics Agent check:
 
 2. Restart the StackState Agent\(s\) to apply the configuration changes.
 
+## Splunk metrics in StackState
+
+Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
