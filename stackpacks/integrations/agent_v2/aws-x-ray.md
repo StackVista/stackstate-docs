@@ -20,7 +20,7 @@ To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS s
 
 ### Installation
 
-The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also need to install the [AWS StackPack](aws.md) to see rest of you AWS topology and metrics.
+The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You also need to install the [AWS StackPack](../aws.md) to see rest of you AWS topology and metrics.
 
 ### Configuration
 
@@ -42,7 +42,7 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](agent.md). You also 
         # min_collection_interval: 60
    ```
 
-2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](../agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
 
 Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
 
