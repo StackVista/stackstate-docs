@@ -11,7 +11,7 @@ description: StackState version 4.4
 {% hint style="success" %}
 **StackState version 4.4** is coming soon - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-4-x) for details.
 
-With the release of StackState v4.4, StackState v4.1 reaches End of Life \(EOL\) and will no longer be supported. We encourage customers still running the 4.1 version range to upgrade. Check the [supported StackState versions](./#supported-stackstate-versions).
+With the release of StackState v4.4, StackState v4.1 reaches End of Life \(EOL\) and will no longer be supported. We encourage customers still running the 4.1 version range to upgrade. Check the [supported StackState versions](#supported-stackstate-versions).
 {% endhint %}
 
 ### Using StackState
