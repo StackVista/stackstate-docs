@@ -24,7 +24,7 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You al
 
 ### Configuration
 
-1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws.d/conf.yaml` to start collecting your Tomcat metrics and logs. See the sample `aws.d/conf.yaml.example` for all available configuration options.
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_xray.d/conf.yaml` to start collecting your Tomcat metrics and logs. See the sample `aws_xray.d/conf.yaml.example` for all available configuration options.
 
    ```text
     # Section used for global AWS check config
