@@ -4,18 +4,20 @@ description: Access data via perspectives.
 
 # Perspectives
 
+## Overview
+
 StackState and its [4T data model](4t_data_model.md) collect real-time data about your IT landscape. **Perspectives** allow you to look at this data from various angles and to relate different types of data to each other.
 
-All data in StackState is organized around [topology](4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](../views.md), that represents the application, layer or set of components that you care about, is the context that the perspectives operate in.
+All data in StackState is organized around [topology](4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](../views.md), can be used to focus on a specific application, layer or set of components that you care about. The components and relations included in the topology provide the context for data displayed in the other perspectives.
 
-## Perspectives
+![Perspectives](/.gitbook/assets/v43_perspective_buttons.png)
 
-StackState offers the following perspectives via it's user interface:
+There are four perspectives in the StackState UI. You can switch between them using the buttons at the top of the screen:
 
-* [Topology Perspective](../perspectives/topology-perspective.md)
-* [Telemetry Perspective](../perspectives/telemetry-perspective.md)
-* [Events Perspective](../perspectives/events_perspective.md)
-* [Traces Perspective](../perspectives/traces-perspective.md)
+* The [Topology Perspective](../perspectives/topology-perspective.md) - the components and relations.
+* The [Events Perspective](../perspectives/events_perspective.md) - all events and changes relating to the topology.
+* The [Telemetry Perspective](../perspectives/telemetry-perspective.md) - telemetry streams for a selection of components in the topology.
+* The [Traces Perspective](../perspectives/traces-perspective.md) - all traces and spans relating to the topology.
 
 ## Time travel
 
