@@ -34,7 +34,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
-* Added support for interacting with external systems using [self-signed certificates](). STAC-11738
+* Added support for interacting with external systems using [self-signed certificates](sts-release-notes.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
 * StackState now supports [API tokens for authentication of the StackState CLI](../installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
@@ -247,9 +247,11 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * The groovy sandbox is stricter and favors security at the cost of flexibility
 
   All accessible classes and packages are listed in the `<stackstate dir>/etc/sandbox.conf`. STAC-5032
+
 * Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 * Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
 * `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, you changes will need to be reaplied after upgrade. STAC-8473
-* The authentication for the admin API (port 7071 by default) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api (by default not) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
-* It is now possible to configure a proxy for event handlers, see [how to set this up](/use/health-state-and-event-notifications/send-event-notifications.md). STAC-7784
+* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
+* It is now possible to configure a proxy for event handlers, see [how to set this up](../../use/health-state-and-event-notifications/send-event-notifications.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718
+

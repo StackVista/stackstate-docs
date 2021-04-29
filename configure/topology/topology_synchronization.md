@@ -14,7 +14,7 @@ StackState accepts topology data in JSON format. JSON files received pass throug
 
 The entire process can be represented visually as follows:
 
-![](../../.gitbook/assets/v43_topology_synchronization.png)
+![](../../.gitbook/assets/v43_topology_synchronization%20%281%29.png)
 
 ### Topology JSON format
 

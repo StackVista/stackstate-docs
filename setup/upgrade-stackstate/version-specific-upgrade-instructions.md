@@ -21,14 +21,10 @@ This page provides specific instructions for upgrading to each currently support
 {% tabs %}
 {% tab title="Kubernetes" %}
 #### v4.4.0
-
-
 {% endtab %}
 
 {% tab title="Linux" %}
 #### v4.4.0
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -113,7 +109,6 @@ The following configuration changes must be manually processed if you are using 
   * Added new section `kafka.topics.sts_topology_events`.
 {% endtab %}
 {% endtabs %}
-
 
 ## See also
 

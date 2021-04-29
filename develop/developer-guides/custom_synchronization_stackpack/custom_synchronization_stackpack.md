@@ -4,7 +4,7 @@ description: >-
   synchronization StackPack.
 ---
 
-# Custom Synchronization StackPack
+# What is the Custom Synchronization StackPack?
 
 ## Overview
 

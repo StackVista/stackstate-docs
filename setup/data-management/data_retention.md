@@ -125,14 +125,14 @@ stackstate {
 Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
 
 **Allocate no disk space to an index group**  
-Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. 
-For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:
+Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:
 
- ```
+```text
  kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0
 ```
 
-**Distribute disk space unevenly across index groups**<br />The available disk space \(the configured `elasticsearchDiskSpaceMB`\) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared between the indices in the index group:
+**Distribute disk space unevenly across index groups**  
+The available disk space \(the configured `elasticsearchDiskSpaceMB`\) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared between the indices in the index group:
 
 ```text
 # Total disk space allocated to an index group
@@ -142,7 +142,7 @@ index_group_disk_space = (elasticsearchdiskSpaceMB * diskSpaceWeight / sum(diskS
 For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated to the index groups and indexes be as follows:
 
 | Parameter | Index group disk space |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | `kafkaMetricsToES.elasticsearch.index {` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
 | `kafkaMultiMetricsToES.elasticsearch.index {` `diskSpaceWeight = 1` `maxIndicesRetained = 20` `}` | 20,000MB or 300,000\*1/15 |
 | `kafkaGenericEventsToES.elasticsearch.index{` `diskSpaceWeight = 2` `maxIndicesRetained = 20` `}` | 40,000MB or 300,000\*2/15 |

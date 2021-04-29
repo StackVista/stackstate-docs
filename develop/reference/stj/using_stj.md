@@ -1,12 +1,14 @@
 ---
-description: All configuration of StackState is described using StackState Template JSON (STJ).
+description: >-
+  All configuration of StackState is described using StackState Template JSON
+  (STJ).
 ---
 
-# StackState Template JSON \(STJ\)
+# Using STJ
 
 ## Overview
 
-StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of (often repetitive) JSON, StackState comes with the StackState Template JSON format (STJ). 
+StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of \(often repetitive\) JSON, StackState comes with the StackState Template JSON format \(STJ\).
 
 STJ is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](stj_reference.md).
 
@@ -29,7 +31,7 @@ StackState template files use handlebars. Content that is placed between double 
 }]
 ```
 
-### Conditionals: #if / else
+### Conditionals: \#if / else
 
 Run some template code conditionally if a variable has a value.
 
@@ -57,7 +59,7 @@ Run some template code conditionally if a variable has a value.
 {% endtab %}
 {% endtabs %}
 
-### Looping: #each
+### Looping: \#each
 
 Loop over an array or map of data.
 
@@ -90,7 +92,6 @@ Loop over an array or map of data.
 {% endtab %}
 {% endtabs %}
 
-
 ## StackState Functions
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
@@ -104,3 +105,4 @@ Templates are used to create topology. Please find more information on the [Comp
 ## See also
 
 * [StackState Template Language Functions](stj_reference.md)
+

@@ -1,4 +1,4 @@
-# Tag topology
+# Tags
 
 ## Introduction
 

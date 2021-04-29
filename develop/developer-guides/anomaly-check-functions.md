@@ -53,7 +53,7 @@ The following properties return details of a received anomaly event:
 | `event.getIdentifier()` | String | The event identifier. |
 | `event.getElementIdentifiers()` | An array of String | The identifiers of topology components related to the event. |
 | `event.getCategory()` | String | The event category. For example, "Anomalies" |
-| `event.getType()` | String | The type of event.<br />For anomaly events, the type is "Metric Stream Anomaly". |
+| `event.getType()` | String | The type of event. For anomaly events, the type is "Metric Stream Anomaly". |
 | `event.getName()` | String | The event summary. For example, "Sudden Rise Detected". |
 | `event.getDescription()` | Optional of String | The detailed description of the event. |
 | `event.getEventTimestamp()` | Long | The time that the event was generated. For example, anomaly start time. |

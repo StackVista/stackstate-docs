@@ -79,11 +79,11 @@ The following event filters are available:
 
 ## Filter Traces
 
-Traces shown in the [Traces Perspective](perspectives/traces-perspective.md) can be filtered based on two properties of the spans they contain: 
+Traces shown in the [Traces Perspective](perspectives/traces-perspective.md) can be filtered based on two properties of the spans they contain:
 
 * Span types
 * Span tags
- 
+
 For example, if you filter the trace list for all spans of type `database`, this will return all traces that have at least one span whose type is `database`.
 
 ## Save filters as a view

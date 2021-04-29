@@ -67,7 +67,7 @@ Topology.query(query: String)
   Topology.query(q).at('-1w').diff(Topology.query(q))
   ```
 
-* Get all the names of components from the test environment using [`thenCollect`](/develop/reference/scripting/async_script_result.md#transforming-a-list-using-thencollect):
+* Get all the names of components from the test environment using [`thenCollect`](../async_script_result.md#transforming-a-list-using-thencollect):
 
   ```text
   Topology.query('environments in ("test")')

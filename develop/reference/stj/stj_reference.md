@@ -1,4 +1,4 @@
-# StackState Template Functions
+# Template functions
 
 ## Overview
 
@@ -7,7 +7,6 @@ StackState Template JSON \(STJ\) incorporates several custom handlebars function
 ## Functions
 
 ### `add`
-
 
 Adds number variables together.
 
@@ -56,18 +55,20 @@ get <identifier> Type=<type>;Name=<name>
 #### Examples
 
 * Resolve the `Production` `Environment` using:
-```text
-get "urn:stackpack:aws:environment:production"
-```
+
+  ```text
+  get "urn:stackpack:aws:environment:production"
+  ```
 
 * Resolve the `Parameters` `metrics` from the CheckFunction identified by `urn:stackpack:aws:check_function:basic` using:
-```text
-get "urn:stackpack:aws:check_function:basic" "Type=Parameter;Name=metrics"
-```
+
+  ```text
+  get "urn:stackpack:aws:check_function:basic" "Type=Parameter;Name=metrics"
+  ```
 
 ### `getFirstExisting`
 
-Gets the first node from a list of node identifiers (URNs).
+Gets the first node from a list of node identifiers \(URNs\).
 
 #### Arguments
 
@@ -134,19 +135,20 @@ Includes the content of another file inside this template. This can come in hand
 
 #### Arguments
 
-```
+```text
 include "<filename>" "<encoding>"
 ```
 
- 1. **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories (see [StackPack packaging](/develop/developer-guides/stackpack/prepare_package.md).
- 1. **encoding** (optional, default = `handlebars`) - Choice of:
-  * `handlebars` - Included file will be interpreted as StackState Templated JSON.
-  * `identity` - Included file will be not be interpreted, but simply will be included as text.
-  * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
-  
+1. **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories \(see [StackPack packaging](../../developer-guides/stackpack/prepare_package.md).
+2. **encoding** \(optional, default = `handlebars`\) - Choice of:
+   * `handlebars` - Included file will be interpreted as StackState Templated JSON.
+   * `identity` - Included file will be not be interpreted, but simply will be included as text.
+   * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
+
 #### Examples
 
 * Include a script:
+
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -199,8 +201,8 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 {% endtab %}
 {% endtabs %}
 
-
 * Include an image:
+
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -235,18 +237,19 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 
 #### Arguments
 
-```
+```text
 # join <iteratee> "<separator>" "<prefix>" "<suffix>"
 ```
 
- 1. **iteratee** - the element to repeat and join together.
- 1. **separator** - the text that is used to separate the elements.
- 1. **prefix** (optional) - text that is placed at the beginning of the joined text.
- 1. **suffix** (optional) - text is appended at the end of the joined text.
+1. **iteratee** - the element to repeat and join together.
+2. **separator** - the text that is used to separate the elements.
+3. **prefix** \(optional\) - text that is placed at the beginning of the joined text.
+4. **suffix** \(optional\) - text is appended at the end of the joined text.
 
 #### Examples
 
 * Join an array of labels to create a JSON array of objects:
+
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -282,6 +285,7 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 {% endtabs %}
 
 * Join a map of labels to create a JSON array of objects:
+
 {% tabs %}
 {% tab title="Template" %}
 ```text
@@ -319,3 +323,4 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 ## See also
 
 * [Using StackState Template JSON \(STJ\)](using_stj.md)
+

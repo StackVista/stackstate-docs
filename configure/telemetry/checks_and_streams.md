@@ -1,4 +1,4 @@
-# Understanding checks and streams
+# Checks and streams
 
 ## Overview
 

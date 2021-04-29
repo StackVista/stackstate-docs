@@ -29,7 +29,7 @@ To set up the StackState AWS integration, you need to have:
   * `cloudwatch:GetMetricData`
   * `cloudwatch:ListMetrics`
 
-    A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations**  &gt; **AWS**.
+    A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
 * An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws.md#aws-iam-policies), below.
 
 ### Proxy URL
@@ -83,7 +83,7 @@ AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{con
 AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: 
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
 
 * `--profile`
 * `--role-arn`
@@ -117,7 +117,7 @@ AWS_PROFILE=profile-name ./install.sh --topo-cron-only {{config.baseUrl}} {{conf
 AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options: 
+These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
 
 * `--profile`
 * `--role-arn`
@@ -154,12 +154,12 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 Each AWS integration retrieves topology data for resources associated with the associated AWS access key.
 
-##### Components
+**Components**
 
 The following AWS service data is available in StackState as components:
 
-| | | |
-|:--- |:--- |:--- |
+|  |  |  |
+| :--- | :--- | :--- |
 | API Gateway Resource | API Gateway Stage | API Getaway Method |
 | AutoScaling Group | CloudFormation Stack | DynamoDB Stream |
 | DynamoDB Table | EC2 Instance | ECS Cluster |
@@ -171,21 +171,21 @@ The following AWS service data is available in StackState as components:
 | SQS Queue | Subnet | Target Group |
 | Target Group Instance | VPC | VPN Gateway |
 
-##### Relations
+**Relations**
 
 The following relations between components are retrieved:
 
-* API Gateway Method → (Service) Integration Resource (varies)
+* API Gateway Method → \(Service\) Integration Resource \(varies\)
 * API Gateway Resource → API Gateways Method
 * API Gateway Stage → API Gateway Resource
 * AutoScaling Group → EC2 Instance, Load Balancer Classic
-* CloudFormation Stack → Any Resource (many supported), CloudFormation Stack Parent
+* CloudFormation Stack → Any Resource \(many supported\), CloudFormation Stack Parent
 * DynamoDB Table → DynamoDB Stream
 * EC2 Instance → Security Group, Subnet, VPC
-* ECS Cluster → EC2 Instance, ECS Task (when no group service)
+* ECS Cluster → EC2 Instance, ECS Task \(when no group service\)
 * ECS Service → ECS Cluster, ECS Task, Route53 Hosted Zone, Target Group
 * ECS Task → ECS Cluster
-* Firehose Delivery Stream → Kinesis Source, S3 Bucket Destination(s)
+* Firehose Delivery Stream → Kinesis Source, S3 Bucket Destination\(s\)
 * Lambda → Event Source Mapping, Security Group, VPC
 * Lambda Alias → VPC
 * Load Balancer Classic → EC2 Instance, VPC
@@ -193,13 +193,12 @@ The following relations between components are retrieved:
 * RDS Cluster → RDS Instance
 * RDS Instance → Security Group, VPC
 * Redshift Cluster → VPC
-* S3 Bucket → Lambda (notification configuration of the bucket)
+* S3 Bucket → Lambda \(notification configuration of the bucket\)
 * Security Group → VPC
 * SNS Topic → Subscription
 * Subnet → VPC
 * Target Group → AutoScaling Group, EC2 Instance, VPC
 * VPN Gateway → VPC
-
 
 #### Traces
 

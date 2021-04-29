@@ -12,15 +12,15 @@ This page provides all the information you need to install and run StackState.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-Install StackState on [Kubernetes](/setup/installation/kubernetes_install).
+Install StackState on [Kubernetes](kubernetes_install/).
 {% endtab %}
 
 {% tab title="Linux" %}
-Install StackState on [Linux](/setup/installation/linux_install).
+Install StackState on [Linux](linux_install/).
 {% endtab %}
 
 {% tab title="Openshift" %}
-Install StackState on [Openshift](/setup/installation/openshift_install.md). 
+Install StackState on [Openshift](openshift_install.md).
 {% endtab %}
 {% endtabs %}
 
@@ -30,13 +30,11 @@ Install StackState on [Openshift](/setup/installation/openshift_install.md).
 {% tab title="Kubernetes" %}
 To access the StackState UI:
 
-1. [Enable a port-forward](/setup/installation/kubernetes_install/install_stackstate.md#access-the-stackstate-ui).
+1. [Enable a port-forward](kubernetes_install/install_stackstate.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
-
 {% endtab %}
 
 {% tab title="Linux" %}
-
 The StackState UI can be accessed using the `STACKSTATE_BASE_URL` specified during installation:
 
 `https://STACKSTATE_BASE_URL:7077`
@@ -45,9 +43,8 @@ The StackState UI can be accessed using the `STACKSTATE_BASE_URL` specified duri
 {% tab title="Openshift" %}
 To access the StackState UI:
 
-1. [Enable a port-forward](/setup/installation/openshift_install.md#access-the-stackstate-ui).
+1. [Enable a port-forward](openshift_install.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
-
 {% endtab %}
 {% endtabs %}
 
@@ -78,12 +75,13 @@ StackState is configured by default with the following administrator account:
 
 ## Troubleshooting
 
-If you run into any problems during the installation of StackState or first run, check the [StackState installation troubleshooting guide](/setup/installation/troubleshooting.md).
+If you run into any problems during the installation of StackState or first run, check the [StackState installation troubleshooting guide](troubleshooting.md).
 
 ## Next steps
 
 Once you have StackState up and running, you can get started setting up integrations
 
-- [Install StackPacks to integrate with external systems](/stackpacks/about-stackpacks.md)
-- [Explore your topology and get to know the StackState UI](/use/explore_mode.md)
-- [Identify problems in the topology](/use/problems/problems.md)
+* [Install StackPacks to integrate with external systems](../../stackpacks/about-stackpacks.md)
+* [Explore your topology and get to know the StackState UI](../../use/explore_mode.md)
+* [Identify problems in the topology](../../use/problems/problems.md)
+
