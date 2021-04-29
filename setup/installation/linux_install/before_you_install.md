@@ -27,9 +27,9 @@ There is an RPM package available that provides easy installation and upgrade of
 
 StackState supports three different installation configurations:
 
-* [**Production setup**]() suitable for production use.
-* [**Proof-of-concept \(POC\) setup**]() suitable for proof of concepts. This is not suited for processing perpetual data streams.
-* [**Development setup**]() suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
+* [**Production setup**](/setup/installation/linux_install/production-installation.md) suitable for production use.
+* [**Proof-of-concept \(POC\) setup**](/setup/installation/linux_install/poc-installation.md) suitable for proof of concepts. This is not suited for processing perpetual data streams.
+* [**Development setup**](/setup/installation/linux_install/development-installation.md) suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
 
 ## Upgrading
 
