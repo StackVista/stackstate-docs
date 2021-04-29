@@ -21,7 +21,7 @@ Before starting the installation, ensure your system\(s\) meet the StackState [i
 
 ## Packages
 
-There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website]().
+There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](download.md).
 
 ## Installation
 
