@@ -2,10 +2,10 @@
 
 ## Overview
 
-The StackState Splunk integration collects topology from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk topology check configuration. This means that, in order to receive Splunk topology data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
+The StackState Splunk integration collects topology from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk topology check configuration. In order to receive Splunk topology data in StackState, you will therefore need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
-* [In StackState Agent V1](#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
+* [In StackState Agent V1](#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk topology check on StackState Agent V1 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
@@ -22,9 +22,9 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | Optional. The value will be included as identifier of the component. |
 | **label.&lt;label\_name&gt;** | ✅ | - | string | Optional. The value will be added as a label on the component in the format `label_name:value` |
 | **name** | ✅ | - | string | Required. The value will be used as the component name. |
+| All other fields | ✅ | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 | **sourceId** | - | ✅ | string | Required. The ID of the component that is the source of the relation. |
 | **targetId** | - | ✅ | string | Required. The ID of the component that is the target of the relation.  |
-| All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
 ### Example queries
 
@@ -68,8 +68,8 @@ The example Splunk saved search above would result in the following topology rel
 | Field | Data |
 | :--- | :--- |
 | **type** | Splunk `type` field.  |
-| **sourceId** | `<sourceId>` (`Application`) |
-| **targetId** | `<targetId>` (`VMName`) |
+| **sourceId** | `<sourceId>` (renamed from `Application`) |
+| **targetId** | `<targetId>` (renamed from `VMName`) |
 
 ## Agent check
 
@@ -92,13 +92,13 @@ To configure the Splunk events Agent check:
 3. Under **component_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
        * **match** - Regex used for selecting Splunk saved search queries. Default `"comp.*"` for component queries and `"relation*"` for relation queries.
-       * **app** - The Splunk app in where the saved searches are located. Default `"search"`.
+       * **app** - The Splunk app in which the saved searches are located. Default `"search"`.
        * **request_timeout_seconds** - Default `10`.
        * **search_max_retry_count** - Default `5`.
        * **search_seconds_between_retries** - Default `1`.
        * **batch_size** - Default `1000`.
-       * **parameters** - Used in the Splunk API request. The default parameters make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components.
+       * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
+4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
 5. Save the configuration file.
 6. Restart StackState Agent V1 to apply the configuration changes.
 7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
@@ -113,7 +113,7 @@ To disable the Splunk topology Agent check:
     mv conf.d/splunk_topology.yaml conf.d/splunk_topology.yaml.bak
    ```
 
-2. Restart the StackState Agent\(s\) to apply the configuration changes.
+2. Restart the StackState Agent to apply the configuration changes.
 
 ## See also
 

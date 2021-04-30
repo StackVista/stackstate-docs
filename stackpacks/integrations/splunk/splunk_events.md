@@ -2,10 +2,10 @@
 
 ## Overview
 
-The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. This means that, in order to receive Splunk events data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
+The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. In order to receive Splunk events data in StackState, you will therefore need to add configuration to both Splunk and the StackState Agent V1.
 
 * [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the events data you want to retrieve.
-* [In StackState Agent V1](#agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
+* [In StackState Agent V1](#agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now. 
 
@@ -68,7 +68,7 @@ To configure the Splunk events Agent check:
 3. Under **saved_searches**, add details of each Splunk saved search that the check should execute: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
        * **match** - Regex used for selecting Splunk saved search queries. Default `"events.*"`.
-       * **app** - The Splunk app in where the saved searches are located. Default `"search"`.
+       * **app** - The Splunk app in which the saved searches are located. Default `"search"`.
        * **request_timeout_seconds** - Default `10`.
        * **search_max_retry_count** - Default `5`.
        * **search_seconds_between_retries** - Default `1`.
@@ -77,7 +77,7 @@ To configure the Splunk events Agent check:
        * **max_restart_history_seconds** - Default `86400`.
        * **max_query_chunk_seconds** - Default `3600`.
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
-       * **parameters** - Used in the Splunk API request. The default parameters make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
+       * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Save the configuration file.
 5. Restart StackState Agent V1 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
@@ -85,7 +85,7 @@ To configure the Splunk events Agent check:
 
 ### Uniquely identify a record
 
-To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk events Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
+To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk events Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
 
 If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` (an empty list).
 
@@ -109,5 +109,6 @@ Events retrieved from splunk are available in StackState as a log telemetry stre
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
+* [Map telemetry to components](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
 * [Example Splunk events configuration file - splunk\_events.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 

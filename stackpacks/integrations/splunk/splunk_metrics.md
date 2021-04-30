@@ -2,10 +2,10 @@
 
 ## Overview
 
-The StackState Splunk integration collects metrics from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk metrics check configuration. This means that, in order to receive Splunk metrics data in StackState, you will need to add configuration to both Splunk and the StackState Agent V1.
+The StackState Splunk integration collects metrics from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk metrics check configuration. In order to receive Splunk metrics data in StackState, you will therefore need to add configuration to both Splunk and the StackState Agent V1.
 
-* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the metrics data you want to retrieve.
-* [In StackState Agent V1](#agent-check), a Splunk metrics check should be configured to connect to your Splunk instance and execute relevant Splunk saved searches.
+* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the metrics data you want to retrieve. Each saved search can retrieve one metric.
+* [In StackState Agent V1](#agent-check), a Splunk metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk metrics check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
 
@@ -13,7 +13,7 @@ The Splunk metrics check on StackState Agent V1 will execute all configured Splu
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. Each saved search can retrieve one metric. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -73,7 +73,7 @@ To configure the Splunk metrics Agent check:
        * **metric_name_field** - The field in the Splunk results that will contain the metric name. Default `"metric"`.
        * **metric_value_field** - The field in the Splunk results that will contain numerical data. Default `"value"`.
        * **match:** - Regex used for selecting Splunk saved search queries. Default `metrics.*`.
-       * **app** - The Splunk app in where the saved searches are located. Default `"search"`.
+       * **app** - The Splunk app in which the saved searches are located. Default `"search"`.
        * **request_timeout_seconds** - Default `10`
        * **search_max_retry_count** - Default `5`
        * **search_seconds_between_retries** - Default `1`
@@ -82,7 +82,7 @@ To configure the Splunk metrics Agent check:
        * **max_restart_history_seconds** - Default `86400`
        * **max_query_chunk_seconds** - Default `3600`
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
-       * **parameters** - Used in the Splunk API request. The default parameters make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
+       * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 
 4. Save the configuration file.
 5. Restart StackState Agent V1 to apply the configuration changes.
@@ -91,7 +91,7 @@ To configure the Splunk metrics Agent check:
 
 ### Uniquely identify a record
 
-To prevent sending duplicate metrics over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified of the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk metrics Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
+To prevent sending duplicate metrics over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk metrics Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search. 
 
 If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` (an empty list).
 
@@ -105,7 +105,7 @@ To disable the Splunk metrics Agent check:
     mv conf.d/splunk_metrics.yaml conf.d/splunk_metrics.yaml.bak
    ```
 
-2. Restart the StackState Agent\(s\) to apply the configuration changes.
+2. Restart the StackState Agent to apply the configuration changes.
 
 ## Splunk metrics in StackState
 
@@ -114,4 +114,5 @@ Metrics retrieved from splunk are available in StackState as a metrics telemetry
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
+* [Map telemetry to components](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
 * [Example Splunk metrics configuration file - splunk\_metrics.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
