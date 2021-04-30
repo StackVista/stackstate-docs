@@ -81,6 +81,7 @@ To configure the Splunk events Agent check:
 4. Save the configuration file.
 5. Restart StackState Agent V1 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
+7. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 ### Uniquely identify a record
 

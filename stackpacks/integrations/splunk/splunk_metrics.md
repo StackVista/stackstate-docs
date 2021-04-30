@@ -13,13 +13,13 @@ The Splunk metrics check on StackState Agent V1 will execute all configured Splu
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk metrics Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. Each saved search can retrieve one metric. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | **\_time** | long | Data collection timestamp, millis since epoch. |
-| **metric** | string | Name of the metric.<br />Taken from the field `metric_name_field`, configured in the [Agent splunk metrics check](#agent-check). |
-| **value** | numeric | The value of the metric.<br />Taken from the `metric_value_field`, configured in the [Agent splunk metrics check](#agent-check). |
+| **metric** | string | The name of the metric. Taken from the configured `metric_name_field`. |
+| **value** | numeric | The value of the metric. Taken from the configured `metric_value_field`. |
 
 ### Example query
 
@@ -68,7 +68,7 @@ To configure the Splunk metrics Agent check:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
    * **tags** - Optional. Can be used to apply specific tags to all reported metrics in StackState.
-3. Under **saved_searches**, add details of each Splunk saved search that the check should execute: 
+3. Under **saved_searches**, add details of each Splunk saved search that the check should execute. Each saved search can retrieve one metric: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
        * **metric_name_field** - The field in the Splunk results that will contain the metric name. Default `"metric"`.
        * **metric_value_field** - The field in the Splunk results that will contain numerical data. Default `"value"`.
@@ -87,6 +87,7 @@ To configure the Splunk metrics Agent check:
 4. Save the configuration file.
 5. Restart StackState Agent V1 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
+7. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 ### Uniquely identify a record
 
