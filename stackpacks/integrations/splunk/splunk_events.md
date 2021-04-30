@@ -60,15 +60,15 @@ Example Splunk events Agent check configuration file:<br />[conf.d/splunk_event.
 
 To configure the Splunk events Agent check:
 
-1. Edit the Agent V1 integration configuration file `???`.
+1. Edit the Agent V1 integration configuration file `/etc/sts-agent/conf.d/splunk_events.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
-   * **tags** - 
+   * **tags** - Optional. Can be used to apply specific tags to all reported events in StackState.
 3. Under **saved_searches**, add details of each Splunk saved search that the check should execute: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
-       * **match** - 
-       * **app** -
+       * **match** - Regex used for selecting Splunk saved search queries. Default `"events.*"`.
+       * **app** - The Splunk app in where the saved searches are located. Default `"search"`.
        * **request_timeout_seconds** - Default `10`.
        * **search_max_retry_count** - Default `5`.
        * **search_seconds_between_retries** - Default `1`.
@@ -77,7 +77,7 @@ To configure the Splunk events Agent check:
        * **max_restart_history_seconds** - Default `86400`.
        * **max_query_chunk_seconds** - Default `3600`.
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
-       * **parameters** - 
+       * **parameters** - Used in the Splunk API request. The default parameters make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Save the configuration file.
 5. Restart StackState Agent V1 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.

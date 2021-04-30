@@ -17,13 +17,13 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 
 | Field | Components | Relations | Type | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **type** | ✅ | ✅ | string | The type of component or relation.  |
-| **id** | ✅ | - | string | The unique identifier for the component.  |
-| **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | The value will be included as identifier of the component. |
-| **label.&lt;label\_name&gt;** | ✅ | - | string | The value will be added as a label on the component in the format `label_name:value` |
-| **name** | ✅ | - | string | The value will be used as the component name. |
-| **sourceId** | - | ✅ | string | The ID of the component that is the source of the relation. |
-| **targetId** | - | ✅ | string | The ID of the component that is the target of the relation.  |
+| **type** | ✅ | ✅ | string | Required, The type of component or relation.  |
+| **id** | ✅ | - | string | Required. The unique identifier for the component.  |
+| **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | Optional. The value will be included as identifier of the component. |
+| **label.&lt;label\_name&gt;** | ✅ | - | string | Optional. The value will be added as a label on the component in the format `label_name:value` |
+| **name** | ✅ | - | string | Required. The value will be used as the component name. |
+| **sourceId** | - | ✅ | string | Required. The ID of the component that is the source of the relation. |
+| **targetId** | - | ✅ | string | Required. The ID of the component that is the target of the relation.  |
 | All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in the `data` map as key:value pairs in the format `field`:`value`. |
 
 ### Example queries
@@ -83,21 +83,21 @@ Example Splunk events Agent check configuration file:<br />[conf.d/splunk_topolo
 
 To configure the Splunk events Agent check:
 
-1. Edit the Agent V1 integration configuration file `???`.
+1. Edit the Agent V1 integration configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
    * **ignore_saved_search_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
-   * **tags** - 
+   * **tags** - Optional. Can be used to apply specific tags to all reported topology in StackState.
 3. Under **component_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
      * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
-       * **match** - 
-       * **app** -
+       * **match** - Regex used for selecting Splunk saved search queries. Default `"comp.*"` for component queries and `"relation*"` for relation queries.
+       * **app** - The Splunk app in where the saved searches are located. Default `"search"`.
        * **request_timeout_seconds** - Default `10`.
        * **search_max_retry_count** - Default `5`.
        * **search_seconds_between_retries** - Default `1`.
        * **batch_size** - Default `1000`.
-       * **parameters** - 
+       * **parameters** - Used in the Splunk API request. The default parameters make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components.
 5. Save the configuration file.
 6. Restart StackState Agent V1 to apply the configuration changes.

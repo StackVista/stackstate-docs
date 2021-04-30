@@ -8,7 +8,9 @@ The StackState API-Integration Agent is open source: [View the source code on Gi
 
 ## Installation
 
-Install the API-Integration StackPack by using the following sequence of steps:
+To install the API-Integration StackPack, go to the StackState UI page **StackPacks** > **Integrations** > **API-Integration** and click INSTALL.
+
+Install StackState Agent V1 by using the following sequence of steps:
 
 {% tabs %}
 {% tab title="Debian, Ubuntu" %}
@@ -67,6 +69,89 @@ Install the API-Integration StackPack by using the following sequence of steps:
 {% endtabs %}
 
 If you need further assistance, our [support team](https://support.stackstate.com/hc/en-us) will be glad to help.
+
+
+## Start / stop / restart the StackState Agent
+
+{% hint style="info" %}
+* Commands require elevated privileges.
+* Restarting the StackState Agent will reload the configuration files.
+{% endhint %}
+
+To manually start, stop or restart the StackState Agent:
+
+{% tabs %}
+{% tab title="Linux" %}
+```text
+sudo /etc/init.d/stackstate-agent start
+sudo /etc/init.d/stackstate-agent stop
+sudo /etc/init.d/stackstate-agent restart
+```
+{% endtab %}
+
+{% tab title="Windows" %}
+**CMD**
+
+```text
+"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+```
+
+**PowerShell**
+
+```text
+& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+```
+{% endtab %}
+{% endtabs %}
+
+## Status and information
+
+{% tabs %}
+{% tab title="Linux" %}
+To check if the StackState Agent V1 is running:
+
+```text
+sudo /etc/init.d/stackstate-agent status
+```
+
+To receive information about the StackState Agent V1 state:
+
+```
+sudo /etc/init.d/stackstate-agent info
+```
+
+Tracebacks for errors can be retrieved by setting the `-v` flag:
+
+```text
+sudo /etc/init.d/stackstate-agent info -v
+```
+{% endtab %}
+
+{% tab title="Windows" %}
+To check if the StackState Agent is running and receive information about the Agent's state:
+
+```text
+"./agent.exe status"
+```
+{% endtab %}
+{% endtabs %}
+
+## Troubleshooting
+
+Try running the [info command](#status-and-information) to see the state of the API-Integration Agent.
+
+Logs for the subsystems are in the following files:
+
+- `/var/log/stackstate/supervisord.log`
+- `/var/log/stackstate/collector.log`
+- `/var/log/stackstate/stsstatsd.log`
+- `/var/log/stackstate/forwarder.log`
+
+If you are still having trouble, contact our support team on the [StackState support site](http://support.stackstate.com/).
 
 ## Release notes
 
