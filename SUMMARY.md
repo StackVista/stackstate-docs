@@ -132,6 +132,7 @@
   * [Topology sources](configure/topology/topology_sources.md)
   * [Topology synchronization](configure/topology/topology_synchronization.md)
   * [Debug topology synchronization](configure/topology/debugging_topology_synchronization.md)
+  * [Gina test](configure/topology/gina.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Checks and streams](configure/telemetry/checks_and_streams.md)
