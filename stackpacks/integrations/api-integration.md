@@ -2,7 +2,7 @@
 
 ## What is the API-Integration StackPack?
 
-The StackState API-Integration StackPack enables StackState synchronizations through StackState Agent V1. Agent V1 allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to collect topology, metrics and events data.
+The StackState API-Integration StackPack enables StackState synchronizations through the StackState API-Integration Agent. The API-Integration Agent allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to collect topology, metrics and events data.
 
 The StackState API-Integration Agent is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
@@ -10,11 +10,11 @@ The StackState API-Integration Agent is open source: [View the source code on Gi
 
 To install the API-Integration StackPack, go to the StackState UI page **StackPacks** > **Integrations** > **API-Integration** and click INSTALL.
 
-Install StackState Agent V1 by using the following sequence of steps:
+Install the StackState API-Integration Agent by using the following sequence of steps:
 
 {% tabs %}
 {% tab title="Debian, Ubuntu" %}
-1. Download the API-Integration [Agent V1 Debian package](https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb) or run this command on the machine where you wish to install the Agent:
+1. Download the [API-Integration Agent Debian package](https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb'
@@ -41,7 +41,7 @@ Install StackState Agent V1 by using the following sequence of steps:
 {% endtab %}
 
 {% tab title="Amazon linux, CentOS, Fedora, Red Hat" %}
-1. Download the API-Integration [Agent V1 RPM package](https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm) or run this command on the machine where you wish to install the Agent:
+1. Download the [API-Integration Agent RPM package](https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget 'https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm'
@@ -112,13 +112,13 @@ sudo /etc/init.d/stackstate-agent restart
 
 {% tabs %}
 {% tab title="Linux" %}
-To check if the StackState Agent V1 is running:
+To check if the StackState API-Integration Agent is running:
 
 ```text
 sudo /etc/init.d/stackstate-agent status
 ```
 
-To receive information about the StackState Agent V1 state:
+To receive information about the StackState API-Integration Agent state:
 
 ```
 sudo /etc/init.d/stackstate-agent info
