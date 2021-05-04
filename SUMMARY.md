@@ -4,6 +4,7 @@
 
 ## 🚀 Setup
 
+* [Gina test page](setup/gina-test.md)
 * [Requirements](setup/requirements.md)
 * [Installation](setup/installation/README.md)
   * [Kubernetes install](setup/installation/kubernetes_install/README.md)
