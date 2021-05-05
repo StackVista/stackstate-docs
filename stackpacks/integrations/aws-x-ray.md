@@ -1,3 +1,7 @@
+---
+description: A StackState CORE integration
+---
+
 # AWS X-ray
 
 ## Overview

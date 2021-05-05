@@ -95,7 +95,7 @@
   * [💠 Openshift](stackpacks/integrations/openshift.md)
   * [💠 ServiceNow](stackpacks/integrations/servicenow.md)
   * [💠 Splunk](stackpacks/integrations/splunk/README.md)
-    * [💠 Splunk integration](stackpacks/integrations/splunk/splunk_stackpack.md)
+    * [💠 Splunk](stackpacks/integrations/splunk/splunk_stackpack.md)
     * [💠 Splunk topology Agent check](stackpacks/integrations/splunk/splunk_topology.md)
     * [💠 Splunk metrics Agent check](stackpacks/integrations/splunk/splunk_metrics.md)
     * [💠 Splunk events Agent check](stackpacks/integrations/splunk/splunk_events.md)

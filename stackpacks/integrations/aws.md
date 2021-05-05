@@ -1,5 +1,5 @@
 ---
-old-description: Get topology and telemetry data from AWS services
+description: A StackState CORE integration
 ---
 
 # AWS
