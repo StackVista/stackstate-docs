@@ -26,7 +26,7 @@ Community integrations are developed in response to specific customer requests. 
 - [Cloudera](/stackpacks/integrations/cloudera.md)
 - [Humio](/stackpacks/integrations/humio.md)
 - IBM MQ Series
-- [SAP repo \(github.com\)](https://github.com/StackVista/stackpack-sap) and [SAP documentation](/stackpacks/integrations/sap.md)
+- [SAP repo \(github.com\)](https://github.com/StackVista/stackpack-sap) and [SAP integration documentation](/stackpacks/integrations/sap.md)
 
 
 
