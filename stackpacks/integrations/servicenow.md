@@ -1,4 +1,5 @@
 ---
+description: Core integration
 old-description: Collect topology data from ServiceNow
 ---
 

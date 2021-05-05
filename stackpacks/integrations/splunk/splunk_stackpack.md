@@ -1,4 +1,5 @@
 ---
+description: Core integration
 stackpack-name: Splunk events, metrics and topology
 ---
 

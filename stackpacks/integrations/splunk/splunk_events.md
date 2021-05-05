@@ -1,3 +1,7 @@
+---
+description: Core integration
+---
+
 # Splunk events Agent check
 
 ## Overview

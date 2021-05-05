@@ -1,3 +1,7 @@
+---
+description: Core integration
+---
+
 # Splunk metrics Agent check
 
 ## Overview

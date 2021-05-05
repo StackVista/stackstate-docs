@@ -1,3 +1,7 @@
+---
+description: Core integration
+---
+
 # Splunk topology Agent check
 
 ## Overview

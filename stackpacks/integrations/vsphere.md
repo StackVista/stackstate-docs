@@ -1,4 +1,5 @@
 ---
+description: Core integration
 old-description: Near real-time synchronization with VMWare vSphere
 stackpack-name: VMWare vSphere StackPack
 ---
