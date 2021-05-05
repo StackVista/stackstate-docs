@@ -55,7 +55,8 @@ Check functions make it possible to configure a health check that triggers the D
 3. Enter the required settings:
   * **Name** - A name to identify the event handler function.
   * **Description** - Optional. A description of the event handler function.
-  * **User parameters** - parameters that must be entered by the user when a check is added to a component. For details, see the section on [parameters](checks_and_streams.md#parameters) below.
+  * **User parameters** - Parameters that must be entered by the user when a check is added to a component. For details, see the section on [parameters](checks_and_streams.md#parameters) below.
+  * **Return** - Whether the function returns a Health state, a Run state or both.
   * **Script** - The script run by the function.
   * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the check function.
@@ -72,7 +73,7 @@ A `MetricTelemetryPoint` has the properties
 * `timestamp` - the time \(epoch in ms\) at which the value was measured
 
 {% tabs %}
-{% tab title="Example anomaly check function script" %}
+{% tab title="Example check function script" %}
 ```text
 if (metrics[-1].point >= deviatingValue) return DEVIATING;
 ```
@@ -82,13 +83,13 @@ if (metrics[-1].point >= deviatingValue) return DEVIATING;
 ## Check Result
 
 When a check function runs, it returns a check result.  This result can be either one of
-* **health state** a `HealthStateValue`, the new health state of the component.  One of `CLEAR`, `DEVIATING`, `CRITICAL`, `FLAPPING`, `DISABLED` or `UNKNOWN`
+* **health state** a `HealthStateValue`, the new health state of the component.  One of `CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`
 * **run state** a `RunStateValue`, the new run state of the component.  One of `UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`
 * **acknowledgement**, a `CheckAcknowledgementResult`
 * **expiration**, a `CheckStateExpiration` that specifies how long the health state remains valid and what it should expire to
-* a `Map<String, Object>` a combination of the above and/or additional state.
-  
-The keys of this map are:
+* a combination of the above and/or additional state in a `Map<String, Object>`.  See below for more details.
+
+The keys of the combined map are:
 
 | Key | Type | Description |
 | :--- | :--- | :--- |
@@ -98,10 +99,10 @@ The keys of this map are:
 |`expiration` |`CheckStateExpiration`|see above|
 |`detailedMessage` |`String`|detailed explanation of the reason behind the health status|
 |`shortMessage` |`String`|a short description|
-|`causingEvents` |`List<EventRef>` or `List<Map<String, Object>>`|the events that triggered the health state change|
+|`causingEvents` |`List<Map<String, Object>>`|the events that triggered the health state change|
 |`data`|`Map<String, Object>`|arbitrary additional data|
 
-The `causingEvents` allow StackState to link events together.  E.g. when an anomaly event occurs, the component that generated the metrics can become `DEVIATING`.  Including the anomaly as a causing event then allows the operator to understand why the health state change event occurred.  The causing event can also be provided as a `Map`, provided that the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`) are all set.
+The `causingEvents` allow StackState to link events together.  E.g. when an anomaly event occurs, the component that generated the metrics can become `DEVIATING`.  Including the anomaly as a causing event then allows the operator to understand why the health state change event occurred.  The causing event are provided as a `Map`, provided that the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`) are all set.
 
 In order to guarantee that `data` can be serialized and no objects can leak from the groovy sandbox, only these value types are supported:
 * primitive, meaning a `Boolean`, `Short`, `Integer`, `Long`, `Float`, `Double` or `String`
