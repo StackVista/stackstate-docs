@@ -1,5 +1,5 @@
 ---
-description: Core integration
+description: A StackState CORE integration
 ---
 
 # Splunk StackPack

@@ -1,6 +1,5 @@
 ---
-description: Core integration
-old-description: Collect Smartscape topology data from Dynatrace
+description: A StackState CORE integration
 ---
 
 # Dynatrace

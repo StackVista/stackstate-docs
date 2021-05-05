@@ -1,3 +1,7 @@
+---
+description: A StackState CORE integration
+---
+
 # API integration
 
 ## What is the API-Integration StackPack?

@@ -1,3 +1,7 @@
+---
+description: A StackState CORE integration
+---
+
 # StackState Agent
 
 ## What is the Agent StackPack?

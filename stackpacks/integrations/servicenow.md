@@ -1,6 +1,5 @@
 ---
-description: Core integration
-old-description: Collect topology data from ServiceNow
+description: A StackState CORE integration
 ---
 
 # ServiceNow
