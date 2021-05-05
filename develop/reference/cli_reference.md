@@ -24,7 +24,7 @@ sts graph list-types
 
 ### sts graph export
 
-Use the `sts graph export` command to export different types of [configuration nodes](cli_reference.md#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](stj/) format.
+Use the `sts graph export` command to export different types of [configuration nodes](cli_reference.md#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](stj/README.md) format.
 
 ```text
 sts graph export -i ids_to_export > file_name
@@ -72,8 +72,8 @@ sts graph import < file_name
 The CLI makes it easy to send test data to StackState.
 
 * [Send anomaly data](cli_reference.md#sts-anomaly-send)
-* [Send events data](cli_reference.md#sts-events-send)
-* [Send metrics data](cli_reference.md#sts-metrics-send)
+* [Send events data](cli_reference.md#sts-event-send)
+* [Send metrics data](cli_reference.md#sts-metric-send)
 * [Send topology data](cli_reference.md#sts-topology-send)
 
 ### sts anomaly send
@@ -168,9 +168,20 @@ sts topic show <topic>
 
 The StackState CLI can be used to manage the StackPacks in your StackState instance.
 
+* [Details of installed StackPacks](cli_reference.md#details-of-installed-stackpacks)
 * [Install a StackPack](cli_reference.md#install-a-stackpack)
 * [Upgrade a StackPack](cli_reference.md#upgrade-a-stackpack)
 * [Uninstall a StackPack](cli_reference.md#uninstall-a-stackpack)
+
+### Details of installed StackPacks
+
+The command below returns an overview of all StackPacks currently installed on a StackState instance.
+
+```
+# Returns the category, installed version, next version, latest version
+# and instance count for all installed StackPacks
+sts stackpack list -i
+```
 
 ### Install a StackPack
 
@@ -247,5 +258,5 @@ Note that it is not necessary to do this via the CLI. StackState will also offer
 
 ## See also
 
-* [StackState Templated Json](stj/)
+* [StackState Templated Json](stj/README.md)
 
