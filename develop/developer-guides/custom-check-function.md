@@ -16,7 +16,7 @@ To add a custom check handler function:
   * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [user parameters](#user-parameters).
   * **Return** - ???. For details see [check function results](#result).  
   * **Script** - The groovy script run by the function.
-  * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](configure/identifiers.md#about-identifiers-in-stackstate).
+  * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](/configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
   * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
 
@@ -26,7 +26,7 @@ To add a custom check handler function:
 
 Check functions can work with a number of user parameters. These parameters can be accessed by the function script, and their values are specified by the user when the check function is used in a health check.
 
-User parameters can be any of the types listed below. **Required** parameters must always be specified by the user. **Multiple** parameters will be a list containing the specified user parmameter type.
+User parameters can be any of the types listed below. **Required** parameters must always be specified by the user. **Multiple** parameters will be a list containing the specified user parameter type.
 
 | User parameter type | Description |
 |:---|:---|
@@ -52,7 +52,7 @@ if (metrics[-1].point >= deviatingValue) return DEVIATING;
 
 ## Result
 
-Whenever a check function runs, it returns a result. This can be a **health state** and/or a **run state** or a custom map containing a collection of data formatted as descibed below. 
+Whenever a check function runs, it returns a result. This can be a **health state** and/or a **run state**, or a custom map containing a collection of data formatted as described below. 
 
 * **Health state** - A `HealthStateValue`. This will be the new health state of the component (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`). A `CheckStateExpiration` can also be returned to specify how long the health state should remain valid and what it should change to after expiration.
 * **Run state** - A `RunStateValue`. This will be the new run state of the component (`UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`). |
