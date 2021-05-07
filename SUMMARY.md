@@ -194,6 +194,7 @@
     * [Checks in Agent v2](develop/developer-guides/agent_check/checks_in_agent_v2.md)
     * [How to develop agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
   * [Extend StackState with functions](develop/developer-guides/functions.md)
+  * [Custom check functions](develop/developer-guides/custom-check-function.md)  
   * [Anomaly check functions](develop/developer-guides/anomaly-check-functions.md)
   * [Mirroring Telemetry](develop/developer-guides/mirroring.md)
   * [Integrate external services](develop/developer-guides/integrating_external_services.md)
