@@ -54,12 +54,12 @@ if (metrics[-1].point >= deviatingValue) return DEVIATING;
 
 Whenever a check function runs, it returns a result. This can be a **health state** and/or a **run state** or a custom map containing a collection of data formatted as descibed below. 
 
-* **Health state** - A `HealthStateValue`. This will be the new health state of the component (`CLEAR`, `DEVIATING`, `CRITICAL`, `FLAPPING`, `DISABLED` or `UNKNOWN`). A `CheckStateExpiration` can also be returned to specify how long the health state remains valid and what it should change to after expiration.
+* **Health state** - A `HealthStateValue`. This will be the new health state of the component (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`). A `CheckStateExpiration` can also be returned to specify how long the health state remains valid and what it should change to after expiration.
 * **Run state** - A `RunStateValue`. This will be the new run state of the component (`UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`). |
 * **Custom map** - A custom map can contain a health state and/or run state as described above as well as:
   - `detailedMessage` - Markdown formatted explanation of the reason behind a returned health state. `String`.
   - `shortMessage` - A short description of the state change. `String`.
-  - `causingEvents` - The events that triggered the health state change. These are used to link changes to anomaly events. `List<EventRef>` or a map with the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`). For details see [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md).
+  - `causingEvents` - The events that triggered the health state change. These are used in [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md) to link changes to anomaly events. Provided as a map with the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`).
   - `data` - Arbitrary additional data. `Map<String, Object>`.
 
 ## Logging
