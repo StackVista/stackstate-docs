@@ -14,7 +14,7 @@ To add a custom check handler function:
   * **Name** - A name to identify the check function.
   * **Description** - Optional. A description of the check function.
   * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [user parameters](#user-parameters).
-  * **Return** - ???. For details see on [check function results](#result).  
+  * **Return** - ???. For details see [check function results](#result).  
   * **Script** - The groovy script run by the function.
   * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the check function.
