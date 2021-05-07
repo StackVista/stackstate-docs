@@ -40,7 +40,7 @@ User parameters can be any of the types listed below. **Required** parameters mu
 | StackState events |  |
 | Anomaly direction | Used for [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md). |
 
-In the example below, the check function includes a `Metric stream` parameter (`metrics`) and am `Integer` parameter (`deviatingValue`). The health state DEVIATING will be returned whenever the metrics stream includes a metric value higher than the specified deviating value.
+In the example below, the check function includes a Metric stream parameter (`metrics`) and an Integer parameter (`deviatingValue`). The health state DEVIATING will be returned whenever the metrics stream includes a metric value higher than the specified deviating value.
 
 {% tabs %}
 {% tab title="Example check function script" %}
