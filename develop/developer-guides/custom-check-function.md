@@ -16,7 +16,7 @@ To add a custom check handler function:
   * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [user parameters](#user-parameters).
   * **Return** - ???. For details see [check function results](#result).  
   * **Script** - The groovy script run by the function.
-  * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
+  * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
   * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
 
@@ -34,7 +34,7 @@ User parameters can be any of the types listed below. **Required** parameters mu
 | State | |
 | Run state | |
 | Metric stream | A `List` with a number of `MetricTelemetryPoint` metrics. Each `MetricTelemetryPoint` includes a `point` (the metric value as a double) and a `timestamp` in epoch milliseconds. | 
-| Baseline metric stream | |
+| Baseline metric stream \(deprecated\) | |
 | Metric stream id | |
 | Log stream | |
 | StackState events |  |
@@ -56,11 +56,37 @@ Whenever a check function runs, it returns a result. This can be a **health stat
 
 * **Health state** - A `HealthStateValue`. This will be the new health state of the component (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`). A `CheckStateExpiration` can also be returned to specify how long the health state should remain valid and what it should change to after expiration.
 * **Run state** - A `RunStateValue`. This will be the new run state of the component (`UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`). |
-* **Custom map** - A custom map can contain a health state and/or run state as described above as well as:
+* **Custom map** - A custom map can contain a health state and/or run state as described above, as well as:
   - `detailedMessage` - Markdown formatted explanation of the reason behind a returned health state. `String`.
   - `shortMessage` - A short description of the state change. `String`.
   - `causingEvents` - The events that triggered the health state change. These are used in [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md) to link changes to anomaly events. Provided as a map with the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`).
   - `data` - Arbitrary additional data. `Map<String, Object>`.
+
+Example custom map result:
+
+```
+[
+    runState: STOPPING,
+    healthState: DEVIATING,
+    shortMessage: "Something bad happened",
+    detailedMessage: "Something **REALLY** bad happened.",
+    expiration: [
+        duration: 60000,
+        expireTo: UNKNOWN
+    ],
+    causingEvents: [
+         [
+                 title: event.getName(),
+                 eventId: event.getIdentifier(),
+                 eventTimestamp: event.getEventTimestamp(),
+                 eventType: event.getType()
+         ]
+    ],
+    data: [
+        "foo": "bar"
+    ]
+]
+```
 
 ## Logging
 
