@@ -30,15 +30,15 @@ User parameters can be any of the types listed below. **Required** parameters mu
 
 | User parameter type | Description |
 |:---|:---|
-| primitive types | Can be a  `Float`, `Integer`, `String` or `Boolean`. |
-| `State` | |
-| `Run state` | |
-| `Metric stream` | A `List` with a number of `MetricTelemetryPoint` metrics. Each `MetricTelemetryPoint` includes a `point` (the metric value as a double) and a `timestamp` in epoch milliseconds. | 
-| `Baseline metric stream` | |
-| `Metric stream id` | |
-| `Log stream` | |
-| `StackState events` |  |
-| `Anomaly direction` | Used for [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md). |
+| Primitive types | Can be a  `Float`, `Integer`, `String` or `Boolean`. |
+| State | |
+| Run state | |
+| Metric stream | A `List` with a number of `MetricTelemetryPoint` metrics. Each `MetricTelemetryPoint` includes a `point` (the metric value as a double) and a `timestamp` in epoch milliseconds. | 
+| Baseline metric stream | |
+| Metric stream id | |
+| Log stream | |
+| StackState events |  |
+| Anomaly direction | Used for [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md). |
 
 In the example below, the check function includes a `Metric stream` parameter (`metrics`) and am `Integer` parameter (`deviatingValue`). The health state DEVIATING will be returned whenever the metrics stream includes a metric value higher than the specified deviating value.
 
@@ -54,7 +54,7 @@ if (metrics[-1].point >= deviatingValue) return DEVIATING;
 
 Whenever a check function runs, it returns a result. This can be a **health state** and/or a **run state** or a custom map containing a collection of data formatted as descibed below. 
 
-* **Health state** - A `HealthStateValue`. This will be the new health state of the component (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`). A `CheckStateExpiration` can also be returned to specify how long the health state remains valid and what it should change to after expiration.
+* **Health state** - A `HealthStateValue`. This will be the new health state of the component (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`). A `CheckStateExpiration` can also be returned to specify how long the health state should remain valid and what it should change to after expiration.
 * **Run state** - A `RunStateValue`. This will be the new run state of the component (`UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`). |
 * **Custom map** - A custom map can contain a health state and/or run state as described above as well as:
   - `detailedMessage` - Markdown formatted explanation of the reason behind a returned health state. `String`.
