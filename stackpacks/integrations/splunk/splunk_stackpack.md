@@ -1,5 +1,5 @@
 ---
-description: A StackState CORE integration
+description: StackState CORE integration
 stackpack-name: Splunk events, metrics and topology
 ---
 

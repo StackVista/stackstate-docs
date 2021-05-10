@@ -1,5 +1,5 @@
 ---
-description: A StackState CORE integration
+description: StackState CORE integration
 ---
 
 # AWS
