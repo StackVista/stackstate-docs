@@ -22,16 +22,12 @@ Documentation for the StackState CORE integrations can be found at the top of th
 
 Curated integrations are developed and maintained by StackState. Updates are planned in response to feature requests or bugs raised. 
 
-Documentation for curated integrations is available in the **StackPacks** > **integrations** menu underneath the StackState CORE integrations.
+Documentation for curated integrations is available in the **StackPacks** > **integrations** menu underneath the StackState CORE integrations. You can see which integrations are curated integrations on the [integrations overview page](/stackpacks/integrations/README.md).
 
 
 ## Community integrations
 
-Community integrations are developed in response to specific customer requests. Documentation is available in the **StackPacks** > **integrations** menu.
-
-- [Cloudera](/stackpacks/integrations/cloudera.md)
-- [Humio](/stackpacks/integrations/humio.md)
-- [SAP StackPack repo \(github.com\)](https://github.com/StackVista/stackpack-sap) and [SAP integration documentation](/stackpacks/integrations/sap.md)
+Community integrations are developed in response to specific customer requests. Documentation is available in the **StackPacks** > **integrations** menu. You can see which integrations are community integrations on the [integrations overview page](/stackpacks/integrations/README.md).
 
 
 
