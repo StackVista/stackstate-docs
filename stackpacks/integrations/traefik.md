@@ -1,5 +1,5 @@
 ---
-description: Curated integration
+description: StackState curated integration
 ---
 
 # Traefik

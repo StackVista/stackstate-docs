@@ -6,13 +6,13 @@ description: An explanation of the core, curated and community integrations avai
 
 ## Overview
 
-StackState integrations are split into three groups - core, curated and community.
-
-The description at the top of each integration's documentation page will clearly state if it is a core, curated or community integration. The differences between the three groups are described on this page.
+StackState integrations are split into three groups - core, curated and community. The differences between the three groups are described on this page.
 
 * [StackState CORE integrations](#stackstate-core-integrations)
 * [Curated integrations](#curated-integrations)
 * [Community integrations](#community-integrations)
+
+The description at the top of each integration's documentation page will clearly state if it is a core, curated or community integration. 
 
 ## StackState CORE integrations
 
