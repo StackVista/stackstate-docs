@@ -20,7 +20,7 @@ To add a custom check handler function:
 4. Click **CREATE** to save the check function.
   * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
 
-![Add a custom check function](../../../.gitbook/assets/add-check-function.png)
+![Add a custom check function](/.gitbook/assets/add-check-function.png)
 
 ## User parameters
 
@@ -95,4 +95,4 @@ You can add logging statements to check function scripts for debug purposes, for
 ## See also
 
 * [Send notifications when a health state changes](../../../use/health-state-and-event-notifications/send-event-notifications.md)
-* [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md).
+* [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md)

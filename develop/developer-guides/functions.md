@@ -23,7 +23,7 @@ Read more about:
 
 * [Component actions](../../configure/topology/how_to_configure_component_actions.md)
 * [Event handler functions](/configure/topology/event-handlers.md)
-* [Propagation functions](../../configure/topology/propagation.md#propagation-functions)
+* [Propagation functions](custom-functions/propagation-functions.md#propagation-functions)
 
 ### Synchronous execution
 
@@ -33,10 +33,10 @@ Read more about:
 
 * [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
 * [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md)
-* [Component mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
+* [Component mapper functions](custom-functions/mapping_functions.md)
 * [Event handler functions](/configure/topology/event-handlers.md)  
-* [Id extractor functions](../../use/introduction-to-stackstate/id_extraction.md)
-* [Propagation functions](../../configure/topology/propagation.md#propagation-functions)
-* [Relation mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
+* [Id extractor functions](custom-functions/id_extraction.md)
+* [Propagation functions](custom-functions/propagation-functions.md#propagation-functions)
+* [Relation mapper functions](custom-functions/mapping_functions.md)
 * [Baseline functions\(deprecated\)](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md#baseline-functions)
 
