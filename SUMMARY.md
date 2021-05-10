@@ -195,7 +195,7 @@
     * [ID extraction functions](develop/developer-guides/custom-functions/id_extraction.md)
     * [Mapping functions](develop/developer-guides/custom-functions/mapping_functions.md)  
     * [Propagation functions](develop/developer-guides/custom-functions/propagation-functions.md)
-    * [Baseline functions \(Deprecated\)](configure/telemetry/baseline-functions.md)
+    * [Baseline functions \(Deprecated\)](develop/developer-guides/custom-functions/baseline-functions.md)
   * [Mirroring Telemetry](develop/developer-guides/mirroring.md)
   * [Integrate external services](develop/developer-guides/integrating_external_services.md)
 * [Reference](develop/reference/README.md)
