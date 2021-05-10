@@ -1,3 +1,7 @@
+---
+description: Curated integration
+---
+
 # Google Analytics
 
 ## What is the Google Analytics StackPack?

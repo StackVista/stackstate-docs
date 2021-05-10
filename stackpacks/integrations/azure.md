@@ -1,5 +1,5 @@
 ---
-old-description: In-depth monitoring of Azure resource types
+description: Curated integration
 ---
 
 # Azure

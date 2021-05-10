@@ -1,6 +1,5 @@
 ---
-title: Logz.io StackPack
-kind: documentation
+description: Curated integration
 ---
 
 # Logz.io

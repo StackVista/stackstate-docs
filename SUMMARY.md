@@ -111,9 +111,9 @@
   * [Manual Topology](stackpacks/integrations/manualtopo.md)
   * [Nagios](stackpacks/integrations/nagios.md)
   * [SAP](stackpacks/integrations/sap.md)
-  * [SCOM \(BETA\)](stackpacks/integrations/scom.md)
+  * [SCOM](stackpacks/integrations/scom.md)
   * [Static Topology](stackpacks/integrations/static_topology.md)
-  * [Traefik \(BETA\)](stackpacks/integrations/traefik.md)
+  * [Traefik](stackpacks/integrations/traefik.md)
   * [Zabbix](stackpacks/integrations/zabbix.md)
 * [Develop your own StackPacks](stackpacks/sdk.md)
 

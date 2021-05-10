@@ -1,3 +1,7 @@
+---
+description: Curated integration
+---
+
 # Manual Topology
 
 ## What is the Manual Topology StackPack?

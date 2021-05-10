@@ -1,8 +1,8 @@
 ---
-old-description: 'Collect topology, health state and alerts from SCOM'
+description: Curated integration
 ---
 
-# SCOM \(BETA\)
+# SCOM
 
 ## Overview
 

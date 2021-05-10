@@ -1,3 +1,7 @@
+---
+description: Curated integration
+---
+
 # Custom Synchronization
 
 ## What is the Custom Synchronization StackPack?

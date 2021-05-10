@@ -1,3 +1,7 @@
+---
+description: Curated integration
+---
+
 # Zabbix
 
 ## What is the Zabbix StackPack?

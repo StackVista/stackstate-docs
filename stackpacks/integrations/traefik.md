@@ -1,8 +1,8 @@
 ---
-old-description: Get topology and telemetry information from Traefik
+description: Curated integration
 ---
 
-# Traefik \(BETA\)
+# Traefik
 
 {% hint style="info" %}
 The Traefik integration is in **BETA**.
