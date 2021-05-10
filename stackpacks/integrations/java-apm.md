@@ -1,4 +1,6 @@
-
+---
+description: StackState CORE integration
+---
 
 # Java APM
 
