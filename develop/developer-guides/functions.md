@@ -1,54 +1,42 @@
----
-description: Extending StackState's capabilities using functions.
----
+# Overview
 
-# Extend StackState with functions
+Functions in StackState are predefined scripts that transform input into an output. They are called by StackState on-demand. For example, when a component changes state, new telemetry flows in ora user triggers an action. Advanced users can develop their own functions to customize StackState. These functions can then be exported and packaged with a custom StackPack. Read more about it in [how to create StackPacks](../../stackpacks/about-stackpacks.md).
 
-StackState is built to deal with a wide variety of different situations. StackState comes with functions to stay flexible enough to account for different types of logic.
+Functions in StackState run as either [synchronous](#synchronous-execution) or [asynchronous](#asynchronous-execution) execution. The default execution type and available possibilities vary per function type:
 
-Functions are predefined scripts that transform input into an output. Functions are called by StackState on-demand. For example, when a component changed state, some new telemetry flowed in or when the user triggered an action.
-
-## Packaging functions
-
-Functions give advanced users the ability to customize StackState fully. However, everyday users of StackState should not need to know that they exist.
-
-StackPacks pre-package functions and automatically install functions on StackState whenever the StackPack gets installed. You can develop your function in StackState. When you are confident that it does what you want, you can export it and package it with a StackPack. Read more about it in [how to create StackPacks](../../stackpacks/about-stackpacks.md).
-
-## Async vs synchronous functions
-
-Functions in StackState can be either synchronous or asynchronous \(async\).
-
-| Function | Synchronous | Async |
+| Function | Synchronous | Asynchronous |
 | :--- | :---: | :---: |
-| Event handler function | ✅ | ✅ \(from v4.2\) |
+| Event handler function | ✅ | ✅ |
 | Propagation functions | ✅ | ✅ |
-| Baseline function | ✅ | - |
-| Check function | ✅ | - |
 | Component actions | - | ✅ |
-| Component mapper function | ✅ | - |
-| Id extractor function | ✅ | - |
-| Relation mapper function | ✅ | - |
+| Check functions | ✅ | - |
+| Component mapper functions | ✅ | - |
+| Id extractor functions | ✅ | - |
+| Relation mapper functions | ✅ | - |
+| Baseline function \(deprecated\) | ✅ | - |
 
-### Async functions
+### Asynchronous execution
 
-Propagation functions and event handler functions can be created as asynchronous \(async\) functions, while component action scripts always run as async. This gives them access to all StackState [Script APIs](../reference/scripting/) and allows more functions to run in parallel.
+Functions that run with asynchronous execution have access to all StackState [Script APIs](../reference/scripting/README.md). Selecting asynchronous execution also makes it possible for more functions to run in parallel.
 
 Read more about:
 
 * [Component actions](../../configure/topology/how_to_configure_component_actions.md)
-* [Event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md)
-* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
+* [Event handler functions](/configure/topology/event-handlers.md)
+* [Propagation functions](../../configure/topology/propagation.md#propagation-functions)
 
-### Synchronous functions
+### Synchronous execution
 
-In StackState, functions are generally written in a synchronous blocking manner.
+Functions that run with synchronous execution do not have access to the StackState script APIs. If the function offers the possibility to be run with either asynchronous or synchronous execution, it is recommended to use asynchronous execution.
 
 Read more about:
 
-* [Baseline functions](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md#baseline-functions)
-* [Check functions](../../configure/telemetry/checks_and_streams.md#check-functions)
+* [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
+* [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md)
 * [Component mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
+* [Event handler functions](/configure/topology/event-handlers.md)  
 * [Id extractor functions](../../use/introduction-to-stackstate/id_extraction.md)
-* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
+* [Propagation functions](../../configure/topology/propagation.md#propagation-functions)
 * [Relation mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
+* [Baseline functions\(deprecated\)](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md#baseline-functions)
 

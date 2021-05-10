@@ -83,6 +83,6 @@ The Metric stream ID parameter specifies the identifier of the Metric Stream for
 
 ## See also
 
-* [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
-* [Checks and telemetry streams](../../configure/telemetry/checks_and_streams.md)
+* [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
+* [Checks and telemetry streams](../../../configure/telemetry/checks_and_streams.md)
 

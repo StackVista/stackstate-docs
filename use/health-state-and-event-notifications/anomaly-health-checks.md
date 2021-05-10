@@ -46,11 +46,11 @@ When enabled, the autonomous metric stream anomaly detection check function will
 
 ## Custom anomaly check functions
 
-Optionally, advanced users of StackState can create their own custom anomaly check functions. More information on custom anomaly check functions, parameters and available fields can be found in the [anomaly check functions developer guide](../../develop/developer-guides/anomaly-check-functions.md). Note that you have to adjust an identifier of a custom anomaly check function such that it is recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com).
+Optionally, advanced users of StackState can create their own custom anomaly check functions. More information on custom anomaly check functions, parameters and available fields can be found in the [anomaly check functions developer guide](../../develop/developer-guides/custom-functions/anomaly-check-functions.md). Note that you have to adjust an identifier of a custom anomaly check function such that it is recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com).
 
 ## See also
 
 * [Autonomous Anomaly Detector StackPack](../../stackpacks/add-ons/aad.md)
-* [Anomaly check functions](../../develop/developer-guides/anomaly-check-functions.md)
+* [Anomaly check functions](../../develop/developer-guides/custom-functions/anomaly-check-functions.md)
 * [Add a health check](add-a-health-check.md)
 

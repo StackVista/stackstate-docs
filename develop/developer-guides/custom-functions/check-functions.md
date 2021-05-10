@@ -18,9 +18,9 @@ To add a custom check handler function:
   * **Script** - The groovy script run by the function.
   * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](/configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
-  * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
+  * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
 
-![Add a custom check function](../../.gitbook/assets/add-check-function.png)
+![Add a custom check function](../../../.gitbook/assets/add-check-function.png)
 
 ## User parameters
 
@@ -38,7 +38,7 @@ User parameters can be any of the types listed below. **Required** parameters mu
 | Metric stream id | |
 | Log stream | |
 | StackState events |  |
-| Anomaly direction | Used for [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md). |
+| Anomaly direction | Used for [anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md). |
 
 In the example below, the check function includes a Metric stream parameter (`metrics`) and an Integer parameter (`deviatingValue`). The health state DEVIATING will be returned whenever the metrics stream includes a metric value higher than the specified deviating value.
 
@@ -59,7 +59,7 @@ Whenever a check function runs, it returns a result. This can be a **health stat
 * **Custom map** - A custom map can contain a health state and/or run state as described above, as well as:
   - `detailedMessage` - Markdown formatted explanation of the reason behind a returned health state. `String`.
   - `shortMessage` - A short description of the state change. `String`.
-  - `causingEvents` - The events that triggered the health state change. These are used in [anomaly check functions](/develop/developer-guides/anomaly-check-functions.md) to link changes to anomaly events. Provided as a map with the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`).
+  - `causingEvents` - The events that triggered the health state change. These are used in [anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md) to link changes to anomaly events. Provided as a map with the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`).
   - `data` - Arbitrary additional data. `Map<String, Object>`.
 
 Example custom map result:
@@ -90,9 +90,9 @@ Example custom map result:
 
 ## Logging
 
-You can add logging statements to check function scripts for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../configure/logging/enable-logging.md).
+You can add logging statements to check function scripts for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/enable-logging.md).
 
 ## See also
 
-* [Send notifications when a health state changes](../../use/health-state-and-event-notifications/send-event-notifications.md)
-* [Anomaly check functions](/develop/developer-guides/anomaly-check-functions.md).
+* [Send notifications when a health state changes](../../../use/health-state-and-event-notifications/send-event-notifications.md)
+* [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md).
