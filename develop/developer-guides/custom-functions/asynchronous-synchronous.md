@@ -24,8 +24,8 @@ Propagation functions and event handler functions can be created as asynchronous
 Read more about:
 
 * [Component actions](../../configure/topology/how_to_configure_component_actions.md)
-* [Event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md)
-* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
+* [Event handlers](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
 
 ### Synchronous functions
 
@@ -33,9 +33,9 @@ In StackState, functions are generally written in a synchronous blocking manner.
 
 Read more about:
 
-* [Baseline functions]()
-* [Check functions](../../configure/telemetry/checks_and_streams.md#check-functions)
-* [Component mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
-* [Id extractor functions](../../use/introduction-to-stackstate/id_extraction.md)
-* [Propagation functions](../../configure/topology/propagation.md#custom-propagation-functions)
-* [Relation mapper functions](../../use/introduction-to-stackstate/mapping_functions.md)
+* [Baseline functions](/develop/developer-guides/custom-functions/baseline-functions.md)
+* [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
+* [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md)
+* [Component and relation mapping functions](/develop/developer-guides/custom-functions/mapping_functions.md)
+* [Id extractor functions](/develop/developer-guides/custom-functions/id_extraction.md)
+* [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)

@@ -118,7 +118,6 @@
 
 * [Topology](configure/topology/README.md)
   * [Component actions](configure/topology/component_actions.md)
-  * [How to: Configure component actions](configure/topology/how_to_configure_component_actions.md)
   * [Create a topology manually](configure/topology/how_to_create_manual_topology.md)
   * [Configure synchronizations](configure/topology/sync.md)
   * [Customize view health state reporting](configure/topology/view_state_configuration.md)
@@ -190,8 +189,9 @@
     * [How to develop agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
   * [Custom functions](develop/developer-guides/custom-functions/README.md)
     * [Synchronous and asynchronous execution](develop/developer-guides/custom-functions/asynchronous-synchronous.md)
-    * [Check functions](develop/developer-guides/custom-functions/check-functions.md)
     * [Anomaly check functions](develop/developer-guides/custom-functions/anomaly-check-functions.md)  
+    * [Check functions](develop/developer-guides/custom-functions/check-functions.md)
+    * [Component action functions](develop/developer-guides/custom-functions/component-action-functions.md)
     * [ID extraction functions](develop/developer-guides/custom-functions/id_extraction.md)
     * [Mapping functions](develop/developer-guides/custom-functions/mapping_functions.md)  
     * [Propagation functions](develop/developer-guides/custom-functions/propagation-functions.md)

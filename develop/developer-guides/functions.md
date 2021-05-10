@@ -21,7 +21,7 @@ Functions that run with asynchronous execution have access to all StackState [Sc
 
 Read more about:
 
-* [Component actions](../../configure/topology/how_to_configure_component_actions.md)
+* [Component actions](custom-functions/component-action-functions.md)
 * [Event handler functions](/configure/topology/event-handlers.md)
 * [Propagation functions](custom-functions/propagation-functions.md#propagation-functions)
 
