@@ -2,40 +2,38 @@
 
 ## Overview
 
-## Async vs synchronous functions
+Functions in StackState run with either [synchronous](#synchronous-execution) or [asynchronous](#asynchronous-execution-recommended) execution. For some functions it is possible to choose the execution type.
 
-Functions in StackState can be either synchronous or asynchronous \(async\).
-
-| Function | Synchronous | Async |
+| Function | Synchronous | Asynchronous |
 | :--- | :---: | :---: |
-| Event handler function | ✅ | ✅ \(from v4.2\) |
+| Event handler functions | ✅ | ✅ |
 | Propagation functions | ✅ | ✅ |
-| Baseline function | ✅ | - |
-| Check function | ✅ | - |
-| Component actions | - | ✅ |
-| Component mapper function | ✅ | - |
-| Id extractor function | ✅ | - |
-| Relation mapper function | ✅ | - |
+| Component action functions | - | ✅ |
+| Baseline functions \(deprecated\) | ✅ | - |
+| Check functions | ✅ | - |
+| Component mapper functions | ✅ | - |
+| Id extractor functions | ✅ | - |
+| Relation mapper functions | ✅ | - |
 
-### Async functions
+### Asynchronous execution \(recommended\)
 
-Propagation functions and event handler functions can be created as asynchronous \(async\) functions, while component action scripts always run as async. This gives them access to all StackState [Script APIs](../reference/scripting/) and allows more functions to run in parallel.
+Functions that run with asynchronous execution have access to all StackState [Script APIs](/develop/reference/scripting/README.md). It is also possible for more functions to run in parallel with asynchronous execution.
 
 Read more about:
 
-* [Component actions](../../configure/topology/how_to_configure_component_actions.md)
-* [Event handlers](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Component action functions](/develop/developer-guides/custom-functions/component-action-functions.md)
+* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
 * [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
 
-### Synchronous functions
+### Synchronous execution
 
-In StackState, functions are generally written in a synchronous blocking manner.
+When a function runs with synchronous execution, it will not have access to the StackState script APIs. If it is possible to choose an execution type, it is recommended to choose asynchronous execution.
 
 Read more about:
 
-* [Baseline functions](/develop/developer-guides/custom-functions/baseline-functions.md)
 * [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
 * [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md)
 * [Component and relation mapping functions](/develop/developer-guides/custom-functions/mapping_functions.md)
 * [Id extractor functions](/develop/developer-guides/custom-functions/id_extraction.md)
 * [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
+* [Baseline functions \(deprecated\)](/develop/developer-guides/custom-functions/baseline-functions.md)
