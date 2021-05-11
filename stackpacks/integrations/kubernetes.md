@@ -1,4 +1,5 @@
 ---
+description: StackState core integration
 stackpack-name: Kubernetes
 ---
 
@@ -21,14 +22,14 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
   * Container information is collected from the Docker daemon.
   * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 * StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
-  * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
-  * Control plane metrics are retrieved from the Kubernetes API
+  * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API.
+  * Control plane metrics are retrieved from the Kubernetes API.
 * Retrieved data is pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the Kubernetes StackPack \(StackState Cluster Agent\).
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
-  * Relevant [metrics data](kubernetes.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
-  * [Events](kubernetes.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+  * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
 
 ## Setup
 

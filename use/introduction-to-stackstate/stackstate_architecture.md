@@ -47,5 +47,5 @@ The StackPacks listed below are open source and available on GitHub:
 
 * Custom Sync StackPack - [https://github.com/StackVista/stackpack-autosync](https://github.com/StackVista/stackpack-autosync)
 * SAP StackPack - [https://github.com/StackVista/stackpack-sap](https://github.com/StackVista/stackpack-sap)
-* Splunk StackPack - [https://github.com/StackVista/stackpack-splun](https://github.com/StackVista/stackpack-splunk)
+* Splunk StackPack - [https://github.com/StackVista/stackpack-splunk](https://github.com/StackVista/stackpack-splunk)
 

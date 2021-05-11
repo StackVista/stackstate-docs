@@ -1,3 +1,7 @@
+---
+description: StackState curated integration
+---
+
 # Zabbix
 
 ## What is the Zabbix StackPack?
