@@ -14,47 +14,44 @@ To add a custom check handler function:
   * **Name** - A name to identify the check function.
   * **Description** - Optional. A description of the check function.
   * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [user parameters](#user-parameters).
-  * **Return** - ???. For details see [check function results](#result).  
-  * **Script** - The groovy script run by the function.
+  * **Return** - The type of state returned by the function. This is used in the StackState UI to determine which check functions can be selected when adding a health state.
+  * **Script** - The groovy script run by the function. Returns a [result](#result).
   * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](/configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
   * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
 
 ![Add a custom check function](/.gitbook/assets/add-check-function.png)
 
-## User parameters
+## Parameters
 
-Check functions can work with a number of user parameters. These parameters can be accessed by the function script, and their values are specified by the user when the check function is used in a health check.
+Check functions can work with a number of user parameters. These values of these parameters are specified by the user when the check function is used in a health check. Values and properties of the parameters can be accessed by the function script.
 
-User parameters can be any of the types listed below. **Required** parameters must always be specified by the user. **Multiple** parameters will be a list containing the specified user parameter type.
+Check functions can accept parameters of the types listed below. When defining parameters in the check function, these can be specified as **Required** parameters must always be specified by the user. **Multiple** parameters will be a list containing the specified user parameter type.
 
-### Primitive types
+* **Primitive types** - A `Float`, `Integer`, `String` or `Boolean`.
+* **State** - A health state. Can take the values `CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`.
+* **Run state** - A run state. One of `UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`.
+* **Metric stream** - A metric stream providing data to derive a state from. See the section [metric streams](#metric-streams).
+* **Log streams** - A log stream providing structured events. See the section [log streams](#log-streams).
+* **StackState events** - The type of topology events that the check function should listen to. See the section [StackState events](#stackstate-events).
+* **Anomaly direction** - The direction of deviation of metric telemetry that the check should respond to. See the section on [anomaly direction](#anomaly-direction)
+* **Metric stream ID** - The identifier of the metric stream for which a check is executed. See the section [metric stream ID](#metric-stream-id)
 
-Can be a `Float`, `Integer`, `String` or `Boolean`.
+### Metric streams 
 
-### State
-
-A health state. Can take the values `CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`.
-
-### Run state
-
-Run state.  One of `UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`.
-
-### Metric stream
-
-A metric stream provides data to a check function to derive a health state from.  The check function is invoked periodically with a list of recent telemetry metric points.
+A metric stream provides data to a check function to derive a health state from. The check function is invoked periodically with a list of recent telemetry metric points.
 
 In the example below, the check function includes a Metric stream parameter (`metrics`) and an Integer parameter (`deviatingValue`). The health state DEVIATING will be returned whenever the metrics stream includes a metric value higher than the specified deviating value.
 
 {% tabs %}
-{% tab title="Example check function script" %}
+{% tab title="Example: Check function script" %}
 ```text
 if (metrics[-1].point >= deviatingValue) return DEVIATING;
 ```
 {% endtab %}
 {% endtabs %}
 
-A telemetry metric point (obtained as `metrics[-1]` in the example), has these properties:
+A telemetry metric point (obtained in the example above as `metrics[-1]`), has the following properties:
 
 | Property | Type | Returns |
 | :--- | :--- | :--- |
@@ -65,17 +62,17 @@ A telemetry metric point (obtained as `metrics[-1]` in the example), has these p
 
 Log streams provide structured events to check functions.
 
-In the example below, the check function has a Log stream parameter (`events`). The health state DEVIATING will be returned whenever the stream includes an event with value `bar` for the key `foo`:
+In the example below, the check function has a Log stream parameter - `events`. Individual events can be accessed as The health state DEVIATING will be returned whenever the stream includes an event with value `bar` for the key `foo`:
 
 {% tabs %}
-{% tab title="Example check function script" %}
+{% tab title="Example: Check function script" %}
 ```text
 if (events[0].point.getString("foo") == "bar") return DEVIATING;
 ```
 {% endtab %}
 {% endtabs %}
 
-An event (obtained as `events[0]` in the example), has these properties:
+Each event (obtained in the example above as `events[0]`), has the following properties:
 
 | Property | Type | Returns |
 | :--- | :--- | :--- |
@@ -84,7 +81,7 @@ An event (obtained as `events[0]` in the example), has these properties:
 
 ### StackState events
 
-The StackState events user parameter specifies the type of topology events that the check function should receive. Anomaly events are selected by specifying `Anomaly Events` when the check is configured.  Other events are e.g. received as [receiver API events](/configure/telemetry/send_telemetry.md#events).
+The StackState events user parameter specifies the type of topology events that the check function should receive. Anomaly events are selected by specifying `Anomaly Events` when the check is configured. Other events are e.g. received as [receiver API events](/configure/telemetry/send_telemetry.md#events).
 
 The following properties return details of a received event:
 
@@ -107,10 +104,10 @@ An anomaly event contains details on the anomaly that was detected in the metric
 
 | Property | Type | Returns |
 | :--- | :--- | :--- |
-| `data.severity` | String | Severity of the anomaly.  Either one of `LOW`, `MEDIUM` or `HIGH`. |
-| `data.severityScore` | Double | Score of the anomaly.  Between `0` and `1`, a higher score means a stronger deviation. |
+| `data.severity` | String | Severity of the anomaly. Either one of `LOW`, `MEDIUM` or `HIGH`. |
+| `data.severityScore` | Double | Score of the anomaly. Between `0` and `1`, a higher score means a stronger deviation. |
 | `data.explanation` | String | Human readable summary of the anomaly. |
-| `data.checkedInterval` | TimeRange | Time range that was checked by the anomaly detector.  Properties `startTimestamp` and `endTimestamp`.|
+| `data.checkedInterval` | TimeRange | Time range that was checked by the anomaly detector. Properties `startTimestamp` and `endTimestamp`.|
 | `data.eventTimeInterval` | TimeRange | Interval of the anomaly. |
 | `data.streamName` | String | Name of the stream on which the anomaly was found. |
 | `data.elementName` | String | Element to which the stream is attached. |
@@ -123,7 +120,7 @@ When the anomaly detector has checked a time range on a metrics stream and did n
 | Property | Type | Returns |
 | :--- | :--- | :--- |
 | `data.explanation` | String | Human readable summary of the anomaly. |
-| `data.checkedInterval` | TimeRange | Time range that was checked by the anomaly detector.  Properties `startTimestamp` and `endTimestamp`.|
+| `data.checkedInterval` | TimeRange | Time range that was checked by the anomaly detector. Properties `startTimestamp` and `endTimestamp`.|
 | `data.streamName` | String | Name of the stream on which the anomaly was found. |
 | `data.elementName` | String | Element to which the stream is attached. |
 | `data.streamId` | Long | The ID of the MetricStream where the anomaly has been found. |
@@ -142,19 +139,26 @@ The Anomaly direction parameter specifies the direction of deviation of metric t
 
 The code snippet below shows how the anomaly direction can be matched with parameters of an incoming anomaly event. The incoming event has a tags list containing an anomaly direction tag in the format `anomalyDirection:RISE` or `anomalyDirection:DROP`.
 
+{% tabs %}
+{% tab title="Example: Match anomaly direction" %}
 ```text
     def tags = event.getTags()
     def anomalyDirectionMatch = tags.contains("anomalyDirection:" + anomalyDirection.toString())
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Metric stream id
 
-The Metric stream ID parameter specifies the identifier of the Metric Stream for which the anomaly check is executed. The anomaly check function should match this with the ID of the metric stream from an incoming anomaly event. See the example below:
+The Metric stream ID parameter specifies the identifier of the Metric Stream for which the anomaly check is executed. The anomaly check function should match this with the ID of the metric stream from an incoming anomaly event.
 
+{% tabs %}
+{% tab title="Example: Match metric stream ID" %}
 ```text
     def metricStreamIdMatch = event.getData().getStreamId() == metricStream
 ```
-
+{% endtab %}
+{% endtabs %}
 
 ## Result
 
@@ -168,8 +172,8 @@ Whenever a check function runs, it returns a result. This can be a **health stat
   - `causingEvents` - The events that triggered the health state change. These are used in [anomaly check functions](#anomaly-check-functions) to link changes to anomaly events. Provided as a map with the keys `title` (`String`), `eventId` (`String`), `eventTimestamp` (`Long`) and `eventType` (`String`).
   - `data` - Arbitrary additional data. `Map<String, Object>`.
 
-Example custom map result:
-
+{% tabs %}
+{% tab title="Example: Custom map result" %}
 ```
 [
     runState: STOPPING,
@@ -193,6 +197,8 @@ Example custom map result:
     ]
 ]
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Logging
 
