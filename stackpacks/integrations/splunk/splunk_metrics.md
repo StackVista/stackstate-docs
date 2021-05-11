@@ -1,3 +1,7 @@
+---
+description: StackState core integration
+---
+
 # Splunk metrics Agent check
 
 ## Overview

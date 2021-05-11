@@ -1,3 +1,7 @@
+---
+description: StackState curated integration
+---
+
 # Nagios
 
 ## What is the Nagios StackPack?

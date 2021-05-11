@@ -1,14 +1,10 @@
 ---
-old-description: 'Collect topology, health state and alerts from SCOM'
+description: StackState curated integration
 ---
 
-# SCOM \(BETA\)
+# SCOM
 
 ## Overview
-
-{% hint style="info" %}
-The SCOM integration is in **BETA**.
-{% endhint %}
 
 The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run as either an API integration or PowerShell integration, these are described in the tabs below the diagram.
 

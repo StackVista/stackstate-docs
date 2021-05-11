@@ -1,3 +1,7 @@
+---
+description: StackState core integration
+---
+
 # API integration
 
 ## What is the API-Integration StackPack?
@@ -14,7 +18,7 @@ Install the StackState API-Integration Agent by using the following sequence of 
 
 {% tabs %}
 {% tab title="Debian, Ubuntu" %}
-1. Download the [API-Integration Agent Debian package](https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb) or run this command on the machine where you wish to install the Agent:
+1. Download the [API-Integration Agent Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb'
@@ -41,7 +45,7 @@ Install the StackState API-Integration Agent by using the following sequence of 
 {% endtab %}
 
 {% tab title="Amazon linux, CentOS, Fedora, Red Hat" %}
-1. Download the [API-Integration Agent RPM package](https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm) or run this command on the machine where you wish to install the Agent:
+1. Download the [API-Integration Agent RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget 'https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm'

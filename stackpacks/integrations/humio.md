@@ -1,3 +1,7 @@
+---
+description: Community integration
+---
+
 # Humio
 
 ## What is the Humio StackPack?
