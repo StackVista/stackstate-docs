@@ -105,7 +105,6 @@
   * [Custom Synchronization](stackpacks/integrations/customsync.md)
   * [Google Analytics](stackpacks/integrations/google_analytics.md)
   * [Humio](stackpacks/integrations/humio.md)
-  * [Java APM](stackpacks/integrations/java-apm.md)
   * [Logz.io](stackpacks/integrations/logz.md)
   * [Manual Topology](stackpacks/integrations/manualtopo.md)
   * [Nagios](stackpacks/integrations/nagios.md)
