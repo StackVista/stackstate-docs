@@ -1,3 +1,7 @@
+---
+description: StackState core integration
+---
+
 # Splunk topology Agent check
 
 ## Overview

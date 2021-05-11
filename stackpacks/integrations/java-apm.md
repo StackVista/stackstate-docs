@@ -1,3 +1,7 @@
+---
+description: StackState core integration
+---
+
 # Java APM
 
 ## Overview
