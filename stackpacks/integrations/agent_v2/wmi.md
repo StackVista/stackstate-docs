@@ -60,7 +60,7 @@ TODO: Required check configuration
 
 To disable the WMI check, remove or rename the Agent integration configuration file, for example:
 
-```buildoutcfg
+```
 mv WMI.d/conf.yaml WMI.d/conf.yaml.bak
 ```
 
