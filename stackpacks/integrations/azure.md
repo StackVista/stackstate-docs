@@ -1,5 +1,5 @@
 ---
-old-description: In-depth monitoring of Azure resource types
+description: StackState curated integration
 ---
 
 # Azure

@@ -1,6 +1,5 @@
 ---
-title: Static Topology StackPack
-kind: documentation
+description: StackState curated integration
 ---
 
 # Static Topology

@@ -1,28 +1,39 @@
 ---
-description: Build topology out of Splunk data
+description: StackState core integration
 ---
 
-# Splunk topology
+# Splunk topology Agent check
 
 ## Overview
 
-The StackState Agent can execute Splunk queries and convert the result to topology elements, which are then synchronized to StackState. The StackState Agent expects the `saved searches` to return the latest snapshot of the topology.
+The StackState Splunk integration collects topology from Splunk by executing Splunk saved searches that have been specified in the StackState API-Integration Agent Splunk topology check configuration. In order to receive Splunk topology data in StackState, you will therefore need to add configuration to both Splunk and the StackState API-Integration Agent.
 
-In order for the StackState Agent to be able to convert the results to topology elements, the output of the query has to be according to the format below. The format describes specific columns in the output that, when present, are used for the topology element. Other columns that are present in the output format, not defined in the query format, are available as key-value-pairs in StackState inside the `data` map. The column names are used as keys and the content as value. Splunk internal fields are filtered out by the StackState Agent\)
+* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
+* [In the StackState API-Integration Agent](#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-### Components Query Format
+The Splunk topology check on the StackState API-Integration Agent will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
-| **id** | string | The unique identifier for this component. |
-| :--- | :--- | :--- |
-| **type** | string | The type of the component. |
-| **name** | string | The value will be used as component name. |
-| **identifier.&lt;identifier name&gt;** | string | The value will be included as identifier of the component. |
-| **label.&lt;label name&gt;** | string | The value will appear as label of the component. |
+## Splunk saved search
 
-\* This format assumes you use the default Splunk mapping function and identity extractor in StackState. By customizing these you can create your own format.
+### Fields used
 
-Example Splunk query:
+The StackState API-Integration Agent executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
 
+| Field | Components | Relations | Type | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **type** | ✅ | ✅ | string | Required, The type of component or relation.  |
+| **id** | ✅ | - | string | Required. The unique identifier for the component.  |
+| **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | Optional. The value will be included as identifier of the component. |
+| **label.&lt;label\_name&gt;** | ✅ | - | string | Optional. The value will be added as a label on the component in the format `label_name:value` |
+| **name** | ✅ | - | string | Required. The value will be used as the component name. |
+| All other fields | ✅ | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
+| **sourceId** | - | ✅ | string | Required. The ID of the component that is the source of the relation. |
+| **targetId** | - | ✅ | string | Required. The ID of the component that is the target of the relation.  |
+
+### Example queries
+
+{% tabs %}
+{% tab title="Splunk query for components" %}
 ```text
 | loadjob savedsearch=:servers
 | search OrganizationPart="*" OrgGrp="*" company="*"
@@ -31,16 +42,21 @@ Example Splunk query:
 | eval id = 'name', type="vm"
 | table id type name
 ```
+{% endtab %}
+{% endtabs %}
 
-### Relations Query Format
+The example Splunk saved search above would result in the following topology component data in StackState:
 
-| **type** | string | The type of the relation. |
-| :--- | :--- | :--- |
-| **sourceId** | string | The id of the component that is the source of this relation. |
-| **targetId** | string | The id of the component that is the target of this relation. |
+| Field | Data |
+| :--- | :--- |
+| **type** | Splunk `type` field.  |
+| **id** | Splunk `id` field. |
+| **identifier.&lt;identifier\_name&gt;** | - |
+| **label.&lt;label\_name&gt;** | - |
+| **name** | Splunk `name` field.|
 
-Example Splunk query:
-
+{% tabs %}
+{% tab title="Splunk query for relations" %}
 ```text
 index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
 | eval VMName=lower(VMName)
@@ -48,92 +64,63 @@ index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
 | eval type="is-hosted-on"
 | table sourceId targetId type
 ```
+{% endtab %}
+{% endtabs %}
 
-## Authentication
+The example Splunk saved search above would result in the following topology relation data in StackState:
 
-The Splunk integration provides various authentication mechanisms to connect to your Splunk instance.
+| Field | Data |
+| :--- | :--- |
+| **type** | Splunk `type` field.  |
+| **sourceId** | `<sourceId>` (renamed from `Application`) |
+| **targetId** | `<targetId>` (renamed from `VMName`) |
 
-### HTTP Basic Authentication
+## Agent check
 
-With HTTP basic authentication, the `username` and `password` specified in the `splunk_topology.yaml` can be used to connect to Splunk. These parameters are available in `basic_auth` parameter under the `authentication` section. Credentials under the root of the configuration file are deprecated and credentials provided in the new `basic_auth` section will override the root credentials.
+### Configure the Splunk topology check
 
-_As an example, see the below config :_
+To enable the Splunk topology integration and begin collecting component and relation data from your Splunk instance, the Splunk topology check must be configured on the API-Integration Agent. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
-```text
-instances:
-    - url: "https://localhost:8089"
+{% hint style="info" %}
+Example Splunk events Agent check configuration file:<br />[conf.d/splunk_topology.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+{% endhint %}
 
-    # username: "admin" ## deprecated; use basic_auth.username under authentication section
-    # password: "admin" ## deprecated; use basic_auth.password under authentication section
+To configure the Splunk events Agent check:
 
-    # verify_ssl_certificate: false
+1. Edit the API-Integration Agent configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
+2. Under **instances**, add details of your Splunk instance:
+   * **url** - The URL of your Splunk instance.
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
+   * **ignore_saved_search_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
+   * **tags** - Optional. Can be used to apply specific tags to all reported topology in StackState.
+3. Under **component_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
+     * **name** - The name of the [Splunk saved search](#splunk-saved-search) to execute.
+       * **match** - Regex used for selecting Splunk saved search queries. Default `"comp.*"` for component queries and `"relation*"` for relation queries.
+       * **app** - The Splunk app in which the saved searches are located. Default `"search"`.
+       * **request_timeout_seconds** - Default `10`.
+       * **search_max_retry_count** - Default `5`.
+       * **search_seconds_between_retries** - Default `1`.
+       * **batch_size** - Default `1000`.
+       * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
+4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
+5. Save the configuration file.
+6. Restart the StackState API-Integration Agent to apply the configuration changes.
+7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
-    ## Integration supports either basic authentication or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
-    authentication:
-      basic_auth:
-        username: "admin"
-        password: "admin"
-```
+### Disable the Agent check
 
-### Token-based Authentication
+To disable the Splunk topology Agent check:
 
-Token-based authentication mechanism supports Splunk authentication tokens. An initial Splunk token is provided to the integration with a short expiration date. The integration's authentication mechanism will request a new token before expiration, respecting the `renewal_days` setting, with an expiration of `token_expiration_days` days.
+1. Remove or rename the Agent integration configuration file, for example:
 
-Token-based authentication information overrides basic authentication in case both are configured.
+   ```text
+    mv conf.d/splunk_topology.yaml conf.d/splunk_topology.yaml.bak
+   ```
 
-The following new parameters are available:
+2. Restart the StackState Agent to apply the configuration changes.
 
-* `name` - Name of the user who will be using this token.
-* `initial_token` - First initial valid token which will be exchanged with new generated token in the integration.
-* `audience` - JWT audience name which is purpose of token.
-* `token_expiration_days` - Validity of the newly requested token after first initial token and by default it's 90 days.
-* `renewal_days` - Number of days before when token should refresh, by default it's 10 days.
+## See also
 
-_As an example, see the below config :_
-
-```text
-instances:
-    - url: "https://localhost:8089"
-
-    # username: "admin" ## deprecated; use basic_auth.username under authentication section
-    # password: "admin" ## deprecated; use basic_auth.password under authentication section
-
-    # verify_ssl_certificate: false
-
-    ## Integration supports either basic authentication or token based authentication.
-    ## Token based authentication is preferred before basic authentication.
-    authentication:
-      # basic_auth:
-        # username: "admin"
-        # password: "admin"
-
-      token_auth:
-        ## Token for the user who will be using it
-        name: "api-user"
-
-        ## The initial valid token which will be exchanged with new generated token as soon as the check starts
-        ## first time and in case of restart, this token will not be used anymore
-        initial_token: "my-initial-token-hash"
-
-        ## JWT audience used for purpose of token
-        audience: "search"
-
-        ## When a token is about to expire, a new token is requested from Splunk. The validity of the newly requested
-        ## token is requested to be `token_expiration_days` days. After `renewal_days` days the token will be renewed
-        ## for another `token_expiration_days` days.
-        token_expiration_days: 90
-
-        ## the number of days before when token should refresh, by default it's 10 days.
-        renewal_days: 10
-```
-
-The above authentication configuration are part of the [conf.d/splunk\_topology.yaml](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example) file.
-
-## Configuration
-
-There is an attribute `ignore_saved_search_errors` inside the `Splunk_topology.yaml` which is set to `true` by default. This flag makes the agent less strict and allows for saved searches which might be missing or fail when running. If this flag is set to `false` and one of the saved searches don't exist, it will produce an error.
-
-1. Edit your `conf.d/Splunk_topology.yaml` file.
-2. Restart the agent
-
+* [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
+* [Example Splunk topology configuration file - splunk_topology.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 

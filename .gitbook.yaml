@@ -1,6 +1,6 @@
 
 redirects:
-  develop/creating_stackpacks: ./develop/developer-guides/stackpack/README.md
+  develop/creating_stackpacks: ./develop/developer-guides/stackpack/develop_stackpacks.md
   integrations: ./stackpacks/README.md
   integrations/available_stackpacks: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/: ./stackpacks/integrations/README.md
@@ -202,3 +202,5 @@ redirects:
   use/views/telemetry_perspective: ./use/perspectives/telemetry-perspective.md
   configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
   configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
+  stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
+  stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
