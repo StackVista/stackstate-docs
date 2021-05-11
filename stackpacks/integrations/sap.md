@@ -1,3 +1,7 @@
+---
+description: Community integration
+---
+
 # SAP
 
 ## What is the SAP StackPack?

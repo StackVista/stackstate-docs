@@ -1,5 +1,5 @@
 ---
-old-description: Near real-time synchronization with VMWare vSphere
+description: StackState core integration
 stackpack-name: VMWare vSphere StackPack
 ---
 

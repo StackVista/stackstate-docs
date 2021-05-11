@@ -1,3 +1,7 @@
+---
+description: StackState curated integration
+---
+
 # Custom Synchronization
 
 ## What is the Custom Synchronization StackPack?
