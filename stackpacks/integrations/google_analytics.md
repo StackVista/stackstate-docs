@@ -1,3 +1,7 @@
+---
+description: StackState curated integration
+---
+
 # Google Analytics
 
 ## What is the Google Analytics StackPack?
