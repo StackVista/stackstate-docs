@@ -27,7 +27,7 @@ The DotNet APM integration enables instrumentation for DotNet applications and s
 The Java APM integration enables tracing support for Java JVM based systems.  
 [Configure Java APM](../../stackpacks/integrations/agent_v2/java-apm.md).
 
-### Traefik `BETA`
+### Traefik
 
 The Traefik integration adds topology and telemetry information from Traefik to traces.  
 [Configure Traefik](../../stackpacks/integrations/agent_v2/traefik.md)

@@ -1,3 +1,7 @@
+---
+description: Community integration
+---
+
 # Cloudera
 
 ## What is the Cloudera StackPack?

@@ -1,5 +1,5 @@
 ---
-old-description: Collect Smartscape topology data from Dynatrace
+description: StackState core integration
 ---
 
 # Dynatrace
