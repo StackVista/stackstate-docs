@@ -1,8 +1,10 @@
-# Apache tomcat
+# Apache Tomcat
 
 ## Overview
 
-![Apache tomcat integration](/.gitbook/assets/stackpack-apache-tomcat.png)
+
+
+![Apache Tomcat integration](/.gitbook/assets/stackpack-agent-tomcat.png)
 
 * 
 * 
@@ -56,11 +58,17 @@ TODO: Required check configuration
 
 ## Uninstall
 
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
+To disable the Apache Tomcat check, remove or rename the Agent integration configuration file, for example:
+
+```buildoutcfg
+mv tomcat.d/conf.yaml tomcat.d/conf.yaml.bak
+```
+
+To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).
 
 ## Release notes
 
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
+See the release notes for the [Agent V2 StackPack](/stackpacks/integrations/agent.md).
 
 ## See also
 
