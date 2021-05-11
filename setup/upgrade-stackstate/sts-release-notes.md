@@ -10,6 +10,18 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
+### 4.3.1
+
+**Improvements**
+
+* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/installation/cli-install.md#authentication). STAC-12567
+* Any change to a check will update the check state data and fire a change event. STAC-12472
+
+**Bug fixes**
+
+* Fixed issue that caused the Autonomous Anomaly Detector to fail to authenticate with StackState. STAC-12742
+* Fixed issue that caused the browser to free when selecting a large group of components. STAC-12016
+
 ### v4.3.0
 
 **Features**
