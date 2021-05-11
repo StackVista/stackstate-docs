@@ -32,6 +32,10 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.3.1
+
+No manual action needed.
+
 #### v4.3.0
 
 * StackState is tested to run on Kubernetes v1.17, v1.18 and v1.19, or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\).
@@ -47,6 +51,10 @@ This page provides specific instructions for upgrading to each currently support
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.3.1
+
+No manual action needed.
+
 #### v4.3.0
 
 * Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
