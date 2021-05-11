@@ -32,7 +32,6 @@ Functions that run with synchronous execution do not have access to the StackSta
 Read more about:
 
 * [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
-* [Anomaly check functions](/develop/developer-guides/custom-functions/anomaly-check-functions.md)
 * [Component mapper functions](custom-functions/mapping_functions.md)
 * [Event handler functions](/configure/topology/event-handlers.md)  
 * [Id extractor functions](custom-functions/id_extraction.md)

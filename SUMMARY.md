@@ -191,7 +191,6 @@
     * [How to develop agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
   * [Custom functions](develop/developer-guides/custom-functions/README.md)
     * [Synchronous and asynchronous execution](develop/developer-guides/custom-functions/asynchronous-synchronous.md)
-    * [Anomaly check functions](develop/developer-guides/custom-functions/anomaly-check-functions.md)  
     * [Check functions](develop/developer-guides/custom-functions/check-functions.md)
     * [Component action functions](develop/developer-guides/custom-functions/component-action-functions.md)
     * [ID extraction functions](develop/developer-guides/custom-functions/id_extraction.md)
