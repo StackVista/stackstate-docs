@@ -27,6 +27,7 @@
     * [Set up TLS without reverse proxy](setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy.md)
   * [OpenShift install](setup/installation/openshift_install.md)
   * [Initial run guide](/setup/installation/initial_run_guide.md)
+  8 [StackState Agent](setup/installation/agent-install.md)
   * [StackState CLI](setup/installation/cli-install.md)
   * [Troubleshooting](setup/installation/troubleshooting.md)
 * [Data management](setup/data-management/README.md)
