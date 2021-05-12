@@ -14,18 +14,101 @@ TODO: Describe data flow diagram
 
 To set up the StackState AWS V2 integration, you need to have:
 
+- [StackState Agent V2](agent.md) installed on a single machine which can connect to AWS and StackState.
+- An AWS account for the agent. The AWS Account ID is needed in the next step, when deploying resources to the target AWS accounts. It is recommended to use a separate shared account outside of the accounts that will be monitored by StackState, but this is not required.
+  - If the agent is running within an AWS environment, The EC2 instance, EKS or ECS task must have an IAM role attached to it.
+  - If the agent is running outside an AWS account, an IAM user must be made available.
+- The IAM user/role must have following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
+
+``` json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::*:role/StackStateAwsIntegrationRole"
+        }
+    ]
+}
+```
+
+### Deploy AWS Cloudformation stack
+
+The StackState AWS Cloudformation stack is deployed in your AWS account, providing the minimum level of access necessary to collect topology, telemetry and logs. There are three methods of deployment:
+
+- [**Quick deploy**](#quick-deploy) - Quickly deploy all resources to a region in an account with a link.
+- [**Manual deploy**](#manual-deploy) - Download a CloudFormation template to integrate into your own deployment workflow.
+- [**Manual install**](#manual-install) - Deploy all resources manually to gain full control over StackState's access.
+
+The automated install uses a CloudFormation template to deploy all necessary resources in a single region, in one account.
+
+The CloudFormation template requires 3 parameters:
+
+- **Main Region:** Choose your primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`
+- **Agent Account ID:** The AWS account that the StackState Agent is deployed in, or has an IAM user in. This will be the account that the IAM role can be assumed from, the perform actions on the target AWS account. Example: `0123456789012`
+- **External ID:** A shared secret that the StackState agent will present when assuming a role. Use the same value across all AWS accounts that the agent is monitoring. Example: `uniquesecret!1`
+
+#### Quick deploy
+
+Click the links in the table below to quickly deploy a template. You must be already logged in to the target AWS account in the web console.
+
+| Region Name   | Template link  |
+| ------------- | -------------- |
+| Ireland       | eu-west-1      |
+| Frankfurt     | eu-central-1   |
+| N. Virginia   | us-east-1      |
+| Ohio          | us-east-2      |
+| N. California | us-west-1      |
+| Hong Kong     | ap-east-1      |
+| Singapore     | ap-southeast-1 |
+| Sydney        | ap-southeast-2 |
+
+This list specifies popular AWS regions. For any regions not listed, follow the manual CloudFormation deploy steps below.
+
+#### Manual deploy
+
+For more control over the deployment, download the CloudFormation template below:
+
+(TODO put download link here)
+
+This template can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation Stackset. For more information on how to deploy, check the documentation here.
+
+#### Manual installation
+
+The default CloudFormation template gives read-only least-privilege access to only the resources that StackState requires to function. It is recommended that this template is used as it provides an easy upgrade path for future versions, and reduces the maintenance burden.
+
+The IAM role created by StackState is not able to bypass IAM permissions boundaries or Service Control Policies. These can be used as a way to restrict access while retaining the original CloudFormation template and policy.
+
+If these options do not provide enough flexibility, see section [Required AWS resources](#required-aws-resources) for full information on the resources that StackState requires. If the agent does not have permission to access a certain component, it will skip it.
+
 ### Install
 
-Install the AWS V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the AWS V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
+
+#### Role ARN
+
+Enter the ARN of the IAM Role that was created as part of [Deploy AWS Cloudformation stack](#deploy-aws-cloudformation-stack), example: `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole`. Replace the `<account id>` with the 12-digit AWS account ID.
+
+#### External ID
+
+A shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. Example: `uniquesecret!1`
+
+#### AWS Regions
+
+A comma-separated list of AWS region names that StackState will query Telemetry data from. Example: `global,eu-west-1,us-east-1`. `global` refers to any resources that are global services, such as Route53 or CloudFront.
+
+#### AWS Access Key ID (Optional)
+
+The Access Key ID of the IAM user created in [Prerequisites](#prerequisites). If the StackState instance is running within AWS, this can be left empty and the instance will authenticate using the attached IAM role.
+
+#### AWS Secret Access Key (Optional)
+
+The Secret Access Key of the IAM user created in [Prerequisites](#prerequisites). If the StackState instance is running within AWS, this can be left empty and the instance will authenticate using the attached IAM role.
 
 ### Configure
 
 TODO: Details of how to configure Agent V2 for both required checks (logs and topology)
-
-### Deploy AWS Cloudformation stacks
-
-### AWS IAM Policies
-
 
 ## Integration details
 
@@ -58,6 +141,12 @@ The following relations between components are retrieved:
 #### Traces
 
 The AWS integration does not retrieve any Traces data.
+
+### Required AWS resources
+
+![Account components](../../.gitbook/assets/stackpack-aws-v2-account-components.svg)\
+
+TODO detail every required resource
 
 ### Costs
 
@@ -99,40 +188,58 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 ## Uninstall
 
-TODO: Confirm steps below
+To uninstall the StackState AWS StackPack, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
 
-To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
+Once the AWS StackPack has been uninstalled, you will need to delete the StackState AWS Cloudformation stack from the AWS account being monitored. Follow these steps:
 
-Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
+### Web console
 
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
-   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-3. From the command line, run the below command to de-provision all resources related to the StackPack instance:
+1. Go to the CloudFormation service - ensure you are in the same region as the desired deployed CloudFormation template.
+2. Select the CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
+3. In the top right of the console, select "Delete".
 
-   ```text
-   ./uninstall.sh {{configurationId}}
-   ```
+If the template is in the main region, the S3 bucket used by StackState is not automatically cleaned up as CloudFormation is not able to delete a bucket with objects in it. Follow these steps:
 
-If you wish to use a specific AWS profile or an IAM role during uninstallation, run either of these two commands:
+1. Go to the S3 service
+2. Select (don't open) the bucket named `stackstate-logs-${AccountId}` where `AccountId` is the 12-digit identifer of your AWS account. 
+3. Select "Empty", and follow the steps to delete all objects in the bucket.
+4. Select "Delete", enter the bucket name and continue.
 
-```text
-AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
-AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
+### Command line
+
+These steps assume you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation here.
+
+1. Delete the CloudFormation template: `aws cloudformation delete-stack --stack-name stackstate-resources --region <region>`.
+
+If `--region` is the main region, follow these steps to delete the S3 bucket:
+
+1. Empty the S3 bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
+
+``` bash
+aws s3api delete-objects --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
+    --delete "$(aws s3api list-object-versions \
+    --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
+    --output json \
+    --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
+2. Delete the S3 bucket: `aws s3api delete-bucket --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text)`
 
-* `--profile`
-* `--role-arn`
-* `--session-name`
-* `--external-id`
+If you wish to use a specific AWS profile or an IAM role during uninstallation, add these switches to the commands:
+
+`--profile <profile name`
+`--session-name`
+`--external-id`
 
 ## Release notes
 
+### 1.0.0 (2021-??-??)
 
+#### Improvements
+
+- Full rewrite of the AWS Stackpack to use the StackState Agent V2
+- Improved AWS multi-account support using IAM roles for account access
+- Improved AWS multi-region support - each instance can create topology for multiple regions at once
+- New, refreshed icon set, using the latest AWS branding
 
 ## See also
-
-
-
