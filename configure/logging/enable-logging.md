@@ -188,5 +188,5 @@ The ID for a check or propagation on a specific component can be found in in the
 * [Checks and check functions](../telemetry/checks_and_streams.md#checks)
 * [Event handler functions](../topology/event-handlers.md)
 * [State propagation and propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md)
-* [View state configuration functions](../topology/view_state_configuration.md)
+* [View state configuration functions](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
 
