@@ -32,7 +32,7 @@ When a function runs with synchronous execution, it will not have access to the 
 Read more about:
 
 * [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
-* [Component and relation mapping functions](/develop/developer-guides/custom-functions/mapping_functions.md)
+* [Component and relation mapping functions](/develop/developer-guides/custom-functions/mapping-functions.md)
 * [Id extractor functions](/develop/developer-guides/custom-functions/id-extractor-functions.md)
 * [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
 * [Baseline functions \(deprecated\)](/develop/developer-guides/custom-functions/baseline-functions.md)
