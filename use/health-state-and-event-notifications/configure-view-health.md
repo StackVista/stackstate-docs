@@ -61,12 +61,12 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 * The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
-The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#write-a-custom-view-health-state-configuration-function).
+The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
 
 ## See also
 
 * [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
-* [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#write-a-custom-view-health-state-configuration-function)
+* [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function)
 * [Add a health check](add-a-health-check.md)
 * [Send event notifications when a health state changes](send-event-notifications.md)
 

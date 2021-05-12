@@ -6,7 +6,7 @@ A view health state configuration function is a user defined script that takes u
 
 To create, update or delete a view state configuration go to "Settings -&gt; View Health State Configuration Functions".
 
-## Write a custom view health state configuration function
+## Create a custom view health state configuration function
 
 A view health state configuration function receives a `viewSummary` and needs to return value from the viewHealthStates enum. `UNKNOWN, CLEAR, DEVIATING, CRITICAL`. The `viewSummary` gives access to the methods `countHealthState` and `countPropagatedHealthState`. These take a state and return the number of components on the view in that state. For example `viewSummary.countPropagatedHealthState(propagatedHealthStates.DEVIATING)`.
 
@@ -40,5 +40,5 @@ if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (
 
 ## See also
 
-* [Configure the view health](../../../use/health-state-and-event-notifications/configure-view-health.md)
+* [Configure the view health](/use/health-state-and-event-notifications/configure-view-health.md)
 

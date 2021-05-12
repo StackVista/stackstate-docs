@@ -18,8 +18,8 @@ To add a custom check function:
   * **Script** - The groovy script run by the function. Returns a [result](#result).
   * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](/configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
-  * The new check function will be listed on the **Check Functions** page and available in the **Add check** drop-down when you [add a health check](../../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
   * The check function will be listed in the StackState UI page **Settings** &gt; **Functions** &gt; **Check Functions**. It can be exported from here to add to a template and include in a custom StackPack.
+  * If return type `Health state` was selected, the new check function will be available in the **Add check** drop-down when you [add a health check](../../../use/health-state-and-event-notifications/add-a-health-check.md#add-a-health-check-to-an-element).
 
 ![Add a custom check function](/.gitbook/assets/add-check-function.png)
 
@@ -41,7 +41,7 @@ The following parameter types are available:
 * **Metric stream** - A metric stream providing data to derive a state from. See [metric stream](#metric-stream).
 * **Log stream** - A log stream providing structured events to derive a state from. See [log stream](#log-stream).
 * **StackState events** - Required for check functions that listen to anomaly events. The type of topology events that the check function should listen to (always `Anomaly events`). See [StackState events](#stackstate-events).
-* **Anomaly direction** - Required for check functions that listen to anomaly events. The direction of deviation of metric telemetry that the check should respond to. See [anomaly direction](#anomaly-direction)
+* **Anomaly direction** - Used by check functions that listen to anomaly events. The direction of deviation of metric telemetry that the check should respond to. See [anomaly direction](#anomaly-direction)
 * **Metric stream ID** - Required for check functions that listen to anomaly events. The identifier of the metric stream for which a check is executed. See [metric stream ID](#metric-stream-id)
 
 ### Metric stream
