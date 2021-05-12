@@ -49,7 +49,7 @@ A list of the available actions is included in the component details pane when y
 
 ![Actions](../../.gitbook/assets/v43_actions.png)
 
-The default list of actions can be extended with [component actions](../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../develop/developer-guides/custom-functions/component-action-functions.md) custom component action functions.
+The default list of actions can be extended with [component actions](../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
 
 ### Dependencies
 

@@ -64,7 +64,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
 
-Read more about [Id Extractors](custom-functions/id_extraction.md)
+Read more about [Id Extractors](custom-functions/id-extractor-functions.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 

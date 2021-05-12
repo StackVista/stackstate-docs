@@ -21,7 +21,7 @@ Functions that run with asynchronous execution have access to all StackState [Sc
 
 Read more about:
 
-* [Component action functions](/develop/developer-guides/custom-functions/component-action-functions.md)
+* [Component action functions](/develop/developer-guides/custom-functions/component-actions.md)
 * [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
 * [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
 
@@ -33,6 +33,6 @@ Read more about:
 
 * [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
 * [Component and relation mapping functions](/develop/developer-guides/custom-functions/mapping_functions.md)
-* [Id extractor functions](/develop/developer-guides/custom-functions/id_extraction.md)
+* [Id extractor functions](/develop/developer-guides/custom-functions/id-extractor-functions.md)
 * [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
 * [Baseline functions \(deprecated\)](/develop/developer-guides/custom-functions/baseline-functions.md)
