@@ -2,7 +2,7 @@
 
 ## Overview
 
-Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to [send an event notification](../../use/health-state-and-event-notifications/send-event-notifications.md) or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can create your own custom event handler functions.
+Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to [send an event notification](/use/health-state-and-event-notifications/send-event-notifications.md) or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can create your own custom event handler functions.
 
 ## Create a custom event handler function
 
@@ -13,19 +13,19 @@ Advanced StackState users can write their own custom event handler functions tha
 3. Enter the required settings:
    * **Name** - A name to identify the event handler function.
    * **Description** - Optional. A description of the event handler function.
-   * **System parameters** - predefined parameters passed automatically to the event handler function script. For details, see the section on [parameters](event-handlers.md#parameters) below.
-   * **User parameters** - parameters that must be entered by the user when an event handler is added to the view. Event handler functions also include the predefined user parameter **event**. For details, see the section on [parameters](event-handlers.md#parameters) below.
-   * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handlers.md#supported-event-types) below.
+   * **System parameters** - predefined parameters passed automatically to the event handler function script. For details, see the section on [parameters](event-handler-functions.md#parameters) below.
+   * **User parameters** - parameters that must be entered by the user when an event handler is added to the view. Event handler functions also include the predefined user parameter **event**. For details, see the section on [parameters](event-handler-functions.md#parameters) below.
+   * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handler-functions.md#supported-event-types) below.
    * **Execution** - Event handler functions can be run as either Asynchronous \(default\) or Synchronous:
      * **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function script will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
      * **Synchronous** - use for event handlers that generate email, SMS or HTTP webhook event notifications. The function will use plugins to send notifications to external systems.
    * **Script** - The script run by the function. For details, see the sections below on:
-     * [Functions with Asynchronous execution](event-handlers.md#asynchronous-execution-default).
-     * [Functions with Synchronous execution](event-handlers.md#synchronous-execution).
-     * How to [add logging to a function](event-handlers.md#logging).
+     * [Functions with Asynchronous execution](event-handler-functions.md#asynchronous-execution-default).
+     * [Functions with Synchronous execution](event-handler-functions.md#synchronous-execution).
+     * How to [add logging to a function](event-handler-functions.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
-   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
+   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
 
 ![Add a custom event handler function](/.gitbook/assets/v43_event_handler_functions.png)
 
@@ -38,28 +38,28 @@ An event handler function includes predefined system and user parameters that ar
 
 You can also add your own user parameters, these can then be entered in the **Add event handler** dialogue when you add an event handler to a view.
 
-For details of the properties that can be retrieved from the default **view** and **event** parameters, see [properties for asynchronous functions](event-handlers.md#properties-for-asynchronous-functions) and [properties for synchronous functions](event-handlers.md#properties-for-synchronous-functions) below.
+For details of the properties that can be retrieved from the default **view** and **event** parameters, see [properties for asynchronous functions](event-handler-functions.md#properties-for-asynchronous-functions) and [properties for synchronous functions](event-handler-functions.md#properties-for-synchronous-functions) below.
 
 ## Supported event types
 
-One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](../../use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](/use/health-state-and-event-notifications/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 One or more of the following events can be selected:
 
 * **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 * **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 * **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes.
-* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](../../use/problems/problems.md) in the view.
+* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](/use/problems/problems.md) in the view.
 
 ## Logging
 
-You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/enable-logging.md).
+You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/enable-logging.md).
 
 ## Asynchronous execution \(default\)
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function also has access to the [StackState script APIs](../../develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
+An asynchronous event handler function also has access to the [StackState script APIs](/develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
 
 The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
@@ -77,14 +77,14 @@ The properties described below can be retrieved from the default parameters in a
 **Event** properties return details of a received event and vary for the different event types:
 
 * Health state change events:
-  * [HealthStateChangedEvent](event-handlers.md#healthstatechangedevent-properties-asynchronous)
-  * [ViewHealthStateChangedEvent](event-handlers.md#viewhealthstatechangedevent-properties-asynchronous)
-  * [PropagatedHealthStateChangedEvent](event-handlers.md#propagatedhealthstatechangedevent-properties-asynchronous)
+  * [HealthStateChangedEvent](event-handler-functions.md#healthstatechangedevent-properties-asynchronous)
+  * [ViewHealthStateChangedEvent](event-handler-functions.md#viewhealthstatechangedevent-properties-asynchronous)
+  * [PropagatedHealthStateChangedEvent](event-handler-functions.md#propagatedhealthstatechangedevent-properties-asynchronous)
 * Problem events:
-  * [ProblemCreatedEvent](event-handlers.md#problemcreatedevent-properties-asynchronous) 
-  * [ProblemUpdatedEvent](event-handlers.md#problemupdatedevent-properties-asynchronous) 
-  * [ProblemSubsumedEvent](event-handlers.md#problemsubsumedevent-properties-asynchronous) 
-  * [ProblemResolvedEvent](event-handlers.md#problemresolvedevent-properties-asynchronous) 
+  * [ProblemCreatedEvent](event-handler-functions.md#problemcreatedevent-properties-asynchronous) 
+  * [ProblemUpdatedEvent](event-handler-functions.md#problemupdatedevent-properties-asynchronous) 
+  * [ProblemSubsumedEvent](event-handler-functions.md#problemsubsumedevent-properties-asynchronous) 
+  * [ProblemResolvedEvent](event-handler-functions.md#problemresolvedevent-properties-asynchronous) 
 
 #### HealthStateChangedEvent properties \(Asynchronous\)
 
@@ -160,14 +160,14 @@ The properties listed below return details of a `ProblemResolvedEvent` in functi
 ## Synchronous execution
 
 {% hint style="info" %}
-Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default asynchronous execution](event-handlers.md#asynchronous-execution-default) type when writing a new event handler function.
+Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default asynchronous execution](event-handler-functions.md#asynchronous-execution-default) type when writing a new event handler function.
 {% endhint %}
 
 When execution is set to **Synchronous**, the event handler function will run as a synchronous function.
 
 Event handler functions developed prior to StackState v4.2 and email event handler functions run as synchronous functions. Compared to asynchronous functions, synchronous functions are limited in both the capability of what they can achieve and the number of functions that can run in parallel.
 
-Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handlers.md#plugins-for-synchronous-functions) below for further details.
+Synchronous event handler functions use plugins to interact with external systems, see [plugins](event-handler-functions.md#plugins-for-synchronous-functions) below for further details.
 
 ### Properties for synchronous functions
 
@@ -183,14 +183,14 @@ The properties described below can be retrieved from the default synchronous eve
 **Event** properties return details of a received event and vary for the different event types:
 
 * Health state change events:
-  * [HealthStateChangedEvent](event-handlers.md#healthstatechangedevent-properties-synchronous)
-  * [ViewHealthStateChangedEvent](event-handlers.md#viewhealthstatechangedevent-properties-synchronous)
-  * [PropagatedHealthStateChangedEvent](event-handlers.md#propagatedhealthstatechangedevent-properties-synchronous)
+  * [HealthStateChangedEvent](event-handler-functions.md#healthstatechangedevent-properties-synchronous)
+  * [ViewHealthStateChangedEvent](event-handler-functions.md#viewhealthstatechangedevent-properties-synchronous)
+  * [PropagatedHealthStateChangedEvent](event-handler-functions.md#propagatedhealthstatechangedevent-properties-synchronous)
 * Problem events:
-  * [ProblemCreated](event-handlers.md#problemcreated-properties-synchronous) 
-  * [ProblemUpdated](event-handlers.md#problemupdated-properties-synchronous) 
-  * [ProblemSubsumed](event-handlers.md#problemsubsumed-properties-synchronous) 
-  * [ProblemResolved](event-handlers.md#problemresolved-properties-synchronous) 
+  * [ProblemCreated](event-handler-functions.md#problemcreated-properties-synchronous) 
+  * [ProblemUpdated](event-handler-functions.md#problemupdated-properties-synchronous) 
+  * [ProblemSubsumed](event-handler-functions.md#problemsubsumed-properties-synchronous) 
+  * [ProblemResolved](event-handler-functions.md#problemresolved-properties-synchronous) 
 
 #### HealthStateChangedEvent properties \(Synchronous\)
 
@@ -267,14 +267,14 @@ Synchronous event handler functions use plugins to send notifications to externa
 
 | Plugin | Description |  |
 | :--- | :--- | :--- |
-| email | Sends an email using the [configured SMTP server](configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
+| email | Sends an email using the [configured SMTP server](/configure/topology/configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
 | HTTP webhook | Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
 | SMS | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  |
 
 ## See also
 
-* [Enable logging for functions](../logging/enable-logging.md)
-* [Send event notifications using an event handler function](../../use/health-state-and-event-notifications/send-event-notifications.md)
-* [Configure an SMTP server to send email event notifications](../../configure/topology/configure-email-event-notifications.md)  
-* [StackState script APIs](../../develop/reference/scripting/script-apis/)
+* [Enable logging for functions](/configure/logging/enable-logging.md)
+* [Send event notifications using an event handler function](/use/health-state-and-event-notifications/send-event-notifications.md)
+* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md)  
+* [StackState script APIs](/develop/reference/scripting/script-apis/)
 * [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)

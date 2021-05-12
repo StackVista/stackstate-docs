@@ -92,7 +92,7 @@ StackState ships with the following event handler functions that track health st
 | Event handler function | Description |
 | :--- | :--- |
 | **Slack** | Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
-| **Email** | Sends details of a health state change event using the [configured SMTP server](configure-email-event-notifications.md). |
+| **Email** | Sends details of a health state change event using the [configured SMTP server](/configure/topology/configure-email-event-notifications.md). |
 | **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
 | **SMS** | Sends details of a health state change event using MessageBird. |
 
@@ -108,6 +108,6 @@ To run an event handler in response to problem events generated in a view, you w
 
 * [Add a health check](add-a-health-check.md)
 * [Configure an SMTP server to send email event notifications](../../configure/topology/configure-email-event-notifications.md)
-* [More about event handlers](../../configure/topology/event-handlers.md)
+* [Custom event handlers](/develop/developer-guides/custom-functions/event-handler-functions.md)
 * [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md)
 

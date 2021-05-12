@@ -88,7 +88,7 @@ Propagation functions can be run as either async \(default\) or synchronous.
 
 #### Async propagation functions \(default\)
 
-Running as an async function will allow you to make an HTTP request and use [StackState script APIs](../../develop/reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
+Running as an async function will allow you to make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
 
 {% hint style="danger" %}
 **Keep performance aspects in mind during async function development**  
@@ -134,10 +134,10 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 
 ### Logging
 
-You can add logging statements to a propagation function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/).
+You can add logging statements to a propagation function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/README.md).
 
 ## See also
 
-* [StackState script APIs](../../develop/reference/scripting/script-apis/)
-* [Enable logging for functions](../logging/)
+* [StackState script APIs](/develop/reference/scripting/script-apis/)
+* [Enable logging for functions](/configure/logging/README.md)
 

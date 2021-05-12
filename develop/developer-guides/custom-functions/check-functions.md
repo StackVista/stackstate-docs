@@ -13,8 +13,8 @@ To add a custom check function:
 3. Enter the required settings:
   * **Name** - A name to identify the check function.
   * **Description** - Optional. A description of the check function.
-  * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [user parameters](#parameters).
-  * **Return** - The type of state returned by the function. This is used in the StackState UI to determine which check functions can be selected when adding a health state.
+  * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [parameters](#parameters).
+  * **Return** - The type of state returned by the function. 
   * **Script** - The groovy script run by the function. Returns a [result](#result).
   * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function. For details, see [identifiers](/configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
