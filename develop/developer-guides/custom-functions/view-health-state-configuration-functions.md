@@ -1,22 +1,6 @@
----
-description: Configure how the health state of a StackState view is calculated
----
-
 # Customize view health state reporting
 
 ## Overview
-
-Every team has a different definition of when the part of the IT landscape they are watching over is in danger. So the View health state can be used to indicate when the whole, as defined in a view, is in danger. The View can be in three states:
-
-* Green - CLEAR
-* Orange - DEVIATING
-* Red - CRITICAL
-
-To enable view health state in a view, switch `View Health State Enabled` to on. This can be done in the dialog when saving a new view or editing an existing one. This is also where the view health state function is configured. Often this will be the number of components to be deviating or critical before the View health state changes.
-
-When the View health state changes it triggers a ViewHealthStateChangedEvent. This event can be used in event handlers to, for example, trigger an e-mail or Slack message.
-
-## View health state configuration functions
 
 A view health state configuration function is a user defined script that takes user parameters and has access to a `viewSummary` variable that can be used to get summary information on the \(states of\) the components and relations in the view.
 

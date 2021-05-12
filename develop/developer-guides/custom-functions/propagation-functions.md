@@ -1,7 +1,3 @@
----
-description: Propagate health states from dependencies to dependents
----
-
 # Propagation functions
 
 ## Overview
