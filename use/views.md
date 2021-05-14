@@ -85,7 +85,7 @@ In the dialog the following options appear:
 | :--- | :--- |
 | View name | The name of the view. |
 | View health state enabled | Whether the view has a health state. If this is disabled, thes health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend will not need to spend resources calculating a view health state each time the view changes. |
-| Configuration function | When view health state is enabled, you can choose a [view state configuration function](../configure/topology/view_state_configuration.md#view-health-state-configuration-function-minimum-health-states) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
+| Configuration function | When view health state is enabled, you can choose a [view state configuration function](../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
 | Arguments | The required arguments will vary depending on the chosen configuration function. |
 | Identifier | \(Optional\) this field can be used to give the view a unique [identifier](../configure/identifiers.md). This makes the view uniquely referencable from exported configuration, like the exported configuration in a StackPack. |
 
