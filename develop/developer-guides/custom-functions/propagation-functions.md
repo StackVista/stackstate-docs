@@ -11,7 +11,7 @@ A propagated state is returned as one of the following health states:
 * `DEVIATING`
 * `UNKNOWN`
 
-A component's propagated state is calculated using a [propagation function](propagation-functions.md#propagation-functions). This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
+A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
 
 ![Edit component propagation](../../../.gitbook/assets/v43_edit-component-propagation.png)
 
@@ -38,7 +38,7 @@ A full list of the propagation functions available in your StackState instance c
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
-![Custom propagation funtion](../../../.gitbook/assets/v43_propagation-function.png)
+![Custom propagation function](../../../.gitbook/assets/v43_propagation-function.png)
 
 The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 
@@ -85,7 +85,7 @@ Propagation functions can be run with execution set to either [Asynchronous](#as
 
 #### Asynchronous execution
 
-Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
+Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis/README.md) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
 
 {% hint style="danger" %}
 **Keep performance aspects in mind when developing functions with asynchronous execution**  
@@ -94,7 +94,7 @@ The script APIs provide super-human levels of flexibility and even allow queryin
 
 #### Synchronous execution
 
-Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution. 
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution. 
 
 `stateChangesRepository` can be used to return:
 
@@ -137,6 +137,6 @@ You can add logging statements to a propagation function for debug purposes, for
 
 ## See also
 
-* [StackState script APIs](/develop/reference/scripting/script-apis/)
+* [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
 * [Enable logging for functions](/configure/logging/README.md)
 
