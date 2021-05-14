@@ -32,10 +32,10 @@ Functions that run with synchronous execution do not have access to the StackSta
 Read more about:
 
 * [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
-* [Component mapper functions](custom-functions/mapping-functions.md)
+* [Component mapper functions](custom-functions/mapper-functions.md)
 * [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)  
 * [Id extractor functions](custom-functions/id-extractor-functions.md)
 * [Propagation functions](custom-functions/propagation-functions.md#propagation-functions)
-* [Relation mapper functions](custom-functions/mapping-functions.md)
+* [Relation mapper functions](custom-functions/mapper-functions.md)
 * [Baseline functions\(deprecated\)](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md#baseline-functions)
 
