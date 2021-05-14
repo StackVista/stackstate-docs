@@ -1,15 +1,15 @@
 # Mapping functions
 
-Mapping Function is defined by a groovy script and input parameters that groovy script requires. The goal of Mapping Function is to process topology data of the external system and prepare parameters for the template function.
+Mapper Function is defined by a groovy script and input parameters that groovy script requires. The goal of Mapper Function is to process topology data of the external system and prepare parameters for the template function.
 
-![Mapping function](/.gitbook/assets/mapping_function.png)
+![Mapper function](/.gitbook/assets/mapping_function.png)
 
-There are two specific Mapping Function parameters:
+There are two specific Mapper Function parameters:
 
-* `ExtTopoComponent` / `ExtTopoRelation` - these are the required system parameters. Every Mapping Function must define one of these. They are used internally by StackState and cannot be changed using API. They indicate the type of element component or relation the Mapping Function supports.
-* `TemplateLambda` - this is an optional parameter that specifies which template functions must be used with the Mapping Function.
+* `ExtTopoComponent` / `ExtTopoRelation` - these are the required system parameters. Every Mapper Function must define one of these. They are used internally by StackState and cannot be changed using API. They indicate the type of element component or relation the Mapper Function supports.
+* `TemplateLambda` - this is an optional parameter that specifies which template functions must be used with the Mapper Function.
 
-An example of a simple Mapping Function:
+An example of a simple Mapper Function:
 
 ```text
 def params = [
