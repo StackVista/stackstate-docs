@@ -9,11 +9,12 @@ Functions in StackState run with either [synchronous](#synchronous-execution) or
 | Event handler functions | ✅ | ✅ |
 | Propagation functions | ✅ | ✅ |
 | Component action functions | - | ✅ |
-| Baseline functions \(deprecated\) | ✅ | - |
 | Check functions | ✅ | - |
 | Component mapper functions | ✅ | - |
 | Id extractor functions | ✅ | - |
 | Relation mapper functions | ✅ | - |
+| View health state configuration functions | ✅ | - |
+| Baseline functions \(deprecated\) | ✅ | - |
 
 ### Asynchronous execution \(recommended\)
 
@@ -35,4 +36,5 @@ Read more about:
 * [Component and relation mapping functions](/develop/developer-guides/custom-functions/mapping-functions.md)
 * [Id extractor functions](/develop/developer-guides/custom-functions/id-extractor-functions.md)
 * [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md)
+* [View health state configuration functions](/develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)  
 * [Baseline functions \(deprecated\)](/develop/developer-guides/custom-functions/baseline-functions.md)

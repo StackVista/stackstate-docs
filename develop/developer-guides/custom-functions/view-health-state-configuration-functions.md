@@ -8,7 +8,7 @@ A view health state configuration function is a user defined script that takes u
 
 To create, update or delete a view state configuration, go to **Settings** -&gt; **Functions**  -&gt; **View Health State Configuration Functions**.
 
-A view health state configuration function receives a `viewSummary` and any **User parameters** named in the function. It needs to return value from the `viewHealthStates` enum - one of `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. 
+A view health state configuration function receives a `viewSummary` as well as any **User parameters** named in the function. It needs to return value from the `viewHealthStates` enum - one of `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. 
 
 ## Available properties and methods
 
