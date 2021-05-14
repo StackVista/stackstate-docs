@@ -41,8 +41,8 @@ StackState comes with some default identity extractor functions, which should be
 Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by model element type name that is coming from external system, mapping functions and mapping functions parameters.
 
 * _Model Element Type Name_ - identifier of external element type, e.g. linux, hypervisor, java
-* _Mapping Function_ - Mapping function that knows how to process the data of _Model Element Type_
-* _Parameters_ - values for a mapping function parameters, e.g. selecting template function that knows how to create specific StackState objects
+* _Mapper Function_ - Mapper function that knows how to process the data of _Model Element Type_
+* _Parameters_ - values for mapper function parameters, e.g. selecting template function that knows how to create specific StackState objects
 * _Merge Strategy_ - indicates the merge strategy applied in case several components form a single entity
 
 ## Merge Strategy
@@ -58,14 +58,14 @@ Mergable fields in the component are set fields \(like streams and checks\) and 
 
 ## Mapping Functions
 
-Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapping function is to process topology data from an external system and prepare parameters for a template function. A mapping function is thus likely to be plugin specific.
+Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapper function is to process topology data from an external system and prepare parameters for a template function. A mapper function is thus likely to be plugin specific.
 
-There are two parameters that are specific to a mapping function:
+There are two parameters that are specific to a mapper function:
 
-* `ExtTopoComponent` or `ExtTopoRelation` - these are required, system parameters. Every Mapping Function must define one of these. They are used internally by StackState and cannot be changed using the API. They indicate the type of element \(component or relation\) that the mapping function supports.
-* `TemplateLambda` - this is an optional parameter that specifies the template functions that must be used with a mapping function.
+* `ExtTopoComponent` or `ExtTopoRelation` - these are required, system parameters. Every Mapper Function must define one of these. They are used internally by StackState and cannot be changed using the API. They indicate the type of element \(component or relation\) that the mapper function supports.
+* `TemplateLambda` - this is an optional parameter that specifies the template functions that must be used with a mapper function.
 
-For example, below is a simple mapping function script:
+For example, below is a simple mapper function script:
 
 ```text
      def params = [
@@ -76,7 +76,7 @@ For example, below is a simple mapping function script:
      context.runTemplate(template, params)
 ```
 
-### Create a mapping function
+### Create a mapper function
 
 Mapping functions can be created from the **Settings** page in the StackState UI.
 
@@ -84,7 +84,7 @@ Mapping functions can be created from the **Settings** page in the StackState UI
 
 Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
 
-Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapping function parse topological data of external system and prepares input parameters for Template function.
+Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapper function parse topological data of external system and prepares input parameters for Template function.
 
 ### Create template functions from existing components and relations
 

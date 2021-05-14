@@ -12,7 +12,18 @@ StackState can reduce this noise by looking at the overall health state of a **v
 
 ![Views list with view health state](../../.gitbook/assets/v43_views_list.png)
 
-## Configure a view health state
+## View health state
+
+A view can report its health state in one of four colours:
+
+* Green - CLEAR
+* Orange - DEVIATING
+* Red - CRITICAL
+* Gray - View health state reporting disabled. See [configure view health state](#configure-view-health-state).
+
+When the View health state changes, it generates a `ViewHealthStateChangedEvent`. This event can be used to trigger an [event notification](/use/health-state-and-event-notifications/send-event-notifications.md), such as an e-mail or Slack message.
+
+## Configure view health state
 
 View health state is calculated by a **view state configuration function**. To configure a view to report its health state:
 
@@ -20,7 +31,7 @@ View health state is calculated by a **view state configuration function**. To c
 2. Click on the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
 4. Select a **Configuration function** to use to calculate the view health. 
-   * You can use the standard view state configuration function or [create your own](../../configure/topology/view_state_configuration.md).
+   * You can use the standard view state configuration function or [create your own](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
    * For details of the available configuration functions, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
 5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the default [MINIMUM HEALTH STATES](configure-view-health.md#minimum-health-states) configuration function:
    * **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL \(red\) health states required for the view to report a CRITICAL health state.
@@ -50,12 +61,12 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 * The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
-The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function](../../configure/topology/view_state_configuration.md#write-a-custom-view-health-state-configuration-function).
+The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
 
 ## See also
 
-* [Customize the view state configuration](../../configure/topology/view_state_configuration.md)
-* [Create a custom view health state configuration function](../../configure/topology/view_state_configuration.md#write-a-custom-view-health-state-configuration-function)
+* [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
+* [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function)
 * [Add a health check](add-a-health-check.md)
 * [Send event notifications when a health state changes](send-event-notifications.md)
 

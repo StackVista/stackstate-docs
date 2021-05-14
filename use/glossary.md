@@ -29,7 +29,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **layer** - represents a hierarchy that determines the relations and dependencies in your stack - typically top to bottom.
 * **log stream** - a telemetry stream with log or event data that is coming from an external system.
 * **mapping** - in the synchronization process it specifies the transformation of external system topological data into StackState based on component/relation type.
-* **mapping function** - allows the user to transform data before applying a template during the synchronization process.
+* **mapper function** - allows the user to transform data before applying a template during the synchronization process.
 * **metric stream** - a telemetry stream with metric data that is coming from an external system; Allows for baseline checks.
 * **permission** - defines an access to specific actions for users.
 * **prefix** - STQL query that is specific to a role. It is added as a query prefix to every query executed by users in that role.
