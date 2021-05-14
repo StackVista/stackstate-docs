@@ -58,7 +58,7 @@ The states of all components and relations in the view can be accessed as a list
 *  `healthState`
 *  `propagatedHealthState`
    
-This allows the function to query particular elements in the view. In the example below, a CRITICAL state will be returned if any component of type DB reports a DEVIATING state. In all other cases a CLEAR state will be returned:
+This can be used to query particular elements in the view. In the example below, a CRITICAL state will be returned if any component of type DB reports a DEVIATING state. In all other cases a CLEAR state will be returned:
 
 ```groovy
 if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (elementState.healthState >= healthStates.DEVIATING ) } ) {
