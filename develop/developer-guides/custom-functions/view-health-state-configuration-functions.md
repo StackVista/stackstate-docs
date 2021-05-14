@@ -45,7 +45,7 @@ if (viewSummary.countHealthState(healthStates.CRITICAL) >= minCriticalHealthStat
 
 ### ElementState
 
-The states of all components and relations in the view can also be accessed as a list from `viewSummary` using `ElementState`. `ElementState` has the following properties: 
+The states of all components and relations in the view can be accessed as a list from `viewSummary` using `ElementState`. `ElementState` has the following properties: 
 
 * `elementId`
 * `stateId`
