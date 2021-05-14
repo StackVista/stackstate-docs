@@ -8,7 +8,7 @@ Functions in StackState run with either [synchronous](#synchronous-execution) or
 | :--- | :---: | :---: |
 | Event handler functions | ✅ | ✅ |
 | Propagation functions | ✅ | ✅ |
-| Component actios | - | ✅ |
+| Component actions | - | ✅ |
 | Check functions | ✅ | - |
 | Component mapper functions | ✅ | - |
 | Id extractor functions | ✅ | - |
