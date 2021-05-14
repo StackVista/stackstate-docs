@@ -79,25 +79,24 @@ A propagation function script takes system and user defined parameters. System p
 | `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
 | `component` | The id of the current component |
 
-### Async On / Off
+### Execution
 
-Propagation functions can be run as either async \(default\) or synchronous.
+Propagation functions can be run with execution set to either [Asynchronous](#asynchronous-execution) \(recommended\) or [Synchronous](#synchronous-execution).
 
-* With Async set to **On** the function will be run as [async](propagation-functions.md#async-propagation-functions-default).
-* With Async set to **Off** the function will be run as [synchronous](propagation-functions.md#synchronous-propagation-functions-async-off).
+#### Asynchronous execution
 
-#### Async propagation functions \(default\)
-
-Running as an async function will allow you to make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
+Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
 
 {% hint style="danger" %}
-**Keep performance aspects in mind during async function development**  
+**Keep performance aspects in mind when developing functions with asynchronous execution**  
 The script APIs provide super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
-#### Synchronous propagation functions \(async Off\)
+#### Synchronous execution
 
-Running a propagation function as synchronous places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs as async. `stateChangesRepository` can be used to return:
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution. 
+
+`stateChangesRepository` can be used to return:
 
 * The propagating state of an element
 * The number of elements with a particular propagating state
@@ -107,11 +106,11 @@ See available [properties and methods](propagation-functions.md#available-proper
 
 ### Available properties and methods
 
-Several element properties and methods are available for use in propagation functions. Synchronous functions also have access to stateChangesRepository methods.
+Several element properties and methods are available for use in propagation functions. Functions with synchronous execution also have access to stateChangesRepository methods.
 
 #### Element properties and methods
 
-The `element` properties and methods listed below can be used in **async and synchronous** propagation functions. Synchronous functions also have access to [stateChangesRepository methods](propagation-functions.md#statechangesrepository-methods).\_\_
+The `element` properties and methods listed below can be used in propagation functions with either **asynchronous and synchronous execution**. Functions with synchronous execution also have access to [stateChangesRepository methods](propagation-functions.md#statechangesrepository-methods).
 
 * `element.name` - Returns the name of the current element.
 * `element.type` - Returns type of the current element.
