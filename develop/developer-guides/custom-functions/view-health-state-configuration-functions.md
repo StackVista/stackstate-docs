@@ -14,7 +14,7 @@ A view health state configuration function receives a `viewSummary` and needs to
 | :---|:---|
 | `countHealthState` | A count of all components with a specified state. See [countHealthState and countPropagatedHealthState](#counthealthstate-and-countpropagatedstate). |
 | `countPropagatedHealthState` | A count of all elements with a specified propagated state. See [countHealthState and countPropagatedHealthState](#counthealthstate-and-countpropagatedstate). |
-| `viewSummary` | A list of the states of all elements in the view. See [viewSummary](#viewsummary). | 
+| `viewSummary` | A list of the states of all elements in the view. See [ElementState](#elementstate). | 
 
 
 ### countHealthState and countPropagatedHealthState
@@ -39,7 +39,7 @@ if (viewSummary.countHealthState(healthStates.CRITICAL) >= minCriticalHealthStat
 }
 ```
 
-### viewSummary
+### ElementState
 
 The states of all components and relations in the view can also be accessed as a list from `viewSummary` using `ElementState`. `ElementState` has the following properties: 
 
