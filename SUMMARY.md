@@ -105,7 +105,7 @@
   * [💠 VMWare vSphere](stackpacks/integrations/vsphere.md)
   * [💠 StackState Agent integrations](stackpacks/integrations/agent.md)
     * [💠 Apache Tomcat old](stackpacks/integrations/agent_v2/apache-tomcat-old.md)
-    * [💠 Apache Tomcat](stackpacks/integrations/agent_v2/apache-tomcat.md)
+    * [💠 Apache Tomcat test](stackpacks/integrations/agent_v2/apache-tomcat.md)
     * [💠 AWS ECS old](stackpacks/integrations/agent_v2/aws-ecs-old.md)
     * [💠 AWS ECS](stackpacks/integrations/agent_v2/aws-ecs.md)
     * [💠 AWS X-ray old](stackpacks/integrations/agent_v2/aws-x-ray-old.md)
