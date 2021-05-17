@@ -2,75 +2,24 @@
 
 ## Overview
 
+The StackState Fedora Agent provides the following functionality:
+- Reporting hosts, processes and containers
+- Reporting all network connections between processes / containers including network traffic telemetry
+- Telemetry for hosts, processes and containers
 
+### Installation
 
-![Fedora integration](/.gitbook/assets/stackpack-agent-Fedora.png)
+This integration is a part of the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/), to install this integration follow the instructions provided there.
 
-* 
-* 
-* 
+## Supported configurations
 
-## Setup
+The StackState Agent is supported on the following platforms:
 
-### Prerequisites
+| OS | Release | Arch | Network Tracer| Status | Notes|
+|----|---------|--------|--------|--------|--------|
+| CentOS | 6 | 64bit | - | OK | Since version 2.0.2 |
+| CentOS | 7 | 64bit | - | OK | - |
+| RHEL | 7 | 64bit | - | OK | - |
+| Fedora | 28 | 64bit | OK | OK | - |
 
-* TODO: prereq for this specific check
-* TODO: prereq for Agent V2 StackPack
-*
-
-### Install
-
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
-### Configure
-
-TODO: Required check configuration
-
-### Status
-
-### Upgrade
-
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
-## Integration details
-
-### Data retrieved
-
-#### Topology
-
-#### Metrics
-
-#### Events
-
-#### Traces
-
-### Rest API endpoints
-
-### Views in StackState
-
-### Actions in StackState
-
-### Tags
-
-### Open source
-
-## Troubleshooting
-
-## Uninstall
-
-To disable the Fedora check, remove or rename the Agent integration configuration file, for example:
-
-```buildoutcfg
-mv Fedora.d/conf.yaml Fedora.d/conf.yaml.bak
-```
-
-To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).
-
-## Release notes
-
-See the release notes for the [Agent V2 StackPack](/stackpacks/integrations/agent.md).
-
-## See also
-
-* [Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
+Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).

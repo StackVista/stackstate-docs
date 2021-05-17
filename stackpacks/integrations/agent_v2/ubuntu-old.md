@@ -2,75 +2,24 @@
 
 ## Overview
 
+The StackState Debian Agent provides the following functionality:
+- Reporting hosts, processes and containers
+- Reporting all network connections between processes / containers including network traffic telemetry
+- Telemetry for hosts, processes and containers
+
+### Installation
+
+This integration is a part of the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/), to install this integration follow the instructions provided there.
 
 
-![Ubuntu integration](/.gitbook/assets/stackpack-agent-Ubuntu.png)
+## Supported configurations
 
-* 
-* 
-* 
+The StackState Agent is supported on the following platforms:
 
-## Setup
+| OS | Release | Arch | Network Tracer| Status | Notes|
+|----|---------|--------|--------|--------|--------|
+| Ubuntu | Trusty (14) | 64bit | - | OK | - |
+| Ubuntu | Xenial (16) | 64bit | OK | OK | - |
+| Ubuntu | Bionic (18) | 64bit | OK | OK | - |
 
-### Prerequisites
-
-* TODO: prereq for this specific check
-* TODO: prereq for Agent V2 StackPack
-*
-
-### Install
-
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
-### Configure
-
-TODO: Required check configuration
-
-### Status
-
-### Upgrade
-
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
-## Integration details
-
-### Data retrieved
-
-#### Topology
-
-#### Metrics
-
-#### Events
-
-#### Traces
-
-### Rest API endpoints
-
-### Views in StackState
-
-### Actions in StackState
-
-### Tags
-
-### Open source
-
-## Troubleshooting
-
-## Uninstall
-
-To disable the Ubuntu check, remove or rename the Agent integration configuration file, for example:
-
-```buildoutcfg
-mv Ubuntu.d/conf.yaml Ubuntu.d/conf.yaml.bak
-```
-
-To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).
-
-## Release notes
-
-See the release notes for the [Agent V2 StackPack](/stackpacks/integrations/agent.md).
-
-## See also
-
-* [Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
+Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).

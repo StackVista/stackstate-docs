@@ -1,10 +1,10 @@
-# JMI
+# JMX
 
 ## Overview
 
 
 
-![JMI integration](/.gitbook/assets/stackpack-agent-JMI.png)
+![JMX integration](/.gitbook/assets/stackpack-agent-JMX.png)
 
 * 
 * 
@@ -58,10 +58,10 @@ TODO: Required check configuration
 
 ## Uninstall
 
-To disable the JMI check, remove or rename the Agent integration configuration file, for example:
+To disable the JMX check, remove or rename the Agent integration configuration file, for example:
 
 ```buildoutcfg
-mv JMI.d/conf.yaml JMI.d/conf.yaml.bak
+mv JMX.d/conf.yaml JMX.d/conf.yaml.bak
 ```
 
 To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).

@@ -4,25 +4,31 @@ description: StackState curated integration
 
 # Traefik
 
+## Overview
+
+Get topology and telemetry information from Traefik.
+
+This integration is still in __BETA__.
+
+## Functionality
+
 The StackState Agent V2 Traefik integration provides the following functionality:
 
-* Reporting Traefik frontends and backends as topology elements.   
-* Reporting all network connections between services, including network traffic telemetry.
+- Reporting Traefik frontends and backends as topology elements.   
+- Reporting all network connections between services, including network traffic telemetry.
 
 ## Setup
 
 ### Installation
+The StackState Traefik integration is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](../agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+### Configuration 
+Configure your Traefik instance to report [Datadog tracing data](https://docs.traefik.io/configuration/tracing/#datadog) to the StackState Agent. Your Traefik.toml configuration file must include the following parameters: 
 
-### Configuration
-
-Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to the StackState Agent. Your Traefik.toml configuration file must include the following parameters:
-
-```text
+```
 # Tracing definition
 [tracing]
-  # Use the Datadog backend to send the Datadog Tracing format to StackState Agent
+  # Use the Datadog backend to send the Datadog Tracing format to StackState Agent 
   backend = "datadog"
 
   # Component name used for your Traefik instance in StackState
@@ -42,11 +48,10 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
 
 ### Integrate with Java traces
 
-When using Traefik in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client - Java APM](java-apm.md) it is important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
+When using Traefik in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client](/#/stackpacks/stackstate-agent-v2/java) it is important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
 
 Eg. for the following `Traefik.toml`:
-
-```text
+```
 ...
 [frontends]
   [frontends.stackstate-demo-frontend]
@@ -61,12 +66,10 @@ Eg. for the following `Traefik.toml`:
     ...
 ...
 ```
-
 you should pass the following jvm argument when starting your java application: `-Dsts.service.name=stackstate-demo-backend`
 
 or for a similar docker-compose configuration:
-
-```text
+```
   stackstate-demo-app:
     image: stackstate-demo-app:latest
     pid: "host" # use pid:"host" to ensure pid's match with processes reported by the StackState process agent
@@ -85,22 +88,16 @@ or for a similar docker-compose configuration:
       -Dsts.agent.port=8126
       -javaagent:/sts-java-agent.jar
 ```
-
 ## Troubleshooting
 
-To verify whether the StackState Trace Agent has received traces, set the logging level to debug and check the `trace-agent.log`:
+You can verify whether the StackState Trace Agent has received the traces, by setting the logging level to debug and checking the `trace-agent.log`:
 
-{% tabs %}
-{% tab title="stackstate.yaml" %}
-```text
+stackstate.yaml
+```
 log_level: debug
 ```
-{% endtab %}
-{% endtabs %}
 
 In Docker or Kubernetes, set the following environment variable for the StackState Agent
-
-```text
+```
 STS_LOG_LEVEL: "DEBUG"
 ```
-
