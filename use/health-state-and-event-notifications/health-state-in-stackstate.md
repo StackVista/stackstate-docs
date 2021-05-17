@@ -2,7 +2,7 @@
 
 ## Overview
 
-TODO: Short page explaining StackState health can come from health checks (metrics/events) or synchronizations...
+* TODO: Short page explaining StackState health can come from health checks (metrics/events) or synchronizations...
 
 ## See also
 

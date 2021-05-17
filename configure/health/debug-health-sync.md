@@ -2,7 +2,7 @@
 
 ## Overview
 
-TODO: troubleshooting info
+* TODO: troubleshooting info
 
 ## See also
 
