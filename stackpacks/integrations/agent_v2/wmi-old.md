@@ -1,10 +1,10 @@
-# AWS X-ray
+# WMI
 
 ## Overview
 
 
 
-![AWS . X-ray integration](/.gitbook/assets/stackpack-agent-aws-xray.png)
+![WMI integration](/.gitbook/assets/stackpack-agent-WMI.png)
 
 * 
 * 
@@ -58,10 +58,10 @@ TODO: Required check configuration
 
 ## Uninstall
 
-To disable the AWS . X-ray check, remove or rename the Agent integration configuration file, for example:
+To disable the WMI check, remove or rename the Agent integration configuration file, for example:
 
-```buildoutcfg
-mv aws-xray.d/conf.yaml aws-xray.d/conf.yaml.bak
+```
+mv WMI.d/conf.yaml WMI.d/conf.yaml.bak
 ```
 
 To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).

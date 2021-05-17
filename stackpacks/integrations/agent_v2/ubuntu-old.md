@@ -1,10 +1,10 @@
-# AWS X-ray
+# Ubuntu
 
 ## Overview
 
 
 
-![AWS . X-ray integration](/.gitbook/assets/stackpack-agent-aws-xray.png)
+![Ubuntu integration](/.gitbook/assets/stackpack-agent-Ubuntu.png)
 
 * 
 * 
@@ -58,10 +58,10 @@ TODO: Required check configuration
 
 ## Uninstall
 
-To disable the AWS . X-ray check, remove or rename the Agent integration configuration file, for example:
+To disable the Ubuntu check, remove or rename the Agent integration configuration file, for example:
 
 ```buildoutcfg
-mv aws-xray.d/conf.yaml aws-xray.d/conf.yaml.bak
+mv Ubuntu.d/conf.yaml Ubuntu.d/conf.yaml.bak
 ```
 
 To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).
