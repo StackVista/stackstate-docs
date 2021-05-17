@@ -42,7 +42,7 @@ stackstate:
         rolesKey: cn
         groupMemberKey: member
 
-    # map the groups from LDAP to the 
+    # map the groups from LDAP to the
     # 3 standard subjects in StackState (guest, powerUser and admin)
     roles:
       guest: ["ldap-guest-role-for-stackstate"]
@@ -57,8 +57,8 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 1. In `authentication.yaml` - add LDAP details \(see the example above\):
    * **host** - The hostname of the LDAP server.
    * **port** - The port the LDAP server is listening on.
-   * **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used. 
-   * **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported. 
+   * **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used.
+   * **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
    * **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
    * **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
    * **userQuery parameters and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
@@ -128,6 +128,19 @@ To configure StackState to authenticate using an LDAP authentication server on K
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
+
+authorization {
+  // map the groups from the LDAP to the
+  // 3 standard subjects in StackState (guest, powerUser and admin)
+  // Please note! you have to use syntax
+  // `<group>Groups = ${stackstate.authorization.<group>Groups} ["ldap-role"]`
+  // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
+  // with the ones from Ldap
+  guestGroups = ${stackstate.authorization.guestGroups} ["ldap-guest-role-for-stackstate"]
+  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["ldap-powerUser-role-for-stackstate"]
+  adminGroups = ${stackstate.authorization.adminGroups} ["ldap-admin-role-for-stackstate"]
+}
+
 authentication {
   authServer {
     authServerType = [ "ldapAuthServer" ]
@@ -166,12 +179,6 @@ authentication {
       }
     }
   }
-
-  // map the groups from the LDAP to the 
-  // 3 standard subjects in StackState (guest, powerUser and admin)
-  guestGroups = ["ldap-guest-role-for-stackstate"]
-  powerUserGroups = ["ldap-powerUser-role-for-stackstate"]
-  adminGroups = ["ldap-admin-role-for-stackstate"]
 }
 ```
 {% endtab %}
@@ -199,4 +206,3 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
-

@@ -7,7 +7,7 @@ Permissions in StackState allow Administrators to manage the actions that each u
 {% hint style="info" %}
 Permissions are stored in StackGraph. This means that:
 
-* If you perform an upgrade with "clear all data", permission setup will also be removed. 
+* If you perform an upgrade with "clear all data", permission setup will also be removed.
 * To completely remove a user, they must also be manually removed from StackGraph.
 {% endhint %}
 
@@ -20,8 +20,8 @@ There are two types of permission in StackState:
 
 StackState comes with three predefined roles:
 
-* **Administrators** \(`stackstate-admin`\): Have all permissions and access to all views. 
-* **Power Users** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for: 
+* **Administrators** \(`stackstate-admin`\): Have all permissions and access to all views.
+* **Power Users** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for:
   * `execute-restricted-scripts`
   * `update-permissions`
   * `upload-stackpacks`
@@ -41,11 +41,11 @@ StackState comes with three predefined roles:
 
 ### Default and custom role names
 
-The default names for the pre-defined roles \(`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`\) can be overridden. In the same way, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
+The default pre-defined roles names \(`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`\) are always available. In the same time, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to replace the default role names with these custom role names.
+Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to extend the default role names with these custom role names.
 
 ```yaml
 stackstate:
@@ -55,8 +55,6 @@ stackstate:
       powerUser: ["custom-power-user-role"]
       admin: ["custom-admin-role"]
 ```
-
-It is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
 
 To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
 
@@ -72,16 +70,18 @@ stackstate/stackstate
 {% endtab %}
 
 {% tab title="Linux" %}
-Edit the existing keys in the `authentication` section \(nested in `stackstate.api`\) in the configuration file like in the example to replace the default role names with these custom role names. Restart StackState to make the change take effect.
+To extend the default role names with custom role names, you should edit the existing keys in the `authorization` section in the configuration file like in the example below. Restart StackState to make the change take effect.
 
 ```javascript
-  guestGroups = ["custom-guest-role"]
-  powerUserGroups = ["custom-power-user-role"]
-  adminGroups = ["custom-admin-role"]
+authorization {
+  guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role"]
+  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role"]
+  adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role"]
 }
 ```
 
-Of course it is also possible to leave the defaults in place, for example the `guestGroups` would then have an array with 2 entries: `["stackstate-guest", "custom-guest-role"]`.
+The syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` allows extending the existing lists and therefore the default roles `stackstate-admin`, `stackstate-guest` and `stackstate-power-user` remain available.
+
 {% endtab %}
 {% endtabs %}
 
@@ -295,4 +295,3 @@ sts permission revoke [subject-handle] access-view [view-name]
 Below is an example of how the StackState UI would look for a user without any permissions:
 
 ![No permissions](../../../.gitbook/assets/noperm.png)
-

@@ -18,13 +18,87 @@ This page provides specific instructions for upgrading to each currently support
 
 ### Upgrade to v4.4.x
 
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines this is the last moment to remove Baseline support and make transition to AAD as in v4.5 baselines will be removed completely and templated that use them will break.
+* Authorization configuration is centralized now for Base and Admin Api. This means that there is single consistent location in configuration for groups to roles mappings with 3 default roles that previously could be overridden and now are fixed.
+```
+stackstate {
+  authorization {
+    adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
+    powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
+    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
+  }
+}
+```
+This has impact on upgrade of stackstate if you have overrides the authentication config. Please see corresponding kubernetes or linux section.
+
 {% tabs %}
 {% tab title="Kubernetes" %}
 #### v4.4.0
+
+* Authorization is configured in single place for Base and Admin Api.
+  In general case you don't have to do any changes unless you have configured api role overrides for specific services. If this is the case then you have to move roles from those overrides to single location (please see above - `stackstate.authorization.`).
+  The helm properties responsible for conf overrides are below:
+   ```
+   stackstate.components.api.config = ...
+   stackstate.components.checks.config = ...
+   stackstate.components.healthSync.config = ...
+   stackstate.components.initializer.config = ...
+   stackstate.components.server.config = ...
+   stackstate.components.state.config = ...
+   stackstate.components.sync.config = ...
+   stackstate.components.slicing.config = ...
+   stackstate.components.viewHealth.config = ...
+   stackstate.components.problemProducer.config = ...
+   ```
+   If you are still not sure what you need to do, please contact [StackState support](https://support.stackstate.com/hc/en-us)
 {% endtab %}
 
 {% tab title="Linux" %}
 #### v4.4.0
+
+* Authorization is configured in single place for Base and Admin Api.
+
+  This impacts you if you have customized `authentication` section in application_stackstate.conf.
+  If your customized `authentication` has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
+  ```
+  stackstate {
+    api {
+      authentication {
+        ...
+        adminGroups = ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+        powerUserGroups = ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
+        guestGroups = ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]
+        ...
+      }
+    }
+  }
+  ```
+
+  You have to move subject-role mappings to centralized authorization configuration, as in example below.
+
+  ```
+  stackstate {
+    authorization {
+      adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+      powerUserGroups = ${stackstate.authorization.powerUserGroups} ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
+      guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]      
+    }
+    api {
+      authentication {
+        ...
+        // no subject-role mappings anymore
+        ...
+      }
+    }
+  }
+  ```
+
+  Please note that you have to use syntax:
+  `xxxGroups = ${stackstate.authorization.xxxGroups} ["your-custom-oidc-or-ldap-or-keycloak-xxx-role"]`
+  to extend the existing lists that contain default roles `stackstate-admin`, `stackstate-guest` and `stackstate-power-user`.
+
+  If you are still not sure what you need to do, please contact [StackState support](https://support.stackstate.com/hc/en-us)
+
 {% endtab %}
 {% endtabs %}
 
@@ -46,7 +120,7 @@ No manual action needed.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
 * Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`. 
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 
@@ -62,7 +136,7 @@ No manual action needed.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
 * Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`. 
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}
@@ -84,7 +158,7 @@ Refer to the [Authentication configuration documentation](../../configure/securi
 #### v4.2.0
 
 * [Node sizing requirements](../requirements.md#node-sizing) have been increased.
-* The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated: 
+* The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated:
   * Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
   * Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
 * A new mandatory parameter `stackstate.baseUrl` has been added. This is the public URL of StackState \(how StackState is reachable from external machines\) and is exposed via the [UI script API](../../develop/reference/scripting/script-apis/ui.md#function-baseurl). The file `values.yaml` should be updated to include the new `stackstate.baseUrl` parameter. The old `stackstate.receiver.baseUrl` parameter has been deprecated and will be removed in a future release, however, when no `stackstate.baseUrl` is provided in StackState v4.2, the configured `stackstate.receiver.baseUrl` will be used instead.
@@ -123,4 +197,3 @@ The following configuration changes must be manually processed if you are using 
 * [How to upgrade a StackPack](../../stackpacks/about-stackpacks.md#upgrade-a-stackpack)
 * [Steps to upgrade StackState](steps-to-upgrade.md)
 * [StackPack versions shipped with each StackState release](stackpack-versions.md)
-
