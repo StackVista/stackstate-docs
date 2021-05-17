@@ -123,7 +123,7 @@ stackstate/stackstate
 
 ### Linux
 
-To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
+To configure StackState to authenticate using an LDAP authentication server on Linux, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
 
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}

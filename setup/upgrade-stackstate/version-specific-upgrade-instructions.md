@@ -18,8 +18,8 @@ This page provides specific instructions for upgrading to each currently support
 
 ### Upgrade to v4.4.x
 
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines this is the last moment to remove Baseline support and make transition to AAD as in v4.5 baselines will be removed completely and templated that use them will break.
-* Authorization configuration is centralized now for Base and Admin Api. This means that there is single consistent location in configuration for groups to roles mappings with 3 default roles that previously could be overridden and now are fixed.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines this is the last moment to remove Baseline support from templates and make transition to AAD as in v4.5 baselines will be removed completely and templates using them will break.
+* Authorization configuration is centralized now for Base and Admin Api. This means that there is single location in the configuration for groups to roles mappings with 3 default roles that previously could be overridden and now are fixed.
 ```
 stackstate {
   authorization {
@@ -29,15 +29,16 @@ stackstate {
   }
 }
 ```
-This has impact on upgrade of stackstate if you have overrides the authentication config. Please see corresponding kubernetes or linux section.
+This has impact on upgrade of stackstate if you have overrides the authentication config. Please see corresponding kubernetes or linux section below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
 #### v4.4.0
 
 * Authorization is configured in single place for Base and Admin Api.
+
   In general case you don't have to do any changes unless you have configured api role overrides for specific services. If this is the case then you have to move roles from those overrides to single location (please see above - `stackstate.authorization.`).
-  The helm properties responsible for conf overrides are below:
+  The helm properties that can define configuration overrides are below:
    ```
    stackstate.components.api.config = ...
    stackstate.components.checks.config = ...
@@ -59,7 +60,7 @@ This has impact on upgrade of stackstate if you have overrides the authenticatio
 * Authorization is configured in single place for Base and Admin Api.
 
   This impacts you if you have customized `authentication` section in application_stackstate.conf.
-  If your customized `authentication` has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
+  If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
   ```
   stackstate {
     api {
@@ -86,7 +87,7 @@ This has impact on upgrade of stackstate if you have overrides the authenticatio
     api {
       authentication {
         ...
-        // no subject-role mappings anymore
+        // no subject-role mappings here
         ...
       }
     }
@@ -94,7 +95,7 @@ This has impact on upgrade of stackstate if you have overrides the authenticatio
   ```
 
   Please note that you have to use syntax:
-  `xxxGroups = ${stackstate.authorization.xxxGroups} ["your-custom-oidc-or-ldap-or-keycloak-xxx-role"]`
+  `xxxGroups = ${stackstate.authorization.xxxGroups} ["your-custom-role"]`
   to extend the existing lists that contain default roles `stackstate-admin`, `stackstate-guest` and `stackstate-power-user`.
 
   If you are still not sure what you need to do, please contact [StackState support](https://support.stackstate.com/hc/en-us)
