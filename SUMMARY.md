@@ -88,7 +88,7 @@
 * [Integrations](stackpacks/integrations/README.md)
   * [Available integrations](stackpacks/integrations/available_integrations.md)
   * [💠 StackState Agent](stackpacks/integrations/agent.md)
-  * [💠 API-Integration](stackpacks/integrations/api-integration.md)
+  * [💠 API-Integration Agent](stackpacks/integrations/api-integration.md)
   * [💠 AWS](stackpacks/integrations/aws.md)
   * [💠 AWS X-ray](stackpacks/integrations/aws-x-ray.md)
   * [💠 DotNet APM](stackpacks/integrations/dotnet-apm.md)  
