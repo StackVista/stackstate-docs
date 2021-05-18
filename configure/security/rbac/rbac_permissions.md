@@ -84,7 +84,9 @@ To extend the default role names with custom role names:
 
   3. Restart StackState for changes to take effect.
 
-The syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` allows extending the existing lists and therefore the default roles `stackstate-admin`, `stackstate-guest` and `stackstate-power-user` remain available.
+  {% hint style="info" %}
+  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-guest and stackstate-power-user).
+  {% endhint %}
 
 {% endtab %}
 {% endtabs %}
