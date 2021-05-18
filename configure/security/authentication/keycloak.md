@@ -94,7 +94,7 @@ To configure StackState to use a KeyCloak authentication provider on Linux, KeyC
 authorization {
   // map the roles from Keycloak to the
   // 3 standard subjects in StackState (guest, powerUser and admin)
-  // Please note! you have to use syntax
+  // Please note! you have to use the syntax
   // `<group>Groups = ${stackstate.authorization.<group>Groups} ["keycloak-role"]`
   // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
   // with the ones from Keycloak

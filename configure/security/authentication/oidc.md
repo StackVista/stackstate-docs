@@ -91,9 +91,9 @@ To configure StackState to use an OIDC authentication provider on Linux, OIDC de
 authorization {
   // map the groups from the OIDC provider to the
   // 3 standard subjects in StackState (guestGroups, powerUserGroups and adminGroups)
-  // Please note! you have to use syntax
+  // Please note! you have to use the syntax
   // `<group>Groups = ${stackstate.authorization.<group>Groups} ["oidc-role"]`
-  // to extend the list of standard subjects (stackstate-admin, stackstate-guest, stackstate-power-user)
+  // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
   // with the ones from OIDC
   guestGroups = ${stackstate.authorization.guestGroups} ["oidc-guest-role-for-stackstate"]
   powerUserGroups = ${stackstate.authorization.powerUserGroups} ["oidc-power-user-role-for-stackstate"]

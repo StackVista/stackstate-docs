@@ -132,7 +132,7 @@ To configure StackState to authenticate using an LDAP authentication server on L
 authorization {
   // map the groups from the LDAP to the
   // 3 standard subjects in StackState (guest, powerUser and admin)
-  // Please note! you have to use syntax
+  // Please note! you have to use the syntax
   // `<group>Groups = ${stackstate.authorization.<group>Groups} ["ldap-role"]`
   // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
   // with the ones from Ldap

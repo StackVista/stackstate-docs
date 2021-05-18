@@ -19,7 +19,7 @@ This page provides specific instructions for upgrading to each currently support
 ### Upgrade to v4.4.x
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines this is the last moment to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
-* Authorization configuration is centralized now for Base and Admin Api. This means that there is single location in the configuration for groups to roles mappings with 3 default roles that previously could be overridden.
+* Authorization configuration is centralized now for Base API and Admin API. This means that there is single location in the configuration for groups to roles mappings with 3 default roles that previously could be overridden.
 ```
 stackstate {
   authorization {
@@ -35,7 +35,7 @@ This has impact on stackstate upgrades if you have overrides the authentication 
 {% tab title="Kubernetes" %}
 #### v4.4.0
 
-* Authorization is configured in single place for Base and Admin Api.
+* Authorization is now configured in single place for Base API and Admin API.
 
   In general case you don't have to do any changes unless you have configured api role overrides for specific services.
   The helm properties where you can find those overrides are below:
@@ -62,15 +62,15 @@ This has impact on stackstate upgrades if you have overrides the authentication 
    ```
    For details you can consult with the [Default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names) section.
 
-   If you are still not sure what you need to do, please contact [StackState support](https://support.stackstate.com/hc/en-us)
+   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 {% endtab %}
 
 {% tab title="Linux" %}
 #### v4.4.0
 
-* Authorization is configured in single place for Base and Admin Api.
+* Authorization is now configured in single place for Base API and Admin API.
 
-  This impacts you if you have customized `authentication` section in application_stackstate.conf.
+  This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
   If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
   ```
   stackstate {
@@ -105,11 +105,11 @@ This has impact on stackstate upgrades if you have overrides the authentication 
   }
   ```
 
-  Please note that you have to use syntax:
-  `xxxGroups = ${stackstate.authorization.xxxGroups} ["your-custom-role"]`
-  to extend the existing lists that contain default roles `stackstate-admin`, `stackstate-guest` and `stackstate-power-user`.
+  {% hint style="info" %}
+  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-guest and stackstate-power-user).
+  {% endhint %}
 
-  If you are still not sure what you need to do, please contact [StackState support](https://support.stackstate.com/hc/en-us)
+  If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
 {% endtab %}
 {% endtabs %}

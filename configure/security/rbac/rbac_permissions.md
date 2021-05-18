@@ -41,7 +41,7 @@ StackState comes with three predefined roles:
 
 ### Default and custom role names
 
-The default pre-defined roles names \(`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`\) are always available. In the same time, extra roles can also be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
+The default pre-defined role names \(`stackstate-admin`, `stackstate-power-user`, `stackstate-guest`\) are always available. Additional custom role names can be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -70,15 +70,19 @@ stackstate/stackstate
 {% endtab %}
 
 {% tab title="Linux" %}
-To extend the default role names with custom role names, you should edit the existing keys in the `authorization` section in the configuration file like in the example below. Restart StackState to make the change take effect.
+To extend the default role names with custom role names:
+  1. Edit the existing keys in the `authorization` section of the configuration file `application_stackstate.conf`.
+  2. Add custom roles using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.  
 
-```javascript
-authorization {
-  guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role"]
-  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role"]
-  adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role"]
-}
-```
+    ```javascript
+    authorization {
+      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role"]
+      powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role"]
+      adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role"]
+    }
+    ```
+
+  3. Restart StackState for changes to take effect.
 
 The syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` allows extending the existing lists and therefore the default roles `stackstate-admin`, `stackstate-guest` and `stackstate-power-user` remain available.
 
