@@ -8,15 +8,15 @@ Identifiers are used in StackState to identify ???, such as topology elements (c
 
 There are two types of identifiers used by components and relations in StackState:
 
-* **Integration identifier** - Used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier needs to be consistent within the scope of the integration itself, but otherwise it can be any reasonable string value.
-* **Global identifier** - Used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](#global-identifiers).
+* **Integration scope identifier** - Used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier must be consistent within the scope of the integration itself, but otherwise it can be any reasonable string value.
+* **Global scope identifier** - Used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](#global-identifiers).
 
 When StackState receives components with matching global identifiers from different external sources, StackState will merge the components and their properties \(labels, streams, checks\) into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
 
 The code sample below shows both types of identifiers. 
 
-* Integration scope identifier: `this-host-unique-identifier`
-* Global scope identifier: `urn:host:/this-host-fqdn`
+* Integration scope identifier - `this-host-unique-identifier`
+* Global scope identifier - `urn:host:/this-host-fqdn`
 
 ```buildoutcfg
 self.component("this-host-unique-identifier", "Host", {
@@ -29,13 +29,15 @@ self.component("this-host-unique-identifier", "Host", {
 })
 ```
 
-## Global identifiers
+## StackState global scope identifiers
 
-Global identifiers in StackState are a URN that matches the following convention:
+Global scope identifiers in StackState are an URN that matches the following convention:
 
 ```text
 urn:<prefix>:<type-name>:<free-form>
 ```
+
+The `<prefix>` and `<type-name>:<free-form>` segments are described below.
 
 ### Prefix
 
@@ -67,7 +69,7 @@ The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 * `<type-name>` matches the domain object type of the object that the identifier is assigned to \(not case-sensitive\). 
 * `<free-form>` is arbitrary value unique for the type. The format of the free-form segment is decided by the user. It does not need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
 
-### Example global identifiers
+### Example identifiers
 
 * `urn:stackpack:common:component-type:server` - for the component type `server` in the Common StackPack.
 * `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states` - for the `ViewHealthStateConfigurationFunction` named Minimum Propagated Health States in the Common StackPack.
