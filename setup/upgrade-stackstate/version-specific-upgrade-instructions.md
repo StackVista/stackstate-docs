@@ -37,8 +37,8 @@ This has impact on upgrade of stackstate if you have overrides the authenticatio
 
 * Authorization is configured in single place for Base and Admin Api.
 
-  In general case you don't have to do any changes unless you have configured api role overrides for specific services. If this is the case then you have to move roles from those overrides to single location (please see above - `stackstate.authorization.`).
-  The helm properties that can define configuration overrides are below:
+  In general case you don't have to do any changes unless you have configured api role overrides for specific services.
+  The helm properties where you can find those overrides are below:
    ```
    stackstate.components.api.config = ...
    stackstate.components.checks.config = ...
@@ -51,6 +51,17 @@ This has impact on upgrade of stackstate if you have overrides the authenticatio
    stackstate.components.viewHealth.config = ...
    stackstate.components.problemProducer.config = ...
    ```
+   If you have role overrides configured with those properties then you have to move roles to single location which is the following location:
+   ```yaml
+   stackstate:
+     authentication:
+       roles:
+         guest: ["custom-guest-role"]
+         powerUser: ["custom-power-user-role"]
+         admin: ["custom-admin-role"]
+   ```
+   For details you can consult with the [Default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names) section.
+
    If you are still not sure what you need to do, please contact [StackState support](https://support.stackstate.com/hc/en-us)
 {% endtab %}
 
