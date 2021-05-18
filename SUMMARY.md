@@ -130,8 +130,6 @@
     * [💠 PostgreSQL](stackpacks/integrations/agent_v2/postgresql.md)
     * [💠 RedHat old](stackpacks/integrations/agent_v2/redhat-old.md)
     * [💠 RedHat](stackpacks/integrations/agent_v2/redhat.md)
-    * [💠 Traefik old](stackpacks/integrations/agent_v2/traefik-old.md)
-    * [💠 Traefik](stackpacks/integrations/agent_v2/traefik.md)
     * [💠 Ubuntu old](stackpacks/integrations/agent_v2/ubuntu-old.md)
     * [💠 Ubuntu](stackpacks/integrations/agent_v2/ubuntu.md)
     * [💠 Windows old](stackpacks/integrations/agent_v2/windows-old.md)
