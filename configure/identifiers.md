@@ -29,7 +29,7 @@ self.component("this-host-unique-identifier", "Host", {
 })
 ```
 
-## StackState global scope identifiers
+## Global scope identifiers
 
 Global scope identifiers in StackState are an URN that matches the following convention:
 
