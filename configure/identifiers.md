@@ -2,51 +2,51 @@
 
 ## Overview
 
-This page explains the reasoning behind introducing enforced identifier convention and provides guidelines on how to use Identifiers in the configuration of StackState.
+Identifiers are used in StackState to identify ???, such as topology elements (components and relations), functions and ???. 
 
-## About Identifiers in StackState
+## Topology identifiers
 
-Identifier in StackState is a URN that matches the following convention:
+There are two types of identifiers used by components and relations in StackState:
+
+* **Integration identifier** - Used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier needs to be consistent within the scope of the integration itself, but otherwise it can be any reasonable string value.
+* **Global identifier** - Used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](#global-identifiers).
+
+When StackState receives components with matching global identifiers from different external sources, StackState will merge the components and their properties \(labels, streams, checks\) into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
+
+The code sample below shows both types of identifiers. 
+
+* Integration scope identifier: `this-host-unique-identifier`
+* Global scope identifier: `urn:host:/this-host-fqdn`
+
+```buildoutcfg
+self.component("this-host-unique-identifier", "Host", {
+    "name": "this-host",
+    "domain": "Webshop",
+    "layer": "Machines",
+    "identifiers": ["urn:host:/this-host-fqdn"],
+    "labels": ["host:this-host", "region:eu-west-1"],
+    "environment": "Production"
+})
+```
+
+## Global identifiers
+
+Global identifiers in StackState are a URN that matches the following convention:
 
 ```text
 urn:<prefix>:<type-name>:<free-form>
 ```
 
-Identifiers are structured around the `<type-name>` to reflect the the StackGraph having indices per type, as well as the `type` is a sensible part of identifications of nodes. Above format allows to have consistent namespaces and control of what Identifiers represent.
+### Prefix
 
-The `free-form` part of the Identifier is where it is possible to provide custom taxonomies that are useful in specific configurations.
+The `prefix` is a required part of a global identifier. It names the scope the identifier belongs to and is used purely for organizational purposes. Recognized URN prefixes are:
 
-Please note that using the `:` character is not allowed in any segment of the Identifier.
+* `stackpack:<name>` - objects belonging to StackPacks.
+* `stackpack:<name>:shared` - objects shared between instances of a StackPack.
+* `stackpack:<name>:instance:{{instanceId}}`- objects belonging to a specific instance of a StackPack.
+* `system:auto` - objects created by the system that do not belong to any specific StackPacks.
 
-### Supported prefixes
-
-A `prefix` is a required part of the identifier naming the scope the identifier belongs to, purely for organizational purposes. Currently recognized prefixes are:
-
-* `stackpack:<name>` - objects belonging to StackPacks
-* `stackpack:<name>:shared` - objects shared between instances of a StackPack
-* `stackpack:<name>:instance:{{instanceId}}`- objects belonging to a specific instance of a StackPack
-* `system:auto` - objects created by the system that do not belong to any specific StackPacks
-
-Note that `{{instanceId}}` is a handlebar that provides an object that is created in StackGraph for each specific instance of a StackPack. That object has an ID in StackGraph that is used during StackPack installation process.
-
-### Type and Name
-
-`<type-name>:<free-form>` is the uniquely identifying part of the identifier. The type-name must match the domain object type of the object the identifier is assigned to \(sans the letter case\), while the free-form is arbitrary as long as it is unique for the type. The free-form doesn't need to match the name of the object \(if any is present\) and can consist of multiple segments. It's up to the user to decide on the format of the free-form.
-
-Examples of the uniquely identifying segments:
-
-* `component-type:cmdb_ci_netgear` for `cmdb_ci_netgear` Component Type
-* `view-health-state-configuration-function:minimum-health-states` for Minimum Health States in the `ViewHealthStateConfigurationFunction`
-
-### Examples of Identifiers in StackState
-
-* `urn:stackpack:aws:shared:check-function:aws-event-run-state` for `AWS event run state` check function that is shared across AWS StackPack instances
-* `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear` for `cmdb_ci_netgear` Component Type in the ServiceNow StackPack
-* `urn:stackpack:common:view-health-state-configuration-function:minimum-health-states` for Minimum Health States `ViewHealthStateConfigurationFunction` in the Common StackPack
-
-## Topology identifiers
-
-Identifiers are also used to uniquely identify topology components in StackState. When StackState receives components from different sources that have matching identifiers, StackState will merge the components and their properties \(labels, streams, checks\) into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
+Note that `{{instanceId}}` is a handlebar that returns the ID provided during the StackPack installation process for each specific instance of a StackPack.
 
 The following identifiers are used by the StackState StackPacks:
 
@@ -59,4 +59,18 @@ The following identifiers are used by the StackState StackPacks:
 | Agent v2 | container | Container identifier | urn:container:/\[hostName\]:\[containerId\] | `urn:container:/compnode5.k8s.example.org:8b18c68a820904c55b4909d7f5a9a52756d45e866c07c92bf478bcf6cd240901` |
 | Agent v2 | service | Service discovered with traces | urn:service:/\[serviceName\] | `urn:service:/prod-db` |
 | Agent v2 | service-instance | Service instance discovered with traces | urn:service-instance:/\[serviceName\]:/\[hostName\] | `urn:service-instance:/prod-db:/main.example.org` |
+
+### Type-name and free-form
+
+The identifier is uniquely identified by the `<type-name>:<free-form>` segments. 
+
+* `<type-name>` matches the domain object type of the object that the identifier is assigned to \(not case-sensitive\). 
+* `<free-form>` is arbitrary value unique for the type. The format of the free-form segment is decided by the user. It does not need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
+
+### Example global identifiers
+
+* `urn:stackpack:common:component-type:server` - for the component type `server` in the Common StackPack.
+* `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states` - for the `ViewHealthStateConfigurationFunction` named Minimum Propagated Health States in the Common StackPack.
+* `urn:stackpack:aws:shared:check-function:aws-event-run-state` - for the `AWS event run state` check function that is shared across AWS StackPack instances
+* `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear` for the `cmdb_ci_netgear` Component Type in the ServiceNow StackPack
 
