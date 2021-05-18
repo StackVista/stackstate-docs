@@ -95,7 +95,7 @@ stackstate {
   }
   ```
 
-  You have to move subject-role mappings to centralized authorization configuration, as in example below.
+  The subject-role mappings must be moved to a centralized authorization configuration using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.
 
   ```
   stackstate {
