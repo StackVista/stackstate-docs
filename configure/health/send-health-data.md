@@ -71,7 +71,7 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 Every health data payload has the following details:
 * **start_snapshot** - Optional, when the object is present it signals that before processing hte `check_states` a start of a snapshot will be processed as well, this enables StackState to diff stream snapshots with the previous one in order to delete any checks states that are no longer present in the snapshot. It's other purpose is to carry snapshot metadata information as:
   * **repeat_interval_s** - Time in seconds, frequency of the external source on sending health data to StackState. Max allowed value is 30 minutes
-  * **expiry_interval_s** - Optional time in seconds, time to wait before StackState proceed to delete external checks that haven't been received again. This feature is under development.
+  * **expiry_interval_s** - time in seconds, time to wait before StackState proceed to delete external checks that haven't been received again. Required when using SubStreams. This feature is under development.
 * **stop_snapshot** - Optional, when the object is present it signals that an after processing the`check_states` and end of a snapshot will be processed as well.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It the following fields:
   * **urn** - Data source and stream id encoded as an [URN](../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the particular stream of health data.
@@ -138,7 +138,7 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-You can also send health to StackState using the [StackState CLI `metric send`](../../develop/reference/cli_reference.md#sts-health-send) command.
+You can also send health to StackState using the [StackState CLI `health send`](../../develop/reference/cli_reference.md#sts-health-send) command.
 
 
 ## See also
