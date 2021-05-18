@@ -34,34 +34,34 @@ stackstate {
 }
 ```
 
-If you have configured API role overrides for specific services these will need to be updated. In most cases, it will not be necessary to make any changes.
-The helm properties where you can find those overrides are below:
- ```
- stackstate.components.api.config = ...
- stackstate.components.checks.config = ...
- stackstate.components.healthSync.config = ...
- stackstate.components.initializer.config = ...
- stackstate.components.server.config = ...
- stackstate.components.state.config = ...
- stackstate.components.sync.config = ...
- stackstate.components.slicing.config = ...
- stackstate.components.viewHealth.config = ...
- stackstate.components.problemProducer.config = ...
- ```
+  If you have configured API role overrides for specific services these will need to be updated. In most cases, it will not be necessary to make any changes.
+  The helm properties where you can find those overrides are below:
+   ```
+   stackstate.components.api.config = ...
+   stackstate.components.checks.config = ...
+   stackstate.components.healthSync.config = ...
+   stackstate.components.initializer.config = ...
+   stackstate.components.server.config = ...
+   stackstate.components.state.config = ...
+   stackstate.components.sync.config = ...
+   stackstate.components.slicing.config = ...
+   stackstate.components.viewHealth.config = ...
+   stackstate.components.problemProducer.config = ...
+   ```
 
- If you have role overrides configured with those properties, the roles should be moved to a single location as shown below:
+   If you have role overrides configured with those properties, the roles should be moved to a single location as shown below:
 
- ```yaml
- stackstate:
-   authentication:
-     roles:
-       guest: ["custom-guest-role"]
-       powerUser: ["custom-power-user-role"]
-       admin: ["custom-admin-role"]
- ```
- For details, see the section [default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names).
+   ```yaml
+   stackstate:
+     authentication:
+       roles:
+         guest: ["custom-guest-role"]
+         powerUser: ["custom-power-user-role"]
+         admin: ["custom-admin-role"]
+   ```
+   For details, see the section [default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names).
 
- If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
+   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -79,46 +79,46 @@ stackstate {
 }
 ```
 
-This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
-If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
-```
-stackstate {
-  api {
-    authentication {
-      ...
-      adminGroups = ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
-      powerUserGroups = ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
-      guestGroups = ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]
-      ...
+  This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
+  If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
+  ```
+  stackstate {
+    api {
+      authentication {
+        ...
+        adminGroups = ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+        powerUserGroups = ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
+        guestGroups = ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]
+        ...
+      }
     }
   }
-}
-```
+  ```
 
-You have to move subject-role mappings to centralized authorization configuration, as in example below.
+  You have to move subject-role mappings to centralized authorization configuration, as in example below.
 
-```
-stackstate {
-  authorization {
-    adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
-    powerUserGroups = ${stackstate.authorization.powerUserGroups} ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
-    guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]      
-  }
-  api {
-    authentication {
-      ...
-      // no subject-role mappings here
-      ...
+  ```
+  stackstate {
+    authorization {
+      adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+      powerUserGroups = ${stackstate.authorization.powerUserGroups} ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
+      guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]      
+    }
+    api {
+      authentication {
+        ...
+        // no subject-role mappings here
+        ...
+      }
     }
   }
-}
-```
+  ```
 
-{% hint style="info" %}
-The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-guest and stackstate-power-user).
-{% endhint %}
+  {% hint style="info" %}
+  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-guest and stackstate-power-user).
+  {% endhint %}
 
-If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
+  If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
 {% endtab %}
 {% endtabs %}
