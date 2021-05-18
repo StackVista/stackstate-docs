@@ -18,8 +18,8 @@ This page provides specific instructions for upgrading to each currently support
 
 ### Upgrade to v4.4.x
 
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines this is the last moment to remove Baseline support from templates and make transition to AAD as in v4.5 baselines will be removed completely and templates using them will break.
-* Authorization configuration is centralized now for Base and Admin Api. This means that there is single location in the configuration for groups to roles mappings with 3 default roles that previously could be overridden and now are fixed.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines this is the last moment to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Authorization configuration is centralized now for Base and Admin Api. This means that there is single location in the configuration for groups to roles mappings with 3 default roles that previously could be overridden.
 ```
 stackstate {
   authorization {
@@ -29,7 +29,7 @@ stackstate {
   }
 }
 ```
-This has impact on upgrade of stackstate if you have overrides the authentication config. Please see corresponding kubernetes or linux section below.
+This has impact on stackstate upgrades if you have overrides the authentication config. Please see corresponding kubernetes or linux section below.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -51,7 +51,7 @@ This has impact on upgrade of stackstate if you have overrides the authenticatio
    stackstate.components.viewHealth.config = ...
    stackstate.components.problemProducer.config = ...
    ```
-   If you have role overrides configured with those properties then you have to move roles to single location which is the following location:
+   If you have role overrides configured with those properties then you have to move roles to single location which is the following:
    ```yaml
    stackstate:
      authentication:
