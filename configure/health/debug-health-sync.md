@@ -1,8 +1,108 @@
 # Debug health synchronization
 
 ## Overview
+StackState health synchronization provides a series of error messages via the [StackState CLI](/setup/installation/cli-install.md)] in order to debug and fix issues that might be preventing health data to be correctly ingested and displayed on StackState.
 
-* TODO: troubleshooting info
+### Debug Health Synchronization with the CLI
+{% tabs %}
+{% tab title="List Streams overview" %}
+```javascript
+# List streams
+sts health list-streams
+
+stream urn                                            sub stream count
+--------------------------------------------------  ------------------
+urn:health:sourceId:streamId                                         1
+```
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="Show stream status" %}
+```javascript
+# Show a stream status
+sts health show urn:health:sourceId:streamId
+
+Aggregate metrics for the stream and all substreams:
+
+metric                             value between now and 300 seconds ago    value between 300 and 600 seconds ago    value between 600 and 900 seconds ago
+---------------------------------  ---------------------------------------  ---------------------------------------  ---------------------------------------
+latency (Seconds)                  1.102                                    1.102                                    -
+messages processed (per second)    0.256                                    0.16                                     -
+check states created (per second)  0.10555555555555556                      0.10666666666666667                      -
+check states updated (per second)  -                                        -                                        -
+check states deleted (per second)  -                                        -                                        -
+
+Errors for non-existing sub streams:
+
+error message                                                                                   error occurrence count
+----------------------------------------------------------------------------------------------  ------------------------
+Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
+```
+{% endtab %}
+{% endtabs %}
+
+
+{% hint style="info" %}
+The stream status provides aggregated stream latency and throughput metrics to help you diagnose if the frequency of the data being sent to StackState might need to be adjusted.
+The output contains an `Errors for non-existing sub streams:` section as some errors are only relevant when the sub stream could not be created such as `StreamMissingSubStream`.
+The sub stream errors can contain any of the documented [Error messages](debug-health-sync.md#error-messages)
+{% endhint %}
+
+{% tabs %}
+{% tab title="List sub streams overview" %}
+```javascript
+# List sub streams for a given stream urn
+sts health list-sub-streams urn:health:sourceId:streamId 
+
+sub stream id        check state count
+-----------------  -------------------
+subStreamId3                        32
+```
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="Show substream status" %}
+```javascript
+# Show a substream status.
+sts health show urn:health:sourceId:streamId -s "subStreamId3" -t
+# Is we configured our stream to not use explicit substreams then a default substream can be reached by omitting the optional substreamId parameter as in: 
+#sts health show urn:health:sourceId:streamId -t
+
+Check states with identifier matching exactly 1 topology element: 32
+
+Check states with identifier which has no matching topology element:
+
+check state id    topology element identifier
+----------------  -----------------------------
+checkStateId2     server-2
+
+Check states with identifier which has multiple matching topology elements:
+
+check state id    topology element identifier    number of matched topology elements
+----------------  -----------------------------  -------------------------------------
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+The substream status provides useful information to verify that the check states send from the external system into StackState could be related and linked to existing topology elements. In the example we show a `Check states with identifier which has no matching topology element` a case where a check state `checkStateId2` could not be related to a topology element identified as `server-2`.
+{% endhint %}
+
+
+### Error messages
+* **StreamMissingSubStream** - Raised when the health synchronization receives messages with a previous start snapshot in place. 
+* **SubStreamRepeatIntervalTooHigh** - Raised when the health synchronization receives a `repeat_interval_s` greater than the configured max of 30 minutes.
+* **SubStreamStartWithoutStop** - Raised when the health synchronization receives a second message to open a snapshot when a previous snapshot was still open.
+* **SubStreamCheckStateOutsideSnapshot** - Raised when the health synchronization receives external check states without previously opening a snapshot.
+* **SubStreamStopWithoutStart** - Raised when the health synchronization receives a stop snapshot message without having started a snapshot at all.
+* **SubStreamMissingStop** - Raised when the health synchronization does not receive a stop snapshot after time out period of two times the `repeat_interval_s` established in the start snapshot message. In this case an automatic stop snapshot will be applied.
+
+{% hint style="info" %}
+All the previously described errors will be closed once the issue is remediated, e.g. a `SubStreamStopWithoutStart` will be closed once the health synchronization observes a new stop snapshot message that properly closes a previously start snapshot.
+{% endhint %}
+
 
 ## See also
 

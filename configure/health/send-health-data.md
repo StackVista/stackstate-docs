@@ -74,7 +74,7 @@ Every health data payload has the following details:
   * **expiry_interval_s** - Optional time in seconds, time to wait before StackState proceed to delete external checks that haven't been received again. This feature is under development.
 * **stop_snapshot** - Optional, when the object is present it signals that an after processing the`check_states` and end of a snapshot will be processed as well.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It the following fields:
-  * **urn** - Data source and stream id encoded as an [URN](configure/identifiers) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the particular stream of health data.
+  * **urn** - Data source and stream id encoded as an [URN](../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the particular stream of health data.
   * **sub_stream_id** - Optional, identifier for a sub set of the stream health data. Helpful when the stream data is distributed and reported by several agents, facilitating to have snapshot lifecycles per `sub_stream_id`
 * **check_states** - List of check states. Per check state you have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
