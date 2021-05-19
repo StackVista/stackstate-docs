@@ -2,11 +2,11 @@
 
 ## Overview
 
-One of the ways to get health checks into StackState topology elements is by synchronizing the data from an external system that has already calculated them with it's on data and rules. StackState allows you to automatically synchronize the health state from your external system into StackState and tor relate it to your topology elements ingested via [Topology synchronization](../topology/topology_synchronization.md)
-A health synchronization is completely defined and controlled by the data you [send to our Receiver API](send-health-data.md) meaning that there is no extra configuration to apply into StackState itsels, to this we refer as a `zero settings` synchronization.
+One of the ways to get health checks into StackState topology elements is by synchronizing the data from an existing monitoring solution that has already calculated them with it's on data and rules. StackState allows you to automatically synchronize the health state from your existing monitoring solution into StackState and to relate it to your topology elements ingested via [Topology synchronization](../topology/topology_synchronization.md)
+A health synchronization is completely defined and controlled by the data you [send to our Receiver API](send-health-data.md) meaning that there is no extra configuration to apply into StackState itself.
 
 ## Synchronization pipeline
-The health synchronization framework works by first ingesting the health data sent to the Receiver API into an `External health model` and in a second step trying to find topology elements that related to the just ingested health checks, the relation if formed based on the topology [identifiers](../topology/sync.md#id-extraction) obtained during the topology synchronization and the [topologyElementIdentifier](send-health-data.md#health-json) part of the health payload. StackState keeps track of all the topology element changes as well as in the `External health model` to update the information on stackState's topology.
+The health synchronization framework works by first ingesting the health data sent to the Receiver API and in a second step trying to find topology elements related to the just ingested health checks, the binding is created based on the topology [identifiers](../topology/sync.md#id-extraction) obtained during the topology synchronization and the [topologyElementIdentifier](send-health-data.md#health-json) part of the health payload. StackState keeps track of both topology element changes as well as health check changes to keep up to date the information on StackState topology.
 
 The concepts in the synchronization pipeline are explained here:
 ### Stream and SubStream

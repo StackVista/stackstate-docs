@@ -12,7 +12,7 @@ StackState has the ability to track a single health state for a given topology e
 The health checks that a topology element can contain can be obtained in two different ways:
 
 * Calculated by StackState based on telemetry or event streams defined for the topology element. See [Add a health check](../health-state-and-event-notifications/add-a-health-check.md). This path is useful when the telemetry/events data is alredy sent into StackState which opens the posibiliti to use [AAD](../health-state-and-event-notifications/anomaly-health-checks.md)  as well on top of it.
-* Calculated by an external system based on its own rules and synchronized to StackState. See [Set up a health synchronization](../../configure/health/health-synchronization.md). This path is useful when the health checks are already defined and calculated externally or sending the telemetry/events and translating the check rules into StackState is not viable. 
+* Calculated by an existing monitoring solution based on its own rules and synchronized to StackState. See [Set up a health synchronization](../../configure/health/health-synchronization.md). This path is useful when the health checks are already defined and calculated externally or sending the telemetry/events and translating the check rules into StackState is not viable. 
 
 
 ## See also

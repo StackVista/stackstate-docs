@@ -108,13 +108,11 @@ curl -X POST \
   [
     {
       "start_snapshot": {
-        "repeat_interval_s": 50
-        //"expiry_interval_s": 200 Optional
+        "repeat_interval_s": 300
       },
       "stop_snapshot": {},
       "stream": {
         "urn": "urn:health:sourceId:streamId"
-        //"sub_stream_id": "subStreamId" Optional
       },
       "check_states": [
         {
