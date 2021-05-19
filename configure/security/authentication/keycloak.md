@@ -39,7 +39,7 @@ stackstate:
       #   usernameField: preferred_username
       #   groupsField: roles
 
-    # map the roles from Keycloak to the 
+    # map the roles from Keycloak to the
     # 3 standard subjects in StackState (guest, powerUser and admin)
     roles:
       guest: ["keycloak-guest-role-for-stackstate"]
@@ -91,6 +91,18 @@ To configure StackState to use a KeyCloak authentication provider on Linux, KeyC
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
+authorization {
+  // map the roles from Keycloak to the
+  // 3 standard subjects in StackState (guest, powerUser and admin)
+  // Please note! you have to use the syntax
+  // `<group>Groups = ${stackstate.authorization.<group>Groups} ["keycloak-role"]`
+  // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
+  // with the ones from Keycloak
+  guestGroups = ${stackstate.authorization.guestGroups} ["keycloak-guest-role-for-stackstate"]
+  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["keycloak-power-user-role-for-stackstate"]
+  adminGroups = ${stackstate.authorization.adminGroups} ["keycloak-admin-role-for-stackstate"]  
+}
+
 authentication {
   authServer {
     authServerType = [ "keycloakAuthServer" ]
@@ -105,12 +117,6 @@ authentication {
       jwsAlgorithm = "RS256"
     }
   }
-
-  // map the roles from Keycloak to the 
-  // 3 standard subjects in StackState (guest, powerUser and admin)
-  guestGroups = ["keycloak-guest-role-for-stackstate"]
-  powerUserGroups = ["keycloak-power-user-role-for-stackstate"]
-  adminGroups = ["keycloak-admin-role-for-stackstate"]
 }
 ```
 {% endtab %}
@@ -139,4 +145,3 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
-
