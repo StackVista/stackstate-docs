@@ -2,23 +2,25 @@
 
 ## Overview
 
-Identifiers are used in StackState to identify ???, such as topology elements (components and relations), functions and ???. 
+Identifiers are used in StackState to identify objects, such as topology elements (components and relations) and functions. This page describes the different types of identifiers used for topology elements and how global scope identifiers are structured in StackState.
 
 ## Topology identifiers
 
-There are two types of identifiers used by components and relations in StackState:
+Topology elements use two types of identifiers in StackState:
 
-* **Integration scope identifier** - Used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier must be consistent within the scope of the integration itself, but otherwise it can be any reasonable string value.
-* **Global scope identifier** - Used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](#global-identifiers).
+| Identifier type | Description |
+|:---|:---|
+| **Integration scope identifiers** | Used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier is arbitrary, but must be consistent within the scope of the integration itself. |
+| **Global scope identifiers** | Used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](#global-scope-identifiers). |
 
-When StackState receives components with matching global identifiers from different external sources, StackState will merge the components and their properties \(labels, streams, checks\) into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
+When StackState receives components with matching global scope identifiers from different external sources, the components and their properties \(labels, streams, checks\) are merged into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
 
-The code sample below shows both types of identifiers. 
+The code sample below shows a component with both types of identifiers. 
 
 * Integration scope identifier - `this-host-unique-identifier`
 * Global scope identifier - `urn:host:/this-host-fqdn`
 
-```buildoutcfg
+```
 self.component("this-host-unique-identifier", "Host", {
     "name": "this-host",
     "domain": "Webshop",
@@ -31,7 +33,7 @@ self.component("this-host-unique-identifier", "Host", {
 
 ## Global scope identifiers
 
-Global scope identifiers in StackState are an URN that matches the following convention:
+Global scope identifiers in StackState are a globally unique URN that matches the following convention:
 
 ```text
 urn:<prefix>:<type-name>:<free-form>
@@ -41,7 +43,7 @@ The `<prefix>` and `<type-name>:<free-form>` segments are described below.
 
 ### Prefix
 
-The `prefix` is a required part of a global identifier. It names the scope the identifier belongs to and is used purely for organizational purposes. Recognized URN prefixes are:
+The `prefix` segment is a required part of a global identifier. It names the scope that the identifier belongs to and is used purely for organizational purposes. Recognized URN prefixes are:
 
 * `stackpack:<name>` - objects belonging to StackPacks.
 * `stackpack:<name>:shared` - objects shared between instances of a StackPack.
