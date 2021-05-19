@@ -44,7 +44,7 @@ Sub stream `substream with id `subStreamId2`` not started when receiving snapsho
 
 
 {% hint style="info" %}
-The stream status provides aggregated stream latency and throughput metrics to help you diagnose if the frequency of the data being sent to StackState might need to be adjusted.
+The stream status provides aggregated stream latency and throughput metrics to help you diagnose if the frequency of the data being sent to StackState might need to be adjusted. Those metrics are helpful when we are debugging why our health checks take a long time to land on the expected topology elements.
 The output contains an `Errors for non-existing sub streams:` section as some errors are only relevant when the sub stream could not be created such as `StreamMissingSubStream`.
 The sub stream errors can contain any of the documented [Error messages](debug-health-sync.md#error-messages)
 {% endhint %}
@@ -87,9 +87,21 @@ check state id    topology element identifier    number of matched topology elem
 {% endtabs %}
 
 {% hint style="info" %}
-The substream status provides useful information to verify that the check states send from the external system into StackState could be related and linked to existing topology elements. In the example we show a `Check states with identifier which has no matching topology element` a case where a check state `checkStateId2` could not be related to a topology element identified as `server-2`.
+The substream status provides useful information to verify that the check states sent from the external system into StackState could be bound and linked to existing topology elements. In the example we show a `Check states with identifier which has no matching topology element` a case where a check state `checkStateId2` could not be related to a topology element identified as `server-2`. Helpful when we are debugging why a specific check is not visible in the expected topology element.
 {% endhint %}
 
+{% tabs %}
+{% tab title="Delete a health synchronization stream" %}
+```javascript
+# Delete a health synchronization stream
+sts health delete urn:health:sourceId:streamId 
+
+```
+{% endtab %}
+{% endtabs %}
+{% hint style="info" %}
+The delete stream functionality is helpful while working out the integration with StackState as we can do some experiments, delete the data and start all over again or when we are sure that we don't want to keep using a stream and we want to drop it's data.
+{% endhint %}
 
 ### Error messages
 * **StreamMissingSubStream** - Raised when the health synchronization receives messages with a previous start snapshot in place. 
