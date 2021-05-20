@@ -7,8 +7,7 @@ One of the ways to get health checks into StackState topology elements is by syn
 ## Set up health synchronization
 The StackState receiver API will receive and process all health data sent to it by an existing monitoring solution. No additional configuration is required in StackState to enable this, however, the received data should match the expected JSON format. For details, see [send health data over HTTP](/configure/health/send-health-data.md).
 
-
-## Synchronization pipeline
+## Health synchronization pipeline
 The health synchronization framework works by first ingesting the health data sent to the Receiver API and in a second step trying to find topology elements related to the just ingested health checks, the binding is created based on the topology [identifiers](../topology/sync.md#id-extraction) obtained during the topology synchronization and the [topologyElementIdentifier](send-health-data.md#health-json) part of the health payload. StackState keeps track of both topology element changes as well as health check changes to keep up to date the information on StackState topology.
 
 ![Health synchronization pipeiline](/.gitbook/assets/health-sync-pipeline.svg)
