@@ -12,14 +12,14 @@ The health synchronization framework works by first ingesting the health data se
 
 ![Health synchronization pipeiline](/.gitbook/assets/health-sync-pipeline.svg)
 
-### Stream and SubStream
-The stream uniquely indentifies the health synchronization and defines the boundaries of which check states should be processed together in strict order, within the stream we have the SubStream in which the snapshot lifecyles are applied. The SubStream is the way StackState offers to model when the agents to report health for a single stream are distributed in different locations and which data is semi independent form each other as well as their own snapshots but in the end they all contribute to the check states for a stream. It's possible to model a health synchronization without defining a SubStream, for example when a single agent is responsible of reporting the check states for a stream, in that case the `sub_stream_id` can be omitted and StackState will assume all the external checks belong to a single default SubStream.
+### Stream and sub stream
+The stream uniquely indentifies the health synchronization and defines the boundaries of which check states should be processed together in strict order, within the stream we have the sub stream in which the snapshot lifecyles are applied. The sub stream is the way StackState offers to model when the agents to report health for a single stream are distributed in different locations and which data is semi independent form each other as well as their own snapshots but in the end they all contribute to the check states for a stream. It's possible to model a health synchronization without defining a sub stream, for example when a single agent is responsible of reporting the check states for a stream, in that case the `sub_stream_id` can be omitted and StackState will assume all the external checks belong to a single default sub stream.
 
 ### Repeat Interval
-As previously mentioned StackState health synchronization process the checks data in a snapshots per SubStream, the repeat interval is the commitment from the external system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState in order to inform the user how uo to date is the health synchronization running.
+As previously mentioned StackState health synchronization process the checks data in a snapshots per sub stream, the repeat interval is the commitment from the external system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState in order to inform the user how uo to date is the health synchronization running.
 
 ### Expire Interval
-The expire interval is the way to configure SubStreams the health synchronization to delete data thats is not sent by the external system anymore, it's helpful when the agent of the specific SubStream could potentially be decommissioned and StackState would not here from it gaian leaving it's previosuly synchronized data hanging permanently.
+The expire interval is the way to configure SubStreams the health synchronization to delete data thats is not sent by the external system anymore, it's helpful when the agent of the specific sub stream could potentially be decommissioned and StackState would not here from it gaian leaving it's previosuly synchronized data hanging permanently.
 
 {% hint style="info" %}
 The health expire feature is still under development, so currently the `expiry_interval_s` value is not used at all.
