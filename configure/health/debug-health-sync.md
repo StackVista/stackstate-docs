@@ -27,7 +27,7 @@ There can be two reasons for a check state not to show on a component in StackSt
 
 ### Check state slow to update in StackState
 
-The main reason for this is that the latency of the health synchronization is higher than expected. Use the CLI command [show stream](debug-health-sync.md#show-streams) to confirm the latency of the stream as well as the throughput of messages and specific check operations. It may be necessary to tweak the data sent to the health synchronization, or the frequency at which data is sent.
+The main reason for this is that the latency of the health synchronization is higher than expected. Use the CLI command [show stream](debug-health-sync.md#show-streams) to confirm the latency of the stream as well as the throughput of messages and specific check operations. It may be necessary to tweak the data sent to the health synchronization, or the frequency with which data is sent.
 
 ## Useful CLI commands
 
