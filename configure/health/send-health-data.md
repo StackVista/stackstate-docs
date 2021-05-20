@@ -5,8 +5,9 @@
 StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](../../setup/installation/cli-install.md).
 
 
-## Send telemetry over HTTP
-The Stackstate receiver API accepts health data next to telemetry and topology, the receiver API is hosted at:
+## Receiver API
+
+The StackState Receiver API accepts health data next to telemetry and topology in a common JSON object, the receiver API is hosted at:
 
 ```text
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
@@ -14,10 +15,12 @@ https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 
 Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see:
 
-* [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
-* [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
-Health is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
+## Common JSON object
+
+Health is sent to the receiver API via HTTP POST and has a common JSON object for all messages. 
 
 ```javascript
 {
@@ -31,7 +34,9 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 }
 ```
 
-### Health JSON
+### JSON property: health
+
+Health can be sent to the StackState receiver API using the `"health"` property of the [common JSON object](#common-json-object).
 
 {% tabs %}
 {% tab title="Example health JSON" %}
@@ -87,7 +92,7 @@ Every health data payload has the following details:
 The health expire feature is still under development, so currently the `expiry_interval_s` value is not used at all.
 {% endhint %}
 
-### Send health to StackState
+## Send health to StackState
 
 Health can be sent in one JSON message via HTTP POST. For example:
 
