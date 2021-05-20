@@ -10,13 +10,12 @@ When debugging the health synchronization there are some common verification ste
 1. [Verify that the stream exists](debug-health-sync.md#list-streams).
 2. If you are using sub streams, [verify that the sub stream exists](debug-health-sync.md#list-streams). The response will also show the number of check states on the sub stream. This lets you know if the data is being ingested and processed.
 3. Investigate further:
+    * **Stream present** - [Check the stream status](debug-health-sync.md#show-streams), this will show the metrics latency of the stream and any [errors](debug-health-sync.md#error-messages).
+    * **Streams / sub streams present, but there are no check states** - Confirm that the payload sent to the Receiver API adheres to the [health payload specification](/configure/health/send-health-data.md).
     * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState. 
 ```buildoutcfg
 sts topic show sts_health_sync
 ```
-    * **Streams / sub streams present, but there are no check states** - Confirm that the payload sent to the Receiver API adheres to the [health payload specification](/configure/health/send-health-data.md).
-
-    * **Stream present** - [Check the stream status](debug-health-sync.md#show-streams), this will show the metrics latency of the stream and any [errors](debug-health-sync.md#error-messages).
 
 ## Common issues
 
