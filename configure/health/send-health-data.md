@@ -5,7 +5,7 @@
 StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](../../setup/installation/cli-install.md).
 
 
-## Receiver API
+## StackState Receiver API
 
 The StackState Receiver API accepts health data next to telemetry and topology in a common JSON object, the receiver API is hosted at:
 
@@ -34,7 +34,7 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 }
 ```
 
-### JSON property: health
+### JSON property: "health"
 
 Health can be sent to the StackState receiver API using the `"health"` property of the [common JSON object](#common-json-object).
 
