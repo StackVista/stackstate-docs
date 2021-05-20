@@ -28,7 +28,8 @@ Telemetry is sent to the receiver API via HTTP POST and has a common JSON object
   "internalHostname": "localdocker.test", // the host that is sending this data
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
-  "topologies": [] // used for sending topology data
+  "topologies": [], // used for sending topology data
+  "health" // used for sending health data
 }
 ```
 

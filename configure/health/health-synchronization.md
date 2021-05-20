@@ -19,20 +19,20 @@ The health synchronization framework works as follows:
 
 ![Health synchronization pipeiline](/.gitbook/assets/health-sync-pipeline.svg)
 
-### Health Stream and SubStream
+### Health stream and sub stream
 
 External monitoring systems send health data to the StackState Receiver API in a health stream. Each health stream can optionally contain multiple SubStreams.
 
 | | |
 |:---|:---|
-| **Health Stream** | The Health Stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together in strict order. |
-| **SubStream** |  SubStreams contain the health check lifecycle snapshots which are processed by StackState. When working with health data from a distributed external monitoring system, multiple SubStreams can be configured, each containing health snapshots from a single location. The data in each SubStream is semi-independent, but contributes to the health check states of the complete Health Stream. If a single location is responsible for reporting the health check states of the Health Stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data.md). StackState will assume that all the external health checks belong to a single default SubStream. |
+| **Health stream** | The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together in strict order. |
+| **Sub stream** |  Sub streams contain the health check lifecycle snapshots which are processed by StackState. When working with health data from a distributed external monitoring system, multiple SubStreams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data.md). StackState will assume that all the external health checks belong to a single default SubStream. |
 
 ### Repeat Interval
 Health synchronization processes the ingested health data in a snapshots per SubStream. The repeat interval is the commitment from the external system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState in order to inform the user how uo to date is the health synchronization running.
 
 ### Expire Interval
-The expire interval is the way to configure SubStreams the health synchronization to delete data thats is not sent by the external system anymore, it's helpful when the agent of the specific SubStream could potentially be decommissioned and StackState would not here from it gaian leaving it's previosuly synchronized data hanging permanently.
+The expire interval is the way to configure sub streams the health synchronization to delete data thats is not sent by the external system anymore, it's helpful when the agent of the specific sub stream could potentially be decommissioned and StackState would not here from it gaian leaving it's previosuly synchronized data hanging permanently.
 
 {% hint style="info" %}
 The health expire feature is still under development, so currently the `expiry_interval_s` value is not used at all.
