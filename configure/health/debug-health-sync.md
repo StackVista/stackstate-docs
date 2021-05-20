@@ -63,7 +63,7 @@ subStreamId2                                     17
 
 ### Show stream status
 
-The stream status provides aggregated stream latency and throughput metrics to help diagnose if the frequency of data sent to StackState should be adjusted. These metrics are helpful debugging why a health check takes a long time to land on the expected topology elements.
+The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted.
 The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a sub stream could not be created, for example `StreamMissingSubStream`.
 Sub stream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
 
@@ -91,7 +91,9 @@ Sub stream `substream with id `subStreamId2`` not started when receiving snapsho
 
 ### Show sub stream status
 
-The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. In the example below,  `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that the check state it was not possible to match the check state to a topology element with the identifier `server-2`. This information is helpful to debug why a specific check is not visible on the expected topology element.
+The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. This information is helpful to debug why a specific check is not visible on the expected topology element.
+
+In the example below,  `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
 
 
 ```javascript
@@ -128,7 +130,9 @@ sts health delete urn:health:sourceId:streamId
 ## Error messages
 
 {% hint style="info" %}
-Errors will be closed once the described issue has been remediated. For example a `SubStreamStopWithoutStart` will be closed once the health synchronization observes a new stop snapshot message that properly closes a previous start snapshot.
+Errors will be closed once the described issue has been remediated. 
+
+For example a `SubStreamStopWithoutStart` will be closed once the health synchronization observes a new stop snapshot message that properly closes a previous start snapshot.
 {% endhint %}
 
 | Error| Description |
