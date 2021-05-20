@@ -13,8 +13,9 @@ The StackState receiver API will automatically receive and process all incoming 
 The health synchronization framework works as follows: 
 
 * Health data is sent to StackState and ingested via the Receiver API.
-* StackState topology elements related to the ingested health checks are identified based on the [topology identifiers](../topology/sync.md#id-extraction) obtained during topology synchronization and the [topologyElementIdentifier](send-health-data.md#health-json) from the ingested health payload. 
-* The ingested health checks are bound to all associated topology elements.
+* StackState topology elements related to the ingested health checks are identified and bound based on:
+    - the [topology identifiers](../topology/sync.md#id-extraction) obtained during topology synchronization.
+    - the [topologyElementIdentifier](send-health-data.md#health-json) from the ingested health payload.
 * StackState keeps track of changes to both topology elements and health checks to maintain up to date information.
 
 ![Health synchronization pipeiline](/.gitbook/assets/health-sync-pipeline.svg)
