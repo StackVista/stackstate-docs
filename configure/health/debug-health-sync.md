@@ -132,7 +132,7 @@ sts health delete urn:health:sourceId:streamId
 {% hint style="info" %}
 Errors will be closed once the described issue has been remediated. 
 
-For example a `SubStreamStopWithoutStart` will be closed once the health synchronization observes a new stop snapshot message that properly closes a previous start snapshot.
+For example a `SubStreamStopWithoutStart` will be closed once the health synchronization observes a start snapshot message followed by a stop snapshot message.
 {% endhint %}
 
 | Error| Description |
