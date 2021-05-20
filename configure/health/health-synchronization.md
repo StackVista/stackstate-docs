@@ -11,7 +11,8 @@ The StackState receiver API will receive and process all health data sent to it 
 ## Synchronization pipeline
 The health synchronization framework works by first ingesting the health data sent to the Receiver API and in a second step trying to find topology elements related to the just ingested health checks, the binding is created based on the topology [identifiers](../topology/sync.md#id-extraction) obtained during the topology synchronization and the [topologyElementIdentifier](send-health-data.md#health-json) part of the health payload. StackState keeps track of both topology element changes as well as health check changes to keep up to date the information on StackState topology.
 
-The concepts in the synchronization pipeline are explained here:
+![Health synchronization pipeiline](/.gitbook/assets/health-sync-pipeline.svg)
+
 ### Stream and SubStream
 The stream uniquely indentifies the health synchronization and defines the boundaries of which check states should be processed together in strict order, within the stream we have the SubStream in which the snapshot lifecyles are applied. The SubStream is the way StackState offers to model when the agents to report health for a single stream are distributed in different locations and which data is semi independent form each other as well as their own snapshots but in the end they all contribute to the check states for a stream. It's possible to model a health synchronization without defining a SubStream, for example when a single agent is responsible of reporting the check states for a stream, in that case the `sub_stream_id` can be omitted and StackState will assume all the external checks belong to a single default SubStream.
 
