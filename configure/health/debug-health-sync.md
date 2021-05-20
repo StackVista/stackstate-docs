@@ -3,7 +3,24 @@
 ## Overview
 StackState health synchronization provides a series of error messages via the [StackState CLI](/setup/installation/cli-install.md)] in order to debug and fix issues that might be preventing health data to be correctly ingested and displayed on StackState.
 
-### Debug Health Synchronization with the CLI
+## General troubleshooting steps
+When debugging the health synchronization there are some common verification steps that can be made no matter what the specific issue is:
+* Verify that the expected Stream exists using the [list health streams](debug-health-sync.md#list-streams) CLI command
+* Verify that the expected SubStream exists (in case you are using sub streams) using the [list health sub streams](debug-health-sync.md#list-streams) CLI call. The response shows as well the number of check states on the sub stream which alreadt gives information about if the data is being inhested and processed.
+* In case that no streams/sub streams are present we can always verify is the data we are sending to the Receiver Api is ending up in StackState. The [StackState CLI](../../setup/installation/cli-install.md) contains a way to see what data ends up on the health topic.
+* In case we do have streams/sub streams created but no check states we can double check that the payload we are sending to the Receiver Api adheres to the [specification](/configure/health/send-health-data.md).
+* In case the stream is created we can query as well the status of it using the [show stream](debug-health-sync.md#show-streams) CLI command which could show us both metrics latency related to your stream as well as potential [errors](debug-health-sync.md#error-messages) ocurring.
+
+## Why is my check state not visible on the component?
+There can be two reasons for this kind of issue:
+* The check state is not even create. This can be debugged using the [general troubleshooting steps](debug-health-sync.md#general-troubleshooting-steps)
+* The check is created but its `topologyElementIdentifier` does not match any `identifiers` from topology. This can be verified using the [show sub stream](debug-health-sync.md#show-sub-stream) CLI call which will report any `Check states with identifier which has no matching topology element`.
+
+## Why does my check state takes a long time to change state on StackState?
+The main reason for this is that the latency of the health synchronization is higher than we expect. This can be verified using the [show stream](debug-health-sync.md#show-streams) CLI command which will show us the latency for the stream as well as the throughput of messages and specific check operations. This will help us debug and tweak the data and the frequency of the data that we are sending to the health synchronization.
+
+### Useful CLI commands to debug Health Synchronization
+#### List Streams
 {% tabs %}
 {% tab title="List Streams overview" %}
 ```javascript
@@ -17,6 +34,22 @@ urn:health:sourceId:streamId                                         1
 {% endtab %}
 {% endtabs %}
 
+#### List Sub Streams
+{% tabs %}
+{% tab title="List Sub Streams overview" %}
+```javascript
+# List sub streams
+sts health list-sub-streams urn:health:sourceId:streamId 
+
+sub stream id                     check state count
+------------------------------  -------------------
+subStreamId1                                     20
+subStreamId2                                     17
+```
+{% endtab %}
+{% endtabs %}
+
+#### Show Stream
 {% tabs %}
 {% tab title="Show stream status" %}
 ```javascript
@@ -62,6 +95,7 @@ subStreamId3                        32
 {% endtab %}
 {% endtabs %}
 
+#### Show Sub Stream
 {% tabs %}
 {% tab title="Show substream status" %}
 ```javascript
