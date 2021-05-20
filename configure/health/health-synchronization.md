@@ -27,11 +27,11 @@ External monitoring systems send health data to the StackState Receiver API as s
 | | |
 |:---|:---|
 | **Health stream** | The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together. |
-| **Sub stream** |  Sub streams contain the health check lifecycle snapshots that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data.md#health-json). StackState will assume that all the external health checks belong to a single, default sub stream. |
+| **Sub stream** |  Sub streams contain the health check snapshots that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data.md#health-json). StackState will assume that all the external health checks belong to a single, default sub stream. |
 
 ### Repeat Interval
 
-Health synchronization processes the ingested health data in a snapshots per sub stream. The repeat interval specified in the [health payload](/configure/health/send-health-data.md#health-json) is the commitment from the external system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how uo to date the health synchronization is running.
+Health synchronization processes the ingested health data in a snapshots per sub stream. The repeat interval specified in the [health payload](/configure/health/send-health-data.md#health-json) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
 
 ### Expire Interval
 
