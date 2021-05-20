@@ -23,7 +23,7 @@ sts topic show sts_health_sync
 
 There can be two reasons for a check state not to show on a component in StackState:
 * The health check state has not been created. Follow the [general troubleshooting steps](debug-health-sync.md#general-troubleshooting-steps) to confirm that the stream / sub stream has been created and that data is arriving in StackState.
-* The health check state was created, but its `topologyElementIdentifier` does not match any `identifiers` from the StackState topology. Use the CLI command [show sub stream](debug-health-sync.md#show-sub-stream) to verify if there are any `Check states with identifier which has no matching topology element`.
+* The health check state was created, but its `topologyElementIdentifier` does not match any `identifiers` from the StackState topology. Use the CLI command [show sub stream status](debug-health-sync.md#show-sub-stream-status) to verify if there are any `Check states with identifier which has no matching topology element`.
 
 ### Check state slow to update in StackState
 
