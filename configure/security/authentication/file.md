@@ -25,6 +25,9 @@ stackstate:
         - username: admin
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-admin ]
+        - username: platformadmin
+          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          roles: [ stackstate-platform-admin ]
         - username: guest
           passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-guest ]
@@ -69,7 +72,7 @@ To configure file based authentication on Linux, StackState users need to be add
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
-# Three users, `admin`, `power-user` and `guest`
+# Four users, `admin`, `platformadmin`, `power-user` and `guest`
 # with the three default roles Administrator, Power user and Guest
 
 authentication {
@@ -80,6 +83,7 @@ authentication {
       # echo -n "password" | md5sum
       logins = [
         { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
+        { username = "platformadmin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-platform-admin"] }
         { username = "power-user", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-power-user"] }
         { username = "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
       ]
@@ -95,7 +99,7 @@ Follow the steps below to configure users and apply changes:
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
    * **username** - the username used to log into StackState.
    * **password** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
-   * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
+   * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
 2. Restart StackState to apply the changes.
 
 ## See also
@@ -103,4 +107,3 @@ Follow the steps below to configure users and apply changes:
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
-

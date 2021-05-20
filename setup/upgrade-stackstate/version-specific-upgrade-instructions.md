@@ -28,8 +28,9 @@ This page provides specific instructions for upgrading to each currently support
 stackstate {
   authorization {
     adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
+    platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role-from-ldap-or-oidc-or-keycloak"]
     powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
-    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
+    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]    
   }
 }
 ```
@@ -58,6 +59,7 @@ stackstate {
          guest: ["custom-guest-role"]
          powerUser: ["custom-power-user-role"]
          admin: ["custom-admin-role"]
+         platformAdmin: ["custom-platform-admin-role"]
    ```
    For details, see the section [default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names).
 
@@ -73,6 +75,7 @@ stackstate {
 stackstate {
   authorization {
     adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
+    platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role-from-ldap-or-oidc-or-keycloak"]
     powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
     guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
   }
@@ -80,13 +83,14 @@ stackstate {
 ```
 
   This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
-  If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
+  If your `authentication` section has `adminGroups`, `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
   ```
   stackstate {
     api {
       authentication {
         ...
         adminGroups = ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+        platformAdminGroups = ["your-custom-oidc-or-ldap-or-keycloak-platform-admin-role"]
         powerUserGroups = ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
         guestGroups = ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]
         ...
@@ -101,6 +105,7 @@ stackstate {
   stackstate {
     authorization {
       adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+      platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["your-custom-oidc-or-ldap-or-keycloak-platform-admin-role"]
       powerUserGroups = ${stackstate.authorization.powerUserGroups} ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
       guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]      
     }
@@ -115,7 +120,7 @@ stackstate {
   ```
 
   {% hint style="info" %}
-  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-guest and stackstate-power-user).
+  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user).
   {% endhint %}
 
   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).

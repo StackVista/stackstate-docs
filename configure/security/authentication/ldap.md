@@ -48,6 +48,7 @@ stackstate:
       guest: ["ldap-guest-role-for-stackstate"]
       powerUser: ["ldap-power-user-role-for-stackstate"]
       admin: ["ldap-admin-role-for-stackstate"]
+      platformAdmin: ["ldap-platform-admin-role-for-stackstate"]
 ```
 {% endtab %}
 {% endtabs %}
@@ -134,11 +135,12 @@ authorization {
   // 3 standard subjects in StackState (guest, powerUser and admin)
   // Please note! you have to use the syntax
   // `<group>Groups = ${stackstate.authorization.<group>Groups} ["ldap-role"]`
-  // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
+  // to extend the list of standard roles (stackstate-admin, stackstate-platform-admin, stackstate-guest, stackstate-power-user)
   // with the ones from Ldap
   guestGroups = ${stackstate.authorization.guestGroups} ["ldap-guest-role-for-stackstate"]
   powerUserGroups = ${stackstate.authorization.powerUserGroups} ["ldap-powerUser-role-for-stackstate"]
   adminGroups = ${stackstate.authorization.adminGroups} ["ldap-admin-role-for-stackstate"]
+  platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["ldap-platform-admin-role-for-stackstate"]
 }
 
 authentication {
@@ -198,7 +200,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **emailKey** - The name of the attribute that is used as the email address in StackState.
    * **rolesKey** - The name of the attribute that stores the group name.
    * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.
-2. In `application_stackstate.conf` - map the LDAP groups to the correct StackState groups using **guestGroups**, **powerUserGroups** and **adminGroups** \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
+2. In `application_stackstate.conf` - map the LDAP groups to the correct StackState groups using **guestGroups**, **powerUserGroups**, **adminGroups** and **platformAdminGroups** \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Restart StackState to apply the changes.
 
 ## See also
