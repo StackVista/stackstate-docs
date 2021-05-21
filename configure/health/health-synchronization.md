@@ -37,10 +37,6 @@ Health synchronization processes the ingested health data in a snapshots per sub
 
 The expire interval can be used to configure sub streams in the health synchronization to delete data that is not sent by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previosuly synchronized data would be left permanently hanging.
 
-{% hint style="info" %}
-The health expire feature is still under development, so currently the `expiry_interval_s` value is not used at all.
-{% endhint %}
-
 ### Check State
 
 The health check state calculated by an external monitoring system. This contains the relevant information to attach to a topology element and to contribute to the topology element health state.
