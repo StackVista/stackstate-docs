@@ -36,7 +36,7 @@ Most elements in the StackState topology will have a relevant health check added
 
 Each health check uses a check function to monitor the telemetry stream attached to the element.
 
-Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState, or you could [create your own](/develop/developer-guides/custom-functions/check-functions.md).
+Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState, or you could [create a custom check function](/develop/developer-guides/custom-functions/check-functions.md).
 
 Details of the available check functions check the StackState UI **Settings** &gt; **Check functions**.
 
