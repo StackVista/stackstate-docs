@@ -137,6 +137,7 @@ curl -X POST \
 ```
 {% endtab %}
 {% tab title="StackState CLI" %}
+```
 sts health send start urn:health:sourceId:streamId \
   --repeat-interval-seconds 300
 
@@ -149,6 +150,7 @@ sts health send check-state urn:health:sourceId:streamId \
   --message "Provisioning failed. [Learn more](https://www.any-link.com)"
 
 sts health send stop urn:health:sourceId:streamId
+```
 
 {% endtab %}
 {% endtabs %}
