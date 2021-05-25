@@ -10,7 +10,7 @@ Health checks report a health state for elements \(components and relations\). T
 
 The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](send-event-notifications.md).
 
-## Add a StackState health check to an element
+## Add a StackState health check
 
 Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can also add custom health checks that calculate a health state based on available telemetry streams.
 
@@ -32,7 +32,7 @@ Most elements in the StackState topology will have a relevant health check added
    * The check is now active and visible under the **Health** section on the right side of the screen. 
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
-## Check functions
+### Check functions
 
 Each health check uses a check function to monitor the telemetry stream attached to the element.
 
@@ -40,25 +40,25 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 Details of the available check functions check the StackState UI **Settings** &gt; **Check functions**.
 
-### Windowing method
+#### Windowing method
 
 For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. There are two possible windowing methods, batching and sliding.
 
-#### Batching
+##### Batching
 
 The batching windowing method groups metric data into strictly separate windows of the configured window time, with consistent start and end times. For example, with window size set to 60 seconds, a batching check will run every minute with metrics from the previous minute.
 
-#### Sliding
+##### Sliding
 
 The sliding windowing method groups metric data into overlapping windows. For example, with `window size` set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected. Note that runs of the check will adhere to the `Minimum live stream polling interval` configured for the data source.
 
-### Check function: Autonomous metric stream anomaly detection
+#### Check function: Autonomous metric stream anomaly detection
 
 The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
 
-### Synchronize health from an external monitoring system
+## Synchronize external health data
 
-Existing health checks from external monitoring systems can be added to StackState topology elements. For details see [synchronize health data from an external monitoring system](/configure/health/health-synchronization.md)
+Existing health checks on an external monitoring system can be synchronized and added to StackState topology elements. For details see [synchronize health data from an external monitoring system](/configure/health/health-synchronization.md)
 
 ## See also
 
