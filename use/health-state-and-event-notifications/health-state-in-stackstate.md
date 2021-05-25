@@ -7,14 +7,14 @@ StackState will track a single health state for a given topology element (compon
 * Green - `CLEAR` - There is nothing to worry about.
 * Orange - `DEVIATING` - Something may require your attention.
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
-* Gray - `UNKNOWN` - The view does not have a view health state.
+* Gray - `UNKNOWN` - No health state available.
 
 Health checks attached to an element can be calculated by StackState or by an existing monitoring system.
 
-| Calculated by | Description |
+| Health check calculated by | Description |
 |:--|:--|
-| **StackState** | StackState will calculate the health check based on telemetry or log streams defined for the topology element. When the telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\). See how to [add a health check](../health-state-and-event-notifications/add-a-health-check.md) and how to set up [anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md). |
-| **Existing monitoring solution**  | An external monitoring system can calculate the health check based on its own rules. This can then be synchronized to StackState. This approach is useful if you have existing health checks defined and calculated externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. See how to [set up a health synchronization](../../configure/health/health-synchronization.md). |
+| **StackState** | StackState calculates health check based on telemetry or log streams defined for a topology element. This approach is useful if the telemetry or events data is available in StackState as it opens up the possibility to use the Autonomous Anomaly Detector \(AAD\). See how to [add a health check](../health-state-and-event-notifications/add-a-health-check.md) and how to set up [anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md). |
+| **Existing monitoring solution**  | An external monitoring system calculates the health check based on its own rules and this is synchronized to StackState. This approach is useful if you have existing health checks defined and calculated externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. See how to [set up a health synchronization](../../configure/health/health-synchronization.md). |
 
 
 ## See also
