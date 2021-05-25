@@ -25,7 +25,7 @@ StackState can calculate health check based on telemetry or log streams defined 
 
 ### External monitoring system
 
-Health data from an external monitoring solution can be synchronized to StackState. In this case, the health checks will be calculated by the external system based on its own rules can be synchronized to StackState. This approach is useful if you have existing health checks defined and calculated externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. See how to [set up a health synchronization](../../configure/health/health-synchronization.md).
+Health data from an external monitoring solution can be synchronized to StackState as a health check. In this case, the health checks are calculated by the external system based on its own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined and calculated externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. See how to [set up a health synchronization](../../configure/health/health-synchronization.md).
 
 
 ## See also
