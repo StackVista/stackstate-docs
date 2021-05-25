@@ -61,7 +61,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
           "name": "Disk Usage"
         {
           "checkStateId": "checkStateId2",
-          "message": "Unable to provision the device. [Click to see details](https://www.external-data-source.com)",
+          "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
           "health": "critical",
           "topologyElementIdentifier": "server-2",
           "name": "Health Monitor"

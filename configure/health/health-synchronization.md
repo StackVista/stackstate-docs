@@ -18,7 +18,7 @@ The health synchronization framework works as follows:
     - the [topologyElementIdentifier](send-health-data.md#json-property-health) from the ingested health payload.
 * StackState keeps track of changes to both topology elements and health checks to maintain up to date information.
 
-![Health synchronization pipeiline](/.gitbook/assets/health-sync-pipeline.svg)
+![Health synchronization pipeline](/.gitbook/assets/health-sync-pipeline.svg)
 
 ### Health stream and sub stream
 
@@ -35,7 +35,7 @@ Health synchronization processes the ingested health data in a snapshots per sub
 
 ### Expire Interval
 
-The expire interval can be used to configure sub streams in the health synchronization to delete data that is not sent by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previosuly synchronized data would be left permanently hanging.
+The expire interval can be used to configure sub streams in the health synchronization to delete data that is not sent by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
 
 ### Check State
 
@@ -44,5 +44,5 @@ The health check state calculated by an external monitoring system. This contain
 
 ## See also
 
-* [Health payload](/configure/health/send-health-data.md#health-json)
+* [Health payload](/configure/health/send-health-data.md#json-property-health)
 * [Topology synchronization](/configure/topology/topology_synchronization.md)
