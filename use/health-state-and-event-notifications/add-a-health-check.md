@@ -6,15 +6,19 @@ description: Report the health state for an element.
 
 ## Overview
 
-Health checks use check functions to report the status of elements \(components and relations\) in StackState based on the data from telemetry streams. Any element in a StackState topology view with a telemetry stream attached can be monitored by a health check. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](send-event-notifications.md).
+Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.
+
+The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](send-event-notifications.md).
 
 ## Add a health check to an element
 
-Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can assign additional custom health checks to an element in the StackState Topology Perspective.
+### External monitoring system
 
-{% hint style="info" %}
-Health checks require [telemetry streams](add-telemetry-to-element.md).
-{% endhint %}
+Existing health checks from external monitoring systems can be added to StackState topology elements. For details see [synchronize health data from an external monitoring system](/configure/health/health-synchronization.md)
+
+### StackState telemetry streams
+
+Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can add custom health checks to an element in the StackState Topology Perspective.
 
 ![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)
 
@@ -64,4 +68,5 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 * [Check functions](../../configure/telemetry/checks_and_streams.md#check-functions)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
 * [Add an event notification](send-event-notifications.md)
+* [Synchronize external health data](/configure/health/health-synchronization.md)
 
