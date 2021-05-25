@@ -125,7 +125,7 @@ curl -X POST \
           "name": "Disk Usage"
         {
           "checkStateId": "checkStateId2",
-          "message": "Unable to provision the device. [Click to see details](https://www.external-data-source.com)",
+          "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
           "health": "critical",
           "topologyElementIdentifier": "server-2",
           "name": "Health Monitor"
@@ -137,7 +137,18 @@ curl -X POST \
 ```
 {% endtab %}
 {% tab title="StackState CLI" %}
+sts health send start urn:health:sourceId:streamId \
+  --repeat-interval-seconds 300
 
+sts health send check-state urn:health:sourceId:streamId \
+  checkStateId1 "Disk Usage" "server-1" deviating \
+  --message "Deviating Server Running out of disk space"
+
+sts health send check-state urn:health:sourceId:streamId \
+  checkStateId2 "Health Monitor" "server-2" critical \
+  --message "Provisioning failed. [Learn more](https://www.any-link.com)"
+
+sts health send stop urn:health:sourceId:streamId
 
 {% endtab %}
 {% endtabs %}
