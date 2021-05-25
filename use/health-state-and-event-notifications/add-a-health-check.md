@@ -18,7 +18,7 @@ Existing health checks from external monitoring systems can be added to StackSta
 
 ### StackState telemetry streams
 
-Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can add custom health checks to an element in the StackState Topology Perspective.
+Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can add custom health checks to an element that calculate a health state based on available telemetry streams.
 
 ![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)
 
