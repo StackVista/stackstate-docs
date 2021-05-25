@@ -159,3 +159,6 @@ You can also send health to StackState using the [StackState CLI `health send`](
 
 
 ## See also
+
+* [Install the StackState CLI](/setup/installation/cli-install.md)
+* [StackState CLI reference](/develop/reference/cli_reference.md)
