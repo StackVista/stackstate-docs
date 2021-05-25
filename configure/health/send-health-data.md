@@ -77,7 +77,7 @@ Every health data payload has the following details:
 
 * **start_snapshot** - Optional. Signals that before processing the `check_states` a start of a snapshot will be processed as well. This enables StackState to diff stream snapshots with the previous one and delete check states that are no longer present in the snapshot. It can also carry snapshot metadata:
   * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 30 minutes.
-  * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams. This feature is under development.
+  * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams.
 * **stop_snapshot** - Optional. After processing the`check_states`, an end of a snapshot will be processed as well.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream id encoded as an [URN](../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the particular stream of health data.
