@@ -10,15 +10,9 @@ Health checks report a health state for elements \(components and relations\). T
 
 The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](send-event-notifications.md).
 
-## Add a health check to an element
+## Add a StackState health check to an element
 
-### External monitoring system
-
-Existing health checks from external monitoring systems can be added to StackState topology elements. For details see [synchronize health data from an external monitoring system](/configure/health/health-synchronization.md)
-
-### StackState telemetry streams
-
-Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can add custom health checks to an element that calculate a health state based on available telemetry streams.
+Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can also add custom health checks that calculate a health state based on available telemetry streams.
 
 ![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)
 
@@ -61,6 +55,10 @@ The sliding windowing method groups metric data into overlapping windows. For ex
 ### Check function: Autonomous metric stream anomaly detection
 
 The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
+
+### Synchronize health from an external monitoring system
+
+Existing health checks from external monitoring systems can be added to StackState topology elements. For details see [synchronize health data from an external monitoring system](/configure/health/health-synchronization.md)
 
 ## See also
 
