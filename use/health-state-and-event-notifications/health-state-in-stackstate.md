@@ -21,11 +21,15 @@ Health checks attached to an element can be calculated by StackState or by an ex
 
 ### StackState health checks
 
-StackState can calculate health check based on telemetry or log streams defined for a topology element. This approach is useful if the telemetry or events data is available in StackState as it opens up the possibility to use the Autonomous Anomaly Detector \(AAD\). See how to [add a health check](../health-state-and-event-notifications/add-a-health-check.md) and how to set up [anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md).
+StackState can calculate health check based on telemetry or log streams defined for a topology element. This approach is useful if the telemetry or events data is available in StackState as it opens up the possibility to use the Autonomous Anomaly Detector \(AAD\). 
+
+See how to [add a health check](../health-state-and-event-notifications/add-a-health-check.md) and how to set up [anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md).
 
 ### External monitoring system
 
-Health data from an external monitoring solution can be synchronized to StackState as a health check. In this case, the health checks are calculated by the external system based on its own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined and calculated externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. See how to [set up a health synchronization](../../configure/health/health-synchronization.md).
+Health data from an external monitoring solution can be synchronized to StackState as a health check. In this case, the health checks are calculated by the external system based on its own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined and calculated externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. 
+
+See how to [set up a health synchronization](../../configure/health/health-synchronization.md).
 
 
 ## See also
