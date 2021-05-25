@@ -36,7 +36,7 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 
 ### JSON property: "health"
 
-Health can be sent to the StackState receiver API using the `"health"` property of the [common JSON object](#common-json-object).
+Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](#common-json-object).
 
 {% tabs %}
 {% tab title="Example health JSON" %}
@@ -74,11 +74,12 @@ Health can be sent to the StackState receiver API using the `"health"` property 
 {% endtabs %}
 
 Every health data payload has the following details:
-* **start_snapshot** - Optional, when the object is present it signals that before processing hte `check_states` a start of a snapshot will be processed as well, this enables StackState to diff stream snapshots with the previous one in order to delete any checks states that are no longer present in the snapshot. It's other purpose is to carry snapshot metadata information as:
-  * **repeat_interval_s** - Time in seconds, frequency of the external source on sending health data to StackState. Max allowed value is 30 minutes
-  * **expiry_interval_s** - time in seconds, time to wait before StackState proceed to delete external checks that haven't been received again. Required when using SubStreams. This feature is under development.
-* **stop_snapshot** - Optional, when the object is present it signals that an after processing the`check_states` and end of a snapshot will be processed as well.
-* **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It the following fields:
+
+* **start_snapshot** - Optional. Signals that before processing the `check_states` a start of a snapshot will be processed as well. This enables StackState to diff stream snapshots with the previous one and delete check states that are no longer present in the snapshot. It can also carry snapshot metadata:
+  * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 30 minutes.
+  * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams. This feature is under development.
+* **stop_snapshot** - Optional. After processing the`check_states`, an end of a snapshot will be processed as well.
+* **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream id encoded as an [URN](../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the particular stream of health data.
   * **sub_stream_id** - Optional, identifier for a sub set of the stream health data. Helpful when the stream data is distributed and reported by several agents, facilitating to have snapshot lifecycles per `sub_stream_id`
 * **check_states** - List of check states. Per check state you have the following fields:
@@ -94,7 +95,7 @@ The health expire feature is still under development, so currently the `expiry_i
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST. For example:
+Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](../../develop/reference/cli_reference.md#sts-health-send).
 
 {% tabs %}
 {% tab title="curl" %}
@@ -138,6 +139,10 @@ curl -X POST \
 ]
 }'
 ```
+{% endtab %}
+{% tab title="StackState CLI" %}
+
+
 {% endtab %}
 {% endtabs %}
 
