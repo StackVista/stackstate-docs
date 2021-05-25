@@ -6,7 +6,7 @@ StackState can either pull telemetry from a data source or can receive pushed te
 
 There are several ways to send telemetry to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](../../setup/installation/cli-install.md).
 
-## Send telemetry over HTTP
+## StackState Receiver API
 
 The StackState receiver API is responsible for receiving both telemetry and topology. By default, the receiver API is hosted at:
 
@@ -18,6 +18,8 @@ Both the `baseUrl` and `API_KEY` are set during StackState installation, for det
 
 * [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 * [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+
+## Common JSON object
 
 Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
 
@@ -39,9 +41,9 @@ Depending on your StackState configuration, received metrics or events that are 
 
 ## Metrics
 
-Metrics can be sent to the StackState receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#send-telemetry-over-http).
+Metrics can be sent to the StackState receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#common-json-object).
 
-### Metric JSON
+### JSON property: "metrics"
 
 {% tabs %}
 {% tab title="Example metric JSON" %}
@@ -131,7 +133,7 @@ Events can be sent to the StackState receiver API using the `"events"` property 
 
 All events in StackState relate to a topology element or elements. Any of the event properties can be used to define a log stream in StackState.
 
-### Event JSON
+### JSON property: "events"
 
 {% tabs %}
 {% tab title="Example event JSON" %}

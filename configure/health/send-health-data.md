@@ -34,7 +34,7 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 }
 ```
 
-### JSON property: "health"
+## JSON property: "health"
 
 Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](#common-json-object).
 
@@ -75,18 +75,18 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 
 Every health data payload has the following details:
 
-* **start_snapshot** - Optional. Signals that before processing the `check_states` a start of a snapshot will be processed as well. This enables StackState to diff stream snapshots with the previous one and delete check states that are no longer present in the snapshot. It can also carry snapshot metadata:
-  * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 30 minutes.
+* **start_snapshot** - Optional. A start of a snapshot will be processed before processing the `check_states`. This enables StackState to diff a stream snapshot with the previously received one and delete check states that are no longer present in the snapshot. It can also carry snapshot metadata:
+  * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 1800 (30 minutes).
   * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams.
-* **stop_snapshot** - Optional. After processing the`check_states`, an end of a snapshot will be processed as well.
+* **stop_snapshot** - Optional. An end of a snapshot will be processed after processing the`check_states`.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
-  * **urn** - Data source and stream id encoded as an [URN](../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the particular stream of health data.
-  * **sub_stream_id** - Optional, identifier for a sub set of the stream health data. Helpful when the stream data is distributed and reported by several agents, facilitating to have snapshot lifecycles per `sub_stream_id`
-* **check_states** - List of check states. Per check state you have the following fields:
+  * **urn** - Data source and stream ID encoded as a StackState [URN](../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
+  * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
+* **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
-  * **message** - Optional, message to display in StackState UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
-  * **health** - One of the following StackState Health state values: `Clear`, `Deviating`, `Critical`
-  * **topologyElementIdentifier** - Identifier to associate the external check state to a StackState topology element.
+  * **message** - Optional. Message to display in StackState UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
+  * **health** - One of the following StackState Health state values: `Clear`, `Deviating`, `Critical`.
+  * **topologyElementIdentifier** - Used to bind the check state to a StackState topology element.
   * **name** - Name of the external check state.
 
 ## Send health to StackState
