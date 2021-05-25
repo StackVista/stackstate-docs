@@ -89,10 +89,6 @@ Every health data payload has the following details:
   * **topologyElementIdentifier** - Identifier to associate the external check state to a StackState topology element.
   * **name** - Name of the external check state.
 
-{% hint style="info" %}
-The health expire feature is still under development, so currently the `expiry_interval_s` value is not used at all.
-{% endhint %}
-
 ## Send health to StackState
 
 Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](../../develop/reference/cli_reference.md#sts-health-send).
