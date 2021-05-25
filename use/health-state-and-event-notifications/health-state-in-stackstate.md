@@ -9,6 +9,8 @@ StackState will track a single health state for a given topology element (compon
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - No health state available.
 
+![Health states](/.gitbook/assets/health-states.svg)
+
 Health checks attached to an element can be calculated by StackState or by an existing monitoring system.
 
 | Health check calculated by | Description |
