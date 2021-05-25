@@ -36,7 +36,7 @@ Most elements in the StackState topology will have a relevant health check added
 
 Each health check uses a check function to monitor the telemetry stream attached to the element.
 
-Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState, or you could [create your own](../../configure/telemetry/checks_and_streams.md#check-functions).
+Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState, or you could [create your own](/develop/developer-guides/custom-functions/check-functions.md).
 
 Details of the available check functions check the StackState UI **Settings** &gt; **Check functions**.
 
@@ -63,7 +63,7 @@ Existing health checks on an external monitoring system can be synchronized and 
 ## See also
 
 * [Anomaly health checks](anomaly-health-checks.md)
-* [Check functions](../../configure/telemetry/checks_and_streams.md#check-functions)
+* [Custom check functions](/develop/developer-guides/custom-functions/check-functions.md)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
 * [Add an event notification](send-event-notifications.md)
 * [Synchronize external health data](/configure/health/health-synchronization.md)
