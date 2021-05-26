@@ -12,15 +12,15 @@ For a standard deployment, the StackState Helm chart will deploy storage service
 
 {% tabs %}
 {% tab title="Recommended" %}
-* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
-* **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 6 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 6 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
 {% endtab %}
 
 {% tab title="Minimal" %}
-* **Virtual machines:** 4 nodes with `32GB memory`, `8 vCPUs`
-* **Amazon EKS:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 4 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
 {% endtab %}
 {% endtabs %}
 

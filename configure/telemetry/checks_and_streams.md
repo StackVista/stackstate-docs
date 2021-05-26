@@ -48,7 +48,7 @@ Read more about [anomaly detection with baselines](../../use/health-state-and-ev
 
 ## See also
 
-* [Add a health check](../../use/health-state-and-event-notifications/add-a-health-check.md)
+* [Add a health check based on telemetry streams available in StackState](../../use/health-state-and-event-notifications/add-a-health-check.md)
 * [Add a telemetry stream to an element](../../use/health-state-and-event-notifications/add-telemetry-to-element.md)
 * [Use templates to add telemetry streams to your own integrations](telemetry_synchronized_topology.md)
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)

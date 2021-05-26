@@ -21,7 +21,7 @@ Event notifications are triggered in response to health state change events or p
 The health state of an element is derived from metrics and events data in the telemetry streams assigned to it, whereas the health state of a view is calculated based on the combined health state of elements within it. Propagated state changes can also be used to trigger event notifications, however, this can result in a lot of noise. The process to trigger a health state changed event notification is as follows:
 
 1. [Telemetry streams](add-telemetry-to-element.md) attached to an element provide metrics and events data.
-2. A [health check](add-a-health-check.md) attached to the element listens to the available telemetry streams and reports a health state based on its configured parameters.
+2. A [health check](/use/health-state-and-event-notifications/health-state-in-stackstate.md#health-checks) attached to the element reports a health state. Health checks can be synchronized from an external monitoring system or calculated in StackState based on the available telemetry streams.
 3. When the reported health state of an element changes, a chain of [state change events](send-event-notifications.md#state-change-events) are generated:
    * `HealthStateChangedEvent` for the element itself.
    * `PropagatedStateChangedEvent` for all other elements that have been impacted by the element's state change.
