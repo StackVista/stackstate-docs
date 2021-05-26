@@ -1,76 +1,52 @@
+---
+description: StackState curated integration
+---
+
 # AWS X-ray
 
 ## Overview
 
+AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues, and opportunities for optimization.
 
+AWS services provide integration with AWS X-Ray by adding a tracing header to requests, running the X-Ray daemon, or making sampling decisions, and uploading trace data to X-Ray. The X-Ray SDKs include plugins for additional integration with AWS services. 
 
-![AWS . X-ray integration](/.gitbook/assets/stackpack-agent-aws-xray.png)
+## Functionality
 
-* 
-* 
-* 
+The StackState AWS X-Ray integration provides the following functionality:
+* Enriches AWS components with X-Ray trace service data.
+* Allows mapping the relations between X-Ray services, and ultimately AWS resources.
+* Provides performance metrics on relations between X-Ray services, as well as local anomaly detection on all performance metrics.
+
 
 ## Setup
 
-### Prerequisites
+To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS service roles in the IAM console. Check [AWS X-Ray Developer guide](https://l.stackstate.com/aws-xray-developer-guide) for more information about setting up X-Ray.
 
-* TODO: prereq for this specific check
-* TODO: prereq for Agent V2 StackPack
-*
+### Installation
 
-### Install
+The AWS X-Ray check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/). You also need to install [AWS StackPack](/#/stackpacks/aws/) to see rest of you AWS topology and metrics.
 
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
+### Configuration
 
-### Configure
+1. Edit the `aws_xray.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your Tomcat metrics and logs. See the sample `aws_xray.d/conf.yaml.example` for all available configuration options.
 
-TODO: Required check configuration
+```
+# Section used for global AWS check config
+init_config:
+    # optional
+    # cache_file: '/opt/stackstate-agent/tmp'
 
-### Status
-
-### Upgrade
-
-[Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
-## Integration details
-
-### Data retrieved
-
-#### Topology
-
-#### Metrics
-
-#### Events
-
-#### Traces
-
-### Rest API endpoints
-
-### Views in StackState
-
-### Actions in StackState
-
-### Tags
-
-### Open source
-
-## Troubleshooting
-
-## Uninstall
-
-To disable the AWS . X-ray check, remove or rename the Agent integration configuration file, for example:
-
-```buildoutcfg
-mv aws-xray.d/conf.yaml aws-xray.d/conf.yaml.bak
+instances:
+  # mandatory AWS credentials and config
+  - aws_access_key_id: 'abc'
+    aws_secret_access_key: 'cde'
+    role_arn: 'arn:aws:iam::0123456789:role/RoleName'
+    region: 'ijk'
+    # optional
+    # min_collection_interval: 60
 ```
 
-To uninstall the Agent V2 StackPack, see the [Agent V2 StackPack documentation](/stackpacks/integrations/agent.md).
+2. Restart the Agent
 
-## Release notes
 
-See the release notes for the [Agent V2 StackPack](/stackpacks/integrations/agent.md).
-
-## See also
-
-* [Agent V2 StackPack](/stackpacks/integrations/agent.md)
-
+Need help? Please contact [StackState support](https://l.stackstate.com/aws-xray-stackstate-support).
