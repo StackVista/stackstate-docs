@@ -1,3 +1,7 @@
+---
+description: StackState curated integration
+---
+
 # WMI
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: StackState curated integration
+---
+
 # AWS ECS
 
 ## Overview
