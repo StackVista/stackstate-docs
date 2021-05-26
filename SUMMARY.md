@@ -106,7 +106,6 @@
     * [💠 Splunk metrics Agent check](stackpacks/integrations/splunk/splunk_metrics.md)
     * [💠 Splunk events Agent check](stackpacks/integrations/splunk/splunk_events.md)
   * [💠 VMWare vSphere](stackpacks/integrations/vsphere.md)
-  * [StackState Agent integrations](stackpacks/integrations/agent.md)
   * [Apache Tomcat](stackpacks/integrations/agent_v2/apache-tomcat.md)
   * [AWS ECS](stackpacks/integrations/agent_v2/aws-ecs.md)  
   * [AWS X-ray](stackpacks/integrations/agent_v2/aws-x-ray.md)  
