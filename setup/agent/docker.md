@@ -17,6 +17,45 @@ The StackState Agent V2 provides the following functionality:
 
 ### Installation
 
+```buildoutcfg
+From the Agent page
+
+#### Install
+
+To run the StackState Agent as a docker container, use the following configuration:
+
+stackstate-agent:
+    image: docker.io/stackstate/stackstate-agent-2:latest
+    network_mode: "host"
+    pid: "host"
+    privileged: true
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/proc/:/host/proc/:ro"
+      - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
+      - "/etc/passwd:/etc/passwd:ro"
+      - "/sys/kernel/debug:/sys/kernel/debug"
+    environment:
+      STS_API_KEY: "API_KEY"
+      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_ENABLED: "true"
+      STS_NETWORK_TRACING_ENABLED: "true"
+      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_APM_ENABLED: "true"
+      HOST_PROC: "/host/proc"
+      HOST_SYS: "/host/sys"
+
+#### Using Docker-Swarm mode
+
+To run the StackState Agent in Docker-Swarm mode as a docker-compose setup, use the above configuration in your compose file on each node where you want to run the Agent. After placing the compose file on each node, run the command `docker-compose up -d`.
+
+**Limitation of Docker-Swarm mode**
+
+Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between Containers, Processes and other resources while in Docker-Swarm mode. To run StackState Agent in Docker-Swarm mode, use a docker-compose setup.
+```
+
+
 #### Install Step
 
 To run the StackState Agent as a docker container, use the following configuration:
