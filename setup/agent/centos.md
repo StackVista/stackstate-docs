@@ -2,24 +2,52 @@
 
 ## Overview
 
-The StackState CentOS Agent provides the following functionality:
-- Reporting hosts, processes and containers
-- Reporting all network connections between processes / containers including network traffic telemetry
-- Telemetry for hosts, processes and containers
+The StackState Agent can be installed on CentOS. It runs checks that collect data from external systems and push this to StackState using the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
-### Installation
+The Agent is open source and available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
-This integration is a part of the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/), to install this integration follow the instructions provided there.
+## Setup 
 
-## Supported configurations
+### Prerequisites
 
-The StackState Agent is supported on the following platforms:
+The following versions are supported:
 
 | OS | Release | Arch | Network Tracer| Status | Notes|
 |----|---------|--------|--------|--------|--------|
 | CentOS | 6 | 64bit | - | OK | Since version 2.0.2 |
 | CentOS | 7 | 64bit | - | OK | - |
-| RHEL | 7 | 64bit | - | OK | - |
-| Fedora | 28 | 64bit | OK | OK | - |
 
-Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
+### Install
+
+
+
+### Configure
+
+The Agent can be configured to run checks that integrate with external systems. 
+
+Configuration files for checks are located in the directory:
+
+```
+/etc/stackstate-agent/conf.d/
+```
+
+### Upgrade
+
+
+## Commands
+
+
+
+## Troubleshooting
+
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+
+## Uninstall
+
+
+## Release notes
+
+
+## See also
+
+* [StackState Agent StackPack](/stackpacks/integrations/agent.md)

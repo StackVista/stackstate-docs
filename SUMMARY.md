@@ -30,7 +30,7 @@
   * [StackState CLI](setup/installation/cli-install.md)
   * [Troubleshooting](setup/installation/troubleshooting.md)
 * [Agent](setup/agent/README.md)
-  * [centOS](setup/agent/centos.md)
+  * [CentOS](setup/agent/centos.md)
   * [Debian](setup/agent/debian.md)
   * [Docker](setup/agent/docker.md)
   * [Fedora](setup/agent/fedora.md)
