@@ -1,5 +1,4 @@
-# How too: Configure component actions
-
+# How to: Configure component actions
 
 ## Overview 
 
@@ -12,7 +11,7 @@ The component actions available in StackState can be managed in the StackState U
 * To add a new component action, click the **ADD COMPONENT ACTION** button.
 * To edit an existing component action, click on the **...** menu to the right of its description and select **Edit**.
 
-![Component Actions](../../.gitbook/assets/component_actions.png)
+![Component Actions](../../../.gitbook/assets/component_actions.png)
 
 Each component action includes the following details:
 
