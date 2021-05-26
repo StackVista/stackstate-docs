@@ -15,7 +15,7 @@ A topology element in StackState can have any of the health states listed below:
 
 The element health state is calculated as the most severe state reported by a health check attached to it.
 
-![Health states](/.gitbook/assets/health-states.png)
+![Health states](/.gitbook/assets/health-states.svg)
 
 ## Health Checks
 
