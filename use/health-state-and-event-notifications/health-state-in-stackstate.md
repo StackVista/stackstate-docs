@@ -13,13 +13,13 @@ A topology element in StackState can have any of the health states listed below:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - No health state available.
 
-The element health state is calculated as the most severe state reported by the health checks attached to it.
+The element health state is calculated as the most severe state reported by a health check attached to it.
 
 ![Health states](/.gitbook/assets/health-states.svg)
 
 ## Health Checks
 
-Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by the health checks attached to it.
+Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by a health check attached to it.
 
 ### StackState health checks
 
