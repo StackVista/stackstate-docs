@@ -51,3 +51,4 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 ## See also
 
 * [StackState Agent StackPack](/stackpacks/integrations/agent.md)
+* [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
