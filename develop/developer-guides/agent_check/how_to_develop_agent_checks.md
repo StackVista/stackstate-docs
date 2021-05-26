@@ -245,7 +245,7 @@ Stream Definitions and Health Checks for StackState can be sent in with Topology
 
 ```text
 # import
-from stackstate_checks.base import AgentCheck, AgentIntegrationInstance, MetricStream, MetricHealthChecks# add this_host component with a metric strea and health check
+from stackstate_checks.base import AgentCheck, AgentIntegrationInstance, MetricStream, MetricHealthChecks# add this_host component with a metric stream and health check
 
 this_host_cpu_usage = MetricStream("Host CPU Usage", "system.cpu.usage",
                                    conditions={"tags.hostname": "this-host", "tags.region": "eu-west-1"},

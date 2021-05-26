@@ -10,11 +10,11 @@ Health checks report a health state for elements \(components and relations\). T
 
 The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](send-event-notifications.md).
 
-## Add a StackState health check
+## Add a health check
 
-Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can also add custom health checks that calculate a health state based on available telemetry streams.
+Most elements in the StackState topology will have a relevant health check added when the are created. If required, you can also add custom health checks that calculate a health state in StackState based on available telemetry streams or [synchronize health data from an external monitoring system](#synchronize-external-health-data).
 
-![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)
+To add a health check calculated in StackState:
 
 1. Select the element that you want to assign a health check to.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](add-telemetry-to-element.md).
@@ -32,9 +32,11 @@ Most elements in the StackState topology will have a relevant health check added
    * The check is now active and visible under the **Health** section on the right side of the screen. 
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
+![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)
+
 ### Check functions
 
-Each health check uses a check function to monitor the telemetry stream attached to the element.
+Each health check caluclated in StackState uses a check function to monitor the telemetry stream attached to the element.
 
 Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState, or you could [create a custom check function](/develop/developer-guides/custom-functions/check-functions.md).
 
