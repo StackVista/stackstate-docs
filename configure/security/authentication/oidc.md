@@ -87,6 +87,19 @@ To configure StackState to use an OIDC authentication provider on Linux, OIDC de
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
+
+authorization {
+  // map the groups from the OIDC provider to the
+  // 3 standard subjects in StackState (guestGroups, powerUserGroups and adminGroups)
+  // Please note! you have to use the syntax
+  // `<group>Groups = ${stackstate.authorization.<group>Groups} ["oidc-role"]`
+  // to extend the list of standard roles (stackstate-admin, stackstate-guest, stackstate-power-user)
+  // with the ones from OIDC
+  guestGroups = ${stackstate.authorization.guestGroups} ["oidc-guest-role-for-stackstate"]
+  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["oidc-power-user-role-for-stackstate"]
+  adminGroups = ${stackstate.authorization.adminGroups} ["oidc-admin-role-for-stackstate"]
+}
+
 authentication {
   enabled  = true
 
@@ -106,12 +119,6 @@ authentication {
       }
     }
   }
-
-  // map the groups from the OIDC provider to the
-  // 3 standard subjects in StackState (guestGroups, powerUserGroups and adminGroups)
-  guestGroups = ["oidc-guest-role-for-stackstate"]
-  powerUserGroups = ["oidc-power-user-role-for-stackstate"]
-  adminGroups = ["oidc-admin-role-for-stackstate"]
 }
 ```
 {% endtab %}
@@ -159,4 +166,3 @@ For further details, see [Permissions and consent in the Microsoft identity plat
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
-
