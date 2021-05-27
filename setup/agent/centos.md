@@ -10,7 +10,7 @@ The Agent is open source and the code is available on github at [https://github.
 
 ### Prerequisites
 
-The StackState Agent is supported to run on the Cent OS versions listed below.
+StackState Agent is supported to run on Cent OS versions:
 
 | OS | Release | Arch | Network Tracer| Status | Notes|
 |----|---------|--------|--------|--------|--------|
@@ -19,14 +19,16 @@ The StackState Agent is supported to run on the Cent OS versions listed below.
 
 ### Install
 
-By default, the installer will try to configure the package update channel. This allows packages to update using the host package manager. If for any reason you do not want this behavior, include `STS_INSTALL_NO_REPO=yes` as an environment variable.
+The StackState Agent is installed using an install script. If you have access to the internet on the machine where the Agent will be installed, the install.sh script can be run using curl or wget and the Agent installer package will be downloaded automatically. If you do not have access to the internet, you will need to download both the install script and the Agent installer package separately. The steps to follow for installing the Agent in an online or offline environment are described below.
 
-The `apiKey` and `baseUrl` specified as environment variables are set during StackState installation, for details see:
+The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
 * [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 * [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
-The 
+## Online install
+
+By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -45,16 +47,19 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 {% endtab %}
 {% endtabs %}
 
-#### Offline installation
+#### Offline install
 
-On your host, download the installation script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh).
+By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
 
-```text
-STS_API_KEY="{{config.apiKey}}" \
-STS_URL="{{config.baseUrl}}/stsAgent" \
-STS_INSTALL_NO_REPO=yes \
-./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
-```
+1. On your host, download the installation script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh).
+2. On your host, download the Agent installer package from [???]().
+3. use the command below to set the required environment variables and run the installer script:
+    ```text
+    STS_API_KEY="{{config.apiKey}}" \
+    STS_URL="{{config.baseUrl}}/stsAgent" \
+    STS_INSTALL_NO_REPO=yes \
+    ./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
+    ```
 
 ### Configure
 
