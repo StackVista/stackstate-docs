@@ -7,16 +7,24 @@ StackState can synchronize health information from your own data sources either 
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts health data next to telemetry and topology in a common JSON object, the receiver API is hosted at:
+The StackState Receiver API accepts health data next to telemetry and topology in a common JSON object. By default, the receiver API is hosted at:
 
+{% tabs %}
+{% tab title="Kubernetes" %}
+```text
+https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
+```
+
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+{% endtab %}
+{% tab title="Linux" %}
 ```text
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see:
-
-* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
-* [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+{% endtab %}
+{% endtabs %}
 
 ## Common JSON object
 
