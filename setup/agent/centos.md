@@ -22,7 +22,7 @@ StackState Agent is supported to run on Cent OS versions:
 The StackState Agent is installed using an install script. 
 
 * [online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed, the install.sh script can be run using curl or wget and the Agent installer package will be downloaded automatically. 
-* [offline install](#offline-install) - If you do not have access to the internet, you will need to download both the install script and the Agent installer package separately. The steps to follow for installing the Agent in an online or offline environment are described below.
+* [offline install](#offline-install) - If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
 
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
