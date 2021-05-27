@@ -204,8 +204,9 @@ redirects:
   configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
+  integrations/agent/: ./stackpacks/integrations/agent.md
 
-# moving custom function pages
+  # moving custom function pages
 
   configure/topology/view_state_configuration: ./develop/developer-guides/custom-functions/view-health-state-configuration-functions.md
   configure/topology/event-handlers: ./develop/developer-guides/custom-functions/event-handler-functions.md
