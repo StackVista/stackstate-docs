@@ -4,13 +4,13 @@
 
 The StackState Agent can be installed on CentOS. It runs checks that collect data from external systems and push this to StackState using the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
-The Agent is open source and available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+The Agent is open source and the code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Setup 
 
 ### Prerequisites
 
-The following versions are supported:
+The StackState Agent is supported to run on the Cent OS versions listed below.
 
 | OS | Release | Arch | Network Tracer| Status | Notes|
 |----|---------|--------|--------|--------|--------|
@@ -19,33 +19,41 @@ The following versions are supported:
 
 ### Install
 
-Using [cURL](https://curl.haxx.se)
+By default, the installer will try to configure the package update channel. This allows packages to update using the host package manager. If for any reason you do not want this behavior, include `STS_INSTALL_NO_REPO=yes` as an environment variable.
 
+The `apiKey` and `baseUrl` specified as environment variables are set during StackState installation, for details see:
+
+* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+
+The 
+
+{% tabs %}
+{% tab title="cURL" %}
 ```text
 curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
-    STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" bash
+STS_API_KEY="{{config.apiKey}}" \
+STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```
-
-Using [wget](https://www.gnu.org/software/wget/)
-
+{% endtab %}
+{% tab title="wget" %}
 ```text
 wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
-    STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" bash
+STS_API_KEY="{{config.apiKey}}" \
+STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```
+{% endtab %}
+{% endtabs %}
 
 #### Offline installation
 
 On your host, download the installation script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh).
 
-By default, installer tries to configure the package update channel, which would allow to update packages using the host package manager. If you for any reason do not want this behavior, please include `STS_INSTALL_NO_REPO=yes` as an environment parameter:
-
 ```text
 STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" \
-    STS_INSTALL_NO_REPO=yes \
-    ./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
+STS_URL="{{config.baseUrl}}/stsAgent" \
+STS_INSTALL_NO_REPO=yes \
+./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
 ```
 
 ### Configure
@@ -107,3 +115,5 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 * [StackState Agent StackPack](/stackpacks/integrations/agent.md)
 * [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [cURL \(haxx.se\)](https://curl.haxx.se)
+* [wget \(gnu.org\)](https://www.gnu.org/software/wget/)

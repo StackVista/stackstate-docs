@@ -16,7 +16,7 @@ https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 
 Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see:
 
-* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
 * [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
