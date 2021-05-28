@@ -243,14 +243,14 @@ class EventHealthChecks(object):
 
 A Metric stream can be added to a component using the `MetricStream` class. A few out of the box supported health checks are available and are mapped to the stream using the `stream_id`. Some metric health checks require multiple streams for ratio calculations, these are referred to as the `denominator_stream_id` and `numerator_stream_id`.
 
-* class MetricStream
+* **MetricStream class**
   Creates a metric stream definition for the component that will bind metrics in StackState for the conditions.
-  - `name` The name for the stream in StackState
-  - `metricField` the name of the metric to select
-  - `conditions` is a dictionary of key:value arguments that are used to filter the metric values for the stream.
-  - `unit_of_measure` The unit of measure for the metric points, it gets appended after the stream name: `name (unit_of_measure)`
-  - `aggregation` sets the aggregation function for the metrics in StackState. See [aggregation methods](develop/reference/scripting/script-apis/telemetry.md#aggregation-methods)
-  - `priority` sets the stream priority in StackState, it can be NONE, LOW, MEDIUM, HIGH. HIGH priority streams are used for anomaly detection in StackState.
+  - `name` - The name for the stream in StackState.
+  - `metricField` - The name of the metric to select.
+  - `conditions` - A dictionary of key:value arguments that are used to filter the metric values for the stream.
+  - `unit_of_measure` - Optional. The unit of measure for the metric points, it gets appended after the stream name: `name (unit_of_measure)`
+  - `aggregation` - Optional. sets the aggregation function for the metrics in StackState. See [aggregation methods](/develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
+  - `priority` - Optional. The stream priority in StackState, one of `NONE`, `LOW`, `MEDIUM`, `HIGH`. HIGH priority streams are used for anomaly detection in StackState.
 
 ```text
 class MetricStream(TelemetryStream):
