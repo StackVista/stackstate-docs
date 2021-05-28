@@ -73,6 +73,7 @@ The CLI makes it easy to send test data to StackState.
 
 * [Send anomaly data](cli_reference.md#sts-anomaly-send)
 * [Send events data](cli_reference.md#sts-event-send)
+* [Send health data](cli_reference.md#sts-health-send)  
 * [Send metrics data](cli_reference.md#sts-metric-send)
 * [Send topology data](cli_reference.md#sts-topology-send)
 
@@ -101,6 +102,18 @@ Use `sts event send` to send a single event with a given name.
 
 ```text
 sts event send
+```
+
+| Argument | Details |
+| :--- | :--- |
+| `-h` | Show usage information and available arguments. |
+
+### sts health send
+
+Please refer to `usage.md` in the CLI zip archive for detailed instructions.
+
+```text
+sts health send -h
 ```
 
 | Argument | Details |

@@ -65,7 +65,7 @@ By default, installer tries to configure the package update channel, which would
 STS_API_KEY="{{config.apiKey}}" \
     STS_URL="{{config.baseUrl}}/stsAgent" \
     STS_INSTALL_NO_REPO=yes \
-    install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
+    ./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
 ```
 
 ### Windows

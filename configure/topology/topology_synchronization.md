@@ -28,6 +28,7 @@ StackState accepts topology information in the following JSON format:
    "events":{},
    "metrics":[],
    "service_checks":[],
+   "health":[],
    "topologies":[
       {
          "start_snapshot": false,

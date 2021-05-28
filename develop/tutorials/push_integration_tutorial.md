@@ -223,7 +223,7 @@ Here is what that looks like:
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 
-The last thing to do is to add a health check to the **a-host** component. In the **Health** section, click on the **Add** button. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
+The last thing to do is to add a StackState health check to the **a-host** component. In the **Health** section, click on the **Add** button. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
 
 Now, sending in the events using the command below should set the health state to `CRITICAL`:
 
