@@ -148,7 +148,7 @@ Streams and health checks can be sent to StackState together with a topology com
 
 All telemetry classes and methods can be imported from `stackstate_checks.base`.
 
-In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
+In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check (check) `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
 
 ```text
 this_host_cpu_usage = MetricStream(
@@ -239,9 +239,18 @@ class EventHealthChecks(object):
         """
 ```
 
-#### Metric Stream
+#### Metric stream
 
-A Metric stream can be added to a component using the `MetricStream` class. It expects a stream `name` , `metricField`, `conditions` and optionally also `unit_of_measure`, `aggregation` and `priority` for the metric telemetry query in StackState. Metric Streams have a few out of the box supported checks which can be mapped using the stream identifier. Some of the Metric checks require multiple streams in which case they are referred to as the `denominator_stream_id` and `numerator_stream_id` used for ratio calculations.
+A Metric stream can be added to a component using the `MetricStream` class. A few out of the box supported health checks are available and are mapped to the stream using the `stream_id`. Some metric health checks require multiple streams for ratio calculations, these are referred to as the `denominator_stream_id` and `numerator_stream_id`.
+
+* class MetricStream
+  Creates a metric stream definition for the component that will bind metrics in StackState for the conditions.
+  - `name` The name for the stream in StackState
+  - `metricField` the name of the metric to select
+  - `conditions` is a dictionary of key:value arguments that are used to filter the metric values for the stream.
+  - `unit_of_measure` The unit of measure for the metric points, it gets appended after the stream name: `name (unit_of_measure)`
+  - `aggregation` sets the aggregation function for the metrics in StackState. See [aggregation methods](develop/reference/scripting/script-apis/telemetry.md#aggregation-methods)
+  - `priority` sets the stream priority in StackState, it can be NONE, LOW, MEDIUM, HIGH. HIGH priority streams are used for anomaly detection in StackState.
 
 ```text
 class MetricStream(TelemetryStream):
