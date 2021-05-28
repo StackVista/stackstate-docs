@@ -2,14 +2,11 @@
 
 ## Overview
 
-The Agent check API can be used to create checks that run on the [StackState Agent](/stackpacks/integrations/agent.md). This page explains how to work with the check API to write checks that send topology, metrics, events and service status information.
-* Metrics, events, and service checks
-* Overriding base class methods
-* Logging, and error handling in checks. 
+The Agent check API can be used to create checks that run on the [StackState Agent](/stackpacks/integrations/agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to StackState.
 
-Code examples for open source StackState Agent checks can be found on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
+Code examples for the open source StackState Agent checks can be found on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
 
-## Agent V2 Check API
+## Agent checks
 
 An Agent Check is a Python class that inherits from `AgentCheck` and implements the `check` method:
 
