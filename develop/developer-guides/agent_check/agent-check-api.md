@@ -49,9 +49,9 @@ The `AgentCheck` class provides the following methods and attributes:
 
 Multiple instances of the same check can run concurrently. If a check is already running, it is not necessary to schedule another one.
 
-## Sending data
+## Send data
 
-## Topology
+### Topology
 
 Topology is sent by calling the following methods:
 
@@ -75,7 +75,7 @@ An example of usage of `self.component` can be found in the [MySQL topology chec
 
 All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
 
-## Metrics
+### Metrics
 
 Following methods can be called from anywhere in the check:
 
@@ -101,7 +101,7 @@ Check the example for sending metrics [here](https://github.com/StackVista/stack
 
 Note that all submitted metrics are collected and flushed with all the other Agent metrics at the end of `check` function.
 
-## Events
+### Events
 
 Sending events is handled by calling `self.event(event_dict)` method. This method can be called from anywhere in the check. The `event-dict` parameter is a dictionary with the following keys and data types:
 
@@ -123,7 +123,7 @@ Sending events is handled by calling `self.event(event_dict)` method. This metho
 
 All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
 
-## Status
+### Status
 
 Reporting status of a service is handled by calling the `service_check` method:
 
@@ -145,7 +145,7 @@ The method can accept the following arguments:
 Check the usage in the following [example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L434).
 
 
-## Checks and streams
+### Checks and streams
 
 Streams and Checks can be sent in with a component, these will then be mapped in StackState to give you telemetry streams and health states on your components. The streams and checks described below are supported out of the box.
 
@@ -389,7 +389,7 @@ class MetricHealthChecks(object):
         """
 ```
 
-#### Service Check
+#### Service check stream
 
 A Service Check stream can be added to a component using the `ServiceCheckStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. Service Check Streams has one out of the box supported check which can be mapped using the stream identifier.
 
@@ -418,7 +418,7 @@ class ServiceCheckHealthChecks(object):
 
 
 
-## Base class methods overriding
+## Override base class methods
 
 By best practice, there is no need to override anything from the base class except the check method. However, sometimes it might be useful for a Check to have its own constructor. When overriding the **init** constructor, depending on the configuration, the Agent might create several different Check instances and the method would be called as many times.
 
@@ -476,7 +476,7 @@ self.warning("This will be visible in the status page")
 {% tab title="Example warning message" %}
 ```buildoutcfg
 if len(queries) > max_custom_queries:
-    self.warning("Maximum number (%s) of custom queries reached.  Skipping the rest."
+    self.warning("Max number (%s) of custom queries reached. Skipping the rest."
                  % max_custom_queries)
 ```
 {% endtab %}
