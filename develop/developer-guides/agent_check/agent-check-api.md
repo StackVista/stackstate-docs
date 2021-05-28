@@ -189,16 +189,73 @@ self.component(
 
 #### Events stream
 
-Events can be published for a component using the `EventStream` class. It expects a stream `name` and `conditions` for the telemetry query in StackState. A few checks are supported out of the box supported that can be mapped using the stream identifier.
+Log streams containing events can be added to a component using the `EventStream` class. 
+
+{% tabs %}
+{% tab title="Example event stream" %}
+```
+this_host_cpu_usage = EventStream(
+                        "Host events", # name
+                        conditions={
+                            "key1": "value1", 
+                            "key2": "value2"
+                            },
+                        )
+```
+{% endtab %}
+{% endtabs %}
+
+
+Each metric stream has the following details:
+
+  - **name** - The name for the stream in StackState.
+  - **conditions** - A dictionary of key:value arguments that are used to filter the event values for the stream.
+
+##### Event stream health check
+
+Event stream health checks can optionally be mapped to an events stream using the stream identifier. 
+
+The following event stream health checks are supported out of the box:
+
+| Event stream health check | Description |
+|:---|:---|
+| contains_key_value | Checks that the last event contains (at the top-level), the specified value for a key. |
+| use_tag_as_health | Checks that returns the value of a tag in the event as the health state. |
+| custom_health_check | This method provides the functionality to send in a custom event health check. |
+
+{% tabs %}
+{% tab title="Example event health check" %}
+```
+cpu_max_average_check = EventHealthChecks.contains_key_value(
+                          "this_host_events",           # stream_id
+                          "Events on this host",        # name
+                          75,                           # contains_key
+                          90,                           # contains_value
+                          "CRITICAL"                    # found_health_state
+                          "CLEAR"                       # missing_health_state
+                          remediation_hint="Bad event found!"
+                          )
+```
+{% endtab %}
+{% endtabs %}
+
+An event stream health check has the following details. Note that a custom_health_check only requires a **name** and **check_arguments**:
+
+* **stream_id** - the identifier of the stream the check should run on.
+* **name** - the name the check will have in StackState.
+* **description** - the description for the check in StackState.
+* **remediation_hint** - the remediation hint to display when the check return a critical health state.
+
+* **contains_key** - for check `contains_key_value` only. The key that should be contained in the event.
+* **contains_value** - for check `contains_key_value` only. The value that should be contained in the event.
+* **found_health_state** - for check `contains_key_value` only. The health state to return when this tag and value is found.
+* **missing_health_state** - for check `contains_key_value` only. The health state to return when the tag/value is not found.
+* **tag_name** - for check `use_tag_as_health` only.
+
+
 
 ```text
-class EventStream(TelemetryStream):
-    """
-    creates a event stream definition for the component that will bind events in StackState for the conditions.
-    args: `name, conditions`
-    `name` The name for the stream in StackState
-    `conditions` is a dictionary of key -> value arguments that are used to filter the event values for the stream.
-    """
+
 
 class EventHealthChecks(object):
 
@@ -241,13 +298,13 @@ class EventHealthChecks(object):
 
 #### Metric stream
 
-A Metric stream can be added to a component using the `MetricStream` class. 
+Metric streams can be added to a component using the `MetricStream` class. 
 
 {% tabs %}
 {% tab title="Example metric stream" %}
 ```
 this_host_cpu_usage = MetricStream(
-                        "Host CPU Usage", # metric stream name
+                        "Host CPU Usage", # name
                         "system.cpu.usage", # metricField
                         conditions={
                             "tags.hostname": "this-host", 
@@ -261,7 +318,7 @@ this_host_cpu_usage = MetricStream(
 {% endtab %}
 {% endtabs %}
 
-A metric stream has the following details:
+Each metric stream has the following details:
 
   - **name** - The name for the stream in StackState.
   - **metricField** - The name of the metric to select.
@@ -272,7 +329,7 @@ A metric stream has the following details:
 
 ##### Metric stream health check
 
-A metric stream health checks can be mapped to a metric stream using the stream identifier. Some metric health checks require multiple streams for ratio calculations.
+Metric stream health checks can optionally be mapped to a metric stream using the stream identifier. Note that some metric health checks require multiple streams for ratio calculations.
 
 The following metric stream health checks are supported out of the box:
 
@@ -292,10 +349,10 @@ The following metric stream health checks are supported out of the box:
 ```
 cpu_max_average_check = MetricHealthChecks.maximum_average(
                           this_host_cpu_usage.identifier, # stream_id
-                          "Max CPU Usage (Average)",      # health check name
-                          75,   # deviating value
-                          90,   # critical value
-                          remediation_hint="There is too much activity on this host"
+                          "Max CPU Usage (Average)",      # name
+                          75,                             # deviating value
+                          90,                             # critical value
+                          remediation_hint="Too much activity on this host"
                           )
 ```
 {% endtab %}
