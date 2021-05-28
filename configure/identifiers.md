@@ -31,15 +31,15 @@ self.component("this-host-unique-identifier", "Host", {
 
 ## StackState Agent identifiers
 
-The global scope identifiers used by the StackState Agent to identify topology elements:
+The global scope identifiers used by the StackState Agent to identify synchronized topology elements are listed in the table below.
 
-| Resource type | Format |
+| Resource type | Agent identifier format |
 | :--- | :--- |
-| Host | urn:host:/\[hostName\] | 
-| Process | urn:process:/\[hostName\]:\[pid\]:\[createTime\] | 
-| Container | urn:container:/\[hostName\]:\[containerId\] | 
-| Service discovered with traces | urn:service:/\[serviceName\] |
-| Service instance discovered with traces | urn:service-instance:/\[serviceName\]:/\[hostName\] |
+| Host | `urn:host:/[hostName]` | 
+| Process | `urn:process:/[hostName]:[pid]:[createTime]` | 
+| Container | `urn:container:/[hostName]:[containerId]` | 
+| Service discovered with traces | `urn:service:/[serviceName]` |
+| Service instance discovered with traces | `urn:service-instance:/[serviceName]:/[hostName]` |
 
 ## Global scope identifiers
 
@@ -79,22 +79,27 @@ The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 
 ## Example identifiers
 
-* Component type `server` in the Common StackPack:
+Common StackPack: 
+* Component type server:
     * `urn:stackpack:common:component-type:server` 
-* The `ViewHealthStateConfigurationFunction` named Minimum Propagated Health States in the Common StackPack:
+* View health state configuration function Minimum Propagated Health States:
     * `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states`
-* The `AWS event run state` check function that is shared across AWS StackPack instances:
+
+Other StackPacks:
+* Check function AWS Event Run State shared across AWS StackPack instances:
     * `urn:stackpack:aws:shared:check-function:aws-event-run-state`
-* The `cmdb_ci_netgear` Component Type in the ServiceNow StackPack:
+* Component type cmdb_ci_netgear in the ServiceNow StackPack:
     * `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear`
-* Host from the StackState Agent:
+
+StackState Agent:
+* Host:
     * `urn:host:/example.org`
-* Process from the StackState Agent:
+* Process:
     * `urn:process:/db.infra.company.org:161841:1602158335000`
-* Container from the StackState Agent:
+* Container:
     * `urn:container:/compnode5.k8s.example.org:8b18c68a820904c55b4909d7f5a9a52756d45e866c07c92bf478bcf6cd240901`
-* Service discovered with traces from the StackState Agent:
+* Service discovered with traces:
     * `urn:service:/prod-db` 
-* Service instance discovered with traces from the StackState Agent:
+* Service instance discovered with traces:
     * `urn:service-instance:/prod-db:/main.example.org`
 
