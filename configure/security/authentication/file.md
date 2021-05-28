@@ -43,7 +43,7 @@ Follow the steps below to configure users and apply changes:
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
    * **username** - the username used to log into StackState.
    * **passwordMd5** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
-   * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
+   * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`,`stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
 2. Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions.
 3. Run a Helm upgrade to apply the changes:
 
@@ -73,7 +73,7 @@ To configure file based authentication on Linux, StackState users need to be add
 {% tab title="application\_stackstate.conf" %}
 ```javascript
 # Four users, `admin`, `platformadmin`, `power-user` and `guest`
-# with the three default roles Administrator, Power user and Guest
+# with the four default roles Administrator, Platform Administrator, Power user and Guest
 
 authentication {
   authServer {

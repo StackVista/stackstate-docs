@@ -37,7 +37,7 @@ stackstate:
         groupsField: groups
 
     # map the groups from OIDC provider
-    # to the 3 standard roles in StackState (guest, powerUser and admin)
+    # to the 4 standard roles in StackState (guest, powerUser, admin and platformAdmin)
     roles:
       guest: ["oidc-guest-role-for-stackstate"]
       powerUser: ["oidc-power-user-role-for-stackstate"]
@@ -91,7 +91,7 @@ To configure StackState to use an OIDC authentication provider on Linux, OIDC de
 
 authorization {
   // map the groups from the OIDC provider to the
-  // 3 standard subjects in StackState (guestGroups, powerUserGroups and adminGroups)
+  // 4 standard subjects in StackState (guestGroups, powerUserGroups, adminGroups and platformAdminGroups)
   // Please note! you have to use the syntax
   // `<group>Groups = ${stackstate.authorization.<group>Groups} ["oidc-role"]`
   // to extend the list of standard roles (stackstate-admin, stackstate-platform-admin, stackstate-guest, stackstate-power-user)
