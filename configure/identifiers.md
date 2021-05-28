@@ -63,14 +63,18 @@ The format of the `<prefix>` and `<type-name>:<free-form>` segments are describe
 
 ### Prefix
 
-The `prefix` segment is a required part of a global identifier. It names the scope that the identifier belongs to and is used purely for organizational purposes. Recognized URN prefixes are:
+The `prefix` segment is a required part of a global identifier. It names the scope that the identifier belongs to and is used purely for organizational purposes. 
+
+{% hint style="info" %}
+When the prefix includes a StackPack name, the object will be under the control of that StackPack. This means that the object will be uninstalled when the StackPack is uninstalled.
+{% endhint %}
+
+Recognized URN prefixes are:
 
 * `stackpack:<name>` - objects belonging to StackPacks.
 * `stackpack:<name>:shared` - objects shared between instances of a StackPack.
-* `stackpack:<name>:instance:{{instanceId}}`- objects belonging to a specific instance of a StackPack.
+* `stackpack:<name>:instance:{{instanceId}}`- objects belonging to a specific instance of a StackPack, where `{{instanceId}}` is a handlebar that returns the ID provided during the StackPack installation process for each specific instance of the StackPack.
 * `system:auto` - objects created by the system that do not belong to any specific StackPacks.
-
-Note that `{{instanceId}}` is a handlebar that returns the ID provided during the StackPack installation process for each specific instance of a StackPack.
 
 ### Type-name and free-form
 
