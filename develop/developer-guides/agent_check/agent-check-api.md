@@ -192,7 +192,7 @@ self.component(
 Log streams containing events can be added to a component using the `EventStream` class. 
 
 {% tabs %}
-{% tab title="Example event stream" %}
+{% tab title="Example events stream" %}
 ```
 this_host_events = EventStream(
                     "Host events stream", # name
@@ -213,18 +213,16 @@ Each events stream has the following details:
 
 ##### Event stream health check
 
-Event stream health checks can optionally be mapped to an events stream using the stream identifier. 
-
-The following event stream health checks are supported out of the box:
+Event stream health checks can optionally be mapped to an events stream using the stream identifier. The following event stream health checks are supported out of the box:
 
 | Event stream health check | Description |
 |:---|:---|
-| contains_key_value | Checks that the last event contains (at the top-level), the specified value for a key. For details see [contains_key_value \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L33). |
-| use_tag_as_health | Checks that returns the value of a tag in the event as the health state. For details see [use_tag_as_health \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L69). |
-| custom_health_check | This method provides the functionality to send in a custom event health check. For details see [custom_health_check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L95). |
+| **contains_key_value** | Checks that the last event contains (at the top-level), the specified value for a key. For details see [contains_key_value \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L33). |
+| **use_tag_as_health** | Checks that returns the value of a tag in the event as the health state. For details see [use_tag_as_health \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L69). |
+| **custom_health_check** | This method provides the functionality to send in a custom event health check. For details see [custom_health_check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L95). |
 
 {% tabs %}
-{% tab title="Example event health check" %}
+{% tab title="Example event stream health check" %}
 ```
 cpu_max_average_check = EventHealthChecks.contains_key_value(
                           "this_host_events",           # stream_id
@@ -239,7 +237,7 @@ cpu_max_average_check = EventHealthChecks.contains_key_value(
 {% endtab %}
 {% endtabs %}
 
-An event stream health check has the following details. Note that a custom_health_check only requires a **name** and **check_arguments**:
+An event stream health check includes the details listed below. Note that a custom_health_check only requires a **name** and **check_arguments**:
 
 * **stream_id** - the identifier of the stream the check should run on.
 * **name** - the name the check will have in StackState.
@@ -251,7 +249,7 @@ An event stream health check has the following details. Note that a custom_healt
 * **missing_health_state** - for check `contains_key_value` only. The health state to return when the tag/value is not found.
 * **tag_name** - for check `use_tag_as_health` only. The key of the tag that should be used as the health state.
 
-Fpr details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).
+For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).
 
 #### Metric stream
 
@@ -290,15 +288,17 @@ Metric stream health checks can optionally be mapped to a metric stream using th
 
 The following metric stream health checks are supported out of the box:
 
-* **maximum_average** - Calculates the health state by comparing the average of all metric points in the time window against the configured maximum values.
-* **maximum_last** - Calculates the health state only by comparing the last value in the time window against the configured maximum values.
-* **maximum_percentile** - Calculates the health state by comparing the specified percentile of all metric points in the time window against the configured maximum values. For the median specify 50 for the percentile. The percentile parameter must be a value > 0 and <= 100.
-* **maximum_ratio** - Calculates the ratio between the values of two streams and compares it against the critical and deviating value. If the ratio is larger than the specified critical or deviating value, the corresponding health state is returned.
-* **minimum_average** - Calculates the health state by comparing the average of all metric points in the time window against the configured minimum values.
-* **minimum_last** - Calculates the health state only by comparing the last value in the time window against the configured minimum values.
-* **minimum_percentile** - Calculates the health state by comparing the specified percentile of all metric points in the time window against the configured minimum values. For the median specify 50 for the percentile. The percentile must be a value > 0 and <= 100.
-* **failed_ratio** - Calculates the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value.
-* **custom_health_check** - Provides the functionality to send in a custom metric health check.
+| Metric stream health check | Description |
+|:---|:---|
+| **maximum_average** | Calculates the health state by comparing the average of all metric points in the time window against the configured maximum values. |
+| **maximum_last** | Calculates the health state only by comparing the last value in the time window against the configured maximum values. |
+| **maximum_percentile** | Calculates the health state by comparing the specified percentile of all metric points in the time window against the configured maximum values. For the median specify 50 for the percentile. The percentile parameter must be a value > 0 and <= 100. |
+| **maximum_ratio** | Calculates the ratio between the values of two streams and compares it against the critical and deviating value. If the ratio is larger than the specified critical or deviating value, the corresponding health state is returned. |
+| **minimum_average** | Calculates the health state by comparing the average of all metric points in the time window against the configured minimum values. |
+| **minimum_last** | Calculates the health state only by comparing the last value in the time window against the configured minimum values. |
+| **minimum_percentile** | Calculates the health state by comparing the specified percentile of all metric points in the time window against the configured minimum values. For the median specify 50 for the percentile. The percentile must be a value > 0 and <= 100. |
+| **failed_ratio** | Calculates the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value. |
+| **custom_health_check** | Provides the functionality to send in a custom metric health check. |
 
 
 {% tabs %}
