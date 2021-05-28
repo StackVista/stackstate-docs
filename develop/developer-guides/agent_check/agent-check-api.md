@@ -241,14 +241,14 @@ class EventHealthChecks(object):
 
 #### Metric stream
 
-A Metric stream can be added to a component using the `MetricStream` class. A few health checks are also supported out of the box and are mapped to the stream using the `stream_id`. Some metric health checks require multiple streams for ratio calculations, these are referred to as the `denominator_stream_id` and `numerator_stream_id`.
+A Metric stream can be added to a component using the `MetricStream` class. 
 
 {% tabs %}
 {% tab title="Example metric stream" %}
 ```
 this_host_cpu_usage = MetricStream(
-                        "Host CPU Usage", # the metric stream name
-                        "system.cpu.usage", # the metricField
+                        "Host CPU Usage", # metric stream name
+                        "system.cpu.usage", # metricField
                         conditions={
                             "tags.hostname": "this-host", 
                             "tags.region": "eu-west-1"
@@ -270,162 +270,53 @@ A metric stream has the following details:
   - **aggregation** - Optional. sets the aggregation function for the metrics in StackState. See [aggregation methods](/develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
   - **priority** - Optional. The stream priority in StackState, one of `NONE`, `LOW`, `MEDIUM`, `HIGH`. HIGH priority streams are used for anomaly detection in StackState.
 
-```text
-class MetricStream(TelemetryStream):
-    """
-    creates a metric stream definition for the component that will bind metrics in StackState for the conditions.
-    args: `name, metricField, conditions, unit_of_measure, aggregation, priority`
-    `name` The name for the stream in StackState
-    `metricField` the name of the metric to select
-    `conditions` is a dictionary of key -> value arguments that are used to filter the metric values for the stream.
-    `unit_of_measure` The unit of measure for the metric points, it gets appended after the stream name:
-    Stream Name (unit of measure)
-    `aggregation` sets the aggregation function for the metrics in StackState. It can be:  EVENT_COUNT, MAX, MEAN,
-    MIN, SUM, PERCENTILE_25, PERCENTILE_50, PERCENTILE_75, PERCENTILE_90, PERCENTILE_95, PERCENTILE_98,
-    PERCENTILE_99
-    `priority` sets the stream priority in StackState, it can be NONE, LOW, MEDIUM, HIGH.
-    HIGH priority streams are used in StackState's anomaly detection.
-    """
+##### Metric stream health check
 
-class MetricHealthChecks(object):
+A metric stream health checks can be mapped to a metric stream using the stream identifier. Some metric health checks require multiple streams for ratio calculations.
 
-    def maximum_average(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None, max_window=None):
-        """
-        Calculate the health state by comparing the average of all metric points in the time window against the
-        configured maximum values.
-        args: `stream_id, name, deviating_value, critical_value, description, remediation_hint, max_window`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
+The following metric stream health checks are supported out of the box:
 
-    def maximum_last(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None,
-    max_window=None):
-        """
-        Calculate the health state only by comparing the last value in the time window against the configured maximum
-        values.
-        args: `stream_id, name, deviating_value, critical_value, description, remediation_hint, max_window`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
+* **maximum_average** - Calculates the health state by comparing the average of all metric points in the time window against the configured maximum values.
+* **maximum_last** - Calculates the health state only by comparing the last value in the time window against the configured maximum values.
+* **maximum_percentile** - Calculates the health state by comparing the specified percentile of all metric points in the time window against the configured maximum values. For the median specify 50 for the percentile. The percentile parameter must be a value > 0 and <= 100.
+* **maximum_ratio** - Calculates the ratio between the values of two streams and compares it against the critical and deviating value. If the ratio is larger than the specified critical or deviating value, the corresponding health state is returned.
+* **minimum_average** - Calculates the health state by comparing the average of all metric points in the time window against the configured minimum values.
+* **minimum_last** - Calculates the health state only by comparing the last value in the time window against the configured minimum values.
+* **minimum_percentile** - Calculates the health state by comparing the specified percentile of all metric points in the time window against the configured minimum values. For the median specify 50 for the percentile. The percentile must be a value > 0 and <= 100.
+* **failed_ratio** - Calculates the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value.
+* **custom_health_check** - Provides the functionality to send in a custom metric health check.
 
-    def maximum_percentile(stream_id, name, deviating_value, critical_value, percentile, description=None,
-    remediation_hint=None, max_window=None):
-        """
-        Calculate the health state by comparing the specified percentile of all metric points in the time window against
-        the configured maximum values. For the median specify 50 for the percentile. The percentile parameter must be a
-        value > 0 and <= 100.
-        args: `stream_id, name, deviating_value, critical_value, percentile, description, remediation_hint, max_window`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `percentile` the percentile value to use for the calculation
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
 
-    def maximum_ratio(denominator_stream_id, numerator_stream_id, name, deviating_value, critical_value,
-    description=None, remediation_hint=None, max_window=None):
-        """
-        Calculates the ratio between the values of two streams and compares it against the critical and deviating value.
-        If the ratio is larger than the specified critical or deviating value, the corresponding health state is
-        returned.
-        args: `denominator_stream_id, numerator_stream_id, name, deviating_value, critical_value, description,
-        remediation_hint, max_window`
-        `denominator_stream_id` the identifier of the denominator stream this check should run on
-        `numerator_stream_id` the identifier of the numerator stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
-
-    def minimum_average(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None,
-    max_window=None):
-        """
-        Calculate the health state by comparing the average of all metric points in the time window against the
-        configured minimum values.
-        args: `stream_id, name, deviating_value, critical_value, description, remediation_hint, max_window`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
-
-    def minimum_last(stream_id, name, deviating_value, critical_value, description=None, remediation_hint=None,
-    max_window=None):
-        """
-        Calculate the health state only by comparing the last value in the time window against the configured minimum
-        values.
-        args: `stream_id, name, deviating_value, critical_value, description, remediation_hint, max_window`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
-
-    def minimum_percentile(stream_id, name, deviating_value, critical_value, percentile, description=None,
-    remediation_hint=None, max_window=None):
-        """
-        Calculate the health state by comparing the specified percentile of all metric points in the time window against
-        the configured minimum values. For the median specify 50 for the percentile. The percentile must be a
-        value > 0 and <= 100.
-        args: `stream_id, name, deviating_value, critical_value, percentile, description, remediation_hint, max_window`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `percentile` the percentile value to use for the calculation
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
-
-    def failed_ratio(success_stream_id, failed_stream_id, name, deviating_value, critical_value,
-    description=None, remediation_hint=None, max_window=None):
-        """
-        Calculate the ratio between the last values of two streams (one is the normal metric stream and one is the
-        failed metric stream). This ratio is compared against the deviating or critical value.
-        args: `success_stream_id, failed_stream_id, name, deviating_value, critical_value, description,
-               remediation_hint, max_window`
-        `success_stream_id` the identifier of the success stream this check should run on
-        `failed_stream_id` the identifier of the failures stream this check should run on
-        `name` the name this check will have in StackState
-        `deviating_value` the threshold at which point this check will return a deviating health state
-        `critical_value` the threshold at which point this check will return a critical health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        `max_window` the max window size for the metrics
-        """
-
-    def custom_health_check(name, check_arguments):
-        """
-        This method provides the functionality to send in a custom metric health check.
-        args: `name, check_arguments`
-        `name` the name this check will have in StackState
-        `check_arguments` the check arguments
-        """
+{% tabs %}
+{% tab title="Example metric health check" %}
 ```
+cpu_max_average_check = MetricHealthChecks.maximum_average(
+                          this_host_cpu_usage.identifier, # stream_id
+                          "Max CPU Usage (Average)",      # health check name
+                          75,   # deviating value
+                          90,   # critical value
+                          remediation_hint="There is too much activity on this host"
+                          )
+```
+{% endtab %}
+{% endtabs %}
 
+A metric stream health check has the following details. Note that a custom_health_check only requires a **name** and **check_arguments**:
+
+* **name** - the name the health check will have in StackState.
+* **description** - the description for the health check in StackState.
+* **deviating_value** - the threshold at which point the check will return a deviating health state.
+* **critical_value** - the threshold at which point the check will return a critical health state.
+* **remediation_hint** - the remediation hint to display when the check returns a critical health state.
+* **max_window** - the max window size for the metrics.
+* **percentile** - for `maximum_percentile` and `minimum_percentile` checks only. The percentile value to use for the calculation. 
+* stream identifier(s):  
+  * **stream_id** - for `maximum_percentile`, `maximum_last`, `maximum_average`, `minimum_average`, `minimum_last`, `minimum_percentile` checks. The identifier of the stream the check should run on.
+  * **denominator_stream_id** - for `maximum_ratio` checks only. The identifier of the denominator stream the check should run on.
+  * **numerator_stream_id** - for `maximum_ratio` checks only. The identifier of the numerator stream the check should run on.
+  * **success_stream_id** - for `failed_ratio` checks only. The identifier of the success stream this check should run on.
+  * **failed_stream_id** - for `failed_ratio` checks only. The identifier of the failures stream this check should run on.
+  
 #### Service check stream
 
 A Service Check stream can be added to a component using the `ServiceCheckStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. Service Check Streams has one out of the box supported check which can be mapped using the stream identifier.
