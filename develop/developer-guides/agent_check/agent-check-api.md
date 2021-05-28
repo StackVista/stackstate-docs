@@ -194,19 +194,19 @@ Log streams containing events can be added to a component using the `EventStream
 {% tabs %}
 {% tab title="Example event stream" %}
 ```
-this_host_cpu_usage = EventStream(
-                        "Host events", # name
-                        conditions={
-                            "key1": "value1", 
-                            "key2": "value2"
-                            },
-                        )
+this_host_events = EventStream(
+                    "Host events stream", # name
+                    conditions={
+                      "key1": "value1", 
+                      "key2": "value2"
+                      },
+                    )
 ```
 {% endtab %}
 {% endtabs %}
 
 
-Each metric stream has the following details:
+Each events stream has the following details:
 
   - **name** - The name for the stream in StackState.
   - **conditions** - A dictionary of key:value arguments that are used to filter the event values for the stream.
@@ -245,14 +245,13 @@ An event stream health check has the following details. Note that a custom_healt
 * **name** - the name the check will have in StackState.
 * **description** - the description for the check in StackState.
 * **remediation_hint** - the remediation hint to display when the check return a critical health state.
-
 * **contains_key** - for check `contains_key_value` only. The key that should be contained in the event.
 * **contains_value** - for check `contains_key_value` only. The value that should be contained in the event.
 * **found_health_state** - for check `contains_key_value` only. The health state to return when this tag and value is found.
 * **missing_health_state** - for check `contains_key_value` only. The health state to return when the tag/value is not found.
-* **tag_name** - for check `use_tag_as_health` only.
+* **tag_name** - for check `use_tag_as_health` only. The key of the tag that should be used as the health state.
 
-
+For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24)
 
 ```text
 
