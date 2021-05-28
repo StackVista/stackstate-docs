@@ -16,7 +16,7 @@ For better security StackState can be configured to use exactly one of the follo
 
 ## User roles
 
-When a user has been authenticated permissions for that user are usually assigned based of the roles the user has. The documentation for the specific authentication mechanisms also contain examples on how to map the roles or groups from the external systems to the 3 standard roles of StackState:
+When a user has been authenticated permissions for that user are usually assigned based of the roles the user has. The documentation for the specific authentication mechanisms also contain examples on how to map the roles or groups from the external systems to the 4 standard roles of StackState:
 
 * **Guest** - able to see information but make no changes.
 * **Power User** - able to see and change all configuration and install StackPacks.

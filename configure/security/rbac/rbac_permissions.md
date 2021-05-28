@@ -18,7 +18,7 @@ There are two types of permission in StackState:
 
 ## Predefined roles
 
-StackState comes with three predefined roles:
+StackState comes with four predefined roles:
 
 * **Administrators** \(`stackstate-admin`\): Have all permissions and access to all views.
 * **Platform Administrators** \(`stackstate-platform-admin`\): Have platform management permissions.
@@ -73,9 +73,10 @@ stackstate/stackstate
 
 {% tab title="Linux" %}
 To extend the default role names with custom role names:
-  1. Edit the existing keys in the `authorization` section of the configuration file `application_stackstate.conf`.
-  2. Add custom roles using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.  
 
+  1. Edit the existing keys in the `authorization` section of the configuration file `application_stackstate.conf`.
+
+  2. Add custom roles using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.  
     ```javascript
     authorization {
       guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role"]
@@ -86,7 +87,6 @@ To extend the default role names with custom role names:
     ```
 
   3. Restart StackState for changes to take effect.
-
   {% hint style="info" %}
   The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user).
   {% endhint %}
