@@ -217,9 +217,11 @@ Event stream health checks can optionally be mapped to an events stream using th
 
 | Event stream health check | Description |
 |:---|:---|
-| **contains_key_value** | Checks that the last event contains (at the top-level), the specified value for a key. For details see [contains_key_value \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L33). |
-| **use_tag_as_health** | Checks that returns the value of a tag in the event as the health state. For details see [use_tag_as_health \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L69). |
-| **custom_health_check** | This method provides the functionality to send in a custom event health check. For details see [custom_health_check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L95). |
+| **contains_key_value** | Checks that the last event contains (at the top-level), the specified value for a key. |
+| **use_tag_as_health** | Checks that returns the value of a tag in the event as the health state. |
+| **custom_health_check** | This method provides the functionality to send in a custom event health check. |
+
+For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).
 
 {% tabs %}
 {% tab title="Example event stream health check" %}
@@ -300,6 +302,7 @@ The following metric stream health checks are supported out of the box:
 | **failed_ratio** | Calculates the ratio between the last values of two streams (one is the normal metric stream and one is the failed metric stream). This ratio is compared against the deviating or critical value. |
 | **custom_health_check** | Provides the functionality to send in a custom metric health check. |
 
+For details see the [MetricHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L105).
 
 {% tabs %}
 {% tab title="Example metric health check" %}
@@ -315,7 +318,7 @@ cpu_max_average_check = MetricHealthChecks.maximum_average(
 {% endtab %}
 {% endtabs %}
 
-A metric stream health check has the following details. Note that a custom_health_check only requires a **name** and **check_arguments**:
+A metric stream health check has the details listed below. Note that a custom_health_check only requires a **name** and **check_arguments**:
 
 * **name** - the name the health check will have in StackState.
 * **description** - the description for the health check in StackState.
@@ -330,6 +333,8 @@ A metric stream health check has the following details. Note that a custom_healt
   * **numerator_stream_id** - for `maximum_ratio` checks only. The identifier of the numerator stream the check should run on.
   * **success_stream_id** - for `failed_ratio` checks only. The identifier of the success stream this check should run on.
   * **failed_stream_id** - for `failed_ratio` checks only. The identifier of the failures stream this check should run on.
+
+For details see the [MetricHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L105).
   
 #### Service check stream
 
