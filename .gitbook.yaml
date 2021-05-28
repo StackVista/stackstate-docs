@@ -216,3 +216,5 @@ redirects:
   configure/topology/how_to_configure_component_actions: ./develop/developer-guides/custom-functions/component-actions.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
   use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
+
+  develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md

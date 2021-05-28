@@ -199,7 +199,7 @@ self.component("this-host-unique-identifier-integration-b", "Host", {
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the [Agent Check Topology API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Topology API](agent-check-api.md)
 
 ### Send Metrics
 
@@ -217,7 +217,7 @@ self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the [Agent Check Metric API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Metric API](agent-check-api.md)
 
 ### Send Events
 
@@ -237,7 +237,7 @@ self.event({
 })
 ```
 
-Learn more about the [Agent Check Event API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Event API](agent-check-api.md)
 
 ### Send in Stream Definitions and Health Checks
 
@@ -271,7 +271,7 @@ self.component("this-host-unique-identifier", "Host",
 
 We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list in our `this-host` component.
 
-Learn more about the [Agent Check Telemetry API](checks_in_agent_v2.md#sending-streams-and-checks)
+Learn more about the [Agent Check Telemetry API](agent-check-api.md#sending-streams-and-checks)
 
 ### Send Service Checks
 
@@ -291,7 +291,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the [Agent Check Service Check API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Service Check API](agent-check-api.md)
 
 ### Add Python Dependencies
 

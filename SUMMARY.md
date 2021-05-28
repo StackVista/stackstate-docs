@@ -166,7 +166,7 @@
 * [Developer guides](develop/developer-guides/README.md)
   * [Agent checks](develop/developer-guides/agent_check/README.md)
     * [What are Agent checks?](develop/developer-guides/agent_check/agent_checks.md)
-    * [Checks in Agent v2](develop/developer-guides/agent_check/checks_in_agent_v2.md)
+    * [Agent check API](develop/developer-guides/agent_check/agent-check-api.md)
     * [How to develop agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
   * [Custom functions and scripts](develop/developer-guides/custom-functions/README.md)
     * [Synchronous and asynchronous execution](develop/developer-guides/custom-functions/asynchronous-synchronous.md)
