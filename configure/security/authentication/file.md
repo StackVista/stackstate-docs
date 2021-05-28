@@ -15,8 +15,8 @@ To configure file based authentication on Kubernetes, StackState users need to b
 {% tabs %}
 {% tab title="authentication.yaml" %}
 ```yaml
-# Three users, `admin`, `power-user` and `guest`
-# with the three default roles Administrator, Power user and Guest
+# Four users, `admin`, `platformAdmin`, `power-user` and `guest`
+# with the four default roles Administrator, Platform Administrator, Power user and Guest
 
 stackstate:
   authentication:
