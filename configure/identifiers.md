@@ -87,7 +87,7 @@ The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 
 ### Common StackPack
 
-Example URN global scope identifiers from the common StackPack.
+Example URN global scope identifiers from the common StackPack. The objects will be uninstalled when the common StackPack is uninstalled.
 
 * Component type server:
     * `urn:stackpack:common:component-type:server` 
@@ -111,7 +111,7 @@ Example URN global scope identifiers from the StackState Agent.
 
 ### Other StackPacks
 
-Example URN global scope identifiers from various StackPacks.
+Example URN global scope identifiers from various StackPacks. The objects will be uninstalled when the named StackPack is uninstalled.
 
 * Check function AWS Event Run State shared across AWS StackPack instances:
     * `urn:stackpack:aws:shared:check-function:aws-event-run-state`
