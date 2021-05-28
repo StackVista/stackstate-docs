@@ -150,6 +150,8 @@ All telemetry classes and methods can be imported from `stackstate_checks.base`.
 
 In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check (check) `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
 
+{% tabs %}
+{% tab title="Example metric stream with metric health check" %}
 ```text
 this_host_cpu_usage = MetricStream(
                         "Host CPU Usage", 
@@ -186,6 +188,8 @@ self.component(
   checks=[cpu_max_average_check]
   )
 ```
+{% endtab %}
+{% endtabs %}
 
 #### Events stream
 
