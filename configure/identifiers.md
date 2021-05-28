@@ -53,7 +53,7 @@ Global scope identifiers in StackState are a globally unique URN that matches th
 urn:<prefix>:<type-name>:<free-form>
 ```
 
-Note that not all characters are allowed. You can check your identifiers with the following URN regex: 
+Note that not all characters are allowed in a URN identifier. You can check your identifiers with the following URN regex: 
 
 ```
 ^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,\-.:=@;$_!*'%/?#]+$
