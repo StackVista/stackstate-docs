@@ -1,13 +1,13 @@
-# Checks in Agent v2
+# Agent check API
 
-This document covers Agent V2 functionality to create checks with Agent V2 Check API. The following topics are covered:
+## Overview
 
-* How to send checks on topology
+The Agent check API can be used to create checks that run on the [StackState Agent](/stackpacks/integrations/agent.md). This page explains how to work with the check API to write checks that send topology, metrics, events and service status information.
 * Metrics, events, and service checks
 * Overriding base class methods
 * Logging, and error handling in checks. 
 
-Code examples lead to the StackState GitHub repository: [stackstate-agent-integrations \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations).
+Code examples for open source StackState Agent checks can be found on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
 
 ## Agent V2 Check API
 
@@ -47,17 +47,26 @@ The `AgentCheck` class provides the following methods and attributes:
 
 ## Scheduling
 
-Note: If a check is already running, there is no need to schedule another one, as multiple instances of the same check will run concurrently.
+Multiple instances of the same check can run concurrently. If a check is already running, it is not necessary to schedule another one.
 
-## Sending topology
+## Sending data
+
+## Topology
 
 Topology is sent by calling the following methods:
 
 ```text
-self.component(id, type, data):                     # Creates a component within StackState
-self.relation(source_id, target_id, type, data):    # Creates a relation between two components to StackState
-self.start_snapshot():                              # Start a topology snapshot for a specific topology instance source
-self.stop_snapshot():                               # Stop a topology snapshot for a specific topology instance source
+self.component(id, type, data):                     
+# Creates a component within StackState
+
+self.relation(source_id, target_id, type, data):    
+# Creates a relation between two components to StackState
+
+self.start_snapshot():                              
+# Start a topology snapshot for a specific topology instance source
+
+self.stop_snapshot():                               
+# Stop a topology snapshot for a specific topology instance source
 ```
 
 The above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
@@ -66,11 +75,81 @@ An example of usage of `self.component` can be found in the [MySQL topology chec
 
 All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
 
-## Sending Streams and Checks
+## Metrics
+
+Following methods can be called from anywhere in the check:
+
+```text
+self.gauge(name, value, tags, hostname):           # Sample a gauge metric
+self.count(name, value, tags, hostname):           # Sample a raw count metric
+self.rate(name, value, tags, hostname):            # Sample a point, with the rate calculated at the end of the check
+self.increment(name, value, tags, hostname):       # Increment a counter metric
+self.decrement(name, value, tags, hostname):       # Decrement a counter metric
+self.histogram(name, value, tags, hostname):       # Sample a histogram metric
+self.historate(name, value, tags, hostname):       # Sample a histogram based on rate metrics
+self.monotonic_count(name, value, tags, hostname): # Sample an increasing counter metric
+```
+
+Each method accepts following arguments:
+
+* `name` - the name of the metric.
+* `value` - the value for the metric. Defaults to 1 on increment, -1 on decrement.
+* `tags` - a list of tags to associate with this metric. \(optional\)
+* `hostname` - a hostname to associate with this metric. Defaults to the current host. \(optional\)
+
+Check the example for sending metrics [here](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L655).
+
+Note that all submitted metrics are collected and flushed with all the other Agent metrics at the end of `check` function.
+
+## Events
+
+Sending events is handled by calling `self.event(event_dict)` method. This method can be called from anywhere in the check. The `event-dict` parameter is a dictionary with the following keys and data types:
+
+```text
+{
+"timestamp": int,           # the epoch timestamp for the event
+"event_type": string,       # the event name
+"api_key": string,          # the api key for your account
+"msg_title": string,        # the title of the event
+"msg_text": string,         # the text body of the event
+"aggregation_key": string,  # a key to use for aggregating events
+"alert_type": string,       # (optional) one of ('error', 'warning', 'success', 'info'), defaults to 'info'
+"source_type_name": string, # (optional) the source type name
+"host": string,             # (optional) the name of the host
+"tags": list,               # (optional) a list of tags to associate with this event
+"priority": string,         # (optional) specifies the priority of the event ("normal" or "low")
+}
+```
+
+All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
+
+## Status
+
+Reporting status of a service is handled by calling the `service_check` method:
+
+```text
+self.service_check(name, status, tags=None, message="")
+```
+
+The method can accept the following arguments:
+
+* `name` - the name of the service check
+* `status` - a constant describing the service status defined in the `AgentCheck` class:
+  * `AgentCheck.OK` for success status.
+  * `AgentCheck.WARNING` for failure status.
+  * `AgentCheck.CRITICAL` for failure status.
+  * `AgentCheck.UNKNOWN` for indeterminate status.
+* `tags` - a list of tags to associate with the check. \(optional\)
+* `message` - additional information about the current status. \(optional\)
+
+Check the usage in the following [example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L434).
+
+
+## Checks and streams
 
 Streams and Checks can be sent in with a component, these will then be mapped in StackState to give you telemetry streams and health states on your components. The streams and checks described below are supported out of the box.
 
-All of the telemetry classes and methods can be imported from `stackstate_checks.base`.
+All telemetry classes and methods can be imported from `stackstate_checks.base`.
 
 In the example below, a `MetricStream` is created on the `system.cpu.usage` metric with some conditions specific to a component. A `maximum_average` check is then created on this metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list for the component `this-host`.
 
@@ -98,7 +177,7 @@ self.component("urn:example:/host:this_host", "Host",
                checks=[cpu_max_average_check])
 ```
 
-### Events
+#### Events stream
 
 Events can be published for a component using the `EventStream` class. It expects a stream `name` and `conditions` for the telemetry query in StackState. A few checks are supported out of the box supported that can be mapped using the stream identifier.
 
@@ -150,7 +229,7 @@ class EventHealthChecks(object):
         """
 ```
 
-### Metric Stream
+#### Metric Stream
 
 A Metric stream can be added to a component using the `MetricStream` class. It expects a stream `name` , `metricField`, `conditions` and optionally also `unit_of_measure`, `aggregation` and `priority` for the metric telemetry query in StackState. Metric Streams have a few out of the box supported checks which can be mapped using the stream identifier. Some of the Metric checks require multiple streams in which case they are referred to as the `denominator_stream_id` and `numerator_stream_id` used for ratio calculations.
 
@@ -310,7 +389,7 @@ class MetricHealthChecks(object):
         """
 ```
 
-### Service Check
+#### Service Check
 
 A Service Check stream can be added to a component using the `ServiceCheckStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. Service Check Streams has one out of the box supported check which can be mapped using the stream identifier.
 
@@ -337,74 +416,7 @@ class ServiceCheckHealthChecks(object):
         """
 ```
 
-## Sending metrics
 
-Following methods can be called from anywhere in the check:
-
-```text
-self.gauge(name, value, tags, hostname):           # Sample a gauge metric
-self.count(name, value, tags, hostname):           # Sample a raw count metric
-self.rate(name, value, tags, hostname):            # Sample a point, with the rate calculated at the end of the check
-self.increment(name, value, tags, hostname):       # Increment a counter metric
-self.decrement(name, value, tags, hostname):       # Decrement a counter metric
-self.histogram(name, value, tags, hostname):       # Sample a histogram metric
-self.historate(name, value, tags, hostname):       # Sample a histogram based on rate metrics
-self.monotonic_count(name, value, tags, hostname): # Sample an increasing counter metric
-```
-
-Each method accepts following arguments:
-
-* `name` - the name of the metric.
-* `value` - the value for the metric. Defaults to 1 on increment, -1 on decrement.
-* `tags` - a list of tags to associate with this metric. \(optional\)
-* `hostname` - a hostname to associate with this metric. Defaults to the current host. \(optional\)
-
-Check the example for sending metrics [here](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L655).
-
-Note that all submitted metrics are collected and flushed with all the other Agent metrics at the end of `check` function.
-
-## Sending events
-
-Sending events is handled by calling `self.event(event_dict)` method. This method can be called from anywhere in the check. The `event-dict` parameter is a dictionary with the following keys and data types:
-
-```text
-{
-"timestamp": int,           # the epoch timestamp for the event
-"event_type": string,       # the event name
-"api_key": string,          # the api key for your account
-"msg_title": string,        # the title of the event
-"msg_text": string,         # the text body of the event
-"aggregation_key": string,  # a key to use for aggregating events
-"alert_type": string,       # (optional) one of ('error', 'warning', 'success', 'info'), defaults to 'info'
-"source_type_name": string, # (optional) the source type name
-"host": string,             # (optional) the name of the host
-"tags": list,               # (optional) a list of tags to associate with this event
-"priority": string,         # (optional) specifies the priority of the event ("normal" or "low")
-}
-```
-
-All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
-
-## Sending service checks
-
-Reporting status of a service is handled by calling the `service_check` method:
-
-```text
-self.service_check(name, status, tags=None, message="")
-```
-
-The method can accept the following arguments:
-
-* `name` - the name of the service check
-* `status` - a constant describing the service status defined in the `AgentCheck` class:
-  * `AgentCheck.OK` for success status.
-  * `AgentCheck.WARNING` for failure status.
-  * `AgentCheck.CRITICAL` for failure status.
-  * `AgentCheck.UNKNOWN` for indeterminate status.
-* `tags` - a list of tags to associate with the check. \(optional\)
-* `message` - additional information about the current status. \(optional\)
-
-Check the usage in the following [example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L434).
 
 ## Base class methods overriding
 
@@ -434,17 +446,41 @@ The arguments that needs to be received and then passed to `super` are the follo
 
 ## Logging
 
-The `self.log` field is a [Logger](https://docs.python.org/2/library/logging.html) instance that prints to the Agent's main log file. Log level can be set in the Agent config file `stackstate.yaml`
+The `self.log` field is a [Python logger \(python.org\)](https://docs.python.org/2/library/logging.html) instance that prints to the main Agent log file. The log level can be set in the Agent configuration file `stackstate.yaml`.
+
+{% tabs %}
+{% tab title="Example logging" %}
+```buildoutcfg
+def _collect_type(self, key, mapping, the_type):
+    self.log.debug("Collecting data with %s" % key)
+    if key not in mapping:
+        self.log.debug("%s returned None" % key)
+        return None
+    self.log.debug("Collecting done, value %s" % mapping[key])
+    return the_type(mapping[key])
+```
+{% endtab %}
+{% endtabs %}
+
+Example taken from the [StackState MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L731).
 
 ## Error handling
 
-In the event of a wrong configuration, a runtime error or in any case when it can't work correctly, a Check should raise a significant exception. Exceptions are logged and being shown in the Agent status page to help diagnose problems.
-
-The `warning` method is present to log a warning message and display it in the Agent's status page.
+A check should raise a significant exception when it cannot work correctly, for example due to a wrong configuration or runtime error. Exceptions are logged and shown in the Agent status page. The `warning` method can be used to log a warning message and display it on the Agent status page.
 
 ```text
 self.warning("This will be visible in the status page")
 ```
 
-Example of the error handling can be found [here](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L640).
+{% tabs %}
+{% tab title="Example warning message" %}
+```buildoutcfg
+if len(queries) > max_custom_queries:
+    self.warning("Maximum number (%s) of custom queries reached.  Skipping the rest."
+                 % max_custom_queries)
+```
+{% endtab %}
+{% endtabs %}
+
+Example taken from the [StackState MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L640).
 
