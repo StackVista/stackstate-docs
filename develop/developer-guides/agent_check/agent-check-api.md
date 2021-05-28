@@ -144,34 +144,47 @@ Check the usage in the following [example](https://github.com/StackVista/stackst
 
 ### Checks and streams
 
-Streams and Checks can be sent in with a component, these will then be mapped in StackState to give you telemetry streams and health states on your components. The streams and checks described below are supported out of the box.
+Streams and health checks can be sent to StackState together with a topology component. These will then be mapped together in StackState to give you telemetry streams and health states on your components. 
 
 All telemetry classes and methods can be imported from `stackstate_checks.base`.
 
-In the example below, a `MetricStream` is created on the `system.cpu.usage` metric with some conditions specific to a component. A `maximum_average` check is then created on this metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list for the component `this-host`.
+In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
 
 ```text
-this_host_cpu_usage = MetricStream("Host CPU Usage", "system.cpu.usage",
-                                   conditions={"tags.hostname": "this-host", "tags.region": "eu-west-1"},
-                                   unit_of_measure="Percentage",
-                                   aggregation="MEAN",
-                                   priority="HIGH")
+this_host_cpu_usage = MetricStream(
+                        "Host CPU Usage", 
+                        "system.cpu.usage",
+                        conditions={
+                            "tags.hostname": "this-host", 
+                            "tags.region": "eu-west-1"
+                            },
+                        unit_of_measure="Percentage",
+                        aggregation="MEAN",
+                        priority="HIGH"
+                        )
 
-cpu_max_average_check = MetricHealthChecks.maximum_average(this_host_cpu_usage.identifier,
-                                                           "Max CPU Usage (Average)", 75, 90,
-                                                           remediation_hint="There is too much activity on this host, try adding another host")
+cpu_max_average_check = MetricHealthChecks.maximum_average(
+                          this_host_cpu_usage.identifier,
+                          "Max CPU Usage (Average)", 
+                          75, 
+                          90,
+                          remediation_hint="Too much activity on host, try adding another host"
+                          )
 
-self.component("urn:example:/host:this_host", "Host",
-               data={
-                    "name": "this-host",
-                    "domain": "Webshop",
-                    "layer": "Machines",
-                    "identifiers": ["urn:host:/this-host-fqdn"],
-                    "labels": ["host:this_host", "region:eu-west-1"],
-                    "environment": "Production"
-               },
-               streams=[this_host_cpu_usage],
-               checks=[cpu_max_average_check])
+self.component(
+  "urn:example:/host:this_host", 
+  "Host",
+  data={
+      "name": "this-host",
+      "domain": "Webshop",
+      "layer": "Machines",
+      "identifiers": ["urn:host:/this-host-fqdn"],
+      "labels": ["host:this_host", "region:eu-west-1"],
+      "environment": "Production"
+      },
+  streams=[this_host_cpu_usage],
+  checks=[cpu_max_average_check]
+  )
 ```
 
 #### Events stream
