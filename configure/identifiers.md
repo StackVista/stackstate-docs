@@ -33,13 +33,15 @@ self.component("this-host-unique-identifier", "Host", {
 
 The global scope identifiers used by the StackState Agent to identify synchronized topology elements are listed in the table below.
 
-| Resource type | Agent identifier format |
+| Resource type | URN identifier format |
 | :--- | :--- |
 | Host | `urn:host:/[hostName]` | 
 | Process | `urn:process:/[hostName]:[pid]:[createTime]` | 
 | Container | `urn:container:/[hostName]:[containerId]` | 
 | Service discovered with traces | `urn:service:/[serviceName]` |
 | Service instance discovered with traces | `urn:service-instance:/[serviceName]:/[hostName]` |
+
+See the [example URN global scope identifiers from the StackState Agent](#stackstate-agent).
 
 ## Global scope identifiers
 
@@ -79,19 +81,19 @@ The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 
 ## Example identifiers
 
-Common StackPack: 
+### Common StackPack
+
+Example URN global scope identifiers from the common StackPack.
+
 * Component type server:
     * `urn:stackpack:common:component-type:server` 
 * View health state configuration function Minimum Propagated Health States:
     * `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states`
 
-Other StackPacks:
-* Check function AWS Event Run State shared across AWS StackPack instances:
-    * `urn:stackpack:aws:shared:check-function:aws-event-run-state`
-* Component type cmdb_ci_netgear in the ServiceNow StackPack:
-    * `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear`
+### StackState Agent
 
-StackState Agent:
+Example URN global scope identifiers from the StackState Agent.
+
 * Host:
     * `urn:host:/example.org`
 * Process:
@@ -102,4 +104,14 @@ StackState Agent:
     * `urn:service:/prod-db` 
 * Service instance discovered with traces:
     * `urn:service-instance:/prod-db:/main.example.org`
+
+### Other StackPacks
+
+Example URN global scope identifiers from various StackPacks.
+
+* Check function AWS Event Run State shared across AWS StackPack instances:
+    * `urn:stackpack:aws:shared:check-function:aws-event-run-state`
+* Component type cmdb_ci_netgear in the ServiceNow StackPack:
+    * `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear`
+    
 
