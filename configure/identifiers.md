@@ -29,6 +29,18 @@ self.component("this-host-unique-identifier", "Host", {
 })
 ```
 
+## StackState Agent identifiers
+
+The global scope identifiers used by the StackState Agent to identify topology elements:
+
+| Resource type | Format |
+| :--- | :--- |
+| Host | urn:host:/\[hostName\] | 
+| Process | urn:process:/\[hostName\]:\[pid\]:\[createTime\] | 
+| Container | urn:container:/\[hostName\]:\[containerId\] | 
+| Service discovered with traces | urn:service:/\[serviceName\] |
+| Service instance discovered with traces | urn:service-instance:/\[serviceName\]:/\[hostName\] |
+
 ## Global scope identifiers
 
 When StackState receives components with matching global scope identifiers from different external sources, the components and their properties \(labels, streams, checks\) are merged into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
@@ -42,7 +54,7 @@ urn:<prefix>:<type-name>:<free-form>
 Note that not all characters are allowed. You can check your identifiers with the following URN regex: 
 
 ```
-``^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,\-.:=@;$_!*'%/?#]+$
+^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,\-.:=@;$_!*'%/?#]+$
 ```
 
 The format of the `<prefix>` and `<type-name>:<free-form>` segments are described below.
@@ -65,22 +77,24 @@ The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 * `<type-name>` matches the domain object type of the object that the identifier is assigned to \(not case-sensitive\). 
 * `<free-form>` is arbitrary, but must be unique for the type. The format of the free-form segment is decided by the user. It does not need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
 
-## StackState Agent topology identifiers
-
-The identifiers used by the StackState Agent to identify topology elements:
-
-| Resource type | Format |
-| :--- | :--- |
-| Host | urn:host:/\[hostName\] `urn:host:/example.org` | 
-| Process | urn:process:/\[hostName\]:\[pid\]:\[createTime\] `urn:process:/db.infra.company.org:161841:1602158335000` | 
-| Container | urn:container:/\[hostName\]:\[containerId\] `urn:container:/compnode5.k8s.example.org:8b18c68a820904c55b4909d7f5a9a52756d45e866c07c92bf478bcf6cd240901` | 
-| Service discovered with traces | urn:service:/\[serviceName\] `urn:service:/prod-db` |
-| Service instance discovered with traces | urn:service-instance:/\[serviceName\]:/\[hostName\] `urn:service-instance:/prod-db:/main.example.org` |
-
 ## Example identifiers
 
-* `urn:stackpack:common:component-type:server` - for the component type `server` in the Common StackPack.
-* `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states` - for the `ViewHealthStateConfigurationFunction` named Minimum Propagated Health States in the Common StackPack.
-* `urn:stackpack:aws:shared:check-function:aws-event-run-state` - for the `AWS event run state` check function that is shared across AWS StackPack instances
-* `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear` for the `cmdb_ci_netgear` Component Type in the ServiceNow StackPack
+* Component type `server` in the Common StackPack:
+    * `urn:stackpack:common:component-type:server` 
+* The `ViewHealthStateConfigurationFunction` named Minimum Propagated Health States in the Common StackPack:
+    * `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states`
+* The `AWS event run state` check function that is shared across AWS StackPack instances:
+    * `urn:stackpack:aws:shared:check-function:aws-event-run-state`
+* The `cmdb_ci_netgear` Component Type in the ServiceNow StackPack:
+    * `urn:stackpack:servicenow:componenttype:cmdb_ci_netgear`
+* Host from the StackState Agent:
+    * `urn:host:/example.org`
+* Process from the StackState Agent:
+    * `urn:process:/db.infra.company.org:161841:1602158335000`
+* Container from the StackState Agent:
+    * `urn:container:/compnode5.k8s.example.org:8b18c68a820904c55b4909d7f5a9a52756d45e866c07c92bf478bcf6cd240901`
+* Service discovered with traces from the StackState Agent:
+    * `urn:service:/prod-db` 
+* Service instance discovered with traces from the StackState Agent:
+    * `urn:service-instance:/prod-db:/main.example.org`
 
