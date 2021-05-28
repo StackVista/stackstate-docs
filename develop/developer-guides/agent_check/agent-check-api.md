@@ -219,9 +219,9 @@ The following event stream health checks are supported out of the box:
 
 | Event stream health check | Description |
 |:---|:---|
-| contains_key_value | Checks that the last event contains (at the top-level), the specified value for a key. |
-| use_tag_as_health | Checks that returns the value of a tag in the event as the health state. |
-| custom_health_check | This method provides the functionality to send in a custom event health check. |
+| contains_key_value | Checks that the last event contains (at the top-level), the specified value for a key. For details see [contains_key_value \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L33). |
+| use_tag_as_health | Checks that returns the value of a tag in the event as the health state. For details see [use_tag_as_health \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L69). |
+| custom_health_check | This method provides the functionality to send in a custom event health check. For details see [custom_health_check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L95). |
 
 {% tabs %}
 {% tab title="Example event health check" %}
@@ -251,49 +251,7 @@ An event stream health check has the following details. Note that a custom_healt
 * **missing_health_state** - for check `contains_key_value` only. The health state to return when the tag/value is not found.
 * **tag_name** - for check `use_tag_as_health` only. The key of the tag that should be used as the health state.
 
-For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24)
-
-```text
-
-
-class EventHealthChecks(object):
-
-    def contains_key_value(stream_id, name, contains_key, contains_value, found_health_state, missing_health_state, description=None, remediation_hint=None):
-        """
-        Check that the last event contains (at the top-level), the specified value for a key.
-        Returns 'found_health_state' value when the state is contained and 'missing_health_state' when it is not
-        contained.
-        args: `stream_id, name, contains_key, contains_value, found_health_state, missing_health_state, description,
-                remediation_hint`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `contains_key` the key that should be contained in the event
-        `contains_value` the value that should be contained in the event
-        `found_health_state` the health state to return when this tag and value is found
-        `missing_health_state` the health state to return when the tag/value is not found
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        """
-
-    def use_tag_as_health(stream_id, name, tag_name, description=None, remediation_hint=None):
-        """
-        Check that returns the value of a tag in the event as the health state.
-        args: `stream_id, name, tag_name, description, remediation_hint`
-        `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `tag_name` the key of the tag that should be be used as the health state
-        `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
-        """
-
-    def custom_health_check(name, check_arguments):
-        """
-        This method provides the functionality to send in a custom event health check.
-        args: `name, check_arguments`
-        `name` the name this check will have in StackState
-        `check_arguments` the check arguments
-        """
-```
+Fpr details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).
 
 #### Metric stream
 
