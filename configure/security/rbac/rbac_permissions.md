@@ -188,7 +188,7 @@ The permissions listed below are required to carry out specific actions in the c
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **Telemetry streams**<br />Add a new telemetry stream.<br />Edit / delete / add baseline to an existing telemetry stream. <br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
+| **Telemetry streams**<br />Add a new telemetry stream.<br />Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Health checks**<br />Add a new StackState health check.<br />Edit / delete an existing health check.<br />Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Elements**<br />Delete an element or element template.  | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Elements**<br />Edit an element or element template.  | `manage-topology-elements`<br />and<br />`perform-custom-query`<br />and<br />`read-settings` | - | ✅ | ✅ | - |
