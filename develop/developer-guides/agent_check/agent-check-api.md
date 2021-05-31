@@ -467,7 +467,7 @@ class ServiceCheckHealthChecks(object):
 
 ## Override base class methods
 
-Best practice is not to override anything from the base class, except the check method. However, sometimes it might be useful for a check to have its own constructor. If required, the `__init__` constructor can be overridden with **__init__** method.
+Best practice is not to override anything from the base class, except the check method. However, sometimes it might be useful for a check to have its own constructor. If required, the `__init__` constructor can be overridden with **\_\_init\_\_** method.
 
 ```text
 def __init__(self, *args, **kwargs):
