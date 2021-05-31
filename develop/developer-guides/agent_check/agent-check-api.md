@@ -50,25 +50,64 @@ Multiple instances of the same check can run concurrently. If a check is already
 
 ### Topology
 
-Topology is sent by calling the following methods:
+Topology elements can be sent to StackState with the following methods:
 
-```text
-self.component(id, type, data):                     
-# Creates a component within StackState
+* `self.component(id, type, data)` - Create a component within StackState. See [send components](#send-components).
+* `self.relation(source_id, target_id, type, data)` - Create a relation between two components to StackState.  See [send relations](#send-relations).
+* `self.start_snapshot()` - Start a topology snapshot for a specific topology instance source.
+* `self.stop_snapshot()` - Stop a topology snapshot for a specific topology instance source.
 
-self.relation(source_id, target_id, type, data):    
-# Creates a relation between two components to StackState
-
-self.start_snapshot():                              
-# Start a topology snapshot for a specific topology instance source
-
-self.stop_snapshot():                               
-# Stop a topology snapshot for a specific topology instance source
+{% tabs %}
+{% tab title="Example sending a topology component" %}
 ```
+self.component(
+                "nginx3.e5dda204-d1b2-11e6-a015-0242ac110005", # the id
+                "docker", # the type
+                {         # data
+                  "ip_addresses":[
+                     "172.17.0.8"
+                  ],
+                  "labels":["label1", "category:"label2"],
+                  "framework_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-0000",
+                  "docker":{
+                     "image":"nginx",
+                     "network":"BRIDGE",
+                     "port_mappings":[
+                        {
+                           "container_port":31945,
+                           "host_port":31945,
+                           "protocol":"tcp"
+                        }
+                     ],
+                     "privileged":false
+                  },
+                )
+```
+{% endtab %}
+{% endtabs %}
 
-The above methods can be called from anywhere in the check. The `data` field within the `self.component` and `self.relation` function represent a dictionary. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
+#### Send components
 
-An example of usage of `self.component` can be found in the [MySQL topology check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
+Components can be sent to StackState using the `self.component(id, type, data)` method. The method requires the following details:
+
+* **id** - string. A unique ID for this component. This has to be unique for this instance.
+* **type** - string. A named parameter for this type.
+* **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
+
+See the example of creating a component in StackState in the [StackState MySQL check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
+
+All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
+
+#### Send relations
+
+Relations can be sent to StackState using the `self.relation(source_id, target_id, type, data)` method. The method requires the following details:
+
+* **source_id** - string. The source component externalId.
+* **target_id** - string. The target component externalId.
+* **type** - string. The type of relation.
+* **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
+
+See the example of creating a relation in StackState in the [StackState SAP check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/sap/stackstate_checks/sap/sap.py#L133).
 
 All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
 
@@ -87,15 +126,15 @@ Metrics can be sent to StackState with the following methods:
 
 {% tabs %}
 {% tab title="Example sending a gauge metric" %}
-```buildoutcfg
+```
 self.gauge(
-            "test.metric", // the metric name
-            10.0, // value of the metric
+            "test.metric", # the metric name
+            10.0, # value of the metric
             "tags": [ 
               "tag_key1:tag_value1",
               "tag_key2:tag_value2"
               ],
-            "hostname": "localdocker.test"
+            "localdocker.test" # the hostname
             )
 ```
 {% endtab %}
@@ -114,7 +153,7 @@ Check the example to send metrics in the [StackState MySQL check \(github.com\)]
 
 ### Events
 
-Events can be sent to StackState with the `self.event(event_dict)` method. This method can be called from anywhere in the check. 
+Events can be sent to StackState with the `self.event(event_dict)` method. 
 
 {% tabs %}
 {% tab title="Example sending an event" %}
@@ -154,7 +193,7 @@ self.event(
 {% endtab %}
 {% endtabs %}
 
-The `event-dict` is a valid [event JSON dictionary](configure/telemetry/send_telemetry.md#event-json).
+The `event-dict` is a valid [event JSON dictionary](/configure/telemetry/send_telemetry.md#event-json).
 
 All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
 
@@ -184,7 +223,7 @@ Check the usage in the following [example](https://github.com/StackVista/stackst
 
 Streams and health checks can be sent to StackState together with a topology component. These will then be mapped together in StackState to give you telemetry streams and health states on your components. 
 
-All telemetry classes and methods can be imported from `stackstate_checks.base`. The fo.llowing stream types can be added:
+All telemetry classes and methods can be imported from `stackstate_checks.base`. The following stream types can be added:
 
 * [Metric stream](#metric-stream) - a metric stream and associated metric health checks.
 * [Events stream](#events-stream) - a log stream with events and associated event health checks.
@@ -443,7 +482,7 @@ The `self.log` field is a [Python logger \(python.org\)](https://docs.python.org
 
 {% tabs %}
 {% tab title="Example logging" %}
-```buildoutcfg
+```
 def _collect_type(self, key, mapping, the_type):
     self.log.debug("Collecting data with %s" % key)
     if key not in mapping:
@@ -467,7 +506,7 @@ self.warning("This will be visible in the status page")
 
 {% tabs %}
 {% tab title="Example warning message" %}
-```buildoutcfg
+```
 if len(queries) > max_custom_queries:
     self.warning("Max number (%s) of custom queries reached. Skipping the rest."
                  % max_custom_queries)
