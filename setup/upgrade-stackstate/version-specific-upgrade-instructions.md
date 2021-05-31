@@ -35,10 +35,9 @@ stackstate {
   }
 }
 ```
-
   Note, that the platform management and platform content management permissions have been separated into two groups - `adminGroup` and `platformAdminGroup`.
   The users that are in `platformAdminGroup` are limited to only platform management tasks such as - change database retention, clear database, clear caches, view logs etc. Correspondingly, users in `adminGroup` cannot do platform management anymore. If you are using LDAP, Keycloak or OIDC auth provider, you have to configure auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish one user to manage the content and platform, then you still need to configure auth provider with two separate roles/groups and then assign those to a single user in the settings of the auth provider. You should not map the same provider role/group to different stackstate authorization groups.
-
+  
   If you have configured API role overrides for specific services these will need to be updated. In most cases, it will not be necessary to make any changes.
   The helm properties where you can find those overrides are below:
    ```
@@ -88,7 +87,6 @@ stackstate {
   }
 }
 ```
-
   Note, that the platform management and platform content management permissions have been separated into two groups - `adminGroup` and `platformAdminGroup`.
   The users that are in `platformAdminGroup` are limited to only platform management tasks such as - change database retention, clear database, clear caches, view logs etc. Correspondingly, users in `adminGroup` cannot do platform management anymore. If you are using LDAP, Keycloak or OIDC auth provider, you have to configure auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish one user to manage the content and platform, then you still need to configure auth provider with two separate roles/groups and then assign those to a single user in the settings of the auth provider. You should not map the same provider role/group to different stackstate authorization groups.
 
