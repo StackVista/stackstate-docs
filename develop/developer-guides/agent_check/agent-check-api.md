@@ -240,7 +240,7 @@ Check the usage in the following [example](https://github.com/StackVista/stackst
 
 ### Checks and streams
 
-Streams and health checks can be sent to StackState together with a topology component. These will then be mapped together in StackState to give you telemetry streams and health states on your components. 
+Streams and health checks can be sent to StackState together with a topology component. These can then be mapped together in StackState by a StackPack to give you telemetry streams and health states on your components. 
 
 All telemetry classes and methods can be imported from `stackstate_checks.base`. The following stream types can be added:
 
