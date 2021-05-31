@@ -2,141 +2,119 @@
 description: StackState core integration
 ---
 
-# AWS
+# AWS V2
 
 ## Overview
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
 
-![Data flow](../../.gitbook/assets/stackpack-aws.png)
+![Data flow](../../.gitbook/assets/stackpack-aws-v2.svg)
 
-* Three AWS Lambdas collect topology data from AWS and push this to StackState:
-  * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
-  * `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
-  * `stackstate-topo-publisher` publishes [retrieved topology data](aws.md#topology) from a Kinesis stream to StackState.
-* StackState translates incoming data into topology components and relations.
-* The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
-* StackState maps retrieved telemetry \(metrics\) onto the associated AWS components and relations.
+TODO: Describe data flow diagram
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState AWS integration, you need to have:
+To set up the StackState AWS V2 integration, you need to have:
 
-* AWS CLI version 2.0.4 or later installed and configured.
-* An AWS user with the required access to retrieve Cloudwatch metrics:
-  * `cloudwatch:GetMetricData`
-  * `cloudwatch:ListMetrics`
+- [StackState Agent V2](agent.md) installed on a single machine which can connect to AWS and StackState.
+- An AWS account for the agent. The AWS Account ID is needed in the next step, when deploying resources to the target AWS accounts. It is recommended to use a separate shared account outside of the accounts that will be monitored by StackState, but this is not required.
+  - If the agent is running within an AWS environment, The EC2 instance, EKS or ECS task must have an IAM role attached to it.
+  - If the agent is running outside an AWS account, an IAM user must be made available.
+- The IAM user/role must have following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
-    A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
-* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws.md#aws-iam-policies), below.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::*:role/StackStateAwsIntegrationRole"
+    }
+  ]
+}
+```
 
-### Proxy URL
+### Moving from V1 (Legacy) to V2
 
-If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work. You can configure a proxy URL environment variable or JVM system property.
+As V2 has been rebuilt from the ground up, it is not possible to migrate an existing installation automatically to V2. To move, the V1 (Legacy) stackpack must be removed, and the V2 stackpack installed. It is possible to run both stackpacks side by side during the migration process, however this configuration is not supported and will likely not work in the next major StackState release.
 
-* Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
-* Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
+To remove an existing V1 (Legacy) installation, view the removal instructions for
+
+### Deploy AWS Cloudformation stack
+
+The StackState AWS Cloudformation stack is deployed in your AWS account, providing the minimum level of access necessary to collect topology, telemetry and logs. There are three methods of deployment:
+
+- [**Quick deploy**](#quick-deploy) - Quickly deploy all resources to a region in an account with a link.
+- [**Manual deploy**](#manual-deploy) - Download a CloudFormation template to integrate into your own deployment workflow.
+- [**Manual installation**](#manual-installation) - Deploy all resources manually to gain full control over StackState's access.
+
+The automated install uses a CloudFormation template to deploy all necessary resources in a single region, in one account.
+
+The CloudFormation template requires 3 parameters:
+
+- **Main Region:** Choose your primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`
+- **Agent Account ID:** The AWS account that the StackState Agent is deployed in, or has an IAM user in. This will be the account that the IAM role can be assumed from, the perform actions on the target AWS account. Example: `0123456789012`
+- **External ID:** A shared secret that the StackState agent will present when assuming a role. Use the same value across all AWS accounts that the agent is monitoring. Example: `uniquesecret!1`
+
+#### Quick deploy
+
+Click the links in the table below to quickly deploy a template. You must be already logged in to the target AWS account in the web console.
+
+| Region Name   | Template link                                                                                                                                                                                                                                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ireland       | [eu-west-1](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Frankfurt     | [eu-central-1](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)       |
+| N. Virginia   | [us-east-1](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Ohio          | [us-east-2](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| N. California | [us-west-1](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Hong Kong     | [ap-east-1](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Singapore     | [ap-southeast-1](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources) |
+| Sydney        | [ap-southeast-2](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources) |
+
+This list specifies popular AWS regions. For any regions not listed, follow the manual CloudFormation deploy steps below.
+
+#### Manual deploy
+
+For more control over the deployment, download the CloudFormation template below:
+
+https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml
+
+This template can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation Stackset. For more information on how to deploy, check the documentation here.
+
+#### Manual installation
+
+The default CloudFormation template gives read-only least-privilege access to only the resources that StackState requires to function. It is recommended that this template is used as it provides an easy upgrade path for future versions, and reduces the maintenance burden.
+
+The IAM role created by StackState is not able to bypass IAM permissions boundaries or Service Control Policies. These can be used as a way to restrict access while retaining the original CloudFormation template and policy.
+
+If these options do not provide enough flexibility, see section [Required AWS resources](#required-aws-resources) for full information on the resources that StackState requires. If the agent does not have permission to access a certain component, it will skip it.
 
 ### Install
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the AWS V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
 
-* **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
-* **AWS Access Key id** - the access key for the user for retrieving Cloudwatch metrics.
-* **AWS Secret Access Key** - the secret key for the user for retrieving Cloudwatch metrics.
-* **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
+#### Role ARN
 
-### Deploy AWS Cloudformation stacks
+Enter the ARN of the IAM Role that was created as part of [Deploy AWS Cloudformation stack](#deploy-aws-cloudformation-stack), example: `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole`. Replace the `<account id>` with the 12-digit AWS account ID.
 
-The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
+#### External ID
 
-* [Full install](aws.md#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [Minimal install](aws.md#minimal-install) - changes will be picked up only at a configured interval.
+A shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. Example: `uniquesecret!1`
 
-#### Full install
+#### AWS Access Key ID (Optional)
 
-A full installation will install the following CloudFormation Stacks:
+The Access Key ID of the IAM user created in [Prerequisites](#prerequisites). If the StackState instance is running within AWS, this can be left empty and the instance will authenticate using the attached IAM role.
 
-* `stackstate-topo-cron`
-* `stackstate-topo-kinesis`
-* `stackstate-topo-cloudtrail`
-* `stackstate-topo-cwevents`
-* `stackstate-topo-publisher`
+#### AWS Secret Access Key (Optional)
 
-Follow the steps below to complete a full install:
+The Secret Access Key of the IAM user created in [Prerequisites](#prerequisites). If the StackState instance is running within AWS, this can be left empty and the instance will authenticate using the attached IAM role.
 
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
-   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-3. From the command line, run the command:
+### Configure
 
-   ```text
-   ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-   ```
-
-If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
-
-```text
-AWS_PROFILE=profile-name ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-AWS_ROLE_ARN=iam-role-arn ./install.sh {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-```
-
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
-
-* `--profile`
-* `--role-arn`
-* `--session-name`
-* `--external-id`
-
-#### Minimal install
-
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState.
-
-Follow the steps below to complete a minimal install:
-
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
-   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-3. From the command line, run the command:
-
-   ```text
-   ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-   ```
-
-   You can also optionally specify the following:
-
-   * **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
-   * **--topo-cron-role** - a custom AWS IAM role. Note that the role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
-
-If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:
-
-```text
-AWS_PROFILE=profile-name ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-AWS_ROLE_ARN=iam-role-arn ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
-```
-
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
-
-* `--profile`
-* `--role-arn`
-* `--session-name`
-* `--external-id`
-
-### AWS IAM Policies
-
-The following AWS policies can be downloaded during the installation of the AWS StackPack in your StackState instance:
-
-* **Full install** - `StackStateIntegrationPolicyInstall.json`
-* **Minimal install** - `StackStateIntegrationPolicyTopoCronInstall.json` 
-* **Minimal set of policies** - `StackStateIntegrationPolicyTopoCronMinimal.json` S3 bucket and role are provided by user.
-* **Uninstall a full install** - `StackStateIntegrationPolicyUninstall.json`
-* **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
-
-### Timeout
-
-The default read timeout for AWS is set to 30 seconds. You can specify custom read timeout with the `AWS_CLI_READ_TIMEOUT` environment variable.
+TODO: Details of how to configure Agent V2
 
 ## Integration details
 
@@ -150,71 +128,67 @@ The AWS integration does not retrieve any Events data.
 
 Metrics data is pulled at a configured interval directly from AWS by the StackState CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
 
+TODO: are all metrics mapped to components/relations? Also possible to find in a data source?
+
 #### Topology
-
-Each AWS integration retrieves topology data for resources associated with the associated AWS access key.
-
-**Components**
 
 The following AWS service data is available in StackState as components:
 
-|  |  |  |
-| :--- | :--- | :--- |
-| API Gateway Resource | API Gateway Stage | API Getaway Method |
-| AutoScaling Group | CloudFormation Stack | DynamoDB Stream |
-| DynamoDB Table | EC2 Instance | ECS Cluster |
-| ECS Service | ECS Task | Firehose Delivery Stream |
-| Kinesis Stream | Lambda | Lambda Alias |
-| Load Balancer Classic | Load Balancer V2 | RDS Instance |
-| Redshift Cluster | Route53 Domain | Route53 Hosted Zone |
-| S3 bucket | Security Group | SNS Topic |
-| SQS Queue | Subnet | Target Group |
-| Target Group Instance | VPC | VPN Gateway |
+| Service        | Resource                  | Relations                                                                                                      |
+| -------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| API Gateway    | Method                    | SQS Queue, Lambda Function                                                                                     |
+| API Gateway    | Method - HTTP Integration |                                                                                                                |
+| API Gateway    | Resource                  | API Gateway Method                                                                                             |
+| API Gateway    | Rest API                  | API Gateway Stage                                                                                              |
+| API Gateway    | Stage                     | API Gateway Resource                                                                                           |
+| Auto Scaling   | Group                     | EC2 Instance, Classic Load Balancer, Auto Scaling Target Group                                                 |
+| CloudFormation | Stack                     | All Supported Resources\*, Nested CloudFormation Stack                                                         |
+| DynamoDB       | Stream                    |                                                                                                                |
+| DynamoDB       | Table                     | DynamoDB Stream                                                                                                |
+| EC2            | Instance                  | EC2 Security Group                                                                                             |
+| EC2            | Security Group            | EC2 Instance                                                                                                   |
+| EC2            | Subnet                    | EC2 Instance, EC2 VPC                                                                                          |
+| EC2            | VPC                       | EC2 Security Group, EC2 Subnet                                                                                 |
+| EC2            | VPN Gateway               | EC2 VPC                                                                                                        |
+| ECS            | Cluster                   | EC2 Instance, ECS Service, ECS Task, Route53 Hosted Zone                                                       |
+| ECS            | Service                   | Load Balancing Target Group, ECS Task                                                                          |
+| ECS            | Task                      |                                                                                                                |
+| Kinesis        | Data Stream               | Kinesis Firehose Delivery Stream                                                                               |
+| Kinesis        | Firehose Delivery Stream  | S3 Bucket                                                                                                      |
+| Lambda         | Alias                     |                                                                                                                |
+| Lambda         | Function                  | All Supported Resources\* (Input), EC2 VPC, Lambda Alias                                                       |
+| Load Balancing | Application Load Balancer | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance                                     |
+| Load Balancing | Classic Load Balancer     | EC2 Instance, EC2 VPC                                                                                          |
+| Load Balancing | Network Load Balancer     | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance                                     |
+| Load Balancing | Target Group              | EC2 VPC                                                                                                        |
+| Load Balancing | Target Group Instance     | EC2 Instance                                                                                                   |
+| RDS            | Cluster                   | RDS Instance                                                                                                   |
+| RDS            | Instance                  | EC2 VPC, EC2 Security Group                                                                                    |
+| Redshift       | Cluster                   | EC2 VPC                                                                                                        |
+| Route53        | Domain                    |                                                                                                                |
+| Route53        | Hosted Zone               |                                                                                                                |
+| S3             | Bucket                    | Lambda Function                                                                                                |
+| SNS            | Topic                     | All Supported Resources\*                                                                                      |
+| SQS            | Queue                     |                                                                                                                |
+| Step Functions | Activity                  |                                                                                                                |
+| Step Functions | State                     | Step Functions (All), Lambda Function, DynamoDB Table, SQS Queue, SNS Topic, ECS Cluster, Api Gateway Rest API |
+| Step Functions | State Machine             | Step Functions (All),                                                                                          |
 
-**Relations**
-
-The following relations between components are retrieved:
-
-* API Gateway Method → \(Service\) Integration Resource \(varies\)
-* API Gateway Resource → API Gateways Method
-* API Gateway Stage → API Gateway Resource
-* AutoScaling Group → EC2 Instance, Load Balancer Classic
-* CloudFormation Stack → Any Resource \(many supported\), CloudFormation Stack Parent
-* DynamoDB Table → DynamoDB Stream
-* EC2 Instance → Security Group, Subnet, VPC
-* ECS Cluster → EC2 Instance, ECS Task \(when no group service\)
-* ECS Service → ECS Cluster, ECS Task, Route53 Hosted Zone, Target Group
-* ECS Task → ECS Cluster
-* Firehose Delivery Stream → Kinesis Source, S3 Bucket Destination\(s\)
-* Lambda → Event Source Mapping, Security Group, VPC
-* Lambda Alias → VPC
-* Load Balancer Classic → EC2 Instance, VPC
-* Load Balancer V2 → Security Group, Target Group, VPC
-* RDS Cluster → RDS Instance
-* RDS Instance → Security Group, VPC
-* Redshift Cluster → VPC
-* S3 Bucket → Lambda \(notification configuration of the bucket\)
-* Security Group → VPC
-* SNS Topic → Subscription
-* Subnet → VPC
-* Target Group → AutoScaling Group, EC2 Instance, VPC
-* VPN Gateway → VPC
+\* "All Supported Resources" means that relations will be made to any other resource on this list, should the resource type support it.
 
 #### Traces
 
 The AWS integration does not retrieve any Traces data.
 
-### AWS lambdas
+### Required AWS resources
 
-The StackState AWS integration installs the following AWS lambdas:
+![Account components](../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
-| Lambda | Description |
-| :--- | :--- |
-| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to StackState. |
-| `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only. |
-| `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to StackState. Full install only. |
+TODO detail every required resource
 
 ### Costs
+
+TODO: Similar info to below
 
 The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
@@ -222,9 +196,9 @@ The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which
 
 When the AWS integration is enabled, three [views](../../use/views.md) will be created in StackState for each instance of the StackPack.
 
-* **AWS - \[instance\_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
-* **AWS - \[instance\_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
-* **AWS - \[instance\_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
+- **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
+- **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
+- **AWS - \[instance_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
 ### AWS actions in StackState
 
@@ -232,19 +206,21 @@ Components retrieved from AWS will have an additional [action](../../configure/t
 
 For example, in the StackState Topology Perspective:
 
-* Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
-* Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
+- Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
+- Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
 ### Tags and labels
 
 The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
 
-| Tag | Description |
-| :--- | :--- |
-| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
-| `stackstate-environment` | Places the StackState component in the environment specified |
+| Tag                      | Description                                                           |
+| :----------------------- | :-------------------------------------------------------------------- |
+| `stackstate-identifier`  | Adds the specified value as an identifier to the StackState component |
+| `stackstate-environment` | Places the StackState component in the environment specified          |
 
 ## Troubleshooting
+
+TODO: Create a similar troubleshooting guide for AWS V2
 
 Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack).
 
@@ -252,90 +228,56 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
 
-Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
+Once the AWS StackPack has been uninstalled, you will need to delete the StackState AWS Cloudformation stack from the AWS account being monitored. Follow these steps:
 
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
-   * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
-3. From the command line, run the below command to de-provision all resources related to the StackPack instance:
+### Web console
 
-   ```text
-   ./uninstall.sh {{configurationId}}
-   ```
+1. Go to the CloudFormation service - ensure you are in the same region as the desired deployed CloudFormation template.
+2. Select the CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
+3. In the top right of the console, select "Delete".
 
-If you wish to use a specific AWS profile or an IAM role during uninstallation, run either of these two commands:
+If the template is in the main region, the S3 bucket used by StackState is not automatically cleaned up as CloudFormation is not able to delete a bucket with objects in it. Follow these steps:
 
-```text
-AWS_PROFILE=profile-name ./uninstall.sh {{configurationId}}
-AWS_ROLE_ARN=iam-role-arn ./uninstall.sh {{configurationId}}
+1. Go to the S3 service
+2. Select (don't open) the bucket named `stackstate-logs-${AccountId}` where `AccountId` is the 12-digit identifer of your AWS account.
+3. Select "Empty", and follow the steps to delete all objects in the bucket.
+4. Select "Delete", enter the bucket name and continue.
+
+### Command line
+
+These steps assume you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation here.
+
+1. Delete the CloudFormation template: `aws cloudformation delete-stack --stack-name stackstate-resources --region <region>`.
+
+If `--region` is the main region, follow these steps to delete the S3 bucket:
+
+1. Empty the S3 bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
+
+```bash
+aws s3api delete-objects --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
+    --delete "$(aws s3api list-object-versions \
+    --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
+    --output json \
+    --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
 ```
 
-These environment variables have the same names used by the AWS\_CLI utility and will be overridden with options:
+2. Delete the S3 bucket: `aws s3api delete-bucket --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text)`
 
-* `--profile`
-* `--role-arn`
-* `--session-name`
-* `--external-id`
+If you wish to use a specific AWS profile or an IAM role during uninstallation, add these switches to the commands:
+
+`--profile <profile name`
+`--session-name`
+`--external-id`
 
 ## Release notes
 
-**AWS StackPack v5.2.2 \(2021-04-09\)**
+### 1.0.0 (2021-??-??)
 
-* Bugfix: Fixed upgrading AWS StackPack when you upgrade StackState from 4.2.x to 4.3.x
+#### Improvements
 
-**AWS StackPack v5.2.1 \(2021-04-02\)**
-
-* Bugfix: Updated the manual\_trigger.sh to verify if the lambda exists, Trigger and monitor the lambda outcome and if it failed then the error will be displayed with a possible solution to allow the user to fix the problem and 'press any key' to retry
-* Improvement: Update documentation.
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
-* Improvement: StackState min version bumped to 4.3.0
-
-**AWS StackPack v5.1.3 \(2021-03-01\)**
-
-* Features: Added support for security groups
-* Features: Give RDS databases an identifier so that they can be referred to by other StackPacks
-* Bugfix: Fixed the EC2 instances being stranded. Relationship restored to either a Subnet or VPC fallback.
-* Bugfix: Added a delete event for the removal of a ELB Target Group
-* Bugfix: Fixed the ELB, ELB Target Group and ELB Target Group Instance not mapping on cloud watch events
-* Bugfix: Restored the EC2 identifier to the i- _mapping instead of urn:aws/i-_
-* Bugfix: Updated the ELB Instance identifier to map to urn:aws/target-group-instance/i- _instead of i-_
-
-**AWS StackPack v5.1.2 \(2021-02-01\)**
-
-* Bugfix: Merged the `elb_v2_target_group_instance` and `ec2-instance`. The `elb_v2_target_group_instance` will no longer display as a generic aws resource but rather show up as the merged EC2 instance.
-
-**AWS StackPack v5.1.1 \(2021-01-22\)**
-
-* Features: New component type `elb_v2_gateway` and its metrics added. 
-* Features: Metrics added for type `elb_v2_network`.
-* Improvement: Metrics fixed for different target group based on load balancer type 
-* Improvement: Restricted the full, minimal and uninstall policies resources from all \(\*\) to only certain resources. This will restrict the IAM user to only access resources created by StackState or Specified by the user
-* Improvement: Lambda version is send in the payload
-* Improvement: Better error logs
-* Improvement: Cloudformation memory cache improvements
-
-**AWS StackPack v5.1.0 \(2021-01-04\)**
-
-* Features: Added support for EC2 Nitro based metrics EBSWriteBytes and EBSReadBytes.
-* Improvement: Check if `TargetGrouArn` exist in the loadBalancer for relation.
-
-**AWS StackPack v5.0.2 \(2020-11\)**
-
-* Bugfix: Fixed and improved the parsing of custom StackState identifier tags making it more flexible and ignoring case sensitivity.
-* Bugfix: Fixed the merging between ECS service components with Traefik trace service components.
-* Bugfix: Fixed profile selection doesn't work when you run `./install --profile`.
-
-**AWS StackPack v5.0.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer.
-
-**AWS StackPack v5.0.0 \(2020-08-13\)**
-
-* Bugfix: Fixed the upgradation of other StackPacks due to AWS old layers using common. 
+- Full rewrite of the AWS Stackpack to use the StackState Agent V2
+- Improved AWS multi-account support using IAM roles for account access
+- Improved AWS multi-region support - each instance can create topology for multiple regions at once
+- New, refreshed icon set, using the latest AWS branding
 
 ## See also
-
-* [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)
-* [Using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
-
