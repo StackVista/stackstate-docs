@@ -52,8 +52,8 @@ Multiple instances of the same check can run concurrently. If a check is already
 
 Topology elements can be sent to StackState with the following methods:
 
-* `self.component(id, type, data)` - Create a component within StackState. See [send components](#send-components).
-* `self.relation(source_id, target_id, type, data)` - Create a relation between two components to StackState.  See [send relations](#send-relations).
+* `self.component` - Create a component within StackState. See [send components](#send-components).
+* `self.relation` - Create a relation between two components to StackState.  See [send relations](#send-relations).
 * `self.start_snapshot()` - Start a topology snapshot for a specific topology instance source.
 * `self.stop_snapshot()` - Stop a topology snapshot for a specific topology instance source.
 
