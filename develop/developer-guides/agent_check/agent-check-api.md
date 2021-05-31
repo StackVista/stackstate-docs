@@ -33,7 +33,7 @@ instances:
 ```
 
 {% hint style="info" %}
-See the [example Agent check configuuration file \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/data/conf.yaml.example).
+See the [example Agent check configuration file \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/data/conf.yaml.example).
 {% endhint %}
 
 All mapping included in the `instances` section of the Agent Check configuration file is passed to the `check` method using the declared `instance` value.
