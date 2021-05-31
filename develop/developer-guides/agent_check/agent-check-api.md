@@ -100,23 +100,37 @@ Note that all submitted metrics are collected and flushed with all the other Age
 
 ### Events
 
-Sending events is handled by calling `self.event(event_dict)` method. This method can be called from anywhere in the check. The `event-dict` parameter is a dictionary with the following keys and data types:
+Sending events is handled by calling `self.event(event_dict)` method. This method can be called from anywhere in the check. 
 
-```text
-{
-"timestamp": int,           # the epoch timestamp for the event
-"event_type": string,       # the event name
-"api_key": string,          # the api key for your account
-"msg_title": string,        # the title of the event
-"msg_text": string,         # the text body of the event
-"aggregation_key": string,  # a key to use for aggregating events
-"alert_type": string,       # (optional) one of ('error', 'warning', 'success', 'info'), defaults to 'info'
-"source_type_name": string, # (optional) the source type name
-"host": string,             # (optional) the name of the host
-"tags": list,               # (optional) a list of tags to associate with this event
-"priority": string,         # (optional) specifies the priority of the event ("normal" or "low")
-}
 ```
+self.event({
+    "timestamp": int(time.time()),
+    "source_type_name": "my system",
+    "msg_title": "Status update for host: {0}".format(self.host),
+    "msg_text": "An event happened on host: {0}".format(self.host),
+    "host": self.host,
+    "tags": [
+        "status:success",
+        "host:{0}".format(self.host)
+    ]
+})
+```
+
+The `event-dict` is a dictionary with the following keys and data types:
+
+* **timestamp** - int. The epoch timestamp for the event.
+* **event_type** - string. The event name.
+* **api_key** - string. The api key for your account.
+* **msg_title** - string. The title of the event.
+* **msg_text** - string. The text body of the event.
+* **aggregation_key** - string. A key to use for aggregating events.
+* **context** - dict (optional). ???  
+* **alert_type** - string (optional). One of ('error', 'warning', 'success', 'info'), defaults to 'info'.
+* **source_type_name** - string (optional). The source type name.
+* **host** - string (optional). The name of the host.
+* **tags** - list (optional). A list of tags to associate with this event.
+* **priority** - string (optional). The priority of the event ("normal" or "low").
+
 
 All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
 
@@ -146,7 +160,11 @@ Check the usage in the following [example](https://github.com/StackVista/stackst
 
 Streams and health checks can be sent to StackState together with a topology component. These will then be mapped together in StackState to give you telemetry streams and health states on your components. 
 
-All telemetry classes and methods can be imported from `stackstate_checks.base`.
+All telemetry classes and methods can be imported from `stackstate_checks.base`. The fo.llowing stream types can be added:
+
+* [Metric stream](#metric-stream) - a metric stream and associated metric health checks.
+* [Events stream](#events-stream) - a log stream with events and associated event health checks.
+* [Service check stream](#service-check-stream) - ???.
 
 In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check (check) `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
 
