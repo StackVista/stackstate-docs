@@ -40,7 +40,7 @@ The `AgentCheck` class provides the following methods and attributes:
 
 * `self.name` - a name of the check
 * `self.init_config` - `init_config` that corresponds in the check configuration
-* `self.log` - a [logger \(python.org\)](https://docs.python.org/2/library/logging.html)
+* `self.log` - a [Python logger \(python.org\)](https://docs.python.org/2/library/logging.html)
 
 ## Scheduling
 
@@ -249,7 +249,7 @@ All telemetry classes and methods can be imported from `stackstate_checks.base`.
 In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check (check) `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
 
 {% tabs %}
-{% tab title="Example metric stream with metric health check" %}
+{% tab title="Example - metric stream with metric health check" %}
 ```text
 this_host_cpu_usage = MetricStream(
                         "Host CPU Usage", 
@@ -294,7 +294,7 @@ self.component(
 Log streams containing events can be added to a component using the `EventStream` class. 
 
 {% tabs %}
-{% tab title="Example events stream" %}
+{% tab title="Example - events stream" %}
 ```
 this_host_events = EventStream(
                     "Host events stream", # name
@@ -326,7 +326,7 @@ Event stream health checks can optionally be mapped to an events stream using th
 For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).
 
 {% tabs %}
-{% tab title="Example event stream health check" %}
+{% tab title="Example - event stream health check" %}
 ```
 cpu_max_average_check = EventHealthChecks.contains_key_value(
                           "this_host_events",           # stream_id
@@ -360,7 +360,7 @@ For details see the [EventHealthChecks class \(github.com\)](https://github.com/
 Metric streams can be added to a component using the `MetricStream` class. 
 
 {% tabs %}
-{% tab title="Example metric stream" %}
+{% tab title="Example - metric stream" %}
 ```
 this_host_cpu_usage = MetricStream(
                         "Host CPU Usage", # name
@@ -407,7 +407,7 @@ The following metric stream health checks are supported out of the box:
 For details see the [MetricHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L105).
 
 {% tabs %}
-{% tab title="Example metric health check" %}
+{% tab title="Example - metric health check" %}
 ```
 cpu_max_average_check = MetricHealthChecks.maximum_average(
                           this_host_cpu_usage.identifier, # stream_id
@@ -465,20 +465,20 @@ class ServiceCheckHealthChecks(object):
         """
 ```
 
-
-
 ## Override base class methods
 
-By best practice, there is no need to override anything from the base class except the check method. However, sometimes it might be useful for a Check to have its own constructor. When overriding the **init** constructor, depending on the configuration, the Agent might create several different Check instances and the method would be called as many times.
-
-To ease the porting of existing Checks to the new Agent, the **init** method in AgentCheck was implemented with the signature as below
+Best practice is not to override anything from the base class, except the check method. However, sometimes it might be useful for a check to have its own constructor. If required, the `__init__` constructor can be overridden with **__init__** method.
 
 ```text
 def __init__(self, *args, **kwargs):
 ```
 
-When overriding, the following convention must be followed:
+{% hint style="info" %}
+Depending on the configuration used, overriding the `__init__` constructor may cause the Agent to create several check instances, each calling the method.
+{% endhint %}
 
+{% tabs %}
+{% tab title="Example - override the __init__ constructor" %}
 ```text
 from stackstate_checks.checks import AgentCheck
 
@@ -486,19 +486,21 @@ class MyCheck(AgentCheck):
     def __init__(self, name, init_config, instances):
         super(MyCheck, self).__init__(name, init_config, instances)
 ```
+{% endtab %}
+{% endtabs %}
 
-The arguments that needs to be received and then passed to `super` are the following:
+The following arguments are required to pass to `super`:
 
-* `name` - the name of the check.
-* `init_config` - the init\_config section of the configuration files
-* `instances` - a one-element list that contains the instance options from the configuration file.
+* **name** - the name of the check.
+* **init_config** - the `init_config` section of the configuration files.
+* **instances** - a one-element list that contains the instance options from the configuration file.
 
 ## Logging
 
 The `self.log` field is a [Python logger \(python.org\)](https://docs.python.org/2/library/logging.html) instance that prints to the main Agent log file. The log level can be set in the Agent configuration file `stackstate.yaml`.
 
 {% tabs %}
-{% tab title="Example logging" %}
+{% tab title="Example - logging" %}
 ```
 def _collect_type(self, key, mapping, the_type):
     self.log.debug("Collecting data with %s" % key)
@@ -522,7 +524,7 @@ self.warning("This will be visible in the status page")
 ```
 
 {% tabs %}
-{% tab title="Example warning message" %}
+{% tab title="Example - warning message" %}
 ```
 if len(queries) > max_custom_queries:
     self.warning("Max number (%s) of custom queries reached. Skipping the rest."
