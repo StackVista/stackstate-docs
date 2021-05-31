@@ -74,63 +74,87 @@ All submitted topologies are collected by StackState and flushed together with a
 
 ### Metrics
 
-Following methods can be called from anywhere in the check:
+Metrics can be sent to StackState with the following methods:
 
-```text
-self.gauge(name, value, tags, hostname):           # Sample a gauge metric
-self.count(name, value, tags, hostname):           # Sample a raw count metric
-self.rate(name, value, tags, hostname):            # Sample a point, with the rate calculated at the end of the check
-self.increment(name, value, tags, hostname):       # Increment a counter metric
-self.decrement(name, value, tags, hostname):       # Decrement a counter metric
-self.histogram(name, value, tags, hostname):       # Sample a histogram metric
-self.historate(name, value, tags, hostname):       # Sample a histogram based on rate metrics
-self.monotonic_count(name, value, tags, hostname): # Sample an increasing counter metric
+* `self.gauge` - Sample a gauge metric.
+* `self.count` - Sample a raw count metric.
+* `self.rate` - Sample a point, with the rate calculated at the end of the check.
+* `self.increment` - Increment a counter metric.
+* `self.decrement` - Decrement a counter metric.
+* `self.histogram` - Sample a histogram metric.
+* `self.historate` - Sample a histogram based on rate metrics.
+* `self.monotonic_count` - Sample an increasing counter metric.
+
+{% tabs %}
+{% tab title="Example sending a gauge metric" %}
+```buildoutcfg
+self.gauge(
+            "test.metric", // the metric name
+            10.0, // value of the metric
+            "tags": [ 
+              "tag_key1:tag_value1",
+              "tag_key2:tag_value2"
+              ],
+            "hostname": "localdocker.test"
+            )
 ```
+{% endtab %}
+{% endtabs %}
 
-Each method accepts following arguments:
+Each method accepts the following metric details:
 
-* `name` - the name of the metric.
-* `value` - the value for the metric. Defaults to 1 on increment, -1 on decrement.
-* `tags` - a list of tags to associate with this metric. \(optional\)
-* `hostname` - a hostname to associate with this metric. Defaults to the current host. \(optional\)
+* **name** - the name of the metric.
+* **value** - the value for the metric. Defaults to 1 on increment, -1 on decrement.
+* **tags** - optional. A list of tags to associate with this metric.
+* **hostname** - optional. A hostname to associate with this metric. Defaults to the current host.
 
-Check the example for sending metrics [here](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L655).
+All submitted metrics are collected and flushed with all the other Agent metrics at the end of `check` function.
 
-Note that all submitted metrics are collected and flushed with all the other Agent metrics at the end of `check` function.
+Check the example to send metrics in the [StackState MySQL check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L655).
 
 ### Events
 
-Sending events is handled by calling `self.event(event_dict)` method. This method can be called from anywhere in the check. 
+Events can be sent to StackState with the `self.event(event_dict)` method. This method can be called from anywhere in the check. 
 
+{% tabs %}
+{% tab title="Example sending an event" %}
 ```
-self.event({
-    "timestamp": int(time.time()),
-    "source_type_name": "my system",
-    "msg_title": "Status update for host: {0}".format(self.host),
-    "msg_text": "An event happened on host: {0}".format(self.host),
-    "host": self.host,
-    "tags": [
-        "status:success",
-        "host:{0}".format(self.host)
-    ]
-})
+self.event(  
+            {
+              "context": {
+                "category": "Changes",
+                "data": { 
+                  "data_key1":"data_value1",
+                  "data_key2":"data_value2"
+                },
+                "element_identifiers": [
+                  "element_identifier1",
+                  "element_identifier2"
+                ],
+                "source": "source_system",
+                "source_links": [
+                  {
+                    "title": "link_title",
+                    "url": "link_url"
+                  }
+                ]
+              },
+              "event_type": "event_typeEvent",
+              "msg_title": "event_title",
+              "msg_text": "event_text",
+              "source_type_name": "source_event_type",
+              "tags": [
+                "tag_key1:tag_value1",
+                "tag_key2:tag_value2",
+              ],
+              "timestamp": 1607432944
+            }
+          )
 ```
+{% endtab %}
+{% endtabs %}
 
-The `event-dict` is a dictionary with the following keys and data types:
-
-* **timestamp** - int. The epoch timestamp for the event.
-* **event_type** - string. The event name.
-* **api_key** - string. The api key for your account.
-* **msg_title** - string. The title of the event.
-* **msg_text** - string. The text body of the event.
-* **aggregation_key** - string. A key to use for aggregating events.
-* **context** - dict (optional). ???  
-* **alert_type** - string (optional). One of ('error', 'warning', 'success', 'info'), defaults to 'info'.
-* **source_type_name** - string (optional). The source type name.
-* **host** - string (optional). The name of the host.
-* **tags** - list (optional). A list of tags to associate with this event.
-* **priority** - string (optional). The priority of the event ("normal" or "low").
-
+The `event-dict` is a valid [event JSON dictionary](configure/telemetry/send_telemetry.md#event-json).
 
 All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
 
