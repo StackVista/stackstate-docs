@@ -52,13 +52,17 @@ Multiple instances of the same check can run concurrently. If a check is already
 
 Topology elements can be sent to StackState with the following methods:
 
-* `self.component` - Create a component within StackState. See [send components](#send-components).
-* `self.relation` - Create a relation between two components to StackState.  See [send relations](#send-relations).
+* `self.component` - Create a component in StackState. See [send components](#send-components).
+* `self.relation` - Create a relation between two components in StackState.  See [send relations](#send-relations).
 * `self.start_snapshot()` - Start a topology snapshot for a specific topology instance source.
 * `self.stop_snapshot()` - Stop a topology snapshot for a specific topology instance source.
 
+#### Send components
+
+Components can be sent to StackState using the `self.component(id, type, data)` method. 
+
 {% tabs %}
-{% tab title="Example sending a topology component" %}
+{% tab title="Example - send a component" %}
 ```
 self.component(
                 "nginx3.e5dda204-d1b2-11e6-a015-0242ac110005", # the id
@@ -86,9 +90,7 @@ self.component(
 {% endtab %}
 {% endtabs %}
 
-#### Send components
-
-Components can be sent to StackState using the `self.component(id, type, data)` method. The method requires the following details:
+The method requires the following details:
 
 * **id** - string. A unique ID for this component. This has to be unique for this instance.
 * **type** - string. A named parameter for this type.
@@ -100,7 +102,22 @@ All submitted topologies are collected by StackState and flushed together with a
 
 #### Send relations
 
-Relations can be sent to StackState using the `self.relation(source_id, target_id, type, data)` method. The method requires the following details:
+Relations can be sent to StackState using the `self.relation(source_id, target_id, type, data)` method. 
+
+{% tabs %}
+{% tab title="Example - send a relation" %}
+```
+self.relation(
+               "nginx3.e5dda204-d1b2-11e6-a015-0242ac110005",   # source ID
+               "nginx5.0df4bc1e-c695-4793-8aae-a30eba54c9d6",   # target ID
+               "uses_service",  # type
+               {}   # data
+                )
+```
+{% endtab %}
+{% endtabs %}
+
+The method requires the following details:
 
 * **source_id** - string. The source component externalId.
 * **target_id** - string. The target component externalId.
@@ -125,7 +142,7 @@ Metrics can be sent to StackState with the following methods:
 * `self.monotonic_count` - Sample an increasing counter metric.
 
 {% tabs %}
-{% tab title="Example sending a gauge metric" %}
+{% tab title="Example - send a gauge metric" %}
 ```
 self.gauge(
             "test.metric", # the metric name
@@ -156,7 +173,7 @@ Check the example to send metrics in the [StackState MySQL check \(github.com\)]
 Events can be sent to StackState with the `self.event(event_dict)` method. 
 
 {% tabs %}
-{% tab title="Example sending an event" %}
+{% tab title="Example - send an event" %}
 ```
 self.event(  
             {
