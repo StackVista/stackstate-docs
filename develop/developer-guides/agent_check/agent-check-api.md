@@ -15,13 +15,13 @@ from stackstate_checks.checks import AgentCheck
 
 class MyCheck(AgentCheck):
     def check(self, instance):
-        # Collect metrics, topologies, emit events, submit service checks
+        # Collect metrics and topologies, emit events, submit service checks
 
     def get_instance_key(self, instance):
         # Provide an identifier (TopologyInstance)
 ```
 
-The Agent creates an object of type `MyCheck` for each element contained in the `instances` sequence within the corresponding config file:
+The Agent creates an object of type `MyCheck` for each element contained in the `instances` sequence of the corresponding Agent Check configuration file:
 
 ```text
 instances:
@@ -32,9 +32,11 @@ instances:
     port: 6379
 ```
 
-Here is an example of the [config file \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/data/conf.yaml.example).
+{% hint style="info" %}
+See the [example Agent check configuuration file \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/data/conf.yaml.example).
+{% endhint %}
 
-Any mapping provided in `instances` is passed to the `check` method using the declared `instance` value.
+All mapping included in the `instances` section of the Agent Check configuration file is passed to the `check` method using the declared `instance` value.
 
 The `AgentCheck` class provides the following methods and attributes:
 

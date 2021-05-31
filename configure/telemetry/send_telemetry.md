@@ -8,7 +8,7 @@ There are several ways to send telemetry to StackState. A large number of [integ
 
 ## Send telemetry over HTTP
 
-The StackState receiver API is responsible for receiving both telemetry and topology. By default, the receiver API is hosted at:
+The StackState Receiver API is responsible for receiving both telemetry and topology. By default, the Receiver API is hosted at:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
