@@ -18,7 +18,7 @@ Incoming traffic is only allowed via TLS encrypted connections, the TLS connecti
 
 Each customer runs in his own Kubernetes namespace, Kubernetes networking (Calico) is used to restrict access to all the StackState components in such a way that they only accept connections from the namespace they are in. Direct network traffic between namespaces is not possible. All network traffic into and out of the namespace need to go via the load balancer and ingress controller.
 
-![Diagram](/.gitbook/assets/diagram.svg) 
+![SaaS networking](/.gitbook/assets/data-protection-saas-networking.svg) 
 
 ## Authentication
 Authentication is configured via OIDC with Keycloak as the authentication provider. It stores user passwords + salt as a PBKDF2 has with 20000 iterations.
