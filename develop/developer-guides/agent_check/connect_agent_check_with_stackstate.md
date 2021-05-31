@@ -4,7 +4,7 @@
 
 The recommended way to connect your Agent check and visualize the data within StackState is to install the **Custom Synchronization** StackPack. Note that the Custom Synchronization StackPack only supports a single instance, to synchronize multiple instances you will need to create a multi-tenant StackPack.
 
-### Install
+## Install
 
 Install the Custom Synchronization StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
     * **Instance type \(source identifier\)** - `TopologyInstance`
@@ -25,7 +25,7 @@ In the example Agent check below StackState, the Custom Synchronization StackPac
 
 When the StackPack has been installed, the Custom Synchronization should become enabled and you should start to see the topology coming in for your Agent Check.
 
-### See also
+## See also
 
 * [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
 * [How to develop Agent checks](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md)

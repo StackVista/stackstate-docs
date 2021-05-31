@@ -529,3 +529,8 @@ if len(queries) > max_custom_queries:
 
 Example taken from the [StackState MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L640).
 
+## See also
+
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](/develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
+* [How to develop Agent checks](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
+* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)

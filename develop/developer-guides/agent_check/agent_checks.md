@@ -25,10 +25,10 @@ When building an agent check you have to consider how you want your agent check 
 
 In some cases you may even want to build two agent checks, one for each types of deployment. The StackState Kubernetes integration is a good example of this; it gather both low-level telemetry, process information and network connections through an agent check build for deployment model No. 1 and gathers high-level telemetry and service-level topology information via an agent check build for deployment model No. 2.
 
-## How to create an agent check
+## See also
 
-Refer to:
-
-* [How to create checks with agent v2](how_to_develop_agent_checks.md) 
-* [Agent v2 check reference](agent-check-api.md)
+* [How to develop Agent checks](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
+* [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](/develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
+* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)
 

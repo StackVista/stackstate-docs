@@ -359,3 +359,8 @@ For Windows:
 
 If your issue continues, please reach out to Support with the help page that lists the paths it installs.
 
+## See also
+
+* [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](/develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
+* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)
