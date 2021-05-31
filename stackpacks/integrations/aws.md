@@ -10,7 +10,11 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](../../.gitbook/assets/stackpack-aws-v2.svg)
 
-TODO: Describe data flow diagram
+- The StackState Agent V2 collects all API responses from the target AWS account.
+- All APIs are queried once an hour to gain a full point-in-time snapshot of resources.
+- Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources, allowing topology updates in real time.
+- Logs are fetched from Cloudwatch and a central S3 bucket once a minute and displayed with the components.
+- Metrics are fetched on-demand, through a separate plugin inside StackState.
 
 ## Setup
 
@@ -18,7 +22,7 @@ TODO: Describe data flow diagram
 
 To set up the StackState AWS V2 integration, you need to have:
 
-- [StackState Agent V2](agent.md) installed on a single machine which can connect to AWS and StackState.
+- [StackState Agent V2](agent.md) installed on a machine which can connect to AWS and StackState.
 - An AWS account for the agent. The AWS Account ID is needed in the next step, when deploying resources to the target AWS accounts. It is recommended to use a separate shared account outside of the accounts that will be monitored by StackState, but this is not required.
   - If the agent is running within an AWS environment, The EC2 instance, EKS or ECS task must have an IAM role attached to it.
   - If the agent is running outside an AWS account, an IAM user must be made available.
@@ -41,7 +45,7 @@ To set up the StackState AWS V2 integration, you need to have:
 
 As V2 has been rebuilt from the ground up, it is not possible to migrate an existing installation automatically to V2. To move, the V1 (Legacy) stackpack must be removed, and the V2 stackpack installed. It is possible to run both stackpacks side by side during the migration process, however this configuration is not supported and will likely not work in the next major StackState release.
 
-To remove an existing V1 (Legacy) installation, view the removal instructions for
+To remove an existing V1 (Legacy) installation, [view the removal instructions for the stackpack here](/stackpacks/integrations/aws-legacy.md#uninstall).
 
 ### Deploy AWS Cloudformation stack
 
@@ -112,9 +116,44 @@ The Access Key ID of the IAM user created in [Prerequisites](#prerequisites). If
 
 The Secret Access Key of the IAM user created in [Prerequisites](#prerequisites). If the StackState instance is running within AWS, this can be left empty and the instance will authenticate using the attached IAM role.
 
-### Configure
+### Configure Agent V2
 
-TODO: Details of how to configure Agent V2
+To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
+
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
+
+    ```yaml
+    # values in init_config are used globally; these credentials will be used for all AWS accounts
+    init_config:
+      aws_access_key_id: # The AWS Access Key ID. Optional if the agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+      aws_secret_access_key: # The AWS Secret Access Key. Optional if the agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+      external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
+
+    instances:
+      # Substitute 123456789012 with the Account ID of the target AWS account to read
+      - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+        regions: # The agent will only attempt to find resources in regions specified below
+          - 'global' # global is a special "region" for global resources such as Route53
+          - 'eu-west-1'
+        min_collection_interval: 60
+      # Multiple AWS accounts can be specified; make sure a stackpack instance is installed for each
+      - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+        regions: 
+          - 'global'
+          - 'eu-west-1'
+        min_collection_interval: 60
+    ```
+
+2. [Restart the StackState Agent](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+
+### Status
+
+To check the status of the AWS integration, run the status subcommand and look for aws_topology under `Running Checks`:
+
+```bash
+sudo stackstate-agent status
+```
 
 ## Integration details
 
@@ -172,7 +211,7 @@ The following AWS service data is available in StackState as components:
 | SQS            | Queue                     |                                                                                                                |
 | Step Functions | Activity                  |                                                                                                                |
 | Step Functions | State                     | Step Functions (All), Lambda Function, DynamoDB Table, SQS Queue, SNS Topic, ECS Cluster, Api Gateway Rest API |
-| Step Functions | State Machine             | Step Functions (All),                                                                                          |
+| Step Functions | State Machine             | Step Functions (All)                                                                                           |
 
 \* "All Supported Resources" means that relations will be made to any other resource on this list, should the resource type support it.
 
@@ -248,26 +287,19 @@ If the template is in the main region, the S3 bucket used by StackState is not a
 These steps assume you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation here.
 
 1. Delete the CloudFormation template: `aws cloudformation delete-stack --stack-name stackstate-resources --region <region>`.
+2. If `--region` is the main region, follow these steps to delete the S3 bucket. Empty the S3 bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
 
-If `--region` is the main region, follow these steps to delete the S3 bucket:
+    ```bash
+    aws s3api delete-objects --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
+        --delete "$(aws s3api list-object-versions \
+        --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
+        --output json \
+        --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
+    ```
 
-1. Empty the S3 bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
+3. Delete the S3 bucket: `aws s3api delete-bucket --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text)`
 
-```bash
-aws s3api delete-objects --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
-    --delete "$(aws s3api list-object-versions \
-    --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text) \
-    --output json \
-    --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
-```
-
-2. Delete the S3 bucket: `aws s3api delete-bucket --bucket stackstate-logs-$(aws sts get-caller-identity --query Account --output text)`
-
-If you wish to use a specific AWS profile or an IAM role during uninstallation, add these switches to the commands:
-
-`--profile <profile name`
-`--session-name`
-`--external-id`
+If you wish to use a specific AWS profile or an IAM role during uninstallation, [check the AWS docs](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html) for all options.
 
 ## Release notes
 
