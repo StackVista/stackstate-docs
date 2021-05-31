@@ -10,9 +10,10 @@ Kafka is not configured with authentication but instead relies on limited access
  
 Data flowing in/out of Kafka is not encrypted in any form, neither is data flowing between Kafka nodes. StackState relies on limited network accessibility to prevent unauthorized access to the data.
 
-Notes:
+{% hint style="info" %}
 * Kafka does not support encrypting data at rest, though there are plans to implement full end-to-end encryption: https://cwiki.apache.org/confluence/display/KAFKA/KIP-317%3A+Add+end-to-end+data+encryption+functionality+to+Apache+Kafka
 * Kafka does support TLS encryption and authentication for both data flowing in/out of Kafka and for communication between its nodes.
+{% endhint %}
 
 ## StackGraph
 StackGraph stores both topology data and configuration. It uses HBase as the underlying database which uses HDFS to store its data. HDFS finally uses actual disks provided to Stackstate.
@@ -21,11 +22,12 @@ The stored data is not encrypted on any level, instead it relies on the underlyi
 
 Data flowing in/out of StackGraph (HBase) is not encrypted in any form, neither is the data internally between the HBase and HDFS nodes. Access to the api’s of HBase is not secured with authentication, instead StackState relies on the network not being accessible to unauthorized users and applications. For HDFS authentication is enabled and required.
 
-Notes:
+{% hint style="info" %}
 * HBase does have support for authentication and authorization
 * HDFS authentication can be improved by using Kerberos instead of username based only
 * HDFS supports end-to-end encryption
 * HBase supports encryption of data in-flight data as well, though it requires usage of Kerberos for authentication:[https://hbase.apache.org/book.html#_client_side_configuration_for_secure_operation](https://hbase.apache.org/book.html#_client_side_configuration_for_secure_operation)
+{% endhint %}
 
 ## Elasticsearch
 Elasticsearch stores telemetry data (i.e. metrics and events). The stored data is not encrypted by Elasticsearch nor before storing it in Elasticsearch, instead StackState relies on encryption of the underlying storage system for securing the data.
@@ -34,9 +36,10 @@ Elasticsearch is not configured with authentication but instead relies on limite
 
 Data flowing in/out of Elasticsearch is not encrypted in any form, neither is data flowing between Elasticsearch nodes. StackState relies on limited network accessibility to prevent unauthorized access to the data.
 
-Notes:
+{% hint style="info" %}
 * Elasticsearch does not support encryption for stored data
 * Elasticsearch does have support for authentication and TLS encryption of data flowing in/out of Elasticsearch and between its nodes.
+{% endhint %}
 
 ## Agent/Receiver
 The receiver is the component that accepts data coming from the StackState agent or any other data source that is pushing data to StackState. Authentication of the requests to the receiver is done via a so-called apiKey which acts as an authentication token. 
