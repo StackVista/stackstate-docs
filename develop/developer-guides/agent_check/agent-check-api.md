@@ -467,18 +467,12 @@ class ServiceCheckHealthChecks(object):
 
 ## Override base class methods
 
-Best practice is not to override anything from the base class, except the check method. However, sometimes it might be useful for a check to have its own constructor. If required, the `__init__` constructor can be overridden with **\_\_init\_\_** method.
-
-```text
-def __init__(self, *args, **kwargs):
-```
-
 {% hint style="info" %}
 Depending on the configuration used, overriding the `__init__` constructor may cause the Agent to create several check instances, each calling the method.
 {% endhint %}
 
-{% tabs %}
-{% tab title="Example - override the __init__ constructor" %}
+The best practice recommendation is not to override anything from the base class, except the check method. However, sometimes it might be useful for a check to have its own constructor. In such cases, the `__init__` constructor can be overridden with **\_\_init\_\_** method using the following convention:
+
 ```text
 from stackstate_checks.checks import AgentCheck
 
@@ -486,8 +480,6 @@ class MyCheck(AgentCheck):
     def __init__(self, name, init_config, instances):
         super(MyCheck, self).__init__(name, init_config, instances)
 ```
-{% endtab %}
-{% endtabs %}
 
 The following arguments are required to pass to `super`:
 
