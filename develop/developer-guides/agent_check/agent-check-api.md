@@ -67,27 +67,17 @@ Components can be sent to StackState using the `self.component(id, type, data)` 
 {% tab title="Example - send a component" %}
 ```
 self.component(
-                "nginx3.e5dda204-d1b2-11e6-a015-0242ac110005", # the id
-                "docker", # the type
-                {         # data
-                  "ip_addresses":[
-                     "172.17.0.8"
-                  ],
-                  "labels":["label1", "category:"label2"],
-                  "framework_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-0000",
-                  "docker":{
-                     "image":"nginx",
-                     "network":"BRIDGE",
-                     "port_mappings":[
-                        {
-                           "container_port":31945,
-                           "host_port":31945,
-                           "protocol":"tcp"
-                        }
-                     ],
-                     "privileged":false
-                  },
-                )
+  "urn:example:/host:this_host", # the ID
+  "Host", # the type
+  data={
+      "name": "this-host",
+      "domain": "Webshop",
+      "layer": "Machines",
+      "identifiers": ["urn:host:/this-host-fqdn"],
+      "labels": ["host:this_host", "region:eu-west-1"],
+      "environment": "Production"
+      },
+  )
 ```
 {% endtab %}
 {% endtabs %}
