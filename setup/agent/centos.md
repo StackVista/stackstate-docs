@@ -24,10 +24,7 @@ The StackState Agent is installed using an install script.
 * [online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed, the install.sh script can be run using curl or wget and the Agent installer package will be downloaded automatically. 
 * [offline install](#offline-install) - If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
 
-The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
-
-* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
-* [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
 
 #### Online install
 
@@ -55,7 +52,7 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
 
 1. On your host, download the installation script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh).
-2. On your host, download the Agent installer package from [???]().
+2. Download the Agent installer package from [???]() and copy this to the host where it will be installed.
 3. use the command below to set the required environment variables and run the installer script:
     ```text
     STS_API_KEY="{{config.apiKey}}" \
@@ -66,10 +63,23 @@ By default, the installer will try to configure the package update channel and u
 
 ### Configure
 
-The Agent can be configured to run checks that integrate with external systems. 
+#### Configure the Agent
 
-* StackState Agent configuration: `/etc/stackstate-agent/stackstate.yaml`
-* Integration configurations: `/etc/stackstate-agent/conf.d/`
+The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`.
+
+{% hint style="info" %}
+[Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
+{% endhint %}
+
+#### Configure integrations
+
+The Agent can be configured to run checks that integrate with external systems. Configuration for integrations run through the StackState Agent can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the enabled Agent checks. 
+
+Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+
+% hint style="info" %}
+[Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
+{% endhint %}
 
 ### Upgrade
 
@@ -78,8 +88,9 @@ The Agent can be configured to run checks that integrate with external systems.
 
 {% hint style="info" %}
 * Commands require elevated privileges.
-* Restarting the StackState Agent will reload the configuration files.
 {% endhint %}
+
+### Start, stop or restart the Agent
 
 To manually start, stop or restart the StackState Agent:
 
