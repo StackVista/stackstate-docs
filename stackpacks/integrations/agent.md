@@ -34,6 +34,19 @@ To upgrade the StackState Agent, see the [StackState Agent documentation](/setup
 
 ### Data retrieved
 
+When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+
+Fedora:
+- Hosts, processes and containers
+- Network connections between processes and containers including network traffic telemetry
+- Telemetry for hosts, processes and containers 
+
+Docker:
+- Hosts, processes, and containers
+- Network connections between processes, containers and services including network traffic telemetry
+- Telemetry for hosts, processes, and containers
+- Trace agent support
+
 ### Rest API endpoints
 
 ### Agent views in StackState
