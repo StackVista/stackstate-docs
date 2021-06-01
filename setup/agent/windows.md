@@ -27,8 +27,8 @@ The StackState Agent is installed using a [PowerShell](https://docs.microsoft.co
 
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
-* [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 #### Online install
 
