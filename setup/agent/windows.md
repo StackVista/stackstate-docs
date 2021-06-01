@@ -25,6 +25,11 @@ The StackState Agent is installed using a [PowerShell](https://docs.microsoft.co
 * [online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed, the `install.ps1` script can be run using `iwr` and the Agent installer package will be downloaded automatically. 
 * [offline install](#offline-install) - If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
 
+The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
+
+* [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+
 #### Online install
 
 
