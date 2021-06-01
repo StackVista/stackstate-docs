@@ -126,7 +126,7 @@ The method requires the following details:
 * **type** - string. The type of relation.
 * **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
 
-See the example of creating a relation in StackState in the [StackState SAP check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/sap/stackstate_checks/sap/sap.py#L133).
+See the example of creating a relation in StackState in the [StackState SAP check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/sap/stackstate_checks/sap/sap.py#L124).
 
 All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
 
