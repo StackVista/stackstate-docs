@@ -2,10 +2,15 @@
 
 ## Overview
 
-The StackState Debian Agent provides the following functionality:
-- Reporting hosts, processes and containers
-- Reporting all network connections between processes / containers including network traffic telemetry
-- Telemetry for hosts, processes and containers
+The StackState Agent can be installed on Windows. When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+
+- Hosts, processes and containers
+- Network connections between processes and containers including network traffic telemetry
+- Telemetry for hosts, processes and containers 
+
+The Agent can also be configured to run checks that [integrate StackState with external systems](/stackpacks/integrations/). 
+
+Data from the Agent is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
 ## Setup
 
@@ -27,7 +32,7 @@ The StackState Agent is installed using a [PowerShell](https://docs.microsoft.co
 
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
 * [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 #### Online install
@@ -119,5 +124,22 @@ Logs for the subsystems are in the following files:
 * `C:\ProgramData\StackState\logs\agent.log`
 * `C:\ProgramData\StackState\logs\process-agent.log`
 
+## Troubleshooting
 
-Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+
+## Uninstall
+
+## Open source
+
+The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+
+## Release notes
+
+
+## See also
+
+* [StackState Agent StackPack](/stackpacks/integrations/agent.md)
+* [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [cURL \(haxx.se\)](https://curl.haxx.se)
+* [wget \(gnu.org\)](https://www.gnu.org/software/wget/)

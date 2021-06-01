@@ -8,7 +8,7 @@ description: StackState core integration
 
 The StackState Agent StackPack works with the [StackState Agent](/setup/agent) to synchronize topology, metrics, events and trace data from external systems with StackState.
 
-The StackState Agent is open source and available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+The StackState Agent is open source and available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Setup
 
@@ -16,11 +16,35 @@ The StackState Agent is open source and available on github at [https://github.c
 
 ### Install
 
-## Configure
+Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.
+
+### Configure
+
+### Status
+
+To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](/setup/agent/).
+
+### Upgrade
+
+When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **StackState Agent V2**. For a quick overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+
+To upgrade the StackState Agent, see the [StackState Agent documentation](/setup/agent/).
+
+## Integration details
+
+### Data retrieved
+
+### Rest API endpoints
+
+### Agent views in StackState
+
+### Open source
 
 ## Troubleshooting
 
-Try running the [status](agent.md#status-and-information) command to see the state of the StackState Agent.
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+
+## Uninstall
 
 ## Release notes
 
@@ -70,3 +94,6 @@ Try running the [status](agent.md#status-and-information) command to see the sta
 * Feature: Introduced the Release notes pop up for customer.
 * Feature: Introduced the Docker-Swarm mode setup docs in Docker integration.
 
+## See also
+
+* [StackState Agent documentation](/setup/agent/)

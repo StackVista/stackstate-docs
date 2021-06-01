@@ -2,9 +2,10 @@
 
 ## Overview
 
-The StackState Fedora Agent provides the following functionality:
-- Reporting hosts, processes and containers
-- Reporting all network connections between processes / containers including network traffic telemetry
+When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+
+- Hosts, processes and containers
+- Network connections between processes and containers including network traffic telemetry
 - Telemetry for hosts, processes and containers
 
 ### Installation

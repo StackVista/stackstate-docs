@@ -2,9 +2,15 @@
 
 ## Overview
 
-The StackState Agent can be installed on CentOS. It runs checks that collect data from external systems and push this to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
+The StackState Agent can be installed on CentOS. When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
 
-The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+- Hosts, processes and containers
+- Network connections between processes and containers including network traffic telemetry
+- Telemetry for hosts, processes and containers 
+
+The Agent can also be configured to run checks that [integrate StackState with external systems](/stackpacks/integrations/). 
+
+Data from the Agent is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
 ## Setup 
 
@@ -26,7 +32,7 @@ The StackState Agent is installed using an install script.
 
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) 
+* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
 * [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 #### Online install
@@ -132,6 +138,9 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
+## Open source
+
+The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Release notes
 

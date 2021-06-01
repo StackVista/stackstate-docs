@@ -4,12 +4,10 @@
 
 Get topology and telemetry information while running the agent as a docker container.
 
-## Functionality
+When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
 
-The StackState Agent V2 provides the following functionality:
-
-- Reporting hosts, processes, and containers
-- Reporting all network connections between processes/containers/services including network traffic telemetry
+- Hosts, processes, and containers
+- Network connections between processes, containers and services including network traffic telemetry
 - Telemetry for hosts, processes, and containers
 - Trace agent support
 
