@@ -88,6 +88,7 @@ Documentation for the available StackState integrations, including configuration
 
 {% hint style="info" %}
 * Commands require elevated privileges.
+* [Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
 {% endhint %}
 
 ### Start, stop or restart the Agent
