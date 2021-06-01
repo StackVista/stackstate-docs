@@ -65,7 +65,7 @@ The StackState Agent configuration is located in the file `C:\ProgramData\StackS
 
 #### Configure integrations
 
-The Agent can be configured to run checks that integrate with external systems. Configuration for integrations run through the StackState Agent can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks. 
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through the StackState Agent can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks. 
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
