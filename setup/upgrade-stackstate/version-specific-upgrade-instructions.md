@@ -23,7 +23,7 @@ This page provides specific instructions for upgrading to each currently support
 #### v4.4.0
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
-* Authentication and Authorization configurations for Base API and Admin API have been centralized. This means there is single configuration for groups to roles mappings and single authentication provider used for both Base and Admin API. The three default StackState roles could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`, but are now always available (additionally new default role `stackstate-platform-admin` has been introduced).
+* Authentication and Authorization configurations for the Base API and Admin API have been centralized. This means there is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
   ```
   stackstate {
     authorization {
@@ -35,7 +35,7 @@ This page provides specific instructions for upgrading to each currently support
   }
   ```
   Note, that the platform management and platform content management permissions have been separated into two groups - `adminGroup` and `platformAdminGroup`.
-  The users that are in `platformAdminGroup` are limited to only platform management tasks such as - change database retention, clear database, clear caches, view logs etc. Correspondingly, users in `adminGroup` cannot do platform management anymore. If you are using LDAP, Keycloak or OIDC auth provider, you have to configure auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish one user to manage the content and the platform, then you still need to configure auth provider with two separate roles/groups and then assign those to a single user in the settings of the auth provider. You should not map the same provider role/group to different stackstate authorization groups.
+  The users that are in `platformAdminGroup` are limited to only platform management tasks such as - change database retention, clear database, clear caches, view logs etc. Correspondingly, users in `adminGroup` cannot do platform management anymore. If you are using LDAP, Keycloak or an OIDC auth provider, you will have to configure the auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish for one user to manage both the content and the platform, you will still need to configure the auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the auth provider. You should not map the same provider role/group to different StackState authorization groups.
 
   If you have configured API role overrides for specific services these will need to be updated. In most cases, it will not be necessary to make any changes.
   The helm properties where you can find those overrides are below:
@@ -72,8 +72,8 @@ This page provides specific instructions for upgrading to each currently support
 #### v4.4.0
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
-* Authentication and Authorization configurations for Base API and Admin API have been centralized. This means there is single configuration for groups to roles mappings and single authentication provider used for both Base and Admin API. The three default StackState roles could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`, but are now always available (additionally new default role `stackstate-platform-admin` has been introduced).
-  ```
+* Authentication and Authorization configurations for the Base API and Admin API have been centralized. This means there is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
+```
   stackstate {
     authorization {
       adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
@@ -84,7 +84,7 @@ This page provides specific instructions for upgrading to each currently support
   }
   ```
   Note, that the platform management and platform content management permissions have been separated into two groups - `adminGroup` and `platformAdminGroup`.
-  The users that are in `platformAdminGroup` are limited to only platform management tasks such as - change database retention, clear database, clear caches, view logs etc. Correspondingly, users in `adminGroup` cannot do platform management anymore. If you are using LDAP, Keycloak or OIDC auth provider, you have to configure auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish one user to manage the content and the platform, then you still need to configure auth provider with two separate roles/groups and then assign those to a single user in the settings of the auth provider. You should not map the same provider role/group to different stackstate authorization groups.
+  The users that are in `platformAdminGroup` are limited to only platform management tasks such as - change database retention, clear database, clear caches, view logs etc. Correspondingly, users in `adminGroup` cannot do platform management anymore. If you are using LDAP, Keycloak or an OIDC auth provider, you will have to configure the auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish for one user to manage both the content and the platform, you will still need to configure the auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the auth provider. You should not map the same provider role/group to different StackState authorization groups.
 
   This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
   If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
@@ -94,7 +94,7 @@ This page provides specific instructions for upgrading to each currently support
       authentication {
         ...
         adminGroups = ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
-        platformAdminGroups = ["your-custom-oidc-or-ldap-or-keycloak-platform-admin-role"]
+        powerUserGroups = ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
         guestGroups = ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]
         ...
       }

@@ -20,10 +20,10 @@ When a user has been authenticated permissions for that user are usually assigne
 
 * **Guest** - able to see information but make no changes.
 * **Power User** - able to see and change all configuration and install StackPacks.
-* **Administrator** - able to see and change content of StackState, e.g. all configuration, install StackPacks, grant and revoke user permissions and upload \(new versions of\) StackPacks.
-* **Platform Administrator** - able to perform management of the StackState platform, e.g. change data retention, clear database, view logs, cache management.
+* **Administrator** - able to see and change content of StackState. For example, see all configuration, install StackPacks, grant and revoke user permissions and upload \(new versions of\) StackPacks.
+* **Platform Administrator** - able to perform management of the StackState platform. For example, change data retention, clear the database, view logs and cache management.
 
-When deciding on the roles to assign your users it is strongly advised to have only a small group of Platform Administrators and Administrators, for example only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
-Platform Administrator users can clear database, change data retention, view logs and perform other platform management tasks.
+When deciding on the roles to assign your users, it is strongly advised to have only a small group of Platform Administrators and Administrators. For example, only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine tuning of the configuration can be delegated to a larger number of users with the Power User role.
+Platform Administrator users can clear the database, change data retention settings, view logs and perform other platform management tasks.
 
 It is also possible to add more roles, see the page [Roles \(RBAC\)](../rbac/rbac_roles.md) and the other [RBAC documentation pages](../rbac/)

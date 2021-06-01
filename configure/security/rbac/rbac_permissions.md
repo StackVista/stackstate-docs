@@ -20,8 +20,8 @@ There are two types of permission in StackState:
 
 StackState comes with four predefined roles:
 
-* **Administrators** \(`stackstate-admin`\): Have all permissions and access to all views.
-* **Platform Administrators** \(`stackstate-platform-admin`\): Have platform management permissions.
+* **Administrators** \(`stackstate-admin`\): Have access to all views and have all permissions, except for the platform management permission `access-admin-api`.
+* **Platform Administrators** \(`stackstate-platform-admin`\): Have platform management permissions and have access to all views.
 * **Power Users** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for:
   * `execute-restricted-scripts`
   * `update-permissions`
