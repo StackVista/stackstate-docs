@@ -51,8 +51,10 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 
 By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
 
-1. Download the install script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh) and copy this to the host where it will be installed.
-2. Download the Agent installer package from [???]() and copy this to the host where it will be installed.
+1. Download the install script and copy this to the host where it will be installed:
+   - [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
+2. Download the Agent installer package and copy this to the host where it will be installed:
+   - [???]()
 3. use the command below to set the required environment variables and run the installer script:
     ```text
     STS_API_KEY="{{config.apiKey}}" \
