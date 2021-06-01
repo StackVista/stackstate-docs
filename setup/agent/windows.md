@@ -43,9 +43,9 @@ install -stsApiKey "{{config.apiKey}}" `
 
 1. Download the PowerShell install script and copy this to the host where it will be installed:
    - [https://stackstate-agent-2.s3.amazonaws.com/install.ps1](https://stackstate-agent-2.s3.amazonaws.com/install.ps1)
-2. Download the latest version of the Agent installer package and copy this to the host where it will be installed in the same location as the PowerShell install script:
+2. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    - [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
-3. Assuming the installerscript is saved as `C:\stackstate-custom.msi` and the PowerShell script is saved as `C:\install_script.ps1`, open PowerShell with elevated privileges and invoke the following set of commands:
+3. Assuming the installer script is saved as `C:\stackstate-custom.msi` and the PowerShell script is saved as `C:\install_script.ps1`, open PowerShell with elevated privileges and invoke the following set of commands:
 ```text
 Import-Module C:\install_script.ps1
 install -stsApiKey {{config.apiKey}} `
