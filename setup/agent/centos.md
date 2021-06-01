@@ -2,9 +2,9 @@
 
 ## Overview
 
-The StackState Agent can be installed on CentOS. It runs checks that collect data from external systems and push this to StackState using the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
+The StackState Agent can be installed on CentOS. It runs checks that collect data from external systems and push this to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
-The Agent is open source and the code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Setup 
 
@@ -51,7 +51,7 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 
 By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
 
-1. On your host, download the installation script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh).
+1. Download the install script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh) and copy this to the host where it will be installed.
 2. Download the Agent installer package from [???]() and copy this to the host where it will be installed.
 3. use the command below to set the required environment variables and run the installer script:
     ```text
