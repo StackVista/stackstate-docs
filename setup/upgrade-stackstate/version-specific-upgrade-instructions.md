@@ -69,9 +69,11 @@ This page provides specific instructions for upgrading to each currently support
   **Provider Specific Instructions**
 
   * File based authentication
+
     You should use `platformadmin` username for platform management instead of `admin`.
 
   * External authentication (LDAP/OIDC/Keycloak)
+
     Since there is new group `platformAdmin` you have to create an additional role/group in external authentication system and map it to stackstate `platformAdmin` group.
     ```
     stackstate:
@@ -83,7 +85,7 @@ This page provides specific instructions for upgrading to each currently support
     ```
     The users who are assigned this group/role will get platform management permissions.
 
-   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
+  If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -104,8 +106,6 @@ This page provides specific instructions for upgrading to each currently support
   Platform management and platform content management permissions have been separated into two groups - `platformAdminGroup` and `adminGroup`. Users in the group `platformAdminGroup` are limited to only platform management tasks, such as change database retention, clear database, clear caches and view logs. Users in the group `adminGroup` no longer have platform management permissions. If you are using LDAP, Keycloak or an OIDC auth provider, you will have to configure the auth provider with a separate role/group for platform management and assign the role to a limited number of users. If you wish for one user to manage both the content and the platform, you will still need to configure the auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the auth provider. You should not map the same provider role/group to different StackState authorization groups.
 
   **How you should proceed with upgrade?**
-
-  **Provider Specific Instructions**
 
   This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
   If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
@@ -150,9 +150,11 @@ This page provides specific instructions for upgrading to each currently support
   **Provider Specific Instructions**
 
   * File based authentication
+
     You should use `platformadmin` username for platform management instead of `admin`.
 
   * External authentication (LDAP/OIDC/Keycloak)
+
     Since there is new group `platformAdmin` you have to create an additional role/group in external authentication system and map it to stackstate `platformAdmin` group.
     ```
     stackstate {
