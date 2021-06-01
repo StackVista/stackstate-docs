@@ -135,7 +135,7 @@ default_timeout = self.init_config.get('default_timeout', 5)
 timeout = float(instance.get('timeout', default_timeout))
 ```
 
-### StackState Snapshots
+### StackState Topology Snapshots
 
 Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
@@ -238,6 +238,61 @@ self.event({
 ```
 
 Learn more about the [Agent Check Event API](checks_in_agent_v2.md)
+
+### Health Synchronization
+
+StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](/configure/health/health-Synchronization.md).
+
+To setup a health synchronization stream within a check, the following function needs to be defined:
+
+```text
+from stackstate_checks.base import AgentCheck, ConfigurationError, HealthStreamUrn, HealthStream
+
+...
+
+class ExampleCheck(AgentCheck):
+
+...
+
+    def get_health_stream(self, instance):
+        if 'url' not in instance:
+            raise ConfigurationError('Missing url in topology instance configuration.')
+        instance_url = instance['url']
+        return HealthStream(HealthStreamUrn("example", instance_url))
+
+...
+
+```
+
+This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api.
+
+### Health Synchronization Snapshots
+
+Like with topology, health data is presented to StackState using snapshots, to allow for removal of health information (check states) when they do not exist anymore in the source monitoring system. Creating snapshots is facilitated by two functions:
+
+* `self.health.start_snapshot()` - used to start a health snapshot.
+* `self.health.stop_snapshot()` - used to stop the snapshot, signalling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
+
+### Send Check State
+
+Check states can be send through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
+
+```text
+from stackstate_checks.base import Health
+
+...
+
+self.health.check_state(
+  check_state_id="check_state_from_example_1",
+  name="Example check state",
+  health_value=Health.CRITICAL,
+  topology_element_identifier="urn:component/the_component_to_attach_to",
+  message="Optional clarifying message"
+)
+
+```
+
+This creates a check state in the StackState product with the health value `CRITICAL`, attached to the component or relation matching the `topology_element_identifier`. The `check_state_id` is used to distinguish check states within the current health stream. If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](/configure/health/debug-health-sync.md) for the health synchronization.
 
 ### Send in Stream Definitions and Health Checks
 
