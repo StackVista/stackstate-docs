@@ -120,9 +120,6 @@ The Agent can be configured to run checks that integrate with external systems. 
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
-{% hint style="info" %}
-[Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
-{% endhint %}
 
 ## Commands
 
