@@ -72,15 +72,17 @@ By default, the installer will try to configure the package update channel and u
     ./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
     ```
 
-### Configure
+### Upgrade
 
-#### Configure the Agent
+## Configure
+
+### Agent configuration
 
 The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `apiKey` and `baseUrl` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
-#### Advanced Agent configuration 
+### Advanced Agent configuration 
 
-##### Blacklist and inclusions
+#### Blacklist and inclusions
 
 Processes reported by the StackState Agent can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
 
@@ -98,7 +100,7 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 | `process_blacklist.inclusions.mem_usage_threshold` | Threshold that enables the reporting of high Memory usage processes. |
 | `process_blacklist.inclusions.amount_top_mem_usage` | The number of processes to report that have a high memory usage. Default `0`. |
 
-##### Disable Agent features
+#### Disable Agent features
 
 Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
 
@@ -112,7 +114,7 @@ Certain features of the Agent can optionally be turned off if they are not neede
 - **apm_config.enabled** - Default `true`. Set to `false` to disable the APM Agent.
 - **network_tracer_config.network_tracing_enabled** - Default `true`. Set to `false` to disable the network tracer.
    
-#### Configure integrations
+### Integration configuration
 
 The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through the StackState Agent can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the enabled Agent checks. 
 
@@ -121,9 +123,6 @@ Documentation for the available StackState integrations, including configuration
 {% hint style="info" %}
 [Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
 {% endhint %}
-
-### Upgrade
-
 
 ## Commands
 
