@@ -100,14 +100,16 @@ Certain features of the Agent can be turned off if not needed. To disable a feat
 
 | Configuration item | Description |
 |:---|:---|
-|`process_config.enabled` | Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).|
+|`process_config.enabled` | Set to false to collect only containers, or disabled to disable the process Agent.|
 | `apm_config.enabled` | Set to `"false"` to disable the APM Agent. Default `"true"`. |
 | `network_tracer_config.network_tracing_enabled` | Set to `"false"` to disable the network tracer. Default `"true"`.  |
    
-- **process_config.enabled** - Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).
-- **apm_config.enabled** - Set to `"false"` to disable the APM Agent. Default `"true"`. 
-- **network_tracer_config.network_tracing_enabled** - Set to `"false"` to disable the network tracer. Default `"true"`.  
+- **process_config.enabled** - Default `true` (collects containers and processes). Set to `false` to collect only containers, or disabled to disable the process Agent.
+- **apm_config.enabled** - Default `true`. Set to `false` to disable the APM Agent.
+- **network_tracer_config.network_tracing_enabled** - Default `true`. Set to `false` to disable the network tracer.
    
+
+
 - `process_config.enabled` - Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).
 - `apm_config.enabled` - Set to `"false"` to disable the APM Agent. Default `"true"`. 
 - `network_tracer_config.network_tracing_enabled` - Set to `"false"` to disable the network tracer. Default `"true"`.  
