@@ -88,6 +88,17 @@ The blacklist is specified as a list of regex patterns. Inclusions override the 
 
 To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
 
+| Configuration item | Description |
+|:---|:---|
+| `process_blacklist.patterns` | [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go). A list of regex patterns that will exclude a process if matched. |
+| `process_blacklist.inclusions.amount_top_cpu_pct_usage` | Default `0`. The number of processes to report that have a high CPU usage. |
+| `process_blacklist.inclusions.cpu_pct_usage_threshold` | Threshold that enables the reporting of high CPU usage processes. |
+| `process_blacklist.inclusions.amount_top_io_read_usage` | Default `0`. The number of processes to report that have a high IO read usage. |
+| `process_blacklist.inclusions.amount_top_io_write_usage` | Default `0`. The number of processes to report that have a high IO write usage. |
+| `process_blacklist.inclusions.amount_top_mem_usage` | Default `0`. The number of processes to report that have a high memory usage. |
+| `process_blacklist.inclusions.mem_usage_threshold` | Threshold that enables the reporting of high Memory usage processes. |
+
+
 - **process_blacklist.patterns** - [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go). A list of regex patterns that will exclude a process if matched. 
 - **process_blacklist.inclusions.amount_top_cpu_pct_usage** - Default `0`. The number of processes to report that have a high CPU usage.
 - **process_blacklist.inclusions.cpu_pct_usage_threshold** - Threshold that enables the reporting of high CPU usage processes.
@@ -102,7 +113,7 @@ Certain features of the Agent can optionally be turned off if they are not neede
 
 | Configuration item | Description |
 |:---|:---|
-|**process_config.enabled** | Default `true` (collects containers and processes). Set to `false` to collect only containers, or `disabled` to disable the process Agent.|
+|`process_config.enabled` | Default `true` (collects containers and processes). Set to `false` to collect only containers, or `disabled` to disable the process Agent.|
 | `apm_config.enabled` | Default `true`. Set to `"false"` to disable the APM Agent. |
 | `network_tracer_config.network_tracing_enabled` | Default `true`. Set to `false` to disable the network tracer. |
    
