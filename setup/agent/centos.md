@@ -98,6 +98,16 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 
 Certain features of the Agent can be turned off if not needed. To disable a feature, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
 
+| Configuration item | Description |
+|:---|:---|
+|`process_config.enabled` | Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).|
+| `apm_config.enabled` | Set to `"false"` to disable the APM Agent. Default `"true"`. |
+| `network_tracer_config.network_tracing_enabled` | Set to `"false"` to disable the network tracer. Default `"true"`.  |
+   
+- **process_config.enabled** - Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).
+- **apm_config.enabled** - Set to `"false"` to disable the APM Agent. Default `"true"`. 
+- **network_tracer_config.network_tracing_enabled** - Set to `"false"` to disable the network tracer. Default `"true"`.  
+   
 - `process_config.enabled` - Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).
 - `apm_config.enabled` - Set to `"false"` to disable the APM Agent. Default `"true"`. 
 - `network_tracer_config.network_tracing_enabled` - Set to `"false"` to disable the network tracer. Default `"true"`.  
