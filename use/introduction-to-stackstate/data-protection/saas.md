@@ -1,3 +1,7 @@
+---
+description: Data protection features for SaaS
+---
+
 ## Storage
 
 The SaaS is deployed on AWS EKS clusters (I.e. running on Kubernetes). Disks (volumes) are provided by AWS, EBS (Elastic Block Storage) and are encrypted by default.

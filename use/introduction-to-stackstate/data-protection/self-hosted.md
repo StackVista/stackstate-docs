@@ -1,3 +1,7 @@
+---
+description: Data protection features for self-hosted StackState
+---
+
 ## Self-hosted Kubernetes installation
 
 Many different Kubernetes flavors can be used to deploy StackState on Kubernetes, however, the cluster is always responsible for providing the disks (volumes) and networking to StackState.
