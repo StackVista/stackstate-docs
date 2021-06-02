@@ -1,5 +1,3 @@
-## Overview
-
 ## Self-hosted Kubernetes 
 When deploying to Kubernetes there are many different Kubernetes flavors that can be used. However, the cluster is always responsible for providing the disks (volumes) and networking to StackState.
 
