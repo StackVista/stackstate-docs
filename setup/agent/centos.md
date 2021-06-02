@@ -90,12 +90,12 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 
 | Configuration item | Description |
 |:---|:---|
-| `process_blacklist.patterns` | [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go). A list of regex patterns that will exclude a process if matched. |
-| `process_blacklist.inclusions.amount_top_cpu_pct_usage` | Default `0`. The number of processes to report that have a high CPU usage. |
+| `process_blacklist.patterns` |A list of regex patterns that will exclude a process if matched. [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).  |
+| `process_blacklist.inclusions.amount_top_cpu_pct_usage` | The number of processes to report that have a high CPU usage. Default `0`. |
 | `process_blacklist.inclusions.cpu_pct_usage_threshold` | Threshold that enables the reporting of high CPU usage processes. |
-| `process_blacklist.inclusions.amount_top_io_read_usage` | Default `0`. The number of processes to report that have a high IO read usage. |
-| `process_blacklist.inclusions.amount_top_io_write_usage` | Default `0`. The number of processes to report that have a high IO write usage. |
-| `process_blacklist.inclusions.amount_top_mem_usage` | Default `0`. The number of processes to report that have a high memory usage. |
+| `process_blacklist.inclusions.amount_top_io_read_usage` | The number of processes to report that have a high IO read usage. Default `0`. |
+| `process_blacklist.inclusions.amount_top_io_write_usage` | The number of processes to report that have a high IO write usage. Default `0`. |
+| `process_blacklist.inclusions.amount_top_mem_usage` | The number of processes to report that have a high memory usage. Default `0`. |
 | `process_blacklist.inclusions.mem_usage_threshold` | Threshold that enables the reporting of high Memory usage processes. |
 
 
