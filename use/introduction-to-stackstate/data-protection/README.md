@@ -10,10 +10,10 @@ StackState has different ways in which it can be deployed and for those differen
 
 First we discuss how the data flows through StackState and where it is stored. Next we discuss how the different components protected their data. The infrastructure running StackState is expected to provide a certain set of data protection features, which we discuss last.
 
-{% page-ref page="use/introduction-to-stackstate/data-protection/data-flow-architecture.md" %}
+{% page-ref page="/use/introduction-to-stackstate/data-protection/data-flow-architecture.md" %}
 
-{% page-ref page="use/introduction-to-stackstate/data-protection/data-per-component.md" %}
+{% page-ref page="/use/introduction-to-stackstate/data-protection/data-per-component.md" %}
 
-{% page-ref page="use/introduction-to-stackstate/data-protection/saas.md" %}
+{% page-ref page="/use/introduction-to-stackstate/data-protection/saas.md" %}
 
-{% page-ref page="use/introduction-to-stackstate/data-protection/self-hosted.md" %}
+{% page-ref page="/use/introduction-to-stackstate/data-protection/self-hosted.md" %}
