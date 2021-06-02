@@ -1,7 +1,5 @@
 
-## Overview
-
-## Data flow architecture
+# Data flow architecture
 
 StackState process incoming data. Mainly via the agents, but instead of the agent it can also be other tools that send data to the receiver. StackState processes this data and makes it available via an API/UI to its users. All components involved in processing and storing the data are depicted in the below diagram.
 
