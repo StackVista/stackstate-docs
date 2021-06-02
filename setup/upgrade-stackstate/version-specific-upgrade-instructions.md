@@ -38,34 +38,6 @@ This page provides specific instructions for upgrading to each currently support
 
   **How you should proceed with upgrade?**
 
-  If you have configured API role overrides for specific services these will need to be updated. In most cases, it will not be necessary to make any changes.
-  The helm properties where you can find those overrides are below:
-   ```
-   stackstate.components.api.config = ...
-   stackstate.components.checks.config = ...
-   stackstate.components.healthSync.config = ...
-   stackstate.components.initializer.config = ...
-   stackstate.components.server.config = ...
-   stackstate.components.state.config = ...
-   stackstate.components.sync.config = ...
-   stackstate.components.slicing.config = ...
-   stackstate.components.viewHealth.config = ...
-   stackstate.components.problemProducer.config = ...
-   ```
-
-   If you have role overrides configured with those properties, the roles should be moved to a single location as shown below:
-
-   ```yaml
-   stackstate:
-     authentication:
-       roles:
-         guest: ["custom-guest-role"]
-         powerUser: ["custom-power-user-role"]
-         admin: ["custom-admin-role"]
-         platformAdmin: ["custom-platform-admin-role"]
-   ```
-   For details, see the section [default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names).
-
   **Provider Specific Instructions**
 
   * File based authentication
