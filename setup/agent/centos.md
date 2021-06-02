@@ -76,11 +76,32 @@ By default, the installer will try to configure the package update channel and u
 
 #### Configure the Agent
 
-The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`.
+The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `apiKey` and `baseUrl` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
-{% hint style="info" %}
-[Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
-{% endhint %}
+##### Blacklist and inclusions
+
+Processes reported by the StackState Agent can be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
+
+The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met first, meaning that a process needs to consume a higher percentage of resources than the specified threshold.
+
+To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
+
+- `process_blacklist.patterns` - A list of regex patterns that will exclude a process if matched. For default, see [github](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).
+- `process_blacklist.inclusions.amount_top_cpu_pct_usage` - The number of processes to report that have a high CPU usage. Default `0`.
+- `process_blacklist.inclusions.cpu_pct_usage_threshold` - Threshold that enables the reporting of high CPU usage processes.
+- `process_blacklist.inclusions.amount_top_io_read_usage` - The number of processes to report that have a high IO read usage. Default `0`.
+- `process_blacklist.inclusions.amount_top_io_write_usage` - The number of processes to report that have a high IO write usage. Default `0`.
+- `process_blacklist.inclusions.amount_top_mem_usage` - The number of processes to report that have a high memory usage. Default `0`.
+- `process_blacklist.inclusions.mem_usage_threshold` - Threshold that enables the reporting of high Memory usage processes.
+
+##### Disable Agent features
+
+Certain features of the Agent can be turned off if not needed. To disable a feature, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
+
+- `process_config.enabled` - Set to `"false"` to collect only containers, or `"disabled"` to disable the process Agent. Default `"true"` (collects containers and processes).
+- `apm_config.enabled` - Set to `"false"` to disable the APM Agent. Default `"true"`. 
+- `network_tracer_config.network_tracing_enabled` - Set to `"false"` to disable the network tracer. Default `"true"`.  
+   
 
 #### Configure integrations
 
