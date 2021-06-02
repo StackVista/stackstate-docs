@@ -1,7 +1,3 @@
----
-description: Data protection features for SaaS
----
-
 ## Storage
 
 The SaaS is deployed on AWS EKS clusters (I.e. running on Kubernetes). Disks (volumes) are provided by AWS, EBS (Elastic Block Storage) and are encrypted by default.
@@ -23,3 +19,9 @@ Each customer runs in his own Kubernetes namespace, Kubernetes networking (Calic
 
 ## Authentication
 Authentication is configured via OIDC with Keycloak as the authentication provider. It stores user passwords + salt as a PBKDF2 has with 20000 iterations.
+
+## See also
+
+* [Data flow architecture](/use/introduction-to-stackstate/data-protection/data-flow-architecture.md)
+* [Data per component](/use/introduction-to-stackstate/data-protection/data-per-component.md)
+* [Data protection features for self-hosted StackState](/use/introduction-to-stackstate/data-protection/self-hosted.md)

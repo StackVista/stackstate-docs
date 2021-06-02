@@ -65,3 +65,9 @@ Configuration and retrieval of these secrets is restricted to users with authori
 
 ## Other services
 StackState’s services communicate only indirectly with each other, I.e. via Kafka, StackGraph or Elasticsearch. Therefore, no other data protection features are applicable.
+
+## See also
+
+* [Data flow architecture](/use/introduction-to-stackstate/data-protection/data-flow-architecture.md)
+* [Data protection features for SaaS](/use/introduction-to-stackstate/data-protection/saas.md)
+* [Data protection features for self-hosted StackState](/use/introduction-to-stackstate/data-protection/self-hosted.md)

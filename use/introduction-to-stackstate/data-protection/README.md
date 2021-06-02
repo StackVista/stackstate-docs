@@ -2,7 +2,7 @@
 
 The StackState platform aggregates and processes data from many different data sources and stores the results in its own data stores. To be able to collect the data  some form of authentication is usually required in the form of a shared secret.
 
-This document describes how the data is secured both in flight and at rest.
+The pages in this section describe how the data is secured both in flight and at rest.
 
 StackState has different ways in which it can be deployed and for those different deployments different data protection features are applicable.
 

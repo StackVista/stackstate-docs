@@ -10,3 +10,9 @@ Next to data flowing in and out of the data storing components (Kafka, StackGrap
 StackState authentication can use external systems for authenticating like LDAP and OIDC. For a standard installation however StackState has standard users configured in its configuration file.
 
 Finally, not in the diagram, are plugins of StackState. They are used to pull (instead of push) metrics and/or events from external data sources for which configuration is stored in StackGraph. This includes credentials and authentication tokens.
+
+## See also
+
+* [Data per component](/use/introduction-to-stackstate/data-protection/data-per-component.md)
+* [Data protection features for SaaS](/use/introduction-to-stackstate/data-protection/saas.md)
+* [Data protection features for self-hosted StackState](/use/introduction-to-stackstate/data-protection/self-hosted.md)
