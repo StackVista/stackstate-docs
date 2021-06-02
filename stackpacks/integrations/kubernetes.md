@@ -81,10 +81,10 @@ For example:
 helm install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
---set-string 'stackstate.url'='<your-stackstate-url>' \
+--set-string 'stackstate.apiKey=<your-api-key>' \
+--set-string 'stackstate.cluster.name=<your-cluster-name>' \
+--set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+--set-string 'stackstate.url=<your-stackstate-url>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 {% endhint %}
