@@ -20,7 +20,8 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 * StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
   * Host information is retrieved from the Kubernetes API.
   * Container information is collected from the Docker daemon.
-  * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
+  * Metrics are retrieved from kubelet running on the node.
+  * By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the agent pod. On large Kubernetes cluster this can cause issues. See the [section on cluster checks](#cluster-checks) for an alternative way to gather metrics from kube-state-metrics.
 * StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
   * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API.
   * Control plane metrics are retrieved from the Kubernetes API.
@@ -103,6 +104,55 @@ deployment.apps/stackstate-cluster-agent             1/1     1            1     
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
+
+## Cluster checks
+
+Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) that run cluster checks. Cluster checks are configured on the StackState Cluster Agent and run by one of the these clusterchecks pods. This can be used to run checks that do not need to run on a specific node and monitor noncontainerized workloads, such as:
+
+* Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
+* Load-balanced cluster services (for example, Kubernetes services).
+
+To enable clusterchecks and the clusterchecks pods, create a `values.yaml` file to deploy the cluster-agent Helm chart and add the following YAML segment:
+
+```yaml
+clusterChecks:
+  enabled: true
+```
+
+### Running the kubernetes_state check as a clustercheck
+
+The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. In a large Kubernetes cluster, the kubernetes_state check can consume a lot of memory. In the default configuration, this check is run in the agent pod that runs on the node on which the kube-state-metrics pod runs. That means that all regular agent pods need to be configured with sufficient cpu and memory requests and limits to be able to run the check. Since only one of those agent pods will actually run the check, a lot of cpu and memory resources will be allocated but will not be used.
+
+To remedy that situation, the kubernetes_state check can be reconfigured as a clustercheck. See the YAML segment below for information on how to do that in the `values.yaml` file used to deploy the `cluster-agent` chart:
+
+```yaml
+clusterChecks:
+# clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+  enabled: true
+agent:
+  config:
+    override:
+# agent.config.override -- Disables kubernetes_state check on regular agent pods.
+    - name: auto_conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+      data: |
+clusterAgent:
+  config:
+    override:
+# clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+#                                 with ad_identifiers does not work here. Use a specific URL instead.
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+      data: |
+        cluster_check: true
+
+        init_config:
+
+        instances:
+          - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+```
+
+Please note that the kubernetes_state check is configured on the StackState Cluster Agent, not on the clusterchecks pods. This is intentional. The line that says `cluster_check: true` tells the StackState Cluster Agent to send the check to a clusterchecks pod so that it will be run on that pod.
 
 ## Integration details
 
