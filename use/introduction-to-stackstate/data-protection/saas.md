@@ -1,4 +1,5 @@
 ## Storage
+
 The SaaS is deployed on AWS EKS clusters (I.e. running on Kubernetes). Disks (volumes) are provided by AWS, EBS (Elastic Block Storage) and are encrypted by default.
 
 The SaaS version of StackState runs with a minimum of 3 nodes for each data storing component and stores the data in at least 2 of those 3 nodes (I.e. 1 “original” and 1 copy). EBS storage by default will not fail if a single (physical) drive fails, but they are limited to a single AWS availability zone.
