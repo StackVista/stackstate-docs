@@ -321,12 +321,12 @@ For details see the [EventHealthChecks class \(github.com\)](https://github.com/
 {% tab title="Example - event stream health check" %}
 ```
 EventHealthChecks.contains_key_value(
-                                    "this_host_events",           # stream_id
-                                    "Events on this host",        # name
-                                    75,                           # contains_key
-                                    90,                           # contains_value
-                                    "CRITICAL"                    # found_health_state
-                                    "CLEAR"                       # missing_health_state
+                                    "this_host_events",   # stream_id
+                                  "Events on this host",  # name
+                                    75,   # contains_key
+                                    90,   # contains_value
+                                    "CRITICAL"  # health state when key found
+                                    "CLEAR"   # health state when key not found
                                     remediation_hint="Bad event found!"
                                     )
 ```
