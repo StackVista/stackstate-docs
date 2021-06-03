@@ -146,6 +146,10 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | **SubStreamExpired** | Raised when the health synchronization stops receiving data on a particular sub stream for longer than the configured `expiry_interval_s`. In this case, the sub stream will be deleted. |
 
 
+| **SubStreamLateData** | Raised when the health synchronization does not receive a complete snapshot timely based on the established `repeat_interval_s`. e.g. |
+| **SubStreamTransformerError** | Raised when the health synchronization can not interpret the payload sent to the receiver. e.g. |
+
+
 ## See also
 
 * [Install the StackState CLI](/setup/installation/cli-install.md)
