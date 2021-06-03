@@ -260,7 +260,7 @@ cpu_max_average_check = MetricHealthChecks.maximum_average(
                                             "Max CPU Usage (Average)", 
                                             75, 
                                             90,
-                                            remediation_hint="Too much activity, add another host"
+                                            remediation_hint="Too much activity"
                                             )
 
 self.component(
