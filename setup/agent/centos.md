@@ -75,18 +75,18 @@ If you do not have access to the internet, you will need to download both the in
 
 ### Upgrade
 
-To upgrade the StackState Agent on your system, stop the service and upgrade using `yum` or `apt-get`.
+To upgrade the StackState Agent on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
 ```
-systemctl stop stackstate-agent
+sudo service stackstate-agent stop
 sudo yum upgrade stackstate-agent
 ```
 {% endtab %}
 {% tab title="apt-get" %}
 ```
-systemctl stop stackstate-agent
+sudo systemctl stop stackstate-agent
 sudo apt-get update && apt-get upgrade stackstate-agent
 ```
 {% endtab %}
@@ -182,18 +182,18 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the StackState Agent from your system, stop the service and remove using `yum` or `apt-get`.
+To uninstall the StackState Agent from your system, stop the `stackstate-agent` service and remove using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
 ```
-systemctl stop stackstate-agent
+sudo service stackstate-agent stop
 sudo yum remove stackstate-agent
 ```
 {% endtab %}
 {% tab title="apt-get" %}
 ```
-systemctl stop stackstate-agent
+sudo systemctl stop stackstate-agent
 sudo apt-get remove stackstate-agent
 ```
 {% endtab %}
