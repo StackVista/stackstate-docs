@@ -67,17 +67,17 @@ Components can be sent to StackState using the `self.component(id, type, data)` 
 {% tab title="Example - send a component" %}
 ```
 self.component(
-  "urn:example:/host:this_host", # the ID
-  "Host", # the type
-  data={
-      "name": "this-host",
-      "domain": "Webshop",
-      "layer": "Machines",
-      "identifiers": ["urn:host:/this-host-fqdn"],
-      "labels": ["host:this_host", "region:eu-west-1"],
-      "environment": "Production"
-      },
-  )
+              "urn:example:/host:this_host", # the ID
+              "Host", # the type
+              data={
+                  "name": "this-host",
+                  "domain": "Webshop",
+                  "layer": "Machines",
+                  "identifiers": ["urn:host:/this-host-fqdn"],
+                  "labels": ["host:this_host", "region:eu-west-1"],
+                  "environment": "Production"
+                  },
+              )
 ```
 {% endtab %}
 {% endtabs %}
@@ -100,11 +100,11 @@ Relations can be sent to StackState using the `self.relation(source_id, target_i
 {% tab title="Example - send a relation" %}
 ```
 self.relation(
-               "nginx3.e5dda204-d1b2-11e6-a015-0242ac110005",   # source ID
-               "nginx5.0df4bc1e-c695-4793-8aae-a30eba54c9d6",   # target ID
-               "uses_service",  # type
-               {}   # data
-                )
+             "nginx3.e5dda204-d1b2-11e6-a015-0242ac110005",   # source ID
+             "nginx5.0df4bc1e-c695-4793-8aae-a30eba54c9d6",   # target ID
+             "uses_service",  # type
+             {}   # data
+              )
 ```
 {% endtab %}
 {% endtabs %}
@@ -137,14 +137,14 @@ Metrics can be sent to StackState with the following methods:
 {% tab title="Example - send a gauge metric" %}
 ```
 self.gauge(
-            "test.metric", # the metric name
-            10.0, # value of the metric
-            "tags": [ 
-              "tag_key1:tag_value1",
-              "tag_key2:tag_value2"
-              ],
-            "localdocker.test" # the hostname
-            )
+          "test.metric", # the metric name
+          10.0, # value of the metric
+          "tags": [ 
+            "tag_key1:tag_value1",
+            "tag_key2:tag_value2"
+            ],
+          "localdocker.test" # the hostname
+          )
 ```
 {% endtab %}
 {% endtabs %}
@@ -168,34 +168,34 @@ Events can be sent to StackState with the `self.event(event_dict)` method.
 {% tab title="Example - send an event" %}
 ```
 self.event(  
-            {
-              "context": {
-                "category": "Changes",
-                "data": { 
-                  "data_key1":"data_value1",
-                  "data_key2":"data_value2"
-                },
-                "element_identifiers": [
-                  "element_identifier1",
-                  "element_identifier2"
+          {
+            "context": {
+              "category": "Changes",
+              "data": { 
+                "data_key1":"data_value1",
+                "data_key2":"data_value2"
+              },
+              "element_identifiers": [
+                "element_identifier1",
+                "element_identifier2"
                 ],
-                "source": "source_system",
-                "source_links": [
-                  {
-                    "title": "link_title",
-                    "url": "link_url"
+              "source": "source_system",
+              "source_links": [
+                {
+                  "title": "link_title",
+                  "url": "link_url"
                   }
                 ]
-              },
-              "event_type": "event_typeEvent",
-              "msg_title": "event_title",
-              "msg_text": "event_text",
-              "source_type_name": "source_event_type",
-              "tags": [
-                "tag_key1:tag_value1",
-                "tag_key2:tag_value2",
+              },    
+            "event_type": "event_typeEvent",
+            "msg_title": "event_title",
+            "msg_text": "event_text",
+            "source_type_name": "source_event_type",
+            "tags": [
+              "tag_key1:tag_value1",
+              "tag_key2:tag_value2",
               ],
-              "timestamp": 1607432944
+            "timestamp": 1607432944
             }
           )
 ```
@@ -244,39 +244,39 @@ In the example below, a `MetricStream` is created on the metric `system.cpu.usag
 {% tab title="Example - metric stream with metric health check" %}
 ```text
 this_host_cpu_usage = MetricStream(
-                        "Host CPU Usage", 
-                        "system.cpu.usage",
-                        conditions={
-                            "tags.hostname": "this-host", 
-                            "tags.region": "eu-west-1"
-                            },
-                        unit_of_measure="Percentage",
-                        aggregation="MEAN",
-                        priority="HIGH"
-                        )
+                                  "Host CPU Usage", 
+                                  "system.cpu.usage",
+                                  conditions={
+                                      "tags.hostname": "this-host", 
+                                      "tags.region": "eu-west-1"
+                                      },
+                                  unit_of_measure="Percentage",
+                                  aggregation="MEAN",
+                                  priority="HIGH"
+                                  )
 
 cpu_max_average_check = MetricHealthChecks.maximum_average(
-                          this_host_cpu_usage.identifier,
-                          "Max CPU Usage (Average)", 
-                          75, 
-                          90,
-                          remediation_hint="Too much activity, add another host"
-                          )
+                                                          this_host_cpu_usage.identifier,
+                                                          "Max CPU Usage (Average)", 
+                                                          75, 
+                                                          90,
+                                                          remediation_hint="Too much activity, add another host"
+                                                          )
 
 self.component(
-  "urn:example:/host:this_host", 
-  "Host",
-  data={
-      "name": "this-host",
-      "domain": "Webshop",
-      "layer": "Machines",
-      "identifiers": ["urn:host:/this-host-fqdn"],
-      "labels": ["host:this_host", "region:eu-west-1"],
-      "environment": "Production"
-      },
-  streams=[this_host_cpu_usage],
-  checks=[cpu_max_average_check]
-  )
+              "urn:example:/host:this_host", 
+              "Host",
+              data={
+                  "name": "this-host",
+                  "domain": "Webshop",
+                  "layer": "Machines",
+                  "identifiers": ["urn:host:/this-host-fqdn"],
+                  "labels": ["host:this_host", "region:eu-west-1"],
+                  "environment": "Production"
+                  },
+              streams=[this_host_cpu_usage],
+              checks=[cpu_max_average_check]
+              )
 ```
 {% endtab %}
 {% endtabs %}
@@ -288,13 +288,13 @@ Log streams containing events can be added to a component using the `EventStream
 {% tabs %}
 {% tab title="Example - events stream" %}
 ```
-this_host_events = EventStream(
-                    "Host events stream", # name
-                    conditions={
-                      "key1": "value1", 
-                      "key2": "value2"
-                      },
-                    )
+EventStream(
+            "Host events stream", # name
+            conditions={
+              "key1": "value1", 
+              "key2": "value2"
+              },
+            )
 ```
 {% endtab %}
 {% endtabs %}
@@ -320,15 +320,15 @@ For details see the [EventHealthChecks class \(github.com\)](https://github.com/
 {% tabs %}
 {% tab title="Example - event stream health check" %}
 ```
-cpu_max_average_check = EventHealthChecks.contains_key_value(
-                          "this_host_events",           # stream_id
-                          "Events on this host",        # name
-                          75,                           # contains_key
-                          90,                           # contains_value
-                          "CRITICAL"                    # found_health_state
-                          "CLEAR"                       # missing_health_state
-                          remediation_hint="Bad event found!"
-                          )
+EventHealthChecks.contains_key_value(
+                                    "this_host_events",           # stream_id
+                                    "Events on this host",        # name
+                                    75,                           # contains_key
+                                    90,                           # contains_value
+                                    "CRITICAL"                    # found_health_state
+                                    "CLEAR"                       # missing_health_state
+                                    remediation_hint="Bad event found!"
+                                    )
 ```
 {% endtab %}
 {% endtabs %}
@@ -354,17 +354,17 @@ Metric streams can be added to a component using the `MetricStream` class.
 {% tabs %}
 {% tab title="Example - metric stream" %}
 ```
-this_host_cpu_usage = MetricStream(
-                        "Host CPU Usage", # name
-                        "system.cpu.usage", # metricField
-                        conditions={
-                            "tags.hostname": "this-host", 
-                            "tags.region": "eu-west-1"
-                            },
-                        unit_of_measure="Percentage",
-                        aggregation="MEAN",
-                        priority="HIGH"
-                        )
+MetricStream(
+            "Host CPU Usage", # name
+            "system.cpu.usage", # metricField
+            conditions={
+                "tags.hostname": "this-host", 
+                "tags.region": "eu-west-1"
+                },
+            unit_of_measure="Percentage",
+            aggregation="MEAN",
+            priority="HIGH"
+            )
 ```
 {% endtab %}
 {% endtabs %}
@@ -401,13 +401,13 @@ For details see the [MetricHealthChecks class \(github.com\)](https://github.com
 {% tabs %}
 {% tab title="Example - metric health check" %}
 ```
-cpu_max_average_check = MetricHealthChecks.maximum_average(
-                          this_host_cpu_usage.identifier, # stream_id
-                          "Max CPU Usage (Average)",      # name
-                          75,                             # deviating value
-                          90,                             # critical value
-                          remediation_hint="Too much activity on this host"
-                          )
+MetricHealthChecks.maximum_average(
+                                  this_host_cpu_usage.identifier, # stream_id
+                                  "Max CPU Usage (Average)",      # name
+                                  75,                             # deviating value
+                                  90,                             # critical value
+                                  remediation_hint="Too much activity on this host"
+                                  )
 ```
 {% endtab %}
 {% endtabs %}
