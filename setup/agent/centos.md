@@ -37,7 +37,7 @@ The `apiKey` and `baseUrl` specified when running the install script are set dur
 
 #### Online install
 
-By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
+If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the install.sh script. The Agent installer package will be downloaded automatically. 
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -58,18 +58,19 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 
 #### Offline install
 
-By default, the installer will try to configure the package update channel and update packages using the host package manager. To disable this feature, set the environment variable `STS_INSTALL_NO_REPO=yes`.
+If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install. You can then set the environment variable `STS_INSTALL_NO_REPO=yes` and run the install.sh script by specifying the path to the installer package.
 
 1. Download the install script and copy this to the host where it will be installed:
    - [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
-2. Download the Agent installer package and copy this to the host where it will be installed:
-   - [???]()
+2. Download the latest Agent installer package (`*_amd64.deb`) and copy this to the host where it will be installed:
+   - List of available installers: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
+   - Link to download: `https://stackstate-agent-2.s3.amazonaws.com/\<Key\>`. For example, `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
 3. use the command below to set the required environment variables and run the installer script:
     ```text
     STS_API_KEY="{{config.apiKey}}" \
     STS_URL="{{config.baseUrl}}/stsAgent" \
     STS_INSTALL_NO_REPO=yes \
-    ./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
+    ./install.sh <path_to_Agent_installer_package>
     ```
 
 ### Upgrade
