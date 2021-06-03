@@ -4,9 +4,9 @@
 
 The StackState Agent can be installed on CentOS. When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
 
-- Hosts, processes and containers
-- Network connections between processes and containers including network traffic telemetry
-- Telemetry for hosts, processes and containers 
+- Hosts, processes and containers.
+- Telemetry for hosts, processes and containers   
+- For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry.
 
 The Agent can also be configured to run checks that [integrate StackState with external systems](/stackpacks/integrations/). 
 
@@ -18,10 +18,10 @@ Data from the Agent is pushed to StackState via the [StackState Agent StackPack]
 
 StackState Agent is supported to run on Cent OS versions:
 
-| OS | Release | Arch | Network Tracer| Status | Notes|
+| OS | Release | Arch | Network Tracer | Notes|
 |----|---------|--------|--------|--------|--------|
-| CentOS | 6 | 64bit | - | OK | Since version 2.0.2 |
-| CentOS | 7 | 64bit | - | OK | - |
+| CentOS | 6 | 64bit | - | Since version 2.0.2 |
+| CentOS | 7 | 64bit | - | - |
 
 ### Install
 
@@ -74,6 +74,23 @@ If you do not have access to the internet, you will need to download both the in
     ```
 
 ### Upgrade
+
+To upgrade the StackState Agent on your system, stop the service and upgrade using `yum` or `apt-get`.
+
+{% tabs %}
+{% tab title="yum" %}
+```
+systemctl stop stackstate-agent
+sudo yum upgrade stackstate-agent
+```
+{% endtab %}
+{% tab title="apt-get" %}
+```
+systemctl stop stackstate-agent
+sudo apt-get update && apt-get upgrade stackstate-agent
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configure
 
@@ -165,6 +182,22 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
+To uninstall the StackState Agent from your system, stop the service and remove using `yum` or `apt-get`.
+
+{% tabs %}
+{% tab title="yum" %}
+```
+systemctl stop stackstate-agent
+sudo yum remove stackstate-agent
+```
+{% endtab %}
+{% tab title="apt-get" %}
+```
+systemctl stop stackstate-agent
+sudo apt-get remove stackstate-agent
+```
+{% endtab %}
+{% endtabs %}
 ## Open source
 
 The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
