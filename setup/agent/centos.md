@@ -184,10 +184,10 @@ sudo service stackstate-agent status
 To show tracebacks for errors or output the full log:
 
 ```text
-# for systemctl
+# with systemctl
 sudo journalctl -u stackstate-agent
 
-# for service
+# with service
 sudo service stackstate-agent status -v
 
 ```
