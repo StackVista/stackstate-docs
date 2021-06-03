@@ -256,12 +256,12 @@ this_host_cpu_usage = MetricStream(
                                   )
 
 cpu_max_average_check = MetricHealthChecks.maximum_average(
-                                                          this_host_cpu_usage.identifier,
-                                                          "Max CPU Usage (Average)", 
-                                                          75, 
-                                                          90,
-                                                          remediation_hint="Too much activity, add another host"
-                                                          )
+                                            this_host_cpu_usage.identifier,
+                                            "Max CPU Usage (Average)", 
+                                            75, 
+                                            90,
+                                            remediation_hint="Too much activity, add another host"
+                                            )
 
 self.component(
               "urn:example:/host:this_host", 
@@ -403,10 +403,10 @@ For details see the [MetricHealthChecks class \(github.com\)](https://github.com
 ```
 MetricHealthChecks.maximum_average(
                                   this_host_cpu_usage.identifier, # stream_id
-                                  "Max CPU Usage (Average)",      # name
-                                  75,                             # deviating value
-                                  90,                             # critical value
-                                  remediation_hint="Too much activity on this host"
+                                  "Max CPU Usage (Average)",  # name
+                                  75,   # deviating value
+                                  90,   # critical value
+                                  remediation_hint="Too much activity on host"
                                   )
 ```
 {% endtab %}
