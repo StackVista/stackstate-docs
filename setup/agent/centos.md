@@ -80,13 +80,21 @@ To upgrade the StackState Agent on your system, stop the `stackstate-agent` serv
 {% tabs %}
 {% tab title="yum" %}
 ```
+# stop the Agent with one of the below commands
+sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
+
+# upgrade the Agent
 sudo yum upgrade stackstate-agent
 ```
 {% endtab %}
 {% tab title="apt-get" %}
 ```
+# stop the Agent with one of the below commands
 sudo systemctl stop stackstate-agent
+sudo service stackstate-agent stop
+
+# upgrade the Agent
 sudo apt-get update && apt-get upgrade stackstate-agent
 ```
 {% endtab %}
@@ -151,6 +159,12 @@ Documentation for the available StackState integrations, including configuration
 To manually start, stop or restart the StackState Agent:
 
 ```text
+# with systemctl
+sudo systemctl start stackstate-agent
+sudo systemctl stop stackstate-agent
+sudo systemctl restart stackstate-agent
+
+# with service
 sudo service stackstate-agent start
 sudo service stackstate-agent stop
 sudo service stackstate-agent restart
@@ -160,13 +174,22 @@ sudo service stackstate-agent restart
 To check if the StackState Agent is running and receive information about the Agent's state:
 
 ```text
+# with systemctl
+sudo systemctl status stackstate-agent
+
+# with service
 sudo service stackstate-agent status
 ```
 
-Tracebacks for errors can be retrieved by setting the `-v` flag:
+To show tracebacks for errors or output the full log:
 
 ```text
+# for systemctl
+sudo journalctl -u stackstate-agent
+
+# for service
 sudo service stackstate-agent status -v
+
 ```
 
 ## Log files
@@ -187,13 +210,21 @@ To uninstall the StackState Agent from your system, stop the `stackstate-agent` 
 {% tabs %}
 {% tab title="yum" %}
 ```
+# stop the Agent with one of the below commands
+sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
+
+# uninstall the Agent
 sudo yum remove stackstate-agent
 ```
 {% endtab %}
 {% tab title="apt-get" %}
 ```
+# stop the Agent with one of the below commands
 sudo systemctl stop stackstate-agent
+sudo service stackstate-agent stop
+
+# uninstall the Agent
 sudo apt-get remove stackstate-agent
 ```
 {% endtab %}
