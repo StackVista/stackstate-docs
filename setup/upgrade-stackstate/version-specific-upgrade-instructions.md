@@ -42,11 +42,11 @@ This page provides specific instructions for upgrading to each currently support
 
   * File based authentication
 
-    You should use `platformadmin` username for platform management instead of `admin`. `admin` user remains functional and has full content management rights as before.
+    You should use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
 
   * External authentication (LDAP/OIDC/Keycloak)
 
-    Since there is new group `platformAdmin` you have to create an additional role/group in external authentication system and map it to stackstate `platformAdmin` group.
+    Since there is new group `platformAdmin`, you have to create an additional role/group in the external authentication system and map it to the StackState `platformAdmin` group.
     ```
     stackstate:
       authentication:
@@ -55,7 +55,7 @@ This page provides specific instructions for upgrading to each currently support
           platformAdmin: ["new-external-platform-admin-role"]
           ...
     ```
-    The users who are assigned this group/role will get platform management permissions.
+    Users who are assigned this group/role will get platform management permissions.
     If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
 
   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
@@ -124,11 +124,11 @@ This page provides specific instructions for upgrading to each currently support
 
   * File based authentication
 
-    You should use `platformadmin` username for platform management instead of `admin`. `admin` user remains functional and has full content management rights as before.
+    You should use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
 
   * External authentication (LDAP/OIDC/Keycloak)
 
-    Since there is new group `platformAdmin` you have to create an additional role/group in external authentication system and map it to stackstate `platformAdmin` group.
+    Since there is new group `platformAdmin`, you have to create an additional role/group in the external authentication system and map it to the StackState `platformAdmin` group.
     ```
     stackstate {
       authorization {
@@ -139,7 +139,7 @@ This page provides specific instructions for upgrading to each currently support
       ...
     }
     ```
-    The users who are assigned this group/role will get platform management permissions.
+    Users who are assigned this group/role will get platform management permissions.
     If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
 
   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
