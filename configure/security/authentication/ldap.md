@@ -21,7 +21,7 @@ stackstate:
       host: sts-ldap
       port: 10389 # For most LDAP servers 389 for plain, 636 for ssl connections
       #ssl:
-      #  sslType: ssl
+      #  type: ssl
       #  trustStore: <see below>
       #  trustCertificates <see below>
       bind:
@@ -42,7 +42,7 @@ stackstate:
         rolesKey: cn
         groupMemberKey: member
 
-    # map the groups from LDAP to the 
+    # map the groups from LDAP to the
     # 3 standard subjects in StackState (guest, powerUser and admin)
     roles:
       guest: ["ldap-guest-role-for-stackstate"]
@@ -57,8 +57,8 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 1. In `authentication.yaml` - add LDAP details \(see the example above\):
    * **host** - The hostname of the LDAP server.
    * **port** - The port the LDAP server is listening on.
-   * **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used. 
-   * **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported. 
+   * **type** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used.
+   * **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
    * **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
    * **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
    * **userQuery parameters and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
@@ -123,7 +123,7 @@ stackstate/stackstate
 
 ### Linux
 
-To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
+To configure StackState to authenticate using an LDAP authentication server on Linux, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
 
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
@@ -137,7 +137,7 @@ authentication {
         host = localhost
         port = 8000
         # ssl {
-        #    sslType = ssl
+        #    type = ssl
         #    trustCertificatesPath = "/var/lib/ssl/sts-ldap.pem"
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
@@ -182,7 +182,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 1. In `application_stackstate.conf` - add LDAP details \(see the example above\):
    * **host** - The hostname of the LDAP server.
    * **port** - The port the LDAP server is listening on.
-   * **sslType** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
+   * **type** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
    * **trustCertificatesPath** - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
    * **trustStorePath** - optional, path to a Java trust store on the StackState server. If both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence.
    * **bindCredentials** - optional, used to authenticate StackState on the LDAP server if the LDAP server does not support anonymous LDAP searches.
