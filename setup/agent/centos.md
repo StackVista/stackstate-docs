@@ -65,7 +65,7 @@ If you do not have access to the internet, you will need to download both the in
 2. Download the latest Agent installer package (DEB or RPM package) and copy this to the host where it will be installed:
    - **DEB  installer list**: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
    - **RPM installer list**: [https://stackstate-agent-2-rpm.s3.amazonaws.com/](https://stackstate-agent-2-rpm.s3.amazonaws.com/)  
-   - Link to download: `\<installer_list_link\>/\<installer_Key\>`. For example, `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
+   - **Link to download**: `<installer_list_link>/<installer_Key_from_list>`. For example, `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
 3. use the command below to set the required environment variables and run the installer script:
     ```text
     STS_API_KEY="{{config.apiKey}}" \
