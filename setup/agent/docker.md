@@ -91,9 +91,40 @@ Certain features of the agent can be turned off if not needed:
 
 ### Integration configuration
 
+The Agent can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` in the container where the Agent is running.
+
+For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
+
+```
+stackstate-agent:
+    image: docker.io/stackstate/stackstate-agent-2:latest
+    network_mode: "host"
+    pid: "host"
+    privileged: true
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/proc/:/host/proc/:ro"
+      - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
+      - "/etc/passwd:/etc/passwd:ro"
+      - "/sys/kernel/debug:/sys/kernel/debug"
+      - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml"
+    environment:
+      STS_API_KEY: "API_KEY"
+      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_ENABLED: "true"
+      STS_NETWORK_TRACING_ENABLED: "true"
+      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_APM_ENABLED: "true"
+      HOST_PROC: "/host/proc"
+      HOST_SYS: "/host/sys"
+```
+
+Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+
 ### Self-Signed Certificates
 
-When checks are being configured to use self-signed certificate for https requests, then the following environment variable should be overwritten:
+If checks running on the Agent will be configured to use self-signed certificates for HTTPs requests, the following environment variable should be overwritten:
 
 ```
   CURL_CA_BUNDLE = ""
@@ -101,12 +132,12 @@ When checks are being configured to use self-signed certificate for https reques
 
 ### Traces
 
-When used in conjunction with one of our language specific trace clients, e.g. [StackState Java Trace Client](/#/stackpacks/stackstate-agent-v2/java) / [StackState Dotnet Trace Client](/#/stackpacks/stackstate-agent-v2/dotnet)  to allow automatic merging of components within StackState make sure to configure your app to use the host’s pid namespace:
+The StackState Agent can be configured to collect traces via a [StackState tracing integration](s/configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). When using the StackState Agent running on Docker in conjunction with one of our language specific trace clients, make sure to configure your app to use the host’s PID namespace:
 
 ```
   service:
     ...
-    pid: "host" # ensure pid's match with processes reported by the StackState process agent
+    pid: "host" # should match with processes reported by the StackState process Agent
     ...
 ```
 
@@ -125,7 +156,13 @@ To troubleshoot the StackState Agent container, set the logging level to `debug`
 STS_LOG_LEVEL: "DEBUG"
 ```
 
+### Support knowledge base
+
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+
 ## Uninstall
+
+
 
 ## Release notes
 
