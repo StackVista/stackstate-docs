@@ -10,7 +10,7 @@ description: StackState curated integration
 
 ### Prerequisites
  
-* [StackState Agent](/setup/agent/linuxdocker.md) running in a Docker container that is able to connect to StackState.
+* [StackState Agent](/setup/agent/docker.md) running in a Docker container that is able to connect to StackState.
 * The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
 ### Install
