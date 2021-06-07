@@ -115,6 +115,7 @@
   * [Cloudera](stackpacks/integrations/cloudera.md)
   * [Custom Synchronization](stackpacks/integrations/customsync.md)
   * [Debian](stackpacks/integrations/agent_v2/debian.md)
+  * [Docker](stackpacks/integrations/agent_v2/docker.md)
   * [DotNet APM](stackpacks/integrations/agent_v2/dotnet-apm.md)
   * [Fedora](stackpacks/integrations/agent_v2/fedora.md)
   * [Google Analytics](stackpacks/integrations/google_analytics.md)

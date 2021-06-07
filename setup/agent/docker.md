@@ -12,9 +12,6 @@ The StackState Agent is open source, code is available on GitHub at: [https://gi
 
 ## Setup
 
-### Supported versions
-
-
 ### Single container
 
 To start a single Docker container with StackState Agent, run the following command:
