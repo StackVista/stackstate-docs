@@ -24,3 +24,13 @@ The StackState Agent is supported on the following platforms:
 | Fedora | 28 | 64bit | OK | OK | - |
 
 Need help? Please contact [StackState support](https://support.stackstate.com/hc/en-us).
+
+
+
+-----
+
+When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+
+- Hosts, processes and containers.
+- Telemetry for hosts, processes and containers   
+- For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry. See the [supported Linux versions](#supported-linux-versions) for details.

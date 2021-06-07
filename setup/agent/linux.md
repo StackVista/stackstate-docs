@@ -2,21 +2,16 @@
 
 ## Overview
 
-The StackState Agent can be installed on CentOS. When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+The StackState Agent can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent retrieves data from the host where it is running and [configured external services](/stackpacks/integrations/) and pushes this to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
-- Hosts, processes and containers.
-- Telemetry for hosts, processes and containers   
-- For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry. See the [supported Linux versions](#supported-linux-versions) for details.
+The StackState Agent is open source, code is available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
-The Agent can also be configured to run checks that [integrate StackState with external systems](/stackpacks/integrations/). 
-
-Data from the Agent is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
 ## Setup 
 
 ### Supported Linux versions
 
-StackState Agent is supported to run on the Linux versions listed below with 64bit architecture:
+StackState Agent is tested to run on the Linux versions listed below with 64bit architecture:
 
 | OS | Release | Network Tracer | Notes |
 |:---|:---|:---|:---|
@@ -26,7 +21,7 @@ StackState Agent is supported to run on the Linux versions listed below with 64b
 | Debian | Jessie (8) | - | - |
 | Debian | Stretch (9) |OK | - |
 | Fedora | 28 | OK | - |
-| RHEL | 7 | 64bit | - | - |
+| RHEL | 7 | - | - | - |
 | Ubuntu | Trusty (14) || - | - |
 | Ubuntu | Xenial (16) | OK | - |
 | Ubuntu | Bionic (18) | OK | - |
@@ -201,15 +196,16 @@ sudo journalctl -u stackstate-agent
 sudo service stackstate-agent status -v
 
 ```
+## Troubleshooting
 
-## Log files
+### Log files
 
 Logs for the subsystems are in the following files:
 
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
 
-## Troubleshooting
+### Support knowledge base
 
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
@@ -239,9 +235,6 @@ sudo apt-get remove stackstate-agent
 ```
 {% endtab %}
 {% endtabs %}
-## Open source
-
-The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Release notes
 
