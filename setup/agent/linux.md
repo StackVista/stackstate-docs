@@ -2,9 +2,9 @@
 
 ## Overview
 
-The StackState Agent can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent retrieves data from the host where it is running and [configured external services](/stackpacks/integrations/) and pushes this to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
+The StackState Agent can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent will retrieves data from the host where it is running and can be configured to [integrate with external systems](/stackpacks/integrations) and pushes this to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
-The StackState Agent is open source, code is available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+The StackState Agent is open source, code is available on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 
 ## Setup 
@@ -35,7 +35,7 @@ The StackState Agent is installed using an install script.
 
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml)
 * [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 
 #### Online install
