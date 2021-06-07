@@ -43,6 +43,24 @@ stackstate-agent:
       HOST_SYS: "/host/sys"
 ```
 
+Docker run command
+
+```
+docker run -d \
+    --name stackstate-agent \
+    --privileged \
+    --network="host" \
+    --pid="host" \
+    -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    -v /proc/:/host/proc/:ro \
+    -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+    -e STS_API_KEY="API_KEY" \
+    -e STS_STS_URL="https://your.stackstate.url/receiver/stsAgent" \
+    -e HOST_PROC="/host/proc" \
+    -e HOST_SYS="/host/sys" \
+    docker.io/stackstate/stackstate-agent-2:latest
+```
+
 ### Docker-Swarm mode
 
 {% hint style="warning" %}
@@ -76,7 +94,7 @@ Processes reported by the StackState Agent can optionally be filtered using a bl
 
 The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
 
-To specify a blacklist and/or inclusions, set the below environment variables and restart the Docker Agent.
+To specify a blacklist and/or inclusions, set the below environment variables and restart the StackState Docker Agent.
 
 | Environment variable | Description |
 |:---|:---|
@@ -90,7 +108,7 @@ To specify a blacklist and/or inclusions, set the below environment variables an
 
 #### Disable Agent features
 
-Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart the Docker Agent.
+Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart the StackState Docker Agent.
 
 | Environment variable | Description |
 |:---|:---|
@@ -120,11 +138,6 @@ stackstate-agent:
     environment:
       STS_API_KEY: "API_KEY"
       STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_ENABLED: "true"
-      STS_NETWORK_TRACING_ENABLED: "true"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
