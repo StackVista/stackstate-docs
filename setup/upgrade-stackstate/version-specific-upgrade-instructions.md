@@ -23,61 +23,62 @@ This page provides specific instructions for upgrading to each currently support
 #### v4.4.0
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
-* Authorization configuration for Base API and Admin API has been centralized. This means that there is a single location in the configuration for groups to roles mappings. The three default StackState roles could previously be overridden, but are now always available.
-```
-stackstate {
-  authorization {
-    adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
-    powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
-    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
+* Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
+  ```
+  stackstate {
+    authorization {
+      adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
+      platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role-from-ldap-or-oidc-or-keycloak"]
+      powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
+      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]    
+    }
   }
-}
-```
+  ```
+  Platform management and platform content management permissions have been separated into two groups - `platformAdminGroup` and `adminGroup`. Users in the group `platformAdminGroup` are limited to only platform management tasks, such as change database retention, clear database, clear caches and view logs. Users in the group `adminGroup` no longer have platform management permissions.
 
-  If you have configured API role overrides for specific services these will need to be updated. In most cases, it will not be necessary to make any changes.
-  The helm properties where you can find those overrides are below:
-   ```
-   stackstate.components.api.config = ...
-   stackstate.components.checks.config = ...
-   stackstate.components.healthSync.config = ...
-   stackstate.components.initializer.config = ...
-   stackstate.components.server.config = ...
-   stackstate.components.state.config = ...
-   stackstate.components.sync.config = ...
-   stackstate.components.slicing.config = ...
-   stackstate.components.viewHealth.config = ...
-   stackstate.components.problemProducer.config = ...
-   ```
+  **How you should proceed with upgrade?**
 
-   If you have role overrides configured with those properties, the roles should be moved to a single location as shown below:
+  **Provider Specific Instructions**
 
-   ```yaml
-   stackstate:
-     authentication:
-       roles:
-         guest: ["custom-guest-role"]
-         powerUser: ["custom-power-user-role"]
-         admin: ["custom-admin-role"]
-   ```
-   For details, see the section [default and custom role names](../../configure/security/rbac/rbac_permissions.md#default-and-custom-role-names).
+  * File based authentication
 
-   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
+    You should use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
+
+  * External authentication (LDAP/OIDC/Keycloak)
+
+    Since there is new group `platformAdmin`, you have to create an additional role/group in the external authentication system and map it to the StackState `platformAdmin` group.
+    ```
+    stackstate:
+      authentication:
+        roles:
+          ...
+          platformAdmin: ["new-external-platform-admin-role"]
+          ...
+    ```
+    Users who are assigned this group/role will get platform management permissions.
+    If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
+
+  If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 {% endtab %}
 
 {% tab title="Linux" %}
 #### v4.4.0
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
-* Authorization configuration for Base API and Admin API has been centralized. This means that there is a single location in the configuration for groups to roles mappings. The three default StackState roles could previously be overridden, but are now always available.
+* Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
 ```
-stackstate {
-  authorization {
-    adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
-    powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
-    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
+  stackstate {
+    authorization {
+      adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
+      platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role-from-ldap-or-oidc-or-keycloak"]
+      powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
+      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]    
+    }
   }
-}
-```
+  ```
+  Platform management and platform content management permissions have been separated into two groups - `platformAdminGroup` and `adminGroup`. Users in the group `platformAdminGroup` are limited to only platform management tasks, such as change database retention, clear database, clear caches and view logs. Users in the group `adminGroup` no longer have platform management permissions.
+
+  **How you should proceed with upgrade?**
 
   This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
   If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
@@ -101,6 +102,7 @@ stackstate {
   stackstate {
     authorization {
       adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
+      platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["your-custom-oidc-or-ldap-or-keycloak-platform-admin-role"]
       powerUserGroups = ${stackstate.authorization.powerUserGroups} ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
       guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]      
     }
@@ -115,8 +117,30 @@ stackstate {
   ```
 
   {% hint style="info" %}
-  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-guest and stackstate-power-user).
+  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user).
   {% endhint %}
+
+  **Provider Specific Instructions**
+
+  * File based authentication
+
+    You should use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
+
+  * External authentication (LDAP/OIDC/Keycloak)
+
+    Since there is new group `platformAdmin`, you have to create an additional role/group in the external authentication system and map it to the StackState `platformAdmin` group.
+    ```
+    stackstate {
+      authorization {
+        ...
+        platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["your-custom-oidc-or-ldap-or-keycloak-platform-admin-role"]
+        ...
+      }
+      ...
+    }
+    ```
+    Users who are assigned this group/role will get platform management permissions.
+    If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
 
   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
@@ -161,6 +185,7 @@ No manual action needed.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}
+
 
 ### Upgrade to v4.2.x
 
