@@ -1,6 +1,6 @@
-~~---
+---
 description: StackState curated integration
----~~
+---
 
 # Debian
 

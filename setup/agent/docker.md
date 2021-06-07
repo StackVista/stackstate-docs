@@ -1,17 +1,14 @@
+---
+description: StackState curated integration
+---
+
 # Docker
 
 ## Overview
 
-The StackState Agent can be installed on Docker. 
+The StackState Agent can run in a Docker container.  The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
-Get topology and telemetry information while running the agent as a docker container.
-
-When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
-
-- Hosts, processes, and containers
-- Network connections between processes, containers and services including network traffic telemetry
-- Telemetry for hosts, processes, and containers
-- Trace agent support
+The StackState Agent is open source, code is available on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Setup
 

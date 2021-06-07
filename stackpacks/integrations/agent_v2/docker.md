@@ -13,9 +13,9 @@ description: StackState curated integration
 
 ## Data retrieved
 
-When installed and running, StackState Agent will synchronize the following data:
+When installed and running, StackState Agent will synchronize the following data from the host on which it is running:
 
-* Reporting hosts, processes, and containers
-* Reporting all network connections between processes/containers/services including network traffic telemetry
+* Hosts, processes, and containers
+* Network connections between processes/containers/services including network traffic telemetry
 * Telemetry for hosts, processes, and containers
-* Trace agent support
+
