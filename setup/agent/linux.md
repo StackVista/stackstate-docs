@@ -18,12 +18,12 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | CentOS | 7 | - | - |
 | Debian | Wheezy (7) | - | Needs glibc upgrade to 2.17. |
 | Debian | Jessie (8) | - | - |
-| Debian | Stretch (9) |OK | - |
+| Debian | Stretch (9) | ✅ | - |
 | Fedora | 28 | OK | - |
 | RHEL | 7 | - | - |
 | Ubuntu | Trusty (14) | - | - |
-| Ubuntu | Xenial (16) | OK | - |
-| Ubuntu | Bionic (18) | OK | - |
+| Ubuntu | Xenial (16) | ✅ | - |
+| Ubuntu | Bionic (18) | ✅ | - |
 
 ### Install
 
