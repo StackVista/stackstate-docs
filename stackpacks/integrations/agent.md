@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-The StackState Agent StackPack works with the [StackState Agent](/setup/agent) to synchronize topology, metrics, events and trace data from external systems with StackState.
+The StackState Agent StackPack works with the [StackState Agent](/setup/agent) to synchronize topology, metrics, events and trace data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
 
 The StackState Agent is open source and available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
