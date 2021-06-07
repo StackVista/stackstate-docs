@@ -20,8 +20,8 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | Debian | Jessie (8) | - | - |
 | Debian | Stretch (9) |OK | - |
 | Fedora | 28 | OK | - |
-| RHEL | 7 | - | - | - |
-| Ubuntu | Trusty (14) || - | - |
+| RHEL | 7 | - | - |
+| Ubuntu | Trusty (14) | - | - |
 | Ubuntu | Xenial (16) | OK | - |
 | Ubuntu | Bionic (18) | OK | - |
 
