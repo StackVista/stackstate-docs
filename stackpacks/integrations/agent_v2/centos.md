@@ -1,4 +1,8 @@
+---
+description: StackState curated integration
+---
 
+# CentOS
 
 ## Overview
 
