@@ -2,10 +2,9 @@
 
 ## Overview
 
-The StackState Agent can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent will retrieves data from the host where it is running and can be configured to [integrate with external systems](/stackpacks/integrations) and pushes this to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
+The StackState Agent can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
 The StackState Agent is open source, code is available on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
-
 
 ## Setup 
 
