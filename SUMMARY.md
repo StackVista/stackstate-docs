@@ -30,6 +30,7 @@
   * [StackState CLI](setup/installation/cli-install.md)
   * [Troubleshooting](setup/installation/troubleshooting.md)
 * [Agent](setup/agent/README.md)
+  * [Docker](setup/agent/docker.md)
   * [Kubernetes](setup/agent/kubernetes.md)
   * [Linux](setup/agent/linux.md)    
   * [Windows](setup/agent/windows.md)

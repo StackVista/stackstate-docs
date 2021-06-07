@@ -14,7 +14,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 | OS | Release | Network Tracer | Notes |
 |:---|:---|:---|:---|
-| CentOS | 6 | - | Requires Agent v2.0.2 and above. |
+| CentOS | 6 | - | Requires Agent v2.0.2 or above. |
 | CentOS | 7 | - | - |
 | Debian | Wheezy (7) | - | Needs glibc upgrade to 2.17. |
 | Debian | Jessie (8) | - | - |
@@ -210,7 +210,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the StackState Agent from your system, stop the `stackstate-agent` service and remove using `yum` or `apt-get`.
+To uninstall the StackState Agent from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
