@@ -53,9 +53,11 @@ Some specific features are not supported in Docker-Swarm mode. This limitation p
 
 To run the StackState Agent in Docker-Swarm mode, use a docker-compose setup:
 
-1. Add the [Docker install](#install) configuration in your compose file on each node where you want to run the Agent. 
+1. Add the [Docker install](#install) configuration to the compose file on each node where the Agent will run. 
 2. Run the command:
-```docker-compose up -d```
+```
+docker-compose up -d
+```
 
 ### Upgrade
 
