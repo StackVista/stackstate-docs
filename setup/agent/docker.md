@@ -17,33 +17,7 @@ The StackState Agent is open source, code is available on GitHub at: [https://gi
 
 ### Install
 
-To run the StackState Agent as a docker container, use the following configuration:
-
-```
-stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
-    network_mode: "host"
-    pid: "host"
-    privileged: true
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "/proc/:/host/proc/:ro"
-      - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
-      - "/etc/passwd:/etc/passwd:ro"
-      - "/sys/kernel/debug:/sys/kernel/debug"
-    environment:
-      STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_ENABLED: "true"
-      STS_NETWORK_TRACING_ENABLED: "true"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_ENABLED: "true"
-      HOST_PROC: "/host/proc"
-      HOST_SYS: "/host/sys"
-```
-
-Docker run command
+To run the StackState Agent as a docker container, run the following command:
 
 ```
 docker run -d \
@@ -71,7 +45,31 @@ Some specific features are not supported in Docker-Swarm mode. This limitation p
 
 To run the StackState Agent in Docker-Swarm mode, use a docker-compose setup:
 
-1. Add the [Docker install](#install) configuration to the compose file on each node where the Agent will run. 
+1. Add the following configuration to the compose file on each node where the Agent will run:
+```
+stackstate-agent:
+    image: docker.io/stackstate/stackstate-agent-2:latest
+    network_mode: "host"
+    pid: "host"
+    privileged: true
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/proc/:/host/proc/:ro"
+      - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
+      - "/etc/passwd:/etc/passwd:ro"
+      - "/sys/kernel/debug:/sys/kernel/debug"
+    environment:
+      STS_API_KEY: "API_KEY"
+      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_PROCESS_AGENT_ENABLED: "true"
+      STS_NETWORK_TRACING_ENABLED: "true"
+      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_APM_ENABLED: "true"
+      HOST_PROC: "/host/proc"
+      HOST_SYS: "/host/sys"
+```
+   
 2. Run the command:
 ```
 docker-compose up -d
