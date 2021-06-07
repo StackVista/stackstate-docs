@@ -1,4 +1,4 @@
-# CentOS
+# Linux
 
 ## Overview
 
@@ -122,7 +122,7 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 
 | Configuration item | Description |
 |:---|:---|
-| `process_blacklist.patterns` |A list of regex patterns that will exclude a process if matched. [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).  |
+| `process_blacklist.patterns` | A list of regex patterns that will exclude a process if matched. [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).  |
 | `process_blacklist.inclusions.cpu_pct_usage_threshold` | Threshold that enables the reporting of high CPU usage processes. |
 | `process_blacklist.inclusions.amount_top_cpu_pct_usage` | The number of processes to report that have a high CPU usage. Default `0`. |
 | `process_blacklist.inclusions.amount_top_io_read_usage` | The number of processes to report that have a high IO read usage. Default `0`. |

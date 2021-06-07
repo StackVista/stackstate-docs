@@ -66,27 +66,37 @@ docker-compose up -d
 
 ### Agent configuration
 
+The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run will be added here. No further configuration should be required, however, a number of advanced configuration options are available.
+
 ### Advanced Agent configuration
 
-Process reported by the StackState Agent can be filtered using a blacklist. Using it in conjunction with the inclusion rules will include otherwise excluded processes.
+#### Blacklist and inclusions
 
-| Parameter | Mandatory | Default Value | Description |
-|-----------|-----------|---------------|-------------|
-| `STS_PROCESS_BLACKLIST_PATTERNS` | no | [see github](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go) | A list of regex patterns that will exclude a process if matched |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | no | 0 | Number of processes to report that have a high CPU usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | no | 0 | Number of processes to report that have a high IO read usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | no | 0 | Number of processes to report that have a high IO write usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_MEM` | no | 0 | Number of processes to report that have a high Memory usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_CPU_THRESHOLD` | no |  | Threshold that enables the reporting of high CPU usage processes |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | no |  | Threshold that enables the reporting of high Memory usage processes |
+Processes reported by the StackState Agent can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
 
-Certain features of the agent can be turned off if not needed:
+The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
 
-| Parameter | Mandatory | Default Value | Description |
-|-----------|-----------|---------------|-------------|
-| `STS_PROCESS_AGENT_ENABLED` | no | True | Whenever process agent should be enabled |
-| `STS_APM_ENABLED` | no | True | Whenever trace agent should be enabled |
-| `STS_NETWORK_TRACING_ENABLED` | no | True | Whenever network tracer should be enabled |
+To specify a blacklist and/or inclusions, set the below environment variables and restart the Docker Agent.
+
+| Environment variable | Description |
+|:---|:---|
+| `STS_PROCESS_BLACKLIST_PATTERNS` | A list of regex patterns that will exclude a process if matched. [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).  |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_CPU_THRESHOLD` | Threshold that enables the reporting of high CPU usage processes. |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | The number of processes to report that have a high CPU usage. Default `0`. |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | The number of processes to report that have a high IO read usage. Default `0`. |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | The number of processes to report that have a high IO write usage. Default `0`. |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | Threshold that enables the reporting of high Memory usage processes. |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_MEM` | The number of processes to report that have a high memory usage. Default `0`. |
+
+#### Disable Agent features
+
+Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart the Docker Agent.
+
+| Environment variable | Description |
+|:---|:---|
+| `STS_PROCESS_AGENT_ENABLED` | Default `true` (collects containers and processes). Set to `false` to collect only containers, or `disabled` to disable the process Agent.|
+| `STS_APM_ENABLED` | Default `true`. Set to `"false"` to disable the APM Agent. |
+| `STS_NETWORK_TRACING_ENABLED` | Default `true`. Set to `false` to disable the network tracer. |
 
 ### Integration configuration
 
