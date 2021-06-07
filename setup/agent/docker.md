@@ -15,9 +15,9 @@ The StackState Agent is open source, code is available on GitHub at: [https://gi
 ### Supported versions
 
 
-### Install
+### Single container
 
-To run the StackState Agent as a docker container, run the following command:
+To start a single Docker container with StackState Agent, run the following command:
 
 ```
 docker run -d \
@@ -35,15 +35,9 @@ docker run -d \
     docker.io/stackstate/stackstate-agent-2:latest
 ```
 
-### Docker-Swarm mode
+### Docker compose
 
-{% hint style="warning" %}
-**Limitation of Docker-Swarm mode**
-
-Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between containers, processes and other resources while in Docker-Swarm mode.
-{% endhint %}
-
-To run the StackState Agent in Docker-Swarm mode, use a docker-compose setup:
+To run the StackState Agent with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run:
 ```
@@ -61,11 +55,11 @@ stackstate-agent:
     environment:
       STS_API_KEY: "API_KEY"
       STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_ENABLED: "true"
-      STS_NETWORK_TRACING_ENABLED: "true"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_ENABLED: "true"
+          STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
+          STS_PROCESS_AGENT_ENABLED: "true"
+          STS_NETWORK_TRACING_ENABLED: "true"
+          STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+          STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
@@ -74,6 +68,16 @@ stackstate-agent:
 ```
 docker-compose up -d
 ```
+
+### Docker swarm mode
+
+{% hint style="warning" %}
+**Limitation of Docker-Swarm mode**
+
+Some specific features are not supported in Docker swarm mode. This limitation prevents StackState Agent from collecting relations between containers, processes and other resources while in Docker swarm mode.
+
+To run the StackState Agent in Docker swarm mode, use a [Docker compose setup](#docker-compose).
+{% endhint %}
 
 ### Upgrade
 
