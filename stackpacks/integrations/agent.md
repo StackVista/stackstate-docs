@@ -8,8 +8,6 @@ description: StackState core integration
 
 The StackState Agent StackPack works with the [StackState Agent](/setup/agent) to synchronize topology, metrics, events and trace data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
 
-The StackState Agent is open source and available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
-
 ## Setup
 
 ### Prerequisites
@@ -26,7 +24,7 @@ To find the status of an installed Agent, use the status commands provided in th
 
 ### Upgrade
 
-When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **StackState Agent V2**. For a quick overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 
 To upgrade the StackState Agent, see the [StackState Agent documentation](/setup/agent/).
 
@@ -36,7 +34,7 @@ To upgrade the StackState Agent, see the [StackState Agent documentation](/setup
 
 When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
 
-Fedora:
+Linux:
 - Hosts, processes and containers
 - Network connections between processes and containers including network traffic telemetry
 - Telemetry for hosts, processes and containers 
@@ -47,11 +45,15 @@ Docker:
 - Telemetry for hosts, processes, and containers
 - Trace agent support
 
+When additional checks have been enabled on the Agent, data from other external systems will be integrated. Refer to the individual integration pages for details of the data retrieved from each system.
+
 ### Rest API endpoints
 
 ### Agent views in StackState
 
 ### Open source
+
+
 
 ## Troubleshooting
 
