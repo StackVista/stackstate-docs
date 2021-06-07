@@ -1,6 +1,6 @@
----
+~~---
 description: StackState curated integration
----
+---~~
 
 # Debian
 
@@ -19,4 +19,4 @@ When installed and running, StackState Agent will synchronize the following data
 
 - Hosts, processes and containers.
 - Telemetry for hosts, processes and containers   
-- For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry. See the [supported Linux versions](/setup/agent/linux.md#supported-linux-versions) for details.
+- For OS versions with a Network Tracer: Network connections between processes and containers, including network traffic telemetry. See the [supported Linux versions](/setup/agent/linux.md#supported-linux-versions) for details.
