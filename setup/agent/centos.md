@@ -62,15 +62,16 @@ If you do not have access to the internet, you will need to download both the in
 
 1. Download the install script and copy this to the host where it will be installed:
    - [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
-2. Download the latest Agent installer package (`*_amd64.deb`) and copy this to the host where it will be installed:
-   - List of available installers: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
-   - Link to download: `https://stackstate-agent-2.s3.amazonaws.com/\<Key\>`. For example, `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
+2. Download the latest Agent installer package (DEB or RPM package) and copy this to the host where it will be installed:
+   - **DEB  installer list**: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
+   - **RPM installer list**: [https://stackstate-agent-2-rpm.s3.amazonaws.com/](https://stackstate-agent-2-rpm.s3.amazonaws.com/)  
+   - Link to download: `\<installer_list_link\>/\<installer_Key\>`. For example, `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
 3. use the command below to set the required environment variables and run the installer script:
     ```text
     STS_API_KEY="{{config.apiKey}}" \
     STS_URL="{{config.baseUrl}}/stsAgent" \
     STS_INSTALL_NO_REPO=yes \
-    ./install.sh <path_to_Agent_installer_package>
+    ./install.sh <path_to_local_Agent_installer_package>
     ```
 
 ### Upgrade
