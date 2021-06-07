@@ -20,8 +20,16 @@ StackState Agent is supported to run on Cent OS versions:
 
 | OS | Release | Arch | Network Tracer | Notes|
 |----|---------|--------|--------|--------|--------|
-| CentOS | 6 | 64bit | - | Since version 2.0.2 |
+| CentOS | 6 | 64bit | - | Agent  version 2.0.2 and above. |
 | CentOS | 7 | 64bit | - | - |
+| Debian | Wheezy (7) | 64bit | - | Needs glibc upgrade to 2.17. |
+| Debian | Jessie (8) | 64bit | - | - |
+| Debian | Stretch (9) | 64bit | OK | - |
+| Fedora | 28 | 64bit | OK | - |
+| RHEL | 7 | 64bit | - | - |
+| Ubuntu | Trusty (14) | 64bit | - | - |
+| Ubuntu | Xenial (16) | 64bit | OK | - |
+| Ubuntu | Bionic (18) | 64bit | OK | - |
 
 ### Install
 
@@ -67,7 +75,7 @@ If you do not have access to the internet, you will need to download both the in
    - **RPM installer list**: [https://stackstate-agent-2-rpm.s3.amazonaws.com/](https://stackstate-agent-2-rpm.s3.amazonaws.com/)  
    - **Download link**: Constructed from `<installer_list_link>/<installer_Key_from_list>` 
      For example, to download the DEB installer package `agent_2.11.0-1_amd64.deb`, use:  `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
-3. use the command below to set the required environment variables and run the installer script:
+3. Use the command below to set the required environment variables and run the installer script:
     ```text
     STS_API_KEY="{{config.apiKey}}" \
     STS_URL="{{config.baseUrl}}/stsAgent" \
