@@ -6,7 +6,7 @@ The StackState Agent can be installed on CentOS. When installed and running, Sta
 
 - Hosts, processes and containers.
 - Telemetry for hosts, processes and containers   
-- For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry.
+- For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry. See the [supported Linux versions](#supported-linux-versions) for details.
 
 The Agent can also be configured to run checks that [integrate StackState with external systems](/stackpacks/integrations/). 
 
@@ -14,22 +14,22 @@ Data from the Agent is pushed to StackState via the [StackState Agent StackPack]
 
 ## Setup 
 
-### Prerequisites
+### Supported Linux versions
 
-StackState Agent is supported to run on Cent OS versions:
+StackState Agent is supported to run on the Linux versions listed below with 64bit architecture:
 
-| OS | Release | Arch | Network Tracer | Notes|
-|----|---------|--------|--------|--------|--------|
-| CentOS | 6 | 64bit | - | Agent  version 2.0.2 and above. |
-| CentOS | 7 | 64bit | - | - |
-| Debian | Wheezy (7) | 64bit | - | Needs glibc upgrade to 2.17. |
-| Debian | Jessie (8) | 64bit | - | - |
-| Debian | Stretch (9) | 64bit | OK | - |
-| Fedora | 28 | 64bit | OK | - |
+| OS | Release | Network Tracer | Notes |
+|:---|:---|:---|:---|
+| CentOS | 6 | - | Agent  version 2.0.2 and above. |
+| CentOS | 7 | - | - |
+| Debian | Wheezy (7) | - | Needs glibc upgrade to 2.17. |
+| Debian | Jessie (8) | - | - |
+| Debian | Stretch (9) |OK | - |
+| Fedora | 28 | OK | - |
 | RHEL | 7 | 64bit | - | - |
-| Ubuntu | Trusty (14) | 64bit | - | - |
-| Ubuntu | Xenial (16) | 64bit | OK | - |
-| Ubuntu | Bionic (18) | 64bit | OK | - |
+| Ubuntu | Trusty (14) || - | - |
+| Ubuntu | Xenial (16) | OK | - |
+| Ubuntu | Bionic (18) | OK | - |
 
 ### Install
 
