@@ -10,6 +10,12 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
+### 4.3.2
+
+**Bug fixes**
+
+- Fix crash when accessing the logs api. STAC-13149
+
 ### v4.3.1
 
 **Improvements**
