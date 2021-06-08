@@ -151,6 +151,10 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.3.2
+
+No manual action needed.
+
 #### v4.3.1
 
 No manual action needed.
@@ -170,6 +174,10 @@ No manual action needed.
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.3.2
+
+No manual action needed.
+
 #### v4.3.1
 
 No manual action needed.
