@@ -29,14 +29,16 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 The StackState Agent is installed using an install script. 
 
-* [online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed, the install.sh script can be run using curl or wget and the Agent installer package will be downloaded automatically. 
-* [offline install](#offline-install) - If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
+* [Online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
+* [Offline install](#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
 
+{% hint style="info" %}
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml)
+* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
 * [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-
+{% endhint %}
+  
 #### Online install
 
 If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the install.sh script. The Agent installer package will be downloaded automatically. 

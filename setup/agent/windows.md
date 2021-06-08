@@ -18,15 +18,17 @@ The StackState Agent is supported to run on the following Windows versions with 
 
 ### Install
 
-The StackState Agent is installed using a [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
+The StackState Agent is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
 
-* [online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed, the `install.ps1` script can be run using `iwr` and the Agent installer package will be downloaded automatically. 
-* [offline install](#offline-install) - If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
+* [Online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
+* [Offline install](#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
 
-The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
+{% hint style="info" %}
+The `stsApiKey` and `stsUrl` (baseUrl) specified when running the install script are set during StackState installation, for details see:
 
 * [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
 * [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+{% endhint %}
 
 #### Online install
 
