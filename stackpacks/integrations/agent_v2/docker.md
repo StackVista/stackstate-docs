@@ -26,3 +26,8 @@ When a [StackState Agent is running in a Docker container](/setup/agent/docker.m
 * Network connections between processes/containers/services including network traffic telemetry
 * Telemetry for hosts, processes, and containers
 
+
+## See also
+
+* [StackState Agent](/setup/agent/docker.md) installed on a Fedora host that is able to connect to StackState.
+* [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.

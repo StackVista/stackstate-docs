@@ -2,26 +2,19 @@
 
 ## Overview
 
-The StackState Agent can be installed on Windows. When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+The StackState Agent can be installed on Windows systems . The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
-- Hosts, processes and containers
-- Network connections between processes and containers including network traffic telemetry
-- Telemetry for hosts, processes and containers 
-
-The Agent can also be configured to run checks that [integrate StackState with external systems](/stackpacks/integrations/). 
-
-Data from the Agent is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
+The StackState Agent is open source, code is available on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Setup
 
-### Prerequisites
+### Supported Windows versions
 
-The StackState Agent is supported to run on Windows versions:
+The StackState Agent is supported to run on the following Windows versions with 64bit architecture:
 
-| OS | Release | Arch | Network Tracer| Status | Notes|
-|----|---------|--------|--------|--------|--------|
-| Windows | 2016 | 64bit | OK | OK | - |
-
+| OS | Release | Network Tracer| Notes|
+|:---|:---|:---|:---|
+| Windows | 2016 | ✅ |- |
 
 ### Install
 
@@ -137,7 +130,7 @@ To uninstall the StackState Agent running on Windows:
 
 ## Open source
 
-The StackState Agent is open source, code is available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+The StackState Agent is open source, code is available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Release notes
 
