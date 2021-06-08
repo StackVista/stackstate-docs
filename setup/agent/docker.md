@@ -145,7 +145,7 @@ Documentation for the available StackState integrations, including configuration
 
 ### Self-Signed Certificates
 
-If checks running on the Agent will be configured to use self-signed certificates for HTTPs requests, the following environment variable should be overwritten:
+If the Agent will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
 
 ```
   CURL_CA_BUNDLE = ""
@@ -153,7 +153,7 @@ If checks running on the Agent will be configured to use self-signed certificate
 
 ### Traces
 
-The StackState Agent can be configured to collect traces via a [StackState tracing integration](s/configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). When using the StackState Agent running on Docker in conjunction with one of our language specific trace clients, make sure to configure your app to use the host’s PID namespace:
+The StackState Agent can be configured to collect traces via a [StackState tracing integration](s/configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
 
 ```
   service:
