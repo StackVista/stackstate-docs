@@ -83,7 +83,7 @@ To run the StackState Agent in Docker swarm mode, use a [Docker compose setup](#
 
 ### Agent configuration
 
-The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run will be added here. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
@@ -117,7 +117,7 @@ Certain features of the Agent can optionally be turned off if they are not neede
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` in the container where the Agent is running.
+The Agent can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
