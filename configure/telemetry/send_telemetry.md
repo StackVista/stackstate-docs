@@ -182,7 +182,7 @@ All events in StackState relate to a topology element or elements. Any of the ev
 Events have the following details:
 
 * An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
-* **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState StackState [Events Perspective](/use/perspectives/events_perspective.md) for Views that contain components with a matching source identifier. Events without a context will be available in StackState as a log stream:
+* **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](/use/perspectives/events_perspective.md) if the view contains a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
   * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
   * **element\_identifiers** - The [identifiers for the topology element\(s\)](../identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements. 
   * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
