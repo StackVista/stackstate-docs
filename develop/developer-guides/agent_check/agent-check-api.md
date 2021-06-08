@@ -232,7 +232,7 @@ All telemetry classes and methods can be imported from `stackstate_checks.base`.
 
 * [Metric stream](#metric-stream) - a metric stream and associated metric health checks.
 * [Events stream](#events-stream) - a log stream with events and associated event health checks.
-* [Service check stream](#service-check-stream) - ???.
+* [Service check stream](#service-check-stream) - a log stream with service check statuses for a specific integration and associated event health checks.
 
 In the example below, a `MetricStream` is created on the metric `system.cpu.usage` with some conditions specific to a component. A health check (check) `maximum_average` is then created on this metric stream using `this_host_cpu_usage.identifier`. The stream and check are then added to the streams and checks list for the component `this-host`.
 
