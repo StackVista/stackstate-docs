@@ -52,11 +52,11 @@ stackstate-agent:
     environment:
       STS_API_KEY: "API_KEY"
       STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-          STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-          STS_PROCESS_AGENT_ENABLED: "true"
-          STS_NETWORK_TRACING_ENABLED: "true"
-          STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
-          STS_APM_ENABLED: "true"
+???      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
+???      STS_PROCESS_AGENT_ENABLED: "true"
+???      STS_NETWORK_TRACING_ENABLED: "true"
+???      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+???      STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
@@ -133,7 +133,7 @@ stackstate-agent:
       - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
       - "/etc/passwd:/etc/passwd:ro"
       - "/sys/kernel/debug:/sys/kernel/debug"
-      - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml"
+      - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml:ro"
     environment:
       STS_API_KEY: "API_KEY"
       STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
@@ -183,8 +183,12 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-
+To uninstall the StackState Agent, stop the Docker container it is running in and remove it.
 
 ## Release notes
 
 ## See also
+
+* [StackState Agent StackPack](/stackpacks/integrations/agent.md)
+* [StackPack integration documentation](/stackpacks/integrations)
+* [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)

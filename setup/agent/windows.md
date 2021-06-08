@@ -37,7 +37,7 @@ The `apiKey` and `baseUrl` specified when running the install script are set dur
 
 #### Online install
 
-
+If you have access to the internet on the machine where the Agent will be installed, the `install.ps1` script can be run using `iwr` and the Agent installer package will be downloaded automatically. 
 
 ```text
 . { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `
@@ -45,6 +45,8 @@ install -stsApiKey "{{config.apiKey}}" `
 -stsUrl "{{config.baseUrl}}/stsAgent"
 ```
 #### Offline install
+
+If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
 
 1. Download the PowerShell install script and copy this to the host where it will be installed:
    - [https://stackstate-agent-2.s3.amazonaws.com/install.ps1](https://stackstate-agent-2.s3.amazonaws.com/install.ps1)
@@ -62,11 +64,7 @@ install -stsApiKey {{config.apiKey}} `
 
 #### Configure the Agent
 
-The StackState Agent configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`.
-
-{% hint style="info" %}
-[Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
-{% endhint %}
+The StackState Agent configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
 
 #### Configure integrations
 
@@ -74,12 +72,13 @@ The Agent can be configured to run checks that integrate with external systems. 
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
-{% hint style="info" %}
-[Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
-{% endhint %}
-
 ### Upgrade
 
+To upgrade the StackState Agent running on Windows,
+
+1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
+   - [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
+2. Double-click on the downloaded `*.msi` file.   
 
 ## Commands
 
@@ -129,6 +128,12 @@ Logs for the subsystems are in the following files:
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
+
+To uninstall the StackState Agent running on Windows:
+
+1. In the Windows task bar, search for **control panel**.
+2. In the control panel, open **Add/remove programs**.
+3. Follow the instructions to uninstall the StackState Agent.
 
 ## Open source
 
