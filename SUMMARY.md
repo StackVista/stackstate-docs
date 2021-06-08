@@ -133,6 +133,7 @@
   * [Static Topology](stackpacks/integrations/static_topology.md)
   * [Traefik](stackpacks/integrations/traefik.md)
   * [Ubuntu](stackpacks/integrations/agent_v2/ubuntu.md)
+  * [Windows](stackpacks/integrations/agent_v2/windows.md)  
   * [WMI](stackpacks/integrations/agent_v2/wmi.md)  
   * [Zabbix](stackpacks/integrations/zabbix.md)
 * [Develop your own StackPacks](stackpacks/sdk.md)
