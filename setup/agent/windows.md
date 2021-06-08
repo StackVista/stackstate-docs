@@ -41,7 +41,7 @@ install -stsApiKey "{{config.apiKey}}" `
 ```
 #### Offline install
 
-If you do not have access to the internet, you will need to download both the install script and the Agent installer package before you install.
+If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install.
 
 1. Download the PowerShell install script and copy this to the host where it will be installed:
    - [https://stackstate-agent-2.s3.amazonaws.com/install.ps1](https://stackstate-agent-2.s3.amazonaws.com/install.ps1)
