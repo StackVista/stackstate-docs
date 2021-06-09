@@ -116,7 +116,7 @@
   * [Nagios](stackpacks/integrations/nagios.md)
   * [SAP](stackpacks/integrations/sap.md)
   * [SCOM](stackpacks/integrations/scom.md)
-  * [SolarWinds](stackpacks/integrations/solarwinds.md)
+  * [SolarWinds Orion](stackpacks/integrations/solarwinds.md)
   * [Static Topology](stackpacks/integrations/static_topology.md)
   * [Traefik](stackpacks/integrations/traefik.md)
   * [Zabbix](stackpacks/integrations/zabbix.md)

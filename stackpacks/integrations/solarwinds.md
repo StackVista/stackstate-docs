@@ -2,15 +2,15 @@
 description: StackState curated integration
 ---
 
-# SolarWinds
+# SolarWinds Orion
 
 ## Overview
 
-The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations.
+The SolarWinds Orion StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds Orion nodes, interfaces and connections will be added to the StackState topology as components and relations.
 
 ![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
 
-* Agent V2 connects to the configured [SolarWinds API](#rest-api-endpoints) (default via TCP port 17778).
+* Agent V2 connects to the configured [SolarWinds Orion API](#rest-api-endpoints) (default via TCP port 17778).
 * Nodes, interfaces and connections are retrieved from the SolarWinds instance.
 * Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 * StackState translates incoming nodes, interfaces and connections into topology components and relations.
@@ -22,23 +22,23 @@ The SolarWinds StackPack allows near real time synchronization between SolarWind
 To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](agent.md) installed on a machine that can connect to both SolarWinds (default via TCP port 17778) and StackState.
-* A running SolarWinds instance with a Network Performance Monitor (NPM) module.  
-* A SolarWinds user with access to the required SolarWinds [API endpoints](#rest-api-endpoints).
+* A running SolarWinds Orion instance with a Network Performance Monitor (NPM) module.  
+* A SolarWinds user with access to the required [API endpoints](#rest-api-endpoints).
     - The lowest access level is sufficient.
     - The user must not have any account limitations set that block access to nodes intended to be retrieved.
 
 ### Install
 
-Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the SolarWinds Orion StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **SolarWinds Instance URL**: The SolarWinds instance URL from which topology data will be collected.
 * **SolarWinds Instance Name**: The user-defined name of the SolarWinds account shown in configurations such as views.
 
 ### Configure
 
-To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
+To enable the SolarWinds Orion check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
 
-1.  Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/SolarWinds.d/conf.yaml` to include details of your SolarWinds instance:
+1.  Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/orioncheck.d/conf.yaml` to include details of your SolarWinds instance:
     * **url** - the REST API URL, uses HTTPS protocol for communication.
     * **user** - a SolarWinds user with access to the required [SolarWinds API endpoints](#rest-api-endpoints).
     * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside the configuration file.
@@ -99,11 +99,11 @@ The SolarWinds check does not retrieve any metrics data.
 
 #### Topology
 
-The SolarWinds Orion server is a modular system that can contain different modules suitable for data retrieval by the StackState SolarWinds integration. The Network Performance Monitor (NPM) SolarWinds module provides information about Nodes, Interfaces and Layer-2 topology information for network devices. Layer-2 topology information for non-network devices is only available when the User Device Tracker (UDT) SolarWinds module is installed.
+The SolarWinds Orion server can contain different modules suitable for data retrieval by the StackState SolarWinds integration. 
 
-If the User Device Tracker (UDT) module is not installed, connections to non-network devices (such as servers, VMs and storage) will not be retrieved, although the nodes themselves will be visible in StackState. 
+* **Network Performance Monitor (NPM) module** - provides information about nodes, interfaces and Layer-2 topology information for network devices. Layer-2 topology information for non-network devices is only available when the User Device Tracker (UDT) SolarWinds module is installed.
 
-When the User Device Tracker (UDT) module is installed, UDT information will be added to the retrieved topology (MAC-address tables from routers, switches and firewalls). This provides Layer-2 connection information for non-network devices, resulting in a complete topology for all SolarWinds nodes.
+* **User Device Tracker (UDT) module** - provides Layer-2 connection information for non-network devices in the form of MAC-address tables from routers, switches and firewalls. This is added to the data retrieved from NPM, resulting in a complete topology for all SolarWinds nodes.
 
 The SolarWinds check retrieves the following topology data from SolarWinds:
 
