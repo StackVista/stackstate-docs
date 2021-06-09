@@ -6,14 +6,12 @@ description: StackState curated integration
 
 ## Overview
 
-The SolarWinds StackPack creates a synchronization between a SolarWinds instance and StackState. When the integration is enabled, ???.
-
 The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations.
 
 ![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
 
-* Agent V2 connects to the configured [SolarWinds API](#rest-api-endpoints).
-* Nodes, interfaces and connections are retrieved from the SolarWinds
+* Agent V2 connects to the configured [SolarWinds API](#rest-api-endpoints) (default via TCP port 17778).
+* Nodes, interfaces and connections are retrieved from the SolarWinds instance.
 * Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 * StackState translates incoming nodes, interfaces and connections into topology components and relations.
 
@@ -65,7 +63,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
    - **solarwinds_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
    - **solarwinds_domain_values** - A list of values used by the specified `solarwinds_domain` to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
-4. Once the Agent has restarted, wait for data to be collected from ??? and sent to StackState.
+4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
 
 ### Status
 
