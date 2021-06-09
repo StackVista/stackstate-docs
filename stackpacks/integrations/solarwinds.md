@@ -2,15 +2,15 @@
 description: StackState curated integration
 ---
 
-# SolarWinds Orion
+# SolarWinds
 
 ## Overview
 
-The SolarWinds Orion StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds Orion nodes, interfaces and connections will be added to the StackState topology as components and relations.
+The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations.
 
-![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
+![Data flow](../../.gitbook/assets/stackpack-solarwinds-new.svg)
 
-* Agent V2 connects to the configured [SolarWinds Orion API](#rest-api-endpoints) (default via TCP port 17778).
+* Agent V2 connects to the configured [SolarWinds API](#rest-api-endpoints) (default via TCP port 17778).
 * Nodes, interfaces and connections are retrieved from the SolarWinds instance.
 * Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 * StackState translates incoming nodes, interfaces and connections into topology components and relations.
@@ -22,21 +22,21 @@ The SolarWinds Orion StackPack allows near real time synchronization between Sol
 To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](agent.md) installed on a machine that can connect to both SolarWinds (default via TCP port 17778) and StackState.
-* A running SolarWinds Orion instance with a Network Performance Monitor (NPM) module.  
+* A running SolarWinds instance with a Network Performance Monitor (NPM) module.  
 * A SolarWinds user with access to the required [API endpoints](#rest-api-endpoints).
     - The lowest access level is sufficient.
     - The user must not have any account limitations set that block access to nodes intended to be retrieved.
 
 ### Install
 
-Install the SolarWinds Orion StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **SolarWinds Instance URL**: The SolarWinds instance URL from which topology data will be collected.
 * **SolarWinds Instance Name**: The user-defined name of the SolarWinds account shown in configurations such as views.
 
 ### Configure
 
-To enable the SolarWinds Orion check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
+To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
 
 1.  Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/orioncheck.d/conf.yaml` to include details of your SolarWinds instance:
     * **url** - the REST API URL, uses HTTPS protocol for communication.
@@ -99,7 +99,7 @@ The SolarWinds check does not retrieve any metrics data.
 
 #### Topology
 
-The SolarWinds Orion server can contain different modules suitable for data retrieval by the StackState SolarWinds integration. 
+The SolarWinds server can contain different modules suitable for data retrieval by the StackState SolarWinds integration. 
 
 * **Network Performance Monitor (NPM) module** - provides information about nodes, interfaces and layer-2 topology information for network devices. Layer-2 topology information for non-network devices is only available when the User Device Tracker (UDT) SolarWinds module is installed.
 
