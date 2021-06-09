@@ -155,5 +155,6 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 ## See also
 
 * [StackState Agent V2](agent.md)
+* [Secrets management](https://docs.stackstate.com/configure/security/secrets_management)
+* [StackState Agent integrations - SolarWinds (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)  
 * [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm)
-
