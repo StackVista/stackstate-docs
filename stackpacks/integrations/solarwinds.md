@@ -24,8 +24,7 @@ The SolarWinds StackPack allows near real time synchronization between SolarWind
 To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](agent.md) installed on a machine that can connect to both SolarWinds (default via TCP port 17778) and StackState.
-* A running SolarWinds instance.
-* Network Performance Monitor (NPM) installed ???.  
+* A running SolarWinds instance with a Network Performance Monitor (NPM) module.  
 * A SolarWinds user with access to the required SolarWinds [API endpoints](#rest-api-endpoints).
     - The lowest access level is sufficient.
     - The user must not have any account limitations set that block access to nodes intended to be retrieved.
