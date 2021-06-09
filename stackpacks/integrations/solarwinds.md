@@ -101,9 +101,9 @@ The SolarWinds check does not retrieve any metrics data.
 
 The SolarWinds Orion server can contain different modules suitable for data retrieval by the StackState SolarWinds integration. 
 
-* **Network Performance Monitor (NPM) module** - provides information about nodes, interfaces and Layer-2 topology information for network devices. Layer-2 topology information for non-network devices is only available when the User Device Tracker (UDT) SolarWinds module is installed.
+* **Network Performance Monitor (NPM) module** - provides information about nodes, interfaces and layer-2 topology information for network devices. Layer-2 topology information for non-network devices is only available when the User Device Tracker (UDT) SolarWinds module is installed.
 
-* **User Device Tracker (UDT) module** - provides Layer-2 connection information for non-network devices in the form of MAC-address tables from routers, switches and firewalls. This is added to the data retrieved from NPM, resulting in a complete topology for all SolarWinds nodes.
+* **User Device Tracker (UDT) module** - provides layer-2 topology information for non-network devices in the form of MAC-address tables from routers, switches and firewalls. This is added to the data retrieved from NPM, resulting in a complete topology for all SolarWinds nodes.
 
 The SolarWinds check retrieves the following topology data from SolarWinds:
 
