@@ -223,6 +223,89 @@ The method can accept the following arguments:
 
 Check the usage in the following [example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L434).
 
+### Health
+
+Health information can be sent to StackState with the following methods:
+
+* `self.health.check_state` - send a check state as part of a snapshot.
+* `self.health.start_snapshot()` - used to start a health snapshot. Stackstate only processes health information if it is sent as part of a snapshot.
+* `self.health.stop_snapshot()` - used to stop the snapshot, signalling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
+
+#### Setting up a health stream
+
+To make the `self'health` api avilable, we need to define a that we associate the health information with. This can be done by overriding the `get_health_stream` function, as in the following example:
+
+{% tabs %}
+{% tab title="Example - define a health stream" %}
+```text
+from stackstate_checks.base import AgentCheck, ConfigurationError, HealthStreamUrn, HealthStream
+
+...
+
+class ExampleCheck(AgentCheck):
+
+...
+
+    def get_health_stream(self, instance):
+        if 'url' not in instance:
+            raise ConfigurationError('Missing url in topology instance configuration.')
+        instance_url = instance['url']
+        return HealthStream(
+          urn=HealthStreamUrn("example", instance_url),
+          sub_stream=self.hostname
+          repeat_interval_seconds=20
+          expiry_seconds=60
+        )
+
+...
+
+```
+{% endtab %}
+{% endtabs %}
+
+The `HealthStream` class has the following options:
+
+* **urn** - HealthStreamUrn. The stream urn under which the health infromation will be grouped.
+* **sub_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. (E.g. the data for the streams is reprted separately form different hosts)
+* **repeat_interval_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `min_collection_interval`. This allows stackstate to detect when data is 'late'.
+* **expiry_seconds** - integer. Optional. The time after which all data form the (sub)stream should be removed. Defaults to 4 times the repeat interval. Expiry can be disabled by passing '0', if a sub_stream is not specified.
+
+
+More information on urns, health synchronization streams, snapshots and how to debug can be found in the platform docs for [health Synchronization](/configure/health/health-Synchronization.md).
+
+
+#### Send check states
+
+Components can be sent to StackState using the `self.component(id, type, data)` method. 
+
+{% tabs %}
+{% tab title="Example - send a check state" %}
+```text
+from stackstate_checks.base import Health
+
+...
+
+self.health.check_state(
+  check_state_id="check_state_from_example_1",
+  name="Example check state",
+  health_value=Health.CRITICAL,
+  topology_element_identifier="urn:component/the_component_to_attach_to",
+  message="Optional clarifying message"
+)
+
+```
+{% endtab %}
+{% endtabs %}
+
+The method requires the following details:
+
+* **check_state_id** - string. Uniquely identifies the check state within the (sub)stream.
+* **name** - string. Display name for the health check state.
+* **health_value** - Health. The stackstate health value, can be CLEAR, DEVIATING or CRITICAL.
+* **topology_element_identifier** - string. The component or relation identifier the check state should bind to. The check state will associated with all components/realtions which have the specified identifier.
+* **message** - string. Optional. Extended message do display with the health state. Supports Markdown.
+
+See the example of creating a component in StackState in the [StackState Static Health \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_health/stackstate_checks/static_health/static_health.py).
 
 ### Checks and streams
 
