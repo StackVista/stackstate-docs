@@ -37,8 +37,23 @@ To configure the StackState Agent to read CSV health files:
 2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](#csv-file-format) and send it to StackState.
 
-### CSV file format
+### Validate
 
+Execute the info command and verify that the integration check has passed. The output of the command should contain a section similar to the following:
+
+```
+## Checks
+
+[...]
+
+### static_health
+
+* instance #0 [OK]
+```
+
+## CSV file format
+
+### Fields
 Static health is read from a CSV file with a header row, that specifies the fields that are included in the file. The available fields are listed in the table below.
 
 | Field name | Mandatory | Description |
@@ -59,23 +74,10 @@ check_2,Another example check,clear,urn:component/some_component,This is going w
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
+### Delimiter
+
 The delimiter used in the CSV file can be specified when you [configure the Static Health check](#configure) on the StackState Agent.
-{% endhint %}
 
-### Validation
-
-Execute the info command and verify that the integration check has passed. The output of the command should contain a section similar to the following:
-
-```
-## Checks
-
-[...]
-
-### static_health
-
-* instance #0 [OK]
-```
 
 ## Release notes
 
