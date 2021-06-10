@@ -187,6 +187,8 @@ To uninstall the StackState Agent, stop the Docker container it is running in an
 
 ## Release notes
 
+Release notes for the StackState Agent can be found on GitHub at: [https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md)
+
 ## See also
 
 * [StackState Agent StackPack](/stackpacks/integrations/agent.md)

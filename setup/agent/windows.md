@@ -136,6 +136,7 @@ The StackState Agent is open source, code is available on GitHub at [https://git
 
 ## Release notes
 
+Release notes for the StackState Agent can be found on GitHub at: [https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md)
 
 ## See also
 
