@@ -52,8 +52,8 @@ Static health is read from a CSV file with a header row, that specifies the fiel
 {% tab title="Example health CSV file" %}
 ```
 check_state_id,name,health,topology_element_identifier,message
-example_check_1,Example check,critical,urn:component/some_component,Something went wrong
-example_check_2,Another example check,clear,urn:component/some_component,This is going well
+check_1,Example check,critical,urn:component/some_component,Something went wrong
+check_2,Another example check,clear,urn:component/some_component,This is going well
 ```
 {% endtab %}
 {% endtabs %}
