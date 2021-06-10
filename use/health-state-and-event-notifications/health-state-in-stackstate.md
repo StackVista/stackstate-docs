@@ -31,10 +31,11 @@ See how to [add a health check](../health-state-and-event-notifications/add-a-he
 
 Health data from external monitoring systems can be synchronized to StackState as health checks. In this case, health checks are calculated by the external systems based on their own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. 
 
-See how to [set up a health synchronization](../../configure/health/health-synchronization.md).
+Existing StackPacks will provide health synchronization out of the box. Advanced users can also [set up a custom health synchronization](../../configure/health/health-synchronization.md).
 
 
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](../health-state-and-event-notifications/add-a-health-check.md)
+* Add [Static Health from CSV](/stackpacks/Integrations/static_health.md)
 * [Set up a health synchronization](../../configure/health/health-synchronization.md)

@@ -223,6 +223,89 @@ The method can accept the following arguments:
 
 Check the usage in the following [example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L434).
 
+### Health
+
+Health information can be sent to StackState with the following methods:
+
+* `self.health.check_state` - send a check state as part of a snapshot.
+* `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it is sent as part of a snapshot.
+* `self.health.stop_snapshot()` -  stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check after all data has been submitted. If exceptions occur in the check or not all data can be produced for some other reason, this function should not be called.
+
+#### Set up a health stream
+
+To make the `self.health` API available, override the `get_health_stream` function to define a URN identifier for the health synchronization stream.
+
+{% tabs %}
+{% tab title="Example - define a health stream" %}
+```text
+from stackstate_checks.base import AgentCheck, ConfigurationError, HealthStreamUrn, HealthStream
+
+...
+
+class ExampleCheck(AgentCheck):
+
+...
+
+    def get_health_stream(self, instance):
+        if 'url' not in instance:
+            raise ConfigurationError('Missing url in topology instance configuration.')
+        instance_url = instance['url']
+        return HealthStream(
+          urn=HealthStreamUrn("example", instance_url),
+          sub_stream=self.hostname
+          repeat_interval_seconds=20
+          expiry_seconds=60
+        )
+
+...
+
+```
+{% endtab %}
+{% endtabs %}
+
+The `HealthStream` class has the following options:
+
+* **urn** - HealthStreamUrn. The stream urn under which the health infromation will be grouped.
+* **sub_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. For example, the data for the streams is reported separately from different hosts.
+* **repeat_interval_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `min_collection_interval`. This allows stackstate to detect when data arrives later than expected.
+* **expiry_seconds** - integer. Optional. The time after which all data from the stream or substream should be removed. Set to '0' to disable expiry (this is only possible when the `sub_stream` parameter is omitted). Default 4*`repeat_interval_seconds`.
+
+
+For more information on urns, health synchronization streams, snapshots and how to debug, see [health Synchronization](/configure/health/health-synchronization.md).
+
+
+#### Send check states
+
+Components can be sent to StackState using the `self.component(id, type, data)` method. 
+
+{% tabs %}
+{% tab title="Example - send a check state" %}
+```text
+from stackstate_checks.base import Health
+
+...
+
+self.health.check_state(
+  check_state_id="check_state_from_example_1",
+  name="Example check state",
+  health_value=Health.CRITICAL,
+  topology_element_identifier="urn:component/the_component_to_attach_to",
+  message="Optional clarifying message"
+)
+
+```
+{% endtab %}
+{% endtabs %}
+
+The method requires the following details:
+
+* **check_state_id** - string. Uniquely identifies the check state within the (sub)stream.
+* **name** - string. Display name for the health check state.
+* **health_value** - Health. The StackState health value, can be CLEAR, DEVIATING or CRITICAL.
+* **topology_element_identifier** - string. The component or relation identifier that the check state should bind to. The check state will associated with all components/relations that have the specified identifier.
+* **message** - string. Optional. Extended message to display with the health state. Supports Markdown.
+
+For an example of how to create a component, see the [StackState Static Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_health/stackstate_checks/static_health/static_health.py).
 
 ### Checks and streams
 
