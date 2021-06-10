@@ -233,7 +233,7 @@ Health information can be sent to StackState with the following methods:
 
 #### Setting up a health stream
 
-To make the `self'health` api avilable, we need to define a that we associate the health information with. This can be done by overriding the `get_health_stream` function, as in the following example:
+To make the `self.health` api avilable, we need to define a that we associate the health information with. This can be done by overriding the `get_health_stream` function, as in the following example:
 
 {% tabs %}
 {% tab title="Example - define a health stream" %}
@@ -271,7 +271,7 @@ The `HealthStream` class has the following options:
 * **expiry_seconds** - integer. Optional. The time after which all data form the (sub)stream should be removed. Defaults to 4 times the repeat interval. Expiry can be disabled by passing '0', if a sub_stream is not specified.
 
 
-More information on urns, health synchronization streams, snapshots and how to debug can be found in the platform docs for [health Synchronization](/configure/health/health-Synchronization.md).
+More information on urns, health synchronization streams, snapshots and how to debug can be found in the platform docs for [health Synchronization](/configure/health/health-synchronization.md).
 
 
 #### Send check states

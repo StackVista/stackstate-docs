@@ -241,7 +241,7 @@ Learn more about the [Agent Check Event API](agent-check-api.md)
 
 ### Health Synchronization
 
-StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](/configure/health/health-Synchronization.md).
+StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](/configure/health/health-synchronization.md).
 
 To setup a health synchronization stream within a check, the following function needs to be defined:
 
