@@ -84,4 +84,5 @@ The delimiter used in the CSV file can be specified when you [configure the Stat
 ## See also
 
 * [StackState Agent V2](agent.md) 
+* [Health state in StackState](health-state-and-event-notifications/health-state-in-stackstate.md)
 
