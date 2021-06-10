@@ -264,16 +264,22 @@ class ExampleCheck(AgentCheck):
 
 ```
 
-This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api.
+This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api on the Agent Check.
 
 ### Health Synchronization Snapshots
 
-Like with topology, health data is presented to StackState using snapshots, to allow for removal of health information (check states) when they do not exist anymore in the source monitoring system. Creating snapshots is facilitated by two functions:
+Like with topology, health data is presented to StackState using snapshots. This allows for removal of health information (check states) when they no longer exist in the source monitoring system. Snapshots are created by two functions:
 
 * `self.health.start_snapshot()` - used to start a health snapshot.
-* `self.health.stop_snapshot()` - used to stop the snapshot, signalling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
-
+* `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
 ### Send Check State
+
+Check states can be sent through the health synchronization API using the `self.health.check_state()` functions in the `AgentCheck` interface.
+
+In the example below, a check state is created in StackState with the health value CRITICAL.
+
+* The check is attached to the component or relation matching the `topology_element_identifier`.
+* The `check_state_id` is used to distinguish check states within the current health stream.
 
 Check states can be send through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
 
@@ -292,7 +298,7 @@ self.health.check_state(
 
 ```
 
-This creates a check state in the StackState product with the health value `CRITICAL`, attached to the component or relation matching the `topology_element_identifier`. The `check_state_id` is used to distinguish check states within the current health stream. If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](/configure/health/debug-health-sync.md) for the health synchronization.
+If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](/configure/health/debug-health-sync.md) for the health synchronization.
 
 ### Send in Stream Definitions and Health Checks
 

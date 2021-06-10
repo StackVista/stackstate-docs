@@ -6,15 +6,15 @@ description: StackState curated integration
 
 ## Overview
 
-The Static Health StackPack is used to visualize static health information in StackState by reading from CSV files. The health consists of check states.
-
+The Static Health integration is used to visualize static health information in StackState by reading from CSV files. The health consists of check states.
 
 
 ## Setup
 
-### Install
+### Prerequisites
 
-Install the Static Health StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. No additional parameters are required.
+To set up the Static Health integration you will need to have:
+ * StackState [Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to StackState.
 
 ### Configure
 
@@ -36,20 +36,6 @@ To configure the StackState Agent to read CSV health files:
 
 2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](#csv-file-format) and send it to StackState.
-
-### Validate
-
-Execute the info command and verify that the integration check has passed. The output of the command should contain a section similar to the following:
-
-```
-## Checks
-
-[...]
-
-### static_health
-
-* instance #0 [OK]
-```
 
 ## CSV file format
 
@@ -79,10 +65,9 @@ check_2,Another example check,clear,urn:component/some_component,This is going w
 The delimiter used in the CSV file can be specified when you [configure the Static Health check](#configure) on the StackState Agent.
 
 
-## Release notes
-
 ## See also
 
-* [StackState Agent V2](agent.md) 
-* [Health state in StackState](health-state-and-event-notifications/health-state-in-stackstate.md)
-
+* [StackState Agent V2](agent.md)
+* [Health state in StackState](/use/health-state-and-event-notifications/health-state-in-stackstate.md)
+* [Health Synchronization](/configure/health/health-synchronization.md)
+* [Debug Health Synchronization](/configure/health/debug-health-sync.md)

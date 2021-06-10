@@ -228,12 +228,12 @@ Check the usage in the following [example](https://github.com/StackVista/stackst
 Health information can be sent to StackState with the following methods:
 
 * `self.health.check_state` - send a check state as part of a snapshot.
-* `self.health.start_snapshot()` - used to start a health snapshot. Stackstate only processes health information if it is sent as part of a snapshot.
-* `self.health.stop_snapshot()` - used to stop the snapshot, signalling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
+* `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it is sent as part of a snapshot.
+* `self.health.stop_snapshot()` -  stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check after all data has been submitted. If exceptions occur in the check or not all data can be produced for some other reason, this function should not be called.
 
-#### Setting up a health stream
+#### Set up a health stream
 
-To make the `self.health` api avilable, we need to define a that we associate the health information with. This can be done by overriding the `get_health_stream` function, as in the following example:
+To make the `self.health` API available, override the `get_health_stream` function to define a URN identifier for the health synchronization stream.
 
 {% tabs %}
 {% tab title="Example - define a health stream" %}
@@ -266,12 +266,12 @@ class ExampleCheck(AgentCheck):
 The `HealthStream` class has the following options:
 
 * **urn** - HealthStreamUrn. The stream urn under which the health infromation will be grouped.
-* **sub_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. (E.g. the data for the streams is reprted separately form different hosts)
-* **repeat_interval_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `min_collection_interval`. This allows stackstate to detect when data is 'late'.
-* **expiry_seconds** - integer. Optional. The time after which all data form the (sub)stream should be removed. Defaults to 4 times the repeat interval. Expiry can be disabled by passing '0', if a sub_stream is not specified.
+* **sub_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. For example, the data for the streams is reported separately from different hosts.
+* **repeat_interval_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `min_collection_interval`. This allows stackstate to detect when data arrives later than expected.
+* **expiry_seconds** - integer. Optional. The time after which all data from the stream or substream should be removed. Set to '0' to disable expiry (this is only possible when the `sub_stream` parameter is omitted). Default 4*`repeat_interval_seconds`.
 
 
-More information on urns, health synchronization streams, snapshots and how to debug can be found in the platform docs for [health Synchronization](/configure/health/health-synchronization.md).
+For more information on urns, health synchronization streams, snapshots and how to debug, see [health Synchronization](/configure/health/health-synchronization.md).
 
 
 #### Send check states
@@ -301,11 +301,11 @@ The method requires the following details:
 
 * **check_state_id** - string. Uniquely identifies the check state within the (sub)stream.
 * **name** - string. Display name for the health check state.
-* **health_value** - Health. The stackstate health value, can be CLEAR, DEVIATING or CRITICAL.
-* **topology_element_identifier** - string. The component or relation identifier the check state should bind to. The check state will associated with all components/realtions which have the specified identifier.
-* **message** - string. Optional. Extended message do display with the health state. Supports Markdown.
+* **health_value** - Health. The StackState health value, can be CLEAR, DEVIATING or CRITICAL.
+* **topology_element_identifier** - string. The component or relation identifier that the check state should bind to. The check state will associated with all components/relations that have the specified identifier.
+* **message** - string. Optional. Extended message to display with the health state. Supports Markdown.
 
-See the example of creating a component in StackState in the [StackState Static Health \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_health/stackstate_checks/static_health/static_health.py).
+For an example of how to create a component, see the [StackState Static Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_health/stackstate_checks/static_health/static_health.py).
 
 ### Checks and streams
 
