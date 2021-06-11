@@ -14,7 +14,8 @@ The StackState Agent is supported to run on the following Windows versions with 
 
 | OS | Release | Network Tracer| Notes|
 |:---|:---|:---|:---|
-| Windows | 2016 | ✅ |- |
+| Windows Server | 2016 | ✅ |- |
+| Windows Server | 2019 | ✅ |- |
 
 ### Install
 
