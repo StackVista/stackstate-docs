@@ -21,7 +21,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 |:---|:---|:---|
 | StackState Agent | ✅ | Deployed as a DaemonSet. One instance on each node. Pod name `stackstate-cluster-agent-agent`. |
 | StackState Cluster Agent | ✅ | Deployed as a Deployment. One instance for the entire cluster. Pod name `stackstate-cluster-agent`. |
-| StackState ClusterCheck Agent | Optional | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml`. Default one instance per cluster. Runs checks that are configured on the StackState Cluster Agent, including the [kubernetes_state check](#kubernetes-state-check). Pod name `???`. |
+| StackState ClusterCheck Agent | Optional | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml`. Default one instance per cluster. Runs checks that are configured on the StackState Cluster Agent, including the [kubernetes_state check](#kubernetes-state-check). Pod name `???`.  |
 
 * StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
   * Host information is retrieved from the Kubernetes API.
