@@ -17,11 +17,11 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events. To achieve this, three types of StackState Agent are  used:
 
-| Component | Required? | Description |
+| Component | Required? | Pod name |Description |
 |:---|:---|:---|
-| StackState Agent | ✅ | Deployed as a DaemonSet. One instance on each node. Pod name `stackstate-cluster-agent-agent`. |
-| StackState Cluster Agent | ✅ | Deployed as a Deployment. One instance for the entire cluster. Pod name `stackstate-cluster-agent`. |
-| StackState ClusterCheck Agent | Optional | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml`. Default one instance per cluster. Runs checks that are configured on the StackState Cluster Agent, including the [kubernetes_state check](#kubernetes-state-check). Pod name `???`.  |
+| StackState Agent | ✅ | `stackstate-cluster-agent-agent` | Deployed as a DaemonSet. One instance on each node. |
+| StackState Cluster Agent | ✅ | `stackstate-cluster-agent` | Deployed as a Deployment. One instance for the entire cluster. |
+| StackState ClusterCheck Agent | Optional | `???` | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml`. Default one instance per cluster. Runs checks that are configured on the StackState Cluster Agent, including the [kubernetes_state check](#kubernetes-state-check). |
 
 * StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
   * Host information is retrieved from the Kubernetes API.
