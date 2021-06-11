@@ -113,13 +113,31 @@ daemonset.apps/stackstate-cluster-agent-agent        10        10        10     
 
 ## Checks
 
+### Cluster checks
+
+Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as cluster check Agent pods that run cluster checks. When enabled, cluster checks configured on the StackState Cluster Agent are run by one of the deployed cluster check pods. This is useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+
+* Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
+* Load-balanced cluster services (for example, Kubernetes services).
+
+#### Enable cluster checks
+
+To enable cluster checks and the cluster check Agent pods, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
+
+```yaml
+clusterChecks:
+  enabled: true
+```
+
 ### Kubernetes_state check
 
 The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.  
 
+#### Run as a cluster check
+
 In a default deployment, the pod running the StackState Cluster Agent and every deployed StackState Agent need to be able to run the check. In a large Kubernetes cluster, this can consume a lot of memory as every pod must be configured with sufficient CPU and memory requests and limits. Since only one of those Agent pods will actually run the check, a lot of CPU and memory resources will be allocated, but will not be used.
 
-To remedy that situation, the kubernetes_state check can be reconfigured as a clustercheck. The YAML segment below shows how to do that in the `values.yaml` file used to deploy the `cluster-agent` chart:
+To remedy that situation, the kubernetes_state check can be configured to run as a cluster check. The YAML segment below shows how to do that in the `values.yaml` file used to deploy the `cluster-agent` chart:
 
 ```yaml
 clusterChecks:
@@ -147,25 +165,6 @@ clusterAgent:
         instances:
           - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
 ```
-
-
-### Cluster checks
-
-Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) that run cluster checks. Cluster checks are configured on the StackState Cluster Agent and run by one of the these clusterchecks pods. This can be used to run checks that do not need to run on a specific node and monitor noncontainerized workloads, such as:
-
-* Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
-* Load-balanced cluster services (for example, Kubernetes services).
-
-To enable clusterchecks and the clusterchecks pods, create a `values.yaml` file to deploy the cluster-agent Helm chart and add the following YAML segment:
-
-```yaml
-clusterChecks:
-  enabled: true
-```
-
-### Running the kubernetes_state check as a clustercheck
-
-
 
 ## Integration details
 
