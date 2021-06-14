@@ -38,7 +38,7 @@ Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **In
 
 To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
 
-1.  Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/orioncheck.d/conf.yaml` to include details of your SolarWinds instance:
+1.  Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/solarwinds.d/conf.yaml` to include details of your SolarWinds instance:
     * **url** - the REST API URL, uses HTTPS protocol for communication.
     * **user** - a SolarWinds user with access to the required [SolarWinds API endpoints](#rest-api-endpoints).
     * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside the configuration file.
@@ -48,8 +48,8 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 
     instances:
       - url: <instance_name.solarwinds.localdomain>
-        instance_type: orioncheck
-        source_identifier: 'urn:orioncheck:'
+        instance_type: solarwinds
+        source_identifier: 'urn:solarwinds:'
         min_collection_interval: 30
         username: <instance_username>
         password: <instance_password>
@@ -141,7 +141,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text
-    mv orioncheck.d/conf.yaml orioncheck.d/conf.yaml.bak
+    mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak
    ```
 
 3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
