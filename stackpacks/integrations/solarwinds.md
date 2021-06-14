@@ -17,7 +17,7 @@ The SolarWinds StackPack allows near real time synchronization between SolarWind
 
 ## Setup
 
-### Pre-requisites
+### Prerequisites
 
 To set up the SolarWinds integration you will need to have:
 
