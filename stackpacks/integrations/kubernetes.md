@@ -25,19 +25,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ## StackState Agents
 
-The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events. To achieve this, three types of StackState Agent are  used:
-
-| Component | Required? | Pod name |Description |
-|:---|:---|:---|
-| StackState Cluster Agent | ✅ | `stackstate-cluster-agent` | Deployed as a Deployment. One instance for the entire cluster. |
-| StackState Agent | ✅ | `stackstate-cluster-agent-agent` | Deployed as a DaemonSet. One instance on each node. |
-| StackState ClusterCheck Agent | Optional | `stackstate-agent-clusterchecks` | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. |
-
-| Component | Required? | Description |
-|:---|:---|:---|
-| StackState Cluster Agent<br />`stackstate-cluster-agent` | ✅ | Deployed as a Deployment. One instance for the entire cluster. |
-| StackState Agent<br />`stackstate-cluster-agent-agent` | ✅ | Deployed as a DaemonSet. One instance on each node. |
-| StackState ClusterCheck Agent<br />`stackstate-agent-clusterchecks` | - | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. |
+The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events. To achieve this, different types of StackState Agent are  used:
 
 | Component | Required? | Pod name |
 |:---|:---|
@@ -61,9 +49,12 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
 
 ### StackState ClusterCheck Agent
 
+Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. When enabled, cluster checks configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed StackState ClusterCheck Agent pods. This is useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
 
+* Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
+* Load-balanced cluster services (for example, Kubernetes services).
 
-
+Read more about [cluster checks](#cluster-checks).
 
 ## Setup
 
@@ -142,10 +133,7 @@ daemonset.apps/stackstate-cluster-agent-agent        10        10        10     
 
 ### Cluster checks
 
-Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as cluster check Agent pods that run cluster checks. When enabled, cluster checks configured on the StackState Cluster Agent are run by one of the deployed cluster check pods. This is useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
 
-* Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
-* Load-balanced cluster services (for example, Kubernetes services).
 
 #### Enable cluster checks
 
