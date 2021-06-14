@@ -31,7 +31,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 |:---|:---|
 | [StackState Cluster Agent](#stackstate-cluster-agent) | ✅ | `stackstate-cluster-agent` | 
 | [StackState Agent](#stackstate-agent) | ✅ | `stackstate-cluster-agent-agent` | 
-| [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | Optional | `stackstate-agent-clusterchecks` |
+| [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | - | `stackstate-agent-clusterchecks` |
 
 ### StackState Cluster Agent
 
