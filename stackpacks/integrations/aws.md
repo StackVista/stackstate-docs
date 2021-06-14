@@ -8,10 +8,10 @@ description: StackState core integration
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
 
-![Data flow](../../.gitbook/assets/stackpack-aws-v2.svg)
+![Data flow](/.gitbook/assets/stackpack-aws-v2.svg)
 
 - The StackState Agent V2 collects all API responses from the target AWS account.
-- All APIs are queried once an hour to gain a full point-in-time snapshot of resources.
+- All services are queried once an hour to gain a full point-in-time snapshot of resources.
 - Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources, allowing topology updates in real time.
 - Logs are fetched from Cloudwatch and a central S3 bucket once a minute and displayed with the components.
 - Metrics are fetched on-demand, through a separate plugin inside StackState.
@@ -23,10 +23,10 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 To set up the StackState AWS V2 integration, you need to have:
 
 - [StackState Agent V2](agent.md) installed on a machine which can connect to AWS and StackState.
-- An AWS account for the agent. The AWS Account ID is needed in the next step, when deploying resources to the target AWS accounts. It is recommended to use a separate shared account outside of the accounts that will be monitored by StackState, but this is not required.
-  - If the agent is running within an AWS environment, The EC2 instance, EKS or ECS task must have an IAM role attached to it.
-  - If the agent is running outside an AWS account, an IAM user must be made available.
-- The IAM user/role must have following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
+- An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
+  - If StackState Agent is running within an AWS environment, the EC2 instance, EKS or ECS task must have an IAM role attached to it.
+  - If StackState Agent is running outside an AWS account, an IAM user must be made available.
+- The IAM user/role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
 ```json
 {
@@ -41,60 +41,66 @@ To set up the StackState AWS V2 integration, you need to have:
 }
 ```
 
-### Moving from V1 (Legacy) to V2
+### Migrate from the AWS V1 (Legacy) integration
 
-As V2 has been rebuilt from the ground up, it is not possible to migrate an existing installation automatically to V2. To move, the V1 (Legacy) stackpack must be removed, and the V2 stackpack installed. It is possible to run both stackpacks side by side during the migration process, however this configuration is not supported and will likely not work in the next major StackState release.
+The AWS V2 integration has been rebuilt from the ground up. This means that it is not possible to automatically migrate an existing AWS V1 (Legacy) integration to AWS V2. To start using the AWS V2 integration with your AWS instance, the AWS V1 (Legacy) StackPack must first be removed. It is possible to run the AWS V1 (Legacy) StackPack and the AWS V2 StackPack side by side during the migration process, however, this configuration is not supported and will likely not be available in the next major StackState release.
 
-To remove an existing V1 (Legacy) installation, [view the removal instructions for the stackpack here](/stackpacks/integrations/aws-legacy.md#uninstall).
+Read how to [uninstall an existing AWS V1 (Legacy) integration](/stackpacks/integrations/aws-legacy.md#uninstall).
+
+TODO: Explain what happens to existing data/configuration
 
 ### Deploy AWS Cloudformation stack
 
-The StackState AWS Cloudformation stack is deployed in your AWS account, providing the minimum level of access necessary to collect topology, telemetry and logs. There are three methods of deployment:
+The StackState AWS Cloudformation stack is deployed in your AWS account. This provides the minimum level of access required to collect topology, telemetry and logs. There are three methods of deployment:
 
-- [**Quick deploy**](#quick-deploy) - Quickly deploy all resources to a region in an account with a link.
-- [**Manual deploy**](#manual-deploy) - Download a CloudFormation template to integrate into your own deployment workflow.
-- [**Manual installation**](#manual-installation) - Deploy all resources manually to gain full control over StackState's access.
-
-The automated install uses a CloudFormation template to deploy all necessary resources in a single region, in one account.
-
-The CloudFormation template requires 3 parameters:
-
-- **Main Region:** Choose your primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`
-- **Agent Account ID:** The AWS account that the StackState Agent is deployed in, or has an IAM user in. This will be the account that the IAM role can be assumed from, the perform actions on the target AWS account. Example: `0123456789012`
-- **External ID:** A shared secret that the StackState agent will present when assuming a role. Use the same value across all AWS accounts that the agent is monitoring. Example: `uniquesecret!1`
+- [Quick deployment](#quick-deployment) - Deploy all resources to a region in an account using a link.
+- [StackState template deployment](#stackstate-template-deployment) - Download a CloudFormation template to integrate into your own deployment workflow.
+- [Manual deployment](#manual-deployment) - Deploy all resources manually to gain full control over StackState's access.
 
 #### Quick deploy
 
-Click the links in the table below to quickly deploy a template. You must be already logged in to the target AWS account in the web console.
+All necessary resources in a single region, in one account can be deployed using an automated CloudFormation template.
 
-| Region Name   | Template link                                                                                                                                                                                                                                                                                                           |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ireland       | [eu-west-1](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
-| Frankfurt     | [eu-central-1](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)       |
-| N. Virginia   | [us-east-1](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
-| Ohio          | [us-east-2](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
-| N. California | [us-west-1](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
-| Hong Kong     | [ap-east-1](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
-| Singapore     | [ap-southeast-1](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources) |
-| Sydney        | [ap-southeast-2](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources) |
+The CloudFormation template requires 3 parameters:
 
-This list specifies popular AWS regions. For any regions not listed, follow the manual CloudFormation deploy steps below.
+- **Main Region:** The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
+- **Agent Account ID:** The AWS account that the StackState Agent is deployed in, or has an IAM user in. This will be the account that the IAM role can be assumed from, the perform actions on the target AWS account. Example: `0123456789012`.
+- **External ID:** A shared secret that the StackState agent will present when assuming a role. Use the same value across all AWS accounts that the agent is monitoring. Example: `uniquesecret!1`.
 
-#### Manual deploy
+The table below includes links to deploy the template in popular AWS regions. For any regions not listed, follow the steps for the [StackState template deployment](#stackstate-template-deployment).
 
-For more control over the deployment, download the CloudFormation template below:
+{% hint style="info" %}
+You must be logged in to the target AWS account in the web console.
+{% endhint %}
 
-https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml
+| Region Name | Template deployment link |
+|:--|:--|
+| Ireland       | [eu-west-1 \(console.aws.amazon.com\)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Frankfurt     | [eu-central-1 \(console.aws.amazon.com\)](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)       |
+| N. Virginia   | [us-east-1 \(console.aws.amazon.com\)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Ohio          | [us-east-2 \(console.aws.amazon.com\)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| N. California | [us-west-1 \(console.aws.amazon.com\)](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Hong Kong     | [ap-east-1 \(console.aws.amazon.com\)](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources)                |
+| Singapore     | [ap-southeast-1 \(console.aws.amazon.com\)](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources) |
+| Sydney        | [ap-southeast-2 \(console.aws.amazon.com\)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml&stackName=stackstate-resources) |
+
+#### StackState template deployment
+
+The CloudFormation template below can be downloaded and used to deploy all necessary resources. 
+
+[https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml)
 
 This template can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation Stackset. For more information on how to deploy, check the documentation here.
 
-#### Manual installation
+TODO: check what???
+
+#### Manual deployment
 
 The default CloudFormation template gives read-only least-privilege access to only the resources that StackState requires to function. It is recommended that this template is used as it provides an easy upgrade path for future versions, and reduces the maintenance burden.
 
 The IAM role created by StackState is not able to bypass IAM permissions boundaries or Service Control Policies. These can be used as a way to restrict access while retaining the original CloudFormation template and policy.
 
-If these options do not provide enough flexibility, see section [Required AWS resources](#required-aws-resources) for full information on the resources that StackState requires. If the agent does not have permission to access a certain component, it will skip it.
+If these options do not provide enough flexibility, see section [Required AWS resources](#required-aws-resources) for full information on the resources that StackState requires. If the StackState Agent does not have permission to access a certain component, it will skip it.
 
 ### Install
 
