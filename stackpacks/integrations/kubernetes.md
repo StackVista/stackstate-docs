@@ -19,9 +19,16 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 
 | Component | Required? | Pod name |Description |
 |:---|:---|:---|
-| StackState Agent | ✅ | `stackstate-cluster-agent-agent` | Deployed as a DaemonSet. One instance on each node. |
 | StackState Cluster Agent | ✅ | `stackstate-cluster-agent` | Deployed as a Deployment. One instance for the entire cluster. |
+| StackState Agent | ✅ | `stackstate-cluster-agent-agent` | Deployed as a DaemonSet. One instance on each node. |
 | StackState ClusterCheck Agent | Optional | `stackstate-agent-clusterchecks` | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. |
+
+| Component | Required? | Description |
+|:---|:---|:---|
+| StackState Cluster Agent<br />`stackstate-cluster-agent` | ✅ | Deployed as a Deployment. One instance for the entire cluster. |
+| StackState Agent<br />`stackstate-cluster-agent-agent` | ✅ | Deployed as a DaemonSet. One instance on each node. |
+| StackState ClusterCheck Agent<br />`stackstate-agent-clusterchecks` | Optional | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. |
+
 
 * StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
   * Host information is retrieved from the Kubernetes API.
