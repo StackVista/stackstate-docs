@@ -47,7 +47,8 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
   * Host information is retrieved from the Kubernetes API.
   * Container information is collected from the Docker daemon.
   * Metrics are retrieved from kubelet running on the node.
-  * By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the agent pod. On large Kubernetes cluster this can cause issues. See the [section on cluster checks](#cluster-checks) for an alternative way to gather metrics from kube-state-metrics.
+
+By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. On large Kubernetes cluster this can cause issues. In this case, it is advisable to enable cluster checks and gather kube-state-metrics metrics with a dedicated [StackState ClusterCheck Agent](#stackstate-clustercheck-agent).
 
 ### StackState ClusterCheck Agent
 
