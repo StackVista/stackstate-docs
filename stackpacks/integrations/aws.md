@@ -57,7 +57,7 @@ The StackState AWS Cloudformation stack is deployed in your AWS account. This pr
 - [StackState template deployment](#stackstate-template-deployment) - Download a CloudFormation template to integrate into your own deployment workflow.
 - [Manual deployment](#manual-deployment) - Deploy all resources manually to gain full control over StackState's access.
 
-#### Quick deploy
+#### Quick deployment
 
 All necessary resources in a single region, in one account can be deployed using an automated CloudFormation template.
 
