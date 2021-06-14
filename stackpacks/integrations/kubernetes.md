@@ -15,7 +15,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
-* Data is retrieved by the deployed [StackState Agents](#stackstate-agents) and then pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the Kubernetes StackPack \(StackState Cluster Agent\).
+* Data is retrieved by the deployed [StackState Agents](#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
