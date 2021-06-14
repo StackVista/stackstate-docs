@@ -39,6 +39,8 @@ StackState Cluster Agent is deployed as a Deployment. There is one instance for 
   * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API.
   * Control plane metrics are retrieved from the Kubernetes API.
 
+When cluster checks are enabled, cluster checks configured here are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
+
 ### StackState Agent
 
 StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
