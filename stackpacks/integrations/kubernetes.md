@@ -15,6 +15,16 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
+* Data is retrieved from the deployed [StackState Agents](#stackstate-agents).
+* Retrieved data is pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the Kubernetes StackPack \(StackState Cluster Agent\).
+* In StackState:
+  * [Topology data](kubernetes.md#topology) is translated into components and relations.
+  * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
+  * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+
+## StackState Agents
+
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events. To achieve this, three types of StackState Agent are  used:
 
 | Component | Required? | Pod name |Description |
@@ -27,23 +37,33 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 |:---|:---|:---|
 | StackState Cluster Agent<br />`stackstate-cluster-agent` | ✅ | Deployed as a Deployment. One instance for the entire cluster. |
 | StackState Agent<br />`stackstate-cluster-agent-agent` | ✅ | Deployed as a DaemonSet. One instance on each node. |
-| StackState ClusterCheck Agent<br />`stackstate-agent-clusterchecks` | Optional | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. |
+| StackState ClusterCheck Agent<br />`stackstate-agent-clusterchecks` | - | Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. |
 
+| Component | Required? | Pod name |
+|:---|:---|
+| [StackState Cluster Agent](#stackstate-cluster-agent) | ✅ | `stackstate-cluster-agent` | 
+| [StackState Agent](#stackstate-agent) | ✅ | `stackstate-cluster-agent-agent` | 
+| [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | Optional | `stackstate-agent-clusterchecks` |
 
-* StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
+### StackState Cluster Agent
+
+StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
+  * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API.
+  * Control plane metrics are retrieved from the Kubernetes API.
+
+### StackState Agent
+
+StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Kubernetes cluster:
   * Host information is retrieved from the Kubernetes API.
   * Container information is collected from the Docker daemon.
   * Metrics are retrieved from kubelet running on the node.
   * By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the agent pod. On large Kubernetes cluster this can cause issues. See the [section on cluster checks](#cluster-checks) for an alternative way to gather metrics from kube-state-metrics.
-* StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
-  * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API.
-  * Control plane metrics are retrieved from the Kubernetes API.
-* Retrieved data is pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the Kubernetes StackPack \(StackState Cluster Agent\).
-* In StackState:
-  * [Topology data](kubernetes.md#topology) is translated into components and relations.
-  * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
-  * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+
+### StackState ClusterCheck Agent
+
+
+
+
 
 ## Setup
 
