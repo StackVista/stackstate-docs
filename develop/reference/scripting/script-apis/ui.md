@@ -69,7 +69,7 @@ Create a URL to a view at a specific time.
 
 ```groovy
 View.getAll().then { views ->
-    UI.createUrl().view(views[0]).at('-15m').url()
+    UI.createUrl().view(views[0].view).at('-15m').url()
 }
 ```
 
@@ -78,7 +78,7 @@ Create a URL to a view focussing on a component.
 ```groovy
 View.getAll().then { views ->
     Component.withId(component).get().then { component ->
-        UI.createUrl().view(views[0]).at('-15m').withComponent(component).url()
+        UI.createUrl().view(views[0].view).at('-15m').withComponent(component).url()
     }
 }
 ```

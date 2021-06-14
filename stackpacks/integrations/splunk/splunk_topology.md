@@ -26,7 +26,7 @@ The StackState API-Integration Agent executes the Splunk saved searches configur
 | **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | Optional. The value will be included as identifier of the component. |
 | **label.&lt;label\_name&gt;** | ✅ | - | string | Optional. The value will be added as a label on the component in the format `label_name:value` |
 | **name** | ✅ | - | string | Required. The value will be used as the component name. |
-| All other fields | ✅ | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
+| All other fields | ✅ | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 | **sourceId** | - | ✅ | string | Required. The ID of the component that is the source of the relation. |
 | **targetId** | - | ✅ | string | Required. The ID of the component that is the target of the relation.  |
 

@@ -58,7 +58,7 @@ sourceid,targetid,type
 
 #### Configuration
 
-1. Configure the Agent to read CSV topology files. Edit `conf.d/static_topology.yaml`:
+1. Configure the Agent to read CSV topology files. Edit `conf.d/static_topology.d/conf.yaml`:
 
    **Static topology from file**
 

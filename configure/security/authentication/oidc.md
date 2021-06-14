@@ -37,11 +37,12 @@ stackstate:
         groupsField: groups
 
     # map the groups from OIDC provider
-    # to the 3 standard roles in StackState (guest, powerUser and admin)
+    # to the 4 standard roles in StackState (guest, powerUser, admin and platformAdmin)
     roles:
       guest: ["oidc-guest-role-for-stackstate"]
       powerUser: ["oidc-power-user-role-for-stackstate"]
       admin: ["oidc-admin-role-for-stackstate"]
+      platformAdmin: ["oidc-platform-admin-role-for-stackstate"]
 ```
 {% endtab %}
 {% endtabs %}
@@ -58,7 +59,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
    * **jwtClaims** -
      * **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
      * **groupsField** - The field from which StackState will read the role/group for a user.
-2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects using the `roles.guest`, `roles.powerUser` or `roles.admin` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
+2. In `authentication.yaml` - map user roles from OIDC to the correct StackState subjects using the `roles.guest`, `roles.powerUser`, `roles.admin` or `roles.platformAdmin` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Store the file `authentication.yaml` together with the `values.yaml` file from the StackState installation instructions.
 4. Run a Helm upgrade to apply the changes:
 
@@ -87,6 +88,20 @@ To configure StackState to use an OIDC authentication provider on Linux, OIDC de
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
+
+authorization {
+  // map the groups from the OIDC provider to the
+  // 4 standard subjects in StackState (guestGroups, powerUserGroups, adminGroups and platformAdminGroups)
+  // Please note! you have to use the syntax
+  // `<group>Groups = ${stackstate.authorization.<group>Groups} ["oidc-role"]`
+  // to extend the list of standard roles (stackstate-admin, stackstate-platform-admin, stackstate-guest, stackstate-power-user)
+  // with the ones from OIDC
+  guestGroups = ${stackstate.authorization.guestGroups} ["oidc-guest-role-for-stackstate"]
+  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["oidc-power-user-role-for-stackstate"]
+  adminGroups = ${stackstate.authorization.adminGroups} ["oidc-admin-role-for-stackstate"]
+  platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["oidc-platform-admin-role-for-stackstate"]
+}
+
 authentication {
   enabled  = true
 
@@ -106,12 +121,6 @@ authentication {
       }
     }
   }
-
-  // map the groups from the OIDC provider to the
-  // 3 standard subjects in StackState (guestGroups, powerUserGroups and adminGroups)
-  guestGroups = ["oidc-guest-role-for-stackstate"]
-  powerUserGroups = ["oidc-power-user-role-for-stackstate"]
-  adminGroups = ["oidc-admin-role-for-stackstate"]
 }
 ```
 {% endtab %}
@@ -129,7 +138,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
    * **jwtClaims** -
      * **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
      * **groupsField** - The field from which StackState will read the role/group for a user.
-2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects using the `guestGroups`, `powerUserGroups` or `adminGroups` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
+2. In `application_stackstate.conf` - map user roles from OIDC to the correct StackState subjects using the `guestGroups`, `powerUserGroups`, `adminGroups` or `platformAdminGroups` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Restart StackState to apply the changes.
 
 ## Additional settings for specific OIDC providers
@@ -159,4 +168,3 @@ For further details, see [Permissions and consent in the Microsoft identity plat
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
-

@@ -44,14 +44,15 @@ Read how to [add a telemetry stream to an element](../../use/health-state-and-ev
 
 A baseline can be attached to a metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. Checks can use the baseline values on a metric stream to trigger a health state change if a batch of metrics deviates from the baseline.
 
-Read more about [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md) and [baseline functions](baseline-functions.md).
+Read more about [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md) and [baseline functions](../../develop/developer-guides/custom-functions/baseline-functions.md).
 
 ## See also
 
-* [Add a health check](../../use/health-state-and-event-notifications/add-a-health-check.md)
+* [Add a health check based on telemetry streams available in StackState](../../use/health-state-and-event-notifications/add-a-health-check.md)
 * [Add a telemetry stream to an element](../../use/health-state-and-event-notifications/add-telemetry-to-element.md)
 * [Use templates to add telemetry streams to your own integrations](telemetry_synchronized_topology.md)
+* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
 * [Anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
-* [Baseline functions](baseline-functions.md)
-* [Send notifications when a health state changes](../../use/health-state-and-event-notifications/send-event-notifications.md)
+* [Baseline functions](../../develop/developer-guides/custom-functions/baseline-functions.md)
+
 

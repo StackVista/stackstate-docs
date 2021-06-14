@@ -52,7 +52,7 @@ Baseline functions are configurable in StackState and can be coded in the [Stack
 * [Stationary Auto-Tuned Baseline](anomaly-detection-with-baselines.md#stationary-auto-tuned-baseline)
 * [Median Absolute Deviation](anomaly-detection-with-baselines.md#median-absolute-deviation)
 * [Stationary Customizable Baseline based on EWMA](anomaly-detection-with-baselines.md#stationary-customizable-baseline-based-on-ewma)
-* you can also [create your own custom baseline function](../../configure/telemetry/baseline-functions.md)
+* you can also [create your own custom baseline function](../../develop/developer-guides/custom-functions/baseline-functions.md)
 
 ### Stationary Auto-Tuned Baseline
 
@@ -155,5 +155,5 @@ Event notifications for baseline checks work exactly the same as with other heal
 * [Anomaly detection](../introduction-to-stackstate/anomaly-detection.md)
 * [Autonomous Anomaly detector add-on StackPack](../../stackpacks/add-ons/aad.md)
 * [Send event notifications with event handlers](send-event-notifications.md)
-* [Create custom baseline functions](../../configure/telemetry/baseline-functions.md)
+* [Create custom baseline functions](../../develop/developer-guides/custom-functions/baseline-functions.md)
 
