@@ -130,6 +130,7 @@
   * [Create a topology manually](configure/topology/how_to_create_manual_topology.md)
   * [Configure synchronizations](configure/topology/sync.md)
   * [Enable email event notifications](configure/topology/configure-email-event-notifications.md)
+  * [Use a proxy for event handlers](configure/topology/proxy-for-event-handlers.md)  
   * [Naming guide](configure/topology/naming_guide.md)
   * [Tags](configure/topology/tagging.md)
   * [Topology sources](configure/topology/topology_sources.md)
