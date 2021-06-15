@@ -103,4 +103,3 @@ In Docker or Kubernetes, set the following environment variable for the StackSta
 ```text
 STS_LOG_LEVEL: "DEBUG"
 ```
-

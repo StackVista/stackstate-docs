@@ -4,271 +4,62 @@ description: StackState core integration
 
 # StackState Agent
 
-## What is the Agent StackPack?
+## Overview
 
-The StackState Agent provides the following functionality:
+The StackState Agent StackPack works with the [StackState Agent](/setup/agent) to synchronize topology, metrics, events and trace data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
 
-* Reporting hosts, processes and containers
-* Reporting all network connections between processes/containers including network traffic telemetry
-* Telemetry for hosts, processes, and containers
-* 100+ additional integrations
+## Setup
 
-The StackState Agent is open source and available on github at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+### Prerequisites
 
-## Supported configurations
+### Install
 
-The StackState Agent is supported on the following platforms:
+Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.
 
-| OS | Release | Arch | Network Tracer | Status | Notes |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Ubuntu | Trusty \(14\) | 64bit | - | OK | - |
-| Ubuntu | Xenial \(16\) | 64bit | OK | OK | - |
-| Ubuntu | Bionic \(18\) | 64bit | OK | OK | - |
-| Debian | Wheezy \(7\) | 64bit | - | - | Needs glibc upgrade to 2.17 |
-| Debian | Jessie \(8\) | 64bit | - | OK | - |
-| Debian | Stretch \(9\) | 64bit | OK | OK | - |
-| CentOS | 6 | 64bit | - | OK | Since version 2.0.2 |
-| CentOS | 7 | 64bit | - | OK | - |
-| RHEL | 7 | 64bit | - | OK | - |
-| Fedora | 28 | 64bit | OK | OK | - |
-| Windows | 2016 | 64bit | OK | OK | - |
+### Configure
 
-## Installation
+### Status
 
-Install the StackState Agent with one of the following commands:
+To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](/setup/agent/).
 
-### Linux
+### Upgrade
 
-Using [cURL](https://curl.haxx.se)
+When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 
-```text
-curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
-    STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" bash
-```
+To upgrade the StackState Agent, see the [StackState Agent documentation](/setup/agent/).
 
-Using [wget](https://www.gnu.org/software/wget/)
+## Integration details
 
-```text
-wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
-    STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" bash
-```
+### Data retrieved
 
-#### Linux offline installation
+When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
 
-On your host, download the installation script from [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh).
+Linux:
+- Hosts, processes and containers
+- Network connections between processes and containers including network traffic telemetry
+- Telemetry for hosts, processes and containers 
 
-By default, installer tries to configure the package update channel, which would allow to update packages using the host package manager. If you for any reason do not want this behavior, please include `STS_INSTALL_NO_REPO=yes` as an environment parameter:
+Docker:
+- Hosts, processes, and containers
+- Network connections between processes, containers and services including network traffic telemetry
+- Telemetry for hosts, processes, and containers
+- Trace agent support
 
-```text
-STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" \
-    STS_INSTALL_NO_REPO=yes \
-    ./install.sh PATH_TO_PREDOWNLOADED_INSTALLER_PACKAGE
-```
+When additional checks have been enabled on the Agent, data from other external systems will be integrated. Refer to the individual integration pages for details of the data retrieved from each system.
 
-### Windows
+### Rest API endpoints
 
-Using [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6)
+### Agent views in StackState
 
-```text
-. { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `
-install -stsApiKey "{{config.apiKey}}" `
--stsUrl "{{config.baseUrl}}/stsAgent"
-```
+### Open source
 
-#### Windows offline installation
 
-On your host, download a copy of the PowerShell script from [https://stackstate-agent-2.s3.amazonaws.com/install.ps1](https://stackstate-agent-2.s3.amazonaws.com/install.ps1) alongside with the agent installer in the form `.msi`. The latest version of the installer can be downloaded from [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi).
-
-Assuming your installer is saved as `C:\stackstate-custom.msi`, and the PowerShell script saved as `C:\install_script.ps1`, open PowerShell with elevated privileges and invoke the following set of commands:
-
-```text
-Import-Module C:\install_script.ps1
-install -stsApiKey {{config.apiKey}} `
--stsUrl {{config.baseUrl}}/stsAgent `
--f C:\\stackstate-custom.msi
-```
-
-### Docker
-
-#### Installation
-
-To run the StackState Agent as a docker container, use the following configuration:
-
-```text
-stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
-    network_mode: "host"
-    pid: "host"
-    privileged: true
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "/proc/:/host/proc/:ro"
-      - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
-      - "/etc/passwd:/etc/passwd:ro"
-      - "/sys/kernel/debug:/sys/kernel/debug"
-    environment:
-      STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_ENABLED: "true"
-      STS_NETWORK_TRACING_ENABLED: "true"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_ENABLED: "true"
-      HOST_PROC: "/host/proc"
-      HOST_SYS: "/host/sys"
-```
-
-#### Using Docker-Swarm mode
-
-To run the StackState Agent in Docker-Swarm mode as a docker-compose setup, use the above configuration in your compose file on each node where you want to run the Agent. After placing the compose file on each node, run the command `docker-compose up -d`.
-
-**Limitation of Docker-Swarm mode**
-
-Some specific features are not supported in Docker-Swarm mode. This limitation prevents StackState Agent from collecting relations between Containers, Processes and other resources while in Docker-Swarm mode. To run StackState Agent in Docker-Swarm mode, use a docker-compose setup.
-
-#### Using Self-Signed Certificate
-
-When checks are being configured to use a self-signed certificate for https requests, then the following environment variable should be overwritten:
-
-```text
-  CURL_CA_BUNDLE = ""
-```
-
-#### Advanced Configurations
-
-Process reported by the StackState Agent can be filtered using a blacklist. Using it in conjunction with the inclusion rules will include otherwise excluded processes.
-
-| Parameter | Mandatory | Default Value | Description |
-| :--- | :--- | :--- | :--- |
-| STS\_PROCESS\_BLACKLIST\_PATTERNS | No | [See  Github](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go) | A list of regex patterns that will exclude a process if matched |
-| STS\_PROCESS\_BLACKLIST\_INCLUSIONS\_TOP\_CPU | No | 0 | Number of processes to report that have a high CPU usage |
-| STS\_PROCESS\_BLACKLIST\_INCLUSIONS\_TOP\_IO\_READ | No | 0 | Number of processes to report that have a high IO read usage |
-| STS\_PROCESS\_BLACKLIST\_INCLUSIONS\_TOP\_IO\_WRITE | No | 0 | Number of processes to report that have a high IO write usage |
-| STS\_PROCESS\_BLACKLIST\_INCLUSIONS\_TOP\_MEM | No | 0 | Number of processes to report that have a high Memory usage |
-| STS\_PROCESS\_BLACKLIST\_INCLUSIONS\_CPU\_THRESHOLD | No |  | Threshold that enables the reporting of high CPU usage processes |
-| STS\_PROCESS\_BLACKLIST\_INCLUSIONS\_MEM\_THRESHOLD | No |  | Threshold that enables the reporting of high Memory usage processes |
-
-Certain features of the agent can be turned off if not needed:
-
-| Parameter | Mandatory | Default Value | Description |
-| :--- | :--- | :--- | :--- |
-| STS\_PROCESS\_AGENT\_ENABLED | No | True | Whenever process agent should be enabled |
-| STS\_APM\_ENABLED | No | True | Whenever trace agent should be enabled |
-| STS\_NETWORK\_TRACING\_ENABLED | No | True | Whenever network tracer should be enabled |
-
-#### Troubleshooting
-
-To troubleshoot the StackState Agent container, set the logging level to `debug` using the `STS_LOG_LEVEL` environment variable:
-
-```text
-STS_LOG_LEVEL: "DEBUG"
-```
-
-## Configuration files
-
-{% tabs %}
-{% tab title="Linux" %}
-* StackState Agent configuration: `/etc/stackstate-agent/stackstate.yaml`
-* Integration configurations: `/etc/stackstate-agent/conf.d/`
-{% endtab %}
-
-{% tab title="Windows" %}
-* StackState Agent configuration: `C:\ProgramData\StackState\stackstate.yaml`
-* Integration configurations:`C:\ProgramData\StackState\conf.d`
-{% endtab %}
-{% endtabs %}
 
 ## Troubleshooting
 
-Try running the [status](agent.md#status-and-information) command to see the state of the StackState Agent.
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
-### Log files
-
-{% tabs %}
-{% tab title="Linux" %}
-Logs for the subsystems are in the following files:
-
-```text
-/var/log/stackstate-agent/agent.log
-/var/log/stackstate-agent/process-agent.log
-```
-{% endtab %}
-
-{% tab title="Windows" %}
-Logs for the subsystems are in the following files:
-
-```text
-C:\ProgramData\StackState\logs\agent.log
-C:\ProgramData\StackState\logs\process-agent.log
-```
-{% endtab %}
-{% endtabs %}
-
-## Start / stop / restart the StackState Agent
-
-{% hint style="info" %}
-* Commands require elevated privileges.
-* Restarting the StackState Agent will reload the configuration files.
-{% endhint %}
-
-To manually start, stop or restart the StackState Agent:
-
-{% tabs %}
-{% tab title="Linux" %}
-```text
-sudo service stackstate-agent start
-sudo service stackstate-agent stop
-sudo service stackstate-agent restart
-```
-{% endtab %}
-
-{% tab title="Windows" %}
-**CMD**
-
-```text
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
-```
-
-**PowerShell**
-
-```text
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
-```
-{% endtab %}
-{% endtabs %}
-
-## Status and information
-
-{% tabs %}
-{% tab title="Linux" %}
-To check if the StackState Agent is running and receive information about the Agent's state:
-
-```text
-sudo service stackstate-agent status
-```
-
-Tracebacks for errors can be retrieved by setting the `-v` flag:
-
-```text
-sudo service stackstate-agent status -v
-```
-{% endtab %}
-
-{% tab title="Windows" %}
-To check if the StackState Agent is running and receive information about the Agent's state:
-
-```text
-"./agent.exe status"
-```
-{% endtab %}
-{% endtabs %}
+## Uninstall
 
 ## Release notes
 
@@ -318,3 +109,6 @@ To check if the StackState Agent is running and receive information about the Ag
 * Feature: Introduced the Release notes pop up for customer.
 * Feature: Introduced the Docker-Swarm mode setup docs in Docker integration.
 
+## See also
+
+* [StackState Agent documentation](/setup/agent/)
