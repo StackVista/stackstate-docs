@@ -9,7 +9,7 @@ StackState can be configured to use a proxy for event handlers. When client prox
 To use a proxy for event handlers, http and/or https `client.proxy` details must be added to the `akka` section of the StackState `application.conf` file.
 
 1. Edit `application.conf`.
-2. Uncomment the `client.proxy` section under `akka.http`. 
+2. Uncomment the `client.proxy` section under `akka.http` and add details of the proxy **host** and **port**. Note that http and https proxies can be configured here.
     ```
     akka {
       ...
@@ -25,10 +25,9 @@ To use a proxy for event handlers, http and/or https `client.proxy` details must
       }
     }
     ```
-3. Add details of the proxy **host** and **port**. Note that http and https can be configured here.
-4. Save the `application.conf` file.
-5. Restart StackState to apply the configuration changes.
-6. All event handlers will now use the configured proxy.
+3. Save the `application.conf` file.
+4. Restart StackState to apply the configuration changes.
+5. All event handlers will now use the configured proxy.
 
 
 ## See also
