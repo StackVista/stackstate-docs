@@ -255,7 +255,7 @@ Only one S3 bucket is necessary per account; all regions can send to the same bu
 
 #### EventBridge Rule
 
-A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream. The JSON rule object can be found [here](aws-policies.md#StsEventBridgeRule).
+A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream. The JSON rule object can be found [here](aws-policies.md#stseventbridgerule).
 
 A rule must be created in each region where events are captured, sending to a Firehose delivery stream in the same region.
 
@@ -271,8 +271,8 @@ A delivery stream must be created in each region where events are captured, howe
 
 Several services need special IAM roles to allow services to send data to each other. These two IAM roles:
 
-- [Kinesis Firehose Role](aws-policies.md#StackStateFirehoseRole-%24%7BRegion%7D) - Gives permission for Firehose to send data to an S3 bucket.
-- [EventBridge Role](aws-policies.md#StackStateEventBridgeRole-%24%7BRegion%7D) - Give permission for EventBridge to send data to Kinesis Firehose
+- [Kinesis Firehose Role](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
+- [EventBridge Role](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
 IAM is a global service. While IAM roles can be shared, it is recommended that an IAM role is created per service, per region and the policies tailored to allow only least-privilege access to the destination resource. Sample policies can be found here.
 
