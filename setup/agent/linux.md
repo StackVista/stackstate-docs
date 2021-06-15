@@ -67,7 +67,7 @@ If you do not have access to the internet on the machine where the Agent will be
 
 1. Download the install script and copy this to the host where it will be installed:
    - [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
-2. Download the latest Agent installer package (DEB or RPM package) and copy this to the host where it will be installed. The download link can be constructed from the installer list URL and the `Key` of the installer package that is provided on the installer list page.
+2. Download the latest Agent installer package (DEB or RPM package) and copy this to the host where it will be installed. The download link can be constructed from the installer list URL and the installer package `Key`  that is provided on the installer list page.
    - **DEB installer list**: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
    - **RPM installer list**: [https://stackstate-agent-2-rpm.s3.amazonaws.com/](https://stackstate-agent-2-rpm.s3.amazonaws.com/)
    - **Download link**: `<installer_list_link><installer_Key_from_list>`
