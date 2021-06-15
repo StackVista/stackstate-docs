@@ -22,4 +22,8 @@ Documentation for the available StackState integrations, including configuration
 ## See also
 
 * [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
-* 
+* Deploy the StackState Agent on:
+    - [Docker](/setup/agent/docker.md)
+    - [Kubernetes](/setup/agent/kubernetes.md)
+    - [Linux](/setup/agent/linux.md)
+    - [Windows](/setup/agent/windows.md)
