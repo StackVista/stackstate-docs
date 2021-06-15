@@ -94,6 +94,7 @@
   * [💠 API-Integration](stackpacks/integrations/api-integration.md)
   * [💠 AWS (Legacy)](stackpacks/integrations/aws-legacy.md)
   * [💠 AWS](stackpacks/integrations/aws.md)  
+    * [💠 AWS Policies](stackpacks/integrations/aws-policies.md)  
   * [💠 AWS X-ray](stackpacks/integrations/aws-x-ray.md)
   * [💠 Dynatrace](stackpacks/integrations/dynatrace.md)
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)

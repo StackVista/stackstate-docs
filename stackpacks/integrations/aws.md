@@ -47,7 +47,7 @@ The AWS V2 integration has been rebuilt from the ground up. This means that it i
 
 Read how to [uninstall an existing AWS V1 (Legacy) integration](/stackpacks/integrations/aws-legacy.md#uninstall).
 
-TODO: Explain what happens to existing data/configuration
+The AWS V2 integration is an entirely new StackPack, and migrating existing configuration from the Legacy StackPack is not supported. On upgrading, topology history and health state for instances will be lost, however metrics are fetched directly from CloudWatch and will still be available.
 
 ### Deploy AWS Cloudformation stack
 
@@ -86,13 +86,11 @@ You must be logged in to the target AWS account in the web console.
 
 #### StackState template deployment
 
-The CloudFormation template below can be downloaded and used to deploy all necessary resources. 
+The CloudFormation template below can be downloaded and used to deploy all necessary resources.
 
 [https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml)
 
-This template can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation Stackset. For more information on how to deploy, check the documentation here.
-
-TODO: check what???
+This template can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. For more information on how to use StackSets, check the [AWS documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
 #### Manual deployment
 
@@ -229,7 +227,62 @@ The AWS integration does not retrieve any Traces data.
 
 ![Account components](../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
-TODO detail every required resource
+Above is a graph with a high-level of overview of all resources necessary to run the AWS agent with full capabilities. Capabilities are split into 3 categories:
+
+- Hourly full topology updates
+- Event-based single component updates
+- Event-based relation updates
+
+Hourly full topology updates can be achieved with only an IAM role in the account, to allow access to APIs. For event-based updates, events have to be captured using AWS services and placed into an S3 bucket for the agent to read.
+
+Setting up the agent resources manually assumes that you have intermediate to high level AWS skills; the majority of installations should use the provided CloudFormation template unless there are environment-specific issues that must be worked around.
+
+#### IAM Role
+
+The bare minimum necessary to run the agent is an IAM role, with necessary permissions. The agent will always attempt to fetch as much data as possible for the supported resources. If a permission is omitted, the agent will attempt to create a component with the data it has.
+
+For example, if the permission `s3:GetBucketTagging` is omitted, the agent will fetch all S3 buckets and their associated configuration, but the tags section will be empty.
+
+Below is an IAM policy with all the required permissions. [See here for the full JSON object](aws-policies.md#stackstateawsintegrationrole).
+
+IAM is a global service. Only one IAM role is necessary per account.
+
+#### S3 Bucket
+
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs.
+
+Only one S3 bucket is necessary per account; all regions can send to the same bucket.
+
+#### EventBridge Rule
+
+A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream. The JSON rule object can be found [here](aws-policies.md#StsEventBridgeRule).
+
+A rule must be created in each region where events are captured, sending to a Firehose delivery stream in the same region.
+
+#### Kinesis Firehose
+
+Used to receive and batch events from EventBridge. This delivery stream batches events per 60 seconds, and pushes an object to S3. Setting this value any higher negligibly decreases storage costs while increasing the delay in topology updates, so using 60 seconds is recommended.
+
+The Prefix must be set to `AWSLogs/${AccountId}/EventBridge/${Region}/` (where `${AccountId}` and `${Region}` are replaced with the region e.g. eu-west-1 and account ID). The files must be compressed using the GZIP option.
+
+A delivery stream must be created in each region where events are captured, however the target S3 bucket can exist in any region.
+
+#### All other IAM roles
+
+Several services need special IAM roles to allow services to send data to each other. These two IAM roles:
+
+- [Kinesis Firehose Role](aws-policies.md#StackStateFirehoseRole-%24%7BRegion%7D) - Gives permission for Firehose to send data to an S3 bucket.
+- [EventBridge Role](aws-policies.md#StackStateEventBridgeRole-%24%7BRegion%7D) - Give permission for EventBridge to send data to Kinesis Firehose
+
+IAM is a global service. While IAM roles can be shared, it is recommended that an IAM role is created per service, per region and the policies tailored to allow only least-privilege access to the destination resource. Sample policies can be found here.
+
+#### KMS Key (Optional)
+
+A KMS Customer Managed Key (CMK) can be used to secure data at rest in S3. The KMS key is assigned for use in the Firehose Delivery Stream, and the S3 bucket also uses the KMS key as its default key.
+
+Use of a KMS is key is not necessary for the operation of the StackPack, however as it is a requirement in many environments, the CloudFormation template includes this by default.
+
+A KMS key must be created in each region where events are captured. A sample policy can be found [here](aws-policies.md#stackstate-integration-kms-key).
 
 ### Costs
 
