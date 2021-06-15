@@ -25,7 +25,6 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | Ubuntu | Xenial (16) | ✅ | - |
 | Ubuntu | Bionic (18) | ✅ | - |
 | Ubuntu | Focal (20.04) | ✅ | - |
-| Ubuntu | Groovy (20.10) | ✅ | ??? |
 
 ### Install
 

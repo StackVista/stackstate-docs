@@ -219,3 +219,4 @@ redirects:
 
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
+  stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md
