@@ -43,11 +43,15 @@ To set up the StackState AWS V2 integration, you need to have:
 
 ### Migrate from the AWS V1 (Legacy) integration
 
+{% hint style="info" %}
+The AWS V2 integration is an entirely new StackPack. Migrating existing configuration from the Legacy AWS StackPack is not supported.
+
+On upgrading, topology history and health state for instances will be lost. Metrics are fetched directly from CloudWatch and will still be available.
+{% endhint %}
+
 The AWS V2 integration has been rebuilt from the ground up. This means that it is not possible to automatically migrate an existing AWS V1 (Legacy) integration to AWS V2. To start using the AWS V2 integration with your AWS instance, the AWS V1 (Legacy) StackPack must first be removed. It is possible to run the AWS V1 (Legacy) StackPack and the AWS V2 StackPack side by side during the migration process, however, this configuration is not supported and will likely not be available in the next major StackState release.
 
 Read how to [uninstall an existing AWS V1 (Legacy) integration](/stackpacks/integrations/aws-legacy.md#uninstall).
-
-The AWS V2 integration is an entirely new StackPack, and migrating existing configuration from the Legacy StackPack is not supported. On upgrading, topology history and health state for instances will be lost, however metrics are fetched directly from CloudWatch and will still be available.
 
 ### Deploy AWS Cloudformation stack
 
