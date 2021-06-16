@@ -6,10 +6,11 @@ description: StackState core integration
 
 ## Overview
 
-The Splunk topology integration can now also run through [StackState Agent V2](/stackpacks/integrations/agent.md), previously Splunk topology was only available using the StackState API-integration Agent. 
+In previous releases of StackState, it was only possible to run the Splunk topology check using the StackState API-integration Agent. It is now also possible to run the Splunk topology integration through [StackState Agent V2](/stackpacks/integrations/agent.md). 
 
-* If you are starting from scratch, you can directly configure the [Splunk topology V2 check on StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_v2.md). 
-* If you are currently running the Splunk topology V1 check on the [StackState API-Integrations Agent](/stackpacks/integrations/api-integration.md), this guide will help you migrate to the new StackState Agent V2 check.
+If you are currently running the Splunk topology V1 check on the [StackState API-Integrations Agent](/stackpacks/integrations/api-integration.md), this guide will help you migrate to the new StackState Agent V2 check.
+
+If you are starting from scratch, you can directly configure the [Splunk topology V2 check](/stackpacks/integrations/splunk/splunk_topology_v2.md) on StackState Agent V2.
 
 ## Upgrade steps
 
