@@ -32,4 +32,4 @@ If you are starting from scratch, you can directly configure the [Splunk topolog
 
 * [StackState Agent V2](/stackpacks/integrations/agent.md)
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
-* [Splunk topology V2 integration](/stackpacks/integrations/splunk/splunk_topology_v2.md)]
+* [Splunk topology V2 integration](/stackpacks/integrations/splunk/splunk_topology_v2.md)
