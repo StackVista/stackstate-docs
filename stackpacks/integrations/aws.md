@@ -10,11 +10,12 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](/.gitbook/assets/stackpack-aws-v2.svg)
 
-- The StackState Agent V2 collects all API responses from the target AWS account.
-- All services are queried once an hour to gain a full point-in-time snapshot of resources.
-- Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources, allowing topology updates in real time.
-- Logs are fetched from Cloudwatch and a central S3 bucket once a minute and displayed with the components.
-- Metrics are fetched on-demand, through a separate plugin inside StackState.
+- StackState Agent V2 collects all service responses from the target AWS account.
+- Topology is updated in real time:
+    - Once an hour, all services are queried to gain a full point-in-time snapshot of resources.
+    - Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
+- Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
+- Metrics are retrieved on-demand by the StackState CloudWatch plugin.
 
 ## Setup
 
@@ -22,12 +23,14 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS V2 integration, you need to have:
 
-- [StackState Agent V2](agent.md) installed on a machine which can connect to AWS and StackState.
+- [StackState Agent V2](agent.md) installed on a machine which can connect to both AWS and StackState.
 - An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
-  - If StackState Agent is running within an AWS environment, the EC2 instance, EKS or ECS task must have an IAM role attached to it.
-  - If StackState Agent is running outside an AWS account, an IAM user must be made available.
+  - If StackState Agent is running within an AWS environment: The EC2 instance, EKS or ECS task must have an IAM role attached to it.
+  - If StackState Agent is running outside an AWS account: An IAM user must be made available.
 - The IAM user/role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
+{% tabs %}
+{% tab title="IAM policy" %}
 ```json
 {
   "Version": "2012-10-17",
@@ -40,6 +43,8 @@ To set up the StackState AWS V2 integration, you need to have:
   ]
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Migrate from the AWS V1 (Legacy) integration
 
