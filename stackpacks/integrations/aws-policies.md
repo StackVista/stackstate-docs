@@ -4,10 +4,10 @@
 
 This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. These policies are taken directly from the CloudFormation template and should be used wherever possible.
 
-To use a template:
+To use a template, replace the following values:
 
-* Replace `${Region}` with the name of the region that the IAM role will be used for, such as `${Region}` or `us-east-1`. 
-* Replace `${AccountId}` with the 12-digit AWS account ID of the AWS account that the resources will be deployed in.
+* **${Region}** - replace with the name of the region that the IAM role will be used for, such as `${Region}` or `us-east-1`. 
+* **${AccountId}** - replace with the 12-digit AWS account ID of the AWS account that the resources will be deployed in.
 
 ## StackStateAwsIntegrationRole
 
@@ -362,7 +362,7 @@ For an AWS agent running on an EC2 instance:
 
 ## StackStateEventBridgeRole-${Region}
 
-### rust Relationship
+### Trust Relationship
 
 ``` json
 {
