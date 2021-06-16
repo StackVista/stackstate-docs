@@ -105,6 +105,7 @@
     * [💠 Upgrade Splunk topology V1 to V2](stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md)
     * [💠 Splunk metrics](stackpacks/integrations/splunk/splunk_metrics.md)
     * [💠 Splunk events](stackpacks/integrations/splunk/splunk_events.md)
+    * [💠 Splunk health](stackpacks/integrations/splunk/splunk_health.md)
   * [💠 VMWare vSphere](stackpacks/integrations/vsphere.md)
   * [Azure](stackpacks/integrations/azure.md)
   * [Cloudera](stackpacks/integrations/cloudera.md)
