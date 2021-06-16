@@ -16,20 +16,17 @@ If you are starting from scratch, you can directly configure the [Splunk topolog
 
 1. Install [StackState Agent V2](/stackpacks/integrations/agent.md) in a location that can connect to both StackState and Splunk.
 2. Stop the API-Integration Agent.
-3. Move the Splunk topology API-Integration configuration file to the newly installed StackState Agent V2.
-```
-mv /etc/sts-agent/conf.d/splunk_topology.yaml /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml
-```
-   - The StackState API-Integration Agent check is disabled.
-   - The existing configuration file will be picked up by StackState Agent V2.
+3. To disable the Splunk topology V1 check on the StackState API-Integration Agent, move the Splunk topology API-Integration configuration file to the newly installed StackState Agent V2.
+   ```
+   mv /etc/sts-agent/conf.d/splunk_topology.yaml /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml
+   ```
 4. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml` and replace all occurrences of the following:
    - `default_polling_interval_seconds` replace with `min_collection_interval`.
    - `polling_interval_seconds` replace with `min_collection_interval`.
-5. Save the file.
 6. Restart StackState Agent V2 to apply the configuration changes.
-   - The StackState Agent V2 check is enabled.
+   - The Splunk topology V2 check is enabled on StackState Agent V2.
    - Wait for the Agent to collect data and send it to StackState.
-7. If you have other integrations configured on API-Integration Agent, start it again.
+7. If you have other integrations configured on the StackState API-Integration Agent, start it again.
 
 ## See also
 
