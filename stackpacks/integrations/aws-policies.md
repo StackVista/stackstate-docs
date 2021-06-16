@@ -1,15 +1,19 @@
-# AWS Integration IAM policy
+# AWS IAM policies
 
-Below are examples of all IAM and other policies necessary for a working StackState AWS Agent installation. Note that these policies are taken directly from the CloudFormation template, and should be used if possible.
+## Overview 
 
-Replace `${Region}` with the name of the region that the IAM role will be used for, such as `${Region}` or `us-east-1`. Replace `${AccountId}` with the 12-digit AWS account ID of the AWS account the resources are being deployed in.
+This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. These policies are taken directly from the CloudFormation template and should be used wherever possible.
 
-## `StackStateAwsIntegrationRole`
+To use a template:
 
-Below is a JSON object containing the least-privilege IAM policy used by the AWS integration. The Assume Role Policy Document should grant the agent access. For more information on setting a trust policy, [see here.](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/)
+* Replace `${Region}` with the name of the region that the IAM role will be used for, such as `${Region}` or `us-east-1`. 
+* Replace `${AccountId}` with the 12-digit AWS account ID of the AWS account that the resources will be deployed in.
 
-### StackStateAwsIntegrationRole Trust Relationship
+## StackStateAwsIntegrationRole
 
+The JSON objects below contains the least-privilege IAM policy used by the AWS integration. The Assume Role Policy Document should grant the agent access. Refer to the AWS documentation for more information on [setting a trust policy \(aws.amazon.com\)](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/).
+
+### Trust Relationship
 
 For an AWS agent running outside of AWS, using an IAM user. Replace the Principal with the IAM user or AWS account that the agent is using.
 
@@ -52,7 +56,7 @@ For an AWS agent running on an EC2 instance:
 }
 ```
 
-### StackStateAwsIntegrationRole IAM Policy Document
+### IAM Policy Document
 
 ``` json
 {
