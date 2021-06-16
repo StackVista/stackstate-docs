@@ -360,9 +360,9 @@ For an AWS agent running on an EC2 instance:
 }
 ```
 
-## `StackStateEventBridgeRole-${Region}`
+## StackStateEventBridgeRole-${Region}
 
-### StackStateEventBridgeRole Trust Relationship
+### rust Relationship
 
 ``` json
 {
@@ -379,7 +379,7 @@ For an AWS agent running on an EC2 instance:
 }
 ```
 
-### StackStateEventBridgeRole IAM Policy Document
+### IAM Policy Document
 
 Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream.
 
@@ -400,9 +400,9 @@ Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream
 }
 ```
 
-## `StackStateFirehoseRole-${Region}`
+## StackStateFirehoseRole-${Region}
 
-### StackStateFirehoseRole Trust Relationship
+### Trust Relationship
 
 ``` json
 {
@@ -419,7 +419,7 @@ Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream
 }
 ```
 
-### StackStateFirehoseRole IAM Policy Document
+### IAM Policy Document
 
 The Condition and KMS sections are only needed if a KMS key is used. This assumes that the S3 bucket is named `stackstate-logs-${AccountId}`
 
@@ -464,7 +464,7 @@ The Condition and KMS sections are only needed if a KMS key is used. This assume
 }
 ```
 
-## `StsEventBridgeRule`
+## StsEventBridgeRule
 
 ``` json
 {
