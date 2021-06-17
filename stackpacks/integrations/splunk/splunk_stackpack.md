@@ -1,13 +1,13 @@
 ---
 description: StackState core integration
-stackpack-name: Splunk events, metrics and topology
+stackpack-name: Splunk
 ---
 
 # Splunk
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics and topology data from Splunk to StackState. The integration uses the StackState API-Integration Agent and StackState Agent V2:
+The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses the StackState API-Integration Agent and StackState Agent V2:
 
 * The [API-Integration Agent](/stackpacks/integrations/api-integration.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured.
 * [StackState Agent V2](/stackpacks/integrations/agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk topology V2 integration is configured.
@@ -219,6 +219,7 @@ The Splunk Topology StackPack and the Agent checks for Splunk events, metrics an
 * [Splunk topology V2 check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/splunk_topology)
 * [Splunk metrics check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
 * [Splunk events check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
+* [Splunk health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/splunk_health)
 
 ## Troubleshooting
 
@@ -226,7 +227,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the Splunk StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Splunk** screen and click **UNINSTALL**. All Splunk topology and health specific configuration will be removed from StackState.
+To uninstall the Splunk StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Splunk** screen and click **UNINSTALL**. All Splunk topology specific configuration will be removed from StackState.
 
 For instructions on how to disable the Splunk Agent checks, see:
 
