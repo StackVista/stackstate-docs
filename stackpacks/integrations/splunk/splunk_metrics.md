@@ -6,10 +6,10 @@ description: StackState core integration
 
 ## Overview
 
-The StackState Splunk integration collects metrics from Splunk by executing Splunk saved searches that have been specified in the StackState API-Integration Agent Splunk metrics check configuration. In order to receive Splunk metrics data in StackState, you will therefore need to add configuration to both Splunk and the StackState API-Integration Agent.
+The StackState Splunk metrics integration collects metrics from Splunk by executing Splunk saved searches from the StackState API-Integration Agent. In order to receive Splunk metrics data in StackState, configuration needs to be added to both Splunk and the StackState API-Integration Agent:
 
-* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the metrics data you want to retrieve. Each saved search can retrieve one metric.
-* [In the StackState API-Integration Agent](#agent-check), a Splunk metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the metrics data you want to retrieve. Each saved search can retrieve one metric.
+* [In the StackState API-Integration Agent](#agent-check) - a Splunk metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk metrics check on the StackState API-Integration Agent will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
 

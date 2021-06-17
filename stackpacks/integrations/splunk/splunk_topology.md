@@ -15,10 +15,10 @@ If you are running the StackState Agent V2, see the instructions on how to:
 
 ## Overview
 
-The StackState Splunk integration collects topology from Splunk by executing Splunk saved searches that have been specified in the StackState API-Integration Agent Splunk topology check configuration. In order to receive Splunk topology data in StackState, you will therefore need to add configuration to both Splunk and the StackState API-Integration Agent.
+The StackState Splunk topology V1 integration collects topology from Splunk by executing Splunk saved searches from the StackState API-Integration Agent. In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and the StackState API-Integration Agent:
 
-* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
-* [In the StackState API-Integration Agent](#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the topology data you want to retrieve.
+* [In the StackState API-Integration Agent](#agent-check) - a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk topology check on the StackState API-Integration Agent will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
@@ -108,7 +108,7 @@ Example Splunk topology Agent check configuration file:<br />[splunk_topology/co
 
 To configure the Splunk topology Agent check:
 
-1. Edit the API-Integration Agent configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
+1. Edit the API-Integration Agent check configuration file: `/etc/sts-agent/conf.d/splunk_topology.yaml`
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).

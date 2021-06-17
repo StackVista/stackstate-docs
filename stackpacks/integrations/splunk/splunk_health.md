@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-The StackState Splunk health integration collects health from Splunk by executing Splunk saved searches. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
+The StackState Splunk health integration collects health from Splunk by executing Splunk saved searches from StackState Agent V2. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
 
 * [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the health data you want to retrieve.
 * [In StackState Agent V2](#agent-check) - a Splunk health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
