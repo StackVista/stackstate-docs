@@ -25,9 +25,9 @@ The StackState Splunk integration synchronizes events, metrics and topology data
   * For StackState to work with Splunk topology data, the **Splunk StackPack** must be installed.
 * StackState translates incoming data:
   * [Topology data](#topology) from the Splunk saved searches configured in the Splunk topology V1 or V2 Agent check is translated into components and relations.
-  * [Metrics data](#metrics) from the Splunk saved search(es) configured in the Splunk metrics Agent check is available in StackState as a metrics telemetry stream.
-  * [Events](#events) from the Splunk saved search(es) configured in the Splunk events Agent check is available in StackState as a log telemetry stream.
-  * [Health](#health) from the Splunk saved search(es) configured in the Splunk health Agent check is added to associated components and relations.
+  * [Metrics data](#metrics) from the Splunk saved searches configured in the Splunk metrics Agent check is available in StackState as a metrics telemetry stream.
+  * [Events](#events) from the Splunk saved searches configured in the Splunk events Agent check is available in StackState as a log telemetry stream.
+  * [Health](#health) from the Splunk saved searches configured in the Splunk health Agent check is added to associated components and relations.
 
 ## Setup
 
@@ -179,11 +179,16 @@ For details on how to configure the metrics retrieved, see the [Splunk metrics c
 
 When the Splunk Topology StackPack is installed, and the Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved search or searches.
 
-For details on how to configure the components and relations retrieved, see the [Splunk topology check configuration](/stackpacks/integrations/splunk/splunk_topology.md).
+For details on how to configure the components and relations retrieved, see:
+
+- The [Splunk topology V2 check configuration - StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology.md)
+- The [Splunk topology V1 check configuration - StackState API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
 
 #### Health
 
 ???
+
+For details on how to configure the health retrieved, see the [Splunk health check configuration](/stackpacks/integrations/splunk/splunk_health.md).
 
 #### Traces
 
