@@ -135,7 +135,7 @@ default_timeout = self.init_config.get('default_timeout', 5)
 timeout = float(instance.get('timeout', default_timeout))
 ```
 
-### StackState Snapshots
+### StackState Topology Snapshots
 
 Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
@@ -199,7 +199,7 @@ self.component("this-host-unique-identifier-integration-b", "Host", {
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the [Agent Check Topology API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Topology API](agent-check-api.md)
 
 ### Send Metrics
 
@@ -217,7 +217,7 @@ self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the [Agent Check Metric API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Metric API](agent-check-api.md)
 
 ### Send Events
 
@@ -237,7 +237,68 @@ self.event({
 })
 ```
 
-Learn more about the [Agent Check Event API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Event API](agent-check-api.md)
+
+### Health Synchronization
+
+StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](/configure/health/health-synchronization.md).
+
+To setup a health synchronization stream within a check, the following function needs to be defined:
+
+```text
+from stackstate_checks.base import AgentCheck, ConfigurationError, HealthStreamUrn, HealthStream
+
+...
+
+class ExampleCheck(AgentCheck):
+
+...
+
+    def get_health_stream(self, instance):
+        if 'url' not in instance:
+            raise ConfigurationError('Missing url in topology instance configuration.')
+        instance_url = instance['url']
+        return HealthStream(HealthStreamUrn("example", instance_url))
+
+...
+
+```
+
+This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api on the Agent Check.
+
+### Health Synchronization Snapshots
+
+Like with topology, health data is presented to StackState using snapshots. This allows for removal of health information (check states) when they no longer exist in the source monitoring system. Snapshots are created by two functions:
+
+* `self.health.start_snapshot()` - used to start a health snapshot.
+* `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
+### Send Check State
+
+Check states can be sent through the health synchronization API using the `self.health.check_state()` functions in the `AgentCheck` interface.
+
+In the example below, a check state is created in StackState with the health value CRITICAL.
+
+* The check is attached to the component or relation matching the `topology_element_identifier`.
+* The `check_state_id` is used to distinguish check states within the current health stream.
+
+Check states can be send through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
+
+```text
+from stackstate_checks.base import Health
+
+...
+
+self.health.check_state(
+  check_state_id="check_state_from_example_1",
+  name="Example check state",
+  health_value=Health.CRITICAL,
+  topology_element_identifier="urn:component/the_component_to_attach_to",
+  message="Optional clarifying message"
+)
+
+```
+
+If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](/configure/health/debug-health-sync.md) for the health synchronization.
 
 ### Send in Stream Definitions and Health Checks
 
@@ -271,7 +332,7 @@ self.component("this-host-unique-identifier", "Host",
 
 We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list in our `this-host` component.
 
-Learn more about the [Agent Check Telemetry API](checks_in_agent_v2.md#sending-streams-and-checks)
+Learn more about the [Agent Check Telemetry API](agent-check-api.md#sending-streams-and-checks)
 
 ### Send Service Checks
 
@@ -291,7 +352,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the [Agent Check Service Check API](checks_in_agent_v2.md)
+Learn more about the [Agent Check Service Check API](agent-check-api.md)
 
 ### Add Python Dependencies
 
@@ -359,3 +420,8 @@ For Windows:
 
 If your issue continues, please reach out to Support with the help page that lists the paths it installs.
 
+## See also
+
+* [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](/develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
+* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)
