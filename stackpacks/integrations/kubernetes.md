@@ -32,6 +32,10 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 | [StackState Agent](#stackstate-agent) | ✅ | `stackstate-cluster-agent-agent` | 
 | [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | - | `stackstate-cluster-agent-clusterchecks` |
 
+{% hint style="info" %}
+To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
+{% endhint %}
+
 ### StackState Cluster Agent
 
 StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Kubernetes cluster:
