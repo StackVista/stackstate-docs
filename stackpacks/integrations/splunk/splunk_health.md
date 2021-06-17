@@ -27,7 +27,7 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 | **topology_element_identifier** | string | ✅ | The identifier of the component/relation this check state belongs to. |
 | **message** | string | - | Extended message associated with the check state, supports markdown. |
 
-### Example query
+### Example Splunk query
 
 {% tabs %}
 {% tab title="Splunk query for components" %}
@@ -94,5 +94,5 @@ To disable the Splunk health Agent check:
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
 * [Health synchronization](/configure/health/health-synchronization.md)
 * [Debug health synchronization](/configure/health/debug-health-sync.md)
-* [Example Splunk health V2 configuration file - splunk_health.yaml \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/conf.yaml.example)
+* [Example Splunk health V2 configuration file - splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)

@@ -28,7 +28,7 @@ The StackState API-Integration Agent executes the Splunk saved searches configur
 | **source\_type\_name** | string | - | Source type name. |
 | All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
-### Example query
+### Example Splunk query
 
 {% tabs %}
 {% tab title="Example Splunk query" %}
@@ -59,7 +59,7 @@ The example Splunk saved search above would result in the following event data i
 To enable the Splunk events integration and begin collecting events data from your Splunk instance, the Splunk events check must be configured on the API-Integration Agent. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk events Agent check configuration file:<br />[conf.d/splunk_event.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
+Example Splunk events Agent check configuration file:<br />[splunk_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 {% endhint %}
 
 To configure the Splunk events Agent check:
@@ -82,6 +82,7 @@ To configure the Splunk events Agent check:
        * **max_query_chunk_seconds** - Default `3600`.
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
+5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example). 
 4. Save the configuration file.
 5. Restart the StackState API-Integration Agent to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
@@ -114,5 +115,5 @@ Events retrieved from splunk are available in StackState as a log telemetry stre
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
 * [Map telemetry to components](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
-* [Example Splunk events configuration file - splunk\_events.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
+* [Example Splunk events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 

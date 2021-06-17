@@ -25,7 +25,7 @@ The StackState API-Integration Agent executes the Splunk saved searches configur
 | **metric** | string | - | The name of the metric. Taken from the configured `metric_name_field`. |
 | **value** | numeric | - | The value of the metric. Taken from the configured `metric_value_field`. |
 
-### Example query
+### Example Splunk query
 
 {% tabs %}
 {% tab title="Splunk query" %}
@@ -62,7 +62,7 @@ The example Splunk saved search above would result in the following metric data 
 To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, the Splunk metrics check must be configured on the API-Integration Agent. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk metrics Agent check configuration file:<br />[conf.d/splunk_metric.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
+Example Splunk metrics Agent check configuration file:<br />[splunk_metric/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
 {% endhint %}
 
 To configure the Splunk metrics Agent check:
@@ -87,7 +87,7 @@ To configure the Splunk metrics Agent check:
        * **max_query_chunk_seconds** - Default `3600`
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-
+5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example). 
 4. Save the configuration file.
 5. Restart the StackState API-Integration Agent to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
@@ -119,4 +119,4 @@ Metrics retrieved from splunk are available in StackState as a metrics telemetry
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
 * [Map telemetry to components](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
-* [Example Splunk metrics configuration file - splunk\_metrics.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
+* [Example Splunk metrics configuration file - splunk\_metric/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)

@@ -7,7 +7,10 @@ stackpack-name: Splunk events, metrics and topology
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics and topology data from Splunk to StackState. The integration uses the [API Integration StackPack](/stackpacks/integrations/api-integration.md) for events and metrics data, and the Splunk Topology StackPack for topology data.
+The StackState Splunk integration synchronizes events, metrics and topology data from Splunk to StackState. The integration uses the [API Integration Agent](/stackpacks/integrations/api-integration.md) and (optionally) [StackState Agent V2](/stackpacks/integrations/agent.md) 
+
+* The API-Integration Agent is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured
+* StackState Agent V2 is used to collect health data. It can also be used to collect topology data when the Splunk topology V2 integration is configured.
 
 ![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
