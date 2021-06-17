@@ -182,7 +182,7 @@ When the Splunk Topology StackPack is installed, and the Splunk topology Agent c
 For details on how to configure the components and relations retrieved, see:
 
 - The [Splunk topology V2 check configuration - StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology.md)
-- The [Splunk topology V1 check configuration - StackState API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
+- The [Splunk topology V1 check configuration - API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
 
 #### Health
 
@@ -244,9 +244,9 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 
 Configure the StackState Agent Splunk checks:
 * [Splunk topology V2 check configuration - StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_v2.md)
-* [Splunk topology Va check configuration - StackState API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
-* [Splunk events check configuration - StackState API-Integration Agent](/stackpacks/integrations/splunk/splunk_events.md)
-* [Splunk metrics check configuration - StackState API-Integration Agent](/stackpacks/integrations/splunk/splunk_metrics.md)
+* [Splunk topology Va check configuration - API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
+* [Splunk events check configuration - API-Integration Agent](/stackpacks/integrations/splunk/splunk_events.md)
+* [Splunk metrics check configuration - API-Integration Agent](/stackpacks/integrations/splunk/splunk_metrics.md)
 * [Splunk health check configuration - StackState Agent V2](/stackpacks/integrations/splunk/splunk_health.md)
 
 Other resources:
