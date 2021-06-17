@@ -43,17 +43,17 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 #### Splunk metrics and events
 
-To retrieve data from Splunk using the API-Integration Agent, the [API Integration StackPack](/stackpacks/integrations/api-integration.md) must be installed in your StackState instance. Once the required Splunk Agent checks have been configured, Splunk metrics and events will directly be available in StackState.
+To retrieve metrics and events data from Splunk, the [API-Integration Agent](/stackpacks/integrations/api-integration.md) must be installed. Once the required Splunk Agent checks have been configured, Splunk metrics and events will directly be available in StackState.
 
 #### Splunk health
 
-???
+To retrieve health data from Splunk, [StackState Agent V2](/stackpacks/integrations/agent.md) must be installed. Once the Splunk health Agent check has been configured, Splunk health data will directly be available in StackState.
 
 #### Splunk topology
 
-To retrieve topology data from Splunk, the **Splunk StackPack** must be installed. 
+To retrieve topology data from Splunk, [StackState Agent V2](/stackpacks/integrations/agent.md) the [API-Integration Agent](/stackpacks/integrations/api-integration.md) must be installed. 
 
-Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
@@ -171,7 +171,7 @@ For details on how to configure the events retrieved, see the [Splunk events che
 
 #### Metrics
 
-When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved searches. One metric can be retrieved from each saved search. Metrics retrieved from Splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 For details on how to configure the metrics retrieved, see the [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md).
 
@@ -188,7 +188,7 @@ If you have an existing Splunk topology integration configured to use the API-In
 
 #### Health
 
-???
+When the Splunk health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Health check states retrieved from Splunk are mapped to the associated components and relations in StackState.
 
 For details on how to configure the health retrieved, see the [Splunk health check configuration](/stackpacks/integrations/splunk/splunk_health.md).
 

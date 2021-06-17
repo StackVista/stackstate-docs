@@ -11,6 +11,10 @@ In previous releases of StackState, it was only possible to run the Splunk topol
 * If you are currently running the Splunk topology V1 check on the [StackState API-Integration Agent](/stackpacks/integrations/api-integration.md), this guide will help you migrate to the new StackState Agent V2 check.
 * If you are starting from scratch, you can directly configure the [Splunk topology V2 check](/stackpacks/integrations/splunk/splunk_topology_v2.md) on StackState Agent V2.
 
+{% hint style="info" %}
+It is not advised to run the Splunk topology integration through both the API-integration Agent and StackState Agent V2 at the same time. Run either the Splunk topology V1 check (for the API-integration Agent) or the Splunk topology V2 check (for StackState Agent V2). 
+{% endhint %}
+
 ## Upgrade steps
 
 To upgrade an existing Splunk topology check to run on StackState Agent V2, follow the steps below:

@@ -11,7 +11,7 @@ This page describes the **Splunk topology V1 integration with the StackState API
 If you are already running StackState Agent V2, see the instructions on how to:
 
 * [Configure a new Splunk topology V2 check on StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_v2.md)  
-* [Upgrade an exsisting Splunk topology integration to use StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md)
+* [Upgrade an existing Splunk topology integration to use StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md)
 {% endhint %}
 
 ## Overview
