@@ -34,9 +34,10 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 * A running Splunk instance.
 * A Splunk user account with access to Splunk saved searches. The user should have the capability `search` to dispatch and read Splunk saved searches.
-* For metrics and events data: The [API-Integration Agent](/stackpacks/integrations/api-integration.md) installed on a machine that can connect to both Splunk and StackState.
-* For health data: [StackState Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to both Splunk and StackState.
-* For topology data: [StackState Agent V2](/stackpacks/integrations/agent.md) or the [API-Integration Agent](/stackpacks/integrations/api-integration.md) installed on a machine that can connect to both Splunk and StackState.
+* A StackState Agent installed on a machine that can connect to both Splunk and StackState:
+  - Metrics and events data: The [API-Integration Agent](/stackpacks/integrations/api-integration.md).
+  - Health data: [StackState Agent V2](/stackpacks/integrations/agent.md).
+  - Topology data: [StackState Agent V2](/stackpacks/integrations/agent.md) or the [API-Integration Agent](/stackpacks/integrations/api-integration.md).
 
 ### Install
 
