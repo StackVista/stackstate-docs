@@ -15,7 +15,7 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 ![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
 * The StackState API-Integration Agent periodically connects to the configured Splunk instance to execute Splunk saved searches:
-  * If the Splunk Topology StackPack is installed, topology data is retrieved using the Splunk saved search configured in the Splunk topology V1 Agent check.
+  * Topology data is retrieved using the Splunk saved search configured in the Splunk topology V1 Agent check.
   * Metrics data is retrieved using the Splunk saved search configured in the Splunk metrics Agent check.
   * Events data is retrieved using the Splunk saved search configured in the Splunk events Agent check.
 * StackState Agent V2 periodically connects to the configured Splunk instance to execute Splunk saved searches:
