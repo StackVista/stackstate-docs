@@ -21,9 +21,9 @@ The StackState API-Integration Agent executes the Splunk saved searches configur
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| **\_time** | long | Data collection timestamp, millis since epoch. |
-| **metric** | string | The name of the metric. Taken from the configured `metric_name_field`. |
-| **value** | numeric | The value of the metric. Taken from the configured `metric_value_field`. |
+| **\_time** | long | - | Data collection timestamp, millis since epoch. |
+| **metric** | string | - | The name of the metric. Taken from the configured `metric_name_field`. |
+| **value** | numeric | - | The value of the metric. Taken from the configured `metric_value_field`. |
 
 ### Example query
 

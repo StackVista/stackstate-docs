@@ -6,10 +6,10 @@ description: StackState core integration
 
 ## Overview
 
-The StackState Splunk health integration collects health from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V2 Splunk health check configuration. In order to receive Splunk health data in StackState, you will therefore need to add configuration to both Splunk and the StackState Agent V2.
+The StackState Splunk health integration collects health from Splunk by executing Splunk saved searches. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
 
-* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the health data you want to retrieve.
-* [In StackState Agent V2](#agent-check), a Splunk health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the health data you want to retrieve.
+* [In StackState Agent V2](#agent-check) - a Splunk health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk health check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
 
@@ -17,15 +17,15 @@ The Splunk health check on StackState Agent V2 will execute all configured Splun
 
 ### Fields used
 
-StackState Agent V2 executes the Splunk saved searches configured in the [Splunk health Agent check configuration file](#agent-check) and pushes retrieved data to StackState. The fields from the results of a saved search that are sent to StackState for as health information in the table below.
+StackState Agent V2 executes the Splunk saved searches configured in the [Splunk health Agent check](#agent-check) and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Type | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **check_state_id** | string | Required, The unique identifier for the check state.  |
-| **name** | string | Required. Display name for the check state.  |
-| **health** | string | Required. The health value of the check state. Can be clear, deviating or critical. |
-| **topology_element_identifier** | string | Required. The identifier of the component/relation this check state belongs to. |
-| **message** | string | Optional. Extended message associated with the check state, supports markdown. |
+| Field | Type | Required? | Description |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **check_state_id** | ✅ | string | The unique identifier for the check state.  |
+| **name** | string | ✅ | Display name for the check state.  |
+| **health** | string | ✅ | The health value of the check state. Can be clear, deviating or critical. |
+| **topology_element_identifier** | string | ✅ | The identifier of the component/relation this check state belongs to. |
+| **message** | string | - | Extended message associated with the check state, supports markdown. |
 
 ### Example query
 

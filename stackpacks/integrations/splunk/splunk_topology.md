@@ -26,18 +26,30 @@ The Splunk topology check on the StackState API-Integration Agent will execute a
 
 ### Fields used
 
-The StackState API-Integration Agent executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
+The StackState API-Integration Agent executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are described below.
 
-| Field | Components | Relations | Type | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **type** | ✅ | ✅ | string | Required, The type of component or relation.  |
-| **id** | ✅ | - | string | Required. The unique identifier for the component.  |
-| **identifier.&lt;identifier\_name&gt;**  | ✅ | - | string | Optional. The value will be included as identifier of the component. |
-| **label.&lt;label\_name&gt;** | ✅ | - | string | Optional. The value will be added as a label on the component in the format `label_name:value` |
-| **name** | ✅ | - | string | Required. The value will be used as the component name. |
-| All other fields | ✅ | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
-| **sourceId** | - | ✅ | string | Required. The ID of the component that is the source of the relation. |
-| **targetId** | - | ✅ | string | Required. The ID of the component that is the target of the relation.  |
+#### Component fields
+
+The following fields from the results of a saved search are sent to StackState for topology components:
+
+| Field | Type | Required? | Description |
+| :--- | :--- | :--- | :--- | 
+| **type** | string | ✅ | The type of component or relation.  |
+| **id** |  string | ✅ | The unique identifier for the component.  |
+| **name** | string | ✅ | The value will be used as the component name. |
+| **identifier.&lt;identifier\_name&gt;**  | string | - | The value will be included as identifier of the component. |
+| **label.&lt;label\_name&gt;** | string | - | The value will be added as a label on the component in the format `label_name:value` |
+| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
+
+#### Relation fields
+
+The following fields from the results of a saved search are sent to StackState for topology relations:
+
+| Field | | Type | Required? | Description |
+| :--- | :--- | :--- | :--- | 
+| **type** | string | ✅ | The type of component or relation.  |
+| **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |
+| **targetId** |  string | ✅ | The ID of the component that is the target of the relation.  |
 
 ### Example queries
 
