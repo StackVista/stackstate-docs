@@ -188,7 +188,7 @@ If you have an existing Splunk topology integration configured to use the API-In
 
 #### Health
 
-When the Splunk health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Health check states retrieved from Splunk are mapped to the associated components and relations in StackState.
+When the Splunk health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Retrieved health check states are mapped to the associated components and relations in StackState.
 
 For details on how to configure the health retrieved, see the [Splunk health check configuration](/stackpacks/integrations/splunk/splunk_health.md).
 
