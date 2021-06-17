@@ -59,7 +59,11 @@ For the Openshift integration to retrieve topology, events and metrics data, you
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-These can be installed together using the Cluster Agent Helm Chart:
+{% hint style="info" %}
+To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an Openshift cluster with checks that integrate with other services.
+{% endhint %}
+
+The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
@@ -303,4 +307,3 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 * [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
 * [Openshift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)
-
