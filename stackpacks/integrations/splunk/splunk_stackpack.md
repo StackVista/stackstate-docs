@@ -12,7 +12,7 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 * The [API-Integration Agent](/stackpacks/integrations/api-integration.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured.
 * [StackState Agent V2](/stackpacks/integrations/agent.md) is used to collect health data. It will also be used to collect topology data when the Splunk topology V2 integration is configured.
 
-![Data flow](/.gitbook/assets/stackpack-splunk.svg)
+![Data flow](/.gitbook/assets/stackpack-splunk.png)
 
 * The StackState API-Integration Agent periodically connects to the configured Splunk instance to execute Splunk saved searches:
   * Topology data is retrieved using the Splunk saved search configured in the Splunk topology V1 Agent check.
@@ -165,19 +165,19 @@ The Splunk integration can retrieve the following data:
 
 #### Events
 
-When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 For details on how to configure the events retrieved, see the [Splunk events check configuration](/stackpacks/integrations/splunk/splunk_events.md).
 
 #### Metrics
 
-When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
 
 For details on how to configure the metrics retrieved, see the [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md).
 
 #### Topology
 
-When the Splunk Topology StackPack is installed, and the Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved search or searches.
+When the Splunk StackPack is installed and a Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches.
 
 For details on how to configure the components and relations retrieved, see:
 
