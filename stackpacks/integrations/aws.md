@@ -220,7 +220,7 @@ The following AWS service data is available in StackState as components:
 | Step Functions | State                     | Step Functions (All), Lambda Function, DynamoDB Table, SQS Queue, SNS Topic, ECS Cluster, Api Gateway Rest API |
 | Step Functions | State Machine             | Step Functions (All)                                                                                           |
 
-**\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
+* **\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
 
 #### Traces
 
