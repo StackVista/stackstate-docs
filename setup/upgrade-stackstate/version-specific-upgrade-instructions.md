@@ -20,6 +20,11 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### TBD
+* The Splunk integrations now runs on StackStack Agent V2. If you have Splunk checks running on the API-Integration Agent, they need to be migrated. See the upgrade instructions:
+  * [migrate Splunk topology checks to StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md).
+  * [migrate Splunk events/metrics checks to StackState Agent V2](http://pleasewritesplunkeventandmetricupgradenotes.com).
+
 #### v4.4.0
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
