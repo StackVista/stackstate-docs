@@ -20,6 +20,7 @@ It is not advised to run the Splunk topology integration through both the API-in
 To upgrade an existing Splunk topology check to run on StackState Agent V2, follow the steps below:
 
 1. Install [StackState Agent V2](/stackpacks/integrations/agent.md) in a location that can connect to both StackState and Splunk.
+   - **Note** StackState Agent V2 cannot run side-by-side with the API Integration Agent. If you will continue to run checks on the API-Integration Agent, install StackState Agent V2 on a separate machine.
 2. Stop the API-Integration Agent.
 3. Disable the Splunk topology check on the API-Integration Agent:
    ```
@@ -27,7 +28,11 @@ To upgrade an existing Splunk topology check to run on StackState Agent V2, foll
    ```
 4. Copy the old Splunk topology check configuration file to the newly installed StackState Agent V2:
    ```
+   # Agent installed on the same machine as the API-Integration Agent was running 
    cp /etc/sts-agent/conf.d/splunk_topology.yaml.bak /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml
+   
+   # Agent installed on a new machine
+   scp <user>@<old_host>:/etc/sts-agent/conf.d/splunk_topology.yaml.bak <user>@<new_host>:/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml
    ```
 5. Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml` and replace all occurrences of the following items:
    - `default_polling_interval_seconds` replace with `min_collection_interval`.
@@ -35,7 +40,6 @@ To upgrade an existing Splunk topology check to run on StackState Agent V2, foll
 6. Restart StackState Agent V2 to apply the configuration changes.
    - The Splunk topology V2 check is now enabled on StackState Agent V2.
    - Wait for the Agent to collect data and send it to StackState.
-7. If you have other integrations configured on the StackState API-Integration Agent, start it again.
 
 ## See also
 
