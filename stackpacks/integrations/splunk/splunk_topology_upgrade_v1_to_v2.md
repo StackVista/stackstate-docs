@@ -20,7 +20,7 @@ It is not advised to run the Splunk topology integration through both the API-in
 To upgrade an existing Splunk topology check to run on StackState Agent V2, follow the steps below:
 
 1. Install [StackState Agent V2](/stackpacks/integrations/agent.md) in a location that can connect to both StackState and Splunk.
-   - **Note** StackState Agent V2 cannot run side-by-side with the API Integration Agent. If you will continue to run checks on the API-Integration Agent, install StackState Agent V2 on a separate machine.
+   - **Note** StackState Agent V2 cannot run side-by-side with the API Integration Agent. If you intend to continue running other checks on the API-Integration Agent, install StackState Agent V2 in a different location.
 2. Stop the API-Integration Agent.
 3. Disable the Splunk topology check on the API-Integration Agent:
    ```
