@@ -2,7 +2,7 @@
 description: StackState core integration
 ---
 
-# AWS V2
+# AWS
 
 ## Overview
 
@@ -15,13 +15,13 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
     - Once an hour, all services are queried to gain a full point-in-time snapshot of resources.
     - Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
 - Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
-- Metrics are retrieved on-demand by the StackState CloudWatch plugin.
+- Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState AWS V2 integration, you need to have:
+To set up the StackState AWS integration, you need to have:
 
 - [StackState Agent V2](agent.md) installed on a machine which can connect to both AWS and StackState.
 - An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
@@ -46,17 +46,24 @@ To set up the StackState AWS V2 integration, you need to have:
 {% endtab %}
 {% endtabs %}
 
-### Migrate from the AWS (Legacy) integration
+### Upgrade from the AWS (Legacy) integration
 
 {% hint style="info" %}
-The AWS V2 integration is an entirely new StackPack. Migrating existing configuration from the Legacy AWS StackPack is not supported.
+The AWS integration is an entirely new StackPack. Migrating existing configuration from the Legacy AWS StackPack is not supported.
 
-When you switch to the AWS V2 integration, topology history and health state for AWS (Legacy) instances will be lost. Metrics are fetched directly from CloudWatch and will still be available.
+When you switch to the AWS integration, topology history and health state for AWS (Legacy) instances will be lost. Metrics are fetched directly from CloudWatch and will still be available.
 {% endhint %}
 
 The new AWS integration has been rebuilt from the ground up. This means that it is not possible to migrate an existing AWS (Legacy) integration to the new AWS integration. 
 
-To start using the new AWS integration with your AWS instance, the AWS (Legacy) StackPack must first be removed. It is possible to run the AWS (Legacy) StackPack and the new AWS StackPack side by side during the migration process, however, this configuration is not supported and will likely not be available in the next major StackState release.
+To start using the new AWS integration with your AWS instance, the AWS (Legacy) StackPack must first be removed. It is possible to run the AWS (Legacy) StackPack and the new AWS StackPack side by side, however, this configuration is not supported and will likely not be available in the next major StackState release.
+
+You can distinguish topology from the new and legacy AWS integrations by the labels attached:
+
+| Label | Integration |
+|:---|:---|
+| `stackpack:aws-v2` | New AWS integration |
+| `stackpack:aws` | AWS (Legacy) integration |
 
 Read how to [uninstall an existing AWS (Legacy) integration](/stackpacks/integrations/aws-legacy.md#uninstall).
 
@@ -111,7 +118,7 @@ If these options do not provide enough flexibility, see section [Required AWS re
 
 ### Install
 
-Install the AWS V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
 
 * **Role ARN** - the ARN of the IAM Role used to [deploy the AWS Cloudformation stack](#deploy-aws-cloudformation-stack). For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID.
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
@@ -169,8 +176,6 @@ The AWS integration does not retrieve any Events data.
 
 Metrics data is pulled at a configured interval directly from AWS by the StackState CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
 
-TODO: are all metrics mapped to components/relations? Also possible to find in a data source?
-
 #### Topology
 
 The following AWS service data is available in StackState as components:
@@ -215,7 +220,7 @@ The following AWS service data is available in StackState as components:
 | Step Functions | State                     | Step Functions (All), Lambda Function, DynamoDB Table, SQS Queue, SNS Topic, ECS Cluster, Api Gateway Rest API |
 | Step Functions | State Machine             | Step Functions (All)                                                                                           |
 
-\* "All Supported Resources" means that relations will be made to any other resource on this list, should the resource type support it.
+**\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
 
 #### Traces
 
@@ -223,19 +228,17 @@ The AWS integration does not retrieve any Traces data.
 
 ### Required AWS resources
 
-![Account components](../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
+The graph below gives a high-level of overview of all resources necessary to run the StackState Agent with full capabilities for AWS. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
 
-Above is a graph with a high-level of overview of all resources necessary to run the AWS agent with full capabilities. Capabilities are split into 3 categories:
+![Account components](/.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
-- Hourly full topology updates
-- Event-based single component updates
-- Event-based relation updates
+Hourly and event-based updates collect data:
 
-Hourly full topology updates can be achieved with only an IAM role in the account, to allow access to APIs. For event-based updates, events have to be captured using AWS services and placed into an S3 bucket for the agent to read.
+- Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
+- Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
-Setting up the agent resources manually assumes that you have intermediate to high level AWS skills; the majority of installations should use the provided CloudFormation template unless there are environment-specific issues that must be worked around.
 
-#### IAM Role
+#### StackState Agent IAM Role
 
 The bare minimum necessary to run the StackState Agent is an IAM role with necessary permissions. The Agent will always attempt to fetch as much data as possible for the supported resources. If a permission is omitted, the Agent will attempt to create a component with the data it has.
 
@@ -255,34 +258,42 @@ Only one S3 bucket is necessary per account; all regions can send to the same bu
 
 #### EventBridge Rule
 
-A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream. The JSON rule object can be found [here](aws-policies.md#stseventbridgerule).
+A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream 
 
-A rule must be created in each region where events are captured, sending to a Firehose delivery stream in the same region.
+* [EventBridge rule - JSON object](aws-policies.md#stseventbridgerule).
+
+{% hint style="info" %}
+A rule must be created in each region where events are captured, each sending to a Firehose delivery stream in the same region.
+{% endhint %}
 
 #### Kinesis Firehose
 
-Used to receive and batch events from EventBridge. This delivery stream batches events per 60 seconds, and pushes an object to S3. Setting this value any higher negligibly decreases storage costs while increasing the delay in topology updates, so using 60 seconds is recommended.
+Kinesis Firehose is used to receive and batch events from EventBridge. This delivery stream batches events per 60 seconds and pushes an object to S3. 60 seconds is the recommended value - setting this value any higher will negligibly decrease storage costs while increasing the delay in topology updates.
 
-The Prefix must be set to `AWSLogs/${AccountId}/EventBridge/${Region}/` (where `${AccountId}` and `${Region}` are replaced with the region e.g. eu-west-1 and account ID). The files must be compressed using the GZIP option.
+The Prefix must be set to `AWSLogs/${AccountId}/EventBridge/${Region}/`, where `${AccountId}` and `${Region}` are the account ID and region, for example, eu-west-1. Files must be compressed using the GZIP option.
 
-A delivery stream must be created in each region where events are captured, however the target S3 bucket can exist in any region.
+A delivery stream must be created in each region where events are captured, however, the target S3 bucket can exist in any region.
 
-#### All other IAM roles
+#### IAM roles for other services
 
 Several services need special IAM roles to allow services to send data to each other. These two IAM roles:
 
 - [Kinesis Firehose Role](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
 - [EventBridge Role](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
+{% hint style="info" %}
 IAM is a global service. While IAM roles can be shared, it is recommended that an IAM role is created per service, per region and the policies tailored to allow only least-privilege access to the destination resource. Sample policies can be found here.
+{% endhint %}
 
 #### KMS Key (Optional)
 
-A KMS Customer Managed Key (CMK) can be used to secure data at rest in S3. The KMS key is assigned for use in the Firehose Delivery Stream, and the S3 bucket also uses the KMS key as its default key.
+A KMS Customer Managed Key (CMK) can be used to secure data at rest in S3. The KMS key is assigned for use in the Firehose Delivery Stream. The S3 bucket also uses the KMS key as its default key.
 
 Use of a KMS is key is not necessary for the operation of the StackPack, however as it is a requirement in many environments, the CloudFormation template includes this by default.
 
-A KMS key must be created in each region where events are captured. A sample policy can be found [here](aws-policies.md#stackstate-integration-kms-key).
+A KMS key must be created in each region where events are captured. 
+
+* [Sample KMS Key policy](aws-policies.md#stackstate-integration-kms-key).
 
 ### Costs
 
