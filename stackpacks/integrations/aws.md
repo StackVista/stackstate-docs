@@ -327,6 +327,13 @@ The AWS StackPack converts tags in AWS to labels in StackState. In addition, the
 | `stackstate-identifier`  | Adds the specified value as an identifier to the StackState component |
 | `stackstate-environment` | Places the StackState component in the environment specified          |
 
+You can distinguish topology from the new and legacy AWS integrations by the labels attached:
+
+| Label | Integration |
+|:---|:---|
+| `stackpack:aws-v2` | New AWS integration |
+| `stackpack:aws` | AWS (Legacy) integration |
+
 ## Troubleshooting
 
 TODO: Create a similar troubleshooting guide for AWS V2
