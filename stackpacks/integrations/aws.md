@@ -282,7 +282,7 @@ Several services need special IAM roles to allow services to send data to each o
 - [EventBridge Role](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
 {% hint style="info" %}
-IAM is a global service. While IAM roles can be shared, it is recommended that an IAM role is created per service, per region and the policies tailored to allow only least-privilege access to the destination resource. Sample policies can be found here.
+IAM is a global service. While IAM roles can be shared, it is recommended that an IAM role is created per service, per region and the policies tailored to allow only least-privilege access to the destination resource. 
 {% endhint %}
 
 #### KMS Key (Optional)
