@@ -31,7 +31,7 @@ To upgrade an existing Splunk topology check to run on StackState Agent V2, foll
    # Agent installed on the same machine as the API-Integration Agent was running 
    cp /etc/sts-agent/conf.d/splunk_topology.yaml.bak /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml
    
-   # Agent installed on a new machine
+   # Agent installed on a different machine
    scp <user>@<old_host>:/etc/sts-agent/conf.d/splunk_topology.yaml.bak <user>@<new_host>:/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml
    ```
 5. Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml` and replace all occurrences of the following items:
