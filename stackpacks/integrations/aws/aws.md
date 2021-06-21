@@ -23,7 +23,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS integration, you need to have:
 
-- [StackState Agent V2](agent.md) installed on a machine which can connect to both AWS and StackState.
+- [StackState Agent V2](../agent.md) installed on a machine which can connect to both AWS and StackState.
 - An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
   - If StackState Agent is running within an AWS environment: The EC2 instance, EKS or ECS task must have an IAM role attached to it.
   - If StackState Agent is running outside an AWS account: An IAM user must be made available.
@@ -65,7 +65,7 @@ You can distinguish topology from the new AWS integration and the AWS (Legacy) i
 | `stackpack:aws-v2` | New AWS integration |
 | `stackpack:aws` | AWS (Legacy) integration |
 
-Read how to [uninstall an existing AWS (Legacy) integration](/stackpacks/integrations/aws-legacy.md#uninstall).
+Read how to [uninstall an existing AWS (Legacy) integration](/stackpacks/integrations/aws/aws-legacy.mdy.md#uninstall).
 
 ### Deploy AWS CloudFormation stack
 
@@ -153,7 +153,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
         min_collection_interval: 60
     ```
 
-2. [Restart the StackState Agent](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+2. [Restart the StackState Agent](../agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
 ### Status
@@ -304,7 +304,7 @@ The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which
 
 ### AWS views in StackState
 
-When the AWS integration is enabled, three [views](../../use/views.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../../use/views.md) will be created in StackState for each instance of the StackPack.
 
 - **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
@@ -312,7 +312,7 @@ When the AWS integration is enabled, three [views](../../use/views.md) will be c
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 
@@ -394,7 +394,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## See also
 
-* [AWS policies](/stackpacks/integrations/aws-policies.md)
-* [StackState AWS \(Legacy\) integration](/stackpacks/integrations/aws-legacy.md)
+* [AWS policies](/stackpacks/integrations/aws/aws-policies.mds.md)
+* [StackState AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.mdy.md)
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 * [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
