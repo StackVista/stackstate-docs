@@ -74,7 +74,9 @@ The StackState AWS Cloudformation stack is deployed in your AWS account. It prov
 - [Quick deployment](#quick-deployment) - Deploy all resources to a region in an account using a link.
 - [StackState CloudFormation template](#stackstate-template-deployment) - Download the StackState CloudFormation template to integrate into your own deployment workflow.
 
-If workarounds are required for an environment, advanced AWS users can configure a custom template using the [required AWS resources](#required-aws-resources). For the majority of installations it is recommended to use the [StackState ClourFormation template](#stackstate-template-deployment). The default template provides an easy upgrade path for future versions and reduces the maintenance burden.
+{% hint style="info" %}
+For environments that require a workaround, advanced AWS users can refer to the [required AWS resources](#required-aws-resources) to build a custom template. **It is recommended to use the [StackState ClourFormation template](#stackstate-template-deployment) wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
+{% endhint %}
 
 #### Quick deployment
 
