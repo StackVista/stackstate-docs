@@ -74,7 +74,7 @@ The StackState AWS Cloudformation stack is deployed in your AWS account. It prov
 - [Quick deployment](#quick-deployment) - Deploy all resources to a region in an account using a link.
 - [StackState CloudFormation template](#stackstate-template-deployment) - Download the StackState CloudFormation template to integrate into your own deployment workflow.
 
-If workarounds are required for an environment, advanced AWS users can configure their own template using the [required AWS resources](#required-aws-resources). For the majority of installations it is recommended to use the [StackState ClourFormation template](#stackstate-template-deployment) as it provides an easy upgrade path for future versions and reduces the maintenance burden.
+If workarounds are required for an environment, advanced AWS users can configure a custom template using the [required AWS resources](#required-aws-resources). For the majority of installations it is recommended to use the [StackState ClourFormation template](#stackstate-template-deployment). The default template provides an easy upgrade path for future versions and reduces the maintenance burden.
 
 #### Quick deployment
 
@@ -110,14 +110,6 @@ The following parameters are required:
 Download the default StackState CloudFormation template from: [https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml)
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
-
-#### Manual deployment
-
-The default StackState CloudFormation template gives read-only least-privilege access to only the resources that StackState requires to function. It is recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden.
-
-The IAM role created by StackState is not able to bypass IAM permissions boundaries or Service Control Policies. These can be used as a way to restrict access while retaining the original CloudFormation template and policy.
-
-If these options do not provide enough flexibility, see section [Required AWS resources](#required-aws-resources) for full information on the resources that StackState requires. If the StackState Agent does not have permission to access a certain component, it will skip it.
 
 ### Install
 
