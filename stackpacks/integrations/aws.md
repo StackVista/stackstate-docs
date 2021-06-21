@@ -49,7 +49,7 @@ To set up the StackState AWS integration, you need to have:
 ### Upgrade from the AWS (Legacy) integration
 
 {% hint style="info" %}
-The AWS integration is an entirely new StackPack. Migrating existing configuration from the Legacy AWS StackPack is not supported.
+The AWS integration is an entirely new StackPack. Migrating existing configuration from the AWS (Legacy) StackPack is not supported.
 
 When you switch to the AWS integration, topology history and health state for AWS (Legacy) instances will be lost. Metrics are fetched directly from CloudWatch and will still be available.
 {% endhint %}
@@ -58,7 +58,7 @@ The new AWS integration has been rebuilt from the ground up. This means that it 
 
 To start using the new AWS integration with your AWS instance, the AWS (Legacy) StackPack must first be removed. It is possible to run the AWS (Legacy) StackPack and the new AWS StackPack side by side, however, this configuration is not supported and will likely not be available in the next major StackState release.
 
-You can distinguish topology from the new and legacy AWS integrations by the labels attached:
+You can distinguish topology from the new AWS integration and the AWS (Legacy) integration by the labels attached:
 
 | Label | Integration |
 |:---|:---|
@@ -67,20 +67,22 @@ You can distinguish topology from the new and legacy AWS integrations by the lab
 
 Read how to [uninstall an existing AWS (Legacy) integration](/stackpacks/integrations/aws-legacy.md#uninstall).
 
-### Deploy AWS Cloudformation stack
+### Deploy AWS CloudFormation stack
 
-The StackState AWS Cloudformation stack is deployed in your AWS account. It provides the minimum level of access required to collect topology, telemetry and logs. Quick deployment links and a default StackState ClourFormation template are provided below.
+The StackState AWS Cloudformation stack is deployed in your AWS account. It provides the minimum level of access required for the StackState Agent to collect topology, telemetry and logs. Quick deployment links and a default StackState CloudFormation template are provided below.
 
 - [Quick deployment](#quick-deployment) - Deploy all resources to a region in an account using a link.
 - [StackState CloudFormation template](#stackstate-template-deployment) - Download the StackState CloudFormation template to integrate into your own deployment workflow.
 
 {% hint style="info" %}
-For environments that require a workaround, advanced AWS users can refer to the [required AWS resources](#required-aws-resources) to build a custom template. **It is recommended to use the [StackState ClourFormation template](#stackstate-template-deployment) wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
+For environments that require a workaround, advanced AWS users can refer to the [required AWS resources](#required-aws-resources) to build a custom template. 
+
+**It is recommended to use the [StackState CloudFormation template](#stackstate-template-deployment) wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
 {% endhint %}
 
 #### Quick deployment
 
-You can deploy all necessary resources in a single region, in one account using an automated CloudFormation template. 
+The necessary resources can be deployed for one account in a single region   using an automated CloudFormation template. 
 
 The table below includes links to deploy the template in popular AWS regions. For any regions not listed, follow the steps described for the [StackState template deployment](#stackstate-template-deployment).
 
@@ -103,17 +105,18 @@ You must be logged in to the target AWS account in the web console.
 
 The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It is recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template. 
 
-The following parameters are required:
+[Download the default StackState CloudFormation template](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml)
+
+
+The following parameters are required in the template:
 
 - **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 - **StsAccountId** - The AWS account that the StackState Agent is deployed in, or has an IAM user in. This will be the account that the IAM role can be assumed from, the perform actions on the target AWS account. Example: `0123456789012`.
 - **ExternalId** - A shared secret that the StackState agent will present when assuming a role. Use the same value across all AWS accounts that the agent is monitoring. Example: `uniquesecret!1`.
 
-Download the default StackState CloudFormation template from: [https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.0.cfn.yaml)
-
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
-### Install
+### Install the AWS StackPack
 
 Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
 
@@ -122,7 +125,7 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS Access Key ID** - Optional. The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, leave empty and the instance will authenticate using the attached IAM role.
 * **AWS Secret Access Key** - Optional. The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, leave empty and the instance will authenticate using the attached IAM role.
 
-### Configure
+### Configure the AWS check
 
 To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
 
@@ -242,7 +245,7 @@ The bare minimum necessary to run the StackState Agent is an IAM role with neces
 
 For example, if the permission `s3:GetBucketTagging` is omitted, the Agent will fetch all S3 buckets and their associated configuration, but the tags section will be empty.
 
-* [IAM policy with all required permissions - full JSON object](aws-policies.md#stackstateawsintegrationrole).
+* [IAM policy with all required permissions - JSON object](aws-policies.md#stackstateawsintegrationrole)
 
 {% hint style="info" %}
 IAM is a global service. Only one IAM role is necessary per account.
@@ -258,7 +261,7 @@ Only one S3 bucket is necessary per account; all regions can send to the same bu
 
 A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream 
 
-* [EventBridge rule - JSON object](aws-policies.md#stseventbridgerule).
+* [EventBridge rule - JSON object](aws-policies.md#stseventbridgerule)
 
 {% hint style="info" %}
 A rule must be created in each region where events are captured, each sending to a Firehose delivery stream in the same region.
@@ -276,8 +279,8 @@ A delivery stream must be created in each region where events are captured, howe
 
 Several services need special IAM roles to allow services to send data to each other. These two IAM roles:
 
-- [Kinesis Firehose Role](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
-- [EventBridge Role](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
+- [Kinesis Firehose Role - JSON](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
+- [EventBridge Role - JSON](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
 {% hint style="info" %}
 IAM is a global service. While IAM roles can be shared, it is recommended that an IAM role is created per service, per region and the policies tailored to allow only least-privilege access to the destination resource. 
@@ -355,7 +358,7 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
 If the template is in the main region, the S3 bucket used by StackState is not automatically cleaned up as CloudFormation is not able to delete a bucket with objects in it. Follow these steps:
 
 1. Go to the S3 service
-2. Select (don't open) the bucket named `stackstate-logs-${AccountId}` where `AccountId` is the 12-digit identifer of your AWS account.
+2. Select (don't open) the bucket named `stackstate-logs-${AccountId}` where `AccountId` is the 12-digit identifier of your AWS account.
 3. Select "Empty", and follow the steps to delete all objects in the bucket.
 4. Select "Delete", enter the bucket name and continue.
 
@@ -384,11 +387,14 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 #### Improvements
 
-- Full rewrite of the AWS Stackpack to use the StackState Agent V2
+- Full rewrite of the AWS StackPack to use the StackState Agent V2
 - Improved AWS multi-account support using IAM roles for account access
 - Improved AWS multi-region support - each instance can create topology for multiple regions at once
 - New, refreshed icon set, using the latest AWS branding
 
 ## See also
 
+* [AWS policies](/stackpacks/integrations/aws-policies.md)
+* [StackState AWS \(Legacy\) integration](/stackpacks/integrations/aws-legacy.md)
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
+* [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
