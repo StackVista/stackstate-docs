@@ -69,11 +69,12 @@ Read how to [uninstall an existing AWS (Legacy) integration](/stackpacks/integra
 
 ### Deploy AWS Cloudformation stack
 
-The StackState AWS Cloudformation stack is deployed in your AWS account. It provides the minimum level of access required to collect topology, telemetry and logs. There are three methods of deployment:
+The StackState AWS Cloudformation stack is deployed in your AWS account. It provides the minimum level of access required to collect topology, telemetry and logs. Quick deployment links and a default StackState ClourFormation template are provided below.
 
 - [Quick deployment](#quick-deployment) - Deploy all resources to a region in an account using a link.
-- [StackState template deployment](#stackstate-template-deployment) - Download a CloudFormation template to integrate into your own deployment workflow.
-- [Manual deployment](#manual-deployment) - Deploy all resources manually to gain full control over StackState's access.
+- [StackState CloudFormation template](#stackstate-template-deployment) - Download the StackState CloudFormation template to integrate into your own deployment workflow.
+
+If workarounds are required for an environment, advanced AWS users can configure their own template using the [required AWS resources](#required-aws-resources). For the majority of installations it is recommended to use the [StackState ClourFormation template](#stackstate-template-deployment) as it provides an easy upgrade path for future versions and reduces the maintenance burden.
 
 #### Quick deployment
 
@@ -98,7 +99,9 @@ You must be logged in to the target AWS account in the web console.
 
 #### StackState template deployment
 
-The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. The template requires the following parameters:
+The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It is recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template. 
+
+The following parameters are required:
 
 - **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 - **StsAccountId** - The AWS account that the StackState Agent is deployed in, or has an IAM user in. This will be the account that the IAM role can be assumed from, the perform actions on the target AWS account. Example: `0123456789012`.
@@ -228,7 +231,7 @@ The AWS integration does not retrieve any Traces data.
 
 ### Required AWS resources
 
-The graph below gives a high-level of overview of all resources necessary to run the StackState Agent with full capabilities for AWS. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
+A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
 
 ![Account components](/.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
@@ -237,6 +240,7 @@ Hourly and event-based updates collect data:
 - Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 - Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
+If the StackState Agent does not have permission to access a certain component, it will skip it.
 
 #### StackState Agent IAM Role
 
