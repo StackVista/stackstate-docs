@@ -170,6 +170,8 @@ sudo stackstate-agent status
 
 #### Events
 
+TODO: events data?
+
 The AWS integration does not retrieve any Events data.
 
 #### Metrics
