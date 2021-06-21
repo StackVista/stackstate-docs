@@ -101,7 +101,7 @@
   * [💠 AWS](stackpacks/integrations/aws.md)
   * [💠 Dynatrace](stackpacks/integrations/dynatrace.md)
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)
-  * [💠 Openshift](stackpacks/integrations/openshift.md)
+  * [💠 OpenShift](stackpacks/integrations/openshift.md)
   * [💠 ServiceNow](stackpacks/integrations/servicenow.md)
   * [💠 Splunk](stackpacks/integrations/splunk/README.md)
     * [💠 Splunk](stackpacks/integrations/splunk/splunk_stackpack.md)

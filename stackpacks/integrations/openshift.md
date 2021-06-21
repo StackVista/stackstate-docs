@@ -3,11 +3,11 @@ description: StackState core integration
 stackpack-name: Openshift
 ---
 
-# Openshift
+# OpenShift
 
 ## Overview
 
-The Openshift integration is used to create a near real-time synchronization of topology and associated internal services from an Openshift cluster to StackState. This StackPack allows monitoring of the following:
+The OpenShift integration is used to create a near real-time synchronization of topology and associated internal services from an OpenShift cluster to StackState. This StackPack allows monitoring of the following:
 
 * Workloads
 * Nodes, pods, containers and services
@@ -15,19 +15,19 @@ The Openshift integration is used to create a near real-time synchronization of 
 
 ![Data flow](../../.gitbook/assets/stackpack-openshift.svg)
 
-The Openshift integration collects topology data in an Openshift cluster as well as metrics and events.
+The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Openshift cluster:
-  * Host information is retrieved from the Openshift API.
+* StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the OpenShift cluster:
+  * Host information is retrieved from the OpenShift API.
   * Container information is collected from the Docker daemon.
   * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
-* StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Openshift cluster:
-  * Topology and events data for all resources in the cluster are retrieved from the Openshift API
-  * Control plane metrics are retrieved from the Openshift API
-* Retrieved data is pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the Openshift StackPack \(StackState Cluster Agent\).
+* StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire OpenShift cluster:
+  * Topology and events data for all resources in the cluster are retrieved from the OpenShift API
+  * Control plane metrics are retrieved from the OpenShift API
+* Retrieved data is pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the OpenShift StackPack \(StackState Cluster Agent\).
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
-  * [Tags](openshift.md#tags) defined in Openshift are added to components and relations in StackState.
+  * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
   * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
   * [Events](openshift.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
@@ -35,25 +35,25 @@ The Openshift integration collects topology data in an Openshift cluster as well
 
 ### Prerequisites
 
-The following prerequisites are required to install the Openshift StackPack and deploy the StackState Agent and Cluster Agent:
+The following prerequisites are required to install the OpenShift StackPack and deploy the StackState Agent and Cluster Agent:
 
-* An Openshift Cluster must be up and running.
+* An OpenShift Cluster must be up and running.
 * A recent version of Helm 3.
 * A user with permissions to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
-  * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Openshift API.
+  * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Install
 
-Install the Openshift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
-* **Openshift Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
+* **OpenShift Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
 
-If the Agent StackPack is not already installed, this will be automatically installed together with the Openshift StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the Openshift cluster.
+If the Agent StackPack is not already installed, this will be automatically installed together with the OpenShift StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
 
 ### Deploy the StackState Agent and Cluster Agent
 
-For the Openshift integration to retrieve topology, events and metrics data, you will need to have the following installed on your Openshift cluster:
+For the OpenShift integration to retrieve topology, events and metrics data, you will need to have the following installed on your OpenShift cluster:
 
 * A StackState Agent on each node in the cluster
 * StackState Cluster Agent on one node
@@ -94,7 +94,7 @@ Full details of the available values can be found in the [Cluster Agent Helm Cha
 
 ### Status
 
-To check the status of the Openshift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.
+To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
@@ -109,7 +109,7 @@ daemonset.apps/stackstate-cluster-agent-agent        10        10        10     
 
 ### Data retrieved
 
-The Openshift integration retrieves the following data:
+The OpenShift integration retrieves the following data:
 
 * [Events](openshift.md#events)
 * [Metrics](openshift.md#metrics)
@@ -118,9 +118,9 @@ The Openshift integration retrieves the following data:
 
 #### Events
 
-The Openshift integration retrieves all events from the Openshift cluster. The table below shows which event category will be assigned to each event type in StackState:
+The OpenShift integration retrieves all events from the OpenShift cluster. The table below shows which event category will be assigned to each event type in StackState:
 
-| StackState event category | Openshift events |
+| StackState event category | OpenShift events |
 | :--- | :--- |
 | **Activities** | `BackOff`<br />`ContainerGCFailed`<br />`ExceededGracePeriod`<br />`FileSystemResizeSuccessful`<br />`ImageGCFailed`<br />`Killing`<br />`NodeAllocatableEnforced`<br />`NodeNotReady`<br />`NodeSchedulable`<br />`Preempting`<br />`Pulling`<br />`Pulled`<br />`Rebooted`<br />`Scheduled`<br />`Starting`<br />`Started`<br />`SuccessfulAttachVolume`<br />`SuccessfulDetachVolume`<br />`SuccessfulMountVolume`<br />`SuccessfulUnMountVolume`<br />`VolumeResizeSuccessful` |
 | **Alerts** | `NotTriggerScaleUp` |
@@ -129,17 +129,17 @@ The Openshift integration retrieves all events from the Openshift cluster. The t
 
 #### Metrics
 
-The Openshift integration makes all metrics from the Openshift cluster available in StackState. Relevant metrics are automatically mapped to the associated components.
+The OpenShift integration makes all metrics from the OpenShift cluster available in StackState. Relevant metrics are automatically mapped to the associated components.
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `openshift` in the **Select** box to get a full list of all available metrics.
 
 #### Topology
 
-The Openshift integration retrieves components and relations for the Openshift cluster.
+The OpenShift integration retrieves components and relations for the OpenShift cluster.
 
 **Components**
 
-The following Openshift topology data is available in StackState as components:
+The following OpenShift topology data is available in StackState as components:
 
 |  |  |
 | :--- | :--- |
@@ -170,22 +170,22 @@ The following relations between components are retrieved:
 * Service → ExternalService, Pod
 * StatefulSet → Pod
 * Direct communication between processes
-* Process → Process communication via Openshift service
-* Process → Process communication via headless Openshift service
+* Process → Process communication via OpenShift service
+* Process → Process communication via headless OpenShift service
 
 #### Traces
 
-The Openshift integration does not retrieve any traces data.
+The OpenShift integration does not retrieve any traces data.
 
 #### Tags
 
-All tags defined in Openshift will be retrieved and added to the associated components and relations in StackState.
+All tags defined in OpenShift will be retrieved and added to the associated components and relations in StackState.
 
 ### REST API endpoints
 
 The StackState Agent talks to the kubelet and kube-state-metrics API.
 
-The StackState Agent and Cluster Agent connect to the Openshift API to retrieve cluster wide information and Openshift events. The following API endpoints used:
+The StackState Agent and Cluster Agent connect to the OpenShift API to retrieve cluster wide information and OpenShift events. The following API endpoints used:
 
 | Resource type | REST API endpoint |
 | :--- | :--- |
@@ -211,11 +211,11 @@ The StackState Agent and Cluster Agent connect to the Openshift API to retrieve 
 |  | `/version` |
 |  | `/healthz` |
 
-For further details, refer to the [Openshift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html).
+For further details, refer to the [OpenShift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html).
 
 ### Component actions
 
-A number of [actions](../../use/perspectives/topology-perspective.md#actions) are added to StackState when the Openshift StackPack is installed. They are available from the **Actions** section on the right of the screen when an Openshift component is selected or from the component context menu, displayed when you hover over an Openshift component in the Topology Perspective
+A number of [actions](../../use/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They are available from the **Actions** section on the right of the screen when an OpenShift component is selected or from the component context menu, displayed when you hover over an OpenShift component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
@@ -228,18 +228,18 @@ A number of [actions](../../use/perspectives/topology-perspective.md#actions) ar
 
 Details of installed actions can be found in the StackState UI **Settings** &gt; **Actions** &gt; **Component Actions** screen.
 
-### Openshift views in StackState
+### OpenShift views in StackState
 
-When the Openshift integration is enabled, the following Openshift views are available in StackState for each cluster:
+When the OpenShift integration is enabled, the following OpenShift views are available in StackState for each cluster:
 
-* Openshift - Applications - 
-* Openshift - Infrastructure - 
-* Openshift - Namespaces - 
-* Openshift - Workload Controllers - 
+* OpenShift - Applications - 
+* OpenShift - Infrastructure - 
+* OpenShift - Namespaces - 
+* OpenShift - Workload Controllers - 
 
 ### Open source
 
-The code for the StackState Agent Openshift check is open source and available on GitHub at:
+The code for the StackState Agent OpenShift check is open source and available on GitHub at:
 
 * [https://github.com/StackVista/stackstate-agent/tree/master/pkg/collector/corechecks/cluster](https://github.com/StackVista/stackstate-agent/tree/master/pkg/collector/corechecks/cluster)
 * [https://github.com/stackvista/stackstate-agent](https://github.com/stackvista/stackstate-agent)
@@ -247,13 +247,13 @@ The code for the StackState Agent Openshift check is open source and available o
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&category=360002777619&query=Openshift).
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&category=360002777619&query=OpenShift).
 
 ## Uninstall
 
-To uninstall the Openshift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Openshift** screen and click **UNINSTALL**. All Openshift StackPack specific configuration will be removed from StackState.
+To uninstall the OpenShift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from StackState.
 
-To uninstall the StackState Cluster Agent and the StackState Agent from your Openshift cluster, run a Helm uninstall:
+To uninstall the StackState Cluster Agent and the StackState Agent from your OpenShift cluster, run a Helm uninstall:
 
 ```text
 helm uninstall <release_name> --namespace <namespace>
@@ -264,14 +264,14 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
-**Openshift StackPack v3.7.1 \(2021-04-02\)**
+**OpenShift StackPack v3.7.1 \(2021-04-02\)**
 
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
 * Improvement: Common bumped from 2.4.3 to 2.5.0
 * Improvement: StackState min version bumped to 4.3.0
 
-**Openshift StackPack v3.6.0 \(2021-03-08\)**
+**OpenShift StackPack v3.6.0 \(2021-03-08\)**
 
 * Feature: Namespaces are now a component in StackState with a namespaces view for each cluster
 * Feature: New component actions for quick navigation on workloads, pods and namespaces
@@ -281,19 +281,19 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 * Improvement: Use standard \(blue\) Kubernetes icons
 * Bug Fix: Fixed Kubernetes synchronization when a component had no labels but only tags
 
-**Openshift StackPack v3.5.2 \(2020-08-18\)**
+**OpenShift StackPack v3.5.2 \(2020-08-18\)**
 
 * Feature: Introduced the Release notes pop up for customer
 
-**Openshift StackPack v3.5.1 \(2020-08-10\)**
+**OpenShift StackPack v3.5.1 \(2020-08-10\)**
 
 * Feature: Introduced Kubernetes specific component identifiers
 
-**Openshift StackPack v3.5.0 \(2020-08-04\)**
+**OpenShift StackPack v3.5.0 \(2020-08-04\)**
 
 * Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
 
-**Openshift StackPack v3.4.0 \(2020-06-19\)**
+**OpenShift StackPack v3.4.0 \(2020-06-19\)**
 
 * Improvement: Set the stream priorities on all streams.
 
@@ -302,5 +302,5 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 * [Agent StackPack](agent.md)
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 * [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
-* [Openshift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)
+* [OpenShift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)
 
