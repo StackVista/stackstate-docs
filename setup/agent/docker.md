@@ -1,7 +1,3 @@
----
-description: StackState curated integration
----
-
 # Docker
 
 ## Overview
