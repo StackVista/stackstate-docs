@@ -10,7 +10,7 @@ The StackState Agent can run on Linux or Windows systems or inside a Docker cont
 
 It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
-![StackState Agent](/.gitbook/assets/stackstate-agent.png)
+![StackState Agent](/.gitbook/assets/stackstate-agent.svg)
 
 ## Integrations via the StackState Agent
 
