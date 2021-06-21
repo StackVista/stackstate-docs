@@ -6,11 +6,11 @@ The StackState Agent functions as a collector and gateway. It connects to extern
 
 ## Where to deploy the StackState Agent
 
-The StackState Agent can run on Linux or Windows systems or inside a Docker container. To collect data from Kubernetes and Openshift clusters, the dedicated Agent, cluster Agent and clustercheck Agents can be deployed.
+The StackState Agent can run on Linux or Windows systems or inside a Docker container. To collect data from Kubernetes and Openshift clusters, the dedicated Agent, cluster Agent and ClusterCheck Agents can be deployed.
 
 It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
-![StackState Agent](/.gitbook/assets/stackstate-agent.svg)
+![StackState Agent](/.gitbook/assets/stackstate-agent.png)
 
 ## Integrations via the StackState Agent
 
