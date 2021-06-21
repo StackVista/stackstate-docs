@@ -2,7 +2,11 @@
 
 ## Overview 
 
-This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. These policies are taken directly from the CloudFormation template and should be used wherever possible.
+{% hint style="info" %}
+This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS (Legacy) integration, refer to the policy files provided when the AWS (Legacy) StackPack is installed.
+{% endhint %}
+
+These policies are taken directly from the CloudFormation template and should be used wherever possible.
 
 To use a template, replace the following values:
 
