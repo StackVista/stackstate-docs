@@ -1,6 +1,6 @@
 ---
 description: StackState core integration
-stackpack-name: Openshift
+stackpack-name: OpenShift
 ---
 
 # OpenShift
@@ -35,21 +35,21 @@ The OpenShift integration collects topology data in an OpenShift cluster as well
 | [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | - | `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an Openshift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ### StackState Cluster Agent
 
 StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire OpenShift cluster:
-  * Topology and events data for all resources in the cluster are retrieved from the Openshift API
-  * Control plane metrics are retrieved from the Openshift API
+  * Topology and events data for all resources in the cluster are retrieved from the OpenShift API
+  * Control plane metrics are retrieved from the OpenShift API
 
 When cluster checks are enabled, cluster checks configured here are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
 
 ### StackState Agent
 
 StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the OpenShift cluster:
-  * Host information is retrieved from the Openshift API.
+  * Host information is retrieved from the OpenShift API.
   * Container information is collected from the Docker daemon.
   * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 
@@ -93,7 +93,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 * kube-state-metrics
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an Openshift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
