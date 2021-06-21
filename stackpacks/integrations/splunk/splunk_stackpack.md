@@ -12,7 +12,7 @@ The StackState Splunk integration synchronizes events, metrics, health and topol
 * The [API-Integration Agent](/stackpacks/integrations/api-integration.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured.
 * [StackState Agent V2](/stackpacks/integrations/agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk topology V2 integration is configured.
 
-![Data flow](/.gitbook/assets/stackpack-splunk.png)
+![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
 * The StackState API-Integration Agent periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
   * Topology data from the searches configured in the Splunk topology V1 Agent check.
