@@ -20,7 +20,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
-### 4.3.2
+### v4.3.3
+
+**Bug fixes**
+
+- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+
+### v4.3.2
 
 **Bug fixes**
 
