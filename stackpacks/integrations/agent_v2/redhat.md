@@ -6,12 +6,13 @@ description: StackState curated integration
 
 ## Overview
 
+StackState Agent V2 will retrieve data from the RedHat host it is running on and push this to StackState.
+
 ## Setup
 
 ### Prerequisites
  
-* [StackState Agent](/setup/agent/linux.md) installed on a RedHat host that is able to connect to StackState.
-* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+* [StackState Agent](/setup/agent/linux.md)
 
 ### Install
 
@@ -27,5 +28,5 @@ StackState Agent will synchronize the following data from the host it is running
 
 ## See also
 
-* [StackState Agent](/setup/agent/linux.md) installed on a Fedora host that is able to connect to StackState.
-* [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+* [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
+* [Deploy StackState Agent on Linux](/setup/agent/linux.md)
