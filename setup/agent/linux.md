@@ -24,6 +24,8 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | Ubuntu | Bionic (18) | ✅ | - |
 | Ubuntu | Focal (20.04) | ✅ | - |
 
+Host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer.
+
 ### Install
 
 The StackState Agent is installed using an install script. 

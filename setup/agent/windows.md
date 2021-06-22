@@ -15,6 +15,8 @@ The StackState Agent is supported to run on the following Windows versions with 
 | Windows Server | 2016 | ✅ |- |
 | Windows Server | 2019 | ✅ |- |
 
+Host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer.
+
 ### Install
 
 The StackState Agent is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
