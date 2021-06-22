@@ -17,7 +17,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [StackState Agent](../../stackpacks/integrations/agent.md) | [**4.3.1**](../../stackpacks/integrations/agent.md#release-notes) | 3.12.0 | 3.11.0 |
 | [AWS](../../stackpacks/integrations/aws.md) | [**5.2.2**](../../stackpacks/integrations/aws.md#release-notes) | 5.0.2 | 5.0.1 |
 | [Azure](../../stackpacks/integrations/azure.md) | [**4.1.1**](../../stackpacks/integrations/azure.md#release-notes) | 4.0.2 | 4.0.2 |
-| [API integration](../../stackpacks/integrations/api-integration.md) | [_\*2.4.1_](../../stackpacks/integrations/api-integration.md#release-notes) | 2.3.1 | 2.3.1 |
+| [API integration](../../stackpacks/integrations/api-integration.md) | [**2.4.1**](../../stackpacks/integrations/api-integration.md#release-notes) | 2.3.1 | 2.3.1 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | [**1.3.1**](../../stackpacks/integrations/cloudera.md#release-notes) | 1.2.1 | 1.2.1 |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 | 3.0.1 |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**1.1.1**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.0.0 | - |
