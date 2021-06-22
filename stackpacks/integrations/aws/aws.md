@@ -48,27 +48,6 @@ To set up the StackState AWS integration, you need to have:
 {% endtab %}
 {% endtabs %}
 
-### Upgrade from the AWS (Legacy) integration
-
-{% hint style="info" %}
-The AWS integration is an entirely new StackPack. Migrating existing configuration from the AWS (Legacy) StackPack is not supported.
-
-When you switch to the AWS integration, topology history and health state for AWS (Legacy) instances will be lost. Metrics are fetched directly from CloudWatch and will still be available.
-{% endhint %}
-
-The new AWS integration has been rebuilt from the ground up. This means that it is not possible to migrate an existing AWS (Legacy) integration to the new AWS integration.
-
-To start using the new AWS integration with your AWS instance, the AWS (Legacy) StackPack must first be removed. It is possible to run the AWS (Legacy) StackPack and the new AWS StackPack side by side, however, this configuration is not supported and will likely not be available in the next major StackState release.
-
-You can distinguish topology from the new AWS integration and the AWS (Legacy) integration by the labels attached:
-
-| Label              | Integration              |
-| :----------------- | :----------------------- |
-| `stackpack:aws-v2` | New AWS integration      |
-| `stackpack:aws`    | AWS (Legacy) integration |
-
-Read how to [uninstall an existing AWS (Legacy) integration](/stackpacks/integrations/aws/aws-legacy.mdy.md#uninstall).
-
 ### Deploy AWS CloudFormation stack
 
 The StackState AWS Cloudformation stack is deployed in your AWS account. It provides the minimum level of access required for the StackState Agent to collect topology, telemetry and logs. Quick deployment links and a default StackState CloudFormation template are provided below.
