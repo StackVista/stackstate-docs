@@ -13,7 +13,7 @@ description: StackState curated integration
 * [StackState Agent](/setup/agent/linux.md) installed on a Fedora host that is able to connect to StackState.
 * The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
-## Install
+### Install
 
 TODO: Install agent v2 stackpack?
 
