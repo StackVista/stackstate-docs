@@ -2,9 +2,7 @@
 
 ## Overview
 
-The StackState Agent can run in a Docker container.  The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
-
-The StackState Agent is open source, code is available on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+The StackState Agent can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState. For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
 ## Setup
 
@@ -71,6 +69,7 @@ To run the StackState Agent in Docker swarm mode, use a [Docker compose setup](#
 
 ### Upgrade
 
+TODO: How to upgrade.
 
 ## Configure
 
@@ -134,7 +133,7 @@ stackstate-agent:
       HOST_SYS: "/host/sys"
 ```
 
-Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
 ### Self-Signed Certificates
 
@@ -159,7 +158,19 @@ The StackState Agent can be configured to collect traces via a [StackState traci
 
 ### Start, stop or restart the Agent
 
+To start, stop or restart the Agent, start or stop the container it is running in:
+
+```
+# Start container
+docker start <agent_container_id>
+
+# Stop container
+docker stop <agent_container_id>
+```
+
 ### Status and information
+
+TODO: Status info from agent in docker container
 
 ## Troubleshooting
 
@@ -177,10 +188,6 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 ## Uninstall
 
 To uninstall the StackState Agent, stop the Docker container it is running in and remove it.
-
-## Release notes
-
-Release notes for the StackState Agent can be found on GitHub at: [https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md)
 
 ## See also
 

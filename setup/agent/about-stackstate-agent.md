@@ -18,8 +18,15 @@ In StackState, the StackState Agent V2 StackPack includes all the settings requi
 
 To integrate with an external system, an Agent must be deployed in a location that can connect to both the external system and StackState. An Agent check  configured on the Agent can then connect to the external system to retrieve data. 
 
-Documentation for the available StackState integrations, including Agent check configuration details, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
+## Open source
+
+The StackState Agent is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+
+## Release notes
+
+Release notes for the StackState Agent can be found on GitHub at: [https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md)
 
 ## See also
 
@@ -31,3 +38,4 @@ Documentation for the available StackState integrations, including Agent check c
     - [Linux](/setup/agent/linux.md)
     - [Windows](/setup/agent/windows.md)
 * [StackState API-Integration Agent](/stackpacks/integrations/api-integration.md)  
+* [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent)

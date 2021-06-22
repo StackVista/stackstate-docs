@@ -175,8 +175,6 @@ helm uninstall <release_name> --namespace <namespace>
 helm uninstall stackstate-cluster-agent --namespace stackstate
 ```
 
-## Release notes
-
 ## See also
 
 * [Kubernetes StackPack](/stackpacks/integrations/kubernetes.md)
