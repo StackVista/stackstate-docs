@@ -10,20 +10,21 @@ The StackState Agent can run on Linux or Windows systems or inside a Docker cont
 
 To collect data from Kubernetes and OpenShift clusters, the dedicated Agent, cluster Agent and ClusterCheck Agents can be deployed.
 
-![StackState Agent](/.gitbook/assets/stackstate-agent-concept-1.svg)
+![StackState Agent architecture](/.gitbook/assets/stackstate-agent-concept-1.svg)
 
-## Integrations via the StackState Agent
+## Integrate with external systems
 
-In StackState, the StackState Agent V2 StackPack includes all the settings required to integrate with a number of external systems and data from more systems can be retrieved by installing additional StackPacks in StackState. 
+In StackState, the StackState Agent V2 StackPack includes all the settings required to integrate with a number of external systems. Data from other external systems can be retrieved by installing additional StackPacks in StackState. 
 
-To integrate with an external system, an Agent must be deployed in a location that can connect to both the external system and StackState, and that an Agent integration check has been configured on the Agent. 
+To integrate with an external system, an Agent must be deployed in a location that can connect to both the external system and StackState. An Agent check  configured on the Agent can then connect to the external system to retrieve data. 
 
-Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+Documentation for the available StackState integrations, including Agent check configuration details, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
 
 ## See also
 
 * [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
+* [StackState integrations](/stackpacks/integrations/)  
 * Deploy StackState Agent V2 on:
     - [Docker](/setup/agent/docker.md)
     - [Kubernetes](/setup/agent/kubernetes.md)
