@@ -10,7 +10,7 @@ The StackState Agent can run on Linux or Windows systems or inside a Docker cont
 
 To collect data from Kubernetes and OpenShift clusters, the dedicated Agent, cluster Agent and ClusterCheck Agents can be deployed.
 
-![StackState Agent](/.gitbook/assets/stackstate-agent.svg)
+![StackState Agent](/.gitbook/assets/stackstate-agent-concept.svg)
 
 ## Integrations via the StackState Agent
 
