@@ -6,16 +6,20 @@ description: StackState curated integration
 
 ## Overview
 
-## Install
+## Setup
 
 ### Prerequisites
  
 * [StackState Agent](/setup/agent/linux.md) installed on an Ubinti host that is able to connect to StackState.
 * The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
+## Install
+
+TODO: Install agent v2 stackpack?
+
 ## Data retrieved
 
-When installed and running, StackState Agent will synchronize the following data with StackState from the host it is running on:
+StackState Agent will synchronize the following data from the host it is running on with StackState:
 
 - Hosts, processes and containers.
 - Telemetry for hosts, processes and containers   

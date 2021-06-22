@@ -6,7 +6,7 @@ description: StackState curated integration
 
 ## Overview
 
-## Install
+## Setup
 
 ### Prerequisites
  
@@ -15,12 +15,11 @@ description: StackState curated integration
 
 ### Install
 
-The Docker integration is part of the [StackState Agent StackPack](/stackpacks/integrations/agent.md). 
-
+The Docker integration is part of the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
 
 ## Data retrieved
 
-When a [StackState Agent is running in a Docker container](/setup/agent/docker.md), the following data will be synchronized from the host on which it is running:
+StackState Agent will synchronize the following data from the host it is running on with StackState:
 
 * Hosts, processes, and containers
 * Network connections between processes/containers/services including network traffic telemetry
