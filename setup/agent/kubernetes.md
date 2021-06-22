@@ -2,19 +2,17 @@
 
 ## Overview
 
-For the Kubernetes integration to retrieve topology, events and metrics data, you will need to have the following installed on your Kubernetes cluster:
+To retrieve topology, events and metrics data from a Kubernetes cluster, you will need to have the following installed in the cluster:
 
 * A StackState Agent on each node in the cluster
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-{% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
-{% endhint %}
+To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. 
 
 ## StackState Agents
 
-The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events. To achieve this, different types of StackState Agent are  used:
+The StackState Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events. To achieve this, different types of StackState Agent are used:
 
 | Component | Required? | Pod name |
 |:---|:---|
