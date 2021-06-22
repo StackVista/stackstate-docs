@@ -129,12 +129,9 @@ To uninstall the StackState Agent running on Windows:
 2. In the control panel, open **Add/remove programs**.
 3. Follow the instructions to uninstall the StackState Agent.
 
-## Open source
-
-The StackState Agent is open source, code is available on GitHub at [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
-
 ## See also
 
+* [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
 * [StackState Agent StackPack](/stackpacks/integrations/agent.md)
 * [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
 * [cURL \(haxx.se\)](https://curl.haxx.se)
