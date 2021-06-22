@@ -48,11 +48,13 @@ Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` whe
 * Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
 * Load-balanced cluster services (for example, Kubernetes services).
 
-Read how to [enable cluster checks](#cluster-checks).
+Read how to [enable cluster checks](#configure-cluster-checks).
 
 ## Setup
 
 ### Supported Kubernetes versions
+
+TODO: Add supported k8s versions
 
 ### Install
 
@@ -65,7 +67,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large Kubernetes clusters, consider enabling [cluster checks](#cluster-checks) to run the kubernetes_state check in a StackState ClusterCheck Agent pod.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large Kubernetes clusters, consider enabling [cluster checks](#configure-cluster-checks) to run the kubernetes_state check in a StackState ClusterCheck Agent pod.
 
 {% hint style="info" %}
 **stackstate.cluster.authToken**
@@ -94,11 +96,7 @@ To upgrade the Agents running in your Kubernetes cluster, run the helm upgrade c
 
 ## Configure
 
-{% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
-{% endhint %}
-
-### Cluster checks
+### Configure cluster checks
 
 Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
 
@@ -111,10 +109,9 @@ clusterChecks:
   enabled: true
 ```
 
-### Kubernetes_state check
-The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.  
+#### Run the Kubernetes_state check as a cluster check
 
-#### Run as a cluster check
+The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
 
 In a default deployment, the pod running the StackState Cluster Agent and every deployed StackState Agent need to be able to run the check. In a large Kubernetes cluster, this can consume a lot of memory as every pod must be configured with sufficient CPU and memory requests and limits. Since only one of those Agent pods will actually run the check, a lot of CPU and memory resources will be allocated, but will not be used.
 
@@ -147,6 +144,11 @@ clusterAgent:
           - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
 ```
 
+### Integration configuration
+
+To integrate with other external services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
+
+
 ## Commands
 
 ### Start, stop or restart the Agent
@@ -155,7 +157,7 @@ TODO: Commands to start/stop/restart
 
 ### Status and information
 
-To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.
+To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate

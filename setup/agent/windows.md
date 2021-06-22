@@ -54,18 +54,6 @@ install -stsApiKey {{config.apiKey}} `
 -f C:\\stackstate-custom.msi
 ```
 
-### Configure
-
-#### Configure the Agent
-
-The StackState Agent configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
-
-#### Configure integrations
-
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through the StackState Agent can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks. 
-
-Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
-
 ### Upgrade
 
 To upgrade the StackState Agent running on Windows,
@@ -73,6 +61,18 @@ To upgrade the StackState Agent running on Windows,
 1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    - [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
 2. Double-click on the downloaded `*.msi` file.   
+
+## Configure
+
+### Agent configuration
+
+The StackState Agent configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
+
+### Integration configuration
+
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through the StackState Agent can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks. 
+
+Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
 ## Commands
 
@@ -109,14 +109,16 @@ To check if the StackState Agent is running and receive information about the Ag
 "./agent.exe status"
 ```
 
-## Log files
+## Troubleshooting
+
+### Log files
 
 Logs for the subsystems are in the following files:
 
 * `C:\ProgramData\StackState\logs\agent.log`
 * `C:\ProgramData\StackState\logs\process-agent.log`
 
-## Troubleshooting
+### Support knowledge base
 
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
