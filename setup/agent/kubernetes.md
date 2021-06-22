@@ -151,6 +151,8 @@ clusterAgent:
 
 ### Start, stop or restart the Agent
 
+TODO: Commands to start/stop/restart
+
 ### Status and information
 
 To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.

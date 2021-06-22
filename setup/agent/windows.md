@@ -77,8 +77,7 @@ To upgrade the StackState Agent running on Windows,
 ## Commands
 
 {% hint style="info" %}
-* Commands require elevated privileges.
-* [Restart the StackState Agent](#start-stop-or-restart-the-agent) to reload the configuration files and apply any changes.
+Commands require elevated privileges.
 {% endhint %}
 
 ### Start, stop or restart the Agent
