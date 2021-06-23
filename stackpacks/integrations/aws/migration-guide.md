@@ -13,8 +13,8 @@ The best way to start using the new AWS integration is to migrate one AWS accoun
 To migrate AWS accounts from the AWS (Legacy) StackPack to the new AWS StackPack:
 
 1. Install [StackState Agent V2](/stackpacks/integrations/agent.md) on a machine that can connect to both AWS and StackState.
-2. For the region you will migrate, [deploy an AWS CloudFormation stack](aws.md#deploy-aws-cloudformation-stack).
-3. For the account you will migrate, [install an AWS StackPack instance](aws.md#install-the-aws-stackpack).
+2. For each region that you will migrate, [deploy an AWS CloudFormation stack](aws.md#deploy-aws-cloudformation-stack).
+3. For the account to be migrated, [install an AWS StackPack instance](aws.md#install-the-aws-stackpack).
 4. Configure the StackState Agent V2 AWS check with the `role_urn` and the `regions` associated with the account.
 5. For the account and regions being migrated, [uninstall all related instances of the AWS (Legacy) StackPack](/stackpacks/integrations/aws/aws-legacy.md#uninstall).
 6. [Restart StackState Agent V2](/stackpacks/integrations/agent.md#start--stop--restart-the-stackstate-agent) to apply the configuration changes and enable the updated AWS check.
