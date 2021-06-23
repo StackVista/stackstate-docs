@@ -5,7 +5,7 @@ description: StackState core integration (legacy)
 # AWS V1 (Legacy)
 
 {% hint style="info" %}
-This integration is now legacy and is superseded by the [new AWS integration](/stackpacks/integrations/aws/aws.mds.md).
+The AWS (Legacy) StackPack has been deprecated. It is recommended to use the [new AWS integration](/stackpacks/integrations/aws/aws.mds.md).
 {% endhint %}
 
 ## Overview
