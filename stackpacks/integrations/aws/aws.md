@@ -136,7 +136,9 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 2. [Restart the StackState Agent](../agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
-The Agent must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, a HTTP proxy can be used to proxy the API calls. To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set an environment variable. For more information on how to set environment variables for the Agent, see the [Agent docs](../agent.md#installation).
+### Use an HTTP proxy 
+
+StackState Agent V2 must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set the required environment variable on the machine running the Agent.
 
 ### Status
 
@@ -286,7 +288,7 @@ A KMS key must be created in each region where events are captured.
 
 ### Costs
 
-The AWS StackPack CloudFormation template contains all resources that are necessary to run the AWS agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
+The AWS StackPack CloudFormation template contains all resources that are necessary to run the AWS check on the StackState Agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
 
 - Kinesis Firehose: priced by the amount of data processed. Events use very small amounts of data. [Firehose pricing (aws.amazon.com)](https://aws.amazon.com/kinesis/data-firehose/pricing/)
 - S3: priced by amount of data stored, and amount of data transferred. Running the Agent inside of AWS will reduce data transfer costs. [S3 pricing (aws.amazon.com)](https://aws.amazon.com/s3/pricing/)
@@ -327,8 +329,6 @@ You can distinguish topology from the new and legacy AWS integrations by the lab
 | `stackpack:aws`    | AWS (Legacy) integration |
 
 ## Troubleshooting
-
-TODO: Create a similar troubleshooting guide for AWS V2
 
 Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack).
 
