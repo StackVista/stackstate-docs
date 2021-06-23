@@ -96,6 +96,7 @@
     * [💠 AWS](stackpacks/integrations/aws/aws.md)  
     * [💠 AWS Policies](stackpacks/integrations/aws/aws-policies.md)  
     * [💠 AWS (Legacy)](stackpacks/integrations/aws/aws-legacy.md)
+    * [💠 Migrate AWS (Legacy) to AWS](stackpacks/integrations/aws/migration-guide.md)
   * [💠 AWS X-ray](stackpacks/integrations/aws-x-ray.md)
   * [💠 Dynatrace](stackpacks/integrations/dynatrace.md)
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)

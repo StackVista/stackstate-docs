@@ -91,8 +91,8 @@ The default StackState CloudFormation template can be used to deploy all necessa
 The template requires the following parameters:
 
 - **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
-- **StsAccountId** - The 12-digit AWS account ID that the StackState Agent is deployed in, or has an IAM user for the agent in. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
-- **ExternalId** - A shared secret that the StackState agent will present when assuming a role. Use the same value across all AWS accounts that the agent is monitoring. Example: `uniquesecret!1`.
+- **StsAccountId** - The 12-digit AWS account ID that the StackState Agent is deployed in, or has an IAM user for the Agent in. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
+- **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
@@ -114,14 +114,14 @@ To enable the AWS check and begin collecting data from AWS, add the following co
    ```yaml
    # values in init_config are used globally; these credentials will be used for all AWS accounts
    init_config:
-     aws_access_key_id: # The AWS Access Key ID. Optional if the agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     aws_secret_access_key: # The AWS Secret Access Key. Optional if the agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_access_key_id: # The AWS Access Key ID. Optional if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_secret_access_key: # The AWS Secret Access Key. Optional if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
      external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
 
    instances:
      # Substitute 123456789012 with the Account ID of the target AWS account to read
      - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
-       regions: # The agent will only attempt to find resources in regions specified below
+       regions: # The Agent will only attempt to find resources in regions specified below
          - 'global' # global is a special "region" for global resources such as Route53
          - 'eu-west-1'
        min_collection_interval: 60
@@ -136,7 +136,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 2. [Restart the StackState Agent](../agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
-The agent must have access to the internet to call the AWS APIs. If the agent cannot be given direct internet access, a HTTP proxy can be used to proxy the API calls. To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set an environment variable. For more information on how to set environment variables for the agent, see the [agent docs](../agent.md#installation).
+The Agent must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, a HTTP proxy can be used to proxy the API calls. To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set an environment variable. For more information on how to set environment variables for the Agent, see the [Agent docs](../agent.md#installation).
 
 ### Status
 
@@ -156,7 +156,7 @@ The AWS StackPack supports the following event:
 
 - EC2 Instance Run State: when the instance is started, stopped, or terminated. This will appear as the Run State in the EC2 instance component.
 
-The AWS agent primarily uses AWS events to provide real-time updates to topology. These events are not displayed as StackState events.
+AWS events are primarily used to provide real-time updates to topology. These events are not displayed as StackState events.
 
 #### Metrics
 
@@ -240,10 +240,10 @@ IAM is a global service. Only one IAM role is necessary per account.
 #### S3 Bucket
 
 {% hint style="warning" %}
-Once the agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
+Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
-The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the agent it will fallback to reading CloudTrail directly, which introduces a 15 minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fallback to reading CloudTrail directly, which introduces a 15 minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
 
 {% hint style="info" %}
 Only one S3 bucket is necessary per account; all regions can send to the same bucket.
@@ -289,7 +289,7 @@ A KMS key must be created in each region where events are captured.
 The AWS StackPack CloudFormation template contains all resources that are necessary to run the AWS agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
 
 - Kinesis Firehose: priced by the amount of data processed. Events use very small amounts of data. [Firehose pricing (aws.amazon.com)](https://aws.amazon.com/kinesis/data-firehose/pricing/)
-- S3: priced by amount of data stored, and amount of data transferred. Running the agent inside of AWS will reduce data transfer costs. [S3 pricing (aws.amazon.com)](https://aws.amazon.com/s3/pricing/)
+- S3: priced by amount of data stored, and amount of data transferred. Running the Agent inside of AWS will reduce data transfer costs. [S3 pricing (aws.amazon.com)](https://aws.amazon.com/s3/pricing/)
 - KMS: a flat fee of $1 per month per key, with additional costs per request. [KMS pricing (aws.amazon.com)](https://aws.amazon.com/kms/pricing/)
 - CloudWatch metrics: priced per metric retrived. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric. [CloudWatch pricing (aws.amazon.com)](https://aws.amazon.com/cloudwatch/pricing/)
 
