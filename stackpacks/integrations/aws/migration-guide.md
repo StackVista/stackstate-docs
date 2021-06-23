@@ -2,13 +2,15 @@
 
 ## Overview
 
-The new AWS integration available from StackState v4.4 is an entirely new StackPack that replaces the old AWS (Legacy) integration. With the release of the new AWS integration, the AWS (Legacy) integration has been deprecated. It is advised that you migrate your StackState AWS integration to use the new AWS StackPack.
+The new AWS integration available from StackState v4.4 is an entirely new StackPack that replaces the old AWS (Legacy) StackPack. The AWS (Legacy) StackPack has now been deprecated, and it is advised that you migrate your StackState AWS integration to use the new AWS StackPack.
 
-The new AWS integration collects topology data using StackState Agent V2. In StackState, each installed StackPack instance can be used to collect data from all regions in one account.
+In the new AWS integration, topology data is collected using StackState Agent V2. Within StackState, each installed AWS StackPack instance can now be used to collect data from all regions in a single account.
 
 ## Migrate from AWS (Legacy)
 
-The best way to start using the new AWS integration is to migrate one account at a time. In the new AWS integration, data for all regions associated with an account can be gathered by one StackPack instance. In the AWS (Legacy) integration a separate StackPack instance was required for each region.
+The best way to start using the new AWS integration is to migrate one AWS account at a time. In the new AWS integration, data for all regions associated with an account can be gathered by one StackPack instance. This means that one AWS StackPack instance can replace a number of AWS (Legacy) StackPack instances.
+
+To migrate AWS accounts from the AWS (Legacy) StackPack to the new AWS StackPack:
 
 1. Install [StackState Agent V2](/stackpacks/integrations/agent.md) on a machine that can connect to both AWS and StackState.
 2. For the region you will migrate, [deploy an AWS CloudFormation stack](aws.md#deploy-aws-cloudformation-stack).
@@ -25,5 +27,3 @@ During migration, topology data from the new AWS integration and the AWS (Legacy
 | :----------------- | :----------------------- |
 | `stackpack:aws-v2` | New AWS integration      |
 | `stackpack:aws`    | AWS (Legacy) integration |
-
-To migrate from the AWS (Legacy) StackPack to the new AWS StackPack:
