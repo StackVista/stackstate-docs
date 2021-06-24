@@ -17,19 +17,52 @@ The Openshift integration is used to create a near real-time synchronization of 
 
 The Openshift integration collects topology data in an Openshift cluster as well as metrics and events.
 
-* StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the Openshift cluster:
-  * Host information is retrieved from the Openshift API.
-  * Container information is collected from the Docker daemon.
-  * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
-* StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire Openshift cluster:
-  * Topology and events data for all resources in the cluster are retrieved from the Openshift API
-  * Control plane metrics are retrieved from the Openshift API
-* Retrieved data is pushed to StackState via the Agent StackPack \(StackState Agent V2\) and the Openshift StackPack \(StackState Cluster Agent\).
+* Data is retrieved by the deployed [StackState Agents](#stackstate-agents) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in Openshift are added to components and relations in StackState.
   * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
   * [Events](openshift.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+
+## StackState Agents
+
+The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events. To achieve this, different types of StackState Agent are  used:
+
+| Component | Required? | Pod name |
+|:---|:---|
+| [StackState Cluster Agent](#stackstate-cluster-agent) | ✅ | `stackstate-cluster-agent` | 
+| [StackState Agent](#stackstate-agent) | ✅ | `stackstate-cluster-agent-agent` | 
+| [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | - | `stackstate-cluster-agent-clusterchecks` |
+
+{% hint style="info" %}
+To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an Openshift cluster with checks that integrate with other services.
+{% endhint %}
+
+### StackState Cluster Agent
+
+StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire OpenShift cluster:
+  * Topology and events data for all resources in the cluster are retrieved from the Openshift API
+  * Control plane metrics are retrieved from the Openshift API
+
+When cluster checks are enabled, cluster checks configured here are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
+
+### StackState Agent
+
+StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the OpenShift cluster:
+  * Host information is retrieved from the Openshift API.
+  * Container information is collected from the Docker daemon.
+  * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
+
+By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large OpenShift cluster. To avoid this, it is advisable to enable cluster checks so that metrics are gathered from kube-state-metrics by a dedicated [StackState ClusterCheck Agent](#stackstate-clustercheck-agent).
+
+### StackState ClusterCheck Agent
+
+Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` when the StackState Cluster Agent is deployed. When deployed, default is one instance per cluster. When enabled, cluster checks configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed StackState ClusterCheck Agent pods. This is useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+
+* Out-of-cluster datastores and endpoints (for example, RDS or CloudSQL).
+* Load-balanced cluster services (for example, Kubernetes services).
+
+Read how to [enable cluster checks](#cluster-checks).
 
 ## Setup
 
@@ -72,7 +105,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm install command provided in the StackState UI after you have installed the StackPack.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm install command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, consider enabling [cluster checks](#cluster-checks) to run the kubernetes_state check in a StackState ClusterCheck Agent pod.
 
 {% hint style="info" %}
 **stackstate.cluster.authToken**
@@ -109,6 +142,59 @@ NAME                                                 DESIRED   CURRENT   READY  
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
 
+## Checks
+
+### Cluster checks
+
+Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
+
+#### Enable cluster checks
+
+To enable cluster checks and the cluster check Agent pods, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
+
+```yaml
+clusterChecks:
+  enabled: true
+```
+
+### Kubernetes_state check
+
+The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.  
+
+#### Run as a cluster check
+
+In a default deployment, the pod running the StackState Cluster Agent and every deployed StackState Agent need to be able to run the check. In a large OpenShift cluster, this can consume a lot of memory as every pod must be configured with sufficient CPU and memory requests and limits. Since only one of those Agent pods will actually run the check, a lot of CPU and memory resources will be allocated, but will not be used.
+
+To remedy that situation, the kubernetes_state check can be configured to run as a cluster check. The YAML segment below shows how to do that in the `values.yaml` file used to deploy the `cluster-agent` chart:
+
+```yaml
+clusterChecks:
+# clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+  enabled: true
+agent:
+  config:
+    override:
+# agent.config.override -- Disables kubernetes_state check on regular agent pods.
+    - name: auto_conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+      data: |
+clusterAgent:
+  config:
+    override:
+# clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+#                                 with ad_identifiers does not work here. Use a specific URL instead.
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+      data: |
+        cluster_check: true
+
+        init_config:
+
+        instances:
+          - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+```
+
+
 ## Integration details
 
 ### Data retrieved
@@ -128,7 +214,7 @@ The Openshift integration retrieves all events from the Openshift cluster. The t
 | :--- | :--- |
 | **Activities** | `BackOff`<br />`ContainerGCFailed`<br />`ExceededGracePeriod`<br />`FileSystemResizeSuccessful`<br />`ImageGCFailed`<br />`Killing`<br />`NodeAllocatableEnforced`<br />`NodeNotReady`<br />`NodeSchedulable`<br />`Preempting`<br />`Pulling`<br />`Pulled`<br />`Rebooted`<br />`Scheduled`<br />`Starting`<br />`Started`<br />`SuccessfulAttachVolume`<br />`SuccessfulDetachVolume`<br />`SuccessfulMountVolume`<br />`SuccessfulUnMountVolume`<br />`VolumeResizeSuccessful` |
 | **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\)<br />`NodeReady`<br />`SandboxChanged`<br />`SuccesfulCreate` |
+| **Changes** | `Created` \(created container\)<br />`NodeReady`<br />`SandboxChanged`<br />`SuccesfulCreate` ||
 | **Others** | All other events |
 
 #### Metrics
