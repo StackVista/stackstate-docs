@@ -19,3 +19,4 @@ The default execution type and available possibilities vary per function type:
 | [Id extractor functions](custom-functions/id-extractor-functions.md) | ✅ | - |
 | [Relation mapper functions](custom-functions/mapper-functions.md) | ✅ | - |
 
+
