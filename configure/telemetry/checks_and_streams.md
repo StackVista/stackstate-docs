@@ -39,20 +39,10 @@ Telemetry streams are supplied via plugins. Different plugins provide one or mul
 In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization.
 
 Read how to [add a telemetry stream to an element](../../use/health-state-and-event-notifications/add-telemetry-to-element.md) or how to [add telemetry during topology synchronization](telemetry_synchronized_topology.md).
-
-### Baselines
-
-A baseline can be attached to a metric stream. The baseline consists of an average, a lowerDeviation and a higherDeviation for batches of metric data. Checks can use the baseline values on a metric stream to trigger a health state change if a batch of metrics deviates from the baseline.
-
-Read more about [anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md) and [baseline functions](../../develop/developer-guides/custom-functions/baseline-functions.md).
-
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](../../use/health-state-and-event-notifications/add-a-health-check.md)
 * [Add a telemetry stream to an element](../../use/health-state-and-event-notifications/add-telemetry-to-element.md)
 * [Use templates to add telemetry streams to your own integrations](telemetry_synchronized_topology.md)
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
-* [Anomaly detection with baselines](../../use/health-state-and-event-notifications/anomaly-detection-with-baselines.md)
-* [Baseline functions](../../develop/developer-guides/custom-functions/baseline-functions.md)
-
 
