@@ -156,23 +156,34 @@ The StackState Agent can be configured to collect traces via a [StackState traci
 
 ## Commands
 
-### Start, stop or restart the Agent
+It is not possible to directly manage the service inside the running Docker container. 
 
-To start, stop or restart the Agent, start or stop the container it is running in:
+To start, stop or restart the StackState Agent, start or stop the container it is running in:
 
 ```
 # Start container
-docker start <agent_container_id>
+docker start stackstate-agent
 
 # Stop container
-docker stop <agent_container_id>
+docker stop stackstate-agent
 ```
 
-### Status and information
-
-TODO: Status info from agent in docker container
+For status information, refer to the log files.
 
 ## Troubleshooting
+
+### Log files
+
+Docker logs for the StackState Agent container can be followed using the command:
+
+```
+docker logs -f stackstate-agent
+```
+
+Inside the running container, the StackState Agent logs are in the following files:
+
+* `/var/log/stackstate-agent/agent.log`
+* `/var/log/stackstate-agent/process-agent.log`
 
 ### Set log level
 
