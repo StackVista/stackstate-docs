@@ -69,7 +69,16 @@ To run the StackState Agent in Docker swarm mode, use a [Docker compose setup](#
 
 ### Upgrade
 
-TODO: How to upgrade.
+To upgrade StackState Agent running inside a Docker container.
+
+1. Stop the running container and remove it.
+
+```
+docker stop stackstate-agent
+docker container rm stackstate-agent
+```   
+
+2. Start the container.
 
 ## Configure
 
