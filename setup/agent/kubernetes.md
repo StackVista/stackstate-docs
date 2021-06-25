@@ -1,10 +1,10 @@
 # Kubernetes
 
+## Overview
+
 {% hint style="info" %}
 **StackState Agent V2**
 {% endhint %}
-
-## Overview
 
 To retrieve topology, events and metrics data from a Kubernetes cluster, you will need to have the following installed in the cluster:
 

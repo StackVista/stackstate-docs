@@ -1,10 +1,10 @@
 # Windows
 
+## Overview
+
 {% hint style="info" %}
 **StackState Agent V2**
 {% endhint %}
-
-## Overview
 
 StackState Agent V2 can be installed on Windows systems . The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
