@@ -78,7 +78,7 @@ docker stop stackstate-agent
 docker container rm stackstate-agent
 ```   
 
-2. Start the container.
+2. Run the container using the instructions provided in [setup](#setup).
 
 ## Configure
 
