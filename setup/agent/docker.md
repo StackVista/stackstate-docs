@@ -1,14 +1,18 @@
 # Docker
 
+{% hint style="info" %}
+**StackState Agent V2**
+{% endhint %}
+
 ## Overview
 
-The StackState Agent can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState. For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
+StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState. For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
 ## Setup
 
 ### Single container
 
-To start a single Docker container with StackState Agent, run the following command:
+To start a single Docker container with StackState Agent V2, run the following command:
 
 ```
 docker run -d \
@@ -28,7 +32,7 @@ docker run -d \
 
 ### Docker compose
 
-To run the StackState Agent with Docker compose:
+To run StackState Agent V2 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run:
 ```
@@ -62,14 +66,14 @@ docker-compose up -d
 {% hint style="warning" %}
 **Limitation of Docker-Swarm mode**
 
-Some specific features are not supported in Docker swarm mode. This limitation prevents StackState Agent from collecting relations between containers, processes and other resources while in Docker swarm mode.
+Some specific features are not supported in Docker swarm mode. This limitation prevents StackState Agent V2 from collecting relations between containers, processes and other resources while in Docker swarm mode.
 
 To run the StackState Agent in Docker swarm mode, use a [Docker compose setup](#docker-compose).
 {% endhint %}
 
 ### Upgrade
 
-To upgrade StackState Agent running inside a Docker container.
+To upgrade StackState Agent V2 running inside a Docker container.
 
 1. Stop the running container and remove it.
 
@@ -84,17 +88,17 @@ docker container rm stackstate-agent
 
 ### Agent configuration
 
-The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
 #### Blacklist and inclusions
 
-Processes reported by the StackState Agent can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
+Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
 
 The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
 
-To specify a blacklist and/or inclusions, set the below environment variables and restart the StackState Docker Agent.
+To specify a blacklist and/or inclusions, set the below environment variables and restart StackState Agent V2.
 
 | Environment variable | Description |
 |:---|:---|
@@ -108,7 +112,7 @@ To specify a blacklist and/or inclusions, set the below environment variables an
 
 #### Disable Agent features
 
-Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart the StackState Docker Agent.
+Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart StackState Agent V2.
 
 | Environment variable | Description |
 |:---|:---|
@@ -118,7 +122,7 @@ Certain features of the Agent can optionally be turned off if they are not neede
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
+StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
@@ -146,7 +150,7 @@ Documentation for the available StackState integrations, including how to config
 
 ### Self-Signed Certificates
 
-If the Agent will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
+If StackState Agent V2 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
 
 ```
   CURL_CA_BUNDLE = ""
@@ -154,7 +158,7 @@ If the Agent will run checks that are configured to use self-signed certificates
 
 ### Traces
 
-The StackState Agent can be configured to collect traces via a [StackState tracing integration](s/configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
+StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](s/configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
 
 ```
   service:
@@ -167,7 +171,7 @@ The StackState Agent can be configured to collect traces via a [StackState traci
 
 It is not possible to directly manage the service inside the running Docker container. 
 
-To start, stop or restart the StackState Agent, start or stop the container it is running in:
+To start, stop or restart StackState Agent V2, start or stop the container it is running in:
 
 ```
 # Start container
@@ -189,7 +193,7 @@ Docker logs for the StackState Agent container can be followed using the command
 docker logs -f stackstate-agent
 ```
 
-Inside the running container, the StackState Agent logs are in the following files:
+Inside the running container, StackState Agent V2 logs are in the following files:
 
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
@@ -207,11 +211,16 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the StackState Agent, stop the Docker container it is running in and remove it.
+To uninstall StackState Agent V2, stop the Docker container it is running in and remove it.
+
+```
+docker stop stackstate-agent
+docker container rm stackstate-agent
+```   
 
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [StackState Agent StackPack](/stackpacks/integrations/agent.md)
+* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
 * [StackPack integration documentation](/stackpacks/integrations)
-* [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)

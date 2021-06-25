@@ -1,8 +1,12 @@
 # Linux
 
+{% hint style="info" %}
+**StackState Agent V2**
+{% endhint %}
+
 ## Overview
 
-The StackState Agent can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
+StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
 ## Setup 
 
@@ -28,7 +32,7 @@ Host data for network connections between processes and containers (including ne
 
 ### Install
 
-The StackState Agent is installed using an install script. 
+StackState Agent V2 is installed using an install script. 
 
 * [Online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
@@ -82,7 +86,7 @@ If you do not have access to the internet on the machine where the Agent will be
 
 ### Upgrade
 
-To upgrade the StackState Agent on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`.
+To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
@@ -111,17 +115,17 @@ sudo apt-get update && apt-get upgrade stackstate-agent
 
 ### Agent configuration
 
-The StackState Agent configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `apiKey` and `baseUrl` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `apiKey` and `baseUrl` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration 
 
 #### Blacklist and inclusions
 
-Processes reported by the StackState Agent can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
+Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
 
 The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
 
-To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
+To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart StackState Agent V2](#start-stop-or-restart-the-agent).
 
 | Configuration item | Description |
 |:---|:---|
@@ -135,7 +139,7 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 
 #### Disable Agent features
 
-Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart the StackState Agent](#start-stop-or-restart-the-agent).
+Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, edit the below settings in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and [restart StackState Agent V2](#start-stop-or-restart-the-agent).
 
 | Configuration item | Description |
 |:---|:---|
@@ -149,7 +153,7 @@ Certain features of the Agent can optionally be turned off if they are not neede
    
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through the StackState Agent can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the associated Agent check. 
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the associated Agent check. 
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
@@ -161,7 +165,7 @@ Commands require elevated privileges.
 
 ### Start, stop or restart the Agent
 
-To manually start, stop or restart the StackState Agent:
+To manually start, stop or restart StackState Agent V2:
 
 ```text
 # with systemctl
@@ -176,7 +180,7 @@ sudo service stackstate-agent restart
 ```
 ### Status and information
 
-To check if the StackState Agent is running and receive information about the Agent's state:
+To check if StackState Agent V2 is running and receive information about the Agent's state:
 
 ```text
 # with systemctl
@@ -211,7 +215,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the StackState Agent from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
+To uninstall StackState Agent V2 from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
@@ -239,8 +243,8 @@ sudo apt-get remove stackstate-agent
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [StackState Agent StackPack](/stackpacks/integrations/agent.md)
+* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
 * [StackPack integration documentation](/stackpacks/integrations)
-* [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 * [cURL \(haxx.se\)](https://curl.haxx.se)
 * [wget \(gnu.org\)](https://www.gnu.org/software/wget/)

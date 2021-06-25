@@ -1,10 +1,14 @@
 # Kubernetes
 
+{% hint style="info" %}
+**StackState Agent V2**
+{% endhint %}
+
 ## Overview
 
 To retrieve topology, events and metrics data from a Kubernetes cluster, you will need to have the following installed in the cluster:
 
-* A StackState Agent on each node in the cluster
+* StackState Agent V2 on each node in the cluster
 * StackState Cluster Agent on one node
 * kube-state-metrics
 

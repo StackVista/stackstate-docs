@@ -1,14 +1,18 @@
 # Windows
 
+{% hint style="info" %}
+**StackState Agent V2**
+{% endhint %}
+
 ## Overview
 
-The StackState Agent can be installed on Windows systems . The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
+StackState Agent V2 can be installed on Windows systems . The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState via the [StackState Agent StackPack](/stackpacks/integrations/agent.md). For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
 ## Setup
 
 ### Supported Windows versions
 
-The StackState Agent is supported to run on the following Windows versions with 64bit architecture:
+StackState Agent V2 is supported to run on the following Windows versions with 64bit architecture:
 
 | OS | Release | Network Tracer| Notes|
 |:---|:---|:---|:---|
@@ -19,7 +23,7 @@ Host data for network connections between processes and containers (including ne
 
 ### Install
 
-The StackState Agent is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
+StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
 
 * [Online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
@@ -58,7 +62,7 @@ install -stsApiKey {{config.apiKey}} `
 
 ### Upgrade
 
-To upgrade the StackState Agent running on Windows,
+To upgrade StackState Agent V2 running on Windows,
 
 1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    - [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
@@ -68,11 +72,11 @@ To upgrade the StackState Agent running on Windows,
 
 ### Agent configuration
 
-The StackState Agent configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
+The StackState Agent V2 configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through the StackState Agent can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks. 
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks. 
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
@@ -84,7 +88,7 @@ Commands require elevated privileges.
 
 ### Start, stop or restart the Agent
 
-To manually start, stop or restart the StackState Agent:
+To manually start, stop or restart StackState Agent V2:
 
 {% tabs %}
 {% tab title="CMD" %}
@@ -105,7 +109,7 @@ To manually start, stop or restart the StackState Agent:
 
 ### Status
 
-To check if the StackState Agent is running and receive information about the Agent's status:
+To check if StackState Agent V2 is running and receive information about the Agent's status:
 
 ```text
 "./agent.exe status"
@@ -126,16 +130,16 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the StackState Agent running on Windows:
+To uninstall StackState Agent V2 running on Windows:
 
 1. In the Windows task bar, search for **control panel**.
 2. In the control panel, open **Add/remove programs**.
-3. Follow the instructions to uninstall the StackState Agent.
+3. Follow the instructions to uninstall StackState Agent V2.
 
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [StackState Agent StackPack](/stackpacks/integrations/agent.md)
-* [StackState Agent \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
+* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 * [cURL \(haxx.se\)](https://curl.haxx.se)
 * [wget \(gnu.org\)](https://www.gnu.org/software/wget/)
