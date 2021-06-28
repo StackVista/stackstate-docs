@@ -16,7 +16,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Health Forecast](../../stackpacks/add-ons/health-forecast.md) |  | 1.0.3 | 1.0.3 |
 | [StackState Agent](../../stackpacks/integrations/agent.md) |  | [**4.3.1**](../../stackpacks/integrations/agent.md#release-notes) | 3.12.0 |
 | [AWS (Legacy)](../../stackpacks/integrations/aws/aws-legacy.md) |  | [**5.2.2**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | 5.0.2 |
-| [AWS](../../stackpacks/integrations/aws/aws.md) |  | [**5.2.2**](../../stackpacks/integrations/aws/aws.md#release-notes) | 1.0.0 |
+| [AWS](../../stackpacks/integrations/aws/aws.md) | [**1.0.0**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | - | - |
 | [Azure](../../stackpacks/integrations/azure.md) |  | [**4.1.1**](../../stackpacks/integrations/azure.md#release-notes) | 4.0.2 |
 | [API integration](../../stackpacks/integrations/api-integration.md) |  | [**2.4.1**](../../stackpacks/integrations/api-integration.md#release-notes) | 2.3.1 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) |  | [**1.3.1**](../../stackpacks/integrations/cloudera.md#release-notes) | 1.2.1 |
