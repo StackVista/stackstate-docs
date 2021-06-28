@@ -391,7 +391,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## See also
 
-- [AWS policies](/stackpacks/integrations/aws/aws-policies.mds.md)
-- [StackState AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.mdy.md)
+- [AWS policies](/stackpacks/integrations/aws/aws-policies.md)
+- [StackState AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md)
 - [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 - [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
