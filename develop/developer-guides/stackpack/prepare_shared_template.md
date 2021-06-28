@@ -6,7 +6,7 @@ Shared template file contains information that is going to be used across instan
 
 ## Component Types
 
-Component Type in a template file contains an icon image that is coded in `png;base64` as in the example below:
+Component Type in a template file contains a PNG or SVG icon image that is encoded in `base64` as in the example below:
 
 ```javascript
 {
@@ -14,7 +14,7 @@ Component Type in a template file contains an icon image that is coded in `png;b
 "name": "exchange_server", 
 "id": -147, 
 "identifier": "urn:stackpack:{{StackPackName}}:shared:component-type:exchange-server", 
-"iconbase64": "{{ include "./icons/icon.png" "base64" }}" 
+"iconbase64": "{{ include "./icons/icon.svg" "base64" }}" 
 },
 ```
 
