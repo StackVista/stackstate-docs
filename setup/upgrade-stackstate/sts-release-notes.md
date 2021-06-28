@@ -10,6 +10,12 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
+# 4.3.4
+
+**Bug fixes**
+
+- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+
 ### v4.3.3
 
 **Bug fixes**
