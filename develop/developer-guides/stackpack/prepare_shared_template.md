@@ -6,7 +6,7 @@ Shared template file contains information that is going to be used across instan
 
 ## Component Types
 
-Component Type in a template file contains a PNG or SVG icon image that is encoded in `base64` as in the example below:
+Component Type in a template file contains a PNG or SVG icon image that is `base64` encoded as in the example below:
 
 ```javascript
 {
