@@ -182,7 +182,7 @@
     * [How to develop Agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
     * [Connect an Agent check to StackState](develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
   * [Custom functions and scripts](develop/developer-guides/custom-functions/README.md)
-    * [Synchronous and asynchronous execution](develop/developer-guides/custom-functions/asynchronous-synchronous.md)
+    * [StackState functions](develop/developer-guides/custom-functions/functions.md)
     * [Component actions](develop/developer-guides/custom-functions/component-actions.md)
     * [Check functions](develop/developer-guides/custom-functions/check-functions.md)
     * [Propagation functions](develop/developer-guides/custom-functions/propagation-functions.md)
