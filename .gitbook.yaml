@@ -91,7 +91,7 @@ redirects:
   develop/custom_synchronization_stackpack/how_to_configure_custom_synchronization: ./develop/developer-guides/custom_synchronization_stackpack/how_to_configure_custom_synchronization.md
   develop/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance.md
   develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack: ./develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md
-  develop/functions: ./develop/developer-guides/functions.md
+  develop/functions: ./develop/developer-guides/custom-functions/functions.md
   develop/integrating_external_services: ./develop/developer-guides/integrating_external_services.md
   develop/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
   develop/mirroring: ./develop/developer-guides/mirroring.md
@@ -165,7 +165,7 @@ redirects:
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
 
-# added for 4.2 docs
+# 4.2 docs
 
   use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
@@ -181,41 +181,38 @@ redirects:
   configure/security/authentication: ./configure/security/authentication/README.md
   develop/developer-guides/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
   configure/telemetry/plugins/elasticsearch_plugin: ./configure/telemetry/data-sources/elasticsearch.md
-
-# from custom sync stackpack
-
   configure/sync/: ./configure/topology/sync.md
   develop/agent_check/how_to_develop_agent_checks/: ./develop/developer-guides/agent_check/how_to_develop_agent_checks.md
   configure/topology_synchronization/: ./configure/topology/topology_synchronization.md
 
-# added for 4.3 docs
+# 4.3 docs
 
-  use/views/filters: ./use/view_filters.md
-  use/views: ./use/views.md
-  use/views/traces-perspective: ./use/perspectives/traces-perspective.md
-  use/views/topology-perspective: ./use/perspectives/topology-perspective.md
-  use/views/events_perspective: ./use/perspectives/events_perspective.md
-  use/views/telemetry-perspective: ./use/perspectives/telemetry-perspective.md
-  use/views/browse-telemetry: ./use/perspectives/browse-telemetry.md
-  setup/authentication: ./configure/security/authentication/authentication_options.md
   configure/logging/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  use/views/telemetry_perspective: ./use/perspectives/telemetry-perspective.md
-  configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
-  configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
-  stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
-  stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
-  integrations/agent/: ./stackpacks/integrations/agent.md
-
-  # moving custom function pages
-
-  configure/topology/view_state_configuration: ./develop/developer-guides/custom-functions/view-health-state-configuration-functions.md
-  configure/topology/event-handlers: ./develop/developer-guides/custom-functions/event-handler-functions.md
-  develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   configure/telemetry/baseline-functions: ./develop/developer-guides/custom-functions/baseline-functions.md
   configure/topology/propagation: ./develop/developer-guides/custom-functions/propagation-functions.md
   configure/topology/how_to_configure_component_actions: ./develop/developer-guides/custom-functions/component-actions.md
-  use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
-  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
-
+  configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
+  configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
+  configure/topology/view_state_configuration: ./develop/developer-guides/custom-functions/view-health-state-configuration-functions.md
+  configure/topology/event-handlers: ./develop/developer-guides/custom-functions/event-handler-functions.md
+  develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
+  integrations/agent/: ./stackpacks/integrations/agent.md
+  setup/authentication: ./configure/security/authentication/authentication_options.md
+  stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
+  stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
+  use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
+  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
+  use/views: ./use/views.md
+  use/views/browse-telemetry: ./use/perspectives/browse-telemetry.md
+  use/views/events_perspective: ./use/perspectives/events_perspective.md
+  use/views/filters: ./use/view_filters.md
+  use/views/telemetry-perspective: ./use/perspectives/telemetry-perspective.md
+  use/views/telemetry_perspective: ./use/perspectives/telemetry-perspective.md
+  use/views/topology-perspective: ./use/perspectives/topology-perspective.md
+  use/views/traces-perspective: ./use/perspectives/traces-perspective.md
+
+# 4.4 docs
+
+  develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
