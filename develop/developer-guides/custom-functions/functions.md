@@ -2,7 +2,7 @@
 
 ## Overview
 
-Functions in StackState are predefined scripts that transform input into an output. They are called by StackState on-demand. For example, when a component changes state, new telemetry flows in ora user triggers an action. Advanced users can develop their own functions to customize StackState. These functions can then be exported and [packaged with a custom StackPack](/develop/developer-guides/stackpack/develop_stackpacks.md).
+Functions in StackState are predefined scripts that transform input into an output. They are called by StackState on-demand. For example, when a component changes state, new telemetry flows in or a user triggers an action. Advanced users can develop their own functions to customize StackState. These functions can then be exported and [packaged with a custom StackPack](/develop/developer-guides/stackpack/develop_stackpacks.md).
 
 ## Function types
 
