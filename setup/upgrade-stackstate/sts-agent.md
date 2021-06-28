@@ -1,3 +1,0 @@
-# StackState Agent
-
-## Release notes
