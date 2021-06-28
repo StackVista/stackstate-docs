@@ -91,7 +91,7 @@ redirects:
   develop/custom_synchronization_stackpack/how_to_configure_custom_synchronization: ./develop/developer-guides/custom_synchronization_stackpack/how_to_configure_custom_synchronization.md
   develop/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance.md
   develop/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack: ./develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md
-  develop/functions: ./develop/developer-guides/functions.md
+  develop/functions: ./develop/developer-guides/custom-functions/functions.md
   develop/integrating_external_services: ./develop/developer-guides/integrating_external_services.md
   develop/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
   develop/mirroring: ./develop/developer-guides/mirroring.md
@@ -165,7 +165,7 @@ redirects:
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
 
-# added for 4.2 docs
+# 4.2 docs
 
   use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
