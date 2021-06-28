@@ -8,7 +8,7 @@ Functions in StackState are predefined scripts that transform input into an outp
 
 In StackState, different function types complete different tasks. Depending on the function type, it may be possible to specify [asynchronous or synchronous execution](#asynchronous-and-synchronous-execution) when creating a custom function. Some default functions are implemented as [native functions](#native-functions). 
 
-| Function type | Synchronous execution | Asynchronous execution | Native function |
+| Function type | Synchronous execution | Asynchronous execution | Native functions |
 | :--- | :---: | :---: | :--- |
 | [Propagation functions](/develop/developer-guides/custom-functions/propagation-functions.md#propagation-functions) | ✅ | ✅ | ✅ |
 | [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md) | ✅ | ✅ | - |
