@@ -2,7 +2,7 @@
 
 ## Overview
 
-The StackState API-Integration Agent allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other integrations with 
+StackState Agent V1, also referred to as the API-Integration Agent, allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other integrations with 
 
 The StackState API-Integration Agent is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
