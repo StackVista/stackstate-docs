@@ -25,26 +25,16 @@ The StackState Agent V2 provides the following functionality:
 
 To monitor your ECS containers and tasks run the agent as a container on every EC2 instance in your ECS cluster.
 
-Download the manifest [stackstate-agent-v2-ecs.json](/api/stackpack/stackstate-agent-v2/resources/{{stackPackVersion}}/stackstate-agent-v2-ecs.json)
-(or [stackstate-agent-v2-ecs-amazon-linux.json](/api/stackpack/stackstate-agent-v2/resources/{{stackPackVersion}}/stackstate-agent-v2-ecs-amazon-linux.json) if you are using an original Amazon Linux AMI)
-and edit it providing the following configuration parameters:
-
-| Parameter | Mandatory | Default Value | Description |
-|-----------|-----------|---------------|-------------|
-| `AGENT_VERSION` | yes | | Version of the [StackState Agent V2](https://hub.docker.com/r/stackstate/stackstate-agent-2/tags), __must be >= 2.0.3__ |
-| `STS_API_KEY` | yes | | {{config.apiKey}}  |
-| `STS_STS_URL` | yes | | `{{config.baseUrl}}/stsAgent` |
-| `STS_PROCESS_AGENT_URL` | yes | | `{{config.baseUrl}}/stsAgent` |
-| `STS_APM_URL` | yes | | `{{config.baseUrl}}/stsAgent` |
-| `STS_SKIP_SSL_VALIDATION` | no | False | Set to true if self signed certificates are used |
+Download the manifest from the StackState UI page **StackPacks** > **AWS ECS** and edit it providing the configuration parameters provided there.
 
 Once the manifest is ready, the agent task can be registered with the following command:
 
-    aws ecs register-task-definition --cli-input-json file://path/to/stackstate-agent-v2-ecs.json
-
+```
+aws ecs register-task-definition --cli-input-json file://path/to/stackstate-agent-v2-ecs.json
+```
 
 The agent should be loaded on one container on each EC2 instance.
-The way to achieve this is to run agent as a [Daemon Service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler_daemon).
+The way to achieve this is to run agent as a [Daemon Service \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler_daemon).
 
 Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
 
@@ -58,7 +48,7 @@ Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
 
 #### Integrate with Java traces
 
-When used in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client](/#/stackpacks/stackstate-agent-v2/java) to allow automatic merging of components within StackState
+When used in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client](/stackpacks/integrations/java-apm.md) to allow automatic merging of components within StackState
 make sure to configure you app to use the host’s pid namespace:
 
 ```
@@ -75,7 +65,7 @@ Process blacklist can be tuned specifying values for rule that will include othe
 
 | Parameter | Mandatory | Default Value | Description |
 |-----------|-----------|---------------|-------------|
-| `STS_PROCESS_BLACKLIST_PATTERNS` | no | [see github](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go) | A list of regex patterns that will exclude a process if matched |
+| `STS_PROCESS_BLACKLIST_PATTERNS` | no | [see GitHub](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go) | A list of regex patterns that will exclude a process if matched |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | no | 0 | Number of processes to report that have a high CPU usage |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | no | 0 | Number of processes to report that have a high IO read usage |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | no | 0 | Number of processes to report that have a high IO write usage |
@@ -83,7 +73,7 @@ Process blacklist can be tuned specifying values for rule that will include othe
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_CPU_THRESHOLD` | no |  | Threshold that enables the reporting of high CPU usage processes |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | no |  | Threshold that enables the reporting of high Memory usage processes |
 
-Certain feature of the agent can be turned of if not needed:
+Certain feature of the agent can be turned off if not needed:
 
 | Parameter | Mandatory | Default Value | Description |
 |-----------|-----------|---------------|-------------|

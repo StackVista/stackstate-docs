@@ -115,7 +115,7 @@
   * [💠 VMWare vSphere](stackpacks/integrations/vsphere.md)
   * [Apache Tomcat](stackpacks/integrations/agent_v2/apache-tomcat.md)
   * [AWS ECS](stackpacks/integrations/agent_v2/aws-ecs.md)  
-  * [AWS X-ray](stackpacks/integrations/agent_v2/aws-x-ray.md)  
+  * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)  
   * [Azure](stackpacks/integrations/azure.md)
   * [CentOS](stackpacks/integrations/agent_v2/centos.md)
   * [Cloudera](stackpacks/integrations/cloudera.md)

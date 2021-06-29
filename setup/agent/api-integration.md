@@ -69,7 +69,7 @@ Install the StackState API-Integration Agent by using the following sequence of 
 If you need further assistance, our [support team](https://support.stackstate.com/hc/en-us) will be glad to help.
 
 
-## Start / stop / restart the StackState Agent
+## Start / stop / restart the Agent
 
 {% hint style="info" %}
 * Commands require elevated privileges.

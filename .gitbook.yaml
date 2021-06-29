@@ -217,3 +217,5 @@ redirects:
 # 4.4 docs
 
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
+  stackpacks/integrations/api-integration: ./setup/agent/api-integration.md
+  stackpacks/integrations/google-analytics: ./stackpacks/integrations/
