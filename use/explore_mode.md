@@ -27,7 +27,7 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ![View Filters](../.gitbook/assets/v43_view_filters.png)
 
-You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](view_filters.md).
+You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](filters.md).
 
 ## Save filters as a view
 
@@ -37,7 +37,7 @@ When you change the displayed components using a filter, the **Save view** butto
 
 ## See also
 
-* [Filtering data](view_filters.md)
+* [Filtering data](filters.md)
 * [StackState perspectives](introduction-to-stackstate/perspectives.md)
 * [Working with StackState Views](views.md)
 

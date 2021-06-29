@@ -4,7 +4,7 @@
 
 StackState will track a single health state for a given topology element (components and relations) based on information available from the different health checks attached to it. Health checks can be calculated by either [StackState](#stackstate-health-checks) or an [external monitoring system](#external-monitoring-system).
 
-## Health state
+## Element health state
 
 A topology element in StackState can have any of the health states listed below:
 
@@ -17,7 +17,7 @@ The element health state is calculated as the most severe state reported by a he
 
 ![Health states](/.gitbook/assets/health-states.svg)
 
-## Health Checks
+## Element health checks
 
 Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by a health check attached to it.
 
@@ -33,6 +33,24 @@ Health data from external monitoring systems can be synchronized to StackState a
 
 Existing StackPacks will provide health synchronization out of the box. Advanced users can also [set up a custom health synchronization](../../configure/health/health-synchronization.md).
 
+## View health state
+
+A view can also report a health state as one of the same four colours:
+
+* Green - `CLEAR` - There is nothing to worry about.
+* Orange - `DEVIATING` - Something may require your attention.
+* Red - `CRITICAL` - Attention is needed right now, because something is broken.
+* Gray - `UNKNOWN` - View health state reporting is disabled.
+
+The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](/use/health-state-and-event-notifications/configure-view-health.md).
+
+You can check the view health state in the following places in the StackState UI:
+
+* **Health state of all views**: The view overview screen lists all views together with their health state.
+* **Health state of starred views**: The main menu lists all starred views together with their health state.
+* **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the View Details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
+
+![View health state in main menu](../.gitbook/assets/v43_view_health_main_menu.png)
 
 ## See also
 

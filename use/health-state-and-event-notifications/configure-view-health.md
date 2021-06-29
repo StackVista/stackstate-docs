@@ -12,17 +12,6 @@ StackState can reduce this noise by looking at the overall health state of a **v
 
 ![Views list with view health state](../../.gitbook/assets/v43_views_list.png)
 
-## View health state
-
-A view can report its health state in one of four colours:
-
-* Green - CLEAR
-* Orange - DEVIATING
-* Red - CRITICAL
-* Gray - View health state reporting disabled. See [configure view health state](#configure-view-health-state).
-
-When the View health state changes, it generates a `ViewHealthStateChangedEvent`. This event can be used to trigger an [event notification](/use/health-state-and-event-notifications/send-event-notifications.md), such as an e-mail or Slack message.
-
 ## Configure view health state
 
 View health state is calculated by a **view state configuration function**. To configure a view to report its health state:
@@ -43,7 +32,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 ## React to view state changes
 
-You can [set up event handlers](send-event-notifications.md) to trigger event notifications and actions whenever a view state changes.
+When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](/use/health-state-and-event-notifications/send-event-notifications.md), such as an e-mail or Slack message.
 
 ## View health state configuration functions
 

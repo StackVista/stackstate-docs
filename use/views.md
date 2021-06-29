@@ -6,7 +6,7 @@ description: Bookmark and monitor parts of your IT landscape with views
 
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
-* The [View filters](view_filters.md):
+* The [View filters](filters.md):
   * Topology filters are used to add elements \(components and relations\) to the view.
   * Events and Traces filters refine the traces and events displayed.
 * Topology visualization settings.
@@ -61,6 +61,8 @@ You can check the view health state in the following places in the StackState UI
 
 ![View health state in main menu](../.gitbook/assets/v43_view_health_main_menu.png)
 
+When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](/use/health-state-and-event-notifications/send-event-notifications.md), such as an e-mail or Slack message.
+
 ### Time travel with the view health state
 
 The health state of the current view over time is indicated by the colour of the **Health** line in the timeline at the bottom of the screen. When the playhead on the timeline is moved to time travel to a moment in the past, the health state shown for the current view will change to match the state that it was at the selected point in time. The health state reported in the StackState main menu, however, will always report the current health state of all views.
@@ -77,7 +79,7 @@ Read more about how to [configure the view health state](health-state-and-event-
 By default all views are visible to everybody. You can star a view to add it to your personal main menu for easy access. For securing/hiding views please refer to the [RBAC documentation](../configure/security/rbac/role_based_access_control.md).
 {% endhint %}
 
-To create a new view, navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the [View filters](view_filters.md), a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
+To create a new view, navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the [View filters](filters.md), a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
 
 In the dialog the following options appear:
 

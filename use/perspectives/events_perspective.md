@@ -42,11 +42,11 @@ Click on an event to display an overview of the event details in the **Event pro
 
 ### Filter by source component
 
-The [topology filters](../view_filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
+The [topology filters](../filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
 
 ### Filter by event properties
 
-The [event filters](../view_filters.md#filter-events) in the **View Filters** pane on the left side of the StackState UI allow you to refine the events displayed based on event category or type, source system and tags.
+The [event filters](../filters.md#filter-events) in the **View Filters** pane on the left side of the StackState UI allow you to refine the events displayed based on event category or type, source system and tags.
 
 ### Filter by timestamp
 
@@ -74,7 +74,7 @@ For example:
 ## See also
 
 * [Use events to trigger event notifications and actions](../health-state-and-event-notifications/send-event-notifications.md)
-* [Filtering data](../view_filters.md)
+* [Filtering data](../filters.md)
 * [Working with StackState views](../views.md)
 * [Send events to StackState from external sources](../../configure/telemetry/send_telemetry.md#events)
 

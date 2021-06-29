@@ -73,8 +73,8 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
 * Authentication settings are now directly configurable on the Helm chart. STAC-11237
 * Added permission `manage-event-handlers` to [protect creation of event handlers](../../configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
-* Allow [filtering Events](../../use/view_filters.md#filter-events) by source. STAC-10644
-* Allow [filtering Events](../../use/view_filters.md#filter-events) by category. STAC-10643
+* Allow [filtering Events](../../use/filters.md#filter-events) by source. STAC-10644
+* Allow [filtering Events](../../use/filters.md#filter-events) by category. STAC-10643
 * Events of type Anomaly now display a [metric chart including the anomaly](../../use/problems/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
 * Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](../../configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
 * Added ability to filter on labels in the Component Details pane. STAC-11824
