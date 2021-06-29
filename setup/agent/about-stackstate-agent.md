@@ -6,9 +6,9 @@ The StackState Agent functions as a collector and gateway. It connects to extern
 
 ## StackState Agent architecture
 
-The StackState Agent can run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
+StackState Agent V2 can run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
-To collect data from Kubernetes and OpenShift clusters, the dedicated Agent, cluster Agent and ClusterCheck Agents can be deployed.
+To collect data from Kubernetes and OpenShift clusters, the Agent, cluster Agent and ClusterCheck Agents can be deployed.
 
 ![StackState Agent architecture](/.gitbook/assets/stackstate-agent.svg)
 
@@ -22,11 +22,11 @@ Documentation for the available StackState integrations, including how to config
 
 ## Open source
 
-The StackState Agent is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
 ## Release notes
 
-Release notes for the StackState Agent can be found on GitHub at: [https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md)
+Release notes for StackState Agent V2 can be found on GitHub at: [https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md)
 
 ## See also
 
