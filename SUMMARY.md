@@ -35,7 +35,7 @@
   * [Kubernetes](setup/agent/kubernetes.md)
   * [Linux](setup/agent/linux.md)    
   * [Windows](setup/agent/windows.md)
-  * [Agent V1 (Legacy)](setup/agent/api-integration.md)
+  * [Agent V1 (Legacy)](setup/agent/agent-v1.md)
 * [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)
     * [Kubernetes backup](setup/data-management/backup_restore/kubernetes_backup.md)

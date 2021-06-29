@@ -18,7 +18,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [AWS (Legacy)](../../stackpacks/integrations/aws/aws-legacy.md) |  | [**5.2.2**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | 5.0.2 |
 | [AWS](../../stackpacks/integrations/aws/aws.md) | [**1.0.0**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | - | - |
 | [Azure](../../stackpacks/integrations/azure.md) |  | [**4.1.1**](../../stackpacks/integrations/azure.md#release-notes) | 4.0.2 |
-| [API integration](../agent/api-integration.md) |  | [**2.4.1**](../agent/api-integration.md#release-notes) | 2.3.1 |
+| [API integration](../agent/agent-v1.md) |  | [**2.4.1**](../agent/agent-v1.md#release-notes) | 2.3.1 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) |  | [**1.3.1**](../../stackpacks/integrations/cloudera.md#release-notes) | 1.2.1 |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) |  | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) |  | [**1.1.1**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.0.0 |
