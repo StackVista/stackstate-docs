@@ -15,7 +15,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
-* Data is retrieved by the deployed [StackState Agents](#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](/setup/agent/kubernetes.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -44,6 +44,18 @@ If the Agent StackPack is not already installed, this will be automatically inst
 
 ### Deploy the StackState Agent and Cluster Agent
 
+For the Kubernetes integration to retrieve topology, events and metrics data, you will need to have the following installed on your Kubernetes cluster:
+
+* A StackState Agent on each node in the cluster
+* StackState Cluster Agent on one node
+* kube-state-metrics
+
+{% hint style="info" %}
+To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
+{% endhint %}
+
+
+Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md).
 
 ### Status
 
@@ -245,7 +257,8 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## See also
 
-* [Agent StackPack](agent.md)
+* [Deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md)
+* [StackState Agent V2 StackPack](agent.md)
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 * [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
 * [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/)
