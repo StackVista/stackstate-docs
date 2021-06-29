@@ -44,7 +44,7 @@ A view can also report a health state as one of the same four colours:
 
 The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](/use/health-state-and-event-notifications/configure-view-health.md).
 
-![Health states](/.gitbook/assets/view-health-states.svg)
+![Health states](/.gitbook/assets/view-health-state.svg)
 
 You can check the view health state in the following places in the StackState UI:
 
