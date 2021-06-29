@@ -22,7 +22,7 @@ To add a latency stream, [add a telemetry stream](../health-state-and-event-noti
 
 ![HTTP response code](../../images/telemetry/http-code.png)
 
-By default, the following response time streams a set for processes and services that serve on HTTP requests:
+By default, the following response time streams are set for processes and services that serve on HTTP requests:
 
 - HTTP total response time (s) (95th percentile)
 - HTTP 5xx error response time (s) (95th percentile)
@@ -31,9 +31,30 @@ By default, the following response time streams a set for processes and services
 
 ### Traffic
 
+Similar to measuring the latency, the StackState agent supports the `http_requests_per_second` telemetry stream. The same response codes and predefined groups are also supported for the traffic stream.
+
+![HTTP total requests per second](../../images/telemetry/http-req-sec.png)
+
+By default, the following request rate streams are set for processes and services that serve on HTTP requests:
+
+- HTTP total rate (req/s)
+- HTTP 5xx error rate (req/s)
+- HTTP 4xx error rate (req/s)
+- HTTP Success rate (req/s)
 
 ### Errors
 
+StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can add a check [as explained here](#-checks).
+
+TODO: Add image with `HTTP 5xx error rate (req/s)` telemetry stream.
 
 ### Saturation
+
+There are many ways StackState can help you monitor the saturation of your system, for example:
+
+- HTTP Requests per second.
+- CPU usage
+- Memory usage
+
+## Checks
 
