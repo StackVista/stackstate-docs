@@ -15,10 +15,6 @@ StackState Agent V2 will retrieve data from the Windows host it is running on an
 * [StackState Agent](/setup/agent/windows.md) installed on a Windows host that is able to connect to StackState.
 * The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
-### Install
-
-TODO: Install agent v2 stackpack?
-
 ## Data retrieved
 
 StackState Agent will synchronize the following data from the host it is running on with StackState:

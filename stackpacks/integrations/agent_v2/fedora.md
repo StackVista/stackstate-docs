@@ -14,10 +14,6 @@ StackState Agent V2 will retrieve data from the Fedora host it is running on and
  
 * [StackState Agent](/setup/agent/linux.md) installed on a Fedora host that is able to connect to StackState.
 
-### Install
-
-TODO: Install agent v2 stackpack?
-
 ## Data retrieved
 
 StackState Agent will synchronize the following data from the host it is running on with StackState:

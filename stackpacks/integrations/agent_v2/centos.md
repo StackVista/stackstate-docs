@@ -14,10 +14,6 @@ StackState Agent V2 will retrieve data from the CentOS host it is running on and
  
 * [StackState Agent V2](/setup/agent/linux.md) installed on a CentOS host that is able to connect to StackState.
 
-### Install
-
-TODO: Install agent v2 stackpack?
-
 ## Data retrieved
 
 StackState Agent will synchronize the following data from the host it is running on with StackState:
@@ -27,7 +23,6 @@ StackState Agent will synchronize the following data from the host it is running
 - For OS versions with a Network Tracer: Network connections between processes and containers including network traffic telemetry. See the [supported Linux versions](/setup/agent/linux.md#supported-linux-versions) for details.
 
 ## See also
-
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
 * [Deploy StackState Agent on Linux](/setup/agent/linux.md)

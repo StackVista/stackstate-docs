@@ -56,10 +56,6 @@ Read how to [enable cluster checks](#configure-cluster-checks).
 
 ## Setup
 
-### Supported Kubernetes versions
-
-TODO: Add supported k8s versions
-
 ### Install
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
@@ -154,10 +150,6 @@ To integrate with other external services, a separate instance of the [StackStat
 
 
 ## Commands
-
-### Start, stop or restart the Agent
-
-TODO: Commands to start/stop/restart
 
 ### Status and information
 
