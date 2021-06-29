@@ -32,10 +32,9 @@ Release notes for the StackState Agent can be found on GitHub at: [https://githu
 
 * [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
 * [StackState integrations](/stackpacks/integrations/)  
-* Deploy StackState Agent V2 on:
+* **Deploy StackState Agent V2 on:**
     - [Docker](/setup/agent/docker.md)
     - [Kubernetes](/setup/agent/kubernetes.md)
     - [Linux](/setup/agent/linux.md)
     - [Windows](/setup/agent/windows.md)
-* [StackState Agent V1 (Legacy)](/setup/agent/agent-v1.md)  
-* [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [StackState Agent V1 (Legacy)](/setup/agent/agent-v1.md)
