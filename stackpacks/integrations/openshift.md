@@ -105,7 +105,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm install command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, consider enabling [cluster checks](#cluster-checks) to run the kubernetes_state check in a StackState ClusterCheck Agent pod.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, consider enabling [cluster checks](#cluster-checks) to run the kubernetes_state check in a StackState ClusterCheck Agent pod.
 
 {% hint style="info" %}
 **stackstate.cluster.authToken**
@@ -115,7 +115,7 @@ In addition to the variables included in the provided helm command, it is also r
 For example:
 
 ```text
-helm install \
+helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
 --set-string 'stackstate.apiKey'='<your-api-key>' \
