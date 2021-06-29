@@ -44,13 +44,15 @@ A view can also report a health state as one of the same four colours:
 
 The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](/use/health-state-and-event-notifications/configure-view-health.md).
 
+![Health states](/.gitbook/assets/view-health-states.svg)
+
 You can check the view health state in the following places in the StackState UI:
 
 * **Health state of all views**: The view overview screen lists all views together with their health state.
 * **Health state of starred views**: The main menu lists all starred views together with their health state.
 * **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the View Details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
 
-![View health state in main menu](../.gitbook/assets/v43_view_health_main_menu.png)
+![View health state in main menu](/.gitbook/assets/v43_view_health_main_menu.png)
 
 ## See also
 
