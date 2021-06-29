@@ -200,7 +200,6 @@ redirects:
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
   integrations/agent/: ./stackpacks/integrations/agent.md
   setup/authentication: ./configure/security/authentication/authentication_options.md
-  stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
@@ -217,5 +216,8 @@ redirects:
 # 4.4 docs
 
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
-  stackpacks/integrations/api-integration: ./setup/agent/api-integration.md
   stackpacks/integrations/google-analytics: ./stackpacks/integrations/
+  use/health-state-and-event-notifications/anomaly-detection-with-baselines: ./use/introduction-to-stackstate/anomaly-detection.md
+  develop/developer-guides/custom-functions/baseline-functions: develop/developer-guides/custom-functions/README.md
+  stackpacks/integrations/api-integration: ./setup/agent/agent-v1.md
+  stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md
