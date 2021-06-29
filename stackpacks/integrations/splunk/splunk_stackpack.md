@@ -11,11 +11,11 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 ![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
-* The StackState API-Integration Agent periodically connects to the configured Splunk instance to execute Splunk saved searches:
+* StackState Agent V1 periodically connects to the configured Splunk instance to execute Splunk saved searches:
   * If the Splunk Topology StackPack is installed, topology data is retrieved using the Splunk saved search configured in the Splunk topology Agent check.
   * Metrics data is retrieved using the Splunk saved search configured in the Splunk metrics Agent check.
   * Events data is retrieved using the Splunk saved search configured in the Splunk events Agent check.
-* The StackState API-Integration Agent pushes retrieved data and events to StackState:
+* StackState Agent V1 pushes retrieved data and events to StackState:
   * The API Integration StackPack is required for all Splunk data.
   * Splunk topology data also requires the Splunk Topology StackPack to be installed.
 * StackState translates incoming data:
@@ -27,7 +27,7 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 ### Prerequisites
 
-* API-Integration Agent installed on a machine that can connect to both Splunk and StackState.
+* StackState Agent V1 installed on a machine that can connect to both Splunk and StackState.
 * A running Splunk instance.
 * A Splunk user account with access to Splunk saved searches. The user should have the capability `search` to dispatch and read Splunk saved searches.
 
@@ -35,7 +35,7 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 #### Splunk metrics and events
 
-To retrieve data from Splunk, the [API Integration StackPack](/setup/agent/agent-v1.md) must be installed in your StackState instance. This is required for StackState to communicate with the API-Integration Agent and, once the required Splunk Agent checks have been configured, will directly make Splunk metrics and events available in StackState.
+To retrieve data from Splunk, the [API Integration StackPack](/setup/agent/agent-v1.md) must be installed in your StackState instance. This is required for StackState to communicate with StackState Agent V1 and, once the required Splunk Agent checks have been configured, will directly make Splunk metrics and events available in StackState.
 
 #### Splunk topology
 
@@ -48,7 +48,7 @@ Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt;
 
 ### Configure
 
-The StackState API-Integration Agent must be configured with a Splunk Agent check for each type of data you want to retrieve from Splunk (topology, metrics and/or events). 
+StackState Agent V1 must be configured with a Splunk Agent check for each type of data you want to retrieve from Splunk (topology, metrics and/or events). 
 
 Details of how to configure each of these checks can be found on the pages listed below:
 
@@ -58,7 +58,7 @@ Details of how to configure each of these checks can be found on the pages liste
 
 ### Authentication
 
-Each Splunk check configured on the API-Integration Agent must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
+Each Splunk check configured on StackState Agent V1 must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
 
 Two authentication mechanisms are available:
 
@@ -93,7 +93,7 @@ instances:
 {% endtab %}
 {% endtabs %}
 
-To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each API-Integration Agent Splunk check configuration file:
+To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V1 Splunk check configuration file:
 
 * **name** - Name of the user who will use this token.
 * **initial_token** - An initial, valid token. This token will be used once only and then replaced with a new generated token requested by the integration.
@@ -109,7 +109,7 @@ The first time the check runs, the configured `initial_token` will be exchanged 
 It is recommended to use [token-based authentication](#token-based-authentication).
 {% endhint %}
 
-With HTTP basic authentication, the `username` and `password` specified in the API-Integration Agent check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each API-Integration Agent Splunk check configuration file.
+With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V1 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V1 Splunk check configuration file.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
@@ -172,7 +172,7 @@ The StackState Splunk integration does not retrieve any trace data.
 
 ### REST API endpoints
 
-The StackState API-Integration Agent connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
+StackState Agent V1 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
 
 | Endpoint | Description |
 |:--- |:--- |
@@ -215,7 +215,7 @@ For the Splunk events and metrics synchronizations, see the [API Integration Sta
 
 ## See also
 
-Configure the StackState API-Integration Agent Splunk checks:
+Configure the StackState Agent V1 Splunk checks:
 * [Splunk topology check configuration](/stackpacks/integrations/splunk/splunk_topology.md)
 * [Splunk events check configuration](/stackpacks/integrations/splunk/splunk_events.md)
 * [Splunk metrics check configuration](/stackpacks/integrations/splunk/splunk_metrics.md)

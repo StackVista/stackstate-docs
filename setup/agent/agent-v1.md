@@ -4,15 +4,15 @@
 
 StackState Agent V1, also referred to as the API-Integration Agent, allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other integrations with 
 
-The StackState API-Integration Agent is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
+StackState Agent V1 is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
 ## Installation
 
-Install the StackState API-Integration Agent by using the following sequence of steps:
+Install StackState Agent V1 by using the following sequence of steps:
 
 {% tabs %}
 {% tab title="Debian, Ubuntu" %}
-1. Download the [API-Integration Agent Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
+1. Download the [StackState Agent V1 Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb'
@@ -39,7 +39,7 @@ Install the StackState API-Integration Agent by using the following sequence of 
 {% endtab %}
 
 {% tab title="Amazon linux, CentOS, Fedora, Red Hat" %}
-1. Download the [API-Integration Agent RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
+1. Download the [StackState Agent V1 RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget 'https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm'
@@ -110,13 +110,13 @@ sudo /etc/init.d/stackstate-agent restart
 
 {% tabs %}
 {% tab title="Linux" %}
-To check if the StackState API-Integration Agent is running:
+To check if StackState Agent V1 is running:
 
 ```text
 sudo /etc/init.d/stackstate-agent status
 ```
 
-To receive information about the StackState API-Integration Agent state:
+To receive information about the StackState Agent V1 state:
 
 ```
 sudo /etc/init.d/stackstate-agent info
@@ -140,7 +140,7 @@ To check if the StackState Agent is running and receive information about the Ag
 
 ## Troubleshooting
 
-Try running the [info command](#status-and-information) to see the state of the API-Integration Agent.
+Try running the [info command](#status-and-information) to see the state of StackState Agent V1.
 
 Logs for the subsystems are in the following files:
 
