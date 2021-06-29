@@ -1,19 +1,23 @@
 ---
-description: StackState core integration
+description: StackState core integration (legacy)
 ---
 
-# AWS
+# AWS V1 (Legacy)
+
+{% hint style="info" %}
+The AWS (Legacy) StackPack has been deprecated. It is recommended to use the [new AWS integration](/stackpacks/integrations/aws/aws.md).
+{% endhint %}
 
 ## Overview
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
 
-![Data flow](../../.gitbook/assets/stackpack-aws.png)
+![Data flow](../../../.gitbook/assets/stackpack-aws.png)
 
 * Three AWS Lambdas collect topology data from AWS and push this to StackState:
   * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
   * `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
-  * `stackstate-topo-publisher` publishes [retrieved topology data](aws.md#topology) from a Kinesis stream to StackState.
+  * `stackstate-topo-publisher` publishes [retrieved topology data](aws-legacy.md#topology) from a Kinesis stream to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
 * StackState maps retrieved telemetry \(metrics\) onto the associated AWS components and relations.
@@ -30,7 +34,7 @@ To set up the StackState AWS integration, you need to have:
   * `cloudwatch:ListMetrics`
 
     A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
-* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws.md#aws-iam-policies), below.
+* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws-legacy.md#aws-iam-policies), below.
 
 ### Proxy URL
 
@@ -52,8 +56,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
 
-* [Full install](aws.md#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [Minimal install](aws.md#minimal-install) - changes will be picked up only at a configured interval.
+* [Full install](aws-legacy.md#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
+* [Minimal install](aws-legacy.md#minimal-install) - changes will be picked up only at a configured interval.
 
 #### Full install
 
@@ -160,7 +164,7 @@ The following AWS service data is available in StackState as components:
 
 |  |  |  |
 | :--- | :--- | :--- |
-| API Gateway Resource | API Gateway Stage | API Getaway Method |
+| API Gateway Resource | API Gateway Stage | API Gateway Method |
 | AutoScaling Group | CloudFormation Stack | DynamoDB Stream |
 | DynamoDB Table | EC2 Instance | ECS Cluster |
 | ECS Service | ECS Task | Firehose Delivery Stream |
@@ -220,7 +224,7 @@ The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which
 
 ### AWS views in StackState
 
-When the AWS integration is enabled, three [views](../../use/views.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../../use/views.md) will be created in StackState for each instance of the StackPack.
 
 * **AWS - \[instance\_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 * **AWS - \[instance\_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
@@ -228,7 +232,7 @@ When the AWS integration is enabled, three [views](../../use/views.md) will be c
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 
