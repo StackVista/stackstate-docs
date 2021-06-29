@@ -1,18 +1,12 @@
----
-description: StackState core integration
----
+# API integration Agent (Legacy)
 
-# API integration
+## Overview
 
-## What is the API-Integration StackPack?
-
-The StackState API-Integration StackPack enables StackState synchronizations through the StackState API-Integration Agent. The API-Integration Agent allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to collect topology, metrics and events data.
+The StackState API-Integration Agent allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other integrations with 
 
 The StackState API-Integration Agent is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
 ## Installation
-
-To install the API-Integration StackPack, go to the StackState UI page **StackPacks** > **Integrations** > **API-Integration** and click INSTALL.
 
 Install the StackState API-Integration Agent by using the following sequence of steps:
 
@@ -156,42 +150,4 @@ Logs for the subsystems are in the following files:
 - `/var/log/stackstate/forwarder.log`
 
 If you are still having trouble, contact our support team on the [StackState support site](http://support.stackstate.com/).
-
-## Release notes
-
-**API Integration StackPack v2.4.1 \(2021-04-02\)**
-
-* Improvement: Update documentation.
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
-* Improvement: StackState min version bumped to 4.3.0
-
-**API Integration StackPack v3.0.2 \(2021-03-29\)**
-
-* Bugfix: Update the minimum required StackState version to 4.3.0.
-
-**API Integration StackPack v3.0.1 \(2021-03-25\)**
-
-* Improvement: Update documentation.
-
-**API Integration StackPack v3.0.0 \(2021-03-25\)**
-
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.4.3
-
-**API Integration StackPack v2.3.1 \(2020-08-18\)**
-
-* Features: Introduced the Release notes pop up for customer
-* Features: Use the latest StackState Agent V1
-
-**API Integration StackPack v2.3.0 \(2020-08-04\)**
-
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-* Improvement: Replace resolveOrCreate with getOrCreate.
-
-**API Integration StackPack v2.2.0 \(2020-06-04\)**
-
-* Features: Token based authentication supported for Splunk.
-* Features: Updated Splunk integration documents for metrics, events and topology.
-* Features: Short link for doc site updated.
 

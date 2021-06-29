@@ -7,7 +7,7 @@ stackpack-name: Splunk events, metrics and topology
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics and topology data from Splunk to StackState. The integration uses the [API Integration StackPack](/stackpacks/integrations/api-integration.md) for events and metrics data, and the Splunk Topology StackPack for topology data.
+The StackState Splunk integration synchronizes events, metrics and topology data from Splunk to StackState. The integration uses the [API Integration StackPack](/setup/agent/api-integration.md) for events and metrics data, and the Splunk Topology StackPack for topology data.
 
 ![Data flow](/.gitbook/assets/stackpack-splunk.svg)
 
@@ -35,11 +35,11 @@ The StackState Splunk integration synchronizes events, metrics and topology data
 
 #### Splunk metrics and events
 
-To retrieve data from Splunk, the [API Integration StackPack](/stackpacks/integrations/api-integration.md) must be installed in your StackState instance. This is required for StackState to communicate with the API-Integration Agent and, once the required Splunk Agent checks have been configured, will directly make Splunk metrics and events available in StackState.
+To retrieve data from Splunk, the [API Integration StackPack](/setup/agent/api-integration.md) must be installed in your StackState instance. This is required for StackState to communicate with the API-Integration Agent and, once the required Splunk Agent checks have been configured, will directly make Splunk metrics and events available in StackState.
 
 #### Splunk topology
 
-To retrieve topology data from Splunk, in addition to the [API Integration StackPack](/stackpacks/integrations/api-integration.md), you will also need to install the **Splunk Topology StackPack**. 
+To retrieve topology data from Splunk, in addition to the [API Integration StackPack](/setup/agent/api-integration.md), you will also need to install the **Splunk Topology StackPack**. 
 
 Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
@@ -211,7 +211,7 @@ For instructions on how to disable the Splunk Agent checks, see:
 
 The [Splunk Topology StackPack release notes](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) are available on GitHub.
 
-For the Splunk events and metrics synchronizations, see the [API Integration StackPack release notes](/stackpacks/integrations/api-integration.md#release-notes).
+For the Splunk events and metrics synchronizations, see the [API Integration StackPack release notes](/setup/agent/api-integration.md#release-notes).
 
 ## See also
 

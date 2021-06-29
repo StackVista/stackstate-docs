@@ -37,5 +37,5 @@ Release notes for the StackState Agent can be found on GitHub at: [https://githu
     - [Kubernetes](/setup/agent/kubernetes.md)
     - [Linux](/setup/agent/linux.md)
     - [Windows](/setup/agent/windows.md)
-* [StackState API-Integration Agent](/stackpacks/integrations/api-integration.md)  
+* [StackState API-Integration Agent](/setup/agent/api-integration.md)  
 * [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent)
