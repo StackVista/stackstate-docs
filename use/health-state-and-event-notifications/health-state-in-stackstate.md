@@ -48,9 +48,11 @@ The view health state is calculated based on the health of components and relati
 
 You can check the view health state in the following places in the StackState UI:
 
-* **Health state of all views**: The view overview screen lists all views together with their health state.
-* **Health state of starred views**: The main menu lists all starred views together with their health state.
-* **Health state of the current view**: The health state of the current view is visible in the top bar and also next to the view name in the View Details pane on the right of the screen. Historical health state information for the current view can be seen in the timeline **Health** line at the bottom of the screen.
+| | |
+|:---|:---|
+| **Current view** | The health state of the current view is visible in the top bar and also next to the view name in the View Details pane on the right of the screen. Historical health state information for a view can be seen in the timeline **Health** line at the bottom of the screen. |
+| **Starred views** | Starred views are listed in the StackState main menu together with their health state. |
+| **All views** | The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu. |
 
 ![View health state in main menu](/.gitbook/assets/v43_view_health_main_menu.png)
 
