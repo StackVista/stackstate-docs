@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-The StackState Agent StackPack works with the [StackState Agent](/setup/agent) to synchronize topology, metrics, events and trace data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
+The StackState Agent StackPack works with [StackState Agent V2](/setup/agent) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
 
 ## Setup
 
@@ -26,7 +26,7 @@ To find the status of an installed Agent, use the status commands provided in th
 
 When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 
-To upgrade the StackState Agent, see the [StackState Agent documentation](/setup/agent/).
+To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
 
 ## Integration details
 
@@ -47,19 +47,15 @@ Docker:
 
 When additional checks have been enabled on the Agent, data from other external systems will be integrated. Refer to the individual integration pages for details of the data retrieved from each system.
 
-### Rest API endpoints
-
-### Agent views in StackState
-
-### Open source
-
-
-
 ## Troubleshooting
 
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
+
+Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.
+
+To uninstall StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
 
 ## Release notes
 

@@ -96,7 +96,7 @@
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
   * [About integrations](stackpacks/integrations/about_integrations.md)
-  * [💠 StackState Agent](stackpacks/integrations/agent.md)
+  * [💠 StackState Agent V2](stackpacks/integrations/agent.md)
   * [💠 AWS](stackpacks/integrations/aws/README.md)  
     * [AWS](stackpacks/integrations/aws/aws.md)  
     * [AWS Policies](stackpacks/integrations/aws/aws-policies.md)  
