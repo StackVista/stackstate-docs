@@ -12,13 +12,24 @@ The StackState Agent StackPack works with [StackState Agent V2](/setup/agent) to
 
 ### Prerequisites
 
-
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState and any system you will integrate with.
 
 ### Install
 
 Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.
 
 ### Configure
+
+Refer to the integration pages to find configuration details for each specific external systems. The integrations included in the StackState Agent StackPack are:
+
+* [Apache TomCat](/stackpacks/integrations/agent_v2/apache-tomcat.md)
+* [AWS ECS](/stackpacks/integrations/agent_v2/aws-ecs.md)
+* [DotNet APM](/stackpacks/integrations/agent_v2/dotnet-apm.md)
+* [Java APM](/stackpacks/integrations/agent_v2/java-apm.md)
+* [JMX](/stackpacks/integrations/agent_v2/jmx.md)
+* [MySQL](/stackpacks/integrations/agent_v2/mysql.md)
+* [PostgreSQL](/stackpacks/integrations/agent_v2/postgresql.md)
+* [WMI](/stackpacks/integrations/agent_v2/wmi.md)
 
 ### Status
 
