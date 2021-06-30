@@ -1,3 +1,7 @@
+---
+description: Recommended steps to migrate an AWS (Legacy) integration to the new AWS StackPack
+---
+
 # Migration guide
 
 ## Overview
@@ -21,7 +25,9 @@ To migrate AWS accounts from the AWS (Legacy) StackPack to the new AWS StackPack
 7. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 8. Repeat steps 2 to 7 for each account you want to migrate.
 
-During migration, topology data from the new AWS integration and the AWS (Legacy) integration can be identified by the labels attached:
+## Labels in StackState
+
+During migration, topology data from the new AWS integration and the AWS (Legacy) integration can be identified by the labels attached to components in StackState:
 
 | Label              | Integration              |
 | :----------------- | :----------------------- |
