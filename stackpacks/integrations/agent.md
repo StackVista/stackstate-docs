@@ -12,6 +12,8 @@ The StackState Agent StackPack works with [StackState Agent V2](/setup/agent) to
 
 ### Prerequisites
 
+
+
 ### Install
 
 Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.

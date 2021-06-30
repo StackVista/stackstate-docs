@@ -21,7 +21,7 @@ The SolarWinds StackPack allows near real time synchronization between SolarWind
 
 To set up the SolarWinds integration you will need to have:
 
-* [StackState Agent V2](agent.md) installed on a machine that can connect to both SolarWinds (default via TCP port 17778) and StackState.
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds (default via TCP port 17778) and StackState.
 * A running SolarWinds instance with a Network Performance Monitor (NPM) module.  
 * A SolarWinds user with access to the required [API endpoints](#rest-api-endpoints).
     - The lowest access level is sufficient.
@@ -62,7 +62,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 2. Set the following filters:
    - **solarwinds_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
    - **solarwinds_domain_values** - A list of values used by the specified `solarwinds_domain` to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
 
 ### Status
@@ -144,7 +144,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
     mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md) to apply the configuration changes.
 
 ## Release notes
 
@@ -154,7 +154,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 
 ## See also
 
-* [StackState Agent V2](agent.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [Secrets management](https://docs.stackstate.com/configure/security/secrets_management)
 * [StackState Agent integrations - SolarWinds (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)  
 * [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm)

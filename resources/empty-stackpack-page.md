@@ -43,7 +43,7 @@ To enable the ??? check and begin collecting data from ???, add the following co
      ???
      ```
 2. ???
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from ??? and sent to StackState.
 
 ### Status
@@ -119,12 +119,12 @@ To uninstall the ??? StackPack and disable the Dynatrace check:
     mv ???.d/conf.yaml ???.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md) to apply the configuration changes.
 
 ## Release notes
 
 
 ## See also
 
-* [StackState Agent V2](agent.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 

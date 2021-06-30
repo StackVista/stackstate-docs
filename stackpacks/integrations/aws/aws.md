@@ -23,7 +23,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS integration, you need to have:
 
-- [StackState Agent V2](../agent.md) installed on a machine which can connect to both AWS and StackState.
+- [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
 - An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
   - If StackState Agent is running within an AWS environment: The EC2 instance, EKS or ECS task must have an IAM role attached to it.
   - If StackState Agent is running outside an AWS account: An IAM user must be made available.
@@ -133,7 +133,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
        min_collection_interval: 60
    ```
 
-2. [Restart the StackState Agent](../agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+2. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
 ### Use an HTTP proxy 
