@@ -12,7 +12,8 @@ StackState Agent V2 will retrieve data from the host it is running on and push t
 
 ### Prerequisites
  
-* [StackState Agent](/setup/agent/docker.md) running in a Docker container that is able to connect to StackState.
+* [StackState Agent V2](/setup/agent/docker.md) running in a Docker container that is able to connect to StackState.
+* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
 ### Install
 
@@ -20,7 +21,7 @@ The Docker integration is part of the [StackState Agent StackPack](/stackpacks/i
 
 ## Data retrieved
 
-StackState Agent will synchronize the following data from the host it is running on with StackState:
+StackState Agent V2 will synchronize the following data from the host it is running on with StackState:
 
 * Hosts, processes, and containers
 * Network connections between processes/containers/services including network traffic telemetry
@@ -30,4 +31,4 @@ StackState Agent will synchronize the following data from the host it is running
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [Deploy StackState Agent on Docker](/setup/agent/docker.md)
+* [Deploy StackState Agent V2 on Docker](/setup/agent/docker.md)

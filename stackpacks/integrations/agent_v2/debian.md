@@ -12,11 +12,12 @@ StackState Agent V2 will retrieve data from the Debian host it is running on and
 
 ### Prerequisites
  
-* [StackState Agent](/setup/agent/linux.md) installed on a Debian host that is able to connect to StackState.
+* [StackState Agent V2](/setup/agent/linux.md) installed on a Debian host that is able to connect to StackState.
+* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
 ## Data retrieved
 
-StackState Agent will synchronize the following data from the host it is running on with StackState:
+StackState Agent V2 will synchronize the following data from the host it is running on with StackState:
 
 - Hosts, processes and containers.
 - Telemetry for hosts, processes and containers   
@@ -26,4 +27,4 @@ StackState Agent will synchronize the following data from the host it is running
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [Deploy StackState Agent on Linux](/setup/agent/linux.md)
+* [Deploy StackState Agent V2 on Linux](/setup/agent/linux.md)
