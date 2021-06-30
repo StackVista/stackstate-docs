@@ -4,7 +4,7 @@ Keyboard shortcuts in the StackState UI.
 
 | Keyboard shortcut | Action |
 | :---|:---|
-| `CTRL` + `SHIFT` + `F` | Open the component finder to search for a component in the Topology Perspective. |
+| `CTRL` + `SHIFT` + `F` | Search for a component by name. |
 | `CTRL` + `S`| Save changes to the current view. |
 | `CTRL` + `SHIFT` + `S` | Save as a new view. |
 | `CTRL` + `SHIFT` + `R` | Reset unsaved changes to the current view. |
