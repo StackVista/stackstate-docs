@@ -59,7 +59,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 ## Secure views with RBAC
 
-Through a combination of configuration of [permissions](../../../configure/security/rbac/rbac_permissions.md) and [scope](../../../configure/security/rbac/rbac_scopes.md), it is possible to give specific users:
+Through a combination of configuration of permissions and scope, it is possible to give specific users:
 
 * access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views
 * access to specific views and disallow them to create, modify or delete views
