@@ -78,6 +78,7 @@
     * [Traces Perspective](use/perspectives/traces-perspective.md)
     * [Telemetry Perspective](use/perspectives/telemetry-perspective.md)
   * [Analytics](use/analytics.md)
+  * [Keyboard shortcuts](use/keyboard-shortcuts.md)
 * [Health state](use/health-state-and-event-notifications/README.md)
   * [Health state in StackState](/use/health-state-and-event-notifications/health-state-in-stackstate.md)
   * [Add a health check](use/health-state-and-event-notifications/add-a-health-check.md)
