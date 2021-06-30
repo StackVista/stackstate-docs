@@ -92,5 +92,5 @@ For example, an application in vSphere with the tag `stackstate-layer:databases`
 
 ## Using Tags
 
-After you have assigned tags at the host and integration level, start using them to [create views](../../use/views/about_views.md).
+After you have assigned tags at the host and integration level, start using them to [create views](../../use/stackstate-ui/views/about_views.md).
 

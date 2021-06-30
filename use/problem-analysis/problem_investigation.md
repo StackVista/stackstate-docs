@@ -23,7 +23,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
 1. Click on a Metric stream anomaly event in the Events Perspective
    * The event details pane opens on the right of the screen.
    * The affected stream is displayed highlighting the detected anomaly.
-2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry browser](../perspectives/browse-telemetry.md) and inspect the stream in more detail.
+2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry browser](../metrics-events/browse-telemetry.md) and inspect the stream in more detail.
 
 ![Metric stream anomaly event details](../../.gitbook/assets/v43_event_metric_stream_anomaly.png)
 
@@ -44,7 +44,7 @@ Version changed events are generated whenever the `version` property of a compon
 
 ## Problem subview
 
-A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](problem_investigation.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../perspectives/topology-perspective.md#root-cause-outside-current-view). The following components will be included:
+A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](problem_investigation.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#root-cause-outside-current-view). The following components will be included:
 
 * **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.

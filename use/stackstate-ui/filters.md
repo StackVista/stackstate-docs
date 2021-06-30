@@ -19,8 +19,8 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Filter | Description |
 | :--- | :--- |
 | Layers, Domains, Environments and Types | Filter by the component details included when components are imported or created. |
-| Health | Only include components with the named [health state](/use/health-state-and-event-notifications/health-state-in-stackstate.md) as reported by the associated health check. |
-| Labels | Only include components with a [custom label](../configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](../stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
+| Health | Only include components with the named [health state](/use/health-state/health-state-in-stackstate.md) as reported by the associated health check. |
+| Labels | Only include components with a [custom label](../../configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](../../stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
 | Components | The Components filter behaves differently to other filters. Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
 The example below uses basic filters to return components that match the following conditions:
@@ -29,13 +29,13 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `bambDB`
 
-![Filtering example](../.gitbook/assets/v43_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v43_basic_filter_example.png)
 
 This could also be written as an advanced filter, see [advanced topology filters](filters.md#advanced-topology-filters).
 
 ### Advanced topology filters
 
-You can use the in-built [StackState Query Language \(STQL\)](../develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
+You can use the in-built [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
 The example below uses an advanced filter to return components that match the following conditions:
 
@@ -43,7 +43,7 @@ The example below uses an advanced filter to return components that match the fo
 * AND has a health state of `CLEAR` OR `DEVIATING`
 * OR has the name `bambDB`
 
-![Filtering \(advanced filter\)](../.gitbook/assets/v43_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v43_advanced_filter_example.png)
 
 This could also be done using basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 

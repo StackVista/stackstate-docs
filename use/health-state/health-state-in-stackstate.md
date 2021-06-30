@@ -25,7 +25,7 @@ Health checks attached to an element can be calculated internally by StackState 
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks. 
 
-See how to [add a health check](../health-state-and-event-notifications/add-a-health-check.md) and how to [set up anomaly health checks](../health-state-and-event-notifications/anomaly-health-checks.md).
+See how to [add a health check](/add-a-health-check.md) and how to [set up anomaly health checks](/anomaly-health-checks.md).
 
 ### External monitoring system
 
@@ -42,7 +42,7 @@ A view can also report a health state as one of the same four colours:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - View health state reporting is disabled.
 
-The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](/use/health-state-and-event-notifications/configure-view-health.md).
+The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](/use/health-state/configure-view-health.md).
 
 ![Health states](/.gitbook/assets/view-health-states.svg)
 
@@ -56,7 +56,7 @@ You can check the view health state in the following places in the StackState UI
 
 ## See also
 
-* [Add a health check based on telemetry streams available in StackState](../health-state-and-event-notifications/add-a-health-check.md)
+* [Add a health check based on telemetry streams available in StackState](/add-a-health-check.md)
 * Add [Static Health from CSV](/stackpacks/integrations/static_health.md)
 * [Set up a health synchronization](../../configure/health/health-synchronization.md)
-* [Configure the view health](/use/health-state-and-event-notifications/configure-view-health.md)
+* [Configure the view health](/use/health-state/configure-view-health.md)

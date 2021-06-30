@@ -6,7 +6,7 @@ description: Build advanced topology queries with STQL
 
 ## Overview
 
-This page describes how to use the built-in StackState Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](../../use/filters.md#advanced-topology-filters) and can be combined with scripts in the [Analytics](../../use/analytics.md) environment.
+This page describes how to use the built-in StackState Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](../../use/stackstate-ui/filters.md#advanced-topology-filters) and can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.
 
 An STQL query consists of [component filters](stql_reference.md#component-filters) and [functions](stql_reference.md#functions). The query output is a component, or set of components, filtered from the complete topology.
 
@@ -86,8 +86,8 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 
 ## See also
 
-* [Topology filter limits](../../use/filters.md#topology-filtering-limits)
-* [How to filter topology in the StackState UI](../../use/filters.md)
-* [How to use STQL queries in analytics](../../use/analytics.md)
+* [Topology filter limits](../../use/stackstate-ui/filters.md#topology-filtering-limits)
+* [How to filter topology in the StackState UI](../../use/stackstate-ui/filters.md)
+* [How to use STQL queries in analytics](../../use/stackstate-ui/analytics.md)
 * [StackState scripting language \(STSL\)](scripting/)
 

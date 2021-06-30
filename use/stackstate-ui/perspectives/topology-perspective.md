@@ -8,19 +8,19 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](../../.gitbook/assets/v43_topoview1.png)
+![Topology Perspective](../../../.gitbook/assets/v43_topoview1.png)
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](../views/about_views.md). Components that have one or more [checks](../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](../../develop/developer-guides/custom-functions/propagation-functions.md).
+The Topology Perspective shows components and relations in the selected [view](../views/about_views.md). Components that have one or more [checks](../../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 
 ## Component details
 
 When a component is selected by clicking on it, the Component Details pane is shown on the right hand side. This panel displays detailed information of the component:
 
 * metadata such as the component's name, type and labels
-* [health checks](../../configure/telemetry/checks_and_streams.md#checks)
-* [telemetry streams](../../configure/telemetry/checks_and_streams.md#data-streams)
+* [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
+* [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
 
 ## Filter displayed components
 
@@ -47,9 +47,9 @@ The topology can also be navigated interactively. Hover over any component to br
 
 A list of the available actions is included in the component details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
 
-![Actions](../../.gitbook/assets/v43_actions.png)
+![Actions](../../../.gitbook/assets/v43_actions.png)
 
-The default list of actions can be extended with [component actions](../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
+The default list of actions can be extended with [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
 
 ### Dependencies
 
@@ -58,9 +58,9 @@ Hover over any component to bring up the component navigation menu. Select Depen
 * Direction -- choose between **Both**, **Up**, and **Down**
 * Depth -- choose between **All**, **1 level**, and **2 levels**
 
-![Dependencies](../../.gitbook/assets/dependencies.png)
+![Dependencies](../../../.gitbook/assets/dependencies.png)
 
-If you require more flexibility in selecting topology, check out the [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md).
+If you require more flexibility in selecting topology, check out the [StackState Query Language \(STQL\)](../../../develop/reference/stql_reference.md).
 
 ### Root Cause Analysis
 
@@ -69,7 +69,7 @@ Hover over any component to bring up the component navigation menu. Select Root 
 * **Root cause only** -- only show the probable causing component
 * **Full root cause tree** --  show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/root_cause_analysis.png)
+![Root cause](../../../.gitbook/assets/root_cause_analysis.png)
 
 You can also [show root cause outside the current view](topology-perspective.md#root-cause-outside-current-view)
 
@@ -87,7 +87,7 @@ If one or more components have a critical state, StackState will show the relate
 
 ## Root cause outside current view
 
-If there are components with [telemetry streams](../../configure/telemetry/checks_and_streams.md#data-streams) and [health checks](../../configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../develop/developer-guides/custom-functions/propagation-functions.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
+If there are components with [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams) and [health checks](../../../configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../../develop/developer-guides/custom-functions/propagation-functions.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
 It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether to show a root cause even when it is outside of the currently displayed view:
 
@@ -95,13 +95,13 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** -- only show the root cause component
 * **Show full root cause tree** -- show the entire root cause tree
 
-![Root cause](../../.gitbook/assets/v43_show_full_root_cause_tree.png)
+![Root cause](../../../.gitbook/assets/v43_show_full_root_cause_tree.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../.gitbook/assets/v43_list_mode.png)
+![Filtering\(list format\)](../../../.gitbook/assets/v43_list_mode.png)
 
 ### Export as CSV
 

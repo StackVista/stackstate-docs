@@ -23,7 +23,7 @@ All scripts have a default \(configurable\) timeout of 15 seconds.
 
 ## Running Scripts
 
-StackState scripts can be executed in the [Analytics environment](../../../use/analytics.md). This can be accessed from the main menu of the StackState UI. The Analytics Environment interface consists of a scripting panel on the left and the results panel on the right.
+StackState scripts can be executed in the [Analytics environment](../../../use/stackstate-ui/analytics.md). This can be accessed from the main menu of the StackState UI. The Analytics Environment interface consists of a scripting panel on the left and the results panel on the right.
 
 ![Analytics environment](../../../.gitbook/assets/v43_analytics.png)
 
@@ -45,7 +45,7 @@ Most functions available through the StackState script APIs need some time to re
 
 ## See also
 
-* [Analytics environment](../../../use/analytics.md)
+* [Analytics environment](../../../use/stackstate-ui/analytics.md)
 * [Async script results](async_script_result.md)
 * [Script APIs](script-apis/)
 

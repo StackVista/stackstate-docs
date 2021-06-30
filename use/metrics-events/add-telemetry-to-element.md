@@ -6,7 +6,7 @@ description: Add incoming telemetry (metrics and logs) data to an element.
 
 ## Overview
 
-Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
+Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](../health-state/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
 ## Add a telemetry stream to an element
 
@@ -31,13 +31,13 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 7. The stream preview on the right will update to show the incoming metric values based on the details you provide.
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed. 
-9. A graph of the selected telemetry stream data will be visible in the list of **Telemetry streams** on the right of the screen. You can inspect data in the stream using the [telemetry browser](../perspectives/browse-telemetry.md).
+9. A graph of the selected telemetry stream data will be visible in the list of **Telemetry streams** on the right of the screen. You can inspect data in the stream using the [telemetry browser](browse-telemetry.md).
 
 ## See also
 
 * [Set a priority for the telemetry stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md)
 * [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
-* [Monitor the health of an element](add-a-health-check.md)
+* [Monitor the health of an element](../health-state/add-a-health-check.md)
 * [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md)
-* [Browse data in a telemetry stream](../perspectives/browse-telemetry.md)
+* [Browse data in a telemetry stream](browse-telemetry.md)
 

@@ -8,6 +8,6 @@ Problems in StackState generate events that can be used to trigger event notific
 
 * [What is a problem?](problems.md)
 * [Problem navigation](problem_investigation.md)
-* [Send event notifications](../health-state-and-event-notifications/send-event-notifications.md)
+* [Send event notifications](../metrics-events/send-event-notifications.md)
 * [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
 

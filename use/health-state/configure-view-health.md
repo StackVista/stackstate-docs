@@ -32,7 +32,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 ## React to view state changes
 
-When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](/use/health-state-and-event-notifications/send-event-notifications.md), such as an e-mail or Slack message.
+When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](/use/metrics-events/send-event-notifications.md), such as an e-mail or Slack message.
 
 ## View health state configuration functions
 
@@ -57,5 +57,5 @@ The **MINIMUM HEALTH STATES** view health state configuration function should be
 * [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
 * [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function)
 * [Add a health check](add-a-health-check.md)
-* [Send event notifications when a health state changes](send-event-notifications.md)
+* [Send event notifications when a health state changes](../metrics-events/send-event-notifications.md)
 

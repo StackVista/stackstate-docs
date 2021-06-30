@@ -8,7 +8,7 @@ description: Report the health state for an element.
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.
 
-The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](send-event-notifications.md).
+The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../metrics-events/send-event-notifications.md).
 
 ## Add a health check
 
@@ -17,7 +17,7 @@ Most elements in the StackState topology will have a relevant health check added
 To add a health check calculated in StackState:
 
 1. Select the element that you want to assign a health check to.
-   * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](add-telemetry-to-element.md).
+   * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics-events/add-telemetry-to-element.md).
 2. Click **+ ADD** next to **Health** on the right of the screen. 
    * An **Add check** dialog box appears.
 3. Provide the following details:
@@ -63,7 +63,7 @@ Existing health checks on an external monitoring system can be synchronized and 
 
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Custom check functions](/develop/developer-guides/custom-functions/check-functions.md)
-* [Add a telemetry stream to an element](add-telemetry-to-element.md)
-* [Add an event notification](send-event-notifications.md)
+* [Add a telemetry stream to an element](../metrics-events/add-telemetry-to-element.md)
+* [Add an event notification](../metrics-events/send-event-notifications.md)
 * [Synchronize external health data](/configure/health/health-synchronization.md)
 
