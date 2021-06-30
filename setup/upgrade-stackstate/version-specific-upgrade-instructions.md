@@ -30,11 +30,12 @@ This page provides specific instructions for upgrading to each currently support
       adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
       platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role-from-ldap-or-oidc-or-keycloak"]
       powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
-      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]    
+      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
     }
   }
   ```
   Platform management and platform content management permissions have been separated into two groups - `platformAdminGroup` and `adminGroup`. Users in the group `platformAdminGroup` are limited to only platform management tasks, such as change database retention, clear database, clear caches and view logs. Users in the group `adminGroup` no longer have platform management permissions.
+  * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
 
   **How you should proceed with upgrade?**
 
@@ -72,7 +73,7 @@ This page provides specific instructions for upgrading to each currently support
       adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
       platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role-from-ldap-or-oidc-or-keycloak"]
       powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role-from-ldap-or-oidc-or-keycloak"]
-      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]    
+      guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role-from-ldap-or-oidc-or-keycloak"]
     }
   }
   ```
@@ -104,7 +105,7 @@ This page provides specific instructions for upgrading to each currently support
       adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
       platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["your-custom-oidc-or-ldap-or-keycloak-platform-admin-role"]
       powerUserGroups = ${stackstate.authorization.powerUserGroups} ["your-custom-oidc-or-ldap-or-keycloak-power-user-role"]
-      guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]      
+      guestGroups = ${stackstate.authorization.guestGroups} ["your-custom-oidc-or-ldap-or-keycloak-guest-role"]
     }
     api {
       authentication {
