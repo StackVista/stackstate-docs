@@ -216,3 +216,8 @@ redirects:
 # 4.4 docs
 
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
+  stackpacks/integrations/google-analytics: ./stackpacks/integrations/
+  use/health-state-and-event-notifications/anomaly-detection-with-baselines: ./use/introduction-to-stackstate/anomaly-detection.md
+  develop/developer-guides/custom-functions/baseline-functions: develop/developer-guides/custom-functions/README.md
+  stackpacks/integrations/api-integration: ./setup/agent/agent-v1.md
+  stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md

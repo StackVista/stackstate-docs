@@ -54,7 +54,7 @@ If it is necessary to set a ResourceQuota for your implementation, the namespace
 
 #### Operating system
 
-One of the following operating systems running Java. Check also the specific requirements for the [StackState Agent StackPack](../stackpacks/integrations/agent.md):
+One of the following operating systems running Java. Check also the specific requirements for the [StackState Agent V2 StackPack](../stackpacks/integrations/agent.md):
 
 | OS | Release |
 | :--- | :--- |
