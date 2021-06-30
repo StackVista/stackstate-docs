@@ -50,12 +50,11 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
+Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md).
+
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
 {% endhint %}
-
-
-Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md).
 
 ### Status
 
