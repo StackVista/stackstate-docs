@@ -46,7 +46,7 @@ By default, the following request rate streams are set for processes and service
 
 StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can add a check [as explained here](#-checks).
 
-TODO: Add image with `HTTP 5xx error rate (req/s)` telemetry stream.
+![HTTP 5xx error rate](../../images/telemetry/http-error-rate.png)
 
 ### Saturation
 
@@ -58,3 +58,10 @@ There are many ways StackState can help you monitor the saturation of your syste
 
 ## Checks
 
+To help you meet your SLA (Service Level Agreement) you can create [checks](../../configure/telemetry/checks_and_streams.md#checks) on StackState. For example, if your SLO defines your service can only have a maximum of 5% of your requests failing, you can create a check using the `Error percentage` function and set the `Critical Threshold Percentage` to `5.0`:
+
+![Error percentage check](../../images/telemetry/http-error-check.png)
+
+Another check you can create to help you meet your SLA is to make sure your maximum response is below a certain threshold:
+
+![Error percentage check](../../images/telemetry/http-resp-time-check.png)
