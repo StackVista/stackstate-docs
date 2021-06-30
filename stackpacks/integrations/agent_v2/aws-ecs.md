@@ -8,8 +8,6 @@ description: StackState curated integration
 
 Get topology and telemetry information from an Amazon Elastic Container Service (ECS) cluster.
 
-This integration is still in __BETA__.
-
 ## Functionality
 
 The StackState Agent V2 provides the following functionality:
