@@ -23,16 +23,16 @@ stackstate:
     file:
       logins:
         - username: admin
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-admin ]
         - username: platformadmin
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-platform-admin ]
         - username: guest
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-guest ]
         - username: power-user
-          passwordMd5: 5f4dcc3b5aa765d61d8327deb882cf99
+          passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
           roles: [ stackstate-power-user ]
 ```
 {% endtab %}
@@ -42,7 +42,7 @@ Follow the steps below to configure users and apply changes:
 
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
    * **username** - the username used to log into StackState.
-   * **passwordMd5** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
+   * **passwordHash** - the password used to log into StackState. Passwords are stored as either an MD5 hash or a bcrypt hash.
    * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`,`stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
 2. Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions.
 3. Run a Helm upgrade to apply the changes:
@@ -59,7 +59,8 @@ Follow the steps below to configure users and apply changes:
 
 {% hint style="info" %}
 **Note:**
-
+* An MD5 password hash can be generated using the `md5sum` or `md5` command line applications on Linux and Mac.
+* A bcrypt password hash can be generated using the following command line `htpasswd -bnBC 10 "" <password> | tr -d ':\n'` or using an online tool.
 * The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
 * Include `authentication.yaml` on every `helm upgrade` run.
 * The authentication configuration is stored as a Kubernetes secret.
