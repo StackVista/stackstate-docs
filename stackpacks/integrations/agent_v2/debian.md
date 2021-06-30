@@ -15,6 +15,10 @@ StackState Agent V2 will retrieve data from the Debian host it is running on and
 * [StackState Agent V2](/setup/agent/linux.md) installed on a Debian host that is able to connect to StackState.
 * The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
+### Install
+
+The Debian integration is part of the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md).
+
 ## Data retrieved
 
 StackState Agent V2 will synchronize the following data from the host it is running on with StackState:
