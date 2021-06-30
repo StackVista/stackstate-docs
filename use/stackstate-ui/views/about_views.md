@@ -48,7 +48,7 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Enable or disable view health state
 
-* To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. 
+* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](/use/stackstate-ui/views/create_edit_views.md). 
 * To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
 Read more about how to [configure the view health state](/use/health-state/configure-view-health.md).

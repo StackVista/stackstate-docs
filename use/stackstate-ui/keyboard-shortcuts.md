@@ -1,6 +1,8 @@
-# Keyboard shortcuts
+---
+description: Keyboard shortcuts in the StackState UI
+---
 
-Keyboard shortcuts in the StackState UI.
+# Keyboard shortcuts
 
 | Keyboard shortcut | Action |
 | :---|:---|
