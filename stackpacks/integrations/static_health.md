@@ -14,7 +14,7 @@ The Static Health integration is used to visualize static health information in 
 ### Prerequisites
 
 To set up the Static Health integration you will need to have:
- * StackState [Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to StackState.
+ * StackState [Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
 
 ### Configure
 

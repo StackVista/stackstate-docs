@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Agent check API can be used to create checks that run on the [StackState Agent](/stackpacks/integrations/agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to StackState.
+The Agent check API can be used to create checks that run on the [StackState Agent](/setup/agent/about-stackstate-agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to StackState.
 
 Code examples for the open source StackState Agent checks can be found on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
 

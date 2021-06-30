@@ -25,7 +25,7 @@ The Kubernetes and OpenShift integrations collect topology data in a Kubernetes/
 | [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | - | `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/stackpacks/integrations/agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ### StackState Cluster Agent
