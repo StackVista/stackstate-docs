@@ -13,11 +13,11 @@ StackState Agent V2 will retrieve data from the host it is running on and push t
 ### Prerequisites
  
 * [StackState Agent V2](/setup/agent/docker.md) running in a Docker container that is able to connect to StackState.
-* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+* The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
 ### Install
 
-The Docker integration is part of the [StackState Agent StackPack](/stackpacks/integrations/agent.md).
+The Docker integration is part of the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md).
 
 ## Data retrieved
 

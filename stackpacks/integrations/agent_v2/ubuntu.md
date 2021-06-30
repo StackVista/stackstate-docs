@@ -13,7 +13,7 @@ StackState Agent V2 will retrieve data from the Ubuntu host it is running on and
 ### Prerequisites
  
 * [StackState Agent V2](/setup/agent/linux.md) installed on an Ubuntu host that is able to connect to StackState.
-* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+* The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 
 ## Data retrieved
 

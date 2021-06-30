@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-The StackState Agent StackPack works with [StackState Agent V2](/setup/agent) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
+The StackState Agent V2 StackPack works with [StackState Agent V2](/setup/agent) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
 
 ## Setup
 
@@ -20,7 +20,7 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 ### Configure
 
-The integrations included in the StackState Agent StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
+The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
 * [Apache TomCat](/stackpacks/integrations/agent_v2/apache-tomcat.md)
 * [AWS ECS](/stackpacks/integrations/agent_v2/aws-ecs.md)
