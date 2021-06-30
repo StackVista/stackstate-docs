@@ -183,7 +183,7 @@ There are a number of methods in the `TopologyDurableFunction` class:
 
 ### Azure views in StackState
 
-When the Azure integration is enabled, a [view](../../use/views.md) will be created in StackState for each instance of the StackPack. Each view shows components filtered by the Azure `instance_name` tag and is named **Azure\_\[instance\_name\]**.
+When the Azure integration is enabled, a [view](../../use/views/about_views.md) will be created in StackState for each instance of the StackPack. Each view shows components filtered by the Azure `instance_name` tag and is named **Azure\_\[instance\_name\]**.
 
 ## Troubleshooting
 

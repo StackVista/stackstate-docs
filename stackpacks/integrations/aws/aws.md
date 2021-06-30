@@ -297,7 +297,7 @@ The AWS StackPack CloudFormation template contains all resources that are necess
 
 ### AWS views in StackState
 
-When the AWS integration is enabled, three [views](../../../use/views.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../../use/views/about_views.md) will be created in StackState for each instance of the StackPack.
 
 - **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.

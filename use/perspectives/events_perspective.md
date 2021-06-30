@@ -4,7 +4,7 @@ description: Track changes in your IT landscape.
 
 # Events Perspective
 
-The Events Perspective shows events and changes for the elements in the current [view](../views.md) or filtered topology.
+The Events Perspective shows events and changes for the elements in the current [view](../views/about_views.md) or filtered topology.
 
 ![The Events Perspective](../../.gitbook/assets/v43_events-perspective.png)
 
@@ -75,6 +75,6 @@ For example:
 
 * [Use events to trigger event notifications and actions](../health-state-and-event-notifications/send-event-notifications.md)
 * [Filtering data](../filters.md)
-* [Working with StackState views](../views.md)
+* [Working with StackState views](../views/about_views.md)
 * [Send events to StackState from external sources](../../configure/telemetry/send_telemetry.md#events)
 

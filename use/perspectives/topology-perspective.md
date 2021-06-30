@@ -12,7 +12,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components and relations
 
-The Topology Perspective shows components and relations in the selected [view](../views.md). Components that have one or more [checks](../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](../../develop/developer-guides/custom-functions/propagation-functions.md).
+The Topology Perspective shows components and relations in the selected [view](../views/about_views.md). Components that have one or more [checks](../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](../../develop/developer-guides/custom-functions/propagation-functions.md).
 
 ## Component details
 
@@ -83,7 +83,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 ## Problems
 
-If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views.md#the-view-details-pane).
+If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
 
 ## Root cause outside current view
 

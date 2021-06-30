@@ -10,7 +10,7 @@ The first step to take is integrating StackState with your IT systems. This can 
 
 ## Explore topology
 
-After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](../views.md) from your installed StackPacks.
+After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](../views/about_views.md) from your installed StackPacks.
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 

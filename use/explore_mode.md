@@ -6,7 +6,7 @@ description: Explore your full IT environment
 
 ## Overview
 
-The StackState explore mode provides an unfiltered view of your topology with. This is most likely a much larger overview that you would like to see at any given time, but it's a good place to start when creating a [customized view](views.md) and get familiar with the StackState UI.
+The StackState explore mode provides an unfiltered view of your topology with. This is most likely a much larger overview that you would like to see at any given time, but it's a good place to start when creating a [customized view](views/about_views.md) and get familiar with the StackState UI.
 
 Up to 10,000 components can be displayed at any time, if there are already more items than this in your topology, you will need to [add a filter](explore_mode.md#add-a-filter) before any data will be displayed.
 
@@ -33,11 +33,11 @@ You can zoom in on a specific area of your IT landscape using basic filters by w
 
 ![Save view as](../.gitbook/assets/v43_save_view_as.png)
 
-When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](views.md) menu.
+When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](views/about_views.md) menu.
 
 ## See also
 
 * [Filtering data](filters.md)
 * [StackState perspectives](introduction-to-stackstate/perspectives.md)
-* [Working with StackState Views](views.md)
+* [Working with StackState Views](views/about_views.md)
 
