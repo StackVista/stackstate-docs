@@ -30,5 +30,5 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [StackState Agent V2](/setup/agent/linux.md)
+* [Deploy StackState Agent V2 on Linux](/setup/agent/linux.md)
 * [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
