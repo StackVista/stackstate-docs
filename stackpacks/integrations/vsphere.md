@@ -36,7 +36,7 @@ The VMware StackPack collects all topology data for the components and relations
 
 To set up the StackState VMWare vSphere integration, you need to have:
 
-* [StackState Agent V2](agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
 * A running vSphere vCenter instance.
 
 ### Install
@@ -68,7 +68,7 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password>
      ```
 2. If required, you can customise the integration using the [advanced configuration options](vsphere.md#advanced-configuration).
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
 #### Advanced configuration
@@ -171,7 +171,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
     mv vsphere.d/conf.yaml vsphere.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
@@ -206,7 +206,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## See also
 
-* [StackState Agent V2](agent.md) 
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 * [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)

@@ -22,7 +22,7 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
 
 To set up the Dynatrace integration you will need to have:
 
-* [StackState Agent V2](agent.md) installed on a machine that can connect to both Dynatrace and StackState.
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)) installed on a machine that can connect to both Dynatrace and StackState.
 * A running Dynatrace instance.
 * A Dynatrace API Token with access to read the Smartscape Topology and Events, see [REST API endpoints](dynatrace.md#rest-api-endpoints).
 
@@ -62,7 +62,7 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, add the 
        #   - foo:bar
      ```
 2. Optional: Add a **domain** and **environment** in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState \(default domain=dynatrace and environment=production\).
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 ### Status
@@ -156,7 +156,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
     mv dynatrace.d/conf.yaml dynatrace.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
@@ -174,7 +174,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 
 ## See also
 
-* [StackState Agent V2](agent.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
 * [How to generate a Dynatrace API token \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 * [Permissions for Dynatrace API tokens \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
