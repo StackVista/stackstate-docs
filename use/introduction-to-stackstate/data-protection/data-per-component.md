@@ -1,3 +1,8 @@
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
 
 ## Kafka
 Kafka is used as a short-term storage and stores both topology and telemetry data. The stored data is not encrypted, instead it relies on the underlying disks to be encrypted.

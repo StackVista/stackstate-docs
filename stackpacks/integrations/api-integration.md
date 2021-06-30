@@ -4,6 +4,12 @@ description: StackState core integration
 
 # API integration
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the API-Integration StackPack?
 
 The StackState API-Integration StackPack enables StackState synchronizations through the StackState API-Integration Agent. The API-Integration Agent allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to collect topology, metrics and events data.

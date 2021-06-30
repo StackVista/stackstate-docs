@@ -1,6 +1,12 @@
 # Baseline functions \(Deprecated\)
 
 {% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
+{% hint style="warning" %}
 Baseline anomaly detection is **Deprecated** and will be removed in the StackState v4.4 release. Please use the [Autonomous Anomaly Detector\)](/stackpacks/add-ons/aad.md).
 {% endhint %}
 

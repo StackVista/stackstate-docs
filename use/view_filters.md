@@ -1,5 +1,11 @@
 # View filters
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The **View Filters** pane on the left side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](view_filters.md#save-filters-as-a-view) to open directly in the future.
