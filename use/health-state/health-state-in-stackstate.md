@@ -17,17 +17,17 @@ The element health state is calculated as the most severe state reported by a he
 
 ![Health states](/.gitbook/assets/health-states.svg)
 
-## Element health checks
+### health checks
 
 Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by a health check attached to it.
 
-### StackState health checks
+#### StackState health checks
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks. 
 
 See how to [add a health check](/add-a-health-check.md) and how to [set up anomaly health checks](/anomaly-health-checks.md).
 
-### External monitoring system
+#### External monitoring system
 
 Health data from external monitoring systems can be synchronized to StackState as health checks. In this case, health checks are calculated by the external systems based on their own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules. 
 
@@ -35,7 +35,7 @@ Existing StackPacks will provide health synchronization out of the box. Advanced
 
 ## View health state
 
-A view can also report a health state as one of the same four colours:
+When **view health state** is enabled for a view, it will report a health state as one of four colours:
 
 * Green - `CLEAR` - There is nothing to worry about.
 * Orange - `DEVIATING` - Something may require your attention.

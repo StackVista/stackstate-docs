@@ -8,10 +8,10 @@ description: Bookmark and monitor parts of your IT landscape with views
 
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
-* The [View filters](../filters.md):
+* [View filters](../filters.md):
   * Topology filters are used to add elements \(components and relations\) to the view.
   * Events and Traces filters refine the traces and events displayed.
-* Topology visualization settings.
+* Topology [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 * Configuration to calculate the [view health state](about_views.md#view-health-state).
 
 Generally speaking, views serve two major purposes:
@@ -40,29 +40,22 @@ When you first open a view, the View Details pane will be visible on the right s
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view. The calculation for a view's health state might be a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](/use/health-state/health-state-in-stackstate.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
-* If service A and service B are working fine, then the view health state should be `CLEAR`.
-* If service A has a problem, the view health state should be `DEVIATING`.
-* If service B is is not in a `CLEAR` state, set the view health state to `CRITICAL`.
-
-### Time travel with the view health state
-
-The health state of the current view over time is indicated by the colour of the **Health** line in the timeline at the bottom of the screen. When the playhead on the timeline is moved to time travel to a moment in the past, the health state shown for the current view will change to match the state that it was at the selected point in time. The health state reported in the StackState main menu, however, will always report the current health state of all views.
+* Report view health state `CLEAR` if service A and service B are working fine.
+* Report view health `DEVIATING` if service A has a problem.
+* Report view health `CRITICAL` if service B does not have health state `CLEAR`.
 
 ### Enable or disable view health state
 
-To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
+* To enable view health state, set `View Health State Enabled` to **on** when you create or edit a view. 
+* To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
-Read more about how to [configure the view health state](../../health-state/configure-view-health.md).
+Read more about how to [configure the view health state](/use/health-state/configure-view-health.md).
 
+### Event notifications for view health state changes
 
-
-## Event notifications for view health state changes
-
-A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. Please refer to [event notifications](../../metrics-events/send-event-notifications.md) to understand how to set that up.
-
-
+A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](../../metrics-events/send-event-notifications.md).
 
 ## Secure views with RBAC
 
@@ -73,3 +66,9 @@ Through a combination of configuration of [permissions](../../../configure/secur
 
 For further details, see the [RBAC documentation](../../../configure/security/rbac/role_based_access_control.md).
 
+## See also
+
+* [Create and edit views](/use/stackstate-ui/views/create_edit_views.md)
+* [Health state for a view](/use/health-state/health-state-in-stackstate.md#view-health-state)  
+* [Visualization settings](/use/stackstate-ui/views/visualization_settings.md)
+* [Send event notifications for view health state changes](/use/metrics-events/send-event-notifications.md)
