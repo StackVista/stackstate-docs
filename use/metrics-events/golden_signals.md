@@ -65,3 +65,7 @@ To help you meet your SLA (Service Level Agreement) you can create [checks](../.
 Another check you can create to help you meet your SLA is to make sure your maximum response is below a certain threshold:
 
 ![Error percentage check](../../images/telemetry/http-resp-time-check.png)
+
+## Limitations
+
+Currently, the StackState Agent can only report on rate and response time of HTTP/1. HTTP/2, HTTP/3 and HTTPS are not supported.
