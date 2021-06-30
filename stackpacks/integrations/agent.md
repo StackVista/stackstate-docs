@@ -20,15 +20,23 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 ### Configure
 
-Refer to the integration pages to find configuration details for each specific external systems. The integrations included in the StackState Agent StackPack are:
+The integrations included in the StackState Agent StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
 * [Apache TomCat](/stackpacks/integrations/agent_v2/apache-tomcat.md)
 * [AWS ECS](/stackpacks/integrations/agent_v2/aws-ecs.md)
+* [CentOS](/stackpacks/integrations/agent_v2/centos.md)
+* [Debian](/stackpacks/integrations/agent_v2/debian.md)
+* [Docker](/stackpacks/integrations/agent_v2/docker.md)  
 * [DotNet APM](/stackpacks/integrations/agent_v2/dotnet-apm.md)
+* [Fedora](/stackpacks/integrations/agent_v2/fedora.md)
 * [Java APM](/stackpacks/integrations/agent_v2/java-apm.md)
 * [JMX](/stackpacks/integrations/agent_v2/jmx.md)
 * [MySQL](/stackpacks/integrations/agent_v2/mysql.md)
 * [PostgreSQL](/stackpacks/integrations/agent_v2/postgresql.md)
+* [RedHat](/stackpacks/integrations/agent_v2/redhat.md)
+* [Static Health](/stackpacks/integrations/agent_v2/static-health.md)  
+* [Ubuntu](/stackpacks/integrations/agent_v2/ubuntu.md)
+* [Windows](/stackpacks/integrations/agent_v2/windows.md)  
 * [WMI](/stackpacks/integrations/agent_v2/wmi.md)
 
 ### Status
