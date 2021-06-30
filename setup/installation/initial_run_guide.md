@@ -19,8 +19,8 @@ Install StackState on [Kubernetes](kubernetes_install/).
 Install StackState on [Linux](linux_install/).
 {% endtab %}
 
-{% tab title="Openshift" %}
-Install StackState on [Openshift](openshift_install.md).
+{% tab title="OpenShift" %}
+Install StackState on [OpenShift](openshift_install.md).
 {% endtab %}
 {% endtabs %}
 
@@ -40,7 +40,7 @@ The StackState UI can be accessed using the `STACKSTATE_BASE_URL` specified duri
 `https://STACKSTATE_BASE_URL:7070`
 {% endtab %}
 
-{% tab title="Openshift" %}
+{% tab title="OpenShift" %}
 To access the StackState UI:
 
 1. [Enable a port-forward](openshift_install.md#access-the-stackstate-ui).
@@ -65,7 +65,7 @@ StackState is configured by default with the following administrator account:
 * **password:** `topology-telemetry-time`
 {% endtab %}
 
-{% tab title="Openshift" %}
+{% tab title="OpenShift" %}
 StackState is configured by default with the following administrator account:
 
 * **username:** `admin`
