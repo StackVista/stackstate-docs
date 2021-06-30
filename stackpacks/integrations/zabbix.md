@@ -39,7 +39,7 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
        username: <username> # Admin
        password: <password> # zabbix
      ```
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)]/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Release notes

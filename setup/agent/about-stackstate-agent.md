@@ -12,14 +12,13 @@ To collect data from Kubernetes and OpenShift clusters, the Agent, cluster Agent
 
 ![StackState Agent architecture](/.gitbook/assets/stackstate-agent.svg)
 
-## Run StackState Agent V2
+## Integrate with external systems
 
-Deployment instructions, commands to work with StackState Agent V2 and other platform-specific details can be found on the pages listed below:
+In StackState, the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) includes all the settings required to integrate with a number of external systems. Data from other external systems can be retrieved by installing additional StackPacks in StackState. 
 
-- [Docker](/setup/agent/docker.md)
-- [Kubernetes](/setup/agent/kubernetes.md)
-- [Linux](/setup/agent/linux.md)
-- [Windows](/setup/agent/windows.md)
+To integrate with an external system, an Agent must be deployed in a location that can connect to both the external system and StackState. An Agent check  configured on the Agent can then connect to the external system to retrieve data. 
+
+Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
 ## Run StackState Agent V2
 
@@ -29,14 +28,6 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 - [StackState Agent V2 on Kubernetes](/setup/agent/kubernetes.md)
 - [StackState Agent V2 on Linux](/setup/agent/linux.md)
 - [StackState Agent V2 on Windows](/setup/agent/windows.md)
-
-## Integrate with external systems
-
-In StackState, the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) includes all the settings required to integrate with a number of external systems. Data from other external systems can be retrieved by installing additional StackPacks in StackState. 
-
-To integrate with an external system, an Agent must be deployed in a location that can connect to both the external system and StackState. An Agent check  configured on the Agent can then connect to the external system to retrieve data. 
-
-Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
 ## Open source
 
