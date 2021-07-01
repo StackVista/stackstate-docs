@@ -46,7 +46,7 @@ Relations show how components in the topology are connected together. They are r
 | ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. This means that another component that is not visualized sits between the two indirectly related components. |
 | ![](/.gitbook/assets/relation_comp_group.svg) | A solid line denotes a direct relation between a component and **all components** in a component group. All relations are in the same direction.  |
 | ![](/.gitbook/assets/relation_comp_group_dot_1.svg) | A dashed line with a single arrowhead denotes either a direct relation between a component and **some components** in a component group or indirect relations to **some or all** components in the group. All relations are in the same direction. |
-| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation between a component and **some components** in a component group. All relations are in the same direction. |
+| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation between a component and **some components** in a component group. Relations can be in either direction. |
 
 
 ## Filters
