@@ -98,8 +98,8 @@ The details panel on the right-hand side of the screen shows information about t
 When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
 
 * Metadata, such as the component name, type and any labels.
-* [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
-* [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
+* [health checks](/use/health-state/add-a-health-check.md)
+* [telemetry streams](/use/metrics-events/telemetry_streams.md)
 
 ### Problems
 
