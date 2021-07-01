@@ -38,22 +38,23 @@ See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard
 
 ## Relations
 
-Relations show how components in the topology are connected together. They are represented by a dashed or solid line. Relations that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
+Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. Relations that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
 
-| Relation type | Description |
-|:---|:---|
-| ![](/.gitbook/assets/relation_comp_comp.svg) | A solid line denotes a direct relation between two components. |
-| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. This means that another component that is not visualized sits between the two indirectly related components. |
-| ![](/.gitbook/assets/relation_comp_group.svg) | A solid line denotes a direct relation between a component and **all components** in a component group. All relations are in the same direction.  |
-| ![](/.gitbook/assets/relation_comp_group_dot_1.svg) | A dashed line with a single arrowhead denotes either a direct relation between a component and **some components** in a component group or indirect relations to **some or all** components in the group. All relations are in the same direction. |
-| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation between a component and **some components** in a component group. Relations can be in either direction. |
+## Direct and indirect relations
 
-### Component to component
+Relations in StackState are described as either direct or indirect.
+
+* Direct relations show two components or component groups that have a direct connection to each other. They are represented by a solid line.
+* Indirect relations indicate that two components or component groups are connected together via another component that is not visualized in the current topology view. They are represented by a dashed line.
+
+You can customize the types of relations displayed in the [Visuzalization settings](../views/visualization_settings.md).
+
+### Single component
 
 | Relation type | Description |
 |:---|:---|
 | ![](/.gitbook/assets/relation_comp_comp.svg) | A solid line denotes a direct relation between two components. The direction of the arrowhead shows the direction of the dependency. |
-| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. This means that another component that is not visualized sits between the two indirectly related components. The direction of the arrowhead shows the direction of the dependency.  |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. The direction of the arrowhead shows the direction of the dependency.  |
 
 ### Component groups
 
