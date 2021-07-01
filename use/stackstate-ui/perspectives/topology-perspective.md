@@ -10,27 +10,67 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ![Topology Perspective](../../../.gitbook/assets/v43_topoview1.png)
 
-## Components and relations
+## Components
 
-The Topology Perspective shows components and relations in the selected [view](../views/about_views.md). Components that have one or more [checks](../../../configure/telemetry/checks_and_streams.md#checks) configured will have a calculated [health state](../../../develop/developer-guides/custom-functions/propagation-functions.md).
+The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](/use/stackstate-ui/explore_mode.md).  Components that have one or more health checks configured will have a calculated [health state](/use/health-state/health-state-in-stackstate.md).
 
-## Component details
+### Component types
 
-When a component is selected by clicking on it, the Component Details pane is shown on the right hand side. This panel displays detailed information of the component:
 
-* metadata such as the component's name, type and labels
+
+### Component grouping
+
+[View visuzalization settings](../views/visualization_settings.md)
+
+## Component details pane
+
+When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
+
+* Metadata, such as the component name, type and any labels.
 * [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
 * [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
 
-## Filter displayed components
+### Search for components
 
-The [topology filters](../filters.md#filter-topology) in the the **View Filters** pane on the left side of the StackState UI allow you to filter the topology components displayed.
+You can locate a specific component in the view by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Component finder** icon magnifying glass in the bottom right corner of the topology visualizer.
 
-Click on a label in the [component details pane](topology-perspective.md#component-details) to add this as a filter.
+See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard-shortcuts.md).
 
-## Filter displayed events
+## Relations
 
-The [event filters](../filters.md#filter-events) can be used to filter the events shown in the **Events** list in the View Details pane on the right of the StackState UI.
+
+## Filters
+
+The components and events displayed in the topology visualization can be customized by adding filters.
+
+Click the **View Filters** icon in the left-hand side menu to open the view filters. Here you can edit:
+
+* Topology filters: The components displayed in the topology visualization.
+* Events filters: The events shown in the **Events** list in the View Details pane on the right-hand side of the screen.
+
+From the **Component Details** or **Relation Details** pane, displayed on the right-hand side of the screen when a component or relation is selected:
+
+* Click on a label to add this to the topology filter. The displayed topology will be expanded to include all components and relationswith the selected label.
+* To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
+
+The View Filters are saved together with the View. For details, see the page [filters](../filters.md).
+
+## Visualization settings
+
+The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left-hand side menu to open the visualization settings menu. Here you can edit:
+
+* Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state. 
+* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](#component-grouping).
+* Grid - should components be organized by [layer and domain](/use/introduction-to-stackstate/layers_domains_and_environments.md).
+* Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](#relations).
+
+The Visualization Settings are saved together with the View. For details, see the page [Visuzalization settings](../views/visualization_settings.md).
+
+------------
+
+
+
+
 
 ## Interactive navigation
 
@@ -73,9 +113,6 @@ Hover over any component to bring up the component navigation menu. Select Root 
 
 You can also [show root cause outside the current view](topology-perspective.md#root-cause-outside-current-view)
 
-## Component finder
-
-Locate a specific component in the view by typing the first few letters of it's name in the Topology Perspective. Alternatively, you can select the **Component finder** icon magnifying glass in the bottom right corner of the topology visualizer.
 
 ## Zoom in, zoom out and Fit to Screen
 
