@@ -32,13 +32,15 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Improve how component names are displayed in the Topology Perspective. STAC-13063
 - The component finder modal can now be invoked using shortcut CTRL+SHIFT+F. STAC-12957
 - Redesigned the component popover to give direct action to component actions and make it easier to use. STAC-12909
+- Removed no longer needed HDFS OpenShift SecurityContextConstraint from documentation. STAC-12573
+- Upgraded elasticsearch-exporter Helm chart to new prometheus-elasticsearch-exporter Helm chart, making it compatible with OpenShift installations. STAC-13473
 
 **Bug fixes**
 
 - Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 - Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 - Fixed crash when accessing the logs api. STAC-13149
-  
+
 ## StackState v4.3.x
 
 # 4.3.4
