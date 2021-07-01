@@ -12,7 +12,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components
 
-The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](/use/stackstate-ui/explore_mode.md).  Components that have one or more health checks configured will have a calculated [health state](/use/health-state/health-state-in-stackstate.md).
+The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](/use/stackstate-ui/explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
 
 ### Types
 
@@ -30,13 +30,23 @@ When a component is selected by clicking on it, the **Component Details** pane i
 * [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
 * [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
 
-### Search for components
+### Find component
 
-You can locate a specific component in the view by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Component finder** icon magnifying glass in the bottom right corner of the topology visualizer.
+You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
 
 See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard-shortcuts.md).
 
 ## Relations
+
+Relations show how components in the topology are connected together. They are represented by a dashed or solid line. Relations that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
+
+| Relation type | Description |
+|:---|:---|
+| ![](/.gitbook/assets/relation_comp_comp.svg) | A solid line denotes a direct relation between two components. |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. This means that another component that is not visualized sits between the two indirectly related components. |
+| ![](/.gitbook/assets/relation_comp_group.svg) | A solid line denotes a direct relation between a component and **all components** in a component group. All relations are in the same direction.  |
+| ![](/.gitbook/assets/relation_comp_group_dot_1.svg) | A dashed line with a single arrowhead denotes either a direct relation between a component and **some components** in a component group or indirect relations to **some or all** components in the group. All relations are in the same direction. |
+| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation between a component and **some components** in a component group. All relations are in the same direction. |
 
 
 ## Filters
