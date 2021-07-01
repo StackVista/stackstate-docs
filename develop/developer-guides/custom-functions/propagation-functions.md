@@ -27,16 +27,16 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-  * **Auto propagation \(default\)** - returns the auto state. This is the same as **Transparent propagation** except that if component's own health state is DEVIATING it is not propagated. For example:
+* **Auto propagation \(default\)** - returns the auto state. This is the same as **Transparent propagation** except that if component's own health state is DEVIATING it is not propagated. For example:
 
-    | Dependency state | Component state | Transparent state |
-    | :--- | :--- | :--- |
-    | `CLEAR` | `DEVIATING` | `CLEAR` |
-    | `CLEAR` | `CRITICAL` | `CRITICAL` |    
-    | `CRITICAL` | `DEVIATING` | `CRITICAL` |
-    | `DEVIATING` | `DEVIATING` | `CRITICAL` |
-    | `DEVIATING` | `CLEAR` | `DEVIATING` |
-    | `CRITICAL` | `CLEAR` | `CRITICAL` |
+  | Dependency state | Component state | Transparent state |
+  | :--- | :--- | :--- |
+  | `CLEAR` | `DEVIATING` | `CLEAR` |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` |    
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` |
+  | `DEVIATING` | `DEVIATING` | `CRITICAL` |
+  | `DEVIATING` | `CLEAR` | `DEVIATING` |
+  | `CRITICAL` | `CLEAR` | `CRITICAL` |
 
 * **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
 * **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
