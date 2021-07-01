@@ -40,7 +40,7 @@ See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. Relations that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
 
-## Direct and indirect relations
+### Direct and indirect relations
 
 Relations in StackState are described as either direct or indirect.
 
