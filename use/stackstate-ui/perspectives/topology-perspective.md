@@ -16,7 +16,7 @@ The Topology Perspective shows the filtered components and relations in a select
 
 ### Types
 
-
+TODO
 
 ### Grouping
 
