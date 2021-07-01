@@ -64,7 +64,13 @@ To help you meet your SLA (Service Level Agreement) you can create [checks](../.
 
 Another check you can create to help you meet your SLA is to make sure your maximum response is below a certain threshold:
 
-![Error percentage check](../../images/telemetry/http-resp-time-check.png)
+![Response time check](../../images/telemetry/http-resp-time-check.png)
+
+When selecting a metric for the health check, you will have some options to configure its behavior:
+
+- Windowing method: [more details in this page](../health-state-and-event-notifications/add-a-health-check.md#windowing-method).
+- Aggregation: [see here a list of all possible aggregation methods](../../develop/reference/scripting/script-apis/telemetry#aggregation-methods).
+- Time window (or window size): By default the time window is 300000 milliseconds (or 5 minutes). The greater the time window is, less frequent your health state will be updated. Though if you configure it too small, you might have too many state changes for the component.
 
 ## Limitations
 
