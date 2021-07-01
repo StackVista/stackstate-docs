@@ -14,13 +14,11 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](/use/stackstate-ui/explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
 
-### Types
-
-TODO
-
 ### Grouping
 
-[View visuzalization settings](../views/visualization_settings.md)
+Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a hexagon in the topology visualization.
+
+You can customize the grouping of components in the [Visuzalization settings](../views/visualization_settings.md).
 
 ### Component Details pane
 
@@ -29,6 +27,21 @@ When a component is selected by clicking on it, the **Component Details** pane i
 * Metadata, such as the component name, type and any labels.
 * [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
 * [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
+
+### Component context menu
+
+
+### Actions
+
+Actions can be used to expand the topology selection in one of the following ways:
+
+* Show all dependencies -- shows all dependencies for selected component
+
+A list of the available actions is included in the Component Details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
+
+![Actions](../../../.gitbook/assets/v43_actions.png)
+
+The default list of actions can be extended with [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
 
 ### Find component
 
@@ -49,7 +62,7 @@ Relations in StackState are described as either direct or indirect.
 
 You can customize the types of relations displayed in the [Visuzalization settings](../views/visualization_settings.md).
 
-### Single component
+### Single components
 
 | Relation type | Description |
 |:---|:---|
@@ -62,7 +75,7 @@ You can customize the types of relations displayed in the [Visuzalization settin
 |:---|:---|
 | ![](/.gitbook/assets/relation_comp_group.svg) | A solid line denotes a direct relation to **all components** in a component group. The direction of the arrowhead shows the direction of the dependency - all relations are in the same direction. |
 | ![](/.gitbook/assets/relation_comp_group_dot_1.svg) | A dashed line with a single arrowhead denotes either a direct relation to **some components** in a component group or indirect relations to **some or all** components in the group. The direction of the arrowhead shows the direction of the dependency - all relations are in the same direction. |
-| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation to **some components** in a component group. The direction of the arrowhead shows the direction of the dependency - relations can be in either direction. |
+| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation to **some components** in a component group. Relations can be in either direction. |
 
 
 ## Filters
@@ -92,55 +105,9 @@ The visualization of components and relations in the topology perspective can be
 
 The Visualization Settings are saved together with the View. For details, see the page [Visuzalization settings](../views/visualization_settings.md).
 
-------------
+## Navigation
 
-
-
-
-
-## Interactive navigation
-
-The topology can also be navigated interactively. Hover over any component to bring up the component navigation menu. The available options allow you to change your view respective to the selected component.
-
-### Actions
-
-**Actions** can be used to expand the topology selection in one of the following ways:
-
-* Show all dependencies -- shows all dependencies for selected component
-* Show dependencies, 1 level, both directions -- limits displayed dependencies to one level from selected component
-* Show Root Cause -- if the selected component is in a non-clear state, adds the root cause tree
-* Show Root Cause only -- limits displayed components to the root cause elements
-
-A list of the available actions is included in the component details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
-
-![Actions](../../../.gitbook/assets/v43_actions.png)
-
-The default list of actions can be extended with [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
-
-### Dependencies
-
-Hover over any component to bring up the component navigation menu. Select Dependencies to isolate the selected component \(show only that component\) and expand the topology selection in one of the following ways:
-
-* Direction -- choose between **Both**, **Up**, and **Down**
-* Depth -- choose between **All**, **1 level**, and **2 levels**
-
-![Dependencies](../../../.gitbook/assets/dependencies.png)
-
-If you require more flexibility in selecting topology, check out the [StackState Query Language \(STQL\)](../../../develop/reference/stql_reference.md).
-
-### Root Cause Analysis
-
-Hover over any component to bring up the component navigation menu. Select Root Cause Analysis to isolate the selected non clear \(e.g. deviating or critical\) and expand the topology selection in one of the following ways:
-
-* **Root cause only** -- only show the probable causing component
-* **Full root cause tree** --  show the entire root cause tree
-
-![Root cause](../../../.gitbook/assets/root_cause_analysis.png)
-
-You can also [show root cause outside the current view](topology-perspective.md#root-cause-outside-current-view)
-
-
-## Zoom in, zoom out and Fit to Screen
+### Zoom in and out
 
 There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
 
@@ -148,7 +115,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
 
-## Root cause outside current view
+## Show root cause
 
 If there are components with [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams) and [health checks](../../../configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../../develop/developer-guides/custom-functions/propagation-functions.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
@@ -173,4 +140,8 @@ From list mode, the component list can be exported as a CSV file. The CSV file i
 1. From the topology perspective, click the **List mode** icon on the top right of the screen to open the topology in list mode.
 2. Click **Download as CSV** from the top of the page.
    * The component list will be downloaded as a CSV file named `<view_name>.csv`.
+
+
+
+
 
