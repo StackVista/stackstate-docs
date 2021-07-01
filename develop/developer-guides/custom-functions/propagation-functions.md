@@ -29,7 +29,7 @@ Propagation functions are used to calculate the propagated state of a component.
 
 * **Auto propagation \(default\)** - returns the auto state. This is the same as **Transparent propagation** except that if component's own health state is DEVIATING it is not propagated. For example:
 
-  | Dependency state | Component state | Transparent state |
+  | Dependency state | Component state | Auto state |
   | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` |
   | `CLEAR` | `CRITICAL` | `CRITICAL` |    
