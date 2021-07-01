@@ -14,15 +14,15 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](/use/stackstate-ui/explore_mode.md).  Components that have one or more health checks configured will have a calculated [health state](/use/health-state/health-state-in-stackstate.md).
 
-### Component types
+### Types
 
 
 
-### Component grouping
+### Grouping
 
 [View visuzalization settings](../views/visualization_settings.md)
 
-## Component details pane
+### Component Details pane
 
 When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
 
