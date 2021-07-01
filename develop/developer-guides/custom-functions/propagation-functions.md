@@ -34,7 +34,7 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `DEVIATING` | `CLEAR` |
   | `CLEAR` | `CRITICAL` | `CRITICAL` |    
   | `CRITICAL` | `DEVIATING` | `CRITICAL` |
-  | `DEVIATING` | `DEVIATING` | `CRITICAL` |
+  | `DEVIATING` | `DEVIATING` | `DEVIATING` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
   | `CRITICAL` | `CLEAR` | `CRITICAL` |
 
