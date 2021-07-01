@@ -14,7 +14,7 @@ After installing one or more StackPacks, you can go to the Explore Mode to explo
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
-You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](../stackstate-ui/filters.md) on the left side bar, or by [hovering over a component](../stackstate-ui/perspectives/topology-perspective.md#interactive-navigation).
+You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](../stackstate-ui/filters.md) on the left-hand side bar, or by [hovering over a component](../stackstate-ui/perspectives/topology-perspective.md#interactive-navigation).
 
 ![Explore topology](../../.gitbook/assets/v43_topology.png)
 
@@ -49,7 +49,7 @@ Both components and relations can have one or multiple telemetry streams. The mo
 
 ![Telemetry browser](../../.gitbook/assets/v43_component_details_inspect_metric_stream.png)
 
-If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left side of the popup.
+If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left-hand side of the popup.
 
 ![Telemetry browser](../../.gitbook/assets/v43_component_details_inspect_log_stream.png)
 

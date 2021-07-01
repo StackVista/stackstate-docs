@@ -29,7 +29,7 @@ To add a health check calculated in StackState:
    * At least one telemetry stream. Some checks will require multiple streams. 
    * For metrics check functions, a [windowing method](add-a-health-check.md#windowing-method) and window size.
 5. Click **CREATE** to create the health check. 
-   * The check is now active and visible under the **Health** section on the right side of the screen. 
+   * The check is now active and visible under the **Health** section on the right-hand side of the screen. 
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
 ![Add a health check to an element](../../.gitbook/assets/v43_add_health_check.png)

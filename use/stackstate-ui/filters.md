@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **View Filters** pane on the left side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
+The **View Filters** pane on the left-hand side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
 ## Filter Topology
 
@@ -66,7 +66,7 @@ To successfully produce this topology visualization, we would need to either re-
 
 ## Filter Events
 
-The **View Filters** pane on the left side of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the View Details pane on the right of the StackState UI.
+The **View Filters** pane on the left-hand side of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the View Details pane on the right of the StackState UI.
 
 The following event filters are available:
 

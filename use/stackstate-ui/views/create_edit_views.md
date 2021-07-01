@@ -27,5 +27,5 @@ It is not recommended to delete or edit views created by StackPacks. When doing 
 To delete or edit a view:
 
 1. Go to the list of views by clicking **Views** in the .
-2. In the View Details pane on the right side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
+2. In the View Details pane on the right-hand side of the screen, select the context menu next \(accessed through the triple dots\) to the right of the view name.
 3. Select the **Delete** or **Edit** menu item.
