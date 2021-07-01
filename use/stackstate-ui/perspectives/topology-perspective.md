@@ -52,16 +52,16 @@ Relations show how components in the topology are connected together. They are r
 
 | Relation type | Description |
 |:---|:---|
-| ![](/.gitbook/assets/relation_comp_comp.svg) | A solid line denotes a direct relation between two components. |
-| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. This means that another component that is not visualized sits between the two indirectly related components. |
+| ![](/.gitbook/assets/relation_comp_comp.svg) | A solid line denotes a direct relation between two components. The direction of the arrowhead shows the direction of the dependency. |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | A dashed line denotes an indirect relation between two components. This means that another component that is not visualized sits between the two indirectly related components. The direction of the arrowhead shows the direction of the dependency.  |
 
 ### Component groups
 
 | Relation type | Description |
 |:---|:---|
-| ![](/.gitbook/assets/relation_comp_group.svg) | A solid line denotes a direct relation to **all components** in a component group. All relations are in the same direction.  |
-| ![](/.gitbook/assets/relation_comp_group_dot_1.svg) | A dashed line with a single arrowhead denotes either a direct relation to **some components** in a component group or indirect relations to **some or all** components in the group. All relations are in the same direction. |
-| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation to **some components** in a component group. Relations can be in either direction. |
+| ![](/.gitbook/assets/relation_comp_group.svg) | A solid line denotes a direct relation to **all components** in a component group. The direction of the arrowhead shows the direction of the dependency - all relations are in the same direction. |
+| ![](/.gitbook/assets/relation_comp_group_dot_1.svg) | A dashed line with a single arrowhead denotes either a direct relation to **some components** in a component group or indirect relations to **some or all** components in the group. The direction of the arrowhead shows the direction of the dependency - all relations are in the same direction. |
+| ![](/.gitbook/assets/relation_comp_group_dot_2.svg) | A dashed line with two arrowheads denotes a direct relation to **some components** in a component group. The direction of the arrowhead shows the direction of the dependency - relations can be in either direction. |
 
 
 ## Filters
