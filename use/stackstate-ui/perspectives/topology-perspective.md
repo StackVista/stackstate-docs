@@ -20,16 +20,9 @@ Components of the same type and/or state can optionally be grouped together into
 
 You can customize the grouping of components in the [Visuzalization settings](../views/visualization_settings.md).
 
-### Component Details pane
-
-When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
-
-* Metadata, such as the component name, type and any labels.
-* [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
-* [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
-
 ### Component context menu
 
+TODO
 
 ### Actions
 
@@ -42,12 +35,6 @@ A list of the available actions is included in the Component Details pane when y
 ![Actions](../../../.gitbook/assets/v43_actions.png)
 
 The default list of actions can be extended with [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
-
-### Find component
-
-You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
-
-See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard-shortcuts.md).
 
 ## Relations
 
@@ -105,17 +92,36 @@ The visualization of components and relations in the topology perspective can be
 
 The Visualization Settings are saved together with the View. For details, see the page [Visuzalization settings](../views/visualization_settings.md).
 
+## Details panel
+
+The details panel on the right-hand side of the screen shows information about the view, or the currently selected component, relation or problem. 
+
+### Component Details pane
+
+When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
+
+* Metadata, such as the component name, type and any labels.
+* [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
+* [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
+
+## Problems
+
+If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
+
 ## Navigation
 
 ### Zoom in and out
 
 There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
 
-## Problems
+### Find component
 
-If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
+You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
 
-## Show root cause
+See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard-shortcuts.md).
+
+
+### Show root cause
 
 If there are components with [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams) and [health checks](../../../configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../../develop/developer-guides/custom-functions/propagation-functions.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
