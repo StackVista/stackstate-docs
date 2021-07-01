@@ -2,7 +2,7 @@
 
 ## Overview
 
-When monitoring distributed systems, if you have a defined SLO (Service Level Objective), StackState can alert you if one of your SLIs (Service Level Indicators) falls bellow a certain threshold. you can make use of the [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals) described on this page.
+When monitoring distributed systems with a defined SLO (Service Level Objective), StackState can alert you if one of your SLIs (Service Level Indicators) falls bellow a certain threshold. The [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals) described on this page can be used to build a check in StackState that responds to fluctuations in service level.
 
 ## Four golden signals
 
