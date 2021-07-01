@@ -22,7 +22,7 @@ You can customize the grouping of components in the [Visuzalization settings](..
 
 ### Component context menu
 
-TODO
+When you hover over a component, the component context menu is displayed. This gives you information about the component, such as its health state and name. You can also run the actions and shortcuts specific to the component from here.
 
 ### Actions
 
@@ -104,7 +104,7 @@ When a component is selected by clicking on it, the **Component Details** pane i
 * [health checks](../../../configure/telemetry/checks_and_streams.md#checks)
 * [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams)
 
-## Problems
+### Problems
 
 If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
 
@@ -119,7 +119,6 @@ There are zoom buttons located in the bottom right corner of the topology visual
 You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
 
 See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard-shortcuts.md).
-
 
 ### Show root cause
 
