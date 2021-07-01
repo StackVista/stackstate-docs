@@ -20,9 +20,9 @@ You could then integrate your service by making a propagation function with the 
 
 ```text
 Component.withId(componentId).get().then { component ->  
-    Http.get("http://mydomain/propagation").param("componentName", component.name).jsonBody() 
+    Http.get("http://mydomain/propagation").param("componentName", component.name).jsonBody()
 }.then { response ->
-    if (response.allow) return transparentState;
+    if (response.allow) return autoState;
     else return CLEAR
 }
 ```
@@ -33,6 +33,5 @@ This function first gets the name of the component, then calls out via HTTP to t
 
 * Your service should be network resolvable and accessible by the StackState servers that run the scripts.
 * HTTPS is supported only for certificates that are signed by the Certificate Authorities known to the Java Keystore accessible by the StackState server.
-* StackState scripts have a default configurable timeout, for example 15 seconds. If your service does not respond in a timely fashion an error will be logged and depending on the type of function different types of error behavior will be observed. 
+* StackState scripts have a default configurable timeout, for example 15 seconds. If your service does not respond in a timely fashion an error will be logged and depending on the type of function different types of error behavior will be observed.
 * Make sure your service can keep up with the demand. Depending on the type of function and the size of the 4T model, StackState might make a lot of calls to your service.
-

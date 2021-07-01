@@ -27,7 +27,7 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-* **Auto propagation \(default\)** - returns the auto state. This is the same as **Transparent propagation** except that if component's own health state is DEVIATING it is not propagated. For example:
+* **Auto propagation \(default\)** - This propagation acts as noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is the same as **Transparent propagation** except that if component's own health state is `DEVIATING` it is not propagated - excluded from computation of the result state. For example:
 
   | Dependency state | Component state | Auto state |
   | :--- | :--- | :--- |
