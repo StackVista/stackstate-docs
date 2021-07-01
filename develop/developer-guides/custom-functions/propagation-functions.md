@@ -19,13 +19,24 @@ A component's propagated state is calculated using a propagation function. This 
 
 Propagation functions are used to calculate the propagated state of a component.
 
-* **Transparent propagation \(default\)** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+* **Transparent propagation** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
 
   | Dependency state | Component state | Transparent state |
   | :--- | :--- | :--- |
   | `CRITICAL` | `DEVIATING` | `CRITICAL` |
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
+
+  * **Auto propagation \(default\)** - returns the auto state. This is the same as **Transparent propagation** except that if component's own health state is DEVIATING it is not propagated. For example:
+
+    | Dependency state | Component state | Transparent state |
+    | :--- | :--- | :--- |
+    | `CLEAR` | `DEVIATING` | `CLEAR` |
+    | `CLEAR` | `CRITICAL` | `CRITICAL` |    
+    | `CRITICAL` | `DEVIATING` | `CRITICAL` |
+    | `DEVIATING` | `DEVIATING` | `CRITICAL` |
+    | `DEVIATING` | `CLEAR` | `DEVIATING` |
+    | `CRITICAL` | `CLEAR` | `CRITICAL` |
 
 * **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
 * **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
@@ -77,6 +88,7 @@ A propagation function script takes system and user defined parameters. System p
 | System parameter | Description |
 | :--- | :--- |
 | `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
+| `autoState` | The precomputed auto state if returned from the script will lead to auto propagation |
 | `component` | The id of the current component |
 
 ### Execution
@@ -94,7 +106,7 @@ The script APIs provide super-human levels of flexibility and even allow queryin
 
 #### Synchronous execution
 
-Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution. 
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution.
 
 `stateChangesRepository` can be used to return:
 
@@ -139,4 +151,3 @@ You can add logging statements to a propagation function for debug purposes, for
 
 * [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
 * [Enable logging for functions](/configure/logging/README.md)
-
