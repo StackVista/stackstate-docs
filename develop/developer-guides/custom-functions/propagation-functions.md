@@ -66,8 +66,8 @@ Component
   .then { component ->
     if (component.runState.runState != "RUNNING") {
       return DEVIATING
-    } else {    
-      return transparentState
+    } else {
+      return autoState
     }
   }
 ```
