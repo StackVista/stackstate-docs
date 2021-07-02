@@ -16,6 +16,10 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
+### Upgrade to v4.5.x
+
+* **Auto Propagation** has been introduced and now is a default propagation function. The difference of this function from the previous default - **Transparent propagation** is that the `DEVIATING` state of component does not propagate. This reduces the noise coming from parts of application components or infrastructure that generates alert noise from flipping health states. In case the old behaviour is required, it can be restored by choosing **Transparent** propagation function explicitly.
+
 ### Upgrade to v4.4.x
 
 {% tabs %}
