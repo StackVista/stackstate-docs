@@ -2,19 +2,19 @@
 
 ## Overview
 
-The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past and zoom in or out on the displayed telemetry. Health and events charts in the timeline give an overview of the state of the topology in the selected telemetry interval.
-
-## Timeline
+The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all of the telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology in the selected telemetry interval.
 
 ![StackState timeline](/.gitbook/assets/v44_timeline_3.png)
 
+## Timeline
+
 ### Health
 
-The health state of a view over the selected telemetry interval is displayed as a colour in the **Health** line of the timeline. 
+The health state of a view during the selected telemetry interval is displayed as a colour in the timeline **Health** line. 
 
-The health state is available when [health state is enabled](/use/health-state/configure-view-health.md) for the current view and the topology displayed results from the original topology query saved in the view. If the topology filters have been edited, but not saved, no health state will be available.
+Health state information is available when [health state is enabled](/use/health-state/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view. If the topology filters have been edited and not saved, no health state information will be available.
 
-When health state is not available, a gray line is displayed.
+When health state information is not available, a gray line is displayed.
 
 ![Health state not available](/.gitbook/assets/v44_timeline_no_health_state.png)
 
