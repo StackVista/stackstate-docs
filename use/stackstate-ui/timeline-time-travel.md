@@ -56,9 +56,7 @@ You can set the telemetry interval in the following ways:
 The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time, however, the message `The topology time is out of the current time interval` will be displayed in the timeline if the telemetry interval does not include the topology time.
 
 
-If the end time of the selected telemetry interval is in the past, StackState will be in time travel mode. 
-
-Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+If the end time of the selected telemetry interval is in the past, StackState will be in time travel mode. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
 
 ![Set telemetry interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
