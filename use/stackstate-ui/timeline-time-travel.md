@@ -19,7 +19,7 @@ When health state is not available, a gray line is displayed.
 
 ### Events
 
-The **Events** line in the timeline shows a bar chart with the number of events that happened at each point in time. This helps you see moments in the past when a lot was happening with topology from the [selected topology time](#topology-time-and-the-playhead).
+The **Events** line in the timeline shows a bar chart with the number of events that happened at each point in time. This helps you see moments in the past when a lot was happening with topology from the [selected topology time](#topology-time).
 
 To zoom in on a bar showing a lot of events, click and drag to select a smaller time window around it.
 
@@ -34,7 +34,7 @@ Clicking on the timeline will move the playhead to this point, and thus time tra
 StackState stores topology and telemetry from your landscape and allows you to time travel through these using the timeline. There are two types of time travel:
 
 * Time travel through telemetry by setting a [telemetry interval](#telemetry-interval).
-* Time travel through topology by setting a [topology time](#topology-time-and-the-playhead).
+* Time travel through topology by setting a [topology time](#topology-time).
 
 As the telemetry interval and topology time can be configured separately, it is possible to display for example events generated today by the topology elements deployed in the landscape as it was yesterday.
 
@@ -42,7 +42,7 @@ As the telemetry interval and topology time can be configured separately, it is 
 
 The telemetry interval specifies the time window for which events, metrics and traces are displayed. 
 
-### Topology time and the playhead
+### Topology time
 
 ### Pause and go live
 
