@@ -47,8 +47,6 @@ Let's imagine a concrete scenario:
 
 The telemetry interval specifies the time window for which events, metrics and traces are displayed in the StackState perspectives.
 
-![Set telemetry interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
-
 You can set the telemetry interval in the following ways:
 
 * Select a relative time window or set a custom time interval from the **Set the telemetry interval** popup on the left of the timeline.
@@ -56,6 +54,7 @@ You can set the telemetry interval in the following ways:
 * Click and drag on the timeline to zoom in on a selection.
 
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
+![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time, however, the message `The topology time is out of the current time interval` will be displayed in the timeline if the telemetry interval does not include the topology time.
 
