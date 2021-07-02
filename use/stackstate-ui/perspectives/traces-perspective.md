@@ -81,18 +81,9 @@ When ingesting traces, StackState attaches service identifiers to the components
 
 Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list is not limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
 
-## Time Traveling Considerations
+## Time Travel
 
-When using the Traces Perspective, just like in other perspectives, you can either be in live mode or in the past. In live mode, StackState is constantly polling for new traces. When time traveling to the past, all views in all perspectives come with a timeline for which you can make two selections:
-
-1. A specific moment in time for which you want the snapshot of your IT infrastructure to be fetched \(i.e. topology\).
-2. The time range for which you want to see traces \(e.g the last 24 hours\).
-
-Let's imagine a concrete scenario:
-
-* You received an event notification saying that your payment processing application is not able to process any payments right now and your customers aren't being served.
-* In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a `CRITICAL` state. That moment corresponds to the point in time for which you fetch the snapshot of your IT infrastructure \(point **1** above\).
-* You can then select to see the hours that preceded that moment in order to fetch the traces that will hopefully point you to the root cause of your problem \(point **2** above\).
+When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](/use/stackstate-ui/timeline-time-travel.md#time-travel). 
 
 ### Inspection, scrolling and its impact on time selection.
 

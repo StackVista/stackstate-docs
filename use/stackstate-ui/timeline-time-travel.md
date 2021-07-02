@@ -2,9 +2,9 @@
 
 ## Overview
 
-The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all of the telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology in the selected telemetry interval.
+The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology in the selected telemetry interval.
 
-![StackState timeline](/.gitbook/assets/v44_timeline_3.png)
+![Timeline](../../.gitbook/assets/v43_timeline.png)
 
 ## Timeline
 
@@ -32,21 +32,46 @@ A single click on the timeline will move the playhead to this point in time, and
 
 ## Time travel
 
-StackState stores topology and telemetry from your landscape and allows you to time travel through these using the timeline. There are two types of time travel:
+In each of the StackState perspectives, you can either be in live mode or in the past. In live mode, StackState will constantly poll for new data. When you time travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
 
-* Time travel through telemetry by setting a [telemetry interval](#telemetry-interval).
-* Time travel through topology by setting a [topology time](#topology-time).
+* [Topology time](#topology-time) - a specific moment in time for which you want to fetch a snapshot of your IT infrastructure.
+* [Telemetry interval](#telemetry-interval) - the time range for which you want to see telemetry and traces.
 
-As the telemetry interval and topology time can be configured separately, it is possible to display for example events generated today by the topology elements deployed in the landscape as it was yesterday.
+Let's imagine a concrete scenario:
+
+* You received an event notification saying that your payment processing application is not able to process any payments right now, and your customers aren't being served.
+* In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
+* You can then select to see the hours that preceded that moment in order to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 
 ### Telemetry interval
 
-The telemetry interval specifies the time window for which events, metrics and traces are displayed. 
+The telemetry interval specifies the time window for which events, metrics and traces are displayed in the StackState perspectives.
+
+You can set the telemetry interval in the following ways:
+
+* Click and drag on the timeline to zoom in on a selection.
+* Select a relative time window or set a custom time interval from the **Set the telemetry interval** popup on the left of the timeline.
+* Use the time range arrow buttons to the left and right of the **Set the telemetry interval** popup to move the selected telemetry interval backwards or forwards through time.
+
+The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time, however, the message `The topology time is out of the current time interval` will be displayed in the timeline if the telemetry interval does not include the topology time.
+
+
+If the end time of the selected telemetry interval is in the past, StackState will be in time travel mode. 
+
+Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+
+![Set telemetry interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
 
+If the 
+
+Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+
 ### Pause and go live
 
+
+
+
 * TODO: STAC-13450 - limit on time interval
-  (/) * TODO: STAC-13037 - grayed out health line when view query is changed
 * TODO: STAC-12346 - redesign of timeline
