@@ -63,9 +63,9 @@ If the end time of the selected telemetry interval is in the past, StackState wi
 
 ### Topology time
 
-The topology time specifies the moment from which the IT infrastructure topology snapshot is taken. All telemetry displayed in StackState is based on a topology snapshot from the selected topology time. On the timeline, this is indicated as the playhead - a black line indicating the selectedtopology time.
+The topology time specifies the moment from which the IT infrastructure topology snapshot is taken. All telemetry displayed in StackState is based on a snapshot of the topology from the selected topology time. On the timeline, the topology time is indicated as the playhead - a black line with the selected topology time at the top.
 
-By default, StackState is in live mode with the topology time set to the current time with the playhead on the right end of the timeline.
+By default, StackState is in live mode with the topology time set to the current time and the playhead located on the right end of the timeline.
 
 You can set the topology time in the following ways:
 
