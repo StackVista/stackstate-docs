@@ -32,7 +32,7 @@ If the end time of the selected telemetry interval is in the past, StackState wi
 
 The topology and all telemetry displayed in StackState is based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. 
 
-By default, StackState is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time. On the timeline, the selected topology time is shown by the playhead - a black line with the selected topology time at the top. 
+By default, StackState is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time. On the timeline, the selected topology time is shown by the playhead - a black line with the selected topology time at the top. It is also specified in the **Topology time** box at the top of the timeline. 
 
 The topology time can be set in the following ways:
 
