@@ -10,7 +10,7 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 ### Telemetry interval
 
-The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. The selected telemetry interval runs from left to right on the timeline. By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a telemetry interval. 
+The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. The selected telemetry interval runs from left to right on the timeline. By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a custom telemetry interval. 
 
 The telemetry interval can be set in the following ways:
 
