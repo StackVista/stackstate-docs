@@ -8,6 +8,8 @@
 
 StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
 
+In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve topology data for the cluster.
+
 ## Setup
 
 ### Single container
@@ -63,12 +65,38 @@ docker-compose up -d
 
 ### Docker swarm mode
 
-{% hint style="warning" %}
-**Limitation of Docker-Swarm mode**
+In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data (services, containers and the relations between them). To retrieve full data, StackState Agent V2 must also be deployed on each node as a [Docker compose setup](#docker-compose).
 
-Some specific features are not supported in Docker swarm mode. This limitation prevents StackState Agent V2 from collecting relations between containers, processes and other resources while in Docker swarm mode.
+To run StackState Cluster Agent in Docker Swarm mode:
 
-To run the StackState Agent in Docker swarm mode, use a [Docker compose setup](#docker-compose).
+1. Create a file `docker-compose.yml` with the following:
+```
+stackstate-agent:
+    image: docker.io/stackstate/stackstate-cluster-agent:${AGENT_VERSION}
+    deploy:
+      placement:
+        constraints: [ node.role == manager ]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /sys/kernel/debug:/sys/kernel/debug
+    environment:
+      STS_API_KEY: "API_KEY"
+      STS_STS_URL: "http://receiver:7077/stsAgent"
+      STS_COLLECT_SWARM_TOPOLOGY: "true"
+      STS_LOG_LEVEL: "debug"
+      STS_LOG_TO_CONSOLE: "true"
+      DOCKER_SWARM: "true"
+      STS_CLUSTER_NAME: <cluster_name>
+```
+
+2. Run the command:
+```
+docker stack deploy -c docker-compose.yml
+```
+
+{% hint style="hint" %}
+Running the StackState Cluster Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](#docker-compose).
 {% endhint %}
 
 ### Upgrade
