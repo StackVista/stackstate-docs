@@ -20,7 +20,7 @@ The telemetry interval can be set in the following ways:
 
 * Click and drag on the timeline to zoom in on a selection.
 * Select a relative time window or set a custom time interval from the **Set the telemetry interval** popup on the left of the timeline.
-* Use the time range arrow buttons to the left and right of the **Set the telemetry interval** popup to move the selected telemetry interval backwards or forwards through time.
+* Use the time jumper arrow buttons to the left and right of the **Set the telemetry interval** popup to move the selected telemetry interval backwards or forwards through time.
 
 If the end time of the selected telemetry interval is in the past, StackState will be in [time travel mode](#time-travel) and the [topology time](#topology-time) will be paused. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
 
@@ -36,7 +36,7 @@ By default, StackState is in live mode with the topology time set to the current
 
 The topology time can be set in the following ways:
 
-* Use the time range arrow buttons to the left and right of the **Topology time** box to move the playhead forwards or backwards in time to the next set of [events](#events).
+* Use the time jumper arrow buttons to the left and right of the **Topology time** box to move the playhead forwards or backwards in time to the next set of [events](#events).
 * To move the playhead to a specific time, click on the timeline.
 
 Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.

@@ -21,11 +21,12 @@ There are four perspectives in the StackState UI. You can switch between them us
 
 ## Time travel
 
-All perspectives allow for time travel by using the timeline control located at the bottom of the perspective. The timeline shows the currently selected time window and the active perspective uses this time window to show information. Switching to another perspective keeps the current time window in place so you can easily correlate different types of information. You can change the time window by using the dropdown on the top left of the timeline control. Zoom in on a particular time window using drag-zoom on the timeline control.
+All perspectives allow for [time travel](/use/stackstate-ui/timeline-time-travel.md#time-travel) using the timeline control located at the bottom of the StackState UI. The timeline shows the currently selected telemetry interval and topology time. The active perspective uses the telemetry to show information relating to the topology that existed at the selected topology time. Switching to another perspective keeps the current telemetry interval in place, so you can easily correlate different types of information. 
 
 Inside the timeline, blue bars show the number of recorded events at a particular point in time. This makes it possible to identify moments of interest that will help when troubleshooting.
 
-The timeline is in **live mode** by default. This means that it tracks changes as they happen and update the perspective and timeline accordingly. By clicking at a specific place in the timeline, you can stop time and time travel to that moment, updating the information shown in the active perspective. Select the **Live Mode** button in the timeline to switch to live updates again.
+By default, the timeline is in **live mode**. This means that it tracks changes as they happen and updates the perspective and timeline accordingly. You can click on the timeline to time travel to a topology time in the past. Click **Go live** or **BACK TO LIVE** to stop time travelling and switch back to live updates again.
 
-To the left of the current time are two arrows, one pointing left and one pointing right. These **time jumpers** move the active time window to the next interesting point in time \(either in the past or the future\) for which StackState has recorded events.
+To the left of the telemetry interval time and topology time boxes there are two arrows, one pointing left and one pointing right. These **time jumpers** they move the telemetry interval forwards or backwards in time or shift the topology time to the next point for which StackState has recorded events.
 
+Read more about the [timeline and time travel](/use/stackstate-ui/timeline-time-travel.md)
