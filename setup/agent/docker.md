@@ -72,7 +72,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
 1.  Create a file `docker-compose.yml` with the following content. Update with details of your StackState instance:
     - **STS_API_KEY** - the API Key for your StackState instance
     - **STS_STS_URL** - the URL of the StackState Receiver API
-    - **STS_CLUSTER_NAME** - the name that will be given to this cluster in StackState
+    - **STS_CLUSTER_NAME** - the name you would like to give this cluster in StackState
 ```
 stackstate-agent:
     image: docker.io/stackstate/stackstate-cluster-agent:latest
