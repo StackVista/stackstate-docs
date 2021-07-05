@@ -2,7 +2,9 @@
 
 ## Overview
 
-When monitoring distributed systems with a defined SLO (Service Level Objective), StackState can alert you if one of your SLIs (Service Level Indicators) falls bellow a certain threshold. The [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals) described on this page can be used to build a check in StackState that responds to fluctuations in service level.
+When monitoring distributed systems with a defined SLO (Service Level Objective), StackState can alert you if one of your SLIs (Service Level Indicators) falls below a certain threshold. The [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals) described on this page can be used to build a check in StackState that responds to fluctuations in service level.
+
+The checks described in this page do not ensure you are meeting your SLO directly, but they can help you prevent an SLO violation by catching (and alerting on) changes in your SLIs as soon as possible.
 
 ## Four golden signals
 
@@ -67,7 +69,7 @@ When selecting a metric stream for a health check, you will have some options to
 
 - Windowing method: [more details in this page](../health-state-and-event-notifications/add-a-health-check.md#windowing-method).
 - Aggregation: [see here a list of all possible aggregation methods](../../develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
-- Time window (or window size): By default the time window is 300000 milliseconds (or 5 minutes). The greater the time window is, less frequent your health state will be updated. Though if you configure it too small, you might have too many state changes for the component.
+- Time window (or window size): By default the time window is 300000 milliseconds (or 5 minutes). It will directly influence the number of positive or false negative alerts you will get. Setting it too short might lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. The longer you configure it the less sensitive it will be. You should balance the time window based on the metric and how early you want to be alerted on spikes.
 
 ### Check function: Error percentage
 
@@ -85,6 +87,6 @@ Use this function to make sure you meet your SLO for maximum response time, for 
 
 ![Response time check](../../images/telemetry/http-resp-time-check.png)
 
-## Limitations
+## Configuration and limitations
 
-Currently, StackState Agent V2 can only report on rate and response time of HTTP/1. HTTP/2, HTTP/3 and HTTPS are not supported.
+The metrics described in this page are gathered by the StackState Agent and can be disabled. Refer to [this page](../../stackpacks/integrations/agent.md) for more information. Currently, the StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols are not yet supported.
