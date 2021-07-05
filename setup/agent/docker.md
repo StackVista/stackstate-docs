@@ -69,10 +69,10 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 To run StackState Cluster Agent in Docker Swarm mode:
 
-1. Create a file `docker-compose.yml` with the following:
+1. Create a file `docker-compose.yml` with the following content. Update with details of the environment where the Cluster Agent will run (`STS_API_KEY`, `STS_STS_URL` and `STS_CLUSTER_NAME`):
 ```
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-cluster-agent:${AGENT_VERSION}
+    image: docker.io/stackstate/stackstate-cluster-agent:latest
     deploy:
       placement:
         constraints: [ node.role == manager ]
