@@ -12,6 +12,10 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. The selected telemetry interval runs from left to right on the timeline. By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a custom telemetry interval. 
 
+{% hint style="info" %}
+The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time. If the telemetry interval does not include the topology time, the message `The topology time is out of the current time interval` will be displayed in the timeline.
+{% endhint %}
+
 The telemetry interval can be set in the following ways:
 
 * Click and drag on the timeline to zoom in on a selection.
@@ -23,10 +27,6 @@ If the end time of the selected telemetry interval is in the past, StackState wi
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
 
 ![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
-
-{% hint style="info" %}
-The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time. If the telemetry interval does not include the topology time, the message `The topology time is out of the current time interval` will be displayed in the timeline.
-{% endhint %}
 
 ### Topology time
 
