@@ -30,7 +30,9 @@ The telemetry interval can be a maximum 6 months. It does not need to include th
 
 ### Topology time
 
-The topology and all telemetry displayed in StackState is based on a snapshot of the  IT infrastructure. The topology time specifies the moment from which this snapshot is taken. On the timeline, the topology time is shown by the playhead - a black line with the selected topology time at the top. By default, StackState is in live mode with the topology time set to the current time. You can also [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time.
+The topology and all telemetry displayed in StackState is based on a snapshot of the IT infrastructure. The topology time specifies the moment from which this snapshot is taken. 
+
+By default, StackState is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time. On the timeline, the selected topology time is shown by the playhead - a black line with the selected topology time at the top. 
 
 The topology time can be set in the following ways:
 
