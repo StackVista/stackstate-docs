@@ -2,11 +2,49 @@
 
 ## Overview
 
-The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology in the selected telemetry interval.
+The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology during the selected telemetry interval.
 
 ![Timeline](../../.gitbook/assets/v43_timeline.png)
 
 ## Timeline
+
+### Telemetry interval
+
+The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. The selected telemetry interval runs from left to right on the timeline. By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a telemetry interval. 
+
+The telemetry interval can be set in the following ways:
+
+* Select a relative time window or set a custom time interval from the **Set the telemetry interval** popup on the left of the timeline.
+* Use the time range arrow buttons to the left and right of the **Set the telemetry interval** popup to move the selected telemetry interval backwards or forwards through time.
+* Click and drag on the timeline to zoom in on a selection.
+
+If the end time of the selected telemetry interval is in the past, StackState will be in time travel mode and the topology time will be paused. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+
+![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
+
+![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
+
+{% hint style="info" %}
+The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time. If the telemetry interval does not include the topology time, the message `The topology time is out of the current time interval` will be displayed in the timeline.
+{% endhint %}
+
+### Topology time
+
+The topology and all telemetry displayed in StackState is based on a snapshot of the  IT infrastructure. The topology time specifies the moment from which this snapshot is taken. On the timeline, the topology time is shown by the playhead - a black line with the selected topology time at the top. By default, StackState is in live mode with the topology time set to the current time. You can also [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time.
+
+The topology time can be set in the following ways:
+
+* Use the time range arrow buttons to the left and right ofse the **Set the topology time** box to move the playhead to the next set of events.
+* Click on the timeline to move the playhead to the selected time.
+
+Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+
+![Set the topology time box](/.gitbook/assets/v44_timeline_set_topology_time.png)
+
+{% hint style="info" %}
+If the selected [telemetry interval](#telemetry-interval) does not include the selected topology time, the message `The topology time is out of the current time interval` will be displayed in the timeline.
+{% endhint %}
+
 
 ### Health
 
@@ -43,40 +81,7 @@ Let's imagine a concrete scenario:
 * In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
 * You can then select to see the hours that preceded that moment in order to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 
-### Telemetry interval
 
-The telemetry interval specifies the time window for which events, metrics and traces are displayed in the StackState perspectives. This is indicated on the timeline from left to right.
-
-You can set the telemetry interval in the following ways:
-
-* Select a relative time window or set a custom time interval from the **Set the telemetry interval** popup on the left of the timeline.
-* Use the time range arrow buttons to the left and right of the **Set the telemetry interval** popup to move the selected telemetry interval backwards or forwards through time.
-* Click and drag on the timeline to zoom in on a selection.
-
-![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
-
-![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
-
-The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time, however, the message `The topology time is out of the current time interval` will be displayed in the timeline if the telemetry interval does not include the topology time.
-
-If the end time of the selected telemetry interval is in the past, StackState will be in time travel mode. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
-
-### Topology time
-
-The topology time specifies the moment from which the IT infrastructure topology snapshot is taken. All telemetry displayed in StackState is based on a snapshot of the topology from the selected topology time. On the timeline, the topology time is indicated as the playhead - a black line with the selected topology time at the top.
-
-By default, StackState is in live mode with the topology time set to the current time and the playhead located on the right end of the timeline.
-
-You can set the topology time in the following ways:
-
-* Use the time range arrow buttons to the left and right ofse the **Set the topology time** box to move the playhead to the next set of events.
-* Click on the timeline to move the playhead to the selected time.
-
-![Set the topology time box](/.gitbook/assets/v44_timeline_set_topology_time.png)
-
-If the selected [telemetry interval](#telemetry-interval) does not include the selected topology time, the message `The topology time is out of the current time interval` will be displayed in the timeline.
-
-When the topology time is set to a point in the past, StackState will be in time travel mode. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
 
 ### Pause and go live
 
