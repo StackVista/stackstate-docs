@@ -73,25 +73,26 @@ To run StackState Cluster Agent in Docker Swarm mode:
     - **STS_API_KEY** - the API Key for your StackState instance
     - **STS_STS_URL** - the URL of the StackState Receiver API
     - **STS_CLUSTER_NAME** - the name you would like to give this cluster
-```yaml
-stackstate-agent:
-    image: docker.io/stackstate/stackstate-cluster-agent:latest
-    deploy:
-      placement:
-        constraints: [ node.role == manager ]
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /etc/passwd:/etc/passwd:ro
-      - /sys/kernel/debug:/sys/kernel/debug
-    environment:
-      STS_API_KEY: "API_KEY"
-      STS_STS_URL: "http://receiver:7077/stsAgent"
-      STS_COLLECT_SWARM_TOPOLOGY: "true"
-      STS_LOG_LEVEL: "debug"
-      STS_LOG_TO_CONSOLE: "true"
-      DOCKER_SWARM: "true"
-      STS_CLUSTER_NAME: <cluster_name>
-```
+
+    ```yaml
+    stackstate-agent:
+        image: docker.io/stackstate/stackstate-cluster-agent:latest
+        deploy:
+          placement:
+            constraints: [ node.role == manager ]
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+          - /etc/passwd:/etc/passwd:ro
+          - /sys/kernel/debug:/sys/kernel/debug
+        environment:
+          STS_API_KEY: "API_KEY"
+          STS_STS_URL: "http://receiver:7077/stsAgent"
+          STS_COLLECT_SWARM_TOPOLOGY: "true"
+          STS_LOG_LEVEL: "debug"
+          STS_LOG_TO_CONSOLE: "true"
+          DOCKER_SWARM: "true"
+          STS_CLUSTER_NAME: <cluster_name>
+    ```
 
 2. Run the command:
 ```
