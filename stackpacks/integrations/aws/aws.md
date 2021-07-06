@@ -102,8 +102,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 - **Role ARN** - the ARN of the IAM Role used to [deploy the AWS Cloudformation stack](#deploy-the-aws-cloudformation-stack). For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID.
 - **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-- **AWS Access Key ID** - Optional. The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, leave empty and the instance will authenticate using the attached IAM role.
-- **AWS Secret Access Key** - Optional. The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, leave empty and the instance will authenticate using the attached IAM role.
+- **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` the instance will authenticate using the attached IAM role.
+- **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
 
 ### Configure the AWS check
 
@@ -138,11 +138,16 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 ### Use an HTTP proxy
 
-StackState Agent V2 must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls.
+#### Agent
 
-When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. The same environment variables can be set for the main StackState instance to force all AWS traffic through an HTTP proxy.
+StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, a HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set. For more information on how to set environment variables for the Agent, see the [Agent documentation](/stackpacks/integrations/agent.md).
 
-To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set the required environment variable on the machine or container running the Agent and StackState instance.
+#### StackPack
+
+When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. To proxy data for the StackPack, two methods can be used:
+
+- Use the environment variables specified in the [AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html). This will proxy only AWS data.
+- Pass the following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`. This will proxy all data for the StackState instance.
 
 ### Status
 
@@ -229,8 +234,6 @@ Hourly and event-based updates collect data:
 - Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 - Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
-{% hint style="warning" %} VPC FlowLogs support is currently experimental and is disabled by default. {% endhint %}
-
 If the StackState Agent does not have permission to access a certain component, it will skip it.
 
 #### StackState Agent IAM Role
@@ -291,6 +294,14 @@ A KMS key must be created in each region where events are captured.
 {% endhint %}
 
 - [Sample KMS Key policy](aws-policies.md#stackstate-integration-kms-key).
+
+#### VPC FlowLogs (Optional)
+
+{% hint style="warning" %} VPC FlowLogs support is currently experimental and is disabled by default. {% endhint %}
+
+A VPC configured to send Flow Logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC Flow Logs, and expects data to be aggregated every 1 minute.
+
+If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 
 ### Costs
 
