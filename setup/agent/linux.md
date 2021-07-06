@@ -95,10 +95,10 @@ To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` servi
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
 
-# online upgrade
+# online Agent upgrade
 sudo yum upgrade stackstate-agent
 
-# offline upgrade
+# offline Agent upgrade
 sudo yum upgrade <agent_installer_package>.rpm
 ```
 {% endtab %}
@@ -108,10 +108,10 @@ sudo yum upgrade <agent_installer_package>.rpm
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
 
-# online upgrade
+# online Agent upgrade
 sudo apt-get update && apt-get upgrade stackstate-agent
 
-# offline upgrade
+# offline Agent upgrade
 sudo apt-get upgrade <agent_installer_package>.deb
 ```
 {% endtab %}
