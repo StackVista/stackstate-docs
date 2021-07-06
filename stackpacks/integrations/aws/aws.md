@@ -229,6 +229,8 @@ Hourly and event-based updates collect data:
 - Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 - Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
+{% hint style="warning" %} VPC FlowLogs support is currently experimental and is disabled by default. {% endhint %}
+
 If the StackState Agent does not have permission to access a certain component, it will skip it.
 
 #### StackState Agent IAM Role
