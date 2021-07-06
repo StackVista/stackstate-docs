@@ -10,7 +10,7 @@ This setup is only suitable for situations that do not require high availability
 
 ## Non-high availability setup
 
-To run StackState in a non-high availability setup (non-HA):
+To run StackState in a non-high availability setup:
 
 1. Create a Helm values file `nonha_values.yaml` with the following content: 
 
