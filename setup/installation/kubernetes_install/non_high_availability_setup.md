@@ -13,41 +13,42 @@ This setup is only suitable for situations that do not require high availability
 To run StackState in a non-high availability setup:
 
 1. Create a Helm values file `nonha_values.yaml` with the following content:
-```yaml
-# This files defines additional Helm values to run StackState on a 
-# non-high availability production setup. Use this file in combination
-# with a regular values.yaml file that contains your API key, etc.
-elasticsearch:
-  minimumMasterNodes: 1
-  replicas: 1
 
-hbase:
-  hbase:
-    master:
+    ```yaml
+    # This files defines additional Helm values to run StackState on a 
+    # non-high availability production setup. Use this file in combination
+    # with a regular values.yaml file that contains your API key, etc.
+    elasticsearch:
+      minimumMasterNodes: 1
+      replicas: 1
+    
+    hbase:
+      hbase:
+        master:
+          replicaCount: 1
+        regionserver:
+          replicaCount: 1
+      hdfs:
+        datanode:
+          replicaCount: 1
+        secondarynamenode:
+          enabled: false
+      tephra:
+        replicaCount: 1
+    
+    kafka:
       replicaCount: 1
-    regionserver:
+      defaultReplicationFactor: 1
+      offsetsTopicReplicationFactor: 1
+      transactionStateLogReplicationFactor: 1
+    stackstate:
+      components:
+        ui:
+          replicaCount: 1
+    
+    zookeeper:
       replicaCount: 1
-  hdfs:
-    datanode:
-      replicaCount: 1
-    secondarynamenode:
-      enabled: false
-  tephra:
-    replicaCount: 1
-
-kafka:
-  replicaCount: 1
-  defaultReplicationFactor: 1
-  offsetsTopicReplicationFactor: 1
-  transactionStateLogReplicationFactor: 1
-stackstate:
-  components:
-    ui:
-      replicaCount: 1
-
-zookeeper:
-  replicaCount: 1
-```
+    ```
 
 2. Install StackState with the `nonha_values.yaml` Helm values file:
 ```bash
