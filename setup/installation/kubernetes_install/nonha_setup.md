@@ -2,7 +2,11 @@
 
 ## Overview
 
-The recommended Kubernetes deployment of StackState is a [production ready setup](/setup/installation/kubernetes_install/install_stackstate.md) with many services running redundantly. However, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica. Note that this setup is only suitable for situations that do not require high availability.
+The recommended Kubernetes deployment of StackState is a [production ready setup](/setup/installation/kubernetes_install/install_stackstate.md) with many services running redundantly. However, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.
+
+{% hint style="info" %}
+This setup is only suitable for situations that do not require high availability.
+{% endhint %}
 
 ## Non-high availability setup
 
