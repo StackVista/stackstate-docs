@@ -1,10 +1,14 @@
-# Non-redundant setup
+# Non-HA setup
 
-The recommended Kubernetes deployment of StackState is a production ready setup with many services running redundantly. However, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica. This setup is not highly available.
+## Overview
 
-To run this setup
+The recommended Kubernetes deployment of StackState is a [production ready setup](/setup/installation/kubernetes_install/install_stackstate.md) with many services running redundantly. However, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica. Note that this setup is only suitable for situations that do not require high availability.
 
-1. Save the additional Helm values below in a file called `nonha_values.yaml` 
+## Non-high availability setup
+
+To run StackState in a non-high availability setup (non-HA):
+
+1. Create a Helm values file `nonha_values.yaml` with the following content: 
 
 ```yaml
 # This files defines additional Helm values to run StackState on a non-HA production setup.
@@ -41,7 +45,7 @@ zookeeper:
   replicaCount: 1
 ```
 
-2. Install StackState with this additional Helm values file: 
+2. Install StackState with the `nonha_values.yaml` Helm values file: 
 
 ```bash
 helm upgrade \

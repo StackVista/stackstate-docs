@@ -37,5 +37,5 @@ Existing StackPacks will provide health synchronization out of the box. Advanced
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](../health-state-and-event-notifications/add-a-health-check.md)
-* Add [Static Health from CSV](/stackpacks/integrations/static_health.md)
+* Add [Static Health from CSV](/stackpacks/integrations/agent_v2/static_health.md)
 * [Set up a health synchronization](../../configure/health/health-synchronization.md)
