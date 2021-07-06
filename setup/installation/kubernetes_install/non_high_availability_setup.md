@@ -1,4 +1,4 @@
-# Non-HA setup
+# Non-high availability setup
 
 ## Overview
 

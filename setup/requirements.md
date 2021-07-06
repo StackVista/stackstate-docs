@@ -24,7 +24,7 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
-Optionally, a [non-high availability setup](installation/kubernetes_install/nonha_setup.md) can be configured which has the following requirements:
+Optionally, a [non-high availability setup](installation/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
 
 * **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 3 instances of type `m5.2xlarge` or `m4.2xlarge`
