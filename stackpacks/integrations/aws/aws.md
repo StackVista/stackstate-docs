@@ -114,8 +114,8 @@ To enable the AWS check and begin collecting data from AWS, add the following co
    ```yaml
    # values in init_config are used globally; these credentials will be used for all AWS accounts
    init_config:
-     aws_access_key_id: # The AWS Access Key ID. Optional if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     aws_secret_access_key: # The AWS Secret Access Key. Optional if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_access_key_id: "" # The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_secret_access_key: "" # The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
      external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
 
    instances:
@@ -136,9 +136,13 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 2. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
-### Use an HTTP proxy 
+### Use an HTTP proxy
 
-StackState Agent V2 must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set the required environment variable on the machine running the Agent.
+StackState Agent V2 must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls.
+
+When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. The same environment variables can be set for the main StackState instance to force all AWS traffic through an HTTP proxy.
+
+To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set the required environment variable on the machine or container running the Agent and StackState instance.
 
 ### Status
 
