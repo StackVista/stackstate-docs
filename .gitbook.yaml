@@ -137,7 +137,7 @@ redirects:
   setup/kubernetes/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
   setup/kubernetes_install: ./setup/installation/kubernetes_install/
   setup/kubernetes_install/customize_config: ./setup/installation/kubernetes_install/customize_config.md
-  setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/development_setup.md
+  setup/kubernetes_install/nonha_setup: ./setup/installation/kubernetes_install/nonha_setup.md
   setup/kubernetes_install/image_configuration: ./setup/installation/kubernetes_install/image_configuration.md
   setup/kubernetes_install/ingress: ./setup/installation/kubernetes_install/ingress.md
   setup/kubernetes_install/install_stackstate: ./setup/installation/kubernetes_install/install_stackstate.md

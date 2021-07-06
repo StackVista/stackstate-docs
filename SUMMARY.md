@@ -9,7 +9,7 @@
   * [Kubernetes install](setup/installation/kubernetes_install/README.md)
     * [Install StackState](setup/installation/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/installation/kubernetes_install/required_permissions.md)
-    * [Development setup](setup/installation/kubernetes_install/development_setup.md)
+    * [non-HA setup](setup/installation/kubernetes_install/nonha_setup.md)
     * [Override default configuration](setup/installation/kubernetes_install/customize_config.md)
     * [Configure storage](setup/installation/kubernetes_install/storage.md)
     * [Configure Ingress](setup/installation/kubernetes_install/ingress.md)
