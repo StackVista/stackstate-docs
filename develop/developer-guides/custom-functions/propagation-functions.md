@@ -19,7 +19,7 @@ A component's propagated state is calculated using a propagation function. This 
 
 Propagation functions are used to calculate the propagated state of a component.
 
-* **Transparent propagation** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+* **Transparent propagation \(default\)** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
 
   | Dependency state | Component state | Transparent state |
   | :--- | :--- | :--- |
@@ -27,7 +27,7 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-* **Auto propagation \(default\)** - This propagation acts as noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is the same as **Transparent propagation** except that if component's own health state is `DEVIATING` it is not propagated - excluded from computation of the result state. For example:
+* **Auto propagation** - This propagation acts as a noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is the same as **Transparent propagation** except that if component's own health state is `DEVIATING` it is not propagated - excluded from computation of the result state. For example:
 
   | Dependency state | Component state | Auto state |
   | :--- | :--- | :--- |
@@ -40,6 +40,13 @@ Propagation functions are used to calculate the propagated state of a component.
 
 * **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
 * **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+
+{% hint style="info" %}
+The default propagation function can be configured to Auto or Transparent with the following option:
+  ```text
+    stackstate.stateService.defaultPropagation = Auto // Transparent
+  ```
+{% endhint %}
 
 {% hint style="info" %}
 A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
