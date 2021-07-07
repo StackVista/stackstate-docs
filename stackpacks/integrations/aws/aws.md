@@ -140,14 +140,14 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 #### Agent
 
-StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, a HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set. For more information on how to set environment variables for the Agent, see the [Agent documentation](/stackpacks/integrations/agent.md).
+StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set. For more information on how to set environment variables for the Agent, see the [Agent documentation](/stackpacks/integrations/agent.md).
 
 #### StackPack
 
 When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. To proxy data for the StackPack, two methods can be used:
 
-- Use the environment variables specified in the [AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html). This will proxy only AWS data.
-- Pass the following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`. This will proxy all data for the StackState instance.
+- To proxy only AWS data - use the environment variables specified in the [AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html).
+- To proxy all data for the StackState instance - pass the following properties when starting the StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`.
 
 ### Status
 
@@ -299,7 +299,7 @@ A KMS key must be created in each region where events are captured.
 
 {% hint style="warning" %} VPC FlowLogs support is currently experimental and is disabled by default. {% endhint %}
 
-A VPC configured to send Flow Logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC Flow Logs, and expects data to be aggregated every 1 minute.
+A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute.
 
 If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 
