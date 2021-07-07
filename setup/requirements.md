@@ -8,19 +8,27 @@ For a list of all docker images used see the [image overview](installation/kuber
 
 ### Node sizing
 
-For a standard deployment, the StackState Helm chart will deploy storage services in a redundant setup with 3 instances of each service. The nodes required for different environments:
+For a standard deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The nodes required for different environments:
 
 {% tabs %}
-{% tab title="Recommended" %}
+{% tab title="Recommended high availability setup" %}
 * **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 6 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 6 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
 {% endtab %}
 
-{% tab title="Minimal" %}
+{% tab title="Minimal high availability setup" %}
 * **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+{% endtab %}
+
+{% tab title="Non-high availability setup" %}
+Optionally, a [non-high availability setup](installation/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
+
+* **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 3 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 3 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
 {% endtab %}
 {% endtabs %}
 
