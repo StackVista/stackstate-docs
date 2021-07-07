@@ -26,6 +26,7 @@ This page provides specific instructions for upgrading to each currently support
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
 * The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it is now possible to use `bcrypt` type passwords.
 * New **Auto Propagation** function has been introduced. See [details](../../develop/developer-guides/custom-functions/propagation-functions.md#propagation-functions).
+* The default propagation function can be configured to **Auto propagation** or **Transparent propagation** in the `application_stackstate.conf`. See [details](../../develop/developer-guides/custom-functions/propagation-functions.md#default-propagation-functions).
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
   ```
   stackstate {

@@ -42,15 +42,16 @@ Propagation functions are used to calculate the propagated state of a component.
 * **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
 
 {% hint style="info" %}
-The default propagation function can be configured to **Auto Propagation** or **Transparent propagation** with the following option:
+A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
+{% endhint %}
+
+## Default propagation functions
+
+If no propagation function is configured for a component then the default propagation function is executed. There are two propagation functions that can be configured as the default propagation function: **Auto Propagation** or **Transparent Propagation**. The default can be configured using the following option:
   ```text
     stackstate.stateService.defaultPropagation = Auto // Transparent
   ```
-{% endhint %}
-
-{% hint style="info" %}
-A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
-{% endhint %}
+It is not possible to configure custom propagation function as a default because of performance reasons.
 
 ## Create a custom propagation function
 
