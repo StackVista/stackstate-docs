@@ -23,20 +23,19 @@ For example, if you have a business service visualization of a stack that comes 
 
 ## Components grouping
 
-StackState can optionally group together components within the same view. A view can have no grouping, so that's exploding everything on the screen, or we can group together components in one of three different ways.
+StackState can optionally group together components within the same view. A view can have no grouping, exploding all components on the screen, or components can be grouped together in one of three different ways. By default, grouping is enabled.
 
-* **Auto grouping** - TODO
+* **Auto grouping** - automatically adjusts the grouping settings to keep the number of components and/or component groups visualized below 35. 
 
-* **Group by state and type** - for example we have multiple business services, and these services all have the same component type – type business service - and they all also all have the green color, that’s a CLEAR health state. These components will be grouped together into one group. When they are grouped, they will get a new icon - a hexagon - that depicts a group of components of the same type and the same health. If one of grouped components changes its health state and turns red, that’s a CRITICAL health state, then it will pop out of that group. At a certain point if more components from this group turn red they will form their own group next to the original group that was green.
+* **Group by state and type** - components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, then it will pop out of that group. If other components of this type have the same health state a new group will be created.
 
-* **group by type, state and relation** - the same as Group by state and type, but will also respect the relations between components. You can imagine that if we group everything together based on the type and state, ome information on how the components are related to each other might be lost. This option allows us to group components but maintain that information. 
+* **group by type, state and relation** - the same as group by state and type, but relations between components are also respected. If all components are grouped together based only on the type and state, some information on how components in the group are related to other components might be lost. This option allows components to be grouped together while maintaining information about their relations.
 
-By default, grouping is enabled, also there is a certain threshold before grouping happens, the minimum components in a group. By default, the minimum group size is 2, so if we have one component of a certain type and health state, then when the next component comes along that has the same state and type they will group together because they are 2 components of the same type and health state. If we set this value to eight for example, then we would need to have at least 8 components with the same state type and possibly relations for them to group together.
+For **group by state and type** and **group by type, state and relation**, there is a certain threshold before grouping happens, the minimum components in a group. By default, the minimum group size is 2, so if we have one component of a certain type and health state, then when the next component comes along that has the same state and type they will be grouped together. If the value is set higher, to eight for example, then at least 8 components with the same state type and possibly relations would be required for a group to be created.
 
 ## Relations settings
 
-Another option in the view visualization settings is showing indirect relations. 
-So, what are indirect relations? Well, if we take a landscape with three components that are all dependent on each other.  If we then created a view in which only two of those components are included - for example, the first and last components – we would see both components, but we would not see a relation between them anymore. In this case, we would probably still want to know that there is an indirect path between those two components and that's where this functionality comes in. 
+Another option in the view visualization settings is showing indirect relations. So, what are indirect relations? Well, if we take a landscape with three components that are all dependent on each other. If we then created a view in which only two of those components are included - for example, the first and last components – we would see both components, but we would not see a relation between them anymore. In this case, we would probably still want to know that there is an indirect path between those two components and that's where this functionality comes in. 
 
 If we enable show indirect relations in the view visualizations settings, then StackState will draw a dotted line between those two components to show that there is a path between them passes through components that are not included on the view. 
 
