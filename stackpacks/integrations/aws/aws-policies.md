@@ -68,9 +68,10 @@ For an AWS agent running on an EC2 instance:
     "Statement": [
         {
             "Action": [
-                "cloudformation:GetTemplate"
+                "cloudtrail:LookupEvents",
+                "iam:ListAccountAliases"
             ],
-            "Resource": "arn:aws:cloudformation:*:${AccountId}:stack/stackstate-resources/*",
+            "Resource": "*",
             "Effect": "Allow",
             "Sid": "SelfAccess"
         },
@@ -85,37 +86,13 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "cloudtrail:LookupEvents",
-                "events:DescribeApiDestination",
-                "events:DescribeArchive",
-                "events:DescribeConnection",
-                "events:DescribeEventBus",
-                "events:DescribeReplay",
-                "events:DescribeRule",
-                "events:ListApiDestinations",
-                "events:ListArchives",
-                "events:ListConnections",
-                "events:ListEventBuses",
-                "events:ListEventSources",
-                "events:ListReplays",
-                "events:ListRules",
-                "events:ListTagsForResource",
-                "events:ListTargetsByRule",
-                "iam:GetAccountAuthorizationDetails"
-            ],
-            "Resource": "*",
-            "Effect": "Allow",
-            "Sid": "EventsAccess"
-        },
-        {
-            "Action": [
-                "s3:ListBucket",
+                "s3:DeleteObject",
                 "s3:GetObject",
                 "s3:GetObjectVersion",
-                "s3:DeleteObject"
+                "s3:ListBucket"
             ],
             "Resource": [
-                "aws:aws:s3:::stackstate-logs-${AccountId}",
+                "arn:aws:s3:::stackstate-logs-${AccountId}",
                 "arn:aws:s3:::stackstate-logs-${AccountId}/*"
             ],
             "Effect": "Allow",
@@ -125,68 +102,35 @@ For an AWS agent running on an EC2 instance:
             "Action": [
                 "ec2:DescribeInstances",
                 "ec2:DescribeInstanceTypes",
-                "ec2:DescribeIdFormat",
-                "ec2:DescribeReservedInstancesOfferings",
-                "ec2:DescribeFleetInstances",
-                "ec2:DescribeVpcEndpointServiceConfigurations",
-                "ec2:DescribePrefixLists",
-                "ec2:GetReservedInstancesExchangeQuote",
-                "ec2:DescribeInstanceCreditSpecifications",
-                "ec2:DescribeVolumeAttribute",
-                "ec2:DescribeImportSnapshotTasks",
-                "ec2:DescribeVpcEndpointServicePermissions",
-                "ec2:DescribeScheduledInstances",
-                "ec2:DescribeImageAttribute",
-                "ec2:DescribeFleets",
-                "ec2:DescribeElasticGpus",
-                "ec2:DescribeReservedInstancesModifications",
-                "ec2:DescribeVpcEndpoints",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeVpnGateways",
-                "ec2:DescribeFleetHistory",
-                "ec2:DescribeAddresses",
-                "ec2:DescribePrincipalIdFormat",
-                "ec2:DescribeInstanceAttribute",
-                "ec2:DescribeFlowLogs",
-                "ec2:DescribeRegions",
-                "ec2:DescribeDhcpOptions",
-                "ec2:DescribeSpotPriceHistory",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DescribeAvailabilityZones",
-                "ec2:DescribeNetworkInterfaceAttribute",
-                "ec2:DescribeVpcEndpointConnections",
-                "ec2:DescribeInstanceStatus",
-                "ec2:DescribeHostReservations",
-                "ec2:DescribeIamInstanceProfileAssociations",
-                "ec2:DescribeTags",
-                "ec2:DescribeLaunchTemplateVersions",
-                "ec2:DescribeBundleTasks",
-                "ec2:DescribeClassicLinkInstances",
-                "ec2:DescribeIdentityIdFormat",
-                "ec2:DescribeImportImageTasks",
-                "ec2:DescribeNatGateways",
-                "ec2:DescribeCustomerGateways",
-                "ec2:DescribeVpcEndpointConnectionNotifications",
                 "ec2:DescribeSecurityGroups",
-                "ec2:DescribeSpotFleetRequests",
-                "ec2:DescribeHosts",
-                "ec2:DescribeImages",
-                "ec2:DescribeFpgaImages",
-                "ec2:DescribeSpotFleetInstances",
-                "ec2:DescribeSecurityGroupReferences",
+                "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
-                "autoscaling:Describe*",
-                "ec2:DescribeVpnGateways",
-                "elasticloadbalancing:DescribeLoadBalancers",
-                "elasticloadbalancing:DescribeTargetGroups",
-                "elasticloadbalancing:DescribeTags",
-                "elasticloadbalancing:DescribeInstanceHealth",
-                "elasticloadbalancing:DescribeTargetHealth",
-                "elasticloadbalancing:DescribeListeners"
+                "ec2:DescribeVpnGateways"
             ],
             "Resource": "*",
             "Effect": "Allow",
             "Sid": "Ec2Access"
+        },
+        {
+            "Action": [
+                "elasticloadbalancing:DescribeInstanceHealth",
+                "elasticloadbalancing:DescribeListeners",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTags",
+                "elasticloadbalancing:DescribeTargetGroups",
+                "elasticloadbalancing:DescribeTargetHealth"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "LoadBalancingAccess"
+        },
+        {
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "AutoScalingAccess"
         },
         {
             "Action": [
@@ -198,24 +142,29 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "ecs:ListAttributes",
-                "ecs:ListTasks",
-                "ecs:ListContainerInstances",
-                "ecs:DescribeContainerInstances",
-                "ecs:DescribeTasks",
                 "ecs:DescribeClusters",
-                "ecs:ListServices",
-                "ecs:ListTaskDefinitionFamilies",
+                "ecs:DescribeContainerInstances",
                 "ecs:DescribeServices",
-                "ecs:DescribeTaskDefinition",
-                "ecs:ListTaskDefinitions",
+                "ecs:DescribeTasks",
                 "ecs:ListClusters",
-                "servicediscovery:List*",
-                "servicediscovery:Get*"
+                "ecs:ListContainerInstances",
+                "ecs:ListServices",
+                "ecs:ListTasks"
             ],
             "Resource": "*",
             "Effect": "Allow",
             "Sid": "EcsAccess"
+        },
+        {
+            "Action": [
+                "servicediscovery:GetNamespace",
+                "servicediscovery:GetService",
+                "servicediscovery:ListInstances",
+                "servicediscovery:ListServices"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "ServiceDiscoveryAccess"
         },
         {
             "Action": [
@@ -225,16 +174,14 @@ For an AWS agent running on an EC2 instance:
             ],
             "Resource": "*",
             "Effect": "Allow",
-            "Sid": "Accessfirehose"
+            "Sid": "FirehoseAccess"
         },
         {
             "Action": [
-                "s3:ListBucketByTags",
-                "s3:ListBucket",
                 "s3:GetBucketNotification",
-                "s3:GetBucketLocation",
                 "s3:GetBucketTagging",
-                "s3:ListAllMyBuckets"
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -242,15 +189,8 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "rds:ListTagsForResource",
-                "rds:DescribeDBParameters",
-                "rds:DescribeDBParameterGroups",
                 "rds:DescribeDBClusters",
-                "rds:DescribeDBInstances",
-                "rds:DescribeEngineDefaultClusterParameters",
-                "rds:DescribeEngineDefaultParameters",
-                "rds:DescribeEventCategories",
-                "rds:DescribeAccountAttributes"
+                "rds:DescribeDBInstances"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -258,13 +198,13 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
+                "route53:GetHostedZone",
+                "route53:ListHostedZones",
+                "route53:ListResourceRecordSets",
+                "route53:ListTagsForResource",
                 "route53domains:GetDomainDetail",
                 "route53domains:ListDomains",
-                "route53domains:ListTagsForDomain",
-                "route53:ListHostedZones",
-                "route53:ListTagsForResource",
-                "route53:GetHostedZone",
-                "route53:ListResourceRecordSets"
+                "route53domains:ListTagsForDomain"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -276,8 +216,7 @@ For an AWS agent running on an EC2 instance:
                 "lambda:ListAliases",
                 "lambda:ListEventSourceMappings",
                 "lambda:ListFunctions",
-                "lambda:ListTags",
-                "lambda:ListVersionsByFunction"
+                "lambda:ListTags"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -296,9 +235,8 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "sqs:ListQueues",
-                "sqs:GetQueueUrl",
                 "sqs:GetQueueAttributes",
+                "sqs:ListQueues",
                 "sqs:ListQueueTags"
             ],
             "Resource": "*",
@@ -308,8 +246,8 @@ For an AWS agent running on an EC2 instance:
         {
             "Action": [
                 "dynamodb:DescribeTable",
-                "dynamodb:ListTagsOfResource",
-                "dynamodb:ListTables"
+                "dynamodb:ListTables",
+                "dynamodb:ListTagsOfResource"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -318,8 +256,8 @@ For an AWS agent running on an EC2 instance:
         {
             "Action": [
                 "kinesis:DescribeStreamSummary",
-                "kinesis:ListTagsForStream",
-                "kinesis:ListStreams"
+                "kinesis:ListStreams",
+                "kinesis:ListTagsForStream"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -327,13 +265,7 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "apigateway:DELETE",
-                "apigateway:PUT",
-                "apigateway:HEAD",
-                "apigateway:PATCH",
-                "apigateway:POST",
-                "apigateway:GET",
-                "apigateway:OPTIONS"
+                "apigateway:GET"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -341,8 +273,8 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "cloudformation:DescribeStacks",
-                "cloudformation:DescribeStackResources"
+                "cloudformation:DescribeStackResources",
+                "cloudformation:DescribeStacks"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -350,10 +282,9 @@ For an AWS agent running on an EC2 instance:
         },
         {
             "Action": [
-                "states:DescribeActivity",
-                "states:ListStateMachines",
                 "states:DescribeStateMachine",
                 "states:ListActivities",
+                "states:ListStateMachines",
                 "states:ListTagsForResource"
             ],
             "Resource": "*",

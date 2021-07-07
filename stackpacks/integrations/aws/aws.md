@@ -102,8 +102,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 - **Role ARN** - the ARN of the IAM Role used to [deploy the AWS Cloudformation stack](#deploy-the-aws-cloudformation-stack). For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID.
 - **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-- **AWS Access Key ID** - Optional. The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, leave empty and the instance will authenticate using the attached IAM role.
-- **AWS Secret Access Key** - Optional. The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, leave empty and the instance will authenticate using the attached IAM role.
+- **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
+- **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
 
 ### Configure the AWS check
 
@@ -114,8 +114,8 @@ To enable the AWS check and begin collecting data from AWS, add the following co
    ```yaml
    # values in init_config are used globally; these credentials will be used for all AWS accounts
    init_config:
-     aws_access_key_id: # The AWS Access Key ID. Optional if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     aws_secret_access_key: # The AWS Secret Access Key. Optional if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_access_key_id: "" # The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_secret_access_key: "" # The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
      external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
 
    instances:
@@ -136,9 +136,18 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 2. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
-### Use an HTTP proxy 
+### Use an HTTP proxy
 
-StackState Agent V2 must have access to the internet to call the AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. To do so, [check this AWS doc (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) and set the required environment variable on the machine running the Agent.
+#### Agent
+
+StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set. For more information on how to set environment variables for the Agent, see the [Agent documentation](/stackpacks/integrations/agent.md).
+
+#### StackPack
+
+When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. To proxy data for the StackPack, two methods can be used:
+
+- To proxy only AWS data - use the environment variables specified in the [AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html).
+- To proxy all data for the StackState instance - pass the following properties when starting the StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`.
 
 ### Status
 
@@ -285,6 +294,14 @@ A KMS key must be created in each region where events are captured.
 {% endhint %}
 
 - [Sample KMS Key policy](aws-policies.md#stackstate-integration-kms-key).
+
+#### VPC FlowLogs (Optional)
+
+{% hint style="warning" %} VPC FlowLogs support is currently experimental and is disabled by default. {% endhint %}
+
+A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute.
+
+If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 
 ### Costs
 
