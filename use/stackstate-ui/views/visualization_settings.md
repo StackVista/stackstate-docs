@@ -27,11 +27,11 @@ StackState can optionally group together components within the same view. A view
 
 * **Auto grouping** - automatically adjusts the grouping settings to keep the number of components and/or component groups visualized below 35. 
 
-* **Group by state and type** - components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, then it will pop out of that group. If other components of this type have the same health state a new group will be created.
+* **Group by state and type** - components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
 
-* **group by type, state and relation** - the same as group by state and type, but relations between components are also respected. If all components are grouped together based only on the type and state, some information on how components in the group are related to other components might be lost. This option allows components to be grouped together while maintaining information about their relations.
+* **group by type, state and relation** - groups components together while maintaining information about their relations to components outside of the group. All components in a group are related to the same components outside of the group. This is useful because grouping components together by type and state alone can cause some information on relations for the components in the group to be lost.
 
-For **group by state and type** and **group by type, state and relation**, there is a certain threshold before grouping happens, the minimum components in a group. By default, the minimum group size is 2, so if we have one component of a certain type and health state, then when the next component comes along that has the same state and type they will be grouped together. If the value is set higher, to eight for example, then at least 8 components with the same state type and possibly relations would be required for a group to be created.
+For **group by state and type** and **group by type, state and relation**, a threshold must be passed before grouping happens - the **Minimum components in a group**. By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type (and possibly relations) would be required for a group to be created.
 
 ## Relations settings
 
