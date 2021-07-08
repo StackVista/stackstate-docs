@@ -75,7 +75,7 @@ The script requires the following configuration options:
 
 For OpenShift install, follow the instructions to [Automatically install the Cluster Agent](openshift_install.md#automatically-install-the-cluster-agent-for-openshift).
 
-The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](kubernetes_install/development_setup.md).
+The generated file is suitable for a production setup with redundant storage services. It is also possible to [create a smaller setup without high availability](/setup/installation/kubernetes_install/non_high_availability_setup.md).
 
 {% hint style="info" %}
 Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.

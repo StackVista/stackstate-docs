@@ -86,7 +86,7 @@ If you do not have access to the internet on the machine where the Agent will be
 
 ### Upgrade
 
-To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`.
+To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package (DEB or RPM package) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](#offline-install).
 
 {% tabs %}
 {% tab title="yum" %}
@@ -95,8 +95,11 @@ To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` servi
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
 
-# upgrade the Agent
+# online Agent upgrade
 sudo yum upgrade stackstate-agent
+
+# offline Agent upgrade
+sudo yum upgrade <agent_installer_package>.rpm
 ```
 {% endtab %}
 {% tab title="apt-get" %}
@@ -105,8 +108,11 @@ sudo yum upgrade stackstate-agent
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
 
-# upgrade the Agent
+# online Agent upgrade
 sudo apt-get update && apt-get upgrade stackstate-agent
+
+# offline Agent upgrade
+sudo apt-get upgrade <agent_installer_package>.deb
 ```
 {% endtab %}
 {% endtabs %}

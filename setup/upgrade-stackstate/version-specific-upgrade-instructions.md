@@ -22,6 +22,10 @@ This page provides specific instructions for upgrading to each currently support
 {% tab title="Kubernetes" %}
 #### v4.4.0
 
+* The CPU and memory [requirements to run StackState 4.4 on Kubernetes](/setup/requirements.md#node-sizing) have been reassessed:
+  - The requirements for the recommended highly available setup have grown (from 5) to 6 nodes with 32 GB of memory and 8 vCPUS.
+  - The requirements for a minimal highly available setup have grown (from 4) to 5 nodes with 32 GB of memory and 8 vCPUS.
+  - A [non-high availability setup](/setup/installation/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
 * The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it is now possible to use `bcrypt` type passwords.
