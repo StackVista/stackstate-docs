@@ -22,19 +22,23 @@ You can customize the grouping of components in the [Visuzalization settings](..
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, such as its health state and name. You can also run the actions and shortcuts specific to the component from here.
+When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state. You can also run shortcuts and the actions specific to the component from here.
 
 ### Actions
 
-Actions can be used to expand the topology selection in one of the following ways:
+Actions can be used to expand the topology selection to show all dependencies for selected component. Other actions may be available for specific components, such as [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 
-* Show all dependencies -- shows all dependencies for selected component
-
-A list of the available actions is included in the Component Details pane when you select a component and also in the component navigation menu, which is displayed when you hover over a component.
+A list of the available actions is included in the Component Details pane when you select a component and also in the component context menu, which is displayed when you hover over a component.
 
 ![Actions](../../../.gitbook/assets/v43_actions.png)
 
-The default list of actions can be extended with [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or you can [write your own](../../../develop/developer-guides/custom-functions/component-actions.md) custom component action functions.
+### Shortcuts
+
+Shortcuts give you direct access to detailed information about the specific component:
+
+* **Show component properties** - opens the component properties popup. This is the same as clicking SHOW COMPONENT PROPERTIES in the Component Details pane.
+* **Investigate in subview** - opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the Component Details pane.
+
 
 ## Relations
 
@@ -121,11 +125,11 @@ See the full list of [StackState keyboard shortcuts](/use/stackstate-ui/keyboard
 
 If there are components with [telemetry streams](../../../configure/telemetry/checks_and_streams.md#data-streams) and [health checks](../../../configure/telemetry/checks_and_streams.md#checks) in your view, the Topology Perspective will calculate a health state and [propagate](../../../develop/developer-guides/custom-functions/propagation-functions.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
-It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether to show a root cause even when it is outside of the currently displayed view:
+It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether the view should be expanded to show root cause components that are outside of the currently displayed view:
 
-* **Don't show root cause** -- do not show the root cause
-* **Show root cause only** -- only show the root cause component
-* **Show full root cause tree** -- show the entire root cause tree
+* **Don't show root cause** - do not show the root cause
+* **Show root cause only** - only show the root cause component
+* **Show full root cause tree** - show the entire root cause tree
 
 ![Root cause](../../../.gitbook/assets/v43_show_full_root_cause_tree.png)
 
