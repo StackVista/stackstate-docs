@@ -26,15 +26,21 @@ For example, if you have a business service visualization of a stack that comes 
 
 ## Components grouping
 
-StackState can optionally group together components within the same view. A view can have no grouping, exploding all components on the screen, or components can be grouped together in one of three different ways. By default, grouping is enabled.
+Topology visualizations of large numbers of components can become hard to read. StackState can group together components within the same view. Grouping brings the number of components and relations down to something visually more manageable.
 
-* **Auto grouping** - Automatically adjusts the grouping settings to keep the number of components and/or component groups visualized below 35. 
+Grouping is enabled by default and respects the selected [grid options](#grid-options) - components must be in the same grid row/column to be grouped together.
+
+Three types of grouping are available, or you can choose not to group components together:
+
+* **No grouping** - Components and relations are not grouped in any way.
+  
+* **Auto grouping** - Grouping settings are automatically adjusted to keep the number of components and/or component groups visualized below 35. 
 
 * **Group by state and type** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
 
-* **group by type, state and relation** - Groups components together while maintaining information about their relations to components outside of the group. All components in a group are related to the same components outside of the group. This is useful because grouping components together by type and state alone can cause some information on relations for the components in the group to be lost.
+* **Group by type, state and relation** - Components are grouped together as with **group by state and type** while maintaining information about relations to components outside of the group. All components in a group have the same source and target connection. This is useful because grouping components together by state and type alone can cause some information on relations for the components in the group to be lost.
 
-For **group by state and type** and **group by type, state and relation**, a threshold must be passed before grouping happens - the **Minimum components in a group**. By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type (and possibly relations) would be required for a group to be created.
+For **group by state and type** and **group by type, state and relation**, a threshold must be passed before any grouping happens - the **Minimum components in a group**. By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type (and possibly relations) would be required for a group to be created.
 
 ## Relations settings
 
