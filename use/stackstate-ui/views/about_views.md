@@ -41,10 +41,10 @@ To add or remove a star:
 
 When you first open a view, the View Details pane will be visible on the right-hand side of the StackState UI. This shows the following information:
 
-* **View properties** - the view health state, query and last updated timestamp.
-* **Components** - a summary of the number of components in the view.
-* **Problems** -- any [problems](../../problem-analysis/problems.md) in the view.
-* **Events** -- the most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
+* **View properties** - The view health state, query and last updated timestamp.
+* **Components** - A summary of the number of components in the view.
+* **Problems** - Any [problems](../../problem-analysis/problems.md) in the view.
+* **Events** - The most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
 
 ## View health state
 

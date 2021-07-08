@@ -19,17 +19,20 @@ The root cause visualization settings allow you to make the same changes as can 
 
 The components in the topology perspective can optionally be organized in a grid, with layers grouped in rows and domains visualized as columns. The grid is turned on by default. When no grid options are selected, no grid is displayed.
 
+* **Organize by layers** - Components of the same layer are placed in the same grid row in the topology visualization. Disable to remove the rows from the grid.
+* **Organize by domains** - Components of the same domain are placed in the same grid column in the topology visualization. Disable to remove the columns from the grid.
+
 For example, if you have a business service visualization of a stack that comes from four or five different sources, the source (domain) they are coming from will not be so important in the visualization. This could be a good situation to visualize the topology with **organize by domains** switched off.
 
 ## Components grouping
 
 StackState can optionally group together components within the same view. A view can have no grouping, exploding all components on the screen, or components can be grouped together in one of three different ways. By default, grouping is enabled.
 
-* **Auto grouping** - automatically adjusts the grouping settings to keep the number of components and/or component groups visualized below 35. 
+* **Auto grouping** - Automatically adjusts the grouping settings to keep the number of components and/or component groups visualized below 35. 
 
-* **Group by state and type** - components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
+* **Group by state and type** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
 
-* **group by type, state and relation** - groups components together while maintaining information about their relations to components outside of the group. All components in a group are related to the same components outside of the group. This is useful because grouping components together by type and state alone can cause some information on relations for the components in the group to be lost.
+* **group by type, state and relation** - Groups components together while maintaining information about their relations to components outside of the group. All components in a group are related to the same components outside of the group. This is useful because grouping components together by type and state alone can cause some information on relations for the components in the group to be lost.
 
 For **group by state and type** and **group by type, state and relation**, a threshold must be passed before grouping happens - the **Minimum components in a group**. By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type (and possibly relations) would be required for a group to be created.
 

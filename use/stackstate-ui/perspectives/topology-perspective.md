@@ -36,8 +36,8 @@ A list of the available actions is included in the Component Details pane when y
 
 Shortcuts give you direct access to detailed information about the specific component:
 
-* **Show component properties** - opens the component properties popup. This is the same as clicking SHOW COMPONENT PROPERTIES in the Component Details pane.
-* **Investigate in subview** - opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the Component Details pane.
+* **Show component properties** - Opens the component properties popup. This is the same as clicking SHOW COMPONENT PROPERTIES in the Component Details pane.
+* **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the Component Details pane.
 
 
 ## Relations
@@ -127,9 +127,9 @@ If there are components with [telemetry streams](../../../configure/telemetry/ch
 
 It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether the view should be expanded to show root cause components that are outside of the currently displayed view:
 
-* **Don't show root cause** - do not show the root cause
-* **Show root cause only** - only show the root cause component
-* **Show full root cause tree** - show the entire root cause tree
+* **Don't show root cause** - Do not show the root cause
+* **Show root cause only** - Only show the root cause component
+* **Show full root cause tree** - Show the entire root cause tree
 
 ![Root cause](../../../.gitbook/assets/v43_show_full_root_cause_tree.png)
 
