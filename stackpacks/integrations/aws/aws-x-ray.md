@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState core integration
 ---
 
 # AWS X-ray
