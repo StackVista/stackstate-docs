@@ -144,10 +144,10 @@ StackState Agent V2 must have access to the internet to call AWS APIs. If the Ag
 
 #### StackPack
 
-When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. To proxy data for the StackPack, two methods can be used:
+When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. Pass either of the following properties when starting the StackState instance to proxy data for the entire instance:
 
-- To proxy only AWS data - use the environment variables specified in the [AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html).
-- To proxy all data for the StackState instance - pass the following properties when starting the StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`.
+- `-Dhttp.proxyHost -Dhttp.proxyPort`
+- `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Status
 
