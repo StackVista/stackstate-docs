@@ -8,26 +8,34 @@ description: Bookmark and monitor parts of your IT landscape with views
 
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
-* [View filters](../filters.md):
+* [Filters](../filters.md):
   * Topology filters are used to add elements \(components and relations\) to the view.
   * Events and Traces filters refine the traces and events displayed.
-* Topology [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
-* Configuration to calculate the [view health state](about_views.md#view-health-state).
+* [Visualization settings](visualization_settings.md) – to customize how components are displayed within the view.
+* [View health state configuration](about_views.md#view-health-state) – can be enabled to report the health state of the view.
+* Event handlers - to respond to events generated in the view and [send event notifications](/use/metrics-events/send-event-notifications.md).
 
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
 2. Views can be used for [event notifications and automation](../../metrics-events/send-event-notifications.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
+Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. 
+
 ## Access a view
 
-{% hint style="info" %}
-Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
-{% endhint %}
+Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access. 
 
-Views marked with a star will be included directly in the main menu for easy access. Starred views are a personal preference that is stored in your account.
+Click on a view name to open the topology perspective for that view.
 
-To access a list of all views, click **Views** from the main menu.
+## Starred views
+
+You can add a star to a view you use frequently to add it to your personal main menu for easy access. View star settings are a personal preference stored in your user account. You can recognize starred views by the yellow star icon next to their name.
+
+To add or remove a star:
+
+* For the current view: Click the star icon to the right of its name in the top bar to add or remove the star.
+* For any view: Click **all views** from the main menu to open a list of all views. Click the star icon to the right of a view name to add or remove its star.
 
 ## The View Details pane
 
