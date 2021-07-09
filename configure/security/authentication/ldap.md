@@ -21,7 +21,7 @@ stackstate:
       host: sts-ldap
       port: 10389 # For most LDAP servers 389 for plain, 636 for ssl connections
       #ssl:
-      #  type: ssl
+      #  sslType: ssl
       #  trustStore: <see below>
       #  trustCertificates <see below>
       bind:
