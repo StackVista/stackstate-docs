@@ -71,18 +71,18 @@ When selecting a metric stream for a health check, you will have some options to
 - **Aggregation** - [List of all available aggregation methods](../../develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
 - **Time window (or window size)** - By default the time window is 300000 milliseconds (or 5 minutes). The time window will directly influence the number of positive or false negative alerts. The longer you configure the time window, the less sensitive it will be. However, if it is too short this may lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. You should balance the time window based on the metric and how early you want to be alerted on spikes.
 
-### Check function: Error percentage
+### Example: Error percentage
 
-The `Error percentage` check function monitors two streams - one reporting errors and one reporting a total. 
+The `Error percentage` check function can be used to monitor two streams - one reporting errors and one reporting a total. 
 
-* A DEVIATING health state is returned when the percentage of errors/total crosses the specified `DeviatingThresholdPercentage`
+DEVIATING or CRITICAL health state is returned when the percentage of errors/total crosses the specified `DeviatingThresholdPercentage`
 * A CRITICAL health state is returned when the error percentage crosses the specified `CriticalThresholdPercentage`.
 
 If your SLO defines that a service can have a maximum of 5% of requests failing, you can create a check using the `Error percentage` function and set the `CriticalThresholdPercentage` to `5.0`:
 
 ![Error percentage check](../../images/telemetry/http-error-check.png)
 
-### Check function: Greater than or equal
+### Example: Response time
 
 The `Greater than or equal` check function can alert you when one of your telemetry streams is above a certain threshold. 
 
