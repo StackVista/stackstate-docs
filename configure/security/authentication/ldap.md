@@ -21,7 +21,7 @@ stackstate:
       host: sts-ldap
       port: 10389 # For most LDAP servers 389 for plain, 636 for ssl connections
       #ssl:
-      #  type: ssl
+      #  sslType: ssl
       #  trustStore: <see below>
       #  trustCertificates <see below>
       bind:
@@ -58,7 +58,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 1. In `authentication.yaml` - add LDAP details \(see the example above\):
    * **host** - The hostname of the LDAP server.
    * **port** - The port the LDAP server is listening on.
-   * **type** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used.
+   * **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used.
    * **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
    * **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
    * **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
@@ -152,7 +152,7 @@ authentication {
         host = localhost
         port = 8000
         # ssl {
-        #    type = ssl
+        #    sslType = ssl
         #    trustCertificatesPath = "/var/lib/ssl/sts-ldap.pem"
         #    trustStorePath = "/var/lib/ssl/cacerts"
         # }
@@ -191,7 +191,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 1. In `application_stackstate.conf` - add LDAP details \(see the example above\):
    * **host** - The hostname of the LDAP server.
    * **port** - The port the LDAP server is listening on.
-   * **type** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
+   * **sslType** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
    * **trustCertificatesPath** - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
    * **trustStorePath** - optional, path to a Java trust store on the StackState server. If both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence.
    * **bindCredentials** - optional, used to authenticate StackState on the LDAP server if the LDAP server does not support anonymous LDAP searches.
