@@ -49,39 +49,45 @@ By default, the following request rate streams are set for processes and service
 
 ### Errors
 
-StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can add a check [as explained here](#checks).
+StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can [add a check](#checks).
 
 ![HTTP 5xx error rate](../../images/telemetry/http-error-rate.png)
 
 ### Saturation
 
-There are many ways StackState can help you monitor the saturation of your system, for example:
+There are many ways StackState can help monitor the saturation of a system, for example:
 
-- HTTP Requests per second.
+- HTTP Requests per second
 - CPU usage
 - Memory usage
 
 ## Checks
 
-To help you meet your SLA (Service Level Agreement) you can create [checks](/use/health-state-and-event-notifications/health-state-in-stackstate.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
+To help you meet your SLA (Service Level Agreement) you can [create checks](/use/health-state-and-event-notifications/health-state-in-stackstate.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
 
 When selecting a metric stream for a health check, you will have some options to configure its behavior:
 
-- Windowing method: [more details in this page](../health-state-and-event-notifications/add-a-health-check.md#windowing-method).
-- Aggregation: [see here a list of all possible aggregation methods](../../develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
-- Time window (or window size): By default the time window is 300000 milliseconds (or 5 minutes). It will directly influence the number of positive or false negative alerts you will get. Setting it too short might lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. The longer you configure it the less sensitive it will be. You should balance the time window based on the metric and how early you want to be alerted on spikes.
+- **Windowing method** - [More details in this page](../health-state-and-event-notifications/add-a-health-check.md#windowing-method).
+- **Aggregation** - [List of all available aggregation methods](../../develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
+- **Time window (or window size)** - By default the time window is 300000 milliseconds (or 5 minutes). The time window will directly influence the number of positive or false negative alerts. The longer you configure the time window, the less sensitive it will be. However, if it is too short this may lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. You should balance the time window based on the metric and how early you want to be alerted on spikes.
 
 ### Check function: Error percentage
 
-The `Error percentage` check function monitors two streams - one reporting errors and one reporting a total. A DEVIATING health state is returned when the percentage of errors/total crosses the specified `DeviatingThresholdPercentage` and a CRITICAL health state is returned when the error percentage crosses the specified `CriticalThresholdPercentage`.
+The `Error percentage` check function monitors two streams - one reporting errors and one reporting a total. 
 
-If your SLO defines that a service can have a maximum of 5% of requests failing, you can create a check using the `Error percentage` function and set the `Critical Threshold Percentage` to `5.0`:
+* A DEVIATING health state is returned when the percentage of errors/total crosses the specified `DeviatingThresholdPercentage`
+* A CRITICAL health state is returned when the error percentage crosses the specified `CriticalThresholdPercentage`.
+
+If your SLO defines that a service can have a maximum of 5% of requests failing, you can create a check using the `Error percentage` function and set the `CriticalThresholdPercentage` to `5.0`:
 
 ![Error percentage check](../../images/telemetry/http-error-check.png)
 
 ### Check function: Greater than or equal
 
-The `Greater than or equal` check function can alert you when one of your telemetry streams is above a certain threshold. A DEVIATING health state is returned when `DeviatingThreshold` is crossed and a CRITICAL health state is returned when the metric stream value is above the specified `CriticalThreshold`.
+The `Greater than or equal` check function can alert you when one of your telemetry streams is above a certain threshold. 
+
+* A DEVIATING health state is returned when `DeviatingThreshold` is crossed
+* A CRITICAL health state is returned when the metric stream value is above the specified `CriticalThreshold`.
 
 Use this function to make sure you meet your SLO for maximum response time, for example:
 
@@ -89,4 +95,4 @@ Use this function to make sure you meet your SLO for maximum response time, for 
 
 ## Configuration and limitations
 
-The metrics described in this page are gathered by the StackState Agent and can be disabled. Refer to [this page](../../stackpacks/integrations/agent.md) for more information. Currently, the StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols are not yet supported.
+The metrics described in this page are gathered by the StackState Agent and can be disabled. Refer to the [StackState Agent documentation](/setup/agent/about-stackstate-agent.md) for more information. Currently, the StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols are not yet supported.
