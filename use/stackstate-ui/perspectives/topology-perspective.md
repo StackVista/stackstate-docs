@@ -48,17 +48,16 @@ Relations show how components in the topology are connected together. They are r
 
 Relations in StackState can be either direct or indirect.
 
-* Direct relations link two components that have a direct connection to each other. They are represented by a solid line.
-* Indirect relations link two components are connected together via another component that is not visualized in the current topology view. They are represented by a dashed line.
-
-Relations to or from a component group are always represented with a solid line. It should be noted that in this case, the connection could be a direct or indirect relation with one or more components in the group.
+| Relation type | Description |
+|:---|:---|
+| ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. Direct relations link two components that have a direct connection to each other. The direction of the arrowhead shows the direction of the dependency. |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line. Indirect relations link two components are connected together via another component that is not visualized in the current topology view. The direction of the arrowhead shows the direction of the dependency.  |
 
 You can customize the types of relations displayed in the [visuzalization settings](../views/visualization_settings.md).
 
-| Relation type | Description |
-|:---|:---|
-| ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between 2 components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. |
-| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An indirect relation between two components is shown as a dashed line. The direction of the arrowhead shows the direction of the dependency.  |
+{% hint style="info" %}
+Relations to or from a component group are always represented with a solid line. It should be noted that in this case, the connection could be a direct or indirect relation with one or more components in the group.
+{% endhint %}
 
 ## Filters
 
