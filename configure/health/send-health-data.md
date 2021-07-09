@@ -47,18 +47,17 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](#common-json-object).
 
 {% tabs %}
-{% tab title="Example health JSON" %}
+{% tab title="health Repeat Snapshots JSON" %}
 ```javascript
 [
     {
+      "consistency_model": "repeat_snapshots",
       "start_snapshot": {
-        "repeat_interval_s": 50
-        //"expiry_interval_s": 200 Optional
+        "repeat_interval_s": 60
       },
       "stop_snapshot": {},
       "stream": {
         "urn": "urn:health:sourceId:streamId"
-        //"sub_stream_id": "subStreamId" Optional
       },
       "check_states": [
         {
@@ -67,12 +66,34 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
           "health": "Deviating",
           "topologyElementIdentifier": "server-1",
           "name": "Disk Usage"
+        }
+      ]
+    }
+]
+```
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="health Repeat States JSON" %}
+```javascript
+[
+    {
+      "consistency_model": "repeat_states",
+      "expiry": {
+        "repeat_interval_s": 60,
+        "expiry_interval_s": 180
+      },
+      "stream": {
+        "urn": "urn:health:sourceId:streamId"
+      },
+      "check_states": [
         {
-          "checkStateId": "checkStateId2",
-          "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
-          "health": "critical",
-          "topologyElementIdentifier": "server-2",
-          "name": "Health Monitor"
+          "checkStateId": "checkStateId1",
+          "message": "Server Running out of disk space",
+          "health": "Deviating",
+          "topologyElementIdentifier": "server-1",
+          "name": "Disk Usage"
         }
       ]
     }
