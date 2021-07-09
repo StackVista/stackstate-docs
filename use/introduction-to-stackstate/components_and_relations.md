@@ -21,7 +21,7 @@ In the StackState topology perspective, relations are shown as lines connecting 
 * A relation showing dependency in both directions will propagate state to both connected components, in other words it would be a circular dependency.
 * A relation showing no dependency will not propagate state
 
-![](/.gitbook/assets/propagation.svg)
+![](/.gitbook/assets/propagation_2.svg)
 
 
 
