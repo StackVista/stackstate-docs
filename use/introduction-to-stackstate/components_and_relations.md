@@ -13,10 +13,15 @@ A component consists of:
 
 ## Relations
 
-A relation connects two components or groups of components. A relation shares some similarities with a component. Just like a component, it has its state and a propagated state. All relations in StackState are of a specific relation type.
+A relation connects two components or groups of components. Relations have some similarities with components. Just like a component, they can have a state and a propagated state. 
 
-If a relation indicates a dependency, it propagates states from one component to the next. If the relation does not show a dependency between the components it connects, it can be considered as merely a line in the visualizer or a connection in the stack topology.
+In the StackState topology perspective, relations are shown as lines connecting components or component groups. If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. Health state will propagate from one component to the next upwards along a chain of dependencies. If the relation does not show a dependency between the components it connects (no arrowhead), it can be considered as merely a line in the visualizer or a connection in the stack topology.
 
-* A one way dependency relation is a relation that propagates state from one component to the next based on the direction of the relation.
-* A dependency direction in both directions propagates states to both connected components, in other words it would be a circular dependency.
+* A relation showing dependency in one direction will propagate state from one component to the next based on the direction of the relation.
+* A relation showing dependency in both directions will propagate state to both connected components, in other words it would be a circular dependency.
+* A relation showing no dependency will not propagate state
+
+![](/.gitbook/assets/propagation.svg)
+
+
 
