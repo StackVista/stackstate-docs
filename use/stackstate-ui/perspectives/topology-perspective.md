@@ -51,7 +51,7 @@ Relations in StackState can be either direct or indirect.
 | Relation type | Description |
 |:---|:---|
 | ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. Direct relations link two components that have a direct connection to each other. The direction of the arrowhead shows the direction of the dependency. |
-| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line. Indirect relations link two components that are connected together via another component that is not visualized in the current topology view. The direction of the arrowhead shows the direction of the dependency.  |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line. Indirect relations link two components that are connected together via a path of invisible components. The direction of the arrowhead shows the direction of the dependency.  |
 
 You can customize the types of relations displayed in the [visuzalization settings](../views/visualization_settings.md).
 
@@ -117,9 +117,9 @@ If there are components with [telemetry streams](/use/metrics-events/telemetry_s
 
 It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether the view should be expanded to show root cause components that are outside of the currently displayed view:
 
-* **Don't show root cause** - Do not show the root cause
-* **Show root cause only** - Only show the root cause component
-* **Show full root cause tree** - Show the entire root cause tree
+* **Don't show root cause** - Do not show the root causes of components shown by the current topology filters.
+* **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause. 
+* **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes. 
 
 ![Root cause](../../../.gitbook/assets/v43_show_full_root_cause_tree.png)
 
