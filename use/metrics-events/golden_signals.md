@@ -73,9 +73,7 @@ When selecting a metric stream for a health check, you will have some options to
 
 ### Example: Error percentage
 
-The `Error percentage` check function can be used to monitor two streams - one reporting errors and one reporting a total. 
-
-A DEVIATING or CRITICAL health state is returned when the percentage of errors/total crosses the specified `DeviatingThresholdPercentage` or `CriticalThresholdPercentage`.
+The `Error percentage` check function can be used to monitor two streams - one reporting errors and one reporting a total. A DEVIATING or CRITICAL health state is returned when the percentage of errors/total crosses the specified `DeviatingThresholdPercentage` or `CriticalThresholdPercentage`.
 
 If your SLO defines that a service can have a maximum of 5% of requests failing, you can create a check using the `Error percentage` function and set the `CriticalThresholdPercentage` to `5.0`:
 
