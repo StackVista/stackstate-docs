@@ -2,7 +2,7 @@
 
 ## Overview 
 
-Check functions are run by health checks in StackState. They can process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script. 
+Check functions are run by [health checks](/use/health-state/add-a-health-check.md) in StackState. They can process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script. 
 
 ## Create a custom check function 
 
@@ -246,8 +246,9 @@ The example below shows a check function that listens to anomaly events. The fun
 
 ## See also
 
-* [Send notifications when a health state changes](../../../use/metrics-events/send-event-notifications.md)
-* [Checks and telemetry streams](../../../configure/telemetry/checks_and_streams.md)
+* [Send notifications in response to events](/use/metrics-events/send-event-notifications.md)
+* [Add a health check to a component or relation](/use/health-state/add-a-health-check.md)
+* [Telemetry streams](/use/metrics-events/telemetry_streams.md)
 * [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
 * [StackPack development](/develop/developer-guides/stackpack/README.md)
 
