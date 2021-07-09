@@ -81,10 +81,7 @@ If your SLO defines that a service can have a maximum of 5% of requests failing,
 
 ### Example: Response time
 
-The `Greater than or equal` check function can alert you when one of your telemetry streams is above a certain threshold. 
-
-* A DEVIATING health state is returned when `DeviatingThreshold` is crossed
-* A CRITICAL health state is returned when the metric stream value is above the specified `CriticalThreshold`.
+The `Greater than or equal` check function can alert you when one of your telemetry streams is above a certain threshold. A DEVIATING or CRITICAL health state will be returned if the specified `DeviatingThreshold` or `CriticalThreshold` is crossed.
 
 Use this function to make sure you meet your SLO for maximum response time, for example:
 
