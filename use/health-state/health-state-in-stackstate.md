@@ -37,12 +37,12 @@ Existing StackPacks will provide health synchronization out of the box. Advanced
 
 Each element in StackState reports two health states:
 
-* The inner color shows the own health state of the element. This is derived from the state reported by health checks attached to the element. 
+* The inner color shows the own health state of the element. This is derived from the state reported by health checks attached to the element itself. 
 * The outer color shows the element's propagated health state. This is derived from the health state of the components and relations that the element depends upon.
 
 ![](/.gitbook/assets/1_component_health_state.svg)
 
-Health state will propagate from one component to the next, upwards along a chain of dependencies. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction to the arrows shown on relations in the topology graph. A component's propagated state is calculated using a [propagation function](/develop/developer-guides/custom-functions/propagation-functions.md).
+A component's propagated health state is calculated using a [propagation function](/develop/developer-guides/custom-functions/propagation-functions.md). Health state will propagate from one component to the next, from dependencies to dependent components and relations. Note that this is the opposite direction to the arrows shown on [relations](/use/introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
 
 | Dependency and propagated state | Description |
 |:---|:---|
