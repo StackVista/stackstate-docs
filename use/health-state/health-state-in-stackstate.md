@@ -40,16 +40,16 @@ Each element in StackState reports two health states:
 * The inner color shows the own health state of the element. This is derived from the state reported by health checks attached to the element. 
 * The outer color shows the element's propagated health state. This is derived from the health state of the components and relations that the element depends upon.
 
-![](/.gitbook/assets/component_health_state.svg)
+![](/.gitbook/assets/1_component_health_state.svg)
 
 Health state will propagate from one component to the next, upwards along a chain of dependencies. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction to the arrows shown on relations in the topology graph. A component's propagated state is calculated using a [propagation function](/develop/developer-guides/custom-functions/propagation-functions.md).
 
 | Dependency and propagated state | Description |
 |:---|:---|
 | ![](/.gitbook/assets/propagation-a-to-b.svg) | Component A depends on component B. Health state will propagate from B to A. |
-| ![](/.gitbook/assets/1_propagation-b-to-a.svg) | Component B depends on component A. Health state will propagate from A to B. |
+| ![](/.gitbook/assets/propagation-b-to-a.svg) | Component B depends on component A. Health state will propagate from A to B. |
 | ![](/.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
-| ![](/.gitbook/assets/1_propagation-a-no-b.svg) | No dependency. Health state does not propagate. |
+| ![](/.gitbook/assets/propagation-a-no-b.svg) | No dependency. Health state does not propagate. |
 
 {% hint style="info" %}
 A CLEAR (green) health state does not propagate.
