@@ -10,8 +10,8 @@ The checks described in this page do not ensure you are meeting your SLO directl
 
 The metrics and checks described on this page are available in StackState when:
 
-* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) is installed
-* An integration runs through [StackState Agent V2](/setup/agent/about-stackstate-agent.md) version 2.12 or higher
+* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) is installed.
+* An integration runs through [StackState Agent V2](/setup/agent/about-stackstate-agent.md) version 2.12 or higher.
 
 ## Four golden signals
 
