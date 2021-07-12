@@ -12,7 +12,7 @@ StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fe
 
 ### Supported Linux versions
 
-StackState Agent is tested to run on the Linux versions listed below with 64bit architecture:
+StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that network data inspection is performed by a network tracer that is available only for systems with Linux kernel version >= 4.3:
 
 | OS | Release | Network Tracer | Notes |
 |:---|:---|:---|:---|

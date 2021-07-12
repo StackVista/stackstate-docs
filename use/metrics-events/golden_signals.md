@@ -6,7 +6,12 @@ When monitoring distributed systems with a defined SLO (Service Level Objective)
 
 The checks described in this page do not ensure you are meeting your SLO directly, but they can help you prevent an SLO violation by catching (and alerting on) changes in your SLIs as soon as possible.
 
-The metrics/checks below are only supported from version 4.4 with the Agent StackPack installed.
+## Requirements
+
+The metrics and checks described on this page will be available in StackState when:
+
+* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) is installed
+* An integration runs through [StackState Agent V2](/setup/agent/about-stackstate-agent.md) version 2.12 or higher
 
 ## Four golden signals
 
