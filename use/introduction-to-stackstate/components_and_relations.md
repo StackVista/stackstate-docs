@@ -22,6 +22,7 @@ If a relation indicates a dependency, the line will have an arrowhead showing th
 [Health state will propagate](/use/health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next upwards along a chain of dependencies.  If the relation does not show a dependency between the components it connects (no arrowhead), it can be considered as merely a line in the visualizer or a connection in the stack topology.
 
 | Relation type | Description | 
+|:---|:---|
 | ![](/.gitbook/assets/propagation-a-to-b.svg) | Component A depends directly on component B. Health state will propagate from B to A. |
 | ![](/.gitbook/assets/relation_indirect_one_direction.svg) | Component B depends indirectly on component A. Health state will propagate from A to B. |
 | ![](/.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
