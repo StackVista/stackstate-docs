@@ -46,7 +46,7 @@ Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live
 
 ### Health
 
-The health state of a view during the selected telemetry interval is displayed as a colour in the timeline **Health** line. 
+The health state of a view during the selected telemetry interval is displayed as a color in the timeline **Health** line. 
 
 Health state information is available when [health state is enabled](/use/health-state/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view. 
 

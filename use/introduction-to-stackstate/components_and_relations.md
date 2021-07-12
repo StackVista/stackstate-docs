@@ -15,16 +15,5 @@ A component consists of:
 
 A relation connects two components or groups of components. Relations have some similarities with components. Just like a component, they can have a state and a propagated state. 
 
-In the StackState topology perspective, relations are shown as lines connecting components or component groups. If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. Health state will propagate from one component to the next upwards along a chain of dependencies. If the relation does not show a dependency between the components it connects (no arrowhead), it can be considered as merely a line in the visualizer or a connection in the stack topology.
-
-| Relation and state | Description |
-|:---|:---|
-| ![](/.gitbook/assets/propagation-a-to-b.svg) | Component A depends on component B. Health state will propagate from B to A. |
-| ![](/.gitbook/assets/propagation-b-to-a.svg) | Component B depends on component A. Health state will propagate from A to B. |
-| ![](/.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words it is a circular dependency. |
-| ![](/.gitbook/assets/propagation-a-no-b.svg) | No dependency. Health state does not propagate. |
-
-{% hint style="info" %}
-A green health state does not propagate.
-{% endhint %}
+In the StackState topology perspective, relations are shown as lines connecting components or component groups. If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. [Health state will propagate](/use/health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next upwards along a chain of dependencies.  If the relation does not show a dependency between the components it connects (no arrowhead), it can be considered as merely a line in the visualizer or a connection in the stack topology.
 
