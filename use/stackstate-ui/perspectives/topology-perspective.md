@@ -42,18 +42,16 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 ## Relations
 
-Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. Relations that have one or more health checks configured will report a calculated [health state](/use/health-state/health-state-in-stackstate.md).
+Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](/use/health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
 ### Direct and indirect relations
 
-Relations in StackState can be either direct or indirect.
+Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. You can customize the types of relations displayed in the [visuzalization settings](../views/visualization_settings.md).
 
 | Relation type | Description |
 |:---|:---|
 | ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. Direct relations link two components that have a direct connection to each other. The direction of the arrowhead shows the direction of the dependency. |
 | ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line. Indirect relations link two components that are connected together via a path of invisible components. The direction of the arrowhead shows the direction of the dependency.  |
-
-You can customize the types of relations displayed in the [visuzalization settings](../views/visualization_settings.md).
 
 {% hint style="info" %}
 Relations to or from a component group are always represented by a solid line. It should be noted that in this case, the connection could be a direct or indirect relation to one or more components in the group.

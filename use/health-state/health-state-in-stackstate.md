@@ -13,7 +13,7 @@ A topology element (component, component group or relation) in StackState can ha
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - No health state available.
 
-The own health state of an element is calculated as the most severe state reported by a [health check](#health-checks) attached to it. If no health checks are attached to the element, if will report health state UNKNOWN. A second health state - the [propagated health state](#propagated-health-state) - is derived from the health state of components that an element depends on. This is shown as a line around the outside of the component.
+The own health state of an element is calculated as the most severe state reported by a [health check](#health-checks) attached to it. If no health checks are attached to the element, if will report health state UNKNOWN. A second health state - the [propagated health state](#propagated-health-state) - is derived from the health state of elements that a component depends upon. This is shown as a line around the outside of the component.
 
 ![Health states](/.gitbook/assets/health-states.svg)
 
