@@ -13,7 +13,7 @@ A topology element (component, component group or relation) in StackState can ha
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - No health state available.
 
-The element health state is calculated as the most severe state reported by a health check attached to it. If no health checks are attached to the element, if will report health state UNKNOWN.
+The own health state of an element is calculated as the most severe state reported by a [health check](#health-checks) attached to it. If no health checks are attached to the element, if will report health state UNKNOWN. A second health state - the [propagated health state](#propagated-health-state) - is derived from the health state of components that an element depends on. This is shown as a line around the outside of the component.
 
 ![Health states](/.gitbook/assets/health-states.svg)
 
@@ -42,7 +42,11 @@ Each element in StackState reports two health states:
 
 ![](/.gitbook/assets/component_health_state.svg)
 
-A component's propagated health state is calculated using a [propagation function](/develop/developer-guides/custom-functions/propagation-functions.md). Health state will propagate from one component to the next, from dependencies to dependent components and relations. Note that this is the opposite direction to the arrows shown on [relations](/use/introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
+The propagated health state of a component is calculated using a [propagation function](/develop/developer-guides/custom-functions/propagation-functions.md). Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](/use/introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
+
+{% hint style="info" %}
+A CLEAR (green) health state does not propagate.
+{% endhint %}
 
 | Dependency and propagated state | Description |
 |:---|:---|
@@ -50,10 +54,6 @@ A component's propagated health state is calculated using a [propagation functio
 | ![](/.gitbook/assets/propagation-b-to-a.svg) | Component B depends on component A. Health state will propagate from A to B. |
 | ![](/.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
 | ![](/.gitbook/assets/propagation-a-no-b.svg) | No dependency. Health state does not propagate. |
-
-{% hint style="info" %}
-A CLEAR (green) health state does not propagate.
-{% endhint %}
 
 ## View health state
 
