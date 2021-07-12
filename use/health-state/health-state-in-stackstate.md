@@ -15,7 +15,7 @@ A topology element (component, component group or relation) in StackState can ha
 
 The element health state is calculated as the most severe state reported by a health check attached to it. If no health checks are attached to the element, if will report health state UNKNOWN.
 
-![Health states](/.gitbook/assets/1_health-states.svg)
+![Health states](/.gitbook/assets/health-states.svg)
 
 ### Health checks
 
@@ -40,7 +40,7 @@ Each element in StackState reports two health states:
 * The inner color shows the own health state of the element. This is derived from the state reported by health checks attached to the element itself. 
 * The outer color shows the element's propagated health state. This is derived from the health state of the components and relations that the element depends upon.
 
-![](/.gitbook/assets/1_component_health_state.svg)
+![](/.gitbook/assets/component_health_state.svg)
 
 A component's propagated health state is calculated using a [propagation function](/develop/developer-guides/custom-functions/propagation-functions.md). Health state will propagate from one component to the next, from dependencies to dependent components and relations. Note that this is the opposite direction to the arrows shown on [relations](/use/introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
 
