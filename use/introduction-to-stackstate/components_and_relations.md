@@ -23,9 +23,9 @@ If a relation indicates a dependency, the line will have an arrowhead showing th
 
 | Relation type | Description | 
 |:---|:---|
-| ![](/.gitbook/assets/propagation-a-to-b.svg) | Component A depends directly on component B. Health state will propagate from B to A. |
-| ![](/.gitbook/assets/relation_indirect_one_direction.svg) | Component B depends indirectly on component A. Health state will propagate from A to B. |
-| ![](/.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
-| ![](/.gitbook/assets/propagation-a-no-b.svg) | No dependency. Health state does not propagate. |
+| ![](/.gitbook/assets/1_propagation-a-to-b.svg) | Component A depends directly on component B. Health state will propagate from B to A. |
+| ![](/.gitbook/assets/1_relation_indirect_one_direction.svg) | Component B depends indirectly on component A. Health state will propagate from A to B. |
+| ![](/.gitbook/assets/1_propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
+| ![](/.gitbook/assets/1_propagation-a-no-b.svg) | No dependency. Health state does not propagate. |
 
 
