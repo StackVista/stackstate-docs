@@ -206,6 +206,20 @@ sudo journalctl -u stackstate-agent
 sudo service stackstate-agent status -v
 
 ```
+### Manually run a check
+
+Use the command below to manually run an Agent check with log level set to debug. 
+
+```yaml
+# Executes check once and display the results.
+sudo -u stackstate-agent agent check <CHECK_NAME>
+
+# Execute check once with log level debug. Logs are output to stdout.
+sudo -u stackstate-agent agent check <CHECK_NAME> -l debug
+```
+
+The check will run one time and output debug level logs to stdout.
+
 ## Troubleshooting
 
 ### Log files
