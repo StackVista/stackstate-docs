@@ -10,19 +10,22 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 ### Telemetry interval
 
-The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. The selected telemetry interval runs from left to right on the timeline. By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a custom telemetry interval. 
+The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. The selected telemetry interval runs from left to right on the timeline. It can be either relative (live mode), or set to a custom time interval (time travel mode). When a custom time interval is set, StackState will be in [time travel mode](#time-travel) and the [topology time](#topology-time) will be paused. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+
+By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a custom telemetry interval. 
 
 {% hint style="info" %}
-The telemetry interval can be a maximum 6 months. It does not need to include the currently selected topology time. If the telemetry interval does not include the topology time, the message `The topology time is out of the current time interval` will be displayed in the timeline.
+* The telemetry interval can be a maximum 6 months. 
+* It is possible to set a custom telemetry interval that does not need to include the currently selected topology time. When this happens, the message "The topology time is out of the current time interval"`" will be displayed in the timeline.
+* When a custom time interval is set, StackState will enter [time travel mode](#time-travel) and the [topology time](#topology-time) will be paused.
 {% endhint %}
 
 The telemetry interval can be set in the following ways:
 
-* Click and drag on the timeline to zoom in on a selection.
-* Select a relative time window or set a custom time interval from the **Set the telemetry interval** popup on the left of the timeline.
-* Use the time jumper arrow buttons to the left and right of the **Set the telemetry interval** popup to move the selected telemetry interval backwards or forwards through time.
-
-If the end time of the selected telemetry interval is in the past, StackState will be in [time travel mode](#time-travel) and the [topology time](#topology-time) will be paused. Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+* Click and drag on the timeline to set a custom time interval that zooms in on your selection.
+* Use the **Set the telemetry interval** popup on the left of the timeline to select a relative time window or set a custom time interval.
+* Click the time jumper arrow buttons to the left and right of the **Set the telemetry interval** box to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
+* Click on the **zoom out** magnifying glass icon to the right of the telemetry interval jumper button to set a custom time interval double the size of the current telemetry interval.
 
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
 
@@ -83,7 +86,7 @@ Let's imagine a concrete scenario:
 * In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
 * You can then select to see the hours that preceded that moment in order to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 
-StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a telemetry interval is set with an end time in the past. When StackState is in time travel mode: 
+StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom time interval is set for the telemetry interval. When StackState is in time travel mode: 
 
 * You are effectively working with a snapshot of your infrastructure.
 * Telemetry is available for components that were part of the topology at the selected topology time only.
