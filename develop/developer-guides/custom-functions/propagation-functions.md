@@ -19,7 +19,9 @@ A component's propagated state is calculated using a propagation function. This 
 
 Propagation functions are used to calculate the propagated state of a component.
 
-* **Transparent propagation \(default\)** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+### Transparent propagation \(default\)
+
+Transparent propagation returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
 
   | Dependency state | Component state | Transparent state |
   | :--- | :--- | :--- |
@@ -27,36 +29,48 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-  There are two ways of how **Transparent propagation** can be configured:
-  - Selecting it as default (see [default propagation functions](propagation-functions.md#default-propagation-functions)).
-  - [Import](../../../setup/data-management/backup_restore/configuration_backup#import-configuration) it the as [custom propagation function](propagation-functions.md#create-a-custom-propagation-function). The export json below:
-  ```json
-    {
-      "_version": "1.0.31",
-      "nodes": [{
-        "_type": "PropagationFunction",
-        "async": false,
-        "id": -1,
-        "identifier": "urn:stackpack:common:propagation-function:transparent-propagation",
-        "name": "Transparent propagation",
-        "parameters": [],
-        "script": {
-          "_type": "NativeFunctionBody",
-          "nativeFunctionBodyId": "TRANSPARENT_PROPAGATION"
-        }
-      }],
-      "timestamp": "2021-06-15T14:57:31.725+02:00[Europe/Amsterdam]"
-    }
+Transparent propagation can be configured in two ways: 
+
+- It can be set as the [default propagation function](propagation-functions.md#default-propagation-functions).
+- It can be [imported](../../../setup/data-management/backup_restore/configuration_backup#import-configuration) as a [custom propagation function](propagation-functions.md#create-a-custom-propagation-function) using the export JSON below:
+
+{% tabs %}
+{% tab title="Transparent propagation export JSON" %}
+```json
+  {
+    "_version": "1.0.31",
+    "nodes": [{
+      "_type": "PropagationFunction",
+      "async": false,
+      "id": -1,
+      "identifier": "urn:stackpack:common:propagation-function:transparent-propagation",
+      "name": "Transparent propagation",
+      "parameters": [],
+      "script": {
+        "_type": "NativeFunctionBody",
+        "nativeFunctionBodyId": "TRANSPARENT_PROPAGATION"
+      }
+    }],
+    "timestamp": "2021-06-15T14:57:31.725+02:00[Europe/Amsterdam]"
+  }
+```
+{% endtab %}
+{% endtabs %}
+
+### Auto propagation
+
+Auto propagation returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that are subject to frequent fluctuations in health states. Auto propagation is similar to [transparent propagation](#transparent-propagation-default) with two differences:
+
+- A `DEVIATING` health state does not propagate.
+- A `CRITICAL` health state stops propagating after 2 hours.
+- The propagated state is calculated as the maximum of the propagated state of all dependencies. 
+  
+The critical state timeout can be reconfigured using the following option:
+  ```text
+    stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
   ```
 
-* **Auto propagation** - returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is similar to **Transparent propagation** with two differences:
-  - `DEVIATING` component's own health state is not propagated - excluded from computation of the result state.
-  - `CRITICAL` component's own health state stops propagating after 2 hours and propagated state is calculated as the maximum of propagated state of all dependencies. The critical state timeout can be reconfigured using the following option:
-    ```text
-      stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
-    ```
-
- For example:
+For example:
 
   | Dependency state | Component state | Auto state |
   | :--- | :--- | :--- | :--- |
@@ -69,20 +83,34 @@ Propagation functions are used to calculate the propagated state of a component.
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
   | `CRITICAL` | `CLEAR` | `CRITICAL` |
 
-* **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
-* **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+Gina edit:
 
-{% hint style="info" %}
-A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
-{% endhint %}
+  | Dependency state | Component state | Auto state | Auto state after 2 hours|
+  | :--- | :--- | :--- | :--- |
+  | `DEVIATING` | `CLEAR` | `CLEAR` | `CLEAR` |
+  | `CRITICAL` | `CLEAR` | `CRITICAL` | `CLEAR` |
+  | `DEVIATING` | `DEVIATING` | `DEVIATING` | `DEVIATING` |
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` | `DEVIATING` |
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` | `DEVIATING` |
+  | `CRITICAL` | `CRITICAL` | `CRITICAL` | `CRITICAL` |
+  | `CLEAR` | `DEVIATING` | `DEVIATING` | `DEVIATING` |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` | `CRITICAL` |
+
+### Other propagation functions
+
+Some other propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+
+For details of all propagation functions available in your StackState instance, go to **Settings** > **Functions** > **Propagation functions** in the StackState UI.
 
 ## Default propagation functions
 
-If no propagation function is configured for a component then default propagation is invoked. There are two propagation functions that can be configured as the default propagation function: **Auto Propagation** or **Transparent Propagation**. The default can be configured using the following option:
+If no propagation function is configured for a component, the default propagation function will be invoked. The default propagation function can be either **Auto Propagation** or **Transparent Propagation**. For performance reasons, it is not possible to configure a custom propagation function as the default.
+
+The default can be configured using the following option:
+
   ```text
     stackstate.stateService.defaultPropagation = Auto // Transparent
   ```
-Custom function cannot be configured as default because of performance reasons.
 
 ## Create a custom propagation function
 
@@ -126,8 +154,8 @@ A propagation function script takes system and user defined parameters. System p
 
 | System parameter | Description |
 | :--- | :--- |
-| `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
-| `autoState` | The precomputed auto state if returned from the script will lead to auto propagation |
+| `transparentState` | The precomputed transparent state. If returned from the script, will lead to [transparent propagation](#transparent-propagation-default). |
+| `autoState` | The precomputed auto state. If returned from the script, will lead to [auto propagation](#auto-propagation). |
 | `component` | The id of the current component |
 
 ### Execution
