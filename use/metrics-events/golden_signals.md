@@ -2,9 +2,16 @@
 
 ## Overview
 
-When monitoring distributed systems with a defined SLO (Service Level Objective), StackState can alert you if one of your SLIs (Service Level Indicators) falls below a certain threshold. The [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals) described on this page can be used to build a check in StackState that responds to fluctuations in service level.
+To assist in monitoring distributed systems with a defined SLO (Service Level Objective), StackState can be configured to alert you if an SLI (Service Level Indicator) falls below a defined threshold. StackState Agent V2 deployed on a Linux host will retrieve telemetry that can be used to monitor the [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals). These metrics can then be used to build a [check](#checks) in StackState that responds to fluctuations in service level.
 
-The checks described in this page do not ensure you are meeting your SLO directly, but they can help you prevent an SLO violation by catching (and alerting on) changes in your SLIs as soon as possible.
+The checks described on this page do not ensure that you are meeting your SLO directly, but they can help prevent an SLO violation by catching and alerting on changes in your SLIs as soon as possible.
+
+## Requirements
+
+To work with golden signals and the checks described on this page, you need to have:
+
+* The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+* [StackState Agent V2](/setup/agent/linux.md) version 2.12 or higher running on a Linux host.
 
 ## Four golden signals
 
