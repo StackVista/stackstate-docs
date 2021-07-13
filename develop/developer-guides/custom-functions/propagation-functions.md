@@ -29,7 +29,7 @@ Propagation functions are used to calculate the propagated state of a component.
 
 * **Auto propagation** - returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is similar to **Transparent propagation** with two differences:
   - `DEVIATING` component's own health state is not propagated - excluded from computation of the result state.
-  - `CRITICAL` component's own health state stops propagating after 2 hours, but component's own health state remains `CRITICAL`. The propagation timeout can be reconfigured using the following option:
+  - `CRITICAL` component's own health state stops propagating after 2 hours and propagated state is calculated as the maximum of propagated state of all dependencies. The critical state timeout can be reconfigured using the following option:
     ```text
       stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
     ```
@@ -54,7 +54,7 @@ A full list of the propagation functions available in your StackState instance c
 
 ## Default propagation functions
 
-If no propagation function is configured for a component then auto propagation is invoked. There are two propagation functions that can be configured as the auto propagation function: **Auto Propagation** or **Transparent Propagation**. The default can be configured using the following option:
+If no propagation function is configured for a component then default propagation is invoked. There are two propagation functions that can be configured as the default propagation function: **Auto Propagation** or **Transparent Propagation**. The default can be configured using the following option:
   ```text
     stackstate.stateService.defaultPropagation = Auto // Transparent
   ```
