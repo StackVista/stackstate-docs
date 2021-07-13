@@ -171,6 +171,8 @@
 * [Health](configure/health/README.md)
   * [Health synchronization](configure/health/health-synchronization.md)
   * [Send health data over HTTP](configure/health/send-health-data.md)
+    * [Send health data for REPEAT_SNAPSHOTS](configure/health/send-health-data/repeat_snapshots.md)
+    * [Send health data for REPEAT_STATES](configure/health/send-health-data/repeat_states.md)
   * [Debug health synchronization](configure/health/debug-health-sync.md)
 * [Security](configure/security/README.md)
   * [Authentication](configure/security/authentication/README.md)
