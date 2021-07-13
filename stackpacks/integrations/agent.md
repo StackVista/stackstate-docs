@@ -22,22 +22,22 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](/stackpacks/integrations/agent_v2/apache-tomcat.md)
-* [AWS ECS](/stackpacks/integrations/agent_v2/aws-ecs.md)
-* [CentOS](/stackpacks/integrations/agent_v2/centos.md)
-* [Debian](/stackpacks/integrations/agent_v2/debian.md)
-* [Docker](/stackpacks/integrations/agent_v2/docker.md)  
-* [DotNet APM](/stackpacks/integrations/agent_v2/dotnet-apm.md)
-* [Fedora](/stackpacks/integrations/agent_v2/fedora.md)
-* [Java APM](/stackpacks/integrations/agent_v2/java-apm.md)
-* [JMX](/stackpacks/integrations/agent_v2/jmx.md)
-* [MySQL](/stackpacks/integrations/agent_v2/mysql.md)
-* [PostgreSQL](/stackpacks/integrations/agent_v2/postgresql.md)
-* [RedHat](/stackpacks/integrations/agent_v2/redhat.md)
+* [Apache TomCat](/stackpacks/integrations/apache-tomcat.md)
+* [AWS ECS](/stackpacks/integrations/aws-ecs.md)
+* [CentOS](/stackpacks/integrations/centos.md)
+* [Debian](/stackpacks/integrations/debian.md)
+* [Docker](/stackpacks/integrations/docker.md)  
+* [DotNet APM](/stackpacks/integrations/dotnet-apm.md)
+* [Fedora](/stackpacks/integrations/fedora.md)
+* [Java APM](/stackpacks/integrations/java-apm.md)
+* [JMX](/stackpacks/integrations/jmx.md)
+* [MySQL](/stackpacks/integrations/mysql.md)
+* [PostgreSQL](/stackpacks/integrations/postgresql.md)
+* [RedHat](/stackpacks/integrations/redhat.md)
 * [Static Health](/stackpacks/integrations/agent_v2/static-health.md)  
-* [Ubuntu](/stackpacks/integrations/agent_v2/ubuntu.md)
-* [Windows](/stackpacks/integrations/agent_v2/windows.md)  
-* [WMI](/stackpacks/integrations/agent_v2/wmi.md)
+* [Ubuntu](/stackpacks/integrations/ubuntu.md)
+* [Windows](/stackpacks/integrations/windows.md)  
+* [WMI](/stackpacks/integrations/wmi.md)
 
 ### Status
 
