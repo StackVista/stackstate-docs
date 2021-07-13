@@ -28,8 +28,8 @@ Propagation functions are used to calculate the propagated state of a component.
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
   There are two ways of how **Transparent propagation** can be configured:
-  - Selecting it as default ([see Default Propagation Function](propagation-functions.md#default-propagation-function)).
-  - Import it the as ([custom propagation function](propagation-functions.md#custom-propagation-function)). The export json below:
+  - Selecting it as default ([see Default Propagation Function](propagation-functions.md#default-propagation-functions)).
+  - Import it the as ([custom propagation function](propagation-functions.md#create-a-custom-propagation-function)). The export json below:
   ```json
     {
       "_version": "1.0.31",
