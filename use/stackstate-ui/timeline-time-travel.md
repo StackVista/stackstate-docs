@@ -26,11 +26,15 @@ The telemetry interval can be set in the following ways:
   
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
   
-* Use the **Set the telemetry interval** popup on the left of the timeline to select a relative or custom time interval.
 * Click the time jumper arrow buttons to the left and right of the **Set the telemetry interval** box to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
+
+![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
+
 * Click on the **zoom out** magnifying glass icon to the right of the telemetry interval jumper button to set a custom time interval double the size of the current telemetry interval.
 
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
+
+* Use the **Set the telemetry interval** popup on the left of the timeline to select a relative or custom time interval.
 
 ![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
