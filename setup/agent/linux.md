@@ -212,10 +212,10 @@ Use the command below to manually run an Agent check.
 
 ```yaml
 # Execute a check once and display the results.
-sudo -u stackstate-agent agent check <CHECK_NAME>
+sudo -u stackstate-agent stackstate-agent check <CHECK_NAME>
 
 # Execute a check once with log level debug and display the results.
-sudo -u stackstate-agent agent check <CHECK_NAME> -l debug
+sudo -u stackstate-agent stackstate-agent check <CHECK_NAME> -l debug
 ```
 
 ## Troubleshooting
