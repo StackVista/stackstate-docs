@@ -27,12 +27,19 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-* **Auto propagation** - This propagation acts as a noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is the same as **Transparent propagation** except that if component's own health state is `DEVIATING` it is not propagated - excluded from computation of the result state. For example:
+* **Auto propagation** - returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is similar to as **Transparent propagation** with two differences:
+  - `DEVIATING` component's own health state is not propagated - excluded from computation of the result state.
+  - `CRITICAL` component's own health state stops propagating after 2 hours but component's own health state remains `CRITICAL`. The propagation expiration can be reconfigured using the following option:
+    ```text
+      stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
+    ```
+
+ For example:
 
   | Dependency state | Component state | Auto state |
-  | :--- | :--- | :--- |
+  | :--- | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` |    
+  | `CLEAR` | `CRITICAL` | `CRITICAL` (Expires after 2 hours) |
   | `CRITICAL` | `DEVIATING` | `CRITICAL` |
   | `DEVIATING` | `DEVIATING` | `DEVIATING` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
@@ -47,7 +54,7 @@ A full list of the propagation functions available in your StackState instance c
 
 ## Default propagation functions
 
-If no propagation function is configured for a component then the default propagation function is executed. There are two propagation functions that can be configured as the default propagation function: **Auto Propagation** or **Transparent Propagation**. The default can be configured using the following option:
+If no propagation function is configured for a component then the Auto propagation is invoked. There are two propagation functions that can be configured as the auto propagation function: **Auto Propagation** or **Transparent Propagation**. The default can be configured using the following option:
   ```text
     stackstate.stateService.defaultPropagation = Auto // Transparent
   ```
