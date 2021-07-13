@@ -29,7 +29,7 @@ Propagation functions are used to calculate the propagated state of a component.
 
   There are two ways of how **Transparent propagation** can be configured:
   - Selecting it as default (see [default propagation functions](propagation-functions.md#default-propagation-functions)).
-  - Import it the as [custom propagation function](propagation-functions.md#create-a-custom-propagation-function). The export json below:
+  - [Import](../setup/data-management/backup_restore/configuration_backup#import-configuration) it the as [custom propagation function](propagation-functions.md#create-a-custom-propagation-function). The export json below:
   ```json
     {
       "_version": "1.0.31",
