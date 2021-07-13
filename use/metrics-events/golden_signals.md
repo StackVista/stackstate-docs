@@ -8,10 +8,10 @@ The checks described in this page do not ensure you are meeting your SLO directl
 
 ## Requirements
 
-The metrics and checks described on this page are available in StackState when:
+To work with the metrics and checks described on this page, you need to have:
 
-* The [StackState Agent StackPack](/stackpacks/integrations/agent.md) is installed.
-* An integration runs through [StackState Agent V2](/setup/agent/about-stackstate-agent.md) version 2.12 or higher.
+* The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+* [StackState Agent V2](/setup/agent/linux.md) version 2.12 or higher installed on a Linux host.
 
 ## Four golden signals
 
