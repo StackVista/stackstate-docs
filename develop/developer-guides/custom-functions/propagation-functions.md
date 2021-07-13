@@ -73,7 +73,7 @@ The critical state timeout can be reconfigured using the following option:
 For example:
 
   | Dependency state | Component state | Auto state |
-  | :--- | :--- | :--- | :--- |
+  | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` |
   | `CLEAR` | `CRITICAL` | `CRITICAL` (Stop propagating after 2 hours and goes to `CLEAR`) |
   | `DEVIATING` | `DEVIATING` | `DEVIATING` |
@@ -85,7 +85,7 @@ For example:
 
 Gina edit:
 
-  | Dependency state | Component state | Auto state | Auto state after 2 hours|
+  | Dependency state | Component state | Auto state | Auto state after 2 hours |
   | :--- | :--- | :--- | :--- |
   | `DEVIATING` | `CLEAR` | `CLEAR` | `CLEAR` |
   | `CRITICAL` | `CLEAR` | `CRITICAL` | `CLEAR` |
