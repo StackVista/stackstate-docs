@@ -109,7 +109,7 @@
   * [💠 StackState Agent V2](stackpacks/integrations/agent.md)
   * [💠 AWS](stackpacks/integrations/aws/README.md)  
     * [AWS](stackpacks/integrations/aws/aws.md)
-    * [AWS ECS](stackpacks/integrations/aws-ecs.md)
+    * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
     * [AWS (Legacy)](stackpacks/integrations/aws/aws-legacy.md)
     * [Migrate AWS (Legacy) to AWS](stackpacks/integrations/aws/migration-guide.md)

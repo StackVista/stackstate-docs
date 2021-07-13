@@ -23,7 +23,7 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
 * [Apache TomCat](/stackpacks/integrations/apache-tomcat.md)
-* [AWS ECS](/stackpacks/integrations/aws-ecs.md)
+* [AWS ECS](/stackpacks/integrations/aws/aws-ecs.md)
 * [CentOS](/stackpacks/integrations/centos.md)
 * [Debian](/stackpacks/integrations/debian.md)
 * [Docker](/stackpacks/integrations/docker.md)  
