@@ -61,10 +61,9 @@ Transparent propagation can be configured in two ways:
 
 Auto propagation returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that are subject to frequent fluctuations in health states. Auto propagation is similar to [transparent propagation](#transparent-propagation-default) with two differences:
 
-- A `DEVIATING` health state does not propagate.
-- A `CRITICAL` health state stops propagating after 2 hours.
-- The propagated state is calculated as the maximum of the propagated state of all dependencies. 
-  
+- If a component's own health state is `DEVIATING`, this is always excluded from calculation of the propagated state.
+- If a component's own health state is `CRITICAL`, after 2 hours this is excluded from calculation of the propagated state. At this point, the propagated state is calculated as the maximum of propagated state of all dependencies only. 
+
 The critical state timeout can be reconfigured using the following option:
   ```text
     stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
@@ -75,26 +74,13 @@ For example:
   | Dependency state | Component state | Auto state |
   | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` (Stop propagating after 2 hours and goes to `CLEAR`) |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `CLEAR`) |
   | `DEVIATING` | `DEVIATING` | `DEVIATING` |
-  | `DEVIATING` | `CRITICAL` | `CRITICAL` (Stop propagating after 2 hours and goes to `DEVIATING`) |
+  | `DEVIATING` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `DEVIATING`) |
   | `CRITICAL` | `DEVIATING` | `CRITICAL` |
   | `CRITICAL` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
   | `CRITICAL` | `CLEAR` | `CRITICAL` |
-
-Gina edit:
-
-  | Dependency state | Component state | Auto state | Auto state after 2 hours |
-  | :--- | :--- | :--- | :--- |
-  | `DEVIATING` | `CLEAR` | `CLEAR` | `CLEAR` |
-  | `CRITICAL` | `CLEAR` | `CRITICAL` | `CLEAR` |
-  | `DEVIATING` | `DEVIATING` | `DEVIATING` | `DEVIATING` |
-  | `CRITICAL` | `DEVIATING` | `CRITICAL` | `DEVIATING` |
-  | `CRITICAL` | `DEVIATING` | `CRITICAL` | `DEVIATING` |
-  | `CRITICAL` | `CRITICAL` | `CRITICAL` | `CRITICAL` |
-  | `CLEAR` | `DEVIATING` | `DEVIATING` | `DEVIATING` |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` | `CRITICAL` |
 
 ### Other propagation functions
 
