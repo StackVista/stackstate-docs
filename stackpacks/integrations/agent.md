@@ -34,7 +34,7 @@ The integrations included in the StackState Agent V2 StackPack are listed below.
 * [MySQL](/stackpacks/integrations/mysql.md)
 * [PostgreSQL](/stackpacks/integrations/postgresql.md)
 * [RedHat](/stackpacks/integrations/redhat.md)
-* [Static Health](/stackpacks/integrations/agent_v2/static-health.md)  
+* [Static Health](/stackpacks/integrations/static_health.md)  
 * [Ubuntu](/stackpacks/integrations/ubuntu.md)
 * [Windows](/stackpacks/integrations/windows.md)  
 * [WMI](/stackpacks/integrations/wmi.md)

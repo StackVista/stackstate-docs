@@ -25,7 +25,7 @@ Health checks attached to an element can be calculated internally by StackState 
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks. 
 
-See how to [add a health check](/add-a-health-check.md) and how to [set up anomaly health checks](/anomaly-health-checks.md).
+See how to [add a health check](add-a-health-check.md) and how to [set up anomaly health checks](anomaly-health-checks.md).
 
 #### External monitoring system
 

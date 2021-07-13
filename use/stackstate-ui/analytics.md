@@ -188,7 +188,7 @@ Prediction.predictMetrics("linear", "7d",
 
 ## See also
 
-* [StackState scripting language \(STSL\)](../develop/reference/scripting/)
-* [StackState script APIs](../develop/reference/scripting/script-apis/)
-* [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
+* [StackState scripting language \(STSL\)](/develop/reference/scripting/)
+* [StackState script APIs](/develop/reference/scripting/script-apis/)
+* [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md)
 

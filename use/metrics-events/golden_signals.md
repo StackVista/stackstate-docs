@@ -12,7 +12,7 @@ The checks described in this page do not ensure you are meeting your SLO directl
 
 To monitor the time it takes to service a request, StackState supports metric streams for HTTP response time for processes and services.
 
-![HTTP total response time (s)](../../images/telemetry/http-response-time.png)
+![HTTP total response time (s)](../../.gitbook/assets/http-response-time.png)
 
 To add a latency stream, [add a telemetry stream](../health-state-and-event-notifications/add-telemetry-to-element.md) and select the following metric: `http_response_time_seconds`. You can filter the stream on any HTTP response code or any of the predefined groups:
 
@@ -31,7 +31,7 @@ By default, the following response time streams are set for processes and servic
 - HTTP 4xx error response time (s) (95th percentile)
 - HTTP Success response time (s) (95th percentile)
 
-![HTTP response code](../../images/telemetry/http-code.png)
+![HTTP response code](../../.gitbook/assets/http-code.png)
 
 ### Traffic
 
@@ -45,13 +45,13 @@ By default, the following request rate streams are set for processes and service
 - HTTP Success rate (req/s)
 
 
-![HTTP total requests per second](../../images/telemetry/http-req-sec.png)
+![HTTP total requests per second](../../.gitbook/assets/http-req-sec.png)
 
 ### Errors
 
 StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can [add a check](#checks).
 
-![HTTP 5xx error rate](../../images/telemetry/http-error-rate.png)
+![HTTP 5xx error rate](../../.gitbook/assets/http-error-rate.png)
 
 ### Saturation
 
@@ -63,11 +63,11 @@ There are many ways StackState can help monitor the saturation of a system, for 
 
 ## Checks
 
-To help you meet your SLA (Service Level Agreement) you can [create checks](/use/health-state-and-event-notifications/health-state-in-stackstate.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
+To help you meet your SLA (Service Level Agreement) you can [create checks](/use/health-state/health-state-in-stackstate.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
 
 When selecting a metric stream for a health check, you will have some options to configure its behavior:
 
-- **Windowing method** - [More details in this page](../health-state-and-event-notifications/add-a-health-check.md#windowing-method).
+- **Windowing method** - [More details in this page](/use/health-state/add-a-health-check.md#windowing-method).
 - **Aggregation** - [List of all available aggregation methods](../../develop/reference/scripting/script-apis/telemetry.md#aggregation-methods).
 - **Time window (or window size)** - By default the time window is 300000 milliseconds (or 5 minutes). The time window will directly influence the number of positive or false negative alerts. The longer you configure the time window, the less sensitive it will be. However, if it is too short this may lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. You should balance the time window based on the metric and how early you want to be alerted on spikes.
 
@@ -77,7 +77,7 @@ The `Error percentage` check function can be used to monitor two streams - one r
 
 If your SLO defines that a service can have a maximum of 5% of requests failing, you can create a check using the `Error percentage` function and set the `CriticalThresholdPercentage` to `5.0`:
 
-![Error percentage check](../../images/telemetry/http-error-check.png)
+![Error percentage check](../../.gitbook/assets/http-error-check.png)
 
 ### Example: Response time
 
@@ -85,7 +85,7 @@ The `Greater than or equal` check function can alert you when one of your teleme
 
 Use this function to make sure you meet your SLO for maximum response time, for example:
 
-![Response time check](../../images/telemetry/http-resp-time-check.png)
+![Response time check](../../.gitbook/assets/http-resp-time-check.png)
 
 ## Configuration and limitations
 
