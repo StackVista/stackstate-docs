@@ -39,9 +39,11 @@ Propagation functions are used to calculate the propagated state of a component.
   | Dependency state | Component state | Auto state |
   | :--- | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` (Stop propagating after 2 hours) |
-  | `CRITICAL` | `DEVIATING` | `CRITICAL` |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` (Stop propagating after 2 hours and goes to `CLEAR`) |
   | `DEVIATING` | `DEVIATING` | `DEVIATING` |
+  | `DEVIATING` | `CRITICAL` | `CRITICAL` (Stop propagating after 2 hours and goes to `DEVIATING`) |
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` |
+  | `CRITICAL` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
   | `CRITICAL` | `CLEAR` | `CRITICAL` |
 
