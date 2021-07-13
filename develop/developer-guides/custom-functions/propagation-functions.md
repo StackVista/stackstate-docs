@@ -27,6 +27,28 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
+  There are two ways of how **Transparent propagation** can be configured:
+  - Selecting it as default ([see Default Propagation Function](propagation-functions.md#default-propagation-function)).
+  - Import it the as ([custom propagation function](propagation-functions.md#custom-propagation-function)). The export json below:
+  ```json
+    {
+      "_version": "1.0.31",
+      "nodes": [{
+        "_type": "PropagationFunction",
+        "async": false,
+        "id": -1,
+        "identifier": "urn:stackpack:common:propagation-function:transparent-propagation",
+        "name": "Transparent propagation",
+        "parameters": [],
+        "script": {
+          "_type": "NativeFunctionBody",
+          "nativeFunctionBodyId": "TRANSPARENT_PROPAGATION"
+        }
+      }],
+      "timestamp": "2021-06-15T14:57:31.725+02:00[Europe/Amsterdam]"
+    }
+  ```
+
 * **Auto propagation** - returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that is subject to frequent fluctuations in health states. This is similar to **Transparent propagation** with two differences:
   - `DEVIATING` component's own health state is not propagated - excluded from computation of the result state.
   - `CRITICAL` component's own health state stops propagating after 2 hours and propagated state is calculated as the maximum of propagated state of all dependencies. The critical state timeout can be reconfigured using the following option:
