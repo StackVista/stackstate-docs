@@ -38,9 +38,9 @@ Install the ServiceNow StackPack from the StackState UI **StackPacks** &gt; **In
 To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
-   * **url** - the REST API URL, uses HTTPS protocol for communication.
-   * **user** - a ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints)
-   * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
+   * **url** - The REST API URL, uses HTTPS protocol for communication.
+   * **user** - A ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints)
+   * **password** - Use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
      ```text
      init_config:
@@ -61,7 +61,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
        # keyfile: /path/to/key.pem
      ```
 2. You can also add optional configuration and filters:
-   * **batch\_size** - the maximum number of records to be returned \(default `2500`, max `10000`\).
+   * **batch\_size** - The maximum number of records to be returned \(default `2500`, max `10000`\).
    * **change\_request\_bootstrap\_days** - On first start, all change requests that have been updated in last N days will be retrieved \(default `100`\).
    * **change\_request\_process\_limit** - The maximum number of change requests that should be processed \(default `1000`\).
    * **timeout** - Timeout for requests to the ServiceNow API in seconds \(default `20`\).
@@ -188,7 +188,7 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 | Data | Description |
 | :--- | :--- |
-| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/perspectives/events_perspective.md). |
+| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md). |
 
 #### Metrics
 

@@ -23,8 +23,8 @@ The `stackstate.yaml` file is the main agent configuration file. It tells the ag
 
 The `example` check consists of two files:
 
-* `conf.d/example.d/conf.yaml` -- the check configuration file
-* `checks.d/example.py` -- the check Python code
+* `conf.d/example.d/conf.yaml` - the check configuration file
+* `checks.d/example.py` - the check Python code
 
 ## Prepare StackState
 
@@ -118,9 +118,9 @@ Select the **some-application-1** component again and in the Component Details p
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* Input parameters -- this is the data sent by our example check that is processed by StackState
-* Template function -- this is the template that uses the input parameters to create a component
-* Component preview -- this is a preview of the component produced by applying the input parameters to the template function
+* **Input parameters** - this is the data sent by our example check that is processed by StackState
+* **Template function** - this is the template that uses the input parameters to create a component
+* **Component preview** - this is a preview of the component produced by applying the input parameters to the template function
 
 {% hint style="info" %}
 Check out the **Template Examples** tab in the Template Editor to learn how to create templates.

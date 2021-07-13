@@ -138,16 +138,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 ### Use an HTTP proxy
 
-#### Agent
-
-StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set. For more information on how to set environment variables for the Agent, see the [Agent documentation](/stackpacks/integrations/agent.md).
-
-#### StackPack
-
-When an AWS StackPack instance is installed, the StackPack will test the provided credentials to AWS and fetch the alias of the AWS account. Also, the CloudWatch datasource will fetch CloudWatch metrics when a component is viewed. Pass either of the following properties when starting the StackState instance to proxy data for the entire instance:
-
-- `-Dhttp.proxyHost -Dhttp.proxyPort`
-- `-Dhttps.proxyHost -Dhttps.proxyPort`
+StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set to do this. If a proxy is required, these can be set as environment variables for the Agent.
 
 ### Status
 
@@ -314,7 +305,7 @@ The AWS StackPack CloudFormation template contains all resources that are necess
 
 ### AWS views in StackState
 
-When the AWS integration is enabled, three [views](../../../use/views.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../../use/stackstate-ui/views/about_views.md) will be created in StackState for each instance of the StackPack.
 
 - **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
@@ -322,7 +313,7 @@ When the AWS integration is enabled, three [views](../../../use/views.md) will b
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 

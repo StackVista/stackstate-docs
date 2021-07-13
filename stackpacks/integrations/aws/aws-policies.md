@@ -1,3 +1,7 @@
+---
+description: AWS policy files for the StackState AWS integration
+---
+
 # AWS IAM policies
 
 ## Overview 

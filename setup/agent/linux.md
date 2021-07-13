@@ -74,7 +74,7 @@ If you do not have access to the internet on the machine where the Agent will be
 2. Download the latest Agent installer package (DEB or RPM package) and copy this to the host where it will be installed. The download link can be constructed from the installer list URL and the installer package `Key`  that is provided on the installer list page.
    - **DEB installer list**: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
    - **RPM installer list**: [https://stackstate-agent-2-rpm.s3.amazonaws.com/](https://stackstate-agent-2-rpm.s3.amazonaws.com/)
-   - **Download link**: `<installer_list_link><installer_Key_from_list>`
+   - **Download link**: `<installer_list_link><Key_from_installer_list>`
   For example, to download the DEB installer package for `agent_2.11.0-1_amd64.deb`, use:  `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
 3. Use the command below to set the required environment variables and run the installer script:
     ```text
@@ -206,6 +206,18 @@ sudo journalctl -u stackstate-agent
 sudo service stackstate-agent status -v
 
 ```
+### Manually run a check
+
+Use the command below to manually run an Agent check. 
+
+```yaml
+# Execute a check once and display the results.
+sudo -u stackstate-agent stackstate-agent check <CHECK_NAME>
+
+# Execute a check once with log level debug and display the results.
+sudo -u stackstate-agent stackstate-agent check <CHECK_NAME> -l debug
+```
+
 ## Troubleshooting
 
 ### Log files

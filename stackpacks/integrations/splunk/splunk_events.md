@@ -85,7 +85,7 @@ To configure the Splunk events Agent check:
 4. Save the configuration file.
 5. Restart StackState Agent V1 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
-7. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+7. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/metrics-and-events/add-telemetry-to-element.md).
 
 ### Uniquely identify a record
 
@@ -108,11 +108,11 @@ To disable the Splunk events Agent check:
 
 ## Splunk events in StackState
 
-Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/health-state-and-event-notifications/add-telemetry-to-element.md).
+Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/metrics-and-events/add-telemetry-to-element.md).
 
 ## See also
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
-* [Map telemetry to components](/use/health-state-and-event-notifications/add-telemetry-to-element.md)
+* [Map telemetry to components](/use/metrics-and-events/add-telemetry-to-element.md)
 * [Example Splunk events configuration file - splunk\_events.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 

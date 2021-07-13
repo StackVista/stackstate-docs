@@ -201,7 +201,7 @@ StackState Agent V2 can be configured to collect traces via a [StackState tracin
 
 ## Commands
 
-It is not possible to directly manage the service inside the running Docker container. 
+### Start or stop the Agent
 
 To start, stop or restart StackState Agent V2, start or stop the container it is running in:
 
@@ -213,7 +213,27 @@ docker start stackstate-agent
 docker stop stackstate-agent
 ```
 
-For status information, refer to the log files.
+### Status and information
+
+For status information, refer to the Docker log files for the container.
+
+To run the Agent status command inside a container:
+
+```yaml
+docker exec stackstate-agent bash -c 'agent status'
+```
+
+### Manually run a check
+
+Use the command below to manually run an Agent check. 
+
+```yaml
+# Execute a check once and display the results.
+docker exec stackstate-agent bash -c 'agent check <CHECK_NAME>'
+
+# Execute a check once with log level debug and display the results.
+docker exec stackstate-agent bash -c 'agent check -l debug <CHECK_NAME>'
+```
 
 ## Troubleshooting
 

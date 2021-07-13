@@ -1,6 +1,6 @@
 # Set up traces
 
-This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](/use/perspectives/traces-perspective.md).
+This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md).
 
 For traces to be available in StackState, the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed with one or more tracing integrations configured.
 
@@ -20,12 +20,12 @@ The AWS integration collects tracing information from the in-built AWS distribut
 ### DotNet APM
 
 The DotNet APM integration enables instrumentation for DotNet applications and sends traces back to StackState.  
-[Configure DotNet APM](/stackpacks/integrations/agent_v2/dotnet-apm.md)
+[Configure DotNet APM](/stackpacks/integrations/dotnet-apm.md)
 
 ### Java APM
 
 The Java APM integration enables tracing support for Java JVM based systems.  
-[Configure Java APM](/stackpacks/integrations/agent_v2/java-apm.md).
+[Configure Java APM](/stackpacks/integrations/java-apm.md).
 
 ### Traefik
 

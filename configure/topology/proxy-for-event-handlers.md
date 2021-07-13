@@ -36,7 +36,7 @@ To use a proxy for event handlers, proxy details must be added to the `akka` sec
 
 ## See also
 
-- [Send event notifications](/use/health-state-and-event-notifications/send-event-notifications.md)
+- [Send event notifications](/use/metrics-and-events/send-event-notifications.md)
 - [Custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
 - [Enable email event notifications](/configure/topology/configure-email-event-notifications.md)
 - [Akka HTTP\(S\) Proxy \(docs.akka.io\)](https://doc.akka.io/docs/akka-http/current/client-side/client-transport.html#http-s-proxy)

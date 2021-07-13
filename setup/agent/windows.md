@@ -115,6 +115,14 @@ To check if StackState Agent V2 is running and receive information about the Age
 "./agent.exe status"
 ```
 
+### Manually run a check
+
+Use the command below to manually run an Agent check once and output the results. 
+
+```yaml
+C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAME>
+```
+
 ## Troubleshooting
 
 ### Log files

@@ -77,13 +77,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Features**
 
-* [Show configuration changes](../../use/problems/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
-* [Alert on anomalies](../../use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
-* [Drill down on Problems](../../use/problems/problems.md) for faster investigation. STAC-10481
+* [Show configuration changes](../../use/problem-analysis/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
+* [Alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
+* [Drill down on Problems](../../use/problem-analysis/problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 
-* Introduced [check functions that alert on anomalies](../../use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
+* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
@@ -96,13 +96,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
 * Authentication settings are now directly configurable on the Helm chart. STAC-11237
 * Added permission `manage-event-handlers` to [protect creation of event handlers](../../configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
-* Allow [filtering Events](../../use/view_filters.md#filter-events) by source. STAC-10644
-* Allow [filtering Events](../../use/view_filters.md#filter-events) by category. STAC-10643
-* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problems/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
+* Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by source. STAC-10644
+* Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by category. STAC-10643
+* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problem-analysis/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
 * Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](../../configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
 * Added ability to filter on labels in the Component Details pane. STAC-11824
 * Added ability to search and filter components in the Topology perspective List mode. STAC-11413
-* Added ability to [export component list as a CSV file](../../use/perspectives/topology-perspective.md#export-as-csv) in the Topology perspective List mode. STAC-3593
+* Added ability to [export component list as a CSV file](../../use/stackstate-ui/perspectives/topology-perspective.md#export-as-csv) in the Topology perspective List mode. STAC-3593
 * Added ability to search telemetry streams on the Component Details pane. STAC-3194
 
 **Bug fixes**

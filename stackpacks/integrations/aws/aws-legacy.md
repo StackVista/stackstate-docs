@@ -224,7 +224,7 @@ The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which
 
 ### AWS views in StackState
 
-When the AWS integration is enabled, three [views](../../../use/views.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../../use/stackstate-ui/views/about_views.md) will be created in StackState for each instance of the StackPack.
 
 * **AWS - \[instance\_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 * **AWS - \[instance\_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
@@ -232,7 +232,7 @@ When the AWS integration is enabled, three [views](../../../use/views.md) will b
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 

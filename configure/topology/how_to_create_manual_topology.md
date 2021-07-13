@@ -24,7 +24,7 @@ First you need to define a component type. Go to `Settings -> Component Types ->
 
 ![Add component type screen](../../.gitbook/assets/add_comp_type.png)
 
-When all required information is provided for the component type, click CREATE, and proceed to the Explore Mode or to one of the views. Follow to the left side pane menu and locate big plus \(`+`\) sign described as Component Types. It opens a full list of the component types - it should contain the one you created. Click on it and provide all information required for the new component.
+When all required information is provided for the component type, click CREATE, and proceed to the Explore Mode or to one of the views. Follow to the left-hand side pane menu and locate big plus \(`+`\) sign described as Component Types. It opens a full list of the component types - it should contain the one you created. Click on it and provide all information required for the new component.
 
 ![Add new component](../../.gitbook/assets/v43_new_component.png)
 

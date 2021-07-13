@@ -23,7 +23,7 @@ The following prerequisites need to be met:
 
 The Nagios StackPack requires the following parameters to collect the topology information:
 
-* **Nagios HostName** -- the Nagios HostName from which topology need to be collected.
+* **Nagios HostName** - the Nagios HostName from which topology need to be collected.
 
 **NOTE** - Make sure once Nagios is installed properly, you configure your `hostname` and rename from `localhost` to proper fully qualified domain name.
 
