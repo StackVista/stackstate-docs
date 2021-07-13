@@ -138,7 +138,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 ### Use an HTTP proxy
 
-StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set to do this. If a proxy is required, these should be set as environment variables for the Agent.
+StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. [The AWS documentation (docs.aws.amazon.com)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html) outlines the variables that can be set to do this. If a proxy is required, these can be set as environment variables for the Agent.
 
 ### Status
 
