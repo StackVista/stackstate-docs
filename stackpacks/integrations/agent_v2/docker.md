@@ -27,6 +27,11 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 * Network connections between processes/containers/services including network traffic telemetry
 * Telemetry for hosts, processes, and containers
 
+In Docker swarm mode, StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
+
+* Containers
+* Services
+* Relations between containers and services
 
 ## See also
 
