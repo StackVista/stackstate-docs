@@ -89,12 +89,12 @@
   * [What is a problem?](use/problem-analysis/problems.md)
   * [Investigate a problem](use/problem-analysis/problem_investigation.md)
   * [Problem notifications](use/problem-analysis/problem_notifications.md)
-* [Metrics and events](use/metrics-events/README.md)
-  * [Telemetry streams](use/metrics-events/telemetry_streams.md)
-  * [Golden signals](use/metrics-events/golden_signals.md)  
-  * [Add a telemetry stream](use/metrics-events/add-telemetry-to-element.md)      
-  * [Browse telemetry](use/metrics-events/browse-telemetry.md)
-  * [Send event notifications](use/metrics-events/send-event-notifications.md)
+* [Metrics and events](use/metrics-and-events/README.md)
+  * [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
+  * [Golden signals](use/metrics-and-events/golden_signals.md)  
+  * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
+  * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
+  * [Send event notifications](use/metrics-and-events/send-event-notifications.md)
 
 * [Glossary](use/glossary.md)
 
