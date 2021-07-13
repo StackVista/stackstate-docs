@@ -8,7 +8,7 @@ The checks described on this page do not ensure that you are meeting your SLO di
 
 ## Requirements
 
-To work with golden signals and checks the described on this page, you need to have:
+To work with golden signals and the checks described on this page, you need to have:
 
 * The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
 * [StackState Agent V2](/setup/agent/linux.md) version 2.12 or higher running on a Linux host.
