@@ -60,7 +60,7 @@ If no propagation function is configured for a component then default propagatio
   ```text
     stackstate.stateService.defaultPropagation = Auto // Transparent
   ```
-Custom function cannot be configured as auto propagation default because of performance reasons.
+Custom function cannot be configured as default because of performance reasons.
 
 ## Create a custom propagation function
 
