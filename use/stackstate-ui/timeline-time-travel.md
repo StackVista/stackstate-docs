@@ -15,15 +15,17 @@ The telemetry interval specifies the time window for which events, metrics and t
 By default, the telemetry interval is set to a relative time interval showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a custom telemetry interval. 
 
 {% hint style="info" %}
-* The telemetry interval can be a maximum 6 months. 
-* It is possible to set a custom telemetry interval that does not need to include the currently selected topology time. When this happens, the message "The topology time is out of the current time interval"`" will be displayed in the timeline.
+* A telemetry interval can be a maximum of 6 months. 
+* It is possible to set a custom telemetry interval that does not need to include the currently selected topology time. When this happens, the message "The topology time is out of the current time interval" will be displayed in the timeline.
 * When a custom time interval is set, StackState will enter [time travel mode](#time-travel) and the [topology time](#topology-time) will be paused.
 {% endhint %}
 
 The telemetry interval can be set in the following ways:
 
 * Click and drag on the timeline to set a custom time interval that zooms in on your selection.
-* Use the **Set the telemetry interval** popup on the left of the timeline to select a relative time window or set a custom time interval.
+  ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag_3.png)
+  
+* Use the **Set the telemetry interval** popup on the left of the timeline to select a relative or custom time interval.
 * Click the time jumper arrow buttons to the left and right of the **Set the telemetry interval** box to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
 * Click on the **zoom out** magnifying glass icon to the right of the telemetry interval jumper button to set a custom time interval double the size of the current telemetry interval.
 
