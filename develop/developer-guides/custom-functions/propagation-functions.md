@@ -82,7 +82,7 @@ stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
 
 For example:
 
-  | Dependency propagated state | Component state | Auto state | Description |
+  | Dependency propagated state | Component own state | Auto state | Description |
   | :--- | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` | Component's own DEVIATING state does not propagate. |
   | `CLEAR` | `CRITICAL` | `CRITICAL` after 2 hours: `CLEAR` | CRITICAL state of component will propagate for 2 hours only. After 2 hours, the propagated state is calculated as the max state of dependencies. |
