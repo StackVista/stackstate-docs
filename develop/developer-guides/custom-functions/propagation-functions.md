@@ -84,7 +84,7 @@ For example:
 
   | Dependency propagated state | Component state | Auto state | Description |
   | :--- | :--- | :--- | :--- |
-  | `CLEAR` | `DEVIATING` | `CLEAR` | Component's own DEVIATING state does not propagate to itself. |
+  | `CLEAR` | `DEVIATING` | `CLEAR` | Component's own DEVIATING state does not propagate. |
   | `CLEAR` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `CLEAR`) | CRITICAL state of component will propagate for 2 hours only. After 2 hours, the propagated state is calculated as the max state of dependencies. |
   | `DEVIATING` | `DEVIATING` | `DEVIATING` | Dependency's DEVIATING propagated state does propagate. |
   | `DEVIATING` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `DEVIATING`) | CRITICAL state of component will propagate for 2 hours only. After 2 hours, the propagated state is calculated as the maximum propagated state of dependencies. |
