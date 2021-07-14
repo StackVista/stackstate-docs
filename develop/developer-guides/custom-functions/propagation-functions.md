@@ -2,16 +2,7 @@
 
 ## Overview
 
-Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
-
-A propagated state is returned as one of the following health states:
-
-* `CRITICAL`
-* `FLAPPING`
-* `DEVIATING`
-* `UNKNOWN`
-
-A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
+Propagation defines how a [propagated health state](/use/health-state/health-state-in-stackstate.md#propagated-health-state) flows from one component to the next. A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
 
 ![Edit component propagation](../../../.gitbook/assets/v43_edit-component-propagation.png)
 
@@ -19,7 +10,9 @@ A component's propagated state is calculated using a propagation function. This 
 
 Propagation functions are used to calculate the propagated state of a component.
 
-* **Transparent propagation \(default\)** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+### Transparent propagation \(default\)
+
+Transparent propagation returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
 
   | Dependency state | Component state | Transparent state |
   | :--- | :--- | :--- |
@@ -27,12 +20,115 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-* **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
-* **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+Transparent propagation can be configured in two ways: 
 
-{% hint style="info" %}
-A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
-{% endhint %}
+- It can be set as the [default propagation function](propagation-functions.md#default-propagation-functions).
+- It can be [imported](../../../setup/data-management/backup_restore/configuration_backup.md#import-configuration) as a [custom propagation function](propagation-functions.md#create-a-custom-propagation-function) using the export JSON below:
+
+{% tabs %}
+{% tab title="transparent_propagation.stj" %}
+```json
+{
+  "_version": "1.0.31",
+  "nodes": [{
+    "_type": "PropagationFunction",
+    "async": false,
+    "id": -1,
+    "identifier": "urn:stackpack:common:propagation-function:transparent-propagation",
+    "name": "Transparent propagation",
+    "parameters": [],
+    "script": {
+      "_type": "NativeFunctionBody",
+      "nativeFunctionBodyId": "TRANSPARENT_PROPAGATION"
+    }
+  }],
+  "timestamp": "2021-06-15T14:57:31.725+02:00[Europe/Amsterdam]"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Auto propagation
+
+Auto propagation returns the auto state. This propagation acts as a noise suppressor for the parts of the infrastructure that are subject to frequent fluctuations in health states. Auto propagation is similar to [transparent propagation](#transparent-propagation-default) with two differences:
+
+- If a component's own health state is `DEVIATING`, this is always excluded from calculation of the propagated state.
+- If a component's own health state is `CRITICAL`, after 2 hours this is excluded from calculation of the propagated state. At this point, the propagated state is calculated as the maximum propagated state of all dependencies only. 
+
+#### CRITICAL state timeout
+
+The time which the `CRITICAL` own state of a component should be included in the calculation of its propagated state can be configured. By default, the timeout for a `CRITICAL` is set to 2 hours. After this time, the propagated state of a component will be calculated as the maximum propagated state of all dependencies only.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+To configure the `CRITICAL` state timeout, add the following to the `values.yaml` used to deploy StackState:
+
+```yaml
+stackstate:
+  components:
+    state:
+      config: |
+        stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
+```
+{% endtab %}
+{% tab title="Linux" %}
+
+To configure the `CRITICAL` state timeout, add the following configuration to the file `etc/application_stackstate.conf` 
+
+```text
+stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
+```
+{% endtab %}
+{% endtabs %}
+
+For example:
+
+  | Dependency propagated state | Component own state | Auto state | Description |
+  | :--- | :--- | :--- | :--- |
+  | `CLEAR` | `DEVIATING` | `CLEAR` | `DEVIATING` own state of component does not propagate. |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` > `CLEAR` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the maximum propagated state of dependencies (`CLEAR`). |
+  | `DEVIATING` | `DEVIATING` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
+  | `DEVIATING` | `CRITICAL` | `CRITICAL` > `DEVIATING` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the maximum propagated state of dependencies (`DEVIATING`). |
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate. |
+  | `CRITICAL` | `CRITICAL` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate and continue to propagate after 2 hours. |
+  | `DEVIATING` | `CLEAR` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
+  | `CRITICAL` | `CLEAR` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate and continue to propagate after 2 hours. |
+
+### Other propagation functions
+
+Some other propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+
+For details of all propagation functions available in your StackState instance, go to **Settings** > **Functions** > **Propagation functions** in the StackState UI.
+
+## Default propagation functions
+
+If no propagation function is configured for a component, the configured default propagation function will be invoked. This can be either [Auto Propagation](#auto-propagation) or [Transparent Propagation](#transparent-propagation-default). For performance reasons, it is not possible to configure a custom propagation function as the default.
+
+The default propagation function can be configured using the following option:
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+Add the following to the `values.yaml` used to deploy StackState:
+
+```yaml
+stackstate:
+  components:
+    state:
+      config: |
+        stackstate.stateService.defaultPropagation = Auto // Transparent
+```
+
+{% endtab %}
+{% tab title="Linux" %}
+
+Add the following configuration to the file `etc/application_stackstate.conf` 
+
+```text
+stackstate.stateService.defaultPropagation = Auto // Transparent
+```
+{% endtab %}
+{% endtabs %}
 
 ## Create a custom propagation function
 
@@ -55,8 +151,8 @@ Component
   .then { component ->
     if (component.runState.runState != "RUNNING") {
       return DEVIATING
-    } else {    
-      return transparentState
+    } else {
+      return autoState
     }
   }
 ```
@@ -76,7 +172,8 @@ A propagation function script takes system and user defined parameters. System p
 
 | System parameter | Description |
 | :--- | :--- |
-| `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
+| `transparentState` | The precomputed transparent state. If returned from the script, will lead to [transparent propagation](#transparent-propagation-default). |
+| `autoState` | The precomputed auto state. If returned from the script, will lead to [auto propagation](#auto-propagation). |
 | `component` | The id of the current component |
 
 ### Execution
@@ -94,7 +191,7 @@ The script APIs provide super-human levels of flexibility and even allow queryin
 
 #### Synchronous execution
 
-Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution. 
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution.
 
 `stateChangesRepository` can be used to return:
 
@@ -137,6 +234,6 @@ You can add logging statements to a propagation function for debug purposes, for
 
 ## See also
 
+* [Health state propagation](/use/health-state/health-state-in-stackstate.md#propagated-health-state)
 * [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
 * [Enable logging for functions](/configure/logging/README.md)
-
