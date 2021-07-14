@@ -68,14 +68,22 @@ The critical state timeout can be reconfigured using the following option:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-TODO
+Add the following to the `values.yaml` used to deploy StackState:
+
+```yaml
+stackstate:
+  components:
+    state:
+      config: |
+        stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
+```
 {% endtab %}
 {% tab title="Linux" %}
 
 Add the following configuration to the file `etc/application_stackstate.conf` 
 
 ```text
-stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
+stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
 ```
 {% endtab %}
 {% endtabs %}
@@ -101,13 +109,22 @@ For details of all propagation functions available in your StackState instance, 
 
 ## Default propagation functions
 
-If no propagation function is configured for a component, the default propagation function will be invoked. The default propagation function can be either **Auto Propagation** or **Transparent Propagation**. For performance reasons, it is not possible to configure a custom propagation function as the default.
+If no propagation function is configured for a component, the configured default propagation function will be invoked. This can be either [Auto Propagation](#auto-propagation) or [Transparent Propagation](#transparent-propagation-default). For performance reasons, it is not possible to configure a custom propagation function as the default.
 
-Default propagation behavior can be configured using the following option:
+The default propagation function can be configured using the following option:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-TODO
+Add the following to the `values.yaml` used to deploy StackState:
+
+```yaml
+stackstate:
+  components:
+    state:
+      config: |
+        stackstate.stateService.defaultPropagation = Auto // Transparent
+```
+
 {% endtab %}
 {% tab title="Linux" %}
 
