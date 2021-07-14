@@ -103,11 +103,21 @@ For details of all propagation functions available in your StackState instance, 
 
 If no propagation function is configured for a component, the default propagation function will be invoked. The default propagation function can be either **Auto Propagation** or **Transparent Propagation**. For performance reasons, it is not possible to configure a custom propagation function as the default.
 
-The default can be configured using the following option:
+Default propagation behavior can be configured using the following option:
 
-  ```text
-    stackstate.stateService.defaultPropagation = Auto // Transparent
-  ```
+{% tabs %}
+{% tab title="Kubernetes" %}
+TODO
+{% endtab %}
+{% tab title="Linux" %}
+
+Add the following configuration to the file `etc/application_stackstate.conf` 
+
+```text
+stackstate.stateService.defaultPropagation = Auto // Transparent
+```
+{% endtab %}
+{% endtabs %}
 
 ## Create a custom propagation function
 
