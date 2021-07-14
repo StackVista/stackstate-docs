@@ -87,13 +87,13 @@ For example:
   | Dependency propagated state | Component own state | Auto state | Description |
   | :--- | :--- | :--- | :--- |
   | `CLEAR` | `DEVIATING` | `CLEAR` | `DEVIATING` own state of component does not propagate. |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` > `CLEAR` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the max state of dependencies (`CLEAR`). |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` > `CLEAR` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the maximum propagated state of dependencies (`CLEAR`). |
   | `DEVIATING` | `DEVIATING` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
   | `DEVIATING` | `CRITICAL` | `CRITICAL` > `DEVIATING` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the maximum propagated state of dependencies (`DEVIATING`). |
   | `CRITICAL` | `DEVIATING` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate. |
   | `CRITICAL` | `CRITICAL` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate and continue to propagate after 2 hours. |
   | `DEVIATING` | `CLEAR` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
-  | `CRITICAL` | `CLEAR` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate. |
+  | `CRITICAL` | `CLEAR` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate and continue to propagate after 2 hours. |
 
 ### Other propagation functions
 
