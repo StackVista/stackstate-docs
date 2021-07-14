@@ -138,7 +138,7 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | Error| Description |
 |:---|:---|
 | **StreamMissingSubStream** | Raised when the health synchronization receives messages without a previous stream setup message as `start_snapshot` or `expiry`. |
-| **StreamConsistencyModelMismatch** | Raised when a stream has been created with certain consistency model [`REPEAT_SNAPSHOTS`, `REPEAT_STATED`] and a message that belongs to a different model is observed.
+| **StreamConsistencyModelMismatch** | Raised when a stream has been created with certain consistency model [`REPEAT_SNAPSHOTS`, `REPEAT_STATES`] and a message that belongs to a different model is observed.
 | **SubStreamRepeatIntervalTooHigh** | Raised when the health synchronization receives a `repeat_interval_s` greater than the configured max of 30 minutes. |
 | **SubStreamStartWithoutStop** | Raised when the health synchronization receives a second message to open a snapshot when a previous snapshot was still open. |
 | **SubStreamCheckStateOutsideSnapshot** | Raised when the health synchronization receives external check states without previously opening a snapshot. |
