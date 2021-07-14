@@ -2,16 +2,7 @@
 
 ## Overview
 
-Propagation defines how a propagated state flows from one component to the next. Propagation always flows from dependencies to dependent components and relations. Note that this is the opposite direction of the relation arrows in the graph.
-
-A propagated state is returned as one of the following health states:
-
-* `CRITICAL`
-* `FLAPPING`
-* `DEVIATING`
-* `UNKNOWN`
-
-A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
+Propagation defines how a [propagated health state](/use/health-state/health-state-in-stackstate.md#propagated-health-state) flows from one component to the next. A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
 
 ![Edit component propagation](../../../.gitbook/assets/v43_edit-component-propagation.png)
 
