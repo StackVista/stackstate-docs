@@ -55,11 +55,14 @@ Auto propagation returns the auto state. This propagation acts as a noise suppre
 - If a component's own health state is `DEVIATING`, this is always excluded from calculation of the propagated state.
 - If a component's own health state is `CRITICAL`, after 2 hours this is excluded from calculation of the propagated state. At this point, the propagated state is calculated as the maximum propagated state of all dependencies only. 
 
-The critical state timeout can be reconfigured using the following option:
+#### CRITICAL state timeout
+
+The time which the `CRITICAL` own state of a component should be included in the calculation of its propagated state can be configured. By default, the timeout for a `CRITICAL` is set to 2 hours. After this time, the propagated state of a component will be calculated as the maximum propagated state of all dependencies only.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-Add the following to the `values.yaml` used to deploy StackState:
+
+To configure the `CRITICAL` state timeout, add the following to the `values.yaml` used to deploy StackState:
 
 ```yaml
 stackstate:
@@ -71,7 +74,7 @@ stackstate:
 {% endtab %}
 {% tab title="Linux" %}
 
-Add the following configuration to the file `etc/application_stackstate.conf` 
+To configure the `CRITICAL` state timeout, add the following configuration to the file `etc/application_stackstate.conf` 
 
 ```text
 stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
@@ -83,14 +86,14 @@ For example:
 
   | Dependency propagated state | Component own state | Auto state | Description |
   | :--- | :--- | :--- | :--- |
-  | `CLEAR` | `DEVIATING` | `CLEAR` | DEVIATING own state of component does not propagate. |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` > `CLEAR` | CRITICAL own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the max state of dependencies (CLEAR). |
-  | `DEVIATING` | `DEVIATING` | `DEVIATING` | DEVIATING propagated state of dependency will propagate. |
-  | `DEVIATING` | `CRITICAL` | `CRITICAL` > `DEVIATING` | CRITICAL own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the maximum propagated state of dependencies (DEVIATING). |
-  | `CRITICAL` | `DEVIATING` | `CRITICAL` | CRITICAL propagated state of dependency will propagate. |
-  | `CRITICAL` | `CRITICAL` | `CRITICAL` | CRITICAL propagated state of dependency will propagate and continue to propagate after 2 hours. |
-  | `DEVIATING` | `CLEAR` | `DEVIATING` | DEVIATING propagated state of dependency will propagate. |
-  | `CRITICAL` | `CLEAR` | `CRITICAL` | CRITICAL propagated state of dependency will propagate. |
+  | `CLEAR` | `DEVIATING` | `CLEAR` | `DEVIATING` own state of component does not propagate. |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` > `CLEAR` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the max state of dependencies (`CLEAR`). |
+  | `DEVIATING` | `DEVIATING` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
+  | `DEVIATING` | `CRITICAL` | `CRITICAL` > `DEVIATING` | `CRITICAL` own state of component will propagate for 2 hours only. After 2 hours, the auto state is calculated as the maximum propagated state of dependencies (`DEVIATING`). |
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate. |
+  | `CRITICAL` | `CRITICAL` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate and continue to propagate after 2 hours. |
+  | `DEVIATING` | `CLEAR` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
+  | `CRITICAL` | `CLEAR` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate. |
 
 ### Other propagation functions
 
