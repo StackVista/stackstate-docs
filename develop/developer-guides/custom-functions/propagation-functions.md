@@ -240,5 +240,6 @@ You can add logging statements to a propagation function for debug purposes, for
 
 ## See also
 
+* [Health state propagation](/use/health-state/health-state-in-stackstate.md#propagated-health-state)
 * [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
 * [Enable logging for functions](/configure/logging/README.md)
