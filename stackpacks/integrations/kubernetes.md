@@ -198,10 +198,10 @@ Details of installed actions can be found in the StackState UI **Settings** &gt;
 
 When the Kubernetes integration is enabled, the following Kubernetes views are available in StackState for each cluster:
 
-* Kubernetes - Applications - 
-* Kubernetes - Infrastructure - 
-* Kubernetes - Namespaces - 
-* Kubernetes - Workload Controllers - 
+* Kubernetes - Applications -
+* Kubernetes - Infrastructure -
+* Kubernetes - Namespaces -
+* Kubernetes - Workload Controllers -
 
 ### Open source
 
