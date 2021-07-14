@@ -32,27 +32,27 @@ Transparent propagation returns the transparent state. This is the maximum of th
 Transparent propagation can be configured in two ways: 
 
 - It can be set as the [default propagation function](propagation-functions.md#default-propagation-functions).
-- It can be [imported](../../../setup/data-management/backup_restore/configuration_backup#import-configuration) as a [custom propagation function](propagation-functions.md#create-a-custom-propagation-function) using the export JSON below:
+- It can be [imported](../../../setup/data-management/backup_restore/configuration_backup.md#import-configuration) as a [custom propagation function](propagation-functions.md#create-a-custom-propagation-function) using the export JSON below:
 
 {% tabs %}
-{% tab title="Transparent propagation export JSON" %}
+{% tab title="transparent_propagation.stj" %}
 ```json
-  {
-    "_version": "1.0.31",
-    "nodes": [{
-      "_type": "PropagationFunction",
-      "async": false,
-      "id": -1,
-      "identifier": "urn:stackpack:common:propagation-function:transparent-propagation",
-      "name": "Transparent propagation",
-      "parameters": [],
-      "script": {
-        "_type": "NativeFunctionBody",
-        "nativeFunctionBodyId": "TRANSPARENT_PROPAGATION"
-      }
-    }],
-    "timestamp": "2021-06-15T14:57:31.725+02:00[Europe/Amsterdam]"
-  }
+{
+  "_version": "1.0.31",
+  "nodes": [{
+    "_type": "PropagationFunction",
+    "async": false,
+    "id": -1,
+    "identifier": "urn:stackpack:common:propagation-function:transparent-propagation",
+    "name": "Transparent propagation",
+    "parameters": [],
+    "script": {
+      "_type": "NativeFunctionBody",
+      "nativeFunctionBodyId": "TRANSPARENT_PROPAGATION"
+    }
+  }],
+  "timestamp": "2021-06-15T14:57:31.725+02:00[Europe/Amsterdam]"
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -65,22 +65,33 @@ Auto propagation returns the auto state. This propagation acts as a noise suppre
 - If a component's own health state is `CRITICAL`, after 2 hours this is excluded from calculation of the propagated state. At this point, the propagated state is calculated as the maximum propagated state of all dependencies only. 
 
 The critical state timeout can be reconfigured using the following option:
-  ```text
-    stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
-  ```
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+TODO
+{% endtab %}
+{% tab title="Linux" %}
+
+Add the following configuration to the file `etc/application_stackstate.conf` 
+
+```text
+stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 2 hours
+```
+{% endtab %}
+{% endtabs %}
 
 For example:
 
-  | Dependency state | Component state | Auto state |
-  | :--- | :--- | :--- |
-  | `CLEAR` | `DEVIATING` | `CLEAR` |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `CLEAR`) |
-  | `DEVIATING` | `DEVIATING` | `DEVIATING` |
-  | `DEVIATING` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `DEVIATING`) |
-  | `CRITICAL` | `DEVIATING` | `CRITICAL` |
-  | `CRITICAL` | `CRITICAL` | `CRITICAL` |
-  | `DEVIATING` | `CLEAR` | `DEVIATING` |
-  | `CRITICAL` | `CLEAR` | `CRITICAL` |
+  | Dependency propagated state | Component state | Auto state | Description |
+  | :--- | :--- | :--- | :--- |
+  | `CLEAR` | `DEVIATING` | `CLEAR` | Component's own DEVIATING state does not propagate to itself. |
+  | `CLEAR` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `CLEAR`) | CRITICAL state of component will propagate for 2 hours only. After 2 hours, the propagated state is calculated as the max state of dependencies. |
+  | `DEVIATING` | `DEVIATING` | `DEVIATING` | Dependency's DEVIATING propagated state does propagate. |
+  | `DEVIATING` | `CRITICAL` | `CRITICAL` (after 2 hours goes to `DEVIATING`) | CRITICAL state of component will propagate for 2 hours only. After 2 hours, the propagated state is calculated as the maximum propagated state of dependencies. |
+  | `CRITICAL` | `DEVIATING` | `CRITICAL` | CRITICAL propagated state of dependency will propagate. |
+  | `CRITICAL` | `CRITICAL` | `CRITICAL` | CRITICAL propagated state of dependency will propagate and remains after 2 hours. |
+  | `DEVIATING` | `CLEAR` | `DEVIATING` | Dependency's DEVIATING propagated state does propagate. |
+  | `CRITICAL` | `CLEAR` | `CRITICAL` | CRITICAL propagated state of dependency will propagate. |
 
 ### Other propagation functions
 
