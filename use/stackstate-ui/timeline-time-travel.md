@@ -57,7 +57,6 @@ Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live
 
 ![Set the topology time box](/.gitbook/assets/v44_timeline_set_topology_time.png)
 
-
 ### Health
 
 The health state of a view during the selected telemetry interval is displayed as a color in the timeline **Health** line. 
