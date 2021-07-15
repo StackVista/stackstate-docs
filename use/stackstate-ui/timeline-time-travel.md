@@ -23,20 +23,14 @@ The selected telemetry interval can be either relative (live mode), or set to a 
 
 The telemetry interval can be set in the following four ways:
 
-1. Click and drag on the timeline to set a custom time interval that zooms in on your selection.
-  
+1. Click and drag on the timeline to set a custom time interval that zooms in on your selection. 
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag.png)
   
 2. Click the time jumper arrow buttons to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
-
 ![Telemetry interval jumper buttoms](/.gitbook/assets/v44_telemetry_interval_jumper.png)
-
 3. Click on the **zoom out** magnifying glass icon to set a custom time interval double the size of the current telemetry interval.
-
 ![Zoom out on telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
-
 4. Use the **Set the telemetry interval** popup to select a relative or custom time interval.
-
 ![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
