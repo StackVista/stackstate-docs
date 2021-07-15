@@ -114,23 +114,22 @@ To enable the AWS check and begin collecting data from AWS, add the following co
    ```yaml
    # values in init_config are used globally; these credentials will be used for all AWS accounts
    init_config:
-     aws_access_key_id: "" # The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     aws_secret_access_key: "" # The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_access_key_id: '' # The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
+     aws_secret_access_key: '' # The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
      external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
+     # full_run_interval: 3600 # Time in seconds between a full AWS topology scan. Intermediate runs only fetch events. Is not required.
 
    instances:
-     # Substitute 123456789012 with the Account ID of the target AWS account to read
-     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole # Substitute 123456789012 with the target AWS account ID to read
        regions: # The Agent will only attempt to find resources in regions specified below
-         - 'global' # global is a special "region" for global resources such as Route53
-         - 'eu-west-1'
-       min_collection_interval: 60
-     # Multiple AWS accounts can be specified; make sure a stackpack instance is installed for each
-     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
-       regions:
-         - 'global'
-         - 'eu-west-1'
-       min_collection_interval: 60
+         - global # global is a special "region" for global resources such as Route53
+         - eu-west-1
+       min_collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+       # apis_to_run: # Optionally whitelist specific AWS services. It is not recommended to set this, and instead rely on IAM permissions.
+       #   - ec2
+       # log_bucket_name: '' # The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
+       # tags:
+       #   - foo:bar
    ```
 
 2. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
@@ -190,7 +189,7 @@ The following AWS service data is available in StackState as components:
 | Kinesis        | Data Stream               | Kinesis Firehose Delivery Stream                                                                               |
 | Kinesis        | Firehose Delivery Stream  | S3 Bucket                                                                                                      |
 | Lambda         | Alias                     |                                                                                                                |
-| Lambda         | Function                  | All Supported Resources\* (Input), EC2 VPC, Lambda Alias                                                       |
+| Lambda         | Function                  | All Supported Resources\* (Input), EC2 VPC, Lambda Alias, RDS Instance\*\*                                     |
 | Load Balancing | Application Load Balancer | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance                                     |
 | Load Balancing | Classic Load Balancer     | EC2 Instance, EC2 VPC                                                                                          |
 | Load Balancing | Network Load Balancer     | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance                                     |
@@ -209,6 +208,7 @@ The following AWS service data is available in StackState as components:
 | Step Functions | State Machine             | Step Functions (All)                                                                                           |
 
 - **\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
+- \*\* This relation is made by finding valid URIs in the environment variables of the resource. For example, the DNS hostname of an RDS instance will create a relation.
 
 #### Traces
 
