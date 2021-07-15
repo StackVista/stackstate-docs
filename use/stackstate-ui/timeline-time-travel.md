@@ -21,35 +21,35 @@ The selected telemetry interval can be either relative (live mode), or set to a 
 * When a custom time interval is set for the telemetry time, StackState will pause the [topology time](#topology-time) and enter [time travel mode](#time-travel).
 {% endhint %}
 
-The telemetry interval can be set in the following four ways:
+The telemetry interval can be set in four ways:
 
-![Click and drag on the timeline to zoom in and set a custom time interval on your selection](/.gitbook/assets/v44_timeline_click_drag.png)
+![Zoom in: Click and drag on the timeline to set a custom time interval on your selection](/.gitbook/assets/v44_timeline_click_drag.png)
 
-![Click on the magnifying glass to zoom out and double the size of the current telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
+![Zoom out: Click on the magnifying glass to double the size of the current telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
   
-![Click the time jumper arrows to move the selected telemetry interval backwards or forwards through time](/.gitbook/assets/v44_telemetry_interval_jumper.png)
+![Click the time jumper arrows to move the telemetry interval backwards or forwards through time](/.gitbook/assets/v44_telemetry_interval_jumper.png)
 
-![Use the "Set the telemetry interval" popup to select a relative or custom time interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
+![Select a relative or custom time interval in the popup "Set the telemetry interval"](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
 
-The topology and all telemetry displayed in StackState is based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. 
+The topology and all telemetry displayed in StackState is based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time.
 
 ![Topology time](../../.gitbook/assets/v44_topology_time.png)
 
-By default, StackState is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time. On the timeline, the selected topology time is shown by the playhead - a black line with the selected topology time at the top. It is also specified in the **Topology time** box at the top of the timeline. 
+On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It is also specified in the **Topology time** box at the top of the timeline. 
 
 {% hint style="info" %}
-If the selected topology time is a time outside of the currently selected [telemetry interval](#telemetry-interval), the message "The topology time is out of the current time interval" will be displayed and there will be no playhead in the timeline.
+If the selected topology time is a time outside the currently selected [telemetry interval](#telemetry-interval), the message "The topology time is out of the current time interval" will be displayed and there will be no playhead in the timeline.
 {% endhint %}
 
-The topology time can be set in the following three ways:
+The topology time can be set in the three ways:
 
-![Click on the timeline to set that time as the topology time](/.gitbook/assets/v44_topology_time_timeline.png)
+![Click on the timeline to set a topology time](/.gitbook/assets/v44_topology_time_timeline.png)
 
 ![Click the jumper arrows to move the topology time backwards or forwards in time to the next set of events](/.gitbook/assets/v44_topology_time_jumper.png)
 
-![Click on a timestamp to jump to the specific topology time](/.gitbook/assets/v44_topology_time_timestamp.png)  
+![Click on a timestamp to jump to a specific topology time](/.gitbook/assets/v44_topology_time_timestamp.png)  
 
 To stop time travelling and return the topology time to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
