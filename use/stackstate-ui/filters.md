@@ -25,9 +25,9 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 The example below uses basic filters to return components that match the following conditions:
 
-* In the **Domain** `security check`
+* In the **Domain** `mydomain`
 * AND has a **Health** state of `Clear` OR `Deviating`
-* OR is the **Component** with the name `bambDB`
+* OR is the **Component** with the name `agent-centos`
 
 ![Filtering example](../../.gitbook/assets/v44_basic_filter_example.png)
 
