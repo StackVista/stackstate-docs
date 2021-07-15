@@ -23,13 +23,13 @@ The selected telemetry interval can be either relative (live mode), or set to a 
 
 The telemetry interval can be set in the following four ways:
 
-![Click and drag on the timeline to set a custom time interval that zooms in on your selection](/.gitbook/assets/v44_timeline_click_drag.png)
+![Click and drag on the timeline to zoom in and set a custom time interval on your selection](/.gitbook/assets/v44_timeline_click_drag.png)
+
+![Click on the magnifying glass button to zoom out and double the size of the current telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
   
-![Click the time jumper arrow buttons to set a custom time interval that moves the selected telemetry interval backwards or forwards through time](/.gitbook/assets/v44_telemetry_interval_jumper.png)
+![Click the time jumper arrow buttons to move the selected telemetry interval backwards or forwards through time](/.gitbook/assets/v44_telemetry_interval_jumper.png)
 
-![Click on the **zoom out** magnifying glass icon to set a custom time interval double the size of the current telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
-
-![Use the **Set the telemetry interval** popup to select a relative or custom time interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
+![Use the "Set the telemetry interval" popup to select a relative or custom time interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
 
@@ -45,19 +45,13 @@ If the selected topology time is a time outside of the currently selected [telem
 
 The topology time can be set in the following three ways:
 
-1. Click anywhere on the timeline to set that topology time.
+![Click on the timeline to set that time as the topology time](/.gitbook/assets/v44_topology_time_timeline.png)
 
-![Set topology time in timeline](/.gitbook/assets/v44_topology_time_timeline.png)  
+![Click the jumper arrow buttons to move the playhead forwards or backwards in time to the next set of events](/.gitbook/assets/v44_topology_time_jumper.png)
 
-2. Click the topology time jumper arrow buttons to move the playhead forwards or backwards in time to the next set of [events](#events).
+![Click on a timestamp to jump to the specific topology time](/.gitbook/assets/v44_topology_time_timestamp.png)  
 
-![Topology time jumper buttoms](/.gitbook/assets/v44_topology_time_jumper.png)
-
-3. Click on a timestamp to jump to the specific topology time.
-
-![Set topology time to a timestamp](/.gitbook/assets/v44_topology_time_timestamp.png)  
-
-Click **Go live** or **BACK TO LIVE** at the top of the screen to stop time travelling and return to live mode.
+To stop time travelling and return to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
 ![Go live](/.gitbook/assets/v44_timeline_go_live.png)  
 
