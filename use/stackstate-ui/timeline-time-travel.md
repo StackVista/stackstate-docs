@@ -14,12 +14,12 @@ The telemetry interval specifies the time window for which events, metrics and t
 
 ![Telemetry interval](/.gitbook/assets/v44_telemetry_interval.png)
 
-The selected telemetry interval can be either relative (live mode), or set to a custom time interval (time travel mode). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or [time travel](#time-travel) to view telemetry from a specific point in time by setting a custom time interval. 
+The selected telemetry interval can be either relative (live mode), or set to a custom time interval (time travel mode). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom time interval to view telemetry from a specific point in [time travel mode](#time-travel). 
 
 {% hint style="info" %}
 * A telemetry interval can be a maximum of 6 months. 
 * It is possible to set a custom telemetry interval that does not include the currently selected topology time. When this happens, the message "The topology time is out of the current time interval" will be displayed in the timeline.
-* When a custom time interval is set, StackState will enter [time travel mode](#time-travel) and the [topology time](#topology-time) will be paused.
+* When a custom time interval is set, StackState will enter time travel mode and the [topology time](#topology-time) will be paused.
 {% endhint %}
 
 The telemetry interval can be set in the following ways:
@@ -28,15 +28,15 @@ The telemetry interval can be set in the following ways:
   
 ![Click and drag to select a telemetry interval](/.gitbook/assets/v44_timeline_click_drag.png)
   
-* Click the time jumper arrow buttons to the left and right of the **Set the telemetry interval** box to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
+* Click the time jumper arrow buttons to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
 
 ![Telemetry interval jumper buttoms](/.gitbook/assets/v44_telemetry_interval_jumper.png)
 
-* Click on the **zoom out** magnifying glass icon to the right of the telemetry interval jumper button to set a custom time interval double the size of the current telemetry interval.
+* Click on the **zoom out** magnifying glass icon to set a custom time interval double the size of the current telemetry interval.
 
-![Click and drag to select a telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
+![Zoom out on telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
 
-* Use the **Set the telemetry interval** popup on the left of the timeline to select a relative or custom time interval.
+* Use the **Set the telemetry interval** popup to select a relative or custom time interval.
 
 ![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
@@ -50,12 +50,21 @@ By default, StackState is in live mode with the topology time set to the current
 
 The topology time can be set in the following ways:
 
-* Use the time jumper arrow buttons to the left and right of the **Topology time** box to move the playhead forwards or backwards in time to the next set of [events](#events).
-* Click on the timeline to move jump to a specific topology time.
+* Use the time jumper arrow buttons to move the playhead forwards or backwards in time to the next set of [events](#events).
 
-Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+![Topology time jumper buttoms](/.gitbook/assets/v44_topology_time_jumper.png)  
 
-![Set the topology time box](/.gitbook/assets/v44_timeline_set_topology_time.png)
+* Click on the timeline to jump to a specific topology time.
+
+![Click on timeline to set topology time](/.gitbook/assets/v44_topology_time_timeline.png)  
+
+* Click on a timestamp on a timestamp to jump to this topology time.
+
+![Set topology time to a timestamp](/.gitbook/assets/v44_topology_time_timestamp.png)  
+
+Click **Go live** or **BACK TO LIVE** at the top of the screen to stop time travelling and return to live mode.
+
+![Go live](/.gitbook/assets/v44_timeline_go_live.png)  
 
 ### Health
 
@@ -102,4 +111,6 @@ StackState will enter time travel mode whenever a custom topology time is select
 * Telemetry is available for components that were part of the topology at the selected topology time only.
 * If a relative telemetry interval was selected in live mode, this is frozen as a custom time interval relative to the moment at which time travelling began.
 
-Click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
+Click **Go live** or **BACK TO LIVE** at the top of the screen to stop time travelling and return to live mode.
+
+![Go live](/.gitbook/assets/v44_timeline_go_live.png)
