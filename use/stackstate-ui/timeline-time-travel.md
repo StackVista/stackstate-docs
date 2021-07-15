@@ -25,17 +25,11 @@ The telemetry interval can be set in the following four ways:
 
 ![Click and drag on the timeline to set a custom time interval that zooms in on your selection](/.gitbook/assets/v44_timeline_click_drag.png)
   
-2. Click the time jumper arrow buttons to set a custom time interval that moves the selected telemetry interval backwards or forwards through time.
+![Click the time jumper arrow buttons to set a custom time interval that moves the selected telemetry interval backwards or forwards through time](/.gitbook/assets/v44_telemetry_interval_jumper.png)
 
-![Telemetry interval jumper buttoms](/.gitbook/assets/v44_telemetry_interval_jumper.png)
+![Click on the **zoom out** magnifying glass icon to set a custom time interval double the size of the current telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
 
-3. Click on the **zoom out** magnifying glass icon to set a custom time interval double the size of the current telemetry interval.
-
-![Zoom out on telemetry interval](/.gitbook/assets/v44_telemetry_interval_zoom_out.png)
-
-4. Use the **Set the telemetry interval** popup to select a relative or custom time interval.
-
-![Set the telemetry interval popup](/.gitbook/assets/v44_timeline_telemetry_interval.png)
+![Use the **Set the telemetry interval** popup to select a relative or custom time interval](/.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
 
