@@ -6,6 +6,10 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 ![Timeline](../../.gitbook/assets/v44_timeline.png)
 
+![Timeline](../../.gitbook/assets/v44_timeline_gray.png)
+
+![Timeline](../../.gitbook/assets/v44_timeline_blur.png)
+
 ## Timeline
 
 ### Telemetry interval
@@ -14,14 +18,14 @@ The telemetry interval specifies the time window for which events, metrics and t
 
 ![Telemetry interval](/.gitbook/assets/v44_telemetry_interval.png)
 
-The selected telemetry interval can be either relative (live mode), or set to a custom time interval (time travel mode). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom time interval to view telemetry from a specific point in time. 
+The selected telemetry interval can be either relative (live mode), or set to a custom time interval (time travel mode). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom time interval to view telemetry from a specific point in time.
+
+#### Set the telemetry interval
 
 {% hint style="info" %}
 * The telemetry interval can be a maximum of 6 months. 
 * When a custom time interval is set for the telemetry interval, StackState will pause the [topology time](#topology-time) and enter [time travel mode](#time-travel).
 {% endhint %}
-
-#### Set the telemetry interval
 
 The telemetry interval can be set in four ways:
 
