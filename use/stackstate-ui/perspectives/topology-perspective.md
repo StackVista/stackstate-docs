@@ -8,7 +8,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](../../../.gitbook/assets/v44_topoview1.png)
+![Topology Perspective](../../../.gitbook/assets/v44_topology.png)
 
 ## Components
 

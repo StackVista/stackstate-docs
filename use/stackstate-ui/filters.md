@@ -39,9 +39,9 @@ You can use the in-built [StackState Query Language \(STQL\)](../../develop/refe
 
 The example below uses an advanced filter to return components that match the following conditions:
 
-* In the domain `security check`
-* AND has a health state of `CLEAR` OR `DEVIATING`
-* OR has the name `bambDB`
+* In the **Domain** `mydomain`
+* AND has a **Health** state of `CLEAR` OR `DEVIATING`
+* OR is the **Component** with the name `agent-centos`
 
 ![Filtering \(advanced filter\)](../../.gitbook/assets/v44_advanced_filter_example.png)
 
