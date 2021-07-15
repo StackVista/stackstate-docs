@@ -6,10 +6,6 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 ![Timeline](../../.gitbook/assets/v44_timeline.png)
 
-![Timeline](../../.gitbook/assets/v44_timeline_gray.png)
-
-![Timeline](../../.gitbook/assets/v44_timeline_blur.png)
-
 ## Timeline
 
 ### Telemetry interval
