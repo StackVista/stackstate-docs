@@ -216,4 +216,5 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
+* [Advanced Agent configuration](/setup/agent/advanced-agent-configuration.md)  
 * [OpenShift StackPack](/stackpacks/integrations/openshift.md)
