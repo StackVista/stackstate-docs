@@ -26,7 +26,7 @@ First you need to define a component type. Go to `Settings -> Component Types ->
 
 When all required information is provided for the component type, click CREATE, and proceed to the Explore Mode or to one of the views. Follow to the left-hand side pane menu and locate big plus \(`+`\) sign described as Component Types. It opens a full list of the component types - it should contain the one you created. Click on it and provide all information required for the new component.
 
-![Add new component](../../.gitbook/assets/v4x_new_component.png)
+![Add new component](../../.gitbook/assets/v44_new_component.png)
 
 ## How to create relations between components
 
