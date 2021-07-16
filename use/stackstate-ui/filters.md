@@ -29,7 +29,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `agent-centos`
 
-![Filtering example](../../.gitbook/assets/v44_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v4x_basic_filter_example.png)
 
 This could also be written as an advanced filter, see [advanced topology filters](filters.md#advanced-topology-filters).
 
@@ -43,7 +43,7 @@ The example below uses an advanced filter to return components that match the fo
 * AND has a **Health** state of `CLEAR` OR `DEVIATING`
 * OR is the **Component** with the name `agent-centos`
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v44_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v4x_advanced_filter_example.png)
 
 This could also be done using basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 
