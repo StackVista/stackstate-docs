@@ -25,11 +25,11 @@ The main way of filtering the topology is by using the basic filters. When you s
 
 The example below uses basic filters to return components that match the following conditions:
 
-* In the **Domain** `security check`
+* In the **Domain** `mydomain`
 * AND has a **Health** state of `Clear` OR `Deviating`
-* OR is the **Component** with the name `bambDB`
+* OR is the **Component** with the name `agent-centos`
 
-![Filtering example](../../.gitbook/assets/v43_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v44_basic_filter_example.png)
 
 This could also be written as an advanced filter, see [advanced topology filters](filters.md#advanced-topology-filters).
 
@@ -39,11 +39,11 @@ You can use the in-built [StackState Query Language \(STQL\)](../../develop/refe
 
 The example below uses an advanced filter to return components that match the following conditions:
 
-* In the domain `security check`
-* AND has a health state of `CLEAR` OR `DEVIATING`
-* OR has the name `bambDB`
+* In the **Domain** `mydomain`
+* AND has a **Health** state of `CLEAR` OR `DEVIATING`
+* OR is the **Component** with the name `agent-centos`
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v43_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v44_advanced_filter_example.png)
 
 This could also be done using basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 

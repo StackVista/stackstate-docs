@@ -6,6 +6,8 @@ description: See metrics of the components in your IT landscape.
 
 The Telemetry Perspective shows telemetry streams for your [view](../views/about_views.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
+![Telemetry Perspective](../../../.gitbook/assets/v44_telemetry-perspective.png)
+
 ## Telemetry and Components
 
 The Telemetry Perspective shows telemetry for up to **5** components. When you open the Telemetry Perspective, StackState will show the telemetry for the components in your view. If there are more than 5 components in your view, StackState selects the top 5 components as follows:
@@ -15,7 +17,7 @@ The Telemetry Perspective shows telemetry for up to **5** components. When you o
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
-![](../../../.gitbook/assets/v43_telemetry-components-selector.png)
+![](../../../.gitbook/assets/v44_telemetry-components-selector.png)
 
 The component selection can be adjusted as follows:
 
@@ -30,8 +32,6 @@ The component selection can be adjusted as follows:
 The View Filters pane on the left-hand side of the screen in any View allows you to filter the sub-set of topology for which telemetry streams are displayed. Read more about [Topology Filters](../filters.md#filter-topology)
 
 ## Charts
-
-![Telemetry Perspective](../../../.gitbook/assets/v43_telemetry-perspective.png)
 
 Charts are showing Telemetry Data of selected components in near real-time - they are fetching data every 30 seconds. If a process is stopped and no more data is received, then eventually, the process will leave the chart as the data shifts left at least every 30 seconds. If there is more data that comes in during the 30 second interval it will be pushed to a chart. A single chart can display multiple lines for the same metric when multiple components are selected - this grouping is based on the name of the stream. It is possible to cycle through each of these streams and depict them as a single line in a single chart using the arrow controls on the chart.
 
