@@ -122,7 +122,8 @@ helm upgrade --install \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
 --set-string 'stackstate.url'='<your-stackstate-url>/receiver/stsAgent' \
---set-string 'agent.scc.enabled'='true' \
+--set 'agent.scc.enabled'=true \
+--set 'kube-state-metrics.securityContext.enabled'=false \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 {% endhint %}
