@@ -22,15 +22,15 @@ To specify a blacklist and/or inclusions, set the associated environment variabl
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | The number of processes to report that have a high CPU usage. Default `0`. |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | The number of processes to report that have a high IO read usage. Default `0`. |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | The number of processes to report that have a high IO write usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | Threshold that enables the reporting of high Memory usage processes. |
+| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | Threshold that enables the reporting of high memory usage processes. |
 | `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_MEM` | The number of processes to report that have a high memory usage. Default `0`. |
 {% endtab %}
 
 {% tab title="Linux, Windows" %}
 To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
 
-* Linux: `/etc/stackstate-agent/stackstate.yaml`
-* Windows: `C:\ProgramData\StackState\stackstate.yaml`
+* **Linux** - `/etc/stackstate-agent/stackstate.yaml`
+* **Windows** - `C:\ProgramData\StackState\stackstate.yaml`
 
 | Configuration item | Description |
 |:---|:---|
@@ -39,7 +39,7 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 | `process_blacklist.inclusions.amount_top_cpu_pct_usage` | The number of processes to report that have a high CPU usage. Default `0`. |
 | `process_blacklist.inclusions.amount_top_io_read_usage` | The number of processes to report that have a high IO read usage. Default `0`. |
 | `process_blacklist.inclusions.amount_top_io_write_usage` | The number of processes to report that have a high IO write usage. Default `0`. |
-| `process_blacklist.inclusions.mem_usage_threshold` | Threshold that enables the reporting of high Memory usage processes. |
+| `process_blacklist.inclusions.mem_usage_threshold` | Threshold that enables the reporting of high memory usage processes. |
 | `process_blacklist.inclusions.amount_top_mem_usage` | The number of processes to report that have a high memory usage. Default `0`. |
 {% endtab %}
 
@@ -64,8 +64,8 @@ To disable a feature, set the associated environment variable and restart StackS
 {% tab title="Linux, Windows" %}
 To disable a feature, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
 
-* Linux: `/etc/stackstate-agent/stackstate.yaml`
-* Windows: `C:\ProgramData\StackState\stackstate.yaml`
+* **Linux** - `/etc/stackstate-agent/stackstate.yaml`
+* **Windows** - `C:\ProgramData\StackState\stackstate.yaml`
 
 | Configuration item | Description |
 |:---|:---|
