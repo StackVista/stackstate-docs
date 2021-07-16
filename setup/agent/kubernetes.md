@@ -56,7 +56,7 @@ Read how to [enable cluster checks](#cluster-checks).
 
 ## Setup
 
-### Supported Kubernetes versions
+### Supported versions
 
 StackState Agent V2 is supported to run on Kubernetes 1.15 or higher.
 

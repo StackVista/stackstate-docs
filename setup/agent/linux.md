@@ -10,7 +10,7 @@ StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fe
 
 ## Setup 
 
-### Supported Linux versions
+### Supported versions
 
 StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer:
 
