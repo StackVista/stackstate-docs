@@ -34,6 +34,7 @@
   * [Docker](setup/agent/docker.md)
   * [Kubernetes](setup/agent/kubernetes.md)
   * [Linux](setup/agent/linux.md)    
+  * [OpenShift](setup/agent/openshift.md)
   * [Windows](setup/agent/windows.md)
   * [Agent V1 (Legacy)](setup/agent/agent-v1.md)
 * [Data management](setup/data-management/README.md)
