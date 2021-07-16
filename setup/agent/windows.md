@@ -12,14 +12,10 @@ StackState Agent V2 can be installed on Windows systems . The Agent collects dat
 
 ### Supported Windows versions
 
-StackState Agent V2 is supported to run on the following Windows versions with 64bit architecture:
+StackState Agent V2 is supported to run on:
 
-| OS | Release | Network Tracer| Notes|
-|:---|:---|:---|:---|
-| Windows Server | 2016 | ✅ |- |
-| Windows Server | 2019 | ✅ |- |
-
-Host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer.
+* Windows 10 and above for client boxes
+* Windows 2012 and above for server systems
 
 ### Install
 

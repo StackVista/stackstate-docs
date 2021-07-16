@@ -25,7 +25,7 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 
 - Hosts, processes and containers.
 - Telemetry for hosts, processes and containers   
-- For OS versions with a Network Tracer: Network connections between processes and containers, including network traffic telemetry. See the [supported Linux versions](/setup/agent/windows.md#supported-windows-versions) for details.
+- Network connections between processes and containers, including network traffic telemetry. See the [supported Linux versions](/setup/agent/windows.md#supported-windows-versions) for details.
 
 ## See also
 
