@@ -12,15 +12,15 @@ StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fe
 
 ### Supported versions
 
-StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer:
+StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer (kernel version 4.3.0 or higher:
 
-| Platform | Supported versions | Notes |
+| Platform | Minimum version | Notes |
 |:---|:---|:---|
-| CentOS | CentOS 6+ | CentOS 6 requires Agent v2.0.2 or above. Network tracer not available. |
-| Debian | Debian 7 (Wheezy)+ | Debian 7 (Wheezy) requires glibc upgrade to 2.17. Network tracer available from Debian 9 (Stretch). |
-| Fedora | Fedora 28+ | - |
-| RHEL | RHEL 7+ | Network tracer not available. |
-| Ubuntu | Ubuntu 14 (Trusty)+ | Network tracer available from Ubuntu 16 (Xenial). |
+| CentOS | CentOS 6 | CentOS 6 requires Agent v2.0.2 or above. Network tracer available from CentOS 8. |
+| Debian | Debian 7 (Wheezy) | Debian 7 (Wheezy) requires glibc upgrade to 2.17. Network tracer available from Debian 9 (Stretch). |
+| Fedora | Fedora 28 | - |
+| RHEL | RHEL 7 | Network tracer available from RHEL 8. |
+| Ubuntu | Ubuntu 14 (Trusty) | Network tracer available from Ubuntu 16 (Xenial). |
 
 ### Install
 
