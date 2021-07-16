@@ -56,7 +56,7 @@ Read how to [enable cluster checks](#cluster-checks).
 
 ## Setup
 
-### Supported versions
+### Supported OpenShift versions
 
 StackState Agent V2 is supported to run on OpenShift 4.3 or higher.
 
