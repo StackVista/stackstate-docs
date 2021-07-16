@@ -1,10 +1,12 @@
 # Requirements
 
-## Kubernetes
+## Kubernetes and OpenShift
+
+### Supported versions
 
 StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.17.x, 1.18.x and 1.19.x \(tested on Amazon EKS and Azure AKS\), or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\) and Helm 3.
 
-For a list of all docker images used see the [image overview](installation/kubernetes_install/image_configuration.md).
+For a list of all docker images used, see the [image overview](installation/kubernetes_install/image_configuration.md).
 
 ### Node sizing
 

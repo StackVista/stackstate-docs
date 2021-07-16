@@ -17,7 +17,7 @@ The OpenShift integration is used to create a near real-time synchronization of 
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](/setup/agent/kubernetes.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
+* Data is retrieved by the deployed [StackState Agents](/setup/agent/openshift.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
@@ -52,7 +52,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md).
+Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/openshift.md).
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.

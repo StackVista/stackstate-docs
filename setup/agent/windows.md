@@ -10,12 +10,12 @@ StackState Agent V2 can be installed on Windows systems . The Agent collects dat
 
 ## Setup
 
-### Supported Windows versions
+### Supported versions
 
 StackState Agent V2 is supported to run on:
 
-* Windows 10 and above for client boxes
-* Windows 2012 and above for server systems
+* Windows 10 or higher
+* Windows Server 2012 or higher
 
 ### Install
 
@@ -69,6 +69,10 @@ To upgrade StackState Agent V2 running on Windows,
 ### Agent configuration
 
 The StackState Agent V2 configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
+
+### Advanced Agent configuration
+
+A number of advanced configuration options are available for StackState Agent V2. These can be set in the Agent configuration file `C:\ProgramData\StackState\stackstate.yaml` and are described in detail on the page [advanced Agent configuration](/setup/agent/advanced-agent-configuration.md).
 
 ### Integration configuration
 
@@ -143,7 +147,6 @@ To uninstall StackState Agent V2 running on Windows:
 ## See also
 
 * [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
+* [Advanced Agent configuration](/setup/agent/advanced-agent-configuration.md)  
 * [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
 * [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
-* [cURL \(haxx.se\)](https://curl.haxx.se)
-* [wget \(gnu.org\)](https://www.gnu.org/software/wget/)
