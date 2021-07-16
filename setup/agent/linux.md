@@ -145,10 +145,6 @@ Certain features of the Agent can optionally be turned off if they are not neede
 | `apm_config.enabled` | Default `true`. Set to `"false"` to disable the APM Agent. |
 | `network_tracer_config.network_tracing_enabled` | Default `true`. Set to `false` to disable the network tracer. |
    
-- **process_config.enabled** - Default `true` (collects containers and processes). Set to `false` to collect only containers, or `disabled` to disable the process Agent.
-- **apm_config.enabled** - Default `true`. Set to `false` to disable the APM Agent.
-- **network_tracer_config.network_tracing_enabled** - Default `true`. Set to `false` to disable the network tracer.
-   
 ### Integration configuration
 
 The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the associated Agent check. 
