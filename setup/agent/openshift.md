@@ -102,7 +102,7 @@ To upgrade the Agents running in your OpenShift cluster, run the helm upgrade co
 
 ## Configure
 
-### Configure cluster checks
+### Cluster check configuration
 
 Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods.
 
@@ -151,6 +151,8 @@ clusterAgent:
 ```
 
 ### Advanced Agent configuration
+
+A number of advanced configuration options are available for StackState Agent V2. These can be set using environment variables and are described in detail on the page [advanced Agent configuration](/setup/agent/advanced-agent-configuration.md).
 
 #### Blacklist and inclusions
 

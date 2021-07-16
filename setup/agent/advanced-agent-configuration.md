@@ -2,7 +2,7 @@
 
 ## Overview
 
-A number of advanced configuration options are available for Agent V2. These can be set either in the `stackstate.yaml` configuration file (Linux and Windows) or using environment variables (Docker, Kubernetes and OpenShift).
+A number of advanced configuration options are available for StackState Agent V2. These can be set either in the `stackstate.yaml` configuration file (Linux and Windows) or using environment variables (Docker, Kubernetes and OpenShift).
 
 ## Blacklist and inclusions
 
@@ -27,7 +27,10 @@ To specify a blacklist and/or inclusions, set the associated environment variabl
 {% endtab %}
 
 {% tab title="Linux, Windows" %}
-To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `C:\ProgramData\StackState\stackstate.yaml` and restart StackState Agent V2.
+To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
+
+* Linux: `/etc/stackstate-agent/stackstate.yaml`
+* Windows: `C:\ProgramData\StackState\stackstate.yaml`
 
 | Configuration item | Description |
 |:---|:---|
@@ -59,7 +62,10 @@ To disable a feature, set the associated environment variable and restart StackS
 {% endtab %}
 
 {% tab title="Linux, Windows" %}
-To disable a feature, edit the below settings in the Agent configuration file `C:\ProgramData\StackState\stackstate.yaml` and restart StackState Agent V2.
+To disable a feature, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
+
+* Linux: `/etc/stackstate-agent/stackstate.yaml`
+* Windows: `C:\ProgramData\StackState\stackstate.yaml`
 
 | Configuration item | Description |
 |:---|:---|

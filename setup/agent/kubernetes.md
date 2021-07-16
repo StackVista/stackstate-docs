@@ -100,7 +100,7 @@ To upgrade the Agents running in your Kubernetes cluster, run the helm upgrade c
 
 ## Configure
 
-### Configure cluster checks
+### Cluster check configuration
 
 Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods.
 
@@ -147,36 +147,9 @@ clusterAgent:
         instances:
           - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
 ```
-
 ### Advanced Agent configuration
 
-#### Blacklist and inclusions
-
-Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
-
-The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
-
-To specify a blacklist and/or inclusions, set the below environment variables and restart StackState Agent V2.
-
-| Environment variable | Description |
-|:---|:---|
-| `STS_PROCESS_BLACKLIST_PATTERNS` | A list of regex patterns that will exclude a process if matched. [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).  |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_CPU_THRESHOLD` | Threshold that enables the reporting of high CPU usage processes. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | The number of processes to report that have a high CPU usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | The number of processes to report that have a high IO read usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | The number of processes to report that have a high IO write usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | Threshold that enables the reporting of high Memory usage processes. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_MEM` | The number of processes to report that have a high memory usage. Default `0`. |
-
-#### Disable Agent features
-
-Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart StackState Agent V2.
-
-| Environment variable | Description |
-|:---|:---|
-| `STS_PROCESS_AGENT_ENABLED` | Default `true` (collects containers and processes). Set to `false` to collect only containers, or `disabled` to disable the process Agent.|
-| `STS_APM_ENABLED` | Default `true`. Set to `"false"` to disable the APM Agent. |
-| `STS_NETWORK_TRACING_ENABLED` | Default `true`. Set to `false` to disable the network tracer. |
+A number of advanced configuration options are available for StackState Agent V2. These can be set using environment variables and are described in detail on the page [advanced Agent configuration](/setup/agent/advanced-agent-configuration.md).
 
 ### Integration configuration
 
