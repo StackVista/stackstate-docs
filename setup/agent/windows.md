@@ -14,8 +14,8 @@ StackState Agent V2 can be installed on Windows systems . The Agent collects dat
 
 StackState Agent V2 is supported to run on:
 
-* Windows 10 and above for client boxes
-* Windows 2012 and above for server systems
+* Windows 10+
+* Windows Server 2012+
 
 ### Install
 
