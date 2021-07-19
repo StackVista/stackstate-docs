@@ -34,7 +34,7 @@ To configure the StackState Agent to read CSV health files:
        delimiter: ';'
      ```
 
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-andrun-stackstate-agent-v2) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](#csv-file-format) and send it to StackState.
 
 ## CSV file format

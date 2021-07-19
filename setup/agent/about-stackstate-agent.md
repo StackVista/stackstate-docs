@@ -20,7 +20,7 @@ To integrate with an external system, an Agent must be deployed in a location th
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
 
-## Run StackState Agent V2
+## Deploy and run StackState Agent V2
 
 Deployment instructions, commands to work with StackState Agent V2 and other platform-specific details can be found on the pages listed below:
 
@@ -32,6 +32,18 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 ## Open source
 
 StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+
+## Agent overhead
+
+StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic `stackstate-agent`, the resources named below are required. These were observed running ... on ... and give an indication of the overhead of the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
+
+| Resource | Usage |
+|:---|:---|
+| CPU | ~0.12% |
+| Memory | 60MB RAM |
+| Disk space | Linux 350MB to 400MB depending on the distribution. Windows: 260MB |
+
+On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These are configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
 ## Release notes
 
