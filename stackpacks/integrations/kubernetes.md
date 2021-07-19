@@ -34,8 +34,8 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
 
 | Component | Required? | Pod name |
 |:---|:---|
-| [StackState Cluster Agent](#stackstate-cluster-agent) | ✅ | `stackstate-cluster-agent` | 
-| [StackState Agent](#stackstate-agent) | ✅ | `stackstate-cluster-agent-agent` | 
+| [StackState Cluster Agent](#stackstate-cluster-agent) | ✅ | `stackstate-cluster-agent` |
+| [StackState Agent](#stackstate-agent) | ✅ | `stackstate-cluster-agent-agent` |
 | [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) | - | `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
@@ -48,7 +48,7 @@ StackState Cluster Agent is deployed as a Deployment. There is one instance for 
   * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API.
   * Control plane metrics are retrieved from the Kubernetes API.
 
-When cluster checks are enabled, cluster checks configured here are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
+When cluster checks are enabled, cluster checks configured here are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods.
 
 ### StackState Agent
 
@@ -125,7 +125,7 @@ helm upgrade --install \
 --set-string 'stackstate.apiKey=<your-api-key>' \
 --set-string 'stackstate.cluster.name=<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
---set-string 'stackstate.url=<your-stackstate-url>' \
+--set-string 'stackstate.url=<your-stackstate-url>/receiver/stsAgent' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 {% endhint %}
@@ -149,7 +149,7 @@ daemonset.apps/stackstate-cluster-agent-agent        10        10        10     
 
 ### Cluster checks
 
-Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods. 
+Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods.
 
 #### Enable cluster checks
 
@@ -162,7 +162,7 @@ clusterChecks:
 
 ### Kubernetes_state check
 
-The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.  
+The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
 
 #### Run as a cluster check
 
@@ -326,10 +326,10 @@ Details of installed actions can be found in the StackState UI **Settings** &gt;
 
 When the Kubernetes integration is enabled, the following Kubernetes views are available in StackState for each cluster:
 
-* Kubernetes - Applications - 
-* Kubernetes - Infrastructure - 
-* Kubernetes - Namespaces - 
-* Kubernetes - Workload Controllers - 
+* Kubernetes - Applications -
+* Kubernetes - Infrastructure -
+* Kubernetes - Namespaces -
+* Kubernetes - Workload Controllers -
 
 ### Open source
 

@@ -86,7 +86,7 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
             "Action": [
                 "s3:PutObject",
                 "s3:GetObject",
-                "s3:DeleteObject",
+                "s3:DeleteObject"
             ],
             "Resource": [
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET/*",
