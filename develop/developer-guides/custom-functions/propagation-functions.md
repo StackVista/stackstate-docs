@@ -80,7 +80,7 @@ stackstate:
 {% endtab %}
 {% tab title="Linux" %}
 
-To configure the `CRITICAL` state timeout, add the following configuration to the file `etc/application_stackstate.conf` 
+To configure the `CRITICAL` state timeout, add the following configuration to the file `etc/application_stackstate.conf`.
 
 ```text
 stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 1 hour
