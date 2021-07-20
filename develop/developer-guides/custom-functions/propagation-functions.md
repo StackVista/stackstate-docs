@@ -59,7 +59,7 @@ Auto propagation returns the auto state. This propagation acts as a noise suppre
 
 The time which the `CRITICAL` own state of a component should be included in the calculation of its propagated state can be configured. By default, the timeout for a `CRITICAL` is set to 2 hours. After this time, the propagated state of a component will be calculated as the maximum propagated state of all dependencies only.
 
-The timeout can be configured to any custom interval, such as:
+The timeout can be configured to a custom interval, for example:
 
 * `1 second` or `45 seconds`
 * `1 minute` or `30 minutes`
