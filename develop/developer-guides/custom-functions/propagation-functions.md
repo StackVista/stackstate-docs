@@ -22,7 +22,7 @@ Transparent propagation returns the transparent state. This is the maximum of th
 
 Transparent propagation can be configured in two ways: 
 
-- It can be set as the [default propagation function](propagation-functions.md#default-propagation-functions).
+- It can be set as the [default propagation function](propagation-functions.md#default-propagation-function).
 - It can be [imported](../../../setup/data-management/backup_restore/configuration_backup.md#import-configuration) as a [custom propagation function](propagation-functions.md#create-a-custom-propagation-function) using the export JSON below:
 
 {% tabs %}
@@ -59,6 +59,12 @@ Auto propagation returns the auto state. This propagation acts as a noise suppre
 
 The time which the `CRITICAL` own state of a component should be included in the calculation of its propagated state can be configured. By default, the timeout for a `CRITICAL` is set to 2 hours. After this time, the propagated state of a component will be calculated as the maximum propagated state of all dependencies only.
 
+The timeout can be configured to any custom interval, such as:
+
+* `1 second` or `45 seconds`
+* `1 minute` or `30 minutes`
+* `1 hour` or `2 hours`
+
 {% tabs %}
 {% tab title="Kubernetes" %}
 
@@ -69,7 +75,7 @@ stackstate:
   components:
     state:
       config: |
-        stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
+        stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 1 hour
 ```
 {% endtab %}
 {% tab title="Linux" %}
@@ -77,7 +83,7 @@ stackstate:
 To configure the `CRITICAL` state timeout, add the following configuration to the file `etc/application_stackstate.conf` 
 
 ```text
-stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 15 minutes
+stackstate.stateService.autoPropagation.criticalStateExpirationTimeout = 1 hour
 ```
 {% endtab %}
 {% endtabs %}
@@ -95,7 +101,7 @@ For example:
   | `DEVIATING` | `CLEAR` | `DEVIATING` | `DEVIATING` propagated state of dependency will propagate. |
   | `CRITICAL` | `CLEAR` | `CRITICAL` | `CRITICAL` propagated state of dependency will propagate and continue to propagate after 2 hours. |
 
-### Other propagation functions
+### Other propagation function
 
 Some other propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
 
