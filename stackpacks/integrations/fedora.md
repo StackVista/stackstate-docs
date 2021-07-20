@@ -29,6 +29,7 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 - Telemetry for hosts, processes and containers.
 - Network connections between processes and containers.
 - Network traffic telemetry. 
+- [Golden signals](/use/metrics-and-events/golden_signals.md), such as HTTP server latencies, errors and request counts.
 
 See the [supported Linux versions](/setup/agent/linux.md#supported-linux-versions) for details.
 
