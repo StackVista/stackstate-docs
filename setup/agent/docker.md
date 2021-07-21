@@ -211,6 +211,8 @@ docker exec stackstate-agent bash -c 'agent check -l debug <CHECK_NAME>'
 
 ## Troubleshooting
 
+To troubleshoot the Agent, try to [check the Agent status](#status) or [manually run a check](#manually-run-a-check).
+
 ### Log files
 
 Docker logs for the StackState Agent container can be followed using the command:

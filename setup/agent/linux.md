@@ -12,7 +12,7 @@ StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fe
 
 ### Supported versions
 
-StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer (kernel version 4.3.0 or higher:
+StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer (kernel version 4.3.0 or higher):
 
 | Platform | Minimum version | Notes |
 |:---|:---|:---|
@@ -181,6 +181,8 @@ sudo -u stackstate-agent stackstate-agent check <CHECK_NAME> -l debug
 ```
 
 ## Troubleshooting
+
+To troubleshoot the Agent, try to [check the Agent status](#status-and-information) or [manually run a check](#manually-run-a-check).
 
 ### Log files
 
