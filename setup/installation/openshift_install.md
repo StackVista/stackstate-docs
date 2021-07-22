@@ -75,7 +75,7 @@ The script requires the following configuration options:
 
 For OpenShift install, follow the instructions to [Automatically install the Cluster Agent](openshift_install.md#automatically-install-the-cluster-agent-for-openshift).
 
-The generated file is suitable for a production setup \(i.e. redundant storage services\). It is also possible to create smaller deployments for test setups, see [development setup](kubernetes_install/development_setup.md).
+The generated file is suitable for a production setup with redundant storage services. It is also possible to [create a smaller setup without high availability](/setup/installation/kubernetes_install/non_high_availability_setup.md).
 
 {% hint style="info" %}
 Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.
@@ -83,15 +83,7 @@ Store the `values.yaml` file somewhere safe. You can reuse this file for upgrade
 
 ### Additional OpenShift values file
 
-Because OpenShift has stricter security model than plain Kubernetes, all of the standard security contexts in the deployment need to be disabled. Furthermore, the StackState installation needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
-
-If you're installing using an administrator account it is possible to automatically create these as needed.
-
-| Pod\(s\) | Config key | Description |
-| :--- | :--- | :--- |
-| The HBase HDFS namenodes | `hbase.hdfs.scc.enabled` | For the clients to write to the store, the HDFS processes require permissions to run `chmod` on their volumes and need  to run with a specific \(pre-known\) UID. |
-
-If you're _not_ using an administrator account, please follow the instructions below to [first install the `SecurityContextConfiguration` objects in OpenShift](openshift_install.md#manually-create-securitycontextconfiguration-objects). After that install the StackState Helm chart with the above flag set to `false`.
+Because OpenShift has stricter security model than plain Kubernetes, all of the standard security contexts in the deployment need to be disabled.
 
 The values that are needed for an OpenShift deployment are:
 
@@ -108,6 +100,9 @@ stackstate:
       securityContext:
         enabled: false
 elasticsearch:
+  prometheus-elasticsearch-exporter:
+    securityContext:
+      enabled: false
   securityContext:
     enabled: false
   sysctlInitContainer:
@@ -119,15 +114,10 @@ kafka:
     enabled: false
 hbase:
   hdfs:
-    scc:
-      enabled: true
     securityContext:
-      enabled: true
+      enabled: false
     volumePermissions:
-      enabled: true
-      securityContext:
-        enabled: true
-        privileged: false
+      enabled: false
   hbase:
     securityContext:
       enabled: false
@@ -150,7 +140,7 @@ StackState has built-in support for OpenShift by means of the [OpenShift StackPa
 
 The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, please read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
 
-To automate this installation, the below values file can be added to the `helm install` command. The agent chart also needs an additional `SecurityContextConfiguration` on OpenShift.
+To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 
 If you're installing as an administrator on the OpenShift cluster, it is possible to automatically create this. You can configure this using the following configuration option in the values file:
 
@@ -179,10 +169,6 @@ cluster-agent:
       name: <CLUSTER_NAME>
       authToken: <RANDOM_TOKEN>
   kube-state-metrics:
-    podAnnotations:
-      ad.stackstate.com/kube-state-metrics.check_names: '["kubernetes_state"]'
-      ad.stackstate.com/kube-state-metrics.init_configs: '[{}]'
-      ad.stackstate.com/kube-state-metrics.instances: '[{"kube_state_url":"http://%%host%%:%%port%%/metrics","labels_mapper":{"namespace":"kube_namespace","label_deploymentconfig":"oshift_deployment_config","label_deployment":"oshift_deployment"},"label_joins":{"kube_pod_labels":{"label_to_match":"pod","labels_to_get":["label_deployment","label_deploymentconfig"]}}}]'
     securityContext:
       enabled: false
 ```
@@ -244,61 +230,6 @@ Next steps are
 ## Manually create `SecurityContextConfiguration` objects
 
 If you cannot use an administrator account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
-
-### HDFS
-
-{% hint style="warning" %}
-This is required for StackState to operate
-{% endhint %}
-
-```yaml
-allowHostDirVolumePlugin: false
-allowHostIPC: false
-allowHostNetwork: false
-allowHostPID: false
-allowHostPorts: false
-allowPrivilegeEscalation: true
-allowPrivilegedContainer: false
-allowedCapabilities: null
-apiVersion: security.openshift.io/v1
-defaultAddCapabilities: null
-fsGroup:
-  type: RunAsAny
-groups: []
-kind: SecurityContextConstraints
-metadata:
-  name: stackstate-hdfs-scc
-priority: 10
-readOnlyRootFilesystem: false
-requiredDropCapabilities:
-- MKNOD
-runAsUser:
-  type: RunAsAny
-seLinuxContext:
-  type: MustRunAs
-supplementalGroups:
-  type: RunAsAny
-users: []
-volumes:
-- configMap
-- downwardAPI
-- emptyDir
-- persistentVolumeClaim
-- projected
-- secret
-```
-
-Save this file as `hdfs-scc.yaml` and apply it as an administrator of the OpenShift cluster using the following command:
-
-```text
-oc apply -f hdfs-scc.yaml
-```
-
-After this file is applied, execute the following command as administrator to grant the service account access to this `SecurityContextConfiguration` object:
-
-```text
-> oc adm policy add-scc-to-user stackstate-hdfs-scc system:serviceaccount:stackstate:stackstate-hbase-hdfs
-```
 
 ### Cluster Agent
 

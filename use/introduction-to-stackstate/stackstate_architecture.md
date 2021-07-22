@@ -20,7 +20,7 @@ Notifications, tickets, webhooks, and API calls are just a few examples of outpu
 
 ## Data sources
 
-StackState integrates with external systems to retrieve data. Integrations are set up using [StackState Agent](../../stackpacks/integrations/agent.md), [API integration](../../stackpacks/integrations/api-integration.md) and/or an associated [integration StackPack](../../stackpacks/integrations/).
+StackState integrates with external systems to retrieve data. Integrations are set up using [StackState Agent V2](/setup/agent/about-stackstate-agent.md), [StackState Agent V1](/setup/agent/agent-v1.md) and/or an associated [integration StackPack](../../stackpacks/integrations/).
 
 ## StackGraph
 

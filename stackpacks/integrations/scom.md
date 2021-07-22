@@ -53,7 +53,7 @@ The PowerShell integration scripts must be run by an instance of StackState Agen
 {% tab title="API integration" %}
 To set up the StackState SCOM API integration, you need to have:
 
-* [StackState Agent V2](agent.md) must be installed on any machine that can connect to both SCOM and StackState.
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on any machine that can connect to both SCOM and StackState.
 * A running SCOM instance \(version 1806 or 2019\).
 * A SCOM user with the role **Operations Manager Read-Only Operators**.
 {% endtab %}
@@ -61,7 +61,7 @@ To set up the StackState SCOM API integration, you need to have:
 {% tab title="PowerShell integration" %}
 To set up the StackState SCOM PowerShell integration, you need to have:
 
-* [StackState Agent V2](agent.md) must be installed on the same machine running SCOM.
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on the same machine running SCOM.
 * A running SCOM instance \(version 1806 or 2019\).
 {% endtab %}
 {% endtabs %}
@@ -102,7 +102,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        max_number_of_requests: 10000   # default 10000
        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
      ```
-2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 
 #### Specify the components to retrieve data for
 
@@ -112,7 +112,7 @@ The components to retrieve data for can be defined using an [Operations Manager 
 criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
 ```
 
-Errors in the configured criteria query will be reported in the [StackState Agent log file](agent.md#log-files).
+Errors in the configured criteria query will be reported in the [StackState Agent log file](/setup/agent/about-stackstate-agent.md).
 
 ```text
 2020-11-05 09:19:31 GMT | ERROR | ... | (scom2.py:114) | Invalid criteria :The property FullNsame is not valid for the given criteria.
@@ -145,7 +145,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      instances:
      - integration_mode: powershell    # api or powershell, default api
      ```
-2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 {% endtab %}
 {% endtabs %}
 
@@ -161,7 +161,7 @@ sudo stackstate-agent status
 
 ### API connectivity \(API integration only\)
 
-To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](agent.md#log-files) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
+To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](/setup/agent/about-stackstate-agent.md) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
 
 ```text
 (scom.py:118) | Connection Status Code 200
@@ -225,7 +225,7 @@ To uninstall the SCOM StackPack and disable the SCOM check:
     mv scom.d/conf.yaml scom.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
@@ -269,7 +269,7 @@ This is the first public release of the SCOM StackPack that provides support to 
 
 ## See also
 
-* [StackState Agent V2](agent.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [Secrets management in StackState](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - SCOM \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
 * [Operations Manager API reference \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)

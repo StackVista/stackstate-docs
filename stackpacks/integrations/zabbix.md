@@ -12,7 +12,7 @@ The Zabbix StackPack is used to create a near real time synchronization with you
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3 and 4 are supported.
@@ -39,7 +39,7 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
        username: <username> # Admin
        password: <password> # zabbix
      ```
-2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Release notes

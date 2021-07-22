@@ -13,13 +13,15 @@ A propagated state is returned as one of the following health states:
 
 A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
 
-![Edit component propagation](../../../.gitbook/assets/v43_edit-component-propagation.png)
+![Edit component propagation](../../../.gitbook/assets/v44_edit-component-propagation.png)
 
 ## Propagation functions
 
 Propagation functions are used to calculate the propagated state of a component.
 
-* **Transparent propagation \(default\)** - returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+### Auto propagation \(default\)
+
+Returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
 
   | Dependency state | Component state | Transparent state |
   | :--- | :--- | :--- |
@@ -27,8 +29,9 @@ Propagation functions are used to calculate the propagated state of a component.
   | `CLEAR` | `CRITICAL` | `CRITICAL` |
   | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-* **Other propagation functions** - some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger.
-* **Custom propagation functions** - you can write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+### Other propagation functions
+
+Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
 
 {% hint style="info" %}
 A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
@@ -38,7 +41,7 @@ A full list of the propagation functions available in your StackState instance c
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
-![Custom propagation function](../../../.gitbook/assets/v43_propagation-function.png)
+![Custom propagation function](../../../.gitbook/assets/v44_propagation-function.png)
 
 The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 

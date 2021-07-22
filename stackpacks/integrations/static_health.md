@@ -14,7 +14,7 @@ The Static Health integration is used to visualize static health information in 
 ### Prerequisites
 
 To set up the Static Health integration you will need to have:
- * StackState [Agent V2](/stackpacks/integrations/agent.md) installed on a machine that can connect to StackState.
+ * StackState [Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
 
 ### Configure
 
@@ -34,7 +34,7 @@ To configure the StackState Agent to read CSV health files:
        delimiter: ';'
      ```
 
-2. [Restart the StackState Agent\(s\)](agent.md#start-stop-restart-the-stackstate-agent) to apply the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](#csv-file-format) and send it to StackState.
 
 ## CSV file format
@@ -67,7 +67,7 @@ The delimiter used in the CSV file can be specified when you [configure the Stat
 
 ## See also
 
-* [StackState Agent V2](agent.md)
-* [Health state in StackState](/use/health-state-and-event-notifications/health-state-in-stackstate.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+* [Health state in StackState](/use/health-state/health-state-in-stackstate.md)
 * [Health Synchronization](/configure/health/health-synchronization.md)
 * [Debug Health Synchronization](/configure/health/debug-health-sync.md)

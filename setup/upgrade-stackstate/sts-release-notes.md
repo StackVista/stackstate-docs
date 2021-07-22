@@ -14,13 +14,47 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Features**
 
+- Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
+- Signficantly improved Topology navigation: improved component popover with direct links to contextual actions, double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective, use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
+- Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
+- Complete out of the box monitoring of Kubernetes clusters. STAC-11725
+- Support fast and low-overhead direct [synchronization of health states](/configure/health/health-synchronization.md) from external (monitoring) tools. STAC-11290
+
 **Improvements**
+
+- Support BCrypt next to md5 for file based passwords. STAC-13246
+- Support fast and low-overhead direct synchronization of health states for Splunk. STAC-13174
+- Configuration of authorization for various StackState APIs can now be defined in one central location. STAC-12968
+- Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. See upgrade documentation for more details. STAC-12602
+- It is now possible to zoom out of a time range on the Timeline. STAC-12533
+- Add support for navigating to the next and previous time range in the Timeline. STAC-12531
+- Improve how component names are displayed in the Topology Perspective. STAC-13063
+- The component finder modal can now be invoked using shortcut CTRL+SHIFT+F. STAC-12957
+- Redesigned the component popover to give direct action to component actions and make it easier to use. STAC-12909
+- Removed no longer needed HDFS OpenShift SecurityContextConstraint from documentation. STAC-12573
+- Upgraded elasticsearch-exporter Helm chart to new prometheus-elasticsearch-exporter Helm chart, making it compatible with OpenShift installations. STAC-13473
 
 **Bug fixes**
 
+- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+- Fixed crash when accessing the logs api. STAC-13149
+
 ## StackState v4.3.x
 
-### 4.3.2
+# 4.3.4
+
+**Bug fixes**
+
+- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+
+### v4.3.3
+
+**Bug fixes**
+
+- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+
+### v4.3.2
 
 **Bug fixes**
 
@@ -42,13 +76,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Features**
 
-* [Show configuration changes](../../use/problems/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
-* [Alert on anomalies](../../use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
-* [Drill down on Problems](../../use/problems/problems.md) for faster investigation. STAC-10481
+* [Show configuration changes](../../use/problem-analysis/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
+* [Alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
+* [Drill down on Problems](../../use/problem-analysis/problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 
-* Introduced [check functions that alert on anomalies](../../use/health-state-and-event-notifications/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
+* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
@@ -61,13 +95,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
 * Authentication settings are now directly configurable on the Helm chart. STAC-11237
 * Added permission `manage-event-handlers` to [protect creation of event handlers](../../configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
-* Allow [filtering Events](../../use/view_filters.md#filter-events) by source. STAC-10644
-* Allow [filtering Events](../../use/view_filters.md#filter-events) by category. STAC-10643
-* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problems/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
+* Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by source. STAC-10644
+* Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by category. STAC-10643
+* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problem-analysis/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
 * Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](../../configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
 * Added ability to filter on labels in the Component Details pane. STAC-11824
 * Added ability to search and filter components in the Topology perspective List mode. STAC-11413
-* Added ability to [export component list as a CSV file](../../use/perspectives/topology-perspective.md#export-as-csv) in the Topology perspective List mode. STAC-3593
+* Added ability to [export component list as a CSV file](../../use/stackstate-ui/perspectives/topology-perspective.md#export-as-csv) in the Topology perspective List mode. STAC-3593
 * Added ability to search telemetry streams on the Component Details pane. STAC-3194
 
 **Bug fixes**

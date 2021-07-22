@@ -185,7 +185,7 @@ All events in StackState relate to a topology element or elements. Any of the ev
 Events have the following details:
 
 * An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
-* **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](/use/perspectives/events_perspective.md) for views that contain a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
+* **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) for views that contain a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
   * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
   * **element\_identifiers** - The [identifiers for the topology element\(s\)](../identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements. 
   * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
@@ -193,8 +193,8 @@ Events have the following details:
   * **source\_identifier** - Optional. The original identifier of the event in the source system.
   * **source\_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
 * **event\_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvent`.
-* **msg\_text** - Optional. The text body of the event.
-* **msg\_title** - Optional. The title of the event.
+* **msg\_text** - Required. The text body of the event.
+* **msg\_title** - Required. The title of the event.
 * **source\_type\_name** - Optional. The source event type name.
 * **tags** - Optional. A list of key/value tags to associate with the event.
 * **timestamp** - The epoch timestamp for the event.
@@ -299,6 +299,6 @@ sts event send "HealthStateChangedEvent" \
 
 * [StackState CLI reference](../../develop/reference/cli_reference.md)
 * [StackState identifiers](../identifiers.md)
-* [Events Perspective](../../use/perspectives/events_perspective.md)
+* [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md)
 * [Events tutorial](../../develop/tutorials/events_tutorial.md)
 

@@ -40,11 +40,11 @@ To address this issue, you can copy all the images to a single registry, close t
     imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
    ```
 
-   * A separate entry must be made for the image used by the `elasticsearch-exporter` subchart as this cannot be configured with the `global.imageRegistry` setting. For example:
+   * A separate entry must be made for the image used by the `prometheus-elasticsearch-exporter` subchart as this cannot be configured with the `global.imageRegistry` setting. For example:
 
      ```yaml
       elasticsearch:
-        elasticsearch-exporter:
+        prometheus-elasticsearch-exporter:
           image:
             repository: 57413481473.dkr.ecr.eu-west-1.amazonaws.com/justwatch/elasticsearch_exporter
      ```
@@ -52,8 +52,7 @@ To address this issue, you can copy all the images to a single registry, close t
 ## Configuration
 
 {% hint style="info" %}
-* Starting from version 4.2 StackState server will not be part of the standard deployment, it has been superseded by several separate pods, using the same server image.
-* If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured seperately.
+If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured seperately.
 {% endhint %}
 
 | Chart | Component | Image \(without tag\) | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
@@ -76,7 +75,7 @@ To address this issue, you can copy all the images to a single registry, close t
 | StackState | multiple | `quay.io/stackstate/container-tools` | `stackstate.components.containerTools.image.registry` | `stackstate.components.containerTools.image.repository` | `stackstate.components.containerTools.image.tag` |
 | StackState | kafka-topic-create job | `docker.io/bitnami/kafka` | `stackstate.components.kafkaTopicCreate.image.registry` | `stackstate.components.kafkaTopicCreate.image.repository` | `stackstate.components.kafkaTopicCreate.image.tag` |
 | Elasticsearch |  | `docker.elastic.co/elasticsearch/elasticsearch` | `elasticSearch.imageRegistry` | `elasticsearch.imageRepository` | `elasticsearch.imageTag` |
-| Elasticsearch Exporer |  | `justwatch/elasticsearch_exporter` | N/A | `elasticsearch.elasticsearch-exporter.image.repository` | `elasticsearch.elasticsearch-exporter.image.tag` |
+| Elasticsearch Exporer |  | `justwatch/elasticsearch_exporter` | N/A | `elasticsearch.prometheus-elasticsearch-exporter.image.repository` | `elasticsearch.prometheus-elasticsearch-exporter.image.tag` |
 | HBase | StackGraph Console | `quay.io/stackstate/stackgraph-console` | `hbase.all.image.registry` | `hbase.console.image.repository` | `hbase.console.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
 | HBase | Master | `quay.io/stackstate/hbase-master` | `hbase.all.image.registry` | `hbase.hbase.master.image.repository` | `hbase.hbase.master.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
 | HBase | RegionServer | `quay.io/stackstate/hbase-regionserver` | `hbase.all.image.registry` | `hbase.hbase.regionserver.image.repository` | `hbase.hbase.regionserver.image.tag` \(defaults to `stackgraph.image.tag`\) |

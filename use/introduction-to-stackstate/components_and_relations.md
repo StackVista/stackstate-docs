@@ -1,8 +1,3 @@
----
-title: Components and Relations
-kind: Documentation
----
-
 # Components and Relations
 
 ## Components
@@ -18,10 +13,22 @@ A component consists of:
 
 ## Relations
 
-A relation connects two components. A relation shares some similarities with a component. Just like a component, it has its state and a propagated state. All relations in StackState are of a specific relation type.
+A relation connects two components or groups of components. Relations have some similarities with components. Just like a component, they can have a state and a propagated state. In the StackState topology perspective, relations are shown as lines connecting components or component groups.
 
-If a relation is a dependency, it propagates states from one component to the next - depending on the direction. Otherwise, it can be considered as merely a line in the visualizer or a connection in the stack topology.
+Relations in StackState can be either [direct or indirect](/use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). Indirect relations are shown as a dashed line.
 
-* A one way dependency relation is a relation that propagates state from one component to the next based on the direction of the relation.
-* A dependency direction in both directions propagates states to both connected components, in other words it would be a circular dependency.
+If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. A dependency could be in one direction or in both directions, indicating that two components depend on each other, for example a network device talking to another networking device that has a bi-directional connection. 
+
+[Health state will propagate](/use/health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next upwards along a chain of dependencies.  If the relation does not show a dependency between the components it connects (no arrowhead), it can be considered as merely a line in the visualizer or a connection in the stack topology.
+
+| Relation type | Description | 
+|:---|:---|
+| ![](/.gitbook/assets/propagation-a-to-b.svg) | Component A depends directly on component B. Health state will propagate from B to A. |
+| ![](/.gitbook/assets/relation_indirect_one_direction.svg) | Component A depends indirectly on component B - a path of invisible components sits between the two components. Health state will propagate from B to A. |
+| ![](/.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
+| ![](/.gitbook/assets/propagation-a-not-b.svg) | No dependency. Health state does not propagate. |
+
+{% hint style="info" %}
+Relations to or from a component group are always represented by a solid line. It should be noted that in this case, the connection could be a direct or indirect relation to one or more components in the group.
+{% endhint %}
 
