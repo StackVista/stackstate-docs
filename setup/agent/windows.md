@@ -125,6 +125,8 @@ C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAM
 
 ## Troubleshooting
 
+To troubleshoot the Agent, try to [check the Agent status](#status) or [manually run a check](#manually-run-a-check).
+
 ### Log files
 
 Logs for the subsystems are in the following files:
