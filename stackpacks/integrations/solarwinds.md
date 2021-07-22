@@ -6,12 +6,13 @@ description: StackState curated integration
 
 ## Overview
 
-The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations.
+ The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion (SolarWinds) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.
 
-![Data flow](../../.gitbook/assets/stackpack-solarwinds-new.svg)
+![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
 
 * Agent V2 connects to the configured [SolarWinds API](#rest-api-endpoints) (default via TCP port 17778).
 * Nodes, interfaces and connections are retrieved from the SolarWinds instance.
+* Node and interface Health status is retrieved from the SolarWinds instance and translated to StackState values.
 * Agent V2 pushes [retrieved data](#data-retrieved) to StackState.
 * StackState translates incoming nodes, interfaces and connections into topology components and relations.
 
@@ -22,6 +23,7 @@ The SolarWinds StackPack allows near real time synchronization between SolarWind
 To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds (default via TCP port 17778) and StackState.
+* To support [component actions](#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
 * A running SolarWinds instance with a Network Performance Monitor (NPM) module.  
 * A SolarWinds user with access to the required [API endpoints](#rest-api-endpoints).
     - The lowest access level is sufficient.
@@ -45,12 +47,9 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 
     ```text
     init_config:
-
+    
     instances:
       - url: <instance_name.solarwinds.localdomain>
-        instance_type: solarwinds
-        source_identifier: 'urn:solarwinds:'
-        min_collection_interval: 30
         username: <instance_username>
         password: <instance_password>
         solarwinds_domain: <instance_domain>
@@ -58,7 +57,8 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
           - <instance_domain_value_1>
           - <instance_domain_value_2>
           - <instance_domain_value_n>
-     ```
+        min_collection_interval: 30
+    ```
 2. Set the following filters:
    - **solarwinds_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
    - **solarwinds_domain_values** - A list of values used by the specified `solarwinds_domain` to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
@@ -112,21 +112,44 @@ The SolarWinds check retrieves the following topology data from SolarWinds:
 | Components | Nodes and interfaces. In some cases, a SolarWinds node will not show any interfaces in the SolarWinds system. If UDT detects that such a node is connected to a device, a 'ghost' interface will be created in StackState to show the full topology.  |
 | Relations | **NPM**: Layer-2 topology information from network devices. **UDT**: Layer-2 topology information connecting generic nodes to network devices |
 
+#### Health
+
+The SolarWinds check retrieves the health status from nodes and interfaces and translates these statuses to StackState statuses:
+
+| SolarWinds Health status | StackState Health state |
+| :----------------------- | :----------------------- |
+| Up                       | Clear                    |
+| External                 | Clear                    |
+| Unmanaged                | Clear                    |
+| Unreachable              | Clear                    |
+| Shutdown                 | Clear                    |
+| Warning                  | Deviating                |
+| Unknown                  | Deviating                |
+| Down                     | Critical                 |
+| Critical                 | Critical                 |
+
 #### Traces
 
 The SolarWinds check does not retrieve any trace data.
 
-### SolarWinds views in StackState
+### StackState views
 
 When the SolarWinds integration is enabled, the following SolarWinds specific views are available in StackState:
 
 * Node Details
 * Interface Details
 
+### Component actions
+
+{% hint style="info" %}
+To support component actions from StackState, the SolarWinds server needs to be accessible from the user's browser.
+{% endhint %}
+
+Links to SolarWinds detail dashboards are created as [component actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) attached to SolarWinds components. This allows users to easily access more information from SolarWinds when needed.
+
 ### Open source
 
 The code for the StackState SolarWinds check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)
-
 
 ## Troubleshooting
 
@@ -148,7 +171,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 
 ## Release notes
 
-**SolarWinds StackPack v1.0.0 (2021-06-07)**
+SolarWinds StackPack v1.0.0 (2021-07-22)
 
 - Initial release.
 
