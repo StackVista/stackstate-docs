@@ -150,6 +150,6 @@ To disable the Splunk topology Agent check:
 
 * [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
-* [Splunk Topology V1 - API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
+* [Splunk Topology V1 - Agent V1](/stackpacks/integrations/splunk/splunk_topology.md)
 * [Example Splunk Topology V2 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)
