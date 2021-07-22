@@ -19,16 +19,16 @@ The Splunk events check on StackState Agent V1 will execute all configured Splun
 
 StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Type | Description |
+| Field | Type | Required? | Description |
 | :--- | :--- | :--- |
-| **\_time** | long | Required. The data collection timestamp, in milliseconds since epoch. |
-| **event\_type** | string | Event type, for example `server_created`. |
-| **msg\_title** | string | Message title. |
-| **msg\_text** | string | Message text. |
-| **source\_type\_name** | string | Source type name. |
-| All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
+| **\_time** | long | ✅ | The data collection timestamp, in milliseconds since epoch. |
+| **event\_type** | string | - | Event type, for example `server_created`. |
+| **msg\_title** | string | - | Message title. |
+| **msg\_text** | string | - | Message text. |
+| **source\_type\_name** | string | - | Source type name. |
+| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
-### Example query
+### Example Splunk query
 
 {% tabs %}
 {% tab title="Example Splunk query" %}
@@ -59,7 +59,7 @@ The example Splunk saved search above would result in the following event data i
 To enable the Splunk events integration and begin collecting events data from your Splunk instance, the Splunk events check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk events Agent check configuration file:<br />[conf.d/splunk_event.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
+Example Splunk events Agent check configuration file:<br />[splunk_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 {% endhint %}
 
 To configure the Splunk events Agent check:
@@ -82,8 +82,9 @@ To configure the Splunk events Agent check:
        * **max_query_chunk_seconds** - Default `3600`.
        * **unique_key_fields** - The fields to use to [uniquely identify a record](#uniquely-identify-a-record). Default `_bkt` and `_cd`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-4. Save the configuration file.
-5. Restart StackState Agent V1 to apply the configuration changes.
+4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example). 
+5. Save the configuration file.
+6. Restart StackState Agent V1 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 7. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](/use/metrics-and-events/add-telemetry-to-element.md).
 
@@ -114,5 +115,5 @@ Events retrieved from splunk are available in StackState as a log telemetry stre
 
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
 * [Map telemetry to components](/use/metrics-and-events/add-telemetry-to-element.md)
-* [Example Splunk events configuration file - splunk\_events.yaml \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
+* [Example Splunk events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 

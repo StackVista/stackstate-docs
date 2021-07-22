@@ -2,32 +2,32 @@
 description: StackState core integration
 ---
 
-# Splunk topology V1 Agent check
+# Splunk topology V2 Agent check
 
 {% hint style=“info” %} 
 
-This page describes the **Splunk topology V1 integration with StackState Agent V1.** 
+This page describes the **Splunk topology V2 integration with StackState Agent V2**. 
 
-If you are already running StackState Agent V2, see the instructions on how to:
+If you are already running the Splunk topology integration using StackState Agent V1, see the instructions on how to:
 
-* [Configure a new Splunk topology V2 check on StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_v2.md)  
+* [Configure the Splunk topology V1 check](/stackpacks/integrations/splunk/splunk_topology.md)  
 * [Upgrade an existing Splunk topology integration to use StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md)
 {% endhint %}
 
 ## Overview
 
-The StackState Splunk topology V1 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V1](/setup/agent/agent-v1.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V1:
+The StackState Splunk topology V2 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](/setup/agent/about-stackstate-agent.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
 
-* [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
-* [In StackState Agent V1](#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the topology data you want to retrieve.
+* [In StackState Agent V2](#agent-check) - a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk topology check on StackState Agent V1 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
+The Splunk topology check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
 ## Splunk saved search
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
+StackState Agent V2 executes the Splunk saved searches configured in the [Splunk topology V2 Agent check](#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
 
 #### Component fields
 
@@ -54,6 +54,8 @@ The following fields from the results of a saved search are sent to StackState f
 
 ### Example Splunk queries
 
+#### Query for components
+
 {% tabs %}
 {% tab title="Splunk query for components" %}
 ```text
@@ -77,6 +79,8 @@ The example Splunk saved search above would result in the following topology com
 | **label.&lt;label\_name&gt;** | - |
 | **name** | Splunk `name` field.|
 
+#### Query for relations
+
 {% tabs %}
 {% tab title="Splunk query for relations" %}
 ```text
@@ -99,17 +103,17 @@ The example Splunk saved search above would result in the following topology rel
 
 ## Agent check
 
-### Configure the Splunk topology V1 check
+### Configure the Splunk V2 topology check
 
-To enable the Splunk topology integration and begin collecting component and relation data from your Splunk instance, the Splunk topology check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk topology V2 integration and begin collecting component and relation data from your Splunk instance, the Splunk topology V2 check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk topology Agent check configuration file:<br />[splunk_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+Example Splunk topology Agent check configuration file:<br />[splunk_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/conf.yaml.example)
 {% endhint %}
 
 To configure the Splunk topology Agent check:
 
-1. Edit the StackState Agent V1 configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
+1. Edit the StackState Agent V2 check configuration file: `/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml`
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
@@ -125,9 +129,9 @@ To configure the Splunk topology Agent check:
        * **batch_size** - Default `1000`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
-5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example). 
+5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/conf.yaml.example). 
 6. Save the configuration file.
-7. Restart StackState Agent V1 to apply the configuration changes.
+7. Restart StackState Agent V2 to apply the configuration changes.
 8. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
 ### Disable the Agent check
@@ -137,14 +141,15 @@ To disable the Splunk topology Agent check:
 1. Remove or rename the Agent integration configuration file, for example:
 
    ```text
-    mv conf.d/splunk_topology.yaml conf.d/splunk_topology.yaml.bak
+    mv /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml.bak
    ```
 
-2. Restart the StackState Agent to apply the configuration changes.
+2. Restart StackState Agent V2 to apply the configuration changes.
 
 ## See also
 
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
-* [Upgrade to the Splunk topology V2 integration](/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md)  
-* [Example Splunk topology V1 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
-* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 
+* [Splunk Topology V1 - API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
+* [Example Splunk Topology V2 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/conf.yaml.example)
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)
