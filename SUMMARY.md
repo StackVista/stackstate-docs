@@ -146,7 +146,6 @@
   * [SAP](stackpacks/integrations/sap.md)
   * [SCOM](stackpacks/integrations/scom.md)
   * [SolarWinds](stackpacks/integrations/solarwinds.md)
-  * [SolarWinds2](stackpacks/integrations/solarwinds2.md)
   * [Static Health](stackpacks/integrations/static_health.md)
   * [Static Topology](stackpacks/integrations/static_topology.md)
   * [Traefik](stackpacks/integrations/traefik.md)
