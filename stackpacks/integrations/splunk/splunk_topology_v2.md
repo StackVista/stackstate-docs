@@ -8,7 +8,7 @@ description: StackState core integration
 
 This page describes the **Splunk topology V2 integration with StackState Agent V2**. 
 
-If you are already running the Splunk topology integration using the StackState API-Integration Agent, see the instructions on how to:
+If you are already running the Splunk topology integration using StackState Agent V1, see the instructions on how to:
 
 * [Configure the Splunk topology V1 check](/stackpacks/integrations/splunk/splunk_topology.md)  
 * [Upgrade an existing Splunk topology integration to use StackState Agent V2](/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2.md)
@@ -16,7 +16,7 @@ If you are already running the Splunk topology integration using the StackState 
 
 ## Overview
 
-The StackState Splunk topology V2 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](/stackpacks/integrations/agent.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
+The StackState Splunk topology V2 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](/setup/agent/about-stackstate-agent.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
 
 * [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the topology data you want to retrieve.
 * [In StackState Agent V2](#agent-check) - a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
@@ -148,7 +148,7 @@ To disable the Splunk topology Agent check:
 
 ## See also
 
-* [StackState Agent V2](/stackpacks/integrations/agent.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
 * [Splunk Topology V1 - API-Integration Agent](/stackpacks/integrations/splunk/splunk_topology.md)
 * [Example Splunk Topology V2 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/conf.yaml.example)

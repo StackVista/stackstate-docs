@@ -90,7 +90,7 @@ To disable the Splunk health Agent check:
 
 ## See also
 
-* [StackState Agent V2](/stackpacks/integrations/agent.md)
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](/stackpacks/integrations/splunk/splunk_stackpack.md)
 * [Health synchronization](/configure/health/health-synchronization.md)
 * [Debug health synchronization](/configure/health/debug-health-sync.md)

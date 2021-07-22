@@ -6,7 +6,7 @@ description: StackState core integration
 
 {% hint style=“info” %} 
 
-This page describes the **Splunk topology V1 integration with the StackState API-Integration Agent.** 
+This page describes the **Splunk topology V1 integration with StackState Agent V1.** 
 
 If you are already running StackState Agent V2, see the instructions on how to:
 
@@ -16,7 +16,7 @@ If you are already running StackState Agent V2, see the instructions on how to:
 
 ## Overview
 
-The StackState Splunk topology V1 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V1](/setup/agent/agent-v1.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and the StackState API-Integration Agent:
+The StackState Splunk topology V1 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V1](/setup/agent/agent-v1.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V1:
 
 * [In Splunk](#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
 * [In StackState Agent V1](#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.

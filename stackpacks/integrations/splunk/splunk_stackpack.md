@@ -7,7 +7,7 @@ stackpack-name: Splunk
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses the StackState API-Integration Agent and StackState Agent V2:
+The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses StackState Agent V1 and StackState Agent V2:
 
 * [StackState Agent V1](/setup/agent/agent-v1.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured.
 * [StackState Agent V2](/setup/agent/about-stackstate-agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk topology V2 integration is configured.
@@ -36,8 +36,8 @@ The StackState Splunk integration synchronizes events, metrics, health and topol
 * A Splunk user account with access to Splunk saved searches. The user should have the capability `search` to dispatch and read Splunk saved searches.
 * A compatible StackState Agent installed on a machine that can connect to both Splunk and StackState:
   - Metrics and events data: [StackState Agent V1](/setup/agent/agent-v1.md)
-  - Health data: [StackState Agent V2](/stackpacks/integrations/agent.md)
-  - Topology data: [StackState Agent V2](/stackpacks/integrations/agent.md) or [StackState Agent V1](/setup/agent/agent-v1.md)
+  - Health data: [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+  - Topology data: [StackState Agent V2](/setup/agent/about-stackstate-agent.md) or [StackState Agent V1](/setup/agent/agent-v1.md)
 
 ### Install
 
@@ -53,7 +53,7 @@ To retrieve health data from Splunk, [StackState Agent V2](/setup/agent/about-st
 
 To retrieve topology data from Splunk, [StackState Agent V2](/setup/agent/about-stackstate-agent.md) or [StackState Agent V1](/setup/agent/agent-v1.md) must be installed. 
 
-The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk Topology StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
@@ -212,7 +212,7 @@ For further details, see the [Splunk API documentation \(docs.splunk.com\)](http
 
 ### Open source
 
-The Splunk Topology StackPack and the Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
+The Splunk StackPack and the Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
 
 * [Splunk StackPack \(github.com\)](https://github.com/StackVista/stackpack-splunk)
 * [Splunk topology V1 check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
