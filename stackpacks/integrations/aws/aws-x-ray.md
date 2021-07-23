@@ -20,11 +20,11 @@ The StackState AWS X-Ray integration provides the following functionality:
 
 ## Setup
 
-To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS service roles in the IAM console. Check [AWS X-Ray Developer guide](https://l.stackstate.com/aws-xray-developer-guide) for more information about setting up X-Ray.
+To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS service roles in the IAM console. Check [AWS X-Ray Developer guide](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html) for more information about setting up X-Ray.
 
 ### Installation
 
-The AWS X-Ray check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/). You also need to install [AWS StackPack](/#/stackpacks/aws/) to see rest of you AWS topology and metrics.
+The AWS X-Ray check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md). You also need to install [AWS StackPack](/stackpacks/integrations/aws/aws.md) to see rest of you AWS topology and metrics.
 
 ### Configuration
 
@@ -49,4 +49,4 @@ instances:
 2. Restart the Agent
 
 
-Need help? Please contact [StackState support](https://l.stackstate.com/aws-xray-stackstate-support).
+Need help? Please contact [StackState support](http://support.stackstate.com/).

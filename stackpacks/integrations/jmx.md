@@ -17,7 +17,7 @@ JMX Checks have a limit of 350 metrics per instance which should be enough to sa
 ## Setup
 ### Installation
 
-The Java/JMX check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/).
+The Java/JMX check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md).
 
 Make sure you can open a [JMX remote connection](http://docs.oracle.com/javase/1.5.0/docs/guide/management/agent.html).
 
