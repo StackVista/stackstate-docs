@@ -23,21 +23,17 @@ The StackState Agent is open source and available on github at [https://github.c
 
 ## Supported configurations
 
-The StackState Agent is supported on the following platforms:
+StackState Agent is tested to run on the platforms listed below. Note that for Linux platforms, host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer (kernel version 4.3.0 or higher):
 
-| OS | Release | Arch | Network Tracer | Status | Notes |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Ubuntu | Trusty \(14\) | 64bit | - | OK | - |
-| Ubuntu | Xenial \(16\) | 64bit | OK | OK | - |
-| Ubuntu | Bionic \(18\) | 64bit | OK | OK | - |
-| Debian | Wheezy \(7\) | 64bit | - | - | Needs glibc upgrade to 2.17 |
-| Debian | Jessie \(8\) | 64bit | - | OK | - |
-| Debian | Stretch \(9\) | 64bit | OK | OK | - |
-| CentOS | 6 | 64bit | - | OK | Since version 2.0.2 |
-| CentOS | 7 | 64bit | - | OK | - |
-| RHEL | 7 | 64bit | - | OK | - |
-| Fedora | 28 | 64bit | OK | OK | - |
-| Windows | 2016 | 64bit | OK | OK | - |
+| Platform | Minimum version | Notes |
+|:---|:---|:---|
+| CentOS | CentOS 6 | CentOS 6 requires Agent v2.0.2 or above. Network tracer available from CentOS 8. |
+| Debian | Debian 7 (Wheezy) | Debian 7 (Wheezy) requires glibc upgrade to 2.17. Network tracer available from Debian 9 (Stretch). |
+| Fedora | Fedora 28 | - |
+| RHEL | RHEL 7 | Network tracer available from RHEL 8. |
+| Ubuntu | Ubuntu 14 (Trusty) | Network tracer available from Ubuntu 16 (Xenial). |
+| Windows | Windows 10 | - |
+| Windows Server | Windows Server 2012 | - |
 
 ## Installation
 
@@ -275,6 +271,40 @@ To check if the StackState Agent is running and receive information about the Ag
 ```
 {% endtab %}
 {% endtabs %}
+
+## Agent overhead
+
+StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic Agent, the resources named below are required. These were observed running StackState Agent V2 v2.13.0 on a c5.xlarge instance with 4 vCPU cores and 8GB RAM. They give an indication of the overhead for the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
+
+{% tabs %}
+
+{% tab title="stackstate-agent" %}
+| Resource | Usage |
+|:---|:---|
+| CPU | ~0.18% |
+| Memory | 95-100MB RAM   |
+| Disk space | 461MB (includes `stackstate-agent`, `process-agent` and `trace-agent`)  |
+{% endtab %}
+
+{% tab title="process-agent" %}
+| Resource | Usage |
+|:---|:---|
+| CPU | up to 0.96% |
+| Memory | 52-56MB |
+| Disk space | 461MB (includes `stackstate-agent`, `process-agent` and `trace-agent`) |
+{% endtab %}
+
+{% tab title="trace-agent" %}
+| Resource | Usage |
+|:---|:---|
+| CPU | less than 0.04% |
+| Memory | less than 16.8MB  |
+| Disk space | 461MB (includes `stackstate-agent`, `process-agent` and `trace-agent`) |
+{% endtab %}
+
+{% endtabs %}
+
+On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These can be configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
 ## Release notes
 
