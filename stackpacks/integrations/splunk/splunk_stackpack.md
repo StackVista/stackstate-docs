@@ -239,7 +239,7 @@ For instructions on how to disable the Splunk Agent checks, see:
 
 ## Release notes
 
-The [Splunk StackPack release notes](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) are available on GitHub.
+The [Splunk StackPack release notes](https://github.com/StackVista/stackpack-splunk/blob/master/src/main/stackpack/resources/RELEASE.md) are available on GitHub.
 
 ## See also
 

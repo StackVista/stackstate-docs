@@ -19,7 +19,7 @@ You can also invent your own metrics using custom SQL queries.
 
 ### Installation
 
-The MySQL check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/) StackPack. No additional installation is needed on your MySQL server.
+The MySQL check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md) StackPack. No additional installation is needed on your MySQL server.
 
 ### Configuration
 

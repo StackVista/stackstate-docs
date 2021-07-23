@@ -294,7 +294,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-* This release deprecates the `withCauseOf` stql construct. See [https://l.stackstate.com/R8opqs](https://l.stackstate.com/R8opqs) for more info on how to migrate existing view. STAC-7884.
+* This release deprecates the `withCauseOf` stql construct. STAC-7884.
 * The groovy sandboxing has been improved to cover a number of edge cases.
 * The groovy sandbox is stricter and favors security at the cost of flexibility
 

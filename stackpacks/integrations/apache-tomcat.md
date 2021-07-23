@@ -17,7 +17,7 @@ And more.
 ## Setup
 ### Installation
 
-The Tomcat check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/), so you don't need to install anything else on your Tomcat servers.
+The Tomcat check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md), so you don't need to install anything else on your Tomcat servers.
 
 This check is JMX-based, so you need to enable JMX Remote on your Tomcat servers. Follow the instructions in the [Tomcat documentation](https://tomcat.apache.org/tomcat-6.0-doc/monitoring.html) to do that.
 
@@ -106,7 +106,7 @@ init_config:
             metric_type: counter
 ```
 
-See the [JMX Check documentation](/#/stackpacks/stackstate-agent-v2/java) for a list of configuration options usable by all JMX-based checks. The page also describes how the Agent tags JMX metrics.
+See the [JMX Check documentation](/stackpacks/integrations/jmx.md) for a list of configuration options usable by all JMX-based checks. The page also describes how the Agent tags JMX metrics.
 
 Restart the Agent to start sending Tomcat metrics to StackState.
 

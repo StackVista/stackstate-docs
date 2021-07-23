@@ -15,7 +15,7 @@ Get metrics from the PostgreSQL service in real time to:
 
 ### Installation
 
-The PostgreSQL check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/) StackPack. To start gathering your PostgreSQL metrics and logs, install the Agent v2 first.
+The PostgreSQL check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md) StackPack. To start gathering your PostgreSQL metrics and logs, install the Agent v2 first.
 
 ### Configuration
 
