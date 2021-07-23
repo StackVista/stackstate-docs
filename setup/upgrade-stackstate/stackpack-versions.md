@@ -19,7 +19,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [AWS](../../stackpacks/integrations/aws/aws.md) | [**1.0.0**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | - | - |
 | [Azure](../../stackpacks/integrations/azure.md) | 4.1.1 | [**4.1.1**](../../stackpacks/integrations/azure.md#release-notes) | 4.0.2 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | 1.3.1 | [**1.3.1**](../../stackpacks/integrations/cloudera.md#release-notes) | 1.2.1 |
-| [Custom synchronization](../../stackpacks/integrations/customsync.md) | TODO | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 |
+| [Custom synchronization](../../stackpacks/integrations/customsync.md) | 3.1.1 | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**1.1.2**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.1.1 | 1.0.0 |
 | [Humio](../../stackpacks/integrations/humio.md) | 1.0.0 | 1.0.0 | 1.0.0 |
 | [Kubernetes](../../stackpacks/integrations/kubernetes.md) | [**3.9.5**](../../stackpacks/integrations/kubernetes.md#release-notes) | 3.9.1 | 3.7.2 |
