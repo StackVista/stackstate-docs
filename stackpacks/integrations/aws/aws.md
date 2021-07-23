@@ -132,7 +132,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
        #   - foo:bar
    ```
 
-2. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+2. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
 ### Use an HTTP proxy

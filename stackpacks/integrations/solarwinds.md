@@ -62,7 +62,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 2. Set the following filters:
    - **solarwinds_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
    - **solarwinds_domain_values** - A list of values used by the specified `solarwinds_domain` to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
 
 ### Status
@@ -167,7 +167,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
     mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
