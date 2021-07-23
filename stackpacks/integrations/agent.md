@@ -17,7 +17,6 @@ The StackState Agent is open source and available on github at [https://github.c
 
 ## Supported configurations
 
-The StackState Agent is supported on the following platforms:
 StackState Agent is tested to run on the platforms listed below. Note that for Linux platforms, host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer (kernel version 4.3.0 or higher):
 
 | Platform | Minimum version | Notes |
