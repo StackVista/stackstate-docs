@@ -30,7 +30,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [SCOM](../../stackpacks/integrations/scom.md) | 2.1.1 | [**2.1.1**](../../stackpacks/integrations/scom.md#release-notes) | 1.2.2 |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | 5.3.1 | [**5.3.1**](../../stackpacks/integrations/servicenow.md#release-notes) | 5.1.0 |
 | Slack |  | **0.0.4** | - |
-| [Solarwinds](/stackpacks/integrations/solarwinds.md) | [**0.0.5**]((/stackpacks/integrations/solarwinds.md#release-notes) | - | - |
+| [Solarwinds](/stackpacks/integrations/solarwinds.md) | [**0.0.5**](/stackpacks/integrations/solarwinds.md#release-notes) | - | - |
 | [Splunk](../../stackpacks/integrations/splunk/splunk_stackpack.md) | [**1.2.0**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | 1.1.1 | 1.0.0 |
 | [Static topology](../../stackpacks/integrations/static_topology.md) | [**2.3.2**](../../stackpacks/integrations/static_topology.md#release-notes) | 2.3.1 | 2.2.1 |
 | [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.3.1 | [**2.3.1**](../../stackpacks/integrations/vsphere.md#release-notes) | 2.2.1 |
