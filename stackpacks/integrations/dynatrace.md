@@ -62,7 +62,7 @@ To enable the Dynatrace check and begin collecting data from Dynatrace, add the 
        #   - foo:bar
      ```
 2. Optional: Add a **domain** and **environment** in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState \(default domain=dynatrace and environment=production\).
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-andrun-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 ### Status
@@ -156,7 +156,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
     mv dynatrace.d/conf.yaml dynatrace.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-andrun-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 

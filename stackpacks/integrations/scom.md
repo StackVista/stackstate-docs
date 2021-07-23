@@ -102,7 +102,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        max_number_of_requests: 10000   # default 10000
        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
      ```
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-andrun-stackstate-agent-v2) to apply the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 #### Specify the components to retrieve data for
 
@@ -145,7 +145,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      instances:
      - integration_mode: powershell    # api or powershell, default api
      ```
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-andrun-stackstate-agent-v2) to apply the configuration changes.
+2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 {% endtab %}
 {% endtabs %}
 
@@ -225,7 +225,7 @@ To uninstall the SCOM StackPack and disable the SCOM check:
     mv scom.d/conf.yaml scom.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-andrun-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
