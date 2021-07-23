@@ -39,15 +39,15 @@ StackState Agent V2 consists of up to four different processes - `stackstate-age
 
 {% tabs %}
 
-{% tab title="`stackstate-agent`" %}
+{% tab title="stackstate-agent" %}
 | Resource | Usage |
 |:---|:---|
-| CPU | ~0.18% DD~0.12% |
-| Memory | 95-100MB RAM DD60MB  |
-| Disk space | 416MB (includes `stackstate-agent`, `process-agent` and `trace-agent`) DD Linux 350MB to 400MB depending on the distribution. Windows: 260MB |
+| CPU | ~0.18% |
+| Memory | 95-100MB RAM   |
+| Disk space | 416MB (includes `stackstate-agent`, `process-agent` and `trace-agent`)  |
 {% endtab %}
 
-{% tab title="`process-agent`" %}
+{% tab title="process-agent" %}
 | Resource | Usage |
 |:---|:---|
 | CPU | up to 0.96% |
@@ -55,7 +55,7 @@ StackState Agent V2 consists of up to four different processes - `stackstate-age
 | Disk space | 416MB (includes `stackstate-agent`, `process-agent` and `trace-agent`) |
 {% endtab %}
 
-{% tab title="`trace-agent`" %}
+{% tab title="trace-agent" %}
 | Resource | Usage |
 |:---|:---|
 | CPU | less than 0.04% |
