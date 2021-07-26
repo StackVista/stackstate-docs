@@ -160,6 +160,14 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 
 ## Release notes
 
+**Dynatrace StackPack v1.1.2 (2021-06-24)**
+
+* Improvement: Changed which events send DEVIATING health state
+
+**Dynatrace StackPack v1.1.1 (2021-04-12)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
 **Dynatrace StackPack v1.1.1 \(2021-04-02\)**
 
 * Feature: Gather Events from your Dynatrace instance and provides Health info about Dynatrace components.

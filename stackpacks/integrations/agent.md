@@ -80,11 +80,59 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 
 ## Release notes
 
-**Agent V2 StackPack v4.3.1 \(2021-04-02\)**
+**Agent V2 StackPack v4.4.8 (2021-07-23)**
 
-* Features: Introduced swarm services as components and relations with containers.
-* Features: Report desired replicas and active replicas for swarm services.
-* Features: Health check added for swarm service on active replicas.
+* Improvement: Documentation updated
+
+**Agent V2 StackPack v4.4.7 (2021-06-30)**
+
+* Bugfix: Disable Indirect relations
+
+**Agent V2 StackPack v4.4.6 (2021-06-18)**
+
+* Bugfix: Fixed integration page
+
+* Feature: Split Error Count Metric for X-Ray into 4xx and 5xx count
+
+**Agent V2 StackPack v4.4.5 (2021-06-14)**
+
+* Bugfix: Fixed runs_on relation creation
+
+**Agent V2 StackPack v4.4.4 (2021-06-10)**
+
+* Feature: Added static health integration
+
+**Agent V2 StackPack v4.4.3 (2021-06-10)**
+
+* Feature: HTTP Endpoints (Kubernetes services for example) and processes now have metric streams for HTTP request rates and response times (only StackState 4.4.0+)
+* Feature: HTTP Endpoints (Kubernetes services for example) and processes have a new tag `application-protocol` that lists the protocols that are handled by that service/process, currently supported protocols are http and mysql (only StackState 4.4.0+)
+* Feature: Network connection relations also get the `application-protocol` tag (only StackState 4.4.0+)
+
+**Agent V2 StackPack v4.4.2 (2021-05-18)**
+
+* Improvement: Expose service -> process relation metrics on the outgoing service component if running in Kubernetes
+* Improvement: Add the Agent category for filtering capability
+
+**Agent V2 StackPack v4.4.1 (2021-04-23)**
+
+* Bugfix: Fix escaping bugs in templates
+
+**Agent V2 StackPack v4.4.0 (2021-04-23)**
+
+* Improvement: Add "runs" relation for container -> process such that a container "runs" the process
+* Improvement: Stop state propagation over relations that represent health checks or metrics collection, these used to result in a lot of false positives
+* Improvement: Expose process -> process relation metrics on the process component if running in Kubernetes
+
+**Agent V2 StackPack v4.3.1 (2021-04-12)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**Agent V2 StackPack v4.3.0 (2021-04-02)**
+
+* Feature: Introduced swarm services as components and relations with containers.
+* Feature: Report desired replicas and active replicas for swarm services.
+* Feature: Health check added for swarm service on active replicas.
+
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Common bumped from 2.3.1 to 2.5.0
 * Improvement: StackState min version bumped to 4.3.0
@@ -95,10 +143,10 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 
 **Agent V2 StackPack v4.2.0 \(2021-02-26\)**
 
-* Features: Map the container restart event stream as metric stream.
-* Features: Introduced the container health check for restart event.
-* Features: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
-* Features: Separate Sync and DataSource added for Disk Type.
+* Feature: Map the container restart event stream as metric stream.
+* Feature: Introduced the container health check for restart event.
+* Feature: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
+* Feature: Separate Sync and DataSource added for Disk Type.
 
 **Agent V2 StackPack v4.1.0 \(2021-02-08\)**
 

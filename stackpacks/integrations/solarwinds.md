@@ -149,7 +149,10 @@ Links to SolarWinds detail dashboards are created as [component actions](/use/st
 
 ### Open source
 
-The code for the StackState SolarWinds check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)
+The code for the StackState SolarWinds StackPack and check are open source and available on GitHub: 
+
+* SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
+* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)
 
 ## Troubleshooting
 
@@ -171,13 +174,12 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 
 ## Release notes
 
-SolarWinds StackPack v1.0.0 (2021-07-22)
-
-- Initial release.
+The [SolarWinds StackPack release notes](https://github.com/StackVista/stackpack-solarwinds/blob/main/src/main/stackpack/resources/RELEASE.md) are available on GitHub.
 
 ## See also
 
 * [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
 * [Secrets management](https://docs.stackstate.com/configure/security/secrets_management)
+* [SolarWinds StackPack (github.com)](https://github.com/StackVista/stackpack-solarwinds)  
 * [StackState Agent integrations - SolarWinds (github.com)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)  
 * [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm)

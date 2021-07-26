@@ -283,7 +283,30 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
-**OpenShift StackPack v3.7.1 \(2021-04-02\)**
+**OpenShift StackPack v3.7.5 (2021-07-14)**
+
+* Improvement: Documentation update
+* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
+
+**OpenShift StackPack v3.7.4 (2021-05-11)**
+
+* Bug Fix: Set aggregation methods for desired replicas streams to be compatible with insufficient replicas check
+* Bug Fix: Set aggregation method for not ready endpoints stream (on a service) to be compatible with endpoints check
+
+**OpenShift StackPack v3.7.3 (2021-04-29)**
+
+* Bug Fix: Change dependency to latest version of k8s-common, as the previous release is broken.
+
+**OpenShift StackPack v3.7.2 (2021-04-29)**
+
+* Improvement: Prevented readiness checks from firing pre-maturely by setting window from 10 seconds to 15 minutes for workloads, pods, and containers.
+* Improvement: Prevented readiness checks from firing pre-maturely by changing how service health is determined, and extended the evaluation window to 15 minutes.
+
+**OpenShift StackPack v3.7.1 (2021-04-12)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**OpenShift StackPack v3.7.0 (2021-04-02)**
 
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.

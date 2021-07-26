@@ -65,3 +65,6 @@ To enable the SAP check and begin collecting data from your SAP host instance:
 
 The SAP StackPack is open-source and can be found [on StackState's github page](https://github.com/StackVista/stackpack-sap).
 
+## Release notes
+
+The [SAP StackPack release notes](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) are available on GitHub.
