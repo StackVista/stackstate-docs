@@ -203,7 +203,7 @@ redirects:
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
   use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
-  use/views: ./use/views.md
+  use/views: ./use/stackstate-ui/views/about_views.md
   use/views/browse-telemetry: ./use/perspectives/browse-telemetry.md
   use/views/events_perspective: ./use/perspectives/events_perspective.md
   use/views/filters: ./use/view_filters.md
@@ -221,3 +221,13 @@ redirects:
   stackpacks/integrations/api-integration: ./setup/agent/agent-v1.md
   stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md
   setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/nonha_setup.md
+  configure/telemetry/checks_and_streams: ./use/metrics-and-events/telemetry_streams.md
+  use/health-state-and-event-notifications/add-a-health-check: ./use/health-state/add-a-health-check.md
+  use/problems/problem_investigation: ./use/problem-analysis/problem_investigation.md
+  use/problems/problem_notifications: ./use/problem-analysis/problem_notifications.md
+  use/health-state-and-event-notifications/anomaly-health-checks: ./use/health-state/anomaly-health-checks.md
+  use/view_filters: ./use/stackstate-ui/filters.md
+  use/health-state-and-event-notifications/configure-view-health: ./use/health-state/configure-view-health.md
+  setup/installation/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/non_high_availability_setup.md
+
+
