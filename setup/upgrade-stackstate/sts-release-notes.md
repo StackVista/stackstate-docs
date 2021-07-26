@@ -10,35 +10,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
-### v4.4.0
-
-**Features**
-
-- Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
-- Signficantly improved Topology navigation: improved component popover with direct links to contextual actions, double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective, use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
-- Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
-- Complete out of the box monitoring of Kubernetes clusters. STAC-11725
-- Support fast and low-overhead direct [synchronization of health states](/configure/health/health-synchronization.md) from external (monitoring) tools. STAC-11290
-
-**Improvements**
-
-- Support BCrypt next to md5 for file based passwords. STAC-13246
-- Support fast and low-overhead direct synchronization of health states for Splunk. STAC-13174
-- Configuration of authorization for various StackState APIs can now be defined in one central location. STAC-12968
-- Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. See upgrade documentation for more details. STAC-12602
-- It is now possible to zoom out of a time range on the Timeline. STAC-12533
-- Add support for navigating to the next and previous time range in the Timeline. STAC-12531
-- Improve how component names are displayed in the Topology Perspective. STAC-13063
-- The component finder modal can now be invoked using shortcut CTRL+SHIFT+F. STAC-12957
-- Redesigned the component popover to give direct action to component actions and make it easier to use. STAC-12909
-- Removed no longer needed HDFS OpenShift SecurityContextConstraint from documentation. STAC-12573
-- Upgraded elasticsearch-exporter Helm chart to new prometheus-elasticsearch-exporter Helm chart, making it compatible with OpenShift installations. STAC-13473
-
-**Bug fixes**
-
-- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
-- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
-- Fixed crash when accessing the logs api. STAC-13149
+TODO
 
 ## StackState v4.3.x
 
@@ -196,6 +168,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.1.x
 
+{% hint style="info" %}
+With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) and will no longer be supported.
+{% endhint %}
+
 ### v4.1.3
 
 **Bug fixes**
@@ -251,6 +227,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
 ## StackState v4.0.x
+
+{% hint style="info" %}
+StackState v4.0 is End of Life (EOL) and is no longer supported.
+{% endhint %}
 
 ### v4.0.4
 
