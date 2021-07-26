@@ -388,14 +388,17 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ### 1.0.0 (2021-07-09)
 
-#### Improvements
 
-- Full rewrite of the AWS StackPack to use the StackState Agent
-- Improved AWS multi-account support using IAM roles for account access
-- Improved AWS multi-region support - each instance can create topology for multiple regions at once
-- IAM graceful degredation - topology will still be shown even if access to some resources is denied
-- Support for the Step Functions State Machine added
-- New, refreshed icon set, using the latest AWS branding
+**AWS StackPack v1.0.1 (2021-07-23)**
+
+* Bugfix: Use proper domain 
+
+**AWS StackPack v1.0.0 (2021-07-16)**
+
+* Improvement: Full rewrite of the AWS Stackpack to use the StackState Agent V2
+* Improvement: Improved AWS multi-account support by using IAM roles for account access
+* Improvement: Improved AWS multi-region support - each instance can create topology for multiple regions at once
+* Improvement: New, refreshed icon set, using the latest AWS branding
 
 ## See also
 

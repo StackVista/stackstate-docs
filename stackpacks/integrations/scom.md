@@ -229,11 +229,15 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 
 ## Release notes
 
-**SCOM StackPack v2.1.1 \(2021-04-02\)**
+**SCOM StackPack v2.1.1 (2021-04-12)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**SCOM StackPack v2.1.0 (2021-04-02)**
 
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: Common bumped from 2.2.3 to 2.5.0
 * Improvement: StackState min version bumped to 4.3.0
 
 **SCOM StackPack v2.0.0 \(2021-01-29\)**

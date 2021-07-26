@@ -221,7 +221,30 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## Release notes
 
-**Kubernetes StackPack v3.9.1 \(2021-04-02\)**
+**Kubernetes StackPack v3.9.5 (2021-07-14)**
+
+* Improvement: Documentation update
+* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
+
+**Kubernetes StackPack v3.9.4 (2021-05-11)**
+
+* Bug Fix: Set aggregation methods for desired replicas streams to be compatible with insufficient replicas check
+* Bug Fix: Set aggregation method for not ready endpoints stream (on a service) to be compatible with endpoints check
+
+**Kubernetes StackPack v3.9.3 (2021-04-29)**
+
+* Bug Fix: Change dependency to latest version of k8s-common, as the previous release is broken.
+
+**Kubernetes StackPack v3.9.2 (2021-04-29)**
+
+* Improvement: Prevented readiness checks from firing pre-maturely by setting window from 10 seconds to 15 minutes for workloads, pods, and containers.
+* Improvement: Prevented readiness checks from firing pre-maturely by changing how service health is determined, and extended the evaluation window to 15 minutes.
+
+**Kubernetes StackPack v3.9.1 (2021-04-12)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**Kubernetes StackPack v3.9.0 (2021-04-02)**
 
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
