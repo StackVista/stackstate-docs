@@ -192,18 +192,21 @@ redirects:
   configure/topology/how_to_configure_component_actions: ./develop/developer-guides/custom-functions/component-actions.md
   configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
   configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
+  configure/security/self-signed-certificates: ./configure/security/self-signed-cert.md
   configure/topology/view_state_configuration: ./develop/developer-guides/custom-functions/view-health-state-configuration-functions.md
   configure/topology/event-handlers: ./develop/developer-guides/custom-functions/event-handler-functions.md
   develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
+  develop/reference/stj/using-stj: ./develop/reference/stj/using_stj.md
   integrations/agent/: ./stackpacks/integrations/agent.md
   setup/authentication: ./configure/security/authentication/authentication_options.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
-  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
+  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapper-functions.md
   use/views: ./use/stackstate-ui/views/about_views.md
+  use/views/: ./use/stackstate-ui/views/about_views.md
   use/views/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
   use/views/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/views/filters: ./use/stackstate-ui/filters.md
