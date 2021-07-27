@@ -10,7 +10,9 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
-### Features
+### v4.4.0
+
+**Features**
 
 - Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
 - Signficantly improved Topology navigation: improved component popover with direct links to contextual actions, double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective, use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
@@ -18,7 +20,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
 - Support fast and low-overhead direct [synchronization of health states from external (monitoring) tools](/configure/health/health-synchronization.md). STAC-11290
 
-### Improvements
+**Improvements**
 
 - The API-Integration StackPack has been removed. STAC-13346
 - [Support BCrypt](/configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
@@ -33,7 +35,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - The component finder modal can now be invoked using [keyboard shortcut](/use/stackstate-ui/keyboard-shortcuts.md) CTRL+SHIFT+F. STAC-12957
 - [Redesigned the component popover](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) to give direct action to component actions and make it easier to use. STAC-12909
 
-### Bug fixes
+**Bug fixes**
 
 - Fixed issue that caused an import via the CLI to fail. STAC-13481
 - The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
@@ -44,7 +46,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
-# 4.3.4
+### v4.3.4
 
 **Bug fixes**
 
