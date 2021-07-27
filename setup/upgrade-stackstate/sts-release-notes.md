@@ -10,7 +10,37 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
-TODO
+### Features
+
+- Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
+- Signficantly improved Topology navigation: improved component popover with direct links to contextual actions, double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective, use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
+- Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
+- Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
+- Support fast and low-overhead direct [synchronization of health states from external (monitoring) tools](/configure/health/health-synchronization.md). STAC-11290
+
+### Improvements
+
+- The API-Integration StackPack has been removed. STAC-13346
+- [Support BCrypt](/configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
+- Configuration of authorization for various StackState APIs can now be [defined in one central location](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12968
+- Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. See upgrade documentation for more details. STAC-12602
+- The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
+- It is now possible to zoom out of a time range on the [timeline](/use/stackstate-ui/timeline-time-travel.md). STAC-12533
+- Add support for navigating to the next and previous time range in the [timeline](/use/stackstate-ui/timeline-time-travel.md)]. STAC-12531
+- Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
+- Grouped relations (relations to component groups) are [shown as solid lines](/use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation (this is also called surjective). STAC-11621
+- Improve how component names are displayed in the Topology Perspective. STAC-13063
+- The component finder modal can now be invoked using [keyboard shortcut](/use/stackstate-ui/keyboard-shortcuts.md) CTRL+SHIFT+F. STAC-12957
+- [Redesigned the component popover](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) to give direct action to component actions and make it easier to use. STAC-12909
+
+### Bug fixes
+
+- Fixed issue that caused an import via the CLI to fail. STAC-13481
+- The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
+- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+- Fixed crash when accessing the logs API. STAC-13149
+- Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
 ## StackState v4.3.x
 
