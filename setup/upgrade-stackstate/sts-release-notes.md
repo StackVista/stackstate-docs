@@ -198,20 +198,22 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
 
-## StackState v4.1.x
+## Unsupported versions
+
+### StackState v4.1.x
 
 {% hint style="info" %}
 With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) and will no longer be supported.
 {% endhint %}
 
-### v4.1.3
+##### v4.1.3
 
 **Bug fixes**
 
 * Fixed issue that caused the CLI to fail to run on systems with an older GLIBC library. STAC-10609
 * Fixed issue that prevented historical data from displaying in the Health Forecast Report. STAC-11207
 
-### v4.1.2
+##### v4.1.2
 
 **Bug fixes**
 
@@ -223,14 +225,14 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) a
 
 * Introduced configuration setting `stackstate.topologyQueryService.maxLoadedElementsPerQuery` configuration to tweak the amount of loaded elements we allow during query execution. STAC-11009
 
-### v4.1.1
+##### v4.1.1
 
 **Bug fixes**
 
 * Fixed issue that prevented users from deleting certain metric streams. STAC-10623
 * Fixed issue that caused an error when StackState attempted to connect to an LDAP server using LDAPS on certain versions of the JVM. STAC-10606
 
-### v4.1.0
+##### v4.1.0
 
 **Features**
 
@@ -258,25 +260,25 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) a
 * Fixed issue where state service could not find some elements due to querying with an incomplete time slice. STAC-8195
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
-## StackState v4.0.x
+### StackState v4.0.x
 
 {% hint style="info" %}
 StackState v4.0 is End of Life (EOL) and is no longer supported.
 {% endhint %}
 
-### v4.0.4
+##### v4.0.4
 
 **Bug fixes**
 
 * Fix issue where the readcache sometimes produces the wrong data, causing intermittent failures in state and view calculation. STAC-10328
 
-### v4.0.3
+##### v4.0.3
 
 **Bug fixes**
 
 * Fixed issue that prevented time travel under certain circumstances. STAC-9551
 
-### v4.0.2
+##### v4.0.2
 
 **Bug fixes**
 
@@ -285,7 +287,7 @@ StackState v4.0 is End of Life (EOL) and is no longer supported.
 * Fixed bug that caused multi param propagation function values to be lost after a component update. STAC-9582
 * Fixed bug that caused the log to be spammed with messages for a deleted checkstate. STAC-9323
 
-### v4.0.1
+##### v4.0.1
 
 **Bug fixes**
 
@@ -293,7 +295,7 @@ StackState v4.0 is End of Life (EOL) and is no longer supported.
 * Fix some cases when checks on new or updated components would fail to start and remain in an "Unknown" state. STAC-7949
 * Fix an issue that in some cases prevented properly storing security subjects from CLI. STAC-7569
 
-### v4.0.0
+##### v4.0.0
 
 **Features**
 
