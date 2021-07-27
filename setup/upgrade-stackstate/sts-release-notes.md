@@ -1,5 +1,5 @@
 ---
-description: Release notes up to v4.3.x of StackState
+description: Release notes up to v4.4.x of StackState
 ---
 
 # StackState release notes
