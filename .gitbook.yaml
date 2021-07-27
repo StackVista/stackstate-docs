@@ -198,6 +198,7 @@ redirects:
   develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
+  develop/reference/stj/templates: ./develop/reference/stj/stj_reference.md
   develop/reference/stj/using-stj: ./develop/reference/stj/using_stj.md
   integrations/agent/: ./stackpacks/integrations/agent.md
   setup/authentication: ./configure/security/authentication/authentication_options.md
@@ -243,6 +244,7 @@ redirects:
   use/perspectives/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
   use/analytics: ./use/stackstate-ui/analytics.md
   stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
+  use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
 
 
 
