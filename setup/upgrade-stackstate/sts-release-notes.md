@@ -30,7 +30,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Configuration of authorization for various StackState APIs can now be [defined in one central location](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12968
 - Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
 - The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
-- [Timeline improvements](/use/stackstate-ui/timeline-time-travel.md)
+- [Timeline improvements](/use/stackstate-ui/timeline-time-travel.md):
   - It is now possible to zoom out of a time range. STAC-12533
   - Added support for navigating to the next and previous time range. STAC-12531
 - Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
