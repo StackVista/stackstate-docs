@@ -15,7 +15,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 **Features**
 
 - Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
-- Signficantly improved Topology navigation: [improved component popover](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) with direct links to contextual actions, double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective, use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
+- Signficantly [improved Topology navigation](/use/stackstate-ui/perspectives/topology-perspective.md): 
+  - Improved component popover with direct links to contextual actions, 
+  - Double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective
+  - Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
 - Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
 - Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
 - Support fast and low-overhead direct [synchronization of health states from external (monitoring) tools](/configure/health/health-synchronization.md). STAC-11290
