@@ -16,7 +16,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 - Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
 - Signficantly [improved Topology navigation](/use/stackstate-ui/perspectives/topology-perspective.md): 
-  - Improved component popover with direct links to contextual actions, 
+  - Improved component popover with direct links to contextual actions. STAC-12909
   - Double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective
   - Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
 - Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
@@ -37,7 +37,6 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - [Relations to component groups are shown as solid lines](/use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation (this is also called surjective). STAC-11621
 - Improve how component names are displayed in the Topology Perspective. STAC-13063
 - The component finder modal can now be invoked using the [keyboard shortcut](/use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
-- [Redesigned the component popover](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) to give direct access to component actions and make it easier to use. STAC-12909
 
 **Bug fixes**
 
