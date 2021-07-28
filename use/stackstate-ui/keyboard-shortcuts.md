@@ -4,6 +4,8 @@ description: Keyboard shortcuts in the StackState UI
 
 # Keyboard shortcuts
 
+The keyboard shortcuts below can be used to navigate the StackState UI.
+
 | Keyboard shortcut | Action |
 | :---|:---|
 | `CTRL` + `SHIFT` + `F` | Search for a component by name. |

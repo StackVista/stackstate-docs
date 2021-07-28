@@ -1,5 +1,5 @@
 ---
-description: Release notes up to v4.3.x of StackState
+description: Release notes up to v4.4.x of StackState
 ---
 
 # StackState release notes
@@ -10,11 +10,46 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
-TODO
+### v4.4.0
+
+**Features**
+
+- Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
+- Signficantly [improved Topology navigation](/use/stackstate-ui/perspectives/topology-perspective.md): 
+  - Improved component popover with direct links to contextual actions. STAC-12909
+  - Double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective
+  - Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
+- Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
+- Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
+- Support fast and low-overhead direct [synchronization of health states from external (monitoring) tools](/configure/health/health-synchronization.md). STAC-11290
+
+**Improvements**
+
+- The API-Integration StackPack has been removed. STAC-13346
+- [Support BCrypt](/configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
+- Configuration of authorization for various StackState APIs can now be [defined in one central location](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12968
+- Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
+- The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
+- [Timeline improvements](/use/stackstate-ui/timeline-time-travel.md):
+  - It is now possible to zoom out of a time range. STAC-12533
+  - Added support for navigating to the next and previous time range. STAC-12531
+- Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
+- [Relations to component groups are shown as solid lines](/use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation (this is also called surjective). STAC-11621
+- Improve how component names are displayed in the Topology Perspective. STAC-13063
+- The component finder modal can now be invoked using the [keyboard shortcut](/use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
+
+**Bug fixes**
+
+- Fixed issue that caused an import via the CLI to fail. STAC-13481
+- The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
+- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+- Fixed crash when accessing the logs API. STAC-13149
+- Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
 ## StackState v4.3.x
 
-# 4.3.4
+### v4.3.4
 
 **Bug fixes**
 
@@ -166,20 +201,24 @@ TODO
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
 
-## StackState v4.1.x
+## Unsupported versions
+
+The versions below are have reached End of Life (EOL) and are no longer be supported
+
+### StackState v4.1.x
 
 {% hint style="info" %}
-With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) and will no longer be supported.
+With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) and is no longer supported.
 {% endhint %}
 
-### v4.1.3
+#### v4.1.3
 
 **Bug fixes**
 
 * Fixed issue that caused the CLI to fail to run on systems with an older GLIBC library. STAC-10609
 * Fixed issue that prevented historical data from displaying in the Health Forecast Report. STAC-11207
 
-### v4.1.2
+#### v4.1.2
 
 **Bug fixes**
 
@@ -191,14 +230,14 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) a
 
 * Introduced configuration setting `stackstate.topologyQueryService.maxLoadedElementsPerQuery` configuration to tweak the amount of loaded elements we allow during query execution. STAC-11009
 
-### v4.1.1
+#### v4.1.1
 
 **Bug fixes**
 
 * Fixed issue that prevented users from deleting certain metric streams. STAC-10623
 * Fixed issue that caused an error when StackState attempted to connect to an LDAP server using LDAPS on certain versions of the JVM. STAC-10606
 
-### v4.1.0
+#### v4.1.0
 
 **Features**
 
@@ -226,25 +265,25 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) a
 * Fixed issue where state service could not find some elements due to querying with an incomplete time slice. STAC-8195
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
-## StackState v4.0.x
+### StackState v4.0.x
 
 {% hint style="info" %}
 StackState v4.0 is End of Life (EOL) and is no longer supported.
 {% endhint %}
 
-### v4.0.4
+#### v4.0.4
 
 **Bug fixes**
 
 * Fix issue where the readcache sometimes produces the wrong data, causing intermittent failures in state and view calculation. STAC-10328
 
-### v4.0.3
+#### v4.0.3
 
 **Bug fixes**
 
 * Fixed issue that prevented time travel under certain circumstances. STAC-9551
 
-### v4.0.2
+#### v4.0.2
 
 **Bug fixes**
 
@@ -253,7 +292,7 @@ StackState v4.0 is End of Life (EOL) and is no longer supported.
 * Fixed bug that caused multi param propagation function values to be lost after a component update. STAC-9582
 * Fixed bug that caused the log to be spammed with messages for a deleted checkstate. STAC-9323
 
-### v4.0.1
+#### v4.0.1
 
 **Bug fixes**
 
@@ -261,7 +300,7 @@ StackState v4.0 is End of Life (EOL) and is no longer supported.
 * Fix some cases when checks on new or updated components would fail to start and remain in an "Unknown" state. STAC-7949
 * Fix an issue that in some cases prevented properly storing security subjects from CLI. STAC-7569
 
-### v4.0.0
+#### v4.0.0
 
 **Features**
 
