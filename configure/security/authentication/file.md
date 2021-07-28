@@ -99,7 +99,7 @@ Follow the steps below to configure users and apply changes:
 
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
    * **username** - the username used to log into StackState.
-   * **password** - the password used to log into StackState.Passwords are stored as either an MD5 hash or a bcrypt hash.
+   * **password** - the password used to log into StackState. Passwords are stored as either an MD5 hash or a bcrypt hash.
    * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
 2. Restart StackState to apply the changes.
 
