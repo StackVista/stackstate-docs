@@ -23,11 +23,11 @@ Propagation functions are used to calculate the propagated state of a component.
 
 Returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
 
-  | Dependency state | Component state | Transparent state |
-  | :--- | :--- | :--- |
-  | `CRITICAL` | `DEVIATING` | `CRITICAL` |
-  | `CLEAR` | `CRITICAL` | `CRITICAL` |
-  | `DEVIATING` | `CLEAR` | `DEVIATING` |
+| Dependency state | Component state | Transparent state |
+| :--- | :--- | :--- |
+| `CRITICAL` | `DEVIATING` | `CRITICAL` |
+| `CLEAR` | `CRITICAL` | `CRITICAL` |
+| `DEVIATING` | `CLEAR` | `DEVIATING` |
 
 ### Other propagation functions
 
@@ -84,11 +84,11 @@ A propagation function script takes system and user defined parameters. System p
 
 ### Execution
 
-Propagation functions can be run with execution set to either [Asynchronous](#asynchronous-execution) \(recommended\) or [Synchronous](#synchronous-execution).
+Propagation functions can be run with execution set to either [Asynchronous](propagation-functions.md#asynchronous-execution) \(recommended\) or [Synchronous](propagation-functions.md#synchronous-execution).
 
 #### Asynchronous execution
 
-Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](/develop/reference/scripting/script-apis/README.md) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
+Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](../../reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
 
 {% hint style="danger" %}
 **Keep performance aspects in mind when developing functions with asynchronous execution**  
@@ -97,7 +97,7 @@ The script APIs provide super-human levels of flexibility and even allow queryin
 
 #### Synchronous execution
 
-Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution. 
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution.
 
 `stateChangesRepository` can be used to return:
 
@@ -136,10 +136,10 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 
 ### Logging
 
-You can add logging statements to a propagation function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/README.md).
+You can add logging statements to a propagation function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/).
 
 ## See also
 
-* [StackState script APIs](/develop/reference/scripting/script-apis/README.md)
-* [Enable logging for functions](/configure/logging/README.md)
+* [StackState script APIs](../../reference/scripting/script-apis/)
+* [Enable logging for functions](../../../configure/logging/)
 

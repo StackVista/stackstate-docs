@@ -1,8 +1,8 @@
-# API integration Agent (Legacy)
+# Agent V1 \(Legacy\)
 
 ## Overview
 
-StackState Agent V1 allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other Agent checks run on [StackState Agent V2](/setup/agent/about-stackstate-agent.md).
+StackState Agent V1 allows you to run checks that connect to [Splunk](../../stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
 
 StackState Agent V1 is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
@@ -68,7 +68,6 @@ Install StackState Agent V1 by using the following sequence of steps:
 
 If you need further assistance, our [support team](https://support.stackstate.com/hc/en-us) will be glad to help.
 
-
 ## Start / stop / restart the Agent
 
 {% hint style="info" %}
@@ -118,7 +117,7 @@ sudo /etc/init.d/stackstate-agent status
 
 To receive information about the StackState Agent V1 state:
 
-```
+```text
 sudo /etc/init.d/stackstate-agent info
 ```
 
@@ -140,14 +139,14 @@ To check if the StackState Agent is running and receive information about the Ag
 
 ## Troubleshooting
 
-Try running the [info command](#status-and-information) to see the state of StackState Agent V1.
+Try running the [info command](agent-v1.md#status-and-information) to see the state of StackState Agent V1.
 
 Logs for the subsystems are in the following files:
 
-- `/var/log/stackstate/supervisord.log`
-- `/var/log/stackstate/collector.log`
-- `/var/log/stackstate/stsstatsd.log`
-- `/var/log/stackstate/forwarder.log`
+* `/var/log/stackstate/supervisord.log`
+* `/var/log/stackstate/collector.log`
+* `/var/log/stackstate/stsstatsd.log`
+* `/var/log/stackstate/forwarder.log`
 
 If you are still having trouble, contact our support team on the [StackState support site](http://support.stackstate.com/).
 

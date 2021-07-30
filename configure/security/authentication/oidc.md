@@ -88,7 +88,6 @@ To configure StackState to use an OIDC authentication provider on Linux, OIDC de
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
-
 authorization {
   // map the groups from the OIDC provider to the
   // 4 standard subjects in StackState (guestGroups, powerUserGroups, adminGroups and platformAdminGroups)
@@ -168,3 +167,4 @@ For further details, see [Permissions and consent in the Microsoft identity plat
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
+

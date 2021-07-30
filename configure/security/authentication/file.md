@@ -59,6 +59,7 @@ Follow the steps below to configure users and apply changes:
 
 {% hint style="info" %}
 **Note:**
+
 * An MD5 password hash can be generated using the `md5sum` or `md5` command line applications on Linux and Mac.
 * A bcrypt password hash can be generated using the following command line `htpasswd -bnBC 10 "" <password> | tr -d ':\n'` or using an online tool.
 * The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
@@ -105,12 +106,14 @@ Follow the steps below to configure users and apply changes:
 
 {% hint style="info" %}
 **Note:**
+
 * An MD5 password hash can be generated using the `md5sum` or `md5` command line applications on Linux and Mac.
 * A bcrypt password hash can be generated using the following command line `htpasswd -bnBC 10 "" <password> | tr -d ':\n'` or using an online tool.
 {% endhint %}
-  
+
 ## See also
 
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
+

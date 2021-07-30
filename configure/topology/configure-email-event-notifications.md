@@ -71,5 +71,5 @@ StackState can send an event notification by email whenever the health state of 
 ## See also
 
 * [Add an event handler](../../use/metrics-and-events/send-event-notifications.md#send-event-notifications-with-event-handlers)
-* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 

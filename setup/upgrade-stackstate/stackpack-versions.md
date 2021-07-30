@@ -16,7 +16,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Health Forecast](../../stackpacks/add-ons/health-forecast.md) | 1.0.3 | 1.0.3 | 1.0.3 |
 | [StackState Agent](../../stackpacks/integrations/agent.md) | [**4.4.8**](../../stackpacks/integrations/agent.md#release-notes) | 4.3.1 | 3.12.0 |
 | [AWS](../../stackpacks/integrations/aws/aws.md) | [**1.0.1**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | - | - |
-| [AWS (Legacy)](../../stackpacks/integrations/aws/aws-legacy.md) | [**5.3.1**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | 5.2.2 | 5.0.2 |
+| [AWS \(Legacy\)](../../stackpacks/integrations/aws/aws-legacy.md) | [**5.3.1**](../../stackpacks/integrations/aws/aws-legacy.md#release-notes) | 5.2.2 | 5.0.2 |
 | [Azure](../../stackpacks/integrations/azure.md) | 4.1.1 | [**4.1.1**](../../stackpacks/integrations/azure.md#release-notes) | 4.0.2 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | 1.3.1 | [**1.3.1**](../../stackpacks/integrations/cloudera.md#release-notes) | 1.2.1 |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | 3.1.1 | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | 3.0.1 |
@@ -30,7 +30,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [SCOM](../../stackpacks/integrations/scom.md) | 2.1.1 | [**2.1.1**](../../stackpacks/integrations/scom.md#release-notes) | 1.2.2 |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | 5.3.1 | [**5.3.1**](../../stackpacks/integrations/servicenow.md#release-notes) | 5.1.0 |
 | Slack | 0.0.4 | **0.0.4** | - |
-| [Solarwinds](/stackpacks/integrations/solarwinds.md) | [**1.0.0**](/stackpacks/integrations/solarwinds.md#release-notes) | - | - |
+| [Solarwinds](../../stackpacks/integrations/solarwinds.md) | [**1.0.0**](../../stackpacks/integrations/solarwinds.md#release-notes) | - | - |
 | [Splunk](../../stackpacks/integrations/splunk/splunk_stackpack.md) | [**1.2.0**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | 1.1.1 | 1.0.0 |
 | [Static topology](../../stackpacks/integrations/static_topology.md) | [**2.3.2**](../../stackpacks/integrations/static_topology.md#release-notes) | 2.3.1 | 2.2.1 |
 | [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.3.1 | [**2.3.1**](../../stackpacks/integrations/vsphere.md#release-notes) | 2.2.1 |
