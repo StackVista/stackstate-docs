@@ -2,6 +2,12 @@
 description: Data protection features for self-hosted StackState
 ---
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Self-hosted Kubernetes installation
 
 Many different Kubernetes flavors can be used to deploy StackState on Kubernetes, however, the cluster is always responsible for providing the disks (volumes) and networking to StackState.

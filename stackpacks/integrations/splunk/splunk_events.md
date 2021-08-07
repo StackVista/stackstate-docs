@@ -4,6 +4,12 @@ description: StackState core integration
 
 # Splunk events Agent check
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState API-Integration Agent Splunk events check configuration. In order to receive Splunk events data in StackState, you will therefore need to add configuration to both Splunk and the StackState API-Integration Agent.

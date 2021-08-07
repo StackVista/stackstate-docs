@@ -1,5 +1,11 @@
 # Understanding checks and streams
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 Checks are the mechanisms through which elements \(components and relations\) get a health state. The state of an element is determined from data in the associated telemetry streams.

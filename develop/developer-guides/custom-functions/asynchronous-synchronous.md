@@ -1,5 +1,11 @@
 # Asynchronous and synchronous execution
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 Functions in StackState run with either [synchronous](#synchronous-execution) or [asynchronous](#asynchronous-execution-recommended) execution. For some functions it is possible to choose the execution type.

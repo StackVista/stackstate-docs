@@ -4,6 +4,12 @@ description: All configuration of StackState is described using StackState Templ
 
 # StackState Template JSON \(STJ\)
 
+{% hint style="warning" %}
+**This page describes StackState version 4.3.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of (often repetitive) JSON, StackState comes with the StackState Template JSON format (STJ). 
