@@ -1,9 +1,7 @@
 # Set up traces
 
 {% hint style="warning" %}
-**This page describes StackState version 4.1. **
-The StackState 4.1 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+**This page describes StackState version 4.1.**  The StackState 4.1 version range is End of Life \(EOL\) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release. Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](../../use/views/traces_perspective.md).

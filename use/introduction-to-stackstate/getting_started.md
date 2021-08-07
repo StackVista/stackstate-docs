@@ -1,9 +1,9 @@
 # Getting Started
 
 {% hint style="warning" %}
-**This page describes StackState version 4.1. **
+**This page describes StackState version 4.1.** 
 
-The StackState 4.1 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
+The StackState 4.1 version range is End of Life \(EOL\) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -12,7 +12,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](../../stackpacks/about-stackpacks/README.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](https://github.com/StackVista/stackstate-docs/tree/e6f0a79bae9426770fce0a03f5ae85bdcf9a5216/stackpacks/about-stackpacks/README.md).
 
 ![StackPacks overview](../../.gitbook/assets/v42_01_stackpacks%20%281%29.png)
 

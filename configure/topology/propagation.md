@@ -1,9 +1,9 @@
 # State propagation
 
 {% hint style="warning" %}
-**This page describes StackState version 4.1. **
+**This page describes StackState version 4.1.** 
 
-The StackState 4.1 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
+The StackState 4.1 version range is End of Life \(EOL\) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -134,10 +134,10 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 
 ### Logging
 
-You can add user logging from the script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../configure/logging/README.md).
+You can add user logging from the script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../logging/).
 
 ## See also
 
 * [StackState script APIs](../../develop/reference/scripting/script-apis/)
-* [Enable logging for functions](../../configure/logging/README.md)
+* [Enable logging for functions](../logging/)
 

@@ -5,9 +5,9 @@ description: See traces for the components in your IT landscape.
 # Traces Perspective
 
 {% hint style="warning" %}
-**This page describes StackState version 4.1. **
+**This page describes StackState version 4.1.** 
 
-The StackState 4.1 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
+The StackState 4.1 version range is End of Life \(EOL\) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -24,7 +24,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
-![Inspecting a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29.png)
+![Inspecting a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29%20%282%29.png)
 
 Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to Postgres calls that are made when completing the request.
 
@@ -65,7 +65,7 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29.png)
+![The spans \(components\) of a trace](../../.gitbook/assets/v42_trace-inspection%20%287%29%20%281%29.png)
 
 ![The topology for which you fetch traces](../../.gitbook/assets/topology-traces.png)
 

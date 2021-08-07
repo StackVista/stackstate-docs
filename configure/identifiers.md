@@ -7,7 +7,7 @@ kind: Documentation
 
 {% hint style="warning" %}
 This page describes StackState version 4.1.  
-The StackState 4.0 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
+The StackState 4.0 version range is End of Life \(EOL\) and no longer supported. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
 {% endhint %}
 
 This page explains the reasoning behind introducing enforced identifier convention and provides guidelines on how to use Identifiers in the configuration of StackState.

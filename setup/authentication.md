@@ -6,9 +6,9 @@ kind: Documentation
 # Authentication
 
 {% hint style="warning" %}
-**This page describes StackState version 4.1. **
+**This page describes StackState version 4.1.** 
 
-The StackState 4.1 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
+The StackState 4.1 version range is End of Life \(EOL\) and no longer supported. We encourage customers still running the 4.1 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -29,7 +29,7 @@ StackState ships with the default user roles **guest** and **administrator**:
 * **guest users** - able to see information but make no changes
 * **administrators** - able to see and change all configuration
 
-It is also possible to add more roles, see the [Roles \(RBAC\)](../configure/security/rbac/rbac_roles.md) and the other RBAC documentation pages under [configure](../configure/README.md)
+It is also possible to add more roles, see the [Roles \(RBAC\)](../configure/security/rbac/rbac_roles.md) and the other RBAC documentation pages under [configure](https://github.com/StackVista/stackstate-docs/tree/e6f0a79bae9426770fce0a03f5ae85bdcf9a5216/configure/README.md)
 
 ## Default username and password
 
