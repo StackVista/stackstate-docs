@@ -8,11 +8,10 @@ listorder: 2
 
 # Topology synchronization
 
-
 {% hint style="warning" %}
 **This page describes StackState version 4.0.**
 
-The StackState 4.0 version range is End of Life (EOL) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
+The StackState 4.0 version range is End of Life \(EOL\) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -31,7 +30,7 @@ StackState accepts topology data in JSON format. JSON files received pass throug
 
 The entire process can be represented visually as follows:
 
-![](../.gitbook/assets/topology_synchronization.png)
+![](../.gitbook/assets/v42_topology_synchronization%20%283%29.png)
 
 ## Topology JSON format
 

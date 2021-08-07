@@ -4,18 +4,17 @@ description: How to configure anomaly detection with baselines.
 
 # Anomaly Detection with Baselines
 
-
 {% hint style="warning" %}
 **This page describes StackState version 4.0.**
 
-The StackState 4.0 version range is End of Life (EOL) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
+The StackState 4.0 version range is End of Life \(EOL\) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 Baselines are a way to detect anomalies in metric streams. Generally speaking, an anomaly is detected when a metric stream exceeds its baseline boundaries. A baseline consists of a lower and upper boundary. It forms a band that the metric, under normal conditions, is expected to remain inside of. Baselines are initially derived from historical data, but continuously update as new data flows in. Thus when an anomaly occurs, the baseline gradually updates to take the anomaly into account.
 
-![Baseline example](../.gitbook/assets/baseline_example.png)
+![Baseline example](../.gitbook/assets/baseline_example%20%282%29.png)
 
 ## How baselining works
 

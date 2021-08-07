@@ -8,11 +8,10 @@ aliases:
 
 # Permissions \(RBAC\)
 
-
 {% hint style="warning" %}
 **This page describes StackState version 4.0.**
 
-The StackState 4.0 version range is End of Life (EOL) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
+The StackState 4.0 version range is End of Life \(EOL\) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -95,7 +94,7 @@ stackstate-guest  access-view           everything
 4. Delete a view - requires `delete-view` permission. It's dependant on `Everything` or the specific view permissions.
 5. Sidebar access - requires `save-view`, `delete-view` or both of them to access these options in the sidebar.
 
-![NavigationBar1](../.gitbook/assets/navbar1.png) ![NavigationBar2](../.gitbook/assets/navbar2.png)
+![NavigationBar1](../.gitbook/assets/navbar1.png) ![NavigationBar2](../.gitbook/assets/navbar2%20%281%29.png)
 
 ### Topology capabilities permissions
 
@@ -105,7 +104,7 @@ stackstate-guest  access-view           everything
 
 |  |  |  |
 | :---: | :---: | :---: |
-| ![TopologyCapabilities1](../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../.gitbook/assets/topocap2.png) | ![TopologyCapabilities3](../.gitbook/assets/topocap3.png) |
+| ![TopologyCapabilities1](../.gitbook/assets/topocap1.png) | ![TopologyCapabilities2](../.gitbook/assets/topocap2%20%281%29.png) | ![TopologyCapabilities3](../.gitbook/assets/topocap3.png) |
 
 ### Topology views permissions
 
@@ -113,7 +112,7 @@ stackstate-guest  access-view           everything
 2. Access to a node actions menu - requires `execute-component-actions` permission.  
 3. Create relations between topology elements - requires system permissions: `manage-topology-elements`, `perform-custom-query`, and `read-settings`.
 
-![TopologyView1](../.gitbook/assets/topoview1%20%281%29.png) ![TopologyView2](../.gitbook/assets/topoview2.png)
+![TopologyView1](../.gitbook/assets/topoview1%20%281%29%20%281%29.png) ![TopologyView2](../.gitbook/assets/topoview2%20%281%29.png)
 
 ### Analytics Page permissions
 

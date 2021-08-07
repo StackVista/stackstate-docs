@@ -7,7 +7,7 @@ description: StackState version 4.0
 {% hint style="warning" %}
 **This page describes StackState version 4.0.**
 
-The StackState 4.0 version range is End of Life (EOL) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
+The StackState 4.0 version range is End of Life \(EOL\) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
@@ -105,9 +105,9 @@ You are currently reading the documentation for **StackState version 4.0**.
 
 Use the version drop-down menu on the top left to find documentation for all currently supported versions. See also, [upgrade StackState](setup/upgrading.md).
 
-
 ## **Support Site**
 
 Any question? We love to help!
 
 Find our support team on our [support site](http://support.stackstate.com/).
+

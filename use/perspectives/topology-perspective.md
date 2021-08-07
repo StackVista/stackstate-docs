@@ -4,18 +4,17 @@ description: See the architecture of your IT landscape.
 
 # Topology Perspective
 
-
 {% hint style="warning" %}
 **This page describes StackState version 4.0.**
 
-The StackState 4.0 version range is End of Life (EOL) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
+The StackState 4.0 version range is End of Life \(EOL\) and **no longer supported**. We encourage customers still running the 4.0 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![](../../.gitbook/assets/topoview1%20%281%29.png)
+![](../../.gitbook/assets/topoview1%20%281%29%20%281%29.png)
 
 ## Components and relations
 
@@ -70,7 +69,7 @@ It is also possible to interactively navigate the topology. Right-click on a com
 
 Selecting an action from the menu allows you to change your view, respective to the selected component.
 
-![Quick Actions](../../.gitbook/assets/quick_actions.png)
+![Quick Actions](../../.gitbook/assets/quick_actions%20%282%29%20%284%29.png)
 
 **Quick Actions** expands the topology selection in one of the following ways:
 
