@@ -147,7 +147,10 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | **SubStreamExpired** | Raised when the health synchronization stops receiving data on a particular sub stream for longer than the configured `expiry_interval_s`. In this case, the sub stream will be deleted. |
 | **SubStreamLateData** | Raised when the health synchronization does not receive a complete snapshot timely based on the established `repeat_interval_s`. |
 | **SubStreamTransformerError** | Raised when the health synchronization is unable to interpret the payload sent to the receiver. For example, "Missing required field 'name'" with payload `{"checkStateId":"checkStateId3","health":"deviating","message":"Unable to provision the device. ","topologyElementIdentifier":"server-3"}` and transformation `Default Transformation`. |
-
+| **SubStreamMissingCheckpoint** | Raised when a Transactional increments sub stream has previously already observed a checkpoint but the received message is missing the `previous_checkpoint` |
+| **SubStreamInvalidCheckpoint** | Raised when a Transactional increments sub stream has previously already observed a checkpoint but the received message has a `previous_checkpoint` that is not equivalent to the last observed one. |
+| **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments sub stream has previously already observed a checkpoint but the received message has a `checkpoint` that precedes the last observed one, meaning that it's data that StackState already received. |
+| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` is not present on the sub stream.  
 
 ## See also
 

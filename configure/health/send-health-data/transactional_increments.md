@@ -4,14 +4,20 @@
 Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](../send-health-data.md#common-json-object).
 
 {% tabs %}
-{% tab title="Example health `repeat_states` JSON" %}
+{% tab title="Example health `transactional_increments` JSON" %}
 ```javascript
 [
     {
-      "consistency_model": "REPEAT_STATES",
-      "expiry": {
-        "repeat_interval_s": 50,
-        "expiry_interval_s": 100
+      "consistency_model": "TRANSACTIONAL_INCREMENTS",
+      "incrment": {
+            "checkpoint": {
+                "offset": 5,
+                "batch_index": 102
+            },
+            "previous_checkpoint": {
+                "offset": 5,
+                "batch_index": 100
+            }
       },
       "stream": {
         "urn": "urn:health:sourceId:streamId"
@@ -31,6 +37,10 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
           "health": "critical",
           "topologyElementIdentifier": "server-2",
           "name": "Health Monitor"
+        },
+        {
+          "checkStateId": "checkStateId3",
+          "delete": true
         }
       ]
     }
@@ -39,11 +49,13 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 {% endtab %}
 {% endtabs %}
 
-Every health Repeat States data payload has the following details:
+Every health Transactional Increments data payload has the following details:
 
-* **expiry** - Optional. An expiry update needs to be processed before processing `check_states`. This enables StackState to track how long the external checks should be present in the system if they are not sent again. It carries the following fields as expiry metadata:
-  * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 1800 (30 minutes).
-  * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState if the external check is not observed again.
+* **increment** - An increment objects needs to be present on every message. This enables StackState to track the complete chain of messages and be able to detect when a retransmission of data, or an unexpected gap in the data is occurring. It carries the following fields as increment metadata:
+  * **checkpoint** - Object providing the checkpoint that belongs the the `check_states` present in the message, it contains two fields:
+    * **offset** - The offset asigned to the messages by the streaming pipeline (e.g. Kafka offset)
+    * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that is present in the message, allowing to send big batches in separate api calls.
+  * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the very first transmission on the substream. It allows StackState to keep track if there could be any data missing from upstream.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](../../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
@@ -53,6 +65,7 @@ Every health Repeat States data payload has the following details:
   * **health** - One of the following StackState Health state values: `Clear`, `Deviating`, `Critical`.
   * **topologyElementIdentifier** - Used to bind the check state to a StackState topology element.
   * **name** - Name of the external check state.
+  * **delete** - Flag that is interpreted as a delete request for the related `checkStateId`. Even if the rest of the fields for the create are present, e.g. `name, health, ...` the delete will take precedence.
 
 
 ## Send health to StackState
@@ -74,10 +87,16 @@ curl -X POST \
   "topologies": [],
   "health": [
     {
-      "consistency_model": "REPEAT_STATES",
-      "expiry": {
-        "repeat_interval_s": 300,
-        "expiry_interval_s": 600
+      "consistency_model": "TRANSACTIONAL_INCREMENTS",
+      "incrment": {
+            "checkpoint": {
+                "offset": 5,
+                "batch_index": 102
+            },
+            "previous_checkpoint": {
+                "offset": 5,
+                "batch_index": 100
+            }
       },
       "stream": {
         "urn": "urn:health:sourceId:streamId"
@@ -96,6 +115,10 @@ curl -X POST \
           "health": "critical",
           "topologyElementIdentifier": "server-2",
           "name": "Health Monitor"
+        },
+        {
+          "checkStateId": "checkStateId3",
+          "delete": true
         }
       ]
     }
@@ -105,19 +128,8 @@ curl -X POST \
 {% endtab %}
 {% tab title="StackState CLI" %}
 ```
-sts health send expiry urn:health:sourceId:streamId \
-  --repeat-interval-seconds 300 --expiry-interval-seconds 600
-
-sts health send check-state urn:health:sourceId:streamId \
-  checkStateId1 "Disk Usage" "server-1" deviating \
-  --message "Deviating Server Running out of disk space" --consistency-model="REPEAT_STATES"
-
-sts health send check-state urn:health:sourceId:streamId \
-  checkStateId2 "Health Monitor" "server-2" critical \
-  --message "Provisioning failed. [Learn more](https://www.any-link.com)" --consistency-model="REPEAT_STATES"
+Sending Transactional increments check_states is not available, but all the debugging and introspection features can still be used.
 ```
 
 {% endtab %}
 {% endtabs %}
-
-You can also send health to StackState using the [StackState CLI `health send`](../../../develop/reference/cli_reference.md#sts-health-send) command.
