@@ -26,7 +26,7 @@ The health synchronization framework works as follows:
 ![Health synchronization pipeline](/.gitbook/assets/health-sync-pipeline.svg)
 
 ### Consistency models
-StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The two supported consistency models are: `Repeat Snapshots` and `Repeat States`.
+StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The two supported consistency models are: `Repeat Snapshots`, `Repeat States` and `Transactional Increments`.
 {% tabs %}
 {% tab title="Repeat snapshots" %}
 ### Overview
@@ -46,7 +46,7 @@ This model can be used when the external monitoring system is not capable of col
 
 {% tab title="Transactional increments" %}
 ### Overview
-Is meant to be used on streaming systems where changes are signaled through a pipeline and only those individual health state changes can be delivered to StackState. As there is no repetition of data the whole consistency of the data is handled by making sure that the whole pipeline can deliver at least once delivery guarantees. In order to achieve this StackState requires that a checkpoint and a previous checkpoints are communicated next to the check_states so it can track that no data is missing at all, metadata as `repeat_interval` or `expire_interval` are irrelevant in this case as there is no predefined periodicity on the data.
+Is meant to be used on streaming systems where changes are signaled through a pipeline and only those individual health state changes can be delivered to StackState. As there is no repetition of data the whole consistency is handled by making sure that the entire pipeline can mantain at least once delivery guarantees. In order to achieve this StackState requires that a checkpoint and a previous checkpoints are communicated next to the check_states so it can track that no data is missing at all, metadata as `repeat_interval` or `expire_interval` are irrelevant in this case as there is no predefined periodicity on the data.
 
 ### When to use
 This model can be used when the external monitoring system does not have access to the total external checks state but only works on an event based approach. Requires strict control across the whole pipeline in order to guarantee no data loss.

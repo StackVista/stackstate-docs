@@ -88,18 +88,49 @@ error message                                                                   
 Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
 ```
 
-
 ### Show sub stream status
 
 The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. This information is helpful to debug why a specific check is not visible on the expected topology element.
 
-In the example below,  `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
-
-
 ```javascript
 # Show a sub stream status.
+sts health show urn:health:sourceId:streamId -s "subStreamId3"
+
+Synchronized check state count: 32
+Repeat interval (Seconds): 120
+Expiry (Seconds): 240
+
+Synchronization errors:
+
+code    level    message    occurrence count
+------  -------  ---------  ------------------
+
+Synchronization metrics:
+
+metric                             value between now and 300 seconds ago    value between 300 and 600 seconds ago    value between 600 and 900 seconds ago
+---------------------------------  ---------------------------------------  ---------------------------------------  ---------------------------------------
+latency (Seconds)                  0.23                                     0.125                                    0.265
+messages processed (per second)    0.256                                    0.2773333333333333                       0.256
+check states created (per second)  -                                        -                                        -
+check states updated (per second)  -                                        -                                        -
+check states deleted (per second)  -
+```
+
+{% hint style="info" %}
+A sub stream status will show the metadata related to the consistency model:
+* **Repeat Snapshots** - Show repeat interval and expiry
+* **Repeat States** - Show repeat interval and expiry
+* **Transactional Increments** - Show checkpoint offset and checkpoint batch index
+{% endhint %}
+
+
+We can as well get the substream status with matched/unmatched check states detail so we can figure out if some of our health states are not finding any topology element to attach to.
+In the example below,  `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
+
+```javascript
+# Show a sub stream status matched/unmatched check states.
 sts health show urn:health:sourceId:streamId -s "subStreamId3" -t
-# Is we configured our stream to not use explicit substreams then a default 
+# If we configured our stream to not use explicit substreams then a default 
 # sub stream can be reached by omitting the optional substreamId parameter as in: 
 #sts health show urn:health:sourceId:streamId -t
 
@@ -127,6 +158,16 @@ sts health delete urn:health:sourceId:streamId
 
 ```
 
+### Clear health stream errors
+
+The clear errors functionality is helpful while setting up a health synchronization in StackState, or for the case of the `Transactional Increments` consistency model when some errors can't be removed organically. For instance a request to delete a checks state might raise an error if the check state is to known to StackState, and the only way to suppress such an error would be using the `clear-errors` command.
+
+```javascript
+# Clear health stream errors
+sts health clear-errors urn:health:sourceId:streamId 
+
+```
+
 ## Error messages
 
 {% hint style="info" %}
@@ -138,7 +179,7 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | Error| Description |
 |:---|:---|
 | **StreamMissingSubStream** | Raised when the health synchronization receives messages without a previous stream setup message as `start_snapshot` or `expiry`. |
-| **StreamConsistencyModelMismatch** | Raised when a stream has been created with certain consistency model [`REPEAT_SNAPSHOTS`, `REPEAT_STATES`] and a message that belongs to a different model is observed.
+| **StreamConsistencyModelMismatch** | Raised when a stream has been created with certain consistency model [`REPEAT_SNAPSHOTS`, `REPEAT_STATES`, `TRANSACTIONAL_INCREMENTS`] and a message that belongs to a different model is observed.
 | **SubStreamRepeatIntervalTooHigh** | Raised when the health synchronization receives a `repeat_interval_s` greater than the configured max of 30 minutes. |
 | **SubStreamStartWithoutStop** | Raised when the health synchronization receives a second message to open a snapshot when a previous snapshot was still open. |
 | **SubStreamCheckStateOutsideSnapshot** | Raised when the health synchronization receives external check states without previously opening a snapshot. |

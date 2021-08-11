@@ -173,6 +173,7 @@
   * [Send health data over HTTP](configure/health/send-health-data.md)
     * [Send health data for Repeat Snapshots model](configure/health/send-health-data/repeat_snapshots.md)
     * [Send health data for Repeat States](configure/health/send-health-data/repeat_states.md)
+    * [Send health data for Transactional Increments](configure/health/send-health-data/transactional_increments.md)
   * [Debug health synchronization](configure/health/debug-health-sync.md)
 * [Security](configure/security/README.md)
   * [Authentication](configure/security/authentication/README.md)
