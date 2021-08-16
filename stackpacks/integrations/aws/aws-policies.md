@@ -2,12 +2,12 @@
 description: AWS policy files for the StackState AWS integration
 ---
 
-# AWS IAM policies
+# Policies for AWS
 
-## Overview 
+## Overview
 
 {% hint style="info" %}
-This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS (Legacy) integration, refer to the policy files provided when the AWS (Legacy) StackPack is installed.
+This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS \(Legacy\) integration, refer to the policy files provided when the AWS \(Legacy\) StackPack is installed.
 {% endhint %}
 
 These policies are taken directly from the CloudFormation template and should be used wherever possible.
@@ -25,7 +25,7 @@ The JSON objects below contains the least-privilege IAM policy used by the AWS i
 
 For an AWS agent running outside of AWS, using an IAM user. Replace the Principal with the IAM user or AWS account that the agent is using.
 
-``` json
+```javascript
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -49,7 +49,7 @@ For an AWS agent running outside of AWS, using an IAM user. Replace the Principa
 
 For an AWS agent running on an EC2 instance:
 
-```json
+```javascript
 {
   "Version": "2008-10-17",
   "Statement": [
@@ -66,7 +66,7 @@ For an AWS agent running on an EC2 instance:
 
 ### IAM Policy Document
 
-``` json
+```javascript
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -303,7 +303,7 @@ For an AWS agent running on an EC2 instance:
 
 ### Trust Relationship
 
-``` json
+```javascript
 {
   "Version": "2008-10-17",
   "Statement": [
@@ -322,7 +322,7 @@ For an AWS agent running on an EC2 instance:
 
 Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream.
 
-``` json
+```javascript
 {
     "Statement": [
         {
@@ -343,7 +343,7 @@ Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream
 
 ### Trust Relationship
 
-``` json
+```javascript
 {
   "Version": "2008-10-17",
   "Statement": [
@@ -362,7 +362,7 @@ Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream
 
 The Condition and KMS sections are only needed if a KMS key is used. This assumes that the S3 bucket is named `stackstate-logs-${AccountId}`
 
-``` json
+```javascript
 {
     "Statement": [
         {
@@ -405,7 +405,7 @@ The Condition and KMS sections are only needed if a KMS key is used. This assume
 
 ## StsEventBridgeRule
 
-``` json
+```javascript
 {
     "detail-type": [
         "EC2 Instance State-change Notification",
@@ -434,7 +434,7 @@ The Condition and KMS sections are only needed if a KMS key is used. This assume
 
 By default this KMS key gives full access to any IAM user within the account to administer the key. This can be modified as necessary to meet your organization's security policies.
 
-``` json
+```javascript
 {
     "Version": "2012-10-17",
     "Id": "default",
@@ -503,3 +503,4 @@ By default this KMS key gives full access to any IAM user within the account to 
     ]
 }
 ```
+

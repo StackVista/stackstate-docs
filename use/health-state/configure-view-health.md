@@ -32,7 +32,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 ## React to view state changes
 
-When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](/use/metrics-and-events/send-event-notifications.md), such as an e-mail or Slack message.
+When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](../metrics-and-events/send-event-notifications.md), such as an e-mail or Slack message.
 
 ## View health state configuration functions
 

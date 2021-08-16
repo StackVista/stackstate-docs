@@ -8,15 +8,15 @@ description: StackState core integration
 
 AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues, and opportunities for optimization.
 
-AWS services provide integration with AWS X-Ray by adding a tracing header to requests, running the X-Ray daemon, or making sampling decisions, and uploading trace data to X-Ray. The X-Ray SDKs include plugins for additional integration with AWS services. 
+AWS services provide integration with AWS X-Ray by adding a tracing header to requests, running the X-Ray daemon, or making sampling decisions, and uploading trace data to X-Ray. The X-Ray SDKs include plugins for additional integration with AWS services.
 
 ## Functionality
 
 The StackState AWS X-Ray integration provides the following functionality:
+
 * Enriches AWS components with X-Ray trace service data.
 * Allows mapping the relations between X-Ray services, and ultimately AWS resources.
 * Provides performance metrics on relations between X-Ray services, as well as local anomaly detection on all performance metrics.
-
 
 ## Setup
 
@@ -24,13 +24,13 @@ To get X-Ray traces you need to attach policy **AWSXrayFullAccess** to the AWS s
 
 ### Installation
 
-The AWS X-Ray check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md). You also need to install [AWS StackPack](/stackpacks/integrations/aws/aws.md) to see rest of you AWS topology and metrics.
+The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You also need to install [AWS StackPack](aws.md) to see rest of you AWS topology and metrics.
 
 ### Configuration
 
 1. Edit the `aws_xray.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your Tomcat metrics and logs. See the sample `aws_xray.d/conf.yaml.example` for all available configuration options.
 
-```
+```text
 # Section used for global AWS check config
 init_config:
     # optional
@@ -46,7 +46,7 @@ instances:
     # min_collection_interval: 60
 ```
 
-2. Restart the Agent
-
+1. Restart the Agent
 
 Need help? Please contact [StackState support](http://support.stackstate.com/).
+

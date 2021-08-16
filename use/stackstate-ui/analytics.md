@@ -41,7 +41,7 @@ Results of queries are typically displayed in raw JSON form, unless there is a p
 
 ## Queries
 
-In the analytics environment, you use a combination of the [StackState Scripting Language \(STSL\)](/develop/reference/scripting/) and the [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md) to build your queries and scripts.
+In the analytics environment, you use a combination of the [StackState Scripting Language \(STSL\)](../../develop/reference/scripting/) and the [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build your queries and scripts.
 
 A query is a regular STSL script. For example, when you run the query: `1+1` you will get the result `2`.
 
@@ -69,7 +69,7 @@ Topology
 
 This analytical query first gets all metrics streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
 
-The full list of available functions can be found [in the Script API documentation](/develop/reference/scripting/script-apis/). To learn about chaining, see [async script results](../../develop/reference/scripting/async_script_result.md).
+The full list of available functions can be found [in the Script API documentation](../../develop/reference/scripting/script-apis/). To learn about chaining, see [async script results](../../develop/reference/scripting/async_script_result.md).
 
 ### Example queries
 
@@ -188,7 +188,7 @@ Prediction.predictMetrics("linear", "7d",
 
 ## See also
 
-* [StackState scripting language \(STSL\)](/develop/reference/scripting/)
-* [StackState script APIs](/develop/reference/scripting/script-apis/)
-* [StackState Query Language \(STQL\)](/develop/reference/stql_reference.md)
+* [StackState scripting language \(STSL\)](../../develop/reference/scripting/)
+* [StackState script APIs](../../develop/reference/scripting/script-apis/)
+* [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
 

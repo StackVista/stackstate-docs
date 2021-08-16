@@ -14,38 +14,38 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Features**
 
-- Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
-- Signficantly [improved Topology navigation](/use/stackstate-ui/perspectives/topology-perspective.md): 
-  - Improved component popover with direct links to contextual actions. STAC-12909
-  - Double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective
-  - Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
-- Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
-- Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
-- Support fast and low-overhead direct [synchronization of health states from external (monitoring) tools](/configure/health/health-synchronization.md). STAC-11290
+* Integrate network monitoring information from [SolarWinds](../../stackpacks/integrations/solarwinds.md). STAC-13360
+* Signficantly [improved Topology navigation](../../use/stackstate-ui/perspectives/topology-perspective.md): 
+  * Improved component popover with direct links to contextual actions. STAC-12909
+  * Double clicking on a topology element \(group, component or relation\) "zooms into" that element in the Topology Perspective
+  * Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
+* Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
+* Simplified installation and configuration of [AWS integration](../../stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
+* Support fast and low-overhead direct [synchronization of health states from external \(monitoring\) tools](../../configure/health/health-synchronization.md). STAC-11290
 
 **Improvements**
 
-- The API-Integration StackPack has been removed. STAC-13346
-- [Support BCrypt](/configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
-- Configuration of authorization for various StackState APIs can now be [defined in one central location](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12968
-- Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
-- The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
-- [Timeline improvements](/use/stackstate-ui/timeline-time-travel.md):
-  - It is now possible to zoom out of a time range. STAC-12533
-  - Added support for navigating to the next and previous time range. STAC-12531
-- Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
-- [Relations to component groups are shown as solid lines](/use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation (this is also called surjective). STAC-11621
-- Improve how component names are displayed in the Topology Perspective. STAC-13063
-- The component finder modal can now be invoked using the [keyboard shortcut](/use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
+* The API-Integration StackPack has been removed. STAC-13346
+* [Support BCrypt](../../configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
+* Configuration of authorization for various StackState APIs can now be [defined in one central location](version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12968
+* Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
+* The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
+* [Timeline improvements](../../use/stackstate-ui/timeline-time-travel.md):
+  * It is now possible to zoom out of a time range. STAC-12533
+  * Added support for navigating to the next and previous time range. STAC-12531
+* Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
+* [Relations to component groups are shown as solid lines](../../use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
+* Improve how component names are displayed in the Topology Perspective. STAC-13063
+* The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
 
 **Bug fixes**
 
-- Fixed issue that caused an import via the CLI to fail. STAC-13481
-- The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
-- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
-- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
-- Fixed crash when accessing the logs API. STAC-13149
-- Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
+* Fixed issue that caused an import via the CLI to fail. STAC-13481
+* The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
+* Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+* Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+* Fixed crash when accessing the logs API. STAC-13149
+* Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
 ## StackState v4.3.x
 
@@ -53,25 +53,25 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Bug fixes**
 
-- Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
+* Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 
 ### v4.3.3
 
 **Bug fixes**
 
-- Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
+* Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 
 ### v4.3.2
 
 **Bug fixes**
 
-- Fix crash when accessing the logs api. STAC-13149
+* Fix crash when accessing the logs api. STAC-13149
 
 ### v4.3.1
 
 **Improvements**
 
-* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/installation/cli-install.md#authentication). STAC-12567
+* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](../installation/cli-install.md#authentication). STAC-12567
 * Any change to a check will update the check state data and fire a change event. STAC-12472
 
 **Bug fixes**
@@ -93,7 +93,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
-* Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-cert.md). STAC-11738
+* Added support for interacting with external systems using [self-signed certificates](../../configure/security/self-signed-cert.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
 * StackState now supports [API tokens for authentication of the StackState CLI](../installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
@@ -203,12 +203,12 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## Unsupported versions
 
-The versions below are have reached End of Life (EOL) and are no longer be supported
+The versions below are have reached End of Life \(EOL\) and are no longer be supported
 
 ### StackState v4.1.x
 
 {% hint style="info" %}
-With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) and is no longer supported.
+With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\) and is no longer supported.
 {% endhint %}
 
 #### v4.1.3
@@ -268,7 +268,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life (EOL) a
 ### StackState v4.0.x
 
 {% hint style="info" %}
-StackState v4.0 is End of Life (EOL) and is no longer supported.
+StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 {% endhint %}
 
 #### v4.0.4
@@ -322,7 +322,7 @@ StackState v4.0 is End of Life (EOL) and is no longer supported.
 * Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 * Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
 * `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, you changes will need to be reaplied after upgrade. STAC-8473
-* The authentication for the admin API (port 7071 by default) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api (by default not) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
-* It is now possible to configure a proxy for event handlers, see [how to set this up](/configure/topology/proxy-for-event-handlers.md). STAC-7784
+* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
+* It is now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718
 

@@ -185,8 +185,8 @@ The ID for a check or propagation on a specific component can be found in in the
 ## See also
 
 * [StackState CLI](../../setup/installation/cli-install.md)
-* [Check functions](/develop/developer-guides/custom-functions/check-functions.md)
-* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
+* [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 * [State propagation and propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md)
 * [View state configuration functions](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
 

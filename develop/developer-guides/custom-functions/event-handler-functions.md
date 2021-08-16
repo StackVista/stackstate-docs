@@ -2,7 +2,7 @@
 
 ## Overview
 
-Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to [send an event notification](/use/metrics-and-events/send-event-notifications.md) or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can create your own custom event handler functions.
+Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to [send an event notification](../../../use/metrics-and-events/send-event-notifications.md) or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can create your own custom event handler functions.
 
 ## Create a custom event handler function
 
@@ -25,9 +25,9 @@ Advanced StackState users can write their own custom event handler functions tha
      * How to [add logging to a function](event-handler-functions.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
-   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
+   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../../use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
 
-![Add a custom event handler function](/.gitbook/assets/v44_event_handler_functions.png)
+![Add a custom event handler function](../../../.gitbook/assets/v44_event_handler_functions.png)
 
 ## Parameters
 
@@ -42,24 +42,24 @@ For details of the properties that can be retrieved from the default **view** an
 
 ## Supported event types
 
-One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](/use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](../../../use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 One or more of the following events can be selected:
 
 * **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 * **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 * **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes.
-* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](/use/problem-analysis/problems.md) in the view.
+* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](../../../use/problem-analysis/problems.md) in the view.
 
 ## Logging
 
-You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](/configure/logging/enable-logging.md).
+You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/enable-logging.md).
 
 ## Asynchronous execution \(default\)
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function also has access to the [StackState script APIs](/develop/reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
+An asynchronous event handler function also has access to the [StackState script APIs](../../reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
 
 The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
@@ -118,7 +118,7 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 
 The properties listed below return details of a `ProblemCreatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemCreatedEvent`).
+* `event._type` - returns the event type \(`ProblemCreatedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -129,7 +129,7 @@ The properties listed below return details of a `ProblemCreatedEvent` in functio
 
 The properties listed below return details of a `ProblemUpdatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemUpdatedEvent`).
+* `event._type` - returns the event type \(`ProblemUpdatedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -140,7 +140,7 @@ The properties listed below return details of a `ProblemUpdatedEvent` in functio
 
 The properties listed below return details of a `ProblemSubsumedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemSubsumedEvent`).
+* `event._type` - returns the event type \(`ProblemSubsumedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -151,7 +151,7 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 
 The properties listed below return details of a `ProblemResolvedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemResolvedEvent`).
+* `event._type` - returns the event type \(`ProblemResolvedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -222,7 +222,7 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 
 The properties listed below return details of a `ProblemCreated` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemCreated`).
+* `event._type` - returns the event type \(`ProblemCreated`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -233,7 +233,7 @@ The properties listed below return details of a `ProblemCreated` event in functi
 
 The properties listed below return details of a `ProblemUpdated` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemUpdated`).
+* `event._type` - returns the event type \(`ProblemUpdated`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -244,7 +244,7 @@ The properties listed below return details of a `ProblemUpdated` event in functi
 
 The properties listed below return details of a `ProblemSubsumed` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemSubsumed`).
+* `event._type` - returns the event type \(`ProblemSubsumed`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -255,7 +255,7 @@ The properties listed below return details of a `ProblemSubsumed` event in funct
 
 The properties listed below return details of a `ProblemResolved` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
 
-* `event._type` - returns the event type (`ProblemResolved`).
+* `event._type` - returns the event type \(`ProblemResolved`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
@@ -267,14 +267,15 @@ Synchronous event handler functions use plugins to send notifications to externa
 
 | Plugin | Description |  |
 | :--- | :--- | :--- |
-| email | Sends an email using the [configured SMTP server](/configure/topology/configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
+| email | Sends an email using the [configured SMTP server](../../../configure/topology/configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
 | HTTP webhook | Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
 | SMS | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  |
 
 ## See also
 
-* [Enable logging for functions](/configure/logging/enable-logging.md)
-* [Send event notifications using an event handler function](/use/metrics-and-events/send-event-notifications.md)
-* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md)  
-* [StackState script APIs](/develop/reference/scripting/script-apis/)
+* [Enable logging for functions](../../../configure/logging/enable-logging.md)
+* [Send event notifications using an event handler function](../../../use/metrics-and-events/send-event-notifications.md)
+* [Configure an SMTP server to send email event notifications](../../../configure/topology/configure-email-event-notifications.md)  
+* [StackState script APIs](../../reference/scripting/script-apis/)
 * [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)
+
