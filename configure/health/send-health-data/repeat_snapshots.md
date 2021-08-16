@@ -1,4 +1,8 @@
-### JSON property: "health"
+## Overview
+
+This page described the exact json messages that can be sent for the repeat snapshot consistency model for the health synchronization.
+
+## JSON property: "health"
 
 Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](../send-health-data.md#common-json-object).
 
@@ -56,7 +60,7 @@ Every health Repeat Snapshots data payload has the following details:
   * **name** - Name of the external check state.
 
 
-### Send health to StackState
+## Send health to StackState
 
 Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](../../../develop/reference/cli_reference.md#sts-health-send). In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 

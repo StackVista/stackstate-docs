@@ -42,11 +42,10 @@ Health is sent to the receiver API via HTTP POST and has a common JSON object fo
 }
 ```
 
-## Different health data configurations
-
-StackState accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models) which should remain consistent across the life of the stream.
+StackState accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models). The meessage that can be sent for each model are described on the pages below:
 * [Repeat Snapshots JSON](/configure/health/send-health-data/repeat_snapshots.md)
 * [Repeat States JSON](/configure/health/send-health-data/repeat_states.md)
+* [Transactional Increments JSON](/configure/health/send-health-data/transactional_increments.md)
 
 
 ## See also

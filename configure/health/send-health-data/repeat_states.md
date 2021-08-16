@@ -1,4 +1,7 @@
-## JSON property: "health"
+## Overview
+
+This page described the exact json messages that can be sent for the repeat states consistency model for the health synchronization.
+
 ## JSON property: "health"
 
 Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](../send-health-data.md#common-json-object).

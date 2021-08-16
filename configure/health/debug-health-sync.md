@@ -124,7 +124,7 @@ A sub stream status will show the metadata related to the consistency model:
 {% endhint %}
 
 
-We can as well get the substream status with matched/unmatched check states detail so we can figure out if some of our health states are not finding any topology element to attach to.
+The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
 In the example below,  `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
 
 ```javascript
@@ -160,7 +160,7 @@ sts health delete urn:health:sourceId:streamId
 
 ### Clear health stream errors
 
-The clear errors functionality is helpful while setting up a health synchronization in StackState, or for the case of the `Transactional Increments` consistency model when some errors can't be removed organically. For instance a request to delete a checks state might raise an error if the check state is to known to StackState, and the only way to suppress such an error would be using the `clear-errors` command.
+The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or for the case of the `Transactional Increments` consistency model when some errors can't be removed organically. For instance a request to delete a checks state might raise an error if the check state is to known to StackState, and the only way to suppress such an error would be using the `clear-errors` command.
 
 ```javascript
 # Clear health stream errors
@@ -179,7 +179,7 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | Error| Description |
 |:---|:---|
 | **StreamMissingSubStream** | Raised when the health synchronization receives messages without a previous stream setup message as `start_snapshot` or `expiry`. |
-| **StreamConsistencyModelMismatch** | Raised when a stream has been created with certain consistency model [`REPEAT_SNAPSHOTS`, `REPEAT_STATES`, `TRANSACTIONAL_INCREMENTS`] and a message that belongs to a different model is observed.
+| **StreamConsistencyModelMismatch** | Raised when a message is received that belongs to a different consistency model than that specified when the stream was created. |
 | **SubStreamRepeatIntervalTooHigh** | Raised when the health synchronization receives a `repeat_interval_s` greater than the configured max of 30 minutes. |
 | **SubStreamStartWithoutStop** | Raised when the health synchronization receives a second message to open a snapshot when a previous snapshot was still open. |
 | **SubStreamCheckStateOutsideSnapshot** | Raised when the health synchronization receives external check states without previously opening a snapshot. |
@@ -188,9 +188,9 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | **SubStreamExpired** | Raised when the health synchronization stops receiving data on a particular sub stream for longer than the configured `expiry_interval_s`. In this case, the sub stream will be deleted. |
 | **SubStreamLateData** | Raised when the health synchronization does not receive a complete snapshot timely based on the established `repeat_interval_s`. |
 | **SubStreamTransformerError** | Raised when the health synchronization is unable to interpret the payload sent to the receiver. For example, "Missing required field 'name'" with payload `{"checkStateId":"checkStateId3","health":"deviating","message":"Unable to provision the device. ","topologyElementIdentifier":"server-3"}` and transformation `Default Transformation`. |
-| **SubStreamMissingCheckpoint** | Raised when a Transactional increments sub stream has previously already observed a checkpoint but the received message is missing the `previous_checkpoint` |
-| **SubStreamInvalidCheckpoint** | Raised when a Transactional increments sub stream has previously already observed a checkpoint but the received message has a `previous_checkpoint` that is not equivalent to the last observed one. |
-| **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments sub stream has previously already observed a checkpoint but the received message has a `checkpoint` that precedes the last observed one, meaning that it's data that StackState already received. |
+| **SubStreamMissingCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message is missing the `previous_checkpoint` |
+| **SubStreamInvalidCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `previous_checkpoint` that is not equivalent to the last observed one. |
+| **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `checkpoint` that precedes the last observed one, meaning that its data that StackState already received. |
 | **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` is not present on the sub stream.  
 
 ## See also
