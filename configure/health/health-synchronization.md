@@ -45,7 +45,6 @@ The `REPEAT_STATES` consistency model works with periodic checks received from a
 {% endtab %}
 
 {% tab title="Transactional Increments model" %}
-#### Overview
 The `TRANSACTIONAL_INCREMENTS` consistency model is designed to be used on streaming systems where only incremental changes are communicated to StackState. As there is no repetition of data, data consistency is upheld by ensuring that at-least-once delivery is guaranteed across the entire pipeline. To detect whether any data is missing, StackState requires that both a checkpoint and the previous checkpoint are communicated together with the `check_states`. This model requires strict control across the whole pipeline to guarantee no data loss.
 
 **Use this model when:** The external monitoring system does not have access to the total external checks state, but only works on an event based approach. 
