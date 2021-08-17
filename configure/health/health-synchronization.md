@@ -29,9 +29,11 @@ The health synchronization framework works as follows:
 StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The consistency model is specified in the `"health"` property of the [common JSON object](/configure/health/send-health-data.md#common-json-object) or as an argument in the StackState CLI when health data is sent to StackState. The supported models are: `REPEAT_SNAPSHOTS`, `REPEAT_STATES` and `TRANSACTIONAL_INCREMENTS`. 
 {% tabs %}
 {% tab title="Repeat snapshots model" %}
-The `REPEAT_SNAPSHOTS` consistency model works with periodic full snapshots of all external checks in an external monitoring system. StackState keeps track of the external checks in each received snapshot and decides if external check states need to be created, updated or deleted. For example, if a check state is no longer present in a snapshot. This model offers full control over which external checks will be deleted as all decisions are inferred from the received snapshots. There is no ambiguity over the external checks that will be present in StackState. The [Repeat Snapshots health payload](/configure/health/send-health-data/repeat_snapshots.md) accepts specific properties to specify when a snapshot starts or stops.
+The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of all external checks in an external monitoring system. StackState keeps track of the external checks in each received snapshot and decides if external check states need to be created, updated or deleted. For example, if a check state is no longer present in a snapshot. This model offers full control over which external checks will be deleted as all decisions are inferred from the received snapshots. There is no ambiguity over the external checks that will be present in StackState.
 
 **Use this model when:** The external monitoring system is capable of keeping the state of which elements are present in a determined time window and therefore can communicate how the full snapshot looks like. 
+
+**JSON payload:** The [Repeat Snapshots health payload](/configure/health/send-health-data/repeat_snapshots.md) accepts specific properties to specify when a snapshot starts or stops.
 {% endtab %}
 
 {% tab title="Repeat States model" %}

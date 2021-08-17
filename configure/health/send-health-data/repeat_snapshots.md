@@ -1,6 +1,6 @@
 ## Overview
 
-This page describes the exact JSON messages that can be sent for the health synchronization Repeat Snapshot consistency model.
+This page describes the exact JSON messages that can be sent for the health synchronization Repeat Snapshots consistency model.
 
 ## JSON property: "health"
 
