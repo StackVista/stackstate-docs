@@ -29,7 +29,7 @@ The health synchronization framework works as follows:
 StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The consistency model is specified in the `"health"` property of the [common JSON object](/configure/health/send-health-data.md#common-json-object) or as an argument in the StackState CLI when health data is sent to StackState. The supported models are: `REPEAT_SNAPSHOTS`, `REPEAT_STATES` and `TRANSACTIONAL_INCREMENTS`. 
 {% tabs %}
 {% tab title="Repeat snapshots model" %}
-The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of all external checks in an external monitoring system. StackState keeps track of the external checks in each received snapshot and decides if external check states need to be created, updated or deleted. For example, if a check state is no longer present in a snapshot. This model offers full control over which external checks will be deleted as all decisions are inferred from the received snapshots. There is no ambiguity over the external checks that will be present in StackState.
+The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of all checks in an external monitoring system. StackState keeps track of the checks in each received snapshot and decides if associated external check states need to be created, updated or deleted in StackState. For example, if a check state is no longer present in a snapshot. This model offers full control over which external checks will be deleted as all decisions are inferred from the received snapshots. There is no ambiguity over the external checks that will be present in StackState.
 
 **Use this model when:** The external monitoring system is capable of keeping the state of which elements are present in a determined time window and therefore can communicate how the full snapshot looks like. 
 
@@ -37,11 +37,11 @@ The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of 
 {% endtab %}
 
 {% tab title="Repeat States model" %}
-#### Overview
-The `REPEAT_STATES` consistency model relies on periodically receiving external checks from the external monitoring system. StackState keeps track of the external checks and decides if some external checks need to be created or updated. In order to delete external checks it uses a configurable expiry mechanism to delete external checks that are not observed anymore. The [Repeat States health payload](/configure/health/send-health-data/repeat_states.md) accepts specific properties to specify what the expiry configuration should be.
+The `REPEAT_STATES` consistency model works with periodic checks received from an external monitoring system. StackState keeps track of the checks and decides if associated external checks need to be created or updated in StackState. A configurable expiry mechanism is used to delete external checks that are not observed anymore. This model offers less control over data than the `REPEAT_SNAPSHOTS` model. As an expiry configuration is used to delete external checks, it might happen that elements are deleted due to barely missing the expiry timeout. This would reflect as external checks disappearing and reappearing in StackState.
 
-#### When to use
-The `REPEAT_STATES` model can be used when the external monitoring system is not capable of collecting all the external check in a determined time window and the best effort is just to send the external checks as they are obtained. This model offers less control into the data as it relies on an expiry configuration to delete external checks and it might happen that elements are deleted due to barely missing the expiry timeout, which would reflect as external checks disappearing and reappearing from StackState.
+**Use this model when:** The external monitoring system is not capable of collecting all checks in a determined time window, and the best effort is just to send the external checks as they are obtained.
+
+**JSON payload:** The [Repeat States health payload](/configure/health/send-health-data/repeat_states.md) accepts specific properties to specify the expiry configuration.
 {% endtab %}
 
 {% tab title="Transactional Increments model" %}
