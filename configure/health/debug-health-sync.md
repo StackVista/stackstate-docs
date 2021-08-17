@@ -149,7 +149,7 @@ check state id    topology element identifier    number of matched topology elem
 
 ### Delete a health stream
 
-The delete stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop it's data when you are sure that you do not want to keep using it.
+The `delete` stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you do not want to keep using it.
 
 ```javascript
 # Delete a health synchronization stream
@@ -158,7 +158,7 @@ sts health delete urn:health:sourceId:streamId
 
 ### Clear health stream errors
 
-The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or for the case of the `Transactional Increments` consistency model when some errors can't be removed organically. For instance a request to delete a checks state might raise an error if the check state is to known to StackState, and the only way to suppress such an error would be using the `clear-errors` command.
+The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when some errors can't be removed organically. For example, a request to delete a check state might raise an error if the check state is not known to StackState. The only way to suppress such an error would be to use the `clear-errors` command.
 
 ```javascript
 # Clear health stream errors

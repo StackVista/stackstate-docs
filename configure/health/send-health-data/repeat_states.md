@@ -1,10 +1,10 @@
 ## Overview
 
-This page described the exact json messages that can be sent for the repeat states consistency model for the health synchronization.
+This page describes the exact JSON messages that can be sent for the health synchronization Repeat States consistency model.
 
 ## JSON property: "health"
 
-Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](../send-health-data.md#common-json-object).
+Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
 
 {% tabs %}
 {% tab title="Example health `repeat_states` JSON" %}
@@ -48,7 +48,7 @@ Every health Repeat States data payload has the following details:
   * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 1800 (30 minutes).
   * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState if the external check is not observed again.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
-  * **urn** - Data source and stream ID encoded as a StackState [URN](../../../configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
+  * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
@@ -60,7 +60,7 @@ Every health Repeat States data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](../../../develop/reference/cli_reference.md#sts-health-send). In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](/develop/reference/cli_reference.md#sts-health-send). In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
@@ -109,18 +109,19 @@ curl -X POST \
 {% tab title="StackState CLI" %}
 ```
 sts health send expiry urn:health:sourceId:streamId \
-  --repeat-interval-seconds 300 --expiry-interval-seconds 600
+  --repeat-interval-seconds 300 \
+  --expiry-interval-seconds 600
 
 sts health send check-state urn:health:sourceId:streamId \
   checkStateId1 "Disk Usage" "server-1" deviating \
-  --message "Deviating Server Running out of disk space" --consistency-model="REPEAT_STATES"
+  --message "Deviating Server Running out of disk space" \
+  --consistency-model="REPEAT_STATES"
 
 sts health send check-state urn:health:sourceId:streamId \
   checkStateId2 "Health Monitor" "server-2" critical \
-  --message "Provisioning failed. [Learn more](https://www.any-link.com)" --consistency-model="REPEAT_STATES"
+  --message "Provisioning failed. [Learn more](https://www.any-link.com)" \
+  --consistency-model="REPEAT_STATES"
 ```
 
 {% endtab %}
 {% endtabs %}
-
-You can also send health to StackState using the [StackState CLI `health send`](../../../develop/reference/cli_reference.md#sts-health-send) command.

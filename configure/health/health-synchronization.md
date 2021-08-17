@@ -26,30 +26,30 @@ The health synchronization framework works as follows:
 ![Health synchronization pipeline](../../.gitbook/assets/health-sync-pipeline.svg)
 
 ### Consistency models
-StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The supported consistency models are: `Repeat Snapshots`, `Repeat States` and `Transactional Increments`.
+StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The consistency model is specified in the `"health"` property of the [common JSON object](/configure/health/send-health-data.md#common-json-object) or as an argument in the StackState CLI when health data is sent to StackState. The supported models are: `REPEAT_SNAPSHOTS`, `REPEAT_STATES` and `TRANSACTIONAL_INCREMENTS`. 
 {% tabs %}
-{% tab title="Repeat snapshots" %}
-### Overview
-Relies on periodically receiving the full snapshot of how the external checks look like in the external monitoring system. StackState keeps track of the external checks on each received snapshot and decides if some external check states need to be created, updated or deleted. For example, if they are not present on a snapshot anymore. The [Repeat Snapshots health payload](/configure/health/send-health-data/repeat_snapshots.md) accepts specific properties to specify when a snapshot starts or stops.
+{% tab title="Repeat snapshots model" %}
+#### Overview
+The `REPEAT_SNAPSHOTS` model relies on periodically receiving the full snapshot of how the external checks look like in the external monitoring system. StackState keeps track of the external checks on each received snapshot and decides if some external check states need to be created, updated or deleted. For example, if they are not present on a snapshot anymore. The [Repeat Snapshots health payload](/configure/health/send-health-data/repeat_snapshots.md) accepts specific properties to specify when a snapshot starts or stops.
 
-### When to use
-This model can be used when the external monitoring system is capable of keeping the state of which elements are present in a determined time window and therefore can communicate how the full snapshot looks like. It offers full control over which external checks will be deleted as all decisions are inferred from the received snapshots. This model gives full control over the data that StackState will show as there's no ambiguity whether some external check should be present or not in StackState.
+#### When to use
+The `REPEAT_SNAPSHOTS` model can be used when the external monitoring system is capable of keeping the state of which elements are present in a determined time window and therefore can communicate how the full snapshot looks like. It offers full control over which external checks will be deleted as all decisions are inferred from the received snapshots. This model gives full control over the data that StackState will show as there's no ambiguity whether some external check should be present or not in StackState.
 {% endtab %}
 
-{% tab title="Repeat states" %}
-### Overview
-Relies on periodically receiving external checks from the external monitoring system. StackState keeps track of the external checks and decides if some external checks need to be created or updated. In order to delete external checks it uses a configurable expiry mechanism to delete external checks that are not observed anymore. The [Repeat States health payload](/configure/health/send-health-data/repeat_states.md) accepts specific properties to specify what the expiry configuration should be.
+{% tab title="Repeat States model" %}
+#### Overview
+The `REPEAT_STATES` model relies on periodically receiving external checks from the external monitoring system. StackState keeps track of the external checks and decides if some external checks need to be created or updated. In order to delete external checks it uses a configurable expiry mechanism to delete external checks that are not observed anymore. The [Repeat States health payload](/configure/health/send-health-data/repeat_states.md) accepts specific properties to specify what the expiry configuration should be.
 
-### When to use
-This model can be used when the external monitoring system is not capable of collecting all the external check in a determined time window and the best effort is just to send the external checks as they are obtained. This model offers less control into the data as it relies on an expiry configuration to delete external checks and it might happen that elements are deleted due to barely missing the expiry timeout, which would reflect as external checks disappearing and reappearing from StackState.
+#### When to use
+The `REPEAT_STATES` model can be used when the external monitoring system is not capable of collecting all the external check in a determined time window and the best effort is just to send the external checks as they are obtained. This model offers less control into the data as it relies on an expiry configuration to delete external checks and it might happen that elements are deleted due to barely missing the expiry timeout, which would reflect as external checks disappearing and reappearing from StackState.
 {% endtab %}
 
-{% tab title="Transactional increments" %}
-### Overview
-Designed to be used on streaming systems where only incremental changes are communicated to StackState. As there is no repetition of data, data consistency is upheld by ensuring that at-least-once delivery is guaranteed across the entire pipeline. To detect whether any data is missing, StackState requires that a checkpoint and the previous checkpoint are communicated together with the `check_states`. The metadata `repeat_interval` and `expire_interval` are not relevant for this model as there is no predefined periodicity on the data
+{% tab title="Transactional Increments model" %}
+#### Overview
+The `TRANSACTIONAL_INCREMENTS` model is designed to be used on streaming systems where only incremental changes are communicated to StackState. As there is no repetition of data, data consistency is upheld by ensuring that at-least-once delivery is guaranteed across the entire pipeline. To detect whether any data is missing, StackState requires that a checkpoint and the previous checkpoint are communicated together with the `check_states`. The metadata `repeat_interval` and `expire_interval` are not relevant for the [Transactional Increments health payload](/configure/health/send-health-data/transactional_increments.md) as there is no predefined periodicity on the data.
 
-### When to use
-This model can be used when the external monitoring system does not have access to the total external checks state, but only works on an event based approach. Requires strict control across the whole pipeline in order to guarantee no data loss.
+#### When to use
+The `TRANSACTIONAL_INCREMENTS` model can be used when the external monitoring system does not have access to the total external checks state, but only works on an event based approach. Requires strict control across the whole pipeline in order to guarantee no data loss.
 {% endtab %}
 {% endtabs %}
 
@@ -78,6 +78,6 @@ The health check state calculated by an external monitoring system. This contain
 ## See also
 
 * [Add a health check based on telemetry available in StackState](../../use/health-state/add-a-health-check.md)
-* [JSON health payload](send-health-data.md#json-property-health)
+* [JSON health payload](/configure/health/send-health-data/send-health-data.md#json-property-health)
 * [Topology synchronization](../topology/topology_synchronization.md)
 
