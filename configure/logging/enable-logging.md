@@ -178,15 +178,15 @@ The ID for a check or propagation on a specific component can be found in in the
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
-![Show JSON](../../.gitbook/assets/v43_show-json.png)
+![Show JSON](../../.gitbook/assets/v44_show-json.png)
 
 * Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 
 ## See also
 
 * [StackState CLI](../../setup/installation/cli-install.md)
-* [Checks and check functions](../telemetry/checks_and_streams.md#checks)
-* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
+* [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 * [State propagation and propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md)
 * [View state configuration functions](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
 

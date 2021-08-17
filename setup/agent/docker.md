@@ -6,7 +6,7 @@
 **StackState Agent V2**
 {% endhint %}
 
-StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
+StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve topology data for the cluster.
 
@@ -16,7 +16,7 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 To start a single Docker container with StackState Agent V2, run the following command:
 
-```
+```text
 docker run -d \
     --name stackstate-agent \
     --privileged \
@@ -37,8 +37,9 @@ docker run -d \
 To run StackState Agent V2 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run:
-```
-stackstate-agent:
+
+   ```text
+   stackstate-agent:
     image: docker.io/stackstate/stackstate-agent-2:latest
     network_mode: "host"
     pid: "host"
@@ -56,51 +57,54 @@ stackstate-agent:
       STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
-```
-   
+   ```
+
 2. Run the command:
-```
-docker-compose up -d
-```
+
+   ```text
+   docker-compose up -d
+   ```
 
 ### Docker swarm mode
 
-In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data (services, containers and the relations between them). To retrieve full data, StackState Agent V2 must also be deployed on each node as a [Docker compose setup](#docker-compose).
+In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, StackState Agent V2 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
 
 To run StackState Cluster Agent in Docker Swarm mode:
 
-1.  Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
-    - **STS_API_KEY** - the API Key for your StackState instance
-    - **STS_STS_URL** - the URL of the StackState Receiver API
-    - **STS_CLUSTER_NAME** - the name you would like to give this cluster
+1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
 
-    ```yaml
-    stackstate-agent:
-        image: docker.io/stackstate/stackstate-cluster-agent:latest
-        deploy:
-          placement:
-            constraints: [ node.role == manager ]
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock:ro
-          - /etc/passwd:/etc/passwd:ro
-          - /sys/kernel/debug:/sys/kernel/debug
-        environment:
-          STS_API_KEY: "API_KEY"
-          STS_STS_URL: "http://receiver:7077/stsAgent"
-          STS_COLLECT_SWARM_TOPOLOGY: "true"
-          STS_LOG_LEVEL: "debug"
-          STS_LOG_TO_CONSOLE: "true"
-          DOCKER_SWARM: "true"
-          STS_CLUSTER_NAME: <cluster_name>
-    ```
+   * **STS\_API\_KEY** - the API Key for your StackState instance
+   * **STS\_STS\_URL** - the URL of the StackState Receiver API
+   * **STS\_CLUSTER\_NAME** - the name you would like to give this cluster
+
+   ```yaml
+   stackstate-agent:
+       image: docker.io/stackstate/stackstate-cluster-agent:latest
+       deploy:
+         placement:
+           constraints: [ node.role == manager ]
+       volumes:
+         - /var/run/docker.sock:/var/run/docker.sock:ro
+         - /etc/passwd:/etc/passwd:ro
+         - /sys/kernel/debug:/sys/kernel/debug
+       environment:
+         STS_API_KEY: "API_KEY"
+         STS_STS_URL: "http://receiver:7077/stsAgent"
+         STS_COLLECT_SWARM_TOPOLOGY: "true"
+         STS_LOG_LEVEL: "debug"
+         STS_LOG_TO_CONSOLE: "true"
+         DOCKER_SWARM: "true"
+         STS_CLUSTER_NAME: <cluster_name>
+   ```
 
 2. Run the command:
-```
-docker stack deploy -c docker-compose.yml
-```
 
-{% hint style="hint" %}
-Running the StackState Cluster Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](#docker-compose).
+   ```text
+   docker stack deploy -c docker-compose.yml
+   ```
+
+{% hint style="info" %}
+Running the StackState Cluster Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
 {% endhint %}
 
 ### Upgrade
@@ -109,12 +113,12 @@ To upgrade StackState Agent V2 running inside a Docker container.
 
 1. Stop the running container and remove it.
 
-```
+```text
 docker stop stackstate-agent
 docker container rm stackstate-agent
-```   
+```
 
-2. Run the container using the instructions provided in [setup](#setup).
+1. Run the container using the instructions provided in [setup](docker.md#setup).
 
 ## Configure
 
@@ -124,33 +128,7 @@ The StackState Agent V2 configuration is located in the file `/etc/stackstate-ag
 
 ### Advanced Agent configuration
 
-#### Blacklist and inclusions
-
-Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included. 
-
-The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
-
-To specify a blacklist and/or inclusions, set the below environment variables and restart StackState Agent V2.
-
-| Environment variable | Description |
-|:---|:---|
-| `STS_PROCESS_BLACKLIST_PATTERNS` | A list of regex patterns that will exclude a process if matched. [Default patterns \(github.com\)](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go).  |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_CPU_THRESHOLD` | Threshold that enables the reporting of high CPU usage processes. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | The number of processes to report that have a high CPU usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | The number of processes to report that have a high IO read usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | The number of processes to report that have a high IO write usage. Default `0`. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | Threshold that enables the reporting of high Memory usage processes. |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_MEM` | The number of processes to report that have a high memory usage. Default `0`. |
-
-#### Disable Agent features
-
-Certain features of the Agent can optionally be turned off if they are not needed. To disable a feature, set the below environment variables and restart StackState Agent V2.
-
-| Environment variable | Description |
-|:---|:---|
-| `STS_PROCESS_AGENT_ENABLED` | Default `true` (collects containers and processes). Set to `false` to collect only containers, or `disabled` to disable the process Agent.|
-| `STS_APM_ENABLED` | Default `true`. Set to `"false"` to disable the APM Agent. |
-| `STS_NETWORK_TRACING_ENABLED` | Default `true`. Set to `false` to disable the network tracer. |
+A number of advanced configuration options are available for StackState Agent V2. These can be set using environment variables and are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### Integration configuration
 
@@ -158,7 +136,7 @@ StackState Agent V2 can be configured to run checks that integrate with external
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
-```
+```text
 stackstate-agent:
     image: docker.io/stackstate/stackstate-agent-2:latest
     network_mode: "host"
@@ -178,21 +156,21 @@ stackstate-agent:
       HOST_SYS: "/host/sys"
 ```
 
-Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
 ### Self-Signed Certificates
 
 If StackState Agent V2 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
 
-```
+```text
   CURL_CA_BUNDLE = ""
 ```
 
 ### Traces
 
-StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](/configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
+StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](../../configure/traces/how_to_setup_traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
 
-```
+```text
   service:
     ...
     pid: "host" # should match with processes reported by the StackState process Agent
@@ -201,11 +179,11 @@ StackState Agent V2 can be configured to collect traces via a [StackState tracin
 
 ## Commands
 
-It is not possible to directly manage the service inside the running Docker container. 
+### Start or stop the Agent
 
 To start, stop or restart StackState Agent V2, start or stop the container it is running in:
 
-```
+```text
 # Start container
 docker start stackstate-agent
 
@@ -213,15 +191,37 @@ docker start stackstate-agent
 docker stop stackstate-agent
 ```
 
-For status information, refer to the log files.
+### Status and information
+
+For status information, refer to the Docker log files for the container.
+
+To run the Agent status command inside a container:
+
+```yaml
+docker exec stackstate-agent bash -c 'agent status'
+```
+
+### Manually run a check
+
+Use the command below to manually run an Agent check.
+
+```yaml
+# Execute a check once and display the results.
+docker exec stackstate-agent bash -c 'agent check <CHECK_NAME>'
+
+# Execute a check once with log level debug and display the results.
+docker exec stackstate-agent bash -c 'agent check -l debug <CHECK_NAME>'
+```
 
 ## Troubleshooting
+
+To troubleshoot the Agent, try to [check the Agent status](docker.md#status) or [manually run a check](docker.md#manually-run-a-check).
 
 ### Log files
 
 Docker logs for the StackState Agent container can be followed using the command:
 
-```
+```text
 docker logs -f stackstate-agent
 ```
 
@@ -233,7 +233,8 @@ Inside the running container, StackState Agent V2 logs are in the following file
 ### Set log level
 
 To troubleshoot the StackState Agent container, set the logging level to `debug` using the `STS_LOG_LEVEL` environment variable:
-```
+
+```text
 STS_LOG_LEVEL: "DEBUG"
 ```
 
@@ -245,14 +246,15 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall StackState Agent V2, stop the Docker container it is running in and remove it.
 
-```
+```text
 docker stop stackstate-agent
 docker container rm stackstate-agent
-```   
+```
 
 ## See also
 
-* [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
-* [StackPack integration documentation](/stackpacks/integrations)
+* [About the StackState Agent](about-stackstate-agent.md)
+* [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
+* [StackPack integration documentation](../../stackpacks/integrations/)
 * [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+

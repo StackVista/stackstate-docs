@@ -12,7 +12,7 @@ The Custom Synchronization StackPack contains everything you need to automatical
 
 ## Next steps
 
-Read up on [configuring synchronizations](../../configure/topology/sync.md), follow the [Push-Integration tutorial](../../develop/tutorials/push_integration_tutorial.md) or read the [Custom Synchronization developer guide](/develop/developer-guides/custom_synchronization_stackpack).
+Read up on [configuring synchronizations](../../configure/topology/sync.md), follow the [Push-Integration tutorial](../../develop/tutorials/push_integration_tutorial.md) or read the [Custom Synchronization developer guide](../../develop/developer-guides/custom_synchronization_stackpack/).
 
 ## Open-source
 

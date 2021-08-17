@@ -2,7 +2,7 @@
 description: StackState core integration
 ---
 
-# ServiceNow
+# 💠 ServiceNow
 
 ## Overview
 
@@ -22,7 +22,7 @@ The ServiceNow StackPack allows near real time synchronization between ServiceNo
 
 To set up the StackState ServiceNow integration, you need to have:
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and StackState.
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and StackState.
 * A running ServiceNow instance.
 * A ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints).
 
@@ -38,9 +38,9 @@ Install the ServiceNow StackPack from the StackState UI **StackPacks** &gt; **In
 To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
-   * **url** - the REST API URL, uses HTTPS protocol for communication.
-   * **user** - a ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints)
-   * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
+   * **url** - The REST API URL, uses HTTPS protocol for communication.
+   * **user** - A ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints)
+   * **password** - Use [secrets management](../../configure/security/secrets_management.md) to store passwords outside of the configuration file.
 
      ```text
      init_config:
@@ -61,7 +61,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
        # keyfile: /path/to/key.pem
      ```
 2. You can also add optional configuration and filters:
-   * **batch\_size** - the maximum number of records to be returned \(default `2500`, max `10000`\).
+   * **batch\_size** - The maximum number of records to be returned \(default `2500`, max `10000`\).
    * **change\_request\_bootstrap\_days** - On first start, all change requests that have been updated in last N days will be retrieved \(default `100`\).
    * **change\_request\_process\_limit** - The maximum number of change requests that should be processed \(default `1000`\).
    * **timeout** - Timeout for requests to the ServiceNow API in seconds \(default `20`\).
@@ -71,7 +71,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    * Use queries to [filter change requests retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow \(default all\).
    * Use queries to [filter the CI types retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) \(default all\).
    * [Specify the CI types](servicenow.md#specify-ci-types-to-retrieve) that should be retrieved \(default all\).
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
 #### Use ServiceNow queries to filter retrieved events and CI types
@@ -106,7 +106,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    ...
    ```
 
-5. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+5. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 #### Specify CI types to retrieve
 
@@ -162,7 +162,7 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
         #        - cmdb_ci_network_adapter
    ```
 
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ### Status
 
@@ -188,7 +188,7 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 | Data | Description |
 | :--- | :--- |
-| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/perspectives/events_perspective.md). |
+| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md). |
 
 #### Metrics
 
@@ -256,14 +256,22 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
-**ServiceNow StackPack v5.3.1 \(2021-04-02\)**
+**ServiceNow StackPack v5.3.1 \(2021-04-12\)**
 
-* Improvement: Common bumped from 2.2.3 to 2.5.1
-* Improvement: StackState min version bumped to 4.3.0
+**Improvement**
+
+* Common bumped from 2.5.0 to 2.5.1
+
+**ServiceNow StackPack v5.3.0 \(2021-04-02\)**
+
+**Improvement**
+
+* Common bumped from 2.2.3 to 2.5.0
+* StackState min version bumped to 4.3.0
 
 **ServiceNow StackPack v5.2.0 \(2021-03-23\)**
 
@@ -305,7 +313,7 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## See also
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) 
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - ServiceNow \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 * [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)

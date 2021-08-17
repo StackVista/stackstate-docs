@@ -136,7 +136,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
    * **jwsAlgorithm** - Set this to `RS256`, which is the only supported value for now.
    * **jwtClaims** - Optional \(not in example\): The roles or username can be retrieved from a different attribute than the Keycloak default behavior.
 
-      -. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
+     -. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`.
 
      * **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 2. In `application_stackstate.conf` - map user roles from KeyCloak to the correct StackState subjects using the `guestGroups`, `powerUserGroups`, `adminGroups` or `platformAdminGroups` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
@@ -147,3 +147,4 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
+

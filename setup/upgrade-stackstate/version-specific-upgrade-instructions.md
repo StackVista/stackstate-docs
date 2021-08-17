@@ -22,15 +22,17 @@ This page provides specific instructions for upgrading to each currently support
 {% tab title="Kubernetes" %}
 #### v4.4.0
 
-* The CPU and memory [requirements to run StackState 4.4 on Kubernetes](/setup/requirements.md#node-sizing) have been reassessed:
-  - The requirements for the recommended highly available setup have grown (from 5) to 6 nodes with 32 GB of memory and 8 vCPUS.
-  - The requirements for a minimal highly available setup have grown (from 4) to 5 nodes with 32 GB of memory and 8 vCPUS.
-  - A [non-high availability setup](/setup/installation/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* The CPU and memory [requirements to run StackState 4.4 on Kubernetes](../requirements.md#node-sizing) have been reassessed:
+  * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
+  * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
+  * A [non-high availability setup](../installation/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
 * The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it is now possible to use `bcrypt` type passwords.
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
-  ```
+
+  ```text
   stackstate {
     authorization {
       adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
@@ -40,20 +42,15 @@ This page provides specific instructions for upgrading to each currently support
     }
   }
   ```
+
   Platform management and platform content management permissions have been separated into two groups - `platformAdminGroup` and `adminGroup`. Users in the group `platformAdminGroup` are limited to only platform management tasks, such as change database retention, clear database, clear caches and view logs. Users in the group `adminGroup` no longer have platform management permissions.
 
-  **How you should proceed with upgrade?**
+  **How you should proceed with upgrade**
 
-  **Provider Specific Instructions**
+  * **File based authentication:** Use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
+  * **External authentication \(LDAP/OIDC/Keycloak\):** An additional role/group should be created in the external authentication system and mapped to the new StackState `platformAdmin` group.
 
-  * File based authentication
-
-    You should use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
-
-  * External authentication (LDAP/OIDC/Keycloak)
-
-    Since there is new group `platformAdmin`, you have to create an additional role/group in the external authentication system and map it to the StackState `platformAdmin` group.
-    ```
+    ```text
     stackstate:
       authentication:
         roles:
@@ -61,8 +58,8 @@ This page provides specific instructions for upgrading to each currently support
           platformAdmin: ["new-external-platform-admin-role"]
           ...
     ```
-    Users who are assigned this group/role will get platform management permissions.
-    If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
+
+    Users who are assigned this group/role will get platform management permissions. If you wish for one user to manage both the content and the platform, you will still need to configure the external authentication provider with two separate roles/groups and then assign both of those to a single user in the settings of the external authentication system. You should not map the same external role/group to different StackState authorization groups.
 
   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
 {% endtab %}
@@ -70,10 +67,12 @@ This page provides specific instructions for upgrading to each currently support
 {% tab title="Linux" %}
 #### v4.4.0
 
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector (AAD) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it is now possible to use `bcrypt` type passwords.
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
-```
+
+  ```text
   stackstate {
     authorization {
       adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role-from-ldap-or-oidc-or-keycloak"]
@@ -83,13 +82,14 @@ This page provides specific instructions for upgrading to each currently support
     }
   }
   ```
+
   Platform management and platform content management permissions have been separated into two groups - `platformAdminGroup` and `adminGroup`. Users in the group `platformAdminGroup` are limited to only platform management tasks, such as change database retention, clear database, clear caches and view logs. Users in the group `adminGroup` no longer have platform management permissions.
 
   **How you should proceed with upgrade?**
 
-  This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`.
-  If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
-  ```
+  This impacts you if you have a customized `authentication` section in the file `application_stackstate.conf`. If your `authentication` section has `adminGroups`, `powerUserGroups`, `guestGroups` definitions like in the example below:
+
+  ```text
   stackstate {
     api {
       authentication {
@@ -105,7 +105,7 @@ This page provides specific instructions for upgrading to each currently support
 
   The subject-role mappings must be moved to a centralized authorization configuration using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.
 
-  ```
+  ```text
   stackstate {
     authorization {
       adminGroups = ${stackstate.authorization.adminGroups} ["your-custom-oidc-or-ldap-or-keycloak-admin-role"]
@@ -123,20 +123,14 @@ This page provides specific instructions for upgrading to each currently support
   }
   ```
 
-  {% hint style="info" %}
-  The list of roles will be extended to include the new, custom roles. The default roles will remain available (stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user).
-  {% endhint %}
+  The list of roles will be extended to include the new, custom roles. The default roles will remain available \(stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user\).
 
   **Provider Specific Instructions**
 
-  * File based authentication
+  * **File based authentication:** Use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
+  * **External authentication \(LDAP/OIDC/Keycloak\):** An additional role/group should be created in the external authentication system and mapped to the new StackState `platformAdmin` group.
 
-    You should use the `platformadmin` username for platform management instead of `admin`. The `admin` user remains functional and has full content management rights as before.
-
-  * External authentication (LDAP/OIDC/Keycloak)
-
-    Since there is new group `platformAdmin`, you have to create an additional role/group in the external authentication system and map it to the StackState `platformAdmin` group.
-    ```
+    ```text
     stackstate {
       authorization {
         ...
@@ -146,11 +140,10 @@ This page provides specific instructions for upgrading to each currently support
       ...
     }
     ```
-    Users who are assigned this group/role will get platform management permissions.
-    If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
+
+    Users who are assigned this group/role will get platform management permissions. If you wish for one user to manage both the content and the platform, you will still need to configure the external auth provider with two separate roles/groups and then assign both of those to a single user in the settings of the external auth provider. You should not map the same external role/group to different StackState authorization groups.
 
   If you are still not sure what you need to do, contact [StackState support](https://support.stackstate.com/hc/en-us).
-
 {% endtab %}
 {% endtabs %}
 
@@ -183,8 +176,8 @@ No manual action needed.
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state/anomaly-health-checks.md).
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/metrics-and-events/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 
@@ -211,12 +204,11 @@ No manual action needed.
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state-and-event-notifications/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/health-state-and-event-notifications/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state/anomaly-health-checks.md).
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](../../use/metrics-and-events/send-event-notifications.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}
-
 
 ### Upgrade to v4.2.x
 
@@ -274,3 +266,4 @@ The following configuration changes must be manually processed if you are using 
 * [How to upgrade a StackPack](../../stackpacks/about-stackpacks.md#upgrade-a-stackpack)
 * [Steps to upgrade StackState](steps-to-upgrade.md)
 * [StackPack versions shipped with each StackState release](stackpack-versions.md)
+

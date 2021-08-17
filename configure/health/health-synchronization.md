@@ -4,26 +4,26 @@
 
 Health synchronization allows you to add existing health checks from external monitoring systems to StackState topology elements. Health data is calculated in the external monitoring system using its own data and rules, then automatically synchronized and attached to the associated topology elements in StackState.
 
-
 ## Set up health synchronization
+
 The StackState receiver API will automatically receive and process all incoming health data. No additional configuration is required in StackState to enable this, however, the health data received should match the expected JSON format.
 
 Details on how to ingest health data can be found on the following pages:
 
-* [Ingest health data through the StackState Receiver API](/configure/health/send-health-data.md)
-* [Create an Agent check to ingest health data using the StackState Agent](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
+* [Ingest health data through the StackState Receiver API](send-health-data.md)
+* [Create an Agent check to ingest health data using the StackState Agent](../../develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
 
 ## Health synchronization pipeline
 
-The health synchronization framework works as follows: 
+The health synchronization framework works as follows:
 
 * Health data is sent to StackState and ingested via the Receiver API.
 * StackState topology elements related to the ingested health checks are identified and bound based on:
-    - the [topology identifiers](../topology/sync.md#id-extraction) obtained during topology synchronization.
-    - the [topologyElementIdentifier](send-health-data.md#json-property-health) from the ingested health payload.
+  * the [topology identifiers](../topology/sync.md#id-extraction) obtained during topology synchronization.
+  * the [topologyElementIdentifier](send-health-data.md#json-property-health) from the ingested health payload.
 * StackState keeps track of changes to both topology elements and health checks to maintain up to date information.
 
-![Health synchronization pipeline](/.gitbook/assets/health-sync-pipeline.svg)
+![Health synchronization pipeline](../../.gitbook/assets/health-sync-pipeline.svg)
 
 ### Consistency models
 StackState health synchronization relies on different consistency models to guarantee that the data sent from an external monitoring system matches with what StackState ingests and shows. The supported consistency models are: `Repeat Snapshots`, `Repeat States` and `Transactional Increments`.
@@ -57,14 +57,15 @@ This model can be used when the external monitoring system does not have access 
 
 External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one sub stream with health checks.
 
-| | |
-|:---|:---|
+|  |  |
+| :--- | :--- |
 | **Health stream** | The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together. |
-| **Sub stream** |  Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health data from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data.md#json-property-health). StackState will assume that all the external health checks belong to a single, default sub stream. |
+| **Sub stream** | Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](send-health-data.md#json-property-health). StackState will assume that all the external health checks belong to a single, default sub stream. |
+
 
 ### Repeat Interval
 
-Health synchronization processes the ingested health data per sub stream. The repeat interval specified in the [health payload](/configure/health/send-health-data.md#json-property-health) is the commitment from the external monitoring system to send complete data over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
+Health synchronization processes the ingested health data per sub stream. The repeat interval specified in the [health payload](send-health-data.md#json-property-health) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
 
 ### Expire Interval
 
@@ -74,9 +75,9 @@ The expire interval can be used to configure sub streams in the health synchroni
 
 The health check state calculated by an external monitoring system. This contains the relevant information to attach to a topology element and to contribute to the topology element health state.
 
-
 ## See also
 
-* [Add a health check based on telemetry available in StackState](/use/health-state-and-event-notifications/add-a-health-check.md)
-* [JSON health payload](/configure/health/send-health-data.md#json-property-health)
-* [Topology synchronization](/configure/topology/topology_synchronization.md)
+* [Add a health check based on telemetry available in StackState](../../use/health-state/add-a-health-check.md)
+* [JSON health payload](send-health-data.md#json-property-health)
+* [Topology synchronization](../topology/topology_synchronization.md)
+

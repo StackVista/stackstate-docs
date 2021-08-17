@@ -4,7 +4,6 @@
 
 StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](../../setup/installation/cli-install.md).
 
-
 ## StackState Receiver API
 
 The StackState Receiver API accepts health data next to telemetry and topology in a common JSON object. By default, the receiver API is hosted at:
@@ -15,20 +14,21 @@ The StackState Receiver API accepts health data next to telemetry and topology i
 https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
+
 {% tab title="Linux" %}
 ```text
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
 ## Common JSON object
 
-Health is sent to the receiver API via HTTP POST and has a common JSON object for all messages. 
+Health is sent to the receiver API via HTTP POST and has a common JSON object for all messages.
 
 ```javascript
 {
@@ -47,8 +47,8 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 * [Repeat States JSON](/configure/health/send-health-data/repeat_states.md)
 * [Transactional Increments JSON](/configure/health/send-health-data/transactional_increments.md)
 
-
 ## See also
 
-* [Install the StackState CLI](/setup/installation/cli-install.md)
-* [StackState CLI reference](/develop/reference/cli_reference.md)
+* [Install the StackState CLI](../../setup/installation/cli-install.md)
+* [StackState CLI reference](../../develop/reference/cli_reference.md)
+

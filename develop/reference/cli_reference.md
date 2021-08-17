@@ -24,7 +24,7 @@ sts graph list-types
 
 ### sts graph export
 
-Use the `sts graph export` command to export different types of [configuration nodes](cli_reference.md#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](stj/README.md) format.
+Use the `sts graph export` command to export different types of [configuration nodes](cli_reference.md#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](stj/) format.
 
 ```text
 sts graph export -i ids_to_export > file_name
@@ -190,7 +190,7 @@ The StackState CLI can be used to manage the StackPacks in your StackState insta
 
 The command below returns an overview of all StackPacks currently installed on a StackState instance.
 
-```
+```text
 # Returns the category, installed version, next version, latest version
 # and instance count for all installed StackPacks
 sts stackpack list -i
@@ -271,5 +271,5 @@ Note that it is not necessary to do this via the CLI. StackState will also offer
 
 ## See also
 
-* [StackState Templated Json](stj/README.md)
+* [StackState Templated Json](stj/)
 

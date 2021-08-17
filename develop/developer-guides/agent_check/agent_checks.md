@@ -1,4 +1,4 @@
-# What are Agent checks?
+# About Agent checks
 
 ## Overview
 
@@ -26,8 +26,8 @@ In some cases you may even want to build two Agent checks, one for each types of
 
 ## See also
 
-* [How to develop Agent checks](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
-* [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
-* [Connect an Agent check with StackState using the Custom Synchronization StackPack](/develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
-* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)
+* [How to develop Agent checks](how_to_develop_agent_checks.md)
+* [Agent check API](agent-check-api.md)
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
+* [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)
 

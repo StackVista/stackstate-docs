@@ -4,14 +4,10 @@ description: StackState version 4.4
 
 # Welcome to the StackState Docs!
 
-{% hint style="warning" %}
-**DRAFT DOCS SITE** - docs on the master branch will go live with StackState v4.4
-{% endhint %}
-
 {% hint style="success" %}
-**StackState version 4.4** is coming soon - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v-4-4-x) for details.
+**StackState version 4.4** is now available - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v44x) for details.
 
-With the release of StackState v4.4, StackState v4.1 reaches End of Life \(EOL\) and will no longer be supported. We encourage customers still running the 4.1 version range to upgrade. Check the [supported StackState versions](#supported-stackstate-versions).
+With the release of StackState v4.4, StackState v4.1 has reached End of Life \(EOL\) and will no longer be supported. We encourage customers still running the 4.1 version range to upgrade. Check the [supported StackState versions](#supported-stackstate-versions).
 {% endhint %}
 
 ### Using StackState
@@ -33,8 +29,8 @@ With the release of StackState v4.4, StackState v4.1 reaches End of Life \(EOL\)
 The supported versions of StackState are listed below:
 
 * **StackState v4.4** - You are currently reading the documentation for StackState version 4.4.
-* **StackState v4.3** - [switch to the v4.3 docs](https://docs.stackstate.com/v/4.3/).
-* **StackState v4.2** - [switch to the v4.2 docs](https://docs.stackstate.com/v/4.2/).
+* **StackState v4.3** - [Switch to the v4.3 docs](https://docs.stackstate.com/v/4.3/).
+* **StackState v4.2** - [Switch to the v4.2 docs](https://docs.stackstate.com/v/4.2/).
 
 For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/).
 
@@ -48,3 +44,4 @@ If you believe any documentation is missing, please let us know on the [StackSta
 ## Troubleshooting and support
 
 Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
+

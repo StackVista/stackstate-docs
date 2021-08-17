@@ -1,7 +1,8 @@
 # Debug health synchronization
 
 ## Overview
-The [StackState CLI](/setup/installation/cli-install.md) can be used to debug a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
+
+The [StackState CLI](../../setup/installation/cli-install.md) can be used to debug a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
 
 ## General troubleshooting steps
 
@@ -10,18 +11,20 @@ When debugging the health synchronization there are some common verification ste
 1. [Verify that the stream exists](debug-health-sync.md#list-streams).
 2. If you are using sub streams, [verify that the sub stream exists](debug-health-sync.md#list-sub-streams). The response will also show the number of check states on the sub stream. This lets you know if the data is being ingested and processed.
 3. Investigate further:
-    * **Stream present** - [Check the stream status](debug-health-sync.md#show-stream-status), this will show the metrics latency of the stream and any [errors](debug-health-sync.md#error-messages).
-    * **Streams / sub streams present, but there are no check states** - Confirm that the payload sent to the Receiver API adheres to the [health payload specification](/configure/health/send-health-data.md).
-    * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState. 
-```buildoutcfg
-sts topic show sts_health_sync
-```
+   * **Stream present** - [Check the stream status](debug-health-sync.md#show-stream-status), this will show the metrics latency of the stream and any [errors](debug-health-sync.md#error-messages).
+   * **Streams / sub streams present, but there are no check states** - Confirm that the payload sent to the Receiver API adheres to the [health payload specification](send-health-data.md).
+   * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState. 
+
+     ```text
+     sts topic show sts_health_sync
+     ```
 
 ## Common issues
 
 ### Check state not visible on the component
 
 There can be two reasons for a check state not to show on a component in StackState:
+
 * The health check state has not been created. Follow the [general troubleshooting steps](debug-health-sync.md#general-troubleshooting-steps) to confirm that the stream / sub stream has been created and that data is arriving in StackState.
 * The health check state was created, but its `topologyElementIdentifier` does not match any `identifiers` from the StackState topology. Use the CLI command [show sub stream status](debug-health-sync.md#show-sub-stream-status) to verify if there are any `Check states with identifier which has no matching topology element`.
 
@@ -30,7 +33,6 @@ There can be two reasons for a check state not to show on a component in StackSt
 The main reason for this is that the latency of the health synchronization is higher than expected. Use the CLI command [show stream status](debug-health-sync.md#show-stream-status) to confirm the latency of the stream as well as the throughput of messages and specific check operations. It may be necessary to tweak the data sent to the health synchronization, or the frequency with which data is sent.
 
 ## Useful CLI commands
-
 
 ### List streams
 
@@ -44,7 +46,6 @@ stream urn                                            sub stream count
 --------------------------------------------------  ------------------
 urn:health:sourceId:streamId                                         1
 ```
-
 
 ### List sub streams
 
@@ -60,12 +61,9 @@ subStreamId1                                     20
 subStreamId2                                     17
 ```
 
-
 ### Show stream status
 
-The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted.
-The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a sub stream could not be created, for example `StreamMissingSubStream`.
-Sub stream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
+The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a sub stream could not be created, for example `StreamMissingSubStream`. Sub stream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
 
 ```javascript
 # Show a stream status
@@ -125,7 +123,8 @@ A sub stream status will show the metadata related to the consistency model:
 
 
 The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
-In the example below,  `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
+In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
+
 
 ```javascript
 # Show a sub stream status matched/unmatched check states.
@@ -154,8 +153,7 @@ The delete stream functionality is helpful while setting up a health synchroniza
 
 ```javascript
 # Delete a health synchronization stream
-sts health delete urn:health:sourceId:streamId 
-
+sts health delete urn:health:sourceId:streamId
 ```
 
 ### Clear health stream errors
@@ -171,15 +169,16 @@ sts health clear-errors urn:health:sourceId:streamId
 ## Error messages
 
 {% hint style="info" %}
-Errors will be closed once the described issue has been remediated. 
+Errors will be closed once the described issue has been remediated.
 
 For example a `SubStreamStopWithoutStart` will be closed once the health synchronization observes a start snapshot message followed by a stop snapshot message.
 {% endhint %}
 
-| Error| Description |
-|:---|:---|
+| Error | Description |
+| :--- | :--- |
 | **StreamMissingSubStream** | Raised when the health synchronization receives messages without a previous stream setup message as `start_snapshot` or `expiry`. |
 | **StreamConsistencyModelMismatch** | Raised when a message is received that belongs to a different consistency model than that specified when the stream was created. |
+| **StreamMissingSubStream** | Raised when the health synchronization receives messages with a previous start snapshot in place. |
 | **SubStreamRepeatIntervalTooHigh** | Raised when the health synchronization receives a `repeat_interval_s` greater than the configured max of 30 minutes. |
 | **SubStreamStartWithoutStop** | Raised when the health synchronization receives a second message to open a snapshot when a previous snapshot was still open. |
 | **SubStreamCheckStateOutsideSnapshot** | Raised when the health synchronization receives external check states without previously opening a snapshot. |
@@ -195,5 +194,6 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 
 ## See also
 
-* [Install the StackState CLI](/setup/installation/cli-install.md)
-* [StackState CLI reference](/develop/reference/cli_reference.md)
+* [Install the StackState CLI](../../setup/installation/cli-install.md)
+* [StackState CLI reference](../../develop/reference/cli_reference.md)
+

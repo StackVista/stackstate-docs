@@ -23,8 +23,8 @@ The `stackstate.yaml` file is the main agent configuration file. It tells the ag
 
 The `example` check consists of two files:
 
-* `conf.d/example.d/conf.yaml` -- the check configuration file
-* `checks.d/example.py` -- the check Python code
+* `conf.d/example.d/conf.yaml` - the check configuration file
+* `checks.d/example.py` - the check Python code
 
 ## Prepare StackState
 
@@ -106,7 +106,7 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](../../.gitbook/assets/v43_example-telemetry-stream.png)
+![](../../.gitbook/assets/v44_example-telemetry-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
@@ -118,9 +118,9 @@ Select the **some-application-1** component again and in the Component Details p
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* Input parameters -- this is the data sent by our example check that is processed by StackState
-* Template function -- this is the template that uses the input parameters to create a component
-* Component preview -- this is a preview of the component produced by applying the input parameters to the template function
+* **Input parameters** - this is the data sent by our example check that is processed by StackState
+* **Template function** - this is the template that uses the input parameters to create a component
+* **Component preview** - this is a preview of the component produced by applying the input parameters to the template function
 
 {% hint style="info" %}
 Check out the **Template Examples** tab in the Template Editor to learn how to create templates.
@@ -165,7 +165,7 @@ The end result should look something like this:
 }],
 ```
 
-![](../../.gitbook/assets/v43_example-template-editor.png)
+![](../../.gitbook/assets/v44_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 
@@ -198,7 +198,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v43_example-check-function.png)
+![](../../.gitbook/assets/v44_example-check-function.png)
 
 Finally save the check function.
 
@@ -219,7 +219,7 @@ In the Stream Creation screen, select to output as a **Log stream** at the top. 
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v43_example-event-stream-editor.png)
+![](../../.gitbook/assets/v44_example-event-stream-editor.png)
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 

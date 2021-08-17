@@ -12,7 +12,7 @@ The Zabbix StackPack is used to create a near real time synchronization with you
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3 and 4 are supported.
@@ -39,15 +39,19 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
        username: <username> # Admin
        password: <password> # zabbix
      ```
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Release notes
 
-**Zabbix StackPack v3.1.1 \(2021-03-30\)**
+**Zabbix StackPack v3.1.1 \(2021-04-12\)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**Zabbix StackPack v3.1.0 \(2021-04-02\)**
 
 * Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: Common bumped from 2.2.3 to 2.5.0
 * Improvement: StackState min version bumped to 4.3.0
 
 **Zabbix StackPack v3.0.1 \(2020-08-18\)**

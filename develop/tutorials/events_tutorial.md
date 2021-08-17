@@ -6,7 +6,7 @@ description: Events tutorial
 
 This tutorial shows you how to send events from external systems to StackState.
 
-StackState creates a real-time map over your IT landscape and tracks all changes that occur. These changes are visible as events in the [Events Perspective](../../use/perspectives/events_perspective.md).
+StackState creates a real-time map over your IT landscape and tracks all changes that occur. These changes are visible as events in the [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md).
 
 This tutorial shows how you can submit external events to StackState.
 
@@ -110,7 +110,7 @@ When you are done with this tutorial, you can remove the configuration from your
 
 ## See also
 
-* [StackState Events Perspective](../../use/perspectives/events_perspective.md)
+* [StackState Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md)
 * [Send events to StackState over HTTP](../../configure/telemetry/send_telemetry.md#send-telemetry-over-http)
-* [Automate event notifications and actions based on events](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Automate event notifications and actions based on events](../developer-guides/custom-functions/event-handler-functions.md)
 
