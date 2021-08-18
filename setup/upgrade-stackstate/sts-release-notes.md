@@ -10,7 +10,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
-### 4.4.1
+### v4.4.1
 
 **Improvements**
 
