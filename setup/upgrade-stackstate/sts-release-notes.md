@@ -10,6 +10,19 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
+### 4.4.1
+
+**Improvements**
+
+- Added tolerations and affinity configuration to the anomaly-detector Helm Chart. STAC-13824
+- Added tolerations, nodeSelector and affinity configuration to the kafkaTopicCreate job in the StackState Helm Chart. STAC-13822
+
+**Bug fixes**
+
+- Fixed issue that caused corrupt data in StackGraph under certain circumstances. STAC-13860
+- Fixed issue that caused the health synchronization to occasionally keep restarting. STAC-13829
+- Fixed issue that occasionally caused auto propagation to enter a loop and fail to terminate. STAC-13725
+
 ### v4.4.0
 
 **Features**
