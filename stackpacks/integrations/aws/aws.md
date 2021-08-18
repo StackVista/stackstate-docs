@@ -16,6 +16,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
 * Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
+* VPC FlowLogs for EC2 and RDS database instances are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between components.
 
 ## Setup
 
