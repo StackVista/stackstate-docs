@@ -20,6 +20,10 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.4.1
+
+No manual action needed.
+
 #### v4.4.0
 
 * The CPU and memory [requirements to run StackState 4.4 on Kubernetes](../requirements.md#node-sizing) have been reassessed:
@@ -65,6 +69,10 @@ This page provides specific instructions for upgrading to each currently support
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.4.1
+
+No manual action needed.
+
 #### v4.4.0
 
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
