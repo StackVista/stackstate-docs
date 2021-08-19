@@ -16,7 +16,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
 * Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
-* VPC FlowLogs for EC2 and RDS database instances are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between components.
+* VPC FlowLogs for EC2 and RDS database instances are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between components in StackState.
 
 ## Setup
 
@@ -109,30 +109,72 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
+    
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
+    - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
+    - **role_arn** - In the example below, substitute 123456789012 with the target AWS account ID to read.
+    - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
 
    ```yaml
-   # values in init_config are used globally; these credentials will be used for all AWS accounts
+   # values in init_config are used globally; 
+   # these credentials will be used for all AWS accounts
    init_config:
-     aws_access_key_id: '' # The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     aws_secret_access_key: '' # The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
-     # full_run_interval: 3600 # Time in seconds between a full AWS topology scan. Intermediate runs only fetch events. Is not required.
+     aws_access_key_id: ''
+     aws_secret_access_key: ''
+     external_id: uniquesecret!1 
+     # full_run_interval: 3600
+     # process_flow_logs: true
 
    instances:
-     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole # Substitute 123456789012 with the target AWS account ID to read
-       regions: # The Agent will only attempt to find resources in regions specified below
+     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+       regions:
          - global # global is a special "region" for global resources such as Route53
          - eu-west-1
-       min_collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
-       # apis_to_run: # Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
+       min_collection_interval: 60
+       # apis_to_run:
        #   - ec2
-       # log_bucket_name: '' # The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
+       # log_bucket_name: '' 
        # tags:
        #   - foo:bar
    ```
 
-2. [Restart the StackState Agent](../../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
-3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+2. You can also add optional configuration and filters: 
+    - **full_run_interval** - Time in seconds between a full AWS topology scan. Intermediate runs only fetch events. Is not required.
+    - **process_flow_logs** - Default `False`. Set to `true` to [collect and analyse VPC FlowLogs](#configure-vpc-flowlogs) from the default S3 bucket or the specified `log_bucket_name`.
+    - **min_collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+    - **apis_to_run** - Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
+    - **log_bucket_name** - The S3 bucket that the Agent should read events and FlowLogs from. This value should only be set in custom implementations.
+    - **tags** - 
+
+3. [Restart the StackState Agent](../../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+
+### Configure VPC FlowLogs
+
+For each VPC that you want to analyse, a FlowLog needs to be configured with the settings described below. The process of adding FlowLogs for new VPCs could be automated using a Lambda triggered by a CloudTrail event that creates the FlowLog.
+
+* **Type** - `AWS::EC2::FlowLog`
+* **Properties:**
+    * **LogDestinationType** - `s3`
+    * **LogDestination** - your bucket arn OR the default bucket arn.
+    * **LogFormat** - omit, OR at least `${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}`
+    * **MaxAggregationInterval** - `60` (1 minute).
+    * **ResourceId** - ID of the VPC.
+    * **ResourceType** - `VPC`
+    * **TrafficType** - `ACCEPT` | `ALL` | `REJECT`. Notes that there is currently no difference in handling `ACCEPTED` or `REJECTED` traffic.
+
+```yaml
+Type: AWS::EC2::FlowLog
+Properties:
+	LogDestinationType: s3
+	LogDestination: <bucket_arn>
+	LogFormat: ${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}
+	MaxAggregationInterval: 60
+	ResourceId: <vpc_id>
+	ResourceType: VPC
+	TrafficType: ACCEPT | ALL | REJECT
+```
 
 ### Use an HTTP proxy
 
