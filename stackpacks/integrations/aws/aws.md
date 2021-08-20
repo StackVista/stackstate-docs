@@ -204,7 +204,7 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-The following AWS service data is available in StackState as components:
+The following AWS service data is available in StackState as components with the associated relations:
 
 | Service | Resource | Relations |
 | :--- | :--- | :--- |
@@ -217,11 +217,11 @@ The following AWS service data is available in StackState as components:
 | CloudFormation | Stack | All Supported Resources\*, Nested CloudFormation Stack |
 | DynamoDB | Stream |  |
 | DynamoDB | Table | DynamoDB Stream |
-| EC2 | Instance | EC2 Security Group |
-| EC2 | Security Group | EC2 Instance |
-| EC2 | Subnet | EC2 Instance, EC2 VPC |
-| EC2 | VPC | EC2 Security Group, EC2 Subnet |
-| EC2 | VPN Gateway | EC2 VPC |
+| EC2 | Instance | EC2 Security Group, RDS Instance \*\*\* |
+| EC2 | Security Group | EC2 Instance, RDS Instance \*\*\*  |
+| EC2 | Subnet | EC2 Instance, EC2 VPC, RDS Instance \*\*\*  |
+| EC2 | VPC | EC2 Security Group, EC2 Subnet, RDS Instance \*\*\*  |
+| EC2 | VPN Gateway | EC2 VPC, RDS Instance \*\*\*  |
 | ECS | Cluster | EC2 Instance, ECS Service, ECS Task, Route53 Hosted Zone |
 | ECS | Service | Load Balancing Target Group, ECS Task |
 | ECS | Task |  |
@@ -234,8 +234,8 @@ The following AWS service data is available in StackState as components:
 | Load Balancing | Network Load Balancer | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance |
 | Load Balancing | Target Group | EC2 VPC |
 | Load Balancing | Target Group Instance | EC2 Instance |
-| RDS | Cluster | RDS Instance |
-| RDS | Instance | EC2 VPC, EC2 Security Group |
+| RDS | Cluster | RDS Instance, EC2 Instance \*\*\*  |
+| RDS | Instance | EC2 VPC, EC2 Security Group, EC2 Instance \*\*\*  |
 | Redshift | Cluster | EC2 VPC |
 | Route53 | Domain |  |
 | Route53 | Hosted Zone |  |
@@ -248,6 +248,7 @@ The following AWS service data is available in StackState as components:
 
 * **\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
 * \*\* This relation is made by finding valid URIs in the environment variables of the resource. For example, the DNS hostname of an RDS instance will create a relation.
+* \*\*\* This relation will only be retrieved when a [FlowLog for the VPC they are in](#configure-vpc-flowlogs) has been configured and is stored in the S3 bucket from which logs are processed by the Agent.
 
 #### Traces
 
