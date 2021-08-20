@@ -16,7 +16,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
 * Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
-* VPC FlowLogs for EC2 and RDS database instances are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between components in StackState.
+* VPC FlowLogs are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
 
 ## Setup
 
@@ -128,7 +128,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
    instances:
      - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
        regions:
-         - global # global is a special "region" for global resources such as Route53
+         - global # a special "region" used for global resources
          - eu-west-1
        min_collection_interval: 60
        # apis_to_run:
@@ -247,8 +247,8 @@ The following AWS service data is available in StackState as components with the
 | Step Functions | State Machine | Step Functions \(All\) |
 
 * **\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
-* \*\* This relation is made by finding valid URIs in the environment variables of the resource. For example, the DNS hostname of an RDS instance will create a relation.
-* \*\*\* This relation will only be retrieved when a [FlowLog for the VPC they are in](#configure-vpc-flowlogs) has been configured and is stored in the S3 bucket from which logs are processed by the Agent.
+* **\*\*** This relation is made by finding valid URIs in the environment variables of the resource. For example, the DNS hostname of an RDS instance will create a relation.
+* **\*\*\*** This relation will only be retrieved when a [FlowLog for the VPC they are in](#configure-vpc-flowlogs) has been configured and is stored in the S3 bucket from which logs are processed by the Agent.
 
 #### Traces
 
