@@ -152,29 +152,17 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 VPC FlowLogs can be analysed to retrieve relations between EC2 instances and RDS database instances. For each VPC that you want to analyse, a FlowLog needs to be configured. The process of adding FlowLogs for new VPCs could be automated using a Lambda triggered by a CloudTrail event that creates the FlowLog. Relations will be retrieved for EC2 instances and RDS database instances with a static public or private IP address and emit the proper URNs. For public IP addresses `urn:host:/{ip-address}`, for private IP addresses the URN has the form `urn:vpcip:{vpc-id}/{ip-address}`.
 
-* **Type** - `AWS::EC2::FlowLog`
-* **Properties:**
-    * **LogDestinationType** - `s3`
-    * **LogDestination** - your bucket arn OR the default bucket arn
-    * **LogFormat** - omit, OR at least `${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}`
-    * **MaxAggregationInterval** - `60` (1 minute)
-    * **ResourceId** - ID of the VPC
-    * **ResourceType** - `VPC`
-    * **TrafficType** - `ACCEPT` | `ALL` | `REJECT`. Notes that there is currently no difference in handling `ACCEPTED` or `REJECTED` traffic
-
-```yaml
-Type: AWS::EC2::FlowLog
-Properties:
-	LogDestinationType: s3
-	LogDestination: <bucket_arn>
-	LogFormat: ${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}
-	MaxAggregationInterval: 60
-	ResourceId: <vpc_id>
-	ResourceType: VPC
-	TrafficType: <ACCEPT | ALL | REJECT>
-```
-
 For further details, see [Required AWS resources - VPC FlowLogs \(Optional\)](#vpc-flowlogs-optional).
+
+To configure a VPC FlowLog from the AWS console:
+
+1. From the **VPC Dashboard**, choose **Your VPCs** under **VIRTUAL PRIVATE CLOUD**.
+2. Select the VPC that you want to configure.
+3. Select **Flow logs** on the lower TAB-bar.
+4. Click **Create flow log**.
+5. Add the settings as shown in the screenshot.
+
+![VPC FlowLog settings](/.gitbook/assets/vpc_flowlogs_config.png)
 
 ### Use an HTTP proxy
 
