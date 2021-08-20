@@ -337,10 +337,6 @@ A KMS key must be created in each region where events are captured.
 
 #### VPC FlowLogs \(Optional\)
 
-{% hint style="warning" %}
-VPC FlowLogs support is currently experimental and is disabled by default.
-{% endhint %}
-
 A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute. The FlowLogs contain meta information about the network traffic inside VPCs. Only private network traffic is considered, traffic from NAT gateways and application load balancers will be ignored. 
 
 If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
