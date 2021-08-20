@@ -150,7 +150,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 ### Configure VPC FlowLogs
 
-For each VPC that you want to analyse, a FlowLog needs to be configured. The process of adding FlowLogs for new VPCs could be automated using a Lambda triggered by a CloudTrail event that creates the FlowLog. Relations will be retrieved from Flowlogs for EC2 instances and RDS database instances with a static public or private IP address and emit the proper URNs. For public IP addresses `urn:host:/{ip-address}`, for private IP addresses the URN has the form `urn:vpcip:{vpc-id}/{ip-address}`.
+VPC FlowLogs can be analysed to retrieve relations between EC2 instances and RDS database instances. For each VPC that you want to analyse, a FlowLog needs to be configured. The process of adding FlowLogs for new VPCs could be automated using a Lambda triggered by a CloudTrail event that creates the FlowLog. Relations will be retrieved for EC2 instances and RDS database instances with a static public or private IP address and emit the proper URNs. For public IP addresses `urn:host:/{ip-address}`, for private IP addresses the URN has the form `urn:vpcip:{vpc-id}/{ip-address}`.
 
 * **Type** - `AWS::EC2::FlowLog`
 * **Properties:**
@@ -173,6 +173,8 @@ Properties:
 	ResourceType: VPC
 	TrafficType: <ACCEPT | ALL | REJECT>
 ```
+
+For further details, see [Required AWS resources - VPC FlowLogs \(Optional\)](#vpc-flowlogs-optional).
 
 ### Use an HTTP proxy
 
