@@ -258,14 +258,14 @@ The AWS integration does not retrieve any Traces data.
 
 A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](aws.md#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
 
-![Account components](../../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
-
 Hourly and event-based updates collect data:
 
 * Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 * Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
 If the StackState Agent does not have permission to access a certain component, it will skip it.
+
+![Account components](../../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
 * [StackState Agent IAM Role](#stackstate-agent-iam-role)
 * [S3 Bucket](#s3-bucket)
