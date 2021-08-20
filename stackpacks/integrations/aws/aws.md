@@ -157,12 +157,12 @@ For each VPC that you want to analyse, a FlowLog needs to be configured with the
 * **Type** - `AWS::EC2::FlowLog`
 * **Properties:**
     * **LogDestinationType** - `s3`
-    * **LogDestination** - your bucket arn OR the default bucket arn.
+    * **LogDestination** - your bucket arn OR the default bucket arn
     * **LogFormat** - omit, OR at least `${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}`
-    * **MaxAggregationInterval** - `60` (1 minute).
-    * **ResourceId** - ID of the VPC.
+    * **MaxAggregationInterval** - `60` (1 minute)
+    * **ResourceId** - ID of the VPC
     * **ResourceType** - `VPC`
-    * **TrafficType** - `ACCEPT` | `ALL` | `REJECT`. Notes that there is currently no difference in handling `ACCEPTED` or `REJECTED` traffic.
+    * **TrafficType** - `ACCEPT` | `ALL` | `REJECT`. Notes that there is currently no difference in handling `ACCEPTED` or `REJECTED` traffic
 
 ```yaml
 Type: AWS::EC2::FlowLog
@@ -173,7 +173,7 @@ Properties:
 	MaxAggregationInterval: 60
 	ResourceId: <vpc_id>
 	ResourceType: VPC
-	TrafficType: ACCEPT | ALL | REJECT
+	TrafficType: <ACCEPT | ALL | REJECT>
 ```
 
 ### Use an HTTP proxy
@@ -267,6 +267,13 @@ Hourly and event-based updates collect data:
 * Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
 If the StackState Agent does not have permission to access a certain component, it will skip it.
+
+* [StackState Agent IAM Role](#stackstate-agent-iam-role)
+* [S3 Bucket](#s3-bucket)
+* [EventBridge Rule](#eventbridge-rule)
+* [Kinesis Firehose](#kinesis-firehose)
+* [KMS Key \(Optional\)](#kms-key-optional)
+* [VPC FlowLogs \(Optional\)](#vpc-flowlogs-optional)
 
 #### StackState Agent IAM Role
 
