@@ -220,10 +220,10 @@ The following AWS service data is available in StackState as components with the
 | DynamoDB | Stream |  |
 | DynamoDB | Table | DynamoDB Stream |
 | EC2 | Instance | EC2 Security Group, RDS Instance \*\*\* |
-| EC2 | Security Group | EC2 Instance, RDS Instance \*\*\*  |
-| EC2 | Subnet | EC2 Instance, EC2 VPC, RDS Instance \*\*\*  |
-| EC2 | VPC | EC2 Security Group, EC2 Subnet, RDS Instance \*\*\*  |
-| EC2 | VPN Gateway | EC2 VPC, RDS Instance \*\*\*  |
+| EC2 | Security Group | EC2 Instance |
+| EC2 | Subnet | EC2 Instance, EC2 VPC  |
+| EC2 | VPC | EC2 Security Group, EC2 Subnet  |
+| EC2 | VPN Gateway | EC2 VPC  |
 | ECS | Cluster | EC2 Instance, ECS Service, ECS Task, Route53 Hosted Zone |
 | ECS | Service | Load Balancing Target Group, ECS Task |
 | ECS | Task |  |
@@ -236,7 +236,7 @@ The following AWS service data is available in StackState as components with the
 | Load Balancing | Network Load Balancer | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance |
 | Load Balancing | Target Group | EC2 VPC |
 | Load Balancing | Target Group Instance | EC2 Instance |
-| RDS | Cluster | RDS Instance, EC2 Instance \*\*\*  |
+| RDS | Cluster | RDS Instance  |
 | RDS | Instance | EC2 VPC, EC2 Security Group, EC2 Instance \*\*\*  |
 | Redshift | Cluster | EC2 VPC |
 | Route53 | Domain |  |
