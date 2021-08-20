@@ -207,7 +207,7 @@ The following AWS service data is available in StackState as components with the
 | CloudFormation | Stack | All Supported Resources\*, Nested CloudFormation Stack |
 | DynamoDB | Stream |  |
 | DynamoDB | Table | DynamoDB Stream |
-| EC2 | Instance | EC2 Security Group, RDS Instance \*\*\* |
+| EC2 | Instance | EC2 Security Group, EC2 Instance \*\*\*, RDS Instance \*\*\* |
 | EC2 | Security Group | EC2 Instance |
 | EC2 | Subnet | EC2 Instance, EC2 VPC  |
 | EC2 | VPC | EC2 Security Group, EC2 Subnet  |
@@ -225,7 +225,7 @@ The following AWS service data is available in StackState as components with the
 | Load Balancing | Target Group | EC2 VPC |
 | Load Balancing | Target Group Instance | EC2 Instance |
 | RDS | Cluster | RDS Instance  |
-| RDS | Instance | EC2 VPC, EC2 Security Group, EC2 Instance \*\*\*  |
+| RDS | Instance | EC2 VPC, EC2 Security Group  |
 | Redshift | Cluster | EC2 VPC |
 | Route53 | Domain |  |
 | Route53 | Hosted Zone |  |
