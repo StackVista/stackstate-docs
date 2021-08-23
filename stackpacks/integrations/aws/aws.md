@@ -16,6 +16,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
 * Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
+* [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
 
 ## Setup
 
@@ -108,30 +109,60 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
+    
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
+    - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
+    - **role_arn** - In the example below, substitute 123456789012 with the target AWS account ID to read.
+    - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
 
    ```yaml
-   # values in init_config are used globally; these credentials will be used for all AWS accounts
+   # values in init_config are used globally; 
+   # these credentials will be used for all AWS accounts
    init_config:
-     aws_access_key_id: '' # The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     aws_secret_access_key: '' # The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role
-     external_id: uniquesecret!1 # Set the same external ID when creating the CloudFormation stack in every account and region
-     # full_run_interval: 3600 # Time in seconds between a full AWS topology scan. Intermediate runs only fetch events. Is not required.
+     aws_access_key_id: ''
+     aws_secret_access_key: ''
+     external_id: uniquesecret!1 
+     # full_run_interval: 3600
 
    instances:
-     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole # Substitute 123456789012 with the target AWS account ID to read
-       regions: # The Agent will only attempt to find resources in regions specified below
-         - global # global is a special "region" for global resources such as Route53
+     - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+       regions:
+         - global # a special "region" used for global resources
          - eu-west-1
-       min_collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
-       # apis_to_run: # Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
+       min_collection_interval: 60
+       # apis_to_run:
        #   - ec2
-       # log_bucket_name: '' # The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
+       # log_bucket_name: '' 
        # tags:
        #   - foo:bar
    ```
 
-2. [Restart the StackState Agent](../../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
-3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+2. You can also add optional configuration and filters: 
+    - **full_run_interval** - Time in seconds between a full AWS topology scan. Intermediate runs only fetch events. Is not required.
+    - **min_collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+    - **apis_to_run** - Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
+    - **log_bucket_name** - The S3 bucket that the Agent should read events and FlowLogs from. This value should only be set in custom implementations.
+    - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
+
+3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+
+### Configure VPC FlowLogs
+
+VPC FlowLogs can be analysed to retrieve relations between EC2 instances and RDS database instances. For each VPC that you want to analyse, a FlowLog needs to be configured. The process of adding FlowLogs for new VPCs could be automated using a Lambda triggered by a CloudTrail event that creates the FlowLog. Relations will be retrieved for EC2 instances and RDS database instances with a static public or private IP address and emit the proper URNs. For public IP addresses `urn:host:/{ip-address}`, for private IP addresses the URN has the form `urn:vpcip:{vpc-id}/{ip-address}`.
+
+For further details, see [Required AWS resources - VPC FlowLogs \(Optional\)](#vpc-flowlogs-optional).
+
+To configure a VPC FlowLog from the AWS console:
+
+1. From the **VPC Dashboard**, choose **Your VPCs** under **VIRTUAL PRIVATE CLOUD**.
+2. Select the VPC that you want to configure.
+3. Select **Flow logs** on the lower TAB-bar.
+4. Click **Create flow log**.
+5. Add the settings as shown in the screenshot.
+
+![VPC FlowLog settings](/.gitbook/assets/vpc_flowlogs_config.png)
 
 ### Use an HTTP proxy
 
@@ -163,7 +194,7 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-The following AWS service data is available in StackState as components:
+The following AWS service data is available in StackState as components with the associated relations:
 
 | Service | Resource | Relations |
 | :--- | :--- | :--- |
@@ -176,11 +207,11 @@ The following AWS service data is available in StackState as components:
 | CloudFormation | Stack | All Supported Resources\*, Nested CloudFormation Stack |
 | DynamoDB | Stream |  |
 | DynamoDB | Table | DynamoDB Stream |
-| EC2 | Instance | EC2 Security Group |
+| EC2 | Instance | EC2 Security Group, EC2 Instance \*\*\*, RDS Instance \*\*\* |
 | EC2 | Security Group | EC2 Instance |
-| EC2 | Subnet | EC2 Instance, EC2 VPC |
-| EC2 | VPC | EC2 Security Group, EC2 Subnet |
-| EC2 | VPN Gateway | EC2 VPC |
+| EC2 | Subnet | EC2 Instance, EC2 VPC  |
+| EC2 | VPC | EC2 Security Group, EC2 Subnet  |
+| EC2 | VPN Gateway | EC2 VPC  |
 | ECS | Cluster | EC2 Instance, ECS Service, ECS Task, Route53 Hosted Zone |
 | ECS | Service | Load Balancing Target Group, ECS Task |
 | ECS | Task |  |
@@ -193,8 +224,8 @@ The following AWS service data is available in StackState as components:
 | Load Balancing | Network Load Balancer | EC2 VPC, Load Balancing Target Group, Load Balancing Target Group Instance |
 | Load Balancing | Target Group | EC2 VPC |
 | Load Balancing | Target Group Instance | EC2 Instance |
-| RDS | Cluster | RDS Instance |
-| RDS | Instance | EC2 VPC, EC2 Security Group |
+| RDS | Cluster | RDS Instance  |
+| RDS | Instance | EC2 VPC, EC2 Security Group  |
 | Redshift | Cluster | EC2 VPC |
 | Route53 | Domain |  |
 | Route53 | Hosted Zone |  |
@@ -206,7 +237,8 @@ The following AWS service data is available in StackState as components:
 | Step Functions | State Machine | Step Functions \(All\) |
 
 * **\* "All Supported Resources"** - relations will be made to any other resource on this list, should the resource type support it.
-* \*\* This relation is made by finding valid URIs in the environment variables of the resource. For example, the DNS hostname of an RDS instance will create a relation.
+* **\*\*** This relation is made by finding valid URIs in the environment variables of the resource. For example, the DNS hostname of an RDS instance will create a relation.
+* **\*\*\*** This relation will only be retrieved when a [FlowLog for the VPC they are in](#configure-vpc-flowlogs) has been configured and is stored in the S3 bucket from which logs are processed by the Agent.
 
 #### Traces
 
@@ -216,14 +248,21 @@ The AWS integration does not retrieve any Traces data.
 
 A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](aws.md#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
 
-![Account components](../../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
-
 Hourly and event-based updates collect data:
 
 * Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 * Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
 If the StackState Agent does not have permission to access a certain component, it will skip it.
+
+![Account components](../../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
+
+* [StackState Agent IAM Role](#stackstate-agent-iam-role)
+* [S3 Bucket](#s3-bucket)
+* [EventBridge Rule](#eventbridge-rule)
+* [Kinesis Firehose](#kinesis-firehose)
+* [KMS Key \(Optional\)](#kms-key-optional)
+* [VPC FlowLogs \(Optional\)](#vpc-flowlogs-optional)
 
 #### StackState Agent IAM Role
 
@@ -254,7 +293,7 @@ Only one S3 bucket is necessary per account; all regions can send to the same bu
 A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream.
 
 * [EventBridge Rule - JSON object](aws-policies.md#stseventbridgerule)
-* [EventBridge IAM Role - JSON](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
+* [EventBridge IAM Role - JSON](aws-policies.md#stackstateeventbridgerole-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
 {% hint style="info" %}
 A rule must be created in each region where events are captured, each sending to a Firehose delivery stream in the same region.
@@ -270,7 +309,7 @@ The Prefix must be set to `AWSLogs/${AccountId}/EventBridge/${Region}/`, where `
 A delivery stream must be created in each region where events are captured, however, the target S3 bucket can exist in any region.
 {% endhint %}
 
-* [Kinesis Firehose IAM Role - JSON](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
+* [Kinesis Firehose IAM Role - JSON](aws-policies.md#stackstatefirehoserole-region) - Gives permission for Firehose to send data to an S3 bucket.
 
 #### KMS Key \(Optional\)
 
@@ -286,13 +325,15 @@ A KMS key must be created in each region where events are captured.
 
 #### VPC FlowLogs \(Optional\)
 
-{% hint style="warning" %}
-VPC FlowLogs support is currently experimental and is disabled by default.
-{% endhint %}
-
-A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute.
+A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute. The FlowLogs contain meta information about the network traffic inside VPCs. Only private network traffic is considered, traffic from NAT gateways and application load balancers will be ignored. 
 
 If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
+
+S3 objects that have been processed will be deleted from the bucket to make sure they will not be processed again. On the default S3 bucket, object versioning is enabled, this means objects will not actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
+
+{% hint style="info" %}
+A [FlowLog must be configured](#configure-vpc-flowlogs) for each VPC that you want to analyse.
+{% endhint %}
 
 ### Costs
 
@@ -301,7 +342,7 @@ The AWS StackPack CloudFormation template contains all resources that are necess
 * Kinesis Firehose: priced by the amount of data processed. Events use very small amounts of data. [Firehose pricing \(aws.amazon.com\)](https://aws.amazon.com/kinesis/data-firehose/pricing/)
 * S3: priced by amount of data stored, and amount of data transferred. Running the Agent inside of AWS will reduce data transfer costs. [S3 pricing \(aws.amazon.com\)](https://aws.amazon.com/s3/pricing/)
 * KMS: a flat fee of $1 per month per key, with additional costs per request. [KMS pricing \(aws.amazon.com\)](https://aws.amazon.com/kms/pricing/)
-* CloudWatch metrics: priced per metric retrived. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric. [CloudWatch pricing \(aws.amazon.com\)](https://aws.amazon.com/cloudwatch/pricing/)
+* CloudWatch metrics: priced per metric retrieved. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric. [CloudWatch pricing \(aws.amazon.com\)](https://aws.amazon.com/cloudwatch/pricing/)
 
 ### AWS views in StackState
 
