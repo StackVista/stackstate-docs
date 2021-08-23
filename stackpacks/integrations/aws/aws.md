@@ -145,7 +145,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
     - **log_bucket_name** - The S3 bucket that the Agent should read events and FlowLogs from. This value should only be set in custom implementations.
     - **tags** - - Optional. Can be used to apply specific tags to all reported data in StackState.
 
-3. [Restart the StackState Agent](../../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 
 ### Configure VPC FlowLogs
@@ -293,7 +293,7 @@ Only one S3 bucket is necessary per account; all regions can send to the same bu
 A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream.
 
 * [EventBridge Rule - JSON object](aws-policies.md#stseventbridgerule)
-* [EventBridge IAM Role - JSON](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
+* [EventBridge IAM Role - JSON](aws-policies.md#stackstateeventbridgerole-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
 {% hint style="info" %}
 A rule must be created in each region where events are captured, each sending to a Firehose delivery stream in the same region.
@@ -309,7 +309,7 @@ The Prefix must be set to `AWSLogs/${AccountId}/EventBridge/${Region}/`, where `
 A delivery stream must be created in each region where events are captured, however, the target S3 bucket can exist in any region.
 {% endhint %}
 
-* [Kinesis Firehose IAM Role - JSON](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
+* [Kinesis Firehose IAM Role - JSON](aws-policies.md#stackstatefirehoserole-region) - Gives permission for Firehose to send data to an S3 bucket.
 
 #### KMS Key \(Optional\)
 
@@ -331,6 +331,10 @@ If configuring FlowLogs using CloudFormation, the `stackstate-resources` templat
 
 S3 objects that have been processed will be deleted from the bucket to make sure they will not be processed again. On the default S3 bucket, object versioning is enabled, this means objects will not actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
 
+{% hint style="info" %}
+A [FlowLog must be configured](#configure-vpc-flowlogs) for each VPC that you want to analyse.
+{% endhint %}
+
 ### Costs
 
 The AWS StackPack CloudFormation template contains all resources that are necessary to run the AWS check on the StackState Agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
@@ -338,7 +342,7 @@ The AWS StackPack CloudFormation template contains all resources that are necess
 * Kinesis Firehose: priced by the amount of data processed. Events use very small amounts of data. [Firehose pricing \(aws.amazon.com\)](https://aws.amazon.com/kinesis/data-firehose/pricing/)
 * S3: priced by amount of data stored, and amount of data transferred. Running the Agent inside of AWS will reduce data transfer costs. [S3 pricing \(aws.amazon.com\)](https://aws.amazon.com/s3/pricing/)
 * KMS: a flat fee of $1 per month per key, with additional costs per request. [KMS pricing \(aws.amazon.com\)](https://aws.amazon.com/kms/pricing/)
-* CloudWatch metrics: priced per metric retrived. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric. [CloudWatch pricing \(aws.amazon.com\)](https://aws.amazon.com/cloudwatch/pricing/)
+* CloudWatch metrics: priced per metric retrieved. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric. [CloudWatch pricing \(aws.amazon.com\)](https://aws.amazon.com/cloudwatch/pricing/)
 
 ### AWS views in StackState
 
