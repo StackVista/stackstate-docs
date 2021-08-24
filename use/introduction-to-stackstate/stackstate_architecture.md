@@ -16,11 +16,11 @@ REST APIs are available for external services and are also used by our Command L
 
 Notifications, tickets, webhooks, and API calls are just a few examples of output data sources to let you respond to situations you observe in StackState.
 
-![StackState architecture and data flow](../../.gitbook/assets/sts-architecture.svg)
+![StackState architecture and data flow](/.gitbook/assets/sts-architecture.svg)
 
 ## Data sources
 
-StackState integrates with external systems to retrieve data. Integrations are set up using [StackState Agent V2](../../setup/agent/about-stackstate-agent.md), [StackState Agent V1](../../setup/agent/agent-v1.md) and/or an associated [integration StackPack](../../stackpacks/integrations/).
+StackState integrates with external systems to retrieve data. Integrations are set up using [StackState Agent](/setup/agent/about-stackstate-agent.md) and/or an associated [integration StackPack](/stackpacks/integrations/).
 
 ## StackGraph
 
@@ -30,7 +30,7 @@ StackState configuration and topology data are stored in the StackGraph database
 
 The StackState User Interface visualizes all collected data in [perspectives](perspectives.md). You can also customize your instance of StackState here by adding automization steps, such as event handlers and output to external systems.
 
-You can optionally install the [StackState CLI](../../develop/reference/cli_reference.md) to control your StackState instance directly from the command line.
+You can optionally install the [StackState CLI](/develop/reference/cli_reference.md) to control your StackState instance directly from the command line.
 
 ## Open source
 
