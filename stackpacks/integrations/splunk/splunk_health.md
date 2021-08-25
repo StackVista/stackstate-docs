@@ -71,7 +71,7 @@ To configure the Splunk health Agent check:
      * **search\_seconds\_between\_retries** - Default `1`.
      * **batch\_size** - Default `1000`.
      * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/conf.yaml.example). 
+4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example). 
 5. Save the configuration file.
 6. Restart StackState Agent V2 to apply the configuration changes.
 7. Incoming health data will be mapped to associated components and relations in the StackState UI as check states.
@@ -95,6 +95,6 @@ To disable the Splunk health Agent check:
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Health synchronization](../../../configure/health/health-synchronization.md)
 * [Debug health synchronization](../../../configure/health/debug-health-sync.md)
-* [Example Splunk health configuration file - splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/conf.yaml.example)
+* [Example Splunk health configuration file - splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)
 

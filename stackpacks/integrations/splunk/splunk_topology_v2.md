@@ -129,7 +129,7 @@ To configure the Splunk topology Agent check:
      * **batch\_size** - Default `1000`.
      * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Under **relation\_saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
-5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/conf.yaml.example). 
+5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/stackstate_checks/splunk_topology/data/conf.yaml.example). 
 6. Save the configuration file.
 7. Restart StackState Agent V2 to apply the configuration changes.
 8. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
