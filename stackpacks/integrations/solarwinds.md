@@ -153,7 +153,7 @@ Links to SolarWinds detail dashboards are created as [component actions](../../u
 The code for the StackState SolarWinds StackPack and check are open source and available on GitHub:
 
 * SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
-* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)
+* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)
 
 ## Troubleshooting
 
@@ -182,6 +182,6 @@ The [SolarWinds StackPack release notes](https://github.com/StackVista/stackpack
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
 * [Secrets management](https://docs.stackstate.com/configure/security/secrets_management)
 * [SolarWinds StackPack \(github.com\)](https://github.com/StackVista/stackpack-solarwinds)  
-* [StackState Agent integrations - SolarWinds \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)  
+* [StackState Agent integrations - SolarWinds \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)  
 * [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm)
 

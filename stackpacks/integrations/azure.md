@@ -38,6 +38,7 @@ To set up the StackState Azure integration, you need to have:
 * An Azure Service Principal \(SPN\) for the StackState Azure Agent with the following permissions:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
+* If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
 
 ### Install StackPack
 
@@ -242,5 +243,6 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 ## See also
 
 * [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack)
-* [Service principals in Azure \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
+* [Service principals in Azure \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
+* [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses)
 
