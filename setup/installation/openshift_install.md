@@ -88,6 +88,21 @@ Because OpenShift has stricter security model than plain Kubernetes, all of the 
 The values that are needed for an OpenShift deployment are:
 
 ```yaml
+backup:
+  stackGraph:
+    securityContext:
+      enabled: false
+cluster-agent:
+  agent:
+    scc:
+      enabled: true
+  kube-state-metrics:
+    podAnnotations:
+      ad.stackstate.com/kube-state-metrics.check_names: '["kubernetes_state"]'
+      ad.stackstate.com/kube-state-metrics.init_configs: '[{}]'
+      ad.stackstate.com/kube-state-metrics.instances: '[{"kube_state_url":"http://%%host%%:%%port%%/metrics","labels_mapper":{"namespace":"kube_namespace" "label_deploymentconfig":"oshift_deployment_config","label_deployment":"oshift_deployment"},"label_joins":{"kube_pod_labels":{"label_to_match":"pod","labels_to_get":["label_deployment","label_deploymentconfig"]}}}]'
+    securityContext:
+      enabled: false
 stackstate:
   components:
     all:
@@ -107,11 +122,6 @@ elasticsearch:
     enabled: false
   sysctlInitContainer:
     enabled: false
-kafka:
-  podSecurityContext:
-    enabled: false
-  volumePermissions:
-    enabled: false
 hbase:
   hdfs:
     securityContext:
@@ -127,6 +137,14 @@ hbase:
   tephra:
     securityContext:
       enabled: false
+kafka:
+  podSecurityContext:
+    enabled: false
+  volumePermissions:
+    enabled: false
+minio:
+  securityContext:
+    enabled: false
 zookeeper:
   securityContext:
     enabled: false
