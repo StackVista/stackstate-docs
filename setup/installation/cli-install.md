@@ -237,6 +237,10 @@ You can find your API token in the StackState UI on the page **Main menu** &gt; 
 
 The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To use the Admin API, you need the `access-admin-api` [StackState permission](../../configure/security/rbac/rbac_permissions.md).
 
+{% hint style="info" %}
+If you are using a custom tool instead of the CLI, you can authenticate with the API token. For example, this can be done by including the following header in a curl request `curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>` where the `<token>` is the API token provided on the CLI page in the StackState UI.
+{% endhint %}
+
 ## Use the StackState CLI
 
 For details on how to work with the StackState CLI, see the [CLI reference guide](../../develop/reference/cli_reference.md) or refer to the help provided in the CLI.
