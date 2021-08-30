@@ -50,7 +50,7 @@ Here is a sample sequence of curl commands to achieve this:
 # Obtain token from cookie pac4jCsrfToken
 curl --fail -v \
   -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
-  "Content-Type: application/x-www-form-urlencoded" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<HOST>:7070/loginCallback"
 
 # Do actual request
@@ -95,7 +95,7 @@ curl -X POST -d @./export.stj \
 # Obtain token from cookie pac4jCsrfToken
 curl --fail -v \
   -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
-  "Content-Type: application/x-www-form-urlencoded" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<host>:7070/loginCallback"
 
 # Do actual request
