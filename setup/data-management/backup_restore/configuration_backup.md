@@ -49,8 +49,8 @@ Here is a sample sequence of curl commands to achieve this:
 # Obtain session from cookie AkkaHttpPac4jSession
 # Obtain token from cookie pac4jCsrfToken
 curl --fail -v \
-  -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
+  "Content-Type: application/x-www-form-urlencoded" \
   "http://<HOST>:7070/loginCallback"
 
 # Do actual request
@@ -93,8 +93,9 @@ curl -X POST -d @./export.stj \
 ## Import with authentication
 # Obtain session from cookie AkkaHttpPac4jSession
 # Obtain token from cookie pac4jCsrfToken
-curl --fail -v -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
+curl --fail -v \
+  -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
+  "Content-Type: application/x-www-form-urlencoded" \
   "http://<host>:7070/loginCallback"
 
 # Do actual request
