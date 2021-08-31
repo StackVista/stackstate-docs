@@ -58,7 +58,7 @@ To uninstall the AAD StackPack, simply press the uninstall button. No other acti
 
 Release notes for the AAD StackPack are given below.
 
-Note that from release 4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
+Note that from StackState release v4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
 **Autonomous Anomaly Detector StackPack v0.9.2 \(02-04-2021\)**
 
