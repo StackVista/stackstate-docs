@@ -10,9 +10,9 @@ You can create and save views in StackState to bookmark a part of your topology 
 By default, saved views will be visible to all users. These can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required.
 {% endhint %}
 
-To create a new view navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the [View filters](../filters.md), a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
+To create a new view, navigate to **Explore Mode** in the StackState main menu or use another view as a starting point. Whenever one of the [View filters](../filters.md) is changed, a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view, use the dropdown menu next to the **Save View** button and select **Save View As**.
 
-In the dialog the following options appear:
+In the **Save view as** dialog, the following options can be set:
 
 | Field Name | Description |
 | :--- | :--- |
