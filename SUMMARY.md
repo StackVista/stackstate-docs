@@ -4,8 +4,8 @@
 
 ## 🚀 Setup
 
-* [Requirements](setup/requirements.md)
-* [Installation](setup/installation/README.md)
+* [Install StackState](setup/installation/README.md)
+  * [Requirements](setup/requirements.md)
   * [Kubernetes install](setup/installation/kubernetes_install/README.md)
     * [Install StackState](setup/installation/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/installation/kubernetes_install/required_permissions.md)
@@ -28,6 +28,11 @@
   * [OpenShift install](setup/installation/openshift_install.md)
   * [Initial run guide](setup/installation/initial_run_guide.md)
   * [Troubleshooting](setup/installation/troubleshooting.md)
+* [Upgrade StackState](setup/upgrade-stackstate/README.md)
+  * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
+  * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
+  * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
+  * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 * [StackState Agent](setup/agent/README.md)
   * [About the StackState Agent](setup/agent/about-stackstate-agent.md)
   * [Docker](setup/agent/docker.md)
@@ -46,11 +51,6 @@
     * [Manually created topology backup](setup/data-management/backup_restore/manual_topology_backup.md)
   * [Data retention](setup/data-management/data_retention.md)
   * [Clear stored data](setup/data-management/clear_stored_data.md)
-* [Upgrade StackState](setup/upgrade-stackstate/README.md)
-  * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
-  * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
-  * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
-  * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 
 ## 👤 Use
 
