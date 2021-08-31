@@ -4,10 +4,6 @@
 
 StackState can authenticate using an OIDC authentication provider. To enable this, you will need to configure both StackState and the OIDC provider to be able to talk to each other. The following sections describe the respective setups.
 
-## Network communication requirements
-
-There are no specific network communication requirements for OIDC. However, both the OIDC server and StackState need to be able to reach each other, and both must be accessible by the end user. All communication is over HTTP(s).
-
 ## Configure the OIDC provider
 
 Before you can configure StackState to authenticate using OIDC, you need to create a client for StackState on your OIDC provider. Use the following settings for the client \(if needed by the OIDC provider\):
