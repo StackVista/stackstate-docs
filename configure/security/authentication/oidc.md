@@ -35,6 +35,8 @@ stackstate:
       jwtClaims:
         usernameField: email
         groupsField: groups
+      customParameters:
+        access_type: offline
 
     # map the groups from OIDC provider
     # to the 4 standard roles in StackState (guest, powerUser, admin and platformAdmin)
@@ -56,6 +58,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
    * **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
    * **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
    * **redirectUri** - Optional \(not in the example\): The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
+   * **customParameters** - Optional map of key/value pairs that are sent to the OIDC provider as custom request parameters. Some OIDC providers require extra request parameters not sent by default.
    * **jwtClaims** -
      * **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
      * **groupsField** - The field from which StackState will read the role/group for a user.
@@ -118,6 +121,9 @@ authentication {
         usernameField = email
         groupsField = groups
       }
+      customParams {
+        access_type = "offline"
+      }
     }
   }
 }
@@ -134,6 +140,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
    * **jwsAlgorithm** - The default for OIDC is `RS256`. If your OIDC provider uses a different one, it can be set here.
    * **scope** - Should match, or be a subset of, the scope provided in the OIDC provider configuration. StackState uses this to request access to these parts of a user profile in the OIDC provider.
    * **redirectUri** - The URI where the login callback endpoint of StackState is reachable. This must be a fully qualified URL that points to the `/loginCallback` path.
+   * **customParams** - Optional map of key/value pairs that are sent to the OIDC provider as custom request parameters. Some OIDC providers require extra request parameters not sent by default.
    * **jwtClaims** -
      * **usernameField** - The field in the OIDC user profile that should be used as the username. By default this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
      * **groupsField** - The field from which StackState will read the role/group for a user.
