@@ -21,7 +21,9 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 ![Data flow](../../.gitbook/assets/stackpack-azure.png)
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
-* The StackState Azure function `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
+  * `TimedStart` triggers data collection every 2 hours.
+  * `EventHubChangesFunction` collects the deltas.  
+  * `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
 * StackState maps retrieved telemetry \(metrics\) onto the associated Azure components and relations.
@@ -142,8 +144,8 @@ The Azure integration uses the following Azure REST API endpoints, scroll right 
 
 | Resource | Endpoint | SDK \(Version\) |
 | :--- | :--- | :--- |
-| Metric definitions | {resourceUri}/providers/Microsoft.Insights/metricDefinitions?api-version=2018-01-01 | |
-| Metric values | {resourceUri}/providers/Microsoft.Insights/metrics?api-version=2018-01-01 | |
+| Metric definitions | {resourceUri}/providers/Microsoft.Insights/metricDefinitions?api-version=2018-01-01 | github.com/Azure/azure-sdk-for-java \(1.16.0\) |
+| Metric values | {resourceUri}/providers/Microsoft.Insights/metrics?api-version=2018-01-01 | github.com/Azure/azure-sdk-for-java \(1.16.0\) |
 | AKS Managed Cluster | resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters?api-version=2018-03-31 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | Availability Sets | resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets?api-version=2018-06-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | ApplicationGateways | resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways?api-version=2018-04-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
