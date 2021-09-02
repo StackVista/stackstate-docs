@@ -90,7 +90,7 @@ az login
 {% endtabs %}
 
 {% hint style="info" %}
-Note that the install script is optimized to run with Azure CLI versions 2.24.0 and earlier.
+Note that the install script is optimized to run with Azure CLI versions 2.24.0 and earlier. When running with Azure CLI versions 2.24.1 and above, you may see deprecation warnings.
 {% endhint %}
 
 ### Status
