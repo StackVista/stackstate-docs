@@ -20,7 +20,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | Debian | Debian 7 \(Wheezy\) | Debian 7 \(Wheezy\) requires glibc upgrade to 2.17. Network tracer available from Debian 9 \(Stretch\). |
 | Fedora | Fedora 28 | - |
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
-| Ubuntu | Ubuntu 14 \(Trusty\) | Network tracer available from Ubuntu 16 \(Xenial\). |
+| Ubuntu | Ubuntu 15.04 \(Vivid Vervet\) | Network tracer available from Ubuntu 16.04 LTS \(Xenial Xerus\). |
 
 ### Install
 
