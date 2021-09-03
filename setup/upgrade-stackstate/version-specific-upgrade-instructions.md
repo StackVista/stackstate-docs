@@ -159,6 +159,10 @@ No manual action needed.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.3.5
+
+No manual action needed.
+
 #### v4.3.4
 
 No manual action needed.
@@ -190,6 +194,10 @@ No manual action needed.
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.3.5
+
+No manual action needed.
+
 #### v4.3.4
 
 No manual action needed.
