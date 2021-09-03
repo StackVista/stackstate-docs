@@ -15,8 +15,6 @@ The Autonomous Anomaly Detector consists of two components:
   
 The sections below explain how to configure AAD Kubernetes service and AAD StackPack in order to perform standalone deployment. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
 
-Note that with data collected in 1 minute buckets, AAD will require a 3 day training period to begin reporting anomalies. 
-
 ## Node sizing
 
 A minimal deployment of the AAD Kubernetes service with the default options requires one of the following instance types:
