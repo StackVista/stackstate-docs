@@ -48,7 +48,7 @@ Yes. The AAD itself does not alert on anomalies found, but [anomaly health check
 
 ### How fast are anomalies detected?
 
-After an initial training period of 3 days (based on data collected in 1 minute buckets), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
+After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
 ### How do I know what the AAD is working on?
 
