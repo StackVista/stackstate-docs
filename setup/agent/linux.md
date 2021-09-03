@@ -67,7 +67,7 @@ If you do not have access to the internet on the machine where the Agent will be
 2. Get the **Key** of the latest version of the Agent installer package (DEB or RPM package):
    * [DEB installer package list](https://stackstate-agent-2.s3.amazonaws.com/?prefix=pool/stable/s/st/stackstate-agent_2.1)
    * [RPM installer package list](https://stackstate-agent-2-rpm.s3.amazonaws.com/?prefix=stable/stackstate-agent-2.1)
-3. Download the Agent installer package and copy this to the host where it will be installed. The download link can be constructed from the s3 bucket URL and the installer package `Key`  that is provided on the installer package list page. 
+3. Download the Agent installer package and copy this to the host where it will be installed. The download link can be constructed from the S3 bucket URL and the installer package `Key`  that is provided on the installer package list page. 
    For example, to download the DEB installer package for `agent_2.13.0-1_amd64.deb`, use:  `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.13.0-1_amd64.deb`
    * **DEB Download link:** `https://stackstate-agent-2.s3.amazonaws.com/<Key_from_DEB_installer_package_list>`
    * **RPM Download link:** `https://stackstate-agent-2-rpm.s3.amazonaws.com/<Key_from_RPM_installer_package_list>`
