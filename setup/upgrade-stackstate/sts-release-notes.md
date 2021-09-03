@@ -62,7 +62,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
-# v4.3.5
+### v4.3.5
 
 **Improvements**
 
@@ -73,7 +73,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 - Fixed issue that caused corrupt data in StackGraph under certain circumstances. STAC-13860
 
-# v4.3.4
+### v4.3.4
 
 **Bug fixes**
 
