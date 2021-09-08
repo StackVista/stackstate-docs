@@ -54,25 +54,6 @@ When used in conjunction with one of our language specific trace clients, eg. [S
       ...
 ```
 
-#### Advanced configurations
+#### Advanced Agent configurations
 
-Process blacklist can be tuned specifying values for rule that will include otherwise excluded processes:
-
-| Parameter | Mandatory | Default Value | Description |
-| :--- | :--- | :--- | :--- |
-| `STS_PROCESS_BLACKLIST_PATTERNS` | no | [see GitHub](https://github.com/StackVista/stackstate-process-agent/blob/master/config/config_nix.go) | A list of regex patterns that will exclude a process if matched |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_CPU` | no | 0 | Number of processes to report that have a high CPU usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_READ` | no | 0 | Number of processes to report that have a high IO read usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_IO_WRITE` | no | 0 | Number of processes to report that have a high IO write usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_TOP_MEM` | no | 0 | Number of processes to report that have a high Memory usage |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_CPU_THRESHOLD` | no |  | Threshold that enables the reporting of high CPU usage processes |
-| `STS_PROCESS_BLACKLIST_INCLUSIONS_MEM_THRESHOLD` | no |  | Threshold that enables the reporting of high Memory usage processes |
-
-Certain feature of the agent can be turned off if not needed:
-
-| Parameter | Mandatory | Default Value | Description |
-| :--- | :--- | :--- | :--- |
-| `STS_PROCESS_AGENT_ENABLED` | no | True | Whenever process agent should be enabled |
-| `STS_APM_ENABLED` | no | True | Whenever trace agent should be enabled |
-| `STS_NETWORK_TRACING_ENABLED` | no | True | Whenever network tracer should be enabled |
-
+The Agent can be configured to tune the process blacklist, or turn off specific features when not needed. For details, see [advanced Agent configuration](/setup/agent/advanced-agent-configuration.md).
