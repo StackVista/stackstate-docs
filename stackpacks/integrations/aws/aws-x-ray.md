@@ -45,7 +45,7 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You al
         # min_collection_interval: 60
     ```
 
-2. Restart the Agent
+2. Restart the Agent.
 
 Need help? Please contact [StackState support](http://support.stackstate.com/).
 
