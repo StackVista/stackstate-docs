@@ -124,8 +124,6 @@ If there are components with [telemetry streams](../../metrics-and-events/teleme
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}
 
-view, the Topology Perspective will calculate a health state and  this
-
 It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether the view should be expanded to show root cause components that are outside of the currently displayed view:
 
 * **Don't show root cause** - Do not show the root causes of components shown by the current topology filters.
