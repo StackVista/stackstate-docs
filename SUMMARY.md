@@ -35,20 +35,20 @@
 * [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
 * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 
-## Health state
+## 🚦 Health state
 
 * [Health state in StackState](use/health-state/health-state-in-stackstate.md)
 * [Add a health check](use/health-state/add-a-health-check.md)
 * [Anomaly health checks](use/health-state/anomaly-health-checks.md)
 * [Configure the view health](use/health-state/configure-view-health.md)
 
-## Problem analysis
+## 🛑 Problem analysis
 
 * [What is a problem?](use/problem-analysis/problems.md)
 * [Investigate a problem](use/problem-analysis/problem_investigation.md)
 * [Problem notifications](use/problem-analysis/problem_notifications.md)
 
-## Metrics and events
+## 📈 Metrics and events
 
 * [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
 * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)
