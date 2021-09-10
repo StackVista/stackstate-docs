@@ -56,7 +56,7 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Enable or disable view health state
 
-* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md). 
+* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md).
 * To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
 Read more about how to [configure the view health state](../../health-state/configure-view-health.md).
@@ -64,6 +64,9 @@ Read more about how to [configure the view health state](../../health-state/conf
 ### Event notifications for view health state changes
 
 A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](../../metrics-and-events/send-event-notifications.md).
+
+{% hint style="info" %}
+**StackState platform**
 
 ## Secure views with RBAC
 
@@ -73,6 +76,7 @@ Through a combination of configuration of permissions and scope, it is possible 
 * access to specific views and disallow them to create, modify or delete views
 
 For further details, see the [RBAC documentation](../../../configure/security/rbac/role_based_access_control.md).
+{% endhint %}
 
 ## See also
 
@@ -80,4 +84,3 @@ For further details, see the [RBAC documentation](../../../configure/security/rb
 * [Health state for a view](../../health-state/health-state-in-stackstate.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
 * [Send event notifications for view health state changes](../../metrics-and-events/send-event-notifications.md)
-

@@ -20,8 +20,14 @@ The main way of filtering the topology is by using the basic filters. When you s
 | :--- | :--- |
 | Layers, Domains, Environments and Component types | Filter by the component details included when components are imported or created. |
 | Component health | Only include components with the named [health state](../health-state/health-state-in-stackstate.md) as reported by the associated health check. |
-| Component labels | Only include components with a [custom label](../../configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](../../stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
+| Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
+
+{% hint style="info" %}
+**StackState platform**
+
+You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
+{% endhint %}
 
 The example below uses basic filters to return components that match the following conditions:
 
@@ -93,4 +99,3 @@ To update the existing view with the currently applied filters, click **Save vie
 ## Clear applied filters
 
 To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the View details pane on the right of the screen.
-
