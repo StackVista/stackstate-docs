@@ -60,7 +60,7 @@
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](setup/agent/README.md)
     * [About the StackState Agent](setup/agent/about-stackstate-agent.md)
-    * [Agent V2 StackPack](stackpacks/integrations/agent.md)
+    * [Agent V2 StackPack](stackpacks/integrations/agent.md) 
     * [Docker](setup/agent/docker.md)
     * [Kubernetes](setup/agent/kubernetes.md)
     * [Linux](setup/agent/linux.md)
