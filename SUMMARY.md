@@ -11,8 +11,6 @@
   * [Perspectives](use/introduction-to-stackstate/perspectives.md)
   * [Anomaly detection](use/introduction-to-stackstate/anomaly-detection.md)
   * [Layers, Domains and Environments](use/introduction-to-stackstate/layers_domains_and_environments.md)
-* [Data protection features](use/introduction-to-stackstate/data-protection/saas.md)
-* [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
 * [Glossary](use/glossary.md)
 
 ## 👤 StackState UI
