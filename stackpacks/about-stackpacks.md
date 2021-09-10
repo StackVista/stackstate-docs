@@ -23,7 +23,11 @@ StackPacks contain configuration information for StackState that is installed wh
 
 To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
 
+{% hint style="info" %}
+**StackState platform**
+
 Note that the lock status of configuration items will not be exported as part of a [configuration backup](../setup/data-management/backup_restore/configuration_backup.md).
+{% endhint %}
 
 ## Which StackPacks are available?
 
@@ -32,7 +36,11 @@ The available StackPack add-ons and integrations can be found on the **StackPack
 * [Add-ons](add-ons/)
 * [Integrations](integrations/)
 
+{% hint style="info" %}
+**StackState platform**
+
 The StackPack versions shipped with each supported release of StackState can be found on the page [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md).
+{% endhint %}
 
 ## Install or uninstall a StackPack
 
@@ -54,7 +62,11 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
 
+{% hint style="info" %}
+**StackState platform**
+
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
+{% endhint %}
 
 ### New Minor StackPack version
 
@@ -70,7 +82,10 @@ Note that all StackPack configuration items will be overwritten after a major St
 
 To upgrade to a new major version of a StackPack, [uninstall and reinstall](about-stackpacks.md#install-or-uninstall-a-stackpack) the StackPack.
 
-Note that all StackPack configuration items will be overwritten when you upgrade. Follow the steps below to continue using any changes made to these items.
+{% hint style="info" %}
+**StackState platform**
+
+Note that all customized StackPack configuration items will be overwritten when you upgrade. Follow the steps below to continue using any changes made to these items.
 
 1. Before you upgrade, export each customized item:
    * Go to the **Settings** page in the StackState UI.
@@ -83,3 +98,4 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 4. [Import](../setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file\(s\).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
 
+{% endhint %}

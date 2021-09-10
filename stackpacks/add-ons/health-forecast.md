@@ -20,9 +20,14 @@ Install the Health Forecast StackPack to get on-demand forecasts for the health 
 
 ### How does the forecasting work?
 
-The Health Forecast StackPack adds a [health forecast action](../../configure/topology/component_actions.md) to each component. This forecast action looks at the health checks of a component that are based on metrics. A part of the history of each these metrics is retrieved and used to predict these metrics for the coming 12 hours. The prediction is then fed back into the health checks hourly. The health state of each hour of each check, as well as all the predicted metrics, are added to the forecast report.
+The Health Forecast StackPack adds a health forecast action to each component. This forecast action looks at the health checks of a component that are based on metrics. A part of the history of each these metrics is retrieved and used to predict these metrics for the coming 12 hours. The prediction is then fed back into the health checks hourly. The health state of each hour of each check, as well as all the predicted metrics, are added to the forecast report.
+
+{% hint style="info" %}
+**StackState platform**
+
+For more information about component actions, see the [Component Action documentation section](../../configure/topology/component_actions.md).
+{% endhint %}
 
 ### Can I get a forecast for more than 12 hours?
 
 Not yet. Please report your request for longer time-frame forecasts at [support.stackstate.com](https://support.stackstate.com).
-
