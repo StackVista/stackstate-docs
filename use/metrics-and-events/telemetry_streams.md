@@ -15,14 +15,17 @@ Telemetry streams are supplied via plugins. Different plugins provide one or mul
 
 ### Add telemetry streams
 
-In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization.
+In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Read how to [add a telemetry stream to an element](add-telemetry-to-element.md).
 
-Read how to [add a telemetry stream to an element](add-telemetry-to-element.md) or how to [add telemetry during topology synchronization](https://github.com/StackVista/stackstate-docs/tree/5b0eeac18334f7f543e6bd5c30eca222268c5dad/use/metrics-and-events/telemetry_synchronized_topology.md).
+{% hint style="info" %}
+**StackState platform**
+
+Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization. Read how to [add telemetry during topology synchronization](../../configure/telemetry/telemetry_synchronized_topology).
+{% endhint %}
 
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](../health-state/add-a-health-check.md)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md)
-* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
-
+* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState platform only")
+* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState platform only")

@@ -42,10 +42,10 @@ You can add an event handler to a view from the StackState UI.
 
 1. Select **Events Settings** on the left.
 2. Click **ADD NEW EVENT HANDLER**.
-3. Select the trigger event and event handler to run: 
+3. Select the trigger event and event handler to run:
    * **On event** - the [events](send-event-notifications.md#events) that should trigger the event notification or automated action.
-   * **Run event handler** - the [event handler function](send-event-notifications.md#event-handler-functions) that will run whenever the selected event is generated. 
-     * For health state changed events, StackState ships with event handler functions that can send an event notification via email, Slack or SMS, or POST to an HTTP webhook. 
+   * **Run event handler** - the [event handler function](send-event-notifications.md#event-handler-functions) that will run whenever the selected event is generated.
+     * For health state changed events, StackState ships with event handler functions that can send an event notification via email, Slack or SMS, or POST to an HTTP webhook.
      * For problem events, you will need to [create a custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md).
 4. Enter the required details, these will vary according to the event handler function you have selected.
 5. Click **SAVE**.
@@ -83,7 +83,13 @@ Changes to a problem result in the following event types being generated:
 
 ## Event handler functions
 
-Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can [create your own custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
+Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState.
+
+{% hint style="info" %}
+**StackState platform**
+
+You can [create your own custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
+{% endhint %}
 
 ### Functions for health state change events
 
@@ -92,22 +98,28 @@ StackState ships with the following event handler functions that track health st
 | Event handler function | Description |
 | :--- | :--- |
 | **Slack** | Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
-| **Email** | Sends details of a health state change event using the [configured SMTP server](../../configure/topology/configure-email-event-notifications.md). |
 | **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
 | **SMS** | Sends details of a health state change event using MessageBird. |
 
 {% hint style="info" %}
-Some of the event handler functions above will be installed as part of a StackPack. A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
+**StackState platform**
+
+An email event handler is available that sends details of a health state change event using a [configured SMTP server](../../configure/topology/configure-email-event-notifications.md).
+
+A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 {% endhint %}
+
+{% hint style="info" %}
+**StackState platform**
 
 ### Functions for problem events
 
 To run an event handler in response to problem events generated in a view, you will need to [create a custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md).
+{% endhint %}
 
 ## See also
 
 * [Add a health check](../health-state/add-a-health-check.md)
-* [Configure an SMTP server to send email event notifications](../../configure/topology/configure-email-event-notifications.md)
-* [Custom event handlers](../../develop/developer-guides/custom-functions/event-handler-functions.md)
-* [Create a custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md)
-
+* [Configure an SMTP server to send email event notifications](../../configure/topology/configure-email-event-notifications.md "StackState platform only")
+* [Custom event handlers](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState platform only")
+* [Create a custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState platform only")
