@@ -88,5 +88,4 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 
 * [Topology filter limits](../../use/stackstate-ui/filters.md#topology-filtering-limits)
 * [How to filter topology in the StackState UI](../../use/stackstate-ui/filters.md)
-* [How to use STQL queries in analytics](../../use/stackstate-ui/analytics.md)
 
