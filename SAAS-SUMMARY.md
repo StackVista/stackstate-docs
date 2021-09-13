@@ -80,4 +80,4 @@
 ## 📖 Reference
 
 * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
-* [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
+* [StackState release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)

@@ -52,7 +52,7 @@ You can add an event handler to a view from the StackState UI.
 
 ## Events
 
-Event handlers can be configured to respond to [state change events](send-event-notifications.md#state-changed-events) and [problem events](send-event-notifications.md#problem-events).
+Event handlers can be configured to respond to [state change events](send-event-notifications.md#state-change-events) and [problem events](send-event-notifications.md#problem-events).
 
 ### State change events
 
