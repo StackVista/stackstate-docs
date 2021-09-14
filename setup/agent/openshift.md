@@ -54,7 +54,7 @@ Deployed only when `clusterChecks.enabled` is set to `true` in `values.yaml` whe
 * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
 * Load-balanced cluster services \(for example, Kubernetes services\).
 
-Read how to [enable cluster checks](openshift.md#cluster-checks).
+Read how to [enable cluster checks](openshift.md#cluster-check-configuration).
 
 ## Setup
 
@@ -73,7 +73,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, consider enabling [cluster checks](openshift.md#configure-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, you can [enable cluster checks](openshift.md#cluster-check-configuration) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
 
 {% hint style="info" %}
 **stackstate.cluster.authToken**
