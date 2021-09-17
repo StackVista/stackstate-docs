@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services. For an overview the AWS resources used, see the section on [required AWS resources](#required-aws-resources).
+Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services. 
 
 ![Data flow](../../../.gitbook/assets/stackpack-aws-v2.svg)
 
