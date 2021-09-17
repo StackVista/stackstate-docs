@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
+Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services. 
 
 ![Data flow](../../../.gitbook/assets/stackpack-aws-v2.svg)
 
@@ -96,7 +96,7 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account. To create topology in StackState, you must [configure the AWS check](#configure-the-aws-check) on StackState Agent V2.
 
 * **Role ARN** - the ARN of the IAM Role used to [deploy the AWS Cloudformation stack](aws.md#deploy-the-aws-cloudformation-stack). For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID.
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
