@@ -88,7 +88,7 @@ Note that it will not be possible to restore the backup on the upgraded version 
 See [Uninstalling StackPacks](../../stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
 
 {% hint style="warning" %}
-StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+When uninstalling StackPacks, the version of StackState prior to the upgrade must be used since this version can contain different installation logic from the new StackPack version.
 {% endhint %}
 
 ### Upgrade StackState
