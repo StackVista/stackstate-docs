@@ -35,35 +35,71 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Int
 
 ### Configure
 
-To enable the Dynatrace check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
+There are two Dynatrace checks:
+- Topology check
+- Health check
 
-1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace.d/conf.yaml` to include details of your Dynatrace instance:
-   * **url** - the URL of the Dynatrace instance.
-   * **token** - an API token with access to the required [Dynatrace API endpoints](dynatrace.md#rest-api-endpoints).
+#### Dynatrace Topology Check
 
-     ```text
-     # Section used for global dynatrace check config
-     init_config:
+To enable the Dynatrace topology check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
 
-     instances:
-     # mandatory
-     - url: <url> # URL of the Dynatrace instance
-      token: <token>  # API-Token to connect to Dynatrace
-      # verify: True  # By default its True
-      # timeout: 10
-      # cert: /path/to/cert.pem
-      # keyfile: /path/to/key.pem
-      # domain: <domain>  # default 'dynatrace'
-      # environment: <environment>  # default 'production'
-      # relative_time : <relative_time> # default 'hour'
-      # events_bootstrap_days: 5  # default 5 days
-      # events_process_limit: 10000  # default 10k events
-      # tags:
-      #   - foo:bar
-     ```
-2. Optional: Add a **domain** and **environment** in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState \(default domain=dynatrace and environment=production\).
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
+    - **url** - the URL of the Dynatrace instance.
+    - **token** - an API token with access to the required [Dynatrace API endopints](https://l.stackstate.com/ui-dynatrace-rest-api-endpoints).
+
+    ```
+    # Section used for global dynatrace check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url> # URL of the Dynatrace instance
+        token: <token>  # API-Token to connect to Dynatrace
+        # verify: True  # By default its True
+        # cert: /path/to/cert.pem
+        # keyfile: /path/to/key.pem
+        # timeout: 10
+        # domain: <domain>  # default 'dynatrace'
+        # environment: <environment>  # default 'production'
+        # relative_time : <relative_time> # default 'hour'
+        # custom_device_relative_time: 1h
+        # custom_device_fields: +fromRelationships,+toRelationships,+tags,+managementZones,+properties.dnsNames,+properties.ipAddress
+        # tags:
+        #   - foo:bar
+    
+    ```
+2. Optional: Add a **domain** and **environment** in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState (default domain=dynatrace and environment=production).
+3. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
+
+#### Dynatrace Health Check
+
+To enable the Dynatrace health check and begin getting events from Dynatrace, add the following configuration to StackState Agent V2:
+
+1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
+   - **url** - the URL of the Dynatrace instance.
+   - **token** - an API token with access to the required [Dynatrace API endopints](https://l.stackstate.com/ui-dynatrace-rest-api-endpoints).
+
+    ```
+    # Section used for global dynatrace check config
+    init_config:
+    
+    instances:
+      # mandatory
+      - url: <url> # URL of the Dynatrace instance
+        token: <token>  # API-Token to connect to Dynatrace
+        # verify: True  # By default its True
+        # cert: /path/to/cert.pem
+        # keyfile: /path/to/key.pem
+        # timeout: 10
+        # events_bootstrap_days: 5  # by default it's 5 days
+        # events_process_limit: 10000  # by default it's 10k events
+        # tags:
+        #   - foo:bar
+    
+    ```
+2. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+3. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 ### Status
 
@@ -91,6 +127,8 @@ The API Token configured in StackState Agent V2 must have the permission **Acces
 * `/api/v1/entity/infrastructure/process-groups`
 * `/api/v1/entity/services`
 * `/api/vi/events`
+* `/api/v2/entities`
+
 
 {% hint style="info" %}
 Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token).
@@ -100,7 +138,7 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 #### Events
 
-The Dynatrace check retrieves all events and their parameters from Dynatrace for the configured `relative_time` \(default 1 hour\). Retrieved events are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+The Dynatrace check retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour). Retrieved events are available in the StackState Events Perspective as Health State changes and listed in the components details pane of the StackState UI.
 
 #### Metrics
 
@@ -116,7 +154,7 @@ The Dynatrace check retrieves the following topology data from Dynatrace:
 
 | Data | Description |
 | :--- | :--- |
-| Components | Smartscape Applications, Hosts, Processes, Process-Groups and Services. |
+| Components | SmartScape Applications, Hosts, Processes, Process-Groups, Services and Custom Devices. |
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace. |
 
 #### Traces
@@ -153,12 +191,21 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text
-    mv dynatrace.d/conf.yaml dynatrace.d/conf.yaml.bak
+    mv dynatrace_topology.d/conf.yaml dynatrace_topology.d/conf.yaml.bak
+    mv dynatrace_health.d/conf.yaml dynatrace_health.d/conf.yaml.bak
    ```
 
 3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
+
+**Dynatrace StackPack v1.3.0 \(2021-xx-xx\)**
+
+* Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks. 
+
+**Dynatrace StackPack 1.2.0 (2021-09-02)**
+
+* Features: Introduced a new component type named Custom-Device 
 
 **Dynatrace StackPack v1.1.2 \(2021-06-24\)**
 
