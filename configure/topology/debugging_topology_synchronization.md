@@ -1,28 +1,20 @@
----
-title: Debugging topology synchronization
-kind: Documentation
-aliases:
-  - /configuring/debugging_topology_synchronization/
-listorder: 10
----
-
 # Debug topology synchronization
 
 ## Overview
 
-When customizing a synchronization the result might not be as expected: this page explains several tools for debugging. For more info on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
+This page explains several tools for debugging a custom topology synchronization. For more information on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
 
 ## General troubleshooting steps
 
-Some common steps to verify issues are:
+To verify issues follow these common steps:
 
-1. [Verify that the Topology Synchronization is listed and has created components and relations](debugging_topology_synchronization.md#list-all-topology-synchronization-streams).
-2. [Ensure if the Topology Synchronization has errors](debugging_topology_synchronization.md#show-status-of-a-stream)
+1. [List all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
+2. [Check the status of the topology synchronization stream](debugging_topology_synchronization.md#show-status-of-a-stream) for the error count. 
 3. Check the logs
 
-## Checking the synchronization logs
+## Check the synchronization logs
 
-StackState stores logs about synchronization in the folllowing places
+StackState stores logs about synchronization in the following places
 
 `<my_install_location>/var/log/sync/`
 
@@ -47,24 +39,18 @@ This directory contains two log files for each synchronization.
 
 ## Common Issues
 
-## Why are components/elements I expect not in my topology?
+### Why are components/relations I expect not in my topology?
 
-If no components appear after making changes in a synchronization, or the data is not as expected, a good starting point is the synchronization main screen:
-
-`https://<my instance>/#/settings/synchronizations`
+If no components appear after making changes to a synchronization, or the data is not as expected, check the synchronizations page in the StackState UI. Go to **Settings** > **Topology Synchronization** > **Synchronizations** from the main menu.
 
 Based on the information you see here, different actions can be taken:
 
-* If there are errors be sure to check the synchronization logs
-* If there are no errors:
-  * Make sure you 'restarted' your synchronization in the synchronization screen and sent
-
-    in new data, this is because StackState does not retroactively apply changes
-
-  * Make sure the components/relations you want synchronized has its type mapped in the synchronization configuration
-  * Make sure data is ending up in StackState. The [StackState CLI](../../setup/installation/cli-install.md) contains a way to see
-
-    what data ends up on the synchronization topic.
+* If there are errors:
+  * [Check the synchronization logs](#check-the-synchronization-logs) for details.
+* If there are no errors, check the following:
+  * Did you restart the synchronization and send new data after making changes? StackState will not retroactively apply changes.
+  * Do the components/relations to be synchronized have their type mapped in the synchronization configuration?
+  * Is the data arriving in StackState? The [StackState CLI](../../setup/installation/cli-install.md) contains a way to see what data ends up on the synchronization topic.
 
 ## Useful CLI commands
 
