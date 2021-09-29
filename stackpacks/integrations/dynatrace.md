@@ -38,8 +38,8 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Int
 ### Configure
 
 To enable the Dynatrace integration, two Dynatrace checks need to be configured.: 
-- [Dynatrace topology check](#dynatrace-topology-check) - Collects topology data. 
-- [Dynatrace health check](#dynatrace-health-check) - Collects events and health data from Dynatrace.
+- [Dynatrace topology check](#dynatrace-topology-check) - collects topology data. 
+- [Dynatrace health check](#dynatrace-health-check) - collects events data from Dynatrace.
 
 #### Dynatrace Topology Check
 
