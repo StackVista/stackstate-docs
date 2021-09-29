@@ -10,7 +10,9 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
 
 ![Data flow](../../.gitbook/assets/stackpack-dynatrace.svg)
 
-* Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve Smartscape topology and events data.
+* Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve data:
+  * If a Dynatrace topology check is configured, Topology and Smartscape data is retrieved
+  * If a Dynatrace health check is configured, events data is retrieved.
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
 * [Topology data](dynatrace.md#topology) is translated into components and relations. 
 * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState.
@@ -35,13 +37,18 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Int
 
 ### Configure
 
-There are two Dynatrace checks:
+There are two Dynatrace check. 
 - Topology check
 - Health check
 
+They both need to be used. Health check should have shorter retrieval interval than the Topology check. Topology check needs to run longer if you have large amount of topology data to get from Dynatrace. 
+Default setting for `min_collection_interval` is: 
+- Topology check collection interval is 300 seconds 
+- Health check collection interval is 60 seconds
+
 #### Dynatrace Topology Check
 
-To enable the Dynatrace topology check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
+To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
     - **url** - the URL of the Dynatrace instance.
@@ -68,13 +75,24 @@ To enable the Dynatrace topology check and begin collecting data from Dynatrace,
         #   - foo:bar
     
     ```
-2. Optional: Add a **domain** and **environment** in the `conf.yaml` file to specify where imported Dynatrace topology will end up in StackState (default domain=dynatrace and environment=production).
-3. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
-4. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
+2. You can also add optional configuration to specify where imported Dynatrace topology will end up in StackState:
+   - **domain** - The domain to use for imported topology (default dynatrace).
+   - **environment** - The environment to use for imported topology (default production).
+3. Other configuration options are:
+   - **verify** - To verify the certificate for https.
+   - **cert** - The path to certificate file for https verification.
+   - **keyfile** - The path to public key of certificate for https verification.
+   - **timeout** - Timeout for requests.
+   - **relative_time** - The relative timeframe for retrieving topology.
+   - **custom_device_relative_time** - The relative timeframe for retrieving custom devices.
+   - **custom_device_fields** - Which Custom Device property fields will be used.
+   - **tags** - custom tags appended to all components, useful for filtering.
+4. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace Health Check
 
-To enable the Dynatrace health check and begin getting events from Dynatrace, add the following configuration to StackState Agent V2:
+To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
    - **url** - the URL of the Dynatrace instance.
@@ -94,12 +112,18 @@ To enable the Dynatrace health check and begin getting events from Dynatrace, ad
         # timeout: 10
         # events_bootstrap_days: 5  # by default it's 5 days
         # events_process_limit: 10000  # by default it's 10k events
-        # tags:
-        #   - foo:bar
-    
+   
     ```
-2. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
-3. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
+2. You can also add optional configuration:
+   - **verify** - To verify the certificate for https.
+   - **cert** - The path to certificate file for https verification.
+   - **keyfile** - The path to public key of certificate for https verification.
+   - **timeout** - Timeout for requests.
+   - **relative_time** - The relative timeframe for retrieving topology.
+   - **events_bootstrap_days** - How many days in the past to collect events on the first run.
+   - **events_process_limit** - Maximum number of events to process each run.
+3. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+4.Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 ### Status
 
