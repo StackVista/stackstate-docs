@@ -44,7 +44,7 @@ To enable the Dynatrace integration, two Dynatrace checks need to be configured.
 #### Dynatrace Topology Check
 
 {% hint style="info" %}
-If only the Dynatrace topology check is enabled, no Dynatrace events data will be available in StackState and components will be reported with a green (CLEAR) health state. To enable retrieval of events and health data from Dynatrace, you should also enable the [Dynatrace health check](#dynatrace-health-check).
+If only the Dynatrace topology check is enabled, no Dynatrace events data will be available in StackState and components will be reported with a green (CLEAR) health state. To enable retrieval of events data from Dynatrace, you should also enable the [Dynatrace health check](#dynatrace-health-check).
 {% endhint %}
 
 To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
@@ -93,7 +93,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
 #### Dynatrace Health Check
 
 {% hint style="info" %}
-If only the Dynatrace health check is enabled, no Dynatrace topology data will be available in StackState. Events and health data will be retrieved from Dynatrace, but there will be no components or relations available in StackState to map this to. To enable retrieval of topology data from Dynatrace, you should also enable the [Dynatrace topology check](#dynatrace-topology-check).
+If only the Dynatrace health check is enabled, no Dynatrace topology data will be available in StackState. Events data will be retrieved from Dynatrace, but there will be no components or relations available in StackState to map this to. To enable retrieval of topology data from Dynatrace, you should also enable the [Dynatrace topology check](#dynatrace-topology-check).
 {% endhint %}
 
 To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
@@ -169,11 +169,11 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 The [Dynatrace health check](#dynatrace-health-check) retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour).
 
-| Dynatrace event severity | StackState |
+| Dynatrace event severity | Aveailable in StackState as |
 | :--- | :--- |
-| `INFO` | Mapped to the associated component. Events are listed on the StackState events perspective and in the Component Details pane. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Available in a StackState health stream. Result in a DEVIATING state on the associated component. |
-| `AVAILABILITY`, `CUSTOM_ALERT` | Available in a StackState health stream. Result in a CRITICAL state on the associated component. |
+| `INFO` | Events are mapped to the associated component. They are listed on the StackState events perspective and in the Component Details pane. |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component. |
+| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component. |
 
 
 #### Metrics
@@ -214,7 +214,8 @@ For example, to filter a view by Dynatrace Management Zone, add the key `dynatra
 
 The code for the Dynatrace checks are open source and available on GitHub: 
 
-- [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
+- Topology check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+- Health check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
 
 ## Troubleshooting
 
