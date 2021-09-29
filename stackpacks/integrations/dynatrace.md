@@ -24,7 +24,7 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
 
 To set up the Dynatrace integration you will need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)\) installed on a machine that can connect to both Dynatrace and StackState.
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Dynatrace and StackState.
 * A running Dynatrace instance.
 * A Dynatrace API Token with access to read the Smartscape Topology and Events, see [REST API endpoints](dynatrace.md#rest-api-endpoints).
 
@@ -190,7 +190,7 @@ The [Dynatrace topology check](#dynatrace-topology-check) retrieves the followin
 
 | Data | Description |
 | :--- | :--- |
-| Components | SmartScape Applications, Hosts, Processes, Process-Groups, Services and Custom Devices. |
+| Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services and Custom Devices. |
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace. |
 
 #### Traces
