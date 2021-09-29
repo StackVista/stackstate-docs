@@ -37,16 +37,15 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Int
 
 ### Configure
 
-There are two Dynatrace check. 
-- Topology check
-- Health check
-
-They both need to be used. Health check should have shorter retrieval interval than the Topology check. Topology check needs to run longer if you have large amount of topology data to get from Dynatrace. 
-Default setting for `min_collection_interval` is: 
-- Topology check collection interval is 300 seconds 
-- Health check collection interval is 60 seconds
+To enable the Dynatrace integration, two Dynatrace checks need to be configured.: 
+- [Dynatrace topology check](#dynatrace-topology-check) - Collects topology data. 
+- [Dynatrace health check](#dynatrace-health-check) - Collects events and health data from Dynatrace.
 
 #### Dynatrace Topology Check
+
+{% hint style="info" %}
+If only the Dynatrace topology check is enabled, no Dynatrace events data will be available in StackState and components will be reported with a green (CLEAR) health state. To enable retrieval of events and health data from Dynatrace, you should also enable the [Dynatrace health check](#dynatrace-health-check).
+{% endhint %}
 
 To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
 
@@ -59,8 +58,8 @@ To enable the Dynatrace topology check and begin collecting topology data from D
     init_config:
     
     instances:
-      # mandatory
-      - url: <url> # URL of the Dynatrace instance
+      - min_collection_interval: 300
+        url: <url> # URL of the Dynatrace instance
         token: <token>  # API-Token to connect to Dynatrace
         # verify: True  # By default its True
         # cert: /path/to/cert.pem
@@ -78,9 +77,10 @@ To enable the Dynatrace topology check and begin collecting topology data from D
 2. You can also add optional configuration to specify where imported Dynatrace topology will end up in StackState:
    - **domain** - The domain to use for imported topology (default dynatrace).
    - **environment** - The environment to use for imported topology (default production).
-3. Other configuration options are:
-   - **verify** - To verify the certificate for https.
-   - **cert** - The path to certificate file for https verification.
+3. Other optional configuration options are:
+   - **min_collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer . Default `300` seconds.
+   - **verify** - To verify the certificate for HTTPS.
+   - **cert** - The path to the certificate file for HTTPS verification.
    - **keyfile** - The path to public key of certificate for https verification.
    - **timeout** - Timeout for requests.
    - **relative_time** - The relative timeframe for retrieving topology.
@@ -91,6 +91,10 @@ To enable the Dynatrace topology check and begin collecting topology data from D
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace Health Check
+
+{% hint style="info" %}
+If only the Dynatrace health check is enabled, no Dynatrace topology data will be available in StackState. Events and health data will be retrieved from Dynatrace, but there will be no components or relations available in StackState to map this to. To enable retrieval of topology data from Dynatrace, you should also enable the [Dynatrace topology check](#dynatrace-topology-check).
+{% endhint %}
 
 To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
 
@@ -103,8 +107,8 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
     init_config:
     
     instances:
-      # mandatory
-      - url: <url> # URL of the Dynatrace instance
+      - min_collection_interval: 60
+        url: <url> # URL of the Dynatrace instance
         token: <token>  # API-Token to connect to Dynatrace
         # verify: True  # By default its True
         # cert: /path/to/cert.pem
@@ -115,6 +119,7 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
    
     ```
 2. You can also add optional configuration:
+   - **min_collection_interval** - The frequency with which events data is retrieved from Dynatrace. Note that the health check should have a shorter collection interval than the topology check. Default `60` seconds.
    - **verify** - To verify the certificate for https.
    - **cert** - The path to certificate file for https verification.
    - **keyfile** - The path to public key of certificate for https verification.
@@ -162,11 +167,18 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 #### Events
 
-The Dynatrace check retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour). Retrieved events are available in the StackState Events Perspective as Health State changes and listed in the components details pane of the StackState UI.
+The [Dynatrace health check](#dynatrace-health-check) retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour).
+
+| Dynatrace event severity | StackState |
+| :--- | :--- |
+| `INFO` | Mapped to the associated component. Events are listed on the StackState events perspective and in the Component Details pane. |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Available in a StackState health stream. Result in a DEVIATING state on the associated component. |
+| `AVAILABILITY`, `CUSTOM_ALERT` | Available in a StackState health stream. Result in a CRITICAL state on the associated component. |
+
 
 #### Metrics
 
-The Dynatrace check does not retrieve any metrics data.
+The Dynatrace integration does not retrieve any metrics data.
 
 #### Tags
 
@@ -174,7 +186,7 @@ All tags defined in Dynatrace will be retrieved and added to the associated comp
 
 #### Topology
 
-The Dynatrace check retrieves the following topology data from Dynatrace:
+The [Dynatrace topology check](#dynatrace-topology-check) retrieves the following topology data from Dynatrace:
 
 | Data | Description |
 | :--- | :--- |
@@ -183,7 +195,7 @@ The Dynatrace check retrieves the following topology data from Dynatrace:
 
 #### Traces
 
-The Dynatrace check does not retrieve any traces data.
+The Dynatrace integration does not retrieve any traces data.
 
 ### Dynatrace filters for StackState views
 
@@ -200,7 +212,9 @@ For example, to filter a view by Dynatrace Management Zone, add the key `dynatra
 
 ### Open source
 
-The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
+The code for the Dynatrace checks are open source and available on GitHub: 
+
+- [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
 
 ## Troubleshooting
 
@@ -208,7 +222,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the Dynatrace StackPack and disable the Dynatrace check:
+To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Dynatrace** screen and click **UNINSTALL**.
    * All Dynatrace specific configuration will be removed from StackState.
