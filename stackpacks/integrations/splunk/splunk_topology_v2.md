@@ -32,11 +32,11 @@ The following fields from the results of a saved search are sent to StackState f
 
 | Field | Type | Required? | Description |
 | :--- | :--- | :--- | :--- |
-| **type** | string | ✅ | The type of component or relation. |
 | **id** | string | ✅ | The unique identifier for the component. |
 | **name** | string | ✅ | The value will be used as the component name. |
-| **identifier.&lt;identifier\_name&gt;** | multivalue field | - | The value will be included as identifier of the component. |
-| **label.&lt;label\_name&gt;** | multivalue field | - | The value will be added as a label on the component in the format `label_name:value` |
+| **type** | string | ✅ | The type of component or relation. |
+| **labels** | multivalue field or string | - | The value(s) will be added as a label(s) on the component. |
+| **identifiers** | multivalue field or string | - | The value(s) will be included as an identifier(s) of the component. |
 | All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
 #### Example query for components
@@ -62,11 +62,11 @@ The example Splunk saved search above would result in the following topology com
 
 | Field | Data |
 | :--- | :--- |
-| **type** | Splunk `type` field. |
 | **id** | Splunk `id` field. |
-| **identifier.&lt;identifier\_name&gt;** | Splunk `identifiers` field. |
-| **label.&lt;label\_name&gt;** | Splunk `labels` field |
 | **name** | Splunk `name` field. |
+| **type** | Splunk `type` field. |
+| **labels** | Splunk `labels` field |
+| **identifiers** | Splunk `identifiers` field. |
 | **data** | Splunk fields `domain` and `layer`. |
 
 
