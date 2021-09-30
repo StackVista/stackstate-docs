@@ -90,10 +90,10 @@ The example Splunk saved search above would result in the following topology com
 | rename Application_ApplicationInventory.DisplayName as appname 
 | table host appname | uniq 
 | eval host_id = upper(host) | strcat "urn:host:/" host_id targetId 
-| eval app_id = upper(appname) | rex mode=sed field=app_id "s/ /_/g" | strcat "urn:application:/" app_id sourceId 
+| eval app_id = upper(appname) | rex mode=sed field=app_id "s/ /_/g" 
+| strcat "urn:application:/" app_id sourceId 
 | eval type="runs_on" 
-| table type sourceId targetId 
-| dedup sourceId targetId
+| table type sourceId targetId | dedup sourceId targetId
 ```
 {% endtab %}
 {% endtabs %}
