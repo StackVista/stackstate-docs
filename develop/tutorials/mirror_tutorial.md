@@ -20,6 +20,10 @@ To integrate StackState with an external telemetry source using mirroring, the m
 
 [This repository](https://github.com/StackVista/mirror-integration-tutorial) contains a sample mirror that serves telemetry data to StackState. The mirror is built in Python and stored in the `mirror_server.py` file.
 
+{% hint style="info" %}
+Note that Python 3.8 or higher is required.
+{% endhint %}
+
 Clone the repository to your laptop to get started.
 
 ## Running the sample mirror
