@@ -37,8 +37,8 @@ The following fields from the results of a saved search are sent to StackState f
 | **type** | string | ✅ | The type of component or relation. |
 | **id** | string | ✅ | The unique identifier for the component. |
 | **name** | string | ✅ | The value will be used as the component name. |
-| **identifier.&lt;identifier\_name&gt;** | string | - | The value will be included as identifier of the component. |
-| **label.&lt;label\_name&gt;** | string | - | The value will be added as a label on the component in the format `label_name:value` |
+| **identifier.&lt;identifier\_name&gt;** | multivalue field | - | The value will be included as identifier of the component. |
+| **label.&lt;label\_name&gt;** | multivalue field | - | The value will be added as a label on the component in the format `label_name:value` |
 | All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
 #### Relation fields
@@ -58,12 +58,16 @@ The following fields from the results of a saved search are sent to StackState f
 {% tabs %}
 {% tab title="Splunk query for components" %}
 ```text
-| loadjob savedsearch=:servers
-| search OrganizationPart="*" OrgGrp="*" company="*"
-| table name | dedup name
-| eval name = upper(name)
-| eval id = 'name', type="vm"
-| table id type name
+| datamodel uberAgent60m System_MachineInventory search 
+| dedup host 
+| eval id = upper(host) | strcat "urn:host:/" id identifier
+| eval name = 'id'
+| eval type="host" 
+| eval domain="uberAgent" 
+| eval layer="Machines" 
+| eval labels=split("uberAgent", ",") 
+| eval identifiers=mvappend(identifier, id)
+| table id type name domain layer labels identifiers
 ```
 {% endtab %}
 {% endtabs %}
@@ -74,20 +78,22 @@ The example Splunk saved search above would result in the following topology com
 | :--- | :--- |
 | **type** | Splunk `type` field. |
 | **id** | Splunk `id` field. |
-| **identifier.&lt;identifier\_name&gt;** | - |
-| **label.&lt;label\_name&gt;** | - |
+| **identifier.&lt;identifier\_name&gt;** | Splunk `identifiers` field. |
+| **label.&lt;label\_name&gt;** | Splunk `labels` field |
 | **name** | Splunk `name` field. |
-
-#### Query for relations
+| **data** | Splunk fields `domain` and `layer`. |
 
 {% tabs %}
 {% tab title="Splunk query for relations" %}
 ```text
-index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
-| eval VMName=lower(VMName)
-| rename Application as sourceId, VMName as targetId
-| eval type="is-hosted-on"
-| table sourceId targetId type
+| datamodel uberAgent60m Application_ApplicationInventory search 
+| rename Application_ApplicationInventory.DisplayName as appname 
+| table host appname | uniq 
+| eval host_id = upper(host) | strcat "urn:host:/" host_id targetId 
+| eval app_id = upper(appname) | rex mode=sed field=app_id "s/ /_/g" | strcat "urn:application:/" app_id sourceId 
+| eval type="runs_on" 
+| table type sourceId targetId 
+| dedup sourceId targetId
 ```
 {% endtab %}
 {% endtabs %}
@@ -97,8 +103,8 @@ The example Splunk saved search above would result in the following topology rel
 | Field | Data |
 | :--- | :--- |
 | **type** | Splunk `type` field. |
-| **sourceId** | `<sourceId>` \(renamed from `Application`\) |
-| **targetId** | `<targetId>` \(renamed from `VMName`\) |
+| **sourceId** | Splunk `sourceId` field. |
+| **targetId** | Splunk `targetId` field. |
 
 ## Agent check
 
