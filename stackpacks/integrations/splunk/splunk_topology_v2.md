@@ -24,11 +24,9 @@ The Splunk topology check on StackState Agent V2 will execute all configured Spl
 
 ## Splunk saved search
 
-### Fields used
-
 StackState Agent V2 executes the Splunk saved searches configured in the [Splunk topology V2 Agent check](splunk_topology_v2.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
 
-#### Component fields
+### Topology components
 
 The following fields from the results of a saved search are sent to StackState for topology components:
 
@@ -41,19 +39,7 @@ The following fields from the results of a saved search are sent to StackState f
 | **label.&lt;label\_name&gt;** | multivalue field | - | The value will be added as a label on the component in the format `label_name:value` |
 | All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
-#### Relation fields
-
-The following fields from the results of a saved search are sent to StackState for topology relations:
-
-| Field |  | Type | Required? | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **type** | string | ✅ | The type of component or relation. |  |
-| **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |  |
-| **targetId** | string | ✅ | The ID of the component that is the target of the relation. |  |
-
-### Example Splunk queries
-
-#### Query for components
+#### Example query for components
 
 {% tabs %}
 {% tab title="Splunk query for components" %}
@@ -82,6 +68,19 @@ The example Splunk saved search above would result in the following topology com
 | **label.&lt;label\_name&gt;** | Splunk `labels` field |
 | **name** | Splunk `name` field. |
 | **data** | Splunk fields `domain` and `layer`. |
+
+
+### Topology relations
+
+The following fields from the results of a saved search are sent to StackState for topology relations:
+
+| Field |  | Type | Required? | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **type** | string | ✅ | The type of component or relation. |  |
+| **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |  |
+| **targetId** | string | ✅ | The ID of the component that is the target of the relation. |  |
+
+#### Example query for relations
 
 {% tabs %}
 {% tab title="Splunk query for relations" %}
