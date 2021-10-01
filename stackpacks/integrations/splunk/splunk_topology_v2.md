@@ -5,9 +5,9 @@ description: StackState core integration
 # Splunk topology V2
 
 {% hint style="info" %}
-This page describes the **Splunk topology V2 integration with StackState Agent V2**.
+This page describes the Splunk topology V2 integration with StackState Agent V2.
 
-If you are already running the Splunk topology integration using StackState Agent V1, see the instructions on how to:
+**If you are already running the Splunk topology integration using StackState Agent V1**, see the instructions on how to:
 
 * [Configure the Splunk topology V1 check](splunk_topology.md)  
 * [Upgrade an existing Splunk topology integration to use StackState Agent V2](splunk_topology_upgrade_v1_to_v2.md)
@@ -24,7 +24,7 @@ The Splunk topology check on StackState Agent V2 will execute all configured Spl
 
 ## Splunk saved search
 
-StackState Agent V2 executes the Splunk saved searches configured in the [Splunk topology V2 Agent check](splunk_topology_v2.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
+In the Splunk Topology V2 integration, StackState Agent V2 executes the Splunk saved searches configured in the [Splunk topology V2 Agent check](splunk_topology_v2.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
 
 ### Topology components
 
@@ -35,8 +35,8 @@ The following fields from the results of a saved search are sent to StackState f
 | **id** | string | ✅ | The unique identifier for the component. |
 | **name** | string | ✅ | The value will be used as the component name. |
 | **type** | string | ✅ | The type of component or relation. |
-| **labels** | multivalue field or string | - | The value(s) will be added as a label(s) on the component. |
-| **identifiers** | multivalue field or string | - | The value(s) will be included as an identifier(s) of the component. |
+| **labels** | multivalue field or comma separated string | - | The value(s) will be added as a label(s) on the component. |
+| **identifiers** | multivalue field or comma separated string | - | The value(s) will be included as an identifier(s) of the component. |
 | All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
 #### Example query for components
