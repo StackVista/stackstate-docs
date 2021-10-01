@@ -7,7 +7,7 @@ description: StackState core integration
 {% hint style="info" %}
 This page describes the Splunk topology V1 integration with StackState Agent V1.
 
-**If you are running StackState Agent V2**, see the instructions on how to configure a [Splunk topology V2](splunk_topology_v2.md) check on StackState Agent V2. You can also [upgrade](splunk_topology_upgrade_v1_to_v2.md) an existing Splunk topology V1 integration to use StackState Agent V2.
+**If you are running [StackState Agent V2](/setup/agent/about-stackstate-agent.md)**, see the instructions on how to configure a [Splunk topology V2](splunk_topology_v2.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) an existing Splunk topology V1 integration to use StackState Agent V2.
 {% endhint %}
 
 ## Overview
