@@ -53,9 +53,11 @@ Example Dynatrace Agent integration configuration file: [conf.yaml.example \(git
 
      instances:
      # mandatory
-     - url: <url>
+     - url: <url>  #the base URL of the Dynatrace instance.
+       # SaaS url example - https://{your-environment-id}.live.dynatrace.com
+       # Managed url example - https://{your-domain}/e/{your-environment-id} 
        token: <token>
-       # verify: True  # By default its True
+       # verify: True  # default True
        # timeout: 10
        # cert: /path/to/cert.pem
        # keyfile: /path/to/key.pem
