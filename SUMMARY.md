@@ -54,8 +54,8 @@
 
 ## 👤 Use
 
-* [Introduction to StackState](use/introduction-to-stackstate/README.md)
-  * [Getting Started](use/introduction-to-stackstate/getting_started.md)
+* [Getting Started](use/introduction-to-stackstate/getting_started.md)
+* [Concepts](use/introduction-to-stackstate/README.md)
   * [The 4T data model](use/introduction-to-stackstate/4t_data_model.md)
   * [Components and Relations](use/introduction-to-stackstate/components_and_relations.md)
   * [Perspectives](use/introduction-to-stackstate/perspectives.md)
