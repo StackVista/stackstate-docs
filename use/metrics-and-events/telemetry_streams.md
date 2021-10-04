@@ -17,7 +17,7 @@ Telemetry streams are supplied via plugins. Different plugins provide one or mul
 
 In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization.
 
-Read how to [add a telemetry stream to an element](add-telemetry-to-element.md) or how to [add telemetry during topology synchronization](https://github.com/StackVista/stackstate-docs/tree/5b0eeac18334f7f543e6bd5c30eca222268c5dad/use/metrics-and-events/telemetry_synchronized_topology.md).
+Read how to [add a telemetry stream to an element](add-telemetry-to-element.md) or how to [add telemetry during topology synchronization](/configure/telemetry/telemetry_synchronized_topology.md).
 
 ## See also
 

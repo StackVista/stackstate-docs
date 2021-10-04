@@ -21,7 +21,9 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 ![Data flow](../../.gitbook/assets/stackpack-azure.png)
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
-* The StackState Azure function `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
+  * `TimedStart` triggers data collection every 2 hours.
+  * `EventHubChangesFunction` collects the deltas.  
+  * `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
 * StackState maps retrieved telemetry \(metrics\) onto the associated Azure components and relations.
@@ -87,6 +89,10 @@ az login
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+Note that the install script is optimized to run with Azure CLI versions 2.24.0 and earlier. When running with Azure CLI versions 2.24.1 and above, you may see deprecation warnings.
+{% endhint %}
+
 ### Status
 
 You can check the status of the Azure integration in Azure resource group. Open the **FunctionApp** and check the available metrics or the full list of **Functions** from the left menu. The status of all functions should be **Enabled**.
@@ -138,6 +144,8 @@ The Azure integration uses the following Azure REST API endpoints, scroll right 
 
 | Resource | Endpoint | SDK \(Version\) |
 | :--- | :--- | :--- |
+| Metric definitions | {resourceUri}/providers/Microsoft.Insights/metricDefinitions?api-version=2018-01-01 | github.com/Azure/azure-sdk-for-java \(1.16.0\) |
+| Metric values | {resourceUri}/providers/Microsoft.Insights/metrics?api-version=2018-01-01 | github.com/Azure/azure-sdk-for-java \(1.16.0\) |
 | AKS Managed Cluster | resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters?api-version=2018-03-31 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | Availability Sets | resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets?api-version=2018-06-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | ApplicationGateways | resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways?api-version=2018-04-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
@@ -178,7 +186,7 @@ There are a number of methods in the `TopologyDurableFunction` class:
 | `HandleSubscription` | Sub-orchestrator, contains the workflow: GetResourcesToInclude -&gt;  ConvertResourcesToStackStateData \(for each set of resources, grouped by type\) |
 | `GetResourcesToInclude` | Fetches all resources in a subscription and filters out those that are ignored. |
 | `ConvertResourcesToStackStateData` | Receives a group of resources and calls the ResourceTypeConverter class in the Core project. |
-| `ConvertResourcesToStackStateDataInner` | Regular method containing the actual implementation of ConvertResourcesToStackStateData. Result is an instance of the class Synchronization. |
+| `EventHubChangesFunction` | Listens to events for all currently supported resource types on `insights-operational-Logs` and provides incremental updates to StackState about your Azure environment. |
 | `SendToStackState` | Receives a Synchronization object and sends it to StackState. |
 | `PurgeHistory` | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
 

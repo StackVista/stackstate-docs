@@ -50,9 +50,9 @@ If you are upgrading to a new **major** StackState release, StackState and/or th
 A major upgrade consists of the following steps:
 
 1. [Create a backup](steps-to-upgrade.md#create-a-backup)
-2. Optional: [Uninstall StackPacks](steps-to-upgrade.md#uninstall-stackpacks)
+2. Optional: [Uninstall StackPacks](steps-to-upgrade.md#uninstall-stackpacks-optional)
 3. [Upgrade StackState](steps-to-upgrade.md#upgrade-stackstate)
-4. Optional: [Install StackPacks](steps-to-upgrade.md#install-stackpacks)
+4. Optional: [Install StackPacks](steps-to-upgrade.md#install-stackpacks-optional)
 5. [Verify the new installation](steps-to-upgrade.md#verify-the-new-installation)
 
 ## Walkthrough of an upgrade
@@ -83,12 +83,12 @@ To create a backup on Linux, see:
 Note that it will not be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
-### Uninstall StackPacks
+### Uninstall StackPacks (optional)
 
 See [Uninstalling StackPacks](../../stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
 
 {% hint style="warning" %}
-StackPacks must be uninstalled using the version of StackState prior to the upgrade since this version can contain different installation logic from the new StackPack version.
+When uninstalling StackPacks, the version of StackState prior to the upgrade must be used since this version can contain different installation logic from the new StackPack version.
 {% endhint %}
 
 ### Upgrade StackState
@@ -100,10 +100,6 @@ Remember to check the [version specific upgrade notes](version-specific-upgrade-
 Instructions to upgrade a StackState Kubernetes or Linux setup can be found below.Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 
 {% tabs %}
-{% tab title="Kubernetes" %}
-1. Get the latest helm chart by running `helm repo update`.
-2. To upgrade, use the same command as for the [first time Kubernetes installation](../installation/kubernetes_install/install_stackstate.md). The new helm chart will pull newer versions of Docker images and handle the upgrade.
-{% endtab %}
 
 {% tab title="Linux" %}
 1. Download the upgrade file from [https://download.stackstate.com](https://download.stackstate.com).
@@ -115,9 +111,23 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
      * using dpkg: `dpkg -i <stackstate>.deb`
      * using apt: `apt-get upgrade <stackstate>.deb`
 {% endtab %}
+
+{% tab title="Kubernetes" %}
+1. Get the latest helm chart by running `helm repo update`.
+2. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
+3. To upgrade, use the same helm command as for the [first time Kubernetes installation](../installation/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
+{% endtab %}
+
+{% tab title="OpenShift" %}
+1. Get the latest helm chart by running `helm repo update`.
+2. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
+3. [Update the `openshift-values.yaml`](/setup/installation/openshift_install.md#additional-openshift-values-file) file.
+4. To upgrade, use the same helm command as for the [first time OpenShift installation](/setup/installation/openshift_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
+{% endtab %}   
+   
 {% endtabs %}
 
-### Install StackPacks
+### Install StackPacks (optional)
 
 See [Installing StackPacks](../../stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
 

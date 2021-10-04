@@ -29,24 +29,23 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You al
 ### Configuration
 
 1. Edit the `aws_xray.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your Tomcat metrics and logs. See the sample `aws_xray.d/conf.yaml.example` for all available configuration options.
+    ```text
+    # Section used for global AWS check config
+    init_config:
+        # optional
+        # cache_file: '/opt/stackstate-agent/tmp'
+    
+    instances:
+      # mandatory AWS credentials and config
+      - aws_access_key_id: 'abc'
+        aws_secret_access_key: 'cde'
+        role_arn: 'arn:aws:iam::0123456789:role/RoleName'
+        region: 'ijk'
+        # optional
+        # min_collection_interval: 60
+    ```
 
-```text
-# Section used for global AWS check config
-init_config:
-    # optional
-    # cache_file: '/opt/stackstate-agent/tmp'
-
-instances:
-  # mandatory AWS credentials and config
-  - aws_access_key_id: 'abc'
-    aws_secret_access_key: 'cde'
-    role_arn: 'arn:aws:iam::0123456789:role/RoleName'
-    region: 'ijk'
-    # optional
-    # min_collection_interval: 60
-```
-
-1. Restart the Agent
+2. Restart the Agent.
 
 Need help? Please contact [StackState support](http://support.stackstate.com/).
 

@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
+Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services. 
 
 ![Data flow](../../../.gitbook/assets/stackpack-aws-v2.svg)
 
@@ -25,7 +25,7 @@ To set up the StackState AWS integration, you need to have:
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
 * An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
-  * If StackState Agent is running within an AWS environment: The EC2 instance, EKS or ECS task must have an IAM role attached to it.
+  * If StackState Agent is running within an AWS environment: The EC2 instance must have an IAM role attached to it.
   * If StackState Agent is running outside an AWS account: An IAM user must be made available.
 * The IAM user/role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
@@ -96,7 +96,7 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters provided will be used by StackState to query live telemetry from the AWS account; the AWS Agent V2 must be configured to create topology.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account. To create topology in StackState, you must [configure the AWS check](#configure-the-aws-check) on StackState Agent V2.
 
 * **Role ARN** - the ARN of the IAM Role used to [deploy the AWS Cloudformation stack](aws.md#deploy-the-aws-cloudformation-stack). For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID.
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
@@ -283,16 +283,6 @@ A KMS key must be created in each region where events are captured.
 {% endhint %}
 
 * [Sample KMS Key policy](aws-policies.md#stackstate-integration-kms-key).
-
-#### VPC FlowLogs \(Optional\)
-
-{% hint style="warning" %}
-VPC FlowLogs support is currently experimental and is disabled by default.
-{% endhint %}
-
-A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute.
-
-If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 
 ### Costs
 
