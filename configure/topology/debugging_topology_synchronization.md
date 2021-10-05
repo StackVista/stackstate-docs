@@ -24,14 +24,14 @@ When StackState is deployed on Linux, logs about synchronization are stored in t
 
 `<my_install_location>/var/log/sync/`
 
-This directory contains two log files for each synchronization:
+There are two log files for each synchronization:
 
-* `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Messages will be logged here when:
+1. `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Messages will be logged here when:
   * ID extractor errors.
   * Relations connected to a non-existing component.
   * ??? When the synchronization is slow it will discard messages.
 
-* `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Messages will be logged here when:
+2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Messages will be logged here when:
   * Template/mapping function errors.
   * Component types that do not have a mapping
 
