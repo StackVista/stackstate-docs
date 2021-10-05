@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page explains several tools for debugging a custom topology synchronization. For more information on individual synchronization concepts, see [synchronization concepts](topology_synchronization.md).
+This page explains several tools that can be used to debug a custom topology synchronization. For more information on individual synchronization concepts, read about [topology synchronization in StackState](topology_synchronization.md).
 
 ## General troubleshooting steps
 
@@ -10,32 +10,33 @@ To verify issues follow these common steps:
 
 1. [List all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
 2. [Check the status of the topology synchronization stream](debugging_topology_synchronization.md#show-status-of-a-stream) for the error count. 
-3. Check the logs
+3. [Check the logs](#synchronization-logs)
 
-## Check the synchronization logs
+## Synchronization logs
 
-StackState stores logs about synchronization in the following places
+{% tabs %}
+{% tab title="Kubernetes" %}
+When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod. The name of synchronization's name is shown in the log entries.
+{% endtab %}
+
+{% tab title="Linux" %}
+When StackState is deployed on Linux, logs about synchronization are stored in the directory:
 
 `<my_install_location>/var/log/sync/`
 
-This directory contains two log files for each synchronization.
+This directory contains two log files for each synchronization:
 
-* One of the form
+* `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Messages will be logged here when:
+  * ID extractor errors.
+  * Relations connected to a non-existing component.
+  * ??? When the synchronization is slow it will discard messages.
 
-  `exttopo.<DataSource Name>.log`. This one contains information about identity extraction
+* `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Messages will be logged here when:
+  * Template/mapping function errors.
+  * Component types that do not have a mapping
 
-  and the building of an external topology. This will show:
-
-  * If a relation is connected to a non-existing component.
-  * When the synchronization is slow it will discard messages
-  * When the idextractor has errors
-
-* Another of the form `sync.<Synchronization Name>.log`. This contains information about
-
-  mapping, templates and merging. This will show:
-
-  * Errors in template/mapping functions
-  * Component types which have no mapping
+{% endtab %}
+{% endtabs %}
 
 ## Common Issues
 
