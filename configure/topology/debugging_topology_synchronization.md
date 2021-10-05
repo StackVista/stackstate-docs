@@ -16,7 +16,7 @@ To verify issues follow these common steps:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod. The name of synchronization's name is shown in the log entries.
+When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod. The name of the synchronization is shown in the log entries.
 {% endtab %}
 
 {% tab title="Linux" %}
