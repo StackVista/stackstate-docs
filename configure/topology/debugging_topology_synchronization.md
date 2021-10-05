@@ -33,7 +33,7 @@ There are two log files for each synchronization:
 
 2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find:
   * Template/mapping function errors.
-  * Component types that do not have a mapping
+  * Component types that do not have a mapping.
 
 {% endtab %}
 {% endtabs %}
@@ -52,6 +52,7 @@ Based on the information you see here, different actions can be taken:
   * Did you restart the synchronization and send new data after making changes? StackState will not retroactively apply changes.
   * Do the components/relations to be synchronized have their type mapped in the synchronization configuration?
   * Is data arriving in StackState? You can use the [StackState CLI](/setup/installation/cli-install.md) to see what data ends up on the synchronization topic:
+
   ```
   # Show all Kafka topics that are present for Synchronizations to use
   sts topology list-topics
