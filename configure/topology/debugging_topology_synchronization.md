@@ -10,7 +10,7 @@ To verify issues follow these common steps:
 
 1. [List all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
 2. [Check the status of the topology synchronization stream](debugging_topology_synchronization.md#show-status-of-a-stream) for the error count. 
-3. [Check the logs](#synchronization-logs)
+3. [Check the logs](#synchronization-logs).
 
 ## Synchronization logs
 
@@ -40,18 +40,30 @@ There are two log files for each synchronization:
 
 ## Common Issues
 
-### Why are components/relations I expect not in my topology?
+### Components/relations not synchronized
 
 If no components appear after making changes to a synchronization, or the data is not as expected, check the synchronizations page in the StackState UI. Go to **Settings** > **Topology Synchronization** > **Synchronizations** from the main menu.
 
 Based on the information you see here, different actions can be taken:
 
 * If there are errors:
-  * [Check the synchronization logs](#check-the-synchronization-logs) for details.
+  * [Check the synchronization logs](#synchronization-logs) for details.
 * If there are no errors, check the following:
   * Did you restart the synchronization and send new data after making changes? StackState will not retroactively apply changes.
   * Do the components/relations to be synchronized have their type mapped in the synchronization configuration?
-  * Is the data arriving in StackState? The [StackState CLI](../../setup/installation/cli-install.md) contains a way to see what data ends up on the synchronization topic.
+  * Is data arriving in StackState? You can use the [StackState CLI](/setup/installation/cli-install.md) to see what data ends up on the synchronization topic:
+  ```
+  # Show all Kafka topics that are present for Synchronizations to use
+  sts topology list-topics
+  
+  # Look for a topic with the name: sts_topo_<instance_type>_<instance url> where:
+  #   <instance_type> is the name of the integration 
+  #   <instance_url> corresponds to the StackState Agent integration YAML (usually the URL of the data source)
+
+  # Inspect the topology messages in the Kafka topic
+  sts topic show <topic_name>
+  ```
+  
 
 ## Useful CLI commands
 
