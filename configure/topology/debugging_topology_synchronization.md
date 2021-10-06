@@ -114,7 +114,7 @@ sts topology list
 
 ### Show status of a stream 
 
-Shows the data of a specific topology synchronization stream. The `id` might be either a `node id` or the identifier of a topology synchronization. The search gives priority to the `node id`.
+Shows the data of a specific topology synchronization stream, including detalied latency of the data being processed. The `id` might be either a `node id` or the identifier of a topology synchronization. The search gives priority to the `node id`.
 
 ```javascript
 # Show a topology synchronization status
@@ -123,4 +123,8 @@ sts topology show urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095
         Node Id  Identifier                                                                               Status      Created Components    Deleted Components    Created Relations    Deleted Relations    Errors
 ---------------  ---------------------------------------------------------------------------------------  --------  --------------------  --------------------  -------------------  -------------------  --------
 144667609743389  urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate   Running                  13599                  5496                    0                    0       329
+
+metric               value between now and 500 seconds ago  value between 500 and 1000 seconds ago    value between 1000 and 1500 seconds ago
+-----------------  ---------------------------------------  ----------------------------------------  -----------------------------------------
+latency (Seconds)                                   35.754  ---                                       ---
 ```
