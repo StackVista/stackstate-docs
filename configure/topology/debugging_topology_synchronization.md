@@ -24,7 +24,51 @@ A topology synchronized using StackState Agent follows the process described bel
 
 ## Troubleshooting steps
 
-Use the following steps to identify and remedy problems in the topology synchronization process:
+If no components appear after making changes to a synchronization, or the data is not as expected:
+
+### StackState Agent
+
+For integrations that run through StackState Agent, StackState Agent is a good place to start your investigation.
+- The [synchronization logs](#synchronization-logs) will tell you if an integration was able to complete and errors will show up here. 
+- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
+- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
+
+### StackState receiver
+
+The StackState receiver receives JSON data from the StackState Agent. 
+- Check the [StackState receiver logs](#stackstate-receiver-logs) for JSON deserialization errors. 
+
+
+### Kafka
+
+Topology and telemetry are stored on Kafka, on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available. The Kafka topic used is defined in the Sts data source.
+
+- Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the following format; `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the Agent integration YAML, usually the URL of the data source.
+- Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
+- Check if the Sts data source defined topic name matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
+
+### Processing
+   
+Increasing error numbers in the StackState UI **Settings** > **Topology Synchronization** > **Synchronizations** page tell you that processing the received data resulted in an error. 
+  
+![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
+
+To troubleshoot processing errors, refer to the relevant log files. The log messages will help you in resolving the issue.
+
+- An issue in the ID extractor will result in no topology being synchronized. An exception is logged to `stackstate.log`, or on the `stackstate-api` pod on each received topology element. The synchronization’s error counter will not increase.
+- An issue with a mapper function defined for a synchronization mapping will log an exception to the synchronization’s specific log file. For Kubernetes, the exception is logged on the `stackstate-sync` pod with the synchronization’s name shown in the log message. The type is logged as well, to help determine which mapping to look at. The synchronization’s error counter will increase.
+- Issues with templates are logged to the synchronization’s specific log file. For Kubernetes, the exception is logged on the `stackstate-sync` pod with the synchronization’s name shown in the log message. The synchronization’s error counter will increase.
+
+### Relations
+
+It is possible that relations reference to a source or target component that does not exist. Components are always processed before relation. If a component is not present in the synchronization’s topology, the relation will not be created, and a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
+
+
+
+
+
+
+-------
 
 
 
@@ -95,39 +139,7 @@ When StackState is deployed on Linux, logs for the StackState receiver are store
 
 ## Common Issues
 
-### No topology is synchronized
-
-If no components appear after making changes to a synchronization, or the data is not as expected:
-
-1. For integrations that run through StackState Agent, StackState Agent is a good place to start your investigation.
-  - The [synchronization logs](#synchronization-logs) will tell you if an integration was able to complete and errors will show up here. 
-  - Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
-  - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
-
-2. The StackState receiver receives JSON data from the StackState Agent. 
-  - Check the [StackState receiver logs](#stackstate-receiver-logs) for JSON deserialization errors. 
-
-3. Topology and telemetry are stored on Kafka, on separate topics.  
-  - Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the following format; `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the Agent integration YAML, usually the URL of the data source.
-  - Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
-
-4. The StackState topology synchronization reads data from a Kafka bus once it becomes available. The Kafka topic used is defined in the Sts data source.
-   - Check if the Sts data source defined topic name matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
-   - Check the synchronization counters in the StackState UI synchronization settings page. Increasing numbers tell you whether data is synchronized over time. The error counter indicates that processing the received data resulted in an error. 
-  
-  ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
-
-5. To troubleshoot processing errors, refer to the relevant log files. The log messages will help you in resolving the issue.
-   - An issue in the ID extractor will result in no topology being synchronized. An exception is logged to `stackstate.log`, or on the `stackstate-api` pod on each received topology element. The synchronization’s error counter will not increase.
-   - An issue with a mapper function defined for a synchronization mapping will log an exception to the synchronization’s specific log file. For Kubernetes, the exception is logged on the `stackstate-sync` pod with the synchronization’s name shown in the log message. The type is logged as well, to help determine which mapping to look at. The synchronization’s error counter will increase.
-   - Issues with templates are logged to the synchronization’s specific log file. For Kubernetes, the exception is logged on the `stackstate-sync` pod with the synchronization’s name shown in the log message. The synchronization’s error counter will increase.
-
-
-A note on relations. It is possible that relations reference to a source or target component that does not exist. Components are always processed before relation. If a component is not present in the synchronization’s topology, the relation will not be created and a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
-
-
-
-## OLD No data sync
+### No data sync
 
 check the synchronizations page in the StackState UI. Go to **Settings** > **Topology Synchronization** > **Synchronizations** from the main menu and check if any errors have been reported.
 
