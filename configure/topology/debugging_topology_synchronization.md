@@ -8,7 +8,7 @@ This page explains several tools that can be used to debug a custom topology syn
 
 A topology synchronized using StackState Agent follows the process described below:
 
-![Topology synchronization with StackState Agent](/.gitbook/assets/debug_topo_sync.svg)
+![Topology synchronization with StackState Agent](/.gitbook/assets/topo_sync_process.svg)
 
 * StackState Agent:
   - Connects to a data source to collect data.
@@ -34,7 +34,17 @@ To verify issues follow these common steps:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod. The name of the synchronization is shown in the log entries.
+When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod and the `stackstate-api` pod. The name of the synchronization is shown in the log entries.
+
+* The `stackstate-sync` pod contains details of:
+  * Template/mapping function errors.
+  * Component types that do not have a mapping.
+  * Relations connected to a non-existing component.
+  * Messages that have been discarded due to a slow synchronization.
+
+* The `stackstate-api` pod contains details of:
+  * ID extractor errors.
+
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -44,14 +54,14 @@ When StackState is deployed on Linux, logs about synchronization are stored in t
 
 There are two log files for each synchronization:
 
-1. `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find:
+1. `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find details of:
   * ID extractor errors.
-  * Details of any relations connected to a non-existing component.
-  * ??? When the synchronization is slow it will discard messages.
+  * Relations connected to a non-existing component.
+  * Messages that have been discarded due to a slow synchronization.
 
-2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find:
+2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
   * Template/mapping function errors.
-  * Details of any component types that do not have a mapping.
+  * Component types that do not have a mapping.
 
 {% endtab %}
 {% endtabs %}
@@ -60,28 +70,29 @@ There are two log files for each synchronization:
 
 ### Components/relations not synchronized
 
-If no components appear after making changes to a synchronization, or the data is not as expected, check the synchronizations page in the StackState UI. Go to **Settings** > **Topology Synchronization** > **Synchronizations** from the main menu.
+If no components appear after making changes to a synchronization, or the data is not as expected, check the synchronizations page in the StackState UI. Go to **Settings** > **Topology Synchronization** > **Synchronizations** from the main menu and check if any errors have been reported.
 
-Based on the information you see here, different actions can be taken:
+![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
 
-* If there are errors:
-  * [Check the synchronization logs](#synchronization-logs) for details.
-* If there are no errors, check the following:
-  * Did you restart the synchronization and send new data after making changes? StackState will not retroactively apply changes.
-  * Do the components/relations to be synchronized have their type mapped in the synchronization configuration?
-  * Is data arriving in StackState? You can use the [StackState CLI](/setup/installation/cli-install.md) to see what data ends up on the synchronization topic:
+If there are errors reported:
+* [Check the synchronization logs](#synchronization-logs) for details.
 
-  ```
-  # Show all Kafka topics that are present for Synchronizations to use
-  sts topology list-topics
-  
-  # Look for a topic named: sts_topo_<instance_type>_<instance url> where:
-  #   <instance_type> is the name of the integration 
-  #   <instance_url> corresponds to the StackState Agent integration YAML (usually the URL of the data source)
+If there are no errors, check the following:
+* Did you restart the synchronization and send new data after making changes? StackState will not retroactively apply changes.
+* Do the components/relations to be synchronized have their type mapped in the synchronization configuration?
+* Is data arriving in StackState? You can use the [StackState CLI](/setup/installation/cli-install.md) to see what data ends up on the synchronization topic:
 
-  # Inspect the topology messages in the Kafka topic
-  sts topic show <topic_name>
-  ```
+```
+# Show all Kafka topics that are present for Synchronizations to use
+sts topology list-topics
+
+# Look for a topic named: sts_topo_<instance_type>_<instance url> where:
+#   <instance_type> is the name of the integration 
+#   <instance_url> corresponds to the StackState Agent integration YAML (usually the URL of the data source)
+
+# Inspect the topology messages in the Kafka topic
+sts topic show <topic_name>
+```
   
 
 ## Useful CLI commands
