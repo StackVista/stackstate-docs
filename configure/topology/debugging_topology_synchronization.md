@@ -4,11 +4,25 @@
 
 This page explains several tools that can be used to debug a custom topology synchronization. For more information on individual synchronization concepts, read about [topology synchronization in StackState](topology_synchronization.md).
 
-## General troubleshooting steps
+## Topology synchronization process
+
+A topology synchronized using StackState Agent follows the process described below:
 
 ![Topology synchronization with StackState Agent](/.gitbook/assets/debug_topo_sync.svg)
 
+* StackState Agent:
+  - Connects to the data source to collect data.
+  - Connects to the StackState receiver to push the collected data to StackState in JSON format.
+* StackState receiver:
+  - Extracts the topology and telemetry payloads from the received JSON.
+  - Puts messages on the Kafka bus.
+* Kafka:
+  - Stores data in topics.
+* StackState topology synchronization:
+  - Reads data from a topic as it becomes available on the Kafka bus.
+  - Processes the received data.
 
+## General troubleshooting steps
 
 To verify issues follow these common steps:
 
