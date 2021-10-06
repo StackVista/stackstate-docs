@@ -20,7 +20,7 @@ A topology synchronized using StackState Agent follows the process described bel
   - Stores received data in topics.
 * StackState topology synchronization:
   - Reads data from a topic as it becomes available on the Kafka bus.
-  - Processes received data.
+  - Processes retrieved data.
 
 ## General troubleshooting steps
 
