@@ -55,9 +55,13 @@ Increasing error numbers in the StackState UI **Settings** > **Topology Synchron
 
 To troubleshoot processing errors, refer to the relevant log files. The log messages will help you in resolving the issue.
 
-- An issue in the ID extractor will result in no topology being synchronized. An exception is logged to `stackstate.log`, or on the `stackstate-api` pod on each received topology element. The synchronization’s error counter will not increase.
-- An issue with a mapper function defined for a synchronization mapping will log an exception to the synchronization’s specific log file. For Kubernetes, the exception is logged on the `stackstate-sync` pod with the synchronization’s name shown in the log message. The type is logged as well, to help determine which mapping to look at. The synchronization’s error counter will increase.
-- Issues with templates are logged to the synchronization’s specific log file. For Kubernetes, the exception is logged on the `stackstate-sync` pod with the synchronization’s name shown in the log message. The synchronization’s error counter will increase.
+- Check the `stackstate.log` or, for Kubernetes, the `stackstate-api` pod. 
+  - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will not increase.
+
+- Check the synchronization’s specific log file or, for Kubernetes, the `stackstate-sync` pod for log messages including the synchronization’s name.
+  - Issues with a mapper function defined for a synchronization mapping will be reported here. The type is also logged to help determine which mapping to look at. The synchronization’s error counter will increase.
+  - Issues with templates are also logged here. The synchronization’s error counter will increase.
+
 
 ### Relations
 
