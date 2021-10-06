@@ -6,6 +6,10 @@ This page explains several tools that can be used to debug a custom topology syn
 
 ## General troubleshooting steps
 
+![Topology synchronization with StackState Agent](/.gitbook/assets/debug_topo_sync.svg)
+
+
+
 To verify issues follow these common steps:
 
 1. [List all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
@@ -28,12 +32,12 @@ There are two log files for each synchronization:
 
 1. `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find:
   * ID extractor errors.
-  * Relations connected to a non-existing component.
+  * Details of any relations connected to a non-existing component.
   * ??? When the synchronization is slow it will discard messages.
 
 2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find:
   * Template/mapping function errors.
-  * Component types that do not have a mapping.
+  * Details of any component types that do not have a mapping.
 
 {% endtab %}
 {% endtabs %}
@@ -57,7 +61,7 @@ Based on the information you see here, different actions can be taken:
   # Show all Kafka topics that are present for Synchronizations to use
   sts topology list-topics
   
-  # Look for a topic with the name: sts_topo_<instance_type>_<instance url> where:
+  # Look for a topic named: sts_topo_<instance_type>_<instance url> where:
   #   <instance_type> is the name of the integration 
   #   <instance_url> corresponds to the StackState Agent integration YAML (usually the URL of the data source)
 
