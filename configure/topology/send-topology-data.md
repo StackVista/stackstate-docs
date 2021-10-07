@@ -5,7 +5,7 @@
 StackState can synchronize topology information from different sources, including your own sources.
 
 * The easiest way to connect StackState to one of your data sources is to use a **StackPack**. StackPacks are standard integrations that configure StackState to consume data from a particular data source or platform.
-* You can also create a **custom topology synchronization**. StackState accepts topology data in JSON format. JSON files received pass through a number of processing steps. At the end of this synchronization pipeline, StackState stores the incoming data as part of its topology, consisting of components and relations. 
+* You can also create a **custom topology synchronization**. StackState accepts topology data in JSON format. JSON files received pass through a number of processing steps. At the end of this synchronization pipeline, the incoming data is stored as components and relations in the StackState topology. 
 
 ## StackState Receiver API
 
