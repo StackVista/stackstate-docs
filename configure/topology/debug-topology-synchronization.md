@@ -92,6 +92,10 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
   * ID extractor errors.
   * StackPacks.
 
+{% hint style="info" %}
+For details on working with the StackState log files on Kubernetes and Linux see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
+{% endhint %}
+
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -115,6 +119,10 @@ Logs about StackPacks are stored in the directory:
 `<my_install_location>/var/log/stackpacks/`
 
 There is a log file for each StackPack. The name of the log file is set to the StackPack’s internal name. Information about the StackPack lifecycle can be found here.
+
+{% hint style="info" %}
+For details on working with the StackState log files on Kubernetes and Linux see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
+{% endhint %}
 
 {% endtab %}
 {% endtabs %}
