@@ -246,5 +246,8 @@ redirects:
   stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
   use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
 
+# 4.5 docs
+
+  configure/topology/topology_synchronization.md: ./configure/topology/send-topology-data.md
 
 

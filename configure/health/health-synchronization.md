@@ -80,5 +80,5 @@ The health check state calculated by an external monitoring system. This contain
 
 * [Add a health check based on telemetry available in StackState](../../use/health-state/add-a-health-check.md)
 * [JSON health payload](/configure/health/send-health-data/send-health-data.md#json-property-health)
-* [Topology synchronization](../topology/topology_synchronization.md)
+* [Topology synchronization](../topology/send-topology-data.md)
 
