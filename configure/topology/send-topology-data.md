@@ -150,3 +150,4 @@ The [push-integration tutorial](../../develop/tutorials/push_integration_tutoria
 
 * [Send health data over HTTP](/configure/health/send-health-data/send-health-data.md)
 * [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
+* [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)

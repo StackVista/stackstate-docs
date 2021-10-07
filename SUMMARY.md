@@ -164,7 +164,7 @@
   * [Tags](configure/topology/tagging.md)
   * [Topology sources](configure/topology/topology_sources.md)
   * [Send topology data over HTTP](configure/topology/send-topology-data.md)
-  * [Debug topology synchronization](configure/topology/debugging_topology_synchronization.md)
+  * [Debug topology synchronization](configure/topology/debug-topology-synchronization.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Data sources](configure/telemetry/data-sources/README.md)

@@ -249,5 +249,6 @@ redirects:
 # 4.5 docs
 
   configure/topology/topology_synchronization.md: ./configure/topology/send-topology-data.md
+  configure/topology/debugging_topology_synchronization.md: ./configure/topology/debug-topology-synchronization.md
 
 
