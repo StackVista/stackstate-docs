@@ -13,7 +13,7 @@ In a Kubernetes setup, StackState functions are distributed [across different po
 
 ### Access recent logs
 
-The most recent logs can be retrieved from Kubernetes using the [`kubectl logs` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
+The most recent logs can be retrieved from Kubernetes using the [`kubectl logs` command \(kubernetes.io\)](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs). For example:
 
 ```text
 # Snapshot of logs for all containers of <pod-name>
