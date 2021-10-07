@@ -28,12 +28,13 @@ A topology synchronized using StackState Agent follows the process described bel
 
 ## Troubleshooting steps
 
-If no components appear after making changes to a synchronization, or the data is not as expected:
+If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described below to check each step in the [topology synchronization process](#topology-synchronization-process) in turn. 
+
+The [synchronization logs](#synchronization-logs) will tell you if an integration was able to complete and errors will show up here.
 
 ### StackState Agent
 
-For integrations that run through StackState Agent, StackState Agent is a good place to start your investigation.
-- The [synchronization logs](#synchronization-logs) will tell you if an integration was able to complete and errors will show up here. 
+For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
 - Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
 - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
