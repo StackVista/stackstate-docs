@@ -13,14 +13,18 @@ A topology synchronized using StackState Agent follows the process described bel
 1. StackState Agent:
   - Connects to a data source to collect data.
   - Connects to the StackState receiver to push collected data to StackState (in JSON format).
+  - Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
 2. StackState receiver:
   - Extracts topology and telemetry payloads from the received JSON.
   - Puts messages on the Kafka bus.
+  - Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
 3. Kafka:
   - Stores received data in topics.
+  - Read the [troubleshooting steps for Kafka](#kafka).
 4. Synchronization:
   - Reads data from a topic as it becomes available on the Kafka bus.
   - Processes retrieved data.
+  - Read the [troubleshooting steps for syncrhonization](#synchronization).
 
 ## Troubleshooting steps
 
@@ -41,15 +45,17 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 ### Kafka
 
-Topology and telemetry are stored on Kafka, on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available. The Kafka topic used is defined in the Sts data source.
+Topology and telemetry are stored on Kafka, on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
 
 - Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the following format; `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the Agent integration YAML, usually the URL of the data source.
 - Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
-- Check if the Sts data source defined topic name matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
 
-### Processing
-   
-Increasing error numbers in the StackState UI **Settings** > **Topology Synchronization** > **Synchronizations** page tell you that processing the received data resulted in an error. 
+### Synchronization
+
+The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization defined in the Sts data source.
+
+- Check if the Sts data source defined topic name matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
+- Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that processing received data resulted in an error. 
   
 ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
 
