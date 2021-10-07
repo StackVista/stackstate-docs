@@ -60,7 +60,7 @@ The StackState topology synchronization reads messages from a topic on the Kafka
   
 ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
 
-To troubleshoot processing errors, refer to the relevant log files. The provided log messages will help you to resolve the issue.
+To troubleshoot processing errors, refer to the relevant StackState log files. The provided log messages will help you to resolve the issue. For details on working with the StackState log files on Kubernetes and Linux see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
 
 - Check the `stackstate.log` or, for Kubernetes, the `stackstate-api` pod. 
   - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will **not** increase.
@@ -142,3 +142,7 @@ metric               value between now and 500 seconds ago  value between 500 an
 -----------------  ---------------------------------------  ----------------------------------------  -----------------------------------------
 latency (Seconds)                                   35.754  ---                                       ---
 ```
+
+## See also
+
+* [Working with StackState log files](/configure/logging/stackstate-log-files.md)
