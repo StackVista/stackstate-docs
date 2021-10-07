@@ -28,9 +28,9 @@ A topology synchronized using StackState Agent follows the process described bel
 
 ## Troubleshooting steps
 
-If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described below to check each step in the [topology synchronization process](#topology-synchronization-process) in turn. 
-
-To confirm if a custom synchronization is running, use the StackState CLI to [list all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
+1. To confirm if a (custom) synchronization is running, use the StackState CLI to [list all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
+2. If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described below to check each step in the [topology synchronization process](#topology-synchronization-process) in turn. 
+3. If relations are missing from the topology, read the note on [troubleshooting synchronization of relations](#relations).
 
 ### StackState Agent
 
@@ -48,22 +48,22 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 Topology and telemetry are stored on Kafka, on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
 
-- Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the following format; `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the Agent integration YAML, usually the URL of the data source.
+- Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML, this is usually the URL of the data source.
 - Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
 
 ### Synchronization
 
 The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization defined in the Sts data source.
 
-- Check if the Sts data source defined topic name matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
-- Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that processing received data resulted in an error. 
+- Check if the topic name defined in the Sts data source matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
+- Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data. 
   
 ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
 
-To troubleshoot processing errors, refer to the relevant log files. The log messages will help you to resolve the issue.
+To troubleshoot processing errors, refer to the relevant log files. The provided log messages will help you to resolve the issue.
 
 - Check the `stackstate.log` or, for Kubernetes, the `stackstate-api` pod. 
-  - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will not increase.
+  - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will **not** increase.
 
 - Check the synchronization’s specific log file or, for Kubernetes, the `stackstate-sync` pod for log messages that include the synchronization’s name.
   - Issues with a mapper function defined for a synchronization mapping will be reported here. The type is also logged to help determine which mapping to look at. The synchronization’s error counter will increase.
@@ -73,20 +73,6 @@ To troubleshoot processing errors, refer to the relevant log files. The log mess
 ### Relations
 
 It is possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation is not present in the synchronization’s topology, the relation will not be created. A warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
-
-
-
-
-
-
--------
-
-
-
-
-1. [List all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
-2. [Check the status of the topology synchronization stream](debugging_topology_synchronization.md#show-status-of-a-stream) for the error count. 
-3. [Check the logs](#synchronization-logs).
 
 ## Log files of interest
 
