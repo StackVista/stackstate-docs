@@ -29,7 +29,8 @@ A topology synchronized using StackState Agent follows the process described bel
 ## Troubleshooting steps
 
 1. Confirm the custom synchronization is running: 
-   - Use the StackState CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations. 
+   - Use the StackState CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams). 
+   - The topology synchronization should be included in the list and have created components and relations. 
    - If a custom synchronization is not listed, you will need to [recreate the synchronization](/configure/topology/sync.md).
 2. If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described below to check each step in the [topology synchronization process](#topology-synchronization-process). 
 3. If relations are missing from the topology, read the note on [troubleshooting synchronization of relations](#relations).
