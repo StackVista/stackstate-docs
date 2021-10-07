@@ -30,7 +30,7 @@ A topology synchronized using StackState Agent follows the process described bel
 
 If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described below to check each step in the [topology synchronization process](#topology-synchronization-process) in turn. 
 
-The [synchronization logs](#synchronization-logs) will tell you if an integration was able to complete and errors will show up here.
+To confirm if a custom synchronization is running, use the StackState CLI to [list all topology synchronization streams](debugging_topology_synchronization.md#list-all-topology-synchronization-streams). The topology synchronization should be included in the list and have created components and relations.
 
 ### StackState Agent
 
