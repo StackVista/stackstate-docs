@@ -41,7 +41,7 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 ### StackState receiver
 
 The StackState receiver receives JSON data from the StackState Agent. 
-- Check the [StackState receiver logs](#stackstate-receiver-logs) for JSON deserialization errors. 
+- Check the StackState receiver logs for JSON deserialization errors. 
 
 
 ### Kafka
@@ -69,14 +69,11 @@ To troubleshoot processing errors, refer to the relevant log files. The provided
   - Issues with a mapper function defined for a synchronization mapping will be reported here. The type is also logged to help determine which mapping to look at. The synchronization’s error counter will increase.
   - Issues with templates are also logged here. The synchronization’s error counter will increase.
 
-
 ### Relations
 
 It is possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation is not present in the synchronization’s topology, the relation will not be created. A warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
 
-## Log files of interest
-
-### Synchronization logs
+## Synchronization logs
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -90,8 +87,6 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
 
 * The `stackstate-api` pod contains details of:
   * ID extractor errors.
-
-Logs for the StackState receiver can be found in the StackState receiver pod.
 
 {% endtab %}
 
@@ -111,61 +106,12 @@ There are two log files for each synchronization:
   * Template/mapping function errors.
   * Component types that do not have a mapping.
 
-Logs for the StackState receiver are stored in the directory:
-
-`<my_install_location>/var/log/stackstate-receiver`
-
 {% endtab %}
 {% endtabs %}
-
-### StackState receiver logs
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, logs for the StackState receiver can be found in the StackState receiver pod.
-
-{% endtab %}
-
-{% tab title="Linux" %}
-When StackState is deployed on Linux, logs for the StackState receiver are stored in the directory:
-
-`<my_install_location>/var/log/stackstate-receiver`
-
-{% endtab %}
-{% endtabs %}
-
-## Common Issues
-
-### No data sync
-
-check the synchronizations page in the StackState UI. Go to **Settings** > **Topology Synchronization** > **Synchronizations** from the main menu and check if any errors have been reported.
-
-![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
-
-If there are errors reported:
-* [Check the synchronization logs](#synchronization-logs) for details.
-
-If there are no errors, check the following:
-* Did you restart the synchronization and send new data after making changes? StackState will not retroactively apply changes.
-* Do the components/relations to be synchronized have their type mapped in the synchronization configuration?
-* Is data arriving in StackState? You can use the [StackState CLI](/setup/installation/cli-install.md) to see what data ends up on the synchronization topic:
-
-```
-# Show all Kafka topics that are present for Synchronizations to use
-sts topology list-topics
-
-# Look for a topic named: sts_topo_<instance_type>_<instance url> where:
-#   <instance_type> is the name of the integration 
-#   <instance_url> corresponds to the StackState Agent integration YAML (usually the URL of the data source)
-
-# Inspect the topology messages in the Kafka topic
-sts topic show <topic_name>
-```
-  
 
 ## Useful CLI commands
 
-### List all Topology Synchronization streams
+### List all topology synchronization streams
 
 Returns a list of all current topology synchronization streams.
 
