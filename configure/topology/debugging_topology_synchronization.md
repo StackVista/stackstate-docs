@@ -87,6 +87,7 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
 
 * The `stackstate-api` pod contains details of:
   * ID extractor errors.
+  * StackPacks.
 
 {% endtab %}
 
@@ -105,6 +106,12 @@ There are two log files for each synchronization:
 2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
   * Template/mapping function errors.
   * Component types that do not have a mapping.
+
+Logs about StackPacks are stored in the directory:
+
+`<my_install_location>/var/log/stackpacks/`
+
+There is a log file for each StackPack. The name of the log file is set to the StackPack’s internal name. Information about the StackPack lifecycle can be found here.
 
 {% endtab %}
 {% endtabs %}
