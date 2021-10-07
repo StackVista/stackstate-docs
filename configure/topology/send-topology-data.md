@@ -46,7 +46,7 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 }
 ```
 
-### JSON property: "topologies" 
+## JSON property: "topologies" 
 
 StackState accepts topology information in the following JSON format:
 
@@ -142,7 +142,7 @@ The JSON contains the following fields:
   * **sourceId**: The source component externalId.
   * **targetId**: The target component externalId.
 
-### Get started with custom topology
+## Get started with custom topology
 
 The [push-integration tutorial](../../develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into StackState.
 
