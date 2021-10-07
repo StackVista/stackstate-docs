@@ -93,7 +93,7 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
   * StackPacks.
 
 {% hint style="info" %}
-For details on working with the StackState log files on Kubernetes and Linux see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
+For details on working with the StackState log files on Kubernetes, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md#kubernetes).
 {% endhint %}
 
 {% endtab %}
@@ -121,7 +121,7 @@ Logs about StackPacks are stored in the directory:
 There is a log file for each StackPack. The name of the log file is set to the StackPack’s internal name. Information about the StackPack lifecycle can be found here.
 
 {% hint style="info" %}
-For details on working with the StackState log files on Kubernetes and Linux see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
+For details on working with the StackState log files on Linux, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md#linux).
 {% endhint %}
 
 {% endtab %}
