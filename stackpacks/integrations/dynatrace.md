@@ -179,7 +179,7 @@ The API endpoints used in the StackState integration are listed below:
 * `/api/v1/entity/infrastructure/processes`
 * `/api/v1/entity/infrastructure/process-groups`
 * `/api/v1/entity/services`
-* `/api/vi/events`
+* `/api/v1/events`
 * `/api/v2/entities`
 
 
