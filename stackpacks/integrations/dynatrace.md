@@ -114,7 +114,7 @@ The API endpoints used in the StackState integration are listed below:
 * `/api/v1/entity/infrastructure/processes`
 * `/api/v1/entity/infrastructure/process-groups`
 * `/api/v1/entity/services`
-* `/api/vi/events`
+* `/api/v1/events`
 
 {% hint style="info" %}
 Refer to the Dynatrace documentation for details on [how to create an API Token](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token).
