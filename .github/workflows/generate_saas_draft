@@ -1,7 +1,7 @@
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# triggered on merge to 4.4 branch
+# triggered on push to STAC-14132-saas-docs-v3 branch
 on:
   push:
     branches: [ STAC-14132-saas-docs-v3 ]
