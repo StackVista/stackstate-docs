@@ -11,6 +11,11 @@ jobs:
     concurrency: draft-saas-docs
     runs-on: windows-latest
     steps:
+    - name: setup git config
+      run: |
+        # setup the username and email
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
     - name: checkout
       uses: actions/checkout@v2
     - name: ConvertWithScript
