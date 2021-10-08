@@ -9,7 +9,7 @@ jobs:
   generate_draft_saas:
     name: GenerateDraftSaasSite
     concurrency: draft-saas-docs
-    runs-on: [ windows-latest, ubuntu-latest ]
+    runs-on: windows-latest
     steps:
     - name: checkout
       uses: actions/checkout@v2
