@@ -22,6 +22,8 @@ jobs:
         git add -A
         git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
         git push origin stac-saas-docs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #   auto-pull-request:
 #     concurrency: draft-saas-docs
 #     runs-on: ubuntu-latest
