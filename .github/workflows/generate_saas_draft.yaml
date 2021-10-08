@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: ConvertWithScript
       run: |
-        perl /resources/convert-docs-to-saas.pl
+        perl ../resources/convert-docs-to-saas.pl
     - name: PullRequestAction
       uses: vsoch/pull-request-action@1.0.18
       env:
