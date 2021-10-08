@@ -22,20 +22,22 @@ jobs:
         git status
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-    - name: checkout
-      uses: actions/checkout@v2
-      with:
-        ref: stac-saas-docs
-    - name: commit
-      run: |
-        # Stage the file, commit and push
-        git status
-        git add -A
-        git status
         git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
-        git push origin stac-saas-docs
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git push -u origin stac-saas-docs-2
+#     - name: checkout
+#       uses: actions/checkout@v2
+#       with:
+#         ref: stac-saas-docs
+#     - name: commit
+#       run: |
+#         # Stage the file, commit and push
+#         git status
+#         git add -A
+#         git status
+#         git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
+#         git push origin stac-saas-docs
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #   auto-pull-request:
 #     concurrency: draft-saas-docs
 #     runs-on: ubuntu-latest
