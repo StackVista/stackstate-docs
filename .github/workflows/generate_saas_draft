@@ -1,19 +1,20 @@
-name: "Draft SaaS docs site"
-# generate new version of draft SaaS docs site when changes are merged to branch STAC-14132-saas-docs-v
+name: CI
 
+# Controls when the action will run. Triggers the workflow on push or pull request
+# triggered on merge to 4.4 branch
 on:
   push:
     branches: [ STAC-14132-saas-docs-v3 ]
 
 jobs:
-  generate_draft_saas:
-    name: GenerateDraftSaasSite
+  auto-pull-request:
+    name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
-    - name: PullRequestAction
-      uses: vsoch/pull-request-action@1.0.18
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PULL_REQUEST_BRANCH: generate-saas-docs
-        PULL_REQUEST_TITLE: "[AUTOMATED] changes from source branch"
-        PULL_REQUEST_REVIEWERS: "gggina"
+      - name: pull-request-action
+        uses: vsoch/pull-request-action@1.0.18
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: stac-saas-docs
+          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from branch STAC-14132-saas-docs-v3"
+          PULL_REQUEST_REVIEWERS: "gggina"
