@@ -16,14 +16,20 @@ jobs:
     - name: ConvertWithScript
       run: |
         perl resources/convert-docs-to-saas.pl
-  auto-pull-request:
-    concurrency: draft-saas-docs
-    runs-on: ubuntu-latest
-    steps:
-    - name: pull-request-action
-      uses: vsoch/pull-request-action@1.0.18
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PULL_REQUEST_BRANCH: draft-saas-docs
-        PULL_REQUEST_TITLE: "[AUTOMATED] new saas docs generated from STAC-14132-saas-docs-v3"
-        PULL_REQUEST_REVIEWERS: "gggina"
+    - name: commit
+      run: |
+        # Stage the file, commit and push
+        git add -A
+        git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
+        git push origin stac-saas-docs
+#   auto-pull-request:
+#     concurrency: draft-saas-docs
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: pull-request-action
+#       uses: vsoch/pull-request-action@1.0.18
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         PULL_REQUEST_BRANCH: draft-saas-docs
+#         PULL_REQUEST_TITLE: "[AUTOMATED] new saas docs generated from STAC-14132-saas-docs-v3"
+#         PULL_REQUEST_REVIEWERS: "gggina"
