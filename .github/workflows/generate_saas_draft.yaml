@@ -21,6 +21,10 @@ jobs:
         # setup the username and email
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        ref: stac-saas-docs
     - name: commit
       run: |
         # Stage the file, commit and push
