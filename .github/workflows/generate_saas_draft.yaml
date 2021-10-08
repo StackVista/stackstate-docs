@@ -24,6 +24,7 @@ jobs:
     - name: commit
       run: |
         # Stage the file, commit and push
+        git status
         git add -A
         git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
         git push origin stac-saas-docs
