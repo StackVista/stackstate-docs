@@ -1,0 +1,32 @@
+name: "Draft SaaS docs site"
+# generate new version of draft SaaS docs site when changes are merged to branch STAC-14132-saas-docs-v
+
+on:
+  push:
+    branches: [ STAC-14132-saas-docs-v3 ]
+
+jobs:
+  generate_draft_saas:
+    runs-on: windows-latest
+    steps:
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: stac-saas-docs
+      - name: clear
+        run: |
+          git reset --hard STAC-14132-saas-docs-v3      
+      - name: convert
+        run: |
+          perl resources/convert-docs-to-saas.pl
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add -A
+          git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
+          git push origin stac-saas-docs
