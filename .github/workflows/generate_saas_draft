@@ -10,12 +10,6 @@ jobs:
     name: GenerateDraftSaasSite
     runs-on: ubuntu-latest
     steps:
-    - name: Delete old SaaS docs branch
-      uses: dawidd6/action-delete-branch@v3
-      with:
-        github_token: ${{github.token}}
-        branches: generate_saas_draft
-        # suffix: -done
     - name: PullRequestAction
       uses: vsoch/pull-request-action@1.0.18
       env:
