@@ -12,12 +12,9 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: ConvertWithScript2
+    - name: ConvertWithScript
       run: |
         perl resources/convert-docs-to-saas.pl
-    - name: ConvertWithScript3
-      run: |
-        perl /resources/convert-docs-to-saas.pl
     - name: PullRequestAction
       uses: vsoch/pull-request-action@1.0.18
       env:
