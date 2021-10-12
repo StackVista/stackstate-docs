@@ -20,7 +20,7 @@ jobs:
         git status
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git git reset --hard STAC-14132-saas-docs-v3
+        git reset --hard STAC-14132-saas-docs-v3
     - name: ConvertWithScript
       run: |
         perl resources/convert-docs-to-saas.pl
