@@ -294,7 +294,7 @@ A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 buck
 
 If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 
-[AWS Flow Logs documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
+* [AWS Flow Logs documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
 
 ### Costs
 
