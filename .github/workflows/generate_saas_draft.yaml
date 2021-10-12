@@ -35,7 +35,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        branch: 'stac-saas-docs-test'
+        branch: 'NEW-stac-saas-docs-test'
 #     - name: git push new branch
 #       run: |        
 #         git push -u origin stac-saas-docs-test
