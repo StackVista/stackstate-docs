@@ -6,7 +6,7 @@ description: StackState version 4.4
 
 {% hint style="success" %}
 
-please _please_ GENERATE SAAS DOCS BY GH ACTION
+Test generating SaaS docs on stac-saas-docs-test
 
 **StackState version 4.4** is now available - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v44x) for details.
 
