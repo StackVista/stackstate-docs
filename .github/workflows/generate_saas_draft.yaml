@@ -12,7 +12,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
       with:
-      	ref: stac-saas-docs
+      	ref: "stac-saas-docs"
     - name: setup git config
       run: |
         # setup the username and email
