@@ -5,12 +5,9 @@ description: StackState core integration
 # Splunk topology V1
 
 {% hint style="info" %}
-This page describes the **Splunk topology V1 integration with StackState Agent V1.**
+This page describes the Splunk topology V1 integration with StackState Agent V1.
 
-If you are already running StackState Agent V2, see the instructions on how to:
-
-* [Configure a new Splunk topology V2 check on StackState Agent V2](splunk_topology_v2.md)  
-* [Upgrade an existing Splunk topology integration to use StackState Agent V2](splunk_topology_upgrade_v1_to_v2.md)
+**If you are running StackState Agent V2:** See the instructions on how to configure a [Splunk topology V2](splunk_topology_v2.md) check. You can also [upgrade](splunk_topology_upgrade_v1_to_v2.md) an existing Splunk topology V1 integration to use StackState Agent V2.
 {% endhint %}
 
 ## Overview
@@ -24,24 +21,52 @@ The Splunk topology check on StackState Agent V1 will execute all configured Spl
 
 ## Splunk saved search
 
-### Fields used
+In the Splunk Topology V1 integration, StackState Agent V1 executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](splunk_topology.md#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](splunk_topology.md#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
-
-#### Component fields
+### Topology components
 
 The following fields from the results of a saved search are sent to StackState for topology components:
 
 | Field | Type | Required? | Description |
 | :--- | :--- | :--- | :--- |
-| **type** | string | ✅ | The type of component or relation. |
 | **id** | string | ✅ | The unique identifier for the component. |
 | **name** | string | ✅ | The value will be used as the component name. |
-| **identifier.&lt;identifier\_name&gt;** | string | - | The value will be included as identifier of the component. |
-| **label.&lt;label\_name&gt;** | string | - | The value will be added as a label on the component in the format `label_name:value` |
+| **type** | string | ✅ | The type of component or relation. |
+| **labels** | multivalue field or comma separated string | - | The values will be added as labels on the component. |
+| **identifiers** | multivalue field or comma separated string | - | The values will be included as identifiers of the component. |
 | All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
-#### Relation fields
+#### Example query for components
+
+{% tabs %}
+{% tab title="Splunk query for components" %}
+```text
+| datamodel uberAgent60m System_MachineInventory search 
+| dedup host 
+| eval id = upper(host) | strcat "urn:host:/" id identifier
+| eval name = 'id'
+| eval type="host" 
+| eval domain="uberAgent" 
+| eval layer="Machines" 
+| eval labels=split("uberAgent", ",") 
+| eval identifiers=mvappend(identifier, id)
+| table id type name domain layer labels identifiers
+```
+{% endtab %}
+{% endtabs %}
+
+The example Splunk saved search above would result in the following topology component data in StackState:
+
+| Field | Data |
+| :--- | :--- |
+| **id** | Splunk `id` field. |
+| **name** | Splunk `name` field. |
+| **type** | Splunk `type` field. |
+| **labels** | Splunk `labels` field |
+| **identifiers** | Splunk `identifiers` field. |
+| **data** | Splunk fields `domain` and `layer`. |
+
+### Topology relations
 
 The following fields from the results of a saved search are sent to StackState for topology relations:
 
@@ -51,39 +76,19 @@ The following fields from the results of a saved search are sent to StackState f
 | **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |  |
 | **targetId** | string | ✅ | The ID of the component that is the target of the relation. |  |
 
-### Example Splunk queries
-
-{% tabs %}
-{% tab title="Splunk query for components" %}
-```text
-| loadjob savedsearch=:servers
-| search OrganizationPart="*" OrgGrp="*" company="*"
-| table name | dedup name
-| eval name = upper(name)
-| eval id = 'name', type="vm"
-| table id type name
-```
-{% endtab %}
-{% endtabs %}
-
-The example Splunk saved search above would result in the following topology component data in StackState:
-
-| Field | Data |
-| :--- | :--- |
-| **type** | Splunk `type` field. |
-| **id** | Splunk `id` field. |
-| **identifier.&lt;identifier\_name&gt;** | - |
-| **label.&lt;label\_name&gt;** | - |
-| **name** | Splunk `name` field. |
+#### Example query for relations
 
 {% tabs %}
 {% tab title="Splunk query for relations" %}
 ```text
-index=cmdb_icarus source=cmdb_ci_rel earliest=-3d
-| eval VMName=lower(VMName)
-| rename Application as sourceId, VMName as targetId
-| eval type="is-hosted-on"
-| table sourceId targetId type
+| datamodel uberAgent60m Application_ApplicationInventory search 
+| rename Application_ApplicationInventory.DisplayName as appname 
+| table host appname | uniq 
+| eval host_id = upper(host) | strcat "urn:host:/" host_id targetId 
+| eval app_id = upper(appname) | rex mode=sed field=app_id "s/ /_/g" 
+| strcat "urn:application:/" app_id sourceId 
+| eval type="runs_on" 
+| table type sourceId targetId | dedup sourceId targetId
 ```
 {% endtab %}
 {% endtabs %}
@@ -93,8 +98,8 @@ The example Splunk saved search above would result in the following topology rel
 | Field | Data |
 | :--- | :--- |
 | **type** | Splunk `type` field. |
-| **sourceId** | `<sourceId>` \(renamed from `Application`\) |
-| **targetId** | `<targetId>` \(renamed from `VMName`\) |
+| **sourceId** | Splunk `sourceId` field. |
+| **targetId** | Splunk `targetId` field. |
 
 ## Agent check
 

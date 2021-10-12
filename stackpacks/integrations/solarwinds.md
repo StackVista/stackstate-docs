@@ -24,10 +24,12 @@ To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and StackState.
 * To support [component actions](solarwinds.md#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
-* A running SolarWinds instance with a Network Performance Monitor \(NPM\) module.  
+* A running SolarWinds instance with correctly configured Network Performance Monitor \(NPM\) and User Device Tracker (UDT) modules. For details see [retrieved topology data](#topology).
 * A SolarWinds user with access to the required [API endpoints](solarwinds.md#rest-api-endpoints).
   * The lowest access level is sufficient.
   * The user must not have any account limitations set that block access to nodes intended to be retrieved.
+* To see relations between components, a layer 3 network device is required.
+* A SolarWinds administrator needs to be available to add custom node properties.
 
 ### Install
 
@@ -42,7 +44,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/solarwinds.d/conf.yaml` to include details of your SolarWinds instance:
 
-   * **url** - the REST API URL, uses HTTPS protocol for communication.
+   * **url** - the REST API URL, uses HTTPS protocol for communication. This should be a hostname or IP, it should not include the prefix `https://`.
    * **user** - a SolarWinds user with access to the required [SolarWinds API endpoints](solarwinds.md#rest-api-endpoints).
    * **password** - use [secrets management](../../configure/security/secrets_management.md) to store passwords outside the configuration file.
 
@@ -53,8 +55,8 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
      - url: <instance_name.solarwinds.localdomain>
        username: <instance_username>
        password: <instance_password>
-       solarwinds_domain: <instance_domain>
-       solarwinds_domain_values:
+       solarwinds_domain: <instance_domain>  # A SolarWinds custom property
+       solarwinds_domain_values:  # A list of values used by the solarwinds_domain
          - <instance_domain_value_1>
          - <instance_domain_value_2>
          - <instance_domain_value_n>
@@ -63,7 +65,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 
 2. Set the following filters:
    * **solarwinds\_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
-   * **solarwinds\_domain\_values** - A list of values used by the specified `solarwinds_domain` to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
+   * **solarwinds\_domain\_values** - A list of values used by the SolarWinds custom property specified in `solarwinds_domain`. Used to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
 3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
 

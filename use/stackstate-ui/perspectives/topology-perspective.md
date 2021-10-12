@@ -80,7 +80,7 @@ The View Filters are saved together with the View. For details, see the page [fi
 The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left-hand side menu to open the visualization settings menu. Here you can edit:
 
 * Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
-* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#component-grouping).
+* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../introduction-to-stackstate/layers_domains_and_environments.md).
 * Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](topology-perspective.md#relations).
 

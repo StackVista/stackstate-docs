@@ -22,6 +22,10 @@ To integrate StackState with an external telemetry source using mirroring, the m
 
 Clone the repository to your laptop to get started.
 
+{% hint style="info" %}
+Note that Python 3.8 or higher is required.
+{% endhint %}
+
 ## Running the sample mirror
 
 For this demo, your StackState instance needs to be able to connect with the mirror running on your local laptop. This can be done by running StackState on your laptop as well, or by exposing your laptop to the internet using `ngrok`.

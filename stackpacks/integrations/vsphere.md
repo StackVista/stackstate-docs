@@ -75,15 +75,15 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
 
 The advanced configuration items described below can optionally be added to the VMWare vSphere check configuration file. Further details can be found in the [example configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example).
 
-| Options | Required? | Description |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `all_metrics` | Yes | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. |  |  |  |
-| `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |  |  |  |
-| `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |  |  |  |
-| `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |  |  |  |
-| `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |  |  |  |
-| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value | `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM | Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"` |
-| `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. |  |  |  |
+| Options | Required? | Description |
+| :--- | :--- | :--- |
+| `all_metrics` | Yes | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. |
+| `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |
+| `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
+| `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
+| `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |
+| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value `StackStateMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM | Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"` |
+| `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. | 
 
 ### Status
 

@@ -34,6 +34,7 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 * [StackState Agent V2 on Docker](docker.md)
 * [StackState Agent V2 on Kubernetes](kubernetes.md)
 * [StackState Agent V2 on Linux](linux.md)
+* [StackState Agent V2 on OpenShift](openshift.md)
 * [StackState Agent V2 on Windows](windows.md)
 
 ## Open source
