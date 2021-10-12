@@ -284,6 +284,18 @@ A KMS key must be created in each region where events are captured.
 
 * [Sample KMS Key policy](aws-policies.md#stackstate-integration-kms-key).
 
+#### VPC FlowLogs
+
+{% hint style="warning" %}
+VPC FlowLogs support is currently experimental.
+{% endhint %}
+
+A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute.
+
+If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
+
+[AWS Flow Logs documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
+
 ### Costs
 
 The AWS StackPack CloudFormation template contains all resources that are necessary to run the AWS check on the StackState Agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
