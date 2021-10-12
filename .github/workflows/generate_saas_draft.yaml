@@ -34,5 +34,6 @@ jobs:
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
         git status
+        git add -A
         git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
         git push -u origin stac-saas-docs-test
