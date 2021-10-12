@@ -10,17 +10,23 @@ jobs:
     name: GenerateDraftSaasSite
     runs-on: windows-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-      with:
-        ref: 'stac-saas-docs'
     - name: setup git config
       run: |
         # setup the username and email
         git status
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git reset --hard STAC-14132-saas-docs-v3
+#        git branch -D stac-saas-docs-test
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        ref: STAC-14132-saas-docs-v3
+    - name: create new branch
+      uses: peterjgrainger/action-create-branch@v2.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        branch: 'stac-saas-docs-test-new'
     - name: ConvertWithScript
       run: |
         perl resources/convert-docs-to-saas.pl
@@ -28,7 +34,5 @@ jobs:
       run: |
         # Stage the file, commit and push
         git status
-        git add -A
-        git status
         git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
-        git push origin stac-saas-docs
+        git push origin stac-saas-docs-test
