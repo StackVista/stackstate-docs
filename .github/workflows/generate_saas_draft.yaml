@@ -27,7 +27,8 @@ jobs:
         # Stage the file, commit and push
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git commit -ma "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
+        git add -A
+        git commit -m "TEST rebuild draft SaaS docs from STAC-14132-saas-docs-v3"
     - name: create new SaaS branch
       uses: peterjgrainger/action-create-branch@v2.0.1
       env:
