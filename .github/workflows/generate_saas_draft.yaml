@@ -10,17 +10,17 @@ jobs:
     name: GenerateDraftSaasSite
     runs-on: windows-latest
     steps:
-#     - name: setup git config
-#       run: |
-#         # setup the username and email
-#         git status
-#         git config user.name "GitHub Actions Bot"
-#         git config user.email "<>"
-#        git branch -D stac-saas-docs-test
     - name: checkout
       uses: actions/checkout@v2
       with:
         ref: STAC-14132-saas-docs-v3
+    - name: setup git config
+      run: |
+        # setup the username and email
+        git status
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git branch -D stac-saas-docs-test
     - name: create new branch
       uses: peterjgrainger/action-create-branch@v2.0.1
       env:
