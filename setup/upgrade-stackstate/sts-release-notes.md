@@ -10,6 +10,20 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
+### v4.4.2
+
+**Improvements**
+
+- Support extra custom request parameters for OIDC. STAC-13999
+- Security improvement for handling credentials on the StackPack pages. STAC-13658
+
+**Bug fixes**
+
+- Fixed issue that caused the AWS CloudWatch plugin to fail to assume the correct IAM role under certain circumstances. STAC-14252
+- Fix the issue that caused the AWS StackPack installation to fail to verify the passed in AWS credentials on the StackState Kubernetes installation. STAC-14014
+- Fixed issue that caused a loop when logging in with OIDC when 'stackstate.baseUrl' contained a trailing '/'. STAC-13964
+- Fixed issue that caused backup functionality to fail on OpenShift. STAC-13772
+
 ### v4.4.1
 
 **Improvements**
