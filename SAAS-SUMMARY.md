@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState Docs!](README.md)
+* [TODO Requirements](setup/requirements.md)
 
 ## 🚀 Basic usage
 
