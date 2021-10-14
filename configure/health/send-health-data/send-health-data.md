@@ -6,7 +6,7 @@ StackState can synchronize health information from your own data sources either 
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts health data next to telemetry and topology in a common JSON object. By default, the receiver API is hosted at:
+The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -28,16 +28,16 @@ Both the `baseUrl` and `API_KEY` are set during StackState installation, for det
 
 ## Common JSON object
 
-Health is sent to the receiver API via HTTP POST and has a common JSON object for all messages.
+Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages.
 
 ```javascript
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection
-  "events": {}, // see the section on "events", below
+  "events": {}, // used to send events data
   "internalHostname": "localdocker.test", // the host that is sending this data
-  "metrics": [], // see the section on "metrics", below
+  "metrics": [], // used to send metrics data
   "service_checks": [],
-  "topologies": [], // used for sending topology data
+  "topologies": [], // used to send topology data
   "health" // used for sending health data
 }
 ```
@@ -52,4 +52,6 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 * [Install the StackState CLI](/setup/installation/cli-install.md)
 * [StackState CLI reference](/develop/reference/cli_reference.md)
+* [Send topology data over HTTP](/configure/topology/send-topology-data.md)
+* [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
 

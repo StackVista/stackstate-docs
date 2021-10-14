@@ -8,7 +8,7 @@ There are several ways to send telemetry to StackState. A large number of [integ
 
 ## StackState Receiver API
 
-The StackState Receiver API is responsible for receiving both telemetry and topology. By default, the Receiver API is hosted at:
+The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -30,7 +30,7 @@ Both the `baseUrl` and `API_KEY` are set during StackState installation, for det
 
 ## Common JSON object
 
-Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
+Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages. One message can contain multiple metrics and multiple events.
 
 ```javascript
 {
