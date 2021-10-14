@@ -2,7 +2,6 @@
 
 * [Welcome to the StackState Docs!](README.md)
 * [TODO remove Requirements](setup/requirements.md)
-* [TODO remove Requirements](setup/requirements.md)
 
 ## 🚀 Basic usage
 
