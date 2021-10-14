@@ -16,7 +16,6 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 - Integrate network monitoring information from [SolarWinds](/stackpacks/integrations/solarwinds.md). STAC-13360
 - Signficantly improved Topology navigation: improved component popover with direct links to contextual actions, double clicking on a topology element (group, component or relation) "zooms into" that element in the Topology Perspective, use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
-- Zero configuration collection of Golden Signals for Linux and Kubernetes using low-overhead eBPF-based agent. STAC-12458
 - Simplified installation and configuration of [AWS integration](/stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
 - Complete out of the box monitoring of Kubernetes clusters. STAC-11725
 - Support fast and low-overhead direct [synchronization of health states](/configure/health/health-synchronization.md) from external (monitoring) tools. STAC-11290
