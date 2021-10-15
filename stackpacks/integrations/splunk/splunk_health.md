@@ -78,7 +78,7 @@ To configure the Splunk health Agent check:
 8. To more closely inspect what the synchronization is doing, [use the StackState CLI](../../../configure/health/debug-health-sync.md)
 
 {% hint style="info" %}
-I's important to set a proper `collection_interval` value which matches the time the check will take to run as it will be used as [`repeat_interval` for the Health Sync](../../../configure/health/health-synchronization.md#repeat-interval). 
+The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the the `collection_interval` matches the time that the check will take to run.
 {% endhint %}
 
 ### Disable the Agent check
