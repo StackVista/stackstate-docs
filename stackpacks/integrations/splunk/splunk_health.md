@@ -77,6 +77,10 @@ To configure the Splunk health Agent check:
 7. Incoming health data will be mapped to associated components and relations in the StackState UI as check states.
 8. To more closely inspect what the synchronization is doing, [use the StackState CLI](../../../configure/health/debug-health-sync.md)
 
+{% hint style="info" %}
+I's important to set a proper `collection_interval` value which matches the time the check will take to run as it will be used as [`repeat_interval` for the Health Sync](../../../configure/health/health-synchronization.md#repeat-interval). 
+{% endhint %}
+
 ### Disable the Agent check
 
 To disable the Splunk health Agent check:

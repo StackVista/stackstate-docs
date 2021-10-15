@@ -131,6 +131,10 @@ The SolarWinds check retrieves the health status from nodes and interfaces and t
 | Down | Critical |
 | Critical | Critical |
 
+{% hint style="info" %}
+I's important to set a proper `collection_interval` value which matches the time the check will take to run as it will be used as [`repeat_interval` for the Health Sync](../../../configure/health/health-synchronization.md#repeat-interval). 
+{% endhint %}
+
 #### Traces
 
 The SolarWinds check does not retrieve any trace data.
