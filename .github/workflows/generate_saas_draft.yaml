@@ -31,13 +31,11 @@ jobs:
     - name: ConvertWithScript
       run: |
         perl resources/convert-docs-to-saas.pl
-    - name: git config, commit
+    - name: git config, commit, push
       run: |
-        # Stage changes and commit
+        # Stage changes and commit + push
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
         git add -A
-        git commit -m "Rebuild draft SaaS docs from ${{ steps.extract_branch.outputs.SOURCE_BRANCH_NAME }}"
-    - name: git push new branch
-      run: |        
-         git push -u origin draft-saas-docs
+        git commit -m "Rebuild draft SaaS docs from ${{ steps.extract_branch.outputs.SOURCE_BRANCH_NAME }}
+        git push -u origin draft-saas-docs
