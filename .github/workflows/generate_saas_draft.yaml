@@ -34,8 +34,9 @@ jobs:
     - name: git config, commit, push
       run: |
         # Stage changes and commit + push
+        git status
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
         git add -A
-        git commit -m "Rebuild draft SaaS docs from ${{ steps.extract_branch.outputs.SOURCE_BRANCH_NAME }}
+        git commit -m "Rebuild draft SaaS docs from ${{ steps.extract_branch.outputs.SOURCE_BRANCH_NAME }}"
         git push -u origin draft-saas-docs
