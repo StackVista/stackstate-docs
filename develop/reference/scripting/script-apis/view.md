@@ -66,10 +66,22 @@ Returns a list of all problems in a view.
 
 ### Fields
 
-* problemId 
-* viewId 
-* rootCause 
-* contributingProblems
+* contributingProblems - list of all contributing problems with details: 
+    * `contributingProblems.causeId`
+    * `contributingProblems.causeName`
+    * `contributingProblems.causeType`
+    * `contributingProblems.failingCheckNames`
+    * `contributingProblems.healthState`
+    * `contributingProblems.propagatedHealthState`
+* `problemId` - the ID of the problem
+* rootCause - the root cause component for the queried problem:
+    * `rootCause.causeId`
+    * `rootCause.causeName`
+    * `rootCause.causeType`
+    * `rootCause.failingCheckNames`
+    * `rootCause.healthState`
+    * `rootCause.propagatedHealthState`
+* `viewId` - the ID of the queried view.
 
 ### Builder methods
 
@@ -77,8 +89,17 @@ None.
 
 ### Examples
 
+The example below returns the name of the root cause component of the first problem in the view `230470072729670`, together with the names of any failing checks on that component
+
 ```yaml
-View.withId(viewId).problems()
+View
+    .withId(230470072729670)  
+    .problems()
+        .then{ problems ->       
+        problems.isEmpty()? null : 
+            problems[0].rootCause.causeName + " - failed check(s): " +
+            problems[0].rootCause.failingCheckNames
+    }
 ```
 
 ## Function: 'withId(viewId).problem(problemId)'
@@ -94,16 +115,22 @@ View.withId(viewId).problems()
 
 ### Fields
 
-* contributingProblems - list of all contributing problems with details: causeId, causeName, causeType, failingCheckNames, healthState, propagatedHealthState
-* problemId - the ID of the problem
-* rootCause - details of the root cause component for the queried problem:
-    * causeId
-    * causeName
-    * causeType
-    * failingCheckNames
-    * healthState
-    * propagatedHealthState
-* viewId - the ID of the queried view.
+* contributingProblems - list of all contributing problems with details: 
+    * `contributingProblems.causeId`
+    * `contributingProblems.causeName`
+    * `contributingProblems.causeType`
+    * `contributingProblems.failingCheckNames`
+    * `contributingProblems.healthState`
+    * `contributingProblems.propagatedHealthState`
+* `problemId` - the ID of the problem
+* rootCause - the root cause component for the queried problem:
+    * `rootCause.causeId`
+    * `rootCause.causeName`
+    * `rootCause.causeType`
+    * `rootCause.failingCheckNames`
+    * `rootCause.healthState`
+    * `rootCause.propagatedHealthState`
+* `viewId` - the ID of the queried view.
 
 ### Builder methods
 
@@ -111,6 +138,13 @@ None.
 
 ### Examples
 
+The example below returns the names of all checks failing for the problem with ID `65706558771339` in the view with ID `105520781477197`
+
 ```yaml
-View.withId(viewId).problem(problemId)
+View
+    .withId(105520781477197)  
+    .problem(65706558771339)  
+        .then{ problem ->       
+        problem.contributingProblems.failingCheckNames.unique()
+    }
 ```
