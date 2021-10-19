@@ -1,9 +1,3 @@
----
-title: Script API - View
-kind: Documentation
-description: Fetch a list of views.
----
-
 # View - script API
 
 ## Function `getAll`
@@ -58,3 +52,39 @@ View.getAll()
     }
 ```
 
+## Function: `withId()`
+
+Returns details of a specific view.
+
+### Args
+
+* `viewId` - the ID of a view to return details for.
+
+### Return type
+
+AsyncScriptResult
+
+### Fields
+
+* contributingProblems - list of all contributing problems with details: causeId, causeName, causeType, failingCheckNames, healthState, propagatedHealthState
+* problemId - the ID of the problem 
+* rootCause - details of the root cause component for the queried problem:
+    * causeId
+    * causeName
+    * causeType
+    * failingCheckNames
+    * healthState
+    * propagatedHealthState  
+* viewId - the ID of the queried view. 
+
+### Builder methods
+
+* `problems()` - returns a list of all problems in a view.
+* `problem(problemId)` - returns details of the problem with the specified `problemId`.
+
+### Examples
+
+```yaml
+View.withId(viewId).problems()
+View.withId(viewId).problem(problemId)
+```
