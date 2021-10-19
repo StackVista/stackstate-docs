@@ -27,7 +27,7 @@ jobs:
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
         git add -A
-        git commit -m "Rebuild draft SaaS docs from $BRANCH_NAME"
+        git commit -m "Rebuild draft SaaS docs from ${{ steps.extract_branch.outputs.BRANCH_NAME }}"
     - name: create new SaaS branch
       uses: peterjgrainger/action-create-branch@v2.0.1
       env:
