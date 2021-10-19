@@ -62,7 +62,7 @@ Returns a list of all problems in a view.
 
 ### Return type
 
-AsyncScriptResult[List[ProblemWithDetails]]
+`AsyncScriptResult[List[ProblemWithDetails]]`
 
 ### Fields
 
@@ -90,7 +90,7 @@ View.withId(viewId).problems()
 
 ### Return type
 
-AsyncScriptResult[ProblemWithDetails]
+`AsyncScriptResult[ProblemWithDetails]`
 
 ### Fields
 
