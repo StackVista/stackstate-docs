@@ -22,8 +22,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         branch: 'draft-saas-docs'
-#     - name: checkout SaaS source branch
-#       uses: actions/checkout@v2
     - name: checkout draft-saas-docs branch
       uses: actions/checkout@v2
       with:
