@@ -18,8 +18,6 @@ jobs:
       id: extract_branch
     - name: checkout SaaS source branch
       uses: actions/checkout@v2
-      with:
-        ref: $BRANCH_NAME
     - name: ConvertWithScript
       run: |
         perl resources/convert-docs-to-saas.pl
