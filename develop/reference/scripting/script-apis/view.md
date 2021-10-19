@@ -52,39 +52,65 @@ View.getAll()
     }
 ```
 
-## Function: `withId()`
+## Function: `withId(viewId).problems()`
 
-Returns details of a specific view.
+Returns a list of all problems in a view.
 
 ### Args
 
-* `viewId` - the ID of a view to return details for.
+* `viewId` - the ID of the view to query for problems.
 
 ### Return type
 
-AsyncScriptResult
+AsyncScriptResult[List[ProblemWithDetails]]
+
+### Fields
+
+* problemId 
+* viewId 
+* rootCause 
+* contributingProblems
+
+### Builder methods
+
+None.
+
+### Examples
+
+```yaml
+View.withId(viewId).problems()
+```
+
+## Function: 'withId(viewId).problem(problemId)'
+
+### Args
+
+* `viewId` - the ID of the view containing the problem.
+* `problemId` - the ID of a problem to return details for.
+
+### Return type
+
+AsyncScriptResult[ProblemWithDetails]
 
 ### Fields
 
 * contributingProblems - list of all contributing problems with details: causeId, causeName, causeType, failingCheckNames, healthState, propagatedHealthState
-* problemId - the ID of the problem 
+* problemId - the ID of the problem
 * rootCause - details of the root cause component for the queried problem:
     * causeId
     * causeName
     * causeType
     * failingCheckNames
     * healthState
-    * propagatedHealthState  
-* viewId - the ID of the queried view. 
+    * propagatedHealthState
+* viewId - the ID of the queried view.
 
 ### Builder methods
 
-* `problems()` - returns a list of all problems in a view.
-* `problem(problemId)` - returns details of the problem with the specified `problemId`.
+None.
 
 ### Examples
 
 ```yaml
-View.withId(viewId).problems()
 View.withId(viewId).problem(problemId)
 ```
