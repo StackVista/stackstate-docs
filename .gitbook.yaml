@@ -250,5 +250,8 @@ redirects:
 
   configure/topology/topology_synchronization.md: ./configure/topology/send-topology-data.md
   configure/topology/debugging_topology_synchronization.md: ./configure/topology/debug-topology-synchronization.md
-
-
+  stackpacks/integrations/centos.md: ./setup/agent/linux.md
+  stackpacks/integrations/debian.md: ./setup/agent/linux.md
+  stackpacks/integrations/fedora.md: ./setup/agent/linux.md
+  stackpacks/integrations/redhat.md: ./setup/agent/linux.md
+  stackpacks/integrations/ubuntu.md: ./setup/agent/linux.md
