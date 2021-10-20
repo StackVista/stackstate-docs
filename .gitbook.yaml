@@ -256,3 +256,4 @@ redirects:
   stackpacks/integrations/redhat.md: ./setup/agent/linux.md
   stackpacks/integrations/ubuntu.md: ./setup/agent/linux.md
   stackpacks/integrations/windows.md: ./setup/agent/windows.md
+  stackpacks/integrations/docker.md: ./setup/agent/docker.md

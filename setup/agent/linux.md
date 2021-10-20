@@ -10,7 +10,7 @@ StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fe
 
 ## Monitoring
 
-StackState Agent V2 will synchronize the following data from the Linux host it is running on with StackState:
+StackState Agent V2 will synchronize the following data with StackState from the Linux host it is running on:
 
 * Hosts, processes and containers.
 * Telemetry for hosts, processes and containers.
