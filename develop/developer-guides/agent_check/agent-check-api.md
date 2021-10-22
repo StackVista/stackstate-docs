@@ -1,5 +1,11 @@
 # Agent check API
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 The Agent check API can be used to create checks that run on the [StackState Agent](../../../setup/agent/about-stackstate-agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to StackState.

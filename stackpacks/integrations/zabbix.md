@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # Zabbix
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## What is the Zabbix StackPack?
 
 The Zabbix StackPack is used to create a near real time synchronization with your Zabbix instance.

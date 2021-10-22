@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # DotNet APM
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 To begin tracing applications written in any language, first make sure to have the Stackstate Agent installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to the Stackstate Agent.
