@@ -30,7 +30,7 @@ The filters described below can be combined using the available [operators](#ope
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
-| `identifier` | "all" | Components with the specified URN identifier. When an `OR` operator is used, the number of component identifiers queried is reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
+| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it is specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters).  |
 
 ### Operators
 
@@ -87,7 +87,7 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 `withNeighborsOf(components=(), levels=, direction=)`
 
-When an advanced filter contains the function withNeighborsOf, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters).
+To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter contains a function `withNeighborsOf` that is compatible with basic filtering, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). 
 
 #### Parameters / fields
 

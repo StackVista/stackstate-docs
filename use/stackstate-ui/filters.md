@@ -66,15 +66,20 @@ It is always possible to switch from Basic to Advanced filtering. The selected b
     - All items in each basic filter box are joined with an **OR**: `layer IN ("business service", "applications", "databases")`
     - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`
     - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
-    
+    - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they are joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
+  
 If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
 
 ### Other filters
 
-Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set, the box **Other filters** will be shown in the View Filters pane with details of the affected components:
+Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set in a way that is compatible with basic filtering, the box **Other filters** will be shown in the View Filters pane with details of the affected components:
 
-* **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box.
-* **identifiers** - when an advanced filter filters components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box.
+* **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
+* **identifier** - when an advanced filter filters components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
+
+{% hint style="info" %}
+The **Other filters** box will only contain details of advanced filters that have been set and are compatible with basic filtering.
+{% endhint %}
 
 ### Topology filtering limits
 
