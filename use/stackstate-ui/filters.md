@@ -14,14 +14,16 @@ Topology filters can be used to select a sub-set of topology components to be sh
 
 ### Basic topology filters
 
-The main way of filtering the topology is by using the basic filters. When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further. You can set more than one value for each filter to expand your search
+The main way to filter topology is using the available basic filters. When you set a filter, the open perspective will update to show only the visualization or data for the subset of your topology that matches the filter. Setting multiple filters will narrow down your search further. You can set more than one value for each filter to expand your search
 
 | Filter | Description |
 | :--- | :--- |
 | Layers, Domains, Environments and Component types | Filter by the component details included when components are imported or created. |
-| Component health | Only include components with the named [health state](../health-state/health-state-in-stackstate.md) as reported by the associated health check. |
-| Component labels | Only include components with a [custom label](../../configure/topology/tagging.md) or a default integration label, for example the [Dynatrace integration](../../stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
-| Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
+| Component health | Only include components with the named [health state](../health-state/health-state-in-stackstate.md) as reported by the associated health checks. |
+| Component labels | Only include components with a [custom label](../../configure/topology/tagging.md) or a default integration label, for example components from the [Dynatrace integration](../../stackpacks/integrations/dynatrace.md#dynatrace-filters-for-stackstate-views). |
+| Include components | Components named here will be added to the filter result **in addition to** the components returned from other filters. |
+
+To filter the topology using basic filters, click on the **View Filters** button on the left of the screen and select **Basic** under **Filter Topology**. 
 
 The example below uses basic filters to return components that match the following conditions:
 
@@ -31,29 +33,67 @@ The example below uses basic filters to return components that match the followi
 
 ![Filtering example](../../.gitbook/assets/v44_basic_filter_example.png)
 
-This could also be written as an advanced filter, see [advanced topology filters](filters.md#advanced-topology-filters).
+This same filter could also be written as an advanced topology filter using STQL.
 
 ### Advanced topology filters
 
 You can use the in-built [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
-The example below uses an advanced filter to return components that match the following conditions:
+To filter the topology using an STQL query, click on the **View Filters** button on the left of the screen and select **Advanced** under **Filter Topology**. 
+
+The STQL query example below will return components that match the following conditions:
 
 * In the **Domain** `mydomain`
 * AND has a **Health** state of `CLEAR` OR `DEVIATING`
 * OR is the **Component** with the name `agent-centos`
 
+```yaml
+(domain IN ("mydomain") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("agent-centos")
+```
+
 ![Filtering \(advanced filter\)](../../.gitbook/assets/v44_advanced_filter_example.png)
 
-This could also be done using basic filters, see [basic topology filters](filters.md#basic-topology-filters).
+This same filter result could also be returned with basic filters, see [basic topology filters](filters.md#basic-topology-filters).
+
+### Compatibility of basic and advanced filters
+
+You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** pane.
+
+It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
+
+* Basic filters cannot contain an inequality.
+* Basic filters use AND/OR in a specific way:
+    - All items in each basic filter box are joined with an **OR**: `layer IN ("business service", "applications", "databases")`
+    - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`
+    - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
+    
+If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
+
+### Other filters
+
+Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set, the box **Other filters** will be shown in the View Filters pane with details of the affected components:
+
+* **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box.
+* **identifiers** - when an advanced filter filters components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box.
 
 ### Topology filtering limits
 
-To optimize performance, a configurable limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements, this can be manually configured in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
+To optimize performance, a limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements. If required, the default filtering limit can be manually configured. 
 
-If a [basic filter](filters.md#basic-topology-filters) or [advanced filter query](filters.md#advanced-topology-filters) exceeds the configured filtering limit, you will be presented with an error on screen and no topology visualization will be displayed.
+{% tabs %}
+{% tab title="Kubernetes" %}
+TODO
+{% endtab %}
+{% tab title="Linux" %}
+Set a custom filtering limit in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
+{% endtab %}
+{% endtabs %}
 
-Note that the filtering limit is applied to the total amount of elements that need to be loaded and not the amount of elements that will be displayed.
+If a [basic filter](filters.md#basic-topology-filters) or [advanced filter query](filters.md#advanced-topology-filters) exceeds the filtering limit, you will be presented with a message on screen and no topology visualization will be displayed.
+
+{% hint style="info" %}
+The filtering limit is applied to the total amount of elements that need to be **loaded** and not the amount of elements that will be displayed.
+{% endhint %}
 
 In the example below, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
 
@@ -62,7 +102,11 @@ withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
    AND layer = "applications"
 ```
 
-To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit.
+To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit. By fiterling for only components in the `applications` layer, we will SHOW the same components as the query above, without first loading all components. This query is therefore less likely to result in a filtering limit error.
+
+```yaml
+layer = "applications"
+```
 
 ## Filter Events
 

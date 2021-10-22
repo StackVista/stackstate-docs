@@ -30,6 +30,31 @@ The filters described below can be combined using boolean operators to achieve c
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
+| `identifier` | "all" | Components with the specified URN identifier. The number of component identifiers queried is reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
+
+### Operators
+
+The operators described in the table are available to use in STQL queries. 
+
+| Operator | Description | Example |
+|:---|:---|:---|
+| = | Equality matching | `name = "DLL_DB"` |
+| != | Inequality matching | `name != "DLL_DB"` |
+| IN | Value is in subset | `name in ("DLL_DB", "J2EE_04")` |
+| NOT | Negation | `name NOT in ("DLL_DB", "J2EE_04")` |
+| AND and OR | Filter based on more than one condition or sub-query | `name = "DLL_DB" OR type = "database"` |
+| () | Use parenthesis to group results | `(name = … AND type = …) OR (…)` |
+
+For example:
+
+```yaml
+# Return all components named DLL_DB or J2EE_04 regardless of type:
+  name = DLL_DB OR name = J2EE_04 
+
+# Return only databases named DLL_DB and host systems named J2EE_04:
+  (name = DLL_DB AND type = database) OR (name = J2EE_04 AND type = "host systems")
+
+```
 
 ### Wildcard
 
@@ -61,6 +86,8 @@ name = "appA" NOT label in ("bck", "test")
 The function withNeighborsOf extends STQL query output, adding connected components in the specified direction\(s\). The number of topology levels included can be adjusted up to a maximum of 15.
 
 `withNeighborsOf(components=(), levels=, direction=)`
+
+When an advanced filter contains the function withNeighborsOf, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters).
 
 #### Parameters / fields
 
