@@ -17,9 +17,9 @@ Component filters are used in two ways in STQL:
 * Define the set of components to be included in the query output.
 * Specify the set of components to be handled by an in-built STQL function.
 
-The filters described below can be combined using boolean operators to achieve complex selections of components. Note that boolean operators will be executed in the standard order: NOT, OR, AND. You can change the order of operations by grouping sections of a query with parentheses \(...\).
-
 ### Filters
+
+The filters described below can be combined using the available [operators](#operators) to achieve complex selections of components.
 
 | Filter | Default | Description |
 | :--- | :--- | :--- |
@@ -30,11 +30,11 @@ The filters described below can be combined using boolean operators to achieve c
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
-| `identifier` | "all" | Components with the specified URN identifier. The number of component identifiers queried is reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
+| `identifier` | "all" | Components with the specified URN identifier. When an `OR` operator is used, the number of component identifiers queried is reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
 
 ### Operators
 
-The operators described in the table are available to use in STQL queries. 
+The operators described below are available to use in STQL queries. Note that boolean operators will be executed in the standard order: NOT, OR, AND.
 
 | Operator | Description | Example |
 |:---|:---|:---|

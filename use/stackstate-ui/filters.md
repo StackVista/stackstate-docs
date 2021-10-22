@@ -82,10 +82,23 @@ To optimize performance, a limit is placed on the amount of elements that can be
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-TODO
+To set a custom filtering limit, add the following to the `values.yaml` file used to deploy StackState:
+```yaml
+stackstate:
+  components:
+    api:
+      config: |
+         stackstate.webUIConfig.maxStackElementCount = <newvalue>
+
+stackstate:
+  components:
+    view-health:
+      config: |
+         stackstate.webUIConfig.maxStackElementCount = <newvalue>
+```
 {% endtab %}
 {% tab title="Linux" %}
-Set a custom filtering limit in `etc/application_stackstate.conf` using the parameter `stackstate.topologyQueryService.maxStackElementsPerQuery`.
+Set a custom filtering limit in `etc/application_stackstate.conf` using the parameter `stackstate.webUIConfig.maxStackElementCount` `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 {% endtab %}
 {% endtabs %}
 
