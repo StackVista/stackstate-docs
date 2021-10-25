@@ -31,7 +31,7 @@ sub read_file {
   return @lines;
 }
 
-sub remove_self-hosted_links {
+sub remove_selfhosted_links {
   #print "... Checking for StackState Self-Hosted links\n";
   my @lines = @_;
   my @output;
@@ -85,7 +85,7 @@ sub process_file {
   if(/.*\.md/) {
     print "Processing MD file $File::Find::name\n";
     my @lines = read_file($_);
-    @lines = remove_self-hosted_links(@lines);
+    @lines = remove_selfhosted_links(@lines);
     @lines = de_link_geek_boxes(@lines);
     write_file($_, @lines);
   }
