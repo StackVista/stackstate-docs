@@ -6,7 +6,10 @@ description: StackState SaaS
 
 {% hint style="success" %}
 
-The first ever SaaS docs front page :)
+**Documentation for the StackState SaaS product**
+StackState SaaS version x.x.x is now available. [Read the release notes](setup/upgrade-stackstate/sts-saas-release-notes.md).
+
+Go to documentation for the [StackState Self-Hosted](https://docs.stackstate.com/) product.
 
 {% endhint %}
 
