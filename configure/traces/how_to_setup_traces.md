@@ -18,7 +18,7 @@ The AWS integration collects tracing information from the in-built AWS distribut
 [Configure AWS X-ray](../../stackpacks/integrations/aws/aws-x-ray.md)
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 ### DotNet APM
 

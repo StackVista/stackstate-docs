@@ -66,7 +66,7 @@ Read more about how to [configure the view health state](../../health-state/conf
 A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](../../metrics-and-events/send-event-notifications.md).
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 ## Secure views with RBAC
 

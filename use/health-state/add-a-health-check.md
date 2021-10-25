@@ -41,7 +41,7 @@ Each health check caluclated in StackState uses a check function to monitor the 
 Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
 
@@ -62,7 +62,7 @@ For metrics check functions, a windowing method and window size must be provided
 The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 ## Synchronize external health data
 
@@ -74,5 +74,5 @@ Existing health checks on an external monitoring system can be synchronized and 
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
 * [Add an event notification](../metrics-and-events/send-event-notifications.md)
-* [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState platform only")
-* [Synchronize external health data](../../configure/health/health-synchronization.md "StackState platform only")
+* [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
+* [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

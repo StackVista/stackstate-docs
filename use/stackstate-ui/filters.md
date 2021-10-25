@@ -24,7 +24,7 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
 {% endhint %}

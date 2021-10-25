@@ -18,7 +18,7 @@ Telemetry streams are supplied via plugins. Different plugins provide one or mul
 In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Read how to [add a telemetry stream to an element](add-telemetry-to-element.md).
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization. Read how to [add telemetry during topology synchronization](../../configure/telemetry/telemetry_synchronized_topology).
 {% endhint %}
@@ -27,5 +27,5 @@ Telemetry streams can also be defined in templates and attached automatically to
 
 * [Add a health check based on telemetry streams available in StackState](../health-state/add-a-health-check.md)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState platform only")
-* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState platform only")
+* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")
+* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")

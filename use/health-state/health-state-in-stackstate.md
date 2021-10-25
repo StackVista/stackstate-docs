@@ -34,7 +34,7 @@ Health data from external monitoring systems can be synchronized to StackState a
 Existing StackPacks will provide health synchronization out of the box.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
@@ -51,7 +51,7 @@ Each element in StackState reports two health states:
 The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](../introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can configure custom [propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
 {% endhint %}

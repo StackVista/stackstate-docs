@@ -29,7 +29,7 @@ When you hover over a component, the component context menu is displayed. This g
 Actions can be used to expand the topology selection to show all dependencies for the selected component. Other actions may be available for specific components, such as component actions that are installed as part of a StackPack.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 {% endhint %}
@@ -119,7 +119,7 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/health-state-in-stackstate.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}

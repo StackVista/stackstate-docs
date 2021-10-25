@@ -30,6 +30,6 @@ Authentication is configured via OIDC with Keycloak as the authentication provid
 
 ## See also
 
-* [Data flow architecture](data-flow-architecture.md "StackState platform only")
-* [Data per component](data-per-component.md "StackState platform only")
-* [Data protection features for self-hosted StackState](self-hosted.md "StackState platform only")
+* [Data flow architecture](data-flow-architecture.md "StackState Self-Hosted only")
+* [Data per component](data-per-component.md "StackState Self-Hosted only")
+* [Data protection features for self-hosted StackState](self-hosted.md "StackState Self-Hosted only")

@@ -8,10 +8,10 @@ use File::Copy;
 # docs for the SaaS edition as follows:
 # 
 # * Replace SUMMARY.md with SAAS-SUMMARY.md
-# * Remove any links with "StackState platform" in the link from the See Also section
-# * De-link geek boxes with "StackState platform" in it
+# * Remove any links with "StackState Self-Hosted only" in the link from the See Also section
+# * De-link geek boxes with "StackState Self-Hosted" in it
 
-$NON_SAAS_EDITION_NAME="StackState platform";
+$NON_SAAS_EDITION_NAME="StackState Self-Hosted";
 
 sub process_file_or_folder {
   if(-d $_) {
@@ -31,13 +31,13 @@ sub read_file {
   return @lines;
 }
 
-sub remove_platform_links {
-  #print "... Checking for platform links\n";
+sub remove_self-hosted_links {
+  #print "... Checking for StackState Self-Hosted links\n";
   my @lines = @_;
   my @output;
   for $line (@lines) {
     if($line =~ /\[.*\]\(.* "$NON_SAAS_EDITION_NAME only"\)/) {
-      print "... Removing platform link: $line";
+      print "... Removing StackState Self-Hosted link: $line";
     } else {
       push @output, $line;
     }
@@ -48,7 +48,7 @@ sub remove_platform_links {
 sub de_link_geek_boxes {
   my @lines = @_;
   my @output;
-  my $geek_box, $platform_box;
+  my $geek_box, $self-hosted_box;
 
   for $line (@lines) {
     if($line =~ /{% hint style=".*" %}/) {
@@ -58,11 +58,11 @@ sub de_link_geek_boxes {
     } elsif($line =~ /{% endhint %}/) {
       print "ERROR: missed geek box start! $line" unless ($geek_box == 1);
       # print "... Found geek box end: $line";
-      $geek_box = $platform_box = 0;
+      $geek_box = $self-hosted_box = 0;
     } elsif($geek_box == 1 && $line =~ /\*\*$NON_SAAS_EDITION_NAME\*\*/) {
       # print "... Found non-SaaS box: $line";
-      $platform_box = 1;
-    } elsif($platform_box == 1 && $line =~ /\[.*\]\(.*\)/) {
+      $self-hosted_box = 1;
+    } elsif($self-hosted_box == 1 && $line =~ /\[.*\]\(.*\)/) {
       print "... De-linking geek box link: $line";
       $line =~ s/\[([^\]]*)\]\([^\)]*\)/$1/g;
       print "... De-linked line: $line";
@@ -85,7 +85,7 @@ sub process_file {
   if(/.*\.md/) {
     print "Processing MD file $File::Find::name\n";
     my @lines = read_file($_);
-    @lines = remove_platform_links(@lines);
+    @lines = remove_self-hosted_links(@lines);
     @lines = de_link_geek_boxes(@lines);
     write_file($_, @lines);
   }
@@ -108,6 +108,7 @@ sub get_saas_pages {
 ### MAIN
 
 copy('SAAS-SUMMARY.md', 'SUMMARY.md') || die "Can't move SAAS-SUMMARY: $?";
+copy('SAAS-README.md', 'README.md') || die "Can't move SAAS-README: $?";
 
 find(\&process_file_or_folder, get_saas_pages());
 

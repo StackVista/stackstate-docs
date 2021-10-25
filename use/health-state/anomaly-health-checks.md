@@ -35,7 +35,7 @@ Follow the instructions below to add an anomaly health check to a component.
 ![Add an autonomous metric stream anomaly detection check](../../.gitbook/assets/v44_autonomous_metric_stream_anomaly_detection_check.png)
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can automate the creation of such checks, like any other checks, using the [component templates](../../configure/telemetry/telemetry_synchronized_topology.md).
 {% endhint %}
@@ -51,7 +51,7 @@ When enabled, the autonomous metric stream anomaly detection check function will
 * Once an anomaly is found, the `DEVIATING` health state will remain for at least 8 minutes.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 ## Custom anomaly check functions
 
@@ -62,4 +62,4 @@ Optionally, advanced users of StackState can create their own custom anomaly che
 
 * [Autonomous Anomaly Detector StackPack](../../stackpacks/add-ons/aad.md)
 * [Add a health check](add-a-health-check.md)
-* [Anomaly check functions](../../develop/developer-guides/custom-functions/check-functions.md#anomaly-check-functions "StackState platform only")
+* [Anomaly check functions](../../develop/developer-guides/custom-functions/check-functions.md#anomaly-check-functions "StackState Self-Hosted only")

@@ -20,7 +20,7 @@ StackState works with three different kinds of events, note that not all of thes
 * **Events from external sources** - Some StackState integrations can retrieve events from external systems. All events retrieved from external systems will be listed in the Events Perspective.
 
 {% hint style="info" %}
-**StackState platform**
+**StackState Self-Hosted**
 
 You can also use the StackState CLI or an HTTP POST to [send events to StackState](../../../configure/telemetry/send_telemetry.md#events).
 {% endhint %}
