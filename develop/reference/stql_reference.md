@@ -11,7 +11,7 @@ This page describes how to use the built-in StackState Query Language \(STQL\) t
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 STQL queries can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.
 

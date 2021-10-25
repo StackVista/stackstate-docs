@@ -26,7 +26,7 @@ To prevent a user from making changes to configuration items installed by a Stac
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
 {% endhint %}
@@ -41,7 +41,7 @@ The available StackPack add-ons and integrations can be found on the **StackPack
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 {% endhint %}
@@ -69,7 +69,7 @@ If a new StackPack version is available, an alert will be displayed on the Stack
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 {% endhint %}
@@ -91,7 +91,7 @@ To upgrade to a new major version of a StackPack, [uninstall and reinstall](abou
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 Continue using changes made to customized StackPack configuration items after upgrade:
 

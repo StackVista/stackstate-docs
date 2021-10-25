@@ -31,7 +31,7 @@ Actions can be used to expand the topology selection to show all dependencies fo
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 {% endhint %}
@@ -123,7 +123,7 @@ If there are components with [telemetry streams](../../metrics-and-events/teleme
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}

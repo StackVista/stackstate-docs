@@ -17,7 +17,7 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 **Prerequisites**
 
@@ -57,7 +57,7 @@ After an initial [training period](#training-period), the AAD ensures that prior
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 * Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)\).
 {% endhint %}

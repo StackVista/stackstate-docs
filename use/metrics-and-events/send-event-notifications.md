@@ -88,7 +88,7 @@ Event handlers listen to events generated within a view. When the configured eve
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 You can [create your own custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
 {% endhint %}
@@ -104,7 +104,7 @@ StackState ships with the following event handler functions that track **health 
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 * An email event handler is available that sends details of a health state change event using a [configured SMTP server](../../configure/topology/configure-email-event-notifications.md).
 

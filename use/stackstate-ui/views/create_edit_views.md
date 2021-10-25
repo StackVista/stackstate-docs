@@ -9,7 +9,7 @@ You can create and save views in StackState to bookmark a part of your topology 
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
 {% endhint %}
@@ -32,7 +32,7 @@ In the dialog the following options appear:
 {% hint style="success" %}
 **StackState Self-Hosted**
 
-Additional functionality available in the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
 * You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
 
