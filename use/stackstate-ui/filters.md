@@ -23,7 +23,7 @@ The main way of filtering the topology is by using the basic filters. When you s
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.

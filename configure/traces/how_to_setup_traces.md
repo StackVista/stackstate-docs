@@ -17,7 +17,7 @@ When the StackState Agent V2 StackPack is installed, you can configure integrati
 The AWS integration collects tracing information from the in-built AWS distributed tracing system.  
 [Configure AWS X-ray](../../stackpacks/integrations/aws/aws-x-ray.md)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 ### DotNet APM

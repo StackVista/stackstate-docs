@@ -85,7 +85,7 @@ Changes to a problem result in the following event types being generated:
 
 Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState.
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 You can [create your own custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
@@ -101,14 +101,15 @@ StackState ships with the following event handler functions that track health st
 | **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
 | **SMS** | Sends details of a health state change event using MessageBird. |
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
+Additional functionality available in the StackState Self-Hosted product:
 
 * An email event handler is available that sends details of a health state change event using a [configured SMTP server](../../configure/topology/configure-email-event-notifications.md).
 
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 
-* Run an event handler in response to problem events with a [custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md).
+* Run an event handler in response to problem events with [custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
 {% endhint %}
 
 ## See also

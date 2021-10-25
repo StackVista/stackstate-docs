@@ -14,7 +14,7 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ## Installation
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 ### Prerequisites
@@ -54,7 +54,7 @@ Yes. The AAD itself does not alert on anomalies found, but [anomaly health check
 
 After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 ### How do I know what the AAD is working on?

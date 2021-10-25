@@ -6,7 +6,7 @@ You can create and save views in StackState to bookmark a part of your topology 
 
 ## Create a view
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
@@ -27,13 +27,13 @@ In the dialog the following options appear:
 | Configuration function | When view health state is enabled, you can choose a function that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
 | Arguments | The required arguments will vary depending on the chosen configuration function. |
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 Views can be given an optional identifier. [Identifiers](../../../configure/identifiers.md) make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.

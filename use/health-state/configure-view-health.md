@@ -28,7 +28,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 ![Edit query view](../../.gitbook/assets/v44_edit_query_view.png)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 You can use the standard view state configuration function or [create your own](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md). For details of the available configuration functions, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
@@ -54,7 +54,7 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 * The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
-{% hint style="info" %}
+{% hint style="success" %}
 **StackState Self-Hosted**
 
 The **MINIMUM HEALTH STATES** view health state configuration is a good starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
