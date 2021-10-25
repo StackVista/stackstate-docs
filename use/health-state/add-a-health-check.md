@@ -47,7 +47,7 @@ Extra information for the StackState Self-Hosted product:
 
 * You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
 
-* Details of the available check functions can be found in the StackState UI on the page **Settings** &gt; **Check functions**.
+* Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
 {% endhint %}
 
 #### Windowing method
@@ -71,7 +71,7 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 Extra information for the StackState Self-Hosted product:
 
-[Synchronize existing health checks]((../../configure/health/health-synchronization.md)) from an external monitoring system and add them to StackState topology elements.
+[Synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
 {% endhint %}
 
 ## See also

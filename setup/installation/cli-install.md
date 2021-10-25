@@ -231,7 +231,7 @@ The CLI will issue a warning when username/password authentication is used for t
 
 Base API and Admin API access are required for all operations other than sending topology, telemetry or traces to StackState. The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your user account.
 
-You can find your API token in the StackState UI on the page **Main menu** &gt; **CLI**.
+You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
 
 ![](../../.gitbook/assets/v44_main_menu.png)
 
