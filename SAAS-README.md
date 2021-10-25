@@ -1,5 +1,5 @@
 ---
-description: StackState version 4.4
+description: StackState SaaS
 ---
 
 # Welcome to the StackState SaaS Docs!
@@ -13,8 +13,6 @@ The first ever SaaS docs front page :)
 ### Using StackState
 
 {% page-ref page="use/introduction-to-stackstate/getting_started.md" %}
-
-{% page-ref page="basic-usage/getting_started" %}
 
 {% page-ref page="stackpacks/integrations/" %}
 
