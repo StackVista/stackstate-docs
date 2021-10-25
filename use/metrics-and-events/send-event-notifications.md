@@ -93,9 +93,7 @@ Additional functionality available in the StackState Self-Hosted product:
 You can [create your own custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
 {% endhint %}
 
-### Functions for health state change events
-
-StackState ships with the following event handler functions that track health state change events in a view:
+StackState ships with the following event handler functions that track **health state change events** in a view:
 
 | Event handler function | Description |
 | :--- | :--- |
@@ -110,9 +108,10 @@ Additional functionality available in the StackState Self-Hosted product:
 
 * An email event handler is available that sends details of a health state change event using a [configured SMTP server](../../configure/topology/configure-email-event-notifications.md).
 
+* Event handlers can also run in response to **problem events** using [custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
+  
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 
-* Run an event handler in response to problem events with [custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
 {% endhint %}
 
 ## See also

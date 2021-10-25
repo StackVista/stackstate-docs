@@ -57,9 +57,7 @@ When enabled, the autonomous metric stream anomaly detection check function will
 
 Additional functionality available in the StackState Self-Hosted product:
 
-## Custom anomaly check functions
-
-Optionally, advanced users of StackState can create their own custom anomaly check functions. More information on custom anomaly check functions, parameters and available fields can be found in the [anomaly check functions developer guide](../../develop/developer-guides/custom-functions/check-functions.md#anomaly-check-functions). Note that you have to adjust an identifier of a custom anomaly check function such that it is recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com).
+Advanced users of StackState can create [custom anomaly check functions](../../develop/developer-guides/custom-functions/check-functions.md).
 {% endhint %}
 
 ## See also

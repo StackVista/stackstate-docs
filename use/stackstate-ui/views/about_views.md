@@ -65,19 +65,18 @@ Read more about how to [configure the view health state](../../health-state/conf
 
 A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](../../metrics-and-events/send-event-notifications.md).
 
+## Secure views with RBAC
+
 {% hint style="success" %}
 **StackState Self-Hosted**
 
 Additional functionality available in the StackState Self-Hosted product:
 
-## Secure views with RBAC
+Through a combination of configuration of permissions and scope, it is possible [control access for specific users](../../../configure/security/rbac/role_based_access_control.md):
 
-Through a combination of configuration of permissions and scope, it is possible to give specific users:
+* Give access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views.
+* Give access to specific views and disallow them to create, modify or delete views.
 
-* access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views
-* access to specific views and disallow them to create, modify or delete views
-
-For further details, see the [RBAC documentation](../../../configure/security/rbac/role_based_access_control.md).
 {% endhint %}
 
 ## See also

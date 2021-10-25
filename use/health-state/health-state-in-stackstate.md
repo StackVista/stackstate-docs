@@ -57,7 +57,7 @@ The propagated health state of a component is calculated using a propagation fun
 
 Additional functionality available in the StackState Self-Hosted product:
 
-You can configure custom [propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
+You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
 {% endhint %}
 
 {% hint style="info" %}

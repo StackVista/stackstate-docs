@@ -34,15 +34,9 @@ In the dialog the following options appear:
 
 Additional functionality available in the StackState Self-Hosted product:
 
-You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
-{% endhint %}
+* You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Additional functionality available in the StackState Self-Hosted product:
-
-Views can be given an optional identifier. [Identifiers](../../../configure/identifiers.md) make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.
+* Views can be given an optional identifier. [Identifiers](../../../configure/identifiers.md) make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.
 {% endhint %}
 
 ## Delete or edit a view

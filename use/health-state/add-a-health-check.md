@@ -45,9 +45,9 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 Additional functionality available in the StackState Self-Hosted product:
 
-You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
+* You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
 
-For details of the available check functions, see the StackState UI **Settings** &gt; **Check functions**.
+* Details of the available check functions can be found in the StackState UI on the page **Settings** &gt; **Check functions**.
 {% endhint %}
 
 #### Windowing method
@@ -63,14 +63,15 @@ For metrics check functions, a windowing method and window size must be provided
 
 The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
 
+
+## Synchronize external health data
+
 {% hint style="success" %}
 **StackState Self-Hosted**
 
 Additional functionality available in the StackState Self-Hosted product:
 
-## Synchronize external health data
-
-Existing health checks on an external monitoring system can be synchronized and added to StackState topology elements. For details see [health synchronization](../../configure/health/health-synchronization.md)
+[Synchronize existing health checks]((../../configure/health/health-synchronization.md)) from an external monitoring system and add them to StackState topology elements.
 {% endhint %}
 
 ## See also
