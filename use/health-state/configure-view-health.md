@@ -31,6 +31,8 @@ View health state is calculated by a **view state configuration function**. To c
 {% hint style="success" %}
 **StackState Self-Hosted**
 
+Additional functionality available in the StackState Self-Hosted product:
+
 You can use the standard view state configuration function or [create your own](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md). For details of the available configuration functions, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
 {% endhint %}
 
@@ -56,6 +58,8 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 
 {% hint style="success" %}
 **StackState Self-Hosted**
+
+Additional functionality available in the StackState Self-Hosted product:
 
 The **MINIMUM HEALTH STATES** view health state configuration is a good starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
 {% endhint %}

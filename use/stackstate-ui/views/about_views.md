@@ -68,6 +68,8 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 {% hint style="success" %}
 **StackState Self-Hosted**
 
+Additional functionality available in the StackState Self-Hosted product:
+
 ## Secure views with RBAC
 
 Through a combination of configuration of permissions and scope, it is possible to give specific users:

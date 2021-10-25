@@ -25,6 +25,8 @@ The Health Forecast StackPack adds a health forecast action to each component. T
 {% hint style="success" %}
 **StackState Self-Hosted**
 
+Additional functionality available in the StackState Self-Hosted product:
+
 For more information about component actions, see the [Component Action documentation section](../../configure/topology/component_actions.md).
 {% endhint %}
 

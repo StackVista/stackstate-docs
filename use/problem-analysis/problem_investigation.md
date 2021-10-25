@@ -55,6 +55,8 @@ A problem subview is a temporary StackState view. The filters applied to a probl
 {% hint style="success" %}
 **StackState Self-Hosted**
 
+Additional functionality available in the StackState Self-Hosted product:
+
 You can configure custom [propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
 {% endhint %}
 

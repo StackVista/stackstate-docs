@@ -20,6 +20,8 @@ The AWS integration collects tracing information from the in-built AWS distribut
 {% hint style="success" %}
 **StackState Self-Hosted**
 
+Additional functionality available in the StackState Self-Hosted product:
+
 ### DotNet APM
 
 The DotNet APM integration enables instrumentation for DotNet applications and sends traces back to StackState.  

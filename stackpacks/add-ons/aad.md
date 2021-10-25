@@ -17,6 +17,8 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 {% hint style="success" %}
 **StackState Self-Hosted**
 
+Additional functionality available in the StackState Self-Hosted product:
+
 ### Prerequisites
 
 The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
@@ -56,6 +58,8 @@ After an initial [training period](#training-period), the AAD ensures that prior
 
 {% hint style="success" %}
 **StackState Self-Hosted**
+
+Additional functionality available in the StackState Self-Hosted product:
 
 ### How do I know what the AAD is working on?
 
