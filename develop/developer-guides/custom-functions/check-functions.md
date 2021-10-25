@@ -222,7 +222,7 @@ The relevant parameters to provide in order for a check function to listen to an
 
 ### Identifier
 
-The `identifier` of a custom anomaly check function must also be recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com/).
+The `identifier` of a custom anomaly check function must be recognized by the Autonomous Anomaly Detector. If you would you like to know more, contact [StackState support](https://support.stackstate.com/).
 
 ### Example anomaly check function
 
