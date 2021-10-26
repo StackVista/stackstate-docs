@@ -2,7 +2,7 @@
 
 * [Welcome to the StackState Docs!](README.md)
 
-## 🚀 Getting started
+## 🚀 Get started
 
 * [Getting Started](use/stackstate-concepts/getting_started.md)
 * [StackState concepts](use/stackstate-concepts/README.md)
