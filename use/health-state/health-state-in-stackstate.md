@@ -50,7 +50,7 @@ Each element in StackState reports two health states:
 
 ![](../../.gitbook/assets/component_health_state.svg)
 
-The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](../introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
+The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](../stackstate-concepts/components_relations.md#relations) in the topology graph.
 
 {% hint style="info" %}
 A CLEAR \(green\) health state does not propagate.

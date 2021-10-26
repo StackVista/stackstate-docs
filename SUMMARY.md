@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState Docs!](README.md)
+* [Getting Started](getting_started.md)
 
 ## 🚀 Setup
 
@@ -54,14 +55,13 @@
 
 ## 👤 Use
 
-* [Introduction to StackState](use/introduction-to-stackstate/README.md)
-  * [Getting Started](use/introduction-to-stackstate/getting_started.md)
-  * [The 4T data model](use/introduction-to-stackstate/4t_data_model.md)
-  * [Components and Relations](use/introduction-to-stackstate/components_and_relations.md)
-  * [Perspectives](use/introduction-to-stackstate/perspectives.md)
-  * [Anomaly detection](use/introduction-to-stackstate/anomaly-detection.md)
-  * [Layers, Domains and Environments](use/introduction-to-stackstate/layers_domains_and_environments.md)
-  * [StackState architecture](use/introduction-to-stackstate/stackstate_architecture.md)
+* [StackState concepts](use/stackstate-concepts/README.md)
+  * [The 4T data model](use/stackstate-concepts/4t_data_model.md)
+  * [Components and Relations](use/stackstate-concepts/components_relations.md)
+  * [Perspectives](use/stackstate-concepts/perspectives.md)
+  * [Anomaly detection](use/stackstate-concepts/anomaly-detection.md)
+  * [Layers, Domains and Environments](use/stackstate-concepts/layers_domains_environments.md)
+  * [StackState architecture](use/stackstate-concepts/stackstate_architecture.md)
 * [StackState UI](use/stackstate-ui/README.md)
   * [Explore mode](use/stackstate-ui/explore_mode.md)
   * [Filters](use/stackstate-ui/filters.md)

@@ -14,11 +14,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/health-state-in-stackstate.md).
 
-### Grouping
-
-Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a hexagon in the topology visualization.
-
-You can customize the grouping of components in the [Visuzalization settings](../views/visualization_settings.md).
+Read more about [components](/use/stackstate-concepts/components_relations.md#components).
 
 ### Component context menu
 
@@ -51,18 +47,7 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
-### Direct and indirect relations
-
-Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. You can customize the types of relations displayed in the [visuzalization settings](../views/visualization_settings.md).
-
-| Relation type | Description |
-| :--- | :--- |
-| ![](../../../.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. Direct relations link two components that have a direct connection to each other. The direction of the arrowhead shows the direction of the dependency. |
-| ![](../../../.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line. Indirect relations link two components that are connected together via a path of invisible components. The direction of the arrowhead shows the direction of the dependency. |
-
-{% hint style="info" %}
-Relations to or from a component group are always represented by a solid line. It should be noted that in this case, the connection could be a direct or indirect relation to one or more components in the group.
-{% endhint %}
+Read more about [relations](/use/stackstate-concepts/components_relations.md#relations).
 
 ## Filters
 
@@ -83,7 +68,7 @@ The visualization of components and relations in the topology perspective can be
 
 * Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
-* Grid - should components be organized by [layer and domain](../../introduction-to-stackstate/layers_domains_and_environments.md).
+* Grid - should components be organized by [layer and domain](../../stackstate-concepts/layers_domains_environments.md).
 * Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](topology-perspective.md#relations).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).

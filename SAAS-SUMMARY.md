@@ -4,13 +4,13 @@
 
 ## 🚀 Basic usage
 
-* [Getting Started](use/introduction-to-stackstate/getting_started.md)
-* [StackState concepts](use/introduction-to-stackstate/README.md)
-  * [The 4T data model](use/introduction-to-stackstate/4t_data_model.md)
-  * [Components and Relations](use/introduction-to-stackstate/components_and_relations.md)
-  * [Perspectives](use/introduction-to-stackstate/perspectives.md)
-  * [Anomaly detection](use/introduction-to-stackstate/anomaly-detection.md)
-  * [Layers, Domains and Environments](use/introduction-to-stackstate/layers_domains_and_environments.md)
+* [Getting Started](use/stackstate-concepts/getting_started.md)
+* [StackState concepts](use/stackstate-concepts/README.md)
+  * [The 4T data model](use/stackstate-concepts/4t_data_model.md)
+  * [Components and Relations](use/stackstate-concepts/components_relations.md)
+  * [Perspectives](use/stackstate-concepts/perspectives.md)
+  * [Anomaly detection](use/stackstate-concepts/anomaly-detection.md)
+  * [Layers, Domains and Environments](use/stackstate-concepts/layers_domains_environments.md)
 * [Glossary](use/glossary.md)
 
 ## 👤 StackState UI
