@@ -18,13 +18,12 @@ The [Static Topology StackPack](/stackpacks/integrations/static_topology.md) can
 
 ## How to create components and relations
 
-First you need to define a component type. Go to `Settings -> Component Types -> Add Component Types`. From there you can define your own component types - the granularity is up to you. The component type consists of a `Name` field, a `Description` field \(optional\), and an Icon.
+1. All component types, domains and layers that will be imported need to exist in StackState before the topology can be imported. The Static Topology StackPack installs the common StackPack as a dependency and that imports quite a few useful nodes into the system. If required, you can also add these manually in the StackState UI:
+  * **Component types** - Go to `Settings -> Component Types -> Add Component Types`. The component type consists of a `Name` field, a `Description` field \(optional\), and an Icon.
+  * **Domains** - Go to `Settings -> Domains -> Add Domain`. A domain consists of a `Name` field, a `Description` field \(optional\), and an `Order` that defines where the domain will be displayed in the topology visualization.
+  * **Layers** -  Go to `Settings -> Layers -> Add Layer`. A Layer consists of a `Name` field, a `Description` field \(optional\), and an `Order` that defines where the layer will be displayed in the topology visualization.
 
-![Add component type screen](../../.gitbook/assets/add_comp_type.png)
-
-When all required information is provided for the component type, click CREATE.
-
-You can now use the [Static Topology StackPack](/stackpacks/integrations/static_topology.md) to import components and relations for CSV files.
+2. You can now use the [Static Topology StackPack](/stackpacks/integrations/static_topology.md) to import components and relations for CSV files.
 
 ## Export/import manually created topology
 
