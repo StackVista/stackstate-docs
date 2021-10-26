@@ -44,4 +44,3 @@ If you believe any documentation is missing, please let us know on the [StackSta
 ## Troubleshooting and support
 
 Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
-
