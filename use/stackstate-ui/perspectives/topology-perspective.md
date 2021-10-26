@@ -26,7 +26,15 @@ When you hover over a component, the component context menu is displayed. This g
 
 ### Actions
 
-Actions can be used to expand the topology selection to show all dependencies for selected component. Other actions may be available for specific components, such as [component actions](../../../configure/topology/component_actions.md) that are installed as part of a StackPack or [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
+Actions can be used to expand the topology selection to show all dependencies for the selected component. Other actions may be available for specific components, such as component actions that are installed as part of a StackPack.
+
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
+{% endhint %}
 
 A list of the available actions is included in the Component Details pane when you select a component and also in the component context menu, which is displayed when you hover over a component.
 
@@ -73,12 +81,12 @@ The View Filters are saved together with the View. For details, see the page [fi
 
 The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left-hand side menu to open the visualization settings menu. Here you can edit:
 
-* Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state. 
-* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#component-grouping).
+* Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
+* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../introduction-to-stackstate/layers_domains_and_environments.md).
 * Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](topology-perspective.md#relations).
 
-The Visualization Settings are saved together with the View. For details, see the page [Visuzalization settings](../views/visualization_settings.md).
+The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
 
 ## Details panel
 
@@ -110,13 +118,21 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/add-a-health-check.md) in your view, the Topology Perspective will calculate a health state and [propagate](../../../develop/developer-guides/custom-functions/propagation-functions.md) this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
+If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/health-state-in-stackstate.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
+
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
+{% endhint %}
 
 It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether the view should be expanded to show root cause components that are outside of the currently displayed view:
 
 * **Don't show root cause** - Do not show the root causes of components shown by the current topology filters.
-* **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause. 
-* **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes. 
+* **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
+* **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
 ![Root cause](../../../.gitbook/assets/v44_show_full_root_cause_tree.png)
 
@@ -133,4 +149,3 @@ From list mode, the component list can be exported as a CSV file. The CSV file i
 1. From the topology perspective, click the **List mode** icon on the top right of the screen to open the topology in list mode.
 2. Click **Download as CSV** from the top of the page.
    * The component list will be downloaded as a CSV file named `<view_name>.csv`.
-
