@@ -17,22 +17,14 @@ When the StackState Agent V2 StackPack is installed, you can configure integrati
 The AWS integration collects tracing information from the in-built AWS distributed tracing system.  
 [Configure AWS X-ray](../../stackpacks/integrations/aws/aws-x-ray.md)
 
-### DotNet APM
+{% hint style="success" %}
+**StackState Self-Hosted**
 
-The DotNet APM integration enables instrumentation for DotNet applications and sends traces back to StackState.  
-[Configure DotNet APM](../../stackpacks/integrations/dotnet-apm.md)
+Extra information for the StackState Self-Hosted product:
 
-### Java APM
+* The [DotNet APM integration](../../stackpacks/integrations/dotnet-apm.md) enables instrumentation for DotNet applications and sends traces back to StackState.
 
-The Java APM integration enables tracing support for Java JVM based systems.  
-[Configure Java APM](../../stackpacks/integrations/java-apm.md).
+* The [Java APM integration](../../stackpacks/integrations/java-apm.md) enables tracing support for Java JVM based systems.
 
-### Traefik
-
-The Traefik integration adds topology and telemetry information from Traefik to traces.  
-[Configure Traefik](../../stackpacks/integrations/traefik.md)
-
-{% hint style="info" %}
-Full configuration details for each available StackState Agent V2 integration are also provided in the StackPacks section of the StackState GUI.
+* The [Traefik integration](../../stackpacks/integrations/traefik.md) adds topology and telemetry information from Traefik to traces.
 {% endhint %}
-

@@ -142,7 +142,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Added permission `manage-event-handlers` to [protect creation of event handlers](../../configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
 * Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by source. STAC-10644
 * Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by category. STAC-10643
-* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problem-analysis/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
+* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problem-analysis/problem_investigation.md#anomaly-check-functions) in the Event Details pane. STAC-10031
 * Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](../../configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
 * Added ability to filter on labels in the Component Details pane. STAC-11824
 * Added ability to search and filter components in the Topology perspective List mode. STAC-11413

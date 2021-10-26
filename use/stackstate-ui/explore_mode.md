@@ -40,4 +40,3 @@ When you change the displayed components using a filter, the **Save view** butto
 * [Filtering data](filters.md)
 * [StackState perspectives](../introduction-to-stackstate/perspectives.md)
 * [Working with StackState Views](views/about_views.md)
-

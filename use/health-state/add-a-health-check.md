@@ -18,7 +18,7 @@ To add a health check calculated in StackState:
 
 1. Select the element that you want to assign a health check to.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics-and-events/add-telemetry-to-element.md).
-2. Click **+ ADD** next to **Health** on the right of the screen. 
+2. Click **+ ADD** next to **Health** on the right of the screen.
    * An **Add check** dialog box appears.
 3. Provide the following details:
    * **Name** - The health check name. Will be displayed in the StackState UI **Health** pane.
@@ -26,10 +26,10 @@ To add a health check calculated in StackState:
    * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non clear state, for example `critical` or `deviating`.
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
 4. Provide the required check function arguments, these will vary according to the check function selected, but will include:
-   * At least one telemetry stream. Some checks will require multiple streams. 
+   * At least one telemetry stream. Some checks will require multiple streams.
    * For metrics check functions, a [windowing method](add-a-health-check.md#windowing-method) and window size.
-5. Click **CREATE** to create the health check. 
-   * The check is now active and visible under the **Health** section on the right-hand side of the screen. 
+5. Click **CREATE** to create the health check.
+   * The check is now active and visible under the **Health** section on the right-hand side of the screen.
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
 ![Add a health check to an element](../../.gitbook/assets/v44_add_health_check.png)
@@ -38,9 +38,17 @@ To add a health check calculated in StackState:
 
 Each health check caluclated in StackState uses a check function to monitor the telemetry stream attached to the element.
 
-Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState, or you could [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md).
+Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState.
 
-Details of the available check functions check the StackState UI **Settings** &gt; **Check functions**.
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+* You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
+
+* Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
+{% endhint %}
 
 #### Windowing method
 
@@ -55,15 +63,21 @@ For metrics check functions, a windowing method and window size must be provided
 
 The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
 
+
 ## Synchronize external health data
 
-Existing health checks on an external monitoring system can be synchronized and added to StackState topology elements. For details see [health synchronization](../../configure/health/health-synchronization.md)
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+[Synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
+{% endhint %}
 
 ## See also
 
 * [Anomaly health checks](anomaly-health-checks.md)
-* [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md)
 * [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
 * [Add an event notification](../metrics-and-events/send-event-notifications.md)
-* [Synchronize external health data](../../configure/health/health-synchronization.md)
-
+* [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
+* [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

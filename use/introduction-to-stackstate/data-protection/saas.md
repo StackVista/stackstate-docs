@@ -1,14 +1,14 @@
 ---
-description: Data protection features for SaaS
+description: StackState data protection features
 ---
 
-# SaaS
+# Data protection features
 
 ## Storage
 
-The SaaS is deployed on AWS EKS clusters \(I.e. running on Kubernetes\). Disks \(volumes\) are provided by AWS, EBS \(Elastic Block Storage\) and are encrypted by default.
+StackState is hosted on AWS EKS clusters \(I.e. running on Kubernetes\). Disks \(volumes\) are provided by AWS, EBS \(Elastic Block Storage\) and are encrypted by default.
 
-The SaaS version of StackState runs with a minimum of 3 nodes for each data storing component and stores the data in at least 2 of those 3 nodes \(I.e. 1 “original” and 1 copy\). EBS storage by default will not fail if a single \(physical\) drive fails, but they are limited to a single AWS availability zone.
+StackState runs with a minimum of 3 nodes for each data storing component and stores the data in at least 2 of those 3 nodes \(I.e. 1 “original” and 1 copy\). EBS storage by default will not fail if a single \(physical\) drive fails, but they are limited to a single AWS availability zone.
 
 Backups are made daily \(using a tool called Velero\) of all volumes used to store data, so that includes Kafka, Elasticsearch and StackGraph data. They are stored in AWS S3 which replicates the data into multiple availability zones. Backups are kept for X days.
 
@@ -22,7 +22,7 @@ Incoming traffic is only allowed via TLS encrypted connections, the TLS connecti
 
 Each customer runs in his own Kubernetes namespace, Kubernetes networking \(Calico\) is used to restrict access to all the StackState components in such a way that they only accept connections from the namespace they are in. Direct network traffic between namespaces is not possible. All network traffic into and out of the namespace need to go via the load balancer and ingress controller.
 
-![SaaS networking](../../../.gitbook/assets/data-protection-saas-networking.svg)
+![StackState networking](../../../.gitbook/assets/data-protection-saas-networking.svg)
 
 ## Authentication
 
@@ -30,7 +30,6 @@ Authentication is configured via OIDC with Keycloak as the authentication provid
 
 ## See also
 
-* [Data flow architecture](data-flow-architecture.md)
-* [Data per component](data-per-component.md)
-* [Data protection features for self-hosted StackState](self-hosted.md)
-
+* [Data flow architecture](data-flow-architecture.md "StackState Self-Hosted only")
+* [Data per component](data-per-component.md "StackState Self-Hosted only")
+* [Data protection features for self-hosted StackState](self-hosted.md "StackState Self-Hosted only")

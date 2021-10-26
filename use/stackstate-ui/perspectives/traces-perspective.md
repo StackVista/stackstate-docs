@@ -28,31 +28,21 @@ When inspecting a trace and seeing the list of its spans, you can click on any s
 
 ![Inspecting a span](../../../.gitbook/assets/v44_span-details.png)
 
-## Filtering
-
-Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered in two ways: using topology filters or trace filters.
-
-### Topology Filters
-
-The View Filters pane on the left-hand side of the screen in any View allows you to filter the sub-set of topology for which traces are displayed. Read more about [Topology Filters](../filters.md#filter-topology)
-
 ## Filter displayed traces
+
+Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered in the **View filters** pane on the left-hand side of the StackState UI.
 
 ### Filter by source component
 
-The [topology filters](../filters.md#filter-topology) in the the **View Filters** pane on the left-hand side of the StackState UI define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which traces are displayed by updating the topology filters.
+The [topology filters](../filters.md#filter-topology) in the **View Filters** pane on the left-hand side of the StackState UI define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible. You can adjust the components for which traces are displayed by updating the topology filters.
 
 ### Filter by trace properties
 
-The [trace filters](../filters.md#filter-traces) in the the **View Filters** pane on the left-hand side of the StackState UI allow you to refine the traces displayed based on span type and tags.
+The [trace filters](../filters.md#filter-traces) in the **View Filters** pane on the left-hand side of the StackState UI allow you to refine the traces displayed based on span type and tags.
 
 ### Filter by timestamp
 
-The Traces Perspective shows events matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time time.
-
-## Filter displayed events
-
-The [event filters](../filters.md#filter-events) can be used to filter the events shown in the **Events** list in the View Details pane on the right of the StackState UI.
+The Traces Perspective shows traces matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time.
 
 ## Traces and Topology
 
@@ -77,7 +67,7 @@ The two images above illustrate these concepts by showing a library application 
 
 When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has\_traces**, this allows you to easily identify components for which you have traces.
 
-## Sorting and Limiting
+## Sorting and limits
 
 Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list is not limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
 
