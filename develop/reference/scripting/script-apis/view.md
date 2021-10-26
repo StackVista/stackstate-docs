@@ -66,21 +66,21 @@ Returns a list of all problems in a view.
 
 ### Fields
 
-* contributingProblems - list of all contributing problems with details: 
-    * `contributingProblems.causeId`
-    * `contributingProblems.causeName`
-    * `contributingProblems.causeType`
-    * `contributingProblems.failingCheckNames`
-    * `contributingProblems.healthState`
-    * `contributingProblems.propagatedHealthState`
+* `contributingProblems` - list of all contributing problems with details: 
+  * `contributingProblems.causeId` - the ID of the topology element contributing to this problem.
+  * `contributingProblems.causeName` - the name of the topology element contributing to this problem.
+  * `contributingProblems.causeType` - the type of the topology element contributing to this problem.
+  * `contributingProblems.failingCheckNames` - the names of the checks that are failing at the moment of fetching this problem contributor.
+  * `contributingProblems.healthState` - the current health state of the contributor, either deviating or critical.
+  * `contributingProblems.propagatedHealthState` - the propagated health state of the contributor, either deviating or critical.
 * `problemId` - the ID of the problem
-* rootCause - the root cause component for the queried problem:
-    * `rootCause.causeId`
-    * `rootCause.causeName`
-    * `rootCause.causeType`
-    * `rootCause.failingCheckNames`
-    * `rootCause.healthState`
-    * `rootCause.propagatedHealthState`
+* `rootCause` - the root cause component for the queried problem:
+    * `rootCause.causeId` - the ID of the root cause topology component, the bottom-most component in the problem cluster.
+    * `rootCause.causeName` - the name of the root cause topology component.
+    * `rootCause.causeType` - the type of the root cause component.
+    * `rootCause.failingCheckNames` - the names of the checks that are failing at the moment of fetching the root cause component .
+    * `rootCause.healthState` - the current health state of the root cause component, either deviating or critical.
+    * `rootCause.propagatedHealthState` - the propagated health state of the root cause component, either deviating or critical.
 * `viewId` - the ID of the queried view.
 
 ### Builder methods
@@ -147,4 +147,15 @@ View
         .then{ problem ->       
         problem.contributingProblems.failingCheckNames.unique()
     }
+```
+
+In an event handler, we can get the view ID and problem ID automatically from the configuration of the [event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md):
+
+```yaml
+View
+  .withId(view)
+  .problem(event.problemId)
+    .then {  problem ->       
+        problem.contributingProblems.failingCheckNames.unique()
+  }
 ```
