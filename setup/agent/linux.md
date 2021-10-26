@@ -17,6 +17,7 @@ StackState Agent V2 will synchronize the following data with StackState from the
 * For OS versions with a network tracer: 
   * Network connections between processes and containers.
   * Network traffic telemetry. 
+  * [Golden signals](/use/metrics-and-events/golden_signals.md), such as HTTP server latencies, errors and request counts.
 
 ## Setup
 
