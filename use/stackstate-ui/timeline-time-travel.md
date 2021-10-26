@@ -23,15 +23,23 @@ The selected telemetry interval can be either relative \(live mode\), or set to 
 * When a custom time interval is set for the telemetry interval, StackState will pause the [topology time](timeline-time-travel.md#topology-time) and enter [time travel mode](timeline-time-travel.md#time-travel).
 {% endhint %}
 
-The telemetry interval can be set in four ways:
+The telemetry interval can be set in the following ways:
 
-![Zoom in: Click and drag on the timeline to set a custom time interval on your selection](../../.gitbook/assets/v44_timeline_click_drag%20%281%29.png)
+**Zoom in**
+Click and drag on the timeline to set a custom time interval on your selection.
+![](../../.gitbook/assets/v44_timeline_click_drag%20%281%29.png)
 
-![Zoom out: Click on the magnifying glass to double the size of the telemetry interval](../../.gitbook/assets/v44_telemetry_interval_zoom_out.png)
+**Zoom out**
+Click on the magnifying glass to double the size of the telemetry interval.
+![](../../.gitbook/assets/v44_telemetry_interval_zoom_out.png)
 
-![Click the time jumper arrows to move the telemetry interval backwards or forwards through time](../../.gitbook/assets/v44_telemetry_interval_jumper.png)
+**Telemetry interval jumper arrows**
+Click the time jumper arrows to move the telemetry interval backwards or forwards through time.
+![](../../.gitbook/assets/v44_telemetry_interval_jumper.png)
 
-![Select a relative or custom time interval in the popup &quot;Set the telemetry interval&quot;](../../.gitbook/assets/v44_timeline_telemetry_interval.png)
+**Set a relative or custom time interval**
+Use the popup "Set the telemetry interval" to specify a telemetry interval.
+![](../../.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
 
@@ -41,19 +49,31 @@ The topology and all telemetry displayed in StackState is based on a snapshot of
 
 On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It is also specified in the **Topology time** box at the top of the timeline.
 
+#### Set the topology time
+
 {% hint style="info" %}
 If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current time interval" will be displayed and there will be no playhead in the timeline.
 {% endhint %}
 
-#### Set the topology time
+The topology time can be set in the following ways:
 
-The topology time can be set in the three ways:
+**Click on the timeline**
+Click anywhere on the timeline to set the topology time to that moment.
+![](../../.gitbook/assets/v44_topology_time_timeline.png)
 
-![Click on the timeline to set a topology time](../../.gitbook/assets/v44_topology_time_timeline.png)
+**Topology time jumper arrows**
+Click the topology time jumper arrows to move the topology time backwards or forwards in time to the next set of events.
+![](../../.gitbook/assets/v44_topology_time_jumper.png)
 
-![Click the jumper arrows to move the topology time backwards or forwards in time to the next set of events](../../.gitbook/assets/v44_topology_time_jumper.png)
+**Timestamp**
+Click on a timestamp to jump to that specific topology time.
+![](../../.gitbook/assets/v44_topology_time_timestamp.png)
 
-![Click on a timestamp to jump to a specific topology time](../../.gitbook/assets/v44_topology_time_timestamp.png)
+**Set a custom topology time**
+Use the popup "Set the topology time" to specify a topology time.
+![](../../.gitbook/assets/v45_topology_time_popup.png)
+
+#### Live mode 
 
 To stop time travelling and return the topology time to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
