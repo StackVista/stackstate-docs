@@ -8,6 +8,14 @@
 
 StackState Agent V2 can be installed on Windows systems . The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
+## Monitoring
+
+StackState Agent V2 will synchronize the following data from the host it is running on with StackState:
+
+* Hosts, processes and containers.
+* Telemetry for hosts, processes and containers   
+* Network connections between processes and containers, including network traffic telemetry.
+
 ## Setup
 
 ### Supported versions
