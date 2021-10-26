@@ -131,7 +131,6 @@
   * [Java APM](stackpacks/integrations/java-apm.md)
   * [JMX](stackpacks/integrations/jmx.md)
   * [Logz.io](stackpacks/integrations/logz.md)
-  * [Manual Topology](stackpacks/integrations/manualtopo.md)
   * [MySQL](stackpacks/integrations/mysql.md)
   * [Nagios](stackpacks/integrations/nagios.md)
   * [PostgreSQL](stackpacks/integrations/postgresql.md)
