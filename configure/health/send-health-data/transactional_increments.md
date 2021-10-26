@@ -9,45 +9,52 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 {% tabs %}
 {% tab title="Example health `transactional_increments` JSON" %}
 ```javascript
-[
-    {
-      "consistency_model": "TRANSACTIONAL_INCREMENTS",
-      "incrment": {
-            "checkpoint": {
-                "offset": 5,
-                "batch_index": 102
-            },
-            "previous_checkpoint": {
-                "offset": 5,
-                "batch_index": 100
-            }
-      },
-      "stream": {
-        "urn": "urn:health:sourceId:streamId"
-        //"sub_stream_id": "subStreamId" Optional
-      },
-      "check_states": [
-        {
-          "checkStateId": "checkStateId1",
-          "message": "Server Running out of disk space",
-          "health": "Deviating",
-          "topologyElementIdentifier": "server-1",
-          "name": "Disk Usage"
+   "apiKey":"your api key",
+   "collection_timestamp":1585818978,
+   "internalHostname":"lnx-343242.srv.stackstate.com",
+   "events":{},
+   "metrics":[],
+   "service_checks":[],
+   "health":[
+      {
+        "consistency_model": "TRANSACTIONAL_INCREMENTS",
+        "incrment": {
+              "checkpoint": {
+                  "offset": 5,
+                  "batch_index": 102
+              },
+              "previous_checkpoint": {
+                  "offset": 5,
+                  "batch_index": 100
+              }
         },
-        {
-          "checkStateId": "checkStateId2",
-          "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
-          "health": "critical",
-          "topologyElementIdentifier": "server-2",
-          "name": "Health Monitor"
+        "stream": {
+          "urn": "urn:health:sourceId:streamId"
+          //"sub_stream_id": "subStreamId" Optional
         },
-        {
-          "checkStateId": "checkStateId3",
-          "delete": true
-        }
-      ]
-    }
-]
+        "check_states": [
+          {
+            "checkStateId": "checkStateId1",
+            "message": "Server Running out of disk space",
+            "health": "Deviating",
+            "topologyElementIdentifier": "server-1",
+            "name": "Disk Usage"
+          },
+          {
+            "checkStateId": "checkStateId2",
+            "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
+            "health": "critical",
+            "topologyElementIdentifier": "server-2",
+            "name": "Health Monitor"
+          },
+          {
+            "checkStateId": "checkStateId3",
+            "delete": true
+          }
+        ]
+      }
+   ],
+   "topologies":[]
 ```
 {% endtab %}
 {% endtabs %}

@@ -26,9 +26,9 @@ Component filters are used in two ways in STQL:
 * Define the set of components to be included in the query output.
 * Specify the set of components to be handled by an in-built STQL function.
 
-The filters described below can be combined using boolean operators to achieve complex selections of components. Note that boolean operators will be executed in the standard order: NOT, OR, AND. You can change the order of operations by grouping sections of a query with parentheses \(...\).
-
 ### Filters
+
+The filters described below can be combined using the available [operators](#operators) to achieve complex selections of components.
 
 | Filter | Default | Description |
 | :--- | :--- | :--- |
@@ -39,6 +39,31 @@ The filters described below can be combined using boolean operators to achieve c
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
+| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it is specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters).  |
+
+### Operators
+
+The operators described below are available to use in STQL queries. Note that boolean operators will be executed in the standard order: NOT, OR, AND.
+
+| Operator | Description | Example |
+|:---|:---|:---|
+| = | Equality matching | `name = "DLL_DB"` |
+| != | Inequality matching | `name != "DLL_DB"` |
+| IN | Value is in subset | `name in ("DLL_DB", "J2EE_04")` |
+| NOT | Negation | `name NOT in ("DLL_DB", "J2EE_04")` |
+| AND and OR | Filter based on more than one condition or sub-query | `name = "DLL_DB" OR type = "database"` |
+| () | Use parenthesis to group results | `(name = … AND type = …) OR (…)` |
+
+For example:
+
+```yaml
+# Return all components named DLL_DB or J2EE_04 regardless of type:
+  name = DLL_DB OR name = J2EE_04 
+
+# Return only databases named DLL_DB and host systems named J2EE_04:
+  (name = DLL_DB AND type = database) OR (name = J2EE_04 AND type = "host systems")
+
+```
 
 ### Wildcard
 
@@ -70,6 +95,8 @@ name = "appA" NOT label in ("bck", "test")
 The function withNeighborsOf extends STQL query output, adding connected components in the specified direction\(s\). The number of topology levels included can be adjusted up to a maximum of 15.
 
 `withNeighborsOf(components=(), levels=, direction=)`
+
+To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter contains a function `withNeighborsOf` that is compatible with basic filtering, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). 
 
 #### Parameters / fields
 
