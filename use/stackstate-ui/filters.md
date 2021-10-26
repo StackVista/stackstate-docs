@@ -93,30 +93,28 @@ The **Other filters** box will only contain details of advanced filters that hav
 
 To optimize performance, a limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements. If a [basic filter](filters.md#basic-topology-filters) or [advanced filter query](filters.md#advanced-topology-filters) exceeds the filtering limit, a message will be shown on screen and no topology visualization will be displayed.
 
-{% hint style="info" %}
-The filtering limit is applied to the total amount of elements that need to be **loaded** and not the amount of elements that will be displayed.
-{% endhint %}
+Note that the filtering limit is applied to the total amount of elements that need to be **loaded** and not the amount of elements that will ultimately be displayed.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-If required, you can [manually configure the default filtering limit](/configure/topology/topology-filtering-limits.md). 
-{% endhint %}
-
-In the example below, we first LOAD all neighbors of every component in our topology and then SHOW only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error, as it requires all components to be loaded.
+In the example below, we first LOAD all neighbors of every component in our topology and then DISPLAY only the ones that belong to the `applications` layer. This would likely fail with a filtering limit error as it requires all components in the topology to be loaded.
 
 ```text
 withNeighborsOf(direction = "both", components = (name = "*"), levels = "15")
    AND layer = "applications"
 ```
 
-To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit. By fitering for only components in the `applications` layer, we will SHOW the same components as the query above, without first loading all components. This query is therefore less likely to result in a filtering limit error.
+To successfully produce this topology visualization, we would need to either re-write the query to keep the number of components loaded below the configured filtering limit, or increase the filtering limit. By fitering for only components in the `applications` layer, we will DISPLAY the same components as the query above, without first needing to LOAD all components. This query is therefore less likely to result in a filtering limit error.
 
 ```yaml
 layer = "applications"
 ```
+
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+If required, you can [manually configure the topology filtering limit](/configure/topology/topology-filtering-limits.md). 
+{% endhint %}
 
 ## Filter Events
 
