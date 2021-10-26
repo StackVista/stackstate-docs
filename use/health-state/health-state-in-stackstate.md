@@ -52,14 +52,6 @@ Each element in StackState reports two health states:
 
 The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](../introduction-to-stackstate/components_and_relations.md#relations) in the topology graph.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
-{% endhint %}
-
 {% hint style="info" %}
 A CLEAR \(green\) health state does not propagate.
 {% endhint %}
@@ -70,6 +62,14 @@ A CLEAR \(green\) health state does not propagate.
 | ![](../../.gitbook/assets/propagation-b-to-a.svg) | Component B depends on component A. Health state will propagate from A to B. |
 | ![](../../.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
 | ![](../../.gitbook/assets/propagation-a-not-b.svg) | No dependency. Health state does not propagate. |
+
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
+{% endhint %}
 
 ## View health state
 
@@ -95,6 +95,6 @@ You can check the view health state in the following places in the StackState UI
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](add-a-health-check.md)
-* Add [Static Health from CSV](../../stackpacks/integrations/static_health.md)
+* [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md)
 * [Set up a health synchronization](../../configure/health/health-synchronization.md)
 * [Configure the view health](configure-view-health.md)

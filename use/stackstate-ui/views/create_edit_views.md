@@ -2,17 +2,7 @@
 
 ## Overview
 
-You can create and save views in StackState to bookmark a part of your topology that is of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
-
-## Create a view
-
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
-{% endhint %}
+You can create and save views in StackState to bookmark a part of your topology that is of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
 
@@ -37,6 +27,8 @@ Extra information for the StackState Self-Hosted product:
 * You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
 
 * Views can be given an optional identifier. [Identifiers](../../../configure/identifiers.md) make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.
+
+* Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
 {% endhint %}
 
 ## Delete or edit a view

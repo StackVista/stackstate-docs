@@ -9,11 +9,11 @@ description: Bookmark and monitor parts of your IT landscape with views
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
 * [Filters](../filters.md):
-  * Topology filters are used to add elements \(components and relations\) to the view.
-  * Events and Traces filters refine the traces and events displayed.
-* [Visualization settings](visualization_settings.md) – to customize how components are displayed within the view.
-* [View health state configuration](about_views.md#view-health-state) – can be enabled to report the health state of the view.
-* Event handlers - to respond to events generated in the view and [send event notifications](../../metrics-and-events/send-event-notifications.md).
+  * Topology filters - add elements \(components and relations\) to the view.
+  * Events and Traces filters - refine the traces and events displayed.
+* [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.
+* [View health state configuration](about_views.md#view-health-state) – reports the health state of the view.
+* Event handlers - respond to events generated in the view and [send event notifications](../../metrics-and-events/send-event-notifications.md).
 
 Generally speaking, views serve two major purposes:
 
