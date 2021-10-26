@@ -20,8 +20,8 @@ The [Static Topology StackPack](/stackpacks/integrations/static_topology.md) can
 
 1. All component types, domains and layers that will be imported need to exist in StackState before the topology can be imported. The Static Topology StackPack installs the common StackPack as a dependency and that imports quite a few useful nodes into the system. If required, you can also add these manually in the StackState UI:
   * **Component types** - Go to `Settings -> Component Types -> Add Component Types`. The component type consists of a `Name` field, a `Description` field \(optional\), and an Icon.
-  * **Domains** - Go to `Settings -> Domains -> Add Domain`. A domain consists of a `Name` field, a `Description` field \(optional\), and an `Order`. Domains are ordered from left to right in the topology visualization, Where the left-most domain has the lowest value set for `Order`.
-  * **Layers** -  Go to `Settings -> Layers -> Add Layer`. A Layer consists of a `Name` field, a `Description` field \(optional\), and an `Order`. Layers are ordered from top to bottom in the topology visualization, Where the top-most layer has the lowest value set for `Order`.
+  * **Domains** - Go to `Settings -> Domains -> Add Domain`. A domain consists of a `Name` field, a `Description` field \(optional\), and an `Order`. Domains are ordered from left to right in the topology visualization, where the left-most domain has the lowest value set for `Order`.
+  * **Layers** -  Go to `Settings -> Layers -> Add Layer`. A Layer consists of a `Name` field, a `Description` field \(optional\), and an `Order`. Layers are ordered from top to bottom in the topology visualization, where the top-most layer has the lowest value set for `Order`.
 
 2. You can now use the [Static Topology StackPack](/stackpacks/integrations/static_topology.md) to import components and relations for CSV files.
 
