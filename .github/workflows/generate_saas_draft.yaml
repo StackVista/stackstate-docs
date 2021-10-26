@@ -1,7 +1,10 @@
 name: "Draft SaaS docs site"
 # generate new version of draft SaaS docs site when changes are merged to branch STAC-14132-saas-docs-v
 
-on: push
+on:
+  push:
+    branches: [ master ]
+    
 jobs:
   generate_draft_saas:
     name: GenerateDraftSaasSite
