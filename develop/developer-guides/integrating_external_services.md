@@ -8,7 +8,7 @@ description: How to integrate StackState with any external service.
 
 Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](../reference/scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.
 
-Integrating external services with StackState is done by using the [HTTP script API](../reference/scripting/script-apis/http.md) from a [function](functions.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
+Integrating external services with StackState is done by using the [HTTP script API](../reference/scripting/script-apis/http.md) from a [function](/develop/developer-guides/custom-functions/functions.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
 
 ## Example
 

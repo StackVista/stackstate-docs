@@ -1,2 +1,2 @@
-# Health state and event notifications
+# Health state
 

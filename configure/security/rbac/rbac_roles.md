@@ -33,7 +33,7 @@ If your StackState instance is configured with a file-based authentication, then
       }
    ```
 
-2. Add new users and subjects to the logins table in the `application_stackstate.conf` as shown in the example below. Note that the default roles are always available (`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`)
+2. Add new users and subjects to the logins table in the `application_stackstate.conf` as shown in the example below. Note that the default roles are always available \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`\)
 
    ```text
     authentication {
@@ -61,3 +61,4 @@ If your StackState instance is configured with a file-based authentication, then
       }
     }
    ```
+

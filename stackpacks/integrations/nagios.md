@@ -16,7 +16,7 @@ Using this StackPack, you can:
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Nagios and StackState.
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Nagios and StackState.
 * A Nagios instance must be running.
 
 ## Configuration
@@ -51,7 +51,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
        collect_host_performance_data: True      # default is False
        collect_service_performance_data: True   # default is False
      ```
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Permissions for Nagios files
@@ -72,7 +72,7 @@ Nagios StackState Agent check tails Nagios config and log files, so it should ha
 
 * Improvement: Common bumped from 2.5.0 to 2.5.1.
 * Bugfix: Fixed upgrading Nagios StackPack when you upgrade StackState from 4.2.x to 4.3.x
-  
+
 **Nagios StackPack v2.6.0 \(2021-04-02\)**
 
 * Improvement: Enable auto grouping on generated views.

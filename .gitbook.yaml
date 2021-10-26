@@ -5,7 +5,7 @@ redirects:
   integrations/available_stackpacks: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/: ./stackpacks/integrations/README.md
   integrations/available_stackpacks/agent: ./stackpacks/integrations/agent.md
-  integrations/available_stackpacks/api-integration: stackpacks/integrations/api-integration.md
+  integrations/available_stackpacks/api-integration: ./setup/agent/agent-v1.md
   integrations/available_stackpacks/aws: ./stackpacks/integrations/aws.md
   integrations/available_stackpacks/azure: ./stackpacks/integrations/azure.md
   integrations/available_stackpacks/cloudera: ./stackpacks/integrations/cloudera.md
@@ -65,7 +65,7 @@ redirects:
   configure/topology_selection_advanced: ./develop/reference/stql_reference.md
   configure/telemetry_synchronized_topology: ./configure/telemetry/telemetry_synchronized_topology.md
   configure/browse_telemetry: ./configure/telemetry/browse-telemetry.md
-  configure/checks_and_streams: ./configure/telemetry/checks_and_streams.md
+  configure/checks_and_streams: ./use/metrics-and-events/telemetry_streams.md
   configure/scopes_in_rbac: ./configure/security/rbac/rbac_scopes.md
   configure/send_telemetry: ./configure/telemetry/send_telemetry.md
   configure/how_to_use_the_priority_field_for_components: ./configure/telemetry/how_to_use_the_priority_field_for_components.md
@@ -150,7 +150,7 @@ redirects:
   setup/linux_install/production-installation: ./setup/installation/linux_install/production-installation.md
   setup/linux_install/reverse_proxy: ./setup/installation/linux_install/reverse_proxy.md
   setup/troubleshooting: ./setup/installation/troubleshooting.md
-  use/queries: ./use/analytics.md
+  use/queries: ./use/stackstate-ui/analytics.md
   concepts/glossary: ./use/glossary.md
   concepts/4t_data_model: ./use/introduction-to-stackstate/4t_data_model.md
   concepts/components_and_relations: ./use/introduction-to-stackstate/components_and_relations.md
@@ -158,22 +158,22 @@ redirects:
   concepts/id_extraction: ./use/introduction-to-stackstate/id_extraction.md
   concepts/layers_domains_and_environments: ./use/introduction-to-stackstate/layers_domains_and_environments.md
   concepts/component_and_relation_mapping_functions: ./use/introduction-to-stackstate/mapping_functions.md
-  use/perspectives/event-perspective: use/perspectives/events_perspective.md
-  use/perspectives/filters: ./use/view_filters.md
-  use/perspectives: .use/introduction-to-stackstate/perspectives.md
+  use/perspectives/event-perspective: ./use/stackstate-ui/perspectives/events_perspective.md
+  use/perspectives/filters: ./use/stackstate-ui/filters.md
+  use/perspectives: ./use/introduction-to-stackstate/perspectives.md
   basic_concepts/: ./use/introduction-to-stackstate/components_and_relations.md
   basic_concepts/#components: ./use/introduction-to-stackstate/components_and_relations.md#components
 
 # 4.2 docs
 
-  use/baselining: ./use/health-state-and-event-notifications/anomaly-detection-with-baselines.md
+  use/baselining: ./use/introduction-to-stackstate/anomaly-detection.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  use/alerting: ./use/health-state-and-event-notifications/send-event-notifications.md
-  configure/telemetry/browse_telemetry: ./use/perspectives/browse-telemetry.md
+  use/alerting: ./use/metrics-and-events/send-event-notifications.md
+  configure/telemetry/browse_telemetry: ./use/metrics-and-events/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
-  configure/view_state_configuration: ./use/health-state-and-event-notifications/configure-view-health.md
-  use/views/traces_perspective: ./use/perspectives/traces-perspective.md
-  use/views/topology_perspective: ./use/perspectives/topology-perspective.md
+  configure/view_state_configuration: ./use/health-state/configure-view-health.md
+  use/views/traces_perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
+  use/views/topology_perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   setup/installation/authentication: ./configure/security/authentication/README.md
   configure/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
@@ -187,37 +187,73 @@ redirects:
 # 4.3 docs
 
   configure/logging/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  configure/telemetry/baseline-functions: ./develop/developer-guides/custom-functions/baseline-functions.md
+  configure/telemetry/baseline-functions: ./develop/developer-guides/custom-functions/README.md
   configure/topology/propagation: ./develop/developer-guides/custom-functions/propagation-functions.md
   configure/topology/how_to_configure_component_actions: ./develop/developer-guides/custom-functions/component-actions.md
   configure/topology/configure-email-alerts: ./configure/topology/configure-email-event-notifications.md
   configure/security/configure_ldap_authentication: ./configure/security/authentication/ldap.md
+  configure/security/self-signed-certificates: ./configure/security/self-signed-cert.md
   configure/topology/view_state_configuration: ./develop/developer-guides/custom-functions/view-health-state-configuration-functions.md
   configure/topology/event-handlers: ./develop/developer-guides/custom-functions/event-handler-functions.md
   develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
+  develop/reference/stj/templates: ./develop/reference/stj/stj_reference.md
+  develop/reference/stj/using-stj: ./develop/reference/stj/using_stj.md
   integrations/agent/: ./stackpacks/integrations/agent.md
   setup/authentication: ./configure/security/authentication/authentication_options.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
-  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
-  use/views: ./use/views.md
-  use/views/browse-telemetry: ./use/perspectives/browse-telemetry.md
-  use/views/events_perspective: ./use/perspectives/events_perspective.md
-  use/views/filters: ./use/view_filters.md
-  use/views/telemetry-perspective: ./use/perspectives/telemetry-perspective.md
-  use/views/telemetry_perspective: ./use/perspectives/telemetry-perspective.md
-  use/views/topology-perspective: ./use/perspectives/topology-perspective.md
-  use/views/traces-perspective: ./use/perspectives/traces-perspective.md
+  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapper-functions.md
+  use/views: ./use/stackstate-ui/views/about_views.md
+  use/views/: ./use/stackstate-ui/views/about_views.md
+  use/views/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
+  use/views/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
+  use/views/filters: ./use/stackstate-ui/filters.md
+  use/views/telemetry-perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
+  use/views/telemetry_perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
+  use/views/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
+  use/views/traces-perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
 
 # 4.4 docs
 
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
   stackpacks/integrations/google-analytics: ./stackpacks/integrations/
   use/health-state-and-event-notifications/anomaly-detection-with-baselines: ./use/introduction-to-stackstate/anomaly-detection.md
-  develop/developer-guides/custom-functions/baseline-functions: develop/developer-guides/custom-functions/README.md
+  develop/developer-guides/custom-functions/baseline-functions: ./develop/developer-guides/custom-functions/README.md
   stackpacks/integrations/api-integration: ./setup/agent/agent-v1.md
   stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md
   setup/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/nonha_setup.md
+  configure/telemetry/checks_and_streams: ./use/metrics-and-events/telemetry_streams.md
+  use/health-state-and-event-notifications/add-a-health-check: ./use/health-state/add-a-health-check.md
+  use/problems/problem_investigation: ./use/problem-analysis/problem_investigation.md
+  use/problems/problem_notifications: ./use/problem-analysis/problem_notifications.md
+  use/health-state-and-event-notifications/anomaly-health-checks: ./use/health-state/anomaly-health-checks.md
+  use/view_filters: ./use/stackstate-ui/filters.md
+  use/health-state-and-event-notifications/configure-view-health: ./use/health-state/configure-view-health.md
+  setup/installation/kubernetes_install/development_setup: ./setup/installation/kubernetes_install/non_high_availability_setup.md
+  use/explore_mode: ./use/stackstate-ui/explore_mode.md
+  use/problems/problems: ./use/problem-analysis/problems.md
+  use/health-state-and-event-notifications/send-event-notifications: ./use/metrics-and-events/send-event-notifications.md
+  use/perspectives/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
+  use/perspectives/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
+  use/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
+  use/perspectives/traces-perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
+  use/health-state-and-event-notifications/add-telemetry-to-element: ./use/metrics-and-events/add-telemetry-to-element.md
+  use/perspectives/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
+  use/analytics: ./use/stackstate-ui/analytics.md
+  stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
+  use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
+
+# 4.5 docs
+
+  configure/topology/topology_synchronization.md: ./configure/topology/send-topology-data.md
+  configure/topology/debugging_topology_synchronization.md: ./configure/topology/debug-topology-synchronization.md
+  stackpacks/integrations/centos.md: ./setup/agent/linux.md
+  stackpacks/integrations/debian.md: ./setup/agent/linux.md
+  stackpacks/integrations/fedora.md: ./setup/agent/linux.md
+  stackpacks/integrations/redhat.md: ./setup/agent/linux.md
+  stackpacks/integrations/ubuntu.md: ./setup/agent/linux.md
+  stackpacks/integrations/windows.md: ./setup/agent/windows.md
+  stackpacks/integrations/docker.md: ./setup/agent/docker.md

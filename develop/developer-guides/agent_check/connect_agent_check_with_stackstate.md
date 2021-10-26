@@ -1,4 +1,4 @@
-# How to connect an agent check with StackState
+# Connect an Agent check to StackState
 
 ## Overview
 
@@ -6,9 +6,10 @@ The recommended way to connect your Agent check and visualize the data within St
 
 ## Install
 
-Install the Custom Synchronization StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
-    * **Instance type \(source identifier\)** - `TopologyInstance`
-    * **Instance URL**
+Install the Custom Synchronization StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+
+* **Instance type \(source identifier\)** - `TopologyInstance`
+* **Instance URL**
 
 These are directly mapped to the `TopologyInstance` supplied in the `get_instance_key` function of your agent check.
 
@@ -27,8 +28,7 @@ When the StackPack has been installed, the Custom Synchronization should become 
 
 ## See also
 
-* [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
-* [How to develop Agent checks](/develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
-* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)
-
+* [Agent check API](agent-check-api.md)
+* [How to develop Agent checks](how_to_develop_agent_checks.md)
+* [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)
 

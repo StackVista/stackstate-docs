@@ -1,4 +1,4 @@
-# How to develop agent checks
+# How to develop Agent checks
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
@@ -241,7 +241,7 @@ Learn more about the [Agent Check Event API](agent-check-api.md)
 
 ### Health Synchronization
 
-StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](/configure/health/health-synchronization.md).
+StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](../../../configure/health/health-synchronization.md).
 
 To setup a health synchronization stream within a check, the following function needs to be defined:
 
@@ -261,18 +261,18 @@ class ExampleCheck(AgentCheck):
         return HealthStream(HealthStreamUrn("example", instance_url))
 
 ...
-
 ```
 
 This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api on the Agent Check.
 
 ### Health Synchronization Snapshots
 
-Like with topology, health data is presented to StackState using snapshots. This allows for removal of health information (check states) when they no longer exist in the source monitoring system. Snapshots are created by two functions:
+Like with topology, health data is presented to StackState using snapshots. This allows for removal of health information \(check states\) when they no longer exist in the source monitoring system. Snapshots are created by two functions:
 
 * `self.health.start_snapshot()` - used to start a health snapshot.
 * `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
-### Send Check State
+
+  **Send Check State**
 
 Check states can be sent through the health synchronization API using the `self.health.check_state()` functions in the `AgentCheck` interface.
 
@@ -295,10 +295,9 @@ self.health.check_state(
   topology_element_identifier="urn:component/the_component_to_attach_to",
   message="Optional clarifying message"
 )
-
 ```
 
-If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](/configure/health/debug-health-sync.md) for the health synchronization.
+If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](../../../configure/health/debug-health-sync.md) for the health synchronization.
 
 ### Send in Stream Definitions and Health Checks
 
@@ -422,6 +421,7 @@ If your issue continues, please reach out to Support with the help page that lis
 
 ## See also
 
-* [Agent check API](/develop/developer-guides/agent_check/agent-check-api.md)
-* [Connect an Agent check with StackState using the Custom Synchronization StackPack](/develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
-* [Developer guide - Custom Synchronization StackPack](/develop/developer-guides/custom_synchronization_stackpack)
+* [Agent check API](agent-check-api.md)
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
+* [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)
+

@@ -2,52 +2,52 @@
 description: StackState core integration
 ---
 
-# StackState Agent
+# 💠 StackState Agent V2
 
 ## Overview
 
-The StackState Agent V2 StackPack works with [StackState Agent V2](/setup/agent) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration. 
+The StackState Agent V2 StackPack works with [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
 
 ## Setup
 
 ### Prerequisites
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState and any system you will integrate with.
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState and any system you will integrate with.
 
 ### Install
 
-Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.
+Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen.
 
 ### Configure
 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](/stackpacks/integrations/apache-tomcat.md)
-* [AWS ECS](/stackpacks/integrations/aws/aws-ecs.md)
-* [CentOS](/stackpacks/integrations/centos.md)
-* [Debian](/stackpacks/integrations/debian.md)
-* [Docker](/stackpacks/integrations/docker.md)  
-* [DotNet APM](/stackpacks/integrations/dotnet-apm.md)
-* [Fedora](/stackpacks/integrations/fedora.md)
-* [Java APM](/stackpacks/integrations/java-apm.md)
-* [JMX](/stackpacks/integrations/jmx.md)
-* [MySQL](/stackpacks/integrations/mysql.md)
-* [PostgreSQL](/stackpacks/integrations/postgresql.md)
-* [RedHat](/stackpacks/integrations/redhat.md)
-* [Static Health](/stackpacks/integrations/static_health.md)  
-* [Ubuntu](/stackpacks/integrations/ubuntu.md)
-* [Windows](/stackpacks/integrations/windows.md)  
-* [WMI](/stackpacks/integrations/wmi.md)
+* [Apache TomCat](apache-tomcat.md)
+* [AWS ECS](aws/aws-ecs.md)
+* [CentOS](centos.md)
+* [Debian](debian.md)
+* [Docker](docker.md)  
+* [DotNet APM](dotnet-apm.md)
+* [Fedora](fedora.md)
+* [Java APM](java-apm.md)
+* [JMX](jmx.md)
+* [MySQL](mysql.md)
+* [PostgreSQL](postgresql.md)
+* [RedHat](redhat.md)
+* [Static Health](static_health.md)  
+* [Ubuntu](ubuntu.md)
+* [Windows](windows.md)  
+* [WMI](wmi.md)
 
 ### Status
 
-To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](/setup/agent/).
+To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](../../setup/agent/).
 
 ### Upgrade
 
-When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the StackState Agent V2 StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 
-To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
+To upgrade StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
 ## Integration details
 
@@ -56,15 +56,17 @@ To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/
 When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
 
 Linux:
-- Hosts, processes and containers
-- Network connections between processes and containers including network traffic telemetry
-- Telemetry for hosts, processes and containers 
+
+* Hosts, processes and containers
+* Network connections between processes and containers including network traffic telemetry
+* Telemetry for hosts, processes and containers 
 
 Docker:
-- Hosts, processes, and containers
-- Network connections between processes, containers and services including network traffic telemetry
-- Telemetry for hosts, processes, and containers
-- Trace agent support
+
+* Hosts, processes, and containers
+* Network connections between processes, containers and services including network traffic telemetry
+* Telemetry for hosts, processes, and containers
+* Trace agent support
 
 When additional checks have been enabled on the Agent, data from other external systems will be integrated. Refer to the individual integration pages for details of the data retrieved from each system.
 
@@ -74,17 +76,63 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks** > **Integrations** screen.
+Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen.
 
-To uninstall StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
+To uninstall StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
 ## Release notes
 
-**Agent V2 StackPack v4.3.1 \(2021-04-02\)**
+**Agent V2 StackPack v4.4.8 \(2021-07-23\)**
 
-* Features: Introduced swarm services as components and relations with containers.
-* Features: Report desired replicas and active replicas for swarm services.
-* Features: Health check added for swarm service on active replicas.
+* Improvement: Documentation updated
+
+**Agent V2 StackPack v4.4.7 \(2021-06-30\)**
+
+* Bugfix: Disable Indirect relations
+
+**Agent V2 StackPack v4.4.6 \(2021-06-18\)**
+
+* Bugfix: Fixed integration page
+* Feature: Split Error Count Metric for X-Ray into 4xx and 5xx count
+
+**Agent V2 StackPack v4.4.5 \(2021-06-14\)**
+
+* Bugfix: Fixed runs\_on relation creation
+
+**Agent V2 StackPack v4.4.4 \(2021-06-10\)**
+
+* Feature: Added static health integration
+
+**Agent V2 StackPack v4.4.3 \(2021-06-10\)**
+
+* Feature: HTTP Endpoints \(Kubernetes services for example\) and processes now have metric streams for HTTP request rates and response times \(only StackState 4.4.0+\)
+* Feature: HTTP Endpoints \(Kubernetes services for example\) and processes have a new tag `application-protocol` that lists the protocols that are handled by that service/process, currently supported protocols are http and mysql \(only StackState 4.4.0+\)
+* Feature: Network connection relations also get the `application-protocol` tag \(only StackState 4.4.0+\)
+
+**Agent V2 StackPack v4.4.2 \(2021-05-18\)**
+
+* Improvement: Expose service -&gt; process relation metrics on the outgoing service component if running in Kubernetes
+* Improvement: Add the Agent category for filtering capability
+
+**Agent V2 StackPack v4.4.1 \(2021-04-23\)**
+
+* Bugfix: Fix escaping bugs in templates
+
+**Agent V2 StackPack v4.4.0 \(2021-04-23\)**
+
+* Improvement: Add "runs" relation for container -&gt; process such that a container "runs" the process
+* Improvement: Stop state propagation over relations that represent health checks or metrics collection, these used to result in a lot of false positives
+* Improvement: Expose process -&gt; process relation metrics on the process component if running in Kubernetes
+
+**Agent V2 StackPack v4.3.1 \(2021-04-12\)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**Agent V2 StackPack v4.3.0 \(2021-04-02\)**
+
+* Feature: Introduced swarm services as components and relations with containers.
+* Feature: Report desired replicas and active replicas for swarm services.
+* Feature: Health check added for swarm service on active replicas.
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Common bumped from 2.3.1 to 2.5.0
 * Improvement: StackState min version bumped to 4.3.0
@@ -95,10 +143,10 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 
 **Agent V2 StackPack v4.2.0 \(2021-02-26\)**
 
-* Features: Map the container restart event stream as metric stream.
-* Features: Introduced the container health check for restart event.
-* Features: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
-* Features: Separate Sync and DataSource added for Disk Type.
+* Feature: Map the container restart event stream as metric stream.
+* Feature: Introduced the container health check for restart event.
+* Feature: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
+* Feature: Separate Sync and DataSource added for Disk Type.
 
 **Agent V2 StackPack v4.1.0 \(2021-02-08\)**
 
@@ -128,4 +176,5 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 
 ## See also
 
-* [StackState Agent documentation](/setup/agent/)
+* [StackState Agent documentation](../../setup/agent/)
+

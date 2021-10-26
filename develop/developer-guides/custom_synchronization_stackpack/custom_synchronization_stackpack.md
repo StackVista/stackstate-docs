@@ -4,11 +4,11 @@ description: >-
   synchronization StackPack.
 ---
 
-# Custom Synchronization StackPack
+# About the Custom Synchronization StackPack
 
 ## Overview
 
-Building a new topology synchronization pipeline starts with the custom synchronization StackPack. The Custom Synchronization StackPack eases the setup of a custom [topology synchronization](../../../configure/topology/topology_synchronization.md). It works well with [Agent checks](/develop/developer-guides/agent_check/agent_checks.md) and can be a first step before making a StackPack.
+Building a new topology synchronization pipeline starts with the custom synchronization StackPack. The Custom Synchronization StackPack eases the setup of a custom [topology synchronization](../../../configure/topology/send-topology-data.md). It works well with [Agent checks](../agent_check/agent_checks.md) and can be a first step before making a StackPack.
 
 ## When to use the Custom Synchronization StackPack
 

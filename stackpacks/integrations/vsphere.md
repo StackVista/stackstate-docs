@@ -3,7 +3,7 @@ description: StackState core integration
 stackpack-name: VMWare vSphere StackPack
 ---
 
-# VMWare vSphere
+# 💠 VMWare vSphere
 
 ## Overview
 
@@ -36,7 +36,7 @@ The VMware StackPack collects all topology data for the components and relations
 
 To set up the StackState VMWare vSphere integration, you need to have:
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
 * A running vSphere vCenter instance.
 
 ### Install
@@ -68,7 +68,7 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password>
      ```
 2. If required, you can customise the integration using the [advanced configuration options](vsphere.md#advanced-configuration).
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to publish the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
 #### Advanced configuration
@@ -82,8 +82,8 @@ The advanced configuration items described below can optionally be added to the 
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
 | `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
 | `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |
-| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  | `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value  `StackStateMonitored`.<br />To set this custom field with PowerCLI, use the command: <code>Get-VM <MyVMName> &#124; Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"</code> |
-| `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. |
+| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value `StackStateMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM | Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"` |
+| `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. | 
 
 ### Status
 
@@ -171,16 +171,20 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
     mv vsphere.d/conf.yaml vsphere.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
 
-**VMWare vSphere StackPack v2.3.1 \(2021-04-02\)**
+**VMWare vSphere StackPack v2.3.1 \(2021-04-12\)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**VMWare vSphere StackPack v2.3.0 \(2021-04-02\)**
 
 * Improvement: Changed synchronization's merge strategy from 'merge, prefer theirs' to 'merge, prefer mine'.
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
+* Improvement: Common bumped from 2.2.3 to 2.5.0
 * Improvement: StackState min version bumped to 4.3.0
 
 **VMWare vSphere StackPack v2.2.1 \(2020-08-18\)**
@@ -206,7 +210,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## See also
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) 
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 * [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)

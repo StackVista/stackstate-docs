@@ -11,13 +11,13 @@ description: StackState curated integration
 StackState Agent V2 will retrieve data from the host it is running on and push this to StackState.
 
 ### Prerequisites
- 
-* [StackState Agent V2](/setup/agent/docker.md) running in a Docker container that is able to connect to StackState.
-* The [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) installed in StackState.
+
+* [StackState Agent V2](../../setup/agent/docker.md) running in a Docker container that is able to connect to StackState.
+* The [StackState Agent V2 StackPack](agent.md) installed in StackState.
 
 ### Install
 
-The Docker integration is part of the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md).
+The Docker integration is part of the [StackState Agent V2 StackPack](agent.md).
 
 ## Data retrieved
 
@@ -35,5 +35,6 @@ In Docker swarm mode, StackState Cluster Agent running on the manager node will 
 
 ## See also
 
-* [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [Deploy StackState Agent V2 on Docker](/setup/agent/docker.md)
+* [About the StackState Agent](../../setup/agent/about-stackstate-agent.md)
+* [Deploy StackState Agent V2 on Docker](../../setup/agent/docker.md)
+

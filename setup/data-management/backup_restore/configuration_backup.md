@@ -41,7 +41,7 @@ To export configuration from the StackState UI:
 
 StackState server can be configured to authenticate users when they access the application. In this case, an export curl script is required to first obtain a token before making the export request. This is not necessary when using the StackState CLI as authentication details are configured during installation.
 
-Here is a sample sequence of curl commands to achieve this:
+Here is a sample sequence of curl commands to achieve this. The `<token>` used for authorization is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -49,7 +49,7 @@ Here is a sample sequence of curl commands to achieve this:
 # Obtain session from cookie AkkaHttpPac4jSession
 # Obtain token from cookie pac4jCsrfToken
 curl --fail -v \
-  -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
+  -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
   -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<HOST>:7070/loginCallback"
 
@@ -69,7 +69,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - all configuration items will be unlocked after import.
 
-To clear the StackState configuration and import from a file using the StackState CLI or curl:
+To clear the StackState configuration and import from a file using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
 {% tab title="StackState CLI" %}
@@ -93,7 +93,8 @@ curl -X POST -d @./export.stj \
 ## Import with authentication
 # Obtain session from cookie AkkaHttpPac4jSession
 # Obtain token from cookie pac4jCsrfToken
-curl --fail -v -d "username=<MY_USERNAME>&password=<MY_PASSWORD>" \
+curl --fail -v \
+  -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
   -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<host>:7070/loginCallback"
 

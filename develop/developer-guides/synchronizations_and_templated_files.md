@@ -35,7 +35,7 @@ Preparing a templated file is a process that requires some configuration of Stac
 
 ### 1. Prepare a check in StackState Agent
 
-The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](/setup/agent/about-stackstate-agent.md).
+The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](../../setup/agent/about-stackstate-agent.md).
 
 ### 2. Install Custom Synchronization StackPack
 
@@ -88,7 +88,7 @@ Once you have completed all the changes, you can click on `update` and confirm t
 
 ### 9. Configure Synchronizations
 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/topology_synchronization.md) or proceed to edit this synchronization with the instructions below:
+Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/send-topology-data.md) or proceed to edit this synchronization with the instructions below:
 
 #### Step 1
 

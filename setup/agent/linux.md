@@ -6,39 +6,49 @@
 **StackState Agent V2**
 {% endhint %}
 
-StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](/stackpacks/integrations).
+StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
-## Setup 
+## Monitoring
+
+StackState Agent V2 will synchronize the following data with StackState from the Linux host it is running on:
+
+* Hosts, processes and containers.
+* Telemetry for hosts, processes and containers.
+* For OS versions with a network tracer: 
+  * Network connections between processes and containers.
+  * Network traffic telemetry. 
+
+## Setup
 
 ### Supported versions
 
-StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers (including network traffic telemetry) can only be retrieved for OS versions with a network tracer (kernel version 4.3.0 or higher:
+StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers \(including network traffic telemetry\) can only be retrieved for OS versions with a network tracer \(kernel version 4.3.0 or higher\):
 
 | Platform | Minimum version | Notes |
-|:---|:---|:---|
+| :--- | :--- | :--- |
 | CentOS | CentOS 6 | CentOS 6 requires Agent v2.0.2 or above. Network tracer available from CentOS 8. |
-| Debian | Debian 7 (Wheezy) | Debian 7 (Wheezy) requires glibc upgrade to 2.17. Network tracer available from Debian 9 (Stretch). |
+| Debian | Debian 7 \(Wheezy\) | Debian 7 \(Wheezy\) requires glibc upgrade to 2.17. Network tracer available from Debian 9 \(Stretch\). |
 | Fedora | Fedora 28 | - |
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
-| Ubuntu | Ubuntu 14 (Trusty) | Network tracer available from Ubuntu 16 (Xenial). |
+| Ubuntu | Ubuntu 15.04 \(Vivid Vervet\) | Network tracer available from Ubuntu 16.04 \(LTS\) \(Xenial Xerus\). |
 
 ### Install
 
-StackState Agent V2 is installed using an install script. 
+StackState Agent V2 is installed using an install script.
 
-* [Online install](#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
-* [Offline install](#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
+* [Online install](linux.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
+* [Offline install](linux.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
 
 {% hint style="info" %}
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [StackState Kubernetes install - configuration parameters](../installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [StackState Linux install - configuration parameters](../installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 {% endhint %}
-  
+
 #### Online install
 
-If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the install.sh script. The Agent installer package will be downloaded automatically. 
+If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the install.sh script. The Agent installer package will be downloaded automatically.
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -48,6 +58,7 @@ STS_API_KEY="{{config.apiKey}}" \
 STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```
 {% endtab %}
+
 {% tab title="wget" %}
 ```text
 wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
@@ -62,27 +73,30 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install. You can then set the environment variable `STS_INSTALL_NO_REPO=yes` and specify the path to the downloaded installer package when you run the install.sh script.
 
 1. Download the install script and copy this to the host where it will be installed:
-   - [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
-2. Download the latest Agent installer package (DEB or RPM package) and copy this to the host where it will be installed. The download link can be constructed from the installer list URL and the installer package `Key`  that is provided on the installer list page.
-   - **DEB installer list**: [https://stackstate-agent-2.s3.amazonaws.com/](https://stackstate-agent-2.s3.amazonaws.com/)
-   - **RPM installer list**: [https://stackstate-agent-2-rpm.s3.amazonaws.com/](https://stackstate-agent-2-rpm.s3.amazonaws.com/)
-   - **Download link**: `<installer_list_link><Key_from_installer_list>`
-  For example, to download the DEB installer package for `agent_2.11.0-1_amd64.deb`, use:  `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.11.0-1_amd64.deb`
-3. Use the command below to set the required environment variables and run the installer script:
-    ```text
+   * [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
+2. Get the **Key** of the latest version of the Agent installer package (DEB or RPM package):
+   * [DEB installer package list](https://stackstate-agent-2.s3.amazonaws.com/?prefix=pool/stable/s/st/stackstate-agent_2.1)
+   * [RPM installer package list](https://stackstate-agent-2-rpm.s3.amazonaws.com/?prefix=stable/stackstate-agent-2.1)
+3. Download the Agent installer package and copy this to the host where it will be installed. The download link can be constructed from the S3 bucket URL and the installer package `Key`  that is provided on the installer package list page. 
+   For example, to download the DEB installer package for `agent_2.13.0-1_amd64.deb`, use:  `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.13.0-1_amd64.deb`
+   * **DEB Download link:** `https://stackstate-agent-2.s3.amazonaws.com/<Key_from_DEB_installer_package_list>`
+   * **RPM Download link:** `https://stackstate-agent-2-rpm.s3.amazonaws.com/<Key_from_RPM_installer_package_list>`
+4. Use the command below to set the required environment variables and run the installer script:
+
+   ```text
     STS_API_KEY="{{config.apiKey}}" \
     STS_URL="{{config.baseUrl}}/stsAgent" \
     STS_INSTALL_NO_REPO=yes \
     ./install.sh <path_to_local_Agent_installer_package>
-    ```
+   ```
 
 ### Upgrade
 
-To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package (DEB or RPM package) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](#offline-install).
+To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package \(DEB or RPM package\) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](linux.md#offline-install).
 
 {% tabs %}
 {% tab title="yum" %}
-```
+```text
 # stop the Agent with one of the below commands
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
@@ -94,8 +108,9 @@ sudo yum upgrade stackstate-agent
 sudo yum upgrade <agent_installer_package>.rpm
 ```
 {% endtab %}
+
 {% tab title="apt-get" %}
-```
+```text
 # stop the Agent with one of the below commands
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
@@ -117,13 +132,13 @@ The StackState Agent V2 configuration is located in the file `/etc/stackstate-ag
 
 ### Advanced Agent configuration
 
-A number of advanced configuration options are available for StackState Agent V2. These can be set in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and are described in detail on the page [advanced Agent configuration](/setup/agent/advanced-agent-configuration.md).
-   
+A number of advanced configuration options are available for StackState Agent V2. These can be set in the Agent configuration file `/etc/stackstate-agent/stackstate.yaml` and are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the associated Agent check. 
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that is used by the associated Agent check.
 
-Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks > Integrations pages](/stackpacks/integrations/).
+Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
 ## Commands
 
@@ -146,6 +161,7 @@ sudo service stackstate-agent start
 sudo service stackstate-agent stop
 sudo service stackstate-agent restart
 ```
+
 ### Status and information
 
 To check if StackState Agent V2 is running and receive information about the Agent's state:
@@ -166,11 +182,11 @@ sudo journalctl -u stackstate-agent
 
 # with service
 sudo service stackstate-agent status -v
-
 ```
+
 ### Manually run a check
 
-Use the command below to manually run an Agent check. 
+Use the command below to manually run an Agent check.
 
 ```yaml
 # Execute a check once and display the results.
@@ -181,6 +197,8 @@ sudo -u stackstate-agent stackstate-agent check <CHECK_NAME> -l debug
 ```
 
 ## Troubleshooting
+
+To troubleshoot the Agent, try to [check the Agent status](linux.md#status-and-information) or [manually run a check](linux.md#manually-run-a-check).
 
 ### Log files
 
@@ -199,7 +217,7 @@ To uninstall StackState Agent V2 from your system, stop the `stackstate-agent` s
 
 {% tabs %}
 {% tab title="yum" %}
-```
+```text
 # stop the Agent with one of the below commands
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
@@ -208,8 +226,9 @@ sudo service stackstate-agent stop
 sudo yum remove stackstate-agent
 ```
 {% endtab %}
+
 {% tab title="apt-get" %}
-```
+```text
 # stop the Agent with one of the below commands
 sudo systemctl stop stackstate-agent
 sudo service stackstate-agent stop
@@ -222,8 +241,9 @@ sudo apt-get remove stackstate-agent
 
 ## See also
 
-* [About the StackState Agent](/setup/agent/about-stackstate-agent.md)
-* [Advanced Agent configuration](/setup/agent/advanced-agent-configuration.md)  
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
-* [StackPack integration documentation](/stackpacks/integrations)
+* [About the StackState Agent](about-stackstate-agent.md)
+* [Advanced Agent configuration](advanced-agent-configuration.md)  
+* [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
+* [StackPack integration documentation](../../stackpacks/integrations/)
 * [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+

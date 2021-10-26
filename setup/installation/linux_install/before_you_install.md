@@ -1,4 +1,4 @@
-# Linux install
+# Before you install
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
@@ -21,15 +21,15 @@ Before starting the installation, ensure your system\(s\) meet the StackState [i
 
 ## Packages
 
-There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](/setup/installation/linux_install/download.md).
+There is an RPM package available that provides easy installation and upgrade of StackState on Fedora, Red Hat or CentOS. For Debian and Ubuntu, there is a DEB package available. Packages can be obtained from our [distribution website](download.md).
 
 ## Installation
 
 StackState supports three different installation configurations:
 
-* [Production setup](/setup/installation/linux_install/production-installation.md) suitable for production use.
-* [Proof-of-concept \(POC\) setup](/setup/installation/linux_install/poc-installation.md) suitable for proof of concepts. This is not suited for processing perpetual data streams.
-* [Development setup](/setup/installation/linux_install/development-installation.md) suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
+* [Production setup](production-installation.md) suitable for production use.
+* [Proof-of-concept \(POC\) setup](poc-installation.md) suitable for proof of concepts. This is not suited for processing perpetual data streams.
+* [Development setup](development-installation.md) suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
 
 ## Upgrading
 

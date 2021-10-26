@@ -12,7 +12,7 @@ The Cloudera StackPack is used to create a near real time synchronization with y
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Cloudera Manager and StackState.
+* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Cloudera Manager and StackState.
 * A Cloudera instance must be running.
 
 **NOTE**:- We support Cloudera version 5.11.
@@ -45,7 +45,7 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
        # mandatory
        api_version: <api_version> # v18
      ```
-2. [Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#run-stackstate-agent-v2) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Release notes

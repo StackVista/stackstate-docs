@@ -94,12 +94,12 @@ The following are sample parameters for a gauge query:
 
 Prometheus histogram and summary queries are **not** supported from the query interface. They still can be configured using tilda-query.
 
-### Tilda ~ query
+### Tilde query ~
 
 The query allows arbitrary Prometheus queries, for example:
 
 ```text
-    ~ = histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{instance='127.0.0.1:80', name='payment-service'}[1m])) by (name, le)) * 1000
+~ = histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{instance='127.0.0.1:80', name='payment-service'}[1m])) by (name, le)) * 1000
 ```
 
 ## See also

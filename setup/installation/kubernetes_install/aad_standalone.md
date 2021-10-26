@@ -8,15 +8,20 @@ description: Standalone Deployment of the Autonomous Anomaly Detector
 
 Autonomous Anomaly Detector \(AAD\) is a StackState service configured and deployed as a part of standard installation. In some cases the AAD can be deployed standalone using the AAD helm chart, e.g. when StackState and the AAD are deployed in separate kubernetes clusters. The standalone AAD deployment option is recommended only for the users with advanced knowledge of Kubernetes.
 
-The Autonomous Anomaly Detector consists of two components: AAD Kubernetes service and a AAD StackPack. The sections below explain how to configure AAD Kubernetes service and AAD StackPack in order to perform standalone deployment.
+The Autonomous Anomaly Detector consists of two components: 
+
+* AAD Kubernetes service
+* AAD StackPack. 
+  
+The sections below explain how to configure AAD Kubernetes service and AAD StackPack in order to perform standalone deployment. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
 
 ## Node sizing
 
 A minimal deployment of the AAD Kubernetes service with the default options requires one of the following instance types:
 
-* Amazon EKS: 1 instance of type `m4.xlarge`
-* Azure AKS: 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
-* Self-hosted Kubernetes: 1 instance with 4 CPUs and 6 Gb memory
+* **Amazon EKS:** 1 instance of type `m4.xlarge`
+* **Azure AKS:** 1 instance of type `F4s v2` \(Intel or AMD CPUs\)
+* **Self-hosted Kubernetes:** 1 instance with 4 CPUs and 6 Gb memory
 
 To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
@@ -26,11 +31,11 @@ The AAD Kubernetes service is stateless and survives restarts. It can be relocat
 
 Standalone deployment consists of two steps - installing AAD StackPack and install AAD Kubernetes service.
 
-### Install the Autonomous Anomaly Detector \(AAD\) StackPack
+### Install the AAD StackPack
 
 Install the AAD StackPack from the StackPacks page in StackState.
 
-### Install the Autonomous Anomaly Detector \(AAD\) Kubernetes service
+### Install the AAD Kubernetes service
 
 After installing the AAD StackPack, install the AAD Kubernetes service.
 
@@ -140,6 +145,10 @@ Run the command below, specifying the StackState namespace and the image registr
         --set image.pullSecretPassword=<image registry password>
         --values ./values.yaml
 ```
+
+### Training period
+
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3 day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
 
 ## Upgrade the standalone AAD instance
 

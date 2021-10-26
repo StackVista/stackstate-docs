@@ -8,7 +8,7 @@ There are several ways to send telemetry to StackState. A large number of [integ
 
 ## StackState Receiver API
 
-The StackState Receiver API is responsible for receiving both telemetry and topology. By default, the Receiver API is hosted at:
+The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -16,21 +16,21 @@ The StackState Receiver API is responsible for receiving both telemetry and topo
 https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
+
 {% tab title="Linux" %}
 ```text
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
-
 ## Common JSON object
 
-Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
+Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages. One message can contain multiple metrics and multiple events.
 
 ```javascript
 {
@@ -185,7 +185,7 @@ All events in StackState relate to a topology element or elements. Any of the ev
 Events have the following details:
 
 * An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
-* **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) for views that contain a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
+* **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md) for views that contain a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
   * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
   * **element\_identifiers** - The [identifiers for the topology element\(s\)](../identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements. 
   * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.

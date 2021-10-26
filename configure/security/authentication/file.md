@@ -59,6 +59,7 @@ Follow the steps below to configure users and apply changes:
 
 {% hint style="info" %}
 **Note:**
+
 * An MD5 password hash can be generated using the `md5sum` or `md5` command line applications on Linux and Mac.
 * A bcrypt password hash can be generated using the following command line `htpasswd -bnBC 10 "" <password> | tr -d ':\n'` or using an online tool.
 * The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
@@ -83,10 +84,10 @@ authentication {
     stackstateAuthServer {
       # echo -n "password" | md5sum
       logins = [
-        { username = "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-admin"] }
-        { username = "platformadmin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-platform-admin"] }
-        { username = "power-user", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-power-user"] }
-        { username = "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles = ["stackstate-guest"] }
+        { username: "admin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles: ["stackstate-admin"] }
+        { username: "platformadmin", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles: ["stackstate-platform-admin"] }
+        { username: "power-user", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles: ["stackstate-power-user"] }
+        { username: "guest", password: "5f4dcc3b5aa765d61d8327deb882cf99", roles: ["stackstate-guest"] }
       ]
     }
   }
@@ -99,12 +100,20 @@ Follow the steps below to configure users and apply changes:
 
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
    * **username** - the username used to log into StackState.
-   * **password** - the password used to log into StackState. Passwords are stored as an MD5 hash and need to be provided as such, for example on a Linux or Mac command line the `md5sum` or `md5` tools can be used.
+   * **password** - the password used to log into StackState. Passwords are stored as either an MD5 hash or a bcrypt hash.
    * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
 2. Restart StackState to apply the changes.
+
+{% hint style="info" %}
+**Note:**
+
+* An MD5 password hash can be generated using the `md5sum` or `md5` command line applications on Linux and Mac.
+* A bcrypt password hash can be generated using the following command line `htpasswd -bnBC 10 "" <password> | tr -d ':\n'` or using an online tool.
+{% endhint %}
 
 ## See also
 
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
+

@@ -15,23 +15,23 @@ This check collects Tomcat metrics, for example:
 And more.
 
 ## Setup
+
 ### Installation
 
-The Tomcat check is included in the [Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/), so you don't need to install anything else on your Tomcat servers.
+The Tomcat check is included in the [Agent V2 StackPack](agent.md), so you don't need to install anything else on your Tomcat servers.
 
 This check is JMX-based, so you need to enable JMX Remote on your Tomcat servers. Follow the instructions in the [Tomcat documentation](https://tomcat.apache.org/tomcat-6.0-doc/monitoring.html) to do that.
 
 ### Configuration
 
 1. Edit the `tomcat.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your Tomcat metrics and logs. See the sample `tomcat.d/conf.yaml` for all available configuration options.
-
 2. Restart the Agent
 
 #### Metric Collection
 
-*  Add this configuration block to your `tomcat.yaml` file to start gathering your Tomcat metrics:
+* Add this configuration block to your `tomcat.yaml` file to start gathering your Tomcat metrics:
 
-```
+```text
 instances:
     -   host: localhost
         port: 7199
@@ -106,47 +106,49 @@ init_config:
             metric_type: counter
 ```
 
-See the [JMX Check documentation](/#/stackpacks/stackstate-agent-v2/java) for a list of configuration options usable by all JMX-based checks. The page also describes how the Agent tags JMX metrics.
+See the [JMX Check documentation](jmx.md) for a list of configuration options usable by all JMX-based checks. The page also describes how the Agent tags JMX metrics.
 
 Restart the Agent to start sending Tomcat metrics to StackState.
 
 Configuration Options:
 
-| Option                                        | Required | Description                                                                                                                                                                |
-|-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `user` and `password`                         | No       | Username and password                                                                                                                                                      |
-| `process_name_regex`                          | No       | Instead of specifying a host and port or `jmx_url`, the Agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set. |
-| `tools_jar_path`                              | No       | Should be set when `process_name_regex` is set.                                                                                                                            |
-| `java_bin_path`                               | No       | Should be set if the Agent cannot find your java executable.                                                                                                               |
-| `java_options`                                | No       | Java JVM options                                                                                                                                                           |
-| `trust_store_path` and `trust_store_password` | No       | Should be set if `com.sun.management.jmxremote.ssl` is set to true on the target JVM.                                                                                      |
-| `key_store_path` and `key_store_password`     | No       | Should be set if `com.sun.management.jmxremote.ssl.need.client.auth` is set to true on the target JVM.                                                                     |
-| `rmi_registry_ssl`                            | No       | Should be set to true if `com.sun.management.jmxremote.registry.ssl` is set to true on the target JVM.                                                                     |
+| Option | Required | Description |
+| :--- | :--- | :--- |
+| `user` and `password` | No | Username and password |
+| `process_name_regex` | No | Instead of specifying a host and port or `jmx_url`, the Agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set. |
+| `tools_jar_path` | No | Should be set when `process_name_regex` is set. |
+| `java_bin_path` | No | Should be set if the Agent cannot find your java executable. |
+| `java_options` | No | Java JVM options |
+| `trust_store_path` and `trust_store_password` | No | Should be set if `com.sun.management.jmxremote.ssl` is set to true on the target JVM. |
+| `key_store_path` and `key_store_password` | No | Should be set if `com.sun.management.jmxremote.ssl.need.client.auth` is set to true on the target JVM. |
+| `rmi_registry_ssl` | No | Should be set to true if `com.sun.management.jmxremote.registry.ssl` is set to true on the target JVM. |
 
 The `conf` parameter is a list of dictionaries. Only 2 keys are allowed in this dictionary:
 
-| Key       | Required | Description                                                                                                                   |
-|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `include` | Yes      | A dictionary of filters. Any attribute that matches these filters are collected unless it also matches the "exclude" filters. |
-| `exclude` | No       | A dictionary of filters. Attributes that match these filters won't be collected.                                              |
+| Key | Required | Description |
+| :--- | :--- | :--- |
+| `include` | Yes | A dictionary of filters. Any attribute that matches these filters are collected unless it also matches the "exclude" filters. |
+| `exclude` | No | A dictionary of filters. Attributes that match these filters won't be collected. |
 
 For a given bean, metrics get tagged in the following manner:
 
-    mydomain:attr0=val0,attr1=val1
+```text
+mydomain:attr0=val0,attr1=val1
+```
 
-Your metric is mydomain (or some variation depending on the attribute inside the bean) and has the tags `attr0:val0, attr1:val1, domain:mydomain`.
+Your metric is mydomain \(or some variation depending on the attribute inside the bean\) and has the tags `attr0:val0, attr1:val1, domain:mydomain`.
 
-If you specify an alias in an `include` key that is formatted as *camel case*, it is converted to *snake case*. For example, `MyMetricName` is shown in StackState as `my_metric_name`.
+If you specify an alias in an `include` key that is formatted as _camel case_, it is converted to _snake case_. For example, `MyMetricName` is shown in StackState as `my_metric_name`.
 
 See the sample `tomcat.yaml` for all available configuration options.
 
-##### The `attribute` filter
+**The attribute filter**
 
 The `attribute` filter accepts two types of values:
 
 * A dictionary whose keys are attributes names:
 
-```
+```text
   conf:
     - include:
         attribute:
@@ -165,7 +167,7 @@ For the case above, the metric aliases specified become the metric name in Stack
 
 * A list of attributes names:
 
-```
+```text
   conf:
     - include:
         domain: org.apache.cassandra.db
@@ -183,12 +185,12 @@ For the case above, the metric aliases specified become the metric name in Stack
 
 In that case:
 
-  * The metric type is a gauge
-  * The metric name is `jmx.\[DOMAIN_NAME].\[ATTRIBUTE_NAME]`
+* The metric type is a gauge
+* The metric name is `jmx.\[DOMAIN_NAME].\[ATTRIBUTE_NAME]`
 
 Here is another filtering example:
 
-```
+```text
 instances:
   - host: 127.0.0.1
     name: jmx_instance
@@ -205,7 +207,7 @@ init_config:
           - 99thPercentile
 ```
 
-```
+```text
   conf:
     - include:
         domain: domain_name
@@ -218,7 +220,7 @@ init_config:
 
 Tomcat uses by default the `log4j` logger. To activate the logging into a file and customize the log format edit the `log4j.properties` file in the `$CATALINA_BASE/lib` directory as follows:
 
-```
+```text
 log4j.rootLogger = INFO, CATALINA
 
  # Define all the appenders
@@ -264,13 +266,13 @@ Check Tomcat logging documentation for more information about Tomcat logging cap
 
 * Collecting logs is disabled by default in the StackState Agent, enable it in your `stackstate.yaml` file with:
 
-  ```
+  ```text
   logs_enabled: true
   ```
 
 * Add this configuration block to your `tomcat.d/conf.yaml` file to start collecting your Tomcat Logs:
 
-  ```
+  ```text
   logs:
     - type: file
       path: /var/log/tomcat/*.log
@@ -284,7 +286,6 @@ Check Tomcat logging documentation for more information about Tomcat logging cap
   ```
 
 * Change the `path` and `service` parameter values and configure them for your environment. See the sample `tomcat.yaml` for all available configuration options.
-
 * Restart the Agent.
 
 ### Validation
@@ -292,29 +293,44 @@ Check Tomcat logging documentation for more information about Tomcat logging cap
 Run the Agent's status subcommand and look for `tomcat` under the **Checks** section.
 
 ## Data Collected
+
 ### Metrics
+
 See `metadata.csv` for a list of metrics provided by this check.
 
 ### Events
+
 The Tomcat check does not include any events.
 
 ### Service Checks
 
-**tomcat.can_connect**
-Returns `CRITICAL` if the Agent is unable to connect to and collect metrics from the monitored Tomcat instance. Returns `OK` otherwise.
+**tomcat.can\_connect** Returns `CRITICAL` if the Agent is unable to connect to and collect metrics from the monitored Tomcat instance. Returns `OK` otherwise.
 
 ## Troubleshooting
+
 ### Commands to view the metrics that are available:
 
-  * List attributes that match at least one of your instance configurations:
-`sudo /etc/init.d/stackstate-agent jmx list_matching_attributes`
-  * List attributes that match one of your instance configurations but that are not collected because it would exceed the number of metrics that can be collected:
-`sudo /etc/init.d/stackstate-agent jmx list_limited_attributes`
-  * List attributes that are actually collected by your current instance configurations:
-`sudo /etc/init.d/stackstate-agent jmx list_collected_attributes`
-  * List attributes that don't match any of your instance configurations:
-`sudo /etc/init.d/stackstate-agent jmx list_not_matching_attributes`
-  * List every attribute available that has a type supported by JMXFetch:
-`sudo /etc/init.d/stackstate-agent jmx list_everything`
-  * Start the collection of metrics based on your current configuration and display them in the console:
-`sudo /etc/init.d/stackstate-agent jmx collect`
+* List attributes that match at least one of your instance configurations:
+
+  `sudo /etc/init.d/stackstate-agent jmx list_matching_attributes`
+
+* List attributes that match one of your instance configurations but that are not collected because it would exceed the number of metrics that can be collected:
+
+  `sudo /etc/init.d/stackstate-agent jmx list_limited_attributes`
+
+* List attributes that are actually collected by your current instance configurations:
+
+  `sudo /etc/init.d/stackstate-agent jmx list_collected_attributes`
+
+* List attributes that don't match any of your instance configurations:
+
+  `sudo /etc/init.d/stackstate-agent jmx list_not_matching_attributes`
+
+* List every attribute available that has a type supported by JMXFetch:
+
+  `sudo /etc/init.d/stackstate-agent jmx list_everything`
+
+* Start the collection of metrics based on your current configuration and display them in the console:
+
+  `sudo /etc/init.d/stackstate-agent jmx collect`
+

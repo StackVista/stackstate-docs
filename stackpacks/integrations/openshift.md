@@ -3,7 +3,7 @@ description: StackState core integration
 stackpack-name: OpenShift
 ---
 
-# OpenShift
+# 💠 OpenShift
 
 ## Overview
 
@@ -17,7 +17,7 @@ The OpenShift integration is used to create a near real-time synchronization of 
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](/setup/agent/openshift.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/openshift.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
@@ -52,10 +52,10 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/openshift.md).
+Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/openshift.md).
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ### Status
@@ -75,7 +75,7 @@ daemonset.apps/stackstate-cluster-agent-agent        10        10        10     
 
 ### Cluster checks
 
-Optionally, the chart can be configured to start additional StackState Agent V2 pods (1 by default) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](#stackstate-clustercheck-agent) pods.
+Optionally, the chart can be configured to start additional StackState Agent V2 pods \(1 by default\) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent) pods.
 
 #### Enable cluster checks
 
@@ -86,15 +86,15 @@ clusterChecks:
   enabled: true
 ```
 
-### Kubernetes_state check
+### Kubernetes\_state check
 
-The kubernetes_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
 
 #### Run as a cluster check
 
 In a default deployment, the pod running the StackState Cluster Agent and every deployed StackState Agent need to be able to run the check. In a large OpenShift cluster, this can consume a lot of memory as every pod must be configured with sufficient CPU and memory requests and limits. Since only one of those Agent pods will actually run the check, a lot of CPU and memory resources will be allocated, but will not be used.
 
-To remedy that situation, the kubernetes_state check can be configured to run as a cluster check. The YAML segment below shows how to do that in the `values.yaml` file used to deploy the `cluster-agent` chart:
+To remedy that situation, the kubernetes\_state check can be configured to run as a cluster check. The YAML segment below shows how to do that in the `values.yaml` file used to deploy the `cluster-agent` chart:
 
 ```yaml
 clusterChecks:
@@ -123,7 +123,6 @@ clusterAgent:
           - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
 ```
 
-
 ## Integration details
 
 ### Data retrieved
@@ -139,12 +138,12 @@ The OpenShift integration retrieves the following data:
 
 The OpenShift integration retrieves all events from the OpenShift cluster. The table below shows which event category will be assigned to each event type in StackState:
 
-| StackState event category | OpenShift events |
-| :--- | :--- |
-| **Activities** | `BackOff`<br />`ContainerGCFailed`<br />`ExceededGracePeriod`<br />`FileSystemResizeSuccessful`<br />`ImageGCFailed`<br />`Killing`<br />`NodeAllocatableEnforced`<br />`NodeNotReady`<br />`NodeSchedulable`<br />`Preempting`<br />`Pulling`<br />`Pulled`<br />`Rebooted`<br />`Scheduled`<br />`Starting`<br />`Started`<br />`SuccessfulAttachVolume`<br />`SuccessfulDetachVolume`<br />`SuccessfulMountVolume`<br />`SuccessfulUnMountVolume`<br />`VolumeResizeSuccessful` |
-| **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\)<br />`NodeReady`<br />`SandboxChanged`<br />`SuccesfulCreate` ||
-| **Others** | All other events |
+| StackState event category | OpenShift events |  |
+| :--- | :--- | :--- |
+| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |  |
+| **Alerts** | `NotTriggerScaleUp` |  |
+| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |  |
+| **Others** | All other events |  |
 
 #### Metrics
 
@@ -238,9 +237,9 @@ A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
-| **Show configuration and storage** | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
-| **Show dependencies \(deep\)** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob<br />pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
-| **Show pods** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob | Displays the pods for the selected workload. |
+| **Show configuration and storage** | pods containers | Display the selected pod or container with its configmaps, secrets and volumes |
+| **Show dependencies \(deep\)** | deployment replicaset replicationcontroller statefulset daemonset job cronjob pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
+| **Show pods** | deployment replicaset replicationcontroller statefulset daemonset job cronjob | Displays the pods for the selected workload. |
 | **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
@@ -283,7 +282,30 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
-**OpenShift StackPack v3.7.1 \(2021-04-02\)**
+**OpenShift StackPack v3.7.5 \(2021-07-14\)**
+
+* Improvement: Documentation update
+* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
+
+**OpenShift StackPack v3.7.4 \(2021-05-11\)**
+
+* Bug Fix: Set aggregation methods for desired replicas streams to be compatible with insufficient replicas check
+* Bug Fix: Set aggregation method for not ready endpoints stream \(on a service\) to be compatible with endpoints check
+
+**OpenShift StackPack v3.7.3 \(2021-04-29\)**
+
+* Bug Fix: Change dependency to latest version of k8s-common, as the previous release is broken.
+
+**OpenShift StackPack v3.7.2 \(2021-04-29\)**
+
+* Improvement: Prevented readiness checks from firing pre-maturely by setting window from 10 seconds to 15 minutes for workloads, pods, and containers.
+* Improvement: Prevented readiness checks from firing pre-maturely by changing how service health is determined, and extended the evaluation window to 15 minutes.
+
+**OpenShift StackPack v3.7.1 \(2021-04-12\)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**OpenShift StackPack v3.7.0 \(2021-04-02\)**
 
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
@@ -322,3 +344,4 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 * [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
 * [Openshift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)
+

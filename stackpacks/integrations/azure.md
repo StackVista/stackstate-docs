@@ -21,7 +21,9 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 ![Data flow](../../.gitbook/assets/stackpack-azure.png)
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
-* The StackState Azure function `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
+  * `TimedStart` triggers data collection every 2 hours.
+  * `EventHubChangesFunction` collects the deltas.  
+  * `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
 * StackState maps retrieved telemetry \(metrics\) onto the associated Azure components and relations.
@@ -38,6 +40,7 @@ To set up the StackState Azure integration, you need to have:
 * An Azure Service Principal \(SPN\) for the StackState Azure Agent with the following permissions:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
+* If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
 
 ### Install StackPack
 
@@ -85,6 +88,10 @@ az login
 ```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="info" %}
+Note that the install script is optimized to run with Azure CLI versions 2.24.0 and earlier. When running with Azure CLI versions 2.24.1 and above, you may see deprecation warnings.
+{% endhint %}
 
 ### Status
 
@@ -137,6 +144,8 @@ The Azure integration uses the following Azure REST API endpoints, scroll right 
 
 | Resource | Endpoint | SDK \(Version\) |
 | :--- | :--- | :--- |
+| Metric definitions | {resourceUri}/providers/Microsoft.Insights/metricDefinitions?api-version=2018-01-01 | github.com/Azure/azure-sdk-for-java \(1.16.0\) |
+| Metric values | {resourceUri}/providers/Microsoft.Insights/metrics?api-version=2018-01-01 | github.com/Azure/azure-sdk-for-java \(1.16.0\) |
 | AKS Managed Cluster | resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters?api-version=2018-03-31 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | Availability Sets | resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets?api-version=2018-06-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | ApplicationGateways | resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways?api-version=2018-04-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
@@ -172,12 +181,12 @@ There are a number of methods in the `TopologyDurableFunction` class:
 | :--- | :--- |
 | `TimedStart` | Timed trigger to start the MainOrchestrator. |
 | `HttpStart` | HTTP trigger to start the MainOrchestrator manually for testing or after a first deployment from the StackPack. |
-| `MainOrchestrator` | The orchestrator containing the main workflow:<br />GetSubscriptions -><br /> HandleSubscription \(for each subscription\) -><br /> SendToStackState. |
+| `MainOrchestrator` | The orchestrator containing the main workflow: GetSubscriptions -&gt;  HandleSubscription \(for each subscription\) -&gt;  SendToStackState. |
 | `GetSubscriptions` | Fetches all subscriptions that the service principle has access to. |
-| `HandleSubscription` | Sub-orchestrator, contains the workflow:<br />GetResourcesToInclude -><br /> ConvertResourcesToStackStateData \(for each set of resources, grouped by type\) |
+| `HandleSubscription` | Sub-orchestrator, contains the workflow: GetResourcesToInclude -&gt;  ConvertResourcesToStackStateData \(for each set of resources, grouped by type\) |
 | `GetResourcesToInclude` | Fetches all resources in a subscription and filters out those that are ignored. |
 | `ConvertResourcesToStackStateData` | Receives a group of resources and calls the ResourceTypeConverter class in the Core project. |
-| `ConvertResourcesToStackStateDataInner` | Regular method containing the actual implementation of ConvertResourcesToStackStateData. Result is an instance of the class Synchronization. |
+| `EventHubChangesFunction` | Listens to events for all currently supported resource types on `insights-operational-Logs` and provides incremental updates to StackState about your Azure environment. |
 | `SendToStackState` | Receives a Synchronization object and sends it to StackState. |
 | `PurgeHistory` | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
 
@@ -242,5 +251,6 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 ## See also
 
 * [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack)
-* [Service principals in Azure \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
+* [Service principals in Azure \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
+* [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses)
 

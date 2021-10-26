@@ -10,7 +10,7 @@ Anomaly detection identifies abnormal behavior in your fast-changing IT environm
 
 Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState user interface. An `Metric Stream Anomaly Event` for the incident will also be generated which can be inspected at on the [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md).
 
-The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to and the appropriate machine learning algorithms to use for each.
+The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
 
 ## Installation
 
@@ -24,7 +24,11 @@ If you are not sure that you have a Kubernetes setup or would you like to know m
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
-To install the AAD StackPack, simply press the install button. No other actions need to be taken. The AAD will need to train on your data. The first results of the AAD can be expected within an hour.
+To install the AAD StackPack, simply press the install button. No other actions need to be taken. A [training period](#training-period) is required before AAD can begin to report anomalies.
+
+### Training period
+
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3 day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
 
 ## Frequently Asked Questions
 
@@ -44,7 +48,7 @@ Yes. The AAD itself does not alert on anomalies found, but [anomaly health check
 
 ### How fast are anomalies detected?
 
-The AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
+After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
 ### How do I know what the AAD is working on?
 
@@ -58,7 +62,7 @@ To uninstall the AAD StackPack, simply press the uninstall button. No other acti
 
 Release notes for the AAD StackPack are given below.
 
-Note that from release 4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
+Note that from StackState release v4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
 **Autonomous Anomaly Detector StackPack v0.9.2 \(02-04-2021\)**
 

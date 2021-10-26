@@ -21,7 +21,7 @@ There are four perspectives in the StackState UI. You can switch between them us
 
 ## Time travel
 
-All perspectives allow for [time travel](/use/stackstate-ui/timeline-time-travel.md#time-travel) using the timeline control located at the bottom of the StackState UI. The timeline shows the currently selected telemetry interval and topology time. The active perspective uses the telemetry to show information relating to the topology that existed at the selected topology time. Switching to another perspective keeps the current telemetry interval in place, so you can easily correlate different types of information. 
+All perspectives allow for [time travel](../stackstate-ui/timeline-time-travel.md#time-travel) using the timeline control located at the bottom of the StackState UI. The timeline shows the currently selected telemetry interval and topology time. The active perspective uses the telemetry to show information relating to the topology that existed at the selected topology time. Switching to another perspective keeps the current telemetry interval in place, so you can easily correlate different types of information.
 
 Inside the timeline, blue bars show the number of recorded events at a particular point in time. This makes it possible to identify moments of interest that will help when troubleshooting.
 
@@ -29,4 +29,5 @@ By default, the timeline is in **live mode**. This means that it tracks changes 
 
 To the left of the telemetry interval time and topology time boxes there are two arrows, one pointing left and one pointing right. These **time jumpers** they move the telemetry interval forwards or backwards in time or shift the topology time to the next point for which StackState has recorded events.
 
-Read more about the [timeline and time travel](/use/stackstate-ui/timeline-time-travel.md)
+Read more about the [timeline and time travel](../stackstate-ui/timeline-time-travel.md)
+

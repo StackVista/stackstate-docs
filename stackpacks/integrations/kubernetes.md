@@ -3,7 +3,7 @@ description: StackState core integration
 stackpack-name: Kubernetes
 ---
 
-# Kubernetes
+# 💠 Kubernetes
 
 ## Overview
 
@@ -15,7 +15,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
-* Data is retrieved by the deployed [StackState Agents](/setup/agent/kubernetes.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -50,10 +50,10 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md).
+Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/kubernetes.md).
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](/setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
 {% endhint %}
 
 ### Status
@@ -86,9 +86,9 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 
 | StackState event category | Kubernetes events |
 | :--- | :--- |
-| **Activities** | `BackOff`<br />`ContainerGCFailed`<br />`ExceededGracePeriod`<br />`FileSystemResizeSuccessful`<br />`ImageGCFailed`<br />`Killing`<br />`NodeAllocatableEnforced`<br />`NodeNotReady`<br />`NodeSchedulable`<br />`Preempting`<br />`Pulling`<br />`Pulled`<br />`Rebooted`<br />`Scheduled`<br />`Starting`<br />`Started`<br />`SuccessfulAttachVolume`<br />`SuccessfulDetachVolume`<br />`SuccessfulMountVolume`<br />`SuccessfulUnMountVolume`<br />`VolumeResizeSuccessful` |
+| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
 | **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\)<br />`NodeReady`<br />`SandboxChanged`<br />`SuccesfulCreate` |
+| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
 | **Others** | All other events |
 
 #### Metrics
@@ -102,6 +102,10 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 #### Topology
 
 The Kubernetes integration retrieves components and relations for the Kubernetes cluster.
+
+{% hint style="info" %}
+Note that topology information will not be gathered from Kubernetes clusters that use the `containerd` container runtime.
+{% endhint %}
 
 **Components**
 
@@ -183,11 +187,11 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
 
-| Action | Available for<br />component types | Description |
+| Action | Available for component types | Description |
 | :--- | :--- | :--- |
-| **Show configuration and storage** | pods<br />containers | Display the selected pod or container with its configmaps, secrets and volumes |
-| **Show dependencies \(deep\)** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob<br />pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
-| **Show pods** | deployment<br />replicaset<br />replicationcontroller<br />statefulset<br />daemonset<br />job<br />cronjob | Displays the pods for the selected workload. |
+| **Show configuration and storage** | pods containers | Display the selected pod or container with its configmaps, secrets and volumes |
+| **Show dependencies \(deep\)** | deployment replicaset replicationcontroller statefulset daemonset job cronjob pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
+| **Show pods** | deployment replicaset replicationcontroller statefulset daemonset job cronjob | Displays the pods for the selected workload. |
 | **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
@@ -221,7 +225,30 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## Release notes
 
-**Kubernetes StackPack v3.9.1 \(2021-04-02\)**
+**Kubernetes StackPack v3.9.5 \(2021-07-14\)**
+
+* Improvement: Documentation update
+* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
+
+**Kubernetes StackPack v3.9.4 \(2021-05-11\)**
+
+* Bug Fix: Set aggregation methods for desired replicas streams to be compatible with insufficient replicas check
+* Bug Fix: Set aggregation method for not ready endpoints stream \(on a service\) to be compatible with endpoints check
+
+**Kubernetes StackPack v3.9.3 \(2021-04-29\)**
+
+* Bug Fix: Change dependency to latest version of k8s-common, as the previous release is broken.
+
+**Kubernetes StackPack v3.9.2 \(2021-04-29\)**
+
+* Improvement: Prevented readiness checks from firing pre-maturely by setting window from 10 seconds to 15 minutes for workloads, pods, and containers.
+* Improvement: Prevented readiness checks from firing pre-maturely by changing how service health is determined, and extended the evaluation window to 15 minutes.
+
+**Kubernetes StackPack v3.9.1 \(2021-04-12\)**
+
+* Improvement: Common bumped from 2.5.0 to 2.5.1
+
+**Kubernetes StackPack v3.9.0 \(2021-04-02\)**
 
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
@@ -256,8 +283,9 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## See also
 
-* [Deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](/setup/agent/kubernetes.md)
+* [Deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/kubernetes.md)
 * [StackState Agent V2 StackPack](agent.md)
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 * [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
 * [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/)
+

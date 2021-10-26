@@ -129,7 +129,6 @@ To configure StackState to authenticate using an LDAP authentication server on L
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
 ```javascript
-
 authorization {
   // map the groups from the LDAP to the
   // 4 standard subjects in StackState (guest, powerUser, admin and platformAdmin)
@@ -208,3 +207,4 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 * [Authentication options](authentication_options.md)
 * [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
+

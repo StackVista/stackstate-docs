@@ -1,2 +1,2 @@
-# Develop StackPacks
+# StackPack development
 

@@ -3,7 +3,7 @@ title: Id Extraction
 kind: Documentation
 ---
 
-# ID extraction
+# ID extractor functions
 
 Id extraction is used in the synchronization process to turn external data into External Topology. It extracts the unique identity and identifiers for components. With the external data being send, the Id Extractor can produce the following information:
 
