@@ -90,10 +90,12 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
      ```text
      init_config:
-       # run every minute
-       min_collection_interval: 60
+       
+       
      instances:
-     - hostip: localhost
+     # run every minute
+     - collection_interval: 60
+       hostip: localhost
        domain: stackstate
        username: <username>
        password: <password>
@@ -141,7 +143,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      ```text
      init_config:
        # run every minute
-       min_collection_interval: 60
+       collection_interval: 60
      instances:
      - integration_mode: powershell    # api or powershell, default api
      ```

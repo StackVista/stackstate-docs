@@ -41,12 +41,12 @@ After the integration is enabled WMI queries can be defined in the integrations 
 | `tag_by` | No | Adds the properties value as tag to the metric that is send to StackState. |
 | `tags` | No | Add customer tags to the metric that is send to StackState. |
 | `filters` | No | WMI query filter to reduce the amount of metrics returned. |
-| `min_collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds. |
+| `collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds. |
 
 Example instance:
 
 ```text
-  - min_collection_interval: 120
+  - collection_interval: 120
     class: Win32_PerfRawData_MSSQLSERVER_SQLServerDatabases
     metrics:
       - [ActiveTransactions, sql.server.connections.active, gauge]

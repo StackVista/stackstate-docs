@@ -270,7 +270,7 @@ The `HealthStream` class has the following options:
 
 * **urn** - HealthStreamUrn. The stream urn under which the health infromation will be grouped.
 * **sub\_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. For example, the data for the streams is reported separately from different hosts.
-* **repeat\_interval\_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `min_collection_interval`. This allows stackstate to detect when data arrives later than expected.
+* **repeat\_interval\_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `collection_interval`. This allows stackstate to detect when data arrives later than expected.
 * **expiry\_seconds** - integer. Optional. The time after which all data from the stream or substream should be removed. Set to '0' to disable expiry \(this is only possible when the `sub_stream` parameter is omitted\). Default 4\*`repeat_interval_seconds`.
 
 For more information on urns, health synchronization streams, snapshots and how to debug, see [health Synchronization](../../../configure/health/health-synchronization.md).

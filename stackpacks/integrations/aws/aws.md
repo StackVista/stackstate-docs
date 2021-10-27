@@ -123,7 +123,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
        regions: # The Agent will only attempt to find resources in regions specified below
          - global # global is a special "region" for global resources such as Route53
          - eu-west-1
-       min_collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run: # Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
        #   - ec2
        # log_bucket_name: '' # The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
