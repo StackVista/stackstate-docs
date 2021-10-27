@@ -16,7 +16,7 @@ With the release of StackState v4.4, StackState v4.1 has reached End of Life \(E
 
 ### Setup and configuration
 
-{% page-ref page="setup/install/kubernetes_install/" %}
+{% page-ref page="setup/install-stackstate/kubernetes_install/" %}
 
 {% page-ref page="stackpacks/integrations/" %}
 
