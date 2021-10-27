@@ -12,11 +12,11 @@ With the release of StackState v4.4, StackState v4.1 has reached End of Life \(E
 
 ### Using StackState
 
-{% page-ref page="use/introduction-to-stackstate/getting\_started.md" %}
+{% page-ref page="getting_started.md" %}
 
 ### Setup and configuration
 
-{% page-ref page="setup/installation/kubernetes\_install/" %}
+{% page-ref page="setup/install/kubernetes_install/" %}
 
 {% page-ref page="stackpacks/integrations/" %}
 
