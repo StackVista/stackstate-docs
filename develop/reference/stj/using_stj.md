@@ -100,7 +100,7 @@ Please [have a look at the available functions](stj_reference.md).
 
 ## Component and Relation templates
 
-Templates are used to create topology. Please find more information on the [Component and Relation templates page.](../../../use/stackstate-concepts/components_relations.md).
+Templates are used to create topology. Please find more information on the [Component and Relation templates page.](../../../use/concepts/components_relations.md).
 
 ## See also
 

@@ -10,7 +10,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 To create a new view navigate to **Explore Mode** via the hamburger menu or use another view as a starting point. Whenever you change any of the [View filters](../filters.md), a **Save View** button will appear at the top of the screen. Click this button to save your current selection to a view. To create a new view from the current view use the dropdown menu next to the button and select **Save View As**.
 
-In the dialog the following options appear:
+In the **Save view as** dialog, the following options can be set:
 
 | Field Name | Description |
 | :--- | :--- |

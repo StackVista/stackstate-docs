@@ -74,4 +74,4 @@ A problem is considered to start one hour before the timestamp of the first repo
 
 * [What is a problem?](problems.md)
 * [Problem notifications](problem_notifications.md)
-* [Anomaly detection](../stackstate-concepts/anomaly-detection.md)
+* [Anomaly detection](../concepts/anomaly-detection.md)
