@@ -38,7 +38,7 @@ By default, the following response time streams are set for processes and servic
 - HTTP 4xx error response time (s) (95th percentile)
 - HTTP Success response time (s) (95th percentile)
 
-![HTTP response code](../../.gitbook/assets/http-code.png)
+![HTTP response code](/.gitbook/assets/http-code.png)
 
 ### Traffic
 
