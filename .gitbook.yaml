@@ -265,3 +265,4 @@ redirects:
   use/introduction-to-stackstate/layers_domains_and_environments.md: ./use/concepts/layers_domains_environments.md
   use/introduction-to-stackstate/perspectives.md: ./use/concepts/perspectives.md
   use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture
+  get-started/getting-started: ./getting_started.md
