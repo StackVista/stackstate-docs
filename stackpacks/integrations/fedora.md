@@ -25,10 +25,11 @@ The Fedora integration is part of the [StackState Agent V2 StackPack](agent.md).
 
 StackState Agent V2 will synchronize the following data from the host it is running on with StackState:
 
-* Hosts, processes and containers.
-* Telemetry for hosts, processes and containers.
-* Network connections between processes and containers.
-* Network traffic telemetry. 
+- Hosts, processes and containers.
+- Telemetry for hosts, processes and containers.
+- Network connections between processes and containers.
+- Network traffic telemetry. 
+- [Golden signals](/use/metrics-and-events/golden_signals.md), such as HTTP server latencies, errors and request counts.
 
 See the [supported Linux versions](../../setup/agent/linux.md#supported-linux-versions) for details.
 

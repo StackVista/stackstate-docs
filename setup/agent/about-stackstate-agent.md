@@ -12,7 +12,14 @@ StackState Agent V2 can be run on Linux or Windows systems or inside a Docker co
 
 * In [Docker Swarm mode](docker.md#docker-swarm-mode), the Cluster Agent is deployed on the manager node and one Agent on each node.
 * On [Kubernetes](kubernetes.md) and [OpenShift](openshift.md) clusters, a single Cluster Agent is deployed per cluster and one Agent on each node. The ClusterCheck Agent can optionally be deployed to run checks that are configured on the Cluster Agent.
-* The [API Integration Agent \(Legacy\)](agent-v1.md) can be run on Linux.
+
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+The [API Integration Agent \(Legacy\)](agent-v1.md) can be run on Linux.
+{% endhint %}
 
 ## Integrate with external systems
 
@@ -76,5 +83,4 @@ Release notes for StackState Agent V2 can be found on GitHub at: [https://github
 
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState integrations](../../stackpacks/integrations/)
-* [StackState Agent V1 \(Legacy\)](agent-v1.md)
-
+* [StackState Agent V1 \(Legacy\)](agent-v1.md "StackState Self-Hosted only")

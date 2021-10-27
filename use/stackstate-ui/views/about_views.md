@@ -9,11 +9,11 @@ description: Bookmark and monitor parts of your IT landscape with views
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
 * [Filters](../filters.md):
-  * Topology filters are used to add elements \(components and relations\) to the view.
-  * Events and Traces filters refine the traces and events displayed.
-* [Visualization settings](visualization_settings.md) – to customize how components are displayed within the view.
-* [View health state configuration](about_views.md#view-health-state) – can be enabled to report the health state of the view.
-* Event handlers - to respond to events generated in the view and [send event notifications](../../metrics-and-events/send-event-notifications.md).
+  * Topology filters - add elements \(components and relations\) to the view.
+  * Events and Traces filters - refine the traces and events displayed.
+* [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.
+* [View health state configuration](about_views.md#view-health-state) – reports the health state of the view.
+* Event handlers - respond to events generated in the view and [send event notifications](../../metrics-and-events/send-event-notifications.md).
 
 Generally speaking, views serve two major purposes:
 
@@ -56,7 +56,7 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Enable or disable view health state
 
-* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md). 
+* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md).
 * To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
 Read more about how to [configure the view health state](../../health-state/configure-view-health.md).
@@ -67,12 +67,17 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 ## Secure views with RBAC
 
-Through a combination of configuration of permissions and scope, it is possible to give specific users:
+{% hint style="success" %}
+**StackState Self-Hosted**
 
-* access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views
-* access to specific views and disallow them to create, modify or delete views
+Extra information for the StackState Self-Hosted product:
 
-For further details, see the [RBAC documentation](../../../configure/security/rbac/role_based_access_control.md).
+Through a combination of configuration of permissions and scope, it is possible [control access for specific users](../../../configure/security/rbac/role_based_access_control.md):
+
+* Give access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views.
+* Give access to specific views and disallow them to create, modify or delete views.
+
+{% endhint %}
 
 ## See also
 
@@ -80,4 +85,3 @@ For further details, see the [RBAC documentation](../../../configure/security/rb
 * [Health state for a view](../../health-state/health-state-in-stackstate.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
 * [Send event notifications for view health state changes](../../metrics-and-events/send-event-notifications.md)
-

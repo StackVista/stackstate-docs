@@ -14,13 +14,17 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ## Installation
 
-### Prerequisites
+{% hint style="success" %}
+**StackState Self-Hosted**
 
-The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
+Extra information for the StackState Self-Hosted product:
 
-It is also possible to [install the AAD standalone](../../setup/installation/kubernetes_install/aad_standalone.md) within Kubernetes.
+**Prerequisites**
 
-If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
+* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
+* It is also possible to [install the AAD standalone](../../setup/installation/kubernetes_install/aad_standalone.md) within Kubernetes.
+* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
+{% endhint %}
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
@@ -50,9 +54,13 @@ Yes. The AAD itself does not alert on anomalies found, but [anomaly health check
 
 After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
-### How do I know what the AAD is working on?
+{% hint style="success" %}
+**StackState Self-Hosted**
 
-The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)\).
+Extra information for the StackState Self-Hosted product:
+
+* Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)\).
+{% endhint %}
 
 ## Uninstall
 
@@ -91,6 +99,5 @@ Note that from StackState release v4.3 the AAD is configured, installed and upgr
 
 ## See also
 
-* [Anomaly detection](../../use/introduction-to-stackstate/anomaly-detection.md)
+* [Anomaly detection](../../use/stackstate-concepts/anomaly-detection.md)
 * [Anomaly health checks](../../use/health-state/anomaly-health-checks.md)
-

@@ -49,6 +49,6 @@ The following events will be generated:
 ## See also
 
 * [How to navigate through a problem in the StackState UI](problem_investigation.md)
-* [Anomaly detection](../introduction-to-stackstate/anomaly-detection.md)
+* [Anomaly detection](../stackstate-concepts/anomaly-detection.md)
 * [Problem notifications](problem_notifications.md)
 

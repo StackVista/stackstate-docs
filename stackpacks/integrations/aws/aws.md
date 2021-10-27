@@ -16,6 +16,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
 * Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
+* [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
 
 ## Setup
 
@@ -132,6 +133,22 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 2. [Restart the StackState Agent](../../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 3. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+
+### Configure VPC FlowLogs
+
+VPC FlowLogs can be analysed to retrieve relations between EC2 instances and RDS database instances. For each VPC that you want to analyse, a FlowLog needs to be configured. The process of adding FlowLogs for new VPCs could be automated using a Lambda triggered by a CloudTrail event that creates the FlowLog. Relations will be retrieved for EC2 instances and RDS database instances with a static public or private IP address and emit the proper URNs. For public IP addresses `urn:host:/{ip-address}`, for private IP addresses the URN has the form `urn:vpcip:{vpc-id}/{ip-address}`.
+
+For further details, see [Required AWS resources - VPC FlowLogs](#vpc-flowlogs).
+
+To configure a VPC FlowLog from the AWS console:
+
+1. From the **VPC Dashboard**, choose **Your VPCs** under **VIRTUAL PRIVATE CLOUD**.
+2. Select the VPC that you want to configure.
+3. Select **Flow logs** on the lower TAB-bar.
+4. Click **Create flow log**.
+5. Add the settings as shown in the screenshot.
+
+![VPC FlowLog settings](/.gitbook/assets/vpc_flowlogs_config.png)
 
 ### Use an HTTP proxy
 
@@ -254,7 +271,7 @@ Only one S3 bucket is necessary per account; all regions can send to the same bu
 A catch-all rule for listening to all events for services supported by the AWS StackPack. All matched rules are sent to a Kinesis Firehose delivery stream.
 
 * [EventBridge Rule - JSON object](aws-policies.md#stseventbridgerule)
-* [EventBridge IAM Role - JSON](aws-policies.md#stackstateeventbridgerole-usd-region) - Give permission for EventBridge to send data to Kinesis Firehose
+* [EventBridge IAM Role - JSON](aws-policies.md#stackstateeventbridgerole-region) - Give permission for EventBridge to send data to Kinesis Firehose
 
 {% hint style="info" %}
 A rule must be created in each region where events are captured, each sending to a Firehose delivery stream in the same region.
@@ -270,7 +287,7 @@ The Prefix must be set to `AWSLogs/${AccountId}/EventBridge/${Region}/`, where `
 A delivery stream must be created in each region where events are captured, however, the target S3 bucket can exist in any region.
 {% endhint %}
 
-* [Kinesis Firehose IAM Role - JSON](aws-policies.md#stackstatefirehoserole-usd-region) - Gives permission for Firehose to send data to an S3 bucket.
+* [Kinesis Firehose IAM Role - JSON](aws-policies.md#stackstatefirehoserole-region) - Gives permission for Firehose to send data to an S3 bucket.
 
 #### KMS Key \(Optional\)
 
@@ -283,6 +300,24 @@ A KMS key must be created in each region where events are captured.
 {% endhint %}
 
 * [Sample KMS Key policy](aws-policies.md#stackstate-integration-kms-key).
+
+#### VPC FlowLogs
+
+{% hint style="warning" %}
+VPC FlowLogs support is currently experimental.
+{% endhint %}
+
+A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute. The FlowLogs contain meta information about the network traffic inside VPCs. Only private network traffic is considered, traffic from NAT gateways and application load balancers will be ignored. 
+
+S3 objects that have been processed will be deleted from the bucket to make sure they will not be processed again. On the default S3 bucket, object versioning is enabled, this means objects will not actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
+
+If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
+
+{% hint style="info" %}
+A [FlowLog must be configured](#configure-vpc-flowlogs) for each VPC that you want to analyse.
+{% endhint %}
+
+* [AWS Flow Logs documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
 
 ### Costs
 
@@ -303,7 +338,7 @@ When the AWS integration is enabled, three [views](../../../use/stackstate-ui/vi
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](../../../configure/topology/component_actions.md) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 

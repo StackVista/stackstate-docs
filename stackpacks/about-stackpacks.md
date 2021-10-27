@@ -23,7 +23,13 @@ StackPacks contain configuration information for StackState that is installed wh
 
 To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
 
-Note that the lock status of configuration items will not be exported as part of a [configuration backup](../setup/data-management/backup_restore/configuration_backup.md).
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
+{% endhint %}
 
 ## Which StackPacks are available?
 
@@ -32,14 +38,20 @@ The available StackPack add-ons and integrations can be found on the **StackPack
 * [Add-ons](add-ons/)
 * [Integrations](integrations/)
 
-The StackPack versions shipped with each supported release of StackState can be found on the page [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md).
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
+{% endhint %}
 
 ## Install or uninstall a StackPack
 
 StackPacks can be installed and uninstalled from the **StackPacks** page in StackState. Full install and uninstall instructions are provided.
 
 {% hint style="info" %}
-**Note that**
+**Note that:**
 
 * A StackPack may require **manual** installation steps or configuration of the external system. Please read the instructions provided carefully.
 * When a StackPack or StackPack instance is uninstalled, **all data received via the StackPack \(instance\) will be removed from StackState.**
@@ -54,7 +66,13 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
 
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
+{% endhint %}
 
 ### New Minor StackPack version
 
@@ -64,13 +82,18 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 
 ### New Major StackPack version
 
-{% hint style="info" %}
-Note that all StackPack configuration items will be overwritten after a major StackPack upgrade. Before you upgrade, export any customized items. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
+{% hint style="warning" %}
+When a StackPack is upgraded, **any changes made to configuration items from that StackPack will be overwritten**. For details, see [locked configuration items](about-stackpacks.md#locked-configuration-items).
 {% endhint %}
 
 To upgrade to a new major version of a StackPack, [uninstall and reinstall](about-stackpacks.md#install-or-uninstall-a-stackpack) the StackPack.
 
-Note that all StackPack configuration items will be overwritten when you upgrade. Follow the steps below to continue using any changes made to these items.
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+Continue using changes made to customized StackPack configuration items after upgrade:
 
 1. Before you upgrade, export each customized item:
    * Go to the **Settings** page in the StackState UI.
@@ -83,3 +106,4 @@ Note that all StackPack configuration items will be overwritten when you upgrade
 4. [Import](../setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file\(s\).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
 
+{% endhint %}
