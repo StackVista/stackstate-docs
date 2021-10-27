@@ -1,6 +1,5 @@
 ---
 title: 'Layers, Domains, and Environments'
-kind: Documentation
 ---
 
 # Layers, Domains and Environments

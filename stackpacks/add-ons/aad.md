@@ -99,5 +99,5 @@ Note that from StackState release v4.3 the AAD is configured, installed and upgr
 
 ## See also
 
-* [Anomaly detection](../../use/introduction-to-stackstate/anomaly-detection.md)
+* [Anomaly detection](../../use/stackstate-concepts/anomaly-detection.md)
 * [Anomaly health checks](../../use/health-state/anomaly-health-checks.md)
