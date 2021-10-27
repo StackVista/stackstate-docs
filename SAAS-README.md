@@ -16,7 +16,7 @@ Go to documentation for the [StackState Self-Hosted](https://docs.stackstate.com
 
 ### Using StackState
 
-{% page-ref page="use/introduction-to-stackstate/getting_started.md" %}
+{% page-ref page="getting_started.md" %}
 
 {% page-ref page="stackpacks/integrations/" %}
 
