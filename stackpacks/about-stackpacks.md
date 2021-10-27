@@ -1,8 +1,6 @@
----
-description: What is a StackPack?
----
+# About StackPacks
 
-# What is a StackPack?
+## Overview
 
 StackPacks are plugins for StackState that extend functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.
 
@@ -16,20 +14,6 @@ There are two types of StackPack:
 Some StackPacks allow you to connect to multiple accounts on an external system. Each account is configured in a separate instance of the StackPack.
 
 For example, the AWS StackPack can connect to multiple AWS accounts and combine information from all accounts in StackState. For each account, a separate StackState instance is configured with the information required to receive data from that AWS account.
-
-## Locked configuration items
-
-StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. Amongst other things, this could be component templates, functions, component actions and views. When a StackPack is upgraded, **the configuration items installed by the previous version of the StackPack will be overwritten by those from the newer StackPack.** This means that any manual change made to these configuration items will be overwritten when the StackPack is upgraded.
-
-To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
-
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
-{% endhint %}
 
 ## Which StackPacks are available?
 
@@ -46,9 +30,23 @@ Extra information for the StackState Self-Hosted product:
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 {% endhint %}
 
+## Locked configuration items
+
+StackPacks contain configuration information for StackState that is installed when the StackPack \(instance\) is installed. Amongst other things, this could be component templates, functions, component actions and views. When a StackPack is upgraded, **the configuration items installed by the previous version of the StackPack will be overwritten by those from the newer StackPack.** This means that any manual change made to these configuration items will be overwritten when the StackPack is upgraded.
+
+To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
+
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
+{% endhint %}
+
 ## Install or uninstall a StackPack
 
-StackPacks can be installed and uninstalled from the **StackPacks** page in StackState. Full install and uninstall instructions are provided.
+StackPacks can be installed and uninstalled from the **StackPacks** page in StackState. Full instructions to install and uninstall the StackPack are provided.
 
 {% hint style="info" %}
 **Note that:**
