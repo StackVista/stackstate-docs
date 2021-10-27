@@ -11,6 +11,8 @@ A component consists of:
 3. An inner color is representing the health state.
 4. An outer color is representing the propagated health state. This state depends on other components or relations.
 
+![](/.gitbook/assets/021_topology_elements.png)
+
 ### Grouping
 
 Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a hexagon in the topology visualization. The size of the component group's hexagon in the topology visualization represents the number of components in the group:
@@ -34,9 +36,9 @@ Relations in StackState can be either direct or indirect. The type of relation i
 
 | Relation type | Description |
 | :--- | :--- |
-| ![](../../../.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. |
-| ![](../../../.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. |
-| | Both a **direct relation** and an **indirect relation** between a component and a component group will be shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct, indirect and/or no relations to one or more components in the group.** |
+| ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. |
+| ![](/.gitbook/assets/relation_group_comp.svg) | Both a **direct relation** and an **indirect relation** between a component and a component group will be shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct, indirect and/or no relations to one or more components in the group.** |
 
 ### Dependencies and propagation
 
