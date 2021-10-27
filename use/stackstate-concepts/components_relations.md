@@ -40,7 +40,7 @@ Relations in StackState can be either direct or indirect. The type of relation i
 | ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Click on an indirect relation to view the path between the components in the right-hand pane. |
 | ![](/.gitbook/assets/relation_group_comp.svg) | Both a **direct relation** and an **indirect relation** between a component and a component group will be shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct, indirect and/or no relations to one or more components in the group.** Click on a grouped relation to view details of the included relations in the right-hand pane. |
 
-Click on an indirect or grouped relation to view details in the right-hand pane. 
+Click on a relation to view details in the right-hand pane. 
 
 ![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
 
