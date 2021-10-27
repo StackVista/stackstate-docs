@@ -16,7 +16,7 @@ The Topology Perspective shows the filtered components and relations in a select
 
 Click on a component to view details in the right-hand pane.
 
-Read more about [components](/use/stackstate-concepts/components_relations.md#components).
+Read more about [components](/use/concepts/components_relations.md#components).
 
 ### Component context menu
 
@@ -51,7 +51,7 @@ Relations show how components in the topology are connected together. They are r
 
 Click on a relation to view details in the right-hand pane.
 
-Read more about [relations](/use/stackstate-concepts/components_relations.md#relations).
+Read more about [relations](/use/concepts/components_relations.md#relations).
 
 ![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
 
@@ -74,7 +74,7 @@ The visualization of components and relations in the topology perspective can be
 
 * Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
-* Grid - should components be organized by [layer and domain](../../stackstate-concepts/layers_domains_environments.md).
+* Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
 * Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](topology-perspective.md#relations).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).

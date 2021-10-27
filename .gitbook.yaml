@@ -259,9 +259,9 @@ redirects:
   stackpacks/integrations/windows.md: ./setup/agent/windows.md
   stackpacks/integrations/docker.md: ./setup/agent/docker.md
   use/introduction-to-stackstate/getting_started.md: ./getting_started.md
-  use/introduction-to-stackstate/4t_data_moodel.md: ./use/stackstate-concepts/4t_data_moodel.md
-  use/introduction-to-stackstate/anomaly-detection.md: ./use/stackstate-concepts/anomaly-detection.md
-  use/introduction-to-stackstate/components_and_relations.md: ./use/stackstate-concepts/components_and_relations.md
-  use/introduction-to-stackstate/layers_domains_and_environments.md: ./use/stackstate-concepts/layers_domains_environments.md
-  use/introduction-to-stackstate/perspectives.md: ./use/stackstate-concepts/perspectives.md
-  use/introduction-to-stackstate/stackstate_architecture: ./use/stackstate-concepts/stackstate_architecture
+  use/introduction-to-stackstate/4t_data_moodel.md: ./use/concepts/4t_data_moodel.md
+  use/introduction-to-stackstate/anomaly-detection.md: ./use/concepts/anomaly-detection.md
+  use/introduction-to-stackstate/components_and_relations.md: ./use/concepts/components_and_relations.md
+  use/introduction-to-stackstate/layers_domains_and_environments.md: ./use/concepts/layers_domains_environments.md
+  use/introduction-to-stackstate/perspectives.md: ./use/concepts/perspectives.md
+  use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture

@@ -4,13 +4,13 @@
 
 ## 🚀 Get started
 
-* [Getting Started](use/stackstate-concepts/getting_started.md)
-* [StackState concepts](use/stackstate-concepts/README.md)
-  * [The 4T data model](use/stackstate-concepts/4t_data_model.md)
-  * [Components and Relations](use/stackstate-concepts/components_relations.md)
-  * [Perspectives](use/stackstate-concepts/perspectives.md)
-  * [Anomaly detection](use/stackstate-concepts/anomaly-detection.md)
-  * [Layers, Domains and Environments](use/stackstate-concepts/layers_domains_environments.md)
+* [Getting Started](getting_started.md)
+* [Concepts](use/concepts/README.md)
+  * [The 4T data model](use/concepts/4t_data_model.md)
+  * [Components and Relations](use/concepts/components_relations.md)
+  * [Perspectives](use/concepts/perspectives.md)
+  * [Anomaly detection](use/concepts/anomaly-detection.md)
+  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
 * [Glossary](use/glossary.md)
 
 ## 👤 StackState UI
