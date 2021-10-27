@@ -2,7 +2,7 @@
 
 ## Overview
 
-The [StackState CLI](../../setup/installation/cli-install.md) can be used to debug a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
+The [StackState CLI](../../setup/install-stackstate/cli-install.md) can be used to debug a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
 
 ## General troubleshooting steps
 
@@ -194,6 +194,6 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 
 ## See also
 
-* [Install the StackState CLI](../../setup/installation/cli-install.md)
+* [Install the StackState CLI](../../setup/install-stackstate/cli-install.md)
 * [StackState CLI reference](../../develop/reference/cli_reference.md)
 

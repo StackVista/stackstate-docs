@@ -2,7 +2,7 @@
 
 ## Overview
 
-StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/installation/cli-install.md).
+StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/install-stackstate/cli-install.md).
 
 ## StackState Receiver API
 
@@ -14,7 +14,7 @@ The StackState Receiver API accepts topology, telemetry and health data in a com
 https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -22,7 +22,7 @@ Both the `baseUrl` and `API_KEY` are set during StackState installation, for det
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -50,7 +50,7 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 ## See also
 
-* [Install the StackState CLI](/setup/installation/cli-install.md)
+* [Install the StackState CLI](/setup/install-stackstate/cli-install.md)
 * [StackState CLI reference](/develop/reference/cli_reference.md)
 * [Send topology data over HTTP](/configure/topology/send-topology-data.md)
 * [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
