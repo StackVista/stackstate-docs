@@ -14,6 +14,8 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/health-state-in-stackstate.md).
 
+Click on a component to view details in the right-hand pane.
+
 Read more about [components](/use/stackstate-concepts/components_relations.md#components).
 
 ### Component context menu
@@ -47,7 +49,11 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
+Click on a relation to view details in the right-hand pane.
+
 Read more about [relations](/use/stackstate-concepts/components_relations.md#relations).
+
+![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
 
 ## Filters
 
