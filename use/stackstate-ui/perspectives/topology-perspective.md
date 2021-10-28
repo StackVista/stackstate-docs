@@ -14,13 +14,16 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/health-state-in-stackstate.md).
 
-Click on a component to view details in the right-hand pane.
+* Click on a component to open the [component details](#component-details-pane) in the right-hand pane.
+* Hover over a component to open the [component context menu](#component-context-menu).
 
-Read more about [components](/use/concepts/components_relations.md#components).
+➡️ Read more about [components](/use/concepts/components_relations.md#components).
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state. You can also run shortcuts and the actions specific to the component from here.
+When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state. You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
+
+![Component context menu](/.gitbook/assets/v45_component_context_menu.png)
 
 ### Actions
 
