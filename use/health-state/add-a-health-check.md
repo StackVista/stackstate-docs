@@ -61,7 +61,9 @@ For metrics check functions, a windowing method and window size must be provided
 
 #### Check function: Autonomous metric stream anomaly detection
 
-The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
+The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). 
+
+➡️ [Read more about how to use anomaly health checks](anomaly-health-checks.md).
 
 
 ## Synchronize external health data
