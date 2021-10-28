@@ -18,7 +18,7 @@ To find out more about how you can add traces to StackState, please read the [gu
 
 The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
 
-![Inspecting a trace](../../../.gitbook/assets/v44_trace-inspection%20%281%29.png)
+![Inspecting a trace](../../../.gitbook/assets/v44_trace-inspection.png)
 
 Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to Postgres calls that are made when completing the request.
 
@@ -59,7 +59,7 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../../.gitbook/assets/v44_trace-inspection%20%282%29.png)
+![The spans \(components\) of a trace](../../../.gitbook/assets/v44_trace-inspection.png)
 
 ![The topology for which you fetch traces](../../../.gitbook/assets/v44_topology-traces.png)
 
@@ -83,5 +83,5 @@ To avoid this, time will effectively be paused when you inspect a trace/span or 
 
 ![Pausing time when inspecting a trace](../../../.gitbook/assets/v44_trace-inspection.png)
 
-Read more about [time travel](../timeline-time-travel.md#time-travel).
+➡️ [Learn more about time travel](../timeline-time-travel.md#time-travel).
 

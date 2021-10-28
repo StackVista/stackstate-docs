@@ -14,13 +14,16 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/health-state-in-stackstate.md).
 
-Click on a component to view details in the right-hand pane.
+* Click on a component to open the [component details](#component-details-pane) in the right-hand pane.
+* Hover over a component to open the [component context menu](#component-context-menu).
 
-Read more about [components](/use/concepts/components_relations.md#components).
+➡️ [Learn more about components](/use/concepts/components_relations.md#components).
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state. You can also run shortcuts and the actions specific to the component from here.
+When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state. You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
+
+![Component context menu](/.gitbook/assets/v45_component_context_menu.png)
 
 ### Actions
 
@@ -49,9 +52,9 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
-Click on a relation to view details in the right-hand pane.
+Click on a relation to open the relation details in the right-hand pane.
 
-Read more about [relations](/use/concepts/components_relations.md#relations).
+➡️ [Learn more about relations](/use/concepts/components_relations.md#relations).
 
 ![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
 
@@ -88,12 +91,12 @@ The details panel on the right-hand side of the screen shows information about t
 When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
 
 * Metadata, such as the component name, type and any labels.
-* [health checks](../../health-state/add-a-health-check.md)
-* [telemetry streams](../../metrics-and-events/telemetry_streams.md)
+* [Health checks](../../health-state/add-a-health-check.md)
+* [Telemetry streams](../../metrics-and-events/telemetry_streams.md)
 
 ### Problems
 
-If one or more components have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
+If one or more components in a view have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
 
 ## Navigation
 

@@ -43,8 +43,8 @@ StackState Agent V2 is installed using an install script.
 {% hint style="info" %}
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](../installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](../installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 {% endhint %}
 
 #### Online install

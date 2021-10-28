@@ -27,7 +27,7 @@ The telemetry interval can be set in the following ways:
 
 **Zoom in**
 Click and drag on the timeline to set a custom time interval on your selection.
-![](../../.gitbook/assets/v44_timeline_click_drag%20%281%29.png)
+![](../../.gitbook/assets/v44_timeline_click_drag.png)
 
 **Zoom out**
 Click on the magnifying glass to double the size of the telemetry interval.
@@ -77,7 +77,7 @@ Use the popup "Set the topology time" to specify a topology time.
 
 To stop time travelling and return the topology time to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
-![Go live](../../.gitbook/assets/v44_timeline_go_live%20%281%29.png)
+![Go live](../../.gitbook/assets/v44_timeline_go_live.png)
 
 ### Health
 

@@ -56,7 +56,9 @@ These can also be created automatically by StackState using the `getOrCreate` fu
 
 ### 4. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](../../use/concepts/components_relations.md).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. 
+
+➡️ [Learn more about Component and Relation types](../../use/concepts/components_relations.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
 
@@ -64,7 +66,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
 
-Read more about [Id Extractors](custom-functions/id-extractor-functions.md)
+➡️ [Learn more about Id Extractors](custom-functions/id-extractor-functions.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 

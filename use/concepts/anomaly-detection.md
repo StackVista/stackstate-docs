@@ -22,5 +22,5 @@ Additionally, identified anomalies are available as StackState Events and can be
 
 Finally, [anomaly health checks](../health-state/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
 
-Read more about the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
+➡️ [Learn more about the Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
 

@@ -29,5 +29,5 @@ By default, the timeline is in **live mode**. This means that it tracks changes 
 
 To the left of the telemetry interval time and topology time boxes there are two arrows, one pointing left and one pointing right. These **time jumpers** they move the telemetry interval forwards or backwards in time or shift the topology time to the next point for which StackState has recorded events.
 
-Read more about the [timeline and time travel](../stackstate-ui/timeline-time-travel.md)
+➡️ [Learn more about the timeline and time travel](../stackstate-ui/timeline-time-travel.md)
 

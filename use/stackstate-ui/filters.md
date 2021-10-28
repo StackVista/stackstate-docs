@@ -8,8 +8,8 @@ The **View Filters** pane on the left-hand side of the StackState UI allows you 
 
 Topology filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build an advanced topology filter that zooms in on a specific area of your topology using the StackState in-built query language \(STQL\). Read more about:
 
-* [Basic filters](filters.md#basic-topology-filters)
-* [Advanced filters](filters.md#advanced-topology-filters)
+* [Basic topology filters](filters.md#basic-topology-filters)
+* [Advanced topology filters](filters.md#advanced-topology-filters)
 * [Topology filtering limits](filters.md#topology-filtering-limits)
 
 ### Basic topology filters
@@ -140,7 +140,9 @@ For example, if you filter the trace list for all spans of type `database`, this
 
 ## Save filters as a view
 
-To update the existing view with the currently applied filters, click **Save view** at the top of the screen. To save the current filters as a new view, click **Save view as**. Read more about [StackState views](views/about_views.md).
+To update the existing view with the currently applied filters, click **Save view** at the top of the screen. To save the current filters as a new view, click **Save view as**. 
+
+➡️ [Learn more about StackState views](views/about_views.md).
 
 ## Clear applied filters
 

@@ -8,8 +8,8 @@ A component consists of:
 
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
-3. An inner color is representing the health state.
-4. An outer color is representing the propagated health state. This state depends on other components or relations.
+3. An inner color represents the component's [own health state](/use/health-state/health-state-in-stackstate.md#element-health-state).
+4. An outer color represents the [propagated health state](/use/health-state/health-state-in-stackstate.md#propagated-health-state). This state depends on other components or relations.
 
 ![](/.gitbook/assets/021_topology_elements.png)
 
