@@ -17,7 +17,7 @@ The Topology Perspective shows the filtered components and relations in a select
 * Click on a component to open the [component details](#component-details-pane) in the right-hand pane.
 * Hover over a component to open the [component context menu](#component-context-menu).
 
-➡️ [Read more about components](/use/concepts/components_relations.md#components).
+➡️ [Learn more about components](/use/concepts/components_relations.md#components).
 
 ### Component context menu
 
@@ -54,7 +54,7 @@ Relations show how components in the topology are connected together. They are r
 
 Click on a relation to open the relation details in the right-hand pane.
 
-➡️ [Read more about relations](/use/concepts/components_relations.md#relations).
+➡️ [Learn more about relations](/use/concepts/components_relations.md#relations).
 
 ![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
 

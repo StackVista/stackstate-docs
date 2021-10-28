@@ -29,7 +29,7 @@ The component selection can be adjusted as follows:
 
 The **View Filters** pane on the left-hand side of the StackState UI can be used to filter the sub-set of topology for which telemetry streams are displayed. 
 
-➡️ [Read more about Topology Filters](../filters.md#filter-topology)
+➡️ [Learn more about Topology Filters](../filters.md#filter-topology)
 
 ## Charts
 

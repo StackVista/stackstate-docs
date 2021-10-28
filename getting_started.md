@@ -64,7 +64,7 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
 
-➡️ [Read more about problems](/use/problem-analysis/problems.md)
+➡️ [Learn more about problems](/use/problem-analysis/problems.md)
 
 ![Component details](/.gitbook/assets/v44_problem_summary.png)
 

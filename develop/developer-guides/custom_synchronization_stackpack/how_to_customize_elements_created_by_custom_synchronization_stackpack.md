@@ -17,7 +17,7 @@ These can also be created automatically by StackState using the `getOrCreate` fu
 
 There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. 
 
-➡️ [Read more about Component and Relation types](../../../use/concepts/components_relations.md).
+➡️ [Learn more about Component and Relation types](../../../use/concepts/components_relations.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Configure Component and Relation Templates` section below. Auto-generated components types will be created without an icon.
 
