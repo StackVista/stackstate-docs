@@ -32,6 +32,6 @@ stackstate:
 ```
 {% endtab %}
 {% tab title="Linux" %}
-Set a custom filtering limit in `etc/application_stackstate.conf` using the parameter `stackstate.webUIConfig.maxStackElementCount` `stackstate.topologyQueryService.maxStackElementsPerQuery`.
+Set a custom filtering limit in `etc/application_stackstate.conf` using the parameters `stackstate.webUIConfig.maxStackElementCount` and `stackstate.topologyQueryService.maxStackElementsPerQuery`.
 {% endtab %}
 {% endtabs %}

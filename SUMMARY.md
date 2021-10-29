@@ -165,6 +165,7 @@
     * [Elasticsearch](configure/telemetry/data-sources/elasticsearch.md)
     * [Prometheus mirror](configure/telemetry/data-sources/prometheus-mirror.md)
   * [Send telemetry data over HTTP](configure/telemetry/send_telemetry.md)
+  * [Set a custom default telemetry interval](configure/telemetry/custom_telemetry_interval.md)  
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
