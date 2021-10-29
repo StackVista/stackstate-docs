@@ -16,6 +16,22 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
+### Upgrade to v4.5.x
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+#### v4.5.0
+
+No manual action needed.
+{% endtab %}
+
+{% tab title="Linux" %}
+#### v4.5.0
+
+No manual action needed.
+{% endtab %}
+{% endtabs %}
+
 ### Upgrade to v4.4.x
 
 {% tabs %}
