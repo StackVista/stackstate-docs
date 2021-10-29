@@ -37,7 +37,7 @@ stackstate:
   components:
     api:
       config: |
-         stackstate.webUIConfig.defaultTimeRange = <newvalue>
+         stackstate.webUIConfig.defaultTimeRange = "LAST_1_HOUR"
 
 ```
 {% endtab %}
