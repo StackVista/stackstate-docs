@@ -34,27 +34,19 @@ You can [configure the default telemetry interval](/configure/telemetry/custom_t
 
 The telemetry interval can be set in the following ways:
 
-**Zoom in**
-
-Click and drag on the timeline to set a custom time interval on your selection.
+**Zoom in** - Click and drag on the timeline to set a custom time interval on your selection.
 
 ![](../../.gitbook/assets/v44_timeline_click_drag.png)
 
-**Zoom out**
-
-Click on the magnifying glass to double the size of the telemetry interval.
+**Zoom out** - Click on the magnifying glass to double the size of the telemetry interval.
 
 ![](../../.gitbook/assets/v44_telemetry_interval_zoom_out.png)
 
-**Telemetry interval jumper arrows**
-
-Click the time jumper arrows to move the telemetry interval backwards or forwards through time.
+**Telemetry interval jumper arrows** - Click the time jumper arrows to move the telemetry interval backwards or forwards through time.
 
 ![](../../.gitbook/assets/v44_telemetry_interval_jumper.png)
 
-**Set a relative or custom time interval**
-
-Use the popup "Set the telemetry interval" to specify a telemetry interval.
+**Set a relative or custom time interval** - Use the popup "Set the telemetry interval" to specify a telemetry interval.
 
 ![](../../.gitbook/assets/v44_timeline_telemetry_interval.png)
 
@@ -74,27 +66,19 @@ If the selected topology time is a time outside the currently selected [telemetr
 
 The topology time can be set in the following ways:
 
-**Click on the timeline**
-
-Click anywhere on the timeline to set the topology time to that moment.
+**Click on the timeline** - Click anywhere on the timeline to set the topology time to that moment.
 
 ![](../../.gitbook/assets/v44_topology_time_timeline.png)
 
-**Topology time jumper arrows**
-
-Click the topology time jumper arrows to move the topology time backwards or forwards in time to the next set of events.
+**Topology time jumper arrows** - Click the topology time jumper arrows to move the topology time backwards or forwards in time to the next set of events.
 
 ![](../../.gitbook/assets/v44_topology_time_jumper.png)
 
-**Timestamp**
-
-Click on a timestamp to jump to that specific topology time.
+**Timestamp** - Click on a timestamp to jump to that specific topology time.
 
 ![](../../.gitbook/assets/v44_topology_time_timestamp.png)
 
-**Set a custom topology time**
-
-Use the popup "Set the topology time" to specify a topology time.
+**Set a custom topology time** - Use the popup "Set the topology time" to specify a topology time.
 
 ![](../../.gitbook/assets/v45_topology_time_popup.png)
 
