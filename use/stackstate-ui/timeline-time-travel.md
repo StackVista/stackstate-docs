@@ -67,19 +67,27 @@ If the selected topology time is a time outside the currently selected [telemetr
 The topology time can be set in the following ways:
 
 **Click on the timeline**
+
 Click anywhere on the timeline to set the topology time to that moment.
+
 ![](../../.gitbook/assets/v44_topology_time_timeline.png)
 
 **Topology time jumper arrows**
+
 Click the topology time jumper arrows to move the topology time backwards or forwards in time to the next set of events.
+
 ![](../../.gitbook/assets/v44_topology_time_jumper.png)
 
 **Timestamp**
+
 Click on a timestamp to jump to that specific topology time.
+
 ![](../../.gitbook/assets/v44_topology_time_timestamp.png)
 
 **Set a custom topology time**
+
 Use the popup "Set the topology time" to specify a topology time.
+
 ![](../../.gitbook/assets/v45_topology_time_popup.png)
 
 #### Live mode 
