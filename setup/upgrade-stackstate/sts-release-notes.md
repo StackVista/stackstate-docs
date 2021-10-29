@@ -161,9 +161,14 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that prevented exports produced by the CLI on Windows from being imported. STAC-11096
 * Fixed issue that caused incorrect anomalies to be detected on CloudWatch metrics by introducing two new aggregation methods: COUNT\_NO\_ZEROS and SUM\_NO\_ZEROS. Aggregation methods COUNT and SUM keep the existing behavior of filling gaps in metrics with zeroes, with a configurable delay. STAC-11079
 
-## StackState v4.2.x
 
-### v4.2.4
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+### StackState v4.2.x
+
+#### v4.2.4
 
 **Improvements**
 
@@ -177,7 +182,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
-### v4.2.3
+#### v4.2.3
 
 **Improvements**
 
@@ -193,13 +198,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that prevented `copy_images.sh` script from working with containers without a docker.io prefix. STAC-11697
 * Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
 
-### v4.2.2
+#### v4.2.2
 
 **Bug fixes**
 
 * Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
 
-### v4.2.1
+#### v4.2.1
 
 **Improvements**
 
@@ -209,7 +214,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * Fixed issue that prevents StackState distributed Kubernetes installation from starting when the database initialisation process fails due to a pod restart. STAC-11618
 
-### v4.2.0
+#### v4.2.0
 
 **Features**
 
@@ -238,10 +243,6 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * UPGRADE NOTE: It is strongly advised to review the roles your users have and limit the number of admin users. Users that need to configure StackState can be given the role of power user instead. STAC-10170
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
-
-## Unsupported versions
-
-The versions below are have reached End of Life \(EOL\) and are no longer be supported
 
 ### StackState v4.1.x
 

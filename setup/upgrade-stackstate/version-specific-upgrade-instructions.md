@@ -250,6 +250,10 @@ No manual action needed.
 {% endtab %}
 {% endtabs %}
 
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
 ### Upgrade to v4.2.x
 
 {% tabs %}
