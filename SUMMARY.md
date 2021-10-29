@@ -6,7 +6,7 @@
 ## 🚀 Setup
 
 * [Install StackState](setup/install-stackstate/README.md)
-  * [Requirements](setup/requirements.md)
+  * [Requirements](setup/install-stackstate/requirements.md)
   * [Kubernetes install](setup/install-stackstate/kubernetes_install/README.md)
     * [Install StackState](setup/install-stackstate/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/install-stackstate/kubernetes_install/required_permissions.md)

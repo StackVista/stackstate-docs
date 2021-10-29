@@ -60,7 +60,7 @@ Read how to [enable cluster checks](openshift.md#cluster-check-configuration).
 
 ### Supported versions
 
-StackState Agent v2.15.0 is supported to monitor the following versions of Kubernetes:
+StackState Agent v2.15.0 is supported to monitor the following versions of OpenShift:
 
 * OpenShift 4.3 - 4.8
 * Docker container runtime (not containerd, cri-o)
