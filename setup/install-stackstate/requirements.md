@@ -4,9 +4,11 @@
 
 ### Supported versions
 
-StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.17.x, 1.18.x and 1.19.x \(tested on Amazon EKS and Azure AKS\), or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\) and Helm 3.
+StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
 
-For a list of all docker images used, see the [image overview](install-stackstate/kubernetes_install/image_configuration.md).
+* AKS 1.17 to 1.21
+* EKS 1.17 to 1.21
+* OpenShift 4.6 to 4.8
 
 ### Node sizing
 
@@ -34,6 +36,10 @@ Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes
 {% endtab %}
 {% endtabs %}
 
+### Docker images
+
+For a list of all Docker images used, see the [image overview](/setup/install-stackstate/kubernetes_install/image_configuration.md).
+
 ### Storage
 
 StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
@@ -56,7 +62,7 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 
 It is not recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
-If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(5 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `5*32GB = 160GB` and `5*8 vCPUs = 40 vCPUs`.
+If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
 
 ## Linux
 
