@@ -27,7 +27,7 @@ The default telemetry interval can be set to any of the following values:
 - `LAST_7_DAYS`
 - `LAST_30_DAYS`
  
-Specifying any other value will be ignored and converted to the default value (`LAST_1_HOUR`).
+Any other value will be ignored and converted to the default value (`LAST_1_HOUR`).
 
 {% tabs %}
 {% tab title="Kubernetes" %}
