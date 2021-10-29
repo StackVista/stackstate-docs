@@ -35,19 +35,27 @@ You can [configure the default telemetry interval](/configure/telemetry/custom_t
 The telemetry interval can be set in the following ways:
 
 **Zoom in**
+
 Click and drag on the timeline to set a custom time interval on your selection.
+
 ![](../../.gitbook/assets/v44_timeline_click_drag.png)
 
 **Zoom out**
+
 Click on the magnifying glass to double the size of the telemetry interval.
+
 ![](../../.gitbook/assets/v44_telemetry_interval_zoom_out.png)
 
 **Telemetry interval jumper arrows**
+
 Click the time jumper arrows to move the telemetry interval backwards or forwards through time.
+
 ![](../../.gitbook/assets/v44_telemetry_interval_jumper.png)
 
 **Set a relative or custom time interval**
+
 Use the popup "Set the telemetry interval" to specify a telemetry interval.
+
 ![](../../.gitbook/assets/v44_timeline_telemetry_interval.png)
 
 ### Topology time
