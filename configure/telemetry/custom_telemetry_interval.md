@@ -37,17 +37,17 @@ stackstate:
   components:
     api:
       config: |
-         stackstate.webUIConfig.defaultTimeRange = "LAST_1_HOUR"
+         stackstate.webUIConfig.defaultTimeRange = "LAST_15_MINUTES"
 
 ```
 {% endtab %}
 {% tab title="Linux" %}
-Set a custom default telemetry interval in `/etc/application_stackstate.conf` using the parameter `stackstate.webUIConfig.defaultTimeRange`.
+To set a custom default telemetry interval, update the parameter `stackstate.webUIConfig.defaultTimeRange` in the file `/etc/application_stackstate.conf`.
 
 ```yaml
 stackstate {
   webUIConfig {
-    defaultTimeRange = "LAST_1_HOUR"
+    defaultTimeRange = "LAST_15_MINUTES"
   }
 }
 ```
