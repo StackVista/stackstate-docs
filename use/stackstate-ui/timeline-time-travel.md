@@ -16,6 +16,15 @@ The telemetry interval specifies the time window for which events, metrics and t
 
 The selected telemetry interval can be either relative \(live mode\), or set to a custom time interval \(time travel mode\). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom time interval to view telemetry from a specific point in time.
 
+{% hint style="success" %}
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+You can [configure the default telemetry interval](/configure/telemetry/custom_telemetry_interval.md).
+
+{% endhint %}
+
 #### Set the telemetry interval
 
 {% hint style="info" %}
