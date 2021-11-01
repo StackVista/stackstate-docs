@@ -79,6 +79,8 @@ It is always possible to switch from Basic to Advanced filtering. The selected b
   
 If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
 
+➡️ [Learn more about writing advanced topology filters](/develop/reference/stql_reference.md)
+
 ### Other filters
 
 Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set in a way that is compatible with basic filtering, the box **Other filters** will be shown in the View Filters pane with details of the affected components:
