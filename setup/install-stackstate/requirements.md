@@ -16,23 +16,23 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 
 {% tabs %}
 {% tab title="Recommended high availability setup" %}
-* **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 6 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 6 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 
 {% tab title="Minimal high availability setup" %}
-* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
 Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
 
-* **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 3 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 3 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 {% endtabs %}
 
