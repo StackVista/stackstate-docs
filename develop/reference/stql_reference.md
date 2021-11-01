@@ -120,6 +120,14 @@ layer = "application"
 
 The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but will not produce any additional components.
 
+## Compatibility basic and advanced filters
+
+You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** pane.
+
+It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
+
+➡️ [Learn more about the compatibility of basic and advanced filters](/use/stackstate-ui/filters.md#compatibility-of-basic-and-advanced-filters)
+
 ## See also
 
 * [Topology filter limits](../../use/stackstate-ui/filters.md#topology-filtering-limits)
