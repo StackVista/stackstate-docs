@@ -67,7 +67,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v44_example-mirror-stream.png)
+![](../../.gitbook/assets/v45_example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 

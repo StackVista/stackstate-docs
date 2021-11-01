@@ -8,7 +8,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](../../../.gitbook/assets/v44_topology.png)
+![Topology Perspective](../../../.gitbook/assets/v45_topology.png)
 
 ## Components
 
@@ -39,7 +39,7 @@ You can configure [component actions](../../../configure/topology/component_acti
 
 A list of the available actions is included in the Component Details pane when you select a component and also in the component context menu, which is displayed when you hover over a component.
 
-![Actions](../../../.gitbook/assets/v44_actions.png)
+![Actions](../../../.gitbook/assets/v45_actions.png)
 
 ### Shortcuts
 
@@ -128,13 +128,13 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
 * **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
-![Root cause](../../../.gitbook/assets/v44_show_full_root_cause_tree.png)
+![Root cause](../../../.gitbook/assets/v45_show_full_root_cause_tree.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../../.gitbook/assets/v44_list_mode.png)
+![Filtering\(list format\)](../../../.gitbook/assets/v45_list_mode.png)
 
 ### Export as CSV
 

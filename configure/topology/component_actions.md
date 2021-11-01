@@ -2,7 +2,7 @@
 
 Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu or the component details pane in the [Topology Perspective](../../use/stackstate-ui/perspectives/topology-perspective.md).
 
-![Component Actions](../../.gitbook/assets/v44_actions.png)
+![Component Actions](../../.gitbook/assets/v45_actions.png)
 
 Component Actions can be configured within StackState Settings or can be predefined in a StackPack.
 

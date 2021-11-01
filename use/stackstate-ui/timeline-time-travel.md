@@ -4,7 +4,7 @@
 
 The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology during the selected telemetry interval.
 
-![Timeline](../../.gitbook/assets/v44_timeline.png)
+![Timeline](../../.gitbook/assets/v45_timeline.png)
 
 ## Timeline
 
@@ -12,7 +12,7 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. It runs from left to right on the timeline.
 
-![Telemetry interval](../../.gitbook/assets/v44_telemetry_interval.png)
+![Telemetry interval](../../.gitbook/assets/v45_telemetry_interval.png)
 
 The selected telemetry interval can be either relative \(live mode\), or set to a custom time interval \(time travel mode\). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom time interval to view telemetry from a specific point in time.
 
@@ -27,25 +27,25 @@ The telemetry interval can be set in the following ways:
 
 **Zoom in**
 Click and drag on the timeline to set a custom time interval on your selection.
-![](../../.gitbook/assets/v44_timeline_click_drag.png)
+![](../../.gitbook/assets/v45_timeline_click_drag.png)
 
 **Zoom out**
 Click on the magnifying glass to double the size of the telemetry interval.
-![](../../.gitbook/assets/v44_telemetry_interval_zoom_out.png)
+![](../../.gitbook/assets/v45_telemetry_interval_zoom_out.png)
 
 **Telemetry interval jumper arrows**
 Click the time jumper arrows to move the telemetry interval backwards or forwards through time.
-![](../../.gitbook/assets/v44_telemetry_interval_jumper.png)
+![](../../.gitbook/assets/v45_telemetry_interval_jumper.png)
 
 **Set a relative or custom time interval**
 Use the popup "Set the telemetry interval" to specify a telemetry interval.
-![](../../.gitbook/assets/v44_timeline_telemetry_interval.png)
+![](../../.gitbook/assets/v45_timeline_telemetry_interval.png)
 
 ### Topology time
 
 The topology and all telemetry displayed in StackState is based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time.
 
-![Topology time](../../.gitbook/assets/v44_topology_time.png)
+![Topology time](../../.gitbook/assets/v45_topology_time.png)
 
 On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It is also specified in the **Topology time** box at the top of the timeline.
 
@@ -59,15 +59,15 @@ The topology time can be set in the following ways:
 
 **Click on the timeline**
 Click anywhere on the timeline to set the topology time to that moment.
-![](../../.gitbook/assets/v44_topology_time_timeline.png)
+![](../../.gitbook/assets/v45_topology_time_timeline.png)
 
 **Topology time jumper arrows**
 Click the topology time jumper arrows to move the topology time backwards or forwards in time to the next set of events.
-![](../../.gitbook/assets/v44_topology_time_jumper.png)
+![](../../.gitbook/assets/v45_topology_time_jumper.png)
 
 **Timestamp**
 Click on a timestamp to jump to that specific topology time.
-![](../../.gitbook/assets/v44_topology_time_timestamp.png)
+![](../../.gitbook/assets/v45_topology_time_timestamp.png)
 
 **Set a custom topology time**
 Use the popup "Set the topology time" to specify a topology time.
@@ -77,7 +77,7 @@ Use the popup "Set the topology time" to specify a topology time.
 
 To stop time travelling and return the topology time to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
-![Go live](../../.gitbook/assets/v44_timeline_go_live.png)
+![Go live](../../.gitbook/assets/v45_timeline_go_live.png)
 
 ### Health
 
@@ -91,7 +91,7 @@ If the topology filters have been edited and not saved, no health state informat
 
 When health state information is not available, a gray line is displayed.
 
-![Health state not available](../../.gitbook/assets/v44_timeline_no_health_state.png)
+![Health state not available](../../.gitbook/assets/v45_timeline_no_health_state.png)
 
 ### Events
 
@@ -99,7 +99,7 @@ The **Events** line in the timeline shows a bar chart with the number of events 
 
 To zoom in on an event bar of interest, click and drag to select a smaller telemetry interval around it on the timeline.
 
-![Click and drag to select a telemetry interval](../../.gitbook/assets/v44_timeline_click_drag.png)
+![Click and drag to select a telemetry interval](../../.gitbook/assets/v45_timeline_click_drag.png)
 
 {% hint style="info" %}
 A single click on the timeline will move the playhead to this point in time, and thus time travel to the state of the topology at the selected [topology time](timeline-time-travel.md#topology-time). Only events generated by topology elements that existed at the newly selected topology time will now be displayed.
@@ -126,5 +126,5 @@ StackState will enter time travel mode whenever a custom topology time is select
 
 To stop time travelling and return to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
-![Go live](../../.gitbook/assets/v44_timeline_go_live.png)
+![Go live](../../.gitbook/assets/v45_timeline_go_live.png)
 
