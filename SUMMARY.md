@@ -6,7 +6,7 @@
 ## 🚀 Setup
 
 * [Install StackState](setup/install-stackstate/README.md)
-  * [Requirements](setup/requirements.md)
+  * [Requirements](setup/install-stackstate/requirements.md)
   * [Kubernetes install](setup/install-stackstate/kubernetes_install/README.md)
     * [Install StackState](setup/install-stackstate/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/install-stackstate/kubernetes_install/required_permissions.md)
@@ -165,6 +165,7 @@
     * [Elasticsearch](configure/telemetry/data-sources/elasticsearch.md)
     * [Prometheus mirror](configure/telemetry/data-sources/prometheus-mirror.md)
   * [Send telemetry data over HTTP](configure/telemetry/send_telemetry.md)
+  * [Set the default telemetry interval](configure/telemetry/custom_telemetry_interval.md)  
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)

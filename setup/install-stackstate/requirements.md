@@ -4,9 +4,11 @@
 
 ### Supported versions
 
-StackState can be installed on a Kubernetes cluster using the Helm charts provided by StackState. These charts have been tested and are compatible with Kubernetes 1.17.x, 1.18.x and 1.19.x \(tested on Amazon EKS and Azure AKS\), or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\) and Helm 3.
+StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
 
-For a list of all docker images used, see the [image overview](install-stackstate/kubernetes_install/image_configuration.md).
+* **Amazon EKS:** 1.17 to 1.21
+* **Azure AKS:** 1.17 to 1.21
+* **OpenShift:** 4.6 to 4.8
 
 ### Node sizing
 
@@ -14,25 +16,29 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 
 {% tabs %}
 {% tab title="Recommended high availability setup" %}
-* **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 6 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 6 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 
 {% tab title="Minimal high availability setup" %}
-* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
 Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
 
-* **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 3 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 3 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 {% endtabs %}
+
+### Docker images
+
+For a list of all Docker images used, see the [image overview](/setup/install-stackstate/kubernetes_install/image_configuration.md).
 
 ### Storage
 
@@ -56,7 +62,7 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 
 It is not recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
-If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(5 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `5*32GB = 160GB` and `5*8 vCPUs = 40 vCPUs`.
+If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
 
 ## Linux
 

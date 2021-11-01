@@ -22,11 +22,11 @@ The health state of an element is derived from metrics and events data in the te
 
 1. [Telemetry streams](add-telemetry-to-element.md) attached to an element provide metrics and events data.
 2. A [health check](../health-state/health-state-in-stackstate.md#health-checks) attached to the element reports a health state. Health checks can be synchronized from an external monitoring system or calculated in StackState based on the available telemetry streams.
-3. When the reported health state of an element changes, a chain of [state change events](send-event-notifications.md#state-change-events) are generated:
+3. The health state of an element is calculated as the most severe state reported by a health check attached to it. When the reported health state of an element changes, a chain of [state change events](send-event-notifications.md#state-change-events) are generated:
    * `HealthStateChangedEvent` for the element itself.
    * `PropagatedStateChangedEvent` for all other elements that have been impacted by the element's state change.
    * `ViewStateChangedEvent` for each view containing the element. Note that this event type is only generated when a view's [view state configuration criteria](../health-state/configure-view-health.md) are met.
-4. Event handlers associated with each view listen to the generated state change events and trigger the configured event notifications and actions.
+4. The event handlers associated with each view listen to the generated state change events and trigger the configured event notifications and actions.
 
 ### Problem event notifications
 

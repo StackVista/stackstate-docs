@@ -16,6 +16,22 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
+### Upgrade to v4.5.x
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+#### v4.5.0
+
+No manual action needed.
+{% endtab %}
+
+{% tab title="Linux" %}
+#### v4.5.0
+
+No manual action needed.
+{% endtab %}
+{% endtabs %}
+
 ### Upgrade to v4.4.x
 
 {% tabs %}
@@ -233,6 +249,10 @@ No manual action needed.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}
+
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
 
 ### Upgrade to v4.2.x
 

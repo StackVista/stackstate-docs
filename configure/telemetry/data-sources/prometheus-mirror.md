@@ -30,7 +30,7 @@ Install the Prometheus mirror with the following command:
 helm install prometheusmirror stackstate/prometheusmirror --set global.apiKey=API_KEY
 ```
 
-Alternatively, you can use the docker container directly:
+Alternatively, you can use the Docker container directly:
 
 ```text
 docker pull stackstate/prometheusmirror:latest
