@@ -69,7 +69,7 @@ You can switch between basic and advanced filtering by selecting **Basic** or **
 
 It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
 
-➡️ [Learn more about the compatibility of basic and advanced filters](/develop/reference/stql_reference.md#compatibility-basic-and-advanced-filters)
+➡️ [Learn more about the compatibility of basic and advanced topology filters](/develop/reference/stql_reference.md#compatibility-basic-and-advanced-filters)
 
 ### Other filters
 
