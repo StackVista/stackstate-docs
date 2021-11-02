@@ -25,10 +25,10 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 To set up the StackState AWS integration, you need to have:
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
-* An AWS account for the StackState Agent to use when deploying resources to the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
-  * If StackState Agent is running within an AWS environment: The EC2 instance must have an IAM role attached to it.
-  * If StackState Agent is running outside an AWS account: An IAM user must be made available.
-* The IAM user/role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
+* At least one target AWS account that will be monitored.
+* An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
+    * If StackState Agent is running within an AWS environment: The EC2 instance can have an IAM role attached to it. The Agent will then use this role by default.
+    * The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
 {% tabs %}
 {% tab title="IAM policy" %}
@@ -46,6 +46,17 @@ To set up the StackState AWS integration, you need to have:
 ```
 {% endtab %}
 {% endtabs %}
+
+### AWS accounts
+
+It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
+
+* **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
+* **Agent account** - used to retrieve data from the monitor account. StackState Agent should be installed on a machine where an IAM role is available that has permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack.
+
+The IAM role of the Agent account will query AWS data by assuming the role `StackStateAwsIntegrationRole`. This data will then go back to the StackState Agent where it is processed and sent on to StackState.
+
+![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
 
 ### Deploy the AWS CloudFormation stack
 
@@ -90,7 +101,7 @@ The default StackState CloudFormation template can be used to deploy all necessa
 The template requires the following parameters:
 
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
-* **StsAccountId** - The 12-digit AWS account ID that the StackState Agent is deployed in, or has an IAM user for the Agent in. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
+* **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -99,7 +110,7 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account. To create topology in StackState, you must [configure the AWS check](#configure-the-aws-check) on StackState Agent V2.
 
-* **Role ARN** - the ARN of the IAM Role used to [deploy the AWS Cloudformation stack](aws.md#deploy-the-aws-cloudformation-stack). For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID.
+* **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
 * **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
