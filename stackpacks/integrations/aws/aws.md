@@ -55,9 +55,9 @@ It is recommended to have two different AWS accounts: One that is being monitore
 * **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
 * **Agent account** - used to retrieve data from the monitor account. StackState Agent should be installed on a machine where an IAM role is available that has permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack.
 
-The IAM role of the Agent account will query AWS data by assuming the role `StackStateAwsIntegrationRole`. This data will then go back to the StackState Agent where it is processed and sent on to StackState.
-
 ![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
+
+The IAM role of the Agent account queries AWS data by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
 ### Deploy the AWS CloudFormation stack
 
