@@ -28,6 +28,7 @@ To set up the StackState AWS integration, you need to have:
 * At least one target AWS account that will be monitored.
 * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
     * If StackState Agent is running within an AWS environment: The EC2 instance can have an IAM role attached to it. The Agent will then use this role by default.
+    * If StackState Agent is running outside an AWS account: An IAM user must be made available.  
     * The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
 {% tabs %}
