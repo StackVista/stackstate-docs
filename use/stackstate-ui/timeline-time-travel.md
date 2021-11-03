@@ -14,20 +14,20 @@ The telemetry interval specifies the time window for which events, metrics and t
 
 ![Telemetry interval](../../.gitbook/assets/v45_telemetry_interval.png)
 
-The selected telemetry interval can be either relative \(live mode\), or set to a custom time interval \(time travel mode\). By default, the telemetry interval is set to a relative time interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom time interval to view telemetry from a specific point in time.
+The selected telemetry interval can be either relative \(live mode\), or set to a custom telemetry interval \(time travel mode\). By default, the telemetry interval is set to a relative telemetry interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom telemetry interval to view telemetry from a specific point in time.
 
 #### Set the telemetry interval
 
 {% hint style="info" %}
 * The telemetry interval can be a maximum of 6 months. 
-* When a custom time interval is set for the telemetry interval, StackState will pause the [topology time](timeline-time-travel.md#topology-time) and enter [time travel mode](timeline-time-travel.md#time-travel).
+* When a custom telemetry interval is set for the telemetry interval, StackState will pause the [topology time](timeline-time-travel.md#topology-time) and enter [time travel mode](timeline-time-travel.md#time-travel).
 {% endhint %}
 
 The telemetry interval can be set in the following ways:
 
 * **Zoom in**
 
-![Click and drag on the timeline to set a custom time interval on your selection](../../.gitbook/assets/v45_timeline_click_drag.png)
+![Click and drag on the timeline to set a custom telemetry interval on your selection](../../.gitbook/assets/v45_timeline_click_drag.png)
 
 * **Zoom out**
 
@@ -37,7 +37,7 @@ The telemetry interval can be set in the following ways:
 
 ![Click the time jumper arrows to move the telemetry interval backwards or forwards through time](../../.gitbook/assets/v45_telemetry_interval_jumper.png)
 
-* **Set a relative or custom time interval**
+* **Set a relative or custom telemetry interval**
 
 ![Use the popup "Set the telemetry interval" to specify a telemetry interval](../../.gitbook/assets/v45_timeline_telemetry_interval.png)
 
@@ -70,24 +70,24 @@ The topology time can be set in the following ways:
 
 ![Click the topology time jumper arrows to move the topology time backwards or forwards in time to the next set of events](../../.gitbook/assets/v45_topology_time_jumper.png)
 
-* **Click a timestamp**
-
-![Click on a timestamp to jump to that specific topology time](../../.gitbook/assets/v45_topology_time_timestamp.png)
-
 * **Set a custom topology time**
 
 ![Use the popup "Set the topology time" to specify a topology time](../../.gitbook/assets/v45_topology_time_popup.png)
 
+* **Click a timestamp**
+
+![Click on a timestamp to jump to that specific topology time](../../.gitbook/assets/v45_topology_time_timestamp.png)
+
 #### Topology time outside the telemetry interval
 
-If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current time interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time will not be visible on the timeline.
+If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time will not be visible on the timeline.
 
 ![Topology time outside telemetry interval](/.gitbook/assets/v45_topology_time_outside_telemetry_interval.png)
 
 You can still browse topology and telemetry as expected:
 
 - In the [Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md) the state of the topology at the selected topology time is visualized.
-- In all perspectives, telemetry is displayed that relates to the topology elements that existed at the selected topology time and was generated in the selected telemetry interval.
+- In all perspectives, telemetry is displayed that was generated in the selected telemetry interval and relates to the topology elements that existed at the selected topology time.
 
 #### Live mode 
 
@@ -134,11 +134,11 @@ Let's imagine a concrete scenario:
 * In StackState, you can go to the moment in time when the components that make up the critical path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
 * You can then select to see the hours that preceded that moment in order to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 
-StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom time interval is set for the telemetry interval. When StackState is in time travel mode:
+StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom telemetry interval is set for the telemetry interval. When StackState is in time travel mode:
 
 * You are effectively working with a snapshot of your infrastructure.
 * Telemetry is available for components that were part of the topology at the selected topology time only.
-* If a relative telemetry interval was selected in live mode, this is frozen as a custom time interval relative to the moment at which time travelling began.
+* If a relative telemetry interval was selected in live mode, this is frozen as a custom telemetry interval relative to the moment at which time travelling began.
 
 To stop time travelling and return to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
