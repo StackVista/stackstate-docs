@@ -89,7 +89,7 @@ You can still browse topology and telemetry:
 - In the [Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md) the state of the topology at the selected topology time is visualized.
 - In all perspectives, telemetry is displayed that relates to the topology elements that existed at the selected topology time and was generated in the selected telemetry interval.
 
-! [Topology time outside telemetry interval](/.gitbook/assets/v45_topology_time_outside_telemetry_interval.png)
+![Topology time outside telemetry interval](/.gitbook/assets/v45_topology_time_outside_telemetry_interval.png)
 
 #### Live mode 
 
