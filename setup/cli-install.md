@@ -233,7 +233,7 @@ Base API and Admin API access are required for all operations other than sending
 
 You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
 
-![](../../.gitbook/assets/v44_main_menu.png)
+![](../../.gitbook/assets/v45_main_menu.png)
 
 The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To use the Admin API, you need the `access-admin-api` [StackState permission](../../configure/security/rbac/rbac_permissions.md).
 

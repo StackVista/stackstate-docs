@@ -14,7 +14,7 @@ Telemetry streams are added to elements automatically when they are imported to 
 
 Click on any of the telemetry stream charts, or select **Inspect stream** from its context menu, to open the telemetry browser.
 
-![Telemetry browser](../../.gitbook/assets/v44_telemetry-browser.png)
+![Telemetry browser](../../.gitbook/assets/v45_telemetry-browser.png)
 
 Within the telemetry browser you can adjust the filters, time window and aggregation applied to the data source.
 

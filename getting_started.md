@@ -6,7 +6,7 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](../../stackpacks/about-stackpacks.md).
 
-![StackPacks overview](/.gitbook/assets/v44_stackpacks.png)
+![StackPacks overview](/.gitbook/assets/v45_stackpacks.png)
 
 ## Explore topology
 
@@ -16,7 +16,7 @@ StackState visualizes components by the layer and domain they are placed in. The
 
 You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/stackstate-ui/filters.md) on the left-hand side bar, or by [hovering over a component](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu).
 
-![Explore topology](/.gitbook/assets/v44_topology.png)
+![Explore topology](/.gitbook/assets/v45_topology.png)
 
 ## Topology elements
 
@@ -35,23 +35,23 @@ The direction of a relation's arrow indicates dependency. For example, `app -> d
 
 The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the topology that existed at the currently selected topology time. Normally, StackState is in **live mode**, this means that StackState automatically displays the latest state of the stack.
 
-![Timeline](/.gitbook/assets/v44_timeline.png)
+![Timeline](/.gitbook/assets/v45_timeline.png)
 
 ## Component / relation details
 
 To see the details of a component or a relation, you can click on it. Click on **SHOW COMPONENT PROPERTIES** to see all details of a component.
 
-![Component details](/.gitbook/assets/v44_component_details.png)
+![Component details](/.gitbook/assets/v45_component_details.png)
 
 ## Telemetry browser
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Telemetry browser](/.gitbook/assets/v44_component_details_inspect_metric_stream.png)
+![Telemetry browser](/.gitbook/assets/v45_component_details_inspect_metric_stream.png)
 
 If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left-hand side of the popup.
 
-![Telemetry browser](/.gitbook/assets/v44_component_details_inspect_log_stream.png)
+![Telemetry browser](/.gitbook/assets/v45_component_details_inspect_log_stream.png)
 
 ## Problems
 
@@ -66,15 +66,15 @@ Not all components displayed in the problem pane are necessarily also visible in
 
 ➡️ [Learn more about problems](/use/problem-analysis/problems.md)
 
-![Component details](/.gitbook/assets/v44_problem_summary.png)
+![Component details](/.gitbook/assets/v45_problem_summary.png)
 
 ## Events
 
 To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/metrics-and-events/send-event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
-![Events Perspective](/.gitbook/assets/v44_events-perspective.png)
+![Events Perspective](/.gitbook/assets/v45_events-perspective.png)
 
 The Events Perspective is not the only place you can find events; you can find the latest events in the Events section of the View Details pane on the right of the screen.
 
-![Events section](/.gitbook/assets/v44_events-section.png)
+![Events section](/.gitbook/assets/v45_events-section.png)
 

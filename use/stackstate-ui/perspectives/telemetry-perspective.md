@@ -6,7 +6,7 @@ description: See metrics of the components in your IT landscape.
 
 The Telemetry Perspective shows telemetry streams for your [view](../views/about_views.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
-![Telemetry Perspective](../../../.gitbook/assets/v44_telemetry-perspective.png)
+![Telemetry Perspective](../../../.gitbook/assets/v45_telemetry-perspective.png)
 
 ## Telemetry and Components
 
@@ -17,7 +17,7 @@ The Telemetry Perspective shows telemetry for up to **5** components. When you o
 
 You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
 
-![](../../../.gitbook/assets/v44_telemetry-components-selector.png)
+![](../../../.gitbook/assets/v45_telemetry-components-selector.png)
 
 The component selection can be adjusted as follows:
 
