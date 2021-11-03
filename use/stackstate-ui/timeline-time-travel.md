@@ -60,10 +60,6 @@ On the timeline, the selected topology time is indicated by the playhead - a bla
 
 #### Set the topology time
 
-{% hint style="info" %}
-If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current time interval" will be displayed and there will be no playhead in the timeline.
-{% endhint %}
-
 The topology time can be set in the following ways:
 
 **Click on the timeline** - Click anywhere on the timeline to set the topology time to that moment.
@@ -81,6 +77,19 @@ The topology time can be set in the following ways:
 **Set a custom topology time** - Use the popup "Set the topology time" to specify a topology time.
 
 ![](../../.gitbook/assets/v45_topology_time_popup.png)
+
+#### Topology time outside the telemetry interval
+
+If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current time interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black.
+
+As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time will not be visible on the timeline.
+
+You can still browse topology and telemetry:
+
+- In the [Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md) the state of the topology at the selected topology time is visualized.
+- In all perspectives, telemetry is displayed that relates to the topology elements that existed at the selected topology time and was generated in the selected telemetry interval.
+
+! [Topology time outside telemetry interval](/.gitbook/assets/v45_topology_time_outside_telemetry_interval.png)
 
 #### Live mode 
 
