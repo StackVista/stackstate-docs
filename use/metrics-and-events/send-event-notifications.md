@@ -38,7 +38,7 @@ Event handlers can be added to a StackState view to send event notifications and
 
 You can add an event handler to a view from the StackState UI.
 
-![Add an event handler](../../.gitbook/assets/v44_event_handlers_tab.png)
+![Add an event handler](../../.gitbook/assets/v45_event_handlers_tab.png)
 
 1. Select **Events Settings** on the left.
 2. Click **ADD NEW EVENT HANDLER**.

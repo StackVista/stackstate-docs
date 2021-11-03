@@ -7,7 +7,7 @@ When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated sub-view.
 * **Reduce noise** - the evolution of the problem can be be tracked as a single entity, rather than a collection of individual, unhealthy elements.
 
-![Problems in View Details pane](../../.gitbook/assets/v44_problem_summary.png)
+![Problems in View Details pane](../../.gitbook/assets/v45_problem_summary.png)
 
 ## What is a StackState problem?
 
