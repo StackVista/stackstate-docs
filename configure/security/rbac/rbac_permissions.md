@@ -152,7 +152,7 @@ See also the full list of [system permissions](rbac_permissions.md#system-permis
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
-![Main menu with all permissions granted](../../../.gitbook/assets/v44_main_menu.png)
+![Main menu with all permissions granted](../../../.gitbook/assets/v45_main_menu.png)
 
 | Page | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |

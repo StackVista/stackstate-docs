@@ -39,7 +39,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `agent-centos`
 
-![Filtering example](../../.gitbook/assets/v44_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v45_basic_filter_example.png)
 
 This same filter could also be written as an advanced topology filter using STQL.
 
@@ -59,7 +59,7 @@ The STQL query example below will return components that match the following con
 (domain IN ("mydomain") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("agent-centos")
 ```
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v44_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v45_advanced_filter_example.png)
 
 This same filter result could also be returned with basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 
