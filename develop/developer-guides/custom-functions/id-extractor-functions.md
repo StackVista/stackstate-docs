@@ -10,11 +10,11 @@ ID extraction is used in the topology synchronization process to turn external d
 
 ID extractor functions are powered by a Groovy script, which is executed on each to be processed topology element. The function is therefore stateless. There is a separate ID extractor for components and relations.
 
-A list of all ID extractor functions is available in the StackState UI, go to the page **Settings** > **Topology Synchronization** > **Id Extractors**. You can also create your own ID extractor here by clicking **ADD ID EXTRACTOR FUNCTION**
+A list of all ID extractor functions in your StackState instance is available in the StackState UI, go to the page **Settings** > **Topology Synchronization** > **Id Extractors**. You can also create your own ID extractor here by clicking **ADD ID EXTRACTOR FUNCTION**.
 
 ![Id extractor](../../../.gitbook/assets/v45_idextractor.png)
 
-The ID extractor function has parameters. Only one parameter is required to function properly - the system parameter `element` that is of type JSON. This is input to the script for execution. In topology synchronization, the `element` will contain the element payload. The ID Extractor can produce the following information from the external data in the `element` parameter:
+An ID extractor function has parameters. Only one parameter is required - the system parameter `element` that is of type JSON. This is input to the script for execution. In topology synchronization, the `element` will contain the element payload. The ID Extractor can produce the following information from the external data in the `element` parameter:
 
 * A `type` - for the component/relation. Used for differentiation in later steps.
 * An `externalId` - the identifier with which the element can be identified in the external source.
