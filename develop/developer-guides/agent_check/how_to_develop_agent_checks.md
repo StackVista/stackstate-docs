@@ -77,7 +77,9 @@ The _init\_config_ section allows you to have an arbitrary number of global conf
 
 ### instances
 
-The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about [developing StackPacks.](../stackpack/).
+The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. 
+
+➡️ [Learn more about developing StackPacks.](../stackpack/).
 
 To synchronize multiple instances in StackState you have to create a multi-tenant StackPack \(documentation not yet available\).
 
@@ -199,7 +201,7 @@ self.component("this-host-unique-identifier-integration-b", "Host", {
 
 These two components will be merged into a single component called `this-host` containing data from both integrations.
 
-Learn more about the [Agent Check Topology API](agent-check-api.md)
+➡️ [Learn more about the Agent Check Topology API](agent-check-api.md)
 
 ### Send Metrics
 
@@ -217,7 +219,7 @@ self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 
 Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
-Learn more about the [Agent Check Metric API](agent-check-api.md)
+➡️ [Learn more about the Agent Check Metric API](agent-check-api.md)
 
 ### Send Events
 
@@ -237,7 +239,7 @@ self.event({
 })
 ```
 
-Learn more about the [Agent Check Event API](agent-check-api.md)
+➡️ [Learn more about the Agent Check Event API](agent-check-api.md)
 
 ### Health Synchronization
 
@@ -331,7 +333,7 @@ self.component("this-host-unique-identifier", "Host",
 
 We create a `MetricStream` on the `system.cpu.usage` metric with some conditions specific to our component. We then create a `maximum_average` check on our metric stream using `this_host_cpu_usage.identifier` . The stream and check are then added to the streams and checks list in our `this-host` component.
 
-Learn more about the [Agent Check Telemetry API](agent-check-api.md#sending-streams-and-checks)
+➡️ [Learn more about the Agent Check Telemetry API](agent-check-api.md#sending-streams-and-checks)
 
 ### Send Service Checks
 
@@ -351,7 +353,7 @@ The service check can produce the following states:
 * AgentCheck.CRITICAL
 * AgentCheck.UNKNOWN
 
-Learn more about the [Agent Check Service Check API](agent-check-api.md)
+➡️ [Learn more about the Agent Check Service Check API](agent-check-api.md)
 
 ### Add Python Dependencies
 
