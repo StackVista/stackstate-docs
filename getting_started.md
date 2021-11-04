@@ -4,13 +4,13 @@ Hi! So, you've just installed StackState and you are ready to get started.
 
 ## StackPacks
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](../../stackpacks/about-stackpacks.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md).
 
 ![StackPacks overview](/.gitbook/assets/v45_stackpacks.png)
 
 ## Explore topology
 
-After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](../stackstate-ui/views/about_views.md) from your installed StackPacks.
+After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
