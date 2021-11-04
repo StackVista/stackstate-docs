@@ -86,11 +86,11 @@ sub de_link_geek_boxes {
       print "updating geek box heading";
       $line =  '{% hint style="success" "self-hosted info" %}
 
-      **StackState Self-Hosted**
+**StackState Self-Hosted**
 
-      Extra information for the StackState Self-Hosted product:
+Extra information for the StackState Self-Hosted product:
 
-      ';
+    ';
       $selfhosted_box = 1;
     } elsif($line =~ /{% endhint %}/) {
       print "ERROR: missed geek box start! $line" unless ($selfhosted_box == 1);
