@@ -83,7 +83,7 @@ sub de_link_geek_boxes {
     if($line =~ /{% hint style="success" "self-hosted info" %}/) {
       print "ERROR: missed geek box end! $line" unless ($geek_box == 0);
       # print "... Found geek box start: $line";
-      print "updating geek box heading"
+      print "updating geek box heading";
       $line =  '{% hint style="success" "self-hosted info" %}
 
       **StackState Self-Hosted**
