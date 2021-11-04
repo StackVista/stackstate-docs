@@ -90,7 +90,7 @@ sub de_link_geek_boxes {
 
       Extra information for the StackState Self-Hosted product:
 
-      '
+      ';
       $selfhosted_box = 1;
     } elsif($line =~ /{% endhint %}/) {
       print "ERROR: missed geek box start! $line" unless ($selfhosted_box == 1);
