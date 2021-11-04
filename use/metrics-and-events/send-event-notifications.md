@@ -93,7 +93,7 @@ StackState ships with the following event handler functions that track **health 
 | **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
 | **SMS** | Sends details of a health state change event using MessageBird. |
 
-{% hint style="success" %}
+{% hint style="success" "self-hosted" info%}
 **StackState Self-Hosted**
 
 Extra information for the StackState Self-Hosted product:
