@@ -110,9 +110,7 @@ Extra information for the StackState Self-Hosted product:
 
 ## See also
 
-* test link
 * [Add a health check](../health-state/add-a-health-check.md)
 * [Configure an SMTP server to send email event notifications](../../configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
 * [Custom event handlers](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
-* test link
