@@ -238,8 +238,8 @@ For example, to filter a view by Dynatrace Management Zone, add the key `dynatra
 
 The code for the Dynatrace checks are open source and available on GitHub: 
 
-- Topology check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
-- Health check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
+- **Topology check:** [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+- **Health check:** [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
 
 ## Troubleshooting
 
@@ -293,7 +293,9 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
-* [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
+* StackState Agent integrations:
+  - [Topology check/(github.com/)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+  - [Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
 * [How to generate a Dynatrace API token \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 * [Permissions for Dynatrace API tokens \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
 
