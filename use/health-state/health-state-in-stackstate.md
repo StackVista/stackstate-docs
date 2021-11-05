@@ -33,10 +33,7 @@ Health data from external monitoring systems can be synchronized to StackState a
 
 Existing StackPacks will provide health synchronization out of the box.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
@@ -63,10 +60,7 @@ A CLEAR \(green\) health state does not propagate.
 | ![](../../.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
 | ![](../../.gitbook/assets/propagation-a-not-b.svg) | No dependency. Health state does not propagate. |
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
 {% endhint %}

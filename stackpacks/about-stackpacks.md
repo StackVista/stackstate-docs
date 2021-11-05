@@ -22,10 +22,7 @@ The available StackPack add-ons and integrations can be found on the **StackPack
 * [Add-ons](add-ons/)
 * [Integrations](integrations/)
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 {% endhint %}
@@ -36,10 +33,7 @@ StackPacks contain configuration information for StackState that is installed wh
 
 To prevent a user from making changes to configuration items installed by a StackPack that will be overwritten on upgrade, these configuration items are **locked** by default. This means that they are protected from being changed by the user and must explicitly be **unlocked** before they can be changed.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
 {% endhint %}
@@ -64,10 +58,7 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 {% endhint %}
@@ -86,10 +77,7 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 
 To upgrade to a new major version of a StackPack, [uninstall and reinstall](about-stackpacks.md#install-or-uninstall-a-stackpack) the StackPack.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 Continue using changes made to customized StackPack configuration items after upgrade:
 

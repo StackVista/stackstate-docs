@@ -40,10 +40,7 @@ Each health check caluclated in StackState uses a check function to monitor the 
 
 Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 * You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
 
@@ -68,10 +65,7 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 ## Synchronize external health data
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 [Synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
 {% endhint %}

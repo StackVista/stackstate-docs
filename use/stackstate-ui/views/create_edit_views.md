@@ -19,10 +19,7 @@ In the **Save view as** dialog, the following options can be set:
 | Configuration function | When view health state is enabled, you can choose a function that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
 | Arguments | The required arguments will vary depending on the chosen configuration function. |
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 * You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
 
