@@ -52,10 +52,7 @@ A problem subview is a temporary StackState view. The filters applied to a probl
   * Upstream dependencies of the root cause or one of the contributing causes.
   * Downstream components with an unhealthy propagated state that originates from either the root cause or one of the contributing causes.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can configure custom [propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
 {% endhint %}

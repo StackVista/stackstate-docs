@@ -41,10 +41,7 @@ The telemetry interval can be set in the following ways:
 
 ![Use the popup "Set the telemetry interval" to specify a telemetry interval](../../.gitbook/assets/v45_timeline_telemetry_interval.png)
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can [configure the default telemetry interval](/configure/telemetry/custom_telemetry_interval.md).
 
