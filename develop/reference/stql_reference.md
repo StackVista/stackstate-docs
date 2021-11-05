@@ -10,10 +10,7 @@ This page describes how to use the built-in StackState Query Language \(STQL\) t
 
 An STQL query consists of [component filters](stql_reference.md#component-filters) and [functions](stql_reference.md#functions). The query output is a component, or set of components, filtered from the complete topology.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 STQL queries can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.
 
