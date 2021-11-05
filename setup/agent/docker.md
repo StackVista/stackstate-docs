@@ -26,7 +26,7 @@ docker run -d \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -e STS_API_KEY="API_KEY" \
-    -e STS_STS_URL="https://your.stackstate.url/receiver/stsAgent" \
+    -e STS_STS_URL="http://<your-stackstate-url>:7077/stsAgent" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:latest
@@ -52,9 +52,9 @@ To run StackState Agent V2 with Docker compose:
       - "/sys/kernel/debug:/sys/kernel/debug"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_STS_URL: "http://<your-stackstate-url>:7077/stsAgent"
+      STS_PROCESS_AGENT_URL: "http://<your-stackstate-url>:7077/stsAgent"
+      STS_APM_URL: "http://<your-stackstate-url>:7077/stsAgent"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
@@ -151,7 +151,7 @@ stackstate-agent:
       - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml:ro"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_STS_URL: "http://<your-stackstate-url>:7077/stsAgent"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
