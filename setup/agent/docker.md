@@ -26,7 +26,7 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 ## Setup
 
-## StackState Receiver API address
+### StackState Receiver API address
 
 StackState Agent connects to the StackState Receiver API.
 

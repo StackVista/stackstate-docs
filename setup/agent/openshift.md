@@ -66,7 +66,7 @@ StackState Agent v2.15.0 is supported to monitor the following versions of OpenS
 * Docker container runtime (not containerd, cri-o)
 * Default networking
 
-## StackState Receiver API address
+### StackState Receiver API address
 
 StackState Agent connects to the StackState Receiver API.
 
