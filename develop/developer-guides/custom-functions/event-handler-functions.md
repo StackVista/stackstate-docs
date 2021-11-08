@@ -27,7 +27,7 @@ Advanced StackState users can write their own custom event handler functions tha
 4. Click **CREATE** to save the event handler function. 
    * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../../use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
 
-![Add a custom event handler function](../../../.gitbook/assets/v44_event_handler_functions.png)
+![Add a custom event handler function](../../../.gitbook/assets/v45_event_handler_functions.png)
 
 ## Parameters
 

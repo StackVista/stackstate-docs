@@ -1,4 +1,4 @@
-# Configure synchronizations
+# Configure topology synchronizations
 
 ## Overview
 

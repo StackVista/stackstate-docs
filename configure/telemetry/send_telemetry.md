@@ -4,11 +4,11 @@
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](../../setup/installation/cli-install.md).
+There are several ways to send telemetry to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState CLI](../../setup/install-stackstate/cli-install.md).
 
 ## StackState Receiver API
 
-The StackState Receiver API is responsible for receiving both telemetry and topology. By default, the Receiver API is hosted at:
+The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -16,7 +16,7 @@ The StackState Receiver API is responsible for receiving both telemetry and topo
 https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -24,13 +24,13 @@ Both the `baseUrl` and `API_KEY` are set during StackState installation, for det
 https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
 ## Common JSON object
 
-Telemetry is sent to the receiver API via HTTP POST and has a common JSON object for all messages. One message can contain multiple metrics and multiple events.
+Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages. One message can contain multiple metrics and multiple events.
 
 ```javascript
 {

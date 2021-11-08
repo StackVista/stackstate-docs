@@ -56,7 +56,9 @@ These can also be created automatically by StackState using the `getOrCreate` fu
 
 ### 4. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. Read more about [Component and Relation types](../../use/introduction-to-stackstate/components_and_relations.md).
+There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; Relation types are here to describe relations between components. 
+
+➡️ [Learn more about Component and Relation types](../../use/concepts/components_relations.md).
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
 
@@ -64,7 +66,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
 
-Read more about [Id Extractors](custom-functions/id-extractor-functions.md)
+➡️ [Learn more about Id Extractors](custom-functions/id-extractor-functions.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 
@@ -88,7 +90,7 @@ Once you have completed all the changes, you can click on `update` and confirm t
 
 ### 9. Configure Synchronizations
 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/topology_synchronization.md) or proceed to edit this synchronization with the instructions below:
+Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/send-topology-data.md) or proceed to edit this synchronization with the instructions below:
 
 #### Step 1
 

@@ -16,6 +16,22 @@ This page provides specific instructions for upgrading to each currently support
 
 ## Upgrade instructions
 
+### Upgrade to v4.5.x
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+#### v4.5.0
+
+No manual action needed.
+{% endtab %}
+
+{% tab title="Linux" %}
+#### v4.5.0
+
+No manual action needed.
+{% endtab %}
+{% endtabs %}
+
 ### Upgrade to v4.4.x
 
 {% tabs %}
@@ -33,7 +49,7 @@ No manual action needed.
 * The CPU and memory [requirements to run StackState 4.4 on Kubernetes](../requirements.md#node-sizing) have been reassessed:
   * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
   * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
-  * A [non-high availability setup](../installation/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
+  * A [non-high availability setup](../install-stackstate/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
@@ -233,6 +249,10 @@ No manual action needed.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}
+
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
 
 ### Upgrade to v4.2.x
 

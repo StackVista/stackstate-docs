@@ -10,6 +10,20 @@ StackState Agent V2 can run in a Docker container. The Agent collects data from 
 
 In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve topology data for the cluster.
 
+## Monitoring
+
+StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
+
+* Hosts, processes, and containers
+* Network connections between processes/containers/services including network traffic telemetry
+* Telemetry for hosts, processes, and containers
+
+In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
+
+* Containers
+* Services
+* Relations between containers and services
+
 ## Setup
 
 ## StackState Receiver API address

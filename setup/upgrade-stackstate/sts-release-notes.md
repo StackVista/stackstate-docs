@@ -109,7 +109,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Improvements**
 
-* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](../installation/cli-install.md#authentication). STAC-12567
+* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](../install-stackstate/cli-install.md#authentication). STAC-12567
 * Any change to a check will update the check state data and fire a change event. STAC-12472
 
 **Bug fixes**
@@ -129,11 +129,11 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
-* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
+* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
 * Added support for interacting with external systems using [self-signed certificates](../../configure/security/self-signed-cert.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
-* StackState now supports [API tokens for authentication of the StackState CLI](../installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+* StackState now supports [API tokens for authentication of the StackState CLI](../install-stackstate/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 * Added support for [backup and restore procedure for self-hosted Kubernetes](../data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
 * It is now possible to use component actions when time-traveling. STAC-11462
@@ -142,7 +142,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Added permission `manage-event-handlers` to [protect creation of event handlers](../../configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
 * Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by source. STAC-10644
 * Allow [filtering Events](../../use/stackstate-ui/filters.md#filter-events) by category. STAC-10643
-* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problem-analysis/problem_investigation.md#anomaly-events) in the Event Details pane. STAC-10031
+* Events of type Anomaly now display a [metric chart including the anomaly](../../use/problem-analysis/problem_investigation.md#anomaly-check-functions) in the Event Details pane. STAC-10031
 * Added permission `execute-restricted-scripts` to [protect usage of `Http` and `Graph` script APIs](../../configure/security/rbac/rbac_permissions.md#analytics-environment) in Analytics. STAC-9834
 * Added ability to filter on labels in the Component Details pane. STAC-11824
 * Added ability to search and filter components in the Topology perspective List mode. STAC-11413
@@ -161,9 +161,14 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that prevented exports produced by the CLI on Windows from being imported. STAC-11096
 * Fixed issue that caused incorrect anomalies to be detected on CloudWatch metrics by introducing two new aggregation methods: COUNT\_NO\_ZEROS and SUM\_NO\_ZEROS. Aggregation methods COUNT and SUM keep the existing behavior of filling gaps in metrics with zeroes, with a configurable delay. STAC-11079
 
-## StackState v4.2.x
 
-### v4.2.4
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+### StackState v4.2.x
+
+#### v4.2.4
 
 **Improvements**
 
@@ -177,7 +182,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
-### v4.2.3
+#### v4.2.3
 
 **Improvements**
 
@@ -193,13 +198,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that prevented `copy_images.sh` script from working with containers without a docker.io prefix. STAC-11697
 * Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
 
-### v4.2.2
+#### v4.2.2
 
 **Bug fixes**
 
 * Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
 
-### v4.2.1
+#### v4.2.1
 
 **Improvements**
 
@@ -209,7 +214,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * Fixed issue that prevents StackState distributed Kubernetes installation from starting when the database initialisation process fails due to a pod restart. STAC-11618
 
-### v4.2.0
+#### v4.2.0
 
 **Features**
 
@@ -238,10 +243,6 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * UPGRADE NOTE: It is strongly advised to review the roles your users have and limit the number of admin users. Users that need to configure StackState can be given the role of power user instead. STAC-10170
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
-
-## Unsupported versions
-
-The versions below are have reached End of Life \(EOL\) and are no longer be supported
 
 ### StackState v4.1.x
 

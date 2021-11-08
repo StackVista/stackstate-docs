@@ -10,7 +10,7 @@ Reacting to each event in an environment can cause a lot of noise. This may be b
 
 StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
 
-![Views list with view health state](../../.gitbook/assets/v44_views_list.png)
+![Views list with view health state](../../.gitbook/assets/v45_views_list.png)
 
 ## Configure view health state
 
@@ -19,16 +19,20 @@ View health state is calculated by a **view state configuration function**. To c
 1. In the StackState UI, click **Views** from the main menu.
 2. Click on the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
-4. Select a **Configuration function** to use to calculate the view health. 
-   * You can use the standard view state configuration function or [create your own](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
-   * For details of the available configuration functions, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
+4. Select a **Configuration function** to use to calculate the view health.
 5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the default [MINIMUM HEALTH STATES](configure-view-health.md#minimum-health-states) configuration function:
    * **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL \(red\) health states required for the view to report a CRITICAL health state.
    * **minDeviatingHealthStates** - Set to at least **1**. This is the number of DEVIATING \(orange\) health states required for the view to report a DEVIATING health state.
-6. Click **UPDATE** to save the new configuration to the view. 
+6. Click **UPDATE** to save the new configuration to the view.
    * The view health will update immediately.
 
-![Edit query view](../../.gitbook/assets/v44_edit_query_view.png)
+![Edit query view](../../.gitbook/assets/v45_edit_query_view.png)
+
+{% hint style="success" "self-hosted info" %}
+
+* Create your own [custom View Health State Configuration functions](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
+* Details of the available configuration functions are available in the StackState UI, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
+{% endhint %}
 
 ## React to view state changes
 
@@ -50,12 +54,14 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 * The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
-The **MINIMUM HEALTH STATES** view health state configuration function should be seen as an example and a good starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
+{% hint style="success" "self-hosted info" %}
+
+Use the **MINIMUM HEALTH STATES** view health state configuration as a starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
+{% endhint %}
 
 ## See also
 
-* [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
-* [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function)
 * [Add a health check](add-a-health-check.md)
 * [Send event notifications when a health state changes](../metrics-and-events/send-event-notifications.md)
-
+* [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
+* [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")

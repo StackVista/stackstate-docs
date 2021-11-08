@@ -8,6 +8,17 @@
 
 StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
+## Monitoring
+
+StackState Agent V2 will synchronize the following data with StackState from the Linux host it is running on:
+
+* Hosts, processes and containers.
+* Telemetry for hosts, processes and containers.
+* For OS versions with a network tracer: 
+  * Network connections between processes and containers.
+  * Network traffic telemetry. 
+  * [Golden signals](/use/metrics-and-events/golden_signals.md), such as HTTP server latencies, errors and request counts.
+
 ## Setup
 
 ### Supported versions
@@ -57,8 +68,8 @@ StackState Agent V2 is installed using an install script.
 {% hint style="info" %}
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](../installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](../installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 {% endhint %}
 
 #### Online install

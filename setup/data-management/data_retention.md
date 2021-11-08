@@ -63,7 +63,7 @@ In some circumstances it may be necessary to adjust the disk space available to 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-The settings can be adjusted by using environment variables to [override the default configuration](../installation/kubernetes_install/customize_config.md#environment-variables) of the parameters described below.
+The settings can be adjusted by using environment variables to [override the default configuration](../install-stackstate/kubernetes_install/customize_config.md#environment-variables) of the parameters described below.
 
 Note that `elasticsearchDiskSpaceMB` will scale automatically based on the disk space available to Elasticsearch in Kubernetes.
 {% endtab %}
