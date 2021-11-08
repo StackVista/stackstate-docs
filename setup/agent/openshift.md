@@ -62,6 +62,31 @@ Read how to [enable cluster checks](openshift.md#cluster-check-configuration).
 
 StackState Agent V2 is supported to run on OpenShift 4.3 or higher.
 
+## StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+For StackState running on Kubernetes, the Receiver API is hosted by default at:
+
+```text
+https://<baseUrl>/receiver/stsAgent
+```
+
+The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+{% endtab %}
+
+{% tab title="Linux" %}
+For StackState running on Linux, the Receiver API is hosted by default at:
+```text
+https://<baseUrl>:7077/stsAgent
+```
+
+The `baseUrl` is set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+{% endtab %}
+{% endtabs %}
+
 ### Install
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
@@ -89,7 +114,7 @@ helm upgrade --install \
 --set-string 'stackstate.apiKey'='<your-api-key>' \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
---set-string 'stackstate.url'='<your-stackstate-url>/receiver/stsAgent' \
+--set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
 stackstate-cluster-agent stackstate/cluster-agent

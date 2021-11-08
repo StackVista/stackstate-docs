@@ -12,6 +12,31 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 ## Setup
 
+## StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+For StackState running on Kubernetes, the Receiver API is hosted by default at:
+
+```text
+https://<baseUrl>/receiver/stsAgent
+```
+
+The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+{% endtab %}
+
+{% tab title="Linux" %}
+For StackState running on Linux, the Receiver API is hosted by default at:
+```text
+https://<baseUrl>:7077/stsAgent
+```
+
+The `baseUrl` is set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+{% endtab %}
+{% endtabs %}
+
 ### Single container
 
 To start a single Docker container with StackState Agent V2, run the following command:
@@ -26,7 +51,7 @@ docker run -d \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -e STS_API_KEY="API_KEY" \
-    -e STS_STS_URL="https://your.stackstate.url/receiver/stsAgent" \
+    -e STS_STS_URL="<stackstate-receiver-api-address> \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:latest
@@ -52,9 +77,9 @@ To run StackState Agent V2 with Docker compose:
       - "/sys/kernel/debug:/sys/kernel/debug"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_STS_URL: "<stackstate-receiver-api-address>"
+      STS_PROCESS_AGENT_URL: "<stackstate-receiver-api-address>"
+      STS_APM_URL: "<stackstate-receiver-api-address>"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
@@ -89,7 +114,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
          - /sys/kernel/debug:/sys/kernel/debug
        environment:
          STS_API_KEY: "API_KEY"
-         STS_STS_URL: "http://receiver:7077/stsAgent"
+         STS_STS_URL: "<stackstate-receiver-api-address>"
          STS_COLLECT_SWARM_TOPOLOGY: "true"
          STS_LOG_LEVEL: "debug"
          STS_LOG_TO_CONSOLE: "true"
@@ -151,7 +176,7 @@ stackstate-agent:
       - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml:ro"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_STS_URL: "<stackstate-receiver-api-address>"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
