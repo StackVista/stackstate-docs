@@ -62,7 +62,7 @@ Read how to [enable cluster checks](kubernetes.md#cluster-check-configuration).
 
 StackState Agent V2 is supported to run on Kubernetes 1.15 or higher.
 
-## StackState Receiver API address
+### StackState Receiver API address
 
 StackState Agent connects to the StackState Receiver API.
 

@@ -17,7 +17,7 @@ StackState Agent V2 is supported to run on:
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
-## StackState Receiver API address
+### StackState Receiver API address
 
 StackState Agent connects to the StackState Receiver API.
 

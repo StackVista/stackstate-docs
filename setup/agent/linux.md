@@ -22,7 +22,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
 | Ubuntu | Ubuntu 15.04 \(Vivid Vervet\) | Network tracer available from Ubuntu 16.04 \(LTS\) \(Xenial Xerus\). |
 
-## StackState Receiver API address
+### StackState Receiver API address
 
 StackState Agent connects to the StackState Receiver API.
 

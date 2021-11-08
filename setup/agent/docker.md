@@ -12,7 +12,7 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 ## Setup
 
-## StackState Receiver API address
+### StackState Receiver API address
 
 StackState Agent connects to the StackState Receiver API.
 
