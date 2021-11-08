@@ -22,6 +22,31 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
 | Ubuntu | Ubuntu 15.04 \(Vivid Vervet\) | Network tracer available from Ubuntu 16.04 \(LTS\) \(Xenial Xerus\). |
 
+## StackState Receiver API
+
+StackState Agent connects to the StackState Receiver API.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+For StackState running on Kubernetes, the Receiver API is hosted by default at:
+
+```text
+https://<baseUrl>/receiver/stsAgent
+```
+
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+{% endtab %}
+
+{% tab title="Linux" %}
+For StackState running on Linux, the Receiver API is hosted by default at:
+```text
+https://<baseUrl>:<receiverPort>/stsAgent
+```
+
+Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+{% endtab %}
+{% endtabs %}
+
 ### Install
 
 StackState Agent V2 is installed using an install script.
@@ -45,7 +70,7 @@ If you have access to the internet on the machine where the Agent will be instal
 ```text
 curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
 STS_API_KEY="{{config.apiKey}}" \
-STS_URL="{{config.baseUrl}}/stsAgent" bash
+STS_URL="<stackstate-receiver-api-address>" bash
 ```
 {% endtab %}
 
@@ -53,7 +78,7 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```text
 wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
 STS_API_KEY="{{config.apiKey}}" \
-STS_URL="{{config.baseUrl}}/stsAgent" bash
+STS_URL="<stackstate-receiver-api-address>" bash
 ```
 {% endtab %}
 {% endtabs %}
