@@ -21,7 +21,7 @@ StackState Agent connects to the StackState Receiver API.
 For StackState running on Kubernetes, the Receiver API is hosted by default at:
 
 ```text
-https://<baseUrl>/receiver/stsAgent>
+https://<baseUrl>/receiver/stsAgent
 ```
 
 The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
