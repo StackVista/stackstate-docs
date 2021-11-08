@@ -67,7 +67,7 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 {% hint style="success" "self-hosted info" %}
 
-[Synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
+You can [synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
 {% endhint %}
 
 ## See also
