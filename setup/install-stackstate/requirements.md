@@ -104,13 +104,13 @@ The StackState production setup runs on two machines and requires:
 **StackState node**:
 
 * 32GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 8 cores CPU
 
 **StackGraph node**:
 
 * 24GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 8 cores CPU
 
 #### POC setup
@@ -118,7 +118,7 @@ The StackState production setup runs on two machines and requires:
 The POC setup runs on a single node and requires:
 
 * 32GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 8 cores CPU
 
 #### Development setup
@@ -126,7 +126,7 @@ The POC setup runs on a single node and requires:
 The development setup runs on a single node and requires:
 
 * 16GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 4 cores CPU
 
 ### AWS requirements
