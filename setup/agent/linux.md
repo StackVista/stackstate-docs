@@ -100,7 +100,7 @@ If you do not have access to the internet on the machine where the Agent will be
 
    ```text
     STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" \
+    STS_URL="<stackstate-receiver-api-address>" \
     STS_INSTALL_NO_REPO=yes \
     ./install.sh <path_to_local_Agent_installer_package>
    ```
