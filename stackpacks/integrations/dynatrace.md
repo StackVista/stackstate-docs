@@ -14,9 +14,9 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
   * If a Dynatrace topology check is configured, Topology and Smartscape data is retrieved
   * If a Dynatrace health check is configured, events data is retrieved.
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
-* [Topology data](dynatrace.md#topology) is translated into components and relations. 
-* [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState.
-* [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+    * [Topology data](dynatrace.md#topology) is translated into components and relations. 
+    * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
+    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 ## Setup
 
@@ -206,7 +206,9 @@ The Dynatrace integration does not retrieve any metrics data.
 
 #### Tags
 
-All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState. The Dynatrace integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState. 
+
+The Dynatrace integration also understands [common tags](../../configure/topology/tagging.md#common-tags). These tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
