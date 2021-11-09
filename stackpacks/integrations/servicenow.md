@@ -8,13 +8,14 @@ description: StackState core integration
 
 The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items \(CIs\) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations. ServiceNow change request events are also retrieved.
 
-![Data flow](../../.gitbook/assets/stackpack-servicenow.png)
+![Data flow](../../.gitbook/assets/stackpack-servicenow.svg)
 
 * Agent V2 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).
 * CIs and dependencies for the configured CI types are retrieved from the ServiceNow CMDB \(default all\). Change request events are retrieved in the same run.
-* Agent V2 pushes [retrieved data](servicenow.md#data-retrieved) to StackState.
-* StackState translates incoming CIs and dependencies into topology components and relations. 
-* Retrieved change requests are attached to the associated elements and listed in the StackState Events Perspective.
+* Agent V2 pushes [retrieved data](servicenow.md#data-retrieved) to StackState:
+   * CIs and dependencies are translated into [topology components and relations](#topology). 
+   * [Tags](#tags) defined in ServiceNow are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
+   * Change requests are attached to the associated elements as [events](#events) and listed in the StackState Events Perspective.
 
 ## Setup
 
@@ -196,7 +197,9 @@ The ServiceNow check does not retrieve any metrics data.
 
 #### Tags
 
-All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState. The ServiceNow integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState. 
+
+The ServiceNow integration also understands [common tags](../../configure/topology/tagging.md#common-tags). These tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
