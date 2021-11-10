@@ -50,5 +50,7 @@ To deploy StackState in a non-high availability setup, you will need a `nonha_va
       replicaCount: 1
    ```
 
-2. Continue with the instructions to [deploy StackState with Helm](/setup/installation/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm).
+2. Continue with the instructions to deploy StackState with Helm:
+   * [Deploy on Kubernetes](/setup/installation/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm).
+   * [Deploy on OpenShift](/setup/installation/openshift_install.md#deploy-stackstate-with-helm)
 
