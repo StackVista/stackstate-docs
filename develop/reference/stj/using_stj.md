@@ -98,11 +98,11 @@ StackState adds a number of function to the handlebars syntax. You can use these
 
  [Learn more about the available functions](stj_reference.md).
 
-## Component and Relation templates
+## Component and relation templates
 
 Templates are used to create topology. 
 
-[Learn more about component and Relation templates](../../../use/introduction-to-stackstate/components_and_relations.md).
+[Learn more about component and relation templates](../../../use/introduction-to-stackstate/components_and_relations.md).
 
 ## See also
 
