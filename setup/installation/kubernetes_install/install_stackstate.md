@@ -95,7 +95,7 @@ stackstate/stackstate
 {% tab title="Non-high availability setup" %}
 
 1. [Create a `nonha_values.yaml` file](non_high_availability_setup.md).
-2. Use the `values.yaml` and `nonha_values.yaml` files to deploy the latest StackState version to the `stackstate` namespace with the following command:
+2. Use the generated `values.yaml` and created `nonha_values.yaml` files to deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
 helm upgrade \
