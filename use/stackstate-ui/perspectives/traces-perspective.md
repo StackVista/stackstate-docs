@@ -10,7 +10,7 @@ The Traces Perspective shows a list of traces and their spans for the components
 
 ![The Traces Perspective](../../../.gitbook/assets/v45_traces-perspective.png)
 
-To find out more about how you can add traces to StackState, please read the [guide to setting up traces](../../../configure/traces/how_to_setup_traces.md).
+To find out more about how you can add traces to StackState, read the [guide to setting up traces](../../../configure/traces/how_to_setup_traces.md).
 
 ## Inspecting Traces
 

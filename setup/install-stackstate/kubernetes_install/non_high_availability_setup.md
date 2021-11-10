@@ -2,17 +2,17 @@
 
 ## Overview
 
-The recommended Kubernetes deployment of StackState is a [production ready setup](install_stackstate.md) with many services running redundantly. However, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.
+The recommended Kubernetes/OpenShift deployment of StackState is a production ready setup with many services running redundantly. If required, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.
 
 {% hint style="info" %}
-This setup is only suitable for situations that do not require high availability.
+The non-high availability setup is only suitable for situations that do not require high availability.
 {% endhint %}
 
-## Non-high availability setup
+## Create `nonha_values.yaml`
 
-To run StackState in a non-high availability setup:
+To deploy StackState in a non-high availability setup, you will need a `nonha_values.yaml` file. Follow the instructions below to create this file and use it for deployment of StackState.
 
-1. Create a Helm values file `nonha_values.yaml` with the following content:
+1. Create a Helm values file `nonha_values.yaml` with the following content and store it next to the generated `values.yaml` file:
 
    ```yaml
     # This files defines additional Helm values to run StackState on a 
@@ -50,15 +50,7 @@ To run StackState in a non-high availability setup:
       replicaCount: 1
    ```
 
-2. Install StackState with the `nonha_values.yaml` Helm values file:
-
-   ```bash
-   helm upgrade \
-   --install \
-   --namespace stackstate \
-   --values values.yaml \
-   --values nonha_values.yaml \
-   stackstate \
-   stackstate/stackstate
-   ```
+2. Continue with the instructions to deploy StackState with Helm:
+   * [Deploy on Kubernetes](/setup/installation/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm).
+   * [Deploy on OpenShift](/setup/installation/openshift_install.md#deploy-stackstate-with-helm).
 
