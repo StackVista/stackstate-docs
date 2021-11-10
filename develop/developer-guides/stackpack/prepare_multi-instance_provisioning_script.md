@@ -2,7 +2,7 @@
 
 A multi-instance StackPack requires a provisioning script that is able to provision multiple StackPack instances. To achieve that, you need to provide a separate template file in the context for both `stackPack` and `instance`; `stackPack` needs to be provided with the `shared-template.stj`, and `instance` requires the `instance-template.stj` as in the example below:
 
-Please note that `instance-template.stj` has some instance specific information, like `topicName`, `instanceId` and anything else defined in `templateArguments`, while `shared-template` passes without any specifics \(`[:]`\).
+Note that `instance-template.stj` has some instance specific information, like `topicName`, `instanceId` and anything else defined in `templateArguments`, while `shared-template` passes without any specifics \(`[:]`\).
 
 ```text
 import com.stackstate.stackpack.ProvisioningScript

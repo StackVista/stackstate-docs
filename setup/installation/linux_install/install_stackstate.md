@@ -37,7 +37,7 @@ During the installation process StackState requests the user for information abo
   * `CUSTOM`: Create a fully customizable StackState installation. For advanced users only.
 * `LICENSE_KEY`: Your license key provided by StackState.
 * `RECEIVER_BASE_URL`: Configures the endpoint to which agents and external sources can push data to StackState. Typically, it is of the form `"http://<<<HOST>>>:7077/"`, where `<<<HOST>>>` is the public DNS resolvable hostname external services can use to connect to the installed StackState instance. When running on a single machine, it is advised to specify the IP address and not use `localhost`.
-* `STACKGRAPH_HOST`: This option is only available for the `PRODUCTION-STACKSTATE` setup type. Please fill in the DNS name here of the StackGraph machine.
+* `STACKGRAPH_HOST`: This option is only available for the `PRODUCTION-STACKSTATE` setup type. The DNS name here of the StackGraph machine.
 * `API_KEY`: Secret key StackState agents must use to authenticate. If it is not provided, one will be generated automatically under `/opt/stackstate/etc/APIKEY`.
 * `STACKSTATE_BASE_URL`: The public URL of StackState.
 

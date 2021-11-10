@@ -26,7 +26,7 @@ sts graph retention set-window --window 864000000
 
 \(note that time value is provided in milliseconds - 10 days equals 864000000 milliseconds\)
 
-Please note that by adding more time to the data retention period, the amount of data stored is also going to grow and need more storage space. This may also affect the performance of the Views.
+Note that by adding more time to the data retention period, the amount of data stored is also going to grow and need more storage space. This may also affect the performance of the Views.
 
 After the new retention window is applied, you can schedule a new removal with this command:
 
@@ -37,7 +37,7 @@ sts graph retention set-window --schedule-removal
 
 After changing the retention period to a smaller window, you may end up with some data that is already expired and will wait there until the next scheduled cleanup. To schedule an additional removal of expired data, use the following command:
 
-Please note that this may take some time to have an effect.
+Note that this may take some time to have an effect.
 
 ```text
 # Schedule removal of expired data
