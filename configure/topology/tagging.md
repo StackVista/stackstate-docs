@@ -86,7 +86,7 @@ A number of StackState integrations understand common tags. These are special ta
 | `stackstate-layer` | The component will be placed in the specified layer in StackState. |
 | `stackstate-domain` | The component will be placed in the specified domain in StackState. |
 | `stackstate-environment` | The component will be placed in the specified environment in StackState. |
-| `stackstate-identifiers` | The specified value will be as an identifier to the StackState component. |
+| `stackstate-identifiers` | The specified value will be added as an identifier to the StackState component. |
 
 ## Using Tags
 
