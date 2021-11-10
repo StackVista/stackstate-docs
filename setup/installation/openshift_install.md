@@ -193,9 +193,10 @@ Save this as `agent-values.yaml` and add it to the `helm install` command to ena
 
 ### Deploy StackState with Helm
 
-Use the generated `values.yaml` and copied `openshift-values.yaml` file to deploy the latest StackState version to the `stackstate` namespace with the command below. If you want to automatically install the Cluster Agent for OpenShift, you will also require the `agent-values.yaml` created in the previous step:
 {% tabs %}
 {% tab title="High availability setup" %}
+
+To deploy StackState in a high availability setup on OpenShift:
 
 1. [Generate `values.yaml`](#generate-valuesyaml).
 2. [Create `openshift-values.yaml`](#create-openshift-valuesyaml).
@@ -214,8 +215,10 @@ stackstate/stackstate
 {% endtab %}
 {% tab title="Non-high availability setup" %}
 
+To deploy StackState in a non-high availability setup on OpenShift:
+
 1. [Generate `values.yaml`](#generate-valuesyaml).
-2. [Create `openshift-values.yaml`](#create-openshift-valuesyaml)
+2. [Create `openshift-values.yaml`](#create-openshift-valuesyaml).
 3. [Create a `nonha_values.yaml` file](/setup/installation/kubernetes_install/non_high_availability_setup.md).
 4. To automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift).
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
@@ -334,4 +337,5 @@ After this file is applied, execute the following command as administrator to gr
 For other configuration and management options, please refer to the Kubernetes documentation:
 
 * [Manage a StackState Kubernetes installation](kubernetes_install/)
+* [Create a `nonha_values.yaml` file](/setup/installation/kubernetes_install/non_high_availability_setup.md)
 

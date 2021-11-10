@@ -81,7 +81,11 @@ Store the generated `values.yaml` file somewhere safe. You can reuse this file f
 
 {% tabs %}
 {% tab title="High availability setup" %}
-Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace with the following command:
+
+To deploy StackState in a high availability setup on Kubernetes:
+
+1. [Generate `values.yaml`](#generate-valuesyaml).
+2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
 helm upgrade \
@@ -94,8 +98,11 @@ stackstate/stackstate
 {% endtab %}
 {% tab title="Non-high availability setup" %}
 
-1. [Create a `nonha_values.yaml` file](non_high_availability_setup.md).
-2. Use the generated `values.yaml` and created `nonha_values.yaml` files to deploy the latest StackState version to the `stackstate` namespace with the following command:
+To deploy StackState in a non-high availability setup on Kubernetes:
+
+1. [Generate `values.yaml`](#generate-valuesyaml).
+2. [Create a `nonha_values.yaml` file](non_high_availability_setup.md).
+3. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
 helm upgrade \
