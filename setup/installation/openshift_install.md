@@ -219,7 +219,7 @@ To deploy StackState in a non-high availability setup on OpenShift:
 
 1. [Generate `values.yaml`](#generate-valuesyaml).
 2. [Create `openshift-values.yaml`](#create-openshift-valuesyaml).
-3. [Create a `nonha_values.yaml` file](/setup/installation/kubernetes_install/non_high_availability_setup.md).
+3. [Create `nonha_values.yaml`](/setup/installation/kubernetes_install/non_high_availability_setup.md).
 4. To automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift).
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -334,8 +334,6 @@ After this file is applied, execute the following command as administrator to gr
 
 ## See also
 
-For other configuration and management options, please refer to the Kubernetes documentation:
-
-* [Manage a StackState Kubernetes installation](kubernetes_install/)
 * [Create a `nonha_values.yaml` file](/setup/installation/kubernetes_install/non_high_availability_setup.md)
+* For other configuration and management options, please refer to the Kubernetes documentation - [manage a StackState Kubernetes installation](kubernetes_install/)
 
