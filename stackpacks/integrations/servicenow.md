@@ -199,7 +199,7 @@ The ServiceNow check does not retrieve any metrics data.
 
 All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState. 
 
-The ServiceNow integration also understands [common tags](../../configure/topology/tagging.md#common-tags). These tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The ServiceNow integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
