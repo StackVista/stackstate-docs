@@ -12,7 +12,7 @@ This setup is only suitable for situations that do not require high availability
 
 To deploy StackState in a non-high availability setup, you will need a `nonha_values.yaml` file. Follow the instructions below to create this file and use it for deployment of StackState.
 
-1. Create a Helm values file `nonha_values.yaml` with the following content:
+1. Create a Helm values file `nonha_values.yaml` with the following content and store it next to the generated `values.yaml` file:
 
    ```yaml
     # This files defines additional Helm values to run StackState on a 
