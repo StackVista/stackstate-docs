@@ -18,7 +18,7 @@ For instructions on how to upgrade StackPacks, see [the StackPacks documentation
 
 ## Before you upgrade
 
-When executing a StackState upgrade, please be aware of the following:
+When executing a StackState upgrade, be aware of the following:
 
 {% hint style="warning" %}
 **Always read the** [**version-specific upgrade notes**](version-specific-upgrade-instructions.md) **before upgrading StackState.**

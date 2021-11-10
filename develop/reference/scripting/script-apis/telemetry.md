@@ -19,7 +19,7 @@ Telemetry.query(dataSourceName: String, query: String)
 ```
 
 {% hint style="warning" %}
-As of yet, telemetry queries only support metric queries. If you need event queries please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
+As of yet, telemetry queries only support metric queries. If you need event queries, please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
 {% endhint %}
 
 **Args:**

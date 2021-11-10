@@ -14,7 +14,7 @@ This tutorial shows you how to create a basic StackPack to configure StackState.
 
 ## Setup
 
-[This repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
+[This GitHub repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
 The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
 
@@ -34,20 +34,20 @@ Take a moment to locate these files in the `src/main/stackpack` folder of the pr
 
 ## Building the StackPack
 
-The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the root of the sample repository using the command:
+The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the directory `stackpack-tutorial/src/main/stackpack` in the sample repository using the command:
 
 ```text
-zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources
+zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 ```
 
 ## Importing the StackPack
 
 The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/installation/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
 
-The following command installes our new tutorial StackPack in StackState:
+The following command installs our new tutorial StackPack in StackState:
 
 ```text
-sts stackpack upload target/tutorial-0.0.2-master-SNAPSHOT.sts
+sts stackpack upload tutorial-stackpack-0.0.1.sts
 ```
 
 {% hint style="info" %}

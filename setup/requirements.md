@@ -19,13 +19,17 @@ For a list of all docker images used, see the [image overview](installation/kube
 For a standard deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The nodes required for different environments:
 
 {% tabs %}
-{% tab title="Recommended high availability setup" %}
+{% tab title="Recommended setup" %}
+Requirements for the recommended high availability setup:
+
 * **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 6 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 6 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
 {% endtab %}
 
-{% tab title="Minimal high availability setup" %}
+{% tab title="Minimal setup" %}
+Requirements for the minimal high availability setup: 
+
 * **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
 * **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
@@ -104,13 +108,13 @@ The StackState production setup runs on two machines and requires:
 **StackState node**:
 
 * 32GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 8 cores CPU
 
 **StackGraph node**:
 
 * 24GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 8 cores CPU
 
 #### POC setup
@@ -118,7 +122,7 @@ The StackState production setup runs on two machines and requires:
 The POC setup runs on a single node and requires:
 
 * 32GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 8 cores CPU
 
 #### Development setup
@@ -126,7 +130,7 @@ The POC setup runs on a single node and requires:
 The development setup runs on a single node and requires:
 
 * 16GB of RAM
-* 500GB disk space
+* 500GB disk space (available under `/opt/stackstate`)
 * 4 cores CPU
 
 ### AWS requirements
