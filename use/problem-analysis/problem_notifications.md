@@ -2,7 +2,7 @@
 
 ## Overview
 
-Problems in StackState generate events that can be used to trigger event notifications. StackState v4.3 does not include StackPacks that support notifications for problem events out of the box, however, the functionality to do this is available.
+Problems in StackState generate events that can be used to trigger event notifications. StackState v4.5 does not include StackPacks that support notifications for problem events out of the box, however, the functionality to do this is available.
 
 {% hint style="success" "self-hosted info" %}
 
