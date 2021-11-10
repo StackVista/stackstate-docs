@@ -45,10 +45,7 @@ kubectl create namespace stackstate
 The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, API key and other important information.
 
 {% hint style="info" %}
-**Before you continue:** 
-
-* Make sure you have the latest version of the Helm chart with `helm repo update`.
-* Note that to deploy StackState with a non-high availability setup (not recommended), you must also [create a `nonha_values.yaml` file](non_high_availability_setup.md).
+**Before you continue:** Make sure you have the latest version of the Helm chart with `helm repo update`.
 {% endhint %}
 
 The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the Helm chart will guide you through generating a `values.yaml` file that can be used to deploy StackState. You can run the `generate_values.sh` script in two ways:
@@ -82,10 +79,10 @@ Store the generated `values.yaml` file somewhere safe. You can reuse this file f
 
 ### Deploy StackState with Helm
 
-Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace with the following command:
-
 {% tabs %}
 {% tab title="High availability setup" %}
+Use the generated `values.yaml` file to deploy the latest StackState version to the `stackstate` namespace with the following command:
+
 ```text
 helm upgrade \
   --install \
@@ -96,7 +93,9 @@ stackstate/stackstate
 ```
 {% endtab %}
 {% tab title="Non-high availability setup" %}
-If you have not done so already, you will need to [create a `nonha_values.yaml` file](non_high_availability_setup.md).
+
+1. [Create a `nonha_values.yaml` file](non_high_availability_setup.md).
+2. Use the `values.yaml` and `nonha_values.yaml` files to deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
 helm upgrade \

@@ -8,9 +8,9 @@ The recommended Kubernetes deployment of StackState is a [production ready setup
 This setup is only suitable for situations that do not require high availability.
 {% endhint %}
 
-## Generate `nonha_values.yaml`
+## Create `nonha_values.yaml`
 
-To deploy StackState in a non-high availability setup, you will require a `nonha_values.yaml` file. Follow the instructions below to create this file and use it for deployment of StackState.
+To deploy StackState in a non-high availability setup, you will need a `nonha_values.yaml` file. Follow the instructions below to create this file and use it for deployment of StackState.
 
 1. Create a Helm values file `nonha_values.yaml` with the following content:
 
@@ -50,5 +50,5 @@ To deploy StackState in a non-high availability setup, you will require a `nonha
       replicaCount: 1
    ```
 
-2. Continue with the instructions to [generate a `values.yaml` file](/setup/installation/kubernetes_install/install_stackstate.md#generate-valuesyaml) and deploy StackState.
+2. Continue with the instructions to [deploy StackState with Helm](/setup/installation/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm).
 
