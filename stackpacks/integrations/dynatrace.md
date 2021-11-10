@@ -220,7 +220,7 @@ The [Dynatrace topology check](#dynatrace-topology-check) retrieves the followin
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace. |
 
 {% hint style="info" %}
-The Dynatrace integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The Dynatrace integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 {% endhint %}
 
 #### Traces

@@ -211,7 +211,7 @@ The ServiceNow check retrieves the following topology data from the ServiceNow C
 | Relations | Relations retrieved from the `cmdb_rel_ci` table. |
 
 {% hint style="info" %}
-The ServiceNow integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The ServiceNow integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 {% endhint %}
 
 #### Traces

@@ -144,7 +144,7 @@ The VMWare vSphere integration retrieves the following topology data:
 * Relations
 
 {% hint style="info" %}
-The VMWare vSphere integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The VMWare vSphere integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 {% endhint %}
 
 #### Traces
