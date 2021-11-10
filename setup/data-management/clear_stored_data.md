@@ -46,7 +46,7 @@ To clear stored data in StackState running on Kubernetes, it is recommended to r
 {% endtab %}
 
 {% tab title="Linux" %}
-Please note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node. For example, `systemctl stop stackgraph` for a StackGraph node.
+Note that the below instructions are valid for a single node installation type. For a two-node installation, you need to stop the service corresponding to the node. For example, `systemctl stop stackgraph` for a StackGraph node.
 
 1. Stop the StackState and StackGraph services:
 

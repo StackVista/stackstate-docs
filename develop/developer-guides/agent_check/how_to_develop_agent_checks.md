@@ -419,7 +419,7 @@ For Windows:
 "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" status
 ```
 
-If your issue continues, please reach out to Support with the help page that lists the paths it installs.
+If your issue continues, contact Support with the help page that lists the paths it installs.
 
 ## See also
 
