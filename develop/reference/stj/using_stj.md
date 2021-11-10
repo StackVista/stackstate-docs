@@ -96,11 +96,13 @@ Loop over an array or map of data.
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
-Please [have a look at the available functions](stj_reference.md).
+ [Learn more about the available functions](stj_reference.md).
 
-## Component and Relation templates
+## Component and relation templates
 
-Templates are used to create topology. Please find more information on the [Component and Relation templates page.](../../../use/concepts/components_relations.md).
+Templates are used to create topology. 
+
+[Learn more about component and relation templates](/use/concepts/components_relations.md).
 
 ## See also
 
