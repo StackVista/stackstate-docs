@@ -210,6 +210,10 @@ The ServiceNow check retrieves the following topology data from the ServiceNow C
 | Components | CI types retrieved from the ServiceNow CMDB, see [filter retrieved CI types](servicenow.md#specify-ci-types-to-retrieve). |
 | Relations | Relations retrieved from the `cmdb_rel_ci` table. |
 
+{% hint style="info" %}
+The ServiceNow integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+{% endhint %}
+
 #### Traces
 
 The ServiceNow check does not retrieve any traces data.
