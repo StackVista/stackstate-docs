@@ -84,7 +84,9 @@ Store the generated `values.yaml` file somewhere safe. You can reuse this file f
 
 To deploy StackState in a high availability setup on Kubernetes:
 
-1. [Generate `values.yaml`](#generate-valuesyaml).
+1. Before you deploy:
+   * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
+   * [Generate `values.yaml`](#generate-valuesyaml)
 2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
@@ -100,8 +102,10 @@ stackstate/stackstate
 
 To deploy StackState in a non-high availability setup on Kubernetes:
 
-1. [Generate `values.yaml`](#generate-valuesyaml).
-2. [Create `nonha_values.yaml`](non_high_availability_setup.md).
+1. Before you deploy:
+   * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
+   * [Generate `values.yaml`](#generate-valuesyaml)
+   * [Create `nonha_values.yaml`](non_high_availability_setup.md)
 3. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
