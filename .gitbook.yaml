@@ -289,3 +289,16 @@ redirects:
   use/introduction-to-stackstate/layers_domains_and_environments.md: ./use/concepts/layers_domains_environments.md
   use/introduction-to-stackstate/perspectives.md: ./use/concepts/perspectives.md
   use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture
+  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
+  use/introduction-to-stackstate/4t_data_model: ./use/conecpts/4t_data_model
+  use/introduction-to-stackstate/perspectives: ./use/concepts/perspectives
+  use/introduction-to-stackstate/layers_domains_and_environments: ./use/concepts/layers_domains_and_environments
+  use/introduction-to-stackstate/anomaly-detection: ./use/concepts/anomaly-detection
+  stackpacks/integrations/centos: ./setup/agent/linux.md
+  stackpacks/integrations/debian: ./setup/agent/linux.md
+  stackpacks/integrations/docker: ./setup/agent/docker.md
+  stackpacks/integrations/fedora: ./setup/agent/linux.md
+  stackpacks/integrations/redhat: ./setup/agent/linux.md
+  stackpacks/integrations/ubuntu: ./setup/agent/linux.md
+  stackpacks/integrations/windows: ./setup/agent/windows.md
+  configure/topology/topology_synchronization: ./configure/topology/send-topology-data
