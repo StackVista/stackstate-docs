@@ -20,17 +20,19 @@ A problem in StackState is the collection of unhealthy components that can be at
 
 A problem is [created](#problem-created) when the health state of a component in a view changes to DEVIATING or CRITICAL.
 
-Updates to the health state of components in the view may result in new problems being created and/or an existing problem being [updated](#problem-updated). A change in health state may also cause the root cause of an existing problem to change, for example if an existing root cause component switches to a healthy state, or if a previously healthy upstream dependency switches to an unhealthy state. StackState will assess these changes and update the affected problem or problems accordingly. This may result in a new problem being created, or an existing problem being updated or [subsumed](#problem-subsumed).
+Updates to the health state of components in the view may result in new problems being created or an existing problems being [updated](#problem-updated). A change in health state may also cause the root cause of an existing problem to change, for example if an existing root cause component switches to a healthy state, or if a previously healthy upstream dependency switches to an unhealthy state. StackState will assess all changes and update any affected problems accordingly. This may result in a new problem being created, or an existing problem being updated or [subsumed](#problem-subsumed).
+
+When the root cause and all contributing cause components have changed to a CLEAR (green) health state, the problem is considered as [resolved](#problem-resolved).
 
 ![problem lifecycle](/.gitbook/assets/problem_lifecycle_animation.gif)
 
 ### Problem created
 
-A problem is created when a component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem. It is possible for a single unhealthy component to be a contributing cause in two separate problems. If there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems.
+A problem is created when a component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem. It is possible for a single unhealthy component to be a contributing cause in two separate problems. If there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. A `Problem created` event will be generated for each created problem.
 
 ### Problem updated
 
-A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem.
+A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem. A `Problem updated` event will be generated for each update to a problem.
 
 ### Problem subsumed
 
@@ -46,21 +48,6 @@ The following events will be generated:
 When the root cause and all contributing cause components have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. A `Problem resolved` event will be generated.
 
 If the components change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
-
-
-## Changes to problem root cause
-
-
-
-
-### One problem, two root causes
-
-If the root cause component of a problem switches its state to healthy, the next unhealthy component at the bottom of the dependency chain will become the new root cause. If there are two or more potential new root causes, StackState will split the problem. As each problem can only have one root cause, a new problem will be created for each potential root cause.
-
-The following events will be generated:
-
-* One `Problem updated` event for the problem whose new root cause with the oldest health state change timestamp of all new root causes. 
-* `Problem created` events for all other new problems.
 
 ## See also
 
