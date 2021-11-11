@@ -42,7 +42,9 @@ The following events will be generated:
 
 * A `Problem updated` event for each update to a problem.
 
-Note that updates to an existing problem may result in another problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
+{% hint style="info" %}
+Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
+{% endhint %}
 
 ### Problem subsumed
 
@@ -61,7 +63,9 @@ The following events will be generated:
 
 * A `Problem resolved` event for the resolved problem.
 
+{% hint style="info" %}
 If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
+{% endhint %}
 
 ## See also
 
