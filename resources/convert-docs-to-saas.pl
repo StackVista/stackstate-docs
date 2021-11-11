@@ -46,34 +46,6 @@ sub remove_selfhosted_links {
   return @output;
 }
 
-# update to also add extra title in
-#sub de_link_geek_boxes {
-#  my @lines = @_;
-#  my @output;
-#  my $geek_box, $selfhosted_box;
-#
-#  for $line (@lines) {
-#    if($line =~ /{% hint style=".*" %}/) {
-#      print "ERROR: missed geek box end! $line" unless ($geek_box == 0);
-#      # print "... Found geek box start: $line";
-#      $geek_box = 1;
-#    } elsif($line =~ /{% endhint %}/) {
-#      print "ERROR: missed geek box start! $line" unless ($geek_box == 1);
-#      # print "... Found geek box end: $line";
-#      $geek_box = $selfhosted_box = 0;
-#    } elsif($geek_box == 1 && $line =~ /\*\*$NON_SAAS_EDITION_NAME\*\*/) {
-#      # print "... Found non-SaaS box: $line";
-#      $selfhosted_box = 1;
-#    } elsif($selfhosted_box == 1 && $line =~ /\[.*\]\(.*\)/) {
-#      print "... De-linking geek box link: $line";
-#      $line =~ s/\[([^\]]*)\]\([^\)]*\)/$1/g;
-#      print "... De-linked line: $line";
-#    }
-#    push @output, $line;
-#  }
-#  return @output;
-#}
-
 sub de_link_and_edit_geek_boxes {
   my @lines = @_;
   my @output;
