@@ -18,7 +18,7 @@ A problem in StackState is the collection of unhealthy components that can be at
 
 ## Problem lifecycle
 
-A problem is [created](#problem-created) when the health state of a component in a view changes to DEVIATING or CRITICAL.
+A problem is [created](#problem-created) when the health state of a component in a view changes to DEVIATING (orange) or CRITICAL (red).
 
 Updates to the health state of components in the view may result in new problems being created or existing problems being [updated](#problem-updated). If a change in health state causes the root cause of an existing problem to change, the resulting problem update may cause an existing problem to be [subsumed](#problem-subsumed). For example, if a previously healthy upstream dependency switches to an unhealthy state.
 
