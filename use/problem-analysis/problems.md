@@ -28,7 +28,7 @@ When the root cause and all contributing cause components have changed to a CLEA
 
 ### Problem created
 
-A problem is created when a root cause component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
+A problem is created when a component's health state changes to DEVIATING or CRITICAL and the root cause component is not already part of an existing problem. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
 
 The following events will be generated:
 
