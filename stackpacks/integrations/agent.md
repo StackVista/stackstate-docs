@@ -24,19 +24,12 @@ The integrations included in the StackState Agent V2 StackPack are listed below.
 
 * [Apache TomCat](apache-tomcat.md)
 * [AWS ECS](aws/aws-ecs.md)
-* [CentOS](centos.md)
-* [Debian](debian.md)
-* [Docker](docker.md)  
 * [DotNet APM](dotnet-apm.md)
-* [Fedora](fedora.md)
 * [Java APM](java-apm.md)
 * [JMX](jmx.md)
 * [MySQL](mysql.md)
 * [PostgreSQL](postgresql.md)
-* [RedHat](redhat.md)
 * [Static Health](static_health.md)  
-* [Ubuntu](ubuntu.md)
-* [Windows](windows.md)  
 * [WMI](wmi.md)
 
 ### Status

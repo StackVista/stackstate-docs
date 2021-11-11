@@ -7,7 +7,7 @@ In the future we will move away from Linux support. Read how to [migrate from th
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](../../requirements.md).
+Before starting the installation, ensure your system\(s\) meet StackState's production deployment [installation requirements](/setup/install-stackstate/requirements.md).
 
 ## Two-node deployment architecture
 

@@ -45,7 +45,7 @@ For StackState running on Kubernetes, the Receiver API is hosted by default at:
 https://<baseUrl>/receiver/stsAgent
 ```
 
-The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/installation/kubernetes_install/install_stackstate.md#generate-values-yaml).
+The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -54,7 +54,7 @@ For StackState running on Linux, the Receiver API is hosted by default at:
 https://<baseUrl>:7077/stsAgent
 ```
 
-The `baseUrl` is set during StackState installation, for details see [Linux install - configuration parameters](../../setup/installation/linux_install/install_stackstate.md#configuration-options-required-during-install).
+The `baseUrl` is set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 

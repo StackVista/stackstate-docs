@@ -2,7 +2,7 @@
 
 ## Overview
 
-StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/install-stackstate/cli-install.md).
+StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli-install.md).
 
 ## StackState Receiver API
 
@@ -50,7 +50,7 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 ## See also
 
-* [Install the StackState CLI](/setup/install-stackstate/cli-install.md)
+* [Install the StackState CLI](/setup/cli-install.md)
 * [StackState CLI reference](/develop/reference/cli_reference.md)
 * [Send topology data over HTTP](/configure/topology/send-topology-data.md)
 * [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)

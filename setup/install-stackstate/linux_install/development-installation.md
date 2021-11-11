@@ -9,7 +9,7 @@ Development mode is StackState's installation mode for a small installation to d
 
 ## Requirements
 
-Before starting the installation, ensure your system meets StackState's development setup [installation requirements](../../requirements.md).
+Before starting the installation, ensure your system meets StackState's development setup [installation requirements](/setup/install-stackstate/requirements.md).
 
 ## Installing StackState in a development configuration
 
