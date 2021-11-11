@@ -20,7 +20,7 @@ A problem in StackState is the collection of unhealthy components that can be at
 
 A problem is [created](#problem-created) when the health state of a component in a view changes to DEVIATING or CRITICAL.
 
-Updates to the health state of components in the view may result in new problems being created or an existing problems being [updated](#problem-updated). A change in health state may also cause the root cause of an existing problem to change, for example if an existing root cause component switches to a healthy state, or if a previously healthy upstream dependency switches to an unhealthy state. StackState will assess all changes and update any affected problems accordingly. This may result in a new problem being created, or an existing problem being updated or [subsumed](#problem-subsumed).
+Updates to the health state of components in the view may result in new problems being created or an existing problems being [updated](#problem-updated). If a change in health state causes the root cause of an existing problem to change, for example if an existing root cause component switches to a healthy state, or if a previously healthy upstream dependency switches to an unhealthy state, this may result in an existing problem being updated or [subsumed](#problem-subsumed). StackState will assess all changes and update any affected problems accordingly.
 
 When the root cause and all contributing cause components have changed to a CLEAR (green) health state, the problem is considered as [resolved](#problem-resolved).
 
@@ -28,11 +28,21 @@ When the root cause and all contributing cause components have changed to a CLEA
 
 ### Problem created
 
-A problem is created when a component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem. It is possible for a single unhealthy component to be a contributing cause in two separate problems. If there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. A `Problem created` event will be generated for each created problem.
+A problem is created when a root cause component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
+
+The following events will be generated:
+
+* A `Problem created` event for each created problem.
 
 ### Problem updated
 
-A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem. A `Problem updated` event will be generated for each update to a problem.
+A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem.
+
+The following events will be generated:
+
+* A `Problem updated` event for each update to a problem.
+
+Note that updates to an existing problem may result in another problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
 
 ### Problem subsumed
 
@@ -40,14 +50,18 @@ If a component switches its state to unhealthy and would become the new root cau
 
 The following events will be generated:
 
-* One `Problem updated` event for the oldest problem.
-* `Problem subsumed` events will be generated for all other problems.
+* A `Problem updated` event for the oldest problem.
+* A `Problem subsumed` event for each other (subsumed) problem.
 
 ### Problem resolved
 
-When the root cause and all contributing cause components have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. A `Problem resolved` event will be generated.
+When the root cause and all contributing cause components have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. 
 
-If the components change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
+The following events will be generated:
+
+* A `Problem resolved` event for the resolved problem.
+
+If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
 
 ## See also
 
