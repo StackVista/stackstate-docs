@@ -22,7 +22,13 @@ This page provides specific instructions for upgrading to each currently support
 {% tab title="Kubernetes" %}
 #### v4.5.0
 
-No manual action needed.
+* Support for Kubernetes 1.17 was dropped.
+* Support for Amazon Elastic Kubernetes Service (EKS) 1.20 and 1.21 was added.
+* Support for Azure Kubernetes Service (AKS) 1.20 and 1.21 was added.
+* Support for OpenShift 4.4, 4.5 and 4.6 was dropped.
+* Support for OpenShift 4.7 and 4.8 was added.
+* See the [requirements](/setup/install-stackstate/requirements.md) for an up-to-date list of supported platforms.
+
 {% endtab %}
 
 {% tab title="Linux" %}
