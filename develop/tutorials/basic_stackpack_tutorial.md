@@ -36,7 +36,7 @@ zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/install-stackstate/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
 
 The following command installs our new tutorial StackPack in StackState:
 
@@ -244,7 +244,7 @@ Push the **Overwrite** button to overwrite your local modifications with those i
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
 
 {% hint style="info" %}
-It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/install-stackstate/cli-install.md) for more information.
+It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/cli-install.md) for more information.
 {% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:

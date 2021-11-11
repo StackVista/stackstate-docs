@@ -46,7 +46,7 @@ No manual action needed.
 
 #### v4.4.0
 
-* The CPU and memory [requirements to run StackState 4.4 on Kubernetes](../requirements.md#node-sizing) have been reassessed:
+* The CPU and memory [requirements to run StackState 4.4 on Kubernetes](/setup/install-stackstate/requirements.md#node-sizing) have been reassessed:
   * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
   * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
   * A [non-high availability setup](../install-stackstate/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
@@ -207,7 +207,7 @@ No manual action needed.
 
 * StackState is tested to run on Kubernetes v1.17, v1.18 and v1.19, or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\).
 * CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod\(s\).
-* CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](../requirements.md#node-sizing).
+* CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](/setup/install-stackstate/requirements.md#node-sizing).
 * Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.

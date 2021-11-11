@@ -17,7 +17,7 @@ Before setting up StackState, you need to choose whether you want to run StackSt
 
 ## Requirements
 
-Before starting the installation, ensure your system\(s\) meet the StackState [installation requirements](../../requirements.md).
+Before starting the installation, ensure your system\(s\) meet the StackState [installation requirements](../requirements.md).
 
 ## Packages
 

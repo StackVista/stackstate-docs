@@ -9,7 +9,7 @@ Proof-of-concept \(POC\) mode is StackState's installation mode best suited for 
 
 ## Requirements
 
-Before starting the installation, ensure your system meet StackState's POC setup [installation requirements](../../requirements.md).
+Before starting the installation, ensure your system meet StackState's POC setup [installation requirements](/setup/install-stackstate/requirements.md).
 
 ## Installing StackState in a POC configuration
 

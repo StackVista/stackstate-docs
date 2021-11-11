@@ -15,7 +15,7 @@ Extra notes for installing on:
 
 Before you start the installation of StackState:
 
-* Check the [requirements](../../requirements.md) to make sure that your Kubernetes environment fits the setup that you will use (recommended, minimal or non- high availability).
+* Check the [requirements](/setup/install-stackstate/requirements.md) to make sure that your Kubernetes environment fits the setup that you will use (recommended, minimal or non- high availability).
 * Check that you have the [required permissions](required_permissions.md).
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Add the StackState helm repository to the local helm client:
