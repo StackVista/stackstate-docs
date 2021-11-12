@@ -250,7 +250,7 @@ The AWS StackPack converts tags in AWS to labels in StackState. In addition, the
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack).
+Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS (Legacy) StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-Legacy-StackPack).
 
 ## Uninstall
 
