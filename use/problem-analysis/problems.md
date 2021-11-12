@@ -11,40 +11,61 @@ When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) 
 
 ## What is a StackState problem?
 
-A problem in StackState is the collection of unhealthy components that can be attributed to a single root cause. A problem is created when a component's health state changes to DEVIATING or CRITICAL. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem. A problem contains the following components:
+A problem in StackState is the collection of unhealthy components that can be attributed to a single root cause. A problem contains the following components:
 
 * A single root cause - this is the unhealthy component at the bottom of the dependency chain.
 * Any number of contributing causes - these are all of the unhealthy components that depend on the root cause.
 
-It is possible for a single unhealthy component to be a contributing cause in two separate problems. If there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems.
+## Problem lifecycle
 
-## Problem resolution
+A problem is [created](#problem-created) when the health state of a component in a view changes to DEVIATING (orange) or CRITICAL (red).
 
-When the root cause and all contributing cause components have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. A `Problem resolved` event will be generated.
+Updates to the health state of components in the view may result in new problems being created or existing problems being [updated](#problem-updated). If a change in health state causes the root cause of an existing problem to change, the resulting problem update may cause an existing problem to be [subsumed](#problem-subsumed). For example, if a previously healthy upstream dependency switches to an unhealthy state.
 
-If the components change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
+When the root cause and all contributing cause components have changed to a CLEAR (green) health state, the problem is considered as [resolved](#problem-resolved).
 
-## Changes to problem root cause
+![problem lifecycle](/.gitbook/assets/problem_lifecycle_animation.gif)
 
-Updates to the health state of components in the landscape may result in a change to the root cause of problems. Perhaps an existing root cause switches to a healthy state or a previously healthy upstream dependency switches to an unhealthy state.
+### Problem created
 
-### Two problems, one root cause
+If a component's health state changes to DEVIATING or CRITICAL and the root cause component is not already part of an existing problem, a new problem will be created. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
+
+The following events will be generated:
+
+* A `Problem created` event for each created problem.
+
+### Problem updated
+
+A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem.
+
+The following events will be generated:
+
+* A `Problem updated` event for each update to a problem.
+
+{% hint style="info" %}
+Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
+{% endhint %}
+
+### Problem subsumed
 
 If a component switches its state to unhealthy and would become the new root cause for more than one existing problem, StackState will combine all of these problems into one problem. The original problems will all be incorporated into the oldest problem with the same root cause \(subsumed\) and the oldest problem will have its root cause updated to be the new root cause component. This would happen, for example, if an upstream dependency of two root cause components switched to an unhealthy state.
 
 The following events will be generated:
 
-* One `Problem updated` event for the oldest problem.
-* `Problem subsumed` events will be generated for all other problems.
+* A `Problem updated` event for the oldest problem.
+* A `Problem subsumed` event for each other (subsumed) problem.
 
-### One problem, two root causes
+### Problem resolved
 
-If the root cause component of a problem switches its state to healthy, the next unhealthy component at the bottom of the dependency chain will become the new root cause. If there are two or more potential new root causes, StackState will split the problem. As each problem can only have one root cause, a new problem will be created for each potential root cause.
+When the root cause and all contributing cause components have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. 
 
 The following events will be generated:
 
-* One `Problem updated` event for the problem whose new root cause with the oldest health state change timestamp of all new root causes. 
-* `Problem created` events for all other new problems.
+* A `Problem resolved` event for the resolved problem.
+
+{% hint style="info" %}
+If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
+{% endhint %}
 
 ## See also
 
