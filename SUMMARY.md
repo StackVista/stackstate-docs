@@ -83,7 +83,7 @@
   * [Anomaly health checks](use/health-state/anomaly-health-checks.md)
   * [Configure the view health](use/health-state/configure-view-health.md)
 * [Problem analysis](use/problem-analysis/README.md)
-  * [What is a problem?](use/problem-analysis/problems.md)
+  * [About problems](use/problem-analysis/about-problems.md)
   * [Investigate a problem](use/problem-analysis/problem_investigation.md)
   * [Problem notifications](use/problem-analysis/problem_notifications.md)
 * [Metrics and events](use/metrics-and-events/README.md)

@@ -43,7 +43,7 @@ When you first open a view, the View Details pane will be visible on the right-h
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.
-* **Problems** - Any [problems](../../problem-analysis/problems.md) in the view.
+* **Problems** - Any [problems](../../problem-analysis/about-problems.md) in the view.
 * **Events** - The most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
 
 ## View health state

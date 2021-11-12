@@ -83,5 +83,5 @@ Once you have StackState up and running, you can get started setting up integrat
 
 * [Install StackPacks to integrate with external systems](../../stackpacks/about-stackpacks.md)
 * [Explore your topology and get to know the StackState UI](../../use/stackstate-ui/explore_mode.md)
-* [Identify problems in the topology](../../use/problem-analysis/problems.md)
+* [Identify problems in the topology](../../use/problem-analysis/about-problems.md)
 

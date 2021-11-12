@@ -302,3 +302,4 @@ redirects:
   stackpacks/integrations/ubuntu: ./setup/agent/linux.md
   stackpacks/integrations/windows: ./setup/agent/windows.md
   configure/topology/topology_synchronization: ./configure/topology/send-topology-data
+  use/problem-analysis/problems: ./use/problem-analysis/about-problems.md

@@ -30,7 +30,7 @@ The health state of an element is derived from metrics and events data in the te
 
 ### Problem event notifications
 
-StackState will group unhealthy components together into [problems](../problem-analysis/problems.md) and generate [problem events](send-event-notifications.md#problem-events) that track changes to them. Event handlers associated with a view can listen to the generated problem events and trigger a configured event notification or action.
+StackState will group unhealthy components together into [problems](../problem-analysis/about-problems.md) and generate [problem events](send-event-notifications.md#problem-events) that track changes to them. Event handlers associated with a view can listen to the generated problem events and trigger a configured event notification or action.
 
 ## Add an event handler to a view
 
@@ -78,7 +78,7 @@ Changes to a problem result in the following event types being generated:
 | :--- | :--- |
 | `ProblemCreated` | A new problem has been created. |
 | `ProblemUpdated` | New information is available for a problem. For example, a new root cause or contributing cause being added to the problem, or an update to a check on an existing unhealthy component. |
-| `ProblemSubsumed` | A change in root cause has caused an existing problem to be [joined with another problem](../problem-analysis/problems.md#two-problems-one-root-cause). |
+| `ProblemSubsumed` | A change in root cause has caused an existing problem to be [joined with another problem](../problem-analysis/about-problems.md#two-problems-one-root-cause). |
 | `ProblemResolved` | The root cause component and all contributing cause components have reported a CLEAR \(green\) health state. No unhealthy components remain in the problem. |
 
 ## Event handler functions

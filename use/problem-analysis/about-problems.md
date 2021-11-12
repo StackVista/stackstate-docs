@@ -24,8 +24,6 @@ Updates to the health state of components in the view may result in new problems
 
 When the root cause and all contributing cause components have changed to a CLEAR (green) health state, the problem is considered as [resolved](#problem-resolved).
 
-![problem lifecycle](/.gitbook/assets/problem_lifecycle_animation.gif)
-
 ### Problem created
 
 If a component's health state changes to DEVIATING or CRITICAL and the root cause component is not already part of an existing problem, a new problem will be created. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
@@ -34,6 +32,8 @@ The following events will be generated:
 
 * A `Problem created` event for each created problem.
 
+![Problem created](/.gitbook/assets/problem_created_animation.gif)
+
 ### Problem updated
 
 A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem.
@@ -41,6 +41,8 @@ A problem will be updated if a component in the landscape switches its state to 
 The following events will be generated:
 
 * A `Problem updated` event for each update to a problem.
+
+![Problem updated](/.gitbook/assets/problem_updated_animation.gif)
 
 {% hint style="info" %}
 Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
@@ -55,6 +57,8 @@ The following events will be generated:
 * A `Problem updated` event for the oldest problem.
 * A `Problem subsumed` event for each other (subsumed) problem.
 
+![Problem subsumed](/.gitbook/assets/problem_subsumed_animation.gif)
+
 ### Problem resolved
 
 When the root cause and all contributing cause components have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. 
@@ -62,6 +66,8 @@ When the root cause and all contributing cause components have changed to a CLEA
 The following events will be generated:
 
 * A `Problem resolved` event for the resolved problem.
+
+![Problem resolved](/.gitbook/assets/problem_resolved_animation.gif)
 
 {% hint style="info" %}
 If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.

@@ -38,7 +38,7 @@
 
 ## 🛑 Problem analysis
 
-* [What is a problem?](use/problem-analysis/problems.md)
+* [About problems](use/problem-analysis/about-problems.md)
 * [Investigate a problem](use/problem-analysis/problem_investigation.md)
 * [Problem notifications](use/problem-analysis/problem_notifications.md)
 
