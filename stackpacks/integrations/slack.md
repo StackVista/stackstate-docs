@@ -41,3 +41,7 @@ The Slack integration is used to send event notifications to Slack. It does not 
 ## Release notes
 
 ## See also
+
+* [Send event notifications](/use/metrics-and-events/send-event-notifications.md)
+* [Send problem notifications](/use/problem-analysis/problem_notifications.md)
+* [Create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks)
