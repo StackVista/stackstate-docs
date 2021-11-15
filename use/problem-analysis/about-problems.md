@@ -56,11 +56,11 @@ Updates to an existing problem may result in another existing problem being [sub
 
 ### Problem subsumed
 
-If a component switches its state to unhealthy and would become the new root cause for more than one existing problem, StackState will combine all of these problems into one problem. The original problems will all be incorporated into the oldest problem with the same root cause \(subsumed\) and the oldest problem will have its root cause updated to be the new root cause component. This would happen, for example, if an upstream dependency of two root cause components switched to an unhealthy state.
+If a component switches its state to unhealthy and would become the new root cause for more than one existing problem, StackState will combine all of these problems into one problem. The oldest of the problems is updated to have the new root cause component and all other problems with the same root cause are subsumed. This would happen, for example, if an upstream dependency of two root cause components switched to an unhealthy state.
 
 When a problem is subsumed, the following events are generated:
 
-* A `Problem updated` event for the oldest problem. This problem is not subsumed.
+* A `Problem updated` event for the oldest problem - the only problem that remains.
 * A `Problem subsumed` event for each other (subsumed) problem.
 
 ![Problem subsumed](/.gitbook/assets/problem_subsumed_animation.gif)
