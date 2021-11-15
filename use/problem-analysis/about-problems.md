@@ -48,11 +48,11 @@ When a problem is updated, the following events are generated:
 
 * A `Problem updated` event for each update to a problem.
 
-![Problem updated](/.gitbook/assets/problem_updated_animation.gif)
-
 {% hint style="info" %}
 Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
 {% endhint %}
+
+![Problem updated](/.gitbook/assets/problem_updated_animation.gif)
 
 ### Problem subsumed
 
@@ -73,11 +73,11 @@ When a problem is resolved, the following event is generated:
 
 * A `Problem resolved` event for the resolved problem.
 
-![Problem resolved](/.gitbook/assets/problem_resolved_animation.gif)
-
 {% hint style="info" %}
 If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
 {% endhint %}
+
+![Problem resolved](/.gitbook/assets/problem_resolved_animation.gif)
 
 ## See also
 

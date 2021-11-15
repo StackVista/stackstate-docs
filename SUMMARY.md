@@ -114,6 +114,7 @@
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)
   * [💠 OpenShift](stackpacks/integrations/openshift.md)
   * [💠 ServiceNow](stackpacks/integrations/servicenow.md)
+  * [💠 Slack](stackpacks/integrations/slack.md)
   * [💠 Splunk](stackpacks/integrations/splunk/README.md)
     * [Splunk](stackpacks/integrations/splunk/splunk_stackpack.md)
     * [Splunk events](stackpacks/integrations/splunk/splunk_events.md)
