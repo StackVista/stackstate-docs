@@ -245,6 +245,7 @@ redirects:
   use/analytics: ./use/stackstate-ui/analytics.md
   stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
   use/views/perspectives: ./use/introduction-to-stackstate/perspectives.md
+  configuring/creating_stackpacks: ./develop/developer-guides/stackpack/develop_stackpacks.md
 
 
 
