@@ -67,7 +67,7 @@ The following events will be generated:
 
 * A `Problem resolved` event for the resolved problem.
 
-![Problem resolved](/.gitbook/assets/problem_resolved_animation2.gif)
+![Problem resolved](/.gitbook/assets/problem_resolved_animation.gif)
 
 {% hint style="info" %}
 If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
