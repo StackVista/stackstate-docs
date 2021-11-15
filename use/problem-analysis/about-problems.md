@@ -84,4 +84,3 @@ If the components in the problem change back to an unhealthy state in the future
 * [How to navigate through a problem in the StackState UI](problem_investigation.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)
 * [Problem notifications](problem_notifications.md)
-
