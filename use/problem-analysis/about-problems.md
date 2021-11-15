@@ -11,20 +11,20 @@ When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) 
 
 ## Components in a problem
 
-A problem in StackState is the collection of unhealthy components that can be attributed to a single root cause. Each problem contains one root cause component and any number of contributing causes.
+A problem in StackState is a collection of unhealthy components that can all be attributed to a single root cause. Each problem contains one root cause component and any number of contributing causes.
 
 ### Root cause
 
 Each problem contains a single root cause component. This is the unhealthy component at the bottom of the dependency chain. A change in the health state of components might result in a change to the root cause of a problem. For example:
 
-- A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy component at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause component. This update may result in existing problems being [subsumed](#problem-subsumed).
+- A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy component at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause component. This update may result in existing problems being subsumed.
 - The existing root cause switches its state to healthy. As the root cause must be an unhealthy component, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause component, new problems will be created - one for each root cause.
 
-When the root cause component changes, a `Problem updated` event is generated.
+When the root cause component changes, a `Problem updated` event is generated. Note that the update might also result in a new problem being [created](#problem-created) or an existing problem being [subsumed](#problem-subsumed).
 
 ### Contributing causes
 
-A problem can contain any number of contributing causes. These are all of the unhealthy components that depend on the problem's root cause component. A change in the health state of components might result in contributing causes being added to or removed from an existing problem.
+A problem can contain any number of contributing causes. These are all of the unhealthy components that depend on the problem's root cause component. A change in the health state of components might result in contributing causes being added to or removed from an existing problem. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
 
 When a contributing cause component is added or removed, a `Problem updated` event is generated.
 
@@ -32,7 +32,7 @@ When a contributing cause component is added or removed, a `Problem updated` eve
 
 ### Problem created
 
-If a component's health state changes to DEVIATING (orange) or CRITICAL (red) and the root cause component is not already part of an existing problem, a new problem will be created. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
+If a component's health state changes to DEVIATING (orange) or CRITICAL (red) and the root cause component is not already part of an existing problem, a new problem will be created. All other components in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
 
 When a problem is created, the following events are generated:
 
