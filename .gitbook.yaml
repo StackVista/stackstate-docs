@@ -246,6 +246,7 @@ redirects:
   stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
   use/views/perspectives: ./use/conecpts/perspectives.md
   setup/installation/cli-install: ./setup/cli-install.md
+  configuring/creating_stackpacks: ./develop/developer-guides/stackpack/develop_stackpacks.md
 
 # 4.5 docs
 
