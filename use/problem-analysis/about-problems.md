@@ -36,7 +36,7 @@ The following events will be generated:
 
 ### Problem updated
 
-A problem will be updated if a component in the landscape switches its state to DEVIATING or CRITICAL and becomes a new contributing cause or root cause for an existing problem.
+A problem will be updated if a component in the landscape switches its state to DEVIATING (orange) or CRITICAL (red) and becomes a new contributing cause or root cause for an existing problem.
 
 The following events will be generated:
 
@@ -67,7 +67,7 @@ The following events will be generated:
 
 * A `Problem resolved` event for the resolved problem.
 
-![Problem resolved](/.gitbook/assets/problem_resolved_animation.gif)
+![Problem resolved](/.gitbook/assets/problem_resolved_animation2.gif)
 
 {% hint style="info" %}
 If the components in the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
