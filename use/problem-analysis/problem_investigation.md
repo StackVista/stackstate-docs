@@ -50,12 +50,7 @@ A problem subview is a temporary StackState view. The filters applied to a probl
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
 * **Healthy components** - A number of healthy components are also included in a problem. These are:
   * Upstream dependencies of the root cause or one of the contributing causes.
-  * Downstream components with an unhealthy propagated state that originates from either the root cause or one of the contributing causes.
-
-{% hint style="success" "self-hosted info" %}
-
-You can configure custom [propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
-{% endhint %}
+  * Downstream components with an unhealthy [propagated state](/use/health-state/health-state-in-stackstate.md#propagated-health-state) that originates from either the root cause or one of the contributing causes.
 
 Within a problem subview, you have access to all perspectives containing data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
