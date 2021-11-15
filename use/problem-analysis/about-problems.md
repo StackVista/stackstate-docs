@@ -17,14 +17,14 @@ A problem in StackState is the collection of unhealthy components that can be at
 
 Each problem contains a single root cause component. This is the unhealthy component at the bottom of the dependency chain. A change in the health state of components might result in a change to the root cause of a problem. For example:
 
-- A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy component at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause component and the original root cause will become one of the [contributing causes](#contributing-causes). This update may result in another problem being [subsumed](#problem-subsumed).
-- The existing root cause switches its state to healthy. As the root cause must be an unhealthy component, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause, new problems will be created - one for each root cause.
+- A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy component at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause component. This update may result in existing problems being [subsumed](#problem-subsumed).
+- The existing root cause switches its state to healthy. As the root cause must be an unhealthy component, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause component, new problems will be created - one for each root cause.
 
 When the root cause component changes, a `Problem updated` event is generated.
 
 ### Contributing causes
 
-A problem can contain any number of contributing causes. These are all of the unhealthy components that depend on the root cause component. A change in the health state of components might result in contributing causes being added to or removed from an existing problem.
+A problem can contain any number of contributing causes. These are all of the unhealthy components that depend on the problem's root cause component. A change in the health state of components might result in contributing causes being added to or removed from an existing problem.
 
 When a contributing cause component is added or removed, a `Problem updated` event is generated.
 
