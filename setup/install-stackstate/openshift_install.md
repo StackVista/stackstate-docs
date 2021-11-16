@@ -8,7 +8,7 @@ description: Install StackState on OpenShift
 
 Before you start the installation of StackState:
 
-* Check that your OpenShift environment meets the [requirements](../requirements.md)
+* Check that your OpenShift environment meets the [requirements](requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Ensure you have the OpenShift command line tools installed \(`oc`\)
 * Add the StackState helm repository to the local helm client:
