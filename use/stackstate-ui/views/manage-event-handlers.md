@@ -10,11 +10,11 @@ You can add an event handler to a view from the StackState UI.
 
 ![Add an event handler](/.gitbook/assets/v45_event_handlers_tab.png)
 
-1. Select **Events Settings** on the left.
+1. Select **Manage Event Handlers** on the left.
 2. Click **ADD NEW EVENT HANDLER**.
 3. Select the trigger event and event handler to run:
-   * **On event** - the [events](/use/metrics-and-events/send-event-notifications.md#events) that should trigger the event notification or automated action.
-   * **Run event handler** - the [event handler function](#event-handler-functions) that will run whenever the selected event is generated.
+   * **On event** - the [event types](/use/metrics-and-events/send-event-notifications.md#event-types-for-notifications) that should trigger the event notification or automated action.
+   * **Run event handler** - the [event handler function](#event-handler-functions) that will run whenever the selected event type is generated.
 4. Enter the required details, these will vary according to the event handler function you have selected.
 5. Click **SAVE**.
 
@@ -24,11 +24,11 @@ Event handlers listen to events generated within a view. When the configured eve
 
 StackState ships with the following event handler functions that track **health state change events** in a view:
 
-| Event handler function | Event types | Description |
-| :--- | :--- | :--- |
-| **Slack** | Health state change or Problem changes| Requires the [Slack StackPack](/stackpacks/integrations/slack.md). Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
-| **HTTP webhook POST** | Health state change  | Sends an HTTP webhook POST request to the specified URL. |
-| **SMS** | Health state change | Sends details of a health state change event using MessageBird. |
+| Event handler function | Health state change events | Problem events | Description |
+| :--- | --- | --- | :--- |
+| **Slack** | ✅ | ✅ | Requires the [Slack StackPack](/stackpacks/integrations/slack.md). Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
+| **HTTP webhook POST** | ✅ | - | Sends an HTTP webhook POST request to the specified URL. |
+| **SMS** | ✅ | - | Sends details of a health state change event using MessageBird. |
 
 {% hint style="success" "self-hosted info" %}
 
