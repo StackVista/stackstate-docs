@@ -12,9 +12,9 @@ When something goes wrong within your IT environment, StackState can send event 
 
 ![StackState event notification in Slack with possible root cause information](../../.gitbook/assets/slack_alert.png)
 
-## Add an event handler to a view
+## Event handlers
 
-Event handlers can be added to a StackState view to send event notifications or trigger actions in response to health state change events or problem events that are generated within the view.
+Event handlers can be added to a StackState view to send event notifications or trigger actions in response to health state change events or problem events that are generated within the view. The event handler will listen to generated events and run a configured event handler function when the configured [event type](#event-types-for-notifications) is generated.
 
 You can add an event handler to a view from the StackState UI [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane.
 
@@ -22,11 +22,11 @@ You can add an event handler to a view from the StackState UI [Manage Event Hand
 
 ## Event types for notifications
 
-Event handlers can be configured to respond to [state change events](send-event-notifications.md#state-change-events) and [problem events](send-event-notifications.md#problem-events).
+Event handlers can be configured to respond to [state change events](event-notifications.md#state-change-events) and [problem events](event-notifications.md#problem-events).
 
 ### State change events
 
-Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../health-state/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. You can [add an event handler to a view](/use/stackstate-ui/views/manage-event-handlers.md) to trigger an event notification or action in response to the generated state changed events.
+Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../health-state/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane to add an event handler to the view and trigger an event notification or action whenever state changed events are generated.
 
 The event types generated when an element state changes are described in the table below.
 
@@ -38,7 +38,7 @@ The event types generated when an element state changes are described in the tab
 
 ### Problem events
 
-StackState groups unhealthy components in a view into problems, each with a common root cause. For every change to a problem, at least one problem event is generated. You can [add an event handler to a view](/use/stackstate-ui/views/manage-event-handlers.md) to trigger an event notification or action in response to the generated problem events.
+StackState groups unhealthy components in a view into problems, each with a common root cause. For every change to a problem, at least one problem event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane to add an event handler to the view and trigger an event notification or action whenever problem events are generated.
 
 Changes to a problem result in the following event types being generated:
 

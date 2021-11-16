@@ -92,7 +92,7 @@
   * [Golden signals](use/metrics-and-events/golden_signals.md)  
   * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
   * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
-  * [Send event notifications](use/metrics-and-events/send-event-notifications.md)
+  * [Event notifications](use/metrics-and-events/event-notifications.md)
 * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks

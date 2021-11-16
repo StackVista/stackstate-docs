@@ -82,6 +82,6 @@ For example:
 
 ## See also
 
-* [Use events to trigger event notifications and actions](../../metrics-and-events/send-event-notifications.md)
+* [Use events to trigger event notifications and actions](../../metrics-and-events/event-notifications.md)
 * [Filtering data](../filters.md)
 * [Working with StackState views](../views/about_views.md)

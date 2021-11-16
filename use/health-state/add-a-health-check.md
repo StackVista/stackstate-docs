@@ -8,7 +8,7 @@ description: Report the health state for an element.
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.
 
-The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../metrics-and-events/send-event-notifications.md).
+The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../metrics-and-events/event-notifications.md).
 
 ## Add a health check
 
@@ -74,6 +74,6 @@ You can [synchronize existing health checks](../../configure/health/health-synch
 
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
-* [Add an event notification](../metrics-and-events/send-event-notifications.md)
+* [Add an event notification](../metrics-and-events/event-notifications.md)
 * [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
 * [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

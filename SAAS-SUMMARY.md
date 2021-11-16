@@ -48,7 +48,7 @@
 * [Golden signals](use/metrics-and-events/golden_signals.md)  
 * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
-* [Send event notifications](use/metrics-and-events/send-event-notifications.md)
+* [Send event notifications](use/metrics-and-events/event-notifications.md)
 * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
 * [Set up traces](configure/traces/how_to_setup_traces.md)
 

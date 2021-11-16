@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-The Slack StackPack allows you to receive event notifications in Slack channels. A number of [event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md) that can be use when [adding an event handler to a view](/use/metrics-and-events/send-event-notifications.md) in StackState.
+The Slack StackPack allows you to receive event notifications in Slack channels. A number of [event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md) that can be use when [adding an event handler to a view](/use/metrics-and-events/event-notifications.md) in StackState.
 
 ![Slack StackPack](/.gitbook/assets/stackpack-slack.svg)
 
@@ -72,6 +72,6 @@ If an event handler is currently configured to use one of the Slack event handle
 ## See also
 
 * [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
-* [Event notifications](/use/metrics-and-events/send-event-notifications.md)
+* [Event notifications](/use/metrics-and-events/event-notifications.md)
 * [Problem notifications](/use/problem-analysis/problem_notifications.md)
 * [Create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks)

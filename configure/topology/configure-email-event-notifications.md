@@ -34,7 +34,7 @@ StackState can send an event notification by email whenever the health state of 
    ```
 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](../../use/metrics-and-events/send-event-notifications.md#send-event-notifications-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](../../use/metrics-and-events/event-notifications.md#send-event-notifications-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -64,12 +64,12 @@ StackState can send an event notification by email whenever the health state of 
    ```
 
 2. Restart StackState to apply the configuration changes.
-3. Add an email [event handler](../../use/metrics-and-events/send-event-notifications.md#send-event-notifications-with-event-handlers) to a view from the StackState UI.
+3. Add an email [event handler](../../use/metrics-and-events/event-notifications.md#send-event-notifications-with-event-handlers) to a view from the StackState UI.
 {% endtab %}
 {% endtabs %}
 
 ## See also
 
-* [Add an event handler](../../use/metrics-and-events/send-event-notifications.md#send-event-notifications-with-event-handlers)
+* [Add an event handler](../../use/metrics-and-events/event-notifications.md#send-event-notifications-with-event-handlers)
 * [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 
