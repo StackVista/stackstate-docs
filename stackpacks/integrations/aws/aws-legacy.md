@@ -28,7 +28,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 To set up the StackState AWS integration, you need to have:
 
-* AWS CLI version 2.0.4 or later installed and configured.
+* AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * An AWS user with the required access to retrieve Cloudwatch metrics:
   * `cloudwatch:GetMetricData`
   * `cloudwatch:ListMetrics`
