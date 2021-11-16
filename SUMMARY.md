@@ -68,6 +68,7 @@
   * [Views](use/stackstate-ui/views/README.md)
     * [About views](use/stackstate-ui/views/about_views.md)
     * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
+    * [Manage event handlers](use/stackstate-ui/views/manage-event-handlers.md)
     * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
   * [Perspectives](use/stackstate-ui/perspectives/README.md)
     * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)

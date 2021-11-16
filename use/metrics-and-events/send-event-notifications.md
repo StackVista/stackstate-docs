@@ -81,29 +81,6 @@ Changes to a problem result in the following event types being generated:
 | `ProblemSubsumed` | A change in root cause has caused an existing problem to be [joined with another problem](../problem-analysis/about-problems.md#two-problems-one-root-cause). |
 | `ProblemResolved` | The root cause component and all contributing cause components have reported a CLEAR \(green\) health state. No unhealthy components remain in the problem. |
 
-## Event handler functions
-
-Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState.
-
-StackState ships with the following event handler functions that track **health state change events** in a view:
-
-| Event handler function | Description |
-| :--- | :--- |
-| **Slack** | Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
-| **HTTP webhook POST** | Sends an HTTP webhook POST request to the specified URL. |
-| **SMS** | Sends details of a health state change event using MessageBird. |
-
-{% hint style="success" "self-hosted info" %}
-
-* An email event handler is available that sends details of a health state change event using a [configured SMTP server](../../configure/topology/configure-email-event-notifications.md).
-
-* You can [create your own custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
-
-* Event handlers can also run in response to **problem events** using [custom event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md).
-  
-* A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
-
-{% endhint %}
 
 ## See also
 
