@@ -4,6 +4,10 @@
 
 Event handlers attached to a StackState view listen to generated StackState events.  Event notifications can be sent or and trigger actions in response to health state change events or problem events generated within the view.
 
+## Configured event handlers
+
+When you open the **Manage Event Handlers** pane on the left-hand side of the StackState UI, a list of all event handlers currently configured for the view is displayed. You can add, edit and remove event handlers from here.
+
 ## Add event handler
 
 You can add an event handler to a view from the StackState UI.
