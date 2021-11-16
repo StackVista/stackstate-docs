@@ -2,7 +2,7 @@
 
 ## Overview
 
-Event handlers attached to a StackState view listen to generated StackState events.  Event notifications can be sent or and trigger actions in response to health state change events or problem events generated within the view.
+Event handlers attached to a StackState view listen to generated StackState events.  Event notifications can be sent or actions can be triggered in response to health state change events or problem events generated within the view.
 
 ## Configured event handlers
 

@@ -26,7 +26,7 @@ Install the Slack StackPack from the StackState UI **StackPacks** > **Integratio
 
 After the Slack StackPack has been installed, a Slack event handler function will be listed when you [add an event handler to a view](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler).
 
-Note that you will need to [create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks).
+Note that you will need to [create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks).
 
 ### Upgrade
 

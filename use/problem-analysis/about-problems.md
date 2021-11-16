@@ -2,29 +2,29 @@
 
 ## Overview
 
-When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single root cause. This is helpful because it will:
+When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated sub-view.
 * **Reduce noise** - the evolution of the problem can be be tracked as a single entity, rather than a collection of individual, unhealthy elements.
 
 ![Problems in View Details pane](../../.gitbook/assets/v45_problem_summary.png)
 
-## Components in a problem
+## Topology elements in a problem
 
-A problem in StackState is a collection of unhealthy components that can all be attributed to a single root cause. Each problem contains one root cause component and any number of contributing causes.
+A problem in StackState is a collection of unhealthy elements (components and relations) that can all be attributed to a single probable root cause. Each problem contains one root cause component and any number of contributing causes.
 
 ### Root cause
 
-Each problem contains a single root cause component. This is the unhealthy component at the bottom of the dependency chain. A change in the health state of components might result in a change to the root cause of a problem. For example:
+The root cause is the unhealthy element at the bottom of the dependency chain. Each problem contains a single root cause, this element that has been identified as the probable root cause for the problem. A change in the health state of elements might result in a change to the root cause of a problem. For example:
 
-- A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy component at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause component. This update may result in existing problems being subsumed.
-- The existing root cause switches its state to healthy. As the root cause must be an unhealthy component, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause component, new problems will be created - one for each root cause.
+- A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy element at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause element. This update may result in existing problems being subsumed.
+- The existing root cause switches its state to healthy. As the root cause must have an unhealthy state, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause element, new problems will be created - one for each root cause.
 
 When the root cause component changes, a `Problem updated` event is generated. Note that the update might also result in a new problem being [created](#problem-created) or an existing problem being [subsumed](#problem-subsumed).
 
 ### Contributing causes
 
-A problem can contain any number of contributing causes. These are all of the unhealthy components that depend on the problem's root cause component. A change in the health state of components might result in contributing causes being added to or removed from an existing problem. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
+A problem can contain any number of contributing causes. These are all of the unhealthy elements that depend on the problem's root cause component. A change in the health state of components might result in contributing causes being added to or removed from an existing problem. It is possible for a single unhealthy component to be a contributing cause in two separate problems - if there are two potential root cause components for a component's unhealthy state, StackState will see this as two separate problems. 
 
 When a contributing cause component is added or removed, a `Problem updated` event is generated.
 
