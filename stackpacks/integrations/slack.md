@@ -43,7 +43,7 @@ The Slack integration is used to send event notifications to Slack. It does not 
 To uninstall the Slack StackPack, go to the StackState UI **StackPacks** > **Integrations** > **Slack** screen and click **UNINSTALL**.
 
 {% hint style="info" %}
-Before you uninstall the Slack StackPack, delete all event handlers that have been configured to use one of the Slack event handler functions installed by the StackPack.
+Before you uninstall the Slack StackPack, all event handlers that have been configured to use one of the Slack event handler functions installed by the StackPack must be deleted.
 {% endhint %}
 
 ## Release notes
