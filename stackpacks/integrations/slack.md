@@ -6,7 +6,7 @@ description: StackState core integration
 
 ## Overview
 
-The Slack StackPack allows you to receive event notifications in Slack channels. A number of [event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md) that can be use when [adding an event handler to a view](/use/metrics-and-events/event-notifications.md) in StackState.
+The Slack StackPack allows you to receive event notifications in Slack channels. A number of [event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md) that can be used when [adding an event handler to a view](/use/metrics-and-events/event-notifications.md) in StackState.
 
 ![Slack StackPack](/.gitbook/assets/stackpack-slack.svg)
 
@@ -42,7 +42,9 @@ The Slack integration is used to send event notifications to Slack. It does not 
 
 To uninstall the Slack StackPack, go to the StackState UI **StackPacks** > **Integrations** > **Slack** screen and click **UNINSTALL**.
 
-If an event handler is currently configured to use one of the Slack event handlers installed by the Slack StackPack, it will not be possible to uninstall the StackPack.
+{% hint style="info" %}
+All event handlers configured a Slack event handlers installed by the Slack StackPack must first be deleted before the Slack StackPack can be uninstalled.
+{% endhint %}
 
 ## Release notes
 
@@ -50,24 +52,11 @@ If an event handler is currently configured to use one of the Slack event handle
 
 * Improvement: Add related problems to view health handler
 
-
 **Slack StackPack v0.0.5 (2021-08-23)**
 
-* Improvement: Include contributing causes to the problem handler, use time travelling correctly for URLs
+* Improvement: Include contributing causes to the problem handler
 * Improvement: Support for warnings when Problems are created, merged and resolved.
 
-**Slack StackPack v0.0.4 (2021-03-26)**
-
-* Improvement: Update documentation.
-
-
-**Slack StackPack v0.0.3 (2020-08-18)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**Slack StackPack v0.0.2 (2020-04-10)**
-
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
 
 ## See also
 
