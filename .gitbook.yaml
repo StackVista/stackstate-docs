@@ -168,7 +168,7 @@ redirects:
 
   use/baselining: ./use/concepts/anomaly-detection.md
   setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
-  use/alerting: ./use/metrics-and-events/send-event-notifications.md
+  use/alerting: ./use/metrics-and-events/event-notifications.md
   configure/telemetry/browse_telemetry: ./use/metrics-and-events/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
   configure/view_state_configuration: ./use/health-state/configure-view-health.md
@@ -235,7 +235,7 @@ redirects:
   setup/installation/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
   use/explore_mode: ./use/stackstate-ui/explore_mode.md
   use/problems/problems: ./use/problem-analysis/problems.md
-  use/health-state-and-event-notifications/send-event-notifications: ./use/metrics-and-events/send-event-notifications.md
+  use/health-state-and-event-notifications/send-event-notifications: ./use/metrics-and-events/event-notifications.md
   use/perspectives/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   use/perspectives/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
@@ -304,3 +304,4 @@ redirects:
   stackpacks/integrations/windows: ./setup/agent/windows.md
   configure/topology/topology_synchronization: ./configure/topology/send-topology-data
   use/problem-analysis/problems: ./use/problem-analysis/about-problems.md
+  use/metrics-and-events/send-event-notifications: ./use/metrics-and-events/event-notifications.md

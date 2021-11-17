@@ -62,6 +62,6 @@ Use the **MINIMUM HEALTH STATES** view health state configuration as a starting 
 ## See also
 
 * [Add a health check](add-a-health-check.md)
-* [Send event notifications when a health state changes](../metrics-and-events/event-notifications.md)
+* [Send event notifications when a health state changes](/use/stackstate-ui/views/manage-event-handlers.md)
 * [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
 * [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")

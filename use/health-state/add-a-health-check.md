@@ -74,6 +74,6 @@ You can [synchronize existing health checks](../../configure/health/health-synch
 
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
-* [Add an event notification](../metrics-and-events/event-notifications.md)
+* [Add an event notification](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler)
 * [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
 * [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

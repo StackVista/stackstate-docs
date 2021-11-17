@@ -21,5 +21,5 @@ You can create a [custom event handler function](../../develop/developer-guides/
 
 * [What is a problem?](about-problems.md)
 * [Problem navigation](problem_investigation.md)
-* [Send event notifications](../metrics-and-events/event-notifications.md)
+* [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md)
 * [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
