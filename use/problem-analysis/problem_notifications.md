@@ -6,7 +6,7 @@ Problems in StackState generate events that can be used to trigger event notific
 
 ## Send notifications for problem events
 
-To send a notification whenever a problem event is generated:
+To send a notification when problem events are generated:
 
 1. Install the [Slack StackPack](/stackpacks/integrations/slack.md).
 2. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane to add an event handler to the view that listens to problem events.
