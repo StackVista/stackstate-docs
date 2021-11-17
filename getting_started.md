@@ -64,13 +64,13 @@ Problems and issues are displayed in the following order order:
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
 
-➡️ [Learn more about problems](/use/problem-analysis/problems.md)
+➡️ [Learn more about problems](/use/problem-analysis/about-problems.md)
 
 ![Component details](/.gitbook/assets/v45_problem_summary.png)
 
 ## Events
 
-To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/metrics-and-events/send-event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
+To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/metrics-and-events/event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
 ![Events Perspective](/.gitbook/assets/v45_events-perspective.png)
 

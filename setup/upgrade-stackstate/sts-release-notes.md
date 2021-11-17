@@ -123,7 +123,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * [Show configuration changes](../../use/problem-analysis/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
 * [Alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
-* [Drill down on Problems](../../use/problem-analysis/problems.md) for faster investigation. STAC-10481
+* [Drill down on Problems](../../use/problem-analysis/about-problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 

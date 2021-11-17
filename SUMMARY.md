@@ -68,6 +68,7 @@
   * [Views](use/stackstate-ui/views/README.md)
     * [About views](use/stackstate-ui/views/about_views.md)
     * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
+    * [Manage event handlers](use/stackstate-ui/views/manage-event-handlers.md)
     * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
   * [Perspectives](use/stackstate-ui/perspectives/README.md)
     * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
@@ -83,7 +84,7 @@
   * [Anomaly health checks](use/health-state/anomaly-health-checks.md)
   * [Configure the view health](use/health-state/configure-view-health.md)
 * [Problem analysis](use/problem-analysis/README.md)
-  * [What is a problem?](use/problem-analysis/problems.md)
+  * [About problems](use/problem-analysis/about-problems.md)
   * [Investigate a problem](use/problem-analysis/problem_investigation.md)
   * [Problem notifications](use/problem-analysis/problem_notifications.md)
 * [Metrics and events](use/metrics-and-events/README.md)
@@ -91,7 +92,7 @@
   * [Golden signals](use/metrics-and-events/golden_signals.md)  
   * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
   * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
-  * [Send event notifications](use/metrics-and-events/send-event-notifications.md)
+  * [Event notifications](use/metrics-and-events/event-notifications.md)
 * [Glossary](use/glossary.md)
 
 ## 🧩StackPacks
@@ -114,6 +115,7 @@
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)
   * [💠 OpenShift](stackpacks/integrations/openshift.md)
   * [💠 ServiceNow](stackpacks/integrations/servicenow.md)
+  * [💠 Slack](stackpacks/integrations/slack.md)
   * [💠 Splunk](stackpacks/integrations/splunk/README.md)
     * [Splunk](stackpacks/integrations/splunk/splunk_stackpack.md)
     * [Splunk events](stackpacks/integrations/splunk/splunk_events.md)
