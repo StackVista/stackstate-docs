@@ -28,7 +28,7 @@ helm repo update
 ## Install StackState
 
 1. [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-2. [Generate the `values.yaml` file](install_stackstate.md#generate-values-yaml)
+2. [Generate the `values.yaml` file](install_stackstate.md#generate-valuesyaml)
 3. [Deploy StackState with Helm](install_stackstate.md#deploy-stackstate-with-helm)
 4. [Access the StackState UI](install_stackstate.md#access-the-stackstate-ui)
 
