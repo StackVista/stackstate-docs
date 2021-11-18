@@ -436,8 +436,6 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## Release notes
 
-### 1.0.0 \(2021-07-09\)
-
 **AWS StackPack v1.1.4 (2021-11-16)**
 
 - Improvement: Updated AWS CLI prerequisite text
