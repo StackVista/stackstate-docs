@@ -11,20 +11,20 @@ A topology synchronized using StackState Agent follows the process described bel
 ![Topology synchronization with StackState Agent](/.gitbook/assets/topo_sync_process.svg)
 
 1. StackState Agent:
-  - Connects to a data source to collect data.
-  - Connects to the StackState receiver to push collected data to StackState (in JSON format).
-  - Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
+   * Connects to a data source to collect data.
+   * Connects to the StackState receiver to push collected data to StackState (in JSON format).
+   * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
 2. StackState receiver:
-  - Extracts topology and telemetry payloads from the received JSON.
-  - Puts messages on the Kafka bus.
-  - Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
+   * Extracts topology and telemetry payloads from the received JSON. 
+   * Puts messages on the Kafka bus. 
+   * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
 3. Kafka:
-  - Stores received data in topics.
-  - Read the [troubleshooting steps for Kafka](#kafka).
+   * Stores received data in topics.
+   * Read the [troubleshooting steps for Kafka](#kafka).
 4. Synchronization:
-  - Reads data from a topic as it becomes available on the Kafka bus.
-  - Processes retrieved data.
-  - Read the [troubleshooting steps for syncrhonization](#synchronization).
+   * Reads data from a topic as it becomes available on the Kafka bus. 
+   * Processes retrieved data. 
+   * Read the [troubleshooting steps for syncrhonization](#synchronization).
 
 ## Troubleshooting steps
 
