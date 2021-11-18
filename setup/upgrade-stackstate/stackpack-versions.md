@@ -10,7 +10,7 @@ The table below shows the StackPack version numbers shipped with each StackState
 If a new release of a StackPack is included with your current version of StackState, you will gain access to new features and fixes when you choose to [upgrade the StackPack](../../stackpacks/about-stackpacks.md#upgrade-a-stackpack).
 {% endhint %}
 
-| StackPack | StackState v4.4 | StackState v4.3 | StackState v4.2 |
+| StackPack | StackState v4.5 | StackState v4.4 | StackState v4.3 |
 | :--- | :--- | :--- | :--- |
 | [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) | 0.9.2 | 0.9.2 | [**0.9.2**](../../stackpacks/add-ons/aad.md#release-notes) |
 | [Health Forecast](../../stackpacks/add-ons/health-forecast.md) | 1.0.4 | 1.0.3 | 1.0.3 |
