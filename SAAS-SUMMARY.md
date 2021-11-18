@@ -78,6 +78,7 @@
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)
+  * [Slack](stackpacks/integrations/slack.md)
 
 ## 📖 Reference
 
