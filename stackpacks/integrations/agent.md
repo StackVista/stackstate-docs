@@ -38,7 +38,12 @@ To find the status of an installed Agent, use the status commands provided in th
 
 ### Upgrade
 
-When a new version of the StackState Agent V2 StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the StackState Agent V2 StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **StackState Agent V2**. 
+
+{% hint style="success" "self-hosted info" %}
+
+For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+{% endhint %}
 
 To upgrade StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
