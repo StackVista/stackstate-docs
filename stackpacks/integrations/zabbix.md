@@ -44,6 +44,11 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
 
 ## Release notes
 
+**Zabbix StackPack v3.2.0 (2021-09-22)**
+
+* Feature: Support StackState Common tags
+
+
 **Zabbix StackPack v3.1.1 \(2021-04-12\)**
 
 * Improvement: Common bumped from 2.5.0 to 2.5.1

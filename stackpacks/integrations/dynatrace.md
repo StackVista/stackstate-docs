@@ -268,7 +268,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 ## Release notes
 
-**Dynatrace StackPack v1.3.0 \(2021-xx-xx\)**
+**Dynatrace StackPack v1.3.0 \(2021-10-12\)**
 
 * Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks. 
 

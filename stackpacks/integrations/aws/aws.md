@@ -438,6 +438,34 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ### 1.0.0 \(2021-07-09\)
 
+**AWS StackPack v1.1.4 (2021-11-16)**
+
+- Improvement: Updated AWS CLI prerequisite text
+ 
+**AWS StackPack v1.1.3 (2021-11-15)**
+
+- Improvement: Documentation update - Added AWS CLI as a prerequisite to set up the integration 
+
+**AWS StackPack v1.1.2 (2021-11-04)**
+
+- Improvement: Documentation update - improved installation instructions
+
+**AWS StackPack v1.1.1 (2021-10-25)**
+
+- Improvement: Documentation update regarding experimental nature of Flow Logs support
+
+**AWS StackPack v1.1.0 (2021-10-14)**
+
+- Improvement: Flow Logs support (experimental)
+
+**AWS StackPack v1.0.3 (2021-09-23)**
+
+- Bugfix: Fixed CloudWatch telemetry source configuration for `use-role` StackPack install option
+
+**AWS StackPack v1.0.2 (2021-08-20)**
+
+- Improvement: Add description to Views
+
 **AWS StackPack v1.0.1 \(2021-07-23\)**
 
 * Bugfix: Use proper domain 
