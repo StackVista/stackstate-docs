@@ -28,7 +28,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [SAP](../../stackpacks/integrations/sap.md) | 1.3.1 | 1.3.1 | [**1.3.1**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | |
 | [SCOM](../../stackpacks/integrations/scom.md) | 2.1.1 | 2.1.1 | [**2.1.1**](../../stackpacks/integrations/scom.md#release-notes) |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | 5.3.1 | 5.3.1 | [**5.3.1**](../../stackpacks/integrations/servicenow.md#release-notes) |
-| Slack | | 0.0.4 | **0.0.4** |
+| [Slack](/stackpacks/integrations/slack.md) | [**0.0.6**](/stackpacks/integrations/slack.md#release-notes) | 0.0.4 | 0.0.4 |
 | [SolarWinds](../../stackpacks/integrations/solarwinds.md) | 1.0.0 | [**1.0.0**](../../stackpacks/integrations/solarwinds.md#release-notes) | - | - |
 | [Splunk](../../stackpacks/integrations/splunk/splunk_stackpack.md) | 1.2.0 | [**1.2.0**](https://github.com/StackVista/stackpack-splunk/blob/master/RELEASE.md) | 1.1.1 |
 | [Static topology](../../stackpacks/integrations/static_topology.md) | 2.3.2 | [**2.3.2**](../../stackpacks/integrations/static_topology.md#release-notes) | 2.3.1 |

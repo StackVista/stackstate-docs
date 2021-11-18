@@ -225,6 +225,14 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## Release notes
 
+**Kubernetes StackPack v3.9.7 (2021-10-06)**
+
+* Bug Fix: Fix metrics for generic events
+
+**Kubernetes StackPack v3.9.6 (2021-08-20)**
+
+* Improvement: Add description to Views
+
 **Kubernetes StackPack v3.9.5 \(2021-07-14\)**
 
 * Improvement: Documentation update
