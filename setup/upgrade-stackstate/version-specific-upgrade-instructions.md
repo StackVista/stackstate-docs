@@ -276,7 +276,7 @@ Refer to the [Authentication configuration documentation](../../configure/securi
 
 #### v4.2.0
 
-* [Node sizing requirements](requirements.md#node-sizing) have been increased.
+* [Node sizing requirements](/setup/install-stackstate/requirements.md#node-sizing) have been increased.
 * The old `stackstate-server` pod has been replaced by a number of separate pods. Custom configuration in `values.yaml` should be updated:
   * Configured email details in `stackstate.components.server.config` should be moved to `stackstate.components.viewHealth.config`.
   * Other custom configuration in `stackstate.components.server.config` should be moved to `stackstate.components.api.config`.
