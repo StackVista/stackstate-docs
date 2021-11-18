@@ -282,6 +282,14 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
+**OpenShift StackPack v3.7.8 (2021-10-06)**
+
+* Bug Fix: Fix metrics for generic events
+
+**OpenShift StackPack v3.7.7 (2021-08-20)**
+
+* Improvement: Add description to Views
+
 **OpenShift StackPack v3.7.5 \(2021-07-14\)**
 
 * Improvement: Documentation update
