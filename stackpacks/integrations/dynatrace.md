@@ -7,6 +7,8 @@ old-description: Collect Smartscape topology data from Dynatrace
 {% hint style="warning" %}
 **This page describes StackState version 4.2.**
 
+The StackState 4.2 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.2 version range to upgrade to a more recent release.
+
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
