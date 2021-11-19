@@ -47,7 +47,6 @@ For StackState running on Linux, the Receiver API is hosted by default at:
 https://<baseUrl>:7077/stsAgent
 ```
 
-The `baseUrl` is [set during StackState installation](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
 {% endtab %}
 {% endtabs %}
 

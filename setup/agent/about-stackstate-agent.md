@@ -15,7 +15,12 @@ StackState Agent V2 can be run on Linux or Windows systems or inside a Docker co
 
 {% hint style="success" "self-hosted info" %}
 
-The [API Integration Agent \(Legacy\)](agent-v1.md) can be run on Linux.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+The API Integration Agent \(Legacy\) can be run on Linux.
 {% endhint %}
 
 ## Integrate with external systems
@@ -80,4 +85,3 @@ Release notes for StackState Agent V2 can be found on GitHub at: [https://github
 
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState integrations](../../stackpacks/integrations/)
-* [StackState Agent V1 \(Legacy\)](agent-v1.md "StackState Self-Hosted only")

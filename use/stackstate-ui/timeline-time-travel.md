@@ -43,7 +43,12 @@ The telemetry interval can be set in the following ways:
 
 {% hint style="success" "self-hosted info" %}
 
-You can [configure the default telemetry interval](/configure/telemetry/custom_telemetry_interval.md).
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+You can configure the default telemetry interval.
 
 {% endhint %}
 

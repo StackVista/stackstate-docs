@@ -1,40 +1,22 @@
 ---
-description: StackState version 4.5
+description: StackState SaaS
 ---
 
-# Welcome to the StackState Docs!
+# Welcome to the StackState SaaS Docs!
 
 {% hint style="success" %}
-**StackState version 4.5** is coming soon.
 
-With the release of StackState v4.5, StackState v4.2 will reach End of Life \(EOL\) and will no longer be supported.
+**Documentation for the StackState SaaS product**
+
+Go to documentation for the [StackState Self-Hosted](https://docs.stackstate.com/) product.
+
 {% endhint %}
 
 ### Using StackState
 
 {% page-ref page="getting_started.md" %}
 
-### Setup and configuration
-
-{% page-ref page="setup/install-stackstate/kubernetes_install/" %}
-
 {% page-ref page="stackpacks/integrations/" %}
-
-### StackState developer
-
-{% page-ref page="develop/tutorials/" %}
-
-## Supported StackState versions
-
-The supported versions of StackState are listed below:
-
-* **StackState v4.5** - You are currently reading the documentation for StackState version 4.5.
-* **StackState v4.4** - [Switch to the v4.4 docs](https://docs.stackstate.com/v/4.4/).
-* **StackState v4.3** - [Switch to the v4.3 docs](https://docs.stackstate.com/v/4.3/).
-
-For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/).
-
-To find documentation for previous StackState versions, use the drop-down menu at the top left of this page.
 
 ## Can't find something?
 
@@ -44,3 +26,4 @@ If you believe any documentation is missing, please let us know on the [StackSta
 ## Troubleshooting and support
 
 Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
+

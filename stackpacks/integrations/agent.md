@@ -42,7 +42,12 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 
 {% hint style="success" "self-hosted info" %}
 
-For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
 
 To upgrade StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).

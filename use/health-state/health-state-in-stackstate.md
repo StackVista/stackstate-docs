@@ -35,7 +35,12 @@ Existing StackPacks will provide health synchronization out of the box.
 
 {% hint style="success" "self-hosted info" %}
 
-You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+You can set up a custom health synchronization to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
 
 ### Propagated health state
@@ -62,7 +67,12 @@ A CLEAR \(green\) health state does not propagate.
 
 {% hint style="success" "self-hosted info" %}
 
-You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+You can configure custom propagation functions to customize how health state affects the overall health of your systems.
 {% endhint %}
 
 ## View health state

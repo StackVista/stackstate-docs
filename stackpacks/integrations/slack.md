@@ -34,7 +34,12 @@ When a new version of the Slack StackPack is available in your instance of Stack
 
 {% hint style="success" "self-hosted info" %}
 
-For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
 
 ## Integration details
