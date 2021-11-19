@@ -12,11 +12,11 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 ### Using StackState
 
-{% page-ref page="use/introduction-to-stackstate/getting\_started.md" %}
+{% page-ref page="use/introduction-to-stackstate/getting_started.md" %}
 
 ### Setup and configuration
 
-{% page-ref page="setup/installation/kubernetes\_install/" %}
+{% page-ref page="setup/installation/kubernetes_install/" %}
 
 {% page-ref page="stackpacks/integrations/" %}
 
