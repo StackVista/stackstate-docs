@@ -21,6 +21,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Improvements**
 
+- Time travel directly to the start of a problem from the View and Problem details pane. STAC-14746
 - AWS CloudWatch metrics can now be retrieved via an HTTPS proxy. STAC-14608
 - The HBase minReplicationFactor is now automatically adjusted if it's higher than the replicaCount of the datanodes. STAC-14551
 - Improve performance of view health state calculations under load. STAC-14056
