@@ -68,5 +68,5 @@ Before you uninstall the Slack StackPack, all event handlers that have been conf
 * [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
 * [Event notifications](/use/metrics-and-events/event-notifications.md)
 * [Problem notifications](/use/problem-analysis/problem_notifications.md)
-* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md)
+* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks)
