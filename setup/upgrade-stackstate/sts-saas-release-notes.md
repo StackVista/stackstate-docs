@@ -1,12 +1,12 @@
 # SaaS release notes
 
 {% hint style="info" %}
-Note that The release notes on this page are for the Self-Hosted StackState product. As such, they may describe functionality that is not currently available in the StackState SaaS product. 
+Note that the release notes may include details of functionality that is currently only available in the StackState Self-Hosted product. 
 {% endhint %}
 
 ## StackState v4.5.x
 
-### v4.5.0 \(November 2021\)
+### v4.5.0
 
 **Features**
 
