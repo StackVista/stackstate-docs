@@ -10,7 +10,7 @@ Note that the release notes may include details of functionality that is current
 
 **Features**
 
-- The ability to create manual topology from the StackState UI was removed. Please use the Static Topology StackPack in order to create components manually. STAC-14377
+- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to create components manually. STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
 - Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/components_relations.md#relation-types), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours.  Adapt to changing streams in real-time. STAC-12996
