@@ -4,6 +4,12 @@ description: StackState core integration
 
 # Upgrade Splunk topology V1 to V2
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 In previous releases of StackState, it was only possible to run the Splunk topology check using StackState Agent V1. It is now also possible to run the Splunk topology check on [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md).

@@ -1,5 +1,11 @@
 # Roles
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. This instruction will take you through the process of setting up a new group called “StackState Manager”.
 
 1. Subjects need two pieces of information: a subject name and a subject scope. Create a new subject - set it’s name to `stackstateManager` and set the scope to `'label = "StackState" AND type = "Business Application”’` as in the following example:

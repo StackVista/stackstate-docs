@@ -4,6 +4,12 @@ description: Functions for predicting data available in StackState
 
 # Prediction - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Function: `predictMetrics`
 
 Predict metrics for any metric query coming from any data source.

@@ -4,6 +4,12 @@ description: Pull telemetry from existing telemetry sources using the concept of
 
 # Mirroring Telemetry
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 Mirroring is a way to connect StackState to third-party telemetry data sources. In the case of mirroring StackState does not require the telemetry to be present within StackState's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
 
 ### When to use mirroring

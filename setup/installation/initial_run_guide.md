@@ -4,6 +4,12 @@ description: Important details for the first time you run a new StackState insta
 
 # Initial run guide
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 This page provides all the information you need to install and run StackState.

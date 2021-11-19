@@ -4,6 +4,12 @@ description: Set the logging level for an instance of a StackState function
 
 # Enable logging for functions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState CLI to set the logging level for individual instances of a check function, event handler function, propagation function or view state configuration function. Log messages will be added to the StackState log file `stackstate.log`. It is not currently possible to enable logging for other function types.

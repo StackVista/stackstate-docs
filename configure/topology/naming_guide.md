@@ -8,6 +8,12 @@ listorder: 15
 
 # Naming guide
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+{% endhint %}
+
 ## Overview
 
 Getting the most out of StackState becomes easier when components are easy to find. What things are called helps a lot with creating that clarity. To help when naming your new layers or components, this page provides a list of examples used within StackState. Often already provided to you within StackPacks.

@@ -4,10 +4,10 @@ description: StackState version 4.4
 
 # Welcome to the StackState Docs!
 
-{% hint style="success" %}
-**StackState version 4.4** is now available - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v44x) for details.
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
 
-With the release of StackState v4.4, StackState v4.1 has reached End of Life \(EOL\) and will no longer be supported. We encourage customers still running the 4.1 version range to upgrade. Check the [supported StackState versions](#supported-stackstate-versions).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
 {% endhint %}
 
 ### Using StackState
