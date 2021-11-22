@@ -46,24 +46,6 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 StackState Agent connects to the StackState Receiver API at the address specified when it is installed.
 
 {% tabs %}
-{% tab title="Kubernetes" %}
-For StackState running on Kubernetes, the Receiver API is hosted by default at:
-
-```text
-https://<baseUrl>/receiver/stsAgent
-```
-
-The `baseUrl` is set during StackState installation.
-{% endtab %}
-
-{% tab title="Linux" %}
-For StackState running on Linux, the Receiver API is hosted by default at:
-```text
-https://<baseUrl>:7077/stsAgent
-```
-
-The `baseUrl` is set during StackState installation.
-{% endtab %}
 {% tab title="StackState SaaS" %}
 For the StackState SaaS product, the address of the StackState Receiver API will be provided on the StackState UI StackPack page after a StackPack has been installed.
 {% endtab %}
