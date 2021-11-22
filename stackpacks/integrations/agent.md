@@ -22,15 +22,8 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](apache-tomcat.md)
 * [AWS ECS](aws/aws-ecs.md)
-* [DotNet APM](dotnet-apm.md)
-* [Java APM](java-apm.md)
-* [JMX](jmx.md)
-* [MySQL](mysql.md)
-* [PostgreSQL](postgresql.md)
-* [Static Health](static_health.md)  
-* [WMI](wmi.md)
+* [AWS X-ray](aws/aws-x-ray.md)
 
 ### Status
 
