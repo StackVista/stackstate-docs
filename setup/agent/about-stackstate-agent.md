@@ -36,6 +36,35 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 * [StackState Agent V2 on OpenShift](openshift.md)
 * [StackState Agent V2 on Windows](windows.md)
 
+### StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+For StackState running on Kubernetes, the Receiver API is hosted by default at:
+
+```text
+https://<baseUrl>/receiver/stsAgent
+```
+
+The `baseUrl` is set during StackState installation.
+
+For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-valuesyaml "StackState Self-Hosted only").
+{% endtab %}
+
+{% tab title="Linux" %}
+For StackState running on Linux, the Receiver API is hosted by default at:
+```text
+https://<baseUrl>:7077/stsAgent
+```
+
+The `baseUrl` is set during StackState installation.
+
+For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
+{% endtab %}
+{% endtabs %}
+
 ## Open source
 
 StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).

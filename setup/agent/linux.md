@@ -35,28 +35,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 ### StackState Receiver API address
 
-StackState Agent connects to the StackState Receiver API.
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-For StackState running on Kubernetes, the Receiver API is hosted by default at:
-
-```text
-https://<baseUrl>/receiver/stsAgent
-```
-
-The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
-{% endtab %}
-
-{% tab title="Linux" %}
-For StackState running on Linux, the Receiver API is hosted by default at:
-```text
-https://<baseUrl>:7077/stsAgent
-```
-
-The `baseUrl` is set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
-{% endtab %}
-{% endtabs %}
+StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
 
 ### Install
 
