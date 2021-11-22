@@ -25,31 +25,6 @@ StackState Agent V2 is supported to run on:
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API.
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-For StackState running on Kubernetes, the Receiver API is hosted by default at:
-
-```text
-https://<baseUrl>/receiver/stsAgent
-```
-
-The `baseUrl` is set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
-{% endtab %}
-
-{% tab title="Linux" %}
-For StackState running on Linux, the Receiver API is hosted by default at:
-```text
-https://<baseUrl>:7077/stsAgent
-```
-
-The `baseUrl` is set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
-{% endtab %}
-{% endtabs %}
-
 ### Install
 
 StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
