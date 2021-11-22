@@ -105,12 +105,12 @@ When StackState is deployed on Linux, logs about synchronization are stored in t
 
 There are two log files for each synchronization:
 
-1. `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find details of:
+* `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find details of:
   * ID extractor errors.
   * Relations connected to a non-existing component.
   * Messages that have been discarded due to a slow synchronization.
 
-2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
+* `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
   * Template/mapping function errors.
   * Component types that do not have a mapping.
 
