@@ -49,14 +49,14 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 ### Kafka
 
-Topology and telemetry are stored on Kafka, on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
+Topology and telemetry are stored on Kafka on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
 
 - Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML, this is usually the URL of the data source.
 - Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
 
 ### Synchronization
 
-The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization defined in the Sts data source.
+The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization is defined in the Sts data source.
 
 - Check if the topic name defined in the Sts data source matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
 - Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data. 
