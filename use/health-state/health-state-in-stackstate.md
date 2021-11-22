@@ -89,6 +89,6 @@ You can check the view health state in the following places in the StackState UI
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](add-a-health-check.md)
-* [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md)
-* [Set up a health synchronization](../../configure/health/health-synchronization.md)
+* [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md "StackState Self-Hosted only")
+* [Set up a health synchronization](../../configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [Configure the view health](configure-view-health.md)
