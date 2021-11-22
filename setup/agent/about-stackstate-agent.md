@@ -43,7 +43,7 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 ### StackState Receiver API address
 
-StackState Agent connects to the StackState Receiver API at the address specified whe it is installed.
+StackState Agent connects to the StackState Receiver API at the address specified when it is installed.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
