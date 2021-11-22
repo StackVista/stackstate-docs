@@ -64,6 +64,9 @@ https://<baseUrl>:7077/stsAgent
 
 The `baseUrl` is set during StackState installation.
 {% endtab %}
+{% tab title="StackState SaaS" %}
+For the StackState SaaS product, the address of the StackState Receiver API will be provided on the StackState UI StackPack page after a StackPack has been installed.
+{% endtab %}
 {% endtabs %}
 
 ## Open source
