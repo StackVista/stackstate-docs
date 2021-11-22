@@ -22,15 +22,16 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](apache-tomcat.md)
+* [Apache TomCat](apache-tomcat.md "StackState Self-Hosted only")
 * [AWS ECS](aws/aws-ecs.md)
-* [DotNet APM](dotnet-apm.md)
+* [AWS Xray](aws/aws-x-ray.md)
+* [DotNet APM](dotnet-apm.md "StackState Self-Hosted only")
 * [Java APM](java-apm.md)
-* [JMX](jmx.md)
-* [MySQL](mysql.md)
-* [PostgreSQL](postgresql.md)
-* [Static Health](static_health.md)  
-* [WMI](wmi.md)
+* [JMX](jmx.md "StackState Self-Hosted only")
+* [MySQL](mysql.md "StackState Self-Hosted only")
+* [PostgreSQL](postgresql.md "StackState Self-Hosted only")
+* [Static Health](static_health.md "StackState Self-Hosted only")  
+* [WMI](wmi.md "StackState Self-Hosted only")
 
 ### Status
 
