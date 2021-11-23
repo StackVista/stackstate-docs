@@ -6,11 +6,16 @@ This page explains several tools that can be used to debug telemetry synchroniza
 
 ## Telemetry synchronization process
 
-There are two types of integrations that deliver telemetry data to StackState - [pull-based](#pull-based-integrations) (AWS, Azure, Prometheus mirror and Splunk) and [push-based](#push-based-integrations) (all other integrations). The telemetry synchronization process for each type of integration is described below.
+There are two types of integrations that deliver telemetry data to StackState:
+
+- [Pull-based integrations](#pull-based-integrations) (AWS, Azure, Prometheus mirror and Splunk). 
+- [Push-based integrations](#push-based-integrations) (all other integrations). 
+ 
+The telemetry synchronization process for each type of integration is described below.
 
 ### Pull-based integrations
 
-In pull-based integrations, a StackState plugin pulls telemetry data directly into ElasticSearch. This method is used by the StackState integrations with AWS, Azure and Splunk, and the Prometheus mirror.
+In pull-based integrations, a StackState plugin pulls telemetry data directly into ElasticSearch. This method is used by the StackState integrations with AWS, Azure and Splunk, and the Prometheus mirror. The process too synchronize telemetry using a pull-based integration is described below:
 
 1. StackState plugin:
    * Pulls telemetry data from the external source system on demand.
@@ -19,14 +24,14 @@ In pull-based integrations, a StackState plugin pulls telemetry data directly in
    * Telemetry data from push-based integrations is also stored here (retrieved from the Kafka topic `sts_multimetrics`).
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
 3. Element telemetry stream configuration:
-   * Retrieves telemetry data from Elasticsearch and attaches it to an element in StackState
-   * Read the [troubleshooting steps for the element telemetry stream configuration](#element-telemetry-stream-configuration).
+   * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
+   * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
 
 ### Push-based integrations
 
-In push-based integrations, StackState Agent retrieves telemetry data from the external system and pushes it to the StackState receiver.
+In push-based integrations, StackState Agent retrieves telemetry data from an external system and pushes it to the StackState receiver. The process too synchronize telemetry using a push-based integration is described below:
 
-1. StackState Agent (push-based integrations):
+1. StackState Agent:
    * Connects to a data source to collect data.
    * Connects to the StackState receiver to push collected data to StackState (in JSON format).
    * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
@@ -38,16 +43,17 @@ In push-based integrations, StackState Agent retrieves telemetry data from the e
    * Stores all telemetry data that arrives in the StackState receiver in the topic `sts_multimetrics`.
    * Read the [troubleshooting steps for Kafka](#kafka).
 4. Elasticsearch:
-   * Stores telemetry data from the Kafka topic `sts_multimetrics` (push-based integrations).
+   * Stores telemetry data from the Kafka topic `sts_multimetrics`.
    * Telemetry data from pull-based integrations is also stored here.
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
 5. Element telemetry stream configuration:
-   * Retrieves telemetry data from Elasticsearch and attaches it to an element in StackState
-   * Read the [troubleshooting steps for the element telemetry stream configuration](#element-telemetry-stream-configuration).
+   * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
+   * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
 
 ## Troubleshooting steps
 
 1. Identify the scale of impact - are all metrics missing or specific metrics from a single integration?
+   * ???
 2. If the problem relates to a single integration:
    * Check [Kafka](#kafka) to confirm that data has arrived in StackState. If not, check [StackState Agent](#stackstate-agent) for details.
    * Check [Elasticsearch](#elasticsearch) to confirm that data has arrived in Elasticsearch. If not, checked the applied limits in ???.
@@ -81,6 +87,7 @@ Note that for the Kubernetes and OpenShift integrations, different Agents each s
 ### StackState receiver
 
 The StackState receiver receives JSON data from the StackState Agent. 
+
 - Check the StackState receiver logs for JSON deserialization errors. 
 
 ### Element telemetry stream configuration
@@ -89,11 +96,11 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 ## Synchronization logs
 
-
+???
 
 ## Useful CLI commands
 
-
+???
 
 ## See also
 
