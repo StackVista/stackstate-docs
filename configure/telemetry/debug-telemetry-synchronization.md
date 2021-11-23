@@ -15,7 +15,11 @@ The telemetry synchronization process for each type of integration is described 
 
 ### Pull-based integrations
 
-In pull-based integrations, a StackState plugin pulls telemetry data directly into ElasticSearch. This method is used by the StackState integrations with AWS, Azure and Splunk, and the Prometheus mirror. The process too synchronize telemetry using a pull-based integration is described below:
+In pull-based integrations, a StackState plugin pulls telemetry data directly into ElasticSearch. This method is used by the StackState integrations with AWS, Azure and Splunk, and the Prometheus mirror. 
+
+![Pull-based telemetry synchronization process](/.gitbook/assets/pull-based-telemetry.svg)
+
+The process too synchronize telemetry using a pull-based integration is described below:
 
 1. StackState plugin:
    * Pulls telemetry data from the external source system on demand.
@@ -29,7 +33,11 @@ In pull-based integrations, a StackState plugin pulls telemetry data directly in
 
 ### Push-based integrations
 
-In push-based integrations, StackState Agent retrieves telemetry data from an external system and pushes it to the StackState receiver. The process too synchronize telemetry using a push-based integration is described below:
+In push-based integrations, StackState Agent retrieves telemetry data from an external system and pushes it to the StackState receiver. 
+
+![Push-based telemetry synchronization process](/.gitbook/assets/push-based-telemetry.svg)
+
+The process too synchronize telemetry using a push-based integration is described below:
 
 1. StackState Agent:
    * Connects to a data source to collect data.
@@ -78,11 +86,11 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 - Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
 - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
-Note that for the Kubernetes and OpenShift integrations, different Agents each supply different sets of metrics. 
+Note that for the Kubernetes and OpenShift integrations, different Agents types supply different sets of metrics. 
 
-- **StackState Agent (node Agent):** Supplies metrics from the node on which it is deployed. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
+- **StackState Agents (node Agents):** Supply metrics from the node on which it is deployed. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
 - **Cluster Agent:** ???
-- **ClusterCheck Agent:** When cluster checks are enabled, supplies metrics from `kube-state-metrics`.
+- **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from `kube-state-metrics`.
 
 ### StackState receiver
 
