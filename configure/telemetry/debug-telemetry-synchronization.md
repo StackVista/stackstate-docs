@@ -72,6 +72,24 @@ The process too synchronize telemetry using a push-based integration is describe
    * Check the filters placed on the telemetry stream in [StackState](#stackstate). These should match the data received from the external source.
 3. If all metrics are missing from StackState, ???
 
+### StackState Agent
+
+For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
+- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
+- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
+
+Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
+
+- **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
+- **Cluster Agent:** ???
+- **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from `kube-state-metrics`.
+
+### StackState receiver
+
+The StackState receiver receives JSON data from the StackState Agent. 
+
+- Check the StackState receiver logs for JSON deserialization errors. 
+
 ### Kafka
 
 Telemetry data from push-based integrations is stored on Kafka on the topic `sts_multi_metrics`. When data becomes available on the Kafka bus,`kafkaToES` reads data and stores it in an Elasticsearch index.
@@ -90,24 +108,6 @@ Data is collected from the Kafka bus by KafkaToES and sent on to Elasticsearch f
 Telemetry data from push-based and pull-based integrations are stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
 
 - ???
-
-### StackState Agent
-
-For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
-- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
-- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
-
-Note that for the Kubernetes and OpenShift integrations, different Agents types supply different sets of metrics. 
-
-- **StackState Agents (node Agents):** Supply metrics from the node on which it is deployed. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
-- **Cluster Agent:** ???
-- **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from `kube-state-metrics`.
-
-### StackState receiver
-
-The StackState receiver receives JSON data from the StackState Agent (for push-based integrations). 
-
-- Check the StackState receiver logs for JSON deserialization errors. 
 
 ### Element telemetry stream configuration
 
