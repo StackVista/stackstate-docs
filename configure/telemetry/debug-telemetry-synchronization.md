@@ -21,7 +21,7 @@ In pull-based integrations, a StackState plugin pulls telemetry data directly in
    * Pulls telemetry data from the external source system on demand.
 2. Elasticsearch:
    * Stores telemetry data retrieved by the StackState plugins (pull-based integrations).
-   * Telemetry data from push-based integrations is also stored here (retrieved from the Kafka topic `sts_multimetrics`).
+   * Telemetry data from push-based integrations is also stored here (retrieved from the Kafka topic `sts_multi_metrics`).
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
 3. Element telemetry stream configuration:
    * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
@@ -40,10 +40,10 @@ In push-based integrations, StackState Agent retrieves telemetry data from an ex
    * Puts messages on the Kafka bus. 
    * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
 3. Kafka:
-   * Stores all telemetry data that arrives in the StackState receiver in the topic `sts_multimetrics`.
+   * Stores all telemetry data that arrives in the StackState receiver in the topic `sts_multi_metrics`.
    * Read the [troubleshooting steps for Kafka](#kafka).
 4. Elasticsearch:
-   * Stores telemetry data from the Kafka topic `sts_multimetrics`.
+   * Stores telemetry data from the Kafka topic `sts_multi_metrics`.
    * Telemetry data from pull-based integrations is also stored here.
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
 5. Element telemetry stream configuration:
@@ -62,9 +62,9 @@ In push-based integrations, StackState Agent retrieves telemetry data from an ex
 
 ### Kafka
 
-Telemetry data from push-based integrations is stored on Kafka on the topic `sts_multimetrics`. When data becomes available on the Kafka bus,`kafkaToES` reads data and stores it in an Elasticsearch index.
+Telemetry data from push-based integrations is stored on Kafka on the topic `sts_multi_metrics`. When data becomes available on the Kafka bus,`kafkaToES` reads data and stores it in an Elasticsearch index.
 
-- Check the messages on the Kafka topic using the StackState CLI command `sts topic show sts_multimetrics`. If there are recent messages on the Kafka bus, then you know that metrics have been retrieved and the issue is not in the data collection.
+- Check the messages on the Kafka topic using the StackState CLI command `sts topic show sts_multi_metrics`. If there are recent messages on the Kafka bus, then you know that metrics have been retrieved and the issue is not in the data collection.
 
 ### Elasticsearch
 
@@ -103,7 +103,13 @@ To add telemetry to an element, Elasticsearch is queried using the filters speci
 
 ## Useful CLI commands
 
-???
+### Show Kafka topic data
+
+For all push-based integrations, telemetry data is stored in the Kafka topic `sts_multi_metrics`. Use the StackState CLI command below to show all data from this topic.
+
+```
+sts topic show sts_multi_metrics
+```
 
 ## See also
 
