@@ -119,6 +119,10 @@ To add telemetry to an element, Elasticsearch is queried using the filters speci
 ## Synchronization logs
 
 ???
+* StackState Agent log
+* Receiver log
+* KafkaTo ES log
+* ...
 
 ## Useful CLI commands
 
