@@ -169,6 +169,7 @@
   * [Send telemetry data over HTTP](configure/telemetry/send_telemetry.md)
   * [Set the default telemetry interval](configure/telemetry/custom_telemetry_interval.md)  
   * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
+  * [Debug telemetry synchronization](configure/telemetry/debug-telemetry-synchronization.md)
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
   * [Set up traces](configure/traces/how_to_setup_traces.md)
