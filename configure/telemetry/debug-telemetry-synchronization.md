@@ -6,7 +6,7 @@ This page explains several tools that can be used to debug telemetry synchroniza
 
 ## Telemetry synchronization process
 
-There are two types of integrations that deliver telemetry data to StackState:
+There are two types of integration that deliver telemetry data to StackState:
 
 - [Pull-based integrations](#pull-based-integrations) (AWS, Azure, Prometheus mirror and Splunk). 
 - [Push-based integrations](#push-based-integrations) (all other integrations). 
