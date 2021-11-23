@@ -15,14 +15,14 @@ The telemetry synchronization process for each type of integration is described 
 
 ### Pull-based integrations
 
-In pull-based integrations, a StackState plugin pulls telemetry data directly into ElasticSearch. This method is used by the StackState integrations with AWS, Azure and Splunk, and the Prometheus mirror. 
+In pull-based integrations, a StackState plugin pulls telemetry data directly into ElasticSearch. This method is used for StackState integrations with AWS, Azure and Splunk, and the Prometheus mirror. 
 
-![Pull-based telemetry synchronization process](/.gitbook/assets/pull-based-telemetry.svg)
+![Pull-based telemetry synchronization](/.gitbook/assets/pull-based-telemetry.svg)
 
-The process too synchronize telemetry using a pull-based integration is described below:
+The process to synchronize telemetry using a pull-based integration is described below:
 
-1. StackState plugin:
-   * Pulls telemetry data from the external source system on demand.
+1. StackState plugins:
+   * Pull telemetry data from the external source system on demand.
 2. Elasticsearch:
    * Stores telemetry data retrieved by the StackState plugins (pull-based integrations).
    * Telemetry data from push-based integrations is also stored here (retrieved from the Kafka topic `sts_multi_metrics`).
@@ -35,7 +35,7 @@ The process too synchronize telemetry using a pull-based integration is describe
 
 In push-based integrations, StackState Agent retrieves telemetry data from an external system and pushes it to the StackState receiver. 
 
-![Push-based telemetry synchronization process](/.gitbook/assets/push-based-telemetry.svg)
+![Push-based telemetry synchronization](/.gitbook/assets/push-based-telemetry.svg)
 
 The process too synchronize telemetry using a push-based integration is described below:
 
@@ -50,11 +50,15 @@ The process too synchronize telemetry using a push-based integration is describe
 3. Kafka:
    * Stores all telemetry data that arrives in the StackState receiver in the topic `sts_multi_metrics`.
    * Read the [troubleshooting steps for Kafka](#kafka).
-4. Elasticsearch:
+4. KafkaToES:
+   * Collects data from the Kafka bus.
+   * Applies limits and sends data on to Elasticsearch.
+   * Read the [troubleshooting steps for KafkaToES](#kafkatoes).
+5. Elasticsearch:
    * Stores telemetry data from the Kafka topic `sts_multi_metrics`.
    * Telemetry data from pull-based integrations is also stored here.
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
-5. Element telemetry stream configuration:
+6. Element telemetry stream configuration:
    * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
    * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
 
@@ -73,6 +77,13 @@ The process too synchronize telemetry using a push-based integration is describe
 Telemetry data from push-based integrations is stored on Kafka on the topic `sts_multi_metrics`. When data becomes available on the Kafka bus,`kafkaToES` reads data and stores it in an Elasticsearch index.
 
 - Check the messages on the Kafka topic using the StackState CLI command `sts topic show sts_multi_metrics`. If there are recent messages on the Kafka bus, then you know that metrics have been retrieved and the issue is not in the data collection.
+
+### KafkaToES
+
+Data is collected from the Kafka bus by KafkaToES and sent on to Elasticsearch for storage. Limits are applied to prevent too much data being sent simultaneously to Elasticsearch.
+
+- Check the `kafkaToES.log` for errors.
+- If data is arriving in Kafka, but not visible in Elasticsearch, check the limits being applied.
 
 ### Elasticsearch
 
