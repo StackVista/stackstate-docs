@@ -67,9 +67,9 @@ The process too synchronize telemetry using a push-based integration is describe
 1. Identify the scale of impact - are all metrics missing or specific metrics from a single integration?
    * ???
 2. If the problem relates to a single integration:
-   * Check [Kafka](#kafka) to confirm that data has arrived in StackState. If not, check [StackState Agent](#stackstate-agent) for details.
+   * If the integration is a [push-based integration](#push-based-integrations), check [Kafka](#kafka) to confirm that data has arrived in StackState. If not, check [StackState Agent](#stackstate-agent) for details.
    * Check [Elasticsearch](#elasticsearch) to confirm that data has arrived in Elasticsearch. If not, checked the applied limits in ???.
-   * Check the filters placed on the telemetry stream in [StackState](#stackstate). These should match the data received from the external source.
+   * Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received from the external source.
 3. If all metrics are missing from StackState, ???
 
 ### StackState Agent
