@@ -25,7 +25,7 @@ The process to synchronize telemetry using a pull-based integration is described
    * Pull telemetry data from the external source system on demand.
 2. Elasticsearch:
    * Stores telemetry data retrieved by the StackState plugins (pull-based integrations).
-   * Telemetry data from push-based integrations is also stored here (retrieved from the Kafka topic `sts_multi_metrics`).
+   * Telemetry data from push-based integrations is also stored here.
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
 3. Element telemetry stream configuration:
    * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
