@@ -80,19 +80,22 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 Note that for the Kubernetes and OpenShift integrations, different Agents each supply different sets of metrics. 
 
-- StackState Agent (node Agent): Supplies metrics from the node on which it is deployed. If cluster checks are not enabled and the Agent is deplloyed on the same node as `kube-state-metrics`, these metrics will also be supplied.
-- Cluster Agent: ???
-- ClusterCheck Agent: When cluster checks are enabled, supplies metrics from `kube-state-metrics`.
+- **StackState Agent (node Agent):** Supplies metrics from the node on which it is deployed. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
+- **Cluster Agent:** ???
+- **ClusterCheck Agent:** When cluster checks are enabled, supplies metrics from `kube-state-metrics`.
 
 ### StackState receiver
 
-The StackState receiver receives JSON data from the StackState Agent. 
+The StackState receiver receives JSON data from the StackState Agent (for push-based integrations). 
 
 - Check the StackState receiver logs for JSON deserialization errors. 
 
 ### Element telemetry stream configuration
 
+To add telemetry to an element, Elasticsearch is queried using the filters specified for each telemetry stream attached to the element. In the StackState UI, [browse a telemetry stream](/use/metrics-and-events/browse-telemetry.md) to see details  of the applied filters.
 
+- Check that the filters match the data received from the external data source. For example, an update to an external system may result in a change to the name applied to metrics in Elasticsearch.
+- Use auto-complete to fill the filters. This ensures that the correct names are entered.
 
 ## Synchronization logs
 
