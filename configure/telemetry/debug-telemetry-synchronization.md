@@ -17,11 +17,11 @@ Telemetry is pushed to StackState by StackState Agent or pulled by a StackState 
 2. StackState receiver:
    * Extracts topology and telemetry payloads from the received JSON.
    * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
-3. StackState plugins:
-   * Pull data from AWS, Azure, Prometheus or Splunk on demand.
-4. Elasticsearch:
-   * Stores telemetry data received via the StackState receiver and StackState plugins. 
-   * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
+3. Elasticsearch in StackState:
+   * Stores telemetry data received via the StackState receiver. 
+   * Read the [troubleshooting steps for Elasticsearch](#elasticsearch). 
+4. StackState plugins:
+  * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk on demand.
 5. Element telemetry stream configuration:
    * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
    * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
@@ -61,7 +61,7 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 ### Elasticsearch
 
-Telemetry data from push-based and pull-based integrations are stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
+Telemetry data from push-based integrations is stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
 
 - ???
 

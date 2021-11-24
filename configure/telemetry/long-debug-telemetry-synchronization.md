@@ -56,7 +56,6 @@ The process too synchronize telemetry using a push-based integration is describe
    * Read the [troubleshooting steps for KafkaToES](#kafkatoes).
 5. Elasticsearch:
    * Stores telemetry data from the Kafka topic `sts_multi_metrics`.
-   * Telemetry data from pull-based integrations is also stored here.
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
 6. Element telemetry stream configuration:
    * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
@@ -110,7 +109,7 @@ Data is collected from the Kafka bus by KafkaToES and sent on to Elasticsearch f
 
 ### Elasticsearch
 
-Telemetry data from push-based and pull-based integrations are stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
+Telemetry data from push-based integrations is stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
 
 - ???
 
