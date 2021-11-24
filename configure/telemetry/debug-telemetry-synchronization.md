@@ -83,6 +83,7 @@ To add telemetry to an element, Elasticsearch is queried using the filters speci
 
 ## Useful CLI commands
 
+???
 
 ## See also
 
