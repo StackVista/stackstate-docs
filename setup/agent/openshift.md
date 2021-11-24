@@ -14,7 +14,7 @@ To retrieve topology, events and metrics data from a OpenShift cluster, you will
 
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM.
 
-## StackState Agents
+## StackState Agent types
 
 The OpenShift integration collects topology data in an OpenShift cluster, as well as metrics and events. To achieve this, different types of StackState Agent are used:
 
@@ -22,7 +22,7 @@ The OpenShift integration collects topology data in an OpenShift cluster, as wel
 | :--- | :--- |
 | [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) | `stackstate-cluster-agent` |
 | [StackState Agent](openshift.md#stackstate-agent) | `stackstate-cluster-agent-agent` |
-| [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional) \(optional\)| `stackstate-cluster-agent-clusterchecks` |
+| [StackState ClusterCheck Agent \(optional\)](openshift.md#stackstate-clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
@@ -45,7 +45,7 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
 * Container information is collected from the Docker daemon.
 * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 
-By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large OpenShift cluster. To avoid this, it is advisable to enable cluster checks so that metrics are gathered from kube-state-metrics by a dedicated [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional).
+By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large Kubernetes cluster. To avoid this, it is advisable to [enable cluster checks](#enable-cluster-checks) so that metrics are gathered from kube-state-metrics by a dedicated StackState ClusterCheck Agent.
 
 ### StackState ClusterCheck Agent (optional)
 
@@ -81,7 +81,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, you can [enable cluster checks](openshift.md#cluster-check-configuration) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, you can [enable cluster checks](openshift.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
 
 {% hint style="info" %}
 **stackstate.cluster.authToken**
@@ -112,7 +112,7 @@ To upgrade the Agents running in your OpenShift cluster, run the helm upgrade co
 
 ## Configure
 
-#### Enable cluster checks
+### Enable cluster checks
 
 Optionally, the chart can be configured to start additional StackState Agent V2 pods \(1 by default\) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks that are configured on the [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) will then be run by one of the deployed [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional) pods.
 

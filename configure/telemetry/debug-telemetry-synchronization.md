@@ -4,6 +4,29 @@
 
 This page explains how to go aabout debugging issues with telemetry synchronization.
 
+## Telemetry synchronization process
+
+Telemetry is pushed to StackState by StackState Agent or pulled by a StackState plugin or the prometheus mirror.
+
+![Telemetry synchronization process](/.gitbook/assets/telemetry-sync.svg)
+
+1. StackState Agent:
+   * Connects to a data source to collect data.
+   * Connects to the StackState receiver to push collected data to StackState (in JSON format).
+   * Read the [troubleshooting steps for StackState Agent](#stackstate-agent)
+2. StackState receiver:
+   * Extracts topology and telemetry payloads from the received JSON. 
+   * Puts messages on the Kafka bus. 
+   * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
+3. StackState plugins:
+   * Pull data from AWS, Azure, Prometheus or Splunk on demand.
+4. Elasticsearch:
+   * Stores telemetry data received via the StackState receiver and StackState plugins. 
+   * Read the [troubleshooting steps for Elasticsearch](#elasticsearch).
+5. Element telemetry stream configuration:
+   * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
+   * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
+
 ## Troubleshooting steps
 
 ### General troubleshooting
@@ -28,9 +51,9 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
-- **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
+- **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, the Agent will also report metrics from kube-state-metrics if it is deployed on the same node.
 - **Cluster Agent:** ???
-- **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from `kube-state-metrics`.
+- **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from kube-state-metrics.
 
 ### StackState receiver
 

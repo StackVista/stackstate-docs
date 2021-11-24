@@ -17,7 +17,7 @@ The OpenShift integration is used to create a near real-time synchronization of 
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/openshift.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/openshift.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
