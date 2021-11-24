@@ -8,15 +8,14 @@ This page explains how to go aabout debugging issues with telemetry synchronizat
 
 Telemetry is pushed to StackState by StackState Agent or pulled by a StackState plugin or the prometheus mirror.
 
-![Telemetry synchronization process](/.gitbook/assets/telemetry-sync.svg)
+![Telemetry synchronization process](/.gitbook/assets/telemetry-sync-2.svg)
 
 1. StackState Agent:
    * Connects to a data source to collect data.
    * Connects to the StackState receiver to push collected data to StackState (in JSON format).
    * Read the [troubleshooting steps for StackState Agent](#stackstate-agent)
 2. StackState receiver:
-   * Extracts topology and telemetry payloads from the received JSON. 
-   * Puts messages on the Kafka bus. 
+   * Extracts topology and telemetry payloads from the received JSON.
    * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
 3. StackState plugins:
    * Pull data from AWS, Azure, Prometheus or Splunk on demand.
@@ -78,11 +77,6 @@ To add telemetry to an element, Elasticsearch is queried using the filters speci
 ???
 * StackState Agent log
 * Receiver log
-* Elasticsearch log
-
-## Useful CLI commands
-
-???
 
 ## See also
 
