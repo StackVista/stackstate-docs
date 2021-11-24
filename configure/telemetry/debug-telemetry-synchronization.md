@@ -10,12 +10,15 @@ This page explains how to go aabout debugging issues with telemetry synchronizat
 
 1. Identify the scale of impact - are all metrics missing or specific metrics from a single integration?
    * Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is only available for a single integration, this will be clear in the elements and views associated with this integration.
-   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available.
+   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. The available metrics are listed under **Select**. For example
+   * Metrics with the prefix `kubernetes_state_` 
 2. If the problem relates to a single integration:
    * If the integration runs through StackState Agent, start by checking [StackState Agent](#stackstate-agent).
    * Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
    * Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received in Elasticsearch from the external source.
-3. If all metrics are missing from StackState, ???
+3. If no telemetry data is available in StackState:
+   * Check the [StackState Agents](#stackstate-agent) for problems retrieving data from the source system or connecting to StackState.
+   * Check the [StackState receiver](#stackstate-receiver) for problems decoding incoming data.
 
 ### StackState Agent
 
@@ -28,6 +31,12 @@ Note that for the Kubernetes and OpenShift integrations, different Agent types s
 - **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, the Agent will also report metrics from `kube-state-metrics` if it is deployed on the same node.
 - **Cluster Agent:** ???
 - **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from `kube-state-metrics`.
+
+### StackState receiver
+
+The StackState receiver receives JSON data from the StackState Agent. 
+
+- Check the StackState receiver logs for JSON deserialization errors. 
 
 ### Elasticsearch
 
