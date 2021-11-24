@@ -33,8 +33,7 @@ Telemetry is pushed to StackState by StackState Agent or pulled by a StackState 
 
 1. Identify the scale of impact - are all metrics missing or specific metrics from a single integration?
    * Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is only available for a single integration, this will be clear in the elements and views associated with this integration.
-   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. The available metrics are listed under **Select**. For example
-   * Metrics with the prefix `kubernetes_state_` 
+   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. The available metrics are listed under **Select**. 
 2. If the problem relates to a single integration:
    * If the integration runs through StackState Agent, start by checking [StackState Agent](#stackstate-agent).
    * Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
