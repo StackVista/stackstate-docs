@@ -114,7 +114,7 @@ To upgrade the Agents running in your OpenShift cluster, run the helm upgrade co
 
 #### Enable cluster checks
 
-Optionally, the chart can be configured to start additional StackState Agent V2 pods \(1 by default\) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks are configured on the [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) are run by one of the deployed [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional) pods.
+Optionally, the chart can be configured to start additional StackState Agent V2 pods \(1 by default\) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks that are configured on the [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) will then be run by one of the deployed [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional) pods.
 
 To enable cluster checks and deploy the ClusterCheck Agent pods, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
 
@@ -129,7 +129,7 @@ The kubernetes\_state check is responsible for gathering metrics from kube-state
 
 In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large OpenShift cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. When the kubernetes\_state check runs as a cluster check, only the [ClusterCheck Agent](#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
 
 1. [Enable cluster checks](#enable-cluster-checks).
 2. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
