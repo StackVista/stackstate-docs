@@ -8,14 +8,8 @@ description: StackState SaaS
 
 |   |   |   |
 | - | - | - |
+| ![](.gitbook/assets/aws\_220.png)  |  ![](.gitbook/assets/kubernetes\_220.png)  |  ![](.gitbook/assets/openshift\_220.png)  |
 |   |   |   |
-|   |   |   |
-
-![](.gitbook/assets/aws\_220.png) ![](.gitbook/assets/kubernetes\_220.png) ![](.gitbook/assets/openshift\_220.png)
-
-
-
-
 
 ### Using StackState
 
