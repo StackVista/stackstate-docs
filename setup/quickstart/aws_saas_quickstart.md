@@ -1,3 +1,3 @@
-# Quick start AWS
+# AWS quick start guide
 
 hooray!

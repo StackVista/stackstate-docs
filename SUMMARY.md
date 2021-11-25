@@ -5,10 +5,10 @@
 ## 🚀 Get started
 
 * [Quick start](setup/quickstart/README.md)
-  * [AWS quick start](setup/quickstart/aws_saas_quickstart.md)
-  * [Kubernetes quick start](setup/quickstart/kubernetes_saas_quickstart.md)
-  * [OpenShift quick start](setup/quickstart/openshift_saas_quickstart.md)**
-* [Getting Started](getting_started.md)
+  * [AWS quick start guide](setup/quickstart/aws_saas_quickstart.md)
+  * [Kubernetes quick start guide](setup/quickstart/kubernetes_saas_quickstart.md)
+  * [OpenShift quick start guide](setup/quickstart/openshift_saas_quickstart.md)**
+* [StackState walkthrough](getting_started.md)
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
   * [Components and Relations](use/concepts/components_relations.md)
