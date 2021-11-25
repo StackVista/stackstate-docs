@@ -4,15 +4,10 @@ description: StackState SaaS
 
 # Welcome to the StackState SaaS Docs!
 
-{% hint style="success" %}
-
-**Documentation for the StackState SaaS product**
-
-Go to documentation for the [StackState Self-Hosted](https://docs.stackstate.com/) product.
-
-{% endhint %}
 
 ### Using StackState
+
+{% page-ref page="getting_started.md" %}{% page-ref page="getting_started.md" %}
 
 {% page-ref page="getting_started.md" %}
 
