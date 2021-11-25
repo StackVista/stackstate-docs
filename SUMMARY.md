@@ -4,6 +4,8 @@
 
 ## 🚀 Get started
 
+* [Quick start](setup/quickstart/README.md)
+  * [AWS quick start](setup/quickstart/aws_saas_quickstart.md)
 * [Getting Started](getting_started.md)
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
