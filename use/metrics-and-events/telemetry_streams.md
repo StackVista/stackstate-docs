@@ -11,7 +11,7 @@ A telemetry stream is a real-time stream of either metric or log data coming fro
 
 ### Telemetry stream providers
 
-Telemetry streams in StackState are retrieved from an external data source. Telemetry collected by the StackState Agent is pushed to StackState, while telemetry collected by a StackState plugin is pulled directly from the data source.
+Telemetry streams in StackState contain log or metrics data that has been retrieved from an external data source. Telemetry can be pushed to StackState by the StackState Agent or pulled directly from the data source by a StackState plugin.
 
 ### Add telemetry streams
 
