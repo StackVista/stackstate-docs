@@ -11,7 +11,7 @@ A telemetry stream is a real-time stream of either metric or log data coming fro
 
 ### Telemetry stream providers
 
-Telemetry streams are supplied via plugins. Different plugins provide one or multiple types of telemetry streams. For example, the Graphite plugin provides StackState with a metrics telemetry stream, while the Elasticsearch plugin provides metric and log telemetry streams.
+Telemetry streams in StackState contain log or metrics data that has been retrieved from an external data source. Telemetry can be pushed to StackState by the StackState Agent or pulled directly from the data source by a StackState plugin.
 
 ### Add telemetry streams
 
