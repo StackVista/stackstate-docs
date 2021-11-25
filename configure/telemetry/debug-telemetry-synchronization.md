@@ -32,7 +32,7 @@ Telemetry is pushed to StackState by StackState Agent or pulled by a StackState 
 
 1. Identify the scale of impact - are all metrics missing or specific metrics from a single integration?
    * Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is only available for a single integration, this will be clear in the elements and views associated with this integration.
-   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. The available metrics are listed under **Select**. 
+   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. Metrics from integrations that run through StackState Agent (push-based) will be found in the Elasticsearch index **StackState Metrics**, metrics from pull-based integrations that run through StackState plugins or the prometheus mirror will have their own index . 
 2. If the problem relates to a single integration:
    * If the integration runs through StackState Agent, start by checking [StackState Agent](#stackstate-agent).
    * Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
@@ -77,6 +77,35 @@ To add telemetry to an element, Elasticsearch is queried using the filters speci
 ???
 * StackState Agent log
 * Receiver log
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+When StackState is deployed on Kubernetes, logs about synchronization can be found in the ??? pod and the ??? pod. 
+
+
+
+{% hint style="info" %}
+For details on working with the StackState log files on Kubernetes, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md#kubernetes).
+{% endhint %}
+
+{% endtab %}
+
+{% tab title="Linux" %}
+When StackState is deployed on Linux, logs are stored in the directory:
+
+`<my_install_location>/var/log/`
+
+
+
+
+{% hint style="info" %}
+For details on working with the StackState log files on Linux, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md#linux).
+{% endhint %}
+
+{% endhint %}
+
+{% endtab %}
+{% endtabs %}
 
 ## See also
 

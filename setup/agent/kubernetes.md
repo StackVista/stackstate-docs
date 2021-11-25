@@ -20,9 +20,9 @@ The Kubernetes integration collects topology data in a Kubernetes cluster, as we
 
 | Component | Pod name |
 | :--- | :--- |
-| [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) | `stackstate-cluster-agent` |
-| [StackState Agent](openshift.md#stackstate-agent) | `stackstate-cluster-agent-agent` |
-| [StackState ClusterCheck Agent \(optional\)](openshift.md#stackstate-clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
+| [StackState Cluster Agent](#stackstate-cluster-agent) | `stackstate-cluster-agent` |
+| [StackState Agent](#stackstate-agent) | `stackstate-cluster-agent-agent` |
+| [StackState ClusterCheck Agent \(optional\)](#stackstate-clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
