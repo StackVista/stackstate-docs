@@ -1,12 +1,5 @@
-# Getting Started
+# StackState walkthrough
 
-Hi! So, you've just installed StackState and you are ready to get started.
-
-## StackPacks
-
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md).
-
-![StackPacks overview](/.gitbook/assets/v45_stackpacks.png)
 
 ## Explore topology
 

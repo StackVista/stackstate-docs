@@ -6,7 +6,9 @@ description: StackState SaaS
 
 ### QuickStart
 
-{% page-ref page="getting_started.md" %}{% page-ref page="getting_started.md" %}
+
+|:---:|:---:|:---:|
+| ![](/.gitbook/assets/aws_220.png) | ![](/.gitbook/assets/kubernetes_220.png)  | ![](/.gitbook/assets/openshift_220.png)  |
 
 ### Using StackState
 
