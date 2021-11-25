@@ -23,7 +23,9 @@ Telemetry is pushed to StackState by StackState Agent or pulled by a StackState 
 4. StackState plugins:
    * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk on demand.
 5. Element telemetry stream configuration:
-   * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
+   * Queries Elasticsearch for telemetry data.
+   * Requests telemetry data from a StackState plugin or the prometheus mirror.
+   * Attaches retrieved telemetry data to the element in StackState.
    * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
 
 ## Troubleshooting steps
