@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page explains how to go aabout debugging issues with telemetry synchronization.
+This page explains how to go about debugging issues with telemetry synchronization.
 
 ## Telemetry synchronization process
 
