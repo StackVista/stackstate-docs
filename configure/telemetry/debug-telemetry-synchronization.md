@@ -21,7 +21,7 @@ Telemetry is pushed to StackState by StackState Agent or pulled by a StackState 
    * Stores telemetry data received via the StackState receiver. 
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch). 
 4. StackState plugins:
-  * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk on demand.
+   * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk on demand.
 5. Element telemetry stream configuration:
    * Queries Elasticsearch and attaches retrieved telemetry data to the element in StackState.
    * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
@@ -49,7 +49,7 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
-- **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, the Agent will also report metrics from kube-state-metrics if it is deployed on the same node.
+- **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, this will include metrics from kube-state-metrics if it is deployed on the same node.
 - **Cluster Agent:** ???
 - **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from kube-state-metrics.
 
@@ -57,13 +57,13 @@ Note that for the Kubernetes and OpenShift integrations, different Agent types s
 
 The StackState receiver receives JSON data from the StackState Agent. 
 
-- Check the StackState receiver logs for JSON deserialization errors. 
+- Check the StackState receiver logs for JSON deserialization errors. For details on working with the StackState log files, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
 
 ### Elasticsearch
 
 Telemetry data from push-based integrations is stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
 
-- ???
+- Use the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry browser can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
 
 ### Element telemetry stream configuration
 
@@ -71,41 +71,6 @@ To add telemetry to an element, Elasticsearch is queried using the filters speci
 
 - Check that the filters match the data received from the external data source. For example, an update to an external system may result in a change to the name applied to metrics in Elasticsearch.
 - Use auto-complete to fill the filters. This ensures that the correct names are entered.
-
-## Synchronization logs
-
-???
-* StackState Agent log
-* Receiver log
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, logs about synchronization can be found in the ??? pod and the ??? pod. 
-
-
-
-{% hint style="info" %}
-For details on working with the StackState log files on Kubernetes, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md#kubernetes).
-{% endhint %}
-
-{% endtab %}
-
-{% tab title="Linux" %}
-When StackState is deployed on Linux, logs are stored in the directory:
-
-`<my_install_location>/var/log/`
-
-
-
-
-{% hint style="info" %}
-For details on working with the StackState log files on Linux, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md#linux).
-{% endhint %}
-
-{% endhint %}
-
-{% endtab %}
-{% endtabs %}
 
 ## See also
 

@@ -16,7 +16,7 @@ Click on any of the telemetry stream charts, or select **Inspect stream** from i
 
 ![Telemetry browser](../../.gitbook/assets/v45_telemetry-browser.png)
 
-Within the telemetry browser you can adjust the filters, time window and aggregation applied to the data source.
+Within the telemetry browser you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. Changes made here will not be saved to the telemetry stream attached to the element.
 
 ## See also
 
