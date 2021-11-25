@@ -8,7 +8,7 @@ description: StackState SaaS
 
 |   |   |   |
 | - | - | - |
-| [![](.gitbook/assets/aws_220.png)](/setup/quickstart/aws_saas_quickstart.md)  |  ![](.gitbook/assets/kubernetes_220.png)  |  ![](.gitbook/assets/openshift\_220.png)  |
+| [![](.gitbook/assets/aws_220.png)](/setup/quickstart/aws_saas_quickstart.md)  |  [![](.gitbook/assets/kubernetes_220.png)](/setup/quickstart/kubernetes_saas_quickstart.md)  |  [![](.gitbook/assets/openshift\_220.png)](/setup/quickstart/openshift_saas_quickstart.md)  |
 
 ### Using StackState
 
