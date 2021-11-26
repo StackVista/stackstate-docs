@@ -2,7 +2,7 @@
 
 ## Overview
 
-Once your StackState SaaS instance has been set up and configured, you will receive an email from StackState with login details. This quick start guide will help you get your own data into your StackState SaaS instance.
+When your StackState SaaS instance has been set up and configured, you will receive an email from StackState with the required login details. This quick start guide will help you get started and get your own data into your StackState SaaS instance.
 
 * [Integrate with AWS](#aws-quick-start-guide)
 * [Integrate with Kubernetes](#kubernetes-quick-start-guide)
@@ -34,7 +34,7 @@ To set up a StackState AWS integration you need to have:
 }
 ```
 
-### Set up integration
+### Set up the integration
 
 1. [Install StackState Agent V2](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) on a machine which can connect to both AWS and StackState.
 2. 
@@ -55,9 +55,19 @@ To set up a StackState Kubernetes integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up integration
+### Set up the integration
 
-1. 
+1. Add the StackState helm repository to the local helm client:
+  ```buildoutcfg
+  helm repo add stackstate https://helm.stackstate.io
+  helm repo update
+  ```
+2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **Kubernetes**.
+3. Install a new instance of the Kubernetes StackPack:
+   1. Specify a **Kubernetes Cluster Name** - this is the name that will be used to identify the cluster in StackState.
+   2. Click **INSTALL**.
+4. Deploy the StackState Agent, Cluster Agent and kube-state-metrics on your Kubernetes cluster using the helm command provided in the StackState UI after you have installed the StackPack.
+   * Once the Agents have been deployed they will begin collecting data and push this to StackState
 
 ➡️ [Learn more about the StackState Kubernetes integration](/stackpacks/integrations/kubernetes.md)
 
@@ -75,9 +85,19 @@ To set up a StackState Kubernetes integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up integration
+### Set up the integration
 
-1. 
+1. Add the StackState helm repository to the local helm client:
+  ```buildoutcfg
+  helm repo add stackstate https://helm.stackstate.io
+  helm repo update
+  ```
+2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **OpenShift**.
+3. Install a new instance of the Kubernetes StackPack:
+   1. Specify a **OpenShift Cluster Name** - this is the name that will be used to identify the cluster in StackState.
+   2. Click **INSTALL**.
+4. Deploy the StackState Agent, Cluster Agent and kube-state-metrics on your OpenShift cluster using the helm command provided in the StackState UI after you have installed the StackPack.
+   * Once the Agents have been deployed they will begin collecting data and push this to StackState
 
 ➡️ [Learn more about the StackState OpenShift integration](/stackpacks/integrations/openshift.md)
 
