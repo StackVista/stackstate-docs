@@ -1,5 +1,4 @@
-# StackState walkthrough
-
+# StackState walk-through
 
 ## Explore topology
 

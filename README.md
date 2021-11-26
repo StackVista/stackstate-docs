@@ -4,16 +4,14 @@ description: StackState SaaS
 
 # Welcome to the StackState Docs!
 
-### Quick start guides
-
-|   |   |   |
-| - | - | - |
-| [![](.gitbook/assets/aws_220.png)](/setup/quickstart/aws_saas_quickstart.md)  |  [![](.gitbook/assets/kubernetes_220.png)](/setup/quickstart/kubernetes_saas_quickstart.md)  |  [![](.gitbook/assets/openshift\_220.png)](/setup/quickstart/openshift_saas_quickstart.md)  |
+{% content-ref url="setup/saas-quick-start-guide.md" %}
+[Quick start guide](setup/saas-quick-start-guide.md)
+{% endcontent-ref %}
 
 ### Using StackState
 
 {% content-ref url="getting_started.md" %}
-[getting\_started.md](getting\_started.md)
+[getting_started.md](getting_started.md)
 {% endcontent-ref %}
 
 {% content-ref url="stackpacks/integrations/" %}
