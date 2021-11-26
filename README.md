@@ -4,6 +4,8 @@ description: StackState SaaS
 
 # Welcome to the StackState Docs!
 
+### Get started
+
 {% content-ref url="saas-quick-start-guide.md" %}
 [Quick start guide](saas-quick-start-guide.md)
 {% endcontent-ref %}
