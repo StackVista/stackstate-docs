@@ -1,1 +1,0 @@
-# OpenShift quick start guide

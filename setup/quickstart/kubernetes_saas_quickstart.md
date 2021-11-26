@@ -1,1 +1,0 @@
-# Kubernetes quick start guide
