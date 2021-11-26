@@ -36,7 +36,7 @@ To set up a StackState AWS integration you need to have:
 }
 ```
 
-### Set up AWS integration
+### Set up an AWS integration
 
 To get data from an AWS environment into StackState, follow the steps described below:
 
@@ -61,15 +61,16 @@ To set up a StackState Kubernetes integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up Kubernetes integration
+### Set up a Kubernetes integration
 
 To get data from a Kubernetes cluster into StackState, follow the steps described below:
 
 1. Add the StackState helm repository to the local helm client:
-  ```buildoutcfg
-  helm repo add stackstate https://helm.stackstate.io
-  helm repo update
-  ```
+    ```buildoutcfg
+    helm repo add stackstate https://helm.stackstate.io
+    helm repo update
+    ```
+   
 2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **Kubernetes**.
 3. Install a new instance of the Kubernetes StackPack:
    1. Specify a **Kubernetes Cluster Name** - this is the name that will be used to identify the cluster in StackState.
@@ -95,15 +96,16 @@ To set up a StackState Kubernetes integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up OpenShift integration
+### Set up an OpenShift integration
 
 To get data from an OpenShift cluster into StackState, follow the steps described below:
 
 1. Add the StackState helm repository to the local helm client:
-  ```buildoutcfg
-  helm repo add stackstate https://helm.stackstate.io
-  helm repo update
-  ```
+    ```buildoutcfg
+    helm repo add stackstate https://helm.stackstate.io
+    helm repo update
+    ```
+   
 2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **OpenShift**.
 3. Install a new instance of the Kubernetes StackPack:
    1. Specify a **OpenShift Cluster Name** - this is the name that will be used to identify the cluster in StackState.
