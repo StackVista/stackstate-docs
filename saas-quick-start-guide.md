@@ -10,6 +10,8 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 ## AWS quick start guide
 
+Set up an AWS integration to collect topology, events and metrics data from your AWS environment and make this available in StackState.
+
 ### Prerequisites
 
 {% hint style="warning" %}
@@ -18,7 +20,6 @@ Before you begin, check the prerequisites below!
 
 To set up a StackState AWS integration you need to have:
 
-* AWS CLI version 2.0.4 or later installed on the environment where StackState is running.
 * At least one target AWS account that will be monitored.
 * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
     * If StackState Agent will run within an AWS environment: The EC2 instance can have an IAM role attached to it. The Agent will then use this role by default.
@@ -46,6 +47,8 @@ To get data from an AWS environment into StackState, follow the steps described 
 ➡️ [Learn more about the StackState AWS integration](/stackpacks/integrations/aws/aws.md)
 
 ## Kubernetes quick start guide
+
+Set up a Kubernetes integration to collect topology, events and metrics data from a Kubernetes cluster and make this available in StackState.
 
 ### Prerequisites
 
@@ -81,6 +84,8 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 ➡️ [Learn more about the StackState Kubernetes integration](/stackpacks/integrations/kubernetes.md)
 
 ## OpenShift quick start guide
+
+Set up an OpenShift integration to collect topology, events and metrics data from an OpenShift cluster and make this available in StackState.
 
 ### Prerequisites
 
