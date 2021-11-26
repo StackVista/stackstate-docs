@@ -10,9 +10,11 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 ## AWS quick start guide
 
-Follow the steps below to get data from your AWS environment into StackState.
-
 ### Prerequisites
+
+{% hint style="warning" %}
+Before you begin, check the prerequisites below!
+{% endhint %}
 
 To set up a StackState AWS integration you need to have:
 
@@ -34,7 +36,9 @@ To set up a StackState AWS integration you need to have:
 }
 ```
 
-### Set up the integration
+### Set up AWS integration
+
+To get data from an AWS environment into StackState, follow the steps described below:
 
 1. [Install StackState Agent V2](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) on a machine which can connect to both AWS and StackState.
 2. 
@@ -43,9 +47,11 @@ To set up a StackState AWS integration you need to have:
 
 ## Kubernetes quick start guide
 
-Follow the steps below to get data from a Kubernetes cluster into StackState.
-
 ### Prerequisites
+
+{% hint style="warning" %}
+Before you begin, check the prerequisites below!
+{% endhint %}
 
 To set up a StackState Kubernetes integration you need to have:
 
@@ -55,7 +61,9 @@ To set up a StackState Kubernetes integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up the integration
+### Set up Kubernetes integration
+
+To get data from a Kubernetes cluster into StackState, follow the steps described below:
 
 1. Add the StackState helm repository to the local helm client:
   ```buildoutcfg
@@ -73,9 +81,11 @@ To set up a StackState Kubernetes integration you need to have:
 
 ## OpenShift quick start guide
 
-Follow the steps below to get data from an OpenShift cluster into StackState.
-
 ### Prerequisites
+
+{% hint style="warning" %}
+Before you begin, check the prerequisites below!
+{% endhint %}
 
 To set up a StackState Kubernetes integration you need to have:
 
@@ -85,7 +95,9 @@ To set up a StackState Kubernetes integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up the integration
+### Set up OpenShift integration
+
+To get data from an OpenShift cluster into StackState, follow the steps described below:
 
 1. Add the StackState helm repository to the local helm client:
   ```buildoutcfg
