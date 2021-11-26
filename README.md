@@ -4,8 +4,8 @@ description: StackState SaaS
 
 # Welcome to the StackState Docs!
 
-{% content-ref url="setup/saas-quick-start-guide.md" %}
-[Quick start guide](setup/saas-quick-start-guide.md)
+{% content-ref url="saas-quick-start-guide.md" %}
+[Quick start guide](saas-quick-start-guide.md)
 {% endcontent-ref %}
 
 ### Using StackState

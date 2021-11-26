@@ -4,7 +4,7 @@
 
 ## 🚀 Get started
 
-* [Quick start guide](setup/saas-quickstart-guide.md)
+* [Quick start guide](saas-quick-start-guide.md)
 * [StackState walk-through](getting_started.md)
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
