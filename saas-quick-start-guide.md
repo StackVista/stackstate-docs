@@ -39,8 +39,18 @@ To set up a StackState AWS integration you need to have:
 
 To get data from an AWS environment into StackState, follow the steps described below:
 
-1. [Install StackState Agent V2](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) on a machine which can connect to both AWS and StackState.
-2. 
+1. [Deploy the AWS CloudFormation Stack](stackpacks/integrations/aws/aws.md#deploy-the-aws-cloudformation-stack) in the AWS  account that will be monitored.
+2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **AWS**.
+3. Install a new instance of the AWS StackPack:
+   * Specify:
+     * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
+     * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
+     * **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value use-role and the instance will authenticate using the attached IAM role. 
+     * **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value use-role and the instance will authenticate using the attached IAM role.
+   * Click **INSTALL**.
+4. [Install StackState Agent V2](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) on a machine which can connect to both AWS and StackState.
+5. [Configure the AWS check on StackState Agent V2](/stackpacks/integrations/aws/aws.md#configure-the-aws-check)
+   * Once the check has been configured and the Agent restarted, wait for data to be collected from AWS and sent to StackState.
 
 ➡️ [Learn more about the StackState AWS integration](/stackpacks/integrations/aws/aws.md)
 
