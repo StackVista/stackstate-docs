@@ -49,7 +49,7 @@ To get data from an AWS environment into StackState, follow the steps described 
      * **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value use-role and the instance will authenticate using the attached IAM role.
    * Click **INSTALL**.
 4. [Install StackState Agent V2](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) on a machine which can connect to both AWS and StackState.
-5. [Configure the AWS check on StackState Agent V2](/stackpacks/integrations/aws/aws.md#configure-the-aws-check)
+5. [Configure the AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) on StackState Agent V2.
    * Once the check has been configured and the Agent restarted, wait for data to be collected from AWS and sent to StackState.
 
 ➡️ [Learn more about the StackState AWS integration](/stackpacks/integrations/aws/aws.md)
