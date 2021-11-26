@@ -1,4 +1,4 @@
-## StackState quick start guide
+# StackState quick start guide
 
 ## Overview
 
