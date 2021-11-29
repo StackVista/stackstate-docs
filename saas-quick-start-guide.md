@@ -12,6 +12,8 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 Set up an AWS integration to collect topology, events and metrics data from your AWS environment and make this available in StackState.
 
+### Prerequisites 
+
 {% hint style="warning" %}
 Before you begin, check the prerequisites below!
 {% endhint %}
@@ -58,6 +60,8 @@ To get data from an AWS environment into StackState, follow the steps described 
 
 Set up a Kubernetes integration to collect topology, events and metrics data from a Kubernetes cluster and make this available in StackState.
 
+### Prerequisites 
+
 {% hint style="warning" %}
 Before you begin, check the prerequisites below!
 {% endhint %}
@@ -92,6 +96,8 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 ## OpenShift quick start guide
 
 Set up an OpenShift integration to collect topology, events and metrics data from an OpenShift cluster and make this available in StackState.
+
+### Prerequisites 
 
 {% hint style="warning" %}
 Before you begin, check the prerequisites below!
