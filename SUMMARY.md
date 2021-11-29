@@ -74,8 +74,6 @@
     * [AWS](stackpacks/integrations/aws/aws.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
-    * [AWS \(Legacy\)](stackpacks/integrations/aws/aws-legacy.md)
-    * [Migrate AWS \(Legacy\) to AWS](stackpacks/integrations/aws/migration-guide.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)
