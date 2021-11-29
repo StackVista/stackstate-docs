@@ -2,7 +2,7 @@
 
 ## Explore topology
 
-After setting up an [integration](/stackpacks/integrations/), you can go to the Explore Mode to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
+After setting up an [integration](/stackpacks/integrations/), you can go to the [Explore Mode](/use/stackstate-ui/explore_mode.md) to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
 
 StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
