@@ -12,10 +12,6 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 Set up an AWS integration to collect topology, events and metrics data from your AWS environment and make this available in StackState.
 
-{% hint style="warning" %}
-Before you begin, check the prerequisites below!
-{% endhint %}
-
 ### Prerequisites 
 
 To set up a StackState AWS integration you need to have:
@@ -39,6 +35,10 @@ To set up a StackState AWS integration you need to have:
 
 ### Set up an AWS integration
 
+{% hint style="warning" %}
+Before you begin, check the [prerequisites](#prerequisites)
+{% endhint %}
+
 To get data from an AWS environment into StackState, follow the steps described below:
 
 1. [Deploy the AWS CloudFormation Stack](stackpacks/integrations/aws/aws.md#deploy-the-aws-cloudformation-stack) in the AWS  account that will be monitored.
@@ -60,10 +60,6 @@ To get data from an AWS environment into StackState, follow the steps described 
 
 Set up a Kubernetes integration to collect topology, events and metrics data from a Kubernetes cluster and make this available in StackState.
 
-{% hint style="warning" %}
-Before you begin, check the prerequisites below!
-{% endhint %}
-
 ### Prerequisites 
 
 To set up a StackState Kubernetes integration you need to have:
@@ -75,6 +71,10 @@ To set up a StackState Kubernetes integration you need to have:
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a Kubernetes integration
+
+{% hint style="warning" %}
+Before you begin, check the [prerequisites](#prerequisites-1)
+{% endhint %}
 
 To get data from a Kubernetes cluster into StackState, follow the steps described below:
 
@@ -97,10 +97,6 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up an OpenShift integration to collect topology, events and metrics data from an OpenShift cluster and make this available in StackState.
 
-{% hint style="warning" %}
-Before you begin, check the prerequisites below!
-{% endhint %}
-
 ### Prerequisites 
 
 To set up a StackState Kubernetes integration you need to have:
@@ -112,6 +108,10 @@ To set up a StackState Kubernetes integration you need to have:
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up an OpenShift integration
+
+{% hint style="warning" %}
+Before you begin, check the [prerequisites](#prerequisites-2)
+{% endhint %}
 
 To get data from an OpenShift cluster into StackState, follow the steps described below:
 
