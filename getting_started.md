@@ -59,7 +59,7 @@ To quickly find the cause of any deviating component, head to the right-hand pan
 
 Problems and issues are displayed in the following order order:
 
-* StackState prioritizes the most oldest problem and presents the rest from the oldest on the top to the most recent on the bottom.
+* StackState prioritizes problems in order of creation date/time, with the oldest problem at the top of the list and the most recently created at the bottom.
 * Component-specific issues grouped inside problems are displayed from the most recent ones at the top to the oldest at the bottom of the list.
 
 Not all components displayed in the problem pane are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
