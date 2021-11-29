@@ -16,7 +16,8 @@ If StackState is running within an AWS environment on an EC2 instance, it can ha
 2. Create an EC2 instance role and attach the policy from the previous step. 
    ![Policy for assume role](/.gitbook/assets/sts_on_ec2_aws_stp_02.png)
 3. Attach the role to the EC2 instance.
-   ![Attach ](/.gitbook/assets/sts_on_ec2_aws_stp_03.png)
+
+![Attach ](/.gitbook/assets/sts_on_ec2_aws_stp_03.png)
 
 ## Error when IAM policy is not attached 
 
