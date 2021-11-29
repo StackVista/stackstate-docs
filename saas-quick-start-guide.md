@@ -12,7 +12,7 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 Set up an AWS integration to collect topology, events and metrics data from your AWS environment and make this available in StackState.
 
-### Prerequisites 
+### Prerequisites for AWS
 
 To set up a StackState AWS integration you need to have:
 
@@ -36,7 +36,7 @@ To set up a StackState AWS integration you need to have:
 ### Set up an AWS integration
 
 {% hint style="warning" %}
-Before you begin, check the [prerequisites](#prerequisites)
+Before you begin, check the [prerequisites](#prerequisites-for-aws).
 {% endhint %}
 
 To get data from an AWS environment into StackState, follow the steps described below:
@@ -60,7 +60,7 @@ To get data from an AWS environment into StackState, follow the steps described 
 
 Set up a Kubernetes integration to collect topology, events and metrics data from a Kubernetes cluster and make this available in StackState.
 
-### Prerequisites 
+### Prerequisites for Kubernetes
 
 To set up a StackState Kubernetes integration you need to have:
 
@@ -73,7 +73,7 @@ To set up a StackState Kubernetes integration you need to have:
 ### Set up a Kubernetes integration
 
 {% hint style="warning" %}
-Before you begin, check the [prerequisites](#prerequisites-1)
+Before you begin, check the [prerequisites](#prerequisites-for-kubernetes).
 {% endhint %}
 
 To get data from a Kubernetes cluster into StackState, follow the steps described below:
@@ -97,7 +97,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up an OpenShift integration to collect topology, events and metrics data from an OpenShift cluster and make this available in StackState.
 
-### Prerequisites 
+### Prerequisites for OpenShift
 
 To set up a StackState Kubernetes integration you need to have:
 
@@ -110,7 +110,7 @@ To set up a StackState Kubernetes integration you need to have:
 ### Set up an OpenShift integration
 
 {% hint style="warning" %}
-Before you begin, check the [prerequisites](#prerequisites-2)
+Before you begin, check the [prerequisites](#prerequisites-for-openshift).
 {% endhint %}
 
 To get data from an OpenShift cluster into StackState, follow the steps described below:
