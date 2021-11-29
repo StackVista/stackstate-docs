@@ -36,7 +36,7 @@ To set up a StackState AWS integration you need to have:
 ### Set up an AWS integration
 
 {% hint style="warning" %}
-Before you begin, check the [prerequisites](#prerequisites-for-aws).
+Before you begin, check the [prerequisites for AWS](#prerequisites-for-aws).
 {% endhint %}
 
 To get data from an AWS environment into StackState, follow the steps described below:
@@ -73,7 +73,7 @@ To set up a StackState Kubernetes integration you need to have:
 ### Set up a Kubernetes integration
 
 {% hint style="warning" %}
-Before you begin, check the [prerequisites](#prerequisites-for-kubernetes).
+Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-kubernetes).
 {% endhint %}
 
 To get data from a Kubernetes cluster into StackState, follow the steps described below:
@@ -99,7 +99,7 @@ Set up an OpenShift integration to collect topology, events and metrics data fro
 
 ### Prerequisites for OpenShift
 
-To set up a StackState Kubernetes integration you need to have:
+To set up a StackState OpenShift integration you need to have:
 
 * An up and running OpenShift Cluster.
 * A recent version of Helm 3.
@@ -110,7 +110,7 @@ To set up a StackState Kubernetes integration you need to have:
 ### Set up an OpenShift integration
 
 {% hint style="warning" %}
-Before you begin, check the [prerequisites](#prerequisites-for-openshift).
+Before you begin, check the [prerequisites for OpenShift](#prerequisites-for-openshift).
 {% endhint %}
 
 To get data from an OpenShift cluster into StackState, follow the steps described below:
