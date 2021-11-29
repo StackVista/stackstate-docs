@@ -110,6 +110,8 @@
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
     * [AWS \(Legacy\)](stackpacks/integrations/aws/aws-legacy.md)
     * [Migrate AWS \(Legacy\) to AWS](stackpacks/integrations/aws/migration-guide.md)
+    * [IAM role for EC2](aws-sts-ec2.md)
+    * [IAM role for EKS cluster](aws-sts-eks.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [💠 Dynatrace](stackpacks/integrations/dynatrace.md)
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)
