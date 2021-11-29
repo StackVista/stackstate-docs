@@ -117,7 +117,7 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
 
 {% hint style="info" %}
-For details about IAM role authentication with `use-role`, see the pages:
+For details of using IAM role authentication with `use-role`, see:
 * IAM authentication for [StackState running in EC2](aws-sts-ec2.md).
 * IAM authentication for [StackState running in an EKS cluster](aws-sts-eks.md).
 {% endhint %}
