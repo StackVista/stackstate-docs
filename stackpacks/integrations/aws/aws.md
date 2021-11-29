@@ -113,12 +113,12 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
+* **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role.
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role.
 
 {% hint style="info" %}
 For details of using IAM role authentication with `use-role`, see:
-* IAM authentication for [StackState running in EC2](aws-sts-ec2.md).
+* IAM authentication for [StackState running on EC2](aws-sts-ec2.md).
 * IAM authentication for [StackState running in an EKS cluster](aws-sts-eks.md).
 {% endhint %}
 
