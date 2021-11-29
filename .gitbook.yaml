@@ -255,7 +255,7 @@ redirects:
   get-started/getting-started: ./getting_started.md
   setup/installation/README: ./setup/install-stackstate/README.md
   setup/installation/initial_run_guide: ./setup/install-stackstate/initial_run_guide.md
-  setup/installation/kubernetes_install/README: ./setup/install-stackstate/kubernetes_install/README.md
+  setup/installation/kubernetes_install/: ./setup/install-stackstate/kubernetes_install/README.md
   setup/installation/kubernetes_install/aad_standalone: ./setup/install-stackstate/kubernetes_install/aad_standalone.md
   setup/installation/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
   setup/installation/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
@@ -265,7 +265,7 @@ redirects:
   setup/installation/kubernetes_install/non_high_availability_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
   setup/installation/kubernetes_install/required_permissions: ./setup/install-stackstate/kubernetes_install/required_permissions.md
   setup/installation/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_install/storage.md
-  setup/installation/linux_install/README: ./setup/install-stackstate/linux_install/README.md
+  setup/installation/linux_install/: ./setup/install-stackstate/linux_install/README.md
   setup/installation/linux_install/before_you_install: ./setup/install-stackstate/linux_install/before_you_install.md
   setup/installation/linux_install/development-installation: ./setup/install-stackstate/linux_install/development-installation.md
   setup/installation/linux_install/download: ./setup/install-stackstate/linux_install/download.md
