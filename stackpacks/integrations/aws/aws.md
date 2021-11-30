@@ -14,7 +14,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Topology is updated in real time:
   * Once an hour, all services are queried to gain a full point-in-time snapshot of resources.
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
-* Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
+* Logs are retrieved once a minute from CloudWatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
 
@@ -26,13 +26,27 @@ To set up the StackState AWS integration, you need to have:
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
-* At least one target AWS account that will be monitored.
-* An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
-    * If StackState Agent is running within an AWS environment: The EC2 instance can have an IAM role attached to it. The Agent will then use this role by default.
-    * The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
+* The following [AWS accounts](#aws-accounts):
+  * At least one target AWS account that will be monitored.
+  * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState.
 
-{% tabs %}
-{% tab title="IAM policy" %}
+### AWS accounts
+
+It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
+
+* **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
+* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from either:
+  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2) where the Agent runs.
+  * An [AWS user configured in the AWS check](#configure-the-aws-check) on the Agent.
+
+The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
+
+![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
+
+#### IAM role for Agent on EC2
+
+If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance that it runs on. The Agent will then use this role by default. The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
+
 ```javascript
 {
   "Version": "2012-10-17",
@@ -45,19 +59,6 @@ To set up the StackState AWS integration, you need to have:
   ]
 }
 ```
-{% endtab %}
-{% endtabs %}
-
-### AWS accounts
-
-It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
-
-* **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
-* **Agent account** - used to retrieve data from the monitor account. StackState Agent should be installed on a machine where an [IAM role](#stackstate-agent-iam-role) is available that has permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack.
-
-![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
-
-The IAM role of the Agent account queries AWS data by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
 ### Deploy the AWS CloudFormation Stack
 
@@ -113,8 +114,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
+* **AWS Access Key ID** - The Access Key ID of the IAM user used to collect CloudWatch metrics. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role. Note that the correct policy must be attached to the role in [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user used to collect CloudWatch metrics. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role. Note that the correct policy must be attached to the role in [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md).
 
 ### Configure the AWS check
 
@@ -122,8 +123,8 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
     
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
