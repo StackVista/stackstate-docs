@@ -28,7 +28,7 @@ To set up the StackState AWS integration, you need to have:
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * The following [AWS accounts](#aws-accounts):
   * At least one target AWS account that will be monitored.
-  * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
+  * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState.
 
 ### AWS accounts
 
@@ -37,9 +37,9 @@ It is recommended to have two different AWS accounts: One that is being monitore
 * **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
 * **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from either:
   * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2) where the Agent runs.
-  * An AWS user configured in the Agent's [AWS check](#configure-the-aws-check).
+  * An [AWS user configured in the AWS check](#configure-the-aws-check) on the Agent.
 
-The IAM role of the Agent account queries AWS data by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
+The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
 ![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
 
@@ -123,8 +123,8 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
     
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an EC2 instance or ECS/EKS cluster with an IAM role.
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
