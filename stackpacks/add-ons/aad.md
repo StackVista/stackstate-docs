@@ -14,11 +14,7 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ## Installation
     
-### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md "StackState Self-Hosted only") within Kubernetes.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
@@ -50,7 +46,12 @@ After an initial [training period](#training-period), the AAD ensures that prior
 
 {% hint style="success" "self-hosted info" %}
 
-Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)\).
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see troubleshooting\).
 {% endhint %}
 
 ## Uninstall
