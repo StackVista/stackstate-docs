@@ -74,8 +74,6 @@
     * [AWS](stackpacks/integrations/aws/aws.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
-    * [StackState IAM role: EC2](stackpacks/integrations/aws/aws-sts-ec2.md)
-    * [StackState IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)
@@ -85,4 +83,3 @@
 
 * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
 * [StackState SaaS release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)
-* 
