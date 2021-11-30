@@ -378,6 +378,8 @@ For example, in the StackState Topology Perspective:
 
 On import, all topology in StackState will be given the label `stackpack:aws-v2`. 
 
+Topology imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only") will have the label `stackpack:aws`.
+
 Any tags that exist in AWS will be added to the StackState topology as labels. In addition, the following special tags can be added in AWS to influence how the topology is built in StackState:
 
 | Tag | Description |

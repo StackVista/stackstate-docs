@@ -36,12 +36,7 @@ Follow the instructions below to add an anomaly health check to a component.
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-    
-You can automate the creation of such checks, like any other checks, using the component templates.
+You can automate the creation of such checks, like any other checks, using the [component templates](../../configure/telemetry/telemetry_synchronized_topology.md).
 {% endhint %}
 
 ## Check function: Autonomous metric stream anomaly detection
@@ -56,15 +51,11 @@ When enabled, the autonomous metric stream anomaly detection check function will
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-    
-Advanced users of StackState can create custom anomaly check functions.
+Advanced users of StackState can create [custom anomaly check functions](../../develop/developer-guides/custom-functions/check-functions.md).
 {% endhint %}
 
 ## See also
 
 * [Autonomous Anomaly Detector StackPack](../../stackpacks/add-ons/aad.md)
 * [Add a health check](add-a-health-check.md)
+* [Anomaly check functions](../../develop/developer-guides/custom-functions/check-functions.md#anomaly-check-functions "StackState Self-Hosted only")

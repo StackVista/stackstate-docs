@@ -42,13 +42,7 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-    
-* You can create a custom check function to customize how StackState assigns a health state to a metric stream.
-
+* You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
 * Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
 {% endhint %}
 
@@ -67,17 +61,12 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 ➡️ [Learn more about how to use anomaly health checks](anomaly-health-checks.md).
 
-
 ## Synchronize external health data
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
+You can [synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
 
-Extra information for the StackState Self-Hosted product:
-
-    
-You can synchronize existing health checks from an external monitoring system and add them to StackState topology elements.
 {% endhint %}
 
 ## See also
@@ -85,3 +74,5 @@ You can synchronize existing health checks from an external monitoring system an
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
 * [Add an event notification](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler)
+* [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
+* [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

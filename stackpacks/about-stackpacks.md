@@ -11,12 +11,8 @@ There are two types of StackPack - Add-ons and Integrations. The available Stack
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
+A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 
-Extra information for the StackState Self-Hosted product:
-
-    
-A full list of the StackPacks shipped with each supported version of StackState is available on the StackPack versions page.
 {% endhint %}
 
 ## Install or uninstall a StackPack
@@ -48,12 +44,8 @@ If a new StackPack version is available, an alert will be displayed on the Stack
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
+A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
 
-Extra information for the StackState Self-Hosted product:
-
-    
-A full list of the StackPacks shipped with each supported version of StackState is available on the StackPack versions page.
 {% endhint %}
 
 ### New minor StackPack version
@@ -72,11 +64,6 @@ To upgrade to a new major version of a StackPack, [uninstall and reinstall](abou
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-    
 Continue using changes made to customized StackPack configuration items after upgrade:
 
 1. Before you upgrade, export each customized item:
@@ -87,7 +74,7 @@ Continue using changes made to customized StackPack configuration items after up
    * Open the export file in a text editor.
    * Edit the top-level `name` and `identifier` fields.
    * Save the export.
-4. Import the updated export file\(s\).
+4. [Import](../setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file\(s\).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
 
 {% endhint %}
@@ -100,10 +87,6 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
+You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
 
-Extra information for the StackState Self-Hosted product:
-
-    
-You can make a back-up of configuration items. Note that the lock status of configuration items will not be exported as part of a configuration backup.
 {% endhint %}

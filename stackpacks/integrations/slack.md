@@ -33,13 +33,8 @@ Note that you will need to [create a Slack Webhook \(slack.com\)](https://api.sl
 When a new version of the Slack StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **Slack**. 
 
 {% hint style="success" "self-hosted info" %}
-
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
     
-For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
+For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 {% endhint %}
 
 ## Integration details
@@ -73,4 +68,5 @@ Before you uninstall the Slack StackPack, all event handlers that have been conf
 * [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
 * [Event notifications](/use/metrics-and-events/event-notifications.md)
 * [Problem notifications](/use/problem-analysis/problem_notifications.md)
+* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks)

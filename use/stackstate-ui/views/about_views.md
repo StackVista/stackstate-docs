@@ -69,12 +69,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 {% hint style="success" "self-hosted info" %}
 
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-    
-Through a combination of configuration of permissions and scope, it is possible control access for specific users:
+Through a combination of configuration of permissions and scope, it is possible [control access for specific users](../../../configure/security/rbac/role_based_access_control.md):
 
 * Give access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views.
 * Give access to specific views and disallow them to create, modify or delete views.
