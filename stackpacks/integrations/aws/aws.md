@@ -60,6 +60,8 @@ If StackState Agent runs in an AWS environment, an IAM role can be attached to t
 }
 ```
 
+If StackState Agent does not run in an AWS environment, or if a role with the required policy is not available on the Agent's EC2 instance, an AWS user must be [configured in the AWS check](#configure-the-aws-check) on the Agent.
+
 ### Deploy the AWS CloudFormation Stack
 
 The StackState AWS CloudFormation Stack should be deployed in each AWS account that you will monitor. It provides the minimum level of access required for the StackState Agent to collect topology, telemetry and logs.
