@@ -96,7 +96,7 @@ redirects:
   develop/mirrors: ./configure/telemetry/data-sources/prometheus-mirror.md
   develop/mirroring: ./develop/developer-guides/mirroring.md
   develop/mirrors/prometheus-mirror: ./configure/telemetry/data-sources/prometheus-mirror.md
-  develop/stackpack: ./develop/developer-guides/stackpack
+  develop/stackpack: ./develop/developer-guides/stackpack.md
   develop/stackpack/how_to_customize_a_stackpack: ./develop/developer-guides/stackpack/how_to_customize_a_stackpack.md
   develop/stackpack/how_to_get_a_template_file: ./develop/developer-guides/stackpack/how_to_get_a_template_file.md
   develop/stackpack/how_to_make_a_multi-instance_stackpack: ./develop/developer-guides/stackpack/how_to_make_a_multi-instance_stackpack.md
@@ -109,7 +109,7 @@ redirects:
   develop/stackpack/stackpack_resources: ./develop/developer-guides/stackpack/stackpack_resources.md
   develop/stackpack/stackstate-common-layer: ./develop/developer-guides/stackpack/stackstate-common-layer.md
   develop/synchronizations_and_templated_files: ./develop/developer-guides/synchronizations_and_templated_files.md
-  develop/scripting: ./develop/reference/scripting
+  develop/scripting: ./develop/reference/scripting/README.md
   develop/scripting/async_script_result: ./develop/reference/scripting/async_script_result.md
   develop/scripting/script-apis: ./develop/reference/scripting/script-apis/README.md
   develop/scripting/script-apis/async: ./develop/reference/scripting/script-apis/async.md
@@ -135,7 +135,7 @@ redirects:
   setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/cli-install.md
   setup/kubernetes/image_configuration: ./setup/instal-stackstate/kubernetes_install/image_configuration.md
-  setup/kubernetes_install: ./setup/install-stackstate/kubernetes_install/
+  setup/kubernetes_install: ./setup/install-stackstate/kubernetes_install/README.md
   setup/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
   setup/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
   setup/kubernetes_install/ingress: ./setup/install-stackstate/kubernetes_install/ingress.md
@@ -219,7 +219,7 @@ redirects:
 # 4.4 docs
 
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
-  stackpacks/integrations/google-analytics: ./stackpacks/integrations/
+  stackpacks/integrations/google-analytics: ./stackpacks/integrations/README.md
   use/health-state-and-event-notifications/anomaly-detection-with-baselines: ./use/concepts/anomaly-detection.md
   develop/developer-guides/custom-functions/baseline-functions: ./develop/developer-guides/custom-functions/README.md
   stackpacks/integrations/api-integration: ./setup/agent/agent-v1.md
@@ -234,7 +234,7 @@ redirects:
   use/health-state-and-event-notifications/configure-view-health: ./use/health-state/configure-view-health.md
   setup/installation/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
   use/explore_mode: ./use/stackstate-ui/explore_mode.md
-  use/problems/problems: ./use/problem-analysis/problems.md
+  use/problems/problems: ./use/problem-analysis/about-problems.md
   use/health-state-and-event-notifications/send-event-notifications: ./use/metrics-and-events/event-notifications.md
   use/perspectives/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   use/perspectives/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
@@ -250,12 +250,12 @@ redirects:
 
 # 4.5 docs
 
-  configure/topology/topology_synchronization.md: ./configure/topology/send-topology-data.md
-  configure/topology/debugging_topology_synchronization.md: ./configure/topology/debug-topology-synchronization.md
+  configure/topology/topology_synchronization: ./configure/topology/send-topology-data.md
+  configure/topology/debugging_topology_synchronization: ./configure/topology/debug-topology-synchronization.md
   get-started/getting-started: ./getting_started.md
   setup/installation/README: ./setup/install-stackstate/README.md
   setup/installation/initial_run_guide: ./setup/install-stackstate/initial_run_guide.md
-  setup/installation/kubernetes_install/README: ./setup/install-stackstate/kubernetes_install/README.md
+  setup/installation/kubernetes_install/: ./setup/install-stackstate/kubernetes_install/README.md
   setup/installation/kubernetes_install/aad_standalone: ./setup/install-stackstate/kubernetes_install/aad_standalone.md
   setup/installation/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
   setup/installation/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
@@ -265,7 +265,7 @@ redirects:
   setup/installation/kubernetes_install/non_high_availability_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
   setup/installation/kubernetes_install/required_permissions: ./setup/install-stackstate/kubernetes_install/required_permissions.md
   setup/installation/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_install/storage.md
-  setup/installation/linux_install/README: ./setup/install-stackstate/linux_install/README.md
+  setup/installation/linux_install/: ./setup/install-stackstate/linux_install/README.md
   setup/installation/linux_install/before_you_install: ./setup/install-stackstate/linux_install/before_you_install.md
   setup/installation/linux_install/development-installation: ./setup/install-stackstate/linux_install/development-installation.md
   setup/installation/linux_install/download: ./setup/install-stackstate/linux_install/download.md
@@ -276,32 +276,21 @@ redirects:
   setup/installation/linux_install/reverse_proxy: ./setup/install-stackstate/linux_install/reverse_proxy.md
   setup/installation/openshift_install: ./setup/install-stackstate/openshift_install.md
   setup/requirements: ./setup/install-stackstate/requirements.md
-  stackpacks/integrations/centos.md: ./setup/agent/linux.md
-  stackpacks/integrations/debian.md: ./setup/agent/linux.md
-  stackpacks/integrations/fedora.md: ./setup/agent/linux.md
-  stackpacks/integrations/redhat.md: ./setup/agent/linux.md
-  stackpacks/integrations/ubuntu.md: ./setup/agent/linux.md
-  stackpacks/integrations/windows.md: ./setup/agent/windows.md
-  stackpacks/integrations/docker.md: ./setup/agent/docker.md
-  use/introduction-to-stackstate/getting_started.md: ./getting_started.md
-  use/introduction-to-stackstate/4t_data_moodel.md: ./use/concepts/4t_data_moodel.md
-  use/introduction-to-stackstate/anomaly-detection.md: ./use/concepts/anomaly-detection.md
-  use/introduction-to-stackstate/components_and_relations.md: ./use/concepts/components_and_relations.md
-  use/introduction-to-stackstate/layers_domains_and_environments.md: ./use/concepts/layers_domains_environments.md
-  use/introduction-to-stackstate/perspectives.md: ./use/concepts/perspectives.md
-  use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture
-  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
-  use/introduction-to-stackstate/4t_data_model: ./use/conecpts/4t_data_model
-  use/introduction-to-stackstate/perspectives: ./use/concepts/perspectives
-  use/introduction-to-stackstate/layers_domains_and_environments: ./use/concepts/layers_domains_and_environments
-  use/introduction-to-stackstate/anomaly-detection: ./use/concepts/anomaly-detection
   stackpacks/integrations/centos: ./setup/agent/linux.md
   stackpacks/integrations/debian: ./setup/agent/linux.md
-  stackpacks/integrations/docker: ./setup/agent/docker.md
   stackpacks/integrations/fedora: ./setup/agent/linux.md
   stackpacks/integrations/redhat: ./setup/agent/linux.md
   stackpacks/integrations/ubuntu: ./setup/agent/linux.md
   stackpacks/integrations/windows: ./setup/agent/windows.md
-  configure/topology/topology_synchronization: ./configure/topology/send-topology-data
+  stackpacks/integrations/docker: ./setup/agent/docker.md
+  use/introduction-to-stackstate/getting_started: ./getting_started.md
+  use/introduction-to-stackstate/4t_data_moodel: ./use/concepts/4t_data_moodel.md
+  use/introduction-to-stackstate/anomaly-detection: ./use/concepts/anomaly-detection.md
+  use/introduction-to-stackstate/components_and_relations: ./use/concepts/components_and_relations.md
+  use/introduction-to-stackstate/layers_domains_and_environments: ./use/concepts/layers_domains_environments.md
+  use/introduction-to-stackstate/perspectives: ./use/concepts/perspectives.md
+  use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture.md
+  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
+  use/introduction-to-stackstate/4t_data_model: ./use/conecpts/4t_data_model.md
   use/problem-analysis/problems: ./use/problem-analysis/about-problems.md
   use/metrics-and-events/send-event-notifications: ./use/metrics-and-events/event-notifications.md

@@ -43,13 +43,15 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 ### StackState Receiver API address
 
-StackState Agent connects to the StackState Receiver API at the address specified when it is installed.
+StackState Agent connects to the StackState Receiver API.
 
-{% tabs %}
-{% tab title="StackState SaaS" %}
+
+
+
+
+
+
 For the StackState SaaS product, the address of the StackState Receiver API will be provided on the StackState UI StackPack page after a StackPack has been installed.
-{% endtab %}
-{% endtabs %}
 
 ## Open source
 

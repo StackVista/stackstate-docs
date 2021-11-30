@@ -13,20 +13,8 @@ Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous 
 The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
 
 ## Installation
-
-{% hint style="success" "self-hosted info" %}
-
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
     
-**Prerequisites**
 
-* The AAD StackPack can only be installed within a Kubernetes setup. Please make sure that this is supported by your StackState installation.
-* It is also possible to install the AAD standalone within Kubernetes.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact StackState support.
-{% endhint %}
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 

@@ -25,6 +25,10 @@ StackState Agent V2 is supported to run on:
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
+### StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
+
 ### Install
 
 StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.

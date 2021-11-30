@@ -38,7 +38,7 @@ When a new version of the Slack StackPack is available in your instance of Stack
 
 Extra information for the StackState Self-Hosted product:
 
-    
+        
 For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
 

@@ -29,4 +29,4 @@ Extra information for the StackState Self-Hosted product:
 * The Java APM integration enables tracing support for Java JVM based systems.
 
 * The Traefik integration adds topology and telemetry information from Traefik to traces.
-{% endhint %}
+* {% endhint %}

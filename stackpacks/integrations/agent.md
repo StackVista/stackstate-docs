@@ -23,7 +23,7 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
 * [AWS ECS](aws/aws-ecs.md)
-* [AWS X-ray](aws/aws-x-ray.md)
+* [AWS Xray](aws/aws-x-ray.md)
 
 ### Status
 
