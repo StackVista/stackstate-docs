@@ -2,40 +2,35 @@
 description: AWS EKS role setup for the StackState AWS integration
 ---
 
-# AWS EKS policy setup for AWS StackPack use-role option
+# StackState IAM role for EKS
 
-If StackState is running within an AWS environment on an EKS cluster it can have an IAM role with attached to its node group that enables AWS StackPack to be installed with `use-role` option.
+## Overview
 
-In the following example uses AWS EKS cluster with Amazon EC2 Linux managed nodes. 
+## Set up IAM role for StackState on EKS
 
-## Error when IAM policy is not attached 
+To set up an IAM role for the AWS StackPack to use, follow the instructions below.
 
-If the IAM policy is not attached to node group role the following error happens during AWS StackPack installation with `use-role` option.
+1. Create a policy that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. This is the same policy as used for the [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2). Take note of the policy name.
+2. Find the node-group that contains nodes running the pods `stackstate-api` and `stackstate-server` and create a node group role.
+3. Attach the policy from the first step to the node-group role from the previous step.
 
-![Failed AWS installation](../../.././.gitbook/assets/sts_on_eks_aws_stp_01.png)
+![Policy for node group role](/.gitbook/assets/sts_on_eks_aws_stp_03.png)
 
-To fix this we need to attach the appropriate policy to node group role. Take note of the node group role name. The AWS StackPack instance is in Error State. Press the `UNINSTALL` button to remove it.
+## Error: (Access denied) when calling the AssumeRole operation
 
-## Find the missing policy
+If the correct IAM policy is not attached to the EKS cluster role, an error will be returned when attempting to install the AWS StackPack with the `use-role` option.
 
-Find the policy that allows `AssumeRole` action for `arn:aws:iam::*:role/StackStateAwsIntegrationRole` resource.
+![Failed AWS installation](/.gitbook/assets/sts_on_eks_aws_stp_01.png)
 
-![Policy for assume role](../../.././.gitbook/assets/sts_on_eks_aws_stp_02.png)
+To resolve this:
 
-This policy is one of the prerequisites for [AWS Integration Setup](https://docs.stackstate.com/stackpacks/integrations/aws/aws#prerequisites). 
+1. Take note of the node group role name in the error message.
+2. Click **UNINSTALL** to uninstall the StackPack reporting the error.
+3. [Set up the IAM role for StackState](#set-up-iam-role-for-stackstate-on-eks). Note that the policy should be attached to the node-group role name reported in the error message - it is not necessary to create a new node-group role.
+4. Install the AWS StackPack again.
 
-Take note of the policy name.
+## See also
 
-## Attach policy to node-group role
-
-Find the node group role and attach the policy to it.
-
-![03](../../.././.gitbook/assets/sts_on_eks_aws_stp_03.png)
-
-## Repeat the AWS StackPack installation
-
-Installation of AWS StackPack using `use-role` option now finishes successfully.
-
-![04](../../.././.gitbook/assets/sts_on_eks_aws_stp_04.png)
-
-
+* [AWS StackPack](/stackpacks/integrations/aws/aws.md)
+* [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2)
+* [StackState IAM role for EC2](/stackpacks/integrations/aws/aws-sts-ec2.md)
