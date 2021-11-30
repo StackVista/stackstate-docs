@@ -12,7 +12,6 @@ There are two types of StackPack - Add-ons and Integrations. The available Stack
 {% hint style="success" "self-hosted info" %}
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
-
 {% endhint %}
 
 ## Install or uninstall a StackPack
@@ -45,7 +44,6 @@ If a new StackPack version is available, an alert will be displayed on the Stack
 {% hint style="success" "self-hosted info" %}
 
 A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
-
 {% endhint %}
 
 ### New minor StackPack version
@@ -76,7 +74,6 @@ Continue using changes made to customized StackPack configuration items after up
    * Save the export.
 4. [Import](../setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file\(s\).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
-
 {% endhint %}
 
 ## Locked configuration items
@@ -88,5 +85,4 @@ To prevent a user from making changes to configuration items installed by a Stac
 {% hint style="success" "self-hosted info" %}
 
 You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
-
 {% endhint %}
