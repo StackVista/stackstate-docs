@@ -28,11 +28,10 @@ To set up the StackState AWS integration, you need to have:
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * At least one target AWS account that will be monitored.
 * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required.
-    * If StackState Agent is running within an AWS environment: The EC2 instance can have an IAM role attached to it. The Agent will then use this role by default.
-    * The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 
-{% tabs %}
-{% tab title="IAM policy" %}
+{% hint style="info" %}
+If StackState Agent is running within an AWS environment, an IAM role can be attached to the EC2 instance it runs on. The Agent will then use this role by default. The IAM role must have the following IAM policy, granting the IAM principal permission to assume the role created in each target AWS account:
+
 ```javascript
 {
   "Version": "2012-10-17",
@@ -45,8 +44,7 @@ To set up the StackState AWS integration, you need to have:
   ]
 }
 ```
-{% endtab %}
-{% endtabs %}
+{% endhint %}
 
 ### AWS accounts
 
@@ -113,14 +111,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user used by the StackState Agent. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role.
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by the StackState Agent. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role.
-
-{% hint style="info" %}
-For details of using IAM role authentication with `use-role`, see:
-* IAM authentication for [StackState running on EC2](aws-sts-ec2.md).
-* IAM authentication for [StackState running in an EKS cluster](aws-sts-eks.md).
-{% endhint %}
+* **AWS Access Key ID** - The Access Key ID of the IAM user used to collect CloudWatch metrics. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role. Note that the correct policy must be attached to the role in [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user used to collect CloudWatch metrics. If StackState is running within AWS, enter the value `use-role` here to authenticate using the attached IAM role. Note that the correct policy must be attached to the role in [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md).
 
 ### Configure the AWS check
 
