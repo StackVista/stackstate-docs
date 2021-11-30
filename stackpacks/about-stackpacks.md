@@ -24,8 +24,8 @@ StackPacks can be installed and uninstalled from the **StackPacks** page in Stac
 * A StackPack may require **manual** installation steps or configuration of the external system. Please read the instructions provided carefully.
 * When a StackPack or StackPack instance is uninstalled, **all data received via the StackPack \(instance\) will be removed from StackState.**
 * Any \(manual\) configuration or installation of StackPack components in an external system may need to be uninstalled separately.
+
 {% endhint %}
-  
 
 ### StackPack instances
 
@@ -74,6 +74,7 @@ Continue using changes made to customized StackPack configuration items after up
    * Save the export.
 4. [Import](../setup/data-management/backup_restore/configuration_backup.md#import-configuration) the updated export file\(s\).
 5. The customized configuration items will now be available in StackState and can be copied to the newly installed StackPack configuration items.
+
 {% endhint %}
 
 ## Locked configuration items

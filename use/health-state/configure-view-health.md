@@ -29,7 +29,7 @@ View health state is calculated by a **view state configuration function**. To c
 ![Edit query view](../../.gitbook/assets/v45_edit_query_view.png)
 
 {% hint style="success" "self-hosted info" %}
-* 
+
 * Create your own [custom View Health State Configuration functions](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
 * Details of the available configuration functions are available in the StackState UI, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
 {% endhint %}
