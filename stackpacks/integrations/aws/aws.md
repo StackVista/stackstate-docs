@@ -35,14 +35,17 @@ To set up the StackState AWS integration, you need to have:
 It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
 
 * **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
-* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can either come from an IAM role attached to the EC2 instance where the Agent runs, or an AWS user configured in the Agent's [AWS check](#configure-the-aws-check).
-
-![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
+* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from either:
+  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2) where the Agent runs.
+  * An AWS user configured in the Agent's [AWS check](#configure-the-aws-check).
 
 The IAM role of the Agent account queries AWS data by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
-{% hint style="info" %}
-If StackState Agent is running within an AWS environment, an IAM role can be attached to the EC2 instance it runs on. The Agent will then use this role by default. The IAM role must have the following IAM policy, granting the IAM principal permission to assume the role created in each target AWS account:
+![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
+
+#### IAM role for Agent on EC2
+
+If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance that it runs on. The Agent will then use this role by default. The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
 
 ```javascript
 {
@@ -56,7 +59,6 @@ If StackState Agent is running within an AWS environment, an IAM role can be att
   ]
 }
 ```
-{% endhint %}
 
 ### Deploy the AWS CloudFormation Stack
 
