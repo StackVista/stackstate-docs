@@ -20,7 +20,8 @@ The AWS integration collects tracing information from the in-built AWS distribut
 {% hint style="success" "self-hosted info" %}
 
 * The [DotNet APM integration](../../stackpacks/integrations/dotnet-apm.md) enables instrumentation for DotNet applications and sends traces back to StackState.
-* The [Java APM integration](../../stackpacks/integrations/java-apm.md) enables tracing support for Java JVM based systems.
-* The [Traefik integration](../../stackpacks/integrations/traefik.md) adds topology and telemetry information from Traefik to traces.
 
+* The [Java APM integration](../../stackpacks/integrations/java-apm.md) enables tracing support for Java JVM based systems.
+
+* The [Traefik integration](../../stackpacks/integrations/traefik.md) adds topology and telemetry information from Traefik to traces.
 * {% endhint %}
