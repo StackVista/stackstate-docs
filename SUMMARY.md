@@ -95,7 +95,7 @@
   * [Event notifications](use/metrics-and-events/event-notifications.md)
 * [Glossary](use/glossary.md)
 
-## 🧩StackPacks
+## 🧩 StackPacks
 
 * [About StackPacks](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)

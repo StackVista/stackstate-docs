@@ -1,20 +1,22 @@
 # Getting Started
 
-Hi! So, you've just installed StackState and you are ready to get started.
+Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
 
-## StackPacks
+## StackPacks[](http://not.a.link "StackState Self-Hosted only")
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md "StackState Self-Hosted only").
 
-![StackPacks overview](/.gitbook/assets/v45_stackpacks.png)
+![StackPacks overview](/.gitbook/assets/v45_stackpacks.png "StackState Self-Hosted only")
 
 ## Explore topology
 
-After installing one or more StackPacks, you can go to the Explore Mode to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
+After setting up an [integration](/stackpacks/integrations/), you can go to the [Explore Mode](/use/stackstate-ui/explore_mode.md) to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
 
-StackState visualizes components by the layer and domain they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
+StackState visualizes components in the Topology Perspective by the layer and domain that they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
-You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [filter options](/use/stackstate-ui/filters.md) on the left-hand side bar, or by [hovering over a component](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu).
+You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [view filters](/use/stackstate-ui/filters.md) on the left-hand side bar, or by [hovering over a component](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu).
+
+➡️ [Learn more about the Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
 
 ![Explore topology](/.gitbook/assets/v45_topology.png)
 
@@ -29,11 +31,15 @@ The health state of a component is indicated by two colors:
 
 The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction. So if the `db` component turns red, the `app` component will turn red too.
 
+➡️ [Learn more about components and relations](/use/concepts/components_relations.md)
+
 ![Component](/.gitbook/assets/021_topology_elements.png)
 
 ## Timeline
 
 The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the topology that existed at the currently selected topology time. Normally, StackState is in **live mode**, this means that StackState automatically displays the latest state of the stack.
+
+➡️ [Learn more about the timeline and time travel](/use/stackstate-ui/timeline-time-travel.md)
 
 ![Timeline](/.gitbook/assets/v45_timeline.png)
 
@@ -78,3 +84,4 @@ The Events Perspective is not the only place you can find events; you can find t
 
 ![Events section](/.gitbook/assets/v45_events-section.png)
 
+➡️ [Learn more about the Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md)
