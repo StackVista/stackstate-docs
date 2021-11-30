@@ -4,6 +4,8 @@
 
 The **View Filters** pane on the left-hand side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
+![View filters](/.gitbook/assets/v45_view_filters_button.png)
+
 ## Filter Topology
 
 Topology filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build an advanced topology filter that zooms in on a specific area of your topology using the StackState in-built query language \(STQL\). Read more about:
@@ -25,7 +27,12 @@ The main way to filter topology is using the available basic filters. When you s
 
 {% hint style="success" "self-hosted info" %}
 
-You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+You can define custom labels to make searching for information easier.
 {% endhint %}
 
 To filter the topology using basic filters, click on the **View Filters** button on the left of the screen and select **Basic** under **Filter Topology**. 
@@ -100,7 +107,12 @@ layer = "applications"
 
 {% hint style="success" "self-hosted info" %}
 
-If required, you can [manually configure the topology filtering limit](/configure/topology/topology-filtering-limits.md). 
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+If required, you can manually configure the topology filtering limit. 
 {% endhint %}
 
 ## Filter Events

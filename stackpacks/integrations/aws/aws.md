@@ -376,19 +376,14 @@ For example, in the StackState Topology Perspective:
 
 ### Tags and labels
 
-The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
+On import, all topology in StackState will be given the label `stackpack:aws-v2`. 
+
+Any tags that exist in AWS will be added to the StackState topology as labels. In addition, the following special tags can be added in AWS to influence how the topology is built in StackState:
 
 | Tag | Description |
 | :--- | :--- |
 | `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
 | `stackstate-environment` | Places the StackState component in the environment specified |
-
-You can distinguish topology from the new and legacy AWS integrations by the labels attached:
-
-| Label | Integration |
-| :--- | :--- |
-| `stackpack:aws-v2` | New AWS integration |
-| `stackpack:aws` | AWS \(Legacy\) integration |
 
 ## Troubleshooting
 
