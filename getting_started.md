@@ -1,12 +1,12 @@
 # Getting Started
 
-Hi! So, you've just installed StackState and you are ready to get started.
+Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
 
-## StackPacks
+## StackPacks[](http://not.a.link "StackState Self-Hosted only")
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md).
+The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md "StackState Self-Hosted only").
 
-![StackPacks overview](/.gitbook/assets/v45_stackpacks.png)
+![StackPacks overview](/.gitbook/assets/v45_stackpacks.png "StackState Self-Hosted only")
 
 ## Explore topology
 
