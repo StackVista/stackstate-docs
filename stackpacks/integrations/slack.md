@@ -33,7 +33,7 @@ Note that you will need to [create a Slack Webhook \(slack.com\)](https://api.sl
 When a new version of the Slack StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **Slack**. 
 
 {% hint style="success" "self-hosted info" %}
-
+    
 For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 {% endhint %}
 
