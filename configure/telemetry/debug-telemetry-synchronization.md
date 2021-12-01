@@ -22,7 +22,7 @@ The first step in troubleshooting a telemetry issue is to identify if all metric
 * If the affected integration runs through StackState Agent (push-based):
   1. Start by checking [StackState Agent](#stackstate-agent).
   2. Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
-* Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received from the external source.
+* Check the filters in [the element telemetry stream configuration](#telemetry-stream-configuration). These should match the data received from the external source.
 
 **If the problem affects all integrations:**
 
@@ -54,7 +54,7 @@ Telemetry is either pushed to StackState by a StackState Agent, or pulled from a
    * For push-based synchronizations, Elasticsearch is queried to retrieve telemetry data.
    * For pull-based integrations, telemetry data is requested from an external source system by a StackState plugin or the prometheus mirror.
    * Attaches retrieved telemetry data to the element in StackState.
-   * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
+   * Read the [troubleshooting steps for element telemetry stream configuration](#telemetry-stream-configuration).
 
 ### StackState Agent
 
@@ -79,7 +79,7 @@ Telemetry data from push-based integrations is stored in Elasticsearch indexes. 
 
 - Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
 
-### Element telemetry stream configuration
+### Telemetry stream configuration
 
 To add telemetry to an element, Elasticsearch is queried using the filters specified for each telemetry stream attached to the element. In the StackState UI, [browse a telemetry stream](/use/metrics-and-events/browse-telemetry.md) to see details  of the applied filters.
 
