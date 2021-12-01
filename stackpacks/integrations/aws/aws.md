@@ -14,7 +14,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Topology is updated in real time:
   * Once an hour, all services are queried to gain a full point-in-time snapshot of resources.
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
-* Logs are retrieved once a minute from Cloudwatch and a central S3 bucket. These are mapped to associated components in StackState.
+* Logs are retrieved once a minute from CloudWatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
 
