@@ -4,9 +4,27 @@
 
 This page explains how to go about debugging issues with telemetry synchronization.
 
+## General troubleshooting for telemetry synchronization
+
+If you notice that some telemetry data is not available in StackState, follow the steps below to pinpoint the issue.
+
+1. Identify the scale of impact - are all metrics missing or just specific metrics from a single integration?
+   * Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is missing for a single integration only, this will be clear in the elements and views associated with this integration.
+   * Open the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. 
+     * Metrics from all integrations that run through StackState Agent (push-based) can be found in the data source **StackState Metrics**.
+     * Metrics from integrations that run through StackState plugins or the Prometheus mirror (pull-based) can be found in data sources that have been configured in the StackState Settings. 
+2. If the problem relates to a single integration:
+   * If the integration runs through StackState Agent:
+     * Start by checking [StackState Agent](#stackstate-agent).
+     * Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
+   * Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received from the external source.
+3. If the problem affects all integrations:
+   * Check the [StackState Agents](#stackstate-agent) for connecting to the external source system or StackState.
+   * Check the [StackState receiver](#stackstate-receiver) for problems decoding incoming data.
+
 ## How telemetry is synchronized
 
-Telemetry is pushed to StackState by StackState Agent or pulled from an external data source by a StackState plugin or the Prometheus mirror.
+Telemetry is either pushed to StackState by a StackState Agent, or pulled from an external data source by a StackState plugin or the Prometheus mirror.
 
 ![Telemetry synchronization process](/.gitbook/assets/telemetry-sync.svg)
 
@@ -22,26 +40,12 @@ Telemetry is pushed to StackState by StackState Agent or pulled from an external
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch). 
 4. StackState plugins:
    * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk at the `Minimum live stream polling interval (seconds)` configured for the data source.
-5. Element telemetry stream configuration:
-   * Queries Elasticsearch for telemetry data.
-   * Requests telemetry data from a StackState plugin or the prometheus mirror.
+5. Telemetry stream configuration:
+   * Specifies the telemetry data that should be included in the stream.
+   * For push-based synchronizations, Elasticsearch is queried to retrieve telemetry data.
+   * For pull-based integrations, telemetry data is requested from an external source system by a StackState plugin or the prometheus mirror.
    * Attaches retrieved telemetry data to the element in StackState.
    * Read the [troubleshooting steps for element telemetry stream configuration](#element-telemetry-stream-configuration).
-
-## Troubleshooting steps
-
-### General troubleshooting
-
-1. Identify the scale of impact - are all metrics missing or specific metrics from a single integration?
-   * Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is only available for a single integration, this will be clear in the elements and views associated with this integration.
-   * Open the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. Metrics from integrations that run through StackState Agent (push-based) will be found in the Elasticsearch index **StackState Metrics**, metrics from pull-based integrations that run through StackState plugins or the prometheus mirror will have their own index . 
-2. If the problem relates to a single integration:
-   * If the integration runs through StackState Agent, start by checking [StackState Agent](#stackstate-agent).
-   * Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
-   * Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received in Elasticsearch from the external source.
-3. If no telemetry data is available in StackState:
-   * Check the [StackState Agents](#stackstate-agent) for problems retrieving data from the source system or connecting to StackState.
-   * Check the [StackState receiver](#stackstate-receiver) for problems decoding incoming data.
 
 ### StackState Agent
 
@@ -65,7 +69,7 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 Telemetry data from push-based integrations is stored in Elasticsearch indexes. The naming of indexes and the fields within them are entirely based on the data retrieved from the external source system.
 
-- Use the [telemetry browser](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry browser can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
+- Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
 
 ### Element telemetry stream configuration
 
