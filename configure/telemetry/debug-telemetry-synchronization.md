@@ -9,6 +9,7 @@ This page explains how to go about debugging issues with telemetry synchronizati
 If telemetry data is not available in StackState, follow the steps below to pinpoint the issue.
 
 **Identify the scale of impact**
+
 The first step in troubleshooting a telemetry issue is to identify if all metrics are missing or just specific metrics from a single integration. To do this: 
 
 1. Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is missing for a single integration only, this will be clear in the elements and views associated with this integration. 
