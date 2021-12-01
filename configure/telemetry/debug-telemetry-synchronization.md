@@ -4,11 +4,11 @@
 
 This page explains how to go about debugging issues with telemetry synchronization.
 
-## Telemetry synchronization process
+## How telemetry is synchronized
 
-Telemetry is pushed to StackState by StackState Agent or pulled by a StackState plugin or the prometheus mirror.
+Telemetry is pushed to StackState by StackState Agent or pulled from an external data source by a StackState plugin or the Prometheus mirror.
 
-![Telemetry synchronization process](/.gitbook/assets/telemetry-sync-2.svg)
+![Telemetry synchronization process](/.gitbook/assets/telemetry-sync.svg)
 
 1. StackState Agent:
    * Connects to a data source to collect data.
@@ -21,7 +21,7 @@ Telemetry is pushed to StackState by StackState Agent or pulled by a StackState 
    * Stores telemetry data received via the StackState receiver. 
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch). 
 4. StackState plugins:
-   * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk on demand.
+   * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk at the `Minimum live stream polling interval (seconds)` configured for the data source.
 5. Element telemetry stream configuration:
    * Queries Elasticsearch for telemetry data.
    * Requests telemetry data from a StackState plugin or the prometheus mirror.
