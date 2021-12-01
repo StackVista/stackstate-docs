@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page explains how to go about debugging issues with telemetry synchronization.
+This page explains the [telemetry synchronization process](#synchronization-process) and how to go about troubleshooting issues with telemetry synchronization.
 
 ## Troubleshooting  steps
 
@@ -65,7 +65,6 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
 - **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, this will include metrics from kube-state-metrics if it is deployed on the same node.
-- **Cluster Agent:** ???
 - **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from kube-state-metrics.
 
 ### StackState receiver
