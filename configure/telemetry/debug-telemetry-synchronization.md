@@ -8,19 +8,24 @@ This page explains how to go about debugging issues with telemetry synchronizati
 
 If telemetry data is not available in StackState, follow the steps below to pinpoint the issue.
 
-1. Identify the scale of impact - are all metrics missing or just specific metrics from a single integration? 
-   1. Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is missing for a single integration only, this will be clear in the elements and views associated with this integration. 
-   2. Open the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available. 
-      * Metrics from all integrations that run through StackState Agent (push-based) can be found in the data source **StackState Metrics**.
-      * Metrics from integrations that run through StackState plugins or the Prometheus mirror (pull-based) can be found in data sources that have been configured in the StackState Settings. 
-2. If the problem relates to a single integration:
-   * If the integration runs through StackState Agent (push-based):
-     1. Start by checking [StackState Agent](#stackstate-agent).
-     2.. Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
-   * Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received from the external source.
-3. If the problem affects all integrations:
-   * Check the [StackState Agents](#stackstate-agent) for connecting to the external source system or StackState.
-   * Check the [StackState receiver](#stackstate-receiver) for problems decoding incoming data.
+**Identify the scale of impact** - are all metrics missing or just specific metrics from a single integration? 
+
+1. Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is missing for a single integration only, this will be clear in the elements and views associated with this integration. 
+2. Open the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available.
+   * Metrics from all integrations that run through StackState Agent (push-based) can be found in the data source **StackState Metrics**. 
+   * Metrics from integrations that run through StackState plugins or the Prometheus mirror (pull-based) can be found in data sources that have been configured in the StackState Settings. 
+
+**If the problem relates to a single integration**
+
+* If the integration runs through StackState Agent (push-based):
+  1. Start by checking [StackState Agent](#stackstate-agent).
+  2. Confirm that telemetry data has arrived in [Elasticsearch](#elasticsearch).
+* Check the filters in [the element telemetry stream configuration](#element-telemetry-stream-configuration). These should match the data received from the external source.
+
+**If the problem affects all integrations**
+
+* Check the [StackState Agents](#stackstate-agent) for connecting to the external source system or StackState.
+* Check the [StackState receiver](#stackstate-receiver) for problems decoding incoming data.
 
 ## How telemetry is synchronized
 
