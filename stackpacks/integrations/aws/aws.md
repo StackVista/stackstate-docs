@@ -131,7 +131,7 @@ Extra information for the StackState Self-Hosted product:
 If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 
 
 1. In AWS EC2 or EKS: Create the required policy and attach it to the relevant IAM role.
-2. When an AWS StackPack instance is installed: Enter the value `use-role` for **AWS Access Key ID** and **AWS Secret Access Key**.
+2. When an AWS StackPack instance is being installed: Enter the value `use-role` for **AWS Access Key ID** and **AWS Secret Access Key**.
 {% endhint %}
 
 ### Configure the AWS check
