@@ -17,19 +17,7 @@ To set up an IAM role for the AWS StackPack to use, follow the instructions belo
    ![Policy for AssumeRole](/.gitbook/assets/sts_on_ec2_aws_stp_02.png)
 3. Attach the newly created EC2 instance role to the EC2 instance where StackState is running.
 
-![Attach ](/.gitbook/assets/sts_on_ec2_aws_stp_03.png)
-
-## Error: Unable to locate credentials
-
-If the correct IAM policy is not attached to the EC2 instance role, an error will be returned when attempting to install the AWS StackPack with the `use-role` option.
-
-![Failed AWS installation](/.gitbook/assets/sts_on_ec2_aws_stp_01.png)
-
-To resolve this:
-
-1. Click **UNINSTALL** to uninstall the StackPack reporting the error.
-2. [Set up the IAM role for StackState](#set-up-iam-role-for-stackstate-on-ec2).
-3. Install the AWS StackPack again.
+![Attach role to EC2 instance](/.gitbook/assets/sts_on_ec2_aws_stp_03.png)
 
 ## See also
 
