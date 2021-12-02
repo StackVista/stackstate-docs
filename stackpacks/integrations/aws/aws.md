@@ -399,7 +399,10 @@ Any tags that exist in AWS will be added to the StackState topology as labels. I
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/4402736972050-Troubleshooting-StackState-AWS-StackPack).
+Check the StackState support site for:
+
+* [The AWS StackPack troubleshooting guide](https://support.stackstate.com/hc/en-us/articles/4402736972050-Troubleshooting-StackState-AWS-StackPack).
+* [Known issues relating to the AWS StackPack](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&query=tags%3Aaws-v2).
 
 ## Uninstall
 
