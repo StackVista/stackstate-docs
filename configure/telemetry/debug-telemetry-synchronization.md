@@ -15,7 +15,7 @@ The first step in troubleshooting a telemetry issue is to identify if all metric
 1. Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is missing for a single integration only, this will be clear in the elements and views associated with this integration. 
 2. Open the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available.
    * Metrics from all integrations that run through StackState Agent (push-based) can be found in the data source **StackState Metrics**. 
-   * Metrics from integrations that run through StackState plugins or the Prometheus mirror (pull-based) can be found in data sources that have been configured in the StackState Settings. 
+   * Metrics from integrations that run through StackState plugins or the Prometheus mirror (pull-based) can be found in the associated data source that has been configured in the StackState Settings. 
 
 **If the problem relates to a single integration:**
 
@@ -65,7 +65,7 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
 - **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, this will include metrics from kube-state-metrics if it is deployed on the same node.
-- **ClusterCheck Agent:** Deployed only when cluster checks are enabled, supplies metrics from kube-state-metrics.
+- **ClusterCheck Agent:** When cluster checks are enabled, supplies metrics from kube-state-metrics.
 
 ### StackState receiver
 
