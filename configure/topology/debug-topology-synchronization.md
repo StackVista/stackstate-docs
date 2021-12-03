@@ -44,7 +44,7 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 ### StackState receiver
 
 The StackState receiver receives JSON data from the StackState Agent. 
-- 
+ 
 - Check the StackState receiver logs for JSON deserialization errors. 
 
 ### Kafka
