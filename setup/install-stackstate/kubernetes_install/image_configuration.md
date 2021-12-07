@@ -4,21 +4,21 @@ This page describes the images used by the StackState Helm chart and how to conf
 
 ## Serving the images from a different image registry
 
-Pulling the images from the different image registries can take some time when pod are started, either when the application starts for the first time or when it is being scaled to a new node. Also, if one of those registries is not accessible, the pods won't start.
+Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it is being scaled to a new node. If one of those registries is not accessible for some reason, the pods won't start.
 
-To address this issue, you can copy all the images to a single registry, close to your Kubernetes cluster, and configure the Helm chart to pull the images from that registry:
+To address this issue, you can copy all the images to a single registry close to your Kubernetes cluster, and configure the Helm chart to pull the images from that registry:
 
 1. Set up a registry close to your Kubernetes cluster.
    * For Amazon Elastic Kubernetes Service \(EKS\), use [Amazon Elastic Container Registry \(ECR\)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service \(AKS\), use [Azure Container Registry \(ACR\)](https://azure.microsoft.com/en-us/services/container-registry/).
-2. Use the `copy_images.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to that registry, for example:
+2. Use the `copy_images.sh` script in the [installation directory \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry, for example:
 
    ```bash
    ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
    ```
 
-   * The script will detect when an ECR registry is used and will automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it.
-   * The script has a dry-run option that can be activated with the `-t` flag, for example:
+   * The script will detect when an ECR registry is used and automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it.
+   * The script has a dry-run option that can be activated with the `-t` flag. This will show the images that will be copied without actually copying them, for example:
 
      ```bash
       $ ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com -t
@@ -29,9 +29,9 @@ To address this issue, you can copy all the images to a single registry, close t
       Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
      ```
 
-     This will show the images that will be copied without actually copying them.
-
-   * The `-c` and `-r` flags can be used when running the script to specify a different chart or a different repository to use.
+   * Additional optional flags can be used when running the script:
+     * `-c` specify a different chart (`-c`) to use.
+     * `-r` specify a different repository to use.
 
 3. Add the registry to the global configuration section in your `values.yaml`, for example:
 
@@ -52,8 +52,52 @@ To address this issue, you can copy all the images to a single registry, close t
 ## Configuration
 
 {% hint style="info" %}
-If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured seperately.
+If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured separately.
 {% endhint %}
+
+### StackState chart
+
+#### Correlate
+
+#### Kafka-to-ElasticSearch (x3)
+
+#### Receiver
+
+#### Router
+
+#### Server
+
+#### API
+
+#### Checks
+
+#### Initializer
+
+#### Slicing
+
+#### State
+
+#### Sync
+
+#### ViewHealth
+
+#### UI
+
+#### UI (init container)
+
+#### multiple
+
+#### kafka-topic-create job
+
+### Elasticsearch chart
+
+### Elasticsearch explorer chart
+
+### HBase chart
+
+### Kafka chart
+
+### Zookeeper chart
 
 | Chart | Component | Image \(without tag\) | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
 | :--- | :--- | :--- | :--- | :--- | :--- |
