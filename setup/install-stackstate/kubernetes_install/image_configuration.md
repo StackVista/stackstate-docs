@@ -57,52 +57,126 @@ If the registry for an image can be configured with a specific value \(for examp
 
 | Chart | Components |
 |:---|:---|
-| StackState | [Correlate](#correlate), [Kafka-to-ElasticSearch](#kafka-to-elasticsearch-x3) (x3), Receiver, Router, Server, API, Checks, Initializer, Slicing, State, Sync, ViewHealth, UI, UI (init container), multiple, kafka-topic-create job|
+| StackState | [Correlate](#correlate), [Kafka-to-ElasticSearch](#kafka-to-elasticsearch-x3) (x3), [Receiver](#receiver), [Router](#router), [Server](#server), [API](#api), [Checks](#checks), [Initializer](#initializer), [Slicing](#slicing), [State](#state), [Sync](#sync), [ViewHealth](#viewhealth), [UI](#ui), [UI \(init container\)](#ui-init-container), [multiple](#multiple), [kafka-topic-create job](#kafka-topic-create-job)|
 | Elasticsearch | |
 | Elasticsearch explorer | | 
 | HBase | |
 | Kafka | |
 | Zookeeper | |
 
-[todo](#kafka-to-elasticsearch-x3)
 ### StackState chart
 
 #### Correlate
 
-* Image (no tag) -  `quay.io/stackstate/hbase-master`
-* Registry -  `hbase.all.image.registry` (default `quay.io`)
-* Repository - `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`)
-* Tag - `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`)
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### Kafka-to-ElasticSearch (x3)
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### Receiver
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### Router
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### Server
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### API
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### Checks
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### Initializer
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### Slicing
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### State
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### Sync
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### ViewHealth
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### UI
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 #### UI (init container)
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### multiple
 
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
 #### kafka-topic-create job
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 ### Elasticsearch chart
 
@@ -110,46 +184,55 @@ If the registry for an image can be configured with a specific value \(for examp
 
 ### HBase chart
 
-**Master:**
-* Image (no tag) -  `quay.io/stackstate/hbase-master`
-* Registry -  `hbase.all.image.registry` (default `quay.io`)
-* Repository - `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`)
-* Tag - `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`)
+#### StackGraph Console
 
-* **StackGraph Console:**
-  * Image (without tag) - 
-  * Value for registry - 
-  * Value for repository - 
-  * Value for tag -
-* **Master:**
-  * Image (no tag) -  `quay.io/stackstate/hbase-master`
-  * Registry -  `hbase.all.image.registry` (default `quay.io`)
-  * Repository - `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`)
-  * Tag - `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`)
-* **RegionServer:**
-  * Image (without tag) - 
-  * Value for registry - 
-  * Value for repository - 
-  * Value for tag -
-* **HDFS (DN, NN, SNN):**
-  * Image (without tag) - 
-  * Value for registry - 
-  * Value for repository - 
-  * Value for tag -
-* **Tephra:**
-  * Image (without tag) - 
-  * Value for registry - 
-  * Value for repository - 
-  * Value for tag -
-* **Multiple:**
-  * Image (without tag) - 
-  * Value for registry - 
-  * Value for repository - 
-  * Value for tag -
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
+#### Master
+  
+* Image (no tag) -  `quay.io/stackstate/hbase-master`
+* Registry -  `hbase.all.image.registry`
+* Repository - `hbase.hbase.master.image.repository` (defaults to `stackstate/hbase-master`)
+* Tag - `hbase.hbase.master.image.tag`
+
+#### RegionServer
+  
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
+#### HDFS (DN, NN, SNN)
+  
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
+#### Tephra
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
+
+#### Multiple
+
+* Image (no tag) -  
+* Registry -  
+* Repository - 
+* Tag - 
 
 ### Kafka chart
 
+
 ### Zookeeper chart
+
+
+### Old table
 
 | Chart | Component | Image \(without tag\) | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
 | :--- | :--- | :--- | :--- | :--- | :--- |
