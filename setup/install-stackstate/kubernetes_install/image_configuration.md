@@ -101,10 +101,10 @@ If the registry for an image can be configured with a specific value \(for examp
   * Value for repository - 
   * Value for tag -
 * **Master:**
-  * Image (without tag) -  `quay.io/stackstate/hbase-master`
-  * Value for registry -  `hbase.all.image.registry` (default `quay.io`)
-  * Value for repository - `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`)
-  * Value for tag - `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`)
+  * Image (no tag) -  `quay.io/stackstate/hbase-master`
+  * Registry -  `hbase.all.image.registry` (default `quay.io`)
+  * Repository - `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`)
+  * Tag - `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`)
 * **RegionServer:**
   * Image (without tag) - 
   * Value for registry - 
