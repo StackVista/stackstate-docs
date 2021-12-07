@@ -95,6 +95,15 @@ If the registry for an image can be configured with a specific value \(for examp
 
 ### HBase chart
 
+**Master:**
+
+| | |
+|:---|:---|
+| Image (no tag) |  `quay.io/stackstate/hbase-master` |
+| Registry |  `hbase.all.image.registry` (default `quay.io`) |
+| Repository | `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`) |
+| Tag | `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`) |
+
 * **StackGraph Console:**
   * Image (without tag) - 
   * Value for registry - 
