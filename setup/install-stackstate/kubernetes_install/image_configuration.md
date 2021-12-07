@@ -95,6 +95,37 @@ If the registry for an image can be configured with a specific value \(for examp
 
 ### HBase chart
 
+* **StackGraph Console:**
+  * Image (without tag) - 
+  * Value for registry - 
+  * Value for repository - 
+  * Value for tag -
+* **Master:**
+  * Image (without tag) -  `quay.io/stackstate/hbase-master`
+  * Value for registry -  `hbase.all.image.registry` (default `quay.io`)
+  * Value for repository - `hbase.hbase.master.image.repository` (default `stackstate/hbase-master`)
+  * Value for tag - `hbase.hbase.master.image.tag` (default `stackgraph.image.tag`)
+* **RegionServer:**
+  * Image (without tag) - 
+  * Value for registry - 
+  * Value for repository - 
+  * Value for tag -
+* **HDFS (DN, NN, SNN):**
+  * Image (without tag) - 
+  * Value for registry - 
+  * Value for repository - 
+  * Value for tag -
+* **Tephra:**
+  * Image (without tag) - 
+  * Value for registry - 
+  * Value for repository - 
+  * Value for tag -
+* **Multiple:**
+  * Image (without tag) - 
+  * Value for registry - 
+  * Value for repository - 
+  * Value for tag -
+
 ### Kafka chart
 
 ### Zookeeper chart
