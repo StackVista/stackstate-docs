@@ -55,6 +55,16 @@ To address this issue, you can copy all the images to a single registry close to
 If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured separately.
 {% endhint %}
 
+| Chart | Components |
+|:---|:---|
+| StackState | [Correlate](#correlate), [Kafka-to-ElasticSearch](#kafka-to-elasticsearch-x3) (x3), Receiver, Router, Server, API, Checks, Initializer, Slicing, State, Sync, ViewHealth, UI, UI (init container), multiple, kafka-topic-create job|
+| Elasticsearch | |
+| Elasticsearch explorer | | 
+| HBase | |
+| Kafka | |
+| Zookeeper | |
+
+[todo](#kafka-to-elasticsearch-x3)
 ### StackState chart
 
 #### Correlate
