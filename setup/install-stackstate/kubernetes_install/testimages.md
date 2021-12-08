@@ -392,7 +392,7 @@ repository: stackstate/stackgraph-console
 tag:
 ```
 
-### wait.image
+### - wait.image
 ```yaml
 # wait.image.registry -- Base container image registry for wait containers.
 registry: quay.io

@@ -53,218 +53,32 @@ To address this issue, you can copy all the images to a single registry close to
 
 ## Configuration
 
-{% hint style="info" %}
-If the registry for an image can be configured with a specific value \(for example `stackstate.components.all.image.registry`\), it can also be overridden with the global value `global.imageRegistry`. Some images \(from other sources\) do not support this and need to be configured separately.
-{% endhint %}
+### API
 
-| Chart | Components |
-|:---|:---|
-| StackState | [Correlate](#correlate), [Kafka-to-ElasticSearch](#kafka-to-elasticsearch-x3) (x3), [Receiver](#receiver), [Router](#router), [Server](#server), [API](#api), [Checks](#checks), [Initializer](#initializer), [Slicing](#slicing), [State](#state), [Sync](#sync), [ViewHealth](#viewhealth), [UI](#ui), [UI \(init container\)](#ui-init-container), [multiple](#multiple), [kafka-topic-create job](#kafka-topic-create-job)|
-| Elasticsearch | |
-| Elasticsearch explorer | | 
-| HBase | |
-| Kafka | |
-| Zookeeper | |
+Configured in StackState values.yaml.
 
-### StackState chart
+* `stackstate.components.api.image.repository` - Repository of the api component Docker image.
+* `stackstate.components.api.image.tag` - Tag used for the `api` component Docker image; this will override `stackstate.components.all.image.tag` on a per-service basis.
+* **image** - `quay.io/stackstate/stackstate-server`
 
-#### Correlate
+Registry taken from ???
 
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
+### Correlate
 
-#### Kafka-to-ElasticSearch (x3)
+Configured in StackState values.yaml.
 
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
+* `stackstate.components.correlate.image.repository` - Repository of the correlate component Docker image.
+* `stackstate.components.correlate.image.tag` - Tag used for the `correlate` component Docker image; this will override `stackstate.components.all.image.tag` on a per-service basis.
+* **image** - `quay.io/stackstate/stackstate-correlate`
 
-#### Receiver
+Registry taken from ???
 
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
+### Kafka-to-ElasticSearch 
 
-#### Router
+Configured in StackState values.yaml.
 
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
+* `stackstate.components.mm2es.image.repository` - Repository of the mm2es component Docker image.
+* `stackstate.components.mm2es.image.tag` - Tag used for the `mm2es` component Docker image; this will override `stackstate.components.all.image.tag` on a per-service basis.
+* **image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
 
-#### Server
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### API
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Checks
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Initializer
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Slicing
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### State
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Sync
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### ViewHealth
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### UI
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### UI (init container)
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### multiple
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### kafka-topic-create job
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-### Elasticsearch chart
-
-### Elasticsearch explorer chart
-
-### HBase chart
-
-#### StackGraph Console
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Master
-  
-* Image (no tag) -  `quay.io/stackstate/hbase-master`
-* Registry -  `hbase.all.image.registry`
-* Repository - `hbase.hbase.master.image.repository` (defaults to `stackstate/hbase-master`)
-* Tag - `hbase.hbase.master.image.tag`
-
-#### RegionServer
-  
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### HDFS (DN, NN, SNN)
-  
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Tephra
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-#### Multiple
-
-* Image (no tag) -  
-* Registry -  
-* Repository - 
-* Tag - 
-
-### Kafka chart
-
-
-### Zookeeper chart
-
-
-### Old table
-
-| Chart | Component | Image \(without tag\) | Value for registry \(can be overridden with `global.imageRegistry`\) | Value for repository | Value for tag |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| StackState | Correlate | `quay.io/stackstate/stackstate-correlate` | `stackstate.components.all.image.registry` | `stackstate.components.correlate.image.repository` | `stackstate.components.correlate.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Kafka-to-ElasticSearch \(3x\) | `quay.io/stackstate/stackstate-kafka-to-es` | `stackstate.components.all.image.registry` | `stackstate.components.k2es.image.repository` | `stackstate.components.k2es.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Receiver | `quay.io/stackstate/stackstate-receiver` | `stackstate.components.all.image.registry` | `stackstate.components.receiver.image.repository` | `stackstate.components.receiver.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Router | `docker.io/envoyproxy/envoy-alpine` | `stackstate.components.router.image.registry` | `stackstate.components.router.image.repository` | `stackstate.components.router.image.tag` |
-| StackState | Server | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.server.image.repository` | `stackstate.components.server.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | API | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.api.image.repository` | `stackstate.components.api.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Checks | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.checks.image.repository` | `stackstate.components.checks.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Initializer | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.initializer.image.repository` | `stackstate.components.initializer.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Slicing | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.slicing.image.repository` | `stackstate.components.slicing.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | State | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.state.image.repository` | `stackstate.components.state.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | Sync | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.sync.image.repository` | `stackstate.components.sync.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | ViewHealth | `quay.io/stackstate/stackstate-server` | `stackstate.components.all.image.registry` | `stackstate.components.viewHealth.image.repository` | `stackstate.components.viewHealth.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | UI | `quay.io/stackstate/stackstate-ui` | `stackstate.components.all.image.registry` | `stackstate.components.ui.image.repository` | `stackstate.components.ui.image.tag` \(defaults to `stackstate.components.all.image.tag`\) |
-| StackState | UI | `docker.io/nginx/nginx-prometheus-exporter` | `stackstate.components.nginxPrometheusExporter.image.registry` | `stackstate.components.nginxPrometheusExporter.image.repository` | `stackstate.components.nginxPrometheusExporter.image.tag` |
-| StackState | multiple | `quay.io/stackstate/wait` | `stackstate.components.wait.image.registry` | `stackstate.components.wait.image.repository` | `stackstate.components.wait.image.tag` |
-| StackState | multiple | `quay.io/stackstate/container-tools` | `stackstate.components.containerTools.image.registry` | `stackstate.components.containerTools.image.repository` | `stackstate.components.containerTools.image.tag` |
-| StackState | kafka-topic-create job | `docker.io/bitnami/kafka` | `stackstate.components.kafkaTopicCreate.image.registry` | `stackstate.components.kafkaTopicCreate.image.repository` | `stackstate.components.kafkaTopicCreate.image.tag` |
-| Elasticsearch |  | `docker.elastic.co/elasticsearch/elasticsearch` | `elasticSearch.imageRegistry` | `elasticsearch.imageRepository` | `elasticsearch.imageTag` |
-| Elasticsearch Exporer |  | `justwatch/elasticsearch_exporter` | N/A | `elasticsearch.prometheus-elasticsearch-exporter.image.repository` | `elasticsearch.prometheus-elasticsearch-exporter.image.tag` |
-| HBase | StackGraph Console | `quay.io/stackstate/stackgraph-console` | `hbase.all.image.registry` | `hbase.console.image.repository` | `hbase.console.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
-| HBase | Master | `quay.io/stackstate/hbase-master` | `hbase.all.image.registry` | `hbase.hbase.master.image.repository` | `hbase.hbase.master.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
-| HBase | RegionServer | `quay.io/stackstate/hbase-regionserver` | `hbase.all.image.registry` | `hbase.hbase.regionserver.image.repository` | `hbase.hbase.regionserver.image.tag` \(defaults to `stackgraph.image.tag`\) |
-| HBase | HDFS \(DN, NN, SNN\) | `quay.io/stackstate/hadoop` | `hbase.all.image.registry` | `hbase.hdfs.image.repository` | `hbase.hdfs.image.tag` |
-| HBase | Tephra | `quay.io/stackstate/tephra-server` | `hbase.all.image.registry` | `hbase.tephra.image.repository` | `hbase.tephra.image.tag` \(defaults to `hbase.stackgraph.image.tag`\) |
-| HBase | multiple | `docker.io/dokkupaas/wait` | `hbase.wait.image.registry` | `hbase.wait.image.repository` | `hbase.wait.image.tag` |
-| Kafka |  | `docker.io/bitnami/kafka` | `kafka.image.registry` | `kafka.image.repository` | `kafka.image.tag` |
-| Kafka | JMX Exporter | `docker.io/bitnami/jmx-exporter` | `kafka.metrics.jmx.image.registry` | `kafka.metrics.jmx.image.repository` | `kafka.metrics.jmx.image.tag` |
-| Kafka | Kafka Exporter | `docker.io/bitnami/kafka-exporte` | `kafka.metrics.kafka.image.registry` | `kafka.metrics.kafka.image.repository` | `kafka.metrics.kafka.image.tag` |
-| Zookeeper |  | `docker.io/bitnami/zookeeper-exporter` | `zookeeper.image.registry` | `zookeeper.image.repository` | `zookeeper.image.tag` |
-
+Registry taken from ???
