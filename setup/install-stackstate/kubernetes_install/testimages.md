@@ -273,7 +273,7 @@ repository: quay.io/stackstate/minio
 tag: 2021.2.19-focal-20210827-r5
 ```
 
-### zookeeper.image
+### ✅ zookeeper.image
 
 From report:
 * quay.io/stackstate/zookeeper
