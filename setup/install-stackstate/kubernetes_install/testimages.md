@@ -23,7 +23,11 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.correlate.image
+### ✅ stackstate.components.correlate.image
+
+From report:
+* quay.io/stackstate/stackstate-correlate
+
 ```yaml
 # stackstate.components.correlate.image.repository -- Repository of the correlate component Docker image.
 repository: stackstate/stackstate-correlate
@@ -55,7 +59,10 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.mm2es.image
+### ✅ stackstate.components.mm2es.image
+
+From report:
+* quay.io/stackstate/stackstate-kafka-to-es-stable
 ```yaml
 # stackstate.components.mm2es.image.repository -- Repository of the mm2es component Docker image.
 repository: stackstate/stackstate-kafka-to-es
@@ -79,7 +86,11 @@ repository: stackstate/stackstate-kafka-to-es
 tag: ""
 ```
 
-### stackstate.components.receiver.image
+### ✅ stackstate.components.receiver.image
+
+From report:
+* quay.io/stackstate/stackstate-receiver-stable
+
 ```yaml
 # stackstate.components.receiver.image.repository -- Repository of the receiver component Docker image.
 repository: stackstate/stackstate-receiver
@@ -87,7 +98,11 @@ repository: stackstate/stackstate-receiver
 tag: ""
 ```
 
-### stackstate.components.router.image
+### ✅ stackstate.components.router.image
+
+From report:
+* quay.io/stackstate/envoy-alpine
+
 ```yaml
 # stackstate.components.router.image.registry -- Registry of the router component Docker image.
 registry: quay.io
@@ -97,7 +112,11 @@ repository: stackstate/envoy-alpine
 tag: v1.19.1-sts.20211012.0914
 ```
 
-### stackstate.components.server.image
+### ✅ stackstate.components.server.image
+
+From report:
+* quay.io/stackstate/stackstate-server-stable
+
 ```yaml
 # stackstate.components.server.image.repository -- Repository of the server component Docker image.
 repository: stackstate/stackstate-server
@@ -129,7 +148,11 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.ui.image
+### ✅ stackstate.components.ui.image
+
+From report:
+* quay.io/stackstate/stackstate-ui-stable
+
 ```yaml
 # stackstate.components.ui.image.repository -- Repository of the ui component Docker image.
 repository: stackstate/stackstate-ui
@@ -163,7 +186,11 @@ repository: stackstate/kafka
 tag: 2.8.0-focal-20210827-r108
 ```
 
-### stackstate.components.nginxPrometheusExporter.image
+### ✅ stackstate.components.nginxPrometheusExporter.image
+
+From report:
+* quay.io/stackstate/nginx-prometheus-exporter
+
 ```yaml
 # stackstate.components.nginxPrometheusExporter.image.registry -- Base container image registry for nginx-prometheus-exporter containers.
 registry: quay.io
@@ -173,7 +200,11 @@ repository: stackstate/nginx-prometheus-exporter
 tag: 0.7.0-sts.20211018.0810
 ```
 
-### stackstate.components.containerTools.iamge
+### ✅ stackstate.components.containerTools.image
+
+From report:
+* quay.io/stackstate/container-tools
+
 ```yaml
 # stackstate.components.containerTools.image.registry -- Base container image registry for container-tools containers.
 registry: quay.io
@@ -183,7 +214,12 @@ repository: stackstate/container-tools
 tag: 1.1.3
 ```
 
-### stackstate.components.wait.image
+### ✅ stackstate.components.wait.image
+
+From report:
+* quay.io/stackstate/wait
+  (!) also used in hbase wait.image
+
 ```yaml
 # stackstate.components.wait.image.registry -- Base container image registry for wait containers.
 registry: quay.io
@@ -199,7 +235,11 @@ tag: 1.0.5
 tag: 4.2.16
 ```
 
-### kafka.image
+### ✅ kafka.image
+
+From report:
+* quay.io/stackstate/kafka
+
 ```yaml
 # kafka.image.registry -- Kafka image registry
 registry: quay.io
@@ -208,7 +248,11 @@ repository: stackstate/kafka
 # kafka.image.tag -- Kafka image
 ```
 
-### kafka.metrics.jmx.image
+### ✅ kafka.metrics.jmx.image
+
+From report:
+* quay.io/stackstate/jmx-exporter
+
 ```yaml
 # kafka.metrics.jmx.image.registry -- Kafka JMX exporter image registry
 registry: quay.io
@@ -218,7 +262,11 @@ repository: stackstate/jmx-exporter
 tag: 0.15.0-focal-20210827-r138
 ```
 
-### minio.image
+### ✅ minio.image
+
+From report:
+* quay.io/stackstate/minio
+
 ```yaml
 # minio.image.repository -- MinIO image repository
 repository: quay.io/stackstate/minio
@@ -226,6 +274,10 @@ tag: 2021.2.19-focal-20210827-r5
 ```
 
 ### zookeeper.image
+
+From report:
+* quay.io/stackstate/zookeeper
+
 ```yaml
 # zookeeper.image.registry -- ZooKeeper image registry
 registry: quay.io
@@ -235,7 +287,11 @@ repository: stackstate/zookeeper
 tag: 3.6.1-focal-20210827-r37
 ```
 
-### anomaly-detection.image
+### ✅ anomaly-detection.image
+
+From report:
+* quay.io/stackstate/spotlight
+
 ```yaml
 # anomaly-detection.image.registry -- Base container image registry for all containers, except for the wait container
 registry: quay.io
@@ -287,14 +343,22 @@ tag: latest
 
 ## Elasticsearch values.yaml
 
-### root level
+### ✅ root level
+
+From report: 
+* quay.io/stackstate/elasticsearch
+
 ```yaml
 imageRegistry: "quay.io"
 imageRepository: "stackstate/elasticsearch"
 imageTag: "7.6.2-yu"
 ```
 
-### prometheus-elasticsearch-exporter.image
+### ✅ prometheus-elasticsearch-exporter.image
+
+From report:
+* quay.io/stackstate/elasticsearch-exporter 
+
 ```yaml
 # prometheus-elasticsearch-exporter.image.repository -- Elastichsearch Prometheus exporter image repository
 repository: quay.io/stackstate/elasticsearch-exporter
@@ -316,7 +380,11 @@ registry: quay.io
 tag: 4.4.1
 ```
 
-### console.image
+### ✅ console.image
+
+From report:
+* quay.io/stackstate/stackgraph-console
+
 ```yaml
 # console.image.repository -- Base container image repository for console pods.
 repository: stackstate/stackgraph-console
@@ -334,7 +402,11 @@ repository: stackstate/wait
 tag: 1.0.5
 ```
 
-### hbase.master.image
+### ✅ hbase.master.image
+
+From report:
+* quay.io/stackstate/hbase-master
+
 ```yaml
 # hbase.master.image.repository -- Base container image repository for HBase masters.
 repository: stackstate/hbase-master
@@ -342,7 +414,11 @@ repository: stackstate/hbase-master
 tag:
 ```
 
-### hbase.regionserver.image
+### ✅ hbase.regionserver.image
+
+From report:
+* quay.io/stackstate/hbase-regionserver
+
 ```yaml
 # hbase.regionserver.image.repository -- Base container image repository for HBase region servers.
 repository: stackstate/hbase-regionserver
@@ -350,7 +426,11 @@ repository: stackstate/hbase-regionserver
 tag:
 ```
 
-### hdfs.image
+### ✅ hdfs.image
+
+From report:
+* quay.io/stackstate/hadoop
+
 ```yaml
 # hdfs.image.repository -- Base container image repository for HDFS datanode.
 repository: stackstate/hadoop
@@ -358,7 +438,11 @@ repository: stackstate/hadoop
 tag: 2.10.1-java11-4
 ```
 
-### tephra.image
+### ✅ tephra.image
+
+From report:
+* quay.io/stackstate/tephra-server
+
 ```yaml
 # tephra.image.repository -- Base container image repository for Tephra pods.
 repository: stackstate/tephra-server
@@ -417,14 +501,6 @@ helmKubectlJqImage:
 ```
 
 ## from report
-* quay.io/stackstate/minio ... quay.io/stackstate/minio in stackstate/values.yaml
-* quay.io/stackstate/spotlight ... quay.io/stackstate/spotlight in stackstate/values.yaml
-
-ELASTICSEARCH EXPORTER
-* quay.io/stackstate/elasticsearch-exporter ? justwatch/elasticsearch_exporter ... quay.io/stackstate/elasticsearch-exporter in elasticsearch/values.yaml
-
-ELASTICSEARCH
-* quay.io/stackstate/elasticsearch ? docker.elastic.co/elasticsearch/elasticsearch ...quay.io/stackstate/elasticsearch in elasticsearch/values.yaml
 
 KAFKA
 * quay.io/stackstate/kafka ? docker.io/bitnami/kafka ... docker.io/bitnami/kafka in kafka/values.yaml
