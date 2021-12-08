@@ -15,7 +15,7 @@ pullPolicy: IfNotPresent
 tag: master
 ```
 
-### stackstate.components.api.image
+### - stackstate.components.api.image
 ```yaml
 # stackstate.components.api.image.repository -- Repository of the api component Docker image.
 repository: stackstate/stackstate-server
@@ -35,7 +35,7 @@ repository: stackstate/stackstate-correlate
 tag: ""
 ```
 
-### stackstate.components.checks.image
+### - stackstate.components.checks.image
 ```yaml
 # stackstate.components.checks.image.repository -- Repository of the sync component Docker image.
 repository: stackstate/stackstate-server
@@ -43,7 +43,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.healthsync.image
+### - stackstate.components.healthsync.image
 ```yaml
 # stackstate.components.healthSync.image.repository -- Repository of the healthSync component Docker image.
 repository: stackstate/stackstate-server
@@ -51,7 +51,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.initialized.image
+### - stackstate.components.initialized.image
 ```yaml
 # stackstate.components.initializer.image.repository -- Repository of the initializer component Docker image.
 repository: stackstate/stackstate-server
@@ -124,7 +124,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.state.image
+### - stackstate.components.state.image
 ```yaml
 # stackstate.components.state.image.repository -- Repository of the sync component Docker image.
 repository: stackstate/stackstate-server
@@ -132,7 +132,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.sync.image
+### - stackstate.components.sync.image
 ```yaml
 # stackstate.components.sync.image.repository -- Repository of the sync component Docker image.
 repository: stackstate/stackstate-server
@@ -140,7 +140,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.slicing.image
+### - stackstate.components.slicing.image
 ```yaml
 # stackstate.components.slicing.image.repository -- Repository of the slicing component Docker image.
 repository: stackstate/stackstate-server
@@ -160,7 +160,7 @@ repository: stackstate/stackstate-ui
 tag: ""
 ```
 
-### stackstate.components.viewhealth.yaml
+### - stackstate.components.viewhealth.yaml
 ```yaml
 # stackstate.components.viewHealth.image.repository -- Repository of the viewHealth component Docker image.
 repository: stackstate/stackstate-server
@@ -168,7 +168,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.problemProducer.image
+### - stackstate.components.problemProducer.image
 ```yaml
 # stackstate.components.problemProducer.image.repository -- Repository of the problemProducer component Docker image.
 repository: stackstate/stackstate-server
