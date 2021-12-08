@@ -417,53 +417,40 @@ helmKubectlJqImage:
 ```
 
 ## from report
-quay.io/stackstate/minio ... quay.io/stackstate/minio in stackstate/values.yaml
-    minio.image.repository
-    minio.image.tag
-    ?? registry?
-quay.io/stackstate/spotlight ... quay.io/stackstate/spotlight in stackstate/values.yaml
-    anomaly-detection.image.spotlightRepository
-    anomaly-detection.image.registry
-    tag - the latest image tag compatible with stackstate chart from anomaly-detection sub-chart
+* quay.io/stackstate/minio ... quay.io/stackstate/minio in stackstate/values.yaml
+* quay.io/stackstate/spotlight ... quay.io/stackstate/spotlight in stackstate/values.yaml
 
 ELASTICSEARCH EXPORTER
-quay.io/stackstate/elasticsearch-exporter ? justwatch/elasticsearch_exporter ... quay.io/stackstate/elasticsearch-exporter in elasticsearch/values.yaml
+* quay.io/stackstate/elasticsearch-exporter ? justwatch/elasticsearch_exporter ... quay.io/stackstate/elasticsearch-exporter in elasticsearch/values.yaml
 
 ELASTICSEARCH
-quay.io/stackstate/elasticsearch ? docker.elastic.co/elasticsearch/elasticsearch ...quay.io/stackstate/elasticsearch in elasticsearch/values.yaml
+* quay.io/stackstate/elasticsearch ? docker.elastic.co/elasticsearch/elasticsearch ...quay.io/stackstate/elasticsearch in elasticsearch/values.yaml
 
 KAFKA
-quay.io/stackstate/kafka ? docker.io/bitnami/kafka ... docker.io/bitnami/kafka in kafka/values.yaml
-quay.io/stackstate/kafka ?
-quay.io/stackstate/jmx-exporter ? docker.io/bitnami/jmx-exporter
-    ? Kafka exporter? docker.io/bitnami/kafka-exporter >> in kafka/values.yaml
+* quay.io/stackstate/kafka ? docker.io/bitnami/kafka ... docker.io/bitnami/kafka in kafka/values.yaml
+* quay.io/stackstate/kafka ?
+* quay.io/stackstate/jmx-exporter ? docker.io/bitnami/jmx-exporter
+  * ? Kafka exporter? docker.io/bitnami/kafka-exporter >> in kafka/values.yaml
 
 STACKSTATE
-quay.io/stackstate/stackstate-correlate-stable
-quay.io/stackstate/stackstate-kafka-to-es-stable
-quay.io/stackstate/stackstate-receiver-stable
-quay.io/stackstate/envoy-alpine
-quay.io/stackstate/stackstate-server-stable
-    api
-    checks
-    initializer
-    slicing
-    state
-    sync
-    ViewHealth
-quay.io/stackstate/stackstate-ui-stable
-quay.io/stackstate/nginx-prometheus-exporter
-quay.io/stackstate/wait
-quay.io/stackstate/container-tools
-    ? kafka-topic-create job? docker.io/bitnami/kafka ... quay.io/stackstate/kafka in stackstate/values.yaml
+* quay.io/stackstate/stackstate-correlate-stable
+* quay.io/stackstate/stackstate-kafka-to-es-stable
+* quay.io/stackstate/stackstate-receiver-stable
+* quay.io/stackstate/envoy-alpine
+* quay.io/stackstate/stackstate-server-stable
+* quay.io/stackstate/stackstate-ui-stable
+* quay.io/stackstate/nginx-prometheus-exporter
+* quay.io/stackstate/wait
+* quay.io/stackstate/container-tools
+  * ? kafka-topic-create job? docker.io/bitnami/kafka ... quay.io/stackstate/kafka in stackstate/values.yaml
 
 HBASE
-quay.io/stackstate/stackgraph-console
-quay.io/stackstate/hbase-master
-quay.io/stackstate/hbase-regionserver
-quay.io/stackstate/hadoop
-quay.io/stackstate/tephra-server
-    ? multiple? docker.io/dokkupaas/wait ... quay.io/stackstate/wait in hbase/values.yaml
+* quay.io/stackstate/stackgraph-console
+* quay.io/stackstate/hbase-master
+* quay.io/stackstate/hbase-regionserver
+* quay.io/stackstate/hadoop
+* quay.io/stackstate/tephra-server
+  * ? multiple? docker.io/dokkupaas/wait ... quay.io/stackstate/wait in hbase/values.yaml
 
 ZOOKEEPER
-quay.io/stackstate/zookeeper ? docker.io/bitnami/zookeeper-exporter
+* quay.io/stackstate/zookeeper ? docker.io/bitnami/zookeeper-exporter
