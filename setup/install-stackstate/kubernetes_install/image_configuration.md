@@ -1,8 +1,10 @@
 # StackState images
 
+## Overview 
+
 This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.
 
-## Serving the images from a different image registry
+## Serve images from a different image registry
 
 Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it is being scaled to a new node. If one of those registries is not accessible for some reason, the pods won't start.
 
@@ -30,17 +32,17 @@ To address this issue, you can copy all the images to a single registry close to
      ```
 
    * Additional optional flags can be used when running the script:
-     * `-c` specify a different chart (`-c`) to use.
+     * `-c` specify a different chart to use.
      * `-r` specify a different repository to use.
 
-3. Add the registry to the global configuration section in your `values.yaml`, for example:
+3. Add the registry to the global configuration section in your `values.yaml`. For example:
 
    ```yaml
    global:
     imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
    ```
 
-   * A separate entry must be made for the image used by the `prometheus-elasticsearch-exporter` subchart as this cannot be configured with the `global.imageRegistry` setting. For example:
+4. Add a separate entry for the image used by the `prometheus-elasticsearch-exporter` subchart. This is required as it cannot be configured with the setting `global.imageRegistry`. For example:
 
      ```yaml
       elasticsearch:

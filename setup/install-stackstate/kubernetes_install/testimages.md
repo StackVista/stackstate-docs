@@ -2,7 +2,7 @@
 
 ## Stackstate values.yaml
 
-stackstate.components.all.image
+### stackstate.components.all.image
 ```yaml
 # stackstate.components.all.image.registry -- Base container image registry for all StackState containers, except for the wait container and the container-tools container
 registry: quay.io
@@ -15,7 +15,7 @@ pullPolicy: IfNotPresent
 tag: master
 ```
 
-stackstate.components.api.image
+### stackstate.components.api.image
 ```yaml
 # stackstate.components.api.image.repository -- Repository of the api component Docker image.
 repository: stackstate/stackstate-server
@@ -23,7 +23,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.correlate.image
+### stackstate.components.correlate.image
 ```yaml
 # stackstate.components.correlate.image.repository -- Repository of the correlate component Docker image.
 repository: stackstate/stackstate-correlate
@@ -31,7 +31,7 @@ repository: stackstate/stackstate-correlate
 tag: ""
 ```
 
-stackstate.components.checks.image
+### stackstate.components.checks.image
 ```yaml
 # stackstate.components.checks.image.repository -- Repository of the sync component Docker image.
 repository: stackstate/stackstate-server
@@ -39,7 +39,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.healthsync.image
+### stackstate.components.healthsync.image
 ```yaml
 # stackstate.components.healthSync.image.repository -- Repository of the healthSync component Docker image.
 repository: stackstate/stackstate-server
@@ -47,7 +47,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.initialized.image
+### stackstate.components.initialized.image
 ```yaml
 # stackstate.components.initializer.image.repository -- Repository of the initializer component Docker image.
 repository: stackstate/stackstate-server
@@ -55,7 +55,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.mm2es.image
+### stackstate.components.mm2es.image
 ```yaml
 # stackstate.components.mm2es.image.repository -- Repository of the mm2es component Docker image.
 repository: stackstate/stackstate-kafka-to-es
@@ -63,7 +63,7 @@ repository: stackstate/stackstate-kafka-to-es
 tag: ""
 ```
 
-stackstate.components.e2es.image
+### stackstate.components.e2es.image
 ```yaml
 # stackstate.components.e2es.image.repository -- Repository of the e2es component Docker image.
 repository: stackstate/stackstate-kafka-to-es
@@ -71,7 +71,7 @@ repository: stackstate/stackstate-kafka-to-es
 tag: ""
 ```
 
-stackstate.components.trace2es.image
+### stackstate.components.trace2es.image
 ```yaml
 # stackstate.components.trace2es.image.repository -- Repository of the trace2es component Docker image.
 repository: stackstate/stackstate-kafka-to-es
@@ -79,7 +79,7 @@ repository: stackstate/stackstate-kafka-to-es
 tag: ""
 ```
 
-stackstate.components.receiver.image
+### stackstate.components.receiver.image
 ```yaml
 # stackstate.components.receiver.image.repository -- Repository of the receiver component Docker image.
 repository: stackstate/stackstate-receiver
@@ -87,7 +87,7 @@ repository: stackstate/stackstate-receiver
 tag: ""
 ```
 
-stackstate.components.router.image
+### stackstate.components.router.image
 ```yaml
 # stackstate.components.router.image.registry -- Registry of the router component Docker image.
 registry: quay.io
@@ -97,7 +97,7 @@ repository: stackstate/envoy-alpine
 tag: v1.19.1-sts.20211012.0914
 ```
 
-stackstate.components.server.image
+### stackstate.components.server.image
 ```yaml
 # stackstate.components.server.image.repository -- Repository of the server component Docker image.
 repository: stackstate/stackstate-server
@@ -105,7 +105,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.state.image
+### stackstate.components.state.image
 ```yaml
 # stackstate.components.state.image.repository -- Repository of the sync component Docker image.
 repository: stackstate/stackstate-server
@@ -113,7 +113,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.sync.image
+### stackstate.components.sync.image
 ```yaml
 # stackstate.components.sync.image.repository -- Repository of the sync component Docker image.
 repository: stackstate/stackstate-server
@@ -121,7 +121,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.slicing.image
+### stackstate.components.slicing.image
 ```yaml
 # stackstate.components.slicing.image.repository -- Repository of the slicing component Docker image.
 repository: stackstate/stackstate-server
@@ -129,7 +129,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.ui.image
+### stackstate.components.ui.image
 ```yaml
 # stackstate.components.ui.image.repository -- Repository of the ui component Docker image.
 repository: stackstate/stackstate-ui
@@ -137,7 +137,7 @@ repository: stackstate/stackstate-ui
 tag: ""
 ```
 
-stackstate.components.viewhealth.yaml
+### stackstate.components.viewhealth.yaml
 ```yaml
 # stackstate.components.viewHealth.image.repository -- Repository of the viewHealth component Docker image.
 repository: stackstate/stackstate-server
@@ -145,7 +145,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.problemProducer.image
+### stackstate.components.problemProducer.image
 ```yaml
 # stackstate.components.problemProducer.image.repository -- Repository of the problemProducer component Docker image.
 repository: stackstate/stackstate-server
@@ -153,7 +153,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-stackstate.components.kafkaTopicCreate.image
+### stackstate.components.kafkaTopicCreate.image
 ```yaml
 # stackstate.components.kafkaTopicCreate.image.registry -- Base container image registry for kafka-topic-create containers.
 registry: quay.io
@@ -163,7 +163,7 @@ repository: stackstate/kafka
 tag: 2.8.0-focal-20210827-r108
 ```
 
-stackstate.components.nginxPrometheusExporter.image
+### stackstate.components.nginxPrometheusExporter.image
 ```yaml
 # stackstate.components.nginxPrometheusExporter.image.registry -- Base container image registry for nginx-prometheus-exporter containers.
 registry: quay.io
@@ -173,7 +173,7 @@ repository: stackstate/nginx-prometheus-exporter
 tag: 0.7.0-sts.20211018.0810
 ```
 
-stackstate.components.containerTools.iamge
+### stackstate.components.containerTools.iamge
 ```yaml
 # stackstate.components.containerTools.image.registry -- Base container image registry for container-tools containers.
 registry: quay.io
@@ -183,7 +183,7 @@ repository: stackstate/container-tools
 tag: 1.1.3
 ```
 
-stackstate.components.wait.image
+### stackstate.components.wait.image
 ```yaml
 # stackstate.components.wait.image.registry -- Base container image registry for wait containers.
 registry: quay.io
@@ -193,13 +193,13 @@ repository: stackstate/wait
 tag: 1.0.5
 ```
 
-hbase.stackgraph.image
+### hbase.stackgraph.image
 ```yaml
 # hbase.stackgraph.image.tag -- The StackGraph server version, must be compatible with the StackState version
 tag: 4.2.16
 ```
 
-kafka.image
+### kafka.image
 ```yaml
 # kafka.image.registry -- Kafka image registry
 registry: quay.io
@@ -208,7 +208,7 @@ repository: stackstate/kafka
 # kafka.image.tag -- Kafka image
 ```
 
-kafka.metrics.jmx.image
+### kafka.metrics.jmx.image
 ```yaml
 # kafka.metrics.jmx.image.registry -- Kafka JMX exporter image registry
 registry: quay.io
@@ -218,14 +218,14 @@ repository: stackstate/jmx-exporter
 tag: 0.15.0-focal-20210827-r138
 ```
 
-minio.image
+### minio.image
 ```yaml
 # minio.image.repository -- MinIO image repository
 repository: quay.io/stackstate/minio
 tag: 2021.2.19-focal-20210827-r5
 ```
 
-zookeeper.image
+### zookeeper.image
 ```yaml
 # zookeeper.image.registry -- ZooKeeper image registry
 registry: quay.io
@@ -235,7 +235,7 @@ repository: stackstate/zookeeper
 tag: 3.6.1-focal-20210827-r37
 ```
 
-anomaly-detection.image
+### anomaly-detection.image
 ```yaml
 # anomaly-detection.image.registry -- Base container image registry for all containers, except for the wait container
 registry: quay.io
@@ -245,13 +245,13 @@ spotlightRepository: stackstate/spotlight
 
 ## cluster-agent values.yaml
 
-all.image
+### all.image
 ```yaml
 # all.image.registry -- The image registry to use.
 registry: "docker.io"
 ```
 
-agent.image
+### agent.image
 ```yaml
 # agent.image.repository -- Base container image repository.
 repository: stackstate/stackstate-agent-2
@@ -259,7 +259,7 @@ repository: stackstate/stackstate-agent-2
 tag: 2.14.0
 ```
 
-clusterAgent.image
+### clusterAgent.image
 ```yaml
 # clusterAgent.image.repository -- Base container image repository.
 repository: stackstate/stackstate-cluster-agent
@@ -267,7 +267,7 @@ repository: stackstate/stackstate-cluster-agent
 tag: 2.14.0
 ```
 
-clusterChecks.image
+### clusterChecks.image
 ```yaml
 # clusterChecks.image.repository -- Base container image repository.
 repository: stackstate/stackstate-agent-2
@@ -277,7 +277,7 @@ tag: 2.14.0
 
 ## common values.yaml
 
-image:
+### image:
 ```yaml
 # image.repository -- (string) Repository of the Docker image.
 repository: nginx
@@ -287,14 +287,14 @@ tag: latest
 
 ## Elasticsearch values.yaml
 
-root legel
+### root level
 ```yaml
 imageRegistry: "quay.io"
 imageRepository: "stackstate/elasticsearch"
 imageTag: "7.6.2-yu"
 ```
 
-prometheus-elasticsearch-exporter.image
+### prometheus-elasticsearch-exporter.image
 ```yaml
 # prometheus-elasticsearch-exporter.image.repository -- Elastichsearch Prometheus exporter image repository
 repository: quay.io/stackstate/elasticsearch-exporter
@@ -304,19 +304,19 @@ tag: v1.2.1
 
 ## hbase values.yaml
 
-all.image
+### all.image
 ```yaml
 # all.image.registry -- Base container image registry for all containers, except for the wait container
 registry: quay.io
 ```
 
-stackgraph.image
+### stackgraph.image
 ```yaml
 # stackgraph.image.tag -- The default tag used for all omponents of hbase that are stackgraph version dependent; invividual service `tag`s can be overriden (see below).
 tag: 4.4.1
 ```
 
-console.image
+### console.image
 ```yaml
 # console.image.repository -- Base container image repository for console pods.
 repository: stackstate/stackgraph-console
@@ -324,7 +324,7 @@ repository: stackstate/stackgraph-console
 tag:
 ```
 
-wait.image
+### wait.image
 ```yaml
 # wait.image.registry -- Base container image registry for wait containers.
 registry: quay.io
@@ -334,7 +334,7 @@ repository: stackstate/wait
 tag: 1.0.5
 ```
 
-hbase.master.image
+### hbase.master.image
 ```yaml
 # hbase.master.image.repository -- Base container image repository for HBase masters.
 repository: stackstate/hbase-master
@@ -342,7 +342,7 @@ repository: stackstate/hbase-master
 tag:
 ```
 
-hbase.regionserver.image
+### hbase.regionserver.image
 ```yaml
 # hbase.regionserver.image.repository -- Base container image repository for HBase region servers.
 repository: stackstate/hbase-regionserver
@@ -350,7 +350,7 @@ repository: stackstate/hbase-regionserver
 tag:
 ```
 
-hdfs.image
+### hdfs.image
 ```yaml
 # hdfs.image.repository -- Base container image repository for HDFS datanode.
 repository: stackstate/hadoop
@@ -358,7 +358,7 @@ repository: stackstate/hadoop
 tag: 2.10.1-java11-4
 ```
 
-tephra.image
+### tephra.image
 ```yaml
 # tephra.image.repository -- Base container image repository for Tephra pods.
 repository: stackstate/tephra-server
@@ -368,7 +368,7 @@ tag:
 
 ## kafka values.yaml
 
-global
+### global
 ```yaml
 ## Global Docker image parameters
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
@@ -378,7 +378,7 @@ global
 #   imageRegistry: myRegistryName
 ```
 
-image
+### image
 ```yaml
 registry: docker.io
 repository: bitnami/kafka
@@ -387,7 +387,7 @@ tag: 2.6.0-debian-10-r7
 
 ## minio values.yaml
 
-image
+### image
 ```yaml
 ## Set default image, imageTag, and imagePullPolicy. mode is used to indicate the
 ##
@@ -396,7 +396,7 @@ image:
   tag: RELEASE.2021-02-14T04-01-33Z
 ```
 
-mcImage
+### mcImage
 ```yaml
 ## Set default image, imageTag, and imagePullPolicy for the `mc` (the minio
 ## client used to create a default bucket).
@@ -406,7 +406,7 @@ mcImage:
   tag: RELEASE.2021-02-14T04-28-06Z
 ```
 
-helmKubectlJqImage
+### helmKubectlJqImage
 ```yaml
 ## Set default image, imageTag, and imagePullPolicy for the `jq` (the JSON
 ## process used to create secret for prometheus ServiceMonitor).
