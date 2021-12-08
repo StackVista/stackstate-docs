@@ -58,7 +58,7 @@ To address this issue, you can copy all the images to a single registry close to
 Configured in StackState values.yaml:
 
 * **Image** - `quay.io/stackstate/stackstate-server`
-* **Registry**: Taken from ???
+* **Registry**: ???
 * **Repository**: `stackstate.components.api.image.repository`
 * **Tag**: `stackstate.components.api.image.tag` - overrides `stackstate.components.all.image.tag` on a per-service basis.
 
