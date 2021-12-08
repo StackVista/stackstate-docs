@@ -176,7 +176,7 @@ repository: stackstate/stackstate-server
 tag: ""
 ```
 
-### stackstate.components.kafkaTopicCreate.image
+### - stackstate.components.kafkaTopicCreate.image
 ```yaml
 # stackstate.components.kafkaTopicCreate.image.registry -- Base container image registry for kafka-topic-create containers.
 registry: quay.io
