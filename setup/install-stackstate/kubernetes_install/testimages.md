@@ -70,7 +70,7 @@ repository: stackstate/stackstate-kafka-to-es
 tag: ""
 ```
 
-### stackstate.components.e2es.image
+### - stackstate.components.e2es.image
 ```yaml
 # stackstate.components.e2es.image.repository -- Repository of the e2es component Docker image.
 repository: stackstate/stackstate-kafka-to-es
@@ -78,7 +78,7 @@ repository: stackstate/stackstate-kafka-to-es
 tag: ""
 ```
 
-### stackstate.components.trace2es.image
+### - stackstate.components.trace2es.image
 ```yaml
 # stackstate.components.trace2es.image.repository -- Repository of the trace2es component Docker image.
 repository: stackstate/stackstate-kafka-to-es
