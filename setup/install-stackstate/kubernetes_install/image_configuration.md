@@ -55,7 +55,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 ### API
 
-Configured in StackState values.yaml:
+Configured in StackState values.yaml.
 
 * **Image** - `quay.io/stackstate/stackstate-server`
 * **Registry**: ???
@@ -66,18 +66,223 @@ Configured in StackState values.yaml:
 
 Configured in StackState values.yaml.
 
-* `stackstate.components.correlate.image.repository` - Repository of the correlate component Docker image.
-* `stackstate.components.correlate.image.tag` - Tag used for the `correlate` component Docker image; this will override `stackstate.components.all.image.tag` on a per-service basis.
-* **image** - `quay.io/stackstate/stackstate-correlate`
+* **Image** - `quay.io/stackstate/stackstate-correlate`
+* **Registry** - ???
+* **Repository** - `stackstate.components.correlate.image.repository`
+* **Tag** - `stackstate.components.correlate.image.tag` - will override `stackstate.components.all.image.tag` on a per-service basis.
 
-Registry taken from ???
+### Checks
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### healthSync 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### initialized 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Kafka-to-Elasticsearch
+
+Configured in StackState values.yaml.
+
+* **Image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
+* **Registry** - 
+  * Metrics - 
+  * Events - 
+  * Traces - 
+* **Repository** - 
+  * Metrics - `stackstate.components.mm2es.image.repository`
+  * Events - 
+  * Traces - 
+* **Tag** - will override `stackstate.components.all.image.tag` on a per-service basis.
+  * Metrics - `stackstate.components.mm2es.image.tag` 
+  * Events - 
+  * Traces -
+
+### Receiver
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Router 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Server 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### State 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Sync 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Slicing 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### UI 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### viewHealth 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### problemProducer 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Kafka-topic-create
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### nginxPrometheusExporter
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### containerTools 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### wait 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Kafka 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Kafka JMX exporter 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### minio 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Zookeeper 
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
+
+### Spotlight
+
+Configured in StackState values.yaml.
+
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
 
 ### Kafka-to-ElasticSearch 
 
 Configured in StackState values.yaml.
 
-* `stackstate.components.mm2es.image.repository` - Repository of the mm2es component Docker image.
-* `stackstate.components.mm2es.image.tag` - Tag used for the `mm2es` component Docker image; this will override `stackstate.components.all.image.tag` on a per-service basis.
-* **image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
-
-Registry taken from ???
+* **Image** - 
+* **Registry** - 
+* **Repository** - 
+* **Tag** -
