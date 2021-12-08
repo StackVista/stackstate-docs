@@ -55,13 +55,12 @@ To address this issue, you can copy all the images to a single registry close to
 
 ### API
 
-Configured in StackState values.yaml.
+**image** - `quay.io/stackstate/stackstate-server`
+Configured in StackState values.yaml:
 
-* `stackstate.components.api.image.repository` - Repository of the api component Docker image.
-* `stackstate.components.api.image.tag` - Tag used for the `api` component Docker image; this will override `stackstate.components.all.image.tag` on a per-service basis.
-* **image** - `quay.io/stackstate/stackstate-server`
-
-Registry taken from ???
+* **Registry**: Taken from ???
+* **Repository**: `stackstate.components.api.image.repository`
+* **Tag**: `stackstate.components.api.image.tag` - overrides `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Correlate
 
