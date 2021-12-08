@@ -62,6 +62,21 @@ Configured in StackState values.yaml.
 * **Repository**: `stackstate.components.api.image.repository`
 * **Tag**: `stackstate.components.api.image.tag` - overrides `stackstate.components.all.image.tag` on a per-service basis.
 
+### API
+
+* **Chart** - StackState
+* **Image** - `quay.io/stackstate/stackstate-server`
+
+```yaml
+components:
+  api:
+    image:
+      repository: stackstate/stackstate-server
+      tag:
+```
+
+Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
+ 
 ### Correlate
 
 Configured in StackState values.yaml.
