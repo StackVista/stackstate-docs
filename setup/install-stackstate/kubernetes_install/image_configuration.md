@@ -55,15 +55,6 @@ To address this issue, you can copy all the images to a single registry close to
 
 ### API
 
-Configured in StackState values.yaml.
-
-* **Image** - `quay.io/stackstate/stackstate-server`
-* **Registry**: ???
-* **Repository**: `stackstate.components.api.image.repository`
-* **Tag**: `stackstate.components.api.image.tag` - overrides `stackstate.components.all.image.tag` on a per-service basis.
-
-### API
-
 * **Chart** - StackState
 * **Image** - `quay.io/stackstate/stackstate-server`
 
@@ -72,50 +63,75 @@ components:
   api:
     image:
       repository: stackstate/stackstate-server
-      tag:
+      tag: 
 ```
 
 Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
  
 ### Correlate
 
-Configured in StackState values.yaml.
-
+* **Chart** - StackState
 * **Image** - `quay.io/stackstate/stackstate-correlate`
-* **Registry** - ???
-* **Repository** - `stackstate.components.correlate.image.repository`
-* **Tag** - `stackstate.components.correlate.image.tag` - will override `stackstate.components.all.image.tag` on a per-service basis.
+
+```yaml
+components:
+  correlate:
+    image:
+      repository: stackstate/stackstate-correlate
+      tag: 
+
+```
+
+Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Checks
 
-Configured in StackState values.yaml.
-
+* **Chart** - StackState
 * **Image** - 
-* **Registry** - 
-* **Repository** - 
-* **Tag** -
+
+```yaml
+
+```
+
+Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### healthSync 
 
-Configured in StackState values.yaml.
-
+* **Chart** - StackState
 * **Image** - 
-* **Registry** - 
-* **Repository** - 
-* **Tag** -
+
+```yaml
+
+```
+
+Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### initialized 
 
-Configured in StackState values.yaml.
-
+* **Chart** - StackState
 * **Image** - 
-* **Registry** - 
-* **Repository** - 
-* **Tag** -
+
+```yaml
+
+```
+
+Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Kafka-to-Elasticsearch
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
+* **Image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
+
+```yaml
+components:
+  mm2es:
+    repository:
+    tag:
+  
+
+```
+
+Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 * **Image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
 * **Registry** - 
@@ -133,7 +149,7 @@ Configured in StackState values.yaml.
 
 ### Receiver
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -142,7 +158,7 @@ Configured in StackState values.yaml.
 
 ### Router 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -151,7 +167,7 @@ Configured in StackState values.yaml.
 
 ### Server 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -160,7 +176,7 @@ Configured in StackState values.yaml.
 
 ### State 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -169,7 +185,7 @@ Configured in StackState values.yaml.
 
 ### Sync 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -178,7 +194,7 @@ Configured in StackState values.yaml.
 
 ### Slicing 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -187,7 +203,7 @@ Configured in StackState values.yaml.
 
 ### UI 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -196,7 +212,7 @@ Configured in StackState values.yaml.
 
 ### viewHealth 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -205,7 +221,7 @@ Configured in StackState values.yaml.
 
 ### problemProducer 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -214,7 +230,7 @@ Configured in StackState values.yaml.
 
 ### Kafka-topic-create
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -223,7 +239,7 @@ Configured in StackState values.yaml.
 
 ### nginxPrometheusExporter
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -232,7 +248,7 @@ Configured in StackState values.yaml.
 
 ### containerTools 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -241,7 +257,7 @@ Configured in StackState values.yaml.
 
 ### wait 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -250,7 +266,7 @@ Configured in StackState values.yaml.
 
 ### Kafka 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -259,7 +275,7 @@ Configured in StackState values.yaml.
 
 ### Kafka JMX exporter 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -268,7 +284,7 @@ Configured in StackState values.yaml.
 
 ### minio 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -277,7 +293,7 @@ Configured in StackState values.yaml.
 
 ### Zookeeper 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -286,7 +302,7 @@ Configured in StackState values.yaml.
 
 ### Spotlight
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
@@ -295,7 +311,7 @@ Configured in StackState values.yaml.
 
 ### Kafka-to-ElasticSearch 
 
-Configured in StackState values.yaml.
+* **Chart** - StackState
 
 * **Image** - 
 * **Registry** - 
