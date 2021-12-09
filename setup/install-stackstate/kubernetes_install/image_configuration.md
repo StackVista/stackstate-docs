@@ -55,11 +55,14 @@ To address this issue, you can copy all the images to a single registry close to
 
 ### API
 
-* **Chart** - StackState
-* **Image** - `quay.io/stackstate/stackstate-server`
+* **Chart:** StackState
+* **Image:** `quay.io/stackstate/stackstate-server`
 
 ```yaml
 components:
+  all:
+    image:
+      registry: quay.io
   api:
     image:
       repository: stackstate/stackstate-server
@@ -70,24 +73,26 @@ Note that the `tag` configured here will override `stackstate.components.all.ima
  
 ### Correlate
 
-* **Chart** - StackState
-* **Image** - `quay.io/stackstate/stackstate-correlate`
+* **Chart:** StackState
+* **Image:** `quay.io/stackstate/stackstate-correlate`
 
 ```yaml
 components:
+  all:
+    image:
+      registry: quay.io
   correlate:
     image:
       repository: stackstate/stackstate-correlate
-      tag: 
-
+      tag:
 ```
 
 Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Checks
 
-* **Chart** - StackState
-* **Image** - 
+* **Chart:** StackState
+* **Image:** 
 
 ```yaml
 
@@ -97,8 +102,8 @@ Note that the `tag` configured here will override `stackstate.components.all.ima
 
 ### healthSync 
 
-* **Chart** - StackState
-* **Image** - 
+* **Chart:** StackState
+* **Image:** 
 
 ```yaml
 
@@ -108,8 +113,8 @@ Note that the `tag` configured here will override `stackstate.components.all.ima
 
 ### initialized 
 
-* **Chart** - StackState
-* **Image** - 
+* **Chart:** StackState
+* **Image:** 
 
 ```yaml
 
@@ -119,201 +124,197 @@ Note that the `tag` configured here will override `stackstate.components.all.ima
 
 ### Kafka-to-Elasticsearch
 
-* **Chart** - StackState
-* **Image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
+* **Chart:** StackState
+* **Image:** `quay.io/stackstate/stackstate-kafka-to-es-stable`
 
 ```yaml
 components:
+  all:
+    image:
+      registry: quay.io
   mm2es:
-    repository:
-    tag:
-  
-
+    image:
+      repository: stackstate/stackstate-kafka-to-es-stable
+      tag:
+  e2es:
+    image:
+      repository: stackstate/stackstate-kafka-to-es-stable
+      tag:
+  trace2es:
+    image:
+      repository: stackstate/stackstate-kafka-to-es-stable
+      tag:
 ```
 
-Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
-
-* **Image** - `quay.io/stackstate/stackstate-kafka-to-es-stable`
-* **Registry** - 
-  * Metrics - 
-  * Events - 
-  * Traces - 
-* **Repository** - 
-  * Metrics - `stackstate.components.mm2es.image.repository`
-  * Events - 
-  * Traces - 
-* **Tag** - will override `stackstate.components.all.image.tag` on a per-service basis.
-  * Metrics - `stackstate.components.mm2es.image.tag` 
-  * Events - 
-  * Traces -
+Note that a `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Receiver
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Router 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Server 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### State 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Sync 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Slicing 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### UI 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### viewHealth 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### problemProducer 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Kafka-topic-create
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### nginxPrometheusExporter
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### containerTools 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### wait 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Kafka 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Kafka JMX exporter 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### minio 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Zookeeper 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Spotlight
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
 
 ### Kafka-to-ElasticSearch 
 
-* **Chart** - StackState
+* **Chart:** StackState
 
-* **Image** - 
+* **Image:** 
 * **Registry** - 
 * **Repository** - 
 * **Tag** -
