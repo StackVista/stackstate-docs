@@ -54,6 +54,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-server`
+* **Configuration:**
 
 ```yaml
 components:
@@ -70,9 +71,12 @@ components:
 
 ### Correlate
 
-**Chart:** StackState 
-**Image:** `quay.io/stackstate/stackstate-correlate`
+**Chart:** StackState&#x20;
+
+**Image:** `quay.io/stackstate/stackstate-correlate`&#x20;
+
 **Configuration:**
+
 ```yaml
 components:
   all:
@@ -83,7 +87,7 @@ components:
     image:
       repository: stackstate/stackstate-correlate
       # will override `stackstate.components.all.image.tag` on a per-service basis.
-      tag:  |
+      tag: 
 ```
 
 * **Chart:** StackState
