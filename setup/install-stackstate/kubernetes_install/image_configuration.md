@@ -57,6 +57,9 @@ To address this issue, you can copy all the images to a single registry close to
 * **Configuration:**
 
 ```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
 components:
   all:
     image:
@@ -65,35 +68,20 @@ components:
   api:
     image:
       repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag` on a per-service basis.
+      # will override `stackstate.components.all.image.tag`
       tag: 
 ```
 
 ### Correlate
 
-**Chart:** StackState&#x20;
-
-**Image:** `quay.io/stackstate/stackstate-correlate`&#x20;
-
-**Configuration:**
-
-```yaml
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  correlate:
-    image:
-      repository: stackstate/stackstate-correlate
-      # will override `stackstate.components.all.image.tag` on a per-service basis.
-      tag: 
-```
-
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-correlate`
+* **Configuration:**
 
-```
+```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
 components:
   all:
     image:
@@ -102,39 +90,75 @@ components:
   correlate:
     image:
       repository: stackstate/stackstate-correlate
-      # will override `stackstate.components.all.image.tag` on a per-service basis.
+      # will override `stackstate.components.all.image.tag`
       tag: 
 ```
 
 ### Checks
 
 * **Chart:** StackState
-* **Image:**
+* **Image:** `quay.io/stackstate/stackstate-server`
+* **Configuration:**
 
 ```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
+components:
+  all:
+    image:
+      registry: quay.io
+      tag: 
+  checks:
+    image:
+      repository: stackstate/stackstate-server
+      # will override `stackstate.components.all.image.tag`
+      tag: 
 ```
-
-Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### healthSync
 
 * **Chart:** StackState
-* **Image:**
+* **Image:** `quay.io/stackstate/stackstate-server`
+* **Configuration:**
 
 ```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
+components:
+  all:
+    image:
+      registry: quay.io
+      tag: 
+  healthSync:
+    image:
+      repository: stackstate/stackstate-server
+      # will override `stackstate.components.all.image.tag`
+      tag: 
 ```
 
-Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
-
-### initialized
+### initializer
 
 * **Chart:** StackState
-* **Image:**
+* **Image:** `quay.io/stackstate/stackstate-server`
+* **Configuration:**
 
 ```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
+components:
+  all:
+    image:
+      registry: quay.io
+      tag: 
+  initializer:
+    image:
+      repository: stackstate/stackstate-server
+      # will override `stackstate.components.all.image.tag`
+      tag: 
 ```
-
-Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Kafka-to-Elasticsearch
 
@@ -142,41 +166,76 @@ Note that the `tag` configured here will override `stackstate.components.all.ima
 * **Image:** `quay.io/stackstate/stackstate-kafka-to-es-stable`
 
 ```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
 components:
   all:
     image:
       registry: quay.io
+      tag: 
   mm2es:
     image:
       repository: stackstate/stackstate-kafka-to-es-stable
+      # will override `stackstate.components.all.image.tag`
       tag:
   e2es:
     image:
       repository: stackstate/stackstate-kafka-to-es-stable
+      # will override `stackstate.components.all.image.tag`
       tag:
   trace2es:
     image:
       repository: stackstate/stackstate-kafka-to-es-stable
+      # will override `stackstate.components.all.image.tag`
       tag:
 ```
-
-Note that a `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Receiver
 
 * **Chart:** StackState
-* **Image:**
-* **Registry** -
-* **Repository** -
-* **Tag** -
+* **Image:** `quay.io/stackstate/stackstate-receiver`
+* **Configuration:**
+
+```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
+components:
+  all:
+    image:
+      registry: quay.io
+      tag: 
+  initializer:
+    image:
+      repository: stackstate/stackstate-receiver
+      # will override `stackstate.components.all.image.tag`
+      tag: 
+```
 
 ### Router
 
 * **Chart:** StackState
-* **Image:**
-* **Registry** -
-* **Repository** -
-* **Tag** -
+* **Image:** `quay.io/stackstate/envoy-alpine`
+* **Configuration:**
+
+```yaml
+global:
+  # will override all registry configurations
+  imageRegistry: 
+components:
+  all:
+    image:
+      registry:
+      tag: 
+  router:
+    image:
+      # will override `stackstate.components.all.image.registry`
+      regisrty: quay.io
+      repository: stackstate/envoy-alpine
+      # will override `stackstate.components.all.image.tag`
+      tag: 
+```
 
 ### Server
 
