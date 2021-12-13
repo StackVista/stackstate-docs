@@ -58,7 +58,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 stackstate:
   components:
@@ -81,7 +81,7 @@ stackstate:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -103,7 +103,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -125,7 +125,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -147,7 +147,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -168,7 +168,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -200,7 +200,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -222,7 +222,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -246,7 +246,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -268,7 +268,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -290,7 +290,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -312,7 +312,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -334,7 +334,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -356,7 +356,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -378,7 +378,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -400,7 +400,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -424,7 +424,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -448,7 +448,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -472,7 +472,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 stackstate:
   components:
@@ -508,7 +508,7 @@ hbase:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -532,7 +532,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -557,7 +557,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -579,7 +579,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
@@ -605,7 +605,7 @@ components:
 
 ```yaml
 global:
-  # will override all other registry configurations
+  # will override any other registry configuration
   imageRegistry: 
 components:
   all:
