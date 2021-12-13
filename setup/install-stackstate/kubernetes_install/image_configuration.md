@@ -163,7 +163,7 @@ components:
 ### Kafka-to-Elasticsearch
 
 * **Chart:** StackState
-* **Image:** `quay.io/stackstate/stackstate-kafka-to-es-stable`
+* **Image:** `quay.io/stackstate/stackstate-kafka-to-es`
 
 ```yaml
 global:
@@ -176,17 +176,17 @@ components:
       tag: 
   mm2es:
     image:
-      repository: stackstate/stackstate-kafka-to-es-stable
+      repository: stackstate/stackstate-kafka-to-es
       # will override `stackstate.components.all.image.tag`
       tag:
   e2es:
     image:
-      repository: stackstate/stackstate-kafka-to-es-stable
+      repository: stackstate/stackstate-kafka-to-es
       # will override `stackstate.components.all.image.tag`
       tag:
   trace2es:
     image:
-      repository: stackstate/stackstate-kafka-to-es-stable
+      repository: stackstate/stackstate-kafka-to-es
       # will override `stackstate.components.all.image.tag`
       tag:
 ```
@@ -206,7 +206,7 @@ components:
     image:
       registry: quay.io
       tag: 
-  initializer:
+  receiver:
     image:
       repository: stackstate/stackstate-receiver
       # will override `stackstate.components.all.image.tag`
