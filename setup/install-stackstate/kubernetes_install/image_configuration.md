@@ -83,18 +83,19 @@ stackstate:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  containerTools:
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io
-      repository: stackstate/container-tools
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry:
+        tag: 
+    containerTools:
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io
+        repository: stackstate/container-tools
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Correlate
@@ -107,16 +108,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  correlate:
-    image:
-      repository: stackstate/stackstate-correlate
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    correlate:
+      image:
+        repository: stackstate/stackstate-correlate
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Checks
@@ -129,16 +131,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  checks:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    checks:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### healthSync
@@ -151,16 +154,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  healthSync:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    healthSync:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### initializer
@@ -173,16 +177,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  initializer:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    initializer:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Kafka
@@ -195,18 +200,19 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  kafka:
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io
-      repository: stackstate/kafka
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: 
+        tag: 
+    kafka:
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io
+        repository: stackstate/kafka
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Kafka JMX exporter
@@ -219,19 +225,20 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  metrics:
-    kafka:
+stackstate:
+  components:
+    all:
       image:
-        # will override `stackstate.components.all.image.registry`
-        registry: quay.io
-        repository: stackstate/jmx-exporter
-        # will override `stackstate.components.all.image.tag`
+        registry: 
         tag: 
+    metrics:
+      kafka:
+        image:
+          # will override `stackstate.components.all.image.registry`
+          registry: quay.io
+          repository: stackstate/jmx-exporter
+          # will override `stackstate.components.all.image.tag`
+          tag: 
 ```
 
 ### Kafka-to-Elasticsearch
@@ -243,26 +250,27 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  mm2es:
-    image:
-      repository: stackstate/stackstate-kafka-to-es
-      # will override `stackstate.components.all.image.tag`
-      tag:
-  e2es:
-    image:
-      repository: stackstate/stackstate-kafka-to-es
-      # will override `stackstate.components.all.image.tag`
-      tag:
-  trace2es:
-    image:
-      repository: stackstate/stackstate-kafka-to-es
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    mm2es:
+      image:
+        repository: stackstate/stackstate-kafka-to-es
+        # will override `stackstate.components.all.image.tag`
+        tag:
+    e2es:
+      image:
+        repository: stackstate/stackstate-kafka-to-es
+        # will override `stackstate.components.all.image.tag`
+        tag:
+    trace2es:
+      image:
+        repository: stackstate/stackstate-kafka-to-es
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Kafka-topic-create
@@ -275,18 +283,19 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  kafkaTopicCreate:
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io
-      repository: stackstate/kafka
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: 
+        tag: 
+    kafkaTopicCreate:
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io
+        repository: stackstate/kafka
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### minio
@@ -299,16 +308,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  minio:
-    image:
-      repository: stackstate/minio
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    minio:
+      image:
+        repository: stackstate/minio
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### nginxPrometheusExporter
@@ -321,18 +331,19 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  nginxPrometheusExporter:
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io
-      repository: stackstate/nginx-prometheus-exporter
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: 
+        tag: 
+    nginxPrometheusExporter:
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io
+        repository: stackstate/nginx-prometheus-exporter
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### problemProducer
@@ -345,16 +356,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  problemProducer:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    problemProducer:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Receiver
@@ -367,16 +379,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  receiver:
-    image:
-      repository: stackstate/stackstate-receiver
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    receiver:
+      image:
+        repository: stackstate/stackstate-receiver
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Router
@@ -389,18 +402,19 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  router:
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io
-      repository: stackstate/envoy-alpine
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: 
+        tag: 
+    router:
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io
+        repository: stackstate/envoy-alpine
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Server
@@ -413,16 +427,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  server:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    server:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Slicing
@@ -435,16 +450,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  slicing:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    slicing:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Spotlight
@@ -457,16 +473,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  anomaly-detection:
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io      
-      spotlightRepository: stackstate/minio
+stackstate:
+  components:
+    all:
+      image:
+        registry: 
+        tag: 
+    anomaly-detection:
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io      
+        spotlightRepository: stackstate/minio
 ```
 
 ### State
@@ -479,16 +496,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  state:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    state:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### Sync
@@ -501,16 +519,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  sync:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    sync:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### UI
@@ -523,16 +542,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  ui:
-    image:
-      repository: stackstate/stackstate-ui
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    ui:
+      image:
+        repository: stackstate/stackstate-ui
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### viewHealth
@@ -545,16 +565,17 @@ components:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry: quay.io
-      tag: 
-  viewHealth:
-    image:
-      repository: stackstate/stackstate-server
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    viewHealth:
+      image:
+        repository: stackstate/stackstate-server
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
 
 ### wait
@@ -603,18 +624,19 @@ hbase:
 global:
   # will override any other registry configuration
   imageRegistry: 
-components:
-  all:
-    image:
-      registry:
-      tag: 
-  zookeeper:
-    # if set to false, will use external zookeeper servers
-    enabled: true
-    image:
-      # will override `stackstate.components.all.image.registry`
-      registry: quay.io
-      repository: stackstate/zookeeper
-      # will override `stackstate.components.all.image.tag`
-      tag: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: 
+        tag: 
+    zookeeper:
+      # if set to false, will use external zookeeper servers
+      enabled: true
+      image:
+        # will override `stackstate.components.all.image.registry`
+        registry: quay.io
+        repository: stackstate/zookeeper
+        # will override `stackstate.components.all.image.tag`
+        tag: 
 ```
