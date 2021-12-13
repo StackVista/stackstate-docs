@@ -58,7 +58,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -80,7 +80,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -102,7 +102,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -124,7 +124,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -146,7 +146,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -167,7 +167,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -199,7 +199,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
@@ -221,7 +221,7 @@ components:
 
 ```yaml
 global:
-  # will override all registry configurations
+  # will override all other registry configurations
   imageRegistry: 
 components:
   all:
