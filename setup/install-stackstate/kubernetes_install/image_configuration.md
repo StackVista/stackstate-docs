@@ -63,13 +63,13 @@ components:
   all:
     image:
       registry: quay.io
+      tag:
   api:
     image:
       repository: stackstate/stackstate-server
+      # will override `stackstate.components.all.image.tag` on a per-service basis.
       tag: 
 ```
-
-Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
  
 ### Correlate
 
@@ -81,13 +81,13 @@ components:
   all:
     image:
       registry: quay.io
+      tag: 
   correlate:
     image:
       repository: stackstate/stackstate-correlate
+      # will override `stackstate.components.all.image.tag` on a per-service basis.
       tag:
 ```
-
-Note that the `tag` configured here will override `stackstate.components.all.image.tag` on a per-service basis.
 
 ### Checks
 
