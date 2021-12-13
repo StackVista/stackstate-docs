@@ -640,3 +640,92 @@ stackstate:
         # will override `stackstate.components.all.image.tag`
         tag: 
 ```
+
+## Elasticsearch
+```yaml
+imageRegistry: "quay.io"
+imageRepository: "stackstate/elasticsearch"
+imageTag: "7.6.2-yu"
+```
+and
+```yaml
+prometheus-elasticsearch-exporter:
+  # prometheus-elasticsearch-exporter.enabled -- Enable to expose prometheus metrics
+  enabled: false
+  image:
+    # prometheus-elasticsearch-exporter.image.repository -- Elastichsearch Prometheus exporter image repository
+    repository: quay.io/stackstate/elasticsearch-exporter
+    # prometheus-elasticsearch-exporter.image.tag -- Elastichsearch Prometheus exporter image tag
+    tag: v1.2.1
+
+```
+
+## HBase
+
+```yaml
+all:
+  image:
+    # all.image.registry -- Base container image registry for all containers, except for the wait container
+    registry: quay.io
+
+```
+
+and
+```yaml
+stackgraph:
+  image:
+    # stackgraph.image.tag -- The default tag used for all omponents of hbase that are stackgraph version dependent; invividual service `tag`s can be overriden (see below).
+    tag: 4.2.10
+
+```
+and
+```yaml
+console:
+  image:
+    # console.image.repository -- Base container image repository for console pods.
+    repository: stackstate/stackgraph-console
+    # console.image.tag -- Container image tag for console pods, defaults to `stackgraph.image.tag`
+    tag:
+```
+and wait
+and
+```yaml
+hbase:
+  master:
+    image:
+      # hbase.master.image.repository -- Base container image repository for HBase masters.
+      repository: stackstate/hbase-master
+      # hbase.master.image.tag -- Container image tag for HBase masters, defaults to `stackgraph.image.tag`
+      tag:
+
+```
+and
+```yaml
+hbase:
+  regionserver:
+    image:
+      # hbase.regionserver.image.repository -- Base container image repository for HBase region servers.
+      repository: stackstate/hbase-regionserver
+      # hbase.regionserver.image.tag -- Container image tag for HBase region servers, defaults to `stackgraph.image.tag`
+      tag:
+```
+and
+```yaml
+hdfs:
+  image:
+    # hdfs.image.repository -- Base container image repository for HDFS datanode.
+    repository: stackstate/hadoop
+    # hdfs.image.tag -- Default container image tag for HDFS datanode.
+    tag: 2.9.2-java11-3
+
+```
+and
+```yaml
+tephra:
+  image:
+    # tephra.image.repository -- Base container image repository for Tephra pods.
+    _repository: stackstate_/tephra-server
+    # tephra.image.tag -- Container image tag for Tephra pods, defaults to `stackgraph.image.tag`
+    tag:
+
+```
