@@ -48,7 +48,7 @@ To address this issue, you can copy all the images to a single registry close to
            repository: 57413481473.dkr.ecr.eu-west-1.amazonaws.com/justwatch/elasticsearch_exporter
     ```
 
-## Configuration
+## Image configuration
 
 ### API
 
