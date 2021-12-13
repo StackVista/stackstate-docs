@@ -232,7 +232,7 @@ components:
   router:
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io
+      registry: quay.io
       repository: stackstate/envoy-alpine
       # will override `stackstate.components.all.image.tag`
       tag: 
@@ -410,7 +410,7 @@ components:
   kafkaTopicCreate:
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io
+      registry: quay.io
       repository: stackstate/kafka
       # will override `stackstate.components.all.image.tag`
       tag: 
@@ -434,7 +434,7 @@ components:
   nginxPrometheusExporter:
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io
+      registry: quay.io
       repository: stackstate/nginx-prometheus-exporter
       # will override `stackstate.components.all.image.tag`
       tag: 
@@ -458,7 +458,7 @@ components:
   containerTools:
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io
+      registry: quay.io
       repository: stackstate/container-tools
       # will override `stackstate.components.all.image.tag`
       tag: 
@@ -483,7 +483,7 @@ stackstate:
     wait:
       image:
         # will override `stackstate.components.all.image.registry`
-        regisrty: quay.io
+        registry: quay.io
         repository: stackstate/wait
         # will override `stackstate.components.all.image.tag`
         tag: 
@@ -495,7 +495,7 @@ hbase:
     wait:
       image:
         # will override `hbase.components.all.image.registry`
-        regisrty: quay.io
+        registry: quay.io
         repository: stackstate/wait
         tag: 
 ```
@@ -518,7 +518,7 @@ components:
   kafka:
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io
+      registry: quay.io
       repository: stackstate/kafka
       # will override `stackstate.components.all.image.tag`
       tag: 
@@ -543,7 +543,7 @@ components:
     kafka:
       image:
         # will override `stackstate.components.all.image.registry`
-        regisrty: quay.io
+        registry: quay.io
         repository: stackstate/jmx-exporter
         # will override `stackstate.components.all.image.tag`
         tag: 
@@ -591,7 +591,7 @@ components:
     enabled: true
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io
+      registry: quay.io
       repository: stackstate/zookeeper
       # will override `stackstate.components.all.image.tag`
       tag: 
@@ -615,6 +615,6 @@ components:
   anomaly-detection:
     image:
       # will override `stackstate.components.all.image.registry`
-      regisrty: quay.io      
+      registry: quay.io      
       spotlightRepository: stackstate/minio
 ```
