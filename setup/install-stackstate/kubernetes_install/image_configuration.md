@@ -70,10 +70,11 @@ components:
 
 ### Correlate
 
-| **Chart**         | StackState                                                                                                                                                                                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Image**         | `quay.io/stackstate/stackstate-correlate`                                                                                                                                                                                                                           |
-| **Configuration** | <pre><code>components:
+**Chart:** StackState 
+**Image:** `quay.io/stackstate/stackstate-correlate`
+**Configuration:**
+```yaml
+components:
   all:
     image:
       registry: quay.io
@@ -82,7 +83,8 @@ components:
     image:
       repository: stackstate/stackstate-correlate
       # will override `stackstate.components.all.image.tag` on a per-service basis.
-      tag: </code></pre> |
+      tag:  |
+```
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-correlate`
