@@ -75,7 +75,7 @@ stackstate:
         tag: 
 ```
 
-### containerTools
+### Container tools
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/container-tools`
@@ -96,29 +96,6 @@ stackstate:
         # will override `stackstate.components.all.image.registry`
         registry: quay.io
         repository: stackstate/container-tools
-        # will override `stackstate.components.all.image.tag`
-        tag: 
-```
-
-### Correlate
-
-* **Chart:** StackState
-* **Image:** `quay.io/stackstate/stackstate-correlate`
-* **Configuration:**
-
-```yaml
-global:
-  # will override any other registry configuration
-  imageRegistry: 
-stackstate:
-  components:
-    all:
-      image:
-        registry: quay.io
-        tag: 
-    correlate:
-      image:
-        repository: stackstate/stackstate-correlate
         # will override `stackstate.components.all.image.tag`
         tag: 
 ```
@@ -146,7 +123,73 @@ stackstate:
         tag: 
 ```
 
-### healthSync
+### Correlate
+
+* **Chart:** StackState
+* **Image:** `quay.io/stackstate/stackstate-correlate`
+* **Configuration:**
+
+```yaml
+global:
+  # will override any other registry configuration
+  imageRegistry: 
+stackstate:
+  components:
+    all:
+      image:
+        registry: quay.io
+        tag: 
+    correlate:
+      image:
+        repository: stackstate/stackstate-correlate
+        # will override `stackstate.components.all.image.tag`
+        tag: 
+```
+
+### Elasticsearch
+
+* **Chart:** Elasticsearch
+* **Image:** `quay.io/stackstate/elasticsearch`
+* **Configuration:**
+
+```yaml
+elasticsearch:
+  imageRegistry: "quay.io"
+  imageRepository: "stackstate/elasticsearch"
+  imageTag: "7.6.2-yu"
+```
+
+### Elasticsearch exporter
+
+* **Chart:** Prometheus Elasticsearch exporter
+* **Image:** `quay.io/stackstate/elasticsearch-exporter`
+* **Configuration:**
+
+```yaml
+prometheus-elasticsearch-exporter:
+  image:
+    repository: quay.io/stackstate/elasticsearch-exporter
+    tag: v1.2.1
+```
+
+### HDFS (DN, NN, SNN)
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/hadoop`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  hdfs:
+    image:
+      repository: stackstate/hadoop
+      tag: 2.9.2-java11-3
+```
+
+### Health sync
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-server`
@@ -169,7 +212,7 @@ stackstate:
         tag: 
 ```
 
-### initializer
+### Initializer
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-server`
@@ -300,7 +343,29 @@ stackstate:
         tag: 
 ```
 
-### minio
+### Master
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/hbase-master`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
+  master:
+    image:
+      repository: stackstate/hbase-master
+      # defaults to `stackgraph.image.tag`
+      tag:
+
+```
+
+### Minio
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/minio`
@@ -323,7 +388,7 @@ stackstate:
         tag: 
 ```
 
-### nginxPrometheusExporter
+### NginxPrometheusExporter
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/nginx-prometheus-exporter`
@@ -348,7 +413,7 @@ stackstate:
         tag: 
 ```
 
-### problemProducer
+### Problem producer
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-server`
@@ -392,6 +457,27 @@ stackstate:
         repository: stackstate/stackstate-receiver
         # will override `stackstate.components.all.image.tag`
         tag: 
+```
+
+### RegionServer
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/hbase-regionserver`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
+  regionserver:
+    image:
+      repository: stackstate/hbase-regionserver
+      # defaults to `stackgraph.image.tag`
+      tag:
 ```
 
 ### Router
@@ -488,6 +574,28 @@ stackstate:
         spotlightRepository: stackstate/minio
 ```
 
+### StackGraph console
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/stackgraph-console`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
+  console:
+    image:
+      # console.image.repository -- Base container image repository for console pods.
+      repository: stackstate/stackgraph-console
+      # defaults to `stackgraph.image.tag`
+      tag:
+```
+
 ### State
 
 * **Chart:** StackState
@@ -534,6 +642,27 @@ stackstate:
         tag: 
 ```
 
+### Tephra
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/tephra-server`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
+  tephra:
+    image:
+      repository: stackstate/tephra-server
+      # defaults to `stackgraph.image.tag`
+      tag: 
+```
+
 ### UI
 
 * **Chart:** StackState
@@ -557,7 +686,7 @@ stackstate:
         tag: 
 ```
 
-### viewHealth
+### View health
 
 * **Chart:** StackState
 * **Image:** `quay.io/stackstate/stackstate-server`
@@ -580,7 +709,7 @@ stackstate:
         tag: 
 ```
 
-### wait
+### Wait
 
 * **Chart:** StackState and HBase
 * **Image:** `quay.io/stackstate/wait`
@@ -641,133 +770,4 @@ stackstate:
         repository: stackstate/zookeeper
         # will override `stackstate.components.all.image.tag`
         tag: 
-```
-
-## Elasticsearch
-
-* **Chart:** Elasticsearch
-* **Image:** `quay.io/stackstate/elasticsearch`
-* **Configuration:**
-
-```yaml
-elasticsearch:
-  imageRegistry: "quay.io"
-  imageRepository: "stackstate/elasticsearch"
-  imageTag: "7.6.2-yu"
-```
-
-### Elasticsearch exporter
-
-* **Chart:** Prometheus Elasticsearch exporter
-* **Image:** `quay.io/stackstate/elasticsearch-exporter`
-* **Configuration:**
-
-```yaml
-prometheus-elasticsearch-exporter:
-  image:
-    repository: quay.io/stackstate/elasticsearch-exporter
-    tag: v1.2.1
-```
-
-### StackGraph console
-
-* **Chart:** HBase
-* **Image:** `quay.io/stackstate/stackgraph-console`
-* **Configuration:**
-
-```yaml
-hbase:
-  all:
-    image:
-      registry: quay.io
-  stackgraph:
-    image:
-      tag: 4.2.10
-  console:
-    image:
-      # console.image.repository -- Base container image repository for console pods.
-      repository: stackstate/stackgraph-console
-      # defaults to `stackgraph.image.tag`
-      tag:
-```
-
-### Master
-
-* **Chart:** HBase
-* **Image:** `quay.io/stackstate/hbase-master`
-* **Configuration:**
-
-```yaml
-hbase:
-  all:
-    image:
-      registry: quay.io
-  stackgraph:
-    image:
-      tag: 4.2.10
-  master:
-    image:
-      repository: stackstate/hbase-master
-      # defaults to `stackgraph.image.tag`
-      tag:
-
-```
-
-### RegionServer
-
-* **Chart:** HBase
-* **Image:** `quay.io/stackstate/hbase-regionserver`
-* **Configuration:**
-
-```yaml
-hbase:
-  all:
-    image:
-      registry: quay.io
-  stackgraph:
-    image:
-      tag: 4.2.10
-  regionserver:
-    image:
-      repository: stackstate/hbase-regionserver
-      # defaults to `stackgraph.image.tag`
-      tag:
-```
-
-### RegionServer
-
-* **Chart:** HBase
-* **Image:** `quay.io/stackstate/hadoop`
-* **Configuration:**
-
-```yaml
-hbase:
-  all:
-    image:
-      registry: quay.io
-  hdfs:
-    image:
-      repository: stackstate/hadoop
-      tag: 2.9.2-java11-3
-```
-
-### Tephra
-
-* **Chart:** HBase
-* **Image:** `quay.io/stackstate/tephra-server`
-* **Configuration:**
-
-```yaml
-hbase:
-  all:
-    image:
-      registry: quay.io
-  stackgraph:
-    image:
-      tag: 4.2.10
-  tephra:
-    image:
-      repository: stackstate/tephra-server
-      # defaults to `stackgraph.image.tag`
-      tag: 
 ```
