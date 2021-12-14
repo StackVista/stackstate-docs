@@ -361,8 +361,7 @@ hbase:
     image:
       repository: stackstate/hbase-master
       # defaults to `stackgraph.image.tag`
-      tag:
-
+      tag: 
 ```
 
 ### Minio
@@ -590,10 +589,9 @@ hbase:
       tag: 4.2.10
   console:
     image:
-      # console.image.repository -- Base container image repository for console pods.
       repository: stackstate/stackgraph-console
       # defaults to `stackgraph.image.tag`
-      tag:
+      tag: 
 ```
 
 ### State
