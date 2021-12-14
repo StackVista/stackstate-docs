@@ -17,6 +17,7 @@ To address this issue, you can copy all the images to a single registry close to
 
     ```bash
     ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
+    
     ```
 
     * The script will detect when an ECR registry is used and automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it.
@@ -29,6 +30,7 @@ To address this issue, you can copy all the images to a single registry close to
          Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
          Copying quay.io/stackstate/wait:1.0.0 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/wait:1.0.0 (dry-run)
          Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
+        
         ```
     * Additional optional flags can be used when running the script:
       * `-c` specify a different chart to use.
@@ -37,7 +39,7 @@ To address this issue, you can copy all the images to a single registry close to
 
     ```yaml
     global:
-     imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
+      imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
     ```
 4.  Add a separate entry for the image used by the `prometheus-elasticsearch-exporter` subchart. This is required as it cannot be configured with the setting `global.imageRegistry`. For example:
 
@@ -642,90 +644,130 @@ stackstate:
 ```
 
 ## Elasticsearch
+
+* **Chart:** Elasticsearch
+* **Image:** `quay.io/stackstate/elasticsearch`
+* **Configuration:**
+
 ```yaml
-imageRegistry: "quay.io"
-imageRepository: "stackstate/elasticsearch"
-imageTag: "7.6.2-yu"
+elasticsearch:
+  imageRegistry: "quay.io"
+  imageRepository: "stackstate/elasticsearch"
+  imageTag: "7.6.2-yu"
 ```
-and
+
+### Elasticsearch exporter
+
+* **Chart:** Prometheus Elasticsearch exporter
+* **Image:** `quay.io/stackstate/elasticsearch-exporter`
+* **Configuration:**
+
 ```yaml
 prometheus-elasticsearch-exporter:
-  # prometheus-elasticsearch-exporter.enabled -- Enable to expose prometheus metrics
-  enabled: false
   image:
-    # prometheus-elasticsearch-exporter.image.repository -- Elastichsearch Prometheus exporter image repository
     repository: quay.io/stackstate/elasticsearch-exporter
-    # prometheus-elasticsearch-exporter.image.tag -- Elastichsearch Prometheus exporter image tag
     tag: v1.2.1
-
 ```
 
-## HBase
+### StackGraph console
 
-```yaml
-all:
-  image:
-    # all.image.registry -- Base container image registry for all containers, except for the wait container
-    registry: quay.io
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/stackgraph-console`
+* **Configuration:**
 
-```
-
-and
-```yaml
-stackgraph:
-  image:
-    # stackgraph.image.tag -- The default tag used for all omponents of hbase that are stackgraph version dependent; invividual service `tag`s can be overriden (see below).
-    tag: 4.2.10
-
-```
-and
-```yaml
-console:
-  image:
-    # console.image.repository -- Base container image repository for console pods.
-    repository: stackstate/stackgraph-console
-    # console.image.tag -- Container image tag for console pods, defaults to `stackgraph.image.tag`
-    tag:
-```
-and wait
-and
 ```yaml
 hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
+  console:
+    image:
+      # console.image.repository -- Base container image repository for console pods.
+      repository: stackstate/stackgraph-console
+      # defaults to `stackgraph.image.tag`
+      tag:
+```
+
+### Master
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/hbase-master`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
   master:
     image:
-      # hbase.master.image.repository -- Base container image repository for HBase masters.
       repository: stackstate/hbase-master
-      # hbase.master.image.tag -- Container image tag for HBase masters, defaults to `stackgraph.image.tag`
+      # defaults to `stackgraph.image.tag`
       tag:
 
 ```
-and
+
+### RegionServer
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/hbase-regionserver`
+* **Configuration:**
+
 ```yaml
 hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
   regionserver:
     image:
-      # hbase.regionserver.image.repository -- Base container image repository for HBase region servers.
       repository: stackstate/hbase-regionserver
-      # hbase.regionserver.image.tag -- Container image tag for HBase region servers, defaults to `stackgraph.image.tag`
+      # defaults to `stackgraph.image.tag`
       tag:
 ```
-and
-```yaml
-hdfs:
-  image:
-    # hdfs.image.repository -- Base container image repository for HDFS datanode.
-    repository: stackstate/hadoop
-    # hdfs.image.tag -- Default container image tag for HDFS datanode.
-    tag: 2.9.2-java11-3
 
+### RegionServer
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/hadoop`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  hdfs:
+    image:
+      repository: stackstate/hadoop
+      tag: 2.9.2-java11-3
 ```
-and
-```yaml
-tephra:
-  image:
-    # tephra.image.repository -- Base container image repository for Tephra pods.
-    _repository: stackstate_/tephra-server
-    # tephra.image.tag -- Container image tag for Tephra pods, defaults to `stackgraph.image.tag`
-    tag:
 
+### Tephra
+
+* **Chart:** HBase
+* **Image:** `quay.io/stackstate/tephra-server`
+* **Configuration:**
+
+```yaml
+hbase:
+  all:
+    image:
+      registry: quay.io
+  stackgraph:
+    image:
+      tag: 4.2.10
+  tephra:
+    image:
+      repository: stackstate/tephra-server
+      # defaults to `stackgraph.image.tag`
+      tag: 
 ```
