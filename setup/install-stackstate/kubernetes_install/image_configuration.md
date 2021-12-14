@@ -733,16 +733,15 @@ stackstate:
         # will override `stackstate.components.all.image.tag`
         tag: 
 hbase:
-  components:
-    all:
-      image:
-        registry:
-    wait:
-      image:
-        # will override `hbase.components.all.image.registry`
-        registry: quay.io
-        repository: stackstate/wait
-        tag: 
+  all:
+    image:
+      registry:
+  wait:
+    image:
+      # will override `hbase.components.all.image.registry`
+      registry: quay.io
+      repository: stackstate/wait
+      tag: 
 ```
 
 ### Zookeeper
