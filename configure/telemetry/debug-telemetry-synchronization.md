@@ -95,7 +95,7 @@ In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/bro
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, there are pods with descriptive names and logging is outputted on standard out.
+When StackState is deployed on Kubernetes, there are pods with descriptive names and logging is output to standard out.
 
 The following logs may be useful when debugging telemetry synchronization:
 
