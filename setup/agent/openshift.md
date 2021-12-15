@@ -114,7 +114,7 @@ To upgrade the Agents running in your OpenShift cluster, run the helm upgrade co
 
 ### Enable cluster checks
 
-Optionally, the chart can be configured to start an additional StackState Agent V2 pod as a StackState ClusterCheck Agent pod that run cluster checks. Cluster checks that are configured on the [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) will then be run by the deployed [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional) pod.
+Optionally, the chart can be configured to start an additional StackState Agent V2 pod as a StackState ClusterCheck Agent pod. Cluster checks that are configured on the [StackState Cluster Agent](openshift.md#stackstate-cluster-agent) will then be run by the deployed [StackState ClusterCheck Agent](openshift.md#stackstate-clustercheck-agent-optional) pod.
 
 To enable cluster checks and deploy the ClusterCheck Agent pod, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
 
