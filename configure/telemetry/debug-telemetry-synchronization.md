@@ -93,8 +93,18 @@ In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/bro
 
 ### StackState
 
-#### Linux
+{% tabs %}
+{% tab title="Kubernetes" %}
+When StackState is deployed on Kubernetes, there are pods with descriptive names and logging is outputted on standard out.
 
+The following logs may be useful when debugging telemetry synchronization:
+
+* There is a pod for the StackState Receiver.
+* There is a pod for each Kafka to Elasticsearch process. These processes are responsible for getting telemetry data from Kafka to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
+
+➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#kubernetes)
+{% endtab %}
+{% tab title="Linux" %}
 When deployed on Linux, StackState log files are located in the directory:
 
 ```yaml
@@ -108,17 +118,8 @@ The following log files may be useful when debugging telemetry synchronization:
 * **ElasticSearch:** `/opt/stackstate/var/log/elasticsearch7`
 
 ➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#linux)
-
-#### Kubernetes
-
-When StackState is deployed on Kubernetes, there are pods with descriptive names and logging is outputted on standard out.
-
-The following logs may be useful when debugging telemetry synchronization:
-
-* There is a pod for the StackState Receiver.
-* There is a pod for each Kafka to Elasticsearch process. These processes are responsible for getting telemetry data from Kafka to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
-
-➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#kubernetes)
+{% endtab %}
+{% endtabs %}
 
 ### StackState Agent
 
