@@ -59,7 +59,7 @@ Telemetry is either pushed to StackState by a StackState Agent, or pulled from a
 ### StackState Agent
 
 For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
-- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
+- Check the [StackState Agent log](#stackstate-agent) for hints that it has problems connecting to StackState.
 - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
@@ -71,13 +71,14 @@ Note that for the Kubernetes and OpenShift integrations, different Agent types s
 
 The StackState receiver receives JSON data from the StackState Agent. 
 
-- Check the StackState receiver logs for JSON deserialization errors. For details on working with the StackState log files, see the page [Configure > Logging > StackState log files](/configure/logging/stackstate-log-files.md).
+- Check the [StackState receiver logs](#stackstate) for JSON deserialization errors..
 
 ### Elasticsearch
 
 Telemetry data from push-based integrations is stored in an Elasticsearch index. The naming of the fields within the index is entirely based on the data retrieved from the external source system.
 
 - Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
+- If the expected data is not in Elasticsearch, check the [KafkaToES log](#stackstate) for errors.
 
 ### Telemetry stream configuration
 
@@ -87,6 +88,45 @@ In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/bro
 
 - Check that data is available for the selected filters. An update to an external system may result in a change to the name applied to metrics in Elasticsearch or no results being returned when the external data source is queried.
 - Use auto-complete to select the filters. This ensures that the correct names are entered.
+
+## Log files
+
+### StackState
+
+#### Linux
+
+When deployed on Linux, StackState log files are located in the directory:
+
+```yaml
+/opt/stackstate/var/log
+```
+
+The following log files may be useful when debugging telemetry synchronization:
+
+* **StackState Receiver:** `/opt/stackstate/var/log/stackstate-receiver`
+* **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - contains logs for the processes that are responsible for getting telemetry data from Kafka to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
+* **ElasticSearch:** `/opt/stackstate/var/log/elasticsearch7`
+
+➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#linux)
+
+#### Kubernetes
+
+When StackState is deployed on Kubernetes, there are pods with descriptive names and logging is outputted on standard out.
+
+The following logs may be useful when debugging telemetry synchronization:
+
+* There is a pod for the StackState Receiver.
+* There is a pod for each Kafka to Elasticsearch process. These processes are responsible for getting telemetry data from Kafka to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
+
+➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#kubernetes)
+
+### StackState Agent
+
+StackState Agent log files are located in the directory:
+
+```yaml
+/var/log/stackstate-agent/
+```
 
 ## See also
 
