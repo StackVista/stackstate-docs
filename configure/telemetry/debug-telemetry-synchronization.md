@@ -81,10 +81,12 @@ Telemetry data from push-based integrations is stored in an Elasticsearch index.
 
 ### Telemetry stream configuration
 
-To add telemetry to an element, the filters specified for each telemetry stream attached to an element are used to build a query. For push-based synchronizations, Elasticsearch is queried to retrieve the associated telemetry data. For pull-based synchronizations, the associated StackState plugin queries the external data source directly. In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to see details  of the applied filters.
+To add telemetry to an element, the filters specified for each telemetry stream attached to an element are used to build a query. For push-based synchronizations, Elasticsearch is queried to retrieve the associated telemetry data. For pull-based synchronizations, the associated StackState plugin queries the external data source directly. 
 
-- Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check that the filters match the data received from the external data source. For example, an update to an external system may result in a change to the name applied to metrics in Elasticsearch or no results being returned when the external data source is queried.
-- Use auto-complete to fill the filters. This ensures that the correct names are entered.
+In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to see details of the applied filters:
+
+- Check that data is available for the selected filters. An update to an external system may result in a change to the name applied to metrics in Elasticsearch or no results being returned when the external data source is queried.
+- Use auto-complete to select the filters. This ensures that the correct names are entered.
 
 ## See also
 
