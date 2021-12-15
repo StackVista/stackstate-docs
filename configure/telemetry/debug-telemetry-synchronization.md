@@ -100,7 +100,7 @@ When StackState is deployed on Kubernetes, there are pods with descriptive names
 The following logs may be useful when debugging telemetry synchronization:
 
 * There is a pod for the StackState Receiver.
-* There is a pod for each Kafka to Elasticsearch process. These processes are responsible for getting telemetry data from Kafka to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
+* There is a pod for each Kafka to Elasticsearch process. These processes are responsible for getting telemetry data to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
 
 ➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#kubernetes)
 {% endtab %}
@@ -114,7 +114,7 @@ When deployed on Linux, StackState log files are located in the directory:
 The following log files may be useful when debugging telemetry synchronization:
 
 * **StackState Receiver:** `/opt/stackstate/var/log/stackstate-receiver`
-* **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - contains logs for the processes that are responsible for getting telemetry data from Kafka to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
+* **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - contains logs for the processes that are responsible for getting telemetry data to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
 * **ElasticSearch:** `/opt/stackstate/var/log/elasticsearch7`
 
 ➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#linux)
