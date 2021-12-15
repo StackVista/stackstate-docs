@@ -476,7 +476,7 @@ hbase:
     image:
       repository: stackstate/hbase-regionserver
       # defaults to `stackgraph.image.tag`
-      tag:
+      tag: 
 ```
 
 ### Router
