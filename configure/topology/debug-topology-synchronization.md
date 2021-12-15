@@ -44,8 +44,8 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 ### StackState receiver
 
 The StackState receiver receives JSON data from the StackState Agent. 
+ 
 - Check the StackState receiver logs for JSON deserialization errors. 
-
 
 ### Kafka
 
@@ -165,4 +165,3 @@ latency (Seconds)                                   35.754  ---                 
 
 * [Working with StackState log files](/configure/logging/stackstate-log-files.md)
 * [Configure topology synchronizations](/configure/topology/sync.md)
-* [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)

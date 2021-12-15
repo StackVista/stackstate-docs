@@ -23,7 +23,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
 1. Click on a Metric stream anomaly event in the Events Perspective
    * The event details pane opens on the right of the screen.
    * The affected stream is displayed highlighting the detected anomaly.
-2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry browser](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
+2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
 ![Metric stream anomaly event details](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
