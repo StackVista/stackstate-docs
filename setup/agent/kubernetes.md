@@ -49,7 +49,7 @@ By default, metrics are also retrieved from kube-state-metrics if that is deploy
 
 ### StackState ClusterCheck Agent (optional)
 
-The StackState ClusterCheck Agent is an additional StackState Agent V2 pod that is deployed only when [cluster checks are enabled](#enable-cluster-checks) in the Helm chart. When deployed, cluster checks configured on the [StackState Cluster Agent](#stackstate-cluster-agent) will be run by the StackState ClusterCheck Agent pods (default one). 
+The StackState ClusterCheck Agent is an additional StackState Agent V2 pod that is deployed only when [cluster checks are enabled](#enable-cluster-checks) in the Helm chart. When deployed, cluster checks configured on the [StackState Cluster Agent](#stackstate-cluster-agent) will be run by the StackState ClusterCheck Agent pod. 
 
 On large Kubernetes clusters, you can [run the `kubernetes_state` check on the ClusterCheck Agent](#kubernetes_state-check-as-a-cluster-check). This check gathers metrics from kube-state-metrics and sends them to StackState. The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
 
