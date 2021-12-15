@@ -77,13 +77,13 @@ The StackState receiver receives JSON data from the StackState Agent.
 
 Telemetry data from push-based integrations is stored in an Elasticsearch index. The naming of the fields within the index is entirely based on the data retrieved from the external source system.
 
-- Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
+- Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
 
 ### Telemetry stream configuration
 
-To add telemetry to an element, the filters specified for each telemetry stream attached to an element are used to build a query. For push-based synchronizations, Elasticsearch is queried to retrieve the associated telemetry data. For pull-bsed synchronizations, the associated StackState plugin queries the external data source directly. In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to see details  of the applied filters.
+To add telemetry to an element, the filters specified for each telemetry stream attached to an element are used to build a query. For push-based synchronizations, Elasticsearch is queried to retrieve the associated telemetry data. For pull-based synchronizations, the associated StackState plugin queries the external data source directly. In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to see details  of the applied filters.
 
-- Check that the filters match the data received from the external data source. For example, an update to an external system may result in a change to the name applied to metrics in Elasticsearch.
+- Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check that the filters match the data received from the external data source. For example, an update to an external system may result in a change to the name applied to metrics in Elasticsearch or no results being returned when the external data source is queried.
 - Use auto-complete to fill the filters. This ensures that the correct names are entered.
 
 ## See also
