@@ -113,9 +113,9 @@ To upgrade the Agents running in your Kubernetes cluster, run the helm upgrade c
 
 ### Enable cluster checks
 
-Optionally, the chart can be configured to start additional StackState Agent V2 pods \(1 by default\) as StackState ClusterCheck Agent pods that run cluster checks. Cluster checks that are configured on the [StackState Cluster Agent](kubernetes.md#stackstate-cluster-agent) will then be run by one of the deployed [StackState ClusterCheck Agent](kubernetes.md#stackstate-clustercheck-agent-optional) pods.
+Optionally, the chart can be configured to start an additional StackState Agent V2 pod as a StackState ClusterCheck Agent pod that runs cluster checks. Cluster checks that are configured on the [StackState Cluster Agent](kubernetes.md#stackstate-cluster-agent) will then be run by the deployed [StackState ClusterCheck Agent](kubernetes.md#stackstate-clustercheck-agent-optional) pod.
 
-To enable cluster checks and deploy the ClusterCheck Agent pods, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
+To enable cluster checks and deploy the ClusterCheck Agent pod, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
 
 ```yaml
 clusterChecks:
