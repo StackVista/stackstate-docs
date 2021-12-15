@@ -313,7 +313,7 @@
                  face="helvetica"
                  size="1">
                 <xhtml:b
-                   style="font-size: 14px">Cloudwatch plugin</xhtml:b>
+                   style="font-size: 14px">CloudWatch plugin</xhtml:b>
                 <xhtml:br />
               </xhtml:font>
             </xhtml:div>
@@ -327,7 +327,7 @@
          font-family="Helvetica"
          font-size="12px"
          text-anchor="middle"
-         id="text62">Cloudwatch plugin</text>
+         id="text62">CloudWatch plugin</text>
     </switch>
   </g>
   <path
