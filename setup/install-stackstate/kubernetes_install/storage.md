@@ -19,7 +19,6 @@ In the example below, all services that store data are switched to rely on the s
 ```yaml
 elasticsearch:
   volumeClaimTemplate:
-    # the storageClass to use
     storageClassName: "standard"
       resources:
         requests:
@@ -30,14 +29,12 @@ hbase:
   hdfs:
     datanode:
       persistence:
-        # the storageClass to use
         storageClass: "standard"
         # size of volume for HDFS data nodes
         size: 250Gi
 
     namenode:
       persistence:
-        # the storageClass to use
         storageClass: "standard"
         # size of volume for HDFS name nodes
         size: 20Gi
