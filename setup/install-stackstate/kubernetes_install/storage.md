@@ -44,12 +44,10 @@ hbase:
 
 
 kafka:
-  metrics:
-    kafka:
-      persistence:
-        storageClass: "standard"
-        # size of persistent volume for each Kafka pod
-        size: 50Gi
+  persistence:
+    storageClass: "standard"
+    # size of persistent volume for each Kafka pod
+    size: 50Gi
 
 
 zookeeper:
