@@ -30,12 +30,14 @@ hbase:
   hdfs:
     datanode:
       persistence:
+        # the storageClass to use
         storageClass: "standard"
         # Size of volume for HDFS data nodes
         size: 250Gi
 
     namenode:
       persistence:
+        # the storageClass to use
         storageClass: "standard"
         # Size of volume for HDFS name nodes
         size: 20Gi
