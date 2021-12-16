@@ -1,6 +1,6 @@
 # Configure storage
 
-## storage defaults
+## Storage defaults
 
 StackState doesn't specify a specific storage class on its PVC's \(persistent volume claims\) by default, for cloud providers like EKS and AKS this means the default storage class will be used.
 
