@@ -16,27 +16,42 @@ In the example below, all services that store data are switched to rely on the s
 
 {% tabs %}
 {% tab title="values.yaml" %}
-```text
+```yaml
 elasticsearch:
   volumeClaimTemplate:
     storageClassName: "standard"
+      resources:
+        requests:
+            # size of volume for each Elasticsearch pod
+            storage: 250Gi
 
 hbase:
   hdfs:
     datanode:
       persistence:
         storageClass: "standard"
+        # size of volume for HDFS data nodes
+        size: 250Gi
+
     namenode:
       persistence:
         storageClass: "standard"
+        # size of volume for HDFS name nodes
+        size: 20Gi
+
 
 kafka:
   persistence:
     storageClass: "standard"
+    # size of persistent volume for each Kafka pod
+    size: 50Gi
+
 
 zookeeper:
   persistence:
     storageClass: "standard"
+    # size of persistent volume for each Zookeeper pod
+    size: 50Gi
 ```
 {% endtab %}
 {% endtabs %}
