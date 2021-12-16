@@ -1,6 +1,6 @@
 # Configure storage
 
-## Storage defaults
+## storage defaults
 
 StackState doesn't specify a specific storage class on its PVC's \(persistent volume claims\) by default, for cloud providers like EKS and AKS this means the default storage class will be used.
 
@@ -23,7 +23,7 @@ elasticsearch:
     storageClassName: "standard"
       resources:
         requests:
-            # Size of volume for each Elasticsearch pod
+            # size of volume for each Elasticsearch pod
             storage: 250Gi
 
 hbase:
@@ -32,14 +32,14 @@ hbase:
       persistence:
         # the storageClass to use
         storageClass: "standard"
-        # Size of volume for HDFS data nodes
+        # size of volume for HDFS data nodes
         size: 250Gi
 
     namenode:
       persistence:
         # the storageClass to use
         storageClass: "standard"
-        # Size of volume for HDFS name nodes
+        # size of volume for HDFS name nodes
         size: 20Gi
 
 
@@ -48,14 +48,14 @@ kafka:
     kafka:
       persistence:
         storageClass: "standard"
-        # Size of persistent volume for each Kafka pod
+        # size of persistent volume for each Kafka pod
         size: 50Gi
 
 
 zookeeper:
   persistence:
     storageClass: "standard"
-    # Size of persistent volume for each Zookeeper pod
+    # size of persistent volume for each Zookeeper pod
     size: 50Gi
 ```
 {% endtab %}
