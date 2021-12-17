@@ -16,15 +16,13 @@ Subjects can be created using the StackState CLI by passing a subject name and a
 sts subject save <SUBJECT_NAME> `<STQL_QUERY>`
 ```
 {% hint style="info" %}
-**Note**
-
 * All operators in the STQL query \( such as `=` and `<`\) must be surrounded by spaces.
 * For LDAP authentication, the subject name must exactly match a username or group name configured in LDAP (case-sensitive).
 {% endhint %}
 
 ### Examples
 
-* Create a subject `stackstate` with access to all elements with the label `"StackState"`:
+* Create a subject `stackstate` with access to all elements that have the label `"StackState"`:
     ```text
     sts subject save stackstate 'label = "StackState"'
   
