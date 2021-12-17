@@ -196,6 +196,7 @@
     * [Roles](configure/security/rbac/rbac_roles.md)
     * [Scopes](configure/security/rbac/rbac_scopes.md)
     * [Subjects](configure/security/rbac/rbac_subjects.md)
+    * [Manage users](configure/security/rbac/manage-users.md)
   * [Self-signed certificates](configure/security/self-signed-cert.md)
   * [Secrets management](configure/security/secrets_management.md)
   * [Self-signed certificates](configure/security/self-signed-cert-1.md)
