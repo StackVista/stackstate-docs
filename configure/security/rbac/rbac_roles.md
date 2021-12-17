@@ -62,3 +62,78 @@ If your StackState instance is configured with a file-based authentication, then
     }
    ```
 
+## Predefined roles
+
+StackState comes with four predefined roles:
+
+* **Administrators** \(`stackstate-admin`\): Have access to all views and have all permissions, except for the platform management permission `access-admin-api`.
+* **Platform Administrators** \(`stackstate-platform-admin`\): Have platform management permissions and have access to all views.
+* **Power Users** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for:
+  * `execute-restricted-scripts`
+  * `update-permissions`
+  * `upload-stackpacks`
+* **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
+
+  ```text
+    $ sts permission show stackstate-guest                    
+    subject           permission                 resource
+    ----------------  -------------------------  ----------
+    stackstate-guest  access-explore             system
+    stackstate-guest  perform-custom-query       system
+    stackstate-guest  read-permissions           system
+    stackstate-guest  update-visualization       system
+    stackstate-guest  execute-component-actions  system
+    stackstate-guest  access-view                everything
+  ```
+
+### Default and custom role names
+
+The default pre-defined role names \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-guest`\) are always available. Additional custom role names can be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to extend the default role names with these custom role names.
+
+```yaml
+stackstate:
+  authentication:
+    roles:
+      guest: ["custom-guest-role"]
+      powerUser: ["custom-power-user-role"]
+      admin: ["custom-admin-role"]
+      platformAdmin: ["custom-platform-admin-role"]
+```
+
+To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
+
+```text
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --values authentication.yaml \
+stackstate \
+stackstate/stackstate
+```
+{% endtab %}
+
+{% tab title="Linux" %}
+To extend the default role names with custom role names:
+
+1. Edit the existing keys in the `authorization` section of the configuration file `application_stackstate.conf`.
+2. Add custom roles using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.
+
+   ```javascript
+   authorization {
+    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role"]
+    powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role"]
+    adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role"]
+    platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role"]
+   }
+   ```
+
+3. Restart StackState for changes to take effect.
+
+   The list of roles will be extended to include the new, custom roles. The default roles will remain available \(stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user\).
+{% endtab %}
+{% endtabs %}
