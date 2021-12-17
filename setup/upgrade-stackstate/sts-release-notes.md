@@ -10,6 +10,24 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.5.x
 
+# 4.5.1
+
+**Improvements**
+
+- The MinIO chart has been internalized to StackState to ensure its continuity. STAC-14977
+- The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
+
+**Bug fixes**
+
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228 and CVE-2021-45046). STAC-15200
+- Fixed issue that caused the stackstate-ui to crash occasionally due to a misconfiguration of the Prometheus nginx exporter. STAC-15167
+- Set sync counters back to 0 after a sync reset operation. STAC-15088
+- Fixed issue that caused incorrect metric data to create spurious indices in ElasticSearch. STAC-14978
+- Fixed issue that caused Kubernetes synchronization to fail when processing specific data. STAC-14811
+- Resolved several vulnerabilities in stackstate-ailab docker image. STAC-14760
+- Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
+- Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
+
 ### v4.5.0
 
 **Features**
@@ -49,6 +67,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Fixed issue that caused the process manager logs to be truncated. STAC-12875
 
 ## StackState v4.4.x
+
+# 4.4.3
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15194
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
 ### v4.4.2
 
@@ -115,6 +140,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
 ## StackState v4.3.x
+
+# 4.3.6
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
 ### v4.3.5
 
