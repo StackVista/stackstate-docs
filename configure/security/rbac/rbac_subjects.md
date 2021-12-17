@@ -10,7 +10,7 @@ To create a new subject \(a group or a username\), you must follow the StackStat
 
 ## Create a subject
 
-Subjects can be created using the StackState CLI by passing a subject name and an STQL query defining the subject's scope.
+Subjects can be created using the StackState CLI by passing a subject name and an STQL query to define the subject's scope.
 
 ```yaml
 sts subject save <SUBJECT_NAME> `<STQL_QUERY>`
@@ -24,14 +24,11 @@ sts subject save <SUBJECT_NAME> `<STQL_QUERY>`
 
 ### Examples
 
-To create the `stackstate` subject with a scope that allows the user to see all elements with the label `"StackState"`:
-
+* Create the subject `stackstate` with a scope that allows the user to see all elements with the label `"StackState"`:
 ```text
 sts subject save stackstate 'label = "StackState"'
 ```
-
-To create the subject `stackstateManager` that has access to elements of type `Business Applications` within the label `StackState`:
-
+* Create the subject `stackstateManager` that has access to elements of type `Business Applications` within the label `StackState`:
 ```text
 sts subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
 ```
