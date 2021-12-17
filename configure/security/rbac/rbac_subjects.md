@@ -22,7 +22,9 @@ To give more context and specific limitations you can create the subject called 
 sts subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
 ```
 
-Please note that when passing a STQL query in a CLI command, all operators\( like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
+{% hint style="info" %}
+**Note**
 
-Please note that if you are using LDAP authentication, then the subject needs to be provided with a name that exactly matches the username or a group name that is configured in LDAP, as it is case sensitive.
-
+* When passing an STQL query in a CLI command, all operators\( like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
+* For LDAP authentication, the subject name must exactly match a username or group name that is configured in LDAP (case-sensitive).
+{% endhint %}

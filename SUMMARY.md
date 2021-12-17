@@ -194,7 +194,7 @@
     * [Role-based Access Control](configure/security/rbac/role_based_access_control.md)
     * [Permissions](configure/security/rbac/rbac_permissions.md)
     * [Roles](configure/security/rbac/rbac_roles.md)
-    * [Scopes](configure/security/rbac/rbac_scopes.md)
+    * [Scope](configure/security/rbac/rbac_scopes.md)
     * [Subjects](configure/security/rbac/rbac_subjects.md)
     * [Manage users](configure/security/rbac/manage-users.md)
   * [Self-signed certificates](configure/security/self-signed-cert.md)
