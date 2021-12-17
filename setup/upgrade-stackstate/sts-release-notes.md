@@ -16,6 +16,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
+# 4.3.6
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
+
 ### v4.3.5
 
 **Improvements**
