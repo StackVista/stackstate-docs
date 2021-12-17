@@ -4,16 +4,12 @@
 
 StackState is configured by default with file based authentication with predefined roles for Guests \(very limited permission level\), Power Users and Administrators \(full permission level\). To change the configuration to use LDAP authentication, see [authentication docs](../authentication/).
 
-## How to make a new user, or a group, with scopes?
-
-To create a new subject \(a group or a username\), you must follow the StackState CLI route below. When you create a subject, it has no permissions at first. All custom subjects need a scope by design, so they do not have access to the full topology. This is a security requirement that makes sure that users have access only to what they need.
-
 ## Create a subject
 
-Subjects can be created using the StackState CLI by passing a subject name and an [STQL query](/develop/reference/stql_reference.md) to define the subject's scope.
+Subjects can be created using the StackState CLI by passing a user or group name and an [STQL query](/develop/reference/stql_reference.md) to define the subject's scope.
 
 ```yaml
-sts subject save <SUBJECT_NAME> `<STQL_QUERY>`
+sts subject save <USER_OR_GROUP_NAME> `<STQL_QUERY>`
 ```
 {% hint style="info" %}
 * All operators in the STQL query \( such as `=` and `<`\) must be surrounded by spaces.
