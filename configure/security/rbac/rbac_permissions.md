@@ -18,9 +18,9 @@ There are two types of permission in StackState:
 
 ## System permissions
 
-System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system wide.
+System permissions scope user capabilities, such as access to settings, query execution and scripting. They are set system-wide. The table below lists all system permissions and the [predefined roles](/configure/security/rbac/rbac_roles.md#predefined-roles) that they are applied to.
 
-See also the full list of [view permissions](rbac_permissions.md#view-permissions).
+See also the list of [view permissions](rbac_permissions.md#view-permissions).
 
 | Permission | Purpose | Guest | Power user | Admin | Platform Admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -53,9 +53,9 @@ See also the full list of [view permissions](rbac_permissions.md#view-permission
 
 ## View permissions
 
-View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views \(`everything`\).
+View permissions allow for CRUD operations on StackState Views. They can be set for a specific view or all views \(`everything`\). The table below lists all view permissions and the [predefined roles](/configure/security/rbac/rbac_roles.md#predefined-roles) that they are applied to.
 
-See also the full list of [system permissions](rbac_permissions.md#system-permissions).
+See also the list of [system permissions](rbac_permissions.md#system-permissions).
 
 | Permission | Purpose | Guest | Power user | Admin | Platform Admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -81,7 +81,7 @@ The permissions in the table below are required to access specific pages in the 
 | **Settings** &gt; **Export Settings** Also requires `read-settings`. Without this permission, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` | - | ✅ | ✅ | - |
 | **Settings** &gt; **Import Settings** Also requires `read-settings`. Without this permission, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ### Topology
 
@@ -95,7 +95,7 @@ The permissions listed below are required to work with topology in StackState:
 | Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | Add components button. Create relations between topology elements. | `manage-topology-elements` and `perform-custom-query` and `read-settings` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ### Component/relation details
 
@@ -108,7 +108,7 @@ The permissions listed below are required to carry out specific actions in the c
 | **Elements** Delete an element or element template. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Elements** Edit an element or element template. | `manage-topology-elements` and `perform-custom-query` and `read-settings` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ### View management
 
@@ -123,7 +123,7 @@ The permissions listed below can be set to access and work with views:
 | Save updates to a view. For a specific view or all views \(`everything`\). | `save-view` | - | ✅  `everything` | ✅  `everything` | - |
 | Delete a view. For a specific view or all views \(`everything`\). | `delete-view` | - | ✅  `everything` | ✅  `everything` | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ### Analytics environment
 
@@ -135,7 +135,7 @@ The permissions listed below are required to access and execute scripts in the S
 | Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. Also requires `access-analytics`. | `execute-scripts` | - | ✅ | ✅ | - |
 | Execute scripts that use the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md). Also requires `access-analytics` and `execute-scripts`. | `execute-restricted-scripts` | - | - | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ### Settings page
 
@@ -148,7 +148,7 @@ The permissions listed below are required to access and manage settings in the S
 | Export capability. Without this permission, checkboxes are not available on the settings page. | `export-settings` | - | ✅ | ✅ | - |
 | Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ### Platform Management
 
@@ -159,7 +159,7 @@ The permissions listed below are required to access and manage StackState platfo
 | `access-admin-api` | Access the administrator API. | - | - | - | ✅ |
 | `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
 ## Example CLI commands
 
@@ -231,3 +231,6 @@ Below is an example of how the StackState UI would look for a user without any p
 
 ![No permissions](../../../.gitbook/assets/noperm.png)
 
+## See also
+
+* [Predefined and custom roles in StackState](/configure/security/rbac/rbac_roles.md)
