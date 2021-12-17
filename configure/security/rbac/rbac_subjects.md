@@ -24,12 +24,12 @@ sts subject save <SUBJECT_NAME> `<STQL_QUERY>`
 
 ### Examples
 
-* Create the subject `stackstate` with a scope that allows the user to see all elements with the label `"StackState"`:
+* Create a subject `stackstate` with a scope to see all elements with the label `"StackState"`:
     ```text
     sts subject save stackstate 'label = "StackState"'
   
     ```
-* Create the subject `stackstateManager` that has access to elements of type `Business Applications` within the label `StackState`:
+* Create a subject `stackstateManager` with access to elements of type `Business Applications` within the label `StackState`:
     ```text
     sts subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
   
