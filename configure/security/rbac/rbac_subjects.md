@@ -18,7 +18,7 @@ sts subject save <SUBJECT_NAME> `<STQL_QUERY>`
 {% hint style="info" %}
 **Note**
 
-* When passing an STQL query in a CLI command, all operators \( such as `=` and `<`\) need to be surrounded by spaces.
+* All operators in the STQL query \( such as `=` and `<`\) must be surrounded by spaces.
 * For LDAP authentication, the subject name must exactly match a username or group name configured in LDAP (case-sensitive).
 {% endhint %}
 
