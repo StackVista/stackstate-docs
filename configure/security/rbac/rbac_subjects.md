@@ -1,4 +1,4 @@
-# Subjects
+# Subjects (users and groups)
 
 ## Link your existing authentication provider to StackState RBAC
 
