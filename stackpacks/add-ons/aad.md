@@ -13,18 +13,12 @@ Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous 
 The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
 
 ## Installation
+    
+### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-**Prerequisites**
-
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/installation/kubernetes_install/). Please make sure that this is supported by your StackState installation.
-* It is also possible to [install the AAD standalone](../../setup/installation/kubernetes_install/aad_standalone.md) within Kubernetes.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
-{% endhint %}
+* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
+* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md "StackState Self-Hosted only") within Kubernetes.
+* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
@@ -54,12 +48,9 @@ Yes. The AAD itself does not alert on anomalies found, but [anomaly health check
 
 After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
+{% hint style="success" "self-hosted info" %}
 
-Extra information for the StackState Self-Hosted product:
-
-* Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/installation/kubernetes_install/aad_standalone.md#troubleshooting)\).
+Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)\).
 {% endhint %}
 
 ## Uninstall
@@ -99,5 +90,5 @@ Note that from StackState release v4.3 the AAD is configured, installed and upgr
 
 ## See also
 
-* [Anomaly detection](../../use/stackstate-concepts/anomaly-detection.md)
+* [Anomaly detection](../../use/concepts/anomaly-detection.md)
 * [Anomaly health checks](../../use/health-state/anomaly-health-checks.md)

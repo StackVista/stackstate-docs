@@ -25,6 +25,10 @@ StackState Agent V2 is supported to run on:
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
+### StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
+
 ### Install
 
 StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
@@ -35,8 +39,8 @@ StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](htt
 {% hint style="info" %}
 The `stsApiKey` and `stsUrl` \(baseUrl\) specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](../installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](../installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 {% endhint %}
 
 #### Online install
@@ -46,7 +50,7 @@ If you have access to the internet on the machine where the Agent will be instal
 ```text
 . { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `
 install -stsApiKey "{{config.apiKey}}" `
--stsUrl "{{config.baseUrl}}/stsAgent"
+-stsUrl "<stackstate-receiver-api-address>"
 ```
 
 #### Offline install
@@ -62,7 +66,7 @@ If you do not have access to the internet on the machine where the Agent will be
    ```text
    Import-Module C:\install_script.ps1
    install -stsApiKey {{config.apiKey}} `
-   -stsUrl {{config.baseUrl}}/stsAgent `
+   -stsUrl <stackstate-receiver-api-address> `
    -f C:\\stackstate-custom.msi
    ```
 

@@ -10,10 +10,7 @@ This page describes how to use the built-in StackState Query Language \(STQL\) t
 
 An STQL query consists of [component filters](stql_reference.md#component-filters) and [functions](stql_reference.md#functions). The query output is a component, or set of components, filtered from the complete topology.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 STQL queries can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.
 
@@ -120,8 +117,26 @@ layer = "application"
 
 The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but will not produce any additional components.
 
+## Compatibility basic and advanced filters
+
+You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** pane.
+
+It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
+
+* Basic filters cannot contain an inequality.
+* Basic filters do not use `=`, rather they are formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.
+* Basic filters use AND/OR in a specific way:
+    - All items in each basic filter box are joined with an **OR**: `layer IN ("business service", "applications", "databases")`
+    - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`
+    - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
+    - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they are joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
+  
+If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
+
+
 ## See also
 
+* [Basic topology filters](/use/stackstate-ui/filters.md#basic-topology-filters)
 * [Topology filter limits](../../use/stackstate-ui/filters.md#topology-filtering-limits)
 * [How to filter topology in the StackState UI](../../use/stackstate-ui/filters.md)
 

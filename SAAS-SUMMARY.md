@@ -4,13 +4,14 @@
 
 ## 🚀 Get started
 
-* [Getting Started](use/stackstate-concepts/getting_started.md)
-* [StackState concepts](use/stackstate-concepts/README.md)
-  * [The 4T data model](use/stackstate-concepts/4t_data_model.md)
-  * [Components and Relations](use/stackstate-concepts/components_relations.md)
-  * [Perspectives](use/stackstate-concepts/perspectives.md)
-  * [Anomaly detection](use/stackstate-concepts/anomaly-detection.md)
-  * [Layers, Domains and Environments](use/stackstate-concepts/layers_domains_environments.md)
+* [Quick start guide](saas-quick-start-guide.md)
+* [StackState walk-through](getting_started.md)
+* [Concepts](use/concepts/README.md)
+  * [The 4T data model](use/concepts/4t_data_model.md)
+  * [Components and Relations](use/concepts/components_relations.md)
+  * [Perspectives](use/concepts/perspectives.md)
+  * [Anomaly detection](use/concepts/anomaly-detection.md)
+  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
 * [Glossary](use/glossary.md)
 
 ## 👤 StackState UI
@@ -20,6 +21,7 @@
 * [Views](use/stackstate-ui/views/README.md)
   * [About views](use/stackstate-ui/views/about_views.md)
   * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
+  * [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
   * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
 * [Perspectives](use/stackstate-ui/perspectives/README.md)
   * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
@@ -38,22 +40,23 @@
 
 ## 🛑 Problem analysis
 
-* [What is a problem?](use/problem-analysis/problems.md)
+* [About problems](use/problem-analysis/about-problems.md)
 * [Investigate a problem](use/problem-analysis/problem_investigation.md)
 * [Problem notifications](use/problem-analysis/problem_notifications.md)
 
 ## 📈 Metrics and events
 
 * [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
-* [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)
+* [Golden signals](use/metrics-and-events/golden_signals.md)  
+* [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
-* [Send event notifications](use/metrics-and-events/send-event-notifications.md)
+* [Event notifications](use/metrics-and-events/event-notifications.md)
 * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
 * [Set up traces](configure/traces/how_to_setup_traces.md)
 
 ## 🧩 StackPacks
 
-* [What is a StackPack?](stackpacks/about-stackpacks.md)
+* [About StackPacks](stackpacks/about-stackpacks.md)
 * [Add-ons](stackpacks/add-ons/README.md)
   * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
@@ -61,21 +64,20 @@
   * [StackState Agent](setup/agent/README.md)
     * [About the StackState Agent](setup/agent/about-stackstate-agent.md)
     * [Agent V2 StackPack](stackpacks/integrations/agent.md)
-    * [Docker](setup/agent/docker.md)
-    * [Kubernetes](setup/agent/kubernetes.md)
-    * [Linux](setup/agent/linux.md)
-    * [OpenShift](setup/agent/openshift.md)
-    * [Windows](setup/agent/windows.md)
+    * [Agent V2 on Docker](setup/agent/docker.md)
+    * [Agent V2 on Kubernetes](setup/agent/kubernetes.md)
+    * [Agent V2 on Linux](setup/agent/linux.md)
+    * [Agent V2 on OpenShift](setup/agent/openshift.md)
+    * [Agent V2 on Windows](setup/agent/windows.md)
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
-    * [AWS \(Legacy\)](stackpacks/integrations/aws/aws-legacy.md)
-    * [Migrate AWS \(Legacy\) to AWS](stackpacks/integrations/aws/migration-guide.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)
+  * [Slack](stackpacks/integrations/slack.md)
 
 ## 📖 Reference
 

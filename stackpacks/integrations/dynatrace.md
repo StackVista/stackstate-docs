@@ -14,9 +14,9 @@ The Dynatrace StackPack creates a synchronization between a Dynatrace instance a
   * If a Dynatrace topology check is configured, Topology and Smartscape data is retrieved
   * If a Dynatrace health check is configured, events data is retrieved.
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
-* [Topology data](dynatrace.md#topology) is translated into components and relations. 
-* [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState.
-* [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+    * [Topology data](dynatrace.md#topology) is translated into components and relations. 
+    * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
+    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
 
 ## Setup
 
@@ -206,7 +206,9 @@ The Dynatrace integration does not retrieve any metrics data.
 
 #### Tags
 
-All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState. The Dynatrace integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState. 
+
+The Dynatrace integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
@@ -216,6 +218,10 @@ The [Dynatrace topology check](#dynatrace-topology-check) retrieves the followin
 | :--- | :--- |
 | Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services and Custom Devices. |
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace. |
+
+{% hint style="info" %}
+The Dynatrace integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+{% endhint %}
 
 #### Traces
 
@@ -232,14 +238,14 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v44_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v45_dynatrace-filter.png)
 
 ### Open source
 
 The code for the Dynatrace checks are open source and available on GitHub: 
 
-- Topology check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
-- Health check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
+- **Topology check:** [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+- **Health check:** [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
 
 ## Troubleshooting
 
@@ -262,7 +268,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 ## Release notes
 
-**Dynatrace StackPack v1.3.0 \(2021-xx-xx\)**
+**Dynatrace StackPack v1.3.0 \(2021-10-12\)**
 
 * Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks. 
 
@@ -293,7 +299,9 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
-* [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
+* StackState Agent integrations:
+  - [Topology check/(github.com/)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
+  - [Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
 * [How to generate a Dynatrace API token \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 * [Permissions for Dynatrace API tokens \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
 

@@ -2,9 +2,9 @@
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](problem_investigation.md#problem-details-pane) with further information about the problem.
+Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](problem_investigation.md#problem-details-pane) with further information about the problem.
 
-![View Details pane](../../.gitbook/assets/v44_view_details_problems.png)
+![View Details pane](../../.gitbook/assets/v45_view_details_problems.png)
 
 ## Problem Details pane
 
@@ -14,7 +14,7 @@ Click the **INVESTIGATE IN SUBVIEW** button to open all components in a problem 
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
+For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](about-problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
 
 ### Anomaly events
 
@@ -23,9 +23,9 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
 1. Click on a Metric stream anomaly event in the Events Perspective
    * The event details pane opens on the right of the screen.
    * The affected stream is displayed highlighting the detected anomaly.
-2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry browser](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
+2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
-![Metric stream anomaly event details](../../.gitbook/assets/v44_event_metric_stream_anomaly.png)
+![Metric stream anomaly event details](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 ### Element properties changed events
 
@@ -36,7 +36,7 @@ Element properties changed events are generated whenever relevant properties of 
 2. Click **Show all changes** in the event details pane.
    * A diff of the old and new properties is displayed.
 
-![View all changes](../../.gitbook/assets/v44_event_view_all_changes.png)
+![View all changes](../../.gitbook/assets/v45_event_view_all_changes.png)
 
 ### Version changed events
 
@@ -48,23 +48,15 @@ A problem subview is a temporary StackState view. The filters applied to a probl
 
 * **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
-* **Healthy components** - A number of healthy components are also included in a problem. These are:
-  * Upstream dependencies of the root cause or one of the contributing causes.
-  * Downstream components with an unhealthy propagated state that originates from either the root cause or one of the contributing causes.
+* **Healthy components** - A number of healthy components are also included in a problem:
+  * Upstream healthy dependencies of the root cause or one of the contributing causes.
+  * Downstream healthy components with an unhealthy [propagated state](/use/health-state/health-state-in-stackstate.md#propagated-health-state) that originates from either the root cause or one of the contributing causes.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
-
-You can configure custom [propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
-{% endhint %}
-
-Within a problem subview, you have access to all perspectives containing data specific to the problem time window and involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
+Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
 To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](../../.gitbook/assets/v44_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](../../.gitbook/assets/v45_problem_subview_breadcrumb.png)
 
 ### Time window of a problem
 
@@ -72,6 +64,6 @@ A problem is considered to start one hour before the timestamp of the first repo
 
 ## See also
 
-* [What is a problem?](problems.md)
+* [What is a problem?](about-problems.md)
 * [Problem notifications](problem_notifications.md)
-* [Anomaly detection](../stackstate-concepts/anomaly-detection.md)
+* [Anomaly detection](../concepts/anomaly-detection.md)

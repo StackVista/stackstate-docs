@@ -2,7 +2,7 @@
 
 ## Overview
 
-Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to [send an event notification](../../../use/metrics-and-events/send-event-notifications.md) or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can create your own custom event handler functions.
+Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an [event notification](/use/metrics-and-events/event-notifications.md) or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, or you can create your own custom event handler functions.
 
 ## Create a custom event handler function
 
@@ -25,9 +25,9 @@ Advanced StackState users can write their own custom event handler functions tha
      * How to [add logging to a function](event-handler-functions.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
-   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](../../../use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view) that listens to one of the configured **Supported Event Types**.
+   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler) that listens to one of the configured **Supported Event Types**.
 
-![Add a custom event handler function](../../../.gitbook/assets/v44_event_handler_functions.png)
+![Add a custom event handler function](../../../.gitbook/assets/v45_event_handler_functions.png)
 
 ## Parameters
 
@@ -42,14 +42,14 @@ For details of the properties that can be retrieved from the default **view** an
 
 ## Supported event types
 
-One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler to a view](../../../use/metrics-and-events/send-event-notifications.md#add-an-event-handler-to-a-view). For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler) to a view. For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 One or more of the following events can be selected:
 
 * **State change of entire view** - For functions that will react to a `ViewHealthStateChangedEvent`. These events are generated when the health state of the entire view changes.
 * **State change of an element** - For functions that will react to a `HealthStateChangedEvent`. These events are generated when an element's own health state changes.
 * **Propagated state change of an element** - For functions that will react to a `PropagatedHealthStateChangedEvent`. These events are generated when the propagated health state of an element changes.
-* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](../../../use/problem-analysis/problems.md) in the view.
+* **Problem changed events** - For functions that will react to `ProblemCreated`, `ProblemUpdated`, `ProblemSubsumed` or `ProblemResolved`. These events are generated for changes to [problems](../../../use/problem-analysis/about-problems.md) in the view.
 
 ## Logging
 
@@ -274,7 +274,7 @@ Synchronous event handler functions use plugins to send notifications to externa
 ## See also
 
 * [Enable logging for functions](../../../configure/logging/enable-logging.md)
-* [Send event notifications using an event handler function](../../../use/metrics-and-events/send-event-notifications.md)
+* [Send event notifications using an event handler function](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler)
 * [Configure an SMTP server to send email event notifications](../../../configure/topology/configure-email-event-notifications.md)  
 * [StackState script APIs](../../reference/scripting/script-apis/)
 * [How to create a Slack webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)

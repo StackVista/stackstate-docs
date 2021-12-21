@@ -32,12 +32,9 @@ Follow the instructions below to add an anomaly health check to a component.
    * **event** - leave unchanged. This is an instance of an anomaly event that the check will react to.
 5. Click **CREATE** to activate the check.
 
-![Add an autonomous metric stream anomaly detection check](../../.gitbook/assets/v44_autonomous_metric_stream_anomaly_detection_check.png)
+![Add an autonomous metric stream anomaly detection check](../../.gitbook/assets/v45_autonomous_metric_stream_anomaly_detection_check.png)
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can automate the creation of such checks, like any other checks, using the [component templates](../../configure/telemetry/telemetry_synchronized_topology.md).
 {% endhint %}
@@ -52,10 +49,7 @@ When enabled, the autonomous metric stream anomaly detection check function will
 * It can take between 5 to 25 minutes before an anomaly is detected, depending on the granularity of the metric stream and the size of the anomaly. Only anomalies lasting for several minutes are considered to be `HIGH` severity anomalies.
 * Once an anomaly is found, the `DEVIATING` health state will remain for at least 8 minutes.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 Advanced users of StackState can create [custom anomaly check functions](../../develop/developer-guides/custom-functions/check-functions.md).
 {% endhint %}

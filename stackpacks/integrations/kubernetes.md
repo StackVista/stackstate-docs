@@ -15,7 +15,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -46,11 +46,11 @@ If the Agent StackPack is not already installed, this will be automatically inst
 
 For the Kubernetes integration to retrieve topology, events and metrics data, you will need to have the following installed on your Kubernetes cluster:
 
-* A StackState Agent on each node in the cluster
+* StackState Agent V2 on each node in the cluster
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-Follow the instructions to [deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/kubernetes.md).
+➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes.md).
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
@@ -68,7 +68,6 @@ deployment.apps/stackstate-cluster-agent             1/1     1            1     
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
-
 ## Integration details
 
 ### Data retrieved
@@ -97,7 +96,7 @@ The Kubernetes integration makes all metrics from the Kubernetes cluster availab
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
-![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v44_add_k8s_stream.png)
+![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v45_add_k8s_stream.png)
 
 #### Topology
 
@@ -224,6 +223,14 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
 
 ## Release notes
+
+**Kubernetes StackPack v3.9.7 (2021-10-06)**
+
+* Bug Fix: Fix metrics for generic events
+
+**Kubernetes StackPack v3.9.6 (2021-08-20)**
+
+* Improvement: Add description to Views
 
 **Kubernetes StackPack v3.9.5 \(2021-07-14\)**
 

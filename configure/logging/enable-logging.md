@@ -21,7 +21,7 @@ The logging level should be set using the ID for an instance of a function, not 
    * [Event handler IDs](enable-logging.md#event-handler-ids)
    * [Propagation IDs](enable-logging.md#check-and-propagation-ids)
    * [View health state configuration IDs](enable-logging.md#view-health-state-configuration-ids)
-2. Use the [StackState CLI](../../setup/installation/cli-install.md) to set the logging level for the ID, for example:
+2. Use the [StackState CLI](../../setup/cli-install.md) to set the logging level for the ID, for example:
 
    ```text
    sts serverlog setlevel <id> DEBUG
@@ -55,7 +55,7 @@ Retrieve the ID for a specific instance of a function:
 
 #### Event handler IDs
 
-The ID for an event handler can be found using the [StackState CLI](../../setup/installation/cli-install.md). This is the ID for an instance of an event handler function.
+The ID for an event handler can be found using the [StackState CLI](../../setup/cli-install.md). This is the ID for an instance of an event handler function.
 
 * To list all event handlers, run the StackState CLI command below.
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
@@ -78,7 +78,7 @@ sts graph list EventHandler
 
 #### View health state configuration IDs
 
-The ID for a view health state configuration can be found using the [StackState CLI](../../setup/installation/cli-install.md). This is the ID for a view's instance of a view health state configuration function.
+The ID for a view health state configuration can be found using the [StackState CLI](../../setup/cli-install.md). This is the ID for a view's instance of a view health state configuration function.
 
 * Run the two StackState CLI commands below:
   1. To return the IDs of all StackState views.
@@ -178,13 +178,13 @@ The ID for a check or propagation on a specific component can be found in in the
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
-![Show JSON](../../.gitbook/assets/v44_show-json.png)
+![Show JSON](../../.gitbook/assets/v45_show-json.png)
 
 * Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 
 ## See also
 
-* [StackState CLI](../../setup/installation/cli-install.md)
+* [StackState CLI](../../setup/cli-install.md)
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
 * [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 * [State propagation and propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md)

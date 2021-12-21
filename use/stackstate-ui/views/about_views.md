@@ -13,12 +13,12 @@ The full topology available in StackState is likely much larger than you need to
   * Events and Traces filters - refine the traces and events displayed.
 * [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.
 * [View health state configuration](about_views.md#view-health-state) – reports the health state of the view.
-* Event handlers - respond to events generated in the view and [send event notifications](../../metrics-and-events/send-event-notifications.md).
+* Event handlers - respond to events generated in the view and send [event notifications](../../metrics-and-events/event-notifications.md).
 
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [event notifications and automation](../../metrics-and-events/send-event-notifications.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+2. Views can be used for [event notifications and automation](/use/stackstate-ui/views/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation.
 
@@ -43,7 +43,7 @@ When you first open a view, the View Details pane will be visible on the right-h
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.
-* **Problems** - Any [problems](../../problem-analysis/problems.md) in the view.
+* **Problems** - Any [problems](../../problem-analysis/about-problems.md) in the view.
 * **Events** - The most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
 
 ## View health state
@@ -59,18 +59,15 @@ A view is also a tool to define a clear selection of components for which you wa
 * To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md).
 * To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
-Read more about how to [configure the view health state](../../health-state/configure-view-health.md).
+➡️ [Learn more about how to configure the view health state](../../health-state/configure-view-health.md).
 
 ### Event notifications for view health state changes
 
-A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](../../metrics-and-events/send-event-notifications.md).
+A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](/use/stackstate-ui/views/manage-event-handlers.md).
 
 ## Secure views with RBAC
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 Through a combination of configuration of permissions and scope, it is possible [control access for specific users](../../../configure/security/rbac/role_based_access_control.md):
 
@@ -84,4 +81,4 @@ Through a combination of configuration of permissions and scope, it is possible 
 * [Create and edit views](create_edit_views.md)
 * [Health state for a view](../../health-state/health-state-in-stackstate.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
-* [Send event notifications for view health state changes](../../metrics-and-events/send-event-notifications.md)
+* [Send event notifications for view health state changes](/use/stackstate-ui/views/manage-event-handlers.md)

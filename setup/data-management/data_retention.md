@@ -26,7 +26,7 @@ sts graph retention set-window --window 864000000
 
 \(note that time value is provided in milliseconds - 10 days equals 864000000 milliseconds\)
 
-Please note that by adding more time to the data retention period, the amount of data stored is also going to grow and need more storage space. This may also affect the performance of the Views.
+Note that by adding more time to the data retention period, the amount of data stored is also going to grow and need more storage space. This may also affect the performance of the Views.
 
 After the new retention window is applied, you can schedule a new removal with this command:
 
@@ -37,7 +37,7 @@ sts graph retention set-window --schedule-removal
 
 After changing the retention period to a smaller window, you may end up with some data that is already expired and will wait there until the next scheduled cleanup. To schedule an additional removal of expired data, use the following command:
 
-Please note that this may take some time to have an effect.
+Note that this may take some time to have an effect.
 
 ```text
 # Schedule removal of expired data
@@ -63,7 +63,7 @@ In some circumstances it may be necessary to adjust the disk space available to 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-The settings can be adjusted by using environment variables to [override the default configuration](../installation/kubernetes_install/customize_config.md#environment-variables) of the parameters described below.
+The settings can be adjusted by using environment variables to [override the default configuration](../install-stackstate/kubernetes_install/customize_config.md#environment-variables) of the parameters described below.
 
 Note that `elasticsearchDiskSpaceMB` will scale automatically based on the disk space available to Elasticsearch in Kubernetes.
 {% endtab %}
@@ -123,6 +123,10 @@ stackstate {
 #### Disk space weight examples
 
 Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
+
+{% hint style="info" %}
+Note that increasing the total limit or the `diskSpaceWeight` will increase the amount of data that can be stored in each index. If the total value of metrics received is too high, it could affect telemetry stream performance due to increased metrics processing time.
+{% endhint %}
 
 **Allocate no disk space to an index group**  
 Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:

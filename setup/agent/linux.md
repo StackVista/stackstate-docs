@@ -33,6 +33,10 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
 | Ubuntu | Ubuntu 15.04 \(Vivid Vervet\) | Network tracer available from Ubuntu 16.04 \(LTS\) \(Xenial Xerus\). |
 
+### StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
+
 ### Install
 
 StackState Agent V2 is installed using an install script.
@@ -43,8 +47,8 @@ StackState Agent V2 is installed using an install script.
 {% hint style="info" %}
 The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](../installation/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](../installation/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+* [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
 {% endhint %}
 
 #### Online install
@@ -56,7 +60,7 @@ If you have access to the internet on the machine where the Agent will be instal
 ```text
 curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
 STS_API_KEY="{{config.apiKey}}" \
-STS_URL="{{config.baseUrl}}/stsAgent" bash
+STS_URL="<stackstate-receiver-api-address>" bash
 ```
 {% endtab %}
 
@@ -64,7 +68,7 @@ STS_URL="{{config.baseUrl}}/stsAgent" bash
 ```text
 wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
 STS_API_KEY="{{config.apiKey}}" \
-STS_URL="{{config.baseUrl}}/stsAgent" bash
+STS_URL="<stackstate-receiver-api-address>" bash
 ```
 {% endtab %}
 {% endtabs %}
@@ -86,7 +90,7 @@ If you do not have access to the internet on the machine where the Agent will be
 
    ```text
     STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="{{config.baseUrl}}/stsAgent" \
+    STS_URL="<stackstate-receiver-api-address>" \
     STS_INSTALL_NO_REPO=yes \
     ./install.sh <path_to_local_Agent_installer_package>
    ```

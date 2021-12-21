@@ -11,16 +11,13 @@ A telemetry stream is a real-time stream of either metric or log data coming fro
 
 ### Telemetry stream providers
 
-Telemetry streams are supplied via plugins. Different plugins provide one or multiple types of telemetry streams. For example, the Graphite plugin provides StackState with a metrics telemetry stream, while the Elasticsearch plugin provides metric and log telemetry streams.
+Telemetry streams in StackState contain log or metrics data that has been retrieved from an external data source. Telemetry can be pushed to StackState by the StackState Agent or pulled directly from the data source by a StackState plugin.
 
 ### Add telemetry streams
 
 In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's checks. Read how to [add a telemetry stream to an element](add-telemetry-to-element.md).
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization. Read how to [add telemetry during topology synchronization](../../configure/telemetry/telemetry_synchronized_topology).
 {% endhint %}

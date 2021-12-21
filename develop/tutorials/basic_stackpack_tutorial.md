@@ -8,7 +8,7 @@ This tutorial shows you how to create a basic StackPack to configure StackState.
 
 ## Setup
 
-[This repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
+[This GitHub repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
 The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
 
@@ -28,20 +28,20 @@ Take a moment to locate these files in the `src/main/stackpack` folder of the pr
 
 ## Building the StackPack
 
-The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the root of the sample repository using the command:
+The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the directory `stackpack-tutorial/src/main/stackpack` in the sample repository using the command:
 
 ```text
-zip -r ./stackpack-0.0.1.sts stackpack.conf provisioning resources
+zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 ```
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/installation/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
 
-The following command installes our new tutorial StackPack in StackState:
+The following command installs our new tutorial StackPack in StackState:
 
 ```text
-sts stackpack upload target/tutorial-0.0.2-master-SNAPSHOT.sts
+sts stackpack upload tutorial-stackpack-0.0.1.sts
 ```
 
 {% hint style="info" %}
@@ -74,7 +74,7 @@ When the StackPack has received your data, it will show a message indicating suc
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/v44_tutorial_component.png)
+![](../../.gitbook/assets/v45_tutorial_component.png)
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
@@ -125,7 +125,7 @@ The [Push Integration tutorial](push_integration_tutorial.md) describes in more 
 
 Use the **Preview** button to see what the resulting component will look like.
 
-![](../../.gitbook/assets/v44_example-template-editor.png)
+![](../../.gitbook/assets/v45_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to [_unlock_](../../stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 
@@ -229,7 +229,7 @@ This should produce a `0.0.2` version of the StackPack. Upload the StackPack to 
 
 Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
-![](../../.gitbook/assets/v44_stackpack_upgrade_available.png)
+![](../../.gitbook/assets/v45_stackpack_upgrade_available.png)
 
 {% hint style="info" %}
 If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
@@ -237,19 +237,19 @@ If you don't see the Tutorial StackPack, or you see an older version of the Stac
 
 You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
 
-![](../../.gitbook/assets/v44_stackpack_upgrade_warning.png)
+![](../../.gitbook/assets/v45_stackpack_upgrade_warning.png)
 
 Push the **Overwrite** button to overwrite your local modifications with those in the new version of the StackPack. The component template will be locked again after the upgrade.
 
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
 
 {% hint style="info" %}
-It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/installation/cli-install.md) for more information.
+It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/cli-install.md) for more information.
 {% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:
 
-![](../../.gitbook/assets/v44_myDummyApp_stream.png)
+![](../../.gitbook/assets/v45_myDummyApp_stream.png)
 
 ## Cleaning your StackState instance
 

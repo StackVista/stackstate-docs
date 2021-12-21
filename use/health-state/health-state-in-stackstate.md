@@ -33,10 +33,7 @@ Health data from external monitoring systems can be synchronized to StackState a
 
 Existing StackPacks will provide health synchronization out of the box.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
@@ -50,7 +47,7 @@ Each element in StackState reports two health states:
 
 ![](../../.gitbook/assets/component_health_state.svg)
 
-The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](../stackstate-concepts/components_relations.md#relations) in the topology graph.
+The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](../concepts/components_relations.md#relations) in the topology graph.
 
 {% hint style="info" %}
 A CLEAR \(green\) health state does not propagate.
@@ -63,10 +60,7 @@ A CLEAR \(green\) health state does not propagate.
 | ![](../../.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
 | ![](../../.gitbook/assets/propagation-a-not-b.svg) | No dependency. Health state does not propagate. |
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
 {% endhint %}
@@ -90,11 +84,11 @@ You can check the view health state in the following places in the StackState UI
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
-![View health state in main menu](../../.gitbook/assets/v44_view_health_main_menu.png)
+![View health state in main menu](../../.gitbook/assets/v45_view_health_main_menu.png)
 
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](add-a-health-check.md)
-* [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md)
-* [Set up a health synchronization](../../configure/health/health-synchronization.md)
+* [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md "StackState Self-Hosted only")
+* [Set up a health synchronization](../../configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [Configure the view health](configure-view-health.md)

@@ -6,7 +6,7 @@ description: Track changes in your IT landscape.
 
 The Events Perspective shows events and changes for the elements in the current [view](../views/about_views.md) or filtered topology.
 
-![The Events Perspective](../../../.gitbook/assets/v44_events-perspective.png)
+![The Events Perspective](../../../.gitbook/assets/v45_events-perspective.png)
 
 ## Events
 
@@ -22,10 +22,7 @@ StackState works with three different kinds of events, note that not all of thes
 
 * **Events from external sources** - Some StackState integrations can retrieve events from external systems. All events retrieved from external systems will be listed in the Events Perspective.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can also use the StackState CLI or an HTTP POST to [send events to StackState](../../../configure/telemetry/send_telemetry.md#events).
 {% endhint %}
@@ -46,7 +43,7 @@ Click on an event to display an overview of the event details in the **Event pro
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW EVENT PROPERTIES** - Click to access all data included in the event.
 
-![Event properties](../../../.gitbook/assets/v44_event-properties.png)
+![Event properties](../../../.gitbook/assets/v45_event-properties.png)
 
 ## Filter displayed events
 
@@ -81,10 +78,10 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
-![Timeline](../../../.gitbook/assets/v44_timeline.png)
+![Timeline](../../../.gitbook/assets/v45_timeline.png)
 
 ## See also
 
-* [Use events to trigger event notifications and actions](../../metrics-and-events/send-event-notifications.md)
+* [Use events to trigger event notifications and actions](/use/stackstate-ui/views/manage-event-handlers.md)
 * [Filtering data](../filters.md)
 * [Working with StackState views](../views/about_views.md)

@@ -8,6 +8,7 @@ use File::Copy;
 # docs for the SaaS edition as follows:
 # 
 # * Replace SUMMARY.md with SAAS-SUMMARY.md
+# * Replace README.md with SAAS-README.md
 # * Remove any links with "StackState Self-Hosted only" in the link from the See Also section
 # * De-link geek boxes with "StackState Self-Hosted" in it
 
@@ -45,23 +46,28 @@ sub remove_selfhosted_links {
   return @output;
 }
 
-sub de_link_geek_boxes {
+sub de_link_and_edit_geek_boxes {
   my @lines = @_;
   my @output;
-  my $geek_box, $selfhosted_box;
+  my $selfhosted_box;
 
   for $line (@lines) {
-    if($line =~ /{% hint style=".*" %}/) {
-      print "ERROR: missed geek box end! $line" unless ($geek_box == 0);
-      # print "... Found geek box start: $line";
-      $geek_box = 1;
-    } elsif($line =~ /{% endhint %}/) {
-      print "ERROR: missed geek box start! $line" unless ($geek_box == 1);
-      # print "... Found geek box end: $line";
-      $geek_box = $selfhosted_box = 0;
-    } elsif($geek_box == 1 && $line =~ /\*\*$NON_SAAS_EDITION_NAME\*\*/) {
-      # print "... Found non-SaaS box: $line";
+    if($line =~ /{% hint style="success" "self-hosted info" %}/) {
+      print "ERROR: missed geek box end! $line" unless ($selfhosted_box == 0);
+      print ">>> Found geek box start: $line";
+      print "updating geek box heading";
+      $line =  '{% hint style="success" "self-hosted info" %}
+
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    ';
       $selfhosted_box = 1;
+    } elsif($line =~ /{% endhint %}/) {
+      print "ERROR: missed geek box start! $line" unless ($selfhosted_box == 1);
+      # print "... Found geek box end: $line";
+      $selfhosted_box = 0;
     } elsif($selfhosted_box == 1 && $line =~ /\[.*\]\(.*\)/) {
       print "... De-linking geek box link: $line";
       $line =~ s/\[([^\]]*)\]\([^\)]*\)/$1/g;
@@ -86,7 +92,7 @@ sub process_file {
     print "Processing MD file $File::Find::name\n";
     my @lines = read_file($_);
     @lines = remove_selfhosted_links(@lines);
-    @lines = de_link_geek_boxes(@lines);
+    @lines = de_link_and_edit_geek_boxes(@lines);
     write_file($_, @lines);
   }
 }

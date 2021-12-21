@@ -26,6 +26,10 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 ## Setup
 
+### StackState Receiver API address
+
+StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
+
 ### Single container
 
 To start a single Docker container with StackState Agent V2, run the following command:
@@ -40,7 +44,7 @@ docker run -d \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -e STS_API_KEY="API_KEY" \
-    -e STS_STS_URL="https://your.stackstate.url/receiver/stsAgent" \
+    -e STS_STS_URL="<stackstate-receiver-api-address> \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:latest
@@ -66,9 +70,9 @@ To run StackState Agent V2 with Docker compose:
       - "/sys/kernel/debug:/sys/kernel/debug"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_PROCESS_AGENT_URL: "https://your.stackstate.url/receiver/stsAgent"
-      STS_APM_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_STS_URL: "<stackstate-receiver-api-address>"
+      STS_PROCESS_AGENT_URL: "<stackstate-receiver-api-address>"
+      STS_APM_URL: "<stackstate-receiver-api-address>"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
@@ -103,7 +107,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
          - /sys/kernel/debug:/sys/kernel/debug
        environment:
          STS_API_KEY: "API_KEY"
-         STS_STS_URL: "http://receiver:7077/stsAgent"
+         STS_STS_URL: "<stackstate-receiver-api-address>"
          STS_COLLECT_SWARM_TOPOLOGY: "true"
          STS_LOG_LEVEL: "debug"
          STS_LOG_TO_CONSOLE: "true"
@@ -165,7 +169,7 @@ stackstate-agent:
       - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml:ro"
     environment:
       STS_API_KEY: "API_KEY"
-      STS_STS_URL: "https://your.stackstate.url/receiver/stsAgent"
+      STS_STS_URL: "<stackstate-receiver-api-address>"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```

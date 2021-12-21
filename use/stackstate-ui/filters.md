@@ -4,12 +4,14 @@
 
 The **View Filters** pane on the left-hand side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
+![View filters](/.gitbook/assets/v45_view_filters_button.png)
+
 ## Filter Topology
 
 Topology filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build an advanced topology filter that zooms in on a specific area of your topology using the StackState in-built query language \(STQL\). Read more about:
 
-* [Basic filters](filters.md#basic-topology-filters)
-* [Advanced filters](filters.md#advanced-topology-filters)
+* [Basic topology filters](filters.md#basic-topology-filters)
+* [Advanced topology filters](filters.md#advanced-topology-filters)
 * [Topology filtering limits](filters.md#topology-filtering-limits)
 
 ### Basic topology filters
@@ -23,10 +25,7 @@ The main way to filter topology is using the available basic filters. When you s
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
 {% endhint %}
@@ -39,7 +38,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `agent-centos`
 
-![Filtering example](../../.gitbook/assets/v44_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v45_basic_filter_example.png)
 
 This same filter could also be written as an advanced topology filter using STQL.
 
@@ -59,7 +58,7 @@ The STQL query example below will return components that match the following con
 (domain IN ("mydomain") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("agent-centos")
 ```
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v44_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v45_advanced_filter_example.png)
 
 This same filter result could also be returned with basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 
@@ -69,14 +68,7 @@ You can switch between basic and advanced filtering by selecting **Basic** or **
 
 It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
 
-* Basic filters cannot contain an inequality.
-* Basic filters use AND/OR in a specific way:
-    - All items in each basic filter box are joined with an **OR**: `layer IN ("business service", "applications", "databases")`
-    - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`
-    - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
-    - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they are joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
-  
-If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
+➡️ [Learn more about the compatibility of basic and advanced topology filters](/develop/reference/stql_reference.md#compatibility-basic-and-advanced-filters)
 
 ### Other filters
 
@@ -108,10 +100,7 @@ To successfully produce this topology visualization, we would need to either re-
 layer = "applications"
 ```
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 If required, you can [manually configure the topology filtering limit](/configure/topology/topology-filtering-limits.md). 
 {% endhint %}
@@ -140,7 +129,9 @@ For example, if you filter the trace list for all spans of type `database`, this
 
 ## Save filters as a view
 
-To update the existing view with the currently applied filters, click **Save view** at the top of the screen. To save the current filters as a new view, click **Save view as**. Read more about [StackState views](views/about_views.md).
+To update the existing view with the currently applied filters, click **Save view** at the top of the screen. To save the current filters as a new view, click **Save view as**. 
+
+➡️ [Learn more about StackState views](views/about_views.md).
 
 ## Clear applied filters
 

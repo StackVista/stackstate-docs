@@ -22,22 +22,16 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](apache-tomcat.md)
+* [Apache TomCat](apache-tomcat.md "StackState Self-Hosted only")
 * [AWS ECS](aws/aws-ecs.md)
-* [CentOS](centos.md)
-* [Debian](debian.md)
-* [Docker](docker.md)  
-* [DotNet APM](dotnet-apm.md)
-* [Fedora](fedora.md)
+* [AWS Xray](aws/aws-x-ray.md)
+* [DotNet APM](dotnet-apm.md "StackState Self-Hosted only")
 * [Java APM](java-apm.md)
-* [JMX](jmx.md)
-* [MySQL](mysql.md)
-* [PostgreSQL](postgresql.md)
-* [RedHat](redhat.md)
-* [Static Health](static_health.md)  
-* [Ubuntu](ubuntu.md)
-* [Windows](windows.md)  
-* [WMI](wmi.md)
+* [JMX](jmx.md "StackState Self-Hosted only")
+* [MySQL](mysql.md "StackState Self-Hosted only")
+* [PostgreSQL](postgresql.md "StackState Self-Hosted only")
+* [Static Health](static_health.md "StackState Self-Hosted only")  
+* [WMI](wmi.md "StackState Self-Hosted only")
 
 ### Status
 
@@ -45,7 +39,12 @@ To find the status of an installed Agent, use the status commands provided in th
 
 ### Upgrade
 
-When a new version of the StackState Agent V2 StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **StackState Agent V2**. For an overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the StackState Agent V2 StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **StackState Agent V2**. 
+
+{% hint style="success" "self-hosted info" %}
+
+For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+{% endhint %}
 
 To upgrade StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
@@ -81,6 +80,10 @@ Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks*
 To uninstall StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
 ## Release notes
+
+**Agent V2 StackPack v4.4.9 \(2021-11-17\)**
+
+* Improvement: Updated supported platforms documentation.
 
 **Agent V2 StackPack v4.4.8 \(2021-07-23\)**
 

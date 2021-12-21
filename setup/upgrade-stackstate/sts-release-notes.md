@@ -8,7 +8,72 @@ description: Release notes up to v4.4.x of StackState
 StackPack release notes can be found on each StackPack page. See [StackPack versions](stackpack-versions.md).
 {% endhint %}
 
+## StackState v4.5.x
+
+# 4.5.1
+
+**Improvements**
+
+- The MinIO chart has been internalized to StackState to ensure its continuity. STAC-14977
+- The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
+
+**Bug fixes**
+
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228 and CVE-2021-45046). STAC-15200
+- Fixed issue that caused the stackstate-ui to crash occasionally due to a misconfiguration of the Prometheus nginx exporter. STAC-15167
+- Set sync counters back to 0 after a sync reset operation. STAC-15088
+- Fixed issue that caused incorrect metric data to create spurious indices in ElasticSearch. STAC-14978
+- Fixed issue that caused Kubernetes synchronization to fail when processing specific data. STAC-14811
+- Resolved several vulnerabilities in stackstate-ailab docker image. STAC-14760
+- Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
+- Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
+
+### v4.5.0
+
+**Features**
+
+- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
+- Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
+- Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/components_relations.md#relation-types), save changed views even when timetravelling. STAC-13142
+- Start anomaly detection on new streams after two hours.  Adapt to changing streams in real-time. STAC-12996
+
+**Improvements**
+
+- Time travel directly to the start of a problem from the View and Problem details pane. STAC-14746
+- AWS CloudWatch metrics can now be retrieved via an HTTPS proxy. STAC-14608
+- The HBase minReplicationFactor is now automatically adjusted if it's higher than the replicaCount of the datanodes. STAC-14551
+- Improve performance of view health state calculations under load. STAC-14056
+- Support extra [custom request parameters for OIDC](/configure/security/authentication/oidc.md#configure-stackstate-for-oidc). STAC-13999
+- Link directly to possible root causes from Slack problem notifications. STAC-13802
+- Check state changes always invoke auto propagation even if a CRITICAL state has been propagated before. STAC-13656
+- Highlight exact changes when displaying Version Change, Health State Change or Run State Change events. STAC-13117
+- Retain timeline settings when switching views. STAC-12745
+- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-12718
+- Support [querying for problems in the Script API](/develop/reference/scripting/script-apis/view.md). STAC-12506
+- Support [problem notifications](/use/problem-analysis/problem_notifications.md) to Slack. STAC-12496
+- Prevent StackPacks requiring an incompatible version of StackState from being installed. STAC-9311
+- Retain Topology visualizer zoom level and panning when switching perspectives or changing the time range. STAC-14389
+- The time jumpers now jump to the next and previous timestamp at which interesting events took place. STAC-12781
+
+**Bug fixes**
+
+- Fixed issue that prevented increase of the CloudWatch integration connection pool. STAC-14607
+- Fixed issue that caused problems to incorrectly merge or resolve under certain circumstances. STAC-14411
+- Fixed issue that caused a loop when logging in with OIDC when 'stackstate.baseUrl' contained a trailing '/'. STAC-13964
+- Fixed issue that caused corrupt data in StackGraph under certain circumstances. STAC-13860
+- Fixed issue that caused the health synchronization to occasionally keep restarting. STAC-13829
+- Security improvement for handling credentials on the StackPack pages. STAC-13658
+- Fixed issue that caused incorrect service metric aggregation under certain circumstances. STAC-13591
+- Fixed issue that caused the process manager logs to be truncated. STAC-12875
+
 ## StackState v4.4.x
+
+# 4.4.3
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15194
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
 ### v4.4.2
 
@@ -61,7 +126,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
 * Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
-* [Relations to component groups are shown as solid lines](../../use/stackstate-ui/perspectives/topology-perspective.md#direct-and-indirect-relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
+* [Relations to component groups are shown as solid lines](../../use/stackstate-ui/perspectives/topology-perspective.md#relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
 * Improve how component names are displayed in the Topology Perspective. STAC-13063
 * The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
 
@@ -75,6 +140,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
 ## StackState v4.3.x
+
+# 4.3.6
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
 ### v4.3.5
 
@@ -109,7 +181,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 **Improvements**
 
-* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](../installation/cli-install.md#authentication). STAC-12567
+* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/cli-install.md#authentication). STAC-12567
 * Any change to a check will update the check state data and fire a change event. STAC-12472
 
 **Bug fixes**
@@ -123,17 +195,17 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * [Show configuration changes](../../use/problem-analysis/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
 * [Alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
-* [Drill down on Problems](../../use/problem-analysis/problems.md) for faster investigation. STAC-10481
+* [Drill down on Problems](../../use/problem-analysis/about-problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 
 * Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
-* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../installation/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
+* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
 * Added support for interacting with external systems using [self-signed certificates](../../configure/security/self-signed-cert.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
-* StackState now supports [API tokens for authentication of the StackState CLI](../installation/cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+* StackState now supports [API tokens for authentication of the StackState CLI](../cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 * Added support for [backup and restore procedure for self-hosted Kubernetes](../data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
 * It is now possible to use component actions when time-traveling. STAC-11462
@@ -161,9 +233,14 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that prevented exports produced by the CLI on Windows from being imported. STAC-11096
 * Fixed issue that caused incorrect anomalies to be detected on CloudWatch metrics by introducing two new aggregation methods: COUNT\_NO\_ZEROS and SUM\_NO\_ZEROS. Aggregation methods COUNT and SUM keep the existing behavior of filling gaps in metrics with zeroes, with a configurable delay. STAC-11079
 
-## StackState v4.2.x
 
-### v4.2.4
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+### StackState v4.2.x
+
+#### v4.2.4
 
 **Improvements**
 
@@ -177,7 +254,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
-### v4.2.3
+#### v4.2.3
 
 **Improvements**
 
@@ -193,13 +270,13 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that prevented `copy_images.sh` script from working with containers without a docker.io prefix. STAC-11697
 * Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
 
-### v4.2.2
+#### v4.2.2
 
 **Bug fixes**
 
 * Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
 
-### v4.2.1
+#### v4.2.1
 
 **Improvements**
 
@@ -209,7 +286,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * Fixed issue that prevents StackState distributed Kubernetes installation from starting when the database initialisation process fails due to a pod restart. STAC-11618
 
-### v4.2.0
+#### v4.2.0
 
 **Features**
 
@@ -238,10 +315,6 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * UPGRADE NOTE: It is strongly advised to review the roles your users have and limit the number of admin users. Users that need to configure StackState can be given the role of power user instead. STAC-10170
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
-
-## Unsupported versions
-
-The versions below are have reached End of Life \(EOL\) and are no longer be supported
 
 ### StackState v4.1.x
 

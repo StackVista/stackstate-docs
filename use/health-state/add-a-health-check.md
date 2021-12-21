@@ -8,7 +8,7 @@ description: Report the health state for an element.
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.
 
-The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../metrics-and-events/send-event-notifications.md).
+The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../metrics-and-events/event-notifications.md).
 
 ## Add a health check
 
@@ -32,7 +32,7 @@ To add a health check calculated in StackState:
    * The check is now active and visible under the **Health** section on the right-hand side of the screen.
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
-![Add a health check to an element](../../.gitbook/assets/v44_add_health_check.png)
+![Add a health check to an element](../../.gitbook/assets/v45_add_health_check.png)
 
 ### Check functions
 
@@ -40,13 +40,9 @@ Each health check caluclated in StackState uses a check function to monitor the 
 
 Check functions are scripts that take streaming telemetry as an input, check the data based on its logic and on the supplied arguments and output a health state. The telemetry changes a check function responds to determine the way in which the health check reports element health state, for example by monitoring a metric stream for thresholds and spikes, or checking the generated events. A number of check functions are included out of the box with StackState.
 
-{% hint style="success" %}
-**StackState Self-Hosted**
-
-Extra information for the StackState Self-Hosted product:
+{% hint style="success" "self-hosted info" %}
 
 * You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
-
 * Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
 {% endhint %}
 
@@ -61,23 +57,22 @@ For metrics check functions, a windowing method and window size must be provided
 
 #### Check function: Autonomous metric stream anomaly detection
 
-The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). Read more about how to use [anomaly health checks](anomaly-health-checks.md).
+The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). 
 
+➡️ [Learn more about how to use anomaly health checks](anomaly-health-checks.md).
 
 ## Synchronize external health data
 
-{% hint style="success" %}
-**StackState Self-Hosted**
+{% hint style="success" "self-hosted info" %}
 
-Extra information for the StackState Self-Hosted product:
+You can [synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
 
-[Synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
 {% endhint %}
 
 ## See also
 
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
-* [Add an event notification](../metrics-and-events/send-event-notifications.md)
+* [Add an event notification](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler)
 * [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
 * [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

@@ -79,18 +79,16 @@ The most efficient method for assigning tags is to rely on your StackPacks. Tags
 
 ### Common tags
 
-A number of StackState integrations understand common tags. These are special tags that can be placed on items in the source system and are used by StackState when the topology is retrieved.
+A number of StackState integrations understand common tags. These are special tags that can be placed on items in the source system and are used by StackState when the topology is retrieved. For example, an application in VMWare vSphere with the tag `stackstate-layer:databases` would be placed in the StackState topology layer `databases` by the StackState VMWare vSphere integration.
 
 | Tag | Description |
 | :--- | :--- |
 | `stackstate-layer` | The component will be placed in the specified layer in StackState. |
 | `stackstate-domain` | The component will be placed in the specified domain in StackState. |
 | `stackstate-environment` | The component will be placed in the specified environment in StackState. |
-| `stackstate-identifiers` | The specified value will be as an identifier to the StackState component. |
-
-For example, an application in vSphere with the tag `stackstate-layer:databases` would be placed in the StackState topology layer `databases` by the StackState vSphere integration.
+| `stackstate-identifiers` | The specified value will be added as an identifier to the StackState component. |
 
 ## Using Tags
 
-After you have assigned tags at the host and integration level, start using them to [create views](../../use/stackstate-ui/views/about_views.md).
+After you have assigned tags at the host and integration level, you can use them to [create views](../../use/stackstate-ui/views/about_views.md).
 

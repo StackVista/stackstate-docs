@@ -26,7 +26,7 @@ The VMware StackPack collects all topology data for the components and relations
   * The Agent watches the vCenter Event Manager for events related to the configured resources.
 * StackState Agent V2 pushes retrieved data and events to StackState:
   * [Topology data](vsphere.md#topology) is translated into components and relations.
-  * [Tags](vsphere.md#tags) defined in VMWare vSphere are added to components and relations in StackState.
+  * [Tags](vsphere.md#tags) defined in VMWare vSphere are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
   * [Metrics data](vsphere.md#metrics) is automatically mapped to associated components and relations in StackState.
   * [Events](vsphere.md#events) are available as a telemetry stream in StackState.
 
@@ -132,7 +132,9 @@ The metrics retrieved from VMWare vSphere can be configured in the Agent check c
 
 #### Tags
 
-All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState. The VMWare vSphere integration also understands [common tags](../../configure/topology/tagging.md#common-tags) and applies these to topology in StackState.
+All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState. 
+
+The VMWare vSphere integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
@@ -140,6 +142,10 @@ The VMWare vSphere integration retrieves the following topology data:
 
 * Components
 * Relations
+
+{% hint style="info" %}
+The VMWare vSphere integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+{% endhint %}
 
 #### Traces
 

@@ -11,20 +11,20 @@ A topology synchronized using StackState Agent follows the process described bel
 ![Topology synchronization with StackState Agent](/.gitbook/assets/topo_sync_process.svg)
 
 1. StackState Agent:
-  - Connects to a data source to collect data.
-  - Connects to the StackState receiver to push collected data to StackState (in JSON format).
-  - Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
+   * Connects to a data source to collect data.
+   * Connects to the StackState receiver to push collected data to StackState (in JSON format).
+   * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
 2. StackState receiver:
-  - Extracts topology and telemetry payloads from the received JSON.
-  - Puts messages on the Kafka bus.
-  - Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
+   * Extracts topology and telemetry payloads from the received JSON. 
+   * Puts messages on the Kafka bus. 
+   * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
 3. Kafka:
-  - Stores received data in topics.
-  - Read the [troubleshooting steps for Kafka](#kafka).
+   * Stores received data in topics.
+   * Read the [troubleshooting steps for Kafka](#kafka).
 4. Synchronization:
-  - Reads data from a topic as it becomes available on the Kafka bus.
-  - Processes retrieved data.
-  - Read the [troubleshooting steps for syncrhonization](#synchronization).
+   * Reads data from a topic as it becomes available on the Kafka bus. 
+   * Processes retrieved data. 
+   * Read the [troubleshooting steps for syncrhonization](#synchronization).
 
 ## Troubleshooting steps
 
@@ -44,19 +44,19 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 ### StackState receiver
 
 The StackState receiver receives JSON data from the StackState Agent. 
+ 
 - Check the StackState receiver logs for JSON deserialization errors. 
-
 
 ### Kafka
 
-Topology and telemetry are stored on Kafka, on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
+Topology and telemetry are stored on Kafka on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
 
 - Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML, this is usually the URL of the data source.
 - Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
 
 ### Synchronization
 
-The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization defined in the Sts data source.
+The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization is defined in the Sts data source.
 
 - Check if the topic name defined in the Sts data source matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
 - Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data. 
@@ -74,7 +74,7 @@ To troubleshoot processing errors, refer to the relevant StackState log files. T
 
 ### Relations
 
-It is possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation is not present in the synchronization’s topology, the relation will not be created. A warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
+It is possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation is not present in the synchronization’s topology, the relation will not be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
 
 ## Synchronization logs
 
@@ -105,12 +105,12 @@ When StackState is deployed on Linux, logs about synchronization are stored in t
 
 There are two log files for each synchronization:
 
-1. `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find details of:
+* `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find details of:
   * ID extractor errors.
   * Relations connected to a non-existing component.
   * Messages that have been discarded due to a slow synchronization.
 
-2. `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
+* `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
   * Template/mapping function errors.
   * Component types that do not have a mapping.
 
@@ -165,4 +165,3 @@ latency (Seconds)                                   35.754  ---                 
 
 * [Working with StackState log files](/configure/logging/stackstate-log-files.md)
 * [Configure topology synchronizations](/configure/topology/sync.md)
-* [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)
