@@ -18,7 +18,7 @@ This page provides specific instructions and details of any required manual step
 {% tab title="Kubernetes" %}
 #### v4.5.1
 
-No manual action needed.
+* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
 
 #### v4.5.0
 
@@ -37,7 +37,7 @@ No manual action needed.
 {% tab title="Linux" %}
 #### v4.5.1
 
-No manual action needed.
+* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
 
 #### v4.5.0
 
