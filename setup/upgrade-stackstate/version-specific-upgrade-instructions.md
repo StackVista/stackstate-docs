@@ -56,7 +56,6 @@ No manual action needed.
 #### v4.4.1 - v4.4.2
 
 * ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
-* No manual action needed.
 
 #### v4.4.0
 
@@ -111,7 +110,6 @@ No manual action needed.
 #### v4.4.1 - v4.4.2
 
 * ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
-* No manual action needed.
 
 #### v4.4.0
 
@@ -206,7 +204,6 @@ No manual action needed.
 #### v4.3.1 - v4.3.5
 
 * ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
-* No manual action needed.
 
 #### v4.3.0
 
@@ -231,7 +228,6 @@ No manual action needed.
 #### v4.3.1 - v4.3.5
 
 * ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
-* No manual action needed.
 
 #### v4.3.0
 
