@@ -13,6 +13,7 @@ This page includes release notes for the StackState self-hosted product.
 
 **Improvements**
 
+- Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
 - The MinIO chart has been internalized to StackState to ensure its continuity. STAC-14977
 - The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
 
