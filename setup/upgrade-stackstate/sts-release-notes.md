@@ -24,11 +24,15 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Set sync counters back to 0 after a sync reset operation. STAC-15088
 - Fixed issue that caused incorrect metric data to create spurious indices in ElasticSearch. STAC-14978
 - Fixed issue that caused Kubernetes synchronization to fail when processing specific data. STAC-14811
-- Resolved several vulnerabilities in stackstate-ailab docker image. STAC-14760
+- Resolved several vulnerabilities in `stackstate-ailab` docker image. STAC-14760
 - Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
 - Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
 
 ### v4.5.0
+
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
 
 **Features**
 
@@ -77,6 +81,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.4.2
 
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
+
 **Improvements**
 
 - Support extra custom request parameters for OIDC. STAC-13999
@@ -91,6 +99,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.4.1
 
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
+
 **Improvements**
 
 - Added tolerations and affinity configuration to the anomaly-detector Helm Chart. STAC-13824
@@ -103,6 +115,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Fixed issue that occasionally caused auto propagation to enter a loop and fail to terminate. STAC-13725
 
 ### v4.4.0
+
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
 
 **Features**
 
@@ -150,6 +166,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.3.5
 
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
+
 **Improvements**
 
 - Added tolerations and affinity configuration to the anomaly-detector Helm Chart. STAC-13824
@@ -161,11 +181,19 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.3.4
 
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
+
 **Bug fixes**
 
 * Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 
 ### v4.3.3
+
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
 
 **Bug fixes**
 
@@ -173,11 +201,19 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.3.2
 
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
+
 **Bug fixes**
 
 * Fix crash when accessing the logs api. STAC-13149
 
 ### v4.3.1
+
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
 
 **Improvements**
 
@@ -190,6 +226,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that caused the browser to free when selecting a large group of components. STAC-12016
 
 ### v4.3.0
+
+{% hint style="warning" %}
+Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+{% endhint %}
 
 **Features**
 

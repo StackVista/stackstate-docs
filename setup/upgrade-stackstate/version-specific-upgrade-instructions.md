@@ -20,8 +20,17 @@ This page provides specific instructions for upgrading to each currently support
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.5.1
+
+No manual action needed.
+
 #### v4.5.0
 
+{% hint style="info" %}
+Note that StackState version 4.5.0 is not compatible with StackState Agent v2.15.0. We recommend that customers upgrade to the StackState v4.5.1 patched release.
+{% endhint %}
+
+* StackState version 4.5.0 is not compatible with StackState Agent v2.15.0.
 * Support for Kubernetes 1.17 was dropped.
 * Support for Amazon Elastic Kubernetes Service (EKS) 1.20 and 1.21 was added.
 * Support for Azure Kubernetes Service (AKS) 1.20 and 1.21 was added.
@@ -32,6 +41,10 @@ This page provides specific instructions for upgrading to each currently support
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.5.1
+
+No manual action needed.
+
 #### v4.5.0
 
 No manual action needed.
