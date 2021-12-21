@@ -20,7 +20,7 @@ No manual action needed.
 
 #### v4.5.0
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
+* ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
 * ⚠️ StackState version 4.5.0 is not compatible with StackState Agent v2.15.0.
 * Change in supported platforms:
   * Support for Kubernetes 1.17 was dropped.
@@ -39,7 +39,7 @@ No manual action needed.
 
 #### v4.5.0
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
+* ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
 * ⚠️ StackState version 4.5.0 is not compatible with StackState Agent v2.15.0.
 
 {% endtab %}
@@ -53,17 +53,14 @@ No manual action needed.
 
 No manual action needed.
 
-#### v4.4.2
+#### v4.4.1 - v4.4.2
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
-
-#### v4.4.1
-
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
+* ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
+* No manual action needed.
 
 #### v4.4.0
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
+* ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
 * The CPU and memory [requirements to run StackState 4.4 on Kubernetes](/setup/install-stackstate/requirements.md#node-sizing) have been reassessed:
   * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
   * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
@@ -111,17 +108,14 @@ No manual action needed.
 
 No manual action needed.
 
-#### v4.4.2
+#### v4.4.1 - v4.4.2
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
-
-#### v4.4.1
-
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
+* ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
+* No manual action needed.
 
 #### v4.4.0
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
+* ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
@@ -209,29 +203,14 @@ No manual action needed.
 
 No manual action needed.
 
-#### v4.3.5
+#### v4.3.1 - v4.3.5
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
-
-#### v4.3.4
-
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
-
-#### v4.3.3
-
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
-
-#### v4.3.2
-
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
-
-#### v4.3.1
-
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
+* ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
+* No manual action needed.
 
 #### v4.3.0
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
+* ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
 * StackState is tested to run on Kubernetes v1.17, v1.18 and v1.19, or the equivalent OpenShift release \(version 4.4, 4.5 or 4.6\).
 * CPU limits have been added to all pods. If you have customized any of the CPU requests in your `values.yaml`, you will most likely need to also set the CPU limit for the same pod\(s\).
 * CPU limits and requests have been re-evaluated and increased where needed for stable operation resulting in a change in the number and size of [required nodes](/setup/install-stackstate/requirements.md#node-sizing).
@@ -251,12 +230,12 @@ No manual action needed.
 
 #### v4.3.1 - v4.3.5
 
-* ⚠️ Releases were susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
+* ⚠️ These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
 * No manual action needed.
 
 #### v4.3.0
 
-* ⚠️ This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
+* ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.3.6.
 * Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
