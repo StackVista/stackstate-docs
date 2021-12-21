@@ -31,7 +31,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.5.0
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.5.1](#v451).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.5.1](#v451).
 {% endhint %}
 
 **Features**
@@ -82,7 +82,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.4.2
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v443).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v443).
 {% endhint %}
 
 **Improvements**
@@ -100,7 +100,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.4.1
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v443).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v443).
 {% endhint %}
 
 **Improvements**
@@ -117,7 +117,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.4.0
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v443).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v443).
 {% endhint %}
 
 **Features**
@@ -167,7 +167,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.3.5
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
 {% endhint %}
 
 **Improvements**
@@ -182,7 +182,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.3.4
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -192,7 +192,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.3.3
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -202,7 +202,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.3.2
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -228,7 +228,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.3.0
 
 {% hint style="warning" %}
-**Do not use!** This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
+**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Patched release: [v4.4.3](#v436).
 {% endhint %}
 
 **Features**
