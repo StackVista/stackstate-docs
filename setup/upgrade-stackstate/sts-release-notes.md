@@ -166,7 +166,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.3.5
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v436).
 {% endhint %}
 
 **Improvements**
@@ -181,7 +181,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.3.4
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -191,7 +191,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.3.3
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -201,7 +201,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.3.2
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -211,7 +211,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.3.1
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v436).
 {% endhint %}
 
 **Improvements**
@@ -227,7 +227,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.3.0
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v436).
 {% endhint %}
 
 **Features**
