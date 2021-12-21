@@ -31,7 +31,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ### v4.5.0
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Features**
@@ -77,12 +77,12 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 **Bug fixes**
 
 - The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15194
-- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
+- Removed vulnerable JNDI lookup feature from Log4j 2 library (CVE-2021-44228). STAC-15179
 
 ### v4.4.2
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Improvements**
@@ -100,7 +100,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.4.1
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Improvements**
@@ -117,7 +117,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.4.0
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Features**
@@ -162,12 +162,12 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 **Bug fixes**
 
 - The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
-- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
+- Removed vulnerable JNDI lookup feature from Log4j 2 library (CVE-2021-44228). STAC-15179
 
 ### v4.3.5
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Improvements**
@@ -182,7 +182,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.3.4
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Bug fixes**
@@ -192,7 +192,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.3.3
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Bug fixes**
@@ -202,7 +202,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.3.2
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Bug fixes**
@@ -212,7 +212,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.3.1
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Improvements**
@@ -228,7 +228,7 @@ Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-
 ### v4.3.0
 
 {% hint style="warning" %}
-Do not use! Susceptible to Apache Log4J2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
+Do not use! Susceptible to Apache Log4j 2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. 
 {% endhint %}
 
 **Features**
