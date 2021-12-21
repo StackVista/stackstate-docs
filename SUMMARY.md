@@ -2,7 +2,6 @@
 
 * [Welcome to the StackState Docs!](README.md)
 * [Getting Started](getting_started.md)
-* [notes](setup/install-stackstate/kubernetes_install/testimages.md)
 
 ## 🚀 Setup
 
