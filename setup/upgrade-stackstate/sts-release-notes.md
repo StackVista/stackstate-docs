@@ -4,13 +4,15 @@ description: Release notes up to v4.4.x of StackState
 
 # StackState release notes
 
-{% hint style="info" %}
-StackPack release notes can be found on each StackPack page. See [StackPack versions](stackpack-versions.md).
-{% endhint %}
+This page includes the release notes for the StackState self-hosted product. 
+
+For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
+
+For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
 
 ## StackState v4.5.x
 
-# v4.5.1
+### v4.5.1
 
 **Improvements**
 
