@@ -9,6 +9,8 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v4.5.x
 
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
 ### v4.5.1
 
 **Improvements**
@@ -71,6 +73,8 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused the process manager logs to be truncated. STAC-12875
 
 ## StackState v4.4.x
+
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
 ### v4.4.3
 
@@ -156,6 +160,8 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
 ## StackState v4.3.x
+
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
 ### v4.3.6
 
