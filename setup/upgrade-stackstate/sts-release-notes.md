@@ -30,7 +30,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.5.0
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.5.1](#v451).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.5.1](#v451).
 {% endhint %}
 
 **Features**
@@ -81,7 +81,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.4.2
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v443).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v443).
 {% endhint %}
 
 **Improvements**
@@ -99,7 +99,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.4.1
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version 4.4.3](#v443).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version 4.4.3](#v443).
 {% endhint %}
 
 **Improvements**
@@ -116,7 +116,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.4.0
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v443).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v443).
 {% endhint %}
 
 **Features**
@@ -166,7 +166,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.3.5
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
 {% endhint %}
 
 **Improvements**
@@ -181,7 +181,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.3.4
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -191,7 +191,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.3.3
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -201,7 +201,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.3.2
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
 {% endhint %}
 
 **Bug fixes**
@@ -211,7 +211,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.3.1
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
 {% endhint %}
 
 **Improvements**
@@ -227,7 +227,7 @@ This page includes release notes for the StackState self-hosted product.
 ### v4.3.0
 
 {% hint style="warning" %}
-**Do not use!** This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
+This release was susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v436).
 {% endhint %}
 
 **Features**
