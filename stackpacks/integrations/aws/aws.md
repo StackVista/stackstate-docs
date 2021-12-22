@@ -121,11 +121,16 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 {% hint style="success" "self-hosted info" %}
 
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
 **Authenticate with an IAM role**
 
 If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 
 
-1. In AWS [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md): Create the required policy and attach it to the relevant IAM role.
+1. In AWS EC2 or EKS: Create the required policy and attach it to the relevant IAM role.
 2. When you install an AWS StackPack instance: Enter the value `use-role` for **AWS Access Key ID** and **AWS Secret Access Key**.
 {% endhint %}
 
@@ -388,7 +393,6 @@ For example, in the StackState Topology Perspective:
 
 On import, all topology in StackState will be given the label `stackpack:aws-v2`. 
 
-Topology imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only") will have the label `stackpack:aws`.
 
 Any tags that exist in AWS will be added to the StackState topology as labels. In addition, the following special tags can be added in AWS to influence how the topology is built in StackState:
 

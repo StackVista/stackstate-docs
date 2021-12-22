@@ -12,7 +12,12 @@ An STQL query consists of [component filters](stql_reference.md#component-filter
 
 {% hint style="success" "self-hosted info" %}
 
-STQL queries can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+STQL queries can be combined with scripts in the Analytics environment.
 
 {% endhint %}
 

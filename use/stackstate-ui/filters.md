@@ -27,7 +27,12 @@ The main way to filter topology is using the available basic filters. When you s
 
 {% hint style="success" "self-hosted info" %}
 
-You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+You can define custom labels to make searching for information easier.
 {% endhint %}
 
 To filter the topology using basic filters, click on the **View Filters** button on the left of the screen and select **Basic** under **Filter Topology**. 
@@ -102,7 +107,12 @@ layer = "applications"
 
 {% hint style="success" "self-hosted info" %}
 
-If required, you can [manually configure the topology filtering limit](/configure/topology/topology-filtering-limits.md). 
+**StackState Self-Hosted**
+
+Extra information for the StackState Self-Hosted product:
+
+    
+If required, you can manually configure the topology filtering limit. 
 {% endhint %}
 
 ## Filter Events
