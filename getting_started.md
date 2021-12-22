@@ -45,7 +45,7 @@ The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the 
 
 ## Component / relation details
 
-To see the details of a component or a relation, you can click on it. Click on **SHOW COMPONENT PROPERTIES** to see all details of a component.
+To see the details of a component or a relation, you can click on it. Click on **SHOW ALL PROPERTIES** to see all details of a component.
 
 ![Component details](/.gitbook/assets/v45_component_details.png)
 
