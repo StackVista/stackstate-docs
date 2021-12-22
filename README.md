@@ -2,7 +2,7 @@
 description: StackState SaaS
 ---
 
-# Welcome to the StackState Docs!
+# Welcome to the StackState SaaS Docs!
 
 ### Get started
 
