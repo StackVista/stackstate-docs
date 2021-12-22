@@ -60,7 +60,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
          - <instance_domain_value_1>
          - <instance_domain_value_2>
          - <instance_domain_value_n>
-       min_collection_interval: 30
+       collection_interval: 30
    ```
 
 2. Set the following filters:
