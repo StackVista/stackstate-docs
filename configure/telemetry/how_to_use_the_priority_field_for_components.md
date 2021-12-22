@@ -8,7 +8,7 @@ Locate the component that you want to edit Telemetry streams for. Click on the c
 
 ![Component details](../../.gitbook/assets/v45_component_details.png)
 
-Here you can access the Component properties, Health status, and Telemetry Streams.
+Here you can access the details of the component, such as Properties, Health status, and Telemetry.
 
 ## 2. Choose Telemetry Streams to prioritize
 

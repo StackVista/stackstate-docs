@@ -42,7 +42,7 @@ A list of the available actions is included in the Component Details pane when y
 
 Shortcuts give you direct access to detailed information about the specific component:
 
-* **Show component properties** - Opens the component properties popup. This is the same as clicking **SHOW ALL PROPERTIES** in the Component Details pane.
+* **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the Component Details pane.
 * **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the Component Details pane.
 
 ## Relations

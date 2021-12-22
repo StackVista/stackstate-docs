@@ -34,7 +34,7 @@ The following fields from the results of a saved search are sent to StackState f
 | **type** | string | ✅ | The type of component or relation. |
 | **labels** | multivalue field or comma separated string | - | The values will be added as labels on the component. |
 | **identifiers** | multivalue field or comma separated string | - | The values will be included as identifiers of the component. |
-| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
+| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the properties `source` tab for a component. |
 
 #### Example query for components
 

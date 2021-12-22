@@ -33,7 +33,7 @@ All events in StackState have a category assigned based on the event type and so
 
 ### Event properties
 
-Click on an event to display an overview of the event details in the **Event properties** pane on the right of the screen. Events from external systems will also include links through to relevant information in the source system here:
+Click on an event to display an overview of the event details in the **Properties** pane on the right of the screen. Events from external systems will also include links through to relevant information in the source system here:
 
 * **Elements** - The components and/or relations involved in the event.
 * **Event type** - A description of the event type.
@@ -43,7 +43,7 @@ Click on an event to display an overview of the event details in the **Event pro
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW ALL PROPERTIES** - Click to access all data included in the event.
 
-![Event properties](../../../.gitbook/assets/v45_event-properties.png)
+![Properties of an event](../../../.gitbook/assets/v45_event-properties.png)
 
 ## Filter displayed events
 
@@ -53,7 +53,7 @@ The events displayed in the Events Perspective and in the Events list in the det
 
 The [topology filters](../filters.md#filter-topology) set in the **View Filters** pane define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
 
-### Filter by event properties
+### Filter by properties
 
 The [event filters](../filters.md#filter-events) set in the **View Filters** pane can be used to refine the events displayed based on event category, type, source system and tags.
 
@@ -74,7 +74,7 @@ For example:
 
 * Adjust the **Telemetry interval** to increase or decrease the number of events displayed.
 * Adjust the **Topology time** to time travel to the topology available at that point in history. Events generated within the selected telemetry interval by topology elements that existed at the topology time will be displayed.
-* Click on a timestamp from the **Event Properties** to jump to this topology time. This will update the events list to display events that were generated:
+* Click on a timestamp from the **Properties** of an event to jump to this topology time. This will update the events list to display events that were generated:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
