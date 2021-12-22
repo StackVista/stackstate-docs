@@ -60,7 +60,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
     init_config:
     
     instances:
-      - min_collection_interval: 300
+      - collection_interval: 300
         url: <url>  #the base URL of the Dynatrace instance.
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
         # Managed url example - https://{your-domain}/e/{your-environment-id} 
@@ -82,7 +82,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **domain** - The domain to use for imported topology (default dynatrace).
    - **environment** - The environment to use for imported topology (default production).
 3. Other optional configuration options are:
-   - **min_collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer . Default `300` seconds.
+   - **collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer . Default `300` seconds.
    - **verify** - To verify the certificate for HTTPS.
    - **cert** - The path to the certificate file for HTTPS verification.
    - **keyfile** - The path to public key of certificate for https verification.
@@ -113,7 +113,7 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
     init_config:
     
     instances:
-      - min_collection_interval: 60
+      - collection_interval: 60
         url: <url>  #the base URL of the Dynatrace instance.
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
         # Managed url example - https://{your-domain}/e/{your-environment-id} 
@@ -127,7 +127,7 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
    
     ```
 2. You can also add optional configuration:
-   - **min_collection_interval** - The frequency with which events data is retrieved from Dynatrace. Note that the health check should have a shorter collection interval than the topology check. Default `60` seconds.
+   - **collection_interval** - The frequency with which events data is retrieved from Dynatrace. Note that the health check should have a shorter collection interval than the topology check. Default `60` seconds.
    - **verify** - To verify the certificate for https.
    - **cert** - The path to certificate file for https verification.
    - **keyfile** - The path to public key of certificate for https verification.
