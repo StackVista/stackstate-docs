@@ -79,9 +79,9 @@ The _init\_config_ section allows you to have an arbitrary number of global conf
 
 The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. If the check runtime exceeds the `collection_interval`, the Agent will warn in the agent log with `Check <name> did not finish execution with the defined collection_interval time '<time>', skipping execution...`. The default is `40`, if no `collection_interval` is specified. The `collection_interval` setting has superseded the `min_collection_interval` setting that was used before. The agent will still accept the `min_collection_interval` setting and interpret it as if the `collection_interval` was specified.
 
-➡️ [Learn more about developing StackPacks.](../stackpack/).
+To synchronize multiple instances in StackState you have to create a multi-tenant StackPack.
 
-To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. Learn more about [developing StackPacks.](../stackpack/).
+➡️ [Learn more about developing StackPacks.](../stackpack/).
 
 ### Setting up your check configuration
 
