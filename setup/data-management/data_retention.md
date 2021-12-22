@@ -124,6 +124,10 @@ stackstate {
 
 Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
 
+{% hint style="info" %}
+Note that increasing the total limit or the `diskSpaceWeight` will increase the amount of data that can be stored in each index. If the total value of metrics received is too high, it could affect telemetry stream performance due to increased metrics processing time.
+{% endhint %}
+
 **Allocate no disk space to an index group**  
 Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:
 

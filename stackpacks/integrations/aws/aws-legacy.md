@@ -29,7 +29,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 To set up the StackState AWS integration, you need to have:
 
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
-* An AWS user with the required access to retrieve Cloudwatch metrics:
+* An AWS user with the required access to retrieve CloudWatch metrics:
   * `cloudwatch:GetMetricData`
   * `cloudwatch:ListMetrics`
 
@@ -48,8 +48,8 @@ If your StackState instance is behind a proxy, you need to configure the proxy U
 Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
-* **AWS Access Key id** - the access key for the user for retrieving Cloudwatch metrics.
-* **AWS Secret Access Key** - the secret key for the user for retrieving Cloudwatch metrics.
+* **AWS Access Key id** - the access key for the user for retrieving CloudWatch metrics.
+* **AWS Secret Access Key** - the secret key for the user for retrieving CloudWatch metrics.
 * **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
 
 ### Deploy AWS Cloudformation stacks
@@ -250,7 +250,11 @@ The AWS StackPack converts tags in AWS to labels in StackState. In addition, the
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS (Legacy) StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-Legacy-StackPack).
+Check the StackState support site for:
+
+* [The AWS \(legacy\) StackPack troubleshooting guide](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-Legacy-StackPack).
+* [Known issues relating to the AWS \(legacy\) StackPack](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&query=tags%3Aaws-legacy).
+
 
 ## Uninstall
 

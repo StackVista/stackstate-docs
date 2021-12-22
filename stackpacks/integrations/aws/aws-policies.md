@@ -109,7 +109,8 @@ For an AWS agent running on an EC2 instance:
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
-                "ec2:DescribeVpnGateways"
+                "ec2:DescribeVpnGateways",
+                "ec2:DescribeNetworkInterfaces"
             ],
             "Resource": "*",
             "Effect": "Allow",
@@ -185,7 +186,8 @@ For an AWS agent running on an EC2 instance:
                 "s3:GetBucketNotification",
                 "s3:GetBucketTagging",
                 "s3:ListAllMyBuckets",
-                "s3:ListBucket"
+                "s3:ListBucket",
+                "s3:GetBucketVersioning"
             ],
             "Resource": "*",
             "Effect": "Allow",

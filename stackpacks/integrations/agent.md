@@ -38,7 +38,6 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 **StackState Self-Hosted**
 
 Extra information for the StackState Self-Hosted product:
-
     
 For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}

@@ -1,16 +1,40 @@
----
-description: Release notes up to v4.4.x of StackState
----
-
 # StackState release notes
 
-{% hint style="info" %}
-StackPack release notes can be found on each StackPack page. See [StackPack versions](stackpack-versions.md).
-{% endhint %}
+## Overview
+
+This page includes release notes for the StackState self-hosted product. 
+
+* For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
+* For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
 
 ## StackState v4.5.x
 
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v4.5.1
+
+**Improvements**
+
+- Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
+- The MinIO chart has been internalized to StackState to ensure its continuity. STAC-14977
+- The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
+
+**Bug fixes**
+
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228 and CVE-2021-45046). STAC-15200
+- Fixed issue that caused the stackstate-ui to crash occasionally due to a misconfiguration of the Prometheus nginx exporter. STAC-15167
+- Set sync counters back to 0 after a sync reset operation. STAC-15088
+- Fixed issue that caused incorrect metric data to create spurious indices in ElasticSearch. STAC-14978
+- Fixed issue that caused Kubernetes synchronization to fail when processing specific data. STAC-14811
+- Resolved several vulnerabilities in `stackstate-ailab` docker image. STAC-14760
+- Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
+- Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
+
 ### v4.5.0
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.5.1](#v4.5.1).
+{% endhint %}
 
 **Features**
 
@@ -50,7 +74,20 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.4.x
 
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v4.4.3
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15194
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
+
 ### v4.4.2
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v4.4.3).
+{% endhint %}
 
 **Improvements**
 
@@ -66,6 +103,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.4.1
 
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version 4.4.3](#v4.4.3).
+{% endhint %}
+
 **Improvements**
 
 - Added tolerations and affinity configuration to the anomaly-detector Helm Chart. STAC-13824
@@ -78,6 +119,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 - Fixed issue that occasionally caused auto propagation to enter a loop and fail to terminate. STAC-13725
 
 ### v4.4.0
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v4.4.3).
+{% endhint %}
 
 **Features**
 
@@ -94,7 +139,7 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 * The API-Integration StackPack has been removed. STAC-13346
 * [Support BCrypt](../../configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
-* Configuration of authorization for various StackState APIs can now be [defined in one central location](version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12968
+* Configuration of authorization for various StackState APIs can now be [defined in one central location](version-specific-upgrade-instructions.md#upgrade-to-v44x). STAC-12968
 * Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
 * The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
 * [Timeline improvements](../../use/stackstate-ui/timeline-time-travel.md):
@@ -116,7 +161,20 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ## StackState v4.3.x
 
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v4.3.6
+
+**Bug fixes**
+
+- The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
+
 ### v4.3.5
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
+{% endhint %}
 
 **Improvements**
 
@@ -129,11 +187,19 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.3.4
 
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
+{% endhint %}
+
 **Bug fixes**
 
 * Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 
 ### v4.3.3
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
+{% endhint %}
 
 **Bug fixes**
 
@@ -141,11 +207,19 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 
 ### v4.3.2
 
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
+{% endhint %}
+
 **Bug fixes**
 
 * Fix crash when accessing the logs api. STAC-13149
 
 ### v4.3.1
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
+{% endhint %}
 
 **Improvements**
 
@@ -158,6 +232,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 * Fixed issue that caused the browser to free when selecting a large group of components. STAC-12016
 
 ### v4.3.0
+
+{% hint style="warning" %}
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
+{% endhint %}
 
 **Features**
 
@@ -205,6 +283,10 @@ StackPack release notes can be found on each StackPack page. See [StackPack vers
 ## Unsupported versions
 
 The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+{% hint style="warning" %}
+These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
+{% endhint %}
 
 ### StackState v4.2.x
 
