@@ -125,7 +125,6 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 Extra information for the StackState Self-Hosted product:
 
-    
 **Authenticate with an IAM role**
 
 If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 

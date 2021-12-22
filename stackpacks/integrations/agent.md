@@ -24,7 +24,6 @@ The integrations included in the StackState Agent V2 StackPack are listed below.
 
 * [AWS ECS](aws/aws-ecs.md)
 * [AWS Xray](aws/aws-x-ray.md)
-* [Java APM](java-apm.md)
 
 ### Status
 
@@ -39,7 +38,6 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 **StackState Self-Hosted**
 
 Extra information for the StackState Self-Hosted product:
-
     
 For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
