@@ -465,7 +465,7 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 
 **Features**
 
-* Telemetry Perspective to see all Telemetry streams for a set of components. This first release is limited to 5 components at a time. In later releases this will be improved with a larger set of components which will be supported.
+* Metrics Perspective to see all Telemetry streams for a set of components. This first release is limited to 5 components at a time. In later releases this will be improved with a larger set of components which will be supported.
 
 **Improvements**
 

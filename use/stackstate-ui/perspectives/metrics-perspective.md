@@ -2,20 +2,20 @@
 description: See metrics of the components in your IT landscape.
 ---
 
-# Telemetry Perspective
+# Metrics Perspective
 
-The Telemetry Perspective shows telemetry streams for your [view](../views/about_views.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
+The Metrics Perspective shows telemetry for the selected [view](../views/about_views.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
-![Telemetry Perspective](../../../.gitbook/assets/v45_telemetry-perspective.png)
+![Metrics Perspective](../../../.gitbook/assets/v45_telemetry-perspective.png)
 
 ## Telemetry and Components
 
-The Telemetry Perspective shows telemetry for up to **5** components. When you open the Telemetry Perspective, StackState will show the telemetry for the components in your view. If there are more than 5 components in your view, StackState selects the top 5 components as follows:
+The Metrics Perspective shows telemetry for up to **5** components. When you open the Metrics Perspective, StackState will show the telemetry for the components in your view. If there are more than 5 components in your view, StackState selects the top 5 components as follows:
 
 * The 5 components that most recently changed their health state to either CRITICAL or DEVIATING.
 * If there are no unhealthy components, the 5 components that most recently changed their health state.
 
-You can manually change the component selection in the Telemetry Perspective using the **Component Selector**:
+You can manually change the component selection in the Metrics Perspective using the **Component Selector**:
 
 ![](../../../.gitbook/assets/v45_telemetry-components-selector.png)
 
@@ -37,9 +37,9 @@ Charts are showing Telemetry Data of selected components in near real-time - the
 
 ## Time travel
 
-Time traveling with the Telemetry Perspective is also possible. When time traveling, the currently selected Topology is time traveled, and the telemetry of those components are depicted in the charts. It is possible that the selected component may no longer exist in the time traveled state, no data for this component will be shown.
+Time traveling with the Metrics Perspective is also possible. When time traveling, the currently selected Topology is time traveled, and the telemetry of those components are depicted in the charts. It is possible that the selected component may no longer exist in the time traveled state, no data for this component will be shown.
 
 ## Ordering
 
-The Telemetry Perspective orders the telemetry streams based on their priority. The priority can be configured on the Telemetry Inspector screen.
+The Metrics Perspective orders the telemetry streams based on their priority. The priority can be configured on the Telemetry Inspector screen.
 

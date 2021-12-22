@@ -16,7 +16,7 @@ There are four perspectives in the StackState UI. You can switch between them us
 
 * The [Topology Perspective](../stackstate-ui/perspectives/topology-perspective.md) - the components and relations.
 * The [Events Perspective](../stackstate-ui/perspectives/events_perspective.md) - all events and changes relating to the topology.
-* The [Telemetry Perspective](../stackstate-ui/perspectives/telemetry-perspective.md) - telemetry streams for a selection of components in the topology.
+* The [Metrics Perspective](../stackstate-ui/perspectives/metrics-perspective.md) - telemetry streams for a selection of components in the topology.
 * The [Traces Perspective](../stackstate-ui/perspectives/traces-perspective.md) - all traces and spans relating to the topology.
 
 ## Time travel

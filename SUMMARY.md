@@ -74,7 +74,7 @@
     * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
     * [Events Perspective](use/stackstate-ui/perspectives/events_perspective.md)
     * [Traces Perspective](use/stackstate-ui/perspectives/traces-perspective.md)
-    * [Telemetry Perspective](use/stackstate-ui/perspectives/telemetry-perspective.md)
+    * [Metrics Perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
   * [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
   * [Analytics](use/stackstate-ui/analytics.md)
   * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
