@@ -165,7 +165,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 2. You can also add optional configuration and filters: 
     - **full_run_interval** - Optional. The time in seconds between a full AWS topology scan. Intermediate runs only fetch events.
-    - **min_collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+    - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
     - **apis_to_run** - Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
