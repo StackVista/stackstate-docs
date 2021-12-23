@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Upgrade Splunk topology V1 to V2
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 In previous releases of StackState, it was only possible to run the Splunk topology check using StackState Agent V1. It is now also possible to run the Splunk topology check on [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md).

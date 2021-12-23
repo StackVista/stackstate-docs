@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Enable logging for functions
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState CLI to set the logging level for individual instances of a check function, event handler function, propagation function or view state configuration function. Log messages will be added to the StackState log file `stackstate.log`. It is not currently possible to enable logging for other function types.

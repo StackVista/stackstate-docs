@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Initial run guide
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 This page provides all the information you need to install and run StackState.

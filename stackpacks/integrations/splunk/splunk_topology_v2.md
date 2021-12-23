@@ -5,6 +5,10 @@ description: StackState Self-hosted v4.5.x
 # Splunk topology V2
 
 {% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
+{% hint style="info" %}
 This page describes the Splunk topology V2 integration with StackState Agent V2.
 
 **If you are currently running a Splunk topology V1 integration using StackState Agent V1:** See the instructions on how to configure the [Splunk topology V1](splunk_topology.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) your integration to use StackState Agent V2.

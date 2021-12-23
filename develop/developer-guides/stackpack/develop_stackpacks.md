@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # How to create a StackPack
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## When to create a StackPack
 
 As a rule of thumb each integration should have a StackPack. Without configuration StackState does not process incoming topology, telemetry or trace data. Such data will be accepted by StackState, but will not automatically reflect on the 4T data model. The best way to bundle configuration is through a StackPack. StackState can also be configured via the CLI, UI or directly via the API, but then your configuration will not be protected from user changes, can not easily be upgraded and can not easily be used for configuring multiple instances of an integration.

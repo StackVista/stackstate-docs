@@ -4,6 +4,9 @@ description: StackState Self-hosted v4.5.x
 
 # Set up traces
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md).
 

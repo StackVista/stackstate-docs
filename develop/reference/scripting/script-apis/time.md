@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Time - script API
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 Some scripting functions of StackState may accept a `TimeSlice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.
 
 ## Type: `TimeSlice`

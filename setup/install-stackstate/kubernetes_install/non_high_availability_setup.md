@@ -4,6 +4,9 @@ description: StackState Self-hosted v4.5.x
 
 # Non-high availability setup
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 ## Overview
 

@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Steps to upgrade
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 This document describes the upgrade procedure for StackState.

@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Logz.io
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## What is the Logz.io StackPack?
 
 The Logz.io StackPack allows StackState to connect to Logz.io.

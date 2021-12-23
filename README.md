@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Welcome to the StackState Docs!
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 {% hint style="success" %}
 **StackState version 4.5** is now available - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v44x) for details.
 

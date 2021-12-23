@@ -4,6 +4,9 @@ description: StackState Self-hosted v4.5.x
 
 # How to develop Agent checks
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 

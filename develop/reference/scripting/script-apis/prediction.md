@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Prediction - script API
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Function: `predictMetrics`
 
 Predict metrics for any metric query coming from any data source.

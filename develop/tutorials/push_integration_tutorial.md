@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Push data to StackState from an external system
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 This tutorial shows you how to create push-based integrations for StackState.
 
 Push-based integrations are built in python and run as part of the StackState agent. Each python integration is called a `check` and it can:

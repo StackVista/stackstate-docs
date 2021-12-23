@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # WMI
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 Collect telemetry information with Windows Management Instrumentation \(WMI\) from Windows applications and servers.

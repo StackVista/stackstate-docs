@@ -4,6 +4,9 @@ description: StackState Self-hosted v4.5.x
 
 # Glossary
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 Below you can find a short dictionary that can help you get a better grasp on the context of the terms used in our documentation.
 

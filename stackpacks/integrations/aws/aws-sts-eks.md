@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # StackState IAM role for EKS
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 If StackState is running within an AWS environment in an EKS cluster instance, it can have an IAM role attached to the node-group where the pods `stackstate-api` and `stackstate-server` are running. When this role is available, the AWS StackPack can be installed with the `use-role` option for IAM authentication (the **AWS Access Key ID** and **AWS Secret Access Key**). The attached role will then be used by the StackState CloudWatch plugin to retrieve metrics from CloudWatch.

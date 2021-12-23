@@ -4,6 +4,9 @@ description: StackState Self-hosted v4.5.x
 
 # Getting Started
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
 

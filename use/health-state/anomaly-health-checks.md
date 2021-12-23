@@ -5,6 +5,10 @@ description: StackState Self-hosted v4.5.x
 # Anomaly health checks
 
 {% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
+{% hint style="info" %}
 To use anomaly health checks, the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) StackPack must be installed.
 {% endhint %}
 

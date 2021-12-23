@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # StackState log files
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 * [Kubernetes setup](stackstate-log-files.md#kubernetes)
 * [Linux setup](stackstate-log-files.md#linux)
 

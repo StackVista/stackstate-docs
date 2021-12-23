@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Explore mode
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The StackState explore mode provides an unfiltered view of your topology with. This is most likely a much larger overview that you would like to see at any given time, but it's a good place to start when creating a [customized view](views/about_views.md) and get familiar with the StackState UI.

@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Migrate AWS \(Legacy\) to AWS
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The new AWS integration available from StackState v4.4 is an entirely new StackPack that replaces the old AWS \(Legacy\) StackPack. The AWS \(Legacy\) StackPack has now been deprecated, and it is advised that you migrate your StackState AWS integration to use the new AWS StackPack.

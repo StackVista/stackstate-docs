@@ -2,6 +2,9 @@
 description: StackState Self-hosted v4.5.x
 ---
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 \
 

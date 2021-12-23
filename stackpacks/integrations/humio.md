@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Humio
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## What is the Humio StackPack?
 
 The Humio StackPack allows you to access your logs stored in Humio.

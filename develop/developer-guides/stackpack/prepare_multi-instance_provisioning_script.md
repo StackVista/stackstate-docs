@@ -4,6 +4,9 @@ description: StackState Self-hosted v4.5.x
 
 # Prepare a multi-instance provisioning script
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
 
 A multi-instance StackPack requires a provisioning script that is able to provision multiple StackPack instances. To achieve that, you need to provide a separate template file in the context for both `stackPack` and `instance`; `stackPack` needs to be provided with the `shared-template.stj`, and `instance` requires the `instance-template.stj` as in the example below:
 

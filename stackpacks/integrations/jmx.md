@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # JMX
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The JMX integration collects metrics from applications that expose [JMX](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html) metrics.

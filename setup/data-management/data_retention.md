@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Data retention
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 StackState imposes data retention limits to save storage space and improve performance. You can configure the data retention period to provide a balance between the amount of data stored, StackState performance, and data availability.

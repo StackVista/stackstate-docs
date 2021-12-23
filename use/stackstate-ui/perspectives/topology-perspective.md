@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Topology Perspective
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The Topology Perspective displays the components in your IT landscape and their relationships.

@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Troubleshooting
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Quick troubleshooting guide
 
 Here is a quick guide for troubleshooting the startup of StackState on Kubernetes and Linux:

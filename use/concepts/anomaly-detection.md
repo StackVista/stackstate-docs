@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Anomaly detection
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 StackState can detect anomalies in your IT infrastructure by monitoring the metric streams attached to elements.

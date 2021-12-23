@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Add a health check
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.

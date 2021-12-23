@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Using STJ
 
+{% hint style="info" %}
+[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of \(often repetitive\) JSON, StackState comes with the StackState Template JSON format \(STJ\).
