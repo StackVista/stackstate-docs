@@ -1,6 +1,4 @@
----
-description: Use StackState to detect anomalies in your IT infrastructure
----
+
 
 # Anomaly detection
 

@@ -1,6 +1,4 @@
----
-description: Inspect and filter data from a configured telemetry stream
----
+
 
 # Browse telemetry
 

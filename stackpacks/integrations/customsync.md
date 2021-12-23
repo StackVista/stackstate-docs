@@ -1,6 +1,3 @@
----
-description: StackState curated integration
----
 
 # Custom Synchronization
 

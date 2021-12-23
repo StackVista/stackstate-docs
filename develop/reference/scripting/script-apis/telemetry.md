@@ -1,6 +1,4 @@
----
-description: Functions for accessing telemetry
----
+
 
 # Telemetry - script API
 

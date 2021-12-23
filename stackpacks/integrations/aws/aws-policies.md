@@ -1,6 +1,4 @@
----
-description: AWS policy files for the StackState AWS integration
----
+
 
 # Policies for AWS
 

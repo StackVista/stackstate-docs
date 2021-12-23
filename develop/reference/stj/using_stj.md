@@ -1,8 +1,4 @@
----
-description: >-
-  All configuration of StackState is described using StackState Template JSON
-  (STJ).
----
+
 
 # Using STJ
 

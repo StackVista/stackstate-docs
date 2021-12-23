@@ -1,6 +1,3 @@
----
-description: StackState core integration
----
 
 # Slack StackPack
 

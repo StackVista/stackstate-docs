@@ -1,6 +1,4 @@
----
-description: Install StackState on Kubernetes
----
+
 
 # Install StackState
 

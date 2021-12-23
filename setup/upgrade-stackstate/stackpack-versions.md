@@ -1,6 +1,4 @@
----
-description: The StackPack versions shipped with each release of StackState.
----
+
 
 # StackPack versions
 

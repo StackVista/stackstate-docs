@@ -1,6 +1,4 @@
----
-description: Set the logging level for an instance of a StackState function
----
+
 
 # Enable logging for functions
 

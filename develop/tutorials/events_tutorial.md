@@ -1,6 +1,3 @@
----
-description: Events tutorial
----
 
 # Send events to StackState from an external system
 

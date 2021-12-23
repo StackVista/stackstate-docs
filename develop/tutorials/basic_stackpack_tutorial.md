@@ -1,6 +1,4 @@
----
-description: Basic StackPack tutorial
----
+
 
 # Create a simple StackPack
 

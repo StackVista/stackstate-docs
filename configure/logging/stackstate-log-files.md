@@ -1,6 +1,4 @@
----
-description: Work with the StackState log files on Kubernetes and Linux
----
+
 
 # StackState log files
 

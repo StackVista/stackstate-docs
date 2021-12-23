@@ -1,6 +1,4 @@
----
-description: Bookmark and monitor parts of your IT landscape with views
----
+
 
 # About views
 

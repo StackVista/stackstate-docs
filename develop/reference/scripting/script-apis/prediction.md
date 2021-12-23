@@ -1,6 +1,4 @@
----
-description: Functions for predicting data available in StackState
----
+
 
 # Prediction - script API
 

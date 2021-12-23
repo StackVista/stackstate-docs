@@ -1,6 +1,4 @@
----
-description: Keyboard shortcuts in the StackState UI
----
+
 
 # Keyboard shortcuts
 

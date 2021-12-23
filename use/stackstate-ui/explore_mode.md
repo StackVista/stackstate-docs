@@ -1,6 +1,4 @@
----
-description: Explore your full IT environment
----
+
 
 # Explore mode
 

@@ -1,8 +1,4 @@
----
-description: >-
-  An explanation of the core, curated and community integrations available in
-  StackState
----
+
 
 # About integrations
 

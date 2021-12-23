@@ -1,6 +1,4 @@
----
-description: Report the health state for a complete view.
----
+
 
 # Configure the view health
 

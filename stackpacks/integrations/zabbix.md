@@ -1,6 +1,4 @@
----
-description: StackState curated integration
----
+
 
 # Zabbix
 

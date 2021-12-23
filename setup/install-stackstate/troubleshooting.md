@@ -1,6 +1,4 @@
----
-description: Steps to troubleshoot a StackState install
----
+
 
 # Troubleshooting
 

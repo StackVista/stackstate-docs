@@ -1,6 +1,4 @@
----
-description: StackState version 4.5
----
+
 
 # Welcome to the StackState Docs!
 

@@ -1,8 +1,4 @@
----
-title: Script API - Async
-kind: Documentation
-description: Functions to work with `AsyncScriptResult`
----
+
 
 # Async - script API
 

@@ -1,8 +1,4 @@
----
-description: >-
-  Recommended steps to migrate an AWS (Legacy) integration to the new AWS
-  StackPack
----
+
 
 # Migrate AWS \(Legacy\) to AWS
 

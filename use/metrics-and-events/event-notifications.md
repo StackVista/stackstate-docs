@@ -1,8 +1,3 @@
----
-description: >-
-  Use event handlers to send an event notification to an outside system when a
-  component or view health state changes.
----
 
 # Send event notifications
 

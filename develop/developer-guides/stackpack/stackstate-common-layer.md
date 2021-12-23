@@ -1,6 +1,3 @@
----
-description: This is the common layers which can be used in a StackPack.
----
 
 # StackState Common Layer
 

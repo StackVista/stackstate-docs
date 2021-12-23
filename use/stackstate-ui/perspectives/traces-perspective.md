@@ -1,6 +1,4 @@
----
-description: See traces for the components in your IT landscape.
----
+
 
 # Traces Perspective
 

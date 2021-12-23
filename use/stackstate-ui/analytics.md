@@ -1,6 +1,4 @@
----
-description: Run queries against data from your IT environment.
----
+
 
 # Analytics
 

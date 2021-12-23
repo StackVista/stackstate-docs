@@ -1,6 +1,4 @@
----
-description: Perform a major or minor upgrade of StackState.
----
+
 
 # Steps to upgrade
 

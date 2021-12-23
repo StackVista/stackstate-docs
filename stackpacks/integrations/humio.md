@@ -1,6 +1,4 @@
----
-description: Community integration
----
+
 
 # Humio
 

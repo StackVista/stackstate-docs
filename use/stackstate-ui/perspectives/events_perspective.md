@@ -1,6 +1,4 @@
----
-description: Track changes in your IT landscape.
----
+
 
 # Events Perspective
 

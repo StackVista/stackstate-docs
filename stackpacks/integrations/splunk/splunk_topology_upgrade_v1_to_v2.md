@@ -1,6 +1,4 @@
----
-description: StackState core integration
----
+
 
 # Upgrade Splunk topology V1 to V2
 

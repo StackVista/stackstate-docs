@@ -1,6 +1,4 @@
----
-description: Access data via perspectives.
----
+
 
 # Perspectives
 

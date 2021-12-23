@@ -1,6 +1,4 @@
----
-description: StackState core integration
----
+
 
 # 💠 ServiceNow
 

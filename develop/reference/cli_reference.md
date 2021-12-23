@@ -1,6 +1,4 @@
----
-description: Manage StackState using the CLI
----
+
 
 # StackState CLI
 

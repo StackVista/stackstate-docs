@@ -1,6 +1,4 @@
----
-description: Push integration tutorial
----
+
 
 # Push data to StackState from an external system
 

@@ -1,6 +1,4 @@
----
-description: StackState core integration
----
+
 
 # Splunk topology V1
 

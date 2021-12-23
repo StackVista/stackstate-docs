@@ -1,6 +1,3 @@
----
-description: An overview of StackState components and integration with external systems.
----
 
 # StackState architecture
 

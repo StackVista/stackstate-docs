@@ -1,6 +1,4 @@
----
-description: Removing data from StackState.
----
+
 
 # Clear stored data
 

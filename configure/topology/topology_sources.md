@@ -1,6 +1,4 @@
----
-description: Configure topology sources in StackState
----
+
 
 # Topology sources
 

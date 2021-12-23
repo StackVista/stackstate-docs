@@ -1,6 +1,4 @@
----
-description: Functions to work with StackPacks
----
+
 
 # StackPack - script API
 

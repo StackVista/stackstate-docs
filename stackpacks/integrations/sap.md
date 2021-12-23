@@ -1,6 +1,3 @@
----
-description: Community integration
----
 
 # SAP
 

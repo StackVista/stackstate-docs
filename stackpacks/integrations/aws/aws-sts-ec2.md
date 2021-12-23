@@ -1,6 +1,4 @@
----
-description: AWS EC2 role setup for the StackState AWS integration
----
+
 
 # StackState IAM role for EC2
 

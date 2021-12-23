@@ -1,6 +1,3 @@
----
-description: Pull telemetry from existing telemetry sources using the concept of mirroring.
----
 
 # Mirroring Telemetry
 

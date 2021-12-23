@@ -1,6 +1,3 @@
----
-description: Install the StackState CLI
----
 
 # StackState CLI
 

@@ -1,6 +1,3 @@
----
-description: Standalone Deployment of the Autonomous Anomaly Detector
----
 
 # AAD Standalone Deployment
 

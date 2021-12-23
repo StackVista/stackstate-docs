@@ -1,6 +1,3 @@
----
-description: StackState SaaS
----
 
 # Welcome to the StackState Docs!
 

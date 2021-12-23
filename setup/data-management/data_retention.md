@@ -1,6 +1,4 @@
----
-description: Configure the data retention parameters
----
+
 
 # Data retention
 

@@ -1,7 +1,3 @@
----
-description: StackState core integration
-stackpack-name: Splunk
----
 
 # Splunk
 

@@ -1,6 +1,4 @@
----
-description: Functions to execute HTTP requests.
----
+
 
 # HTTP - script API
 

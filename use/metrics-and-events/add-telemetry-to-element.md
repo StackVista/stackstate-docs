@@ -1,6 +1,4 @@
----
-description: Add incoming telemetry (metrics and logs) data to an element.
----
+
 
 # Add a telemetry stream
 

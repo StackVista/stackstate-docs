@@ -1,6 +1,4 @@
----
-description: How to install the Autonomous Anomaly Detector.
----
+
 
 # Autonomous Anomaly Detector
 

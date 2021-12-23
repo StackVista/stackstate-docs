@@ -1,6 +1,3 @@
----
-description: Build advanced topology queries with STQL
----
 
 # StackState Query Language \(STQL\)
 

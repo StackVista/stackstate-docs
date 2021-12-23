@@ -1,6 +1,4 @@
----
-description: See the real time state of your IT landscape
----
+
 
 # Topology Perspective
 

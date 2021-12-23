@@ -1,6 +1,4 @@
----
-description: Functions related to time and timing.
----
+
 
 # Time - script API
 

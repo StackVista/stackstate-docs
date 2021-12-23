@@ -1,6 +1,4 @@
----
-description: Functions that control the StackState user-interface.
----
+
 
 # UI - script API
 

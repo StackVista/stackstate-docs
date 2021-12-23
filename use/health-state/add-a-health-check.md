@@ -1,6 +1,4 @@
----
-description: Report the health state for an element.
----
+
 
 # Add a health check
 

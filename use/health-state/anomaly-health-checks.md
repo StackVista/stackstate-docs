@@ -1,8 +1,4 @@
----
-description: >-
-  How to setup event notifications based on anomalies coming from the Autonomous
-  Anomaly Detector
----
+
 
 # Anomaly health checks
 

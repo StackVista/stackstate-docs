@@ -1,6 +1,4 @@
----
-description: Obtaining StackState software.
----
+
 
 # Download
 

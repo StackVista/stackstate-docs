@@ -1,6 +1,4 @@
----
-description: Functions for accessing the topology.
----
+\
 
 # Topology - script API
 

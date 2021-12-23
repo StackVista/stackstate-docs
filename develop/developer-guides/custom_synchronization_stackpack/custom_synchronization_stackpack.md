@@ -1,8 +1,4 @@
----
-description: >-
-  Building a new topology synchronization pipeline starts with the custom
-  synchronization StackPack.
----
+
 
 # About the Custom Synchronization StackPack
 

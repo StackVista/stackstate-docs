@@ -1,6 +1,4 @@
----
-description: Mirror integration tutorial
----
+
 
 # Set up a mirror to pull telemetry data from an external system
 

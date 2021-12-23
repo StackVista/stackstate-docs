@@ -1,7 +1,4 @@
----
-description: StackState core integration
-stackpack-name: VMWare vSphere StackPack
----
+
 
 # 💠 VMWare vSphere
 

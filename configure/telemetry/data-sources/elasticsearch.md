@@ -1,6 +1,4 @@
----
-description: Retrieve data from a custom Elasticsearch data source
----
+
 
 # Elasticsearch
 

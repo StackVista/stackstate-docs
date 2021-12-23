@@ -1,6 +1,4 @@
----
-description: See metrics of the components in your IT landscape.
----
+
 
 # Telemetry Perspective
 
