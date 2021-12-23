@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Layers, Domains and Environments
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Layers
 
 Layers are one of the ways to logically group components. Layers are represented as rows ordered from top to bottom in StackState Views. The order of layers can be configured in the **Settings** page under the **Layers** section by providing numeric values in the `Order` column. Should two layers have the same numeric value, then the alphabetic order of the layer names determines which layer has the higher position.

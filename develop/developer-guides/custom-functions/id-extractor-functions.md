@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # ID extractor functions
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 ID extraction is used in the topology synchronization process to turn external data into External Topology. It extracts the unique identity and identifiers for components and relations. 

@@ -5,6 +5,10 @@ description: StackState Self-hosted v4.5.x
 # Before you install
 
 {% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
+{% hint style="info" %}
 StackState prefers Kubernetes!  
 In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_install/migrate_from_linux.md).
 {% endhint %}

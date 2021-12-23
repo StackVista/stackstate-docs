@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # About StackPacks
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 StackPacks extend StackState functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.

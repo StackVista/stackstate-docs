@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Agent check API
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The Agent check API can be used to create checks that run on the [StackState Agent](../../../setup/agent/about-stackstate-agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to StackState.

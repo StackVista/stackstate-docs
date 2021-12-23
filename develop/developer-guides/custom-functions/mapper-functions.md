@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Mapper functions
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 Mapper Function is defined by a groovy script and input parameters that groovy script requires. The goal of a Mapper Function is to process topology data from an external system and prepare parameters for use by a template function.
 
 ![Mapper function](../../../.gitbook/assets/mapping_function.png)

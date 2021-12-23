@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # How to customize elements created by the Custom Synchronization StackPack
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## 1. Configure Layers, Domains, and Environments
 
 Once you have installed the Custom Synchronization StackPack, you need to start preparing the configuration for your integration.

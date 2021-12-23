@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Naming guide
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 Getting the most out of StackState becomes easier when components are easy to find. What things are called helps a lot with creating that clarity. To help when naming your new layers or components, this page provides a list of examples used within StackState. Often already provided to you within StackPacks.

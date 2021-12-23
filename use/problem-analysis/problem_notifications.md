@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Problem notifications
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 Problems in StackState generate events that can be used to trigger event notifications.

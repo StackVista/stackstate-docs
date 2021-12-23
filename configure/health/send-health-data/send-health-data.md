@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Send health data over HTTP
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli-install.md).

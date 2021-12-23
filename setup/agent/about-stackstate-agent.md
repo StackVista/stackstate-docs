@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # About the StackState Agent
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The StackState Agent functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.

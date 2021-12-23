@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # StackState release notes
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 This page includes release notes for the StackState self-hosted product. 

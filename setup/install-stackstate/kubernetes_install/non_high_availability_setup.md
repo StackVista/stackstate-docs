@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # Non-high availability setup
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Overview
 
 The recommended Kubernetes/OpenShift deployment of StackState is a production ready setup with many services running redundantly. If required, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.

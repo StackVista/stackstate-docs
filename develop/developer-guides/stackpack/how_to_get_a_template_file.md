@@ -4,6 +4,10 @@ description: StackState Self-hosted v4.5.x
 
 # How to get a template file
 
+{% hint style="info" %}
+These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
+{% endhint %}
+
 ## Export the StackState configuration
 
 You can get a complete dump of all configuration using the CLI: `sts graph export > configuration.stj`. Follow the preparation steps below to prepare the `.stj` file, such that it contains only configuration nodes pertaining to your StackPack.
