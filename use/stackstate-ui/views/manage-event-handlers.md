@@ -12,7 +12,7 @@ When you open the **Manage Event Handlers** pane on the left-hand side of the St
 
 You can add an event handler to a view from the StackState UI.
 
-![Add an event handler](/.gitbook/assets/v45_event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v46_event_handlers_tab.png)
 
 1. Select **Manage Event Handlers** on the left.
 2. Click **ADD NEW EVENT HANDLER**.

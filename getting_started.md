@@ -57,7 +57,7 @@ Both components and relations can have one or multiple telemetry streams. The mo
 
 If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left-hand side of the popup.
 
-![Telemetry browser](/.gitbook/assets/v45_component_details_inspect_log_stream.png)
+![Telemetry browser](/.gitbook/assets/v46_component_details_inspect_log_stream.png)
 
 ## Problems
 
