@@ -1,3 +1,9 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
+
+
 
 
 # Upgrade Splunk topology V1 to V2

@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Subjects
 
 ## Link your existing authentication provider to StackState RBAC

@@ -1,3 +1,9 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
+
+
 
 
 # Push data to StackState from an external system

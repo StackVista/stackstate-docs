@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Connect an Agent check to StackState
 
 ## Overview

@@ -1,3 +1,9 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
+
+
 
 
 # StackState IAM role for EC2

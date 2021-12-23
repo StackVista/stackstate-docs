@@ -1,3 +1,9 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
+
+
 
 
 # Set up a mirror to pull telemetry data from an external system
