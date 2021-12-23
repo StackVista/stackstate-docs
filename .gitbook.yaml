@@ -294,3 +294,5 @@ redirects:
   use/introduction-to-stackstate/4t_data_model: ./use/conecpts/4t_data_model.md
   use/problem-analysis/problems: ./use/problem-analysis/about-problems.md
   use/metrics-and-events/send-event-notifications: ./use/metrics-and-events/event-notifications.md
+  setup/installation: ./setup/install-stackstate/README.md
+  develop/stql_reference: ./develop/reference/stql_reference.md
