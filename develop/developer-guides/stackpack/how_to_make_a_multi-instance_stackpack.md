@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # How to make a multi-instance StackPack
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 This documentation set explains how to make a StackPack that can be installed as multiple instances in StackState. Below you can find the introduction to this topic and the steps to get a multi-instance StackPack. This
 

@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Prepare instance template files
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 When preparing an instance specific template file, keep in mind that you will use some of the identifiers that point to the shared template file. It is highly recommended to [prepare your shared template first](prepare_shared_template.md).
 

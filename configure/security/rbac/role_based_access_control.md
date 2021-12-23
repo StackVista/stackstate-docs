@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Role-based Access Control
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 Role Based Access Control \(RBAC\) is a critical function for any Managed Service Provider \(MSP\) organization, but its use is not limited to MSPs. Access Management helps you manage who has access to the specific topology elements, UI elements, and which APIs they can call.
 

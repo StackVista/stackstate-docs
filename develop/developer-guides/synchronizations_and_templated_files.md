@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Synchronizations and templated files
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 To obtain the `.stj` Templated file for your StackPack you need to perform a few steps in StackState Settings page and then edit the template file by hand.
 

@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Subjects
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 ## Link your existing authentication provider to StackState RBAC
 

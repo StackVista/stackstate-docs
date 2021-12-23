@@ -1,15 +1,10 @@
 ---
-description: StackState Self-hosted v4.5.x [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/)
+description: StackState Self-hosted v4.5.x
 ---
 
 # Docker
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
-test
 
 {% hint style="info" %}
 **StackState Agent V2**

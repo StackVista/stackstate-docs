@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Prepare a shared template
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 Shared template file contains information that is going to be used across instances, like: Component Types, IdExtractor functions for components and relations, Component Template functions, Relation Template functions, or Layers. They can be derived from the exported `.stj` file, by exporting configuration nodes with `shared` in their identifiers, for example `"identifier": "urn:stackpack:{StackPackName}:shared:relation-template-function:test-relation-template",`.
 

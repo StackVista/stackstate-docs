@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Configure Ingress
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 The StackState Helm chart exposes an `ingress` section in its values. By default ingress is disabled.
 

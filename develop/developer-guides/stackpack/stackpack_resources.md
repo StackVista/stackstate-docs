@@ -4,9 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Resources in a StackPack
 
-{% hint style="info" %}
-These are the docs for the StackState Self-hosted product. [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
 
 The resources reside in `<your-stackpack>/src/main/stackpack/resources` directory. This folder contains files to be used mostly as display assets in the StackState UI as steps during the StackPack installation process. Some of the files are required for a StackPack to be displayed correctly:
 
