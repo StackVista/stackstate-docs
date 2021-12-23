@@ -4,11 +4,11 @@ description: See metrics of the components in your IT landscape.
 
 # Metrics Perspective
 
-The Metrics Perspective shows metrics for the selected [view](../views/about_views.md) and provides an automatic dashboard. StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
+The Metrics Perspective shows metrics for the selected [view](../views/about_views.md). StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
 ![Metrics Perspective](../../../.gitbook/assets/v45_telemetry-perspective.png)
 
-## Metrics and Components
+## Component selection
 
 Metrics for up to **5** components can be displayed. When you open the Metrics Perspective, StackState will show the metrics for all components in your view. If there are more than 5 components in the view, StackState selects the top 5 components as follows:
 

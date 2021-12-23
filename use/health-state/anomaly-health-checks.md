@@ -21,7 +21,7 @@ Anomaly health checks are automatically placed on components by the StackPacks b
 Follow the instructions below to add an anomaly health check to a component.
 
 1. In the StackState UI Topology Perspective, select the component that you want to add an anomaly health check to.
-2. Click on the the **+ ADD** button under the **Health** section in the component details pane on the right of the screen.
+2. Click on the **ADD NEW HEALTH CHECK** button under **Health** in the Component Details pane on the right of the screen.
 3. Select the **Check function** [Autonomous metric stream anomaly detection](anomaly-health-checks.md#check-function-autonomous-metric-stream-anomaly-detection).
 4. Add the following arguments:
    * **anomalyDirection** - the direction the found anomaly must have for the check to go to a `DEVIATING` \(orange\) health state. You can choose from:

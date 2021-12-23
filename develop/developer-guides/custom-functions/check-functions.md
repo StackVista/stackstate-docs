@@ -19,7 +19,7 @@ To add a custom check function:
    * **Identifier** - Optional. A unique identifier \(URN\) for the check function. For details, see [identifiers](../../../configure/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
    * The check function will be listed in the StackState UI page **Settings** &gt; **Functions** &gt; **Check Functions**. It can be exported from here to add to a template and include in a custom StackPack.
-   * If return type `Health state` was selected, the new check function will be available in the **Add check** drop-down when you [add a StackState health check](../../../use/health-state/add-a-health-check.md#add-a-health-check-to-an-element).
+   * If return type `Health state` was selected, the new check function will be available when you [add a StackState health check](../../../use/health-state/add-a-health-check.md).
 
 ![Add a custom check function](../../../.gitbook/assets/add-check-function.png)
 

@@ -2,11 +2,11 @@
 
 The Priority field allows for ordering component's Telemetry streams in the right-hand component pane. There are four levels of priority for Telemetry streams in StackState: `High`, `Medium`, `Low`, and `None`. Streams that have a higher priority level are presented at the top of the Telemetry stream section. By default, all streams have priority set to `none`. To change priorities assigned to specific streams, follow the instruction below:
 
-## 1. Open the component's properties pane
+## 1. Open the Component Details pane
 
-Locate the component that you want to edit Telemetry streams for. Click on the component to open the component's properties pane - see screenshot below:
+Locate the component that you want to edit Telemetry streams for. Click on the component to open the Component Details pane on the right of the screen - see the screenshot below:
 
-![Component details](../../.gitbook/assets/v45_component_details.png)
+![Component Details](../../.gitbook/assets/v45_component_details.png)
 
 Here you can access the details of the component, such as Properties, Health status, and Telemetry.
 
