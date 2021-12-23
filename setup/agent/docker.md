@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.5.x [Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/)
 ---
 
 # Docker
