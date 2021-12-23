@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState Docs!](README.md)
-* [Welcome to the StackState Self-Hosted Docs!](README.md)
+* [Welcome to the StackState Self-Hosted Docs!](README2.md)
 * [Getting Started](getting_started.md)
 
 ## 🚀 Setup
