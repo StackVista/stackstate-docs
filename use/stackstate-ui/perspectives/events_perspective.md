@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Events Perspective
 
 The Events Perspective shows events and changes for the elements in the current [view](../views/about_views.md) or filtered topology.

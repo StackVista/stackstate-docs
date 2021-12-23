@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Scripting in StackState
 
 StackState uses scripting in many places to:

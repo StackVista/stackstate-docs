@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Create a simple StackPack
 
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.

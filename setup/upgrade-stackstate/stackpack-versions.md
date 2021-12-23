@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # StackPack versions
 
 The table below shows the StackPack version numbers shipped with each StackState release. Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes.

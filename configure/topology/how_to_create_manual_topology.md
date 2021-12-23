@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Create a topology manually
 
 StackState automatically creates a topology based on real-time data sources. _There is typically no need to create a topology manually_. There may be a few exceptions:

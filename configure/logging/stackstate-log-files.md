@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # StackState log files
 
 * [Kubernetes setup](stackstate-log-files.md#kubernetes)

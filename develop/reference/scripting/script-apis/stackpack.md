@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # StackPack - script API
 
 The StackPack script API provides handy operations to get the status of a StackPack or resources that are provided by a StackPack.

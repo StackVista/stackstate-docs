@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Clear stored data
 
 The data in StackState is divided into three different sets:

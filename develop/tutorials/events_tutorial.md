@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Send events to StackState from an external system
 
 This tutorial shows you how to send events from external systems to StackState.

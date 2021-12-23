@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # How to create a StackPack
 
 ## When to create a StackPack

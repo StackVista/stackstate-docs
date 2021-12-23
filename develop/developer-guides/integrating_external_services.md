@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Integrate external services
 
 Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](../reference/scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.

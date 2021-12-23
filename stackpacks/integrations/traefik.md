@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Traefik
 
 The StackState Agent V2 Traefik integration provides the following functionality:

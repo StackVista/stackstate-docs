@@ -2,7 +2,6 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-
 # Push data to StackState from an external system
 
 This tutorial shows you how to create push-based integrations for StackState.
