@@ -103,7 +103,7 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 The Kubernetes integration retrieves components and relations for the Kubernetes cluster.
 
 {% hint style="info" %}
-Note that topology information will not be gathered from Kubernetes clusters that use the `containerd` container runtime.
+Note that topology information is only gathered from Kubernetes clusters that use the Docker container runtime.
 {% endhint %}
 
 **Components**
