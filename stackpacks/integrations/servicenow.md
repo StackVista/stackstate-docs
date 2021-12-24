@@ -52,6 +52,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
      - url: "https://<instance_ID>.service-now.com"
        user: <instance_username>
        password: <instance_password>
+       # min_collection_interval: 5 # use in place of collection_interval for Agent v2.14.x or earlier 
        collection_interval: 5
        # batch_size: 1000  
        # change_request_bootstrap_days: 10
