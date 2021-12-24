@@ -155,8 +155,8 @@ To enable the AWS check and begin collecting data from AWS, add the following co
        regions:
          - global # a special "region" used for global resources
          - eu-west-1
-         # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
-         collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
        # log_bucket_name: '' 
