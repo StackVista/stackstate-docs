@@ -60,6 +60,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
          - <instance_domain_value_1>
          - <instance_domain_value_2>
          - <instance_domain_value_n>
+       # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
        collection_interval: 30
    ```
 
