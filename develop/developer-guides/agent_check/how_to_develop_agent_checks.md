@@ -66,6 +66,7 @@ instances:
     authentication:
       username:
       password:
+    # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
     collection_interval: 30 # the collection interval in seconds. This check will run try to run every 30 seconds
 ```
 
