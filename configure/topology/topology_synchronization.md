@@ -1,5 +1,11 @@
 # Topology synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/topology_synchronization).
+{% endhint %}
+
 ## Overview
 
 StackState can synchronize topology information from different sources, including your own sources. StackState enables you to create a model of your complete landscape.

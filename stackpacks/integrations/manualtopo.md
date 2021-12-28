@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # Manual Topology
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/manualtopo).
+{% endhint %}
+
 ## What is the Manual Topology StackPack?
 
 The Manual Topology StackPack contains everything you need to manually create topology \(components and relations\) in StackState.

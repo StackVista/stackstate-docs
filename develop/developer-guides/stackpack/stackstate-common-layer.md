@@ -4,6 +4,12 @@ description: This is the common layers which can be used in a StackPack.
 
 # StackState Common Layer
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/stackstate-common-layer).
+{% endhint %}
+
 A Layer is a specific term in the StackState where all the Components from different integrations lie within. It is used for the horizontal ordering of the topology. Since StackState supports multiple integrations, there are some common layers defined in the product. Layers are ordered in terms of proximity to the end-user. Merging preference is given to the component in the layer which is closer to the end-user. Below is the list of common layers used in the StackState and their identifiers that can be referenced in a StackPack.
 
 | Layer Name | Identifier |

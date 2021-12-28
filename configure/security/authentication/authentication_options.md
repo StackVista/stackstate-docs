@@ -1,5 +1,11 @@
 # Authentication options
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/authentication/authentication_options).
+{% endhint %}
+
 Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](../../../setup/installation/initial_run_guide.md#default-username-and-password). This authenticates users against a file on the server. However this is not a production-ready setup.
 
 For better security StackState can be configured to use exactly one of the following authentication mechanisms \(replacing the standard admin user\):

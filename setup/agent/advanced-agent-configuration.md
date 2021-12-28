@@ -1,5 +1,11 @@
 # Advanced Agent configuration
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/agent/advanced-agent-configuration).
+{% endhint %}
+
 ## Overview
 
 A number of advanced configuration options are available for StackState Agent V2. These can be set either in the `stackstate.yaml` configuration file \(Linux and Windows\) or using environment variables \(Docker, Kubernetes and OpenShift\).

@@ -4,6 +4,12 @@ description: Standalone Deployment of the Autonomous Anomaly Detector
 
 # AAD Standalone Deployment
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/installation/kubernetes_install/aad_standalone).
+{% endhint %}
+
 ## Overview
 
 Autonomous Anomaly Detector \(AAD\) is a StackState service configured and deployed as a part of standard installation. In some cases the AAD can be deployed standalone using the AAD helm chart, e.g. when StackState and the AAD are deployed in separate kubernetes clusters. The standalone AAD deployment option is recommended only for the users with advanced knowledge of Kubernetes.

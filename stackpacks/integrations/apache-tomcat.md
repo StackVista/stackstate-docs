@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # Apache Tomcat
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/apache-tomcat).
+{% endhint %}
+
 ## Overview
 
 This check collects Tomcat metrics, for example:

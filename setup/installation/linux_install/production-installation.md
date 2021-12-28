@@ -1,5 +1,11 @@
 # Install with production configuration
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/installation/linux_install/production-installation).
+{% endhint %}
+
 {% hint style="info" %}
 StackState prefers Kubernetes!  
 In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_install/migrate_from_linux.md).

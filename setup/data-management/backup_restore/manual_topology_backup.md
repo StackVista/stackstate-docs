@@ -5,6 +5,12 @@ kind: Documentation
 
 # Manually created topology backup
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/data-management/backup_restore/manual_topology_backup).
+{% endhint %}
+
 This page describes the process of exporting and importing manual topology data, i.e. components and relations that are not synchronized via StackPacks.
 
 **Requirements**

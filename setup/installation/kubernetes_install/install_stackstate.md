@@ -4,6 +4,12 @@ description: Install StackState on Kubernetes
 
 # Install StackState
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/installation/kubernetes_install/install_stackstate).
+{% endhint %}
+
 ## Before you start
 
 {% hint style="info" %}

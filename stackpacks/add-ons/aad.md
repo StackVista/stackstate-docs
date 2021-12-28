@@ -4,6 +4,12 @@ description: How to install the Autonomous Anomaly Detector.
 
 # Autonomous Anomaly Detector
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/add-ons/aad).
+{% endhint %}
+
 ## Overview
 
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning.

@@ -6,6 +6,12 @@ description: >-
 
 # Version specific upgrade instructions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/upgrade-stackstate/version-specific-upgrade-instructions).
+{% endhint %}
+
 ## Overview
 
 This page provides specific instructions for upgrading to each currently supported version of StackState. The instructions detail any significant changes that may impact how StackState runs after upgrade, such as a change in memory requirements or configuration.

@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # SolarWinds
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/solarwinds).
+{% endhint %}
+
 ## Overview
 
 The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion \(SolarWinds\) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.
@@ -155,7 +161,7 @@ Links to SolarWinds detail dashboards are created as [component actions](../../u
 The code for the StackState SolarWinds StackPack and check are open source and available on GitHub:
 
 * SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
-* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/SolarWinds)
+* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/blob/master/solarwinds/stackstate_checks/solarwinds/data/conf.yaml.example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/solarwinds/stackstate_checks/solarwinds/data/conf.yaml.example)
 
 ## Troubleshooting
 

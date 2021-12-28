@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # Fedora
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/fedora).
+{% endhint %}
+
 ## Overview
 
 StackState Agent V2 will retrieve data from the Fedora host it is running on and push this to StackState.

@@ -1,5 +1,11 @@
 # Linux backup
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/data-management/backup_restore/linux_backup).
+{% endhint %}
+
 {% hint style="info" %}
 StackState prefers Kubernetes!  
 In the future we will move away from Linux support. Read about [installing StackState on Kubernetes](../../installation/kubernetes_install/).

@@ -4,6 +4,12 @@ description: StackState curated integration
 
 # Docker
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/docker).
+{% endhint %}
+
 ## Overview
 
 ## Setup

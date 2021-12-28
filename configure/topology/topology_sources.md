@@ -4,6 +4,12 @@ description: Configure topology sources in StackState
 
 # Topology sources
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/topology_sources).
+{% endhint %}
+
 ## Overview
 
 Topology sources are used to get data from the Kafka bus, which receives the data from the StackState topology API. They can be configured from the StackState UI page **Settings** &gt; **Topology Synchronization** &gt; **Sts sources**. Each configured topology data source is listed here, together with its connection status and settings. You can also edit, delete and export topology data sources from this list.

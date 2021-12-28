@@ -1,5 +1,11 @@
 # Configure synchronizations
 
+{% hint style="warning" %}
+**This page describes StackState version 4.4.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/sync).
+{% endhint %}
+
 ## Overview
 
 Synchronization allows you to automatically synchronize the topology of your stack to StackState based on information from such diverse systems as discovery tools, service registries, container management tools and CMDBs.
