@@ -59,6 +59,8 @@ The `baseUrl` is set during StackState installation. For details see [Linux inst
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
 For the StackState SaaS product, the address of the StackState Receiver API will be provided on the StackState UI StackPack page after a StackPack has been installed.
+
+[Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
