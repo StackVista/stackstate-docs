@@ -4,12 +4,6 @@ description: StackState version 4.4
 
 # Welcome to the StackState Docs!
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ### Using StackState
 
 {% page-ref page="use/introduction-to-stackstate/getting_started.md" %}

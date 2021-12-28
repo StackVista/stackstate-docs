@@ -4,12 +4,6 @@ description: StackState curated integration
 
 # Nagios
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## What is the Nagios StackPack?
 
 The Nagios StackPack allows StackState to connect to Nagios. We support the Nagios version 5.x onwards.

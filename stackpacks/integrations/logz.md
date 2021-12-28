@@ -4,12 +4,6 @@ description: StackState curated integration
 
 # Logz.io
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## What is the Logz.io StackPack?
 
 The Logz.io StackPack allows StackState to connect to Logz.io.

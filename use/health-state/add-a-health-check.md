@@ -4,12 +4,6 @@ description: Report the health state for an element.
 
 # Add a health check
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.

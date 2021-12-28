@@ -1,11 +1,5 @@
 # Prepare instance template files
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 When preparing an instance specific template file, keep in mind that you will use some of the identifiers that point to the shared template file. It is highly recommended to [prepare your shared template first](prepare_shared_template.md).
 
 In this file you need to provide configuration blocks for the DataSource used by this instance, Topology information, QueryViews, etc. You can identify them in your export `.stj` file by identifier with `instance` entry, for example `"urn:stackpack:{{StackPackName}}:instance:{{instanceId}}:sync:test"`. However, this file also requires pointers to functions, Component templates, and Relation templates from the shared template file as in the below example:

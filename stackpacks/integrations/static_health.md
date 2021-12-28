@@ -4,12 +4,6 @@ description: StackState curated integration
 
 # Static Health
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 The Static Health integration is used to visualize static health information in StackState by reading from CSV files. The health consists of check states.

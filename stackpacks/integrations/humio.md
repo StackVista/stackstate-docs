@@ -4,12 +4,6 @@ description: Community integration
 
 # Humio
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## What is the Humio StackPack?
 
 The Humio StackPack allows you to access your logs stored in Humio.

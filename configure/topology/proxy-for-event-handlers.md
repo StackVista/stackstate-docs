@@ -1,11 +1,5 @@
 # Use a proxy for event handlers
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 StackState can be configured to use a proxy for event handlers. When client proxy settings are configured for http or https in the StackState `application_stackstate.conf` file, these will be used by all event handlers. No further changes are required in the event handler script.

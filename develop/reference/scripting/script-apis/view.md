@@ -6,12 +6,6 @@ description: Fetch a list of views.
 
 # View - script API
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Function `getAll`
 
 Returns a list of all views.

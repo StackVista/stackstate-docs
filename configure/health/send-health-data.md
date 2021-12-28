@@ -1,11 +1,5 @@
 # Send health data over HTTP
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](../../setup/installation/cli-install.md).

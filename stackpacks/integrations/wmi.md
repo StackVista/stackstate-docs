@@ -4,12 +4,6 @@ description: StackState curated integration
 
 # WMI
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 Collect telemetry information with Windows Management Instrumentation \(WMI\) from Windows applications and servers.

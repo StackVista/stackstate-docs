@@ -1,11 +1,5 @@
 # Non-high availability setup
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 The recommended Kubernetes/OpenShift deployment of StackState is a production ready setup with many services running redundantly. If required, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.

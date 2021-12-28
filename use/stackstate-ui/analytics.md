@@ -4,12 +4,6 @@ description: Run queries against data from your IT environment.
 
 # Analytics
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 The analytics environment allows you to directly query the [4T data model](../introduction-to-stackstate/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.

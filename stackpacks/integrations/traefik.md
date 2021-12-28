@@ -4,12 +4,6 @@ description: StackState curated integration
 
 # Traefik
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 The StackState Agent V2 Traefik integration provides the following functionality:
 
 * Reporting Traefik frontends and backends as topology elements.   

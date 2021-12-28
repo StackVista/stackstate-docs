@@ -4,12 +4,6 @@ description: Build advanced topology queries with STQL
 
 # StackState Query Language \(STQL\)
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 This page describes how to use the built-in StackState Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](../../use/stackstate-ui/filters.md#advanced-topology-filters) and can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.

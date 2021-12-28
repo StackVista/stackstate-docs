@@ -1,11 +1,5 @@
 # Open ID Connect \(OIDC\)
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 StackState can authenticate using an OIDC authentication provider. To enable this, you will need to configure both StackState and the OIDC provider to be able to talk to each other. The following sections describe the respective setups.

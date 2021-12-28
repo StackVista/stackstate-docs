@@ -4,12 +4,6 @@ description: How to install and use the health forecasting
 
 # Health Forecast
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 ## Overview
 
 Install the Health Forecast StackPack to get on-demand forecasts for the health of any component over the coming 12 hours.

@@ -4,12 +4,6 @@ description: StackState core integration
 
 # Splunk topology V1
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 {% hint style="info" %}
 This page describes the Splunk topology V1 integration with StackState Agent V1.
 

@@ -5,12 +5,6 @@ kind: Documentation
 
 # Glossary
 
-{% hint style="warning" %}
-**This page describes StackState version 4.4.**
-
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
-{% endhint %}
-
 Below you can find a short dictionary that can help you get a better grasp on the context of the terms used in our documentation.
 
 * **4T data model -** Stands for Topology, Telemetry, Traces and Time. These four dimensions are the key concepts of the StackSate data model.
