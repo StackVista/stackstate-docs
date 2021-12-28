@@ -160,7 +160,7 @@ Links to SolarWinds detail dashboards are created as [component actions](../../u
 The code for the StackState SolarWinds StackPack and check are open source and available on GitHub:
 
 * SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
-* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](hhttps://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
+* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
 
 ## Troubleshooting
 
