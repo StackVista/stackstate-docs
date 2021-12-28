@@ -8,7 +8,7 @@ kind: Documentation
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack).
 {% endhint %}
 
 ## 1. Configure Layers, Domains, and Environments

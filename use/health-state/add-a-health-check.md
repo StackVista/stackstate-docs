@@ -7,7 +7,7 @@ description: Report the health state for an element.
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/health-state/add-a-health-check).
 {% endhint %}
 
 ## Overview

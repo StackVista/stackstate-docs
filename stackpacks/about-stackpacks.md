@@ -7,7 +7,7 @@ description: What is a StackPack?
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/about-stackpacks).
 {% endhint %}
 
 StackPacks are plugins for StackState that extend functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.

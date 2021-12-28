@@ -7,7 +7,7 @@ description: Functions related to time and timing.
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/time).
 {% endhint %}
 
 Some scripting functions of StackState may accept a `TimeSlice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.

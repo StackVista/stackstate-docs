@@ -7,7 +7,7 @@ description: Functions that control the StackState user-interface.
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/ui).
 {% endhint %}
 
 {% hint style="info" %}

@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/how_to_use_the_priority_field_for_components).
 {% endhint %}
 
 The Priority field allows for ordering component's Telemetry streams in the right-hand component pane. There are four levels of priority for Telemetry streams in StackState: `High`, `Medium`, `Low`, and `None`. Streams that have a higher priority level are presented at the top of the Telemetry stream section. By default, all streams have priority set to `none`. To change priorities assigned to specific streams, follow the instruction below:

@@ -7,7 +7,7 @@ description: Run queries against data from your IT environment.
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/analytics).
 {% endhint %}
 
 ## Overview

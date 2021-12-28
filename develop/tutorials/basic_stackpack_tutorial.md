@@ -7,7 +7,7 @@ description: Basic StackPack tutorial
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/tutorials/basic_stackpack_tutorial).
 {% endhint %}
 
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.

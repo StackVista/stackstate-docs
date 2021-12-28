@@ -7,7 +7,7 @@ description: Push integration tutorial
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/tutorials/push_integration_tutorial).
 {% endhint %}
 
 This tutorial shows you how to create push-based integrations for StackState.

@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/installation/kubernetes_install/image_configuration).
 {% endhint %}
 
 This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.

@@ -9,7 +9,7 @@ description: How to integrate StackState with any external service.
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/integrating_external_services).
 {% endhint %}
 
 Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](../reference/scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.

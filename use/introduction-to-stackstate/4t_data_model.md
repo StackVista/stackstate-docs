@@ -8,7 +8,7 @@ kind: documentation
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/introduction-to-stackstate/4t_data_model).
 {% endhint %}
 
 StackState’s capabilities are driven by its unique 4T Data Model®. Merging Topology, Telemetry, Tracing, and Time is the way to model the configuration of what is going on in any IT system; large or small, based on microservices, containers, web services, monoliths, serverless, cloud or on-premise. It doesn’t matter. StackState’s 4T Data Model® delivers insight into the entire IT landscape by capturing every millisecond of change, from any source in real-time to solve or prevent IT issues faster, with the right team.

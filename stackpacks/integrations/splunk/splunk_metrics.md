@@ -7,7 +7,7 @@ description: StackState core integration
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_metrics).
 {% endhint %}
 
 ## Overview

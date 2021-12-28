@@ -7,7 +7,7 @@ description: Release notes up to v4.4.x of StackState
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/upgrade-stackstate/sts-release-notes).
 {% endhint %}
 
 {% hint style="info" %}

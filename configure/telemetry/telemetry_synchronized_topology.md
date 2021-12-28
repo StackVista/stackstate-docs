@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/telemetry_synchronized_topology).
 {% endhint %}
 
 ## Overview

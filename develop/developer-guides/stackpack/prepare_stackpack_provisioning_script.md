@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/prepare_stackpack_provisioning_script).
 {% endhint %}
 
 The provisioning script that is used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.

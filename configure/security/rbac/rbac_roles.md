@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/rbac/rbac_roles).
 {% endhint %}
 
 Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. This instruction will take you through the process of setting up a new group called “StackState Manager”.

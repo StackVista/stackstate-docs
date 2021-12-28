@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **This page describes StackState version 4.4.**
 
-Go to the [documentation for the latest StackState release](https://docs.stackstate.com/).
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/how_to_make_a_multi-instance_stackpack).
 {% endhint %}
 
 This documentation set explains how to make a StackPack that can be installed as multiple instances in StackState. Below you can find the introduction to this topic and the steps to get a multi-instance StackPack. This
