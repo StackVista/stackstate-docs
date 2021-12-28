@@ -6,11 +6,30 @@ description: How to install the Autonomous Anomaly Detector.
 
 ## Overview
 
-Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning.
+Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream. 
 
-Installing the Autonomous Anomaly Detector StackPack will enable the Autonomous Anomaly Detector \(AAD\). The AAD analyzes metric streams in search of any anomalous behavior based on its past. Upon detecting an anomaly, the AAD will mark the stream under inspection with an annotation that is easily visible in the StackState user interface. An `Metric Stream Anomaly Event` for the incident will also be generated which can be inspected at on the [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md).
+{% hint style="info" %}
+Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
+{% endhint %}
 
-The AAD requires zero configuration. It is fully autonomous in selecting the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
+### The anomaly detection process
+
+The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the Autonomous Anomaly Detector StackPack has been installed in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
+  - The anomaly is marked on the associated metric stream chart.
+  - An [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
+
+### Anomaly events
+
+When an anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](/use/problem-analysis/problem_investigation.md#probable-causes). Clicking on a `Metric Stream Anomaly` event will open the Event Details pane on the right-hand side of the screen and provide the following information:
+
+* **Metric Stream** - The name of the metric stream on which the anomaly was detected.
+  * **Severity** - (HIGH, MEDIUM or LOW). The severity shows how far a metric point has deviated from the expected model. Only HIGH severity anomalies will result in an event being generated, however, MEDIUM and LOW severities will be marked on the metric chart. The percentage reported next to the severity shows how closely the model used matches the metric points reported. A lower percentage indicates more frequent deviations from the predicted metric values. For example, an extreme value reported once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
+* **Metric chart** - A chart with an extract from the metric stream centered around the detected anomaly. The Anomaly Interval is highlighted in red.
+* **Anomaly interval** - The time period during which anomalous behaviour was detected.
+* **Description** - ???
+* **Elements** - The name of the element (or elements) on which the metric stream is attached
+
+![Metric stream anomaly event details pane](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 ## Installation
     
@@ -22,11 +41,11 @@ The AAD requires zero configuration. It is fully autonomous in selecting the met
 
 ### Install the Autonomous Anomaly Detector \(AAD\) StackPack
 
-To install the AAD StackPack, simply press the install button. No other actions need to be taken. A [training period](#training-period) is required before AAD can begin to report anomalies.
+To install the AAD StackPack, simply press the INSTALL button. No other actions need to be taken. A [training period](#training-period) is required before AAD can begin to report anomalies.
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3 day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3-day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
 
 ## Frequently Asked Questions
 
@@ -38,7 +57,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 * Components in views that have the most stars by the most users are ranked highest.
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 
-You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above mentioned factors.
+You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
 ### Can I get alerted based on anomalies?
 
@@ -55,7 +74,7 @@ Know what the AAD is working on. The status UI of the AAD provides various metri
 
 ## Uninstall
 
-To uninstall the AAD StackPack, simply press the uninstall button. No other actions need to be taken.
+To uninstall the AAD StackPack, simply press the UNINSTALL button. No other actions need to be taken.
 
 ## Release Notes
 
