@@ -72,7 +72,7 @@ Not all components displayed in the problem pane are necessarily also visible in
 
 ➡️ [Learn more about problems](/use/problem-analysis/about-problems.md)
 
-![Component details](/.gitbook/assets/v45_problem_summary.png)
+![Component details](/.gitbook/assets/v46_problem_summary.png)
 
 ## Events
 
