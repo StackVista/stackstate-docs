@@ -36,7 +36,7 @@ You can configure [component actions](../../../configure/topology/component_acti
 
 A list of the available actions is included in the Component Details pane when you select a component and also in the component context menu, which is displayed when you hover over a component.
 
-![Actions](../../../.gitbook/assets/v45_actions.png)
+![Actions](../../../.gitbook/assets/v46_actions.png)
 
 ### Shortcuts
 

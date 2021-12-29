@@ -31,7 +31,7 @@ To add a health check calculated in StackState:
    * The check is now active and visible under the **Health** section on the right-hand side of the screen.
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
-![Add a health check to an element](../../.gitbook/assets/v45_add_health_check.png)
+![Add a health check to an element](../../.gitbook/assets/v46_add_health_check.png)
 
 ### Check functions
 

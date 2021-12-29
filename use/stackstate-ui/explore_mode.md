@@ -14,7 +14,7 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 ## Perspectives
 
-![Perspectives](../../.gitbook/assets/v45_perspective_buttons.png)
+![Perspectives](../../.gitbook/assets/v46_perspective_buttons.png)
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
 
