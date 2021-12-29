@@ -8,7 +8,7 @@ description: See the real time state of your IT landscape
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](../../../.gitbook/assets/v45_topology.png)
+![Topology Perspective](/.gitbook/assets/v46_topology.png)
 
 ## Components
 
@@ -122,7 +122,7 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
 * **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
-![Root cause](../../../.gitbook/assets/v45_show_full_root_cause_tree.png)
+![Root cause](/.gitbook/assets/v46_show_full_root_cause_tree.png)
 
 ## List mode
 

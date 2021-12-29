@@ -18,7 +18,7 @@ You can change which part of the landscape you are viewing \(e.g. layers and dom
 
 ➡️ [Learn more about the Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
 
-![Explore topology](/.gitbook/assets/v45_topology.png)
+![Explore topology](/.gitbook/assets/v46_topology.png)
 
 ## Topology elements
 

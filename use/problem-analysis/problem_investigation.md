@@ -4,7 +4,7 @@
 
 Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](problem_investigation.md#problem-details-pane) with further information about the problem.
 
-![View Details pane](../../.gitbook/assets/v45_view_details_problems.png)
+![View Details pane](../../.gitbook/assets/v46_view_details_problems.png)
 
 ## Problem Details pane
 
