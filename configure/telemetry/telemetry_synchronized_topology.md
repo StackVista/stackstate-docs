@@ -26,7 +26,7 @@ Note that you are editing the template for the synchronization that imported the
    * **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI component **Properties**.
 4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](telemetry_synchronized_topology.md#add-a-telemetry-stream-to-a-template-function).
 
-![Template editor](../../.gitbook/assets/v45_edit_template.png)
+![Template editor](../../.gitbook/assets/v46_edit_template.png)
 
 ![](../../.gitbook/assets/v45_example-template-editor.png)
 

@@ -13,7 +13,7 @@ A propagated state is returned as one of the following health states:
 
 A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
 
-![Edit component propagation](../../../.gitbook/assets/v45_edit-component-propagation.png)
+![Edit component propagation](../../../.gitbook/assets/v46_edit-component-propagation.png)
 
 ## Propagation functions
 
