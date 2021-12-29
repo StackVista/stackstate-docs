@@ -60,7 +60,8 @@ To enable the Dynatrace topology check and begin collecting topology data from D
     init_config:
     
     instances:
-      - collection_interval: 300
+      - # min_collection_interval: 300 # use in place of collection_interval for Agent v2.14.x or earlier 
+        collection_interval: 300
         url: <url>  #the base URL of the Dynatrace instance.
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
         # Managed url example - https://{your-domain}/e/{your-environment-id} 
@@ -113,7 +114,8 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
     init_config:
     
     instances:
-      - collection_interval: 60
+      - # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+        collection_interval: 60
         url: <url>  #the base URL of the Dynatrace instance.
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
         # Managed url example - https://{your-domain}/e/{your-environment-id} 

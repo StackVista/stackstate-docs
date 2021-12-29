@@ -42,6 +42,7 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You al
         role_arn: 'arn:aws:iam::0123456789:role/RoleName'
         region: 'ijk'
         # optional
+        # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier  
         # collection_interval: 60
     ```
 

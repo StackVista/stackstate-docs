@@ -60,6 +60,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
          - <instance_domain_value_1>
          - <instance_domain_value_2>
          - <instance_domain_value_n>
+       # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
        collection_interval: 30
    ```
 
@@ -159,7 +160,7 @@ Links to SolarWinds detail dashboards are created as [component actions](../../u
 The code for the StackState SolarWinds StackPack and check are open source and available on GitHub:
 
 * SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
-* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](hhttps://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
+* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
 
 ## Troubleshooting
 

@@ -284,16 +284,18 @@ redirects:
   stackpacks/integrations/windows: ./setup/agent/windows.md
   stackpacks/integrations/docker: ./setup/agent/docker.md
   use/introduction-to-stackstate/getting_started: ./getting_started.md
-  use/introduction-to-stackstate/4t_data_moodel: ./use/concepts/4t_data_moodel.md
+  use/introduction-to-stackstate/4t_data_model: ./use/concepts/4t_data_moodel.md
   use/introduction-to-stackstate/anomaly-detection: ./use/concepts/anomaly-detection.md
-  use/introduction-to-stackstate/components_and_relations: ./use/concepts/components_and_relations.md
+  use/introduction-to-stackstate/components_and_relations: ./use/concepts/components_relations.md
   use/introduction-to-stackstate/layers_domains_and_environments: ./use/concepts/layers_domains_environments.md
   use/introduction-to-stackstate/perspectives: ./use/concepts/perspectives.md
   use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture.md
   stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
-  use/introduction-to-stackstate/4t_data_model: ./use/conecpts/4t_data_model.md
   use/problem-analysis/problems: ./use/problem-analysis/about-problems.md
   use/metrics-and-events/send-event-notifications: ./use/metrics-and-events/event-notifications.md
+  setup/installation: ./setup/install-stackstate/README.md
+  develop/stql_reference: ./develop/reference/stql_reference.md
+
 
 # 4.6 docs
 
