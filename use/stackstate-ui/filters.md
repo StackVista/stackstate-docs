@@ -34,11 +34,11 @@ To filter the topology using basic filters, click on the **View Filters** button
 
 The example below uses basic filters to return components that match the following conditions:
 
-* In the **Domain** `mydomain`
+* In the **Domain** `security check`
 * AND has a **Health** state of `Clear` OR `Deviating`
-* OR is the **Component** with the name `agent-centos`
+* OR is the **Component** with the name `ai_engine`
 
-![Filtering example](../../.gitbook/assets/v45_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v46_basic_filter_example.png)
 
 This same filter could also be written as an advanced topology filter using STQL.
 
@@ -50,15 +50,15 @@ To filter the topology using an STQL query, click on the **View Filters** button
 
 The STQL query example below will return components that match the following conditions:
 
-* In the **Domain** `mydomain`
-* AND has a **Health** state of `CLEAR` OR `DEVIATING`
-* OR is the **Component** with the name `agent-centos`
+* In the **Domain** `security check`
+* AND has a **Health** state of `Clear` OR `Deviating`
+* OR is the **Component** with the name `ai_engine`
 
 ```yaml
-(domain IN ("mydomain") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("agent-centos")
+(domain IN ("security check") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("ai_engine")
 ```
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v45_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v46_advanced_filter_example.png)
 
 This same filter result could also be returned with basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 
