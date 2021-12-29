@@ -10,7 +10,7 @@ The StackState explore mode provides an unfiltered view of your topology with. T
 
 Up to 10,000 components can be displayed at any time, if there are already more items than this in your topology, you will need to [add a filter](explore_mode.md#add-a-filter) before any data will be displayed.
 
-![Explore mode](../../.gitbook/assets/v45_explore_mode.png)
+![Explore mode](../../.gitbook/assets/v46_explore_mode.png)
 
 ## Perspectives
 

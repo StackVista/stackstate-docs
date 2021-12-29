@@ -128,7 +128,7 @@ It is possible that your view can contain components that have a deviating propa
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../../.gitbook/assets/v45_list_mode.png)
+![Filtering\(list format\)](../../../.gitbook/assets/v46_list_mode.png)
 
 ### Export as CSV
 
