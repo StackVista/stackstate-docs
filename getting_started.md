@@ -41,7 +41,7 @@ The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the 
 
 ➡️ [Learn more about the timeline and time travel](/use/stackstate-ui/timeline-time-travel.md)
 
-![Timeline](/.gitbook/assets/v45_timeline.png)
+![Timeline](/.gitbook/assets/v46_timeline.png)
 
 ## Component / relation details
 

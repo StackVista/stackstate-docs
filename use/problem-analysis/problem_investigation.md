@@ -36,7 +36,7 @@ Element properties changed events are generated whenever relevant properties of 
 2. Click **Show all changes** in the event details pane.
    * A diff of the old and new properties is displayed.
 
-![View all changes](../../.gitbook/assets/v45_event_view_all_changes.png)
+![View all changes](../../.gitbook/assets/v46_event_view_all_changes.png)
 
 ### Version changed events
 

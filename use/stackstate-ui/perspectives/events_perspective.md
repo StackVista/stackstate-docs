@@ -78,7 +78,7 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
-![Timeline](../../../.gitbook/assets/v45_timeline.png)
+![Timeline](../../../.gitbook/assets/v46_timeline.png)
 
 ## See also
 
