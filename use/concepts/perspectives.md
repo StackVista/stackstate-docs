@@ -1,5 +1,5 @@
 ---
-description: Access data via perspectives.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Perspectives

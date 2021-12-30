@@ -1,5 +1,5 @@
 ---
-description: Inspect and filter data from a configured telemetry stream
+description: StackState Self-hosted v4.5.x
 ---
 
 # Browse telemetry

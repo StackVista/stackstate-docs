@@ -1,5 +1,5 @@
 ---
-description: Report the health state for an element.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Add a health check

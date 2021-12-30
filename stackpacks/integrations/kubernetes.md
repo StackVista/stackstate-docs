@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: Kubernetes
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 Kubernetes

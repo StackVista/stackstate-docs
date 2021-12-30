@@ -1,6 +1,5 @@
 ---
-title: Manual topology import/export
-kind: Documentation
+description: StackState Self-hosted v4.5.x
 ---
 
 # Manually created topology backup

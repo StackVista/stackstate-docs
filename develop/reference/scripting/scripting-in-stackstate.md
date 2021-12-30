@@ -1,7 +1,5 @@
 ---
-description: >-
-  Use the StackState Scripting Language (STSL) to customize or extend
-  StackState's capabilities.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Scripting in StackState

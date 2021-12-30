@@ -1,5 +1,5 @@
 ---
-description: Install StackState on Kubernetes
+description: StackState Self-hosted v4.5.x
 ---
 
 # Install StackState
