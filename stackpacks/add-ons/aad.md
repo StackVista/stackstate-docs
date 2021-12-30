@@ -14,9 +14,9 @@ Note that a [training period](#training-period) is required before AAD can begin
 
 ### The anomaly detection process
 
-The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the Autonomous Anomaly Detector StackPack has been installed in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
+The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack has been installed](#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
   - The anomaly is marked on the associated metric stream chart.
-  - An [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
+  - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
 
 ### Anomaly events
 
@@ -39,7 +39,7 @@ When an anomaly is detected on a metric stream, a `Metric Stream Anomaly` event 
 * It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md "StackState Self-Hosted only") within Kubernetes.
 * If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
-### Install the Autonomous Anomaly Detector \(AAD\) StackPack
+### Install the AAD StackPack
 
 To install the AAD StackPack, simply press the INSTALL button. No other actions need to be taken. A [training period](#training-period) is required before AAD can begin to report anomalies.
 
