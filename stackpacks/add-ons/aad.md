@@ -49,7 +49,7 @@ The AAD will need to train on your data before it can begin reporting anomalies.
 
 ## Frequently Asked Questions
 
-### How does the AAD decide what to work on?
+### How are metric streams selected?
 
 The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. The metric stream selection algorithm ranks metric streams based on the criteria below:
 
@@ -77,10 +77,6 @@ Know what the AAD is working on. The status UI of the AAD provides various metri
 To uninstall the AAD StackPack, simply press the UNINSTALL button. No other actions need to be taken.
 
 ## Release Notes
-
-Release notes for the AAD StackPack are given below.
-
-Note that from StackState release v4.3 the AAD is configured, installed and upgraded as a part of StackState standard installation, therefore AAD Kubernetes service releases are no longer mentioned below.
 
 **Autonomous Anomaly Detector StackPack v0.9.2 \(02-04-2021\)**
 
