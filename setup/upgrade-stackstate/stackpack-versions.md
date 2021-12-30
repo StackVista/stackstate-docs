@@ -34,7 +34,6 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Static topology](../../stackpacks/integrations/static_topology.md) | 2.3.2 | [**2.3.2**](../../stackpacks/integrations/static_topology.md#release-notes) | 2.3.1 |
 | [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.3.1 | 2.3.1 | [**2.3.1**](../../stackpacks/integrations/vsphere.md#release-notes) |
 | [Zabbix](../../stackpacks/integrations/zabbix.md) | [**3.2.0**](../../stackpacks/integrations/zabbix.md#release-notes) | 3.1.1 | 3.1.1 |
-| Common StackPack | | | |
 
 ## See also
 
