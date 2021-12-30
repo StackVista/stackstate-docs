@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # StackState quick start guide
 
 ## Overview
