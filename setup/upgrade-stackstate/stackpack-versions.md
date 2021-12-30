@@ -22,9 +22,9 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | 3.1.1 | 3.1.1 | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) | |
 | [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**1.3.0**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.1.2 | 1.1.1 |
 | [Humio](../../stackpacks/integrations/humio.md) | 1.0.0 | 1.0.0 | 1.0.0 |
-| [Kubernetes](../../stackpacks/integrations/kubernetes.md) | [**3.9.7**](../../stackpacks/integrations/kubernetes.md#release-notes) | 3.9.5 | 3.9.1 |
+| [Kubernetes](../../stackpacks/integrations/kubernetes.md) | [**3.9.8**](../../stackpacks/integrations/kubernetes.md#release-notes) | 3.9.5 | 3.9.1 |
 | [Nagios](../../stackpacks/integrations/nagios.md) | 2.6.3 | [**2.6.3**](../../stackpacks/integrations/nagios.md#release-notes) | 2.6.2 |
-| [OpenShift](../../stackpacks/integrations/openshift.md) | [**3.7.8**](../../stackpacks/integrations/openshift.md#release-notes) | 3.7.6 | 3.7.1 |
+| [OpenShift](../../stackpacks/integrations/openshift.md) | [**3.7.9**](../../stackpacks/integrations/openshift.md#release-notes) | 3.7.6 | 3.7.1 |
 | [SAP](../../stackpacks/integrations/sap.md) | 1.3.1 | 1.3.1 | [**1.3.1**](https://github.com/StackVista/stackpack-sap/blob/master/src/main/stackpack/resources/RELEASE.md) | |
 | [SCOM](../../stackpacks/integrations/scom.md) | 2.1.1 | 2.1.1 | [**2.1.1**](../../stackpacks/integrations/scom.md#release-notes) |
 | [ServiceNow](../../stackpacks/integrations/servicenow.md) | 5.3.1 | 5.3.1 | [**5.3.1**](../../stackpacks/integrations/servicenow.md#release-notes) |
@@ -34,6 +34,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Static topology](../../stackpacks/integrations/static_topology.md) | 2.3.2 | [**2.3.2**](../../stackpacks/integrations/static_topology.md#release-notes) | 2.3.1 |
 | [VMware vSphere](../../stackpacks/integrations/vsphere.md) | 2.3.1 | 2.3.1 | [**2.3.1**](../../stackpacks/integrations/vsphere.md#release-notes) |
 | [Zabbix](../../stackpacks/integrations/zabbix.md) | [**3.2.0**](../../stackpacks/integrations/zabbix.md#release-notes) | 3.1.1 | 3.1.1 |
+| Common StackPack | | | |
 
 ## See also
 
