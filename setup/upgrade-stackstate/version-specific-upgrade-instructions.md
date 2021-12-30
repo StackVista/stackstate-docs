@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState SaaS
 ---
 
 # Version specific upgrade instructions
