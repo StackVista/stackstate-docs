@@ -1,7 +1,5 @@
 ---
-description: >-
-  Use event handlers to send an event notification to an outside system when a
-  component or view health state changes.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Send event notifications

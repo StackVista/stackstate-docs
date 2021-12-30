@@ -1,5 +1,5 @@
 ---
-description: Obtaining StackState software.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Download

@@ -1,5 +1,5 @@
 ---
-description: This is the common layers which can be used in a StackPack.
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackState Common Layer

@@ -1,5 +1,5 @@
 ---
-description: Set the logging level for an instance of a StackState function
+description: StackState Self-hosted v4.5.x
 ---
 
 # Enable logging for functions

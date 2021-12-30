@@ -60,7 +60,7 @@ sub de_link_and_edit_geek_boxes {
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     ';
       $selfhosted_box = 1;

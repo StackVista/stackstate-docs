@@ -1,5 +1,5 @@
 ---
-description: Explore your full IT environment
+description: StackState Self-hosted v4.5.x
 ---
 
 # Explore mode

@@ -1,7 +1,5 @@
 ---
-description: >-
-  An explanation of the core, curated and community integrations available in
-  StackState
+description: StackState Self-hosted v4.5.x
 ---
 
 # About integrations

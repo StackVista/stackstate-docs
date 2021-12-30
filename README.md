@@ -1,14 +1,12 @@
 ---
-description: StackState version 4.5
+description: StackState Self-hosted v4.5.x
 ---
 
-# Welcome to the StackState Docs!
+# Welcome to the StackState Self-hosted product docs!
 
-{% hint style="success" %}
-**StackState version 4.5** is now available - [check the release notes](setup/upgrade-stackstate/sts-release-notes.md#stackstate-v44x) for details.
+**These documentation pages cover all functionality available in the StackState Self-hosted product**. StackState Self-hosted can be used to observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our Saas solution. 
 
-With the release of StackState v4.5, StackState v4.2 has reached End of Life \(EOL\) and will no longer be supported. We encourage customers still running the 4.2 version range to upgrade. Check the [supported StackState versions](#supported-stackstate-versions).
-{% endhint %}
+➡️ [Switch to the documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/).
 
 ### Using StackState
 
@@ -44,3 +42,4 @@ If you believe any documentation is missing, please let us know on the [StackSta
 ## Troubleshooting and support
 
 Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
+

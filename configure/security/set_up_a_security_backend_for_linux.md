@@ -1,6 +1,5 @@
 ---
-title: How to set up a security backend for Linux
-kind: Documentation
+description: StackState Self-hosted v4.5.x
 ---
 
 # Set up a security backend for Linux

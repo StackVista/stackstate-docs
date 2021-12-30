@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 ## Overview
 
 This page describes the exact JSON messages that can be sent for the health synchronization Repeat States consistency model.

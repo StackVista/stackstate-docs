@@ -1,5 +1,5 @@
 ---
-description: The StackPack versions shipped with each release of StackState.
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackPack versions

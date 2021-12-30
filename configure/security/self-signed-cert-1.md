@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Self-signed certificates
 
 ## Overview

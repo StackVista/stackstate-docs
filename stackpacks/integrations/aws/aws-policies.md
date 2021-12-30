@@ -1,5 +1,5 @@
 ---
-description: AWS policy files for the StackState AWS integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Policies for AWS

@@ -1,6 +1,5 @@
 ---
-title: Secrets Management
-kind: Documentation
+description: StackState Self-hosted v4.5.x
 ---
 
 # Secrets management

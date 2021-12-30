@@ -1,5 +1,5 @@
 ---
-description: Basic StackPack tutorial
+description: StackState Self-hosted v4.5.x
 ---
 
 # Create a simple StackPack
