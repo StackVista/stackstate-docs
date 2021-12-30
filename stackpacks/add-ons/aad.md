@@ -59,18 +59,18 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
-### Can anomalies trigger alerts?
+{% hint style="success" "self-hosted info" %}
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md) to a view.
+Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)\).
+{% endhint %}
 
 ### How fast are anomalies detected?
 
 After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
-{% hint style="success" "self-hosted info" %}
+### Can anomalies trigger alerts?
 
-Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)\).
-{% endhint %}
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md) to a view.
 
 ## Uninstall
 
