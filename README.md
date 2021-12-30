@@ -4,7 +4,7 @@ description: StackState Self-hosted v4.5.x
 
 # Welcome to the StackState Self-hosted product docs!
 
-**These documentation pages cover all functionality available in the StackState Self-hosted product**. With StackState Self-hosted, you can observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our Saas solution. 
+**These documentation pages cover all functionality available in the StackState Self-hosted product**. StackState Self-hosted can be used to observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our Saas solution. 
 
 ➡️ [Switch to the documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/).
 
