@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Install with production configuration
 
 {% hint style="info" %}

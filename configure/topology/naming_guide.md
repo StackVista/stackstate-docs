@@ -1,9 +1,5 @@
 ---
-title: Naming Guide
-kind: Documentation
-aliases:
-  - /configuring/naming_guide/
-listorder: 15
+description: StackState SaaS
 ---
 
 # Naming guide

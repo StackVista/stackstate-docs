@@ -1,5 +1,5 @@
 ---
-description: Functions for accessing telemetry
+description: StackState SaaS
 ---
 
 # Telemetry - script API

@@ -1,6 +1,5 @@
 ---
-title: How to set up a security backend for Linux
-kind: Documentation
+description: StackState SaaS
 ---
 
 # Set up a security backend for Linux

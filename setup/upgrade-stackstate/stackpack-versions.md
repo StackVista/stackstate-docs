@@ -1,5 +1,5 @@
 ---
-description: The StackPack versions shipped with each release of StackState.
+description: StackState SaaS
 ---
 
 # StackPack versions

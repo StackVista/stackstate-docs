@@ -1,5 +1,5 @@
 ---
-description: Build advanced topology queries with STQL
+description: StackState SaaS
 ---
 
 # StackState Query Language \(STQL\)
@@ -14,7 +14,7 @@ An STQL query consists of [component filters](stql_reference.md#component-filter
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 STQL queries can be combined with scripts in the Analytics environment.

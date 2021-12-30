@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Install with development configuration
 
 {% hint style="info" %}

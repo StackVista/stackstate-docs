@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Before you install
 
 {% hint style="info" %}

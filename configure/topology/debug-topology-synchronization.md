@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Debug topology synchronization
 
 ## Overview

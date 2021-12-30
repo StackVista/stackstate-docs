@@ -1,5 +1,5 @@
 ---
-description: Install the StackState CLI
+description: StackState SaaS
 ---
 
 # StackState CLI

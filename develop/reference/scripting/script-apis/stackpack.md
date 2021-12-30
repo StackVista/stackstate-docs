@@ -1,5 +1,5 @@
 ---
-description: Functions to work with StackPacks
+description: StackState SaaS
 ---
 
 # StackPack - script API

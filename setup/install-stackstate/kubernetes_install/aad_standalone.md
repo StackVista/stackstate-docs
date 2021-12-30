@@ -1,5 +1,5 @@
 ---
-description: Standalone Deployment of the Autonomous Anomaly Detector
+description: StackState SaaS
 ---
 
 # AAD Standalone Deployment

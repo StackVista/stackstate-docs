@@ -1,5 +1,5 @@
 ---
-description: StackState core integration (legacy)
+description: StackState SaaS
 ---
 
 # AWS \(Legacy\)

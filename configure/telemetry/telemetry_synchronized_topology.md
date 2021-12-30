@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Add telemetry during topology synchronization
 
 ## Overview

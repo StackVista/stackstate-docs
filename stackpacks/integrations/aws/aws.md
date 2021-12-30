@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState SaaS
 ---
 
 # AWS
@@ -123,8 +123,9 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
+    
 **Authenticate with an IAM role**
 
 If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 
@@ -159,6 +160,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
        regions:
          - global # a special "region" used for global resources
          - eu-west-1
+       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
        collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2

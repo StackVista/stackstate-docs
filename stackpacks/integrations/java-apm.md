@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState SaaS
 ---
 
 # Java APM

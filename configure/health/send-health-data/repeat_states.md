@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 ## Overview
 
 This page describes the exact JSON messages that can be sent for the health synchronization Repeat States consistency model.

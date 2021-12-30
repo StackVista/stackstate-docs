@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # How to configure a custom synchronization
 
 ## Overview

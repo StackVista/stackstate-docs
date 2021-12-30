@@ -1,5 +1,5 @@
 ---
-description: Work with the StackState log files on Kubernetes and Linux
+description: StackState SaaS
 ---
 
 # StackState log files

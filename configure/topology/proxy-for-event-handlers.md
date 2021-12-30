@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Use a proxy for event handlers
 
 ## Overview

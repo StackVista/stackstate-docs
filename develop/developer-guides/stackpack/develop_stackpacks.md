@@ -1,7 +1,5 @@
 ---
-description: >-
-  StackPacks are an easy way to ship and manage the lifecycle of integrations,
-  script and StackState configuration.
+description: StackState SaaS
 ---
 
 # How to create a StackPack

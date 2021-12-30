@@ -1,5 +1,5 @@
 ---
-description: Functions that control the StackState user-interface.
+description: StackState SaaS
 ---
 
 # UI - script API

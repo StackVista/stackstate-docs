@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Health state in StackState
 
 ## Overview
@@ -37,7 +41,7 @@ Existing StackPacks will provide health synchronization out of the box.
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can set up a custom health synchronization to integrate with external monitoring systems that are not supported out of the box.
@@ -69,7 +73,7 @@ A CLEAR \(green\) health state does not propagate.
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can configure custom propagation functions to customize how health state affects the overall health of your systems.

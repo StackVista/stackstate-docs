@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Install with POC configuration
 
 {% hint style="info" %}

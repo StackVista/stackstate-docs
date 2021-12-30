@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState SaaS
 ---
 
 # SCOM
@@ -94,7 +94,8 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        
      instances:
      # run every minute
-     - collection_interval: 60
+     - # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       collection_interval: 60
        hostip: localhost
        domain: stackstate
        username: <username>
@@ -143,6 +144,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      ```text
      init_config:
        # run every minute
+       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
        collection_interval: 60
      instances:
      - integration_mode: powershell    # api or powershell, default api

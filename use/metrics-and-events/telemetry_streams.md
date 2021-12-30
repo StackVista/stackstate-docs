@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Telemetry streams
 
 ## Overview
@@ -21,7 +25,7 @@ In StackState, telemetry streams need to be linked to elements \(components or r
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization. Read how to add telemetry during topology synchronization.

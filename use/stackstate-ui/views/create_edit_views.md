@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Create and edit views
 
 ## Overview
@@ -23,7 +27,7 @@ In the **Save view as** dialog, the following options can be set:
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 * You can build your own view state configuration functions to customize how the view health state is calculated.

@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Enable email event notifications
 
 ## Overview

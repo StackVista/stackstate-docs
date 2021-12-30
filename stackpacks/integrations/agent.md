@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState SaaS
 ---
 
 # 💠 StackState Agent V2
@@ -37,7 +37,8 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
     
 For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}

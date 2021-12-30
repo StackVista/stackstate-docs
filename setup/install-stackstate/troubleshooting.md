@@ -1,5 +1,5 @@
 ---
-description: Steps to troubleshoot a StackState install
+description: StackState SaaS
 ---
 
 # Troubleshooting

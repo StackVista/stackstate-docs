@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Advanced Agent configuration
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Debug health synchronization
 
 ## Overview

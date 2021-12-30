@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Set up traces
 
 This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md).
@@ -21,7 +25,7 @@ The AWS integration collects tracing information from the in-built AWS distribut
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 * The DotNet APM integration enables instrumentation for DotNet applications and sends traces back to StackState.

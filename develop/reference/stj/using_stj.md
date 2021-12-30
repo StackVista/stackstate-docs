@@ -1,7 +1,5 @@
 ---
-description: >-
-  All configuration of StackState is described using StackState Template JSON
-  (STJ).
+description: StackState SaaS
 ---
 
 # Using STJ

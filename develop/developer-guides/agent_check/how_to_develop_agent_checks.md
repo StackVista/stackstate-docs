@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # How to develop Agent checks
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
@@ -66,6 +70,7 @@ instances:
     authentication:
       username:
       password:
+    # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
     collection_interval: 30 # the collection interval in seconds. This check will run try to run every 30 seconds
 ```
 

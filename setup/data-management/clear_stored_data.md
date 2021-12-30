@@ -1,5 +1,5 @@
 ---
-description: Removing data from StackState.
+description: StackState SaaS
 ---
 
 # Clear stored data

@@ -1,5 +1,5 @@
 ---
-description: Report the health state for an element.
+description: StackState SaaS
 ---
 
 # Add a health check
@@ -44,7 +44,7 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 * You can create a custom check function to customize how StackState assigns a health state to a metric stream.
@@ -72,7 +72,7 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can synchronize existing health checks from an external monitoring system and add them to StackState topology elements.

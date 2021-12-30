@@ -1,6 +1,5 @@
 ---
-title: Manual topology import/export
-kind: Documentation
+description: StackState SaaS
 ---
 
 # Manually created topology backup

@@ -1,5 +1,5 @@
 ---
-description: How to install the Autonomous Anomaly Detector.
+description: StackState SaaS
 ---
 
 # Autonomous Anomaly Detector
@@ -48,7 +48,7 @@ After an initial [training period](#training-period), the AAD ensures that prior
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see troubleshooting\).

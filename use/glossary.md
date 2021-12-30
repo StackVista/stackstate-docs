@@ -1,6 +1,5 @@
 ---
-title: Glossary
-kind: Documentation
+description: StackState SaaS
 ---
 
 # Glossary

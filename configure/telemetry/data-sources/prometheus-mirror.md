@@ -1,5 +1,5 @@
 ---
-description: Pull telemetry from Prometheus using mirroring
+description: StackState SaaS
 ---
 
 # Prometheus mirror

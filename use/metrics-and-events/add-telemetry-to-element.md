@@ -1,5 +1,5 @@
 ---
-description: Add incoming telemetry (metrics and logs) data to an element.
+description: StackState SaaS
 ---
 
 # Add a telemetry stream

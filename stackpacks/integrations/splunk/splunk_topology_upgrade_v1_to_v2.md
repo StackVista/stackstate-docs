@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState SaaS
 ---
 
 # Upgrade Splunk topology V1 to V2

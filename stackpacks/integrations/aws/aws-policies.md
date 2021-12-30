@@ -1,5 +1,5 @@
 ---
-description: AWS policy files for the StackState AWS integration
+description: StackState SaaS
 ---
 
 # Policies for AWS

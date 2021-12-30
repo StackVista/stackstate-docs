@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Customize a StackPack
 
 ## StackPack configuration file

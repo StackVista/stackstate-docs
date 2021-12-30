@@ -1,7 +1,5 @@
 ---
-title: Script API - Async
-kind: Documentation
-description: Functions to work with `AsyncScriptResult`
+description: StackState SaaS
 ---
 
 # Async - script API

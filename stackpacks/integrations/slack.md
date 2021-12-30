@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState SaaS
 ---
 
 # Slack StackPack
@@ -36,7 +36,7 @@ When a new version of the Slack StackPack is available in your instance of Stack
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
         
 For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.

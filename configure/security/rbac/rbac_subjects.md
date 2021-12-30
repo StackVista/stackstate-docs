@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Subjects
 
 ## Link your existing authentication provider to StackState RBAC

@@ -1,5 +1,5 @@
 ---
-description: Access data via perspectives.
+description: StackState SaaS
 ---
 
 # Perspectives

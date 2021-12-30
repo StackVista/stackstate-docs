@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Timeline and time travel
 
 ## Overview
@@ -45,7 +49,7 @@ The telemetry interval can be set in the following ways:
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can configure the default telemetry interval.

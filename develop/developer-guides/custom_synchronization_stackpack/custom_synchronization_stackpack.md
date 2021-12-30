@@ -1,7 +1,5 @@
 ---
-description: >-
-  Building a new topology synchronization pipeline starts with the custom
-  synchronization StackPack.
+description: StackState SaaS
 ---
 
 # About the Custom Synchronization StackPack

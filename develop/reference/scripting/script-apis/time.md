@@ -1,5 +1,5 @@
 ---
-description: Functions related to time and timing.
+description: StackState SaaS
 ---
 
 # Time - script API

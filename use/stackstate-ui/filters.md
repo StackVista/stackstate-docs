@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Filters
 
 ## Overview
@@ -29,7 +33,7 @@ The main way to filter topology is using the available basic filters. When you s
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can define custom labels to make searching for information easier.
@@ -109,7 +113,7 @@ layer = "applications"
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 If required, you can manually configure the topology filtering limit. 

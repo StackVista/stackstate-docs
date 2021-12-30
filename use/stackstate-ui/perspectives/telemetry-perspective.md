@@ -1,5 +1,5 @@
 ---
-description: See metrics of the components in your IT landscape.
+description: StackState SaaS
 ---
 
 # Telemetry Perspective

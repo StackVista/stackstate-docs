@@ -1,5 +1,5 @@
 ---
-description: Community integration
+description: StackState SaaS
 ---
 
 # Cloudera

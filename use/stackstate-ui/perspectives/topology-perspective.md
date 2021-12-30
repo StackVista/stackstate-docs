@@ -1,5 +1,5 @@
 ---
-description: See the real time state of your IT landscape
+description: StackState SaaS
 ---
 
 # Topology Perspective
@@ -33,7 +33,7 @@ Actions can be used to expand the topology selection to show all dependencies fo
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can configure component actions in the **Settings** page or create custom component actions.
@@ -120,7 +120,7 @@ If there are components with [telemetry streams](../../metrics-and-events/teleme
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can configure or develop your own propagation functions.

@@ -1,6 +1,5 @@
 ---
-title: The 4T Data Model
-kind: documentation
+description: StackState SaaS
 ---
 
 # The 4T data model

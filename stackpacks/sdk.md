@@ -1,9 +1,5 @@
 ---
-title: Integration SDK
-kind: documentation
-description: >-
-  StackState is an open platform with an open data model. Learn how to create
-  your own StackPacks.
+description: StackState SaaS
 ---
 
 # Develop your own StackPacks

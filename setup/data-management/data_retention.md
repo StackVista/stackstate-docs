@@ -1,5 +1,5 @@
 ---
-description: Configure the data retention parameters
+description: StackState SaaS
 ---
 
 # Data retention

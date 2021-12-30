@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Configure topology synchronizations
 
 ## Overview

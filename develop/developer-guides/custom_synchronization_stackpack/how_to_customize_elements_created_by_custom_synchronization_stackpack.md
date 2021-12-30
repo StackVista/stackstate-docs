@@ -1,6 +1,5 @@
 ---
-title: How to configure elements created by Custom Synchronization StackPack
-kind: Documentation
+description: StackState SaaS
 ---
 
 # How to customize elements created by the Custom Synchronization StackPack

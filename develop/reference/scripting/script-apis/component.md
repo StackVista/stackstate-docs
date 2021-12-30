@@ -1,7 +1,5 @@
 ---
-title: Script API - Component
-kind: Documentation
-description: Functions to get access to specific component data.
+description: StackState SaaS
 ---
 
 # Component - script API

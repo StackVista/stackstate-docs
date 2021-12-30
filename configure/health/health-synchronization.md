@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Health synchronization
 
 ## Overview

@@ -1,6 +1,5 @@
 ---
-title: Secrets Management
-kind: Documentation
+description: StackState SaaS
 ---
 
 # Secrets management

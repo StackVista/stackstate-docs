@@ -1,5 +1,5 @@
 ---
-description: Functions for predicting data available in StackState
+description: StackState SaaS
 ---
 
 # Prediction - script API

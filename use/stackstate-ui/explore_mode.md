@@ -1,5 +1,5 @@
 ---
-description: Explore your full IT environment
+description: StackState SaaS
 ---
 
 # Explore mode

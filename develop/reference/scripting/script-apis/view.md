@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # View - script API
 
 ## Function `getAll`

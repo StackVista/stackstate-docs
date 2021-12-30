@@ -1,5 +1,5 @@
 ---
-description: Manage StackState using the CLI
+description: StackState SaaS
 ---
 
 # StackState CLI

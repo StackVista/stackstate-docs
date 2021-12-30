@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Set custom default telemetry interval
 
 ## Overview

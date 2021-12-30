@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # About StackPacks
 
 ## Overview
@@ -13,7 +17,7 @@ There are two types of StackPack - Add-ons and Integrations. The available Stack
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 A full list of the StackPacks shipped with each supported version of StackState is available on the StackPack versions page.
@@ -50,7 +54,7 @@ If a new StackPack version is available, an alert will be displayed on the Stack
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 A full list of the StackPacks shipped with each supported version of StackState is available on the StackPack versions page.
@@ -74,7 +78,7 @@ To upgrade to a new major version of a StackPack, [uninstall and reinstall](abou
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 Continue using changes made to customized StackPack configuration items after upgrade:
@@ -102,7 +106,7 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 You can make a back-up of configuration items. Note that the lock status of configuration items will not be exported as part of a configuration backup.

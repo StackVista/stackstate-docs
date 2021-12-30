@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Components and Relations
 
 ## Components

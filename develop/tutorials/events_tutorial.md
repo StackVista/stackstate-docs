@@ -1,5 +1,5 @@
 ---
-description: Events tutorial
+description: StackState SaaS
 ---
 
 # Send events to StackState from an external system

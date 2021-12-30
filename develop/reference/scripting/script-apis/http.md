@@ -1,5 +1,5 @@
 ---
-description: Functions to execute HTTP requests.
+description: StackState SaaS
 ---
 
 # HTTP - script API

@@ -1,5 +1,5 @@
 ---
-description: Use StackState to detect anomalies in your IT infrastructure
+description: StackState SaaS
 ---
 
 # Anomaly detection

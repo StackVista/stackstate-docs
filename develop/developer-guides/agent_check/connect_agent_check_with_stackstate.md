@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Connect an Agent check to StackState
 
 ## Overview

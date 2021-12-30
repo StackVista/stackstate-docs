@@ -1,5 +1,5 @@
 ---
-description: Build reports with StackState's markup language.
+description: StackState SaaS
 ---
 
 # Using STML

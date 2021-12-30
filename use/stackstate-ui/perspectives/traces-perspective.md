@@ -1,5 +1,5 @@
 ---
-description: See traces for the components in your IT landscape.
+description: StackState SaaS
 ---
 
 # Traces Perspective

@@ -1,6 +1,5 @@
 ---
-title: STML Tags
-kind: Documentation
+description: StackState SaaS
 ---
 
 # STML Tags

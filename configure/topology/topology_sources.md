@@ -1,5 +1,5 @@
 ---
-description: Configure topology sources in StackState
+description: StackState SaaS
 ---
 
 # Topology sources

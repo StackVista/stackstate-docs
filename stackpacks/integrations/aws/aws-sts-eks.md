@@ -1,5 +1,5 @@
 ---
-description: AWS EKS role setup for the StackState AWS integration
+description: StackState SaaS
 ---
 
 # StackState IAM role for EKS

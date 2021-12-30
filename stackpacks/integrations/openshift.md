@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: OpenShift
+description: StackState SaaS
 ---
 
 # 💠 OpenShift

@@ -1,5 +1,5 @@
 ---
-description: Keyboard shortcuts in the StackState UI
+description: StackState SaaS
 ---
 
 # Keyboard shortcuts

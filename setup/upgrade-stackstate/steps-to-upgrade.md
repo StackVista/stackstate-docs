@@ -1,5 +1,5 @@
 ---
-description: Perform a major or minor upgrade of StackState.
+description: StackState SaaS
 ---
 
 # Steps to upgrade

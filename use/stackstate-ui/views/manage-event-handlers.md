@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Manage event handlers
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: Bookmark and monitor parts of your IT landscape with views
+description: StackState SaaS
 ---
 
 # About views
@@ -71,7 +71,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 Through a combination of configuration of permissions and scope, it is possible control access for specific users:

@@ -1,5 +1,5 @@
 ---
-description: Obtaining StackState software.
+description: StackState SaaS
 ---
 
 # Download

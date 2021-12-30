@@ -1,5 +1,5 @@
 ---
-description: Mirror integration tutorial
+description: StackState SaaS
 ---
 
 # Set up a mirror to pull telemetry data from an external system

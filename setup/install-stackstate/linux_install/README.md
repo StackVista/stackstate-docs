@@ -1,5 +1,5 @@
 ---
-description: Install StackState on Linux
+description: StackState SaaS
 ---
 
 # Linux install

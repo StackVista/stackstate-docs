@@ -1,5 +1,5 @@
 ---
-description: Report the health state for a complete view.
+description: StackState SaaS
 ---
 
 # Configure the view health
@@ -32,7 +32,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 * Create your own custom View Health State Configuration functions.
@@ -63,7 +63,7 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 
 **StackState Self-Hosted**
 
-Extra information for the StackState Self-Hosted product:
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
     
 Use the **MINIMUM HEALTH STATES** view health state configuration as a starting point to create a custom view health state configuration function.

@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Non-high availability setup
 
 ## Overview

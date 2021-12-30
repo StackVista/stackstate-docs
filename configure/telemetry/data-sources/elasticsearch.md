@@ -1,5 +1,5 @@
 ---
-description: Retrieve data from a custom Elasticsearch data source
+description: StackState SaaS
 ---
 
 # Elasticsearch

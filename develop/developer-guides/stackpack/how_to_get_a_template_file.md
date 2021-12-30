@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # How to get a template file
 
 ## Export the StackState configuration

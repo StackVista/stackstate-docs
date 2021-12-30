@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Propagation functions
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: This is the common layers which can be used in a StackPack.
+description: StackState SaaS
 ---
 
 # StackState Common Layer

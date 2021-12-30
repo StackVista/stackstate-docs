@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Scopes
 
 ## How do scopes work?
