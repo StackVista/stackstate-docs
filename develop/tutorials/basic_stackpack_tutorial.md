@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Create a simple StackPack
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.
 
 ## Setup

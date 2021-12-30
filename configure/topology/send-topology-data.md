@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Topology synchronization
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 StackState can synchronize topology information from different sources, including your own sources.

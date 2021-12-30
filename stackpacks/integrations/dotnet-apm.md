@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # DotNet APM
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 To begin tracing applications written in any language, first make sure to have the Stackstate Agent installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to the Stackstate Agent.

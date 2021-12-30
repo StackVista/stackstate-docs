@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Topology filtering limits
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 To optimize performance, a limit is placed on the amount of elements that can be loaded to produce a topology visualization. The filtering limit has a default value of 10000 elements.

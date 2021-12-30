@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Keyboard shortcuts
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 The keyboard shortcuts below can be used to navigate the StackState UI.
 
 | Keyboard shortcut | Action |

@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # PostgreSQL
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 Get metrics from the PostgreSQL service in real time to:

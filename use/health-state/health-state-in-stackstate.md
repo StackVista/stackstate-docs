@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Health state in StackState
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 StackState will track a single health state for a given topology element \(components and relations\) based on information available from the different health checks attached to it. Health checks can be calculated by either [StackState](health-state-in-stackstate.md#stackstate-health-checks) or an [external monitoring system](health-state-in-stackstate.md#external-monitoring-system).

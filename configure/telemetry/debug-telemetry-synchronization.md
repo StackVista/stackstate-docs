@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Debug telemetry synchronization
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 This page explains the [telemetry synchronization process](#synchronization-process) and how to go about troubleshooting issues with telemetry synchronization.

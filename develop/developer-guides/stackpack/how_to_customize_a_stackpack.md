@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Customize a StackPack
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## StackPack configuration file
 
 The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](prepare_package.md) or follow the instructions below.

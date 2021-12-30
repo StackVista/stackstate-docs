@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Scopes
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## How do scopes work?
 
 The scope is an [STQL query](../../../develop/reference/stql_reference.md) that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.

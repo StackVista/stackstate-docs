@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # LDAP
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 StackState can use an LDAP server \(including AD\) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState.

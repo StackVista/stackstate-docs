@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Manage event handlers
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 Event handlers attached to a StackState view listen to generated StackState events.  Event notifications can be sent or actions can be triggered in response to health state change events or problem events generated within the view.

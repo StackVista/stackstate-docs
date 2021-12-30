@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Mirroring Telemetry
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 Mirroring is a way to connect StackState to third-party telemetry data sources. In the case of mirroring StackState does not require the telemetry to be present within StackState's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
 
 ### When to use mirroring

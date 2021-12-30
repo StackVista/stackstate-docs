@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Traefik
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 The StackState Agent V2 Traefik integration provides the following functionality:
 
 * Reporting Traefik frontends and backends as topology elements.   

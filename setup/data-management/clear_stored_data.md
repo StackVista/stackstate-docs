@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Clear stored data
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 The data in StackState is divided into three different sets:
 
 * Elasticsearch data

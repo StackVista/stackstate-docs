@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # SAP
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## What is the SAP StackPack?
 
 The SAP StackPack is used to create a near real time synchronization with your SAP system and also pulls the metrics from it. The components supported are:

@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Create a topology manually
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 StackState automatically creates a topology based on real-time data sources. _There is typically no need to create a topology manually_. There may be a few exceptions:
 
 * Business processes are typically not discoverable and may therefore be placed on top of the topology manually.

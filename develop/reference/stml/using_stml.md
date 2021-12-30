@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Using STML
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 With StackState Markup Language \(STML\), you can create pretty formatted documents of StackState data. STML is a [markdown based language](https://en.wikipedia.org/wiki/Markdown) with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.

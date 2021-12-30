@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Splunk metrics
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 The StackState Splunk integration collects metrics from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk metrics check configuration. In order to receive Splunk metrics data in StackState, you will therefore need to add configuration to both Splunk and StackState Agent V1.

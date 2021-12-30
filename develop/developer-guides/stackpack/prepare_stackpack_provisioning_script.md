@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Prepare a StackPack provisioning script
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 The provisioning script that is used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.
 
 A provisioning script is provided with a set of capabilities that it can execute in the `StackState` environment. The capabilities are restricted to those that are defined as part of `com.stackstate.stackpack.ProvisioningContext` which is passed as a constructor parameter for the `ProvisioningScript`.

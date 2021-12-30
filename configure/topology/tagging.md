@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Tags
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Introduction
 
 Tags \(also known as _labels_\) are a way of associating names with topology so it can be filtered.

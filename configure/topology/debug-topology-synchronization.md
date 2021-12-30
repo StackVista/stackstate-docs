@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Debug topology synchronization
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 This page explains several tools that can be used to debug a topology synchronization.

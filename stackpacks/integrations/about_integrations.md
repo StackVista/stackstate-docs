@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # About integrations
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 StackState integrations are split into three groups - core, curated and community. The differences between the three groups are described on this page.

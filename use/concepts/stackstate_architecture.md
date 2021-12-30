@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # StackState architecture
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 StackState is built for scale and runs on Kubernetes in your cloud or data center.

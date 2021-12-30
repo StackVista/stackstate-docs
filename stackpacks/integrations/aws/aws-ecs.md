@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # AWS ECS
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 Get topology and telemetry information from an Amazon Elastic Container Service \(ECS\) cluster.

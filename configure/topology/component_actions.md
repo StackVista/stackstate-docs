@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Component actions
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu or the component details pane in the [Topology Perspective](../../use/stackstate-ui/perspectives/topology-perspective.md).
 
 ![Component Actions](../../.gitbook/assets/v45_actions.png)

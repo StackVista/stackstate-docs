@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Health Forecast
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 Install the Health Forecast StackPack to get on-demand forecasts for the health of any component over the coming 12 hours.

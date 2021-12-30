@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # StackPack versions
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 The table below shows the StackPack version numbers shipped with each StackState release. Version numbers in **bold** are the most recent release of the StackPack and link to the associated release notes.
 
 {% hint style="info" %}

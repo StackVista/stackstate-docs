@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Static Health
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 The Static Health integration is used to visualize static health information in StackState by reading from CSV files. The health consists of check states.

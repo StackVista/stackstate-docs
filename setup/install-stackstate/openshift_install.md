@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # OpenShift install
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Before you start
 
 Before you start the installation of StackState:

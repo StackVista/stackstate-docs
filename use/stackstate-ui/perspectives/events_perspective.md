@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # Events Perspective
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 The Events Perspective shows events and changes for the elements in the current [view](../views/about_views.md) or filtered topology.
 
 ![The Events Perspective](../../../.gitbook/assets/v45_events-perspective.png)

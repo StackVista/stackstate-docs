@@ -4,10 +4,6 @@ description: StackState Self-hosted v4.5.x
 
 # StackState images
 
-{% hint style="info" %}
-[Go to the StackState SaaS docs site](https://docs.stackstate.com/v/stackstate-saas/).
-{% endhint %}
-
 ## Overview
 
 This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.
