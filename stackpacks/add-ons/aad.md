@@ -59,9 +59,9 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
-### Can I get alerted based on anomalies?
+### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be placed on components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications via event handlers.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md) to a view.
 
 ### How fast are anomalies detected?
 
