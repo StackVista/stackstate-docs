@@ -71,6 +71,9 @@ To enable the Azure integration and begin collecting data from Azure, you will n
     <Azure clientSecret> \
     <Azure resourceGroupName>
 ```
+
+You can also specify "Azure Function App name" using `-functionAppName`, otherwise a derivative of the client ID will be used for the created function app name.
+
 {% endtab %}
 
 {% tab title="Powershell" %}
@@ -86,6 +89,8 @@ az login
 -servicePrincipalSecret <Client Secret> `
 -resourceGroupName <Resource GroupName to deploy to>
 ```
+
+You can also specify "Azure Function App name" using `-functionAppName`, otherwise a derivative of the client ID will be used for the created function app name.
 {% endtab %}
 {% endtabs %}
 
@@ -223,6 +228,12 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 {% endtabs %}
 
 ## Release notes
+
+**Azure StackPack v4.2.0 (2021-12-15)** 
+
+- Feature: Added two options to installation script:
+  - to specify Azure function name for the integration
+  - to specify stackpack instance URL (topology identifier)
 
 **Azure StackPack v4.1.1 \(2021-04-02\)**
 

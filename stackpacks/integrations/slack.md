@@ -53,6 +53,10 @@ Before you uninstall the Slack StackPack, all event handlers that have been conf
 
 ## Release notes
 
+**Slack StackPack v0.0.7 (2021-12-10)** 
+
+- Improvement: Add description text to StackPack pages.
+
 **Slack StackPack v0.0.6 (2021-08-24)**
 
 * Improvement: Add related problems to view health handler
