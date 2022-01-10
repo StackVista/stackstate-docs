@@ -72,7 +72,9 @@ To enable the Azure integration and begin collecting data from Azure, you will n
     <Azure resourceGroupName>
 ```
 
-You can also specify "Azure Function App name" using `-functionAppName`, otherwise a derivative of the client ID will be used for the created function app name.
+You can also specify two additional (positional) arguments after the `<Azure resourceGroupName>`: 
+- The StackPack Instance URL (topology identifier), default `{tenant ID}_{first 25 chars of client ID}`.
+- The Azure function App name, default `{tenant ID}_{first 25 chars of client ID}`.
 
 {% endtab %}
 
@@ -90,7 +92,10 @@ az login
 -resourceGroupName <Resource GroupName to deploy to>
 ```
 
-You can also specify "Azure Function App name" using `-functionAppName`, otherwise a derivative of the client ID will be used for the created function app name.
+You can also specify two additional arguments: 
+- `-stsInstanceUrl` - The StackPack Instance URL (topology identifier), default `{tenant ID}_{first 25 chars of client ID}`.
+- `-functionAppName` - The Azure function App name, default `{tenant ID}_{first 25 chars of client ID}`.
+
 {% endtab %}
 {% endtabs %}
 
