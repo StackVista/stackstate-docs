@@ -44,7 +44,7 @@ Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Int
 To enable the Dynatrace check and begin collecting data from Dynatrace, add the following configuration to StackState Agent V2:
 
 {% hint style="info" %}
-Example Dynatrace Agent integration configuration file: [conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/dynatrace/stackstate_checks/dynatrace/data/conf.yaml.example)
+Example Dynatrace Agent integration configuration file: [conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1.15.0/dynatrace/stackstate_checks/dynatrace/data/conf.yaml.example)
 {% endhint %}
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace.d/conf.yaml` to include details of your Dynatrace instance:
@@ -168,7 +168,7 @@ For example, to filter a view by Dynatrace Management Zone, add the key `dynatra
 
 ### Open source
 
-The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
+The code for the Dynatrace check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/1.15.0/dynatrace](https://github.com/StackVista/stackstate-agent-integrations/tree/1.15.0/dynatrace)
 
 ## Troubleshooting
 
@@ -213,7 +213,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace check:
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
-* [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace)
+* [StackState Agent integrations - Dynatrace \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/1.15.0/dynatrace)
 * [How to generate a Dynatrace API token \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token)
 * [Permissions for Dynatrace API tokens \(dynatrace.com\)](https://www.dynatrace.com/support/help/shortlink/api-authentication#token-permissions)
 
