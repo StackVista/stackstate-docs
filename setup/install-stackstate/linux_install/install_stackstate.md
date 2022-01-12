@@ -11,7 +11,7 @@ In the future we will move away from Linux support. Read how to [migrate from th
 
 ## Before you start
 
-Before starting the installation, you need to make a choice which make sure you make a choice whether to make a [development](development-installation.md) or [production](production-installation.md) setup, and make sure you have machines available that match our [requirements](../../requirements.md).
+Before starting the installation, you need to make a choice which make sure you make a choice whether to make a [development](development-installation.md) or [production](production-installation.md) setup, and make sure you have machines available that match our [requirements](/setup/install-stackstate/requirements.md).
 
 ## Installing
 
