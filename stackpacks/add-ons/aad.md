@@ -16,21 +16,21 @@ Note that a [training period](#training-period) is required before AAD can begin
 
 The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack has been installed](#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
   - The anomaly is marked on the associated metric stream chart.
+    - The Anomaly Interval is highlighted in red. 
+    - HIGH severity anomalies have a RED marker. 
+    - MEDIUM severity anomalies have an ORANGE marker. 
+    - LOW severity anomalies have a YELLOW marker.
   - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
 
 ### Anomaly events
 
-When an anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](/use/problem-analysis/problem_investigation.md#probable-causes). Clicking on a `Metric Stream Anomaly` event will open the Event Details pane on the right-hand side of the screen.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](/use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
 
 ![Metric stream anomaly event details pane](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - (HIGH, MEDIUM or LOW). The severity shows how far a metric point has deviated from the expected model. The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
 * **Metric chart** - A chart with an extract from the metric stream centered around the detected anomaly.
-  * The Anomaly Interval is highlighted in red.
-  * HIGH severity anomalies have a RED marker.
-  * MEDIUM severity anomalies have a ORANGE marker. 
-  * LOW severity anomalies have a YELLOW marker.
 * **Anomaly interval** - The time period during which anomalous behaviour was detected.
 * **Description** - A description that classifies the anomaly.
 * **Elements** - The name of the element (or elements) on which the metric stream is attached
