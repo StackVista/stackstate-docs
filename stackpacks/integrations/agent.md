@@ -78,6 +78,10 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 
 ## Release notes
 
+**Agent V2 StackPack v4.4.12 (2021-12-15)**
+
+* Improvement: Supported additional identifiers for Disk component
+
 **Agent V2 StackPack v4.4.9 \(2021-11-17\)**
 
 * Improvement: Updated supported platforms documentation.

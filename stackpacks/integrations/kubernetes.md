@@ -223,6 +223,10 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## Release notes
 
+**Kubernetes StackPack v3.9.8 (2021-11-30)**
+
+* Bug Fix: Support nodes without instanceId
+
 **Kubernetes StackPack v3.9.7 (2021-10-06)**
 
 * Bug Fix: Fix metrics for generic events
