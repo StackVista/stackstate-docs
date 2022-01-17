@@ -15,6 +15,18 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v4.5.2
+
+**Improvements**
+
+- Added configuration options to Azure StackPack that allow specification of the Azure function name and the StackPack instance URL. STAC-14694
+
+**Bug fixes**
+
+- Fixed issue that caused a redirect to the Views Dashboard page when clicking on a component in a view that contains a slash in the identifier. STAC-15443
+- Added missing documentation in Slack StackPack. STAC-15103
+- Fixed issue that caused transaction logs to consume excessive storage space on Kubernetes. STAC-13922
+
 ### v4.5.1
 
 **Improvements**
