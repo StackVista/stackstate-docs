@@ -15,7 +15,7 @@ Note that a [training period](#training-period) is required before AAD can begin
 ### The anomaly detection process
 
 The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack has been installed](#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
-  - The anomaly is marked on the associated metric stream chart.
+  - The anomaly is marked on the associated metric stream chart:
     - The Anomaly Interval is highlighted in red. 
     - HIGH severity anomalies have a RED marker. 
     - MEDIUM severity anomalies have an ORANGE marker. 
