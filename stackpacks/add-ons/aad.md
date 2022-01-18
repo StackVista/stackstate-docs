@@ -19,7 +19,7 @@ The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack
     - RED markers show HIGH severity anomalies.  
     - ORANGE markers show MEDIUM severity anomalies. 
     - YELLOW markers shw LOW severity anomalies.
-    - The Anomaly Interval for each detected anomaly is highlighted.
+    - The time period during which anomalous behaviour was detected (the Anomaly Interval) is highlighted.
   - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
 
 ![Anomalies marked on a metric stream chart](/.gitbook/assets/v45_metric_chart_anomaly.png)
