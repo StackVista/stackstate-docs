@@ -22,7 +22,7 @@ The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack
     - LOW severity anomalies have a YELLOW marker.
   - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
 
-![Anomaly marked on a metric chart](/.gitbook/assets/v45_metric_chart_anomaly.png)
+![Anomalies marked on a metric stream chart](/.gitbook/assets/v45_metric_chart_anomaly.png)
 
 ### Anomaly events
 
