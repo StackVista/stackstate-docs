@@ -1,5 +1,5 @@
 ---
-description: Configure the data retention parameters
+description: StackState Self-hosted v4.5.x
 ---
 
 # Data retention

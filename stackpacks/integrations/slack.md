@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Slack StackPack
@@ -52,6 +52,10 @@ Before you uninstall the Slack StackPack, all event handlers that have been conf
 {% endhint %}
 
 ## Release notes
+
+**Slack StackPack v0.0.7 (2021-12-10)** 
+
+- Improvement: Add description text to StackPack pages.
 
 **Slack StackPack v0.0.6 (2021-08-24)**
 

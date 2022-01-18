@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: OpenShift
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 OpenShift
@@ -229,6 +228,10 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 ```
 
 ## Release notes
+
+**OpenShift StackPack v3.7.9 (2021-11-30)**
+
+* Bug Fix: Support nodes without instanceId
 
 **OpenShift StackPack v3.7.8 (2021-10-06)**
 

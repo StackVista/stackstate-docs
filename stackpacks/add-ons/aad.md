@@ -1,5 +1,5 @@
 ---
-description: How to install the Autonomous Anomaly Detector.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Autonomous Anomaly Detector

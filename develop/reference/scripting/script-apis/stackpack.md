@@ -1,5 +1,5 @@
 ---
-description: Functions to work with StackPacks
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackPack - script API

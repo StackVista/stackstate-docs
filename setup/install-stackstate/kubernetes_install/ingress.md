@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Configure Ingress
 
 The StackState Helm chart exposes an `ingress` section in its values. By default ingress is disabled.

@@ -1,8 +1,5 @@
 ---
-description: >-
-  Most topology in StackState is create automatically using topology
-  synchronization. This section describes how you can create a topology
-  manually.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Create a topology manually

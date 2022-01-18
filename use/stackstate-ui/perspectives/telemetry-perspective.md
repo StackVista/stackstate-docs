@@ -1,5 +1,5 @@
 ---
-description: See metrics of the components in your IT landscape.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Telemetry Perspective

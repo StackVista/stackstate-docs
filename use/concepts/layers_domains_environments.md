@@ -1,5 +1,5 @@
 ---
-title: 'Layers, Domains, and Environments'
+description: StackState Self-hosted v4.5.x
 ---
 
 # Layers, Domains and Environments

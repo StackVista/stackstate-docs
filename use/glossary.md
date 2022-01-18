@@ -1,6 +1,5 @@
 ---
-title: Glossary
-kind: Documentation
+description: StackState Self-hosted v4.5.x
 ---
 
 # Glossary

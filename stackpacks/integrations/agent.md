@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 StackState Agent V2
@@ -80,6 +80,10 @@ Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks*
 To uninstall StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
 ## Release notes
+
+**Agent V2 StackPack v4.4.12 (2021-12-15)**
+
+* Improvement: Supported additional identifiers for Disk component
 
 **Agent V2 StackPack v4.4.9 \(2021-11-17\)**
 

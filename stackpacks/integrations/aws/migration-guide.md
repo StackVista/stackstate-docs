@@ -1,7 +1,5 @@
 ---
-description: >-
-  Recommended steps to migrate an AWS (Legacy) integration to the new AWS
-  StackPack
+description: StackState Self-hosted v4.5.x
 ---
 
 # Migrate AWS \(Legacy\) to AWS

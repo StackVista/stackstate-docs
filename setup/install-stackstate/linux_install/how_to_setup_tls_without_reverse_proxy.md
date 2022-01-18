@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Set up TLS without reverse proxy
 
 {% hint style="info" %}

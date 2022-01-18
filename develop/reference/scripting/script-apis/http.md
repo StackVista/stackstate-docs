@@ -1,5 +1,5 @@
 ---
-description: Functions to execute HTTP requests.
+description: StackState Self-hosted v4.5.x
 ---
 
 # HTTP - script API

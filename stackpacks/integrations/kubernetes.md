@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: Kubernetes
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 Kubernetes
@@ -223,6 +222,10 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
 
 ## Release notes
+
+**Kubernetes StackPack v3.9.8 (2021-11-30)**
+
+* Bug Fix: Support nodes without instanceId
 
 **Kubernetes StackPack v3.9.7 (2021-10-06)**
 
