@@ -67,7 +67,7 @@ You cannot directly control the stream selected, but you can steer the metric st
 
 {% hint style="success" "self-hosted info" %}
 
-Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what it is currently doing \(see [troubleshooting](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)\).
+Know what the AAD is working on. [The status UI of the AAD](/setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)) provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?
