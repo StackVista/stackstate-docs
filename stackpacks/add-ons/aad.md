@@ -19,7 +19,7 @@ The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack
     - RED markers show HIGH severity anomalies.  
     - ORANGE markers show MEDIUM severity anomalies. 
     - YELLOW markers shw LOW severity anomalies.
-    - The Anomaly Interval for each detected is highlighted.
+    - The Anomaly Interval for each detected anomaly is highlighted.
   - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
 
 ![Anomalies marked on a metric stream chart](/.gitbook/assets/v45_metric_chart_anomaly.png)
@@ -33,7 +33,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - (HIGH, MEDIUM or LOW). The severity shows how far a metric point has deviated from the expected model. The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
 * **Metric chart** - A chart with an extract from the metric stream centered around the detected anomaly.
-* **Anomaly interval** - The time period during which anomalous behaviour was detected. This is also shaded red on the metric chart.
+* **Anomaly interval** - The time period during which anomalous behaviour was detected. This is also shaded on the metric chart.
 * **Description** - A description of the observed anomaly.
 * **Elements** - The name of the element (or elements) on which the metric stream is attached
 
