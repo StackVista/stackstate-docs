@@ -15,14 +15,21 @@ Note that a [training period](#training-period) is required before AAD can begin
 ### The anomaly detection process
 
 The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack has been installed](#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
-  - The anomaly is marked on the associated metric stream chart:
-    - RED markers show HIGH severity anomalies.  
-    - ORANGE markers show MEDIUM severity anomalies. 
-    - YELLOW markers shw LOW severity anomalies.
-    - The time period during which anomalous behaviour was detected is highlighted.
-  - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
+  - The identified anomaly is given a [severity](#anomaly-severity) (HIGH, MEDIUM or LOW).  
+  - The anomaly and time period during which anomalous behaviour was detected are shown on the associated metric stream chart. The color indicates the anomaly severity.
+  - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated.
 
-![Anomalies marked on a metric stream chart](/.gitbook/assets/v45_metric_chart_anomaly.png)
+### Anomaly severity
+
+Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. The severity shows how far a metric point has deviated from the expected model.
+
+| Severity | Color | Event | Description |
+| :--- | :--- | :--- | :--- |
+| **HIGH** | Red | ✅ | |
+| **MEDIUM** | Orange | - | |
+| **LOW** | Yellow | - | |
+
+![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v45_anomaly_severity.png)
 
 ### Anomaly events
 
@@ -31,7 +38,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 ![Metric stream anomaly event details pane](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
-* **Severity** - (HIGH, MEDIUM or LOW). The severity shows how far a metric point has deviated from the expected model. The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
+* **Severity** - (HIGH, MEDIUM or LOW). The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
 * **Metric chart** - A chart with an extract from the metric stream centered around the detected anomaly.
 * **Anomaly interval** - The time period during which anomalous behaviour was detected. This is also shaded on the metric chart.
 * **Description** - A description of the observed anomaly.
@@ -51,7 +58,7 @@ To install the AAD StackPack, simply press the INSTALL button. No other actions 
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3-day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
 
 ## Frequently Asked Questions
 
@@ -62,8 +69,9 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 * The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
+* Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
-You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
+You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors. 
 
 {% hint style="success" "self-hosted info" %}
 
