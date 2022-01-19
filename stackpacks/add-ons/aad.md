@@ -25,9 +25,9 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 
 | Severity | Color | Event | Description |
 | :--- | :--- | :--- | :--- |
-| **HIGH** | Red | ✅ | |
-| **MEDIUM** | Orange | - | |
-| **LOW** | Yellow | - | |
+| **HIGH** | Red | ✅ | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. HIGH severity anomalies will be reported the least frequently of all severities. |
+| **MEDIUM** | Orange | - | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. On a metric stream, MEDIUM severity anomalies will be reported less frequently than LOW severity and more frequently than HIGH severity. They can be useful for root cause analysis and can offer some insight into other HIGH severity anomalies reported on the stream. |
+| **LOW** | Yellow | - | Reported when slightly anomalous data is observed. LOW is the most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of AAD anomaly reports. |
 
 ![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v45_anomaly_severity.png)
 
