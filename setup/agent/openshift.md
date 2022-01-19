@@ -32,6 +32,8 @@ The OpenShift integration collects topology data in an OpenShift cluster, as wel
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
+![StackState Agents on OpenShift](/.gitbook/assets/agent-openshift.svg)
+
 ### StackState Cluster Agent
 
 StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire cluster:
