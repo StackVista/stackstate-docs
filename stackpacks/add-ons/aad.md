@@ -26,17 +26,18 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 
 | Severity                                                      | Description                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p><strong>HIGH</strong><br><strong></strong>🟥(red)</p>      | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. The least frequently reported severity. [Generates an anomaly event](aad.md#anomaly-events).                                                                                                                                              |
-| <p><strong>MEDIUM</strong><br><strong></strong>🟧(orange)</p> | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
-| <p><strong>LOW</strong><br><strong></strong>🟨(yellow)</p>    | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of AAD anomaly reports.                                                                                                                                       |
+| <p><strong>HIGH</strong><br>🟥 (red)</p>      | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. The least frequently reported severity. [Generates an anomaly event](aad.md#anomaly-events).                                                                                                                                              |
+| <p><strong>MEDIUM</strong><br>🟧 (orange)</p> | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
+| <p><strong>LOW</strong><br>🟨 (yellow)</p>    | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of AAD anomaly reports.                                                                                                                                       |
 
-![HIGH, MEDIUM and LOW severity anomalies](../../.gitbook/assets/v45\_anomaly\_severity.png)
+
+![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v45_anomaly_severity_inspector.png)
 
 ### Anomaly events
 
-When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem\_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
 
-![Metric stream anomaly event details pane](../../.gitbook/assets/v45\_event\_metric\_stream\_anomaly.png)
+![Metric stream anomaly event details pane](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - (HIGH, MEDIUM or LOW). The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
@@ -49,8 +50,8 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 
 ### Prerequisites
 
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes\_install/). Please make sure that this is supported by your StackState installation.
-* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes\_install/aad\_standalone.md) within Kubernetes.
+* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/). Please make sure that this is supported by your StackState installation.
+* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md) within Kubernetes.
 * If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
 ### Install the AAD StackPack
@@ -69,13 +70,13 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 * The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
-* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how\_to\_use\_the\_priority\_field\_for\_components.md).
+* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
 {% hint style="success" %}
-Know what the AAD is working on. [The status UI of the AAD](../../setup/install-stackstate/kubernetes\_install/aad\_standalone.md#troubleshooting)) provides various metrics and indicators, including details of what the AAD is currently doing.
+Know what the AAD is working on. [The status UI of the AAD](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)) provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?
