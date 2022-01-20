@@ -14,6 +14,8 @@ This check collects Tomcat metrics, for example:
 
 And more.
 
+Apache Tomcat is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Setup
 
 ### Installation

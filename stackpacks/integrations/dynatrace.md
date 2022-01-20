@@ -8,6 +8,8 @@ description: StackState Self-hosted v4.5.x
 
 The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in StackState.
 
+Dynatrace is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations).
+
 ![Data flow](../../.gitbook/assets/stackpack-dynatrace.svg)
 
 * Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve data:

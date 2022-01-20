@@ -14,6 +14,8 @@ JMXFetch also sends service checks that report on the status of your monitored i
 
 JMX Checks have a limit of 350 metrics per instance which should be enough to satisfy your needs as it's easy to customize which metrics you want to collect.
 
+JMX is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Setup
 
 ### Installation

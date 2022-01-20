@@ -18,6 +18,8 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 | Compute Disks | Operations Management |  |
 | Event Hubs | Public IP Addresses |  |
 
+Azure is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ![Data flow](../../.gitbook/assets/stackpack-azure.png)
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.

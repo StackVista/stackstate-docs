@@ -9,6 +9,8 @@ The StackState Agent V2 Traefik integration provides the following functionality
 * Reporting Traefik frontends and backends as topology elements.   
 * Reporting all network connections between services, including network traffic telemetry.
 
+Traefik is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Setup
 
 ### Installation
