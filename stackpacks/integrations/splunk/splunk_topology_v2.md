@@ -19,6 +19,8 @@ The StackState Splunk topology V2 integration collects topology from Splunk by e
 
 The Splunk topology check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
+Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations).
+
 ## Splunk saved search
 
 In the Splunk Topology V2 integration, StackState Agent V2 executes the Splunk saved searches configured in the [Splunk topology V2 Agent check](splunk_topology_v2.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
