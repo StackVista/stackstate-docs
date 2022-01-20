@@ -2,9 +2,9 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-# Tuning topology synchronization performance
+# Tune topology synchronization performance
 
-This guide lays out steps to tune topology synchronization for best performance. This guide only applies to the kubernetes deployment of StackState.
+This guide lays out steps to tune topology synchronization for best performance on a Kubernetes deployment of StackState.
 
 ## Observing topology synchronization performance
 
@@ -29,7 +29,7 @@ The latency shows the time it took for data collected at the source, to the mome
 To understand whether the StackState platform is a bottleneck when processing topology, we want to know whether the pod that does synchronization has exhausted its cpu resources. We do this using the following steps:
 
 ```javascript
-// Get the configured request for the stackstate topology synchroinzation pod
+// Get the configured request for the StackState topology synchroinzation pod
 > kubectl get pod -l app.kubernetes.io/component=sync -o=jsonpath='{.items[*]..resources.requests.cpu}'
 2
 
@@ -39,11 +39,11 @@ NAME                               CPU(cores)   MEMORY(bytes)
 stackstate-sync-665f988dc4-sh4fp   1970m         3234Mi  
 ```
 
-In this case, we observe that 1.970 cores are used by the synchronization pod, where 2 are requested. This means the pod is very close to its cpu budget and is likely throttled. To remedy this, follow the procedure below
+In this case, we observe that 1.970 cores are used by the synchronization pod, where 2 are requested. This means that the pod is very close to its CPU budget and is likely throttled. To remedy this, follow the procedure below
 
 ## Change the topology synchronization cpu budget
 
-To modify the cpu budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md) of your k8s stackstate deployment. And deploy the change.
+To modify the cpu budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
 
 ```javascript
 stackstate:
@@ -56,11 +56,11 @@ stackstate:
                     cpu: 4
 ```
 
-Ideally we set requests equal to limits, to be guaranteed performance. Limits can never be lower than requests.
+To guarantee performance, requests should ideally be set equal to limits. Limits can never be lower than requests.
 
-After making this modification, it is best to god back to observing the latency of tour synchronization, so be sure the changes have the desired effect, and do another iteration if more tuning is needed.
+After making this modification, [observe the synchronization performance](#observing-topology-synchronization-performance) again to be sure that the changes have had the desired effect. If not, do another iteration to further tune the synchronization.
 
 ## See also
 
 * [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)
-* [Customizing values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md)  
+* [Customize values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md)  
