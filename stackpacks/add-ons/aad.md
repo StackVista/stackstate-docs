@@ -6,32 +6,40 @@ description: StackState Self-hosted v4.5.x
 
 ## Overview
 
-Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream. 
+Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream.
 
 {% hint style="info" %}
-Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
+Note that a [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
 {% endhint %}
 
 ### The anomaly detection process
 
-The Autonomous Anomaly Detector \(AAD\) is enabled as soon as the [AAD StackPack has been installed](#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
-  - The anomaly is marked on the associated metric stream chart:
-    - RED markers show HIGH severity anomalies.  
-    - ORANGE markers show MEDIUM severity anomalies. 
-    - YELLOW markers shw LOW severity anomalies.
-    - The time period during which anomalous behaviour was detected is highlighted.
-  - If the anomaly is considered to have a severity level of HIGH, an [anomaly event](#anomaly-events) is generated containing details of the detected anomaly.
+The Autonomous Anomaly Detector (AAD) is enabled as soon as the [AAD StackPack has been installed](aad.md#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
 
-![Anomalies marked on a metric stream chart](/.gitbook/assets/v45_metric_chart_anomaly.png)
+* The identified anomaly is given a [severity](aad.md#anomaly-severity) (HIGH, MEDIUM or LOW).
+* The anomaly and time period during which anomalous behaviour was detected are shown on the associated metric stream chart. The color indicates the anomaly severity.
+* If the anomaly is considered to have a severity level of HIGH, an [anomaly event](aad.md#anomaly-events) is generated.
+
+### Anomaly severity
+
+Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. The severity shows how far a metric point has deviated from the expected model and the length of time for which anomalous data has been observed.
+
+| Severity | Description |
+| :--- | :--- |
+| 🟥 **HIGH** (red) | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. The least frequently reported severity. [Generates an anomaly event](aad.md#anomaly-events). |
+| 🟧 **MEDIUM** (orange) | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
+| 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of AAD anomaly reports. |
+
+![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v45_anomaly_severity_inspector.png)
 
 ### Anomaly events
 
-When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](/use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
 
 ![Metric stream anomaly event details pane](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
-* **Severity** - (HIGH, MEDIUM or LOW). The severity shows how far a metric point has deviated from the expected model. The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
+* **Severity** - (HIGH, MEDIUM or LOW). The percentage reported next to the severity shows how confident AAD is that the observed metric is anomalous. If the observed metric could be expected to occur more frequently, this confidence percentage will be a lower value. For example, an extreme value that could be expected once over the course of two weeks (when collecting data every minute), would report 80%. Once every 4 weeks corresponds to 90%, once every 8 weeks to 95% etc.
 * **Metric chart** - A chart with an extract from the metric stream centered around the detected anomaly.
 * **Anomaly interval** - The time period during which anomalous behaviour was detected. This is also shaded on the metric chart.
 * **Description** - A description of the observed anomaly.
@@ -47,7 +55,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 
 ### Install the AAD StackPack
 
-To install the AAD StackPack, simply press the INSTALL button. No other actions need to be taken. A [training period](#training-period) is required before AAD can begin to report anomalies.
+To install the AAD StackPack, simply press the INSTALL button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
 
 ### Training period
 
@@ -62,21 +70,22 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 * The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
+* Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
 {% hint style="success" "self-hosted info" %}
 
-Know what the AAD is working on. [The status UI of the AAD](/setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)) provides various metrics and indicators, including details of what the AAD is currently doing.
+Know what the AAD is working on. [The status UI of the AAD](/setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting) provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?
 
-After an initial [training period](#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
+After an initial [training period](aad.md#training-period), the AAD ensures that prioritized metric streams are checked for anomalies in a timely fashion. Anomalies occurring in the highest prioritized metric streams are detected within about 5 minutes.
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md) to a view.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
 
 ## Uninstall
 
@@ -84,28 +93,28 @@ To uninstall the AAD StackPack, simply press the UNINSTALL button. No other acti
 
 ## Release Notes
 
-**Autonomous Anomaly Detector StackPack v0.9.2 \(02-04-2021\)**
+**Autonomous Anomaly Detector StackPack v0.9.2 (02-04-2021)**
 
 * Common version bumped from 2.4.3 to 3.0.0
 * StackState min version bumped to 4.3.0
 
-**Autonomous Anomaly Detector StackPack v0.8.1 \(22-03-2021\)**
+**Autonomous Anomaly Detector StackPack v0.8.1 (22-03-2021)**
 
 * Check function has been moved to common StackPack
 
-**Autonomous Anomaly Detector StackPack v0.8.0 \(19-03-2021\)**
+**Autonomous Anomaly Detector StackPack v0.8.0 (19-03-2021)**
 
 * Autonomous metric stream anomaly detection check function.
 
-**Autonomous Anomaly Detector StackPack v0.7 \(19-02-2021\)**
+**Autonomous Anomaly Detector StackPack v0.7 (19-02-2021)**
 
 * Autonomous Anomaly Detector service GA.
 
-**Autonomous Anomaly Detector StackPack v0.6 BETA \(13-10-2020\)**
+**Autonomous Anomaly Detector StackPack v0.6 BETA (13-10-2020)**
 
 * Documentation fixes and minor maintenance work.
 
-**Autonomous Anomaly Detector StackPack v0.2.2 BETA \(04-09-2020\)**
+**Autonomous Anomaly Detector StackPack v0.2.2 BETA (04-09-2020)**
 
 * Releasing Autonomous Anomaly Detector service BETA.
 
