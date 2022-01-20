@@ -165,6 +165,7 @@
   * [Use a proxy for event handlers](configure/topology/proxy-for-event-handlers.md)
   * [Use tags](configure/topology/tagging.md)
   * [Debug topology synchronization](configure/topology/debug-topology-synchronization.md)
+  * [Tune topology synchronization](configure/topology/tune-topology-synchronization.md)
 * [Telemetry](configure/telemetry/README.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Data sources](configure/telemetry/data-sources/README.md)

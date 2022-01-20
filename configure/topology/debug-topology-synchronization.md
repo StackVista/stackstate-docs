@@ -169,3 +169,4 @@ latency (Seconds)                                   35.754  ---                 
 
 * [Working with StackState log files](/configure/logging/stackstate-log-files.md)
 * [Configure topology synchronizations](/configure/topology/sync.md)
+* [Tuning topology synchronization](/configure/topology/tune-topology-synchronization.md)

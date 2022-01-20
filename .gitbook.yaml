@@ -252,6 +252,7 @@ redirects:
 
   configure/topology/topology_synchronization: ./configure/topology/send-topology-data.md
   configure/topology/debugging_topology_synchronization: ./configure/topology/debug-topology-synchronization.md
+  configure/topology/tune-topology-synchronization: ./configure/topology/tune-topology-synchronization.md
   get-started/getting-started: ./getting_started.md
   setup/installation/README: ./setup/install-stackstate/README.md
   setup/installation/initial_run_guide: ./setup/install-stackstate/initial_run_guide.md
