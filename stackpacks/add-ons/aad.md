@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState SaaS
 ---
 
 # Autonomous Anomaly Detector
@@ -47,11 +47,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 
 ## Installation
     
-### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md "StackState Self-Hosted only") within Kubernetes.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
 
@@ -76,7 +72,12 @@ You cannot directly control the stream selected, but you can steer the metric st
 
 {% hint style="success" "self-hosted info" %}
 
-Know what the AAD is working on. [The status UI of the AAD](/setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting) provides various metrics and indicators, including details of what the AAD is currently doing.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState SaaS
 ---
 
 # Push data to StackState from an external system
