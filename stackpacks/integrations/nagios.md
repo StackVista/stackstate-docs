@@ -12,6 +12,8 @@ Using this StackPack, you can:
 
 * map Nagios alerts onto your topology
 
+Nagios is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Prerequisites
 
 The following prerequisites need to be met:

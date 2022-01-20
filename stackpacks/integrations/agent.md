@@ -8,6 +8,8 @@ description: StackState Self-hosted v4.5.x
 
 The StackState Agent V2 StackPack works with [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
 
+StackState Agent V2 is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+
 ## Setup
 
 ### Prerequisites

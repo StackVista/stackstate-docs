@@ -14,6 +14,8 @@ The SAP StackPack is used to create a near real time synchronization with your S
 * SAP Database
 * SAP Database Component
 
+SAP is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
+
 ## Prerequisites
 
 To set up the StackState SAP integration you need to have:
