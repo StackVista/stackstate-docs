@@ -8,6 +8,8 @@ description: StackState SaaS
 
 The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run as either an API integration or PowerShell integration, these are described in the tabs below the diagram.
 
+SCOM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ![Data flow](../../.gitbook/assets/stackpack-scom.svg)
 
 {% tabs %}

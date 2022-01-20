@@ -12,6 +12,7 @@ The Kubernetes integration is used to create a near real-time synchronization of
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
 
+
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
 * Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.

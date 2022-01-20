@@ -15,6 +15,8 @@ Get realtime metrics from MySQL databases, including:
 
 You can also invent your own metrics using custom SQL queries.
 
+MySQL is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Setup
 
 ### Installation

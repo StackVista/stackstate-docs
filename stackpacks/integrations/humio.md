@@ -12,6 +12,8 @@ Using this StackPack, you can:
 
 * Jump straight to your container logs in Humio using a Quick Action on docker container components running in Kubernetes
 
+Humio is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
+
 ## Prerequisites
 
 * A Humio cloud account

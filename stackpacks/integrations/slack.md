@@ -8,6 +8,7 @@ description: StackState SaaS
 
 The Slack StackPack allows you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler) to a view in StackState.
 
+
 ![Slack StackPack](/.gitbook/assets/stackpack-slack.svg)
 
 * Event handlers added to a StackState view run an event handler function in response to events that are generated in StackState.

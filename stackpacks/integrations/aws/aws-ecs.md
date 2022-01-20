@@ -8,6 +8,7 @@ description: StackState SaaS
 
 Get topology and telemetry information from an Amazon Elastic Container Service \(ECS\) cluster.
 
+
 ## Functionality
 
 The StackState Agent V2 provides the following functionality:

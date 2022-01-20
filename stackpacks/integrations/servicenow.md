@@ -8,6 +8,8 @@ description: StackState SaaS
 
 The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items \(CIs\) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations. ServiceNow change request events are also retrieved.
 
+ServiceNow is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+
 ![Data flow](../../.gitbook/assets/stackpack-servicenow.svg)
 
 * Agent V2 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).

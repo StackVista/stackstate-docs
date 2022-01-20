@@ -8,6 +8,8 @@ description: StackState SaaS
 
 The Zabbix StackPack is used to create a near real time synchronization with your Zabbix instance.
 
+Zabbix is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Prerequisites
 
 The following prerequisites need to be met:

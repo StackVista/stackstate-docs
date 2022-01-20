@@ -8,6 +8,8 @@ description: StackState SaaS
 
 The Cloudera StackPack is used to create a near real time synchronization with your Cloudera instance.
 
+Cloudera is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
+
 ## Prerequisites
 
 The following prerequisites need to be met:

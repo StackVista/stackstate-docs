@@ -17,6 +17,8 @@ This integration will be a part of the Agent V2 StackPack which should be instal
 
 The traces collected by the java trace client are forwarded to the StackState Trace Agent, which in turn forwards it to StackState. This also means that port `7077` should be opened for communication from the StackState Trace Agent.
 
+Java APM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Automatic Instrumentation
 
 Automatic instrumentation for Java uses the `java-agent` instrumentation capabilities provided by the JVM. When the `java-agent` is registered, it has the ability to modify class files at the load time. The `java-agent` uses the Byte Buddy framework to find the classes defined for instrumentation and modify those class bytes accordingly.

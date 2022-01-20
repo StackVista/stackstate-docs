@@ -8,6 +8,8 @@ description: StackState SaaS
 
 The Static Health integration is used to visualize static health information in StackState by reading from CSV files. The health consists of check states.
 
+Static Health is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Setup
 
 ### Prerequisites

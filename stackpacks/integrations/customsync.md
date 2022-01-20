@@ -10,6 +10,8 @@ The Custom Synchronization StackPack contains everything you need to automatical
 
 **Use the Custom Synchronization StackPack if you want to connect an external topology source that is not listed as a standard StackPack.**
 
+Custom synchronization is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Next steps
 
 Read up on [configuring synchronizations](../../configure/topology/sync.md), follow the [Push-Integration tutorial](../../develop/tutorials/push_integration_tutorial.md) or read the [Custom Synchronization developer guide](../../develop/developer-guides/custom_synchronization_stackpack/).
