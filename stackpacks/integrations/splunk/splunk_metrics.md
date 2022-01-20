@@ -13,7 +13,7 @@ The StackState Splunk integration collects metrics from Splunk by executing Splu
 
 The Splunk metrics check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
 
-Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations).
+Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Splunk saved search
 
