@@ -12,6 +12,8 @@ The OpenShift integration is used to create a near real-time synchronization of 
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
 
+OpenShift is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+
 ![Data flow](../../.gitbook/assets/stackpack-openshift.svg)
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.

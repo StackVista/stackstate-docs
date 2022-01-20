@@ -13,6 +13,8 @@ Using this StackPack, you can:
 * plot log events from Logz.io onto your topology
 * monitor and create event notifications based on Logz.io log events
 
+Logz.io is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
 ## Installation
 
 Install the Logz.io StackPack from the StackPacks page in StackState.
