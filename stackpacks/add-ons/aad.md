@@ -46,12 +46,12 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 * **Elements** - The name of the element (or elements) on which the metric stream is attached
 
 ## Installation
+    
+### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
-### Prerequisites
-
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/). Please make sure that this is supported by your StackState installation.
-* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md) within Kubernetes.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us).
+* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
+* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md "StackState Self-Hosted only") within Kubernetes.
+* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
 
@@ -59,7 +59,7 @@ To install the AAD StackPack, simply press the INSTALL button. No other actions 
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to a day of data is used for training. After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
 
 ## Frequently Asked Questions
 
@@ -74,8 +74,9 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
-{% hint style="success" %}
-Know what the AAD is working on. [The status UI of the AAD](../../setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting)) provides various metrics and indicators, including details of what the AAD is currently doing.
+{% hint style="success" "self-hosted info" %}
+
+Know what the AAD is working on. [The status UI of the AAD](/setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting) provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?
