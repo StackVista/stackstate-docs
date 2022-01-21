@@ -10,7 +10,25 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v4.5.x
 
-### v4.5.1
+### 4.5.3 (2022-01-21)
+
+**Bug fixes**
+
+- Fixed issue that caused AAD to fail to authenticate with StackState. STAC-15278
+
+### v4.5.2 (2022-14-01)
+
+**Improvements**
+
+- Added configuration options to Azure StackPack that allow specification of the Azure function name and the StackPack instance URL. STAC-14694
+
+**Bug fixes**
+
+- Fixed issue that caused a redirect to the Views Dashboard page when clicking on a component in a view that contains a slash in the identifier. STAC-15443
+- Added missing documentation in Slack StackPack. STAC-15103
+- Fixed issue that caused transaction logs to consume excessive storage space on Kubernetes. STAC-13922
+
+### v4.5.1 (2021-12-17)
 
 **Improvements**
 
@@ -29,7 +47,7 @@ Note that the release notes may include details of functionality that is current
 - Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
 - Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
 
-### v4.5.0
+### v4.5.0 (2021-11-19)
 
 **Features**
 
