@@ -6,9 +6,9 @@ description: StackState Self-hosted v4.5.x
 
 This guide lays out steps to tune topology synchronization for best performance on a Kubernetes deployment of StackState.
 
-## Observing topology synchronization performance
+## Observe topology synchronization performance
 
-To understand how topology synchronization is performing, take a look at the status page of the synchronization you are interested in, using the [StackState CLI](/setup/cli-install.md).
+To understand how a topology synchronization is performing, use the [StackState CLI](/setup/cli-install.md) to take a look at the synchronization's status page.
 
 ```javascript
 > sts topology show urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate
@@ -22,11 +22,11 @@ metric               value between now and 500 seconds ago  value between 500 an
 latency (Seconds)                                   35.754                                    38.120                                    31.274 
 ```
 
-The latency shows the time it took for data collected at the source, to the moment the data is stored by topology synchronization framework. Whether this latency is good or bad depends on your wishes. Typically, a lower latency is better, but when synchronizing topology from bigger data lakes, a higher latency might be acceptable.
+The latency shows the amount of time that it took from data being collected at the source, to the moment that the data is stored by the topology synchronization framework. Typically, a lower latency is preferred, however, a higher latency might be acceptable when synchronizing topology from bigger data lakes.
 
-## Investigating StackState platform as the bottleneck
+## Investigate StackState platform as the bottleneck
 
-To understand whether the StackState platform is a bottleneck when processing topology, we want to know whether the pod that does synchronization has exhausted its cpu resources. We do this using the following steps:
+To understand whether the StackState platform is a bottleneck when processing topology, we want to know whether the pod that does synchronization has exhausted its CPU resources. We do this using the following steps:
 
 ```javascript
 // Get the configured request for the StackState topology synchroinzation pod
@@ -41,9 +41,9 @@ stackstate-sync-665f988dc4-sh4fp   1970m         3234Mi
 
 In this case, we observe that 1.970 cores are used by the synchronization pod, where 2 are requested. This means that the pod is very close to its CPU budget and is likely throttled. To remedy this, follow the procedure below
 
-## Change the topology synchronization cpu budget
+## Change the topology synchronization CPU budget
 
-To modify the cpu budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
+To modify the CPU budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
 
 ```javascript
 stackstate:
@@ -58,7 +58,7 @@ stackstate:
 
 To guarantee performance, requests should ideally be set equal to limits. Limits can never be lower than requests.
 
-After making this modification, [observe the synchronization performance](#observing-topology-synchronization-performance) again to be sure that the changes have had the desired effect. If not, do another iteration to further tune the synchronization.
+After making this modification, [observe the synchronization performance](#observe-topology-synchronization-performance) again to be sure that the changes have had the desired effect. If not, do another iteration to further tune the synchronization.
 
 ## See also
 
