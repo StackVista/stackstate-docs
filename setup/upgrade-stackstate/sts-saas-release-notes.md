@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # SaaS release notes
 
 {% hint style="info" %}
@@ -6,7 +10,44 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v4.5.x
 
-### v4.5.0
+### 4.5.3 (2022-01-21)
+
+**Bug fixes**
+
+- Fixed issue that caused AAD to fail to authenticate with StackState. STAC-15278
+
+### v4.5.2 (2022-14-01)
+
+**Improvements**
+
+- Added configuration options to Azure StackPack that allow specification of the Azure function name and the StackPack instance URL. STAC-14694
+
+**Bug fixes**
+
+- Fixed issue that caused a redirect to the Views Dashboard page when clicking on a component in a view that contains a slash in the identifier. STAC-15443
+- Added missing documentation in Slack StackPack. STAC-15103
+- Fixed issue that caused transaction logs to consume excessive storage space on Kubernetes. STAC-13922
+
+### v4.5.1 (2021-12-17)
+
+**Improvements**
+
+- Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
+- The MinIO chart has been internalized to StackState to ensure its continuity. STAC-14977
+- The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
+
+**Bug fixes**
+
+- Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228 and CVE-2021-45046). STAC-15200
+- Fixed issue that caused the stackstate-ui to crash occasionally due to a misconfiguration of the Prometheus nginx exporter. STAC-15167
+- Set sync counters back to 0 after a sync reset operation. STAC-15088
+- Fixed issue that caused incorrect metric data to create spurious indices in ElasticSearch. STAC-14978
+- Fixed issue that caused Kubernetes synchronization to fail when processing specific data. STAC-14811
+- Resolved several vulnerabilities in `stackstate-ailab` docker image. STAC-14760
+- Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
+- Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
+
+### v4.5.0 (2021-11-19)
 
 **Features**
 

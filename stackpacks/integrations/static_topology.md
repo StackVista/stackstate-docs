@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Static Topology
@@ -7,6 +7,8 @@ description: StackState curated integration
 ## Overview
 
 The Static Topology StackPack reads topology information from an [external CSV file](#csv-file-specification) and synchronizes the data with StackState.
+
+Static Topology is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 

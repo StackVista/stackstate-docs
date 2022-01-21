@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 StackState Agent V2
@@ -7,6 +7,8 @@ description: StackState core integration
 ## Overview
 
 The StackState Agent V2 StackPack works with [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
+
+StackState Agent V2 is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Setup
 
@@ -80,6 +82,10 @@ Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks*
 To uninstall StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
 
 ## Release notes
+
+**Agent V2 StackPack v4.4.12 (2021-12-15)**
+
+* Improvement: Supported additional identifiers for Disk component
 
 **Agent V2 StackPack v4.4.9 \(2021-11-17\)**
 

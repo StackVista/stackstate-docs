@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # MySQL
@@ -14,6 +14,8 @@ Get realtime metrics from MySQL databases, including:
 * InnoDB \(buffer pool metrics, etc\)
 
 You can also invent your own metrics using custom SQL queries.
+
+MySQL is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 

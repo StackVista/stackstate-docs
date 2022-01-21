@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: OpenShift
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 OpenShift
@@ -12,6 +11,8 @@ The OpenShift integration is used to create a near real-time synchronization of 
 * Workloads
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
+
+OpenShift is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-openshift.svg)
 
@@ -229,6 +230,10 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 ```
 
 ## Release notes
+
+**OpenShift StackPack v3.7.9 (2021-11-30)**
+
+* Bug Fix: Support nodes without instanceId
 
 **OpenShift StackPack v3.7.8 (2021-10-06)**
 

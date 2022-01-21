@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # JMX
@@ -13,6 +13,8 @@ A lightweight Java plugin named JMXFetch is called by the Stackstate Agent to co
 JMXFetch also sends service checks that report on the status of your monitored instances.
 
 JMX Checks have a limit of 350 metrics per instance which should be enough to satisfy your needs as it's easy to customize which metrics you want to collect.
+
+JMX is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 

@@ -1,5 +1,5 @@
 ---
-description: Use StackState to detect anomalies in your IT infrastructure
+description: StackState Self-hosted v4.5.x
 ---
 
 # Anomaly detection

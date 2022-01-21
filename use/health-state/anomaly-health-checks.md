@@ -1,7 +1,5 @@
 ---
-description: >-
-  How to setup event notifications based on anomalies coming from the Autonomous
-  Anomaly Detector
+description: StackState Self-hosted v4.5.x
 ---
 
 # Anomaly health checks

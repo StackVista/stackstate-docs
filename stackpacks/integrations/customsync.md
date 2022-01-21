@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Custom Synchronization
@@ -9,6 +9,8 @@ description: StackState curated integration
 The Custom Synchronization StackPack contains everything you need to automatically synchronize topology information from an external topology source.
 
 **Use the Custom Synchronization StackPack if you want to connect an external topology source that is not listed as a standard StackPack.**
+
+Custom synchronization is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Next steps
 

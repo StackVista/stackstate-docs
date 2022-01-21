@@ -1,7 +1,5 @@
 ---
-description: >-
-  An explanation of the core, curated and community integrations available in
-  StackState
+description: StackState Self-hosted v4.5.x
 ---
 
 # About integrations
@@ -10,7 +8,7 @@ description: >-
 
 StackState integrations are split into three groups - core, curated and community. The differences between the three groups are described on this page.
 
-* [StackState core integrations](about_integrations.md#stackstate-core-integrations)
+* [StackState core integrations](about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only")
 * [StackState curated integrations](about_integrations.md#stackstate-curated-integrations)
 * [Community integrations](about_integrations.md#community-integrations)
 

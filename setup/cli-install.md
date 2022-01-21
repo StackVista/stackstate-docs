@@ -1,5 +1,5 @@
 ---
-description: Install the StackState CLI
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackState CLI

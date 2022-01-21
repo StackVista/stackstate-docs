@@ -1,5 +1,5 @@
 ---
-description: How to install and use the health forecasting
+description: StackState Self-hosted v4.5.x
 ---
 
 # Health Forecast

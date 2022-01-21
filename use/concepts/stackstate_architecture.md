@@ -1,5 +1,5 @@
 ---
-description: An overview of StackState components and integration with external systems.
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackState architecture

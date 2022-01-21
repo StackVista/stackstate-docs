@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # PostgreSQL
@@ -10,6 +10,8 @@ Get metrics from the PostgreSQL service in real time to:
 
 * Visualize and monitor PostgreSQL states
 * Received notifications about PostgreSQL failovers and events
+
+PostgreSQL is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 

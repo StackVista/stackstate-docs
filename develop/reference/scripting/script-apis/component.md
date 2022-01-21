@@ -1,7 +1,5 @@
 ---
-title: Script API - Component
-kind: Documentation
-description: Functions to get access to specific component data.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Component - script API

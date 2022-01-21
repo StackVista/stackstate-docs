@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Splunk events
@@ -12,6 +12,8 @@ The StackState Splunk integration collects events from Splunk by executing Splun
 * [In StackState Agent V1](splunk_events.md#agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now.
+
+Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Splunk saved search
 

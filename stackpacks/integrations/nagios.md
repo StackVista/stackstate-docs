@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Nagios
@@ -11,6 +11,8 @@ The Nagios StackPack allows StackState to connect to Nagios. We support the Nagi
 Using this StackPack, you can:
 
 * map Nagios alerts onto your topology
+
+Nagios is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Prerequisites
 

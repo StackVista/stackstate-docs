@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: VMWare vSphere StackPack
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 VMWare vSphere
@@ -15,6 +14,8 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * ClusterComputeResources
 * DataStores
 * DataCenters
+
+VMWare vSphere is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-vsphere.svg)
 

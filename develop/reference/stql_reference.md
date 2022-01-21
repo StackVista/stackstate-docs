@@ -1,5 +1,5 @@
 ---
-description: Build advanced topology queries with STQL
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackState Query Language \(STQL\)

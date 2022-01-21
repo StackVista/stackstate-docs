@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Java APM
@@ -16,6 +16,8 @@ The Java APM Integration of the Agent V2 StackPack provides tracing support for 
 This integration will be a part of the Agent V2 StackPack which should be installed as the first step; the rest of the installation instructions will follow soon.
 
 The traces collected by the java trace client are forwarded to the StackState Trace Agent, which in turn forwards it to StackState. This also means that port `7077` should be opened for communication from the StackState Trace Agent.
+
+Java APM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Automatic Instrumentation
 

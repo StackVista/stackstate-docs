@@ -1,5 +1,5 @@
 ---
-description: Report the health state for a complete view.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Configure the view health

@@ -1,6 +1,3 @@
----
-description: StackState core integration | StackState curated integration | Community integration
----
 
 # Page name from SUMMARY.md
 

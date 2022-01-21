@@ -1,5 +1,5 @@
 ---
-description: Add incoming telemetry (metrics and logs) data to an element.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Add a telemetry stream

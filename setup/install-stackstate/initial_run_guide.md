@@ -1,5 +1,5 @@
 ---
-description: Important details for the first time you run a new StackState installation
+description: StackState Self-hosted v4.5.x
 ---
 
 # Initial run guide

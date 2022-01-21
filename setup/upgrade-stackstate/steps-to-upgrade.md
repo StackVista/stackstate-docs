@@ -1,5 +1,5 @@
 ---
-description: Perform a major or minor upgrade of StackState.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Steps to upgrade

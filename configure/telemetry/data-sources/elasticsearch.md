@@ -1,5 +1,5 @@
 ---
-description: Retrieve data from a custom Elasticsearch data source
+description: StackState Self-hosted v4.5.x
 ---
 
 # Elasticsearch

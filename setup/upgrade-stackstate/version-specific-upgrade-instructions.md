@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Version specific upgrade instructions
 
 ## Overview
@@ -16,6 +20,14 @@ This page provides specific instructions and details of any required manual step
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.5.3
+
+No manual action required.
+
+#### v4.5.2
+
+No manual action required.
+
 #### v4.5.1
 
 * Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
@@ -35,6 +47,14 @@ This page provides specific instructions and details of any required manual step
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.5.3
+
+No manual action required.
+
+#### v4.5.2
+
+No manual action required.
+
 #### v4.5.1
 
 * Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
@@ -53,7 +73,7 @@ This page provides specific instructions and details of any required manual step
 {% tab title="Kubernetes" %}
 #### v4.4.3
 
-No manual action needed.
+No manual action required.
 
 #### v4.4.1 - v4.4.2
 
@@ -107,7 +127,7 @@ No manual action needed.
 {% tab title="Linux" %}
 #### v4.4.3
 
-No manual action needed.
+No manual action required.
 
 #### v4.4.1 - v4.4.2
 
@@ -201,7 +221,7 @@ No manual action needed.
 {% tab title="Kubernetes" %}
 #### v4.3.6
 
-No manual action needed.
+No manual action required.
 
 #### v4.3.1 - v4.3.5
 
@@ -225,7 +245,7 @@ No manual action needed.
 {% tab title="Linux" %}
 #### v4.3.6
 
-No manual action needed.
+No manual action required.
 
 #### v4.3.1 - v4.3.5
 
@@ -254,7 +274,7 @@ The versions below have reached End of Life \(EOL\) and are no longer be support
 {% tab title="Kubernetes" %}
 #### v4.2.4
 
-No manual action needed.
+No manual action required.
 
 #### v4.2.3
 
@@ -274,11 +294,11 @@ Refer to the [Authentication configuration documentation](../../configure/securi
 {% tab title="Linux" %}
 #### v4.2.4
 
-No manual action needed.
+No manual action required.
 
 #### v4.2.3
 
-No manual action needed.
+No manual action required.
 
 #### v4.2.0
 

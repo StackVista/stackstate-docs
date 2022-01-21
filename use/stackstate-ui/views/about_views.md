@@ -1,5 +1,5 @@
 ---
-description: Bookmark and monitor parts of your IT landscape with views
+description: StackState Self-hosted v4.5.x
 ---
 
 # About views

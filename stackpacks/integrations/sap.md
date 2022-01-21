@@ -1,5 +1,5 @@
 ---
-description: Community integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # SAP
@@ -13,6 +13,8 @@ The SAP StackPack is used to create a near real time synchronization with your S
 * SAP Process
 * SAP Database
 * SAP Database Component
+
+SAP is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
 
 ## Prerequisites
 
