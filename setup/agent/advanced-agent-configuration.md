@@ -146,6 +146,7 @@ Configure the collection interval of the system level integrations.
 Set the `min_collection_interval` for each of the following integrations. The default is 15 seconds. 
 
 | Integration | File Location (Linux) | File Location (Windows) |
+|:---|:---|:---|
 | Memory |  `/etc/stackstate-agent/conf.d/memory.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\memory.d\conf.yaml`  |
 | CPU |  `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml` |
 | Disk |  `/etc/stackstate-agent/conf.d/disk.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\disk.d\conf.yaml` |
