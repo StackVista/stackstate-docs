@@ -14,9 +14,11 @@ The StackState Agent collection interval can be configured. This will reduce the
 
 {% tabs %}
 {% tab title="Docker" %}
-second tab text
+
+The Docker configuration is the same as for Linux, with the only difference being that the config files needs to be mounted as a volume into the container as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
+
 {% endtab %}
-{% tab title="Kubernetes" %}
+{% tab title="Kubernetes, OpenShift" %}
 To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade the StackState Agent:
 
 {% hint style="info" %}
@@ -137,34 +139,18 @@ stackstate-cluster-agent stackstate/cluster-agent
 ```
 
 {% endtab %}
-{% tab title="Linux" %}
-second tab text
-{% endtab %}
-{% tab title="OpenShift" %}
-second tab text
-{% endtab %}
-{% tab title="Windows" %}
-second tab text
-{% endtab %}
-{% endtabs %}
-
-
-### Kubernetes / OpenShift Configuration
-
-
-
-### VM (Linux, Windows) Configuration
+{% tab title="Linux, Windows" %}
 
 Configure the collection interval of the system level integrations. 
 
 Set the `min_collection_interval` for each of the following integrations. The default is 15 seconds. 
 
 | Integration | File Location (Linux) | File Location (Windows) |
-| Memory |  /etc/stackstate-agent/conf.d/memory.d/conf.yaml | C:\ProgramData\StackState\conf.d\memory.d\conf.yaml  |
-| CPU |  /etc/stackstate-agent/conf.d/cpu.d/conf.yaml | C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml |
-| Disk |  /etc/stackstate-agent/conf.d/disk.d/conf.yaml | C:\ProgramData\StackState\conf.d\disk.d\conf.yaml |
-| Load |  /etc/stackstate-agent/conf.d/load.d/conf.yaml | C:\ProgramData\StackState\conf.d\load.d\conf.yaml |
-| File Handle |  /etc/stackstate-agent/conf.d/file_handle.d/conf.yaml | C:\ProgramData\StackState\conf.d\file_handle.d\conf.yaml |
+| Memory |  `/etc/stackstate-agent/conf.d/memory.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\memory.d\conf.yaml`  |
+| CPU |  `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml` |
+| Disk |  `/etc/stackstate-agent/conf.d/disk.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\disk.d\conf.yaml` |
+| Load |  `/etc/stackstate-agent/conf.d/load.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\load.d\conf.yaml` |
+| File Handle |  `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml` | `C:\ProgramData\StackState\conf.d\file_handle.d\conf.yaml` |
 
 Set the intervals for process, container and connection gathering. It's found within the `/etc/stackstate-agent/stackstate.yaml` (Linux) or `C:\ProgramData\StackState\stackstate.yaml` (Windows) configuration file. 
 
@@ -177,8 +163,10 @@ process_config:
         connections: 30
 ```
 
-### Docker Configuration
-The docker configuration is the same as the Linux configuration with the only difference being that the config files needs to be mounted as a volume into the container. So similar to this https://docs.stackstate.com/setup/agent/docker#integration-configuration
+{% endtab %}
+
+{% endtabs %}
+
 
 ## Blacklist and inclusions
 
