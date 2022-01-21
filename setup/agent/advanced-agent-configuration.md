@@ -18,11 +18,11 @@ The StackState Agent collection interval can be configured. This will reduce the
 To reduce data production in StackState Agent running on Docker:
 
 1. Configure the `min_collection_interval` for each of the following system integrations, default 15 seconds: 
-   - Memory - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
-   - CPU - `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml`
-   - Disk - `/etc/stackstate-agent/conf.d/disk.d/conf.yaml`
-   - Load - `/etc/stackstate-agent/conf.d/load.d/conf.yaml`
-   - File handle - `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml`
+   - **Memory** - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
+   - **CPU** - `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml`
+   - **Disk** - `/etc/stackstate-agent/conf.d/disk.d/conf.yaml`
+   - **Load** - `/etc/stackstate-agent/conf.d/load.d/conf.yaml`
+   - **File handle** - `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml`
 2. Set the intervals for process, container and connection gathering in `/etc/stackstate-agent/stackstate.yaml`:
     ```yaml
     process_config:
@@ -160,11 +160,11 @@ stackstate-cluster-agent stackstate/cluster-agent
 To reduce data production in StackState Agent running on Linux:
 
 1. Configure the `min_collection_interval` for each of the following system integrations, default 15 seconds: 
-   - Memory - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
-   - CPU - `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml`
-   - Disk - `/etc/stackstate-agent/conf.d/disk.d/conf.yaml`
-   - Load - `/etc/stackstate-agent/conf.d/load.d/conf.yaml`
-   - File handle - `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml`
+   - **Memory** - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
+   - **CPU** - `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml`
+   - **Disk** - `/etc/stackstate-agent/conf.d/disk.d/conf.yaml`
+   - **Load** - `/etc/stackstate-agent/conf.d/load.d/conf.yaml`
+   - **File handle** - `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml`
 2. Set the intervals for process, container and connection gathering in `/etc/stackstate-agent/stackstate.yaml`:
     ```yaml
     process_config:
@@ -181,11 +181,11 @@ To reduce data production in StackState Agent running on Linux:
 To reduce data production in StackState Agent running on Windows:
 
 1. Configure the `min_collection_interval` for each of the following system integrations, default 15 seconds: 
-   - Memory - `C:\ProgramData\StackState\conf.d\memory.d\conf.yaml`
-   - CPU - `C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml`
-   - Disk - `C:\ProgramData\StackState\conf.d\disk.d\conf.yaml`
-   - Load - `C:\ProgramData\StackState\conf.d\load.d\conf.yaml`
-   - File handle - `C:\ProgramData\StackState\conf.d\file_handle.d\conf.yaml`
+   - **Memory** - `C:\ProgramData\StackState\conf.d\memory.d\conf.yaml`
+   - **CPU** - `C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml`
+   - **Disk** - `C:\ProgramData\StackState\conf.d\disk.d\conf.yaml`
+   - **Load** - `C:\ProgramData\StackState\conf.d\load.d\conf.yaml`
+   - **File handle** - `C:\ProgramData\StackState\conf.d\file_handle.d\conf.yaml`
 2. Set the intervals for process, container and connection gathering in `C:\ProgramData\StackState\stackstate.yaml`:
     ```yaml
     process_config:
