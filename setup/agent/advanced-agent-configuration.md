@@ -166,6 +166,27 @@ process_config:
 
 {% endtab %}
 
+{% tab title="Windows" %}
+
+To reduce data production:
+
+1. Configure the `min_collection_interval` for each of the following system integrations, default 15 seconds: 
+   - Memory - `C:\ProgramData\StackState\conf.d\memory.d\conf.yaml`
+   - CPU - `C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml`
+   - Disk - `C:\ProgramData\StackState\conf.d\disk.d\conf.yaml`
+   - Load - `C:\ProgramData\StackState\conf.d\load.d\conf.yaml`
+   - File handle - `C:\ProgramData\StackState\conf.d\file_handle.d\conf.yaml`
+2. Set the intervals for process, container and connection gathering in `C:\ProgramData\StackState\stackstate.yaml`:
+    ```yaml
+    process_config:
+    intervals:
+        container: 40
+        process: 30
+        connections: 30
+    ```
+
+{% endtab %}
+
 {% endtabs %}
 
 
