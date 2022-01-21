@@ -20,6 +20,10 @@ This page provides specific instructions and details of any required manual step
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+#### v4.5.3
+
+No manual action required.
+
 #### v4.5.2
 
 No manual action required.
@@ -43,6 +47,10 @@ No manual action required.
 {% endtab %}
 
 {% tab title="Linux" %}
+#### v4.5.3
+
+No manual action required.
+
 #### v4.5.2
 
 No manual action required.
