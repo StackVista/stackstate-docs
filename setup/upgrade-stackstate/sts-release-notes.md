@@ -15,6 +15,12 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### 4.5.3
+
+**Bug fixes**
+
+- Fixed issue that caused AAD to fail to authenticate with StackState. STAC-15278
+
 ### v4.5.2
 
 **Improvements**
