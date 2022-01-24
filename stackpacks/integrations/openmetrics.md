@@ -124,7 +124,7 @@ Run the Agent's status subcommand and look for `openmetrics` under the `Checks` 
 
 All metrics are retrieved from the specified OpenMetrics endpoint and available in the `StackState multi metrics` data source. Retrieved metrics will not automatically be mapped to topology elements.
 
-Retrieved metrics can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source `StackState Metrics` to get a full list of all available metrics.
+Retrieved metrics can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source `StackState Multi Metrics` to get a full list of all available metrics.
 
 ### Events
 
