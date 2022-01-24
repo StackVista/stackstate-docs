@@ -102,3 +102,5 @@ The OpenMetrics integration does not retrieve any events data.
 The OpenMetrics integration does not retrieve trace data.
 
 ## See also
+
+* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
