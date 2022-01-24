@@ -149,9 +149,9 @@ To reduce data production in StackState Agent running on Docker:
     ```yaml
     process_config:
       intervals:
-        container: 20
-        process: 15
-        connections: 15
+        container: 40
+        process: 30
+        connections: 30
     ```
 3. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
 
@@ -171,9 +171,9 @@ To reduce data production in StackState Agent running on Linux:
     ```yaml
     process_config:
       intervals:
-        container: 20
-        process: 15
-        connections: 15
+        container: 40
+        process: 30
+        connections: 30
     ```
 
 {% endtab %}
@@ -192,9 +192,9 @@ To reduce data production in StackState Agent running on Windows:
     ```yaml
     process_config:
       intervals:
-        container: 20
-        process: 15
-        connections: 15
+        container: 40
+        process: 30
+        connections: 30
     ```
 
 {% endtab %}
