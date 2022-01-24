@@ -35,7 +35,7 @@ To reduce data production in StackState Agent running on Docker:
 
 {% endtab %}
 {% tab title="Kubernetes, OpenShift" %}
-To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade the StackState Agent:
+To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade the StackState Agent.
 
 {% hint style="info" %}
 Note that the `values.yaml` example below includes configuration to [enable clusterChecks](/setup/agent/kubernetes.md#enable-cluster-checks) and [run the Kubernetes_state check as a cluster check](/setup/agent/kubernetes.md#kubernetes_state-check-as-a-cluster-check).
@@ -142,7 +142,7 @@ clusterAgent:
             min_collection_interval: 120
 ```
 
-You can set these as part of the installation / upgrade of the StackState Agent when running in Kubernetes by specifying the `--values` argument:
+Specify the `values.yaml` file during installation / upgrade of the StackState Agent with the `--values` argument:
 
 ```bash
 helm upgrade --install \
