@@ -21,7 +21,7 @@ To address this issue, you can copy all the images to a single registry close to
 
     ```bash
     ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
-    
+
     ```
 
     * The script will detect when an ECR registry is used and automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it.
@@ -34,7 +34,7 @@ To address this issue, you can copy all the images to a single registry close to
          Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
          Copying quay.io/stackstate/wait:1.0.0 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/wait:1.0.0 (dry-run)
          Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
-        
+
         ```
     * Additional optional flags can be used when running the script:
       * `-c` specify a different chart to use.
@@ -45,7 +45,21 @@ To address this issue, you can copy all the images to a single registry close to
     global:
       imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
     ```
-4.  Add a separate entry for the image used by the `prometheus-elasticsearch-exporter` subchart. This is required as it cannot be configured with the setting `global.imageRegistry`. For example:
+4.  Optionally add the authentication details required for the registry in you `values.yaml`. For example:
+
+    ```yaml
+    global:
+      imagePullSecrets:
+      - stackstate-pull-secret
+    pull-secret:
+      enabled: true
+      fullNameOverride: stackstate-pull-secret
+      credentials:
+      - registry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
+        username: johndoe
+        password: my_secret-p@ssw0rd
+
+5.  Add a separate entry for the image used by the `prometheus-elasticsearch-exporter` subchart. This is required as it cannot be configured with the setting `global.imageRegistry`. For example:
 
     ```yaml
      elasticsearch:
