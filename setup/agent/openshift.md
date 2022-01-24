@@ -32,6 +32,8 @@ The OpenShift integration collects topology data in an OpenShift cluster, as wel
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
+![StackState Agents on OpenShift](/.gitbook/assets/agent-openshift.svg)
+
 ### StackState Cluster Agent
 
 StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire cluster:
@@ -85,7 +87,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the helm command provided in the StackState UI after you have installed the StackPack. For large OpenShift clusters, you can [enable cluster checks](openshift.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics. **Use the helm command provided in the StackState UI after you have installed the StackPack**. For large OpenShift clusters, you can [enable cluster checks](openshift.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
 
 {% hint style="info" %}
 **stackstate.cluster.authToken**
@@ -167,7 +169,7 @@ clusterAgent:
 
 ### Advanced Agent configuration
 
-StackState Agent V2 can be configured to tune the process blacklist, or turn off specific features when not needed. The required environment variables and are described on the page [advanced Agent configuration](advanced-agent-configuration.md).
+StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### Integration configuration
 
