@@ -8,6 +8,9 @@ description: StackState Self-hosted v4.5.x
 
 StackState Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to StackState.
 
+OpenMetrics is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+
+![OpenMetrics integration](/.gitbook/assets/stackpack-agent-openmetrics.svg)
 ## Setup
 
 ### Installation
@@ -16,7 +19,7 @@ The OpenMetrics check is included in the [Agent V2 StackPack StackPack](/stackpa
 
 ### Configuration
 
-To enable the OpenMetrics integration and begin collecting metrics data from your OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
 
 {% hint style="info" %}
 Example OpenMetrics Agent check configuration file:  
