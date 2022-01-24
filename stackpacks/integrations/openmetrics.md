@@ -14,7 +14,7 @@ OpenMetrics is a [StackState curated integration](/stackpacks/integrations/about
 
 ### Installation
 
-The OpenMetrics check is included in the [Agent V2 StackPack StackPack](/stackpacks/integrations/agent.md).
+The OpenMetrics check is included in the [Agent V2 StackPack](/stackpacks/integrations/agent.md).
 
 ### Configuration
 
@@ -123,6 +123,8 @@ Run the Agent's status subcommand and look for `openmetrics` under the `Checks` 
 ### Metrics
 
 All metrics are retrieved from the specified OpenMetrics endpoint and available in the `StackState multi metrics` data source. Retrieved metrics will not automatically be mapped to topology elements.
+
+Retrieved metrics can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source `StackState Metrics` to get a full list of all available metrics.
 
 ### Events
 
