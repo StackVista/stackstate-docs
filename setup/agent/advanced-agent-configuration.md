@@ -8,6 +8,200 @@ description: StackState SaaS
 
 A number of advanced configuration options are available for StackState Agent V2. These can be set either in the `stackstate.yaml` configuration file \(Linux and Windows\) or using environment variables \(Docker, Kubernetes and OpenShift\).
 
+## Reduce data production
+
+The StackState Agent collection interval can be configured. This will reduce the amount of data produced by the Agent.
+
+{% tabs %}
+{% tab title="Kubernetes, OpenShift" %}
+To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade the StackState Agent. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
+
+{% hint style="info" %}
+Note that the `values.yaml` example below includes configuration to [enable clusterChecks](/setup/agent/kubernetes.md#enable-cluster-checks) and [run the Kubernetes_state check as a cluster check](/setup/agent/kubernetes.md#kubernetes_state-check-as-a-cluster-check).
+{% endhint %}
+
+```yaml
+clusterChecks:
+# clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+  enabled: true
+agent:
+  config:
+    override:
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubelet.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 60
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/memory.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/cpu.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/disk.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+            use_mount: false
+            excluded_filesystems:
+              - tmpfs
+              - squashfs
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/io.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/load.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/docker.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/file_handle.d
+      data: |
+        init_config:        
+        instances:
+          - min_collection_interval: 30
+    - name: auto_conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+      data: |
+    - name: stackstate.yaml
+      path: /etc/stackstate-agent
+      data: |
+        ## Provides autodetected defaults, for kubernetes environments,
+        ## please see stackstate.yaml.example for all supported options
+
+        # Autodiscovery for Kubernetes
+        listeners:
+          - name: kubelet
+        config_providers:
+          - name: kubelet
+            polling: true
+        
+        process_config:
+          intervals:
+            container: 40
+            process: 30
+            connections: 30
+
+        apm_config:
+          apm_non_local_traffic: true
+          max_memory: 0
+          max_cpu_percent: 0
+
+        # Use java container support
+
+clusterAgent:
+  config:
+    override:
+    - name: conf.yaml
+      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+      data: |
+        cluster_check: true
+        init_config:
+        instances:
+          - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+            min_collection_interval: 60
+```
+
+Specify the `values.yaml` file during installation / upgrade of the StackState Agent with the `--values` argument:
+
+```bash
+helm upgrade --install \
+--namespace stackstate \
+--create-namespace \
+--set-string 'stackstate.apiKey=<your-api-key>' \
+... (set all custom fields)
+--values values.yaml
+stackstate-cluster-agent stackstate/cluster-agent
+```
+
+{% endtab %}
+
+{% tab title="Docker" %}
+
+To reduce data production in StackState Agent running on Docker:
+
+1. Configure the `min_collection_interval` for each of the following system integrations. The default setting is `15` seconds. Doubling this value should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
+   - **Memory** - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
+   - **CPU** - `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml`
+   - **Disk** - `/etc/stackstate-agent/conf.d/disk.d/conf.yaml`
+   - **Load** - `/etc/stackstate-agent/conf.d/load.d/conf.yaml`
+   - **File handle** - `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml`
+2. Set the intervals for process, container and connection gathering in `/etc/stackstate-agent/stackstate.yaml`:
+    ```yaml
+    process_config:
+      intervals:
+        container: 40
+        process: 30
+        connections: 30
+    ```
+3. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
+
+{% endtab %}
+
+{% tab title="Linux" %}
+
+To reduce data production in StackState Agent running on Linux:
+
+1. Configure the `min_collection_interval` for each of the following system integrations. The default setting is `15` seconds. Doubling this value should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
+   - **Memory** - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
+   - **CPU** - `/etc/stackstate-agent/conf.d/cpu.d/conf.yaml`
+   - **Disk** - `/etc/stackstate-agent/conf.d/disk.d/conf.yaml`
+   - **Load** - `/etc/stackstate-agent/conf.d/load.d/conf.yaml`
+   - **File handle** - `/etc/stackstate-agent/conf.d/file_handle.d/conf.yaml`
+2. Set the intervals for process, container and connection gathering in `/etc/stackstate-agent/stackstate.yaml`:
+    ```yaml
+    process_config:
+      intervals:
+        container: 40
+        process: 30
+        connections: 30
+    ```
+
+{% endtab %}
+
+{% tab title="Windows" %}
+
+To reduce data production in StackState Agent running on Windows:
+
+1. Configure the `min_collection_interval` for each of the following system integrations. The default setting is `15` seconds. Doubling this value should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
+   - **Memory** - `C:\ProgramData\StackState\conf.d\memory.d\conf.yaml`
+   - **CPU** - `C:\ProgramData\StackState\conf.d\cpu.d\conf.yaml`
+   - **Disk** - `C:\ProgramData\StackState\conf.d\disk.d\conf.yaml`
+   - **Load** - `C:\ProgramData\StackState\conf.d\load.d\conf.yaml`
+   - **File handle** - `C:\ProgramData\StackState\conf.d\file_handle.d\conf.yaml`
+2. Set the intervals for process, container and connection gathering in `C:\ProgramData\StackState\stackstate.yaml`:
+    ```yaml
+    process_config:
+      intervals:
+        container: 40
+        process: 30
+        connections: 30
+    ```
+
+{% endtab %}
+
+{% endtabs %}
+
+
 ## Blacklist and inclusions
 
 Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included.
