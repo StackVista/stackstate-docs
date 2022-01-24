@@ -97,9 +97,9 @@ agent:
         
         process_config:
           intervals:
-            container: 20
-            process: 15
-            connections: 15
+            container: 40
+            process: 30
+            connections: 30
 
         apm_config:
           apm_non_local_traffic: true
