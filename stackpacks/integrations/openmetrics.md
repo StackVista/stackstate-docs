@@ -1,0 +1,104 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
+# OpenMetrics
+
+## Overview
+
+StackState Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to StackState.
+
+## Setup
+
+### Installation
+
+The OpenMetrics check is included in the [Agent V2 StackPack StackPack](/stackpacks/integrations/agent.md).
+
+### Configuration
+
+To enable the OpenMetrics integration and begin collecting metrics data from your OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+
+{% hint style="info" %}
+Example OpenMetrics Agent check configuration file:  
+[openmetrics/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/openmetrics/stackstate_checks/openmetrics/data/conf.yaml.example)
+{% endhint %}
+
+1. Edit the StackState Agent V2 configuration file `/etc/sts-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
+   - **prometheus_url** - the URL exposing metrics in the OpenMetrics format
+   - **namespace** - the namespace to be prepended to all metrics.
+   - **metrics** - a list of metrics to be fetched from the OpenMetrics endpoint at `prometheus_url`. Either a string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`. This list should contain at least one metric.
+    ```yaml
+    init_config:
+      
+    instances:
+      - prometheus_url: <OPENMETRICS_ENDOINT>
+        namespace: "service"
+        metrics:
+          - processor: cpu
+          - memory: mem
+          - io
+      #  prometheus_metrics_prefix: <PREFIX>_
+      #  health_service_check: true
+      #  label_to_hostname: <LABEL>
+      #  label_joins:
+      #    target_metric:
+      #      label_to_match: <MATCHED_LABEL>
+      #      labels_to_get:
+      #        - <EXTRA_LABEL_1>
+      #        - <EXTRA_LABEL_2>
+      #  labels_mapper:
+      #    flavor: origin
+      #  type_overrides:
+      #    <METRIC_NAME>: <METRIC_TYPE>
+      #  tags:
+      #    - <KEY_1>:<VALUE_1>
+      #    - <KEY_2>:<VALUE_2>
+      #  send_histograms_buckets: true
+      #  send_monotonic_counter: true
+      #  exclude_labels:
+      #    - timestamp
+      #  prometheus_timeout: 10
+      #  ssl_cert: "<CERT_PATH>"
+      #  ssl_private_key: "<KEY_PATH>"
+      #  ssl_ca_cert: "<CA_CERT_PATH>"
+      #  extra_headers:
+      #    <HEADER_NAME>: <HEADER_VALUE>
+    ```
+2. You can also add optional configuration and filters:
+   - **prometheus_metrics_prefix** - prefix to add to exposed OpenMetrics metrics.
+   - **health_service_check** - send a service check `<NAMESPACE>.prometheus.health` reporting the health of the OpenMetrics endpoint. Default `true`.
+   - **label_to_hostname** - override the hostname with the value of one label.
+   - **label_joins** - target a metric and retrieve it's label via a 1:1 mapping
+   - **labels_mapper** - rename labels. Format is `<LABEL_TO_RENAME>: <NEW_LABEL_NAME>`.
+   - **type_overrides** - override a type in the OpenMetrics the payload or type an untyped metric (these would be ignored by default). Supported `<METRIC_TYPE>` are `gauge`, `count` and `rate`.
+   - **tags** - list of tags to attach to every metric, event and service check emitted by this integration.
+   - **send_histograms_buckets** - send the histograms bucket. Default `true`.
+   - **send_monotonic_counter** - send counters as monotonic counter. Default `true`.
+   - **exclude_labels** - list of labels to be excluded.
+   - **prometheus_timeout** - set a timeout for the OpenMetrics query.
+   - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or provide the path to a file containing both the certificate and the private key.
+   - **ssl_private_key** - required if the certificate linked in `ssl_cert` does not include the private key. Note that the private key to your local certificate must be unencrypted.
+   - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
+   - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+4. Once the Agent has restarted, wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
+
+### Validation
+
+Run the Agent's status subcommand and look for `openmetrics` under the `Checks` section.
+
+## Data collected
+
+### Metrics
+
+All metrics are retrieved from the specified OpenMetrics endpoint and available in the `StackState multi metrics` data source. Retrieved metrics will not automatically be mapped to topology elements.
+
+### Events
+
+The OpenMetrics integration does not retrieve any events data.
+
+### Traces
+
+The OpenMetrics integration does not retrieve trace data.
+
+## See also
