@@ -25,8 +25,9 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
 {% tab title="Kubernetes amd OpenShift" %}
 
 1. Deploy the Agent on your Kubernetes or OpenShift cluster.
-2. Add the following annotations when launching a Prometheus pod. This will collect all available metrics. It is aso possible to specify a list of metrics to be fetched under `"metrics"`. This should either bea string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`:
+2. Add the following annotations when launching a Prometheus pod. This will collect all available metrics. It is also possible to specify a list of metrics to be fetched under `"metrics"`. This should either bea string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`:
    ```yaml
+   ...
    metadata:
      annotations:
        ad.stackstate.com/api.check_names: '["openmetrics"]'
@@ -39,6 +40,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
             "metrics": ["*"] 
           } 
         ]'
+   ...
    ```
 3. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
 
