@@ -19,7 +19,15 @@ The OpenMetrics check is included in the [Agent V2 StackPack StackPack](/stackpa
 
 ### Configuration
 
-To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+first tab text
+
+{% endtab %}
+{% tab title="Docker, Linux, Windows" %}
 
 {% hint style="info" %}
 Example OpenMetrics Agent check configuration file:  
@@ -85,6 +93,9 @@ Example OpenMetrics Agent check configuration file:
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
 3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
+
+{% endtab %}
+{% endtabs %}
 
 ### Validation
 
