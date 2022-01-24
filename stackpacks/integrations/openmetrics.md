@@ -10,7 +10,6 @@ StackState Agent V2 can be configured to retrieve metrics from an OpenMetrics en
 
 OpenMetrics is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
-![OpenMetrics integration](/.gitbook/assets/stackpack-agent-openmetrics.svg)
 ## Setup
 
 ### Installation
