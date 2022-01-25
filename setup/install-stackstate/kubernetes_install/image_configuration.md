@@ -41,20 +41,21 @@ To address this issue, you can copy all the images to a single registry close to
       * `-r` specify a different repository to use.
 3. Edit the `values.yaml` file and add the following:
    * **global.imageRegistry** - the registry to use.
-   * **global.imagePullSecrets** - optional. The authentication details required for the `global.imageRegistry`.
+   * **global.imagePullSecrets** and **pull-secret** object - optional. The authentication details required for the `global.imageRegistry`.
    * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. This is required as it cannot be configured with the setting `global.imageRegistry`
     ```yaml
     global:
       imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
-      # imagePullSecrets:
-      # - stackstate-pull-secret
-    pull-secret:
-      enabled: true
-      fullNameOverride: stackstate-pull-secret
-      credentials:
-      - registry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
-        username: johndoe
-        password: my_secret-p@ssw0rd
+    # to specify authentication details for the global.imageRegistry, add the sections below.
+    #   imagePullSecrets:
+    #   - stackstate-pull-secret
+    # pull-secret:
+    #   enabled: true
+    #   fullNameOverride: stackstate-pull-secret
+    #   credentials:
+    #   - registry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
+    #     username: johndoe
+    #     password: my_secret-p@ssw0rd
    
      elasticsearch:
        prometheus-elasticsearch-exporter:
