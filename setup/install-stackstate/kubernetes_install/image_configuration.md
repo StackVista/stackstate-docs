@@ -17,7 +17,7 @@ To address this issue, you can copy all the images to a single registry close to
 1. Set up a registry close to your Kubernetes cluster.
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/).
-2.  Use the `copy_images.sh` script in the [installation directory (github.com)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry, for example:
+2. Use the `copy_images.sh` script in the [installation directory (github.com)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry, for example:
 
     ```bash
     ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
@@ -39,18 +39,15 @@ To address this issue, you can copy all the images to a single registry close to
     * Additional optional flags can be used when running the script:
       * `-c` specify a different chart to use.
       * `-r` specify a different repository to use.
-3.  Add the registry to the global configuration section in your `values.yaml`. For example:
-
+3. Edit the `values.yaml` file and add the following:
+   - `global.imageRegistry` - the registry to use.
+   - `global.imagePullSecrets` - optional. The authentication details required for the `global.imageRegistry`.
+   - `elasticsearch.prometheus-elasticsearch-exporter` - the image used by the prometheus-elasticsearch-exporter sub-chart. This is required as it cannot be configured with the setting `global.imageRegistry`
     ```yaml
     global:
       imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
-    ```
-4.  Optionally add the authentication details required for the registry in you `values.yaml`. For example:
-
-    ```yaml
-    global:
-      imagePullSecrets:
-      - stackstate-pull-secret
+      # imagePullSecrets:
+      # - stackstate-pull-secret
     pull-secret:
       enabled: true
       fullNameOverride: stackstate-pull-secret
@@ -58,10 +55,7 @@ To address this issue, you can copy all the images to a single registry close to
       - registry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
         username: johndoe
         password: my_secret-p@ssw0rd
-
-5.  Add a separate entry for the image used by the `prometheus-elasticsearch-exporter` subchart. This is required as it cannot be configured with the setting `global.imageRegistry`. For example:
-
-    ```yaml
+   
      elasticsearch:
        prometheus-elasticsearch-exporter:
          image:
