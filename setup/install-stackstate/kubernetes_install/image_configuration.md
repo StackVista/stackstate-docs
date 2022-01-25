@@ -46,7 +46,8 @@ To address this issue, you can copy all the images to a single registry close to
     ```yaml
     global:
       imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
-    # to specify authentication details for the global.imageRegistry, add the sections below.
+    ## to specify authentication details for the global.imageRegistry
+    ## add the sections below.
     #   imagePullSecrets:
     #   - stackstate-pull-secret
     # pull-secret:
