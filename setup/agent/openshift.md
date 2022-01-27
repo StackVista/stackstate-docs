@@ -175,7 +175,7 @@ To integrate with other external services, a separate instance of the [StackStat
 
 ## Commands
 
-### Status and information
+### Agent and Cluster Agent pod status
 
 To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
 
@@ -187,6 +187,16 @@ deployment.apps/stackstate-cluster-agent             1/1     1            1     
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
+
+### Agent check status
+
+To find the status of an Agent check: 
+
+1. Find the Agent pod that is running on the node where you would like to find a check status:
+   `kubectl get pod --output wide`
+2. Run the command:
+   `kubectl exec <agent-pod-name> -n <agent-namespace> -- agent status`
+3. Look for the check name under the `Checks` section.
 
 ## Uninstall
 

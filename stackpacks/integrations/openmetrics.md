@@ -21,27 +21,39 @@ The OpenMetrics check is included in the [Agent V2 StackPack](/stackpacks/integr
 To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
 
 {% tabs %}
-{% tab title="Kubernetes amd OpenShift" %}
+{% tab title="Kubernetes, OpenShift" %}
 
 1. Deploy the Agent on your Kubernetes or OpenShift cluster.
-2. Add the following annotations when launching a Prometheus pod. This will collect all available metrics. It is also possible to specify a list of metrics to be fetched under `"metrics"`. This should either bea string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`:
-   ```yaml
-   ...
-   metadata:
-     annotations:
-       ad.stackstate.com/api.check_names: '["openmetrics"]'
-       ad.stackstate.com/api.init_configs: '[{}]'
-       ad.stackstate.com/api.instances: |
-        `[ 
-          {
-            "prometheus_url": "http://%%host%%:9404/metrics",
-            "namespace": "stackstate", 
-            "metrics": ["*"] 
-          } 
-        ]'
-   ...
-   ```
-3. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
+2. Add the annotations below when launching a pod that exposes metrics via an OpenMetrics endpoint. Add the following:
+   - **CONTAINER_NAME** - the name of the container that exposes the OpenMetrics. It is possible to process multiple endpoints in a single pod that you all want to process (that's why there is a list in the JSON).
+   - **metrics** - use `["*"]` to collect all available metrics. It is also possible to specify a list of metrics to be fetched. This should either be a string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`
+   - **METRICS_PATH** - the path for the OpenMetrics api, often just `metrics`.
+   - **METRICS_PORT** - the port at which the OpenMetrics endpoint is exposed.
+   - **METRICS_NAMESPACE** - all metrics collected here will get this as a dot-separated prefix
+      ```yaml
+      ...
+      metadata:
+        annotations:
+          ad.stackstate.com/<CONTAINER_NAME>.check_names: '["openmetrics"]'
+          ad.stackstate.com/<CONTAINER_NAME>.init_configs: '[{}]'
+          ad.stackstate.com/<CONTAINER_NAME>.instances: |
+           `[ 
+             {
+               "prometheus_url": "http://%%host%%:<METRICS_PORT>/<METRICS_PATH>",
+               "namespace": "<METRICS_NAMESPACE>", 
+               "metrics": ["*"] 
+             } 
+           ]'
+      ...
+      # This already exists in the pod spec, the container name needs to match the container that is exposing the openmetrics endpoint
+      spec:
+        containers:
+         - name: <CONTAINER_NAME>
+      ...
+      ```
+3. Additional configuration can optionally be added:
+   1. 
+4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
 
 {% endtab %}
 {% tab title="Docker, Linux, Windows" %}
@@ -116,7 +128,14 @@ Example OpenMetrics Agent check configuration file:
 
 ### Validation
 
+{% tabs %}
+{% tab title="Kubernetes, OpenShift" %}
+first tab text
+{% endtab %}
+{% tab title="Docker, Linux, Windows" %}
 Run the Agent's status subcommand and look for `openmetrics` under the `Checks` section.
+{% endtab %}
+{% endtabs %}
 
 ## Data collected
 
