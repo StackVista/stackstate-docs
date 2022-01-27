@@ -25,11 +25,10 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
 
 1. Deploy the Agent on your Kubernetes or OpenShift cluster.
 2. Add the annotations below when launching a pod that exposes metrics via an OpenMetrics endpoint. Add the following:
-   - **CONTAINER_NAME** - the name of the container that exposes the OpenMetrics. It is possible to process multiple endpoints in a single pod that you all want to process (that's why there is a list in the JSON).
+   - **<CONTAINER_NAME>** - the name of the container that exposes the OpenMetrics. It is possible to process multiple endpoints in a single pod that you all want to process (that's why there is a list in the JSON).
+   - **prometheus_url** - the path (often just `metrics`) and port at which the OpenMetrics endpoint is exposed.
+   - **namespace** - all metrics collected here will get this as a dot-separated prefix.
    - **metrics** - use `["*"]` to collect all available metrics. It is also possible to specify a list of metrics to be fetched. This should either be a string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`
-   - **METRICS_PATH** - the path for the OpenMetrics api, often just `metrics`.
-   - **METRICS_PORT** - the port at which the OpenMetrics endpoint is exposed.
-   - **METRICS_NAMESPACE** - all metrics collected here will get this as a dot-separated prefix
       ```yaml
       ...
       metadata:
@@ -51,8 +50,22 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
          - name: <CONTAINER_NAME>
       ...
       ```
-3. Additional configuration can optionally be added:
-   1. 
+3. You can also add optional configuration and filters:
+   - **prometheus_metrics_prefix** - prefix to add to exposed OpenMetrics metrics.
+   - **health_service_check** - send a service check `<NAMESPACE>.prometheus.health` reporting the health of the OpenMetrics endpoint. Default `true`.
+   - **label_to_hostname** - override the hostname with the value of one label.
+   - **label_joins** - target a metric and retrieve it's label via a 1:1 mapping
+   - **labels_mapper** - rename labels. Format is `<LABEL_TO_RENAME>: <NEW_LABEL_NAME>`.
+   - **type_overrides** - override a type in the OpenMetrics the payload or type an untyped metric (these would be ignored by default). Supported `<METRIC_TYPE>` are `gauge`, `count` and `rate`. Format is `<METRIC_NAME>: <METRIC_TYPE>`.
+   - **tags** - list of tags to attach to every metric, event and service check emitted by this integration.
+   - **send_histograms_buckets** - send the histograms bucket. Default `true`.
+   - **send_monotonic_counter** - send counters as monotonic counter. Default `true`.
+   - **exclude_labels** - list of labels to be excluded.
+   - **prometheus_timeout** - set a timeout for the OpenMetrics query.
+   - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or provide the path to a file containing both the certificate and the private key.
+   - **ssl_private_key** - required if the certificate linked in `ssl_cert` does not include the private key. Note that the private key to your local certificate must be unencrypted.
+   - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
+   - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
 4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
 
 {% endtab %}
@@ -110,7 +123,7 @@ Example OpenMetrics Agent check configuration file:
    - **label_to_hostname** - override the hostname with the value of one label.
    - **label_joins** - target a metric and retrieve it's label via a 1:1 mapping
    - **labels_mapper** - rename labels. Format is `<LABEL_TO_RENAME>: <NEW_LABEL_NAME>`.
-   - **type_overrides** - override a type in the OpenMetrics the payload or type an untyped metric (these would be ignored by default). Supported `<METRIC_TYPE>` are `gauge`, `count` and `rate`.
+   - **type_overrides** - override a type in the OpenMetrics payload or type an untyped metric (these would be ignored by default). Supported `<METRIC_TYPE>` are `gauge`, `count` and `rate`.
    - **tags** - list of tags to attach to every metric, event and service check emitted by this integration.
    - **send_histograms_buckets** - send the histograms bucket. Default `true`.
    - **send_monotonic_counter** - send counters as monotonic counter. Default `true`.
