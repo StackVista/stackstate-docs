@@ -193,9 +193,15 @@ daemonset.apps/stackstate-cluster-agent-agent        10        10        10     
 To find the status of an Agent check: 
 
 1. Find the Agent pod that is running on the node where you would like to find a check status:
-   `kubectl get pod --output wide`
+   ```yaml
+   kubectl get pod --output wide
+   ```
+   
 2. Run the command:
-   `kubectl exec <agent-pod-name> -n <agent-namespace> -- agent status`
+   ```yaml
+   kubectl exec <agent-pod-name> -n <agent-namespace> -- agent status
+   ```
+   
 3. Look for the check name under the `Checks` section.
 
 ## Uninstall
