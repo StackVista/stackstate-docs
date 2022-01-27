@@ -130,7 +130,9 @@ Example OpenMetrics Agent check configuration file:
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
-first tab text
+Follow the instructions on the Agent page to track the status OpenShift check:
+* [StackState Agent running on Kubernetes](/setup/agent/kubernetes.md#agent-check-status)
+* [StackState Agent running on OpenShift](/setup/agent/openshift.md#agent-check-status)
 {% endtab %}
 {% tab title="Docker, Linux, Windows" %}
 Run the Agent's status subcommand and look for `openmetrics` under the `Checks` section.
@@ -141,9 +143,11 @@ Run the Agent's status subcommand and look for `openmetrics` under the `Checks` 
 
 ### Metrics
 
-All metrics are retrieved from the specified OpenMetrics endpoint and available in the `StackState multi metrics` data source. Retrieved metrics will not automatically be mapped to topology elements.
+All metrics are retrieved from the specified OpenMetrics endpoint and available in the **StackState multi metrics** data source. A maximum of 2000 metrics will be retrieved. If the check is attempting to retrieve more than 2000 metrics, add a `metrics` filter to the [configuration](#configuration) to ensure that all important metrics can be retrieved within the limit.
 
-Retrieved metrics can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source `StackState Multi Metrics` to get a full list of all available metrics.
+Retrieved metrics will not automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **StackState Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
+
+![Inspect OpenMetrics telemetry](/.gitbook/assets/v45_openmetrics_stream.png)
 
 ### Events
 
