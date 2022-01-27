@@ -28,7 +28,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
    - **<CONTAINER_NAME>** - the name of the container that exposes the OpenMetrics. It is possible to process multiple endpoints in a single pod that you all want to process (that's why there is a list in the JSON).
    - **prometheus_url** - the path (often just `metrics`) and port at which the OpenMetrics endpoint is exposed.
    - **namespace** - all metrics collected here will get this as a dot-separated prefix.
-   - **metrics** - use `["*"]` to collect all available metrics. It is also possible to specify a list of metrics to be fetched. This should either be a string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`
+   - **metrics** - use `["*"]` to collect all available metrics. It is also possible to specify a list of metrics to be fetched. This should either be a string representing the metric name or a mapping to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`
       ```yaml
       ...
       metadata:
@@ -79,7 +79,7 @@ Example OpenMetrics Agent check configuration file:
 1. Edit the StackState Agent V2 configuration file `/etc/sts-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
    - **prometheus_url** - the URL exposing metrics in the OpenMetrics format
    - **namespace** - the namespace to be prepended to all metrics.
-   - **metrics** - a list of metrics to be fetched from the OpenMetrics endpoint at `prometheus_url`. Either a string representing the metric name or a mapping can be used to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`. This list should contain at least one metric.
+   - **metrics** - a list of metrics to be fetched from the OpenMetrics endpoint at `prometheus_url`. Either a string representing the metric name or a mapping to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`. This list should contain at least one metric.
     ```yaml
     init_config:
       
