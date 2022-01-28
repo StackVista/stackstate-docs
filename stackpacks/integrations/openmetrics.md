@@ -148,7 +148,7 @@ Follow the instructions on the Agent page to track the status OpenShift check:
 * [StackState Agent running on OpenShift](/setup/agent/openshift.md#agent-check-status)
 {% endtab %}
 {% tab title="Docker, Linux, Windows" %}
-Run the Agent's status subcommand and look for `openmetrics` under the `Checks` section.
+Run the Agent status subcommand and look for `openmetrics` under the `Checks` section.
 {% endtab %}
 {% endtabs %}
 
