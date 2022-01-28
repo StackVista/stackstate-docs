@@ -25,7 +25,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
 
 1. Deploy the Agent on your Kubernetes or OpenShift cluster.
 2. Add the annotations below when launching a pod that exposes metrics via an OpenMetrics endpoint. Add the following:
-   - **<CONTAINER_NAME>** - the name of the container that exposes the OpenMetrics. It is possible to process multiple endpoints in a single pod that you all want to process (that's why there is a list in the JSON).
+   - **<CONTAINER_NAME>** - the name of the container that exposes the OpenMetrics. It is possible to process multiple endpoints in a single pod (that's why there is a list in the JSON).
    - **prometheus_url** - the path (often just `metrics`) and port at which the OpenMetrics endpoint is exposed.
    - **namespace** - all metrics collected here will get this as a dot-separated prefix.
    - **metrics** - use `["*"]` to collect all available metrics. It is also possible to specify a list of metrics to be fetched. This should either be a string representing the metric name or a mapping to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`
