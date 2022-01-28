@@ -31,6 +31,7 @@ The integrations included in the StackState Agent V2 StackPack are listed below.
 * [Java APM](java-apm.md)
 * [JMX](jmx.md "StackState Self-Hosted only")
 * [MySQL](mysql.md "StackState Self-Hosted only")
+* [OpenMetrics](openmetrics.md "StackState Self-Hosted only")
 * [PostgreSQL](postgresql.md "StackState Self-Hosted only")
 * [Static Health](static_health.md "StackState Self-Hosted only")  
 * [WMI](wmi.md "StackState Self-Hosted only")

@@ -139,6 +139,7 @@
   * [Logz.io](stackpacks/integrations/logz.md)
   * [MySQL](stackpacks/integrations/mysql.md)
   * [Nagios](stackpacks/integrations/nagios.md)
+  * [OpenMetrics](stackpacks/integrations/openmetrics.md)
   * [PostgreSQL](stackpacks/integrations/postgresql.md)
   * [Prometheus](stackpacks/integrations/prometheus.md)
   * [SAP](stackpacks/integrations/sap.md)
