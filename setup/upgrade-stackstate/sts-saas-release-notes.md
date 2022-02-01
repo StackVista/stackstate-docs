@@ -10,6 +10,12 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v4.5.x
 
+### 4.5.4 (2002-02-01)
+
+**Improvements**
+
+- Internal Playground optimization. STAC-15393
+
 ### 4.5.3 (2022-01-21)
 
 **Bug fixes**
