@@ -15,6 +15,12 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### 4.5.4
+
+**Improvements**
+
+- Internal Playground optimization. STAC-15393
+
 ### 4.5.3
 
 **Bug fixes**
