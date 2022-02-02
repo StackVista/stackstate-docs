@@ -15,9 +15,7 @@ A propagated state is returned as one of the following health states:
 * `DEVIATING`
 * `UNKNOWN`
 
-A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
-
-![Edit component propagation](../../../.gitbook/assets/v46_edit-component-propagation.png)
+A component's propagated state is calculated using a propagation function, which is set during synchronization.
 
 ## Propagation functions
 
