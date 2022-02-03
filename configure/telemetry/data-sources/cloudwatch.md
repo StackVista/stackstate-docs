@@ -2,19 +2,21 @@
 
 ## Overview
 
+TODO
+
 ## Pull telemetry from AWS CloudWatch
 
 ### Prerequisites
 
 To connect StackState to an AWS CloudWatch instance and retrieve telemetry data you will need to have:
 
-- 
+- ???
 
 ### Add an AWS CloudWatch data source
 
-An Elasticsearch data source should be added in StackState for each AWS CloudWatch account and region that you want to work with. Default settings that should work with most AWS CloudWatch setups are already included, so you will only need to add details of your AWS CloudWatch instance and the index to be retrieved.
+A CloudWatch data source should be added in StackState for each AWS CloudWatch account and region that you want to work with. Default settings that should work with most AWS CloudWatch setups are already included, so you will only need to add details of your AWS CloudWatch instance and the index to be retrieved.
 
-To add an Elasticsearch data source:
+To add a CloudWatch data source:
 
 1. In the StackState UI, go to **Settings** &gt; **Telemetry Sources** &gt; **CloudWatch sources**.
 2. Click on **ADD CLOUDWATCH SOURCE**.
@@ -56,6 +58,8 @@ For CloudWatch data sources created by the AWS StackPack, ???.
 
 
 ### Work with CloudWatch data in StackState 
+
+TODO
 
 ## Advanced settings
 
