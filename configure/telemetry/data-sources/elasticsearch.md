@@ -25,7 +25,7 @@ An Elasticsearch data source should be added in StackState for each Elasticsearc
 To add an Elasticsearch data source:
 
 1. In the StackState UI, go to **Settings** &gt; **Telemetry Sources** &gt; **Elasticsearch sources**.
-2. Click on **ADD ELASTICSEARCH DATA SOURCE**.
+2. Click on **ADD ELASTICSEARCH SOURCE**.
 3. Enter the required settings:
    * **Name** - the name to identify the Elasticsearch data source in StackState.
    * **Base URL** - the URL of the REST API of your Elasticsearch instance \(default port 9200\). Note that this must be reachable by StackState.

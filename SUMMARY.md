@@ -169,6 +169,7 @@
 * [Telemetry](configure/telemetry/README.md)
   * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
   * [Data sources](configure/telemetry/data-sources/README.md)
+    * [CloudWatch](configure/telemetry/data-sources/cloudwatch.md)
     * [Elasticsearch](configure/telemetry/data-sources/elasticsearch.md)
     * [Prometheus mirror](configure/telemetry/data-sources/prometheus-mirror.md)
   * [Send telemetry data over HTTP](configure/telemetry/send_telemetry.md)
