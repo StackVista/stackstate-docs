@@ -2,5 +2,5 @@
 description: StackState Self-hosted v4.5.x
 ---
 
-# StackState Template Json \(STJ\)
+# StackState Template JSON \(STJ\)
 

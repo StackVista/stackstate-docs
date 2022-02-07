@@ -248,7 +248,7 @@
   * [Synchronizations and templated files](develop/developer-guides/synchronizations_and_templated_files.md)
 * [Reference](develop/reference/README.md)
   * [StackState CLI](develop/reference/cli_reference.md)
-  * [StackState Template Json \(STJ\)](develop/reference/stj/README.md)
+  * [StackState Template JSON \(STJ\)](develop/reference/stj/README.md)
     * [Using STJ](develop/reference/stj/using_stj.md)
     * [Template functions](develop/reference/stj/stj_reference.md)
   * [StackState Markup Language \(STML\)](develop/reference/stml/README.md)
