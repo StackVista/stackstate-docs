@@ -181,8 +181,8 @@ The permissions listed below are required to work with topology in StackState:
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| Access and edit the view visualization settings. If not granted, the visualization settings button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ | - |
-| Basic and Advanced filtering. If not granted, filtering options will be hidden. | `perform-custom-query` | ✅ | ✅ | ✅ | - |
+| Access and edit the view visualization settings. Adds the **visualization settings** button. | `update-visualization` | ✅ | ✅ | ✅ | - |
+| Basic and Advanced filtering. Adds filtering options. | `perform-custom-query` | ✅ | ✅ | ✅ | - |
 | Execute actions from the component context menu. | `execute-component-actions` | ✅ | ✅ | ✅ | - |
 | Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | Add components button. Create relations between topology elements. | `manage-topology-elements` and `perform-custom-query` and `read-settings` | - | ✅ | ✅ | - |
