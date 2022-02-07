@@ -163,7 +163,7 @@ The permissions in the table below are required to access specific pages in the 
 ![Main menu with all permissions granted](../../../.gitbook/assets/v45_main_menu.png)
 
 | Page | Description | Permission | Guest | Power user | Admin | Platform admin |
-| :--- | :--- | :---: | :---: | :---: | :---: |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Explore Mode** | | `access-explore` | ✅ | ✅ | ✅ | - |
 | **Views** | Access can be granted either for a specific view using the view ID or for all views using the `everything` resource. For details, see the [view management permissions](rbac_permissions.md#view-management).  | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
 | **Analytics** | For details, see the [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ | - |
