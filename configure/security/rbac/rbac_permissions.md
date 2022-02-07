@@ -167,7 +167,7 @@ The permissions in the table below are required to access specific pages in the 
 | **Explore Mode** | | `access-explore` | ✅ | ✅ | ✅ | - |
 | **Views** | Access can be granted either for a specific view using the view ID or for all views using the `everything` resource. For details, see the [view management permissions](rbac_permissions.md#view-management).  | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
 | **Analytics** | For details, see the [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ | - |
-| **CLI** | The CLI page provides the API key to use for authentication with the StackState CLI. | `access-cli` | ✅ | ✅ | ✅ | ✅ 
+| **CLI** | The CLI page provides the API key to use for authentication with the StackState CLI. | `access-cli` | ✅ | ✅ | ✅ | ✅ |
 | **StackPacks** |  | `manage-stackpacks` | - | ✅ | ✅ | - |
 | **Settings** | For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
 | **Settings** &gt; **Export Settings** | Also requires `read-settings`. Without this permission, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` | - | ✅ | ✅ | - |
