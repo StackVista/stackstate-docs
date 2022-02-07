@@ -164,14 +164,14 @@ The permissions in the table below are required to access specific pages in the 
 
 | Page | Description | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
-| **Explore Mode** | | `access-explore` | ✅ | ✅ | ✅ | - |
-| **Views** | Access can be granted either for a specific view using the view ID or for all views using the `everything` resource. For details, see the [view management permissions](rbac_permissions.md#view-management).  | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
-| **Analytics** | For details, see the [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ | - |
+| **Explore Mode** | Explore the unfiltered topology. | `access-explore` | ✅ | ✅ | ✅ | - |
+| **Views** | Access can be granted either for a specific view using the view ID or for all views using the `everything` resource. See [view management permissions](rbac_permissions.md#view-management).  | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
+| **Analytics** | See [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ | - |
 | **CLI** | The CLI page provides the API key to use for authentication with the StackState CLI. | `access-cli` | ✅ | ✅ | ✅ | ✅ |
-| **StackPacks** |  | `manage-stackpacks` | - | ✅ | ✅ | - |
-| **Settings** | For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Export Settings** | Allows the export of settings from Settings Menu. See the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` and `read-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Import Settings** | Allows the import of settings from Settings Menu. See the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` and `read-settings`   | - | ✅ | ✅ | - |
+| **StackPacks** | Browse, install and uninstall StackPacks. | `manage-stackpacks` | - | ✅ | ✅ | - |
+| **Settings** | See [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Export Settings** | Allows the export of settings from Settings Menu. See [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` and `read-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Import Settings** | Allows the import of settings from Settings Menu. See [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` and `read-settings`   | - | ✅ | ✅ | - |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
@@ -238,7 +238,8 @@ The permissions listed below are required to access and manage settings in the S
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | Access the **Settings** page in the StackState UI. Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ | - |
 | Add / Edit / Delete capabilities. This permission unlocks the **...** menu and the **ADD** buttons on all Settings Pages. | `update-settings` | - | ✅ | ✅ | - |
-| Export capability. Without this permission, checkboxes are not available on the settings page. | `export-settings` | - | ✅ | ✅ | - |
+| Export capability. Without this permission, checkboxes are not available to export individual items from the settings pages and the page **Export Settings** is not available. | `export-settings` | - | ✅ | ✅ | - |
+| Import capability. Without this permission the page **Import Settings** is not available. | `import-settings` | - | ✅ | ✅ | - |
 | Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ | - |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
