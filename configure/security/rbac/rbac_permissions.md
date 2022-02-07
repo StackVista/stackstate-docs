@@ -171,7 +171,7 @@ The permissions in the table below are required to access specific pages in the 
 | **StackPacks** |  | `manage-stackpacks` | - | ✅ | ✅ | - |
 | **Settings** | For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
 | **Settings** &gt; **Export Settings** | Also requires `read-settings`. Without this permission, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Import Settings** Also requires `read-settings`. Without this permission, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Import Settings** | Also requires `read-settings`.  Without this permission, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` | - | ✅ | ✅ | - |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
