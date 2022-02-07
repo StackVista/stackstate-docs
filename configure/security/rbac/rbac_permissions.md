@@ -170,8 +170,8 @@ The permissions in the table below are required to access specific pages in the 
 | **CLI** | The CLI page provides the API key to use for authentication with the StackState CLI. | `access-cli` | ✅ | ✅ | ✅ | ✅ |
 | **StackPacks** |  | `manage-stackpacks` | - | ✅ | ✅ | - |
 | **Settings** | For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Export Settings** | Also requires `read-settings`. Without this permission, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Import Settings** | Also requires `read-settings`.  Without this permission, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Export Settings** | Without these permissions, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` and `read-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Import Settings** | Without these permissions, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` and `read-settings`   | - | ✅ | ✅ | - |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
