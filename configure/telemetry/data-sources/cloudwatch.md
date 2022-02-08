@@ -2,7 +2,11 @@
 
 ## Overview
 
-TODO
+A cloudwatch data source will be created by StackState each time **an instance of the AWS stackpack is installed**. Metrics will then be pulled from the **configured Account** 
+
+- You can manually add your own CloudWatch data source **why would you do this???**.
+- You can edit an existing CloudWatch data source, for example to add proxy details. Note that editing a data source created by the AWS StackPack will cause it to become unlocked. This means that **changes made will be deleted when the StackPack is upgrade / a new data source will be created when the stackpack is upgraded**.
+- The CloudWatch data source page is also useful to test the connection to AWS ClourWatch using the provided authentation details. Use the **TEST CONNECTION** button.
 
 ## Pull telemetry from AWS CloudWatch
 
@@ -11,6 +15,7 @@ TODO
 To connect StackState to an AWS CloudWatch instance and retrieve telemetry data you will need to have:
 
 - ???
+- **Just an AWS account to collect data from???**
 
 ### Add an AWS CloudWatch data source
 
@@ -59,7 +64,7 @@ For CloudWatch data sources created by the AWS StackPack, ???.
 
 ### Work with CloudWatch data in StackState 
 
-TODO
+Retrieved metrics will be available in StackState in the data source named **CWDS name???**. If AWS components also exist in StackState, these metrics will be mapped to the associated components. **??? Is there an situation where this would happen???**.
 
 ## Advanced settings
 
