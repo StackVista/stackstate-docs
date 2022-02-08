@@ -21,7 +21,8 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [Kubernetes events](kubernetes.md#kubernetes-events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [Objects changes events](kubernetes.md#changes) are created for every detected change in Kubernetes objects `spec` or `metadata`
 
 ## Setup
 
@@ -82,6 +83,8 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
+##### Kubernetes events
+
 The Kubernetes integration retrieves all events from the Kubernetes cluster. The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
@@ -90,6 +93,36 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 | **Alerts** | `NotTriggerScaleUp` |
 | **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
 | **Others** | All other events |
+
+##### Changes
+
+In addition, Kubernetes integration will detect changes in Kubernetes objects and will create an event of type "Element Properties Change" with a diff for YAML representation of a changed object.
+
+![Example of a change event](../../.gitbook/assets/k8s-change-event.png)
+
+List of object types that are subject for change detection:
+* `ConfigMap`
+* `CronJob`
+* `DaemonSet`
+* `Deployment`
+* `Ingress`
+* `Job`
+* `Namespace`
+* `Node`
+* `PersistentVolume`
+* `Pod`
+* `ReplicaSet`
+* `Secret` (only hash of content will be compared)
+* `Service`
+* `StatefulSet`
+
+The following properties of objects are omitted for comparison:
+* `metadata`
+  * `managedFields`
+  * `resourceVersion`
+  * `annotations`
+    * `kubectl.kubernetes.io/last-applied-configuration`
+* `status`
 
 #### Metrics
 
