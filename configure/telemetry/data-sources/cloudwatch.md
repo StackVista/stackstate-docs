@@ -2,11 +2,11 @@
 
 ## Overview
 
-A cloudwatch data source will be created by StackState each time **an instance of the AWS stackpack is installed**. Metrics will then be pulled from the **configured Account** 
+A cloudwatch data source will be created by StackState each time **an instance of the AWS stackpack is installed**. Metrics will then be pulled from the **configured Account**. You can: 
 
-- You can manually add your own CloudWatch data source **why would you do this???**.
-- You can edit an existing CloudWatch data source, for example to add proxy details. Note that editing a data source created by the AWS StackPack will cause it to become unlocked. This means that **changes made will be deleted when the StackPack is upgrade / a new data source will be created when the stackpack is upgraded**.
-- The CloudWatch data source page is also useful to test the connection to AWS ClourWatch using the provided authentation details. Use the **TEST CONNECTION** button.
+- Add your own CloudWatch data source **why would you do this???**.
+- Edit an existing CloudWatch data source, for example to add proxy details to a CloudWatch data source created by the AWS StackPack. Note that editing a data source created by the AWS StackPack will cause it to become unlocked. This means that **changes made will be deleted when the StackPack is upgrade / a new data source will be created when the stackpack is upgraded**.
+- Test the connection to AWS CloudWatch using the provided authentication details. Use the **TEST CONNECTION** button.
 
 ## Pull telemetry from AWS CloudWatch
 
