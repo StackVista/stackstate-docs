@@ -19,7 +19,7 @@ The preferred method to retrieve telemetry from AWS CloudWatch is to [install th
 To connect StackState to an AWS CloudWatch instance and retrieve telemetry data you will need to have:
 
 - ???
-- **Just an AWS account to collect data from???**
+- Just an **AWS account** to collect data from???
 
 ### Add an AWS CloudWatch data source
 
