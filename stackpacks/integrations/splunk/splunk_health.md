@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Splunk health
@@ -12,6 +12,8 @@ The StackState Splunk health integration collects health from Splunk by executin
 * [In StackState Agent V2](splunk_health.md#agent-check) - a Splunk health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk health check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
+
+Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Splunk saved search
 
@@ -62,6 +64,7 @@ To configure the Splunk health Agent check:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
    * **ignore\_saved\_search\_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
+   * **collection_interval** - The interval at which the check is scheduled to run.
 3. Under **saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve health information: 
    * **name** - The name of the [Splunk saved search](splunk_health.md#splunk-saved-search) to execute.
      * **match** - Regex used for selecting Splunk saved search queries. Default `"health.*"`.

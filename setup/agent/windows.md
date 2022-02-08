@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Windows
 
 ## Overview
@@ -86,7 +90,7 @@ The StackState Agent V2 configuration is located in the file `C:\ProgramData\Sta
 
 ### Advanced Agent configuration
 
-A number of advanced configuration options are available for StackState Agent V2. These can be set in the Agent configuration file `C:\ProgramData\StackState\stackstate.yaml` and are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### Integration configuration
 

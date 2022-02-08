@@ -1,2 +1,6 @@
-# StackState Template Json \(STJ\)
+---
+description: StackState Self-hosted v4.5.x
+---
+
+# StackState Template JSON \(STJ\)
 

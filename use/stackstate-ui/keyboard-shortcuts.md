@@ -1,5 +1,5 @@
 ---
-description: Keyboard shortcuts in the StackState UI
+description: StackState Self-hosted v4.5.x
 ---
 
 # Keyboard shortcuts

@@ -1,5 +1,5 @@
 ---
-description: Community integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Cloudera
@@ -7,6 +7,8 @@ description: Community integration
 ## What is the Cloudera StackPack?
 
 The Cloudera StackPack is used to create a near real time synchronization with your Cloudera instance.
+
+Cloudera is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
 
 ## Prerequisites
 

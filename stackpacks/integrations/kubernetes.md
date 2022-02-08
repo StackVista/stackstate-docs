@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: Kubernetes
+description: StackState Self-hosted v4.5.x
 ---
 
 # 💠 Kubernetes
@@ -12,6 +11,8 @@ The Kubernetes integration is used to create a near real-time synchronization of
 * Workloads
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
+
+Kubernetes is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
@@ -103,7 +104,7 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 The Kubernetes integration retrieves components and relations for the Kubernetes cluster.
 
 {% hint style="info" %}
-Note that topology information will not be gathered from Kubernetes clusters that use the `containerd` container runtime.
+Note that topology information is only gathered from Kubernetes clusters that use the Docker container runtime.
 {% endhint %}
 
 **Components**
@@ -223,6 +224,10 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
 
 ## Release notes
+
+**Kubernetes StackPack v3.9.8 (2021-11-30)**
+
+* Bug Fix: Support nodes without instanceId
 
 **Kubernetes StackPack v3.9.7 (2021-10-06)**
 

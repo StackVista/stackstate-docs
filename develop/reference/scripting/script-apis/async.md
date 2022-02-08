@@ -1,7 +1,5 @@
 ---
-title: Script API - Async
-kind: Documentation
-description: Functions to work with `AsyncScriptResult`
+description: StackState Self-hosted v4.5.x
 ---
 
 # Async - script API

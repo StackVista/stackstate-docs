@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Zabbix
@@ -7,6 +7,8 @@ description: StackState curated integration
 ## What is the Zabbix StackPack?
 
 The Zabbix StackPack is used to create a near real time synchronization with your Zabbix instance.
+
+Zabbix is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Prerequisites
 

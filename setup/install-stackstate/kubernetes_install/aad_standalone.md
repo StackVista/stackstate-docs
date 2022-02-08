@@ -1,5 +1,5 @@
 ---
-description: Standalone Deployment of the Autonomous Anomaly Detector
+description: StackState Self-hosted v4.5.x
 ---
 
 # AAD Standalone Deployment

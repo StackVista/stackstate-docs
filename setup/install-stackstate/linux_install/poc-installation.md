@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Install with POC configuration
 
 {% hint style="info" %}

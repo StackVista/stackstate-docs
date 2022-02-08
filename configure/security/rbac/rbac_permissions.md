@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Permissions
 
 ## Overview
@@ -24,8 +28,10 @@ See also the list of [view permissions](rbac_permissions.md#view-permissions).
 
 | Permission | Purpose | Guest | Power user | Admin | Platform Admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
+| `access-cli` | Access the CLI page. This provides the API key to use for authentication with the StackState CLI. | ✅ | ✅ | ✅ | ✅ |
 | `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ | - |
 | `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ | - |
+| `manage-star-view` | Add and remove stars from views. | ✅ | ✅ | ✅ | ✅ |
 | `perform-custom-query` | Access the topology filter. | ✅ | ✅ | ✅ | - |
 | `read-permissions` | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ | - |
 | `update-visualization` | Change visualization settings. | ✅ | ✅ | ✅ | - |
@@ -71,15 +77,16 @@ The permissions in the table below are required to access specific pages in the 
 
 ![Main menu with all permissions granted](../../../.gitbook/assets/v45_main_menu.png)
 
-| Page | Permission | Guest | Power user | Admin | Platform admin |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **Explore Mode** | `access-explore` | ✅ | ✅ | ✅ | - |
-| **Views** Access can be granted either for a specific view using the view ID or for all views using the `everything` resource. For details, see the [view management permissions](rbac_permissions.md#view-management). | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
-| **Analytics** For details, see the [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ | - |
-| **StackPacks** | `manage-stackpacks` | - | ✅ | ✅ | - |
-| **Settings** For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Export Settings** Also requires `read-settings`. Without this permission, Export Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` | - | ✅ | ✅ | - |
-| **Settings** &gt; **Import Settings** Also requires `read-settings`. Without this permission, Import Settings is removed from Settings Menu. For details, see the [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` | - | ✅ | ✅ | - |
+| Page | Description | Permission | Guest | Power user | Admin | Platform admin |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: |
+| **Explore Mode** | Explore the unfiltered topology. | `access-explore` | ✅ | ✅ | ✅ | - |
+| **Views** | Access can be granted either for a specific view using the view ID or for all views using the `everything` resource. See [view management permissions](rbac_permissions.md#view-management).  | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
+| **Analytics** | See [analytics environment permissions](rbac_permissions.md#analytics-environment). | `access-analytics` | - | ✅ | ✅ | - |
+| **CLI** | The CLI page provides the API key to use for authentication with the StackState CLI. | `access-cli` | ✅ | ✅ | ✅ | ✅ |
+| **StackPacks** | Browse, install and uninstall StackPacks. | `manage-stackpacks` | - | ✅ | ✅ | - |
+| **Settings** | See [settings page permissions](rbac_permissions.md#settings-page). | `read-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Export Settings** | Allows the export of settings from Settings Menu. See [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` and `read-settings` | - | ✅ | ✅ | - |
+| **Settings** &gt; **Import Settings** | Allows the import of settings from Settings Menu. See [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` and `read-settings`   | - | ✅ | ✅ | - |
 
 See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 
@@ -117,10 +124,11 @@ The permissions listed below can be set to access and work with views:
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | Access a specific view or all views \(`everything`\). Example: [Grant permissions to open a view](rbac_permissions.md#allow-a-user-to-open-a-view). | `access-view` | ✅  `everything` | ✅  `everything` | ✅  `everything` | ✅  `everything` |
-| Access and edit the view visualization settings. If not granted, the **visualization settings** button will be hidden. | `update-visualization` | ✅ | ✅ | ✅ | - |
-| Add or edit event handlers. If not granted, the **ADD NEW EVENT HANDLER** button will not be available, however, users will be able to view details of existing event handlers. Example: [Grant permissions to add and edit event handlers](rbac_permissions.md#allow-a-user-to-add-or-edit-event-handlers). | `manage-event-handlers` | - | ✅ | ✅ | - |
+| Add and remove stars from views. | `manage-star-view` | ✅ | ✅ | ✅ | ✅ | 
+| Access and edit the view visualization settings. Adds the **visualization settings** button. | `update-visualization` | ✅ | ✅ | ✅ | - |
+| Add or edit event handlers. Adds the **ADD NEW EVENT HANDLER** button. Without this permission, users will only be able to view details of existing event handlers. Example: [Grant permissions to add and edit event handlers](rbac_permissions.md#allow-a-user-to-add-or-edit-event-handlers). | `manage-event-handlers` | - | ✅ | ✅ | - |
 | Create views. Example: [Grant permissions to create views](rbac_permissions.md#allow-a-user-to-create-save-views). | `create-views` | - | ✅ | ✅ | - |
-| Save updates to a view. For a specific view or all views \(`everything`\). | `save-view` | - | ✅  `everything` | ✅  `everything` | - |
+| Save updates to a specific view or all views \(`everything`\). | `save-view` | - | ✅  `everything` | ✅  `everything` | - |
 | Delete a view. For a specific view or all views \(`everything`\). | `delete-view` | - | ✅  `everything` | ✅  `everything` | - |
 
 See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
@@ -131,8 +139,8 @@ The permissions listed below are required to access and execute scripts in the S
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| Access the **Analytics** page in the StackState UI. Without this permission, the analytics environment will be hidden in the StackState UI, and it will not be accessible via its URL. | `access-analytics` | - | ✅ | ✅ | - |
-| Execute scripts in the StackState UI analytics environment. Without this permission, the **Execute** button will not be available. Also requires `access-analytics`. | `execute-scripts` | - | ✅ | ✅ | - |
+| Access the **Analytics** page in the StackState UI. Without this permission, the analytics environment will be hidden from the main menu, and it will not be accessible via its URL. | `access-analytics` | - | ✅ | ✅ | - |
+| Execute scripts in the StackState UI analytics environment. Adds the **Execute** button. | `execute-scripts` and `access-analytics` | - | ✅ | ✅ | - |
 | Execute scripts that use the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md). Also requires `access-analytics` and `execute-scripts`. | `execute-restricted-scripts` | - | - | ✅ | - |
 
 See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
@@ -143,9 +151,10 @@ The permissions listed below are required to access and manage settings in the S
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| Access the **Settings** page in the StackState UI. Without this permission, the settings section will be hidden in the StackState UI main menu, and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ | - |
+| Access the **Settings** pages in the StackState UI. Without this permission, the settings section will be hidden from the main menu and it will not be accessible via its URL. | `read-settings` | - | ✅ | ✅ | - |
 | Add / Edit / Delete capabilities. This permission unlocks the **...** menu and the **ADD** buttons on all Settings Pages. | `update-settings` | - | ✅ | ✅ | - |
-| Export capability. Without this permission, checkboxes are not available on the settings page. | `export-settings` | - | ✅ | ✅ | - |
+| Export capability. Adds checkboxes to export individual items from the settings pages and the page **Export Settings**. | `export-settings` | - | ✅ | ✅ | - |
+| Import capability. Adds the page **Import Settings**. | `import-settings` | - | ✅ | ✅ | - |
 | Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ | - |
 
 See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
@@ -156,8 +165,8 @@ The permissions listed below are required to access and manage StackState platfo
 
 | Action | Permission | Guest | Power user | Admin | Platform Admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| `access-admin-api` | Access the administrator API. | - | - | - | ✅ |
-| `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ | ✅ |
+| Access the administrator API. | `access-admin-api` | - | - | - | ✅ |
+| Access StackState logs via the CLI. | `access-log-data` | - | ✅ | ✅ | ✅ |
 
 See the lists of all [system permissions](rbac_permissions.md#system-permissions) and [view permissions](#view-permissions) \(above\).
 

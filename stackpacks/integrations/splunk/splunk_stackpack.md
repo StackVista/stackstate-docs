@@ -1,6 +1,5 @@
 ---
-description: StackState core integration
-stackpack-name: Splunk
+description: StackState Self-hosted v4.5.x
 ---
 
 # Splunk
@@ -11,6 +10,8 @@ The StackState Splunk integration synchronizes events, metrics, health and topol
 
 * [StackState Agent V1](../../../setup/agent/agent-v1.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured.
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk topology V2 integration is configured.
+
+Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../../.gitbook/assets/stackpack-splunk.svg)
 

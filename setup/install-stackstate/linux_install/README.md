@@ -1,5 +1,5 @@
 ---
-description: Install StackState on Linux
+description: StackState Self-hosted v4.5.x
 ---
 
 # Linux install

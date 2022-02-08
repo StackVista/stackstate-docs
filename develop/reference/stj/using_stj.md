@@ -1,7 +1,5 @@
 ---
-description: >-
-  All configuration of StackState is described using StackState Template JSON
-  (STJ).
+description: StackState Self-hosted v4.5.x
 ---
 
 # Using STJ

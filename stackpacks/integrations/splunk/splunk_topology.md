@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Splunk topology V1
@@ -18,6 +18,8 @@ The StackState Splunk topology V1 integration collects topology from Splunk by e
 * [In StackState Agent V1](splunk_topology.md#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk topology check on StackState Agent V1 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
+
+Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Splunk saved search
 
@@ -120,6 +122,7 @@ To configure the Splunk topology Agent check:
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
    * **ignore\_saved\_search\_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
    * **tags** - Optional. Can be used to apply specific tags to all reported topology in StackState.
+   * **collection_interval** - The interval at which the check is scheduled to run.
 3. Under **component\_saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
    * **name** - The name of the [Splunk saved search](splunk_topology.md#splunk-saved-search) to execute.
      * **match** - Regex used for selecting Splunk saved search queries. Default `"comp.*"` for component queries and `"relation*"` for relation queries.

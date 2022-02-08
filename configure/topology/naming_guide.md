@@ -1,9 +1,5 @@
 ---
-title: Naming Guide
-kind: Documentation
-aliases:
-  - /configuring/naming_guide/
-listorder: 15
+description: StackState Self-hosted v4.5.x
 ---
 
 # Naming guide

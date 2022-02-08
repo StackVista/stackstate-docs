@@ -1,5 +1,5 @@
 ---
-description: Functions related to time and timing.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Time - script API

@@ -1,6 +1,5 @@
 ---
-title: The 4T Data Model
-kind: documentation
+description: StackState Self-hosted v4.5.x
 ---
 
 # The 4T data model

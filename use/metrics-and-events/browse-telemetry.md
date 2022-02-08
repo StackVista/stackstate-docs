@@ -1,5 +1,5 @@
 ---
-description: Inspect and filter data from a configured telemetry stream
+description: StackState Self-hosted v4.5.x
 ---
 
 # Browse telemetry
@@ -10,11 +10,11 @@ The StackState UI displays a visualization of filtered data for each configured 
 
 Telemetry streams are added to elements automatically when they are imported to StackState or you can manually [add a single telemetry stream](add-telemetry-to-element.md) to a single component.
 
-## Telemetry Browser
+## Telemetry inspector
 
 Click on any of the telemetry stream charts, or select **Inspect stream** from its context menu, to open the telemetry inspector.
 
-![Telemetry browser](../../.gitbook/assets/v45_telemetry-browser.png)
+![Telemetry inspector](../../.gitbook/assets/v45_telemetry-browser.png)
 
 Within the telemetry inspector you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. Changes made here will not be saved to the telemetry stream attached to the element.
 

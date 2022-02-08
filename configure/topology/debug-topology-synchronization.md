@@ -1,8 +1,12 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Debug topology synchronization
 
 ## Overview
 
-This page explains several tools that can be used to debug a topology synchronization.
+This page explains several tools that can be used to troubleshoot a topology synchronization.
 
 ## Topology synchronization process
 

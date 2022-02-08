@@ -1,5 +1,5 @@
 ---
-description: Manage StackState using the CLI
+description: StackState Self-hosted v4.5.x
 ---
 
 # StackState CLI
@@ -24,7 +24,7 @@ sts graph list-types
 
 ### sts graph export
 
-Use the `sts graph export` command to export different types of [configuration nodes](cli_reference.md#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated Json](stj/) format.
+Use the `sts graph export` command to export different types of [configuration nodes](cli_reference.md#sts-graph-list-types) from and to StackState. Nodes are stored in [StackState Templated JSON](stj/) format.
 
 ```text
 sts graph export -i ids_to_export > file_name
@@ -271,5 +271,5 @@ Note that it is not necessary to do this via the CLI. StackState will also offer
 
 ## See also
 
-* [StackState Templated Json](stj/)
+* [StackState Templated JSON](stj/)
 

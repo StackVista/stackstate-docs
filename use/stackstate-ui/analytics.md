@@ -1,5 +1,5 @@
 ---
-description: Run queries against data from your IT environment.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Analytics

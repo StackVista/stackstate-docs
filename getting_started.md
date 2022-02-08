@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # Getting Started
 
 Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
@@ -49,15 +53,15 @@ To see the details of a component or a relation, you can click on it. Click on *
 
 ![Component details](/.gitbook/assets/v45_component_details.png)
 
-## Telemetry browser
+## Telemetry inspector
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Telemetry browser](/.gitbook/assets/v45_component_details_inspect_metric_stream.png)
+![Telemetry inspector](/.gitbook/assets/v45_component_details_inspect_metric_stream.png)
 
 If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left-hand side of the popup.
 
-![Telemetry browser](/.gitbook/assets/v45_component_details_inspect_log_stream.png)
+![Telemetry inspector](/.gitbook/assets/v45_component_details_inspect_log_stream.png)
 
 ## Problems
 

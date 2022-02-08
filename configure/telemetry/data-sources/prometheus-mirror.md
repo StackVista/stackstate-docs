@@ -1,5 +1,5 @@
 ---
-description: Pull telemetry from Prometheus using mirroring
+description: StackState Self-hosted v4.5.x
 ---
 
 # Prometheus mirror

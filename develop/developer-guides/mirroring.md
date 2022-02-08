@@ -1,5 +1,5 @@
 ---
-description: Pull telemetry from existing telemetry sources using the concept of mirroring.
+description: StackState Self-hosted v4.5.x
 ---
 
 # Mirroring Telemetry

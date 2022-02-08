@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # SolarWinds
@@ -7,6 +7,8 @@ description: StackState curated integration
 ## Overview
 
 The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion \(SolarWinds\) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.
+
+SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
 
@@ -60,7 +62,8 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
          - <instance_domain_value_1>
          - <instance_domain_value_2>
          - <instance_domain_value_n>
-       min_collection_interval: 30
+       # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
+       collection_interval: 30
    ```
 
 2. Set the following filters:
@@ -159,7 +162,7 @@ Links to SolarWinds detail dashboards are created as [component actions](../../u
 The code for the StackState SolarWinds StackPack and check are open source and available on GitHub:
 
 * SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
-* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](hhttps://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
+* SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
 
 ## Troubleshooting
 

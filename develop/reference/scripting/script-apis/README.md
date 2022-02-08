@@ -1,5 +1,5 @@
 ---
-description: Reference docs for all StackState script APIs
+description: StackState Self-hosted v4.5.x
 ---
 
 # Script APIs

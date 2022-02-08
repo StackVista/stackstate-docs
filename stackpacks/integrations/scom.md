@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # SCOM
@@ -7,6 +7,8 @@ description: StackState curated integration
 ## Overview
 
 The SCOM StackPack is used to create a near real time synchronisation with your SCOM instance. The SCOM integration can be configured to run as either an API integration or PowerShell integration, these are described in the tabs below the diagram.
+
+SCOM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ![Data flow](../../.gitbook/assets/stackpack-scom.svg)
 
@@ -90,10 +92,13 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
      ```text
      init_config:
-       # run every minute
-       min_collection_interval: 60
+       
+       
      instances:
-     - hostip: localhost
+     # run every minute
+     - # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       collection_interval: 60
+       hostip: localhost
        domain: stackstate
        username: <username>
        password: <password>
@@ -141,7 +146,8 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      ```text
      init_config:
        # run every minute
-       min_collection_interval: 60
+       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       collection_interval: 60
      instances:
      - integration_mode: powershell    # api or powershell, default api
      ```

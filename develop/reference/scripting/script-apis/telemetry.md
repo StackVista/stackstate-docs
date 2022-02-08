@@ -1,5 +1,5 @@
 ---
-description: Functions for accessing telemetry
+description: StackState Self-hosted v4.5.x
 ---
 
 # Telemetry - script API

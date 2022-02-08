@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.5.x
+---
+
 # How to develop Agent checks
 
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
@@ -66,7 +70,8 @@ instances:
     authentication:
       username:
       password:
-    min_collection_interval: 30 # the collection interval in seconds. This check will run at least every 30 seconds
+    # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
+    collection_interval: 30 # the collection interval in seconds. This check will run try to run every 30 seconds
 ```
 
 YAML files must use spaces instead of tabs.
@@ -77,11 +82,11 @@ The _init\_config_ section allows you to have an arbitrary number of global conf
 
 ### instances
 
-The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `min_collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. However, due to the execution model of the StackState Agent, this is not a guarantee that the check will run every 30 seconds which is why it is referred to as being the minimum collection interval between two executions. The default is `15`, if no `min_collection_interval` is specified. To synchronize multiple instances in StackState you have to create a multi-tenant StackPack. 
+The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. If the check runtime exceeds the `collection_interval`, the Agent will warn in the agent log with `Check <name> did not finish execution with the defined collection_interval time '<time>', skipping execution...`. The default is `40`, if no `collection_interval` is specified. The `collection_interval` setting has superseded the `min_collection_interval` setting that was used before. The agent will still accept the `min_collection_interval` setting and interpret it as if the `collection_interval` was specified.
+
+To synchronize multiple instances in StackState you have to create a multi-tenant StackPack.
 
 ➡️ [Learn more about developing StackPacks.](../stackpack/).
-
-To synchronize multiple instances in StackState you have to create a multi-tenant StackPack \(documentation not yet available\).
 
 ### Setting up your check configuration
 

@@ -1,5 +1,5 @@
 ---
-description: Community integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Humio
@@ -11,6 +11,8 @@ The Humio StackPack allows you to access your logs stored in Humio.
 Using this StackPack, you can:
 
 * Jump straight to your container logs in Humio using a Quick Action on docker container components running in Kubernetes
+
+Humio is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
 
 ## Prerequisites
 

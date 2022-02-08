@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # AWS
@@ -17,6 +17,8 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Logs are retrieved once a minute from CloudWatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
+
+AWS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Setup
 
@@ -155,7 +157,8 @@ To enable the AWS check and begin collecting data from AWS, add the following co
        regions:
          - global # a special "region" used for global resources
          - eu-west-1
-       min_collection_interval: 60
+       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
        # log_bucket_name: '' 
@@ -165,7 +168,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 2. You can also add optional configuration and filters: 
     - **full_run_interval** - Optional. The time in seconds between a full AWS topology scan. Intermediate runs only fetch events.
-    - **min_collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+    - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
     - **apis_to_run** - Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.

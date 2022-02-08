@@ -1,5 +1,5 @@
 ---
-description: StackState core integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Upgrade Splunk topology V1 to V2
@@ -39,8 +39,8 @@ To upgrade an existing Splunk topology check to run on StackState Agent V2, foll
    ```
 
 5. Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml` and replace all occurrences of the following items:
-   * `default_polling_interval_seconds` replace with `min_collection_interval`.
-   * `polling_interval_seconds` replace with `min_collection_interval`.
+   * `default_polling_interval_seconds` replace with `collection_interval`.
+   * `polling_interval_seconds` replace with `collection_interval`.
 6. Restart StackState Agent V2 to apply the configuration changes.
    * The Splunk topology V2 check is now enabled on StackState Agent V2.
    * Wait for the Agent to collect data and send it to StackState.

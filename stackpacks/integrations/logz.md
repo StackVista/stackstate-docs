@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # Logz.io
@@ -12,6 +12,8 @@ Using this StackPack, you can:
 
 * plot log events from Logz.io onto your topology
 * monitor and create event notifications based on Logz.io log events
+
+Logz.io is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Installation
 

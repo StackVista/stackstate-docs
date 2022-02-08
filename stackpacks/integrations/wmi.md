@@ -1,5 +1,5 @@
 ---
-description: StackState curated integration
+description: StackState Self-hosted v4.5.x
 ---
 
 # WMI
@@ -7,6 +7,8 @@ description: StackState curated integration
 ## Overview
 
 Collect telemetry information with Windows Management Instrumentation \(WMI\) from Windows applications and servers.
+
+WMI is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Functionality
 
@@ -41,12 +43,13 @@ After the integration is enabled WMI queries can be defined in the integrations 
 | `tag_by` | No | Adds the properties value as tag to the metric that is send to StackState. |
 | `tags` | No | Add customer tags to the metric that is send to StackState. |
 | `filters` | No | WMI query filter to reduce the amount of metrics returned. |
-| `min_collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds. |
+| `collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds. |
 
 Example instance:
 
 ```text
-  - min_collection_interval: 120
+  - # min_collection_interval: 120 # use in place of collection_interval for Agent v2.14.x or earlier 
+    collection_interval: 120
     class: Win32_PerfRawData_MSSQLSERVER_SQLServerDatabases
     metrics:
       - [ActiveTransactions, sql.server.connections.active, gauge]
