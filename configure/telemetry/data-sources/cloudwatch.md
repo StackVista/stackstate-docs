@@ -11,7 +11,7 @@ A cloudwatch data source will be created by StackState each time **an instance o
 ## Pull telemetry from AWS CloudWatch
 
 {% hint style="info" %}
-The preferred method to retrieve telemetry from AWS CloudWatch is to [install the AWS StackPack](/stackpacks/integrations/aws/aws.md)
+The preferred method to retrieve telemetry from AWS CloudWatch is to [install the AWS StackPack](/stackpacks/integrations/aws/aws.md). Manual configuration of a CloudWatch data source is only advised for advanced AWS users.
 {% endhint %}
 
 ### Prerequisites
