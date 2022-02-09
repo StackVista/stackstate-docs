@@ -83,9 +83,11 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
+The Kubernetes integration retrieves all Kubernetes events from the Kubernetes cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+
 ##### Kubernetes events
 
-The Kubernetes integration retrieves all events from the Kubernetes cluster. The table below shows which event category will be assigned to each event type in StackState:
+The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
 | :--- | :--- |
@@ -117,7 +119,7 @@ Changes will be detected in the following object types:
 * `StatefulSet`
 
 {% hint style="info" %}
-Note that the following object properties **will not** be compared:
+Note that, in order to reduce noise of changes, the following object properties **will not** be compared:
 * `metadata`
   * `managedFields`
   * `resourceVersion`
@@ -125,6 +127,10 @@ Note that the following object properties **will not** be compared:
     * `kubectl.kubernetes.io/last-applied-configuration`
 * `status`
 {% endhint %}
+
+You can also see current YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+
+![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
 #### Metrics
 
