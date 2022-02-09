@@ -28,7 +28,7 @@ The integrations included in the StackState Agent V2 StackPack are listed below.
 * [AWS ECS](aws/aws-ecs.md)
 * [AWS Xray](aws/aws-x-ray.md)
 * [DotNet APM](dotnet-apm.md "StackState Self-Hosted only")
-* [Java APM](java-apm.md)
+* [Java APM](java-apm.md "StackState Self-Hosted only")
 * [JMX](jmx.md "StackState Self-Hosted only")
 * [MySQL](mysql.md "StackState Self-Hosted only")
 * [OpenMetrics](openmetrics.md "StackState Self-Hosted only")
