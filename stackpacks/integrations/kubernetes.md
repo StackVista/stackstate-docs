@@ -128,7 +128,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status`
 {% endhint %}
 
-You can also see current YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time)) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
