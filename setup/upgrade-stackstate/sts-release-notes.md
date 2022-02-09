@@ -15,6 +15,18 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### 4.5.5
+
+**Bug fixes**
+
+- Clears the following CVEs:
+  - CVE-2022-23852 
+  - CVE-2022-23990. STAC-15733
+- Fixed timeline health state not showing up properly on views with trailing whitespace in the query. STAC-15662
+- Fixed issue that incorrectly calculates Problem Clusters in certain circumstances. STAC-15657
+- Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
+- Fixed issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
+
 ### 4.5.4
 
 **Improvements**
