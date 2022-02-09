@@ -20,11 +20,7 @@ This page provides specific instructions and details of any required manual step
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-#### v4.5.3
-
-No manual action required.
-
-#### v4.5.2
+#### v4.5.2 - v4.5.5
 
 No manual action required.
 
