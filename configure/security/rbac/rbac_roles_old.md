@@ -64,11 +64,10 @@ stackstate-admin  delete-view                  everything
 
 ### Platform Administrator
 
-`stackstate-platform-admin`
-
 Have platform management permissions and have access to all views.
 
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
+**Subject**: `stackstate-platform-admin`
+**Permissions**:
 
 ```yaml
 $ sts permission show stackstate-platform-admin
