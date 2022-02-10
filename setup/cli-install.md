@@ -219,7 +219,7 @@ The StackState CLI uses three StackState APIs: the Base API, the Admin API and t
 
 ### API key - Receiver API
 
-StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent, which is configured by your administrator.
+StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent and is available from your administrator.
 
 ### API token - Base API and Admin API
 
@@ -229,9 +229,9 @@ StackState receives topology, telemetry and trace data via the Receiver API. If 
 The CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication.
 {% endhint %}
 
-The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your user account. The same API key should be entered in the CLI configuration file for both the Base API and the Admin API. 
+The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API key should be entered in the CLI configuration file for both the Base API and the Admin API. 
 
-The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To have access to the Admin API and the associated CLI operations, your StackState user must be assigned the permission `access-admin-api` [StackState permission](/configure/security/rbac/rbac_permissions.md).
+The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To have access to the Admin API and the associated CLI operations, your StackState user must be assigned the permission `access-admin-api`. See [StackState permissions](/configure/security/rbac/rbac_permissions.md).
 
 {% hint style="info" %}
 If you are using a custom tool instead of the CLI, you can authenticate with the same API token. For example, this can be done by including the following header in a curl request:
