@@ -215,7 +215,7 @@ sts --instance <instance_name> ...
 
 ## Authentication
 
-The StackState CLI exposes a number of APIs: the Base API, the Admin API and the Receiver API. These APIs are secured differently and need to have separate authentication details entered in the CLI configuration file.
+The StackState CLI uses three StackState APIs: the Base API, the Admin API and the Receiver API. These APIs are secured differently and need to have separate authentication details entered in the CLI configuration file.
 
 ### API key - Receiver API
 
