@@ -231,7 +231,10 @@ The CLI will issue a warning when username/password authentication is used for t
 
 The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API token should be entered in the CLI configuration file for both the Base API and the Admin API. 
 
-The Base API is used for most operations. The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To have access to the Admin API and the associated CLI operations, your StackState user must be assigned the permission `access-admin-api`. See [StackState permissions](/configure/security/rbac/rbac_permissions.md).
+* The Base API is used for most operations all users have access to this API, although the available operations may be restricted by the permissions assigned to each role. 
+* The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. To have access to the Admin API and the associated CLI operations, your StackState user must be assigned the permission `access-admin-api`.
+
+➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
 {% hint style="info" %}
 If you are using a custom tool instead of the CLI, you can authenticate with the same API token. For example, this can be done by including the following header in a curl request:
