@@ -83,47 +83,44 @@ Have platform management permissions and have access to all views.
 
 ### Power user
 
-The Power user role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for:
-  * `execute-restricted-scripts`
-  * `update-permissions`
-  * `upload-stackpacks`
+The Power user role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for `execute-restricted-scripts`, `update-permissions` and `upload-stackpacks`.
   
-* **Subject**: `stackstate-power-user`
-* **Permissions and resources**:
-    ```yaml
-    $ sts permission show stackstate-power-user    
+  * **Subject**: `stackstate-power-user`
+  * **Permissions and resources**:
+      ```yaml
+      $ sts permission show stackstate-power-user    
     
-    subject                permission                   resource
-    ---------------------  ---------------------------  ----------
-    stackstate-power-user  manage-annotations           system
-    stackstate-power-user  execute-scripts              system
-    stackstate-power-user  read-settings                system
-    stackstate-power-user  access-cli                   system
-    stackstate-power-user  access-explore               system
-    stackstate-power-user  access-analytics             system
-    stackstate-power-user  access-synchronization-data  system
-    stackstate-power-user  access-log-data              system
-    stackstate-power-user  execute-node-sync            system
-    stackstate-power-user  manage-event-handlers        system
-    stackstate-power-user  access-topic-data            system
-    stackstate-power-user  manage-topology-elements     system
-    stackstate-power-user  import-settings              system
-    stackstate-power-user  export-settings              system
-    stackstate-power-user  perform-custom-query         system
-    stackstate-power-user  read-stackpacks              system
-    stackstate-power-user  read-permissions             system
-    stackstate-power-user  manage-telemetry-streams     system
-    stackstate-power-user  execute-component-templates  system
-    stackstate-power-user  update-visualization         system
-    stackstate-power-user  create-views                 system
-    stackstate-power-user  update-settings              system
-    stackstate-power-user  manage-stackpacks            system
-    stackstate-power-user  manage-star-view             system
-    stackstate-power-user  execute-component-actions    system
-    stackstate-power-user  access-view                  everything
-    stackstate-power-user  save-view                    everything
-    stackstate-power-user  delete-view                  everything
-    ```
+      subject                permission                   resource
+      ---------------------  ---------------------------  ----------
+      stackstate-power-user  manage-annotations           system
+      stackstate-power-user  execute-scripts              system
+      stackstate-power-user  read-settings                system
+      stackstate-power-user  access-cli                   system
+      stackstate-power-user  access-explore               system
+      stackstate-power-user  access-analytics             system
+      stackstate-power-user  access-synchronization-data  system
+      stackstate-power-user  access-log-data              system
+      stackstate-power-user  execute-node-sync            system
+      stackstate-power-user  manage-event-handlers        system
+      stackstate-power-user  access-topic-data            system
+      stackstate-power-user  manage-topology-elements     system
+      stackstate-power-user  import-settings              system
+      stackstate-power-user  export-settings              system
+      stackstate-power-user  perform-custom-query         system
+      stackstate-power-user  read-stackpacks              system
+      stackstate-power-user  read-permissions             system
+      stackstate-power-user  manage-telemetry-streams     system
+      stackstate-power-user  execute-component-templates  system
+      stackstate-power-user  update-visualization         system
+      stackstate-power-user  create-views                 system
+      stackstate-power-user  update-settings              system
+      stackstate-power-user  manage-stackpacks            system
+      stackstate-power-user  manage-star-view             system
+      stackstate-power-user  execute-component-actions    system
+      stackstate-power-user  access-view                  everything
+      stackstate-power-user  save-view                    everything
+      stackstate-power-user  delete-view                  everything
+      ```
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
