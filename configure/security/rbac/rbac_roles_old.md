@@ -19,46 +19,46 @@ StackState comes with four predefined roles:
 
 ### Administrator
 
-The role StackState administrator (`stackstate-admin`) has access to all views. All permissions are assigned, except for the platform management permission `access-admin-api`. This means that the administrator can ??? but cannnot ???. 
+The role StackState administrator has access to all views. All permissions are assigned, except for the platform management permission `access-admin-api`. This means that the administrator can ??? but cannnot ???. 
 
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
-
-```yaml
-$ sts permission show stackstate-admin
-subject           permission                   resource
-----------------  ---------------------------  ----------
-stackstate-admin  manage-annotations           system
-stackstate-admin  execute-scripts              system
-stackstate-admin  read-settings                system
-stackstate-admin  access-cli                   system
-stackstate-admin  access-explore               system
-stackstate-admin  access-analytics             system
-stackstate-admin  access-synchronization-data  system
-stackstate-admin  access-log-data              system
-stackstate-admin  execute-node-sync            system
-stackstate-admin  manage-event-handlers        system
-stackstate-admin  access-topic-data            system
-stackstate-admin  manage-topology-elements     system
-stackstate-admin  import-settings              system
-stackstate-admin  export-settings              system
-stackstate-admin  execute-restricted-scripts   system
-stackstate-admin  perform-custom-query         system
-stackstate-admin  read-stackpacks              system
-stackstate-admin  update-permissions           system
-stackstate-admin  read-permissions             system
-stackstate-admin  manage-telemetry-streams     system
-stackstate-admin  execute-component-templates  system
-stackstate-admin  update-visualization         system
-stackstate-admin  upload-stackpacks            system
-stackstate-admin  create-views                 system
-stackstate-admin  update-settings              system
-stackstate-admin  manage-stackpacks            system
-stackstate-admin  manage-star-view             system
-stackstate-admin  execute-component-actions    system
-stackstate-admin  access-view                  everything
-stackstate-admin  save-view                    everything
-stackstate-admin  delete-view                  everything
-```
+* **Subject**: `stackstate-admin`
+* **Permissions and resources**:
+    ```yaml
+    $ sts permission show stackstate-admin
+    subject           permission                   resource
+    ----------------  ---------------------------  ----------
+    stackstate-admin  manage-annotations           system
+    stackstate-admin  execute-scripts              system
+    stackstate-admin  read-settings                system
+    stackstate-admin  access-cli                   system
+    stackstate-admin  access-explore               system
+    stackstate-admin  access-analytics             system
+    stackstate-admin  access-synchronization-data  system
+    stackstate-admin  access-log-data              system
+    stackstate-admin  execute-node-sync            system
+    stackstate-admin  manage-event-handlers        system
+    stackstate-admin  access-topic-data            system
+    stackstate-admin  manage-topology-elements     system
+    stackstate-admin  import-settings              system
+    stackstate-admin  export-settings              system
+    stackstate-admin  execute-restricted-scripts   system
+    stackstate-admin  perform-custom-query         system
+    stackstate-admin  read-stackpacks              system
+    stackstate-admin  update-permissions           system
+    stackstate-admin  read-permissions             system
+    stackstate-admin  manage-telemetry-streams     system
+    stackstate-admin  execute-component-templates  system
+    stackstate-admin  update-visualization         system
+    stackstate-admin  upload-stackpacks            system
+    stackstate-admin  create-views                 system
+    stackstate-admin  update-settings              system
+    stackstate-admin  manage-stackpacks            system
+    stackstate-admin  manage-star-view             system
+    stackstate-admin  execute-component-actions    system
+    stackstate-admin  access-view                  everything
+    stackstate-admin  save-view                    everything
+    stackstate-admin  delete-view                  everything
+    ```
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
@@ -83,49 +83,47 @@ Have platform management permissions and have access to all views.
 
 ### Power user
 
-`stackstate-power-user`
-
 The Power user role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for:
   * `execute-restricted-scripts`
   * `update-permissions`
   * `upload-stackpacks`
-
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
-
-```yaml
-$ sts permission show stackstate-power-user    
-
-subject                permission                   resource
----------------------  ---------------------------  ----------
-stackstate-power-user  manage-annotations           system
-stackstate-power-user  execute-scripts              system
-stackstate-power-user  read-settings                system
-stackstate-power-user  access-cli                   system
-stackstate-power-user  access-explore               system
-stackstate-power-user  access-analytics             system
-stackstate-power-user  access-synchronization-data  system
-stackstate-power-user  access-log-data              system
-stackstate-power-user  execute-node-sync            system
-stackstate-power-user  manage-event-handlers        system
-stackstate-power-user  access-topic-data            system
-stackstate-power-user  manage-topology-elements     system
-stackstate-power-user  import-settings              system
-stackstate-power-user  export-settings              system
-stackstate-power-user  perform-custom-query         system
-stackstate-power-user  read-stackpacks              system
-stackstate-power-user  read-permissions             system
-stackstate-power-user  manage-telemetry-streams     system
-stackstate-power-user  execute-component-templates  system
-stackstate-power-user  update-visualization         system
-stackstate-power-user  create-views                 system
-stackstate-power-user  update-settings              system
-stackstate-power-user  manage-stackpacks            system
-stackstate-power-user  manage-star-view             system
-stackstate-power-user  execute-component-actions    system
-stackstate-power-user  access-view                  everything
-stackstate-power-user  save-view                    everything
-stackstate-power-user  delete-view                  everything
-```
+  
+* **Subject**: `stackstate-power-user`
+* **Permissions and resources**:
+    ```yaml
+    $ sts permission show stackstate-power-user    
+    
+    subject                permission                   resource
+    ---------------------  ---------------------------  ----------
+    stackstate-power-user  manage-annotations           system
+    stackstate-power-user  execute-scripts              system
+    stackstate-power-user  read-settings                system
+    stackstate-power-user  access-cli                   system
+    stackstate-power-user  access-explore               system
+    stackstate-power-user  access-analytics             system
+    stackstate-power-user  access-synchronization-data  system
+    stackstate-power-user  access-log-data              system
+    stackstate-power-user  execute-node-sync            system
+    stackstate-power-user  manage-event-handlers        system
+    stackstate-power-user  access-topic-data            system
+    stackstate-power-user  manage-topology-elements     system
+    stackstate-power-user  import-settings              system
+    stackstate-power-user  export-settings              system
+    stackstate-power-user  perform-custom-query         system
+    stackstate-power-user  read-stackpacks              system
+    stackstate-power-user  read-permissions             system
+    stackstate-power-user  manage-telemetry-streams     system
+    stackstate-power-user  execute-component-templates  system
+    stackstate-power-user  update-visualization         system
+    stackstate-power-user  create-views                 system
+    stackstate-power-user  update-settings              system
+    stackstate-power-user  manage-stackpacks            system
+    stackstate-power-user  manage-star-view             system
+    stackstate-power-user  execute-component-actions    system
+    stackstate-power-user  access-view                  everything
+    stackstate-power-user  save-view                    everything
+    stackstate-power-user  delete-view                  everything
+    ```
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
@@ -135,21 +133,21 @@ stackstate-power-user  delete-view                  everything
 
 Guests have read access to the StackState UI and can add/remove stars from a view. They can also perform limited operations using the StackState CLI.
 
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
-
-```yaml
-$ sts permission show stackstate-guest     
-subject           permission                 resource
-----------------  -------------------------  ----------
-stackstate-guest  access-cli                 system
-stackstate-guest  access-explore             system
-stackstate-guest  perform-custom-query       system
-stackstate-guest  read-permissions           system
-stackstate-guest  update-visualization       system
-stackstate-guest  manage-star-view           system
-stackstate-guest  execute-component-actions  system
-stackstate-guest  access-view                everything
-```
+* **Subject**: `stackstate-guest`
+* **Permissions and resources**:
+    ```yaml
+    $ sts permission show stackstate-guest     
+    subject           permission                 resource
+    ----------------  -------------------------  ----------
+    stackstate-guest  access-cli                 system
+    stackstate-guest  access-explore             system
+    stackstate-guest  perform-custom-query       system
+    stackstate-guest  read-permissions           system
+    stackstate-guest  update-visualization       system
+    stackstate-guest  manage-star-view           system
+    stackstate-guest  execute-component-actions  system
+    stackstate-guest  access-view                everything
+    ```
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
