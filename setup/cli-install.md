@@ -226,7 +226,7 @@ StackState receives topology, telemetry and trace data via the Receiver API. If 
 {% hint style="warning" %}
 **Base API and Admin API authentication using username/password will be deprecated.**
 
-The CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication.
+The CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication as described below.
 {% endhint %}
 
 The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API key should be entered in the CLI configuration file for both the Base API and the Admin API. 
