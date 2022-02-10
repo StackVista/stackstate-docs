@@ -68,17 +68,16 @@ Have platform management permissions and have access to all views.
 
 * **Subject**: `stackstate-platform-admin`
 * **Permissions and resources**:
-
-```yaml
-$ sts permission show stackstate-platform-admin
-subject                    permission        resource
--------------------------  ----------------  ----------
-stackstate-platform-admin  access-admin-api  system
-stackstate-platform-admin  access-cli        system
-stackstate-platform-admin  access-log-data   system
-stackstate-platform-admin  manage-star-view  system
-stackstate-platform-admin  access-view       everything
-```
+    ```yaml
+    $ sts permission show stackstate-platform-admin
+    subject                    permission        resource
+    -------------------------  ----------------  ----------
+    stackstate-platform-admin  access-admin-api  system
+    stackstate-platform-admin  access-cli        system
+    stackstate-platform-admin  access-log-data   system
+    stackstate-platform-admin  manage-star-view  system
+    stackstate-platform-admin  access-view       everything
+    ```
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
