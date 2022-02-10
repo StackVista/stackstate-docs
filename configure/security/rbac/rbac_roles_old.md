@@ -66,8 +66,8 @@ stackstate-admin  delete-view                  everything
 
 Have platform management permissions and have access to all views.
 
-**Subject**: `stackstate-platform-admin`
-**Permissions**:
+* **Subject**: `stackstate-platform-admin`
+* **Permissions and resources**:
 
 ```yaml
 $ sts permission show stackstate-platform-admin
