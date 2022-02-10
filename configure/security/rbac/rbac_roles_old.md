@@ -21,7 +21,7 @@ StackState comes with four predefined roles:
 
 The role StackState administrator (`stackstate-admin`) has access to all views. All permissions are assigned, except for the platform management permission `access-admin-api`. This means that the administrator can ??? but cannnot ???. 
 
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available. For details of each permission, see [StackState permissions](/configure/security/rbac/rbac_permissions.md):
+The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
 
 ```yaml
 $ sts permission show stackstate-admin
@@ -60,13 +60,15 @@ stackstate-admin  save-view                    everything
 stackstate-admin  delete-view                  everything
 ```
 
+➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
+
 ### Platform Administrator
 
 `stackstate-platform-admin`
 
 Have platform management permissions and have access to all views.
 
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available. For details of each permission, see [StackState permissions](/configure/security/rbac/rbac_permissions.md):
+The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
 
 ```yaml
 $ sts permission show stackstate-platform-admin
@@ -78,6 +80,9 @@ stackstate-platform-admin  access-log-data   system
 stackstate-platform-admin  manage-star-view  system
 stackstate-platform-admin  access-view       everything
 ```
+
+➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
+
 ### Power user
 
 `stackstate-power-user`
@@ -124,13 +129,15 @@ stackstate-power-user  save-view                    everything
 stackstate-power-user  delete-view                  everything
 ```
 
+➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
+
 ### Guest
 
 `stackstate-guest`
 
 Guests have read access to the StackState UI and can add/remove stars from a view. They can also perform limited operations using the StackState CLI.
 
-The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available. For details of each permission, see [StackState permissions](/configure/security/rbac/rbac_permissions.md):
+The StackState CLI can be used to list all permissions assigned to the role and the resource for which they are available:
 
 ```yaml
 $ sts permission show stackstate-guest     
@@ -146,6 +153,7 @@ stackstate-guest  execute-component-actions  system
 stackstate-guest  access-view                everything
 ```
 
+➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
 ## Default and custom role names
 
