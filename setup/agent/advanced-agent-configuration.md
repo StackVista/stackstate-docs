@@ -312,28 +312,31 @@ To configure a proxy for an Agent running in a Docker container, use one of the 
      -e HTTPS_PROXY="https://example.com:1234" \
      docker.io/stackstate/stackstate-agent-2:latest
    ```
-* Docker compose
-   1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
-   ```yaml
-   environment:
-     HTTP_PROXY="http://example.com:1234"
-     HTTPS_PROXY="https://example.com:1234"
-   ```
+* Docker compose 
+  1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
+     ```yaml
+     environment:
+       HTTP_PROXY="http://example.com:1234"
+       HTTPS_PROXY="https://example.com:1234"
+     ```
+    
   2. Run the command:
-  ```yaml
-  docker-compose up -d
-  ```
-* Docker Swarm   
-   1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
-   ```yaml
-   environment:
-     HTTP_PROXY="http://example.com:1234"
-     HTTPS_PROXY="https://example.com:1234"
-   ```
+    ```yaml
+    docker-compose up -d
+    ```
+  
+* Docker Swarm
+  1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
+     ```yaml
+     environment:
+       HTTP_PROXY="http://example.com:1234"
+       HTTPS_PROXY="https://example.com:1234"
+     ```
+    
   2. Run the command:
-  ```yaml
-  docker stack deploy -c docker-compose.yml
-  ```
+    ```yaml
+    docker stack deploy -c docker-compose.yml
+    ```
 
 **To use a proxy for communication with StackState only:**
 
@@ -354,30 +357,30 @@ To configure a proxy for an Agent running in a Docker container, use one of the 
      -e STS_PROXY_HTTPS="https://example.com:1234" \
      docker.io/stackstate/stackstate-agent-2:latest
    ```
-* Docker compose
-   1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
-   ```yaml
-   environment:
-     STS_PROXY_HTTP="http://example.com:1234"
-     STS_PROXY_HTTPS="https://example.com:1234"
-   ```
-  
+* Docker compose 
+  1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
+     ```yaml
+     environment:
+       STS_PROXY_HTTP="http://example.com:1234"
+       STS_PROXY_HTTPS="https://example.com:1234"
+     ```
+    
   2. Run the command:
-  ```yaml
-  docker-compose up -d
-  ```
-* Docker Swarm   
-   1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
-   ```yaml
-   environment:
-     STS_PROXY_HTTP="http://example.com:1234"
-     STS_PROXY_HTTPS="https://example.com:1234"
-   ```
-  
+    ```yaml
+    docker-compose up -d
+    ```
+* Docker Swarm 
+  1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
+     ```yaml
+     environment:
+       STS_PROXY_HTTP="http://example.com:1234"
+       STS_PROXY_HTTPS="https://example.com:1234"
+     ```
+    
   2. Run the command:
-  ```yaml
-  docker stack deploy -c docker-compose.yml
-  ```
+    ```yaml
+    docker stack deploy -c docker-compose.yml
+    ```
   
 {% endtab %}
 {% tab title="Windows" %}
