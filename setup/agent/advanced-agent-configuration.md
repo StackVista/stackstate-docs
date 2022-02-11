@@ -137,7 +137,7 @@ stackstate-cluster-agent stackstate/cluster-agent
 
 {% tab title="Docker" %}
 
-To reduce data production in StackState Agent running on Docker:
+To reduce data production in StackState Agent running in a Docker container:
 
 1. Configure the `min_collection_interval` for each of the following system integrations. The default setting is `15` seconds. Doubling this value should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
    - **Memory** - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
@@ -207,7 +207,7 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests.
 
 {% tabs %}
 {% tab title="Linux" %}
-A proxy can be configured in two ways for an Agent installed on Linux:
+A proxy can be configured in two ways for an Agent running on Linux:
 
 * **Environment variables** - use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
 * **Agent configuration file** - use a proxy for communication with StackState only.
@@ -287,7 +287,45 @@ To update the Agent configuration to use a proxy for communication with StackSta
 
 {% endtab %}
 {% tab title="Docker" %}
-first tab text
+
+Use one of the commands below to pass environment variables when starting StackState Agent in a Docker container. You can choose to use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
+
+* To use a proxy for Agent checks and communication with StackState:
+   ```yaml
+   docker run -d \
+     --name stackstate-agent \
+     --privileged \
+     --network="host" \
+     --pid="host" \
+     -v /var/run/docker.sock:/var/run/docker.sock:ro \
+     -v /proc/:/host/proc/:ro \
+     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+     -e STS_API_KEY="API_KEY" \
+     -e STS_STS_URL="<stackstate-receiver-api-address> \
+     -e HOST_PROC="/host/proc" \
+     -e HTTP_PROXY="http://example.com" \
+     -e HTTPS_PROXY="https://example.com" \
+     docker.io/stackstate/stackstate-agent-2:latest
+   ```
+   
+* To use a proxy for communication with StackState only:
+   ```yaml
+   docker run -d \
+     --name stackstate-agent \
+     --privileged \
+     --network="host" \
+     --pid="host" \
+     -v /var/run/docker.sock:/var/run/docker.sock:ro \
+     -v /proc/:/host/proc/:ro \
+     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+     -e STS_API_KEY="API_KEY" \
+     -e STS_STS_URL="<stackstate-receiver-api-address> \
+     -e HOST_PROC="/host/proc" \
+     -e STS_PROXY_HTTP="http://example.com" \
+     -e STS_PROXY_HTTPS="https://example.com" \
+     docker.io/stackstate/stackstate-agent-2:latest
+   ```
+
 {% endtab %}
 {% tab title="Windows" %}
 first tab text
