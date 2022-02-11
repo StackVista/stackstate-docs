@@ -274,6 +274,8 @@ To remove environment variables from the StackState Agent systemd service and st
 
 A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent will not use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, set the environment variables `HTTP_PROXY`/`HTTPS_PROXY` using the instructions given above.
 
+To update the Agent configuration to use a proxy for communication with StackState:
+
 1. Edit the Agent configuration file:
    ```yaml
    sudo vi /etc/stackstate-agent/stackstate.yaml
