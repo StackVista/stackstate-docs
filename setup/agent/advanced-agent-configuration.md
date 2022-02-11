@@ -212,6 +212,8 @@ A proxy can be configured in two ways for an Agent installed on Linux:
 * **Environment variables:** A proxy can be used for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
 * **Agent configuration file:** The proxy will be used only for communication with StackState.
 
+Instructions for both methods can be found below.
+
 **Set environment variables**
 
 Two sets of environment variables can be used to configure a proxy: 
