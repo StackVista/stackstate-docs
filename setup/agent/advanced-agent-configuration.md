@@ -361,6 +361,7 @@ To configure a proxy for an Agent running in a Docker container, use one of the 
      STS_PROXY_HTTP="http://example.com:1234"
      STS_PROXY_HTTPS="https://example.com:1234"
    ```
+  
   2. Run the command:
   ```yaml
   docker-compose up -d
@@ -372,6 +373,7 @@ To configure a proxy for an Agent running in a Docker container, use one of the 
      STS_PROXY_HTTP="http://example.com:1234"
      STS_PROXY_HTTPS="https://example.com:1234"
    ```
+  
   2. Run the command:
   ```yaml
   docker stack deploy -c docker-compose.yml
