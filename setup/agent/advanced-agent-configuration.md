@@ -229,14 +229,14 @@ To add environment variables to the StackState Agent systemd service:
    ```
 
 3. Add the environment variables:
-   * Use a proxy for Agent checks and communication with StackState:
+   * To use a proxy for Agent checks and communication with StackState:
      ```yaml
      [Service]
      Environment="HTTP_PROXY=http://example.com"
      Environment="HTTPS_PROXY=https://example.com"
      ```
    
-   * Use a proxy for communication with StackState only:
+   * To use a proxy for communication with StackState only:
      ```yaml
      [Service]
      Environment="STS_PROXY_HTTP=http://example.com"
