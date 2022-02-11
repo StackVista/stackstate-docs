@@ -126,8 +126,6 @@ The Power user role is typically granted to users that need to configure StackSt
 
 ### Guest
 
-`stackstate-guest`
-
 Guests have read access to the StackState UI and can add/remove stars from a view. They can also perform limited operations using the StackState CLI.
 
 * **Subject**: `stackstate-guest`
