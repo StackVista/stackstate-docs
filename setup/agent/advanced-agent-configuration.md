@@ -201,6 +201,91 @@ To reduce data production in StackState Agent running on Windows:
 
 {% endtabs %}
 
+## Use a proxy for HTTP/HTTPS
+
+The Agent can be configured to use a proxy for HTTP and HTTPS requests.
+
+{% tabs %}
+{% tab title="Linux" %}
+A proxy can be configured in two ways for an Agent installed on Linux:
+
+* Environment variables: A proxy can be used for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
+* Agent configuration file: The proxy will be used only for communication with StackState.
+
+**Set environment variables**
+
+Environment variables can be used to set a proxy that is used by the Agent systemd service. Two sets of environment variables can be used: 
+
+* `STS_PROXY_HTTP`/`STS_PROXY_HTTPS` for communication between the Agent and StackState only.
+* `HTTP_PROXY`/`HTTPS_PROXY` for communication between Agent checks and external systems, and between the Agent and StackState.
+
+To add environment variables to the StackState Agent systemd service:
+
+1. Stop the service:
+   ```yaml
+   sudo systemctl stop stackstate-agent.service  
+   ```
+
+2. Edit the service:
+   ```yaml
+   sudo systemctl edit stackstate-agent.service
+   ```
+
+3. Add the environment variables:
+   * Use a proxy for Agent checks and communication with StackState:
+     ```yaml
+     [Service]
+     Environment="HTTP_PROXY=http://example.com"
+     Environment="HTTPS_PROXY=https://example.com"
+   ```
+   
+   * Use a proxy only for communication with StackState:
+     ```yaml
+     [Service]
+     Environment="STS_PROXY_HTTP=http://example.com"
+     Environment="STS_PROXY_HTTPS=https://example.com"
+     ```
+4. Restart the service:
+   ```yaml
+   sudo systemctl start stackstate-agent.service
+   ```
+
+To remove environment variables from the StackState Agent systemd service and stop using a proxy:
+
+1. Stop the service:
+2. Delete the settings file:
+3. Restart the service:
+
+
+**Update Agent configuration**
+
+{% hint style="info" %}
+A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent will not use this proxy for communication with external systems.
+{% endhint %}
+
+1. Edit the Agent configuration file:
+   ```yaml
+   sudo vi /etc/stackstate-agent/stackstate.yaml
+   ```
+
+2. Uncomment the proxy settings:
+   ```yaml
+   proxy:
+     https: https://example.com
+     http: http://example.com
+   ```
+
+3. Restart the Agent.
+
+{% endtab %}
+{% tab title="Docker" %}
+first tab text
+{% endtab %}
+{% tab title="Windows" %}
+first tab text
+{% endtab %}
+{% endtabs %}
+
 
 ## Blacklist and inclusions
 
