@@ -23,7 +23,7 @@ In addition to this, custom role names can be created and given the same set of 
 
 The role StackState administrator has access to all views. All permissions are assigned, except for the platform management permission `access-admin-api`. This means that the administrator can ??? but cannnot ???. 
 
-* **username**: `admin`
+* **Username**: `admin`
 * **Subject**: `stackstate-admin`
 * **Permissions and resources**:
     ```yaml
@@ -69,7 +69,7 @@ The role StackState administrator has access to all views. All permissions are a
 
 Have platform management permissions and have access to all views.
 
-* **username**: `platformadmin`
+* **Username**: `platformadmin`
 * **Subject**: `stackstate-platform-admin`
 * **Permissions and resources**:
     ```yaml
@@ -89,7 +89,7 @@ Have platform management permissions and have access to all views.
 
 The Power user role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for `execute-restricted-scripts`, `update-permissions` and `upload-stackpacks`.
 
-  * **username**: `power-user`
+  * **Username**: `power-user`
   * **Subject**: `stackstate-power-user`
   * **Permissions and resources**:
       ```yaml
@@ -133,7 +133,7 @@ The Power user role is typically granted to users that need to configure StackSt
 
 Guests have read access to the StackState UI and can add/remove stars from a view. They can also perform limited operations using the StackState CLI.
 
-* **username**: `guest`
+* **Username**: `guest`
 * **Subject**: `stackstate-guest`
 * **Permissions and resources**:
     ```yaml
