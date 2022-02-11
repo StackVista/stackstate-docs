@@ -209,8 +209,8 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests.
 {% tab title="Linux" %}
 A proxy can be configured in two ways for an Agent installed on Linux:
 
-* **Environment variables:** A proxy can be used for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
-* **Agent configuration file:** A proxy will be used only for communication with StackState.
+* **Environment variables:** use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
+* **Agent configuration file:** use a proxy for communication with StackState only.
 
 Instructions for both methods can be found below.
 
