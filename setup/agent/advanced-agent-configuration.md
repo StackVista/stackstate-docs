@@ -209,15 +209,15 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests.
 {% tab title="Linux" %}
 A proxy can be configured in two ways for an Agent installed on Linux:
 
-* Environment variables: A proxy can be used for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
-* Agent configuration file: The proxy will be used only for communication with StackState.
+* **Environment variables:** A proxy can be used for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
+* **Agent configuration file:** The proxy will be used only for communication with StackState.
 
 **Set environment variables**
 
-Environment variables can be used to set a proxy that is used by the Agent systemd service. Two sets of environment variables can be used: 
+Two sets of environment variables can be used to configure a proxy: 
 
-* `STS_PROXY_HTTP`/`STS_PROXY_HTTPS` for communication between the Agent and StackState only.
-* `HTTP_PROXY`/`HTTPS_PROXY` for communication between Agent checks and external systems, and between the Agent and StackState.
+* `HTTP_PROXY`/`HTTPS_PROXY` - sets a proxy for communication between Agent checks and external systems, and between the Agent and StackState.
+* `STS_PROXY_HTTP`/`STS_PROXY_HTTPS` - sets a proxy for communication between the Agent and StackState only.
 
 To add environment variables to the StackState Agent systemd service:
 
@@ -253,9 +253,20 @@ To add environment variables to the StackState Agent systemd service:
 To remove environment variables from the StackState Agent systemd service and stop using a proxy:
 
 1. Stop the service:
-2. Delete the settings file:
-3. Restart the service:
+   ```yaml
+   sudo systemctl stop stackstate-agent.service
+   ```
 
+3. Delete the settings file:
+   ```yaml
+   sudo rm /etc/systemd/system/stackstate-agent.service.d/override.conf 
+   ```
+
+5. Restart the service:
+   ```yaml
+   sudo systemctl daemon-reload
+   sudo systemctl start stackstate-agent.service
+   ```
 
 **Update Agent configuration**
 
