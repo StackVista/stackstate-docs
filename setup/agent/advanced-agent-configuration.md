@@ -291,9 +291,11 @@ To update the Agent configuration to use a proxy for communication with StackSta
 {% endtab %}
 {% tab title="Docker" %}
 
-Use one of the commands below to pass environment variables when starting StackState Agent in a Docker container. You can choose to use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
+To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass environment variables when starting StackState Agent. You can choose to use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
 
-* To use a proxy for Agent checks and communication with StackState:
+**To use a proxy for Agent checks and communication with StackState:**
+
+* Single container
    ```yaml
    docker run -d \
      --name stackstate-agent \
@@ -310,8 +312,32 @@ Use one of the commands below to pass environment variables when starting StackS
      -e HTTPS_PROXY="https://example.com:1234" \
      docker.io/stackstate/stackstate-agent-2:latest
    ```
-   
-* To use a proxy for communication with StackState only:
+* Docker compose
+   1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
+   ```yaml
+   environment:
+     HTTP_PROXY="http://example.com:1234"
+     HTTPS_PROXY="https://example.com:1234"
+   ```
+  2. Run the command:
+  ```yaml
+  docker-compose up -d
+  ```
+* Docker Swarm   
+   1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
+   ```yaml
+   environment:
+     HTTP_PROXY="http://example.com:1234"
+     HTTPS_PROXY="https://example.com:1234"
+   ```
+  2. Run the command:
+  ```yaml
+  docker stack deploy -c docker-compose.yml
+  ```
+
+**To use a proxy for communication with StackState only:**
+
+* Single container:
    ```yaml
    docker run -d \
      --name stackstate-agent \
@@ -328,7 +354,29 @@ Use one of the commands below to pass environment variables when starting StackS
      -e STS_PROXY_HTTPS="https://example.com:1234" \
      docker.io/stackstate/stackstate-agent-2:latest
    ```
-
+* Docker compose
+   1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
+   ```yaml
+   environment:
+     STS_PROXY_HTTP="http://example.com:1234"
+     STS_PROXY_HTTPS="https://example.com:1234"
+   ```
+  2. Run the command:
+  ```yaml
+  docker-compose up -d
+  ```
+* Docker Swarm   
+   1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
+   ```yaml
+   environment:
+     STS_PROXY_HTTP="http://example.com:1234"
+     STS_PROXY_HTTPS="https://example.com:1234"
+   ```
+  2. Run the command:
+  ```yaml
+  docker stack deploy -c docker-compose.yml
+  ```
+  
 {% endtab %}
 {% tab title="Windows" %}
 
@@ -336,6 +384,8 @@ A proxy can be configured in two ways for an Agent running on Windows:
 
 * **Environment variables** - use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
 * **Agent configuration file** - use a proxy for communication with StackState only.
+
+Instructions to set up both methods can be found below.
 
 **Set environment variables**
 
