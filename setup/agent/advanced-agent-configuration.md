@@ -284,6 +284,9 @@ To update the Agent configuration to use a proxy for communication with StackSta
    ```
 
 3. Restart the Agent.
+   ```yaml
+   sudo systemctl start stackstate-agent.service
+   ```
 
 {% endtab %}
 {% tab title="Docker" %}
@@ -328,7 +331,18 @@ Use one of the commands below to pass environment variables when starting StackS
 
 {% endtab %}
 {% tab title="Windows" %}
-first tab text
+
+
+1. Edit the configuration file `C:\ProgramData\StackState\stackstate.yaml`.
+2. Uncomment the proxy settings:
+   ```yaml
+   proxy:
+     https: https://example.com
+     http: http://example.com
+   ```
+
+3. Restart the Agent.
+
 {% endtab %}
 {% endtabs %}
 
