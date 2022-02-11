@@ -232,15 +232,15 @@ To add environment variables to the StackState Agent systemd service:
    * To use a proxy for Agent checks and communication with StackState:
      ```yaml
      [Service]
-     Environment="HTTP_PROXY=http://example.com"
-     Environment="HTTPS_PROXY=https://example.com"
+     Environment="HTTP_PROXY=http://example.com:1234"
+     Environment="HTTPS_PROXY=https://example.com:1234"
      ```
    
    * To use a proxy for communication with StackState only:
      ```yaml
      [Service]
-     Environment="STS_PROXY_HTTP=http://example.com"
-     Environment="STS_PROXY_HTTPS=https://example.com"
+     Environment="STS_PROXY_HTTP=http://example.com:1234"
+     Environment="STS_PROXY_HTTPS=https://example.com:1234"
      ```
 4. Restart the service:
    ```yaml
@@ -279,8 +279,8 @@ To update the Agent configuration to use a proxy for communication with StackSta
 2. Uncomment the proxy settings:
    ```yaml
    proxy:
-     https: https://example.com
-     http: http://example.com
+     https: https://example.com:1234
+     http: http://example.com:1234
    ```
 
 3. Restart the Agent.
@@ -306,8 +306,8 @@ Use one of the commands below to pass environment variables when starting StackS
      -e STS_API_KEY="API_KEY" \
      -e STS_STS_URL="<stackstate-receiver-api-address> \
      -e HOST_PROC="/host/proc" \
-     -e HTTP_PROXY="http://example.com" \
-     -e HTTPS_PROXY="https://example.com" \
+     -e HTTP_PROXY="http://example.com:1234" \
+     -e HTTPS_PROXY="https://example.com:1234" \
      docker.io/stackstate/stackstate-agent-2:latest
    ```
    
@@ -324,14 +324,42 @@ Use one of the commands below to pass environment variables when starting StackS
      -e STS_API_KEY="API_KEY" \
      -e STS_STS_URL="<stackstate-receiver-api-address> \
      -e HOST_PROC="/host/proc" \
-     -e STS_PROXY_HTTP="http://example.com" \
-     -e STS_PROXY_HTTPS="https://example.com" \
+     -e STS_PROXY_HTTP="http://example.com:1234" \
+     -e STS_PROXY_HTTPS="https://example.com:1234" \
      docker.io/stackstate/stackstate-agent-2:latest
    ```
 
 {% endtab %}
 {% tab title="Windows" %}
 
+A proxy can be configured in two ways for an Agent running on Windows:
+
+* **Environment variables** - use a proxy for all Agent communication (Agent checks and communication with StackState) or only for communication with StackState.
+* **Agent configuration file** - use a proxy for communication with StackState only.
+
+**Set environment variables**
+
+To add environment variables to the Windows environment where the Agent is running:
+
+1. Stop the Agent.
+2. Add the environment variables
+   * To use a proxy for Agent checks and communication with StackState:
+     ```yaml
+     setx HTTP_PROXY http://example.com:1234
+     setx HTTPS_PROXY https://example.com:1234
+     ```
+   
+   * To use a proxy for communication with StackState only:
+     ```yaml
+     setx STS_PROXY_HTTP http://example.com:1234
+     setx STS_PROXY_HTTPS https://example.com:1234
+     ```
+     
+3. Start the Agent.
+
+**Update configuration file**
+
+To update the Agent configuration to use a proxy for communication with StackState:
 
 1. Edit the configuration file `C:\ProgramData\StackState\stackstate.yaml`.
 2. Uncomment the proxy settings:
