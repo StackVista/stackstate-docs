@@ -216,11 +216,6 @@ Instructions for both methods can be found below.
 
 **Set environment variables**
 
-Two sets of environment variables can be used to configure a proxy: 
-
-* `HTTP_PROXY`/`HTTPS_PROXY` - sets a proxy for communication between Agent checks and external systems, and between the Agent and StackState.
-* `STS_PROXY_HTTP`/`STS_PROXY_HTTPS` - sets a proxy for communication between the Agent and StackState only.
-
 To add environment variables to the StackState Agent systemd service:
 
 1. Stop the service:
@@ -241,7 +236,7 @@ To add environment variables to the StackState Agent systemd service:
      Environment="HTTPS_PROXY=https://example.com"
      ```
    
-   * Use a proxy only for communication with StackState:
+   * Use a proxy for communication with StackState only:
      ```yaml
      [Service]
      Environment="STS_PROXY_HTTP=http://example.com"
