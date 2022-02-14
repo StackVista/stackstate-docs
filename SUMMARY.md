@@ -199,7 +199,6 @@
     * [Roles](configure/security/rbac/rbac_roles.md)
     * [Scopes](configure/security/rbac/rbac_scopes.md)
     * [Subjects](configure/security/rbac/rbac_subjects.md)
-  * [Self-signed certificates](configure/security/self-signed-cert.md)
   * [Secrets management](configure/security/secrets_management.md)
   * [Self-signed certificates](configure/security/self-signed-cert-1.md)
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
