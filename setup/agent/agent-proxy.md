@@ -4,8 +4,11 @@
 
 The Agent can be configured to use a proxy for HTTP and HTTPS requests. It is also possible to specify a list of hosts for which no proxy should be used. Proxy settings can be configured in two ways:
 
-* [Use a proxy for all Agent communication](#proxy-for-all-agent-communication). This includes Agent checks and communication with StackState and can be configured with the environment variables `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`.
-* [Use a proxy only for communication with StackState](#proxy-for-communication-with-stackstate-only). This can be configured with the environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY` or in the Agent configuration file.
+* [Proxy for all Agent communication](#proxy-for-all-agent-communication). This includes Agent checks and communication with StackState. Configured with:
+  * Environment variables - `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`
+* [Proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only). Can be configured in 2 places: 
+  * Environment variables - `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`
+  * Agent configuration file
 
 Configured proxy settings will be used by the Agent in the following sequence:
 
