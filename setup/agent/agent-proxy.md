@@ -87,6 +87,8 @@ second tab text
 
 ## Proxy for communication with StackState only
 
+### Environment variables
+
 To use a proxy for communication with StackState only, set the environment variables  `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`.
 
 {% hint style="info" %}
@@ -150,6 +152,8 @@ second tab text
 second tab text
 {% endtab %}
 {% endtabs %}
+
+### Agent configuration
 
 ## Environment variables
 
@@ -226,6 +230,5 @@ second tab text
 {% endtab %}
 {% endtabs %}
 
-## Agent configuration
 
 
