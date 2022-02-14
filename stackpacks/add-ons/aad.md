@@ -39,7 +39,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 ![Metric stream anomaly event details pane](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
-* **Severity** - (HIGH, MEDIUM or LOW).
+* **Severity** - The [anomaly severity](#anomaly-severity). Anomaly events are only generated for HIGH severity anomalies.
 * **Metric chart** - A chart with an extract from the metric stream centered around the detected anomaly.
 * **Anomaly interval** - The time period during which anomalous behaviour was detected. This is also shaded on the metric chart.
 * **Description** - A description of the observed anomaly.
