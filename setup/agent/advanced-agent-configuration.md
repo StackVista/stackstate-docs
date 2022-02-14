@@ -276,7 +276,9 @@ To remove environment variables from the StackState Agent systemd service and st
 
 {% hint style="info" %}
 
-If a proxy has been set using an environment variable, this setting will override any proxy setting in the Agent configuration file. For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file contains the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests.
+Note that a proxy set using an environment variable will override any proxy setting in the Agent configuration file. 
+
+For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file contains the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests.
 {% endhint %}
 
 A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent will not use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, set the environment variables `HTTP_PROXY`/`HTTPS_PROXY` using the instructions given above.
