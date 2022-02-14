@@ -26,6 +26,7 @@
     * [Install with POC configuration](setup/install-stackstate/linux_install/poc-installation.md)
     * [Set up a reverse proxy](setup/install-stackstate/linux_install/reverse_proxy.md)
     * [Set up TLS without reverse proxy](setup/install-stackstate/linux_install/how_to_setup_tls_without_reverse_proxy.md)
+  * [KOTS install](setup/install-stackstate/kots_install/README.md)
   * [OpenShift install](setup/install-stackstate/openshift_install.md)
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
