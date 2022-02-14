@@ -48,7 +48,7 @@ docker run -d \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -e STS_API_KEY="API_KEY" \
-    -e STS_STS_URL="<stackstate-receiver-api-address> \
+    -e STS_STS_URL="<stackstate-receiver-api-address>" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:latest
