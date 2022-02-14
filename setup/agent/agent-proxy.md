@@ -5,9 +5,9 @@
 The Agent can be configured to use a proxy for HTTP and HTTPS requests. It is also possible to specify a list of hosts for which no proxy should be used. Proxy settings can be configured in two ways:
 
 * [Proxy for all Agent communication](#proxy-for-all-agent-communication). This includes Agent checks and communication with StackState. Configured with:
-  * Environment variables - `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`
+  * Environment variables `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`
 * [Proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only). Can be configured in 2 places: 
-  * Environment variables - `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`
+  * Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`
   * Agent configuration file
 
 Configured proxy settings will be used by the Agent in the following sequence:
@@ -157,80 +157,42 @@ second tab text
 
 ### Agent configuration
 
-## Environment variables
+{% hint style="info" %}
+
+Note that proxy settings configured using an environment variable will override any proxy setting in the Agent configuration file. 
+
+{% endhint %}
+
+A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent will not use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
+
+Follow the instructions below to update the Agent configuration to use a proxy for communication with StackState.
 
 {% tabs %}
-{% tab title="Linux" %}
-**To add environment variables to the StackState Agent systemd service:**
-
-1. Stop the service:
-   ```yaml
-   sudo systemctl stop stackstate-agent.service  
-   ```
-
-2. Edit the service:
-   ```yaml
-   sudo systemctl edit stackstate-agent.service
-   ```
-
-3. Add the environment variables to use a proxy:
-   * Proxy for communication with StackState only:
-     ```yaml
-     [Service]
-     Environment="STS_PROXY_HTTP=http://example.com:1234"
-     Environment="STS_PROXY_HTTPS=https://example.com:1234"
-     ```
-     
-   * Proxy for Agent checks and communication with StackState - note that this setting will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`:
-     ```yaml
-     [Service]
-     Environment="HTTP_PROXY=http://example.com:1234"
-     Environment="HTTPS_PROXY=https://example.com:1234"
-     ```
-
-4. Optionally specify a list of hosts for which a proxy should NOT be used:
-   * No proxy for communication with StackState at a specified host only:
-     ```yaml
-     [Service]
-     Environment="STS_PROXY_NO_PROXY=http://example.com:1234 http://anotherexample.com:1234"
-     ```
-
-   * No proxy for Agent checks and communication with StackState at a specified host - note that this setting will be overridden by the environment variable: `STS_PROXY_NO_PROXY`:
-     ```yaml
-     [Service]
-     Environment="NO_PROXY=http://example.com:1234 http://anotherexample.com:1234"
-     ``` 
-    
-5. Restart the service:
-   ```yaml
-   sudo systemctl start stackstate-agent.service
-   ```
-
-**To remove environment variables from the StackState Agent systemd service:**
-
-1. Stop the service:
-   ```yaml
-   sudo systemctl stop stackstate-agent.service
-   ```
-
-3. Delete the settings file:
-   ```yaml
-   sudo rm /etc/systemd/system/stackstate-agent.service.d/override.conf 
-   ```
-
-5. Restart the service:
-   ```yaml
-   sudo systemctl daemon-reload
-   sudo systemctl start stackstate-agent.service
-   ```
-{% endtab %}
 {% tab title="Docker" %}
-second tab text
+first tab text
+{% endtab %}
+{% tab title="Linux" %}
+
+1. Edit the Agent configuration file:
+   ```yaml
+   sudo vi /etc/stackstate-agent/stackstate.yaml
+   ```
+
+2. Uncomment the proxy settings:
+   ```yaml
+   proxy:
+     https: https://example.com:1234
+     http: http://example.com:1234
+   ```
+
+3. Restart the Agent.
+   ```yaml
+   sudo systemctl start stackstate-agent.service
+   ```
 {% endtab %}
 {% tab title="Windows" %}
 second tab text
 {% endtab %}
 {% endtabs %}
-
 
 
