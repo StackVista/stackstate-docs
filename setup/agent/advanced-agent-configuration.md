@@ -214,6 +214,12 @@ A proxy can be configured in two ways for an Agent running on Linux:
 
 Instructions to set up both methods can be found below.
 
+Note that the Agent will use configured proxy settings in the following sequence:
+
+1. Environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` 
+2. Environment variables: `HTTPS_PROXY` / `HTTP_PROXY`
+3. Proxy settings in the Agent configuration file.
+
 **Set environment variables**
 
 To add environment variables to the StackState Agent systemd service:
@@ -229,20 +235,21 @@ To add environment variables to the StackState Agent systemd service:
    ```
 
 3. Add the environment variables:
-   * To use a proxy for Agent checks and communication with StackState:
-     ```yaml
-     [Service]
-     Environment="HTTP_PROXY=http://example.com:1234"
-     Environment="HTTPS_PROXY=https://example.com:1234"
-     ```
-   
-   * To use a proxy for communication with StackState only:
+   * To use a proxy for communication with StackState only - note that this setting takes precedence over all other Agent proxy settings:
      ```yaml
      [Service]
      Environment="STS_PROXY_HTTP=http://example.com:1234"
      Environment="STS_PROXY_HTTPS=https://example.com:1234"
      ```
-4. Restart the service:
+     
+   * To use a proxy for Agent checks and communication with StackState - note that this setting will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`:
+     ```yaml
+     [Service]
+     Environment="HTTP_PROXY=http://example.com:1234"
+     Environment="HTTPS_PROXY=https://example.com:1234"
+     ```
+     
+5. Restart the service:
    ```yaml
    sudo systemctl start stackstate-agent.service
    ```
