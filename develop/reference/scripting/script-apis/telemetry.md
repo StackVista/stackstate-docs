@@ -38,7 +38,7 @@ Telemetry queries only support metric queries. If you need event queries, please
 
 **Examples:**
 
-* Get metrics aggregated using Mean with bucket size 5 minutes and grouped by the field `host`: 
+* Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
   
   {% tabs %}
   {% tab title="Query" %}
@@ -47,8 +47,8 @@ Telemetry queries only support metric queries. If you need event queries, please
     .query("StackState Multi Metrics", "")
     .groupBy("host")
     .metricField("jvm_threads_current")
-    .start("-5m")
-    .aggregation("mean", "5m")
+    .start("-15m")
+    .aggregation("mean", "15m")
   ```
   {% endtab %}
   {% tab title="Example JSON output" %}
