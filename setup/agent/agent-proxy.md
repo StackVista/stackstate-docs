@@ -139,7 +139,33 @@ docker run -d \
     ```
 {% endtab %}
 {% tab title="Windows" %}
-second tab text
+To configure a proxy for an Agent running on Windows, add the required environment variables to the StackState Agent systemd service.
+
+1. Stop the Agent.
+    ```yaml
+    # CMD
+    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+   
+    # PowerShell
+    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+    ```
+
+2. Add the environment variables
+    ```yaml
+    setx HTTP_PROXY http://example.com:1234
+    setx HTTPS_PROXY https://example.com:1234
+    setx NO_PROXY http://example.com:1234,http://anotherexample.com:1234
+    ```
+     
+3. Start the Agent.
+    ```yaml
+    # CMD
+    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+   
+    # PowerShell
+    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+    ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -266,7 +292,32 @@ docker run -d \
 
 {% endtab %}
 {% tab title="Windows" %}
-second tab text
+To configure a proxy for an Agent running on Windows, add the required environment variables to the StackState Agent systemd service.
+
+1. Stop the Agent.
+    ```yaml
+    # CMD
+    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+   
+    # PowerShell
+    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+    ```
+
+2. Add the environment variables
+    ```yaml
+    setx STS_PROXY_HTTP http://example.com:1234
+    setx STS_PROXY_HTTPS https://example.com:1234
+    setx STS_PROXY_NO_PROXY http://example.com:1234 http://anotherexample.com:1234
+    ```
+     
+3. Start the Agent.
+    ```yaml
+    # CMD
+    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+   
+    # PowerShell
+    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+    ```
 {% endtab %}
 {% endtabs %}
 
