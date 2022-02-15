@@ -156,7 +156,7 @@ To use a proxy for communication with StackState only, set the following environ
 
 * `STS_PROXY_HTTPS` - proxy to use for HTTP communication with StackState.
 * `STS_PROXY_HTTP` - proxy to use for HTTPS communication with StackState.
-* `STS_PROXY_NO_PROXY` - space separated list of hosts for which the configured `STS_PROXY_HTTP` and `STS+PROXY_HTTPS` should not be used.
+* `STS_PROXY_NO_PROXY` - space separated list of hosts for which the configured `STS_PROXY_HTTP` and `STS_PROXY_HTTPS` should not be used.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -215,7 +215,8 @@ To configure a proxy for an Agent running on Linux, add the required environment
 {% tab title="Docker" %}
 To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting StackState Agent.
 
-**Single container:**
+**Single container**
+Run the command:
 ```yaml
 docker run -d \
  --name stackstate-agent \
