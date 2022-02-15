@@ -28,7 +28,7 @@ To use a proxy for all Agent communication including checks and communication wi
 
 * `HTTP_PROXY` - proxy to use for all HTTP communication.
 * `HTTPS_PROXY` - proxy to use for all HTTPS communication.
-* `NO_PROXY` - comma separated list of hosts for which no proxy should be used.
+* `NO_PROXY` - comma separated list of hosts for which `HTTP_PROXY` and `HTTPS_PROXY` should be used.
 
 {% tabs %}
 {% tab title="Linux" %}
