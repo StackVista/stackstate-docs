@@ -38,24 +38,7 @@ As of yet, telemetry queries only support metric queries. If you need event quer
 
 **Examples:**
 
-* Get raw metric by query
-
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-  ```
-
-* Get metric aggregated using Mean with bucket size 1 minute:
-
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-    .aggregation("99th percentile", "1m") // get 99th percentile of each minute
-  ```
-
-* Get metrics aggregated using Mean and grouped by the field `host`: 
+* Get metrics aggregated using Mean with bucket size 5 minutes and grouped by the field `host`: 
   
   {% tabs %}
   {% tab title="Query" %}
@@ -151,6 +134,22 @@ As of yet, telemetry queries only support metric queries. If you need event quer
   {% endtab %}
   {% endtabs %}
 
+* Get raw metric by query
+
+  ```text
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value")
+  ```
+
+* Get metric aggregated using Mean with bucket size 1 minute:
+
+  ```text
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value")
+    .aggregation("99th percentile", "1m") // get 99th percentile of each minute
+  ```
 
 * Query metrics starting 3 hours ago till now:
 
