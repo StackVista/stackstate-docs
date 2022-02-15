@@ -135,7 +135,6 @@ As of yet, telemetry queries only support metric queries. If you need event quer
   {% endtabs %}
 
 * Get raw metric by query
-
 ```text
 Telemetry
   .query("StackState Metrics", "name='system.load.norm' and host='host1'")
@@ -143,7 +142,6 @@ Telemetry
 ```
 
 * Get metric aggregated using Mean with bucket size 1 minute:
-
 ```text
 Telemetry
   .query("StackState Metrics", "name='system.load.norm' and host='host1'")
