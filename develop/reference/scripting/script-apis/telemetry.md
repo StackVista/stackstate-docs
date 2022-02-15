@@ -27,6 +27,7 @@ As of yet, telemetry queries only support metric queries. If you need event quer
 
 **Builder methods:**
 
+* `.groupBy(fieldName: String)` - optional. Used to return grouped results from Elasticsearch. Requires `.aggregation()` to be used. If there is no aggregation, a plain metric stream will be returned.
 * `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](telemetry.md#aggregation-methods).
 * `start(time: Instant)` - sets the [start time](time.md) of the query, for example `-3h`.
 * `end(time: Instant)` - sets the [end time](time.md) of the query, for example `-1h`.
@@ -45,7 +46,7 @@ As of yet, telemetry queries only support metric queries. If you need event quer
     .metricField("value")
   ```
 
-* Get metric aggregated using Mean during with bucket size 1 minute:
+* Get metric aggregated using Mean with bucket size 1 minute:
 
   ```text
   Telemetry
@@ -53,6 +54,103 @@ As of yet, telemetry queries only support metric queries. If you need event quer
     .metricField("value")
     .aggregation("99th percentile", "1m") // get 99th percentile of each minute
   ```
+
+* Get metrics aggregated using Mean and grouped by the field `host`: 
+  
+  {% tabs %}
+  {% tab title="Query" %}
+  ```text
+  Telemetry
+    .query("StackState Multi Metrics", "")
+    .groupBy("host")
+    .metricField("jvm_threads_current")
+    .start("-5m")
+    .aggregation("mean", "5m")
+  ```
+  {% endtab %}
+  {% tab title="Example JSON output" %}
+  ```text
+  {
+    "_type": "TelemetryMetricQueryResponse",
+    "query": {
+      "_type": "TelemetryMetricQuery",
+      "aggregation": {
+        "bucketSize": 900000,
+        "method": "MEAN"
+      },
+      "conditions": [
+        {
+          "key": "name",
+          "value": "jvm_threads_current"
+        }
+      ],
+      "dataSourceId": 277422153298283,
+      "endTime": 1643294849765,
+      "groupBy": {
+        "fields": ["host"]
+      },
+      "includeAnnotations": false,
+      "metricField": "stackstate.jvm_threads_current",
+      "startTime": 1643293949765
+    },
+    "response": {
+      "_type": "MetricData",
+      "result": [
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
+            }
+          },
+          "points": [[1643293800000, 49.46666666666667]],
+          "tags": []
+        },
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-kafka-to-es-trace-events"
+            }
+          },
+          "points": [[1643293800000, 44.46666666666667]],
+          "tags": []
+        },
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-receiver"
+            }
+          },
+          "points": [[1643293800000, 50.266666666666666]],
+          "tags": []
+        },
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-server"
+            }
+          },
+          "points": [[1643293800000, 179.53333333333333]],
+          "tags": []
+        }
+      ]
+    }
+  }
+  ```
+  {% endtab %}
+  {% endtabs %}
+
 
 * Query metrics starting 3 hours ago till now:
 
