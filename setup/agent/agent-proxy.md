@@ -216,6 +216,7 @@ To configure a proxy for an Agent running on Linux, add the required environment
 To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting StackState Agent.
 
 **Single container**
+
 Run the command:
 ```yaml
 docker run -d \
@@ -279,10 +280,16 @@ Note that proxy settings configured using an environment variable will override 
 
 A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent will not use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
 
-Follow the instructions below to update the Agent configuration to use a proxy for communication with StackState.
+To use a proxy for communication with StackState add the following items to the Agent configuration file:
+
+* `proxy.http` - proxy to use for HTTP communication with StackState.
+* `proxy.https` - proxy to use for HTTPS communication with StackState.
+* `proxy.no_proxy` - list of hosts for which the configured `proxy.http` and `proxy.https` should not be used.
 
 {% tabs %}
 {% tab title="Linux" %}
+
+To update the configuration file for an Agent running on Linux:
 
 1. Edit the Agent configuration file:
    ```yaml
@@ -294,7 +301,10 @@ Follow the instructions below to update the Agent configuration to use a proxy f
    proxy:
      https: https://example.com:1234
      http: http://example.com:1234
-   ```
+     no_proxy:
+       - http://example.com:1234
+       - http://anotherexample.com:1234
+      ```
 
 3. Restart the Agent.
    ```yaml
@@ -302,10 +312,49 @@ Follow the instructions below to update the Agent configuration to use a proxy f
    ```
 {% endtab %}
 {% tab title="Docker" %}
-first tab text
+
+To update the configuration file for an Agent running on Docker:
+
+1. Set the proxy details in `/etc/stackstate-agent/stackstate.yaml`:
+   ```yaml
+   proxy:
+     https: https://example.com:1234
+     http: http://example.com:1234
+     no_proxy:
+       - http://example.com:1234
+       - http://anotherexample.com:1234
+   ```
+
+2. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
 {% endtab %}
 {% tab title="Windows" %}
-second tab text
+
+To update the configuration file for an Agent running on Windows:
+
+1. Edit the Agent configuration file:
+   ```yaml
+   C:\ProgramData\StackState\stackstate.yaml
+   ```
+
+2. Uncomment the proxy settings:
+   ```yaml
+   proxy:
+     https: https://example.com:1234
+     http: http://example.com:1234
+     no_proxy:
+       - http://example.com:1234
+       - http://anotherexample.com:1234
+      ```
+
+3. Restart the Agent.
+   ```yaml
+   # CMD
+   "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+   
+   # PowerShell
+   & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+   ```
+
 {% endtab %}
 {% endtabs %}
 
