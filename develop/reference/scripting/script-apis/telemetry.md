@@ -6,7 +6,7 @@ description: StackState Self-hosted v4.5.x
 
 ## Function `query`
 
-A telemetry query is a conjunction of equality conditions. E.g. `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine query time range, limit the number of points returned, or set a metric field.
+A telemetry query is a conjunction of equality conditions. For example, `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine the query time range, limit the number of points returned, or set a metric field.
 
 ```text
 Telemetry.query(dataSourceName: String, query: String)
