@@ -199,11 +199,10 @@ StackState Agent V2 must have access to the internet to call AWS APIs. If the Ag
 * To configure a proxy for the StackState Agent, see how to [use an HTTP/HTTPS proxy](/setup/agent/agent-proxy.md).
 * To configure a proxy to collect CloudWatch metrics:
   1. In the StackState UI, go to **Settings** > **Telemetry Sources** > **CloudWatch sources**.
-  2. Find the CloudWatch source for which you want to configure a proxy for.
-  3. Open the **...** menu to the right and select **Edit**.
-  4. Enter the proxy details in **Proxy URI**.
-  5. Click **TEST CONNECTION** to check that the proxy can be used to connect to CloudWatch.
-  6. Click **UPDATE** to save the proxy settings.
+  2. Find the CloudWatch source for which you want to configure a proxy for. Open the **...** menu to the right and select **Edit**.
+  3. Enter the proxy details in **Proxy URI**.
+  4. Click **TEST CONNECTION** to check that the proxy can be used to connect to CloudWatch.
+  5. Click **UPDATE** to save the proxy settings.
 
 ### Status
 
