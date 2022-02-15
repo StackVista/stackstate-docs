@@ -104,7 +104,7 @@ docker run -d \
  -e HOST_PROC="/host/proc" \
  -e HTTP_PROXY="http://example.com:1234" \
  -e HTTPS_PROXY="https://example.com:1234" \
- -e NO_PROXY="http://example.com:1234,http://anotherexample.com:1234"
+ -e NO_PROXY="http://example.com:1234,http://anotherexample.com:1234" \
  docker.io/stackstate/stackstate-agent-2:latest
 ```
 
@@ -230,6 +230,7 @@ docker run -d \
  -e HOST_PROC="/host/proc" \
  -e STS_PROXY_HTTP="http://example.com:1234" \
  -e STS_PROXY_HTTPS="https://example.com:1234" \
+ -e STS_PROXY_NO_PROXY="http://example.com:1234 http://anotherexample.com:1234" \
  docker.io/stackstate/stackstate-agent-2:latest
 ```
 
@@ -239,6 +240,7 @@ docker run -d \
    environment:
      STS_PROXY_HTTP="http://example.com:1234"
      STS_PROXY_HTTPS="https://example.com:1234"
+     STS_PROXY_NO_PROXY="http://example.com:1234 http://anotherexample.com:1234"
    ```
     
 2. Run the command:
@@ -252,6 +254,7 @@ docker run -d \
    environment:
      STS_PROXY_HTTP="http://example.com:1234"
      STS_PROXY_HTTPS="https://example.com:1234"
+     STS_PROXY_NO_PROXY="http://example.com:1234 http://anotherexample.com:1234"
    ```
     
 2. Run the command:
