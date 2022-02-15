@@ -20,11 +20,15 @@ For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Age
 
 ## Proxy for all Agent communication
 
-To use a proxy for all Agent communication including checks and communication with StackState, set the environment variables  `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`.
-
 {% hint style="info" %}
 Note that these settings will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`. See [proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only).
 {% endhint %}
+
+To use a proxy for all Agent communication including checks and communication with StackState, set the following environment variables:
+
+* `HTTP_PROXY` - proxy to use for all HTTP communication.
+* `HTTPS_PROXY` - proxy to use for all HTTPS communication.
+* `NO_PROXY` - comma separated list of hosts for which no proxy should be used.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -79,11 +83,7 @@ Note that these settings will be overridden by the environment variables: `STS_P
 {% endtab %}
 
 {% tab title="Docker" %}
-To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the following environment variables when starting StackState Agent:
-
-* `HTTP_PROXY` - proxy to use for all HTTP communication.
-* `HTTPS_PROXY` - proxy to use for all HTTPS communication.
-* `NO_PROXY` - comma separated list of hosts for which no proxy should be used.
+To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting StackState Agent.
 
 **Single container**
 
