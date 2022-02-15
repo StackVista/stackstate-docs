@@ -16,7 +16,7 @@ Configured proxy settings will be used by the Agent in the following sequence:
 2. Environment variables `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`
 3. Proxy settings in the Agent configuration file.
 
-For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file contains the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests.
+For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file contains the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests to StackState.
 
 ## Proxy for all Agent communication
 
@@ -51,7 +51,7 @@ Note that these settings will be overridden by the environment variables: `STS_P
 4. Optionally specify a list of hosts for which the proxy should not be used - note that this setting will be overridden by the environment variable: `STS_PROXY_NO_PROXY` if it has been set:
      ```yaml
      [Service]
-     Environment="NO_PROXY=http://example.com:1234 http://anotherexample.com:1234"
+     Environment="NO_PROXY=http://example.com:1234,http://anotherexample.com:1234"
      ``` 
     
 5. Restart the service:
@@ -77,8 +77,57 @@ Note that these settings will be overridden by the environment variables: `STS_P
    sudo systemctl start stackstate-agent.service
    ```
 {% endtab %}
+
 {% tab title="Docker" %}
-second tab text
+To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass environment variables when starting StackState Agent.
+
+**Single container**
+
+Run the command:
+```yaml
+docker run -d \
+ --name stackstate-agent \
+ --privileged \
+ --network="host" \
+ --pid="host" \
+ -v /var/run/docker.sock:/var/run/docker.sock:ro \
+ -v /proc/:/host/proc/:ro \
+ -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+ -e STS_API_KEY="API_KEY" \
+ -e STS_STS_URL="<stackstate-receiver-api-address> \
+ -e HOST_PROC="/host/proc" \
+ -e HTTP_PROXY="http://example.com:1234" \
+ -e HTTPS_PROXY="https://example.com:1234" \
+ docker.io/stackstate/stackstate-agent-2:latest
+```
+
+**Docker compose**
+
+1. Add the following to the `environment` section of the compose file on each node where the Agent will run and should use a proxy:
+   ```yaml
+   environment:
+     HTTP_PROXY="http://example.com:1234"
+     HTTPS_PROXY="https://example.com:1234"
+   ```
+    
+2. Run the command:
+    ```yaml
+    docker-compose up -d
+    ```
+  
+**Docker Swarm**
+
+1. Add the following to the `environment` section of the `docker-compose.yml` file used to deploy the Agent:
+   ```yaml
+   environment:
+     HTTP_PROXY="http://example.com:1234"
+     HTTPS_PROXY="https://example.com:1234"
+   ```
+    
+2. Run the command:
+    ```yaml
+    docker stack deploy -c docker-compose.yml
+    ```
 {% endtab %}
 {% tab title="Windows" %}
 second tab text
@@ -168,9 +217,6 @@ A proxy set in the Agent configuration file will be used for communication with 
 Follow the instructions below to update the Agent configuration to use a proxy for communication with StackState.
 
 {% tabs %}
-{% tab title="Docker" %}
-first tab text
-{% endtab %}
 {% tab title="Linux" %}
 
 1. Edit the Agent configuration file:
@@ -189,6 +235,9 @@ first tab text
    ```yaml
    sudo systemctl start stackstate-agent.service
    ```
+{% endtab %}
+{% tab title="Docker" %}
+first tab text
 {% endtab %}
 {% tab title="Windows" %}
 second tab text
