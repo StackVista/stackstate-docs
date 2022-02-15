@@ -79,7 +79,11 @@ Note that these settings will be overridden by the environment variables: `STS_P
 {% endtab %}
 
 {% tab title="Docker" %}
-To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass environment variables when starting StackState Agent.
+To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the following environment variables when starting StackState Agent:
+
+* `HTTP_PROXY` - proxy to use for all HTTP communication.
+* `HTTPS_PROXY` - proxy to use for all HTTPS communication.
+* `NO_PROXY` - comma separated list of hosts for which no proxy should be used.
 
 **Single container**
 
@@ -94,10 +98,11 @@ docker run -d \
  -v /proc/:/host/proc/:ro \
  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
  -e STS_API_KEY="API_KEY" \
- -e STS_STS_URL="<stackstate-receiver-api-address> \
+ -e STS_STS_URL="<stackstate-receiver-api-address>" \
  -e HOST_PROC="/host/proc" \
  -e HTTP_PROXY="http://example.com:1234" \
  -e HTTPS_PROXY="https://example.com:1234" \
+ -e NO_PROXY="http://example.com:1234,http://anotherexample.com:1234"
  docker.io/stackstate/stackstate-agent-2:latest
 ```
 
@@ -108,6 +113,7 @@ docker run -d \
    environment:
      HTTP_PROXY="http://example.com:1234"
      HTTPS_PROXY="https://example.com:1234"
+     NO_PROXY="http://example.com:1234,http://anotherexample.com:1234"
    ```
     
 2. Run the command:
@@ -121,7 +127,8 @@ docker run -d \
    ```yaml
    environment:
      HTTP_PROXY="http://example.com:1234"
-     HTTPS_PROXY="https://example.com:1234"
+     HTTPS_PROXY="https://example.com:1234"\
+     NO_PROXY="http://example.com:1234,http://anotherexample.com:1234"
    ```
     
 2. Run the command:
