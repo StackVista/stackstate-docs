@@ -366,7 +366,7 @@ To update the configuration file for an Agent running on Linux:
 {% endtab %}
 {% tab title="Docker" %}
 
-To update the configuration file for an Agent running on Docker:
+To update the configuration file for an Agent running in a Docker container:
 
 1. Set the proxy details in `/etc/stackstate-agent/stackstate.yaml`:
    ```yaml
