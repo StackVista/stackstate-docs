@@ -203,8 +203,6 @@ StackState Agent V2 can be configured to collect traces via a [StackState tracin
     ...
 ```
 
-## Use 
-
 ## Commands
 
 ### Start or stop the Agent
