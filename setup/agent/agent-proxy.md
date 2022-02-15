@@ -32,7 +32,9 @@ To use a proxy for all Agent communication including checks and communication wi
 
 {% tabs %}
 {% tab title="Linux" %}
-**To add environment variables to the StackState Agent systemd service:**
+To configure a proxy for an Agent running on Linux, add the required environment variables to the StackState Agent systemd service.
+
+**Add environment variables to the StackState Agent systemd service:**
 
 1. Stop the service:
    ```yaml
@@ -63,7 +65,7 @@ To use a proxy for all Agent communication including checks and communication wi
    sudo systemctl start stackstate-agent.service
    ```
 
-**To remove environment variables from the StackState Agent systemd service:**
+**Remove environment variables from the StackState Agent systemd service:**
 
 1. Stop the service:
    ```yaml
