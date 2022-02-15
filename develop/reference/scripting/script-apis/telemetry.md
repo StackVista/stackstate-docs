@@ -135,19 +135,19 @@ As of yet, telemetry queries only support metric queries. If you need event quer
   {% endtabs %}
 
 * Get raw metric by query
-```text
-Telemetry
-  .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-  .metricField("value")
-```
+  ```text
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value")
+  ```
 
 * Get metric aggregated using Mean with bucket size 1 minute:
-```text
-Telemetry
-  .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-  .metricField("value")
-  .aggregation("99th percentile", "1m") // get 99th percentile of each minute
-```
+  ```text
+  Telemetry
+    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .metricField("value")
+    .aggregation("99th percentile", "1m") // get 99th percentile of each minute
+  ```
 
 * Query metrics starting 3 hours ago till now:
 
