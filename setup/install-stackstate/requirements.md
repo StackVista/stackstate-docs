@@ -75,20 +75,20 @@ If it is necessary to set a ResourceQuota for your implementation, the namespace
 
 ## KOTS 
 
+### VM
 
-KOTS requires VM running a [supported OS](https://kurl.sh/docs/install-with-kurl/system-requirements)
+KOTS requires VM running a [supported OS \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/system-requirements)
 
-
-Node sizing
-For a standard deployment, KOTS deploy backend services in a redundant setup with 3 instances of each service. The nodes required for different environments:
+### Node sizing
+For a standard deployment, KOTS deploys backend services in a redundant setup with 3 instances of each service. The nodes required for different environments:
 
 {% tabs %} 
 {% tab title="Recommended setup" %} 
 Requirements for the recommended high availability setup:
 
-* ***Amazon EC2***: 8 instances of type m5.2xlarge or m4.2xlarge
-* ***Azure***: 8 instances of type D8s v3 or D8as V4 (Intel or AMD CPUs)
-* ***Virtual machines***: 8 nodes with 32GB memory, 8 vCPUs
+* **Amazon EC2**: 8 instances of type m5.2xlarge or m4.2xlarge
+* **Azure**: 8 instances of type D8s v3 or D8as V4 (Intel or AMD CPUs)
+* **Virtual machines**: 8 nodes with 32GB memory, 8 vCPUs
 
 {% endtab %}
 {% tab title="Minimal setup" %} 
@@ -100,7 +100,6 @@ Requirements for the recommended high availability setup:
 
 {% endtab %}
 {% endtabs %}
-
 
 ## Linux
 

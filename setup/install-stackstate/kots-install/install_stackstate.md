@@ -4,42 +4,50 @@ description: StackState Self-hosted v4.6.x
 
 # Install StackState
 
+
+## Overview 
+
+Kubernetes Off The Shelf (KOTS) provides an embedded Kubernetes cluster on standard VMs. StackState can then be installed as an application within this cluster. This guide explains how to install KOTS, which then allows you to install StackState.
+
 ## Before you start
 
-KOTS is short  Kubernetes off the Shelf and provides an embedded Kubernetes clusters on standard VMs. StackState is then installed as an application within the cluster. This guide takes you through installing KOTS, which in turn then allows you to install StackState.
+Before you start the installation of KOTS and StackState:
 
-Before you start the installation of KOTS & StackState:
+* Check the [requirements](/setup/install-stackstate/requirements.md#kots) to make sure that your VM environment fits the setup that you will use (HA, Non-HA, Online Install, air gapped install).
+* In addition to the standard requirements, make sure that all disks in the VMs are configured with one large single partition or setup as follows:
 
-* Check the [requirements](/setup/install-stackstate/requirements.md#kots) to make sure that your VM environment fits the setup that you will use (HiA, Non-HA, Online Install, air gapped install).
-* In addition to the requirements you need to make sure that your disks in your VM's are configured correctly. These requirements are to have one large single partition or setup as follows:-
-
-  - Ensure a 100GB / partition
-  - Ensure 50GB of space is available for /var/lib
-  - Ensure a separate disk of 500GB is mounted at /var/lib/longhorn
-  - If you are doing an offline/airgap install make sure /tmp is at least 25GB
+  - A 100GB partition.
+  - 50GB of space available for `/var/lib`.
+  - A separate disk of 500GB mounted at `/var/lib/longhorn`.
+  - For an offline/airgap install, at least 25GB available for `/tmp`.
 
 ## Install KOTS
 
 ### Prerequisites
-  - You have the correct number of VM's setup for your installation.
-  - If your machines have full internet connectivity then an online install is recommended otherwise an air gap install is required
-  - You have a license provided by StackState for your KOTS installation
-  - If running HA you have 3 nodes allocated to be masters and 5 nodes to be workers
+
+To install KOTS and StackState, you need to have:
+
+- The correct number of VMs set up as described in [before you start](#before-you-start).
+- A StackState KOTS installation license.
+- If running HA, 3 nodes allocated to be masters and 5 nodes to be workers.
 
 ### Install KOTS (Online Install)
 
+{% hint style="info" %}
+If full internet connectivity is available, an online install is recommended, otherwise an [airgap install](/setup/install-stackstate/kots-install/install_stackstate_airgap.md) is required.
+{% endhint %}
 
-  1. Connect to the master node of your cluster via SSH and run. 
+  1. Connect to the master node of your cluster via SSH and run the command:
       
-      `curl -sSL https://k8s.kurl.sh/stackstate-beta | sudo bash`
+      ```
+      curl -sSL https://k8s.kurl.sh/stackstate-beta | sudo bash
+      ```
 
-      This command will download and setup the embedded Kubernetes cluster
-      This will take 15-20 minutes to run after which the system will show some commands to allow you to connect the other nodes. It will also output information required later. 
-
-        - The commands needed to setup worker and master nodes
-        - A password that you need to save for later for accessing the KOTS console
+      This command will download and set up the embedded Kubernetes cluster. This will take 15-20 minutes to run, after which the system will show some commands to allow you to connect the other nodes. It will also output the following information that will be required later:
+        - The commands needed to set up worker and master nodes.
+        - A password that should be saved. This will be used later to access the KOTS console.
  
-  2. Once the master install is complete you need to copy/paste the commands provided to add the extra workers and, if running HA, optional master nodes as appropriate. The command will be similar to
+  2. Once the install has completed on the master node, copy/paste the commands provided to add the extra workers and, if running HA, optional master nodes as appropriate. The command will be similar to this:
    
      ```
      # Example Command
@@ -59,15 +67,17 @@ Before you start the installation of KOTS & StackState:
      secondary-host=172.31.12.13
      ```  
   
-     If you don't see these commands please complete the following steps but then go to "Cluster Management" within the KOTS Admin Panel (e.g. [http://1.2.3.4:8800/cluster/manager](http://1.2.3.4:8800/cluster/manager)) to generate new commands to add extra nodes
+     **If you do not see these commands**, continue to complete the steps described below. New commands to add extra nodes can be generated later from **Cluster Management** in the KOTS Admin Panel. For example, [http://1.2.3.4:8800/cluster/manager](http://1.2.3.4:8800/cluster/manager).
 
-  3. Login to the URL provided for KOTS Admin Panel which will be of the form [http://1.2.3.4:8800](http://1.2.3.4:8800). Use the password generated in step 1.
+  3. Log in to the URL provided for the KOTS Admin Panel. This will be of the form [http://1.2.3.4:8800](http://1.2.3.4:8800). Use the password generated in step 1.
 
-  4. Skip/setup the TLS cert as needed following the onscreen prompts in your browswer.
+  4. Skip/set up the TLS certificate as needed following the onscreen prompts.
 
-  5. Upload your license file to the UI. If you do not have a license file, or the incorrect type please contact your sales person or <support@stackstate.com>
+  5. Upload the StackState KOTS license file to the KOTS UI. If you do not have a license file, or the incorrect type please contact your StackState sales person or [StackState support](https://support.stackstate.com/).
 
-  6. The UI will then direct you to the admin screen to configure StackState
+  6. The KOTS UI will then direct you to the KOTS Admin screen to configure StackState.
+
+
    
 
 

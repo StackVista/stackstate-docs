@@ -4,63 +4,60 @@ description: StackState Self-hosted v4.6.x
 
 # KOTS/Stackstate Configuration Screen
 
-### Configure Stackstate
+## Overview
+
+KOTS (Kubernetes off the Shelf) allow you to run embedded Kubernetes clusters on VM's and similar. This is coupled with StackState to allow easier installation than Helm based installs. Within the KOTS environment we allow you to configure a number of items to customise your install of StackState
+
+## Configuration options
+
+### Configure StackState
 
 The configuration screen has a number of options that allow you to configure the install of StackState
 
-Configure the fields as required and then press continue
+Configure the fields as required and then click **Continue**.
  
 ### HA vs Non HA
 
-  - ![](/images/kots/ha-non-ha.png)
+High Availability (HA) allows for protection against a failure of a single node, but will require more resources. A HA setup is recommended for production environments
 
-HA allows for protection against a failure of a single node, but will require more resources. By default we recommend HA for production environments
+![](/.gitbook/assets/kots-ha-non-ha.png)
 
 ### Network settings
 
- - ![](/images/kots/network-settings.png)
+You can also choose to access StackState via HTTP and/or HTTPS.  The hostname should be the IP or URL to the master server without `http://` or `https://`.
 
-The hostname should be the IP or URL to the master server without http or https
-You can also choose if you want to access StackState via HTTP and/or HTTPS. 
+![](/.gitbook/assets/kots-network-settings.png)
 
 ### Add-ons
 
- - ![](/images/kots/addons.png)
+* The StackState [Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md) will be installed by default.
+* The [StackState Agent](/setup/agent/kubernetes.md) sends metrics to StackState from the Kubernetes cluster it is running on.
+* The StackState Agent can optionally be configured to use [cluster-checks](/setup/agent/kubernetes.md#enable-cluster-checks).
 
-By default, StackState will install its Autonomous Anomaly Detector. For more details please see https://docs.stackstate.com/stackpacks/add-ons/aad
-
-The StackState Agent sends metrics to StackState from the Kubernetes cluster it is running on. For more details please see https://docs.stackstate.com/setup/agent/kubernetes
-
-For more details on cluster-checks see https://docs.stackstate.com/setup/agent/kubernetes#enable-cluster-checks
+![](/.gitbook/assets/kots-addons.png)
 
 ### Credentials
 
- - ![](/images/kots/creds.png)
+The passwords that should be used to log in to the StackState UI and the Admin API, and the API Key used by StackState Agents.
 
-Here you set the password used to login to the UI, the password for the API as well as the API
+Once these are all configured, click **Save Config** and follow the prompts to deploy the app.
 
-Once these are all configured click "Save Config" and follow the prompts to deploy the app 
+![](/.gitbook/assets/kots-creds.png)
 
 ### Pre-flight checks
 
-The cluster will perform a number of pre-flight checks to make sure that the cluster has enough resources. 
+The cluster will perform a number of pre-flight checks to make sure that it has enough resources. Once these have completed, a results screen similarwill be displayed. Click **Continue** to deploy Stackstate. 
 
+Once the Status shows green, StackState can be accessed at the URL provided on the [configuration screen](#configure-stackstate).
 
-Once the preflights have configured you should see a screen similar to the following
-
-![](/images/kots/Pre-flight-checks.png)
-
-Click Continue 
-
-The system will deploy Stackstate. Once the Status shows green you can access Stackstate at the URL you entered on the config screen
-
-For more information on kots you can visit [KOTS.io](https://kots.io)
-
-## Next Steps
-
-* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](../../../configure/security/authentication/)
+![](/.gitbook/assets/kots-Pre-flight-checks.png)
 
 ## Automatic Kubernetes support
 
-StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, you can select to install this on the configuration screen within KOTS. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
+StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, select to install this on the KOTS configuration screen. This will automatically install the Kubernetes StackPack, a Daemonset for the Agent and a deployment for the Cluster Agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
+
+## Next Steps
+
+* Install [StackPacks](../../../stackpacks/about-stackpacks.md) to start receiving data in StackState.
+* Give your [co-workers access](../../../configure/security/authentication/) to StackState.
+* For more information on KOTS, visit [KOTS.io](https://kots.io).
