@@ -353,7 +353,7 @@ job.batch "elasticsearch-restore-20210229t152530" deleted
 
 The indices restored are listed in the output, as well as the number of failed and successful restore actions.
 
-After all indices have been restored, scale up all `*2es` deployments:
+After the indices have been restored, scale up all `*2es` deployments:
 
    ```bash
    kubectl scale --replicas=1 deployment/e2es
