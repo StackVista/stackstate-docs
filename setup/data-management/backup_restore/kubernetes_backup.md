@@ -314,7 +314,9 @@ The timestamp when the backup was taken is part of the backup name.
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-When a snapshot is restored, existing indices will NOT be overwritten. Use Elasticsearch's [Delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices), below.
+When a snapshot is restored, existing indices will NOT be overwritten. 
+
+Follow the Elasticsearch documentation to [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices), below.
 {% endhint %}
 
 To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line:
@@ -355,13 +357,21 @@ The indices restored are listed in the output, as well as the number of failed a
 
 To delete existing Elasticsearch indices so that a snapshot can be restored, follow these steps.
 
-1. Open a port-forward to the Elasticsearch master:
+1. Stop indexing - scale down all `*2es` deployments to 0:
+
+   ```bash
+   kubectl scale --replicas=0 deployment/e2es
+   kubectl scale --replicas=0 deployment/mm2es
+   kubectl scale --replicas=0 deployment/trace2es
+   ```
+
+2. Open a port-forward to the Elasticsearch master:
 
    ```bash
    kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
    ```
 
-2. Delete an index with a following command:
+3. Delete an index with a following command:
 
    ```bash
    curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
@@ -373,7 +383,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
    ```
 
-3. The output should be:
+4. The output should be:
 
    ```javascript
    {
@@ -381,3 +391,10 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    }
    ```
 
+5. After all indices have been deleted, scale up the `*2es` deployments again:
+
+   ```bash
+   kubectl scale --replicas=1 deployment/e2es
+   kubectl scale --replicas=1 deployment/mm2es
+   kubectl scale --replicas=1 deployment/trace2es
+   ```
