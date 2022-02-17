@@ -353,6 +353,14 @@ job.batch "elasticsearch-restore-20210229t152530" deleted
 
 The indices restored are listed in the output, as well as the number of failed and successful restore actions.
 
+After all indices have been restored, scale up all `*2es` deployments:
+
+   ```bash
+   kubectl scale --replicas=1 deployment/e2es
+   kubectl scale --replicas=1 deployment/mm2es
+   kubectl scale --replicas=1 deployment/trace2es
+   ```
+
 ### Delete Elasticsearch indices
 
 To delete existing Elasticsearch indices so that a snapshot can be restored, follow these steps.
@@ -389,12 +397,4 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    {
    "acknowledged" : true
    }
-   ```
-
-5. After all indices have been deleted, scale up the `*2es` deployments again:
-
-   ```bash
-   kubectl scale --replicas=1 deployment/e2es
-   kubectl scale --replicas=1 deployment/mm2es
-   kubectl scale --replicas=1 deployment/trace2es
    ```
