@@ -314,9 +314,9 @@ The timestamp when the backup was taken is part of the backup name.
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-When a snapshot is restored, existing indices will NOT be overwritten. 
+When a snapshot is restored, existing indices will NOT be overwritten. Use the Elasticsearch [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. 
 
-Follow the Elasticsearch documentation to [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices), below.
+See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}
 
 To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line:
@@ -377,7 +377,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
    ```
 
-   Replace `INDEX_NAME` with the name of the index to delete, for example
+   Replace `INDEX_NAME` with the name of the index to delete, for example:
 
    ```bash
    curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
