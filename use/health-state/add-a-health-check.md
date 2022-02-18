@@ -35,11 +35,6 @@ To add a health check calculated in StackState:
 
 ## Metric stream configuration
 
-When selecting a metric stream for a health check, some options are available to configure its behavior:
-
-* [Windowing method](#windowing-method)
-* [Time window \(or window size\)](#time-window-or-window-size)
-
 ### Windowing method
 
 For metrics check functions, a windowing method and window size must be provided. This determines how often the check function will run based on the incoming metrics. There are two possible windowing methods, batching and sliding.
