@@ -17,6 +17,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Logs are retrieved once a minute from CloudWatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
+* TODO - add short info about openTelemetry traces here!!!
 
 AWS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
@@ -222,6 +223,8 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
+TODO - Add info about relations from OpenTelemetry here???
+
 The following AWS service data is available in StackState as components:
 
 | Service | Resource | Relations |
@@ -270,6 +273,8 @@ The following AWS service data is available in StackState as components:
 #### Traces
 
 The AWS integration does not retrieve any Traces data.
+
+TODO - Add info about OpenTelemetry here???
 
 ### Required AWS resources
 
