@@ -21,7 +21,7 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
    * **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in **Settings** &gt; **Telemetry Sources**.
 4. Click **NEXT**
 5. At the top of the **Add a new stream** popup, select whether to output the telemetry stream as a Metric stream or a Log stream:
-   * **Metric stream** \(default\) - use for metrics. Allows for various aggregation methods and will be visualized as a timeseries line chart.
+   * **Metric stream** \(default\) - use for metrics. Allows for various [aggregation methods](#aggregation-methods) and will be visualized as a timeseries line chart.
    * **Log stream** - use for streams that contain logs and events. Will be visualized as a bar chart.
 6. Provide the following details:
    * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
@@ -32,6 +32,25 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed.
 9. A graph of the selected telemetry stream data will be visible under **Telemetry** on the right of the screen. You can inspect data in the stream using the [telemetry inspector](browse-telemetry.md).
+
+### Aggregation methods
+
+The following aggregation methods are available:
+
+* `MEAN` - mean
+* `PERCENTILE_25` - 25 percentile
+* `PERCENTILE_50` - 50 percentile
+* `PERCENTILE_75` - 75 percentile
+* `PERCENTILE_90` - 90 percentile
+* `PERCENTILE_95` - 95 percentile
+* `PERCENTILE_98` - 98 percentile
+* `PERCENTILE_99` - 99 percentile
+* `MAX` - maximum
+* `MIN` - minimum
+* `SUM` - sum
+* `EVENT_COUNT` - the number of occurrences during bucket interval
+* `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
+* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
 
 ## See also
 

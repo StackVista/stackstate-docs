@@ -35,11 +35,10 @@ To add a health check calculated in StackState:
 
 ## Metric stream configuration
 
-When selecting a metric stream for a health check, you will have some options to configure its behavior:
+When selecting a metric stream for a health check, some options are available to configure its behavior:
 
-* Windowing method
-* Aggregation
-* Time window (or window size)
+* [Windowing method](#windowing-method)
+* [Time window \(or window size\)](#time-window-or-window-size)
 
 ### Windowing method
 
@@ -49,25 +48,6 @@ For metrics check functions, a windowing method and window size must be provided
 | :--- | :--- |
 | **Batching** | The batching windowing method groups metric data into strictly separate windows of the configured window time, with consistent start and end times. For example, with window size set to 60 seconds, a batching check will run every minute with metrics from the previous minute. |
 | **Sliding** | The sliding windowing method groups metric data into overlapping windows. For example, with `window size` set to 60 seconds, a sliding check will run whenever the data flows in after 60 seconds of metrics have been collected. Note that runs of the check will adhere to the `Minimum live stream polling interval` configured for the data source. |
-
-### Aggregation
-
-The following aggregation methods are available:
-
-* `MEAN` - mean
-* `PERCENTILE_25` - 25 percentile
-* `PERCENTILE_50` - 50 percentile
-* `PERCENTILE_75` - 75 percentile
-* `PERCENTILE_90` - 90 percentile
-* `PERCENTILE_95` - 95 percentile
-* `PERCENTILE_98` - 98 percentile
-* `PERCENTILE_99` - 99 percentile
-* `MAX` - maximum
-* `MIN` - minimum
-* `SUM` - sum
-* `EVENT_COUNT` - the number of occurrences during bucket interval
-* `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
-* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
 
 ### Time window (or window size)
 
