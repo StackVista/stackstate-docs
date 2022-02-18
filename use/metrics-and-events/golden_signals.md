@@ -74,27 +74,9 @@ There are many ways StackState can help monitor the saturation of a system, for 
 
 ## Checks
 
-To help you meet your SLA (Service Level Agreement) you can [create checks](/use/health-state/health-state-in-stackstate.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
+From StackState Agent v2.13, [Anomaly health checks](/use/health-state/anomaly-health-checks.md) monitoring golden signals will automatically be added for streams with HTTP traffic. 
 
-When selecting a metric stream for a health check, you will have some options to configure its behavior:
-
-- **Windowing method** - [More details in this page](/use/health-state/add-a-health-check.md#windowing-method).
-- **Aggregation** - The following aggregation methods are available:
-  * `MEAN` - mean
-  * `PERCENTILE_25` - 25 percentile
-  * `PERCENTILE_50` - 50 percentile
-  * `PERCENTILE_75` - 75 percentile
-  * `PERCENTILE_90` - 90 percentile
-  * `PERCENTILE_95` - 95 percentile
-  * `PERCENTILE_98` - 98 percentile
-  * `PERCENTILE_99` - 99 percentile
-  * `MAX` - maximum
-  * `MIN` - minimum
-  * `SUM` - sum
-  * `EVENT_COUNT` - the number of occurrences during bucket interval
-  * `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
-  * `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
-- **Time window (or window size)** - By default the time window is 300000 milliseconds (or 5 minutes). The time window will directly influence the number of positive or false negative alerts. The longer you configure the time window, the less sensitive it will be. However, if it is too short this may lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. You should balance the time window based on the metric and how early you want to be alerted on spikes.
+To help meet a specific SLA (Service Level Agreement), you can [add health checks](/use/health-state/health-state-in-stackstate.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
 
 ### Example: Error percentage
 
@@ -114,4 +96,6 @@ Use this function to make sure you meet your SLO for maximum response time, for 
 
 ## Configuration and limitations
 
-The metrics described in this page are gathered by the StackState Agent and can be disabled. Refer to the [StackState Agent documentation](/setup/agent/about-stackstate-agent.md) for more information. Currently, the StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols are not yet supported.
+The metrics described in this page are gathered by the StackState Agent and can be disabled. Refer to the [StackState Agent documentation](/setup/agent/about-stackstate-agent.md) for more information. 
+
+Note that StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols are not currently supported.
