@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # StackState release notes
@@ -10,6 +10,13 @@ This page includes release notes for the StackState self-hosted product.
 
 * For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
 * For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
+
+## StackState v4.6.x
+
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### 4.6.0
+
 
 ## StackState v4.5.x
 
@@ -199,18 +206,27 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed crash when accessing the logs API. STAC-13149
 * Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
 
-## StackState v4.3.x
+
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+{% hint style="warning" %}
+These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
+{% endhint %}
+
+### StackState v4.3.x
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### v4.3.6
+#### v4.3.6
 
 **Bug fixes**
 
 - The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
 - Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
-### v4.3.5
+#### v4.3.5
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -225,7 +241,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 - Fixed issue that caused corrupt data in StackGraph under certain circumstances. STAC-13860
 
-### v4.3.4
+#### v4.3.4
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -235,7 +251,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 
-### v4.3.3
+#### v4.3.3
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -245,7 +261,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 
-### v4.3.2
+#### v4.3.2
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -255,7 +271,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fix crash when accessing the logs api. STAC-13149
 
-### v4.3.1
+#### v4.3.1
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -271,7 +287,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that caused the Autonomous Anomaly Detector to fail to authenticate with StackState. STAC-12742
 * Fixed issue that caused the browser to free when selecting a large group of components. STAC-12016
 
-### v4.3.0
+#### v4.3.0
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -318,15 +334,6 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
 * Fixed issue that prevented exports produced by the CLI on Windows from being imported. STAC-11096
 * Fixed issue that caused incorrect anomalies to be detected on CloudWatch metrics by introducing two new aggregation methods: COUNT\_NO\_ZEROS and SUM\_NO\_ZEROS. Aggregation methods COUNT and SUM keep the existing behavior of filling gaps in metrics with zeroes, with a configurable delay. STAC-11079
-
-
-## Unsupported versions
-
-The versions below have reached End of Life \(EOL\) and are no longer be supported.
-
-{% hint style="warning" %}
-These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
-{% endhint %}
 
 ### StackState v4.2.x
 
