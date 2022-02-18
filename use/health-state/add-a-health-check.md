@@ -26,7 +26,7 @@ To add a health check calculated in StackState:
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
 4. Provide the required check function arguments, these will vary according to the check function selected, but will include:
    * At least one telemetry stream. Some checks will require multiple streams.
-   * For metrics check functions, some options are available to [configure the behavior](#metric-stream-configuration).
+   * For metrics check functions, a [windowing method and window size](#metric-stream-configuration).
 5. Click **CREATE** to create the health check.
    * The check is now active and visible under the **Health** section on the right-hand side of the screen.
    * The check will remain gray until enough telemetry data has been received to determine a health state.
