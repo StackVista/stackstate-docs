@@ -36,7 +36,7 @@ Traces and components are tightly related. The traces visible in the Traces Pers
 
 The [topology filters](../filters.md#filter-topology) in the **View Filters** pane on the left-hand side of the StackState UI define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible. You can adjust the components for which traces are displayed by updating the topology filters.
 
-### Filter by trace properties
+### Filter by properties
 
 The [trace filters](../filters.md#filter-traces) in the **View Filters** pane on the left-hand side of the StackState UI allow you to refine the traces displayed based on span type and tags.
 

@@ -10,16 +10,16 @@ The StackState explore mode provides an unfiltered view of your topology with. T
 
 Up to 10,000 components can be displayed at any time, if there are already more items than this in your topology, you will need to [add a filter](explore_mode.md#add-a-filter) before any data will be displayed.
 
-![Explore mode](../../.gitbook/assets/v45_explore_mode.png)
+![Explore mode](../../.gitbook/assets/v46_explore_mode.png)
 
 ## Perspectives
 
-![Perspectives](../../.gitbook/assets/v45_perspective_buttons.png)
+![Perspectives](../../.gitbook/assets/v46_perspective_buttons.png)
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
 
 * [Topology Perspective](perspectives/topology-perspective.md)
-* [Telemetry Perspective](perspectives/telemetry-perspective.md)
+* [Metrics Perspective](perspectives/metrics-perspective.md)
 * [Events Perspective](perspectives/events_perspective.md)
 * [Traces Perspective](perspectives/traces-perspective.md)
 

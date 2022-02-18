@@ -61,7 +61,7 @@ Here is what that looks like:
 
 Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and open the Component Details pane.
 
-In the **Telemetry streams** section, click on the **Add** button. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
+In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 
 In the Stream Creation screen, you should see random data right away. You can play around with the filter fields and values but they won't affect the returned data.
 

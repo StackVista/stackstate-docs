@@ -56,13 +56,13 @@ By default, the following request rate streams are set for processes and service
 - HTTP Success rate (req/s)
 
 
-![HTTP total requests per second](../../.gitbook/assets/http-req-sec.png)
+![HTTP total requests per second](../../.gitbook/assets/v46_http-req-sec.png)
 
 ### Errors
 
 StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can [add a check](#checks).
 
-![HTTP 5xx error rate](../../.gitbook/assets/http-error-rate.png)
+![HTTP 5xx error rate](../../.gitbook/assets/v46_http-error-rate.png)
 
 ### Saturation
 

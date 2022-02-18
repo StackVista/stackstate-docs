@@ -211,8 +211,8 @@ redirects:
   use/views/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
   use/views/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/views/filters: ./use/stackstate-ui/filters.md
-  use/views/telemetry-perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
-  use/views/telemetry_perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
+  use/views/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
+  use/views/telemetry_perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
   use/views/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   use/views/traces-perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
 
@@ -238,7 +238,7 @@ redirects:
   use/health-state-and-event-notifications/send-event-notifications: ./use/metrics-and-events/event-notifications.md
   use/perspectives/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   use/perspectives/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
-  use/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/telemetry-perspective.md
+  use/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
   use/perspectives/traces-perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
   use/health-state-and-event-notifications/add-telemetry-to-element: ./use/metrics-and-events/add-telemetry-to-element.md
   use/perspectives/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
@@ -296,3 +296,7 @@ redirects:
   setup/installation: ./setup/install-stackstate/README.md
   develop/stql_reference: ./develop/reference/stql_reference.md
 
+
+# 4.6 docs
+
+  use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
