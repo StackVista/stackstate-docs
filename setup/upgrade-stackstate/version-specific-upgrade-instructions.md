@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Version specific upgrade instructions
@@ -15,6 +15,25 @@ This page provides specific instructions and details of any required manual step
 {% endhint %}
 
 ## Upgrade instructions
+
+### Upgrade to v4.6.x
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+#### v4.6.0
+
+No manual action required.
+
+{% endtab %}
+{% tab title="Linux" %}
+
+#### v4.6.0
+
+No manual action required.
+
+{% endtab %}
+{% endtabs %}
 
 ### Upgrade to v4.5.x
 
