@@ -70,6 +70,7 @@ deployment.apps/stackstate-cluster-agent             1/1     1            1     
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
+
 ## Integration details
 
 ### Data retrieved
@@ -125,7 +126,7 @@ Note that, in order to reduce noise of changes, the following object properties 
   * `resourceVersion`
   * `annotations`
     * `kubectl.kubernetes.io/last-applied-configuration`
-* `status`
+* `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
 You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time)) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
