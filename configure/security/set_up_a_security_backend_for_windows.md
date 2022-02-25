@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Set up a security backend for Windows
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/set_up_a_security_backend_for_windows).
+{% endhint %}
+
 This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](secrets_management.md).
 
 ## Security agent requirements

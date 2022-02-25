@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Set up TLS without reverse proxy
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/linux_install/how_to_setup_tls_without_reverse_proxy).
+{% endhint %}
+
 {% hint style="info" %}
 StackState prefers Kubernetes!  
 In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_install/migrate_from_linux.md).

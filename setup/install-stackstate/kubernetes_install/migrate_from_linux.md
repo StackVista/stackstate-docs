@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Migrate from Linux install
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kubernetes_install/migrate_from_linux).
+{% endhint %}
+
 ## Overview
 
 This document describes how to migrate data from the Linux install of StackState to the Kubernetes install.

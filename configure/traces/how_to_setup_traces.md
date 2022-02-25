@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Set up traces
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/traces/how_to_setup_traces).
+{% endhint %}
+
 This how-to describes the steps to set up traces that can be viewed in the StackState [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md).
 
 For traces to be available in StackState, the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed with one or more tracing integrations configured.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # UI - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/ui).
+{% endhint %}
+
 {% hint style="info" %}
 These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](../../../../configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}

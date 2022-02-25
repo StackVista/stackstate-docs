@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Browse telemetry
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/metrics-and-events/browse-telemetry).
+{% endhint %}
+
 ## Overview
 
 The StackState UI displays a visualization of filtered data for each configured telemetry stream.

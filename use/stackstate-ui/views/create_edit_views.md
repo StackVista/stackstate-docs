@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Create and edit views
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/views/create_edit_views).
+{% endhint %}
+
 ## Overview
 
 You can create and save views in StackState to bookmark a part of your topology that is of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 

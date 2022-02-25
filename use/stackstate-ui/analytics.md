@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Analytics
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/analytics).
+{% endhint %}
+
 ## Overview
 
 The analytics environment allows you to directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.

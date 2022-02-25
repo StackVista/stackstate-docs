@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Install StackState
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kubernetes_install/install_stackstate).
+{% endhint %}
+
 ## Before you start
 
 {% hint style="info" %}

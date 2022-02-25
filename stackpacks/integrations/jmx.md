@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # JMX
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/jmx).
+{% endhint %}
+
 ## Overview
 
 The JMX integration collects metrics from applications that expose [JMX](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html) metrics.

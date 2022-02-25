@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Debug telemetry synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/debug-telemetry-synchronization).
+{% endhint %}
+
 ## Overview
 
 This page explains the [telemetry synchronization process](#synchronization-process) and how to go about troubleshooting issues with telemetry synchronization.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # KeyCloak
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/authentication/keycloak).
+{% endhint %}
+
 ## Overview
 
 StackState can authenticate using KeyCloak as an authentication provider, you will need to configure both StackState and KeyCloak to be able to talk to each other. The following sections describe the respective setups.

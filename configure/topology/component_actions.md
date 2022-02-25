@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Component actions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/component_actions).
+{% endhint %}
+
 Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu or the component details pane in the [Topology Perspective](../../use/stackstate-ui/perspectives/topology-perspective.md).
 
 ![Component Actions](../../.gitbook/assets/v45_actions.png)

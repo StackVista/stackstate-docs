@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Configure traces
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/traces/configure_tracing).
+{% endhint %}
+
 Traces can be viewed in the [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md) screen in the StackState UI. To enable tracing, you first need to install the StackState Agent V2 StackPack and configure one or more tracing integrations, see [how to set up traces](how_to_setup_traces.md). This page describes how to override the default tracing configuration and hide traces from the StackState UI.
 
 {% hint style="info" %}

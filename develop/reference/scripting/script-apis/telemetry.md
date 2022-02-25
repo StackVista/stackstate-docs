@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Telemetry - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/telemetry).
+{% endhint %}
+
 ## Function `query`
 
 A telemetry query is a conjunction of equality conditions. E.g. `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine query time range, limit the number of points returned, or set a metric field.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Template functions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/stj/stj_reference).
+{% endhint %}
+
 ## Overview
 
 StackState Template JSON \(STJ\) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.

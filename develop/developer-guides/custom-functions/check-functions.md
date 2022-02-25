@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Check functions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom-functions/check-functions).
+{% endhint %}
+
 ## Overview
 
 Check functions are run by [health checks](../../../use/health-state/add-a-health-check.md) in StackState. They can process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script.
