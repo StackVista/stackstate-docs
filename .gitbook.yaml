@@ -296,7 +296,8 @@ redirects:
   setup/installation: ./setup/install-stackstate/README.md
   develop/stql_reference: ./develop/reference/stql_reference.md
 
-
 # 4.6 docs
 
+  configure/telemetry/how_to_use_the_priority_field_for_components: ./use/metrics-and-events/set-telemetry-stream-priority.md
+  configure/traces/configure_tracing: ./configure/traces/advanced-configuration-traces.md
   use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
