@@ -40,4 +40,4 @@ You can customize the grouping of components in the [Visualization settings](/us
 
 Some components in StackState will report a **Run state**, for example, StackState will report a run state for components on AWS EC2 instances. This is different to the [health state](/use/health-state/about-health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
 
-For every change in run state, a `Run state changed` event is generated. These events are visible in the Events Perspective and can help to correlate changes in the deployment state of components with problems in an environment.
+For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.
