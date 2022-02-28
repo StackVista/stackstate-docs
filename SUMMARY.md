@@ -91,6 +91,7 @@
 * [Metrics and events](use/metrics-and-events/README.md)
   * [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
   * [Golden signals](use/metrics-and-events/golden_signals.md)  
+  * [Top metrics](use/metrics-and-events/top-metrics.md)
   * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
   * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
   * [Set telemetry stream priority](use/metrics-and-events/set-telemetry-stream-priority.md)
