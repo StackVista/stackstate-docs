@@ -37,7 +37,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **relation** - Models a dependency between components.
 * **relation health state** - Determined by all checks defined on the relation. The most severe one always determines the state of the relation.
 * **role** - Combination of a configured subject and a set of permissions.
-* **run state** - Defines the working status of a component.
+* **run state** - Defines the operational status of a component.
 * **scope** - Determines limitations for queries that user can execute. See prefix for more information.
 * **selection** - Filtering down the IT landscape from the full view to a more specific one. Selection can be saved as a view.
 * **stack element** - See element.

@@ -22,7 +22,7 @@ A component consists of:
 When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
 
 * Metadata, such as the component name, type and any labels.
-* [Run state](/use/health-state/run-state.md)
+* [Run state](/use/concepts/components.md#run-state)
 * [Health checks](/use/health-state/add-a-health-check.md)
 * [Telemetry streams](/use/metrics-and-events/telemetry_streams.md)
 
@@ -38,6 +38,6 @@ You can customize the grouping of components in the [Visualization settings](/us
 
 ## Run state
 
-Some components in StackState will report a **Run state**. This is different to the [health state](/use/health-state/about-health-state.md), for example, StackState will report a run state for components on AWS EC2 instances. The run state indicates the component’s operational state, this can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING` or `STOPPED`. For every change in run state, a `Run state changed` event is generated. These are visible in the Events Perspective and can help to correlate changes in deployment state with problems in an environment.
+Some components in StackState will report a **Run state**. This is different to the [health state](/use/health-state/about-health-state.md), for example, StackState will report a run state for components on AWS EC2 instances. The run state indicates the component’s operational state, this can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. For every change in run state, a `Run state changed` event is generated. These events are visible in the Events Perspective and can help to correlate changes in deployment state of components with problems in an environment.
 
 The run state of a component is not used to calculate the component's health state.
