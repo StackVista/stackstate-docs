@@ -13,4 +13,4 @@ StackState reports the run state of components that are integrated from some int
 
 ## See also
 
-* [Components](/use/concepts/components_relations.md)
+* [Components](/use/concepts/components.md)

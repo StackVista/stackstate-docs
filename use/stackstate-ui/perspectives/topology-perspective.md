@@ -17,13 +17,13 @@ The Topology Perspective shows the filtered components and relations in a select
 * Click on a component to open the [component details](#component-details-pane) in the right-hand pane.
 * Hover over a component to open the [component context menu](#component-context-menu).
 
-➡️ [Learn more about components](/use/concepts/components_relations.md#components).
+➡️ [Learn more about components](/use/concepts/components.md#components).
 
 ### Component context menu
 
 When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state and the [top metrics](/use/metrics-and-events/top-metrics.md). You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
 
-![Component context menu](/.gitbook/assets/v45_component_context_menu.png)
+![Component context menu](/.gitbook/assets/v46_component_context_menu.png)
 
 ### Actions
 
@@ -51,7 +51,7 @@ Relations show how components in the topology are connected together. They are r
 
 Click on a relation to open the relation details in the right-hand pane.
 
-➡️ [Learn more about relations](/use/concepts/components_relations.md#relations).
+➡️ [Learn more about relations](/use/concepts/relations.md).
 
 ![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
 
@@ -75,23 +75,11 @@ The visualization of components and relations in the topology perspective can be
 * Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
-* Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](topology-perspective.md#relations).
+* Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](/use/concepts/relations.md).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
 
-## Details panel
-
-The details panel on the right-hand side of the screen shows information about the view, or the currently selected component, relation or problem.
-
-### Component Details pane
-
-When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
-
-* Metadata, such as the component name, type and any labels.
-* [Health checks](../../health-state/add-a-health-check.md)
-* [Telemetry streams](../../metrics-and-events/telemetry_streams.md)
-
-### Problems
+## Problems
 
 If one or more components in a view have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
 

@@ -100,7 +100,7 @@ StackState adds a number of function to the handlebars syntax. You can use these
 
 Templates are used to create topology. 
 
-[Learn more about component and relation templates](/use/concepts/components_relations.md).
+[Learn more about component and relation templates](/use/concepts/components.md).
 
 ## See also
 

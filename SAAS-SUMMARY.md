@@ -8,7 +8,7 @@
 * [StackState walk-through](getting_started.md)
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
-  * [Components and Relations](use/concepts/components_relations.md)
+  * [Components and Relations](use/concepts/components.md)
   * [Perspectives](use/concepts/perspectives.md)
   * [Anomaly detection](use/concepts/anomaly-detection.md)
   * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
