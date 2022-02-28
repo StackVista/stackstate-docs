@@ -59,4 +59,3 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **view** - A partial visualization of the 4T data model that can be tailored to show only the cut of an IT landscape that is needed.
 * **view health state** - Shows the health state of the entire view.
 * **view state function** - Allows users to modify the behavior of the view health state.
-

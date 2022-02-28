@@ -17,7 +17,7 @@ The following prerequisites need to be met:
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
 * A Zabbix instance must be running.
 
-**NOTE**: Zabbix versions 3 and 4 are supported.
+**NOTE**: Zabbix versions 3, 4 and 5 are supported.
 
 ## Enable Zabbix integration
 
