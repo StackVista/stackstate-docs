@@ -12,8 +12,8 @@ A component consists of:
 
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
-3. An inner color represents the component's [own health state](/use/health-state/health-state-in-stackstate.md#element-health-state).
-4. An outer color represents the [propagated health state](/use/health-state/health-state-in-stackstate.md#propagated-health-state). This state depends on other components or relations.
+3. An inner color represents the component's [own health state](/use/health-state/about-health-state.md#element-health-state).
+4. An outer color represents the [propagated health state](/use/health-state/about-health-state.md#propagated-health-state). This state depends on other components or relations.
 
 ![](/.gitbook/assets/021_topology_elements.png)
 
@@ -35,3 +35,9 @@ Components of the same type and/or state can optionally be grouped together into
 * More than 150 components = large hexagon
 
 You can customize the grouping of components in the [Visualization settings](/use/stackstate-ui/views/visualization_settings.md).
+
+## Run state
+
+Some components in StackState will report a **Run state**. This is different to the [health state](/use/health-state/about-health-state.md), for example, StackState will report a run state for components on AWS EC2 instances. The run state indicates the component’s operational state, this can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING` or `STOPPED`. For every change in run state, a `Run state changed` event is generated. These are visible in the Events Perspective and can help to correlate changes in deployment state with problems in an environment.
+
+The run state of a component is not used to calculate the component's health state.

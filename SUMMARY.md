@@ -80,7 +80,7 @@
   * [Analytics](use/stackstate-ui/analytics.md)
   * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 * [Health state](use/health-state/README.md)
-  * [About health state](use/health-state/health-state-in-stackstate.md)
+  * [About health state](use/health-state/about-health-state.md)
   * [Run state](use/health-state/run-state.md)
   * [Add a health check](use/health-state/add-a-health-check.md)
   * [Anomaly health checks](use/health-state/anomaly-health-checks.md)

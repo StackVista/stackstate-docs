@@ -2,11 +2,11 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# Health state in StackState
+# About health state
 
 ## Overview
 
-StackState will track a single health state for a given topology element \(components and relations\) based on information available from the different health checks attached to it. Health checks can be calculated by either [StackState](health-state-in-stackstate.md#stackstate-health-checks) or an [external monitoring system](health-state-in-stackstate.md#external-monitoring-system).
+StackState will track a single health state for a given topology element \(components and relations\) based on information available from the different health checks attached to it. Health checks can be calculated by either [StackState](about-health-state.md#stackstate-health-checks) or an [external monitoring system](about-health-state.md#external-monitoring-system).
 
 ## Element health state
 
@@ -17,7 +17,7 @@ A topology element \(component, component group or relation\) in StackState can 
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - No health state available.
 
-The own health state of an element is calculated as the most severe state reported by a [health check](health-state-in-stackstate.md#health-checks) attached to it. If no health checks are attached to the element, if will report health state UNKNOWN. A second health state - the [propagated health state](health-state-in-stackstate.md#propagated-health-state) - is derived from the health state of elements that a component depends upon. This is shown as a line around the outside of the component.
+The own health state of an element is calculated as the most severe state reported by a [health check](about-health-state.md#health-checks) attached to it. If no health checks are attached to the element, if will report health state UNKNOWN. A second health state - the [propagated health state](about-health-state.md#propagated-health-state) - is derived from the health state of elements that a component depends upon. This is shown as a line around the outside of the component.
 
 ![Health states](../../.gitbook/assets/health-states.svg)
 

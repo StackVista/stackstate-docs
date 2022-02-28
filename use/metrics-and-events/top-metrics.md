@@ -19,5 +19,5 @@ The metric values displayed are the current metric value of the associated metri
 ## See also
 
 * [Component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu)
-* [Telemetry inspector](/use/metrics-and-events/browse-telemetry.md).
+* [Telemetry inspector](/use/metrics-and-events/browse-telemetry.md)
 * [Set telemetry stream priority](/use/metrics-and-events/set-telemetry-stream-priority.md)

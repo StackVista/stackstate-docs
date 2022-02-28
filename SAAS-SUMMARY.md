@@ -34,7 +34,7 @@
 
 ## 🚦 Health state
 
-* [Health state in StackState](use/health-state/health-state-in-stackstate.md)
+* [About health state](use/health-state/about-health-state.md)
 * [Add a health check](use/health-state/add-a-health-check.md)
 * [Anomaly health checks](use/health-state/anomaly-health-checks.md)
 * [Configure the view health](use/health-state/configure-view-health.md)
