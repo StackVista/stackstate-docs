@@ -17,7 +17,7 @@ A component consists of:
 
 ![](/.gitbook/assets/021_topology_elements.png)
 
-### Component Details pane
+## Component Details pane
 
 When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
 
@@ -26,7 +26,7 @@ When a component is selected by clicking on it, the **Component Details** pane i
 * [Health checks](/use/health-state/add-a-health-check.md)
 * [Telemetry streams](/use/metrics-and-events/telemetry_streams.md)
 
-### Component groups
+## Component groups
 
 Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a hexagon in the topology visualization. The size of the component group's hexagon in the topology visualization represents the number of components in the group:
 
