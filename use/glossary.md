@@ -53,7 +53,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **telemetry data source** - A real-time stream of metric or event data coming from an external system.
 * **telemetry stream** - Component or relation specific data collected and sent over to StackState.
 * **template** - Creates components/relations based on data from the topology data source.
-* **topology** - Consists of components and relations between those components.
+* **topology** - The set of relationships and dependencies between the discrete components in an environment (for example, business services, microservices, load balancers, containers and databases).
 * **topology data source** - Used to provide data from an external system during the synchronization process.
 * **traces** - A single request that follows a certain path through the 4T data model.
 * **view** - A partial visualization of the 4T data model that can be tailored to show only the cut of an IT landscape that is needed.
