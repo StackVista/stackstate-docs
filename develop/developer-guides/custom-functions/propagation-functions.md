@@ -43,7 +43,7 @@ A full list of the propagation functions available in your StackState instance c
 
 The default propagation used in StackState is Auto propagation. If another type of propagation should be applied to a component, this must be specified in the during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
 
-To manually specify a non-default propagation function, add the following to the template: 
+To manually specify a non-default propagation function, add the following to the template used when it is synchronized: 
 
 ```yaml
 	"propagation": {
