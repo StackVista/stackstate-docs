@@ -39,6 +39,20 @@ Some propagation functions are installed as part of a StackPack. For example, Qu
 A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
 {% endhint %}
 
+### Specify in template
+
+The default propagation used in StackState is Auto propagation. If another type of propagation should be applied to a component, this must be specified in the during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
+
+To manually specify a non-default propagation function, add the following to the template: 
+
+```yaml
+	"propagation": {
+		"_type": "Propagation",
+		"function": <id-of-the-function-to-use>,
+		"arguments": []
+	},
+```
+
 ## Create a custom propagation function
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
