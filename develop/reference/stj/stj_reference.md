@@ -158,7 +158,7 @@ include "<filename>" "<encoding>"
 ```text
 {
   "_type": "CheckFunction",
-  "description": "Converts AWS state to Stackstate run state",
+  "description": "Converts AWS state to StackState run state",
   "identifier": "urn:stackpack:aws:shared:check-function:aws-event-run-state",
   "name": "AWS event run state",
   "parameters": [
@@ -185,7 +185,7 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 ```text
 {
   "_type": "CheckFunction",
-  "description": "Converts AWS state to Stackstate run state",
+  "description": "Converts AWS state to StackState run state",
   "identifier": "urn:stackpack:aws:shared:check-function:aws-event-run-state",
   "name": "AWS event run state",
   "parameters": [

@@ -28,4 +28,5 @@ The AWS integration collects tracing information from the in-built AWS distribut
 * The [Java APM integration](../../stackpacks/integrations/java-apm.md) enables tracing support for Java JVM based systems.
 
 * The [Traefik integration](../../stackpacks/integrations/traefik.md) adds topology and telemetry information from Traefik to traces.
+
 * {% endhint %}

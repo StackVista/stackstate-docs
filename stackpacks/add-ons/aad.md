@@ -69,7 +69,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 * The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
-* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md).
+* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics-and-events/set-telemetry-stream-priority.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.

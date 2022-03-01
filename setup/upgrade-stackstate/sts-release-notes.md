@@ -87,7 +87,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 - The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
-- Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/components_relations.md#relation-types), save changed views even when timetravelling. STAC-13142
+- Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/components.md#relation-types), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours.  Adapt to changing streams in real-time. STAC-12996
 
 **Improvements**
@@ -193,7 +193,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
 * Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
-* [Relations to component groups are shown as solid lines](../../use/stackstate-ui/perspectives/topology-perspective.md#relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
+* [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
 * Improve how component names are displayed in the Topology Perspective. STAC-13063
 * The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
 

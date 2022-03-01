@@ -27,7 +27,7 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
    * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
    * **Select** - select the metric you want to retrieve and the function to apply to it.
-   * **Priority** - Optional, you can [set a priority for the telemetry stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services, such as the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
+   * **Priority** - Optional, you can [set a priority for the telemetry stream](set-telemetry-stream-priority.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services, such as the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
 7. The stream preview on the right will update to show the incoming metric values based on the details you provide.
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed.
@@ -58,4 +58,4 @@ The following aggregation methods are available:
 * [Monitor the health of an element](../health-state/add-a-health-check.md)
 * [Browse data in a telemetry stream](browse-telemetry.md)
 * [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")
-* [Set a priority for the telemetry stream](../../configure/telemetry/how_to_use_the_priority_field_for_components.md "StackState Self-Hosted only")
+* [Set a priority for the telemetry stream](set-telemetry-stream-priority.md "StackState Self-Hosted only")
