@@ -17,7 +17,7 @@ Metrics for up to **5** components can be displayed. When you open the Metrics P
 
 You can manually change the components for which metrics are displayed using the **Component Selector**:
 
-![](../../../.gitbook/assets/v45_telemetry-components-selector.png)
+![](../../../.gitbook/assets/v46_metrics-components-selector.png)
 
 The component selection can be adjusted as follows:
 

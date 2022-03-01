@@ -32,7 +32,7 @@ Note that you are editing the template for the synchronization that imported the
 
 ![Template editor](../../.gitbook/assets/v46_edit_template.png)
 
-![](../../.gitbook/assets/v45_example-template-editor.png)
+![](../../.gitbook/assets/v46_example-template-editor.png)
 
 {% hint style="info" %}
 Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template.

@@ -23,7 +23,7 @@ Relations in StackState can be either direct or indirect. The type of relation i
 
 Click on a relation to view details in the right-hand pane. 
 
-![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v46_indirect_relation_path.png)
 
 ## Dependencies and propagation
 

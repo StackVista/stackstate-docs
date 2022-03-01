@@ -43,7 +43,7 @@ A full list of the propagation functions available in your StackState instance c
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
-![Custom propagation function](../../../.gitbook/assets/v45_propagation-function.png)
+![Custom propagation function](../../../.gitbook/assets/v46_propagation-function.png)
 
 The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 
