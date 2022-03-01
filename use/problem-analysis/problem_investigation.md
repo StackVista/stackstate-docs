@@ -29,7 +29,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
    * The affected stream is displayed highlighting the detected anomaly.
 2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
-![Metric stream anomaly event details](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
+![Metric stream anomaly event details](../../.gitbook/assets/v46_event_metric_stream_anomaly.png)
 
 ### Element properties changed events
 
@@ -60,7 +60,7 @@ Within a problem subview, you have access to all perspectives containing data sp
 
 To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](../../.gitbook/assets/v45_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](../../.gitbook/assets/v46_problem_subview_breadcrumb.png)
 
 ### Time window of a problem
 

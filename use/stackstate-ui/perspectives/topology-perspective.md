@@ -53,7 +53,7 @@ Click on a relation to open the relation details in the right-hand pane.
 
 ➡️ [Learn more about relations](/use/concepts/relations.md).
 
-![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v46_indirect_relation_path.png)
 
 ## Filters
 

@@ -43,7 +43,7 @@ Click on an event to display an overview of the event details in the **Propertie
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW ALL PROPERTIES** - Click to access all data included in the event.
 
-![Properties of an event](../../../.gitbook/assets/v45_event-properties.png)
+![Properties of an event](../../../.gitbook/assets/v46_event-properties.png)
 
 ## Filter displayed events
 

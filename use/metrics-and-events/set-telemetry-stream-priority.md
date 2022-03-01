@@ -30,11 +30,11 @@ Components can have multiple Telemetry streams. They are presented in a column, 
 
 In the `basic_health` stream edit screen, set the Priority field to `High`, as this stream should be presented at the top of the list. Click **Save** and confirm the change:
 
-![Edit basic\_health](../../.gitbook/assets/v45_edit_basic_health.png)
+![Edit basic\_health](../../.gitbook/assets/v46_edit_basic_health.png)
 
 Now navigate to the `PacketsReceivedRate` stream and open the stream editing screen. Set the Priority field here to `Medium`:
 
-![Edit packetsReceiveRate](../../.gitbook/assets/v45_edit_medium.png)
+![Edit packetsReceiveRate](../../.gitbook/assets/v46_edit_medium.png)
 
 All streams have their priority set to `None` by default, so the `PacketsReceivedRate` stream is presented above them and below the `basic_health` stream, which has its priority set to `High`.
 

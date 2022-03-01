@@ -10,7 +10,7 @@ Hi! So, you've just installed StackState and you are ready to get started.[](htt
 
 The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md "StackState Self-Hosted only").
 
-![StackPacks overview](/.gitbook/assets/v45_stackpacks.png "StackState Self-Hosted only")
+![StackPacks overview](/.gitbook/assets/v46_stackpacks.png "StackState Self-Hosted only")
 
 ## Explore topology
 
@@ -57,7 +57,7 @@ To see the details of a component or a relation, you can click on it. Click on *
 
 Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
-![Telemetry inspector](/.gitbook/assets/v45_component_details_inspect_metric_stream.png)
+![Telemetry inspector](/.gitbook/assets/v46_component_details_inspect_metric_stream.png)
 
 If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left-hand side of the popup.
 

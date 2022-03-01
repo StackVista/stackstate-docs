@@ -25,13 +25,13 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ## Add a filter
 
-![View Filters](../../.gitbook/assets/v45_view_filters.png)
+![View Filters](../../.gitbook/assets/v46_view_filters.png)
 
 You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](filters.md).
 
 ## Save filters as a view
 
-![Save view as](../../.gitbook/assets/v45_save_view_as.png)
+![Save view as](../../.gitbook/assets/v46_save_view_as.png)
 
 When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](views/about_views.md) menu.
 
