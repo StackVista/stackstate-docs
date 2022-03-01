@@ -6,9 +6,13 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-For VM's that can't connect to the Internet we provide an off-line (air gapped) install. This requires a number of files to be downloaded and copied to the servers that will make up your cluster.
+For VMs that are not able to connect to the Internet, we provide an offline (Airgapped) install. This requires a number of files to be downloaded and copied to the servers that will make up your cluster.
 
-## Install KOTS
+## Install KOTS (Airgap install)
+
+{% hint style="info" %}
+If full internet connectivity is available, an [online install](/setup/install-stackstate/kots-install/install_stackstate.md) is recommended.
+{% endhint %}
 
 ### Prerequisites
 
@@ -19,11 +23,7 @@ To install KOTS and StackState, you need to have:
 - If running HA, 3 nodes allocated to be masters and 5 nodes to be workers.
 
 
-### Install KOTS (Airgap Install)
-
-{% hint style="info" %}
-If full internet connectivity is available, an [online install](/setup/install-stackstate/kots-install/install_stackstate.md) is recommended.
-{% endhint %}
+### Installation
 
 1. Log in to the Replicated Vendor portal and select **Embedded Cluster**.
 2. Download the **Latest Embedded Kubernetes Installer**. Copy the link or download the files as required.
@@ -65,12 +65,12 @@ If full internet connectivity is available, an [online install](/setup/install-s
 
 12. The KOTS UI will then direct you to the KOTS Admin screen to configure StackState.
    
-### Upgrade KOTS (Airgap Install)
+### Upgrade KOTS
 
-1. To upgrade KOTS download the updated airgap file and copy it to your master server.
-2. Run 
+1. To upgrade a KOTS Airgap install, download the updated Airgap file and copy it to your master server.
+2. Run the command:
 
    ```
    kubectl kots upstream upgrade stackstate --airgap-bundle stackstate.airgap -n default
    ```
-3. Login to the KOTS admin screen to configure and deploy the new version
+3. Log in to the KOTS admin screen to configure and deploy the new version.
