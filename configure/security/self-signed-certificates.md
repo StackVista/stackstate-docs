@@ -12,11 +12,11 @@ To mitigate this, StackState allows configuration of a custom trust store.
 
 ## Create a custom trust store
 
-You need to have the custom TLS certificate available. If you don't have that, you will need to [retrieve it via the browser](self-signed-cert-1.md#retrieve-certificate-via-the-browser).
+You need to have the custom TLS certificate available. If you don't have that, you will need to [retrieve it via the browser](self-signed-certificates.md#retrieve-certificate-via-the-browser).
 
 To convert an existing TLS certificate file to the format that is needed by StackState, you will need to use the keytool tool and the `cacerts` file that are included in the JVM \(Java Virtual Machine\) installation. You can run this on any machine, regardless of the type of operating system.
 
-If you don't have the JVM installed on your computer, you can also [use a JVM docker image](self-signed-cert-1.md#using-a-docker-jvm) instead.
+If you don't have the JVM installed on your computer, you can also [use a JVM docker image](self-signed-certificates.md#using-a-docker-jvm) instead.
 
 ### Using an installed JVM
 
