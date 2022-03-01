@@ -303,3 +303,14 @@ redirects:
   use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
   configure/security/self-signed-cert: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1: ./configure/security/self-signed-certificates.md
+  configure/security/self-signed-cert-1#retrieve-certificate-via-the-browser: ./configure/security/self-signed-certificates.md
+  configure/security/self-signed-cert-1#using-a-docker-jvm: ./configure/security/self-signed-certificates.md
+  use/concepts/components_relations: ./use/concepts/components.md
+  use/concepts/components_relations#components: ./use/concepts/components.md
+  use/concepts/components_relations#relations: ./use/concepts/relations.md
+  use/concepts/components_relations#relation-types: ./use/concepts/relations.md
+  use/health-state/health-state-in-stackstate: ./use/health-state/about-health-state.md
+  use/health-state/health-state-in-stackstate#propagated-health-state: ./use/health-state/about-health-state.md
+  use/health-state/health-state-in-stackstate#view-health-state: ./use/health-state/about-health-state.md
+  use/health-state/health-state-in-stackstate#stackstate-health-checks: ./use/health-state/about-health-state.md
+  use/health-state/health-state-in-stackstate#health-checks: ./use/health-state/about-health-state.md
