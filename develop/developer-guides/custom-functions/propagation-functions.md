@@ -46,11 +46,11 @@ The default propagation used in StackState is Auto propagation. If another type 
 To manually specify a non-default propagation function, add the following to the template used when it is synchronized: 
 
 ```yaml
-	"propagation": {
-		"_type": "Propagation",
-		"function": <id-of-the-function-to-use>,
-		"arguments": []
-	},
+"propagation": {
+  "_type": "Propagation",
+  "function": <id-of-the-function-to-use>,
+  "arguments": []
+},
 ```
 
 ## Create a custom propagation function
