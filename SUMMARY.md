@@ -93,10 +93,6 @@
   * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
   * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
   * [Event notifications](use/metrics-and-events/event-notifications.md)
-* [Traces](use/traces/README.md)
-  * [OpenTelemetry](use/traces/opentelemetry.md)
-    * [💠 AWS](use/traces/open-telemetry/aws.md)
-      * [NodeJS](use/traces/open-telemetry/aws/nodejs.md)
 * [Glossary](use/glossary.md)
 
 ## 🧩 StackPacks
@@ -182,8 +178,7 @@
   * [Debug telemetry synchronization](configure/telemetry/debug-telemetry-synchronization.md)
 * [Traces](configure/traces/README.md)
   * [OpenTelemetry](configure/traces/opentelemetry.md)
-    * [💠 AWS](configure/traces/open-telemetry/aws.md)
-      * [NodeJS](configure/traces/open-telemetry/aws/nodejs.md)
+    * [AWS - NodeJS](configure/traces/opentelemetry/aws/nodejs.md)
   * [Configure traces](configure/traces/configure_tracing.md)
   * [Set up traces](configure/traces/how_to_setup_traces.md)
 * [Health](configure/health/README.md)
