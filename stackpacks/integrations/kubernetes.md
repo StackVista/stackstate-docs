@@ -22,6 +22,7 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
   * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
 
@@ -69,6 +70,7 @@ deployment.apps/stackstate-cluster-agent             1/1     1            1     
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
+
 ## Integration details
 
 ### Data retrieved
@@ -82,7 +84,11 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
-The Kubernetes integration retrieves all events from the Kubernetes cluster. The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all Kubernetes events from the Kubernetes cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+
+##### Kubernetes events
+
+The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
 | :--- | :--- |
@@ -90,6 +96,42 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 | **Alerts** | `NotTriggerScaleUp` |
 | **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
 | **Others** | All other events |
+
+##### Object change events
+
+The Kubernetes integration will detect changes in Kubernetes objects and will create an event of type `Element Properties Change` with a diff with a YAML representation of the changed object.
+
+![Element Properties Change event](../../.gitbook/assets/k8s-change-event.png)
+
+Changes will be detected in the following object types:
+* `ConfigMap`
+* `CronJob`
+* `DaemonSet`
+* `Deployment`
+* `Ingress`
+* `Job`
+* `Namespace`
+* `Node`
+* `PersistentVolume`
+* `Pod`
+* `ReplicaSet`
+* `Secret` (a hash of the content will be compared)
+* `Service`
+* `StatefulSet`
+
+{% hint style="info" %}
+Note that, in order to reduce noise of changes, the following object properties **will not** be compared:
+* `metadata`
+  * `managedFields`
+  * `resourceVersion`
+  * `annotations`
+    * `kubectl.kubernetes.io/last-applied-configuration`
+* `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
+{% endhint %}
+
+You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time)) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+
+![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
 #### Metrics
 
