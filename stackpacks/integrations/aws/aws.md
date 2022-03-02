@@ -202,7 +202,7 @@ StackState Agent V2 must have access to the internet to call AWS APIs. If the Ag
   2. Find the CloudWatch source for which you want to configure a proxy. Open the **...** menu to the right and select **Edit**.
   3. Enter the proxy details in **Proxy URI**.
   4. Click **TEST CONNECTION** to check that the proxy can be used to successfully connect to CloudWatch.
-  5. Click **UPDATE** to save the proxy settings.
+  5. Click **UPDATE** to save the proxy settings. Be aware that you may need to [unlock](/stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 
 ### Status
 
