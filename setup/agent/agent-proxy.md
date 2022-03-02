@@ -2,18 +2,18 @@
 
 ## Overview
 
-The Agent can be configured to use a proxy for HTTP and HTTPS requests. Proxy settings can be configured in two ways:
+The Agent can be configured to use a proxy for HTTP and HTTPS requests. It is also possible to specify a list of hosts for which no proxy should be used. Proxy settings can be configured in two ways:
 
 * [Proxy for all Agent communication](#proxy-for-all-agent-communication). This includes Agent checks and communication with StackState. Configured with:
-  * Environment variables `HTTPS_PROXY` / `HTTP_PROXY` 
+  * Environment variables `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`
 * [Proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only). Can be configured in 2 places: 
-  * Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`
+  * Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`
   * Agent configuration file
 
 Configured proxy settings will be used by the Agent in the following sequence:
 
-1. Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`
-2. Environment variables `HTTPS_PROXY` / `HTTP_PROXY`
+1. Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`
+2. Environment variables `HTTPS_PROXY` / `HTTP_PROXY` / `NO_PROXY`
 3. Proxy settings in the Agent configuration file.
 
 For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file contains the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests to StackState.
@@ -21,13 +21,14 @@ For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Age
 ## Proxy for all Agent communication
 
 {% hint style="info" %}
-Note that these settings will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`. See [proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only).
+Note that these settings will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` / `STS_PROXY_NO_PROXY`. See [proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only).
 {% endhint %}
 
 To use a proxy for all Agent communication including checks and communication with StackState, set the following environment variables:
 
 * `HTTP_PROXY` - proxy to use for all HTTP communication.
 * `HTTPS_PROXY` - proxy to use for all HTTPS communication.
+* `NO_PROXY` - comma separated list of hosts for which the configured `HTTP_PROXY` and `HTTPS_PROXY` should not be used.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -52,8 +53,14 @@ To configure a proxy for an Agent running on Linux, add the required environment
      Environment="HTTPS_PROXY=https://example.com:1234"
      ```
    You can also [use a proxy only for communication with StackState](#proxy-for-communication-with-stackstate-only).
+
+4. Optionally specify a list of hosts for which the configured `HTTP_PROXY` and `HTTPS_PROXY` should not be used - note that this setting will be overridden by the environment variable `STS_PROXY_NO_PROXY` if it has been set:
+     ```yaml
+     [Service]
+     Environment="NO_PROXY=http://anotherexample.com:1234,http://yetanotherexample.com:1234"
+     ``` 
     
-4. Restart the service:
+5. Restart the service:
    ```yaml
    sudo systemctl start stackstate-agent.service
    ```
@@ -97,6 +104,7 @@ docker run -d \
  -e HOST_PROC="/host/proc" \
  -e HTTP_PROXY="http://example.com:1234" \
  -e HTTPS_PROXY="https://example.com:1234" \
+ -e NO_PROXY="http://anotherexample.com:1234,http://yetanotherexample.com:1234" \
  docker.io/stackstate/stackstate-agent-2:latest
 ```
 
@@ -107,6 +115,7 @@ docker run -d \
    environment:
      HTTP_PROXY="http://example.com:1234"
      HTTPS_PROXY="https://example.com:1234"
+     NO_PROXY="http://anotherexample.com:1234,http://yetanotherexample.com:1234"
    ```
     
 2. Run the command:
@@ -121,6 +130,7 @@ docker run -d \
    environment:
      HTTP_PROXY="http://example.com:1234"
      HTTPS_PROXY="https://example.com:1234"\
+     NO_PROXY="http://anotherexample.com:1234,http://yetanotherexample.com:1234"
    ```
     
 2. Run the command:
@@ -144,6 +154,7 @@ To configure a proxy for an Agent running on Windows, add the required environme
     ```yaml
     setx HTTP_PROXY http://example.com:1234
     setx HTTPS_PROXY https://example.com:1234
+    setx NO_PROXY http://anotherexample.com:1234,http://yetanotherexample.com:1234
     ```
      
 3. Start the Agent.
@@ -173,6 +184,7 @@ To use a proxy for communication with StackState only, set the following environ
 
 * `STS_PROXY_HTTPS` - proxy to use for HTTP communication with StackState.
 * `STS_PROXY_HTTP` - proxy to use for HTTPS communication with StackState.
+* `STS_PROXY_NO_PROXY` - space separated list of hosts for which the configured `STS_PROXY_HTTP` and `STS_PROXY_HTTPS` should not be used.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -199,7 +211,13 @@ To configure a proxy for an Agent running on Linux, add the required environment
      ```
    You can also [use a proxy for all Agent communication](#proxy-for-all-agent-communication).
 
-4. Restart the service:
+4. Optionally specify a list of hosts for which the configured `STS_PROXY_HTTP` and `STS_PROXY_HTTPS` should not be used:
+     ```yaml
+     [Service]
+     Environment="STS_PROXY_NO_PROXY=http://anotherexample.com:1234 http://yetanotherexample.com:1234"
+     ```
+
+5. Restart the service:
    ```yaml
    sudo systemctl start stackstate-agent.service
    ```
@@ -242,6 +260,7 @@ docker run -d \
  -e HOST_PROC="/host/proc" \
  -e STS_PROXY_HTTP="http://example.com:1234" \
  -e STS_PROXY_HTTPS="https://example.com:1234" \
+ -e STS_PROXY_NO_PROXY="http://anotherexample.com:1234 http://yetanotherexample.com:1234" \
  docker.io/stackstate/stackstate-agent-2:latest
 ```
 
@@ -251,6 +270,7 @@ docker run -d \
    environment:
      STS_PROXY_HTTP="http://example.com:1234"
      STS_PROXY_HTTPS="https://example.com:1234"
+     STS_PROXY_NO_PROXY="http://anotherexample.com:1234 http://yetanotherexample.com:1234"
    ```
     
 2. Run the command:
@@ -264,6 +284,7 @@ docker run -d \
    environment:
      STS_PROXY_HTTP="http://example.com:1234"
      STS_PROXY_HTTPS="https://example.com:1234"
+     STS_PROXY_NO_PROXY="http://anotherexample.com:1234 http://yetanotherexample.com:1234"
    ```
     
 2. Run the command:
@@ -288,6 +309,7 @@ To configure a proxy for an Agent running on Windows, add the required environme
     ```yaml
     setx STS_PROXY_HTTP http://example.com:1234
     setx STS_PROXY_HTTPS https://example.com:1234
+    setx STS_PROXY_NO_PROXY http://anotherexample.com:1234 http://yetanotherexample.com:1234
     ```
      
 3. Start the Agent.
@@ -315,6 +337,7 @@ To use a proxy for communication with StackState add the following items to the 
 
 * `proxy.http` - proxy to use for HTTP communication with StackState.
 * `proxy.https` - proxy to use for HTTPS communication with StackState.
+* `proxy.no_proxy` - list of hosts for which the configured `proxy.http` and `proxy.https` should not be used.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -331,6 +354,9 @@ To update the configuration file for an Agent running on Linux:
    proxy:
      https: https://example.com:1234
      http: http://example.com:1234
+     no_proxy:
+       - http://example.com:1234
+       - http://anotherexample.com:1234
       ```
 
 3. Restart the Agent.
@@ -347,6 +373,9 @@ To update the configuration file for an Agent running in a Docker container:
    proxy:
      https: https://example.com:1234
      http: http://example.com:1234
+     no_proxy:
+       - http://example.com:1234
+       - http://anotherexample.com:1234
    ```
 
 2. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
@@ -365,7 +394,10 @@ To update the configuration file for an Agent running on Windows:
    proxy:
      https: https://example.com:1234
      http: http://example.com:1234
-   ```
+     no_proxy:
+       - http://example.com:1234
+       - http://anotherexample.com:1234
+      ```
 
 3. Restart the Agent.
    ```yaml
