@@ -46,6 +46,7 @@
   * [OpenShift](setup/agent/openshift.md)
   * [Windows](setup/agent/windows.md)
   * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
+  * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
   * [Agent V1 \(Legacy\)](setup/agent/agent-v1.md)
 * [StackState CLI](setup/cli-install.md)
 * [Data management](setup/data-management/README.md)
