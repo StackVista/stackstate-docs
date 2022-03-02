@@ -194,14 +194,14 @@ To configure a VPC FlowLog from the AWS console:
 
 ### Use an HTTP proxy
 
-StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by StackState Agent. This means that a proxy needs to be configured in two places to handle all requests from StackState and the StackState Agent.
+StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by StackState Agent. This means that a proxy needs to be configured for both StackState and StackState Agent to handle all requests.
 
-* To configure a proxy for the StackState Agent, see how to [use an HTTP/HTTPS proxy](/setup/agent/agent-proxy.md).
-* To configure a proxy to collect CloudWatch metrics:
+* To configure a proxy for events and topology data collected by StackState Agent, see how to [use an HTTP/HTTPS proxy for StackState Agent](/setup/agent/agent-proxy.md).
+* To configure a proxy for CloudWatch metrics collected by StackState, follow the steps below:
   1. In the StackState UI, go to **Settings** > **Telemetry Sources** > **CloudWatch sources**.
-  2. Find the CloudWatch source for which you want to configure a proxy for. Open the **...** menu to the right and select **Edit**.
+  2. Find the CloudWatch source for which you want to configure a proxy. Open the **...** menu to the right and select **Edit**.
   3. Enter the proxy details in **Proxy URI**.
-  4. Click **TEST CONNECTION** to check that the proxy can be used to connect to CloudWatch.
+  4. Click **TEST CONNECTION** to check that the proxy can be used to successfully connect to CloudWatch.
   5. Click **UPDATE** to save the proxy settings.
 
 ### Status
