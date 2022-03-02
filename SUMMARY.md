@@ -178,7 +178,7 @@
   * [Debug telemetry synchronization](configure/telemetry/debug-telemetry-synchronization.md)
 * [Traces](configure/traces/README.md)
   * [OpenTelemetry](configure/traces/opentelemetry.md)
-    * [AWS - NodeJS](configure/traces/opentelemetry/aws/nodejs.md)
+    * [AWS - NodeJS](configure/traces/opentelemetry/aws_nodejs.md)
   * [Configure traces](configure/traces/configure_tracing.md)
   * [Set up traces](configure/traces/how_to_setup_traces.md)
 * [Health](configure/health/README.md)
