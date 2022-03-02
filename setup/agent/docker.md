@@ -180,6 +180,10 @@ stackstate-agent:
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
+### Proxy configuration
+
+The Agent can be configured to use a proxy for HTTP and HTTPS requests. For details, see [use an HTTP/HTTPS proxy](/setup/agent/agent-proxy.md).
+
 ### Self-Signed Certificates
 
 If StackState Agent V2 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
