@@ -4,22 +4,30 @@
 
 StackState provides an out-of-the-box OpenTelemetry solution by providing a modified OpenTelemetry Lambda Layer that gives a plug-and-play user experience (Based on the officially released [AWS Distro for OpenTelemetry Lambda](https://aws-otel.github.io/docs/getting-started/lambda)).
 
-Your Lambda function can include this OpenTelemetry Lambda Layer solution to collect trace data without changing any code.
+The benefits of OpenTelemetry
+
+- Your Lambda function can include this OpenTelemetry Lambda Layer solution to collect trace data without changing any code.
+- OpenTelemetry can show you specific AWS Service that your Lambda is communicating with. 
+
+By using this StackState OpenTelemetry Lambda Layer you can transform your Topology as follows: 
+
+| From This                                                             | To This                                                                    | 
+|-----------------------------------------------------------------------|----------------------------------------------------------------------------|
+| ![Edit Lambda Layer](../../../.gitbook/assets/otel_from_original.png) | ![Edit Lambda Layer](../../../.gitbook/assets/otel_to_with_traces.png) |
+
 
 ## Setup
 
 ### Prerequisites
 
 To set up OpenTelemetry traces, you need to have:
-* `StackState Agent v2.16 (or later)`
-* AWS Lambda scripts running `NodeJS 14.x (or later)`
+* ⚠️ `StackState Agent v2.16 (or later)` ⚠️
+* ⚠️ AWS Lambda scripts running `NodeJS 14.x (or later)` ⚠️
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
 * [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer which is required for AWS OpenTelemetry functionality.
 * [StackState Agent V2](../../../../setup/agent/about-stackstate-agent.md) installed on a machine, Your AWS lambda should be able to communicate with this Agent.
 
-## Restrictions
-
-### OpenTelemetry Tracing Service Support
+## Supported Services
 
 We support the following AWS Services / External Services with AWS OpenTelemetry Tracing
 
@@ -28,11 +36,8 @@ We support the following AWS Services / External Services with AWS OpenTelemetry
   - **AWS SQS**
   - **AWS SNS**
   - **AWS S3**
-  - **AWS Step Function**
-  - **Any HTTP Endpoint** using
-    - Node HTTP
-    - Node HTTPS
-    - Axios
+  - **AWS StepFunction**
+  - **HTTP Endpoints** 
 
 ## Installation Step 1 - Adding the Lambda Layer
 
