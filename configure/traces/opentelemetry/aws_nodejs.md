@@ -154,8 +154,11 @@ Please create all the following env variables under the `Configuration` tab unde
 
 ![Verify Active Tracing](../../../.gitbook/assets/otel_add_env_variable.png)
 
-- Note that the env variable responsible for rooting information from your Lambda to the StackState Agent is `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`
-- The StackState Agent has a built-in trace endpoint `/open-telemetry` which lives under the `8126` port
+- Note that the env variable responsible for routing information from your Lambda to the StackState Agent is `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`
+  - This endpoint needs to point to the `ip:trace-agent-port/open-telemetry` of your StackState Agent
+- StackState Agent OpenTelemetry Information
+  - Trace Agent Port: `8126`
+  - OpenTelemetry StackState Agent Path: `/open-telemetry`
 
 | Key                                | Description                                                                                                                                                                 | Value                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
