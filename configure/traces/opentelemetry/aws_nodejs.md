@@ -42,7 +42,7 @@ Head over to your [AWS Lambda Layers](https://console.aws.amazon.com/lambda/home
 
 Change the region in the top-right corner to the region where you deployed the [AWS StackPack](../../../../stackpacks/integrations/aws/aws.md) cloudformation template.
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_change_region.png)
+![Change Region](../../../.gitbook/assets/otel_change_region.png)
 
 Verify that there's a **Lambda Layer** called `stackstate-otel-nodejs`.
   - If the Lambda Layer is not present, then the AWS v2 StackPack installed may not be the latest one containing the Lambda Layer.
@@ -56,19 +56,19 @@ Head over to your [Lambda functions](https://console.aws.amazon.com/lambda/home#
 
 Underneath the `Code` tab, scroll down to the `Layers` section and click the `Add a layer` button on the right side.
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_edit_lambda_layers.png)
+![Edit Lambda Layer](../../../.gitbook/assets/otel_edit_lambda_layers.png)
 
 Select the `Custom Layer` radio box under the `Choose a layer` section. This will show two dropdowns at the very bottom of the page.
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_custom_layer.png)
+![Custom Layer Option](../../../.gitbook/assets/otel_custom_layer.png)
 
 In the first dropdown, select the Lambda Layer `stackstate-otel-nodejs`
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_custom_layer_selection.png)
+![Select Layer](../../../.gitbook/assets/otel_custom_layer_selection.png)
 
 In the second dropdown, select ***`THE LATEST VERSION`*** number, and click the `Add` button in the bottom right corner
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_custom_version.png)
+![Select Layer Version](../../../.gitbook/assets/otel_custom_version.png)
 
 ## Installation Step 2 - Tracing
 
@@ -136,15 +136,15 @@ To enable Active X-Ray Tracing head over to your `Configuation` Tab inside your 
 
 Then under the `Monitoring and operations tools` section click the `Edit` button
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_active_tracing_edit.png)
+![Edit Active Tracing](../../../.gitbook/assets/otel_active_tracing_edit.png)
 
 Check the radio box `Active tracing` to true and click the `Save` button in the bottom right corner
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_enable_tracing.png)
+![Eanble Active Tracing](../../../.gitbook/assets/otel_enable_tracing.png)
 
 You can verify if Tracing is enabled by looking at the `Active tracing` block
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_verify_active_tracing.png)
+![Verify Active Tracing](../../../.gitbook/assets/otel_verify_active_tracing.png)
 
 ## Installation Step 3 - Environment Variables
 
@@ -186,7 +186,7 @@ Remember the only new Topology relations you will see is if your Lambda is commu
 
 To disable OpenTelemetry tracing you can simply head over to your Lambda's `configuration` tab and under the `Environment variables` section remove the environment variable called `AWS_LAMBDA_EXEC_WRAPPER`.
 
-![List of Lambda Layers](../../../.gitbook/assets/otel_disable_tracing.png)
+![Disable OpenTelemetry Tracing](../../../.gitbook/assets/otel_disable_tracing.png)
 
 This will disable the code routing through the OpenTelemetry Lambda Layer and restore your Lambda to the original running state
 
