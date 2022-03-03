@@ -30,7 +30,7 @@ We support the following AWS Services / External Services with AWS OpenTelemetry
 To set up OpenTelemetry traces, you need to have:
 * AWS Lambda scripts running `NodeJS 14.x (or later)`
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
-* [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) installed. The AWS StackPack will deploy the latest supported OpenTelemetry Lambda Layer which is required for AWS OpenTelemetry functionality.
+* [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer which is required for AWS OpenTelemetry functionality.
 * [StackState Agent V2](../../../../setup/agent/about-stackstate-agent.md) installed on a machine, Your AWS lambda should be able to communicate with this Agent.
 
 
@@ -45,7 +45,7 @@ Change the region in the top-right corner to the region where you deployed the [
 ![Change Region](../../../.gitbook/assets/otel_change_region.png)
 
 Verify that there's a **Lambda Layer** called `stackstate-otel-nodejs`.
-  - If the Lambda Layer is not present, then the AWS v2 StackPack installed may not be the latest one containing the Lambda Layer.
+  - If the Lambda Layer is not present, then the AWS v2 StackPack CloudFormation Template installed may not be the latest one containing the Lambda Layer.
   - Follow the [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack
 
 OR
@@ -192,9 +192,9 @@ Remember the only new Topology relations you will see is if your Lambda is commu
 To upgrade your OpenTelemetry Lambda Layer to the latest version, including your Lambda function using the Lambda Layer follow these steps:
 
 Make sure you installed the latest [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md)
-  - The [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) contains the latest OpenTelemetry Lambda Layer in the Cloudformation template
+  - The [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) documentation contains the link to the latest OpenTelemetry Lambda Layer in the Cloudformation template
 
-After you installed the latest StackPack there should be a new version for the `stackstate-otel-nodejs` lambda layer
+After you deployed the latest StackPack CloudFormation template, there should be a new version for the `stackstate-otel-nodejs` lambda layer
 
 This can be confirmed by heading over to your [AWS Lambda Layers](https://console.aws.amazon.com/lambda/home#/layers) page
 
