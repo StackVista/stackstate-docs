@@ -2,7 +2,7 @@
 
 ## Overview
 
-StackState provides an out-of-the-box OpenTelemetry solution by providing a modified OpenTelemetry Lambda Layer (Based on the officially released [AWS Distro for OpenTelemetry Lambda](https://aws-otel.github.io/docs/getting-started/lambda)) that gives a plug-and-play user experience.
+StackState provides an out-of-the-box OpenTelemetry solution by providing a modified OpenTelemetry Lambda Layer that gives a plug-and-play user experience (Based on the officially released [AWS Distro for OpenTelemetry Lambda](https://aws-otel.github.io/docs/getting-started/lambda)).
 
 Your Lambda function can include this OpenTelemetry Lambda Layer solution to collect trace data without changing any code.
 
@@ -12,30 +12,145 @@ Your Lambda function can include this OpenTelemetry Lambda Layer solution to col
 
 To set up OpenTelemetry traces, you need to have:
 * AWS Lambda scripts running `NodeJS 14.x (or later)`
-  * These will be the Lambda you wish to add OpenTelemetry support to.
+  * These will be the Lambda functions you wish to add OpenTelemetry support to.
 * [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) installed. The AWS StackPack will deploy the latest supported OpenTelemetry Lambda Layer which is required for AWS OpenTelemetry functionality.
 * [StackState Agent V2](../../../../setup/agent/about-stackstate-agent.md) installed on a machine, Your AWS lambda should be able to communicate with this Agent.
 
 
-## Installation
+## Installation Step 1 - Adding the Lambda Layer
 
-TODO: Add Images
+Head over to your [AWS Lambda Layers](https://console.aws.amazon.com/lambda/home#/layers) page listing all your available ***Lambda Layer*** functions.
 
-* Head over to your [AWS Lambda Layers](https://console.aws.amazon.com/lambda/home#/layers) page.
-    * Change the region in the top-right corner to the region where you deployed the [AWS StackPack](../../../../stackpacks/integrations/aws/aws.md) cloudformation template.
-* Verify that there's a Lambda Layer called `stackstate-otel-nodejs` within the list
-    * If the Lambda Layer is not present, then the AWS v2 StackPack that's installed may not be the latest one containing the Lambda Layer.
-    * Follow the [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack
-* Head over to your [Lambda functions](https://console.aws.amazon.com/lambda/home#/functions) page and navigate to the Lambda you wish to add OpenTelemetry support to.
-* Underneath the `Code` tab, scroll down to the `Layers` section and click the `Add a layer` button on the right side.
-* Select the `Custom Layer` radio box under the `Choose a layer` section. This will show two dropdowns at the very bottom of the page.
-* In the first dropdown, select the Lambda Layer `stackstate-otel-nodejs`
-* In the second dropdown, select the Latest possible version number, and click the `Add` button in the bottom right corner
-* TODO:
-  * Explain X-ray or Pass through cli command entry
-* TODO:
-  * CLI function to confirm your lambda structure
-* Great, Your Lambda function now contains the OpenTelemetry Lambda Layer code, although still inactive. The next step is to configure your Lambda function with environment variables to produce and send the data to an agent. You can follow the docs under [this link to configure the OpenTelemetry Lambda Layer](../../../../configure/traces/open-telemetry/aws/nodejs.md)
+![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer.png)
+
+Change the region in the top-right corner to the region where you deployed the [AWS StackPack](../../../../stackpacks/integrations/aws/aws.md) cloudformation template.
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_change_region.png)
+
+Verify that there's a **Lambda Layer** called `stackstate-otel-nodejs`.
+  - If the Lambda Layer is not present, then the AWS v2 StackPack installed may not be the latest one containing the Lambda Layer.
+  - Follow the [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack
+
+OR
+
+  - Lambda Layers are ***AWS REGION*** based meaning, if you deployed the [AWS StackPack](../../../../stackpacks/integrations/aws/aws.md) cloudformation template in another region other than where your targeted Lambda lives then you will also have to deploy the [AWS StackPack](../../../../stackpacks/integrations/aws/aws.md) cloudformation template inside the same region.
+  
+Head over to your [Lambda functions](https://console.aws.amazon.com/lambda/home#/functions) page and navigate to the Lambda you wish to add OpenTelemetry support to.
+
+Underneath the `Code` tab, scroll down to the `Layers` section and click the `Add a layer` button on the right side.
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_edit_lambda_layers.png)
+
+Select the `Custom Layer` radio box under the `Choose a layer` section. This will show two dropdowns at the very bottom of the page.
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_custom_layer.png)
+
+In the first dropdown, select the Lambda Layer `stackstate-otel-nodejs`
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_custom_layer_selection.png)
+
+In the second dropdown, select ***`THE LATEST VERSION`*** number, and click the `Add` button in the bottom right corner
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_custom_version.png)
+
+## Installation Step 2 - Active tracing
+
+An ***REQUIREMENT*** to allow tracing to work is something called x-ray headers.
+
+To achieve this, you can do ***ONE*** of the following steps:
+
+- Enable ***Active Pass-through*** on your Lambda Function. This means that the X-Ray headers are available, but X-Ray is still disabled; thus, ***NO EXTRA COSTS*** will be accumulated through using Pass-Through X-Ray
+- You can only achieve this through a CLI command
+  - CLI command is given a few lines down
+
+***OR***
+
+- Enable X-Ray Active Tracing on the Lambda function. This is the more expensive option as X-Ray will charge per Lambda execution.
+  - You can enable this through the Console.
+
+### How to enable Active Pass-through
+
+To enable Active Pass-through you need the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed. You can follow the steps [on this link](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to set up AWS CLI on your machine.
+
+After you install the AWS CLI run the following command in your terminal to set up your AWS Credentials
+
+- `aws configure`
+
+To verify if your Lambda function is running in Active Pass-Through run the following command:
+
+```shell
+aws lambda get-function-configuration \
+--region <CHANGE TO THE REGION OF YOUR LAMBDA FUNCTION> \
+--function-name <CHANGE TO THE NAME OF YOUR LAMBDA FUNCTION> \
+--query 'TracingConfig.Mode'
+```
+
+You should be greeted with one of the following messages:
+- `Disabled` or `None`
+- `Active`
+- `PassThrough`
+
+If the outcome of the command is `Active` or `PassThrough` then there is no need for the following command.
+
+Run this command if your `get-function-configuration` cli command was `Disabled` or `None`
+
+```shell
+aws lambda update-function-configuration \
+--region <CHANGE TO THE REGION OF YOUR LAMBDA FUNCTION> \
+--function-name <CHANGE TO THE NAME OF YOUR LAMBDA FUNCTION> \
+--tracing-config "Mode=PassThrough"
+```
+
+This will now change your Lambda to Pass-Through. You can verify this by running the following command again
+- Unfortunately there is no way to verify this on the Console only through a CLI command
+
+```shell
+aws lambda get-function-configuration \
+--region <CHANGE TO THE REGION OF YOUR LAMBDA FUNCTION> \
+--function-name <CHANGE TO THE NAME OF YOUR LAMBDA FUNCTION> \
+--query 'TracingConfig.Mode'
+```
+
+
+### How to enable X-Ray Active Tracing
+
+To enable Active X-Ray Tracing head over to your `Configuation` Tab inside your Lambda.
+
+Then under the `Monitoring and operations tools` section click the `Edit` button
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_active_tracing_edit.png)
+
+Check the radio box `Active tracing` to true and click the `Save` button in the bottom right corner
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_enable_tracing.png)
+
+You can verify if Tracing is enabled by looking at the `Active tracing` block
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_verify_active_tracing.png)
+
+## Installation Step 3 - Environment Variables
+
+For OpenTelemetry to start capturing traces certain environment variables is required.
+
+Please create all the following env variables.
+
+- Note that the env variable responsible for rooting information from your Lambda to the StackState Agent is `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`
+- The StackState Agent has a built-in trace endpoint `/open-telemetry` which lives under the `8126` port
+
+| Key                                | Description                                                                                                                                                                 | Value                                |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| AWS_LAMBDA_EXEC_WRAPPER            | This will allow the Lambda to root execution through OpenTelemetry allowing OpenTelemetry to setup everything required to capture traces when your Lambda function executes | /opt/otel-handler                    |
+| OTEL_LOG_LEVEL                     | The amount of logging showed within your Lambda post-execution window                                                                                                       | info                                 |
+| OTEL_PROPAGATORS                   | The OpenTelemetry propagator context                                                                                                                                        | tracecontext                         |
+| OTEL_TRACES_EXPORTER               | What type of export are we using with OpenTelemetry                                                                                                                         | otlp                                 |
+| OTEL_TRACES_SAMPLER                | When should we sample execution data                                                                                                                                        | always_on                            |
+| OTEL_EXPORTER_OTLP_TRACES_ENDPOINT | This is the endpoint where your StackState Trace lives. Within your Agent there is a port `8126` and a path `/open-telemetry` that allows us to capture traces              | http://localhost:8126/open-telemetry |
+
+and that is it. You should be setup to send OpenTelemetry Traces.
+
+## Testing and Producing OpenTelemetry Traces
+
+Lorem
 
 ## Disabling OpenTelemetry Traces
 
