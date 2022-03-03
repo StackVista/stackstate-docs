@@ -6,23 +6,6 @@ StackState provides an out-of-the-box OpenTelemetry solution by providing a modi
 
 Your Lambda function can include this OpenTelemetry Lambda Layer solution to collect trace data without changing any code.
 
-## Restrictions
-
-### OpenTelemetry Tracing Service Support
-
-We support the following AWS Services / External Services with AWS OpenTelemetry Tracing
-
-- Communication from **AWS Lambda** to 
-  - **AWS Lambda**
-  - **AWS SQS**
-  - **AWS SNS**
-  - **AWS S3**
-  - **AWS Step Function**
-  - **Any HTTP Endpoint** using
-    - Node HTTP
-    - Node HTTPS
-    - Axios
-
 ## Setup
 
 ### Prerequisites
@@ -34,6 +17,22 @@ To set up OpenTelemetry traces, you need to have:
 * [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer which is required for AWS OpenTelemetry functionality.
 * [StackState Agent V2](../../../../setup/agent/about-stackstate-agent.md) installed on a machine, Your AWS lambda should be able to communicate with this Agent.
 
+## Restrictions
+
+### OpenTelemetry Tracing Service Support
+
+We support the following AWS Services / External Services with AWS OpenTelemetry Tracing
+
+- Communication from **AWS Lambda** to
+  - **AWS Lambda**
+  - **AWS SQS**
+  - **AWS SNS**
+  - **AWS S3**
+  - **AWS Step Function**
+  - **Any HTTP Endpoint** using
+    - Node HTTP
+    - Node HTTPS
+    - Axios
 
 ## Installation Step 1 - Adding the Lambda Layer
 
