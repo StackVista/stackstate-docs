@@ -84,6 +84,8 @@ The necessary resources can be deployed for one account in a single region using
 
 The table below includes links to deploy the template in popular AWS regions. For any regions not listed, follow the steps described for the [StackState template deployment](aws.md#stackstate-template-deployment).
 
+Do note if you want to use [OpenTelemetry Traces](../../../configure/traces/opentelemetry/aws_nodejs.md) the `IncludeOpenTelemetryTracing` value needs to be set to `true`
+
 {% hint style="info" %}
 You must be logged in to the target AWS account in the web console.
 {% endhint %}
@@ -110,6 +112,7 @@ The template requires the following parameters:
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 * **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
+* **IncludeOpenTelemetryTracing** - Default: disabled, When this is enabled then the OpenTelemetry layer will be included in your deployment allowing you to follow [these steps to use OpenTelemetry](../../../configure/traces/opentelemetry/aws_nodejs.md)
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
