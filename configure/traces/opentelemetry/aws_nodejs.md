@@ -208,9 +208,11 @@ Alternatively you can head over to any of you current Lambda Functions that is c
 Head over to a Lambda function using the OpenTelemetry `stackstate-otel-nodejs` Lambda layer 
 
 Scroll down to the `Layers` section, and click the `Edit` button on the right side
+
 ![List of Lambda Layers](../../../.gitbook/assets/otel_edit_layer.png)
 
 Change the version for the `stackstate-otel-nodejs` layer to the latest version.
+
 ![List of Lambda Layers](../../../.gitbook/assets/otel_select_version.png)
 
 and that should be it your Lambda will now use the latest OpenTelemetry Layer
