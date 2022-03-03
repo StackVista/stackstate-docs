@@ -17,7 +17,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Logs are retrieved once a minute from CloudWatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
-* TODO - add short info about openTelemetry traces here!!!
+* [OpenTelemetry](../../../configure/traces/opentelemetry/aws_nodejs) will monitor communication between your Lambda functions and AWS services it communicates with using traces.
 
 AWS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
@@ -223,7 +223,7 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-TODO - Add info about relations from OpenTelemetry here???
+OpenTelemetry can enhance your Topology by creating and using trace. [You can follow this doc to install and use OpenTelemetry](../../../configure/traces/opentelemetry/aws_nodejs)
 
 The following AWS service data is available in StackState as components:
 
@@ -272,9 +272,15 @@ The following AWS service data is available in StackState as components:
 
 #### Traces
 
-The AWS integration does not retrieve any Traces data.
+OpenTelemetry create traces from AWS services that your Lambda's interacts with
 
-TODO - Add info about OpenTelemetry here???
+By using the StackState [OpenTelemetry Lambda Layer](../../../configure/traces/opentelemetry/aws_nodejs) you can transform your Topology as follows:
+
+| From This                                                             | To This                                                                    | 
+|-----------------------------------------------------------------------|----------------------------------------------------------------------------|
+| ![Edit Lambda Layer](../../../.gitbook/assets/otel_from_original.png) | ![Edit Lambda Layer](../../../.gitbook/assets/otel_to_with_traces.png) |
+
+You can read more on about how to [use and setup OpenTelemetry here](../../../configure/traces/opentelemetry/aws_nodejs)
 
 ### Required AWS resources
 
