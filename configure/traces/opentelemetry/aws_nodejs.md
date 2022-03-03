@@ -171,7 +171,7 @@ Please create all the following env variables under the `Configuration` tab unde
 
 ## Installation Step 4 - Final Notes
 
-After you have done the installation steps 1, 2 and 3 you should be ready to send traces yo your StackState Agent.
+After you have completed the installation steps 1, 2 and 3 you should be ready to send traces to your StackState Agent.
 
 Please note that the above is required for every Lambda function you wish to add OpenTelemetry tracing to.
 
