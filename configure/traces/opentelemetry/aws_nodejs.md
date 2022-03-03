@@ -150,7 +150,9 @@ You can verify if Tracing is enabled by looking at the `Active tracing` block
 
 For OpenTelemetry to start capturing traces certain environment variables is required.
 
-Please create all the following env variables.
+Please create all the following env variables under the `Configuration` tab under the `Environment variables` section. You can click the `Edit` button to add more
+
+![Verify Active Tracing](../../../.gitbook/assets/otel_add_env_variable.png)
 
 - Note that the env variable responsible for rooting information from your Lambda to the StackState Agent is `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`
 - The StackState Agent has a built-in trace endpoint `/open-telemetry` which lives under the `8126` port
@@ -182,6 +184,37 @@ Remember the only new Topology relations you will see is if your Lambda is commu
 - Step Function
 - HTTP Endpoint
 
+## Upgrade OpenTelemetry
+
+To upgrade your OpenTelemetry Lambda Layer to the latest version, including your Lambda function using the Lambda Layer follow these steps:
+
+Make sure you installed the latest [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md)
+  - The [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) contains the latest OpenTelemetry Lambda Layer in the Cloudformation template
+
+After you installed the latest StackPack there should be a new version for the `stackstate-otel-nodejs` lambda layer
+
+This can be confirmed by heading over to your [AWS Lambda Layers](https://console.aws.amazon.com/lambda/home#/layers) page
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer.png)
+
+Clicking on the `stackstate-otel-nodejs` layer to enter and view the details of the layer
+
+The `Created` box on the right side should have a relative new time when it was created.
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer_version.png)
+
+Alternatively you can head over to any of you current Lambda Functions that is currently using the `stackstate-otel-nodejs` layer and compare what version they are using against the version that is displayed under the `Version` block for the layer.
+
+Head over to a Lambda function using the OpenTelemetry `stackstate-otel-nodejs` Lambda layer 
+
+Scroll down to the `Layers` section, and click the `Edit` button on the right side
+![List of Lambda Layers](../../../.gitbook/assets/otel_edit_layer.png)
+
+Change the version for the `stackstate-otel-nodejs` layer to the latest version.
+![List of Lambda Layers](../../../.gitbook/assets/otel_select_version.png)
+
+and that should be it your Lambda will now use the latest OpenTelemetry Layer
+
 ## Disabling OpenTelemetry Traces
 
 To disable OpenTelemetry tracing you can simply head over to your Lambda's `configuration` tab and under the `Environment variables` section remove the environment variable called `AWS_LAMBDA_EXEC_WRAPPER`.
@@ -189,28 +222,6 @@ To disable OpenTelemetry tracing you can simply head over to your Lambda's `conf
 ![Disable OpenTelemetry Tracing](../../../.gitbook/assets/otel_disable_tracing.png)
 
 This will disable the code routing through the OpenTelemetry Lambda Layer and restore your Lambda to the original running state
-
-## Upgrade
-
-To upgrade your OpenTelemetry Lambda Layer to tha the latest version, including your Lambda function using them the layer follow these steps:
-
-* Make sure you installed the latest [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md)
-* After you installed the latest StackPack there should be a new version for the `stackstate-otel-nodejs` lambda layer
-  * This can be confirmed by heading over to your [AWS Lambda Layers](https://console.aws.amazon.com/lambda/home#/layers) page
-  * Clicking on the `stackstate-otel-nodejs` layer to enter and view the details of the layer
-  * The `Created` box on the right side should have a relative new time when it was created.
-  * Alternatively you can head over to any of you current Lambda Functions that is currently using the `stackstate-otel-nodejs` layer and compare what version they are using against the version that is displayed under the `Version` block for the layer.
-* Head over to all your Lambda functions using the OpenTelemetry `stackstate-otel-nodejs` layer 
-  * Scroll down to the `Layers` section, and click the `Edit` button on the right side
-  * Change the version for the `stackstate-otel-nodejs` layer to the latest version.
-
-## Uninstall
-
-TODO:
-
-## Problems, Solutions and Debugging
-
-TODO:
 
 ## See also
 
