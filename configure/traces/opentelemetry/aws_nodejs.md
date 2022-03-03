@@ -28,6 +28,7 @@ We support the following AWS Services / External Services with AWS OpenTelemetry
 ### Prerequisites
 
 To set up OpenTelemetry traces, you need to have:
+* `StackState Agent v2.16 (or later)`
 * AWS Lambda scripts running `NodeJS 14.x (or later)`
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
 * [AWS v2 StackPack](../../../../stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer which is required for AWS OpenTelemetry functionality.
