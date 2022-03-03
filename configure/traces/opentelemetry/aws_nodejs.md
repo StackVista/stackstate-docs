@@ -6,6 +6,23 @@ StackState provides an out-of-the-box OpenTelemetry solution by providing a modi
 
 Your Lambda function can include this OpenTelemetry Lambda Layer solution to collect trace data without changing any code.
 
+## Restrictions
+
+### OpenTelemetry Tracing Service Support
+
+We support the following AWS Services / External Services with AWS OpenTelemetry Tracing
+
+- Communication from **AWS Lambda** to 
+  - **AWS Lambda**
+  - **AWS SQS**
+  - **AWS SNS**
+  - **AWS S3**
+  - **AWS Step Function**
+  - **Any HTTP Endpoint** using
+    - Node HTTP
+    - Node HTTPS
+    - Axios
+
 ## Setup
 
 ### Prerequisites
@@ -53,20 +70,20 @@ In the second dropdown, select ***`THE LATEST VERSION`*** number, and click the 
 
 ![List of Lambda Layers](../../../.gitbook/assets/otel_custom_version.png)
 
-## Installation Step 2 - Active tracing
+## Installation Step 2 - Tracing
 
-An ***REQUIREMENT*** to allow tracing to work is something called x-ray headers.
+An ***REQUIREMENT*** to allow tracing to work is something called X-Ray headers.
 
 To achieve this, you can do ***ONE*** of the following steps:
 
-- Enable ***Active Pass-through*** on your Lambda Function. This means that the X-Ray headers are available, but X-Ray is still disabled; thus, ***NO EXTRA COSTS*** will be accumulated through using Pass-Through X-Ray
-- You can only achieve this through a CLI command
-  - CLI command is given a few lines down
+- Enable ***Active Pass-through*** on your Lambda Function. 
+  - This means that the X-Ray headers are available, but X-Ray is still disabled; thus, ***NO EXTRA COSTS*** will be accumulated through using Pass-Through X-Ray
+  - You can only achieve this through a CLI command
 
 ***OR***
 
-- Enable X-Ray Active Tracing on the Lambda function. This is the more expensive option as X-Ray will charge per Lambda execution.
-  - You can enable this through the Console.
+- Enable X-Ray Active Tracing on the Lambda function. 
+- This is the more expensive option as X-Ray will charge per Lambda execution.
 
 ### How to enable Active Pass-through
 
@@ -101,7 +118,9 @@ aws lambda update-function-configuration \
 --tracing-config "Mode=PassThrough"
 ```
 
-This will now change your Lambda to Pass-Through. You can verify this by running the following command again
+This will now change your Lambda to Pass-Through. 
+
+You can verify this by running the following command again
 - Unfortunately there is no way to verify this on the Console only through a CLI command
 
 ```shell
@@ -110,7 +129,6 @@ aws lambda get-function-configuration \
 --function-name <CHANGE TO THE NAME OF YOUR LAMBDA FUNCTION> \
 --query 'TracingConfig.Mode'
 ```
-
 
 ### How to enable X-Ray Active Tracing
 
@@ -146,11 +164,23 @@ Please create all the following env variables.
 | OTEL_TRACES_SAMPLER                | When should we sample execution data                                                                                                                                        | always_on                            |
 | OTEL_EXPORTER_OTLP_TRACES_ENDPOINT | This is the endpoint where your StackState Trace lives. Within your Agent there is a port `8126` and a path `/open-telemetry` that allows us to capture traces              | http://localhost:8126/open-telemetry |
 
-and that is it. You should be setup to send OpenTelemetry Traces.
+## Installation Step 4 - Final Notes
 
-## Testing and Producing OpenTelemetry Traces
+After you have done the installation steps 1, 2 and 3 you should be ready to send traces yo your StackState Agent.
 
-Lorem
+Please note that the above is required for every Lambda function you wish to add OpenTelemetry tracing to.
+
+The Upgrade process requires far fewer steps as step 2 and 3 will not have to be repeated.
+
+You can test your OpenTelemetry by executing your Lambda function, and you should see new Topology Relations (Within a minute or so) being created on your StackState UI 
+
+Remember the only new Topology relations you will see is if your Lambda is communicating with any of the following services:
+- SQS
+- SNS
+- S3
+- Lambda
+- Step Function
+- HTTP Endpoint
 
 ## Disabling OpenTelemetry Traces
 
