@@ -184,7 +184,11 @@ Remember the only new Topology relations you will see is if your Lambda is commu
 
 ## Disabling OpenTelemetry Traces
 
-To disable OpenTelemetry tracing you can simply head over to your Lambda's `configuration` tab and under the `Environment variables` section remove the environment variable called `AWS_LAMBDA_EXEC_WRAPPER` this will disable the code routing through the OpenTelemetry Lambda Layer.
+To disable OpenTelemetry tracing you can simply head over to your Lambda's `configuration` tab and under the `Environment variables` section remove the environment variable called `AWS_LAMBDA_EXEC_WRAPPER`.
+
+![List of Lambda Layers](../../../.gitbook/assets/otel_disable_tracing.png)
+
+This will disable the code routing through the OpenTelemetry Lambda Layer and restore your Lambda to the original running state
 
 ## Upgrade
 
