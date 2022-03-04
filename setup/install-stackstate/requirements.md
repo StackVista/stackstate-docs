@@ -10,9 +10,9 @@ description: StackState Self-hosted v4.6.x
 
 StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
 
-* **Amazon Elastic Kubernetes Service (EKS):** 1.18 to 1.21
-* **Azure Kubernetes Service (AKS):** 1.18 to 1.21
-* **OpenShift:** 4.7 to 4.8
+* **Amazon Elastic Kubernetes Service (EKS):** 1.19 to 1.21
+* **Azure Kubernetes Service (AKS):** 1.19 to 1.21
+* **OpenShift:** 4.8 to 4.9
 
 ### Node sizing
 
