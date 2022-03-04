@@ -23,7 +23,10 @@ This page provides specific instructions and details of any required manual step
 
 #### v4.6.0
 
-No manual action required.
+Change in supported platforms:
+* Support for Kubernetes 1.18 was dropped.
+* Support for OpenShift 4.7 was dropped.
+* See the [requirements](/setup/install-stackstate/requirements.md) for an up-to-date list of supported platforms.
 
 **StackPack updates**
 
