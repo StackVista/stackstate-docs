@@ -98,26 +98,6 @@ To uninstall the AAD StackPack, simply press the UNINSTALL button. No other acti
 * Common version bumped from 2.4.3 to 3.0.0
 * StackState min version bumped to 4.3.0
 
-**Autonomous Anomaly Detector StackPack v0.8.1 (22-03-2021)**
-
-* Check function has been moved to common StackPack
-
-**Autonomous Anomaly Detector StackPack v0.8.0 (19-03-2021)**
-
-* Autonomous metric stream anomaly detection check function.
-
-**Autonomous Anomaly Detector StackPack v0.7 (19-02-2021)**
-
-* Autonomous Anomaly Detector service GA.
-
-**Autonomous Anomaly Detector StackPack v0.6 BETA (13-10-2020)**
-
-* Documentation fixes and minor maintenance work.
-
-**Autonomous Anomaly Detector StackPack v0.2.2 BETA (04-09-2020)**
-
-* Releasing Autonomous Anomaly Detector service BETA.
-
 ## See also
 
 * [Anomaly detection](../../use/concepts/anomaly-detection.md)

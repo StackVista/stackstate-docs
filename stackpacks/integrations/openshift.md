@@ -272,6 +272,10 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## Release notes
 
+**OpenShift StackPack v3.7.10 (2022-03-02)**
+
+- Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+
 **OpenShift StackPack v3.7.9 (2021-11-30)**
 
 * Bug Fix: Support nodes without instanceId
@@ -288,57 +292,6 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 * Improvement: Documentation update
 * Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
-
-**OpenShift StackPack v3.7.4 \(2021-05-11\)**
-
-* Bug Fix: Set aggregation methods for desired replicas streams to be compatible with insufficient replicas check
-* Bug Fix: Set aggregation method for not ready endpoints stream \(on a service\) to be compatible with endpoints check
-
-**OpenShift StackPack v3.7.3 \(2021-04-29\)**
-
-* Bug Fix: Change dependency to latest version of k8s-common, as the previous release is broken.
-
-**OpenShift StackPack v3.7.2 \(2021-04-29\)**
-
-* Improvement: Prevented readiness checks from firing pre-maturely by setting window from 10 seconds to 15 minutes for workloads, pods, and containers.
-* Improvement: Prevented readiness checks from firing pre-maturely by changing how service health is determined, and extended the evaluation window to 15 minutes.
-
-**OpenShift StackPack v3.7.1 \(2021-04-12\)**
-
-* Improvement: Common bumped from 2.5.0 to 2.5.1
-
-**OpenShift StackPack v3.7.0 \(2021-04-02\)**
-
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Update documentation.
-* Improvement: Common bumped from 2.4.3 to 2.5.0
-* Improvement: StackState min version bumped to 4.3.0
-
-**OpenShift StackPack v3.6.0 \(2021-03-08\)**
-
-* Feature: Namespaces are now a component in StackState with a namespaces view for each cluster
-* Feature: New component actions for quick navigation on workloads, pods and namespaces
-* Feature: Added a "Pod Scheduled" metric stream to pods
-* Feature: Secrets are now a component in StackState
-* Improvement: The "Desired vs Ready" checks on workloads now use the "Ready replicas" stream instead of the replicas stream.
-* Improvement: Use standard \(blue\) Kubernetes icons
-* Bug Fix: Fixed Kubernetes synchronization when a component had no labels but only tags
-
-**OpenShift StackPack v3.5.2 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**OpenShift StackPack v3.5.1 \(2020-08-10\)**
-
-* Feature: Introduced Kubernetes specific component identifiers
-
-**OpenShift StackPack v3.5.0 \(2020-08-04\)**
-
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-
-**OpenShift StackPack v3.4.0 \(2020-06-19\)**
-
-* Improvement: Set the stream priorities on all streams.
 
 ## See also
 

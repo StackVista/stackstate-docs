@@ -59,27 +59,4 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
 * Improvement: Common bumped from 2.2.3 to 2.5.1
 * Improvement: StackState min version bumped to 4.3.0
 
-**Cloudera StackPack v1.2.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**Cloudera StackPack v1.2.0 \(2020-08-04\)**
-
-* Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
-* Improvement: Replace resolveOrCreate with getOrCreate.
-
-**Cloudera StackPack v1.1.0 \(2020-04-10\)**
-
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
-
-**Cloudera StackPack v1.0.1 \(2020-04-03\)**
-
-* Bugfix: Change pre-requisite to AgentV2 and improve documentation texts
-
-**Cloudera StackPack v1.0.0 \(2020-01-15\)**
-
-This is the first public release of the Cloudera StackPack that provides support to monitor your Cloudera Manager instance. **NOTE**:- We support Cloudera version 5.11.
-
-* Feature: Gathers Topology from your Cloudera Manager instance and allows visualization of your Cloudera components and the relations between them.
-* Feature: Monitoring of your Cloudera components, including health statuses of all your components.
 

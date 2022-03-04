@@ -462,6 +462,10 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## Release notes
 
+**AWS StackPack v1.2.0 (2022-03-03)**
+
+- Improvement: Added OpenTelemetry information STAC-15902
+
 **AWS StackPack v1.1.4 (2021-11-16)**
 
 - Improvement: Updated AWS CLI prerequisite text
@@ -492,14 +496,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 **AWS StackPack v1.0.1 \(2021-07-23\)**
 
-* Bugfix: Use proper domain 
-
-**AWS StackPack v1.0.0 \(2021-07-16\)**
-
-* Improvement: Full rewrite of the AWS Stackpack to use the StackState Agent V2
-* Improvement: Improved AWS multi-account support by using IAM roles for account access
-* Improvement: Improved AWS multi-region support - each instance can create topology for multiple regions at once
-* Improvement: New, refreshed icon set, using the latest AWS branding
+* Bugfix: Use proper domain
 
 ## See also
 
