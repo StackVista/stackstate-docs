@@ -25,12 +25,44 @@ This page provides specific instructions and details of any required manual step
 
 No manual action required.
 
+**Updated StackPacks shipped:**
+
+- [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
+  - Feature: Open Telemetry service type mapping added
+    - HTTP error count (sum)
+    - HTTP request count (sum)
+    - HTTP total response time (s) (95th percentile) AAD Check
+  - Feature: Add Container integration DataSource and Sync
+  - Note that StackState v4.5.x shipped with StackState Agent StackPack v4.4.12. [Read all release notes](../../stackpacks/integrations/agent.md#release-notes).
+- [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
+  - Improvement: Added OpenTelemetry information STAC-15902
+- [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+- [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+
 {% endtab %}
 {% tab title="Linux" %}
 
 #### v4.6.0
 
 No manual action required.
+
+**Updated StackPacks shipped:**
+
+- [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
+  - Feature: Open Telemetry service type mapping added
+    - HTTP error count (sum)
+    - HTTP request count (sum)
+    - HTTP total response time (s) (95th percentile) AAD Check
+  - Feature: Add Container integration DataSource and Sync
+  - Note that StackState v4.5.x shipped with StackState Agent StackPack v4.4.12. [Read all release notes](../../stackpacks/integrations/agent.md#release-notes).
+- [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
+  - Improvement: Added OpenTelemetry information STAC-15902
+- [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+- [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
 
 {% endtab %}
 {% endtabs %}
