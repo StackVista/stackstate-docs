@@ -8,6 +8,41 @@ description: StackState SaaS
 Note that the release notes may include details of functionality that is currently only available in the StackState Self-Hosted product. 
 {% endhint %}
 
+## StackState v4.6.x
+
+### 4.6.0 (04-03-2022)
+
+**Improvements**
+
+- Topology synchronization progress counters have been moved from individual synchronizations to the `stackstate.log` file for Linux-based distributions. Errors for topology mapping and templates remain in the synchronization-specific logs. STAC-15529
+- The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_install/image_configuration.md) to fetch Docker images. STAC-15180
+- The component context menu now displays the preview of the [three top priority metrics](/use/metrics-and-events/top-metrics.md). STAC-15076
+- `PodDisruptionBudget` and `PodSecurityPolicy` now use the updated apiVersion (policy/v1) for newer Kubernetes versions. STAC-14968
+- The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
+- All PodDisruptionBudget(s) can be configured through the Helm Values. STAC-14770
+- In the StackState Helm chart, the Ingress path can now be configured through the value `ingress.path`. STAC-14769
+- All pods in the StackState Helm charts can now be configured to use a pullSecret to pull protected images. STAC-14767
+- Non-propagating unhealthy components are marked as problem root causes. STAC-13618
+
+**Bug fixes**
+
+- Increased performance of network connections correlation by better data scheduling and by adjusting CPU limits in the Helm chart (default from 0.6 to 2). STAC-15822
+- Fixed an issue that caused custom Kafka producer configuration to be disregarded by the correlator and receiver. STAC-15795
+- Clears the following CVEs STAC-15733:
+  - CVE-2022-23852 
+  - CVE-2022-23990. 
+- The limit of problems visible in the StackState UI has been increased to 999. STAC-15688
+- Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
+- Fixed an issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
+- Fixed bug when major part of Kubernetes topology is missing when a big element is reported (such as big ConfigMap). STAC-15458
+- Fixed receiver out of memory issue appearing under load preventing processes from appearing on topology. STAC-15431
+- Fixed an issue that caused the StackState UI to crash occasionally due to a misconfiguration of the Prometheus nginx exporter. STAC-15167
+- Fixed an issue that caused component properties to not display correctly when a component is merged from two of the same synchronization sources. STAC-15147
+- Fixed an issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
+- Fixed an issue that caused the anomaly event chart to not display full metric data. STAC-14630
+- The `backup-stackgraph` Kubernetes CronJob now correctly checks whether the StackGraph export exists before copying it. STAC-14532
+- Fixed error on the Traces Perspective stemming from server and browser clocks not being synchronized. STAC-12832
+
 ## StackState v4.5.x
 
 ### 4.5.4 (2022-02-09)

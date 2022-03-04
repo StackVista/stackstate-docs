@@ -28,12 +28,12 @@ No manual action required.
 **Updated StackPacks shipped:**
 
 - [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
-  - Feature: Open Telemetry service type mapping added
-    - HTTP error count (sum)
-    - HTTP request count (sum)
-    - HTTP total response time (s) (95th percentile) AAD Check
+  - Feature: Automatically add Open Telemetry HTTP health checks
+    - Error count (sum) check
+    - Request count (sum) check
+    - Response Time (milliseconds) check
   - Feature: Add Container integration DataSource and Sync
-  - Note that StackState v4.5.x shipped with StackState Agent StackPack v4.4.12. [Read all release notes](../../stackpacks/integrations/agent.md#release-notes).
+  - Note that StackState v4.5.x shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
 - [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
   - Improvement: Added OpenTelemetry information STAC-15902
 - [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
@@ -51,12 +51,12 @@ No manual action required.
 **Updated StackPacks shipped:**
 
 - [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
-  - Feature: Open Telemetry service type mapping added
-    - HTTP error count (sum)
-    - HTTP request count (sum)
-    - HTTP total response time (s) (95th percentile) AAD Check
+  - Feature: Automatically add Open Telemetry HTTP health checks
+    - Error count (sum) check
+    - Request count (sum) check
+    - Response Time (milliseconds) check
   - Feature: Add Container integration DataSource and Sync
-  - Note that StackState v4.5.x shipped with StackState Agent StackPack v4.4.12. [Read all release notes](../../stackpacks/integrations/agent.md#release-notes).
+  - Note that StackState v4.5.x shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
 - [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
   - Improvement: Added OpenTelemetry information STAC-15902
 - [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):

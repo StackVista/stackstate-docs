@@ -85,10 +85,11 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 ## Release notes
 
 **Agent V2 StackPack v4.5.0 (2022-03-02)**
-- Feature: Open Telemetry service type mapping added
-  - HTTP error count (sum)
-  - HTTP request count (sum)
-  - HTTP total response time (s) (95th percentile) AAD Check
+
+- Feature: Automatically add OpenTelemetry HTTP health checks
+  - Error count (sum) check
+  - Request count (sum) check
+  - Response Time (milliseconds) check
 - Feature: Add Container integration DataSource and Sync
 
 **Agent V2 StackPack v4.4.14 (2022-02-18)**
