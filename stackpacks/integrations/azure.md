@@ -249,23 +249,6 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 * Improvement: Update documentation.
 * Improvement: StackState min version bumped to 4.3.0
 
-**Azure StackPack v4.0.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**Azure StackPack v4.0.0 \(2020-08-04\)**
-
-* Bugfix: Fix and make Component mapping function per instance to support multi-instance properly.
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-
-**Azure StackPack v3.0.1 \(2020-06-10\)**
-
-* Improvement: Added urn:host based identifiers for Azure VM's
-
-**Azure StackPack v3.0.0 \(2020-05-19\)**
-
-* Feature: Added multi-instance support for the Azure StackPack
-
 ## See also
 
 * [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack)
