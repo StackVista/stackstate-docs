@@ -6,11 +6,18 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-Telemetry streams in the right-hand component pane of the StackState UI are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. Streams that have a higher priority level are presented at the top of the Telemetry stream section. The the most recent metric received from the top three telemetry streams in this list will be displayed in the component context menu under [top metrics](/use/metrics-and-events/top-metrics.md) when you hover over a component in the Topology Perspective.
+Telemetry streams in the right-hand component pane of the StackState UI are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `none`. 
 
-By default, all streams have priority set to `none`. To change the priority of a specific stream, follow the instruction below:
+Stream priority is used in StackState to help determine the following:
+
+* The order in which streams are displayed in the **Telemetry** list in the [component and relation details pane](/use/concepts/components.md#component-details-pane) on the right-hand side of the StackState UI. Streams are ordered by priority (highest at the top) and then alphabetically.
+* The streams that are shown as [Top metrics](/use/metrics-and-events/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three streams in the **Telemetry** list will be displayed.
+* The order in which streams are displayed in the [Metrics Perspective](/use/stackstate-ui/perspectives/metrics-perspective.md).
+* The [streams selected for monitoring by the Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md#how-are-metric-streams-selected).
 
 ## Set the telemetry stream priority
+
+To change the priority of a specific stream, follow the instructions below.
 
 ### 1. Open the Component Details pane
 
