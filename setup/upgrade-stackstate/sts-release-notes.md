@@ -48,20 +48,23 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - The `backup-stackgraph` Kubernetes CronJob now correctly checks whether the StackGraph export exists before copying it. STAC-14532
 - Fixed error on the Traces Perspective stemming from server and browser clocks not being synchronized. STAC-12832
 
-**Updated StackPacks shipped:**
+**StackPack updates**
 
-- [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
-  - Feature: Automatically add Open Telemetry HTTP health checks
-    - Error count (sum) check
-    - Request count (sum) check
-    - Response Time (milliseconds) check
-  - Feature: Add Container integration DataSource and Sync
-  - Note that the previous release of StackState (v4.5.x) shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
-- [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
+[StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
+- Feature: Automatically add Open Telemetry HTTP health checks
+  - Error count (sum) check
+  - Request count (sum) check
+  - Response Time (milliseconds) check
+- Feature: Add Container integration DataSource and Sync
+- Note that the previous release of StackState (v4.5.x) shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
+
+[AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
   - Improvement: Added OpenTelemetry information STAC-15902
-- [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
+
+[Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
   - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
-- [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
+
+[OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
   - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
 
 ## StackState v4.5.x
