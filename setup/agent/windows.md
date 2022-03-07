@@ -98,6 +98,10 @@ The Agent can be configured to run checks that integrate with external systems. 
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
+### Proxy configuration
+
+The Agent can be configured to use a proxy for HTTP and HTTPS requests. For details, see [use an HTTP/HTTPS proxy](/setup/agent/agent-proxy.md).
+
 ## Commands
 
 {% hint style="info" %}
