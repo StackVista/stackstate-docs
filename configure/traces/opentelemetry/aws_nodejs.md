@@ -47,7 +47,7 @@ Follow the steps below to set up OpenTelemetry tracing for a Lambda function.
 Note that the installation steps should be completed for every Lambda function you wish to add OpenTelemetry tracing to.
 {% endhint %}
 
-1. [Add the Lambda Layer](#add-the-lambda-layer)
+1. [Verify that the Lambda Layer Exists](#add-the-lambda-layer)
 2. [Set up tracing](#set-up-tracing)
 3. [Add the required environment variables](#add-environment-variables)
 
@@ -55,7 +55,7 @@ After these steps have been completed, you should be ready to send traces to you
 
 To test the configuration, execute the associated Lambda function. New Topology relations should be created and visible in the StackState UI within a minute or so. Relations will be created if your Lambda is communicating with any of the [supported services](#supported-services).
 
-#### Add the Lambda Layer
+#### Verify that the Lambda Layer Exists
 
 Head over to your [AWS Lambda Layers \(console.aws.amazon.com\)](https://console.aws.amazon.com/lambda/home#/layers) page listing all your available **Lambda Layer** functions.
 
