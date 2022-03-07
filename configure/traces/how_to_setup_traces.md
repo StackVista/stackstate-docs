@@ -29,3 +29,10 @@ The AWS integration collects tracing information from the in-built AWS distribut
 
 * The [Traefik integration](../../stackpacks/integrations/traefik.md) adds topology and telemetry information from Traefik to traces.
 * {% endhint %}
+
+### OpenTelemetry
+
+{% hint style="success" "self-hosted info" %}
+
+* The [OpenTelemetry integration](../../stackpacks/integrations/aws/opentelemetry.md) adds topology and telemetry information from AWS Lambdas to traces.
+* {% endhint %}
