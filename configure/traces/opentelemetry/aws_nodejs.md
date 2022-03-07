@@ -91,7 +91,7 @@ In the second dropdown, select **THE LATEST VERSION** number, and click the `Add
 
 ![Select Layer Version](../../../.gitbook/assets/otel_custom_version.png)
 
-## Set up tracing
+#### Set up tracing
 
 An **REQUIREMENT** to allow tracing to work is something called X-Ray headers.
 
@@ -106,7 +106,7 @@ To achieve this, you can do **ONE** of the following steps:
 - [Enable X-Ray Active Tracing](#enable-x-ray-active-tracing) on the Lambda function. 
   - This is the more expensive option as X-Ray will charge per Lambda execution.
 
-### Enable Active Pass-through
+##### Enable Active Pass-through
 
 To enable Active Pass-through you need the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed. You can follow the steps [on this link](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to set up AWS CLI on your machine.
 
@@ -151,7 +151,7 @@ aws lambda get-function-configuration \
 --query 'TracingConfig.Mode'
 ```
 
-### Enable X-Ray Active Tracing
+##### Enable X-Ray Active Tracing
 
 To enable Active X-Ray Tracing head over to your `Configuation` Tab inside your Lambda.
 
@@ -167,7 +167,7 @@ You can verify if Tracing is enabled by looking at the `Active tracing` block
 
 ![Verify Active Tracing](../../../.gitbook/assets/otel_verify_active_tracing.png)
 
-## Add environment variables
+#### Add environment variables
 
 For OpenTelemetry to start capturing traces certain environment variables is required.
 
