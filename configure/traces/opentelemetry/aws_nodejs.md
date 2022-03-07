@@ -181,14 +181,25 @@ Create all the following environment variables in the **Configuration** tab unde
   - Trace Agent Port: `8126`
   - OpenTelemetry StackState Agent Path: `/open-telemetry`
 
-| Key | Description | Value |
-|:---|:---|:---|
-| `AWS_LAMBDA_EXEC_WRAPPER` | Allows the Lambda to root execution through OpenTelemetry. This allows OpenTelemetry to set up everything required to capture traces when the Lambda function executes. | `/opt/otel-handler` |
-| `OTEL_LOG_LEVEL` | The amount of logging showed in the Lambda post-execution window. | `info` |
-| `OTEL_PROPAGATORS` | The OpenTelemetry propagator context. | `tracecontext` |
-| `OTEL_TRACES_EXPORTER` | The type of export used with OpenTelemetry.  | `otlp` |
-| `OTEL_TRACES_SAMPLER` | When execution data should be sampled. | `always_on` |
-| `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` | Routing information from the Lambda to StackState Agent | `http://stackstate-agent-ip:8126/open-telemetry` |
+#### Required Environment variables
+
+| Key | Description                                                                                                                                                             | Value                                            |
+|:---|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
+| `AWS_LAMBDA_EXEC_WRAPPER` | Allows the Lambda to root execution through OpenTelemetry. This allows OpenTelemetry to set up everything required to capture traces when the Lambda function executes. | `/opt/otel-handler`                              |
+| `OTEL_LOG_LEVEL` | The amount of logging showed in the Lambda post-execution window.                                                                                                       | `info`                                           |
+| `OTEL_PROPAGATORS` | The OpenTelemetry propagator context.                                                                                                                                   | `tracecontext`                                   |
+| `OTEL_TRACES_EXPORTER` | The type of export used with OpenTelemetry.                                                                                                                             | `otlp`                                           |
+| `OTEL_TRACES_SAMPLER` | When execution data should be sampled.                                                                                                                                  | `always_on`                                      |
+| `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` | Routing information from the Lambda to StackState Agent                                                                                                                 | `http://stackstate-agent-ip:8126/open-telemetry` |
+
+#### Optional Environment variables
+
+| Key | Description                                                                                                                                                                                                                                                         | Default |
+|:---|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|
+| `HTTP_MASK_SENSITIVE_INFORMATION` | If your HTTP URL traces path contains sensitive information you can mask it by changing this env variable to true. For example `http://www.url.com/user/USERID/edit#test?query=123` will be captured as `http://www.url.com` effectivly removing everything except the hostname | false   |
+| `HTTP_REMOVE_HASH_DATA` | Remove hash information from a the captured HTTP URL traces. For example `http://www.url.com#test?query=123` will be captured as `http://www.url.com?query=123`                                                                                                     | false   |
+| `HTTP_REMOVE_QUERY_DATA` | Remove query information from a the captured HTTP URL traces. For example `http://www.url.com#test?query=123` will be captured as `http://www.url.com#test`                                                                                                         | false    |
+
 
 ## Upgrade
 
