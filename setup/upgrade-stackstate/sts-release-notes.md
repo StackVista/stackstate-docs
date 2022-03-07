@@ -17,6 +17,14 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 
 ### 4.6.0
 
+The StackState 4.6 release brings powerful new capabilities:
+
+* Important improvements in topology visualization to accelerate troubleshooting.
+* Support for OpenTelemetry traces, specifically for serverless AWS Lambda applications built with Node.js. This new low-latency data requires no integration, and will immediately enrich your topology with additional relationships and telemetry.
+* Expanded Autonomous Anomaly Detection capabilities to automatically analyze the golden signals of throughput, latency and error rate. Automatic health checks can then run on this data and alert you as soon as anomalies are found. This will help you to get to the root cause of incidents more quickly and proactively prevent problems before they occur.
+
+Details of all improvements, bug fixes and StackPack updates can be found below.
+
 **Improvements**
 
 - Topology synchronization progress counters have been moved from individual synchronizations to the `stackstate.log` file for Linux-based distributions. Errors for topology mapping and templates remain in the synchronization-specific logs. STAC-15529
