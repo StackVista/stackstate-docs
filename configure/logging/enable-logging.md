@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Enable logging for functions
@@ -178,7 +178,7 @@ The ID for a check or propagation on a specific component can be found in in the
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
-![Show JSON](../../.gitbook/assets/v45_show-json.png)
+![Show JSON](../../.gitbook/assets/v46_show-json.png)
 
 * Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 

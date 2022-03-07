@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Permissions
@@ -160,7 +160,7 @@ See also the full list of [system permissions](rbac_permissions.md#system-permis
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
-![Main menu with all permissions granted](../../../.gitbook/assets/v45_main_menu.png)
+![Main menu with all permissions granted](../../../.gitbook/assets/v46_main_menu.png)
 
 | Page | Description | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -195,8 +195,8 @@ The permissions listed below are required to carry out specific actions in the c
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **Telemetry streams** Add a new telemetry stream. Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
-| **Health checks** Add a new StackState health check. Edit / delete an existing health check. Without this permission, the **...** menu and the **ADD** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
+| **Telemetry** Add a new telemetry stream. Without this permission, only the **Inspect** action is available in the **...** menu and the **ADD NEW STREAM** button is hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
+| **Health** Add a new StackState health check. Edit / delete an existing health check. Without this permission, the **...** menu and the **ADD NEW HEALTH CHECK** button are hidden. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Elements** Delete an element or element template. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Elements** Edit an element or element template. | `manage-topology-elements` and `perform-custom-query` and `read-settings` | - | ✅ | ✅ | - |
 

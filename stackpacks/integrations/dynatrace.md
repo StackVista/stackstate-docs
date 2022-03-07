@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # 💠 Dynatrace
@@ -242,7 +242,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v45_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v46_dynatrace-filter.png)
 
 ### Open source
 
@@ -284,21 +284,6 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 * Improvement: Changed which events send DEVIATING health state
 
-**Dynatrace StackPack v1.1.1 \(2021-04-12\)**
-
-* Improvement: Common bumped from 2.5.0 to 2.5.1
-
-**Dynatrace StackPack v1.1.1 \(2021-04-02\)**
-
-* Feature: Gather Events from your Dynatrace instance and provides Health info about Dynatrace components.
-* Feature: Support for Dynatrace tags.
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
-* Improvement: StackState min version bumped to 4.3.0
-
-**Dynatrace StackPack v1.0.0**
-
-* Feature: Gathers Topology from your Dynatrace instance and allows visualization of your Dynatrace components and the relations between them.
 
 ## See also
 

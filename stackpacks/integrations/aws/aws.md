@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # AWS
@@ -194,10 +194,12 @@ To configure a VPC FlowLog from the AWS console:
 
 ### Use an HTTP proxy
 
-StackState Agent V2 must have access to the internet to call AWS APIs. If the Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by StackState Agent. This means that a proxy needs to be configured for both StackState and StackState Agent to handle all requests.
+Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. 
 
-* To configure a proxy for events and topology data collected by StackState Agent, see how to [use an HTTP/HTTPS proxy for StackState Agent](/setup/agent/agent-proxy.md).
-* To configure a proxy for CloudWatch metrics collected by StackState, follow the steps below:
+In the StackState AWS integration, CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by the StackState Agent. This means that proxy details must be configured in two places to handle all requests - StackState for CloudWatch metrics and StackState Agent for topology and events data.
+
+* **To configure a proxy for events and topology data collected by StackState Agent**, see how to [use an HTTP/HTTPS proxy for StackState Agent](/setup/agent/agent-proxy.md).
+* **To configure a proxy for CloudWatch metrics collected by StackState**, follow the steps below:
   1. In the StackState UI, go to **Settings** > **Telemetry Sources** > **CloudWatch sources**.
   2. Find the CloudWatch source for which you want to configure a proxy. Open the **...** menu to the right and select **Edit**.
   3. Enter the proxy details in **Proxy URI**.
@@ -460,6 +462,10 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## Release notes
 
+**AWS StackPack v1.2.0 (2022-03-03)**
+
+- Improvement: Added OpenTelemetry information STAC-15902
+
 **AWS StackPack v1.1.4 (2021-11-16)**
 
 - Improvement: Updated AWS CLI prerequisite text
@@ -490,14 +496,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 **AWS StackPack v1.0.1 \(2021-07-23\)**
 
-* Bugfix: Use proper domain 
-
-**AWS StackPack v1.0.0 \(2021-07-16\)**
-
-* Improvement: Full rewrite of the AWS Stackpack to use the StackState Agent V2
-* Improvement: Improved AWS multi-account support by using IAM roles for account access
-* Improvement: Improved AWS multi-region support - each instance can create topology for multiple regions at once
-* Improvement: New, refreshed icon set, using the latest AWS branding
+* Bugfix: Use proper domain
 
 ## See also
 

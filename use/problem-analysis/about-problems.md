@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # What is a problem?
@@ -11,7 +11,7 @@ When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated sub-view.
 * **Reduce noise** - the evolution of the problem can be be tracked as a single entity, rather than a collection of individual, unhealthy elements.
 
-![Problems in View Details pane](../../.gitbook/assets/v45_problem_summary.png)
+![Problems in View Details pane](/.gitbook/assets/v46_problem_summary.png)
 
 ## Topology elements in a problem
 

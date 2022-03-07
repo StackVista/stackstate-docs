@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Using STJ
@@ -94,13 +94,13 @@ Loop over an array or map of data.
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
- [Learn more about the available functions](stj_reference.md).
+➡️ [Learn more about the available functions](stj_reference.md).
 
 ## Component and relation templates
 
 Templates are used to create topology. 
 
-[Learn more about component and relation templates](/use/concepts/components_relations.md).
+➡️ [Learn more about component and relation templates](/configure/topology/sync.md#template-functions)
 
 ## See also
 

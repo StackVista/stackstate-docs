@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # 💠 StackState Agent V2
@@ -84,6 +84,29 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 
 ## Release notes
 
+**Agent V2 StackPack v4.5.0 (2022-03-02)**
+
+- Feature: Automatically add OpenTelemetry HTTP health checks
+  - Error count (sum) check
+  - Request count (sum) check
+  - Response Time (milliseconds) check
+- Feature: Add Container integration DataSource and Sync
+
+**Agent V2 StackPack v4.4.14 (2022-02-18)**
+
+- Feature: Health check added for HTTP error (5xx) rate over total rate ratio
+
+**Agent V2 StackPack v4.4.13 (2022-02-03)**
+
+- Improvement: Documentation updated - added documentation for OpenMetrics integration.
+
+- Feature: Automatically add [anomaly health checks](https://l.stackstate.com/ui-agent-anomaly-health-checks) for [golden signals](https://l.stackstate.com/ui-agent-golden-signals)
+  - HTTP Success response time (s) (95th percentile) AAD Check
+  - HTTP 5xx error response time (s) (95th percentile) AAD Check
+  - HTTP total response time (s) (95th percentile) AAD Check
+  - HTTP Success rate (req/s) AAD Check
+  - HTTP 5xx error rate (req/s) AAD Check
+
 **Agent V2 StackPack v4.4.12 (2021-12-15)**
 
 * Improvement: Supported additional identifiers for Disk component
@@ -95,94 +118,6 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 **Agent V2 StackPack v4.4.8 \(2021-07-23\)**
 
 * Improvement: Documentation updated
-
-**Agent V2 StackPack v4.4.7 \(2021-06-30\)**
-
-* Bugfix: Disable Indirect relations
-
-**Agent V2 StackPack v4.4.6 \(2021-06-18\)**
-
-* Bugfix: Fixed integration page
-* Feature: Split Error Count Metric for X-Ray into 4xx and 5xx count
-
-**Agent V2 StackPack v4.4.5 \(2021-06-14\)**
-
-* Bugfix: Fixed runs\_on relation creation
-
-**Agent V2 StackPack v4.4.4 \(2021-06-10\)**
-
-* Feature: Added static health integration
-
-**Agent V2 StackPack v4.4.3 \(2021-06-10\)**
-
-* Feature: HTTP Endpoints \(Kubernetes services for example\) and processes now have metric streams for HTTP request rates and response times \(only StackState 4.4.0+\)
-* Feature: HTTP Endpoints \(Kubernetes services for example\) and processes have a new tag `application-protocol` that lists the protocols that are handled by that service/process, currently supported protocols are http and mysql \(only StackState 4.4.0+\)
-* Feature: Network connection relations also get the `application-protocol` tag \(only StackState 4.4.0+\)
-
-**Agent V2 StackPack v4.4.2 \(2021-05-18\)**
-
-* Improvement: Expose service -&gt; process relation metrics on the outgoing service component if running in Kubernetes
-* Improvement: Add the Agent category for filtering capability
-
-**Agent V2 StackPack v4.4.1 \(2021-04-23\)**
-
-* Bugfix: Fix escaping bugs in templates
-
-**Agent V2 StackPack v4.4.0 \(2021-04-23\)**
-
-* Improvement: Add "runs" relation for container -&gt; process such that a container "runs" the process
-* Improvement: Stop state propagation over relations that represent health checks or metrics collection, these used to result in a lot of false positives
-* Improvement: Expose process -&gt; process relation metrics on the process component if running in Kubernetes
-
-**Agent V2 StackPack v4.3.1 \(2021-04-12\)**
-
-* Improvement: Common bumped from 2.5.0 to 2.5.1
-
-**Agent V2 StackPack v4.3.0 \(2021-04-02\)**
-
-* Feature: Introduced swarm services as components and relations with containers.
-* Feature: Report desired replicas and active replicas for swarm services.
-* Feature: Health check added for swarm service on active replicas.
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.3.1 to 2.5.0
-* Improvement: StackState min version bumped to 4.3.0
-
-**Agent V2 StackPack v4.2.1 \(2021-03-11\)**
-
-* Bugfix: Fix for trace service types causing spurious updates on StackState.
-
-**Agent V2 StackPack v4.2.0 \(2021-02-26\)**
-
-* Feature: Map the container restart event stream as metric stream.
-* Feature: Introduced the container health check for restart event.
-* Feature: Introduced Disk Metrics and Check on Host in Agent V2 StackPack.
-* Feature: Separate Sync and DataSource added for Disk Type.
-
-**Agent V2 StackPack v4.1.0 \(2021-02-08\)**
-
-* Improvement: Updated the "Agent Container Mapping Function" and "Agent Container Template" to map the container name instead of the container id to the identifier
-* Bugfix: Fix the error stream for the traces not coming from traefik.
-
-**Agent V2 StackPack v4.0.0 \(2021-01-29\)**
-
-* Bugfix: Major bump the version for installation fix
-
-**Agent V2 StackPack v3.12.0 \(2020-12-15\)**
-
-* Feature: Split error types in traces into:
-  * 5xx errors - Use this in check function to determine critical status in the component.
-  * 4xx errors.
-
-**Agent V2 StackPack v3.11.0 \(2020-09-03\)**
-
-* Feature: Added the Agent Integration synchronization, mapping functions and templates to synchronize topology and telemetry coming from custom Agent Integrations.
-* Feature: Added the "Create your own" integration StackPack page that explains how to build a custom integration in the StackState Agent.
-* Feature: Introduced monitoring of all StackState Agent Integrations in the Agent - Integrations - All View.
-
-**Agent V2 StackPack v3.10.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer.
-* Feature: Introduced the Docker-Swarm mode setup docs in Docker integration.
 
 ## See also
 

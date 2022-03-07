@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Static Health
@@ -73,7 +73,7 @@ The delimiter used in the CSV file can be specified when you [configure the Stat
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
-* [Health state in StackState](../../use/health-state/health-state-in-stackstate.md)
+* [Health state in StackState](../../use/health-state/about-health-state.md)
 * [Health Synchronization](../../configure/health/health-synchronization.md)
 * [Debug Health Synchronization](../../configure/health/debug-health-sync.md)
 

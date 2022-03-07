@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # How to develop Agent checks
@@ -214,7 +214,7 @@ The StackState Agent Check interface supports various types of metrics.
 
 Metric data can be submitted using i.e. the `self.gauge()` function, or the `self.count()` function in the `AgentCheck` interface. All metrics data is stored in the `StackSate Metrics` data source that can be mapped to a metric telemetry stream for a component/relation in StackState:
 
-![Metrics](../../../.gitbook/assets/metricstelemetrystream.png)
+![Metrics](../../../.gitbook/assets/v46_metricstelemetrystream.png)
 
 The example below submits a gauge metric `system.cpu.usage` for our previously submitted `this-host` component:
 
@@ -230,7 +230,7 @@ Note: It is important to have a tag or combination of tags that you can use to u
 
 Events can be submitted using the `self.event()` function in the `AgentCheck` interface. Events data is stored in the `StackState Generic Events` data source that can be mapped to a telemetry stream on a component in StackState:
 
-![Add telemetry stream](../../../.gitbook/assets/genericevents.png)
+![Add telemetry stream](../../../.gitbook/assets/v46_genericevents.png)
 
 The example below submits an event to StackState when a call to the instance that is monitored exceeds some configured timeout:
 

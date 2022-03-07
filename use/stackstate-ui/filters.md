@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Filters
@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.5.x
 
 The **View Filters** pane on the left-hand side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
-![View filters](/.gitbook/assets/v45_view_filters_button.png)
+![View filters](/.gitbook/assets/v46_view_filters_button.png)
 
 ## Filter Topology
 
@@ -25,7 +25,7 @@ The main way to filter topology is using the available basic filters. When you s
 | Filter | Description |
 | :--- | :--- |
 | Layers, Domains, Environments and Component types | Filter by the component details included when components are imported or created. |
-| Component health | Only include components with the named [health state](../health-state/health-state-in-stackstate.md) as reported by the associated health check. |
+| Component health | Only include components with the named [health state](../health-state/about-health-state.md) as reported by the associated health check. |
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
@@ -38,11 +38,11 @@ To filter the topology using basic filters, click on the **View Filters** button
 
 The example below uses basic filters to return components that match the following conditions:
 
-* In the **Domain** `mydomain`
+* In the **Domain** `security check`
 * AND has a **Health** state of `Clear` OR `Deviating`
-* OR is the **Component** with the name `agent-centos`
+* OR is the **Component** with the name `ai_engine`
 
-![Filtering example](../../.gitbook/assets/v45_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v46_basic_filter_example.png)
 
 This same filter could also be written as an advanced topology filter using STQL.
 
@@ -54,15 +54,15 @@ To filter the topology using an STQL query, click on the **View Filters** button
 
 The STQL query example below will return components that match the following conditions:
 
-* In the **Domain** `mydomain`
-* AND has a **Health** state of `CLEAR` OR `DEVIATING`
-* OR is the **Component** with the name `agent-centos`
+* In the **Domain** `security check`
+* AND has a **Health** state of `Clear` OR `Deviating`
+* OR is the **Component** with the name `ai_engine`
 
 ```yaml
-(domain IN ("mydomain") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("agent-centos")
+(domain IN ("security check") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("ai_engine")
 ```
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v45_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v46_advanced_filter_example.png)
 
 This same filter result could also be returned with basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 

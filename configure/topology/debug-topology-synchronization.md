@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Debug topology synchronization
@@ -169,3 +169,4 @@ latency (Seconds)                                   35.754  ---                 
 
 * [Working with StackState log files](/configure/logging/stackstate-log-files.md)
 * [Configure topology synchronizations](/configure/topology/sync.md)
+* [Tune topology synchronization](/configure/topology/tune-topology-synchronization.md)

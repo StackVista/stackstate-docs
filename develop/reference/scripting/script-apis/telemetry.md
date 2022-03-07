@@ -1,19 +1,19 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Telemetry - script API
 
 ## Function `query`
 
-A telemetry query is a conjunction of equality conditions. E.g. `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine query time range, limit the number of points returned, or set a metric field.
+A telemetry query is a conjunction of equality conditions. For example, `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine the query time range, limit the number of points returned, or set a metric field.
 
 ```text
 Telemetry.query(dataSourceName: String, query: String)
 ```
 
 {% hint style="warning" %}
-As of yet, telemetry queries only support metric queries. If you need event queries, please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
+Telemetry queries only support metric queries. If you need event queries, please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
 {% endhint %}
 
 **Args:**
@@ -27,7 +27,8 @@ As of yet, telemetry queries only support metric queries. If you need event quer
 
 **Builder methods:**
 
-* `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](telemetry.md#aggregation-methods).
+* `.groupBy(fieldName: String)` - optional. Used to return grouped results from Elasticsearch. Requires `.aggregation()` to be used. If there is no aggregation, a plain metric stream will be returned.
+* `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](/use/metrics-and-events/add-telemetry-to-element.md#aggregation-methods).
 * `start(time: Instant)` - sets the [start time](time.md) of the query, for example `-3h`.
 * `end(time: Instant)` - sets the [end time](time.md) of the query, for example `-1h`.
 * `window(start: Instant, end: Instant)` - sets query [time range](time.md). Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
@@ -37,16 +38,110 @@ As of yet, telemetry queries only support metric queries. If you need event quer
 
 **Examples:**
 
-* Get raw metric by query
+* Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
+  
+  {% tabs %}
+  {% tab title="Query" %}
+  ```text
+  Telemetry
+    .query("StackState Multi Metrics", "")
+    .groupBy("host")
+    .metricField("jvm_threads_current")
+    .start("-15m")
+    .aggregation("mean", "15m")
+  ```
+  {% endtab %}
+  {% tab title="Example JSON output" %}
+  ```text
+  {
+    "_type": "TelemetryMetricQueryResponse",
+    "query": {
+      "_type": "TelemetryMetricQuery",
+      "aggregation": {
+        "bucketSize": 900000,
+        "method": "MEAN"
+      },
+      "conditions": [
+        {
+          "key": "name",
+          "value": "jvm_threads_current"
+        }
+      ],
+      "dataSourceId": 277422153298283,
+      "endTime": 1643294849765,
+      "groupBy": {
+        "fields": ["host"]
+      },
+      "includeAnnotations": false,
+      "metricField": "stackstate.jvm_threads_current",
+      "startTime": 1643293949765
+    },
+    "response": {
+      "_type": "MetricData",
+      "result": [
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
+            }
+          },
+          "points": [[1643293800000, 49.46666666666667]],
+          "tags": []
+        },
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-kafka-to-es-trace-events"
+            }
+          },
+          "points": [[1643293800000, 44.46666666666667]],
+          "tags": []
+        },
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-receiver"
+            }
+          },
+          "points": [[1643293800000, 50.266666666666666]],
+          "tags": []
+        },
+        {
+          "_type": "TimeSeries",
+          "annotations": [],
+          "id": {
+            "_type": "TimeSeriesId",
+            "groups": {
+              "host": "sts-server"
+            }
+          },
+          "points": [[1643293800000, 179.53333333333333]],
+          "tags": []
+        }
+      ]
+    }
+  }
+  ```
+  {% endtab %}
+  {% endtabs %}
 
+* Get raw metric by query
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
   ```
 
-* Get metric aggregated using Mean during with bucket size 1 minute:
-
+* Get metric aggregated using Mean with bucket size 1 minute:
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
@@ -89,23 +184,4 @@ As of yet, telemetry queries only support metric queries. If you need event quer
     .metricField("value")
     .limit(100)
   ```
-
-## Aggregation methods
-
-The following aggregation methods are available for use with telemetry:
-
-* `MEAN` - mean
-* `PERCENTILE_25` - 25 percentile
-* `PERCENTILE_50` - 50 percentile
-* `PERCENTILE_75` - 75 percentile
-* `PERCENTILE_90` - 90 percentile
-* `PERCENTILE_95` - 95 percentile
-* `PERCENTILE_98` - 98 percentile
-* `PERCENTILE_99` - 99 percentile
-* `MAX` - maximum
-* `MIN` - minimum
-* `SUM` - sum
-* `EVENT_COUNT` - the number of occurrences during bucket interval
-* `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
-* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # Send event notifications
@@ -16,7 +16,7 @@ Event handlers can be added to a StackState view to send event notifications or 
 
 You can add an event handler to a view from the StackState UI [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane.
 
-![Add an event handler](../../.gitbook/assets/v45_event_handlers_tab.png)
+![Add an event handler](../../.gitbook/assets/v46_event_handlers_tab.png)
 
 ## Event types for notifications
 

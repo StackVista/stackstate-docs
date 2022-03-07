@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.5.x
+description: StackState Self-hosted v4.6.x
 ---
 
 # ID extractor functions
@@ -16,7 +16,7 @@ ID extractor functions are powered by a Groovy script, which is executed on each
 
 A list of all ID extractor functions in your StackState instance is available in the StackState UI, go to the page **Settings** > **Topology Synchronization** > **Id Extractors**. You can also create your own ID extractor here by clicking **ADD ID EXTRACTOR FUNCTION**.
 
-![Id extractor](../../../.gitbook/assets/v45_idextractor.png)
+![Id extractor](../../../.gitbook/assets/v46_idextractor.png)
 
 An ID extractor function has parameters. Only one parameter is required - the system parameter `element` that is of type JSON. This is input to the script for execution. In topology synchronization, the `element` will contain the element payload. The ID Extractor can produce the following information from the external data in the `element` parameter:
 
