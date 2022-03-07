@@ -1,3 +1,0 @@
-# OpenTelemetry
-
-## See also
