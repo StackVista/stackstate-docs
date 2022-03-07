@@ -165,14 +165,14 @@ Please create all the following env variables under the `Configuration` tab unde
   - Trace Agent Port: `8126`
   - OpenTelemetry StackState Agent Path: `/open-telemetry`
 
-| Key                                | Description                                                                                                                                                                 | Value                                |
-|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| AWS_LAMBDA_EXEC_WRAPPER            | This will allow the Lambda to root execution through OpenTelemetry allowing OpenTelemetry to setup everything required to capture traces when your Lambda function executes | /opt/otel-handler                    |
-| OTEL_LOG_LEVEL                     | The amount of logging showed within your Lambda post-execution window                                                                                                       | info                                 |
-| OTEL_PROPAGATORS                   | The OpenTelemetry propagator context                                                                                                                                        | tracecontext                         |
-| OTEL_TRACES_EXPORTER               | What type of export are we using with OpenTelemetry                                                                                                                         | otlp                                 |
-| OTEL_TRACES_SAMPLER                | When should we sample execution data                                                                                                                                        | always_on                            |
-| OTEL_EXPORTER_OTLP_TRACES_ENDPOINT | This is the endpoint where your StackState Trace lives. Within your Agent there is a port `8126` and a path `/open-telemetry` that allows us to capture traces              | http://localhost:8126/open-telemetry |
+| Key                              | Description                                                                                                                                                                 | Value                                          |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| AWS_LAMBDA_EXEC_WRAPPER          | This will allow the Lambda to root execution through OpenTelemetry allowing OpenTelemetry to setup everything required to capture traces when your Lambda function executes | /opt/otel-handler                              |
+| OTEL_LOG_LEVEL                   | The amount of logging showed within your Lambda post-execution window                                                                                                       | info                                           |
+| OTEL_PROPAGATORS                 | The OpenTelemetry propagator context                                                                                                                                        | tracecontext                                   |
+| OTEL_TRACES_EXPORTER             | What type of export are we using with OpenTelemetry                                                                                                                         | otlp                                           |
+| OTEL_TRACES_SAMPLER              | When should we sample execution data                                                                                                                                        | always_on                                      |
+| OTEL_EXPORTER_OTLP_TRACES_ENDPOINT | Routing information from the Lambda to StackState Agent | http://stackstate-agent-ip:8126/open-telemetry |
 
 ## Installation Step 4 - Final Notes
 
