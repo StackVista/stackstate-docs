@@ -1,15 +1,15 @@
-# OpenTelemetry - AWS - NodeJS
+# OpenTelemetry
 
 ## Overview
 
-StackState provides an out-of-the-box OpenTelemetry solution using a modified OpenTelemetry Lambda Layer that gives a plug-and-play user experience. The Lambda Layer used is based on the officially released [AWS Distro for OpenTelemetry Lambda \(aws-otel.github.io\)](https://aws-otel.github.io/docs/getting-started/lambda)).
+StackState provides an out-of-the-box OpenTelemetry solution for serverless AWS Lambda applications built with NodeJS. A modified OpenTelemetry Lambda Layer based on the officially released [AWS Distro for OpenTelemetry Lambda \(aws-otel.github.io\)](https://aws-otel.github.io/docs/getting-started/lambda) gives a plug-and-play user experience.
 
 OpenTelemetry has the following benefits:
 
 - Lambda functions can include the OpenTelemetry Lambda Layer solution to collect trace data without the need to change any code.
-- The specific AWS Service that a Lambda communicates with is shown. 
+- The specific AWS Service that a Lambda communicates with is shown in StackState. 
 
-Using the StackState OpenTelemetry Lambda Layer will transform Topology in StackState as follows: 
+The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
 
 | Without OpenTelemetry | With OpenTelemetry | 
 |:---|:---|
@@ -41,7 +41,7 @@ The following AWS Services and External Services with AWS OpenTelemetry Tracing 
 
 ### Installation
 
-Follow the steps below to set up OpenTelemetry tracing for a Lambda function.
+Follow the steps below to set up OpenTelemetry tracing for a NodeJS AWS Lambda script.
 
 {% hint style="info" %}
 Note that the installation steps should be completed for every Lambda function you wish to add OpenTelemetry tracing to.
