@@ -245,6 +245,37 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 {% endtab %}
 {% endtabs %}
 
+## Enable traces
+
+Traces must be enabled to receive [OpenTelemetry traces](/stackpacks/integrations/aws/opentelemetry.md) in StackState.
+
+{% tabs %}
+{% tab title="Linux" %}
+
+To enable tracing on StackState Agent running on Linux, edit the configuration file `/etc/stackstate-agent/stackstate.yaml`and set the following variables:
+- `apm_sts_url="https://ip:receiver-port/stsAgent"`
+  - The StackState Agent receiver port usually runs on port `7077`.
+- `enabled="true"`
+  - Can be found under `apm_config.enabled`.
+  - Allows the StackState Trace Agent to capture traces.
+{% endtab %}
+{% tab title="Docker" %}
+To enable tracing on StackState Agent running on Docker, edd the following parameters to your `docker run` command:
+- `-e STS_APM_URL="https://ip:receiver-port/stsAgent"`
+  - The StackState Agent receiver port usually runs on port `7077`.
+- `-e STS_APM_ENABLED="true"`
+  - Allows the StackState Trace Agent to capture traces.
+{% endtab %}
+{% tab title="Windows" %} 
+To enable tracing on StackState Agent running on Windows, edit the configuration file `C:\ProgramData\StackState\stackstate.yaml` and change the following variables:
+- `apm_sts_url="https://ip:receiver-port/stsAgent"`
+  - The StackState Agent receiver port usually runs on port `7077`.
+- `enabled="true"`
+  - Can be found under `apm_config.enabled`.
+  - Allows the StackState Trace Agent to capture traces.
+{% endtab %}
+{% endtabs %}
+
 ## Disable Agent features
 
 Certain features of the Agent can optionally be turned off if they are not needed.

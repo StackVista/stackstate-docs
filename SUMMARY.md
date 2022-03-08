@@ -180,7 +180,7 @@
   * [Debug telemetry synchronization](configure/telemetry/debug-telemetry-synchronization.md)
 * [Traces](configure/traces/README.md)
   * [Configure traces](configure/traces/configure_tracing.md)
-  * [Set up traces](configure/traces/how_to_setup_traces.md)
+  * [Set up traces](configure/traces/set-up-traces.md)
 * [Health](configure/health/README.md)
   * [Health synchronization](configure/health/health-synchronization.md)
   * [Send health data over HTTP](configure/health/send-health-data/README.md)

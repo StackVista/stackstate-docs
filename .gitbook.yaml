@@ -296,8 +296,8 @@ redirects:
   setup/installation: ./setup/install-stackstate/README.md
   develop/stql_reference: ./develop/reference/stql_reference.md
 
-
 # 4.6 docs
 
   use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
+  configure/traces/how_to_setup_traces: ./configure/traces/set-up-traces.md
   configure/traces/opentelemetry/aws_nodejs: ./stackpacks/aws/opentelemetry.md

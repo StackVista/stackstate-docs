@@ -52,7 +52,7 @@
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
 * [Event notifications](use/metrics-and-events/event-notifications.md)
 * [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
-* [Set up traces](configure/traces/how_to_setup_traces.md)
+* [Set up traces](configure/traces/set-up-traces.md)
 
 ## 🧩 StackPacks
 
