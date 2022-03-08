@@ -22,4 +22,3 @@ Within the telemetry inspector you can adjust the selected metric as well as the
 
 * [Add a single telemetry stream to a component](add-telemetry-to-element.md)
 * [Monitor a telemetry stream with a health check](../health-state/add-a-health-check.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")

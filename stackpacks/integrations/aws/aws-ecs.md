@@ -8,7 +8,6 @@ description: StackState SaaS
 
 Get topology and telemetry information from an Amazon Elastic Container Service \(ECS\) cluster.
 
-AWS ECS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Functionality
 

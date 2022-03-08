@@ -19,7 +19,12 @@ StackState Agent V2 can be run on Linux or Windows systems or inside a Docker co
 
 {% hint style="success" "self-hosted info" %}
 
-The [API Integration Agent \(Legacy\)](agent-v1.md) can be run on Linux.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+The API Integration Agent \(Legacy\) can be run on Linux.
 {% endhint %}
 
 ## Integrate with external systems
@@ -44,29 +49,14 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 StackState Agent connects to the StackState Receiver API.
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Kubernetes, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<baseUrl>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `baseUrl` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-valuesyaml "StackState Self-Hosted only").
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
-{% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Linux, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<baseUrl>:7077/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `baseUrl` is set during StackState installation. For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
 For the StackState SaaS product, the address of the StackState Receiver API will be provided on the StackState UI StackPack page after a StackPack has been installed.
 
-[Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 ## Open source
 
@@ -112,4 +102,3 @@ Release notes for StackState Agent V2 can be found on GitHub at: [https://github
 
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState integrations](../../stackpacks/integrations/)
-* [StackState Agent V1 \(Legacy\)](agent-v1.md "StackState Self-Hosted only")
