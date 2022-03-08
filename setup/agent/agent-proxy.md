@@ -1,3 +1,7 @@
+---
+description: StackState SaaS
+---
+
 # Use an HTTP/HTTPS proxy
 
 ## Overview
