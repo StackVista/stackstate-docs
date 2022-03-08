@@ -247,7 +247,7 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 
 ## Enable traces
 
-Traces must be enabled to receive [OpenTelemetry traces](/stackpacks/integrations/aws/opentelemetry.md) in StackState.
+The trace Agent will be enabled by default when StackState Agent is installed. It is required to receive traces in StackState. In case it has been disabled, you can enable it again using the instructions below.
 
 {% tabs %}
 {% tab title="Docker" %}

@@ -65,16 +65,16 @@ Change the region in the top-right corner to the region where the [AWS StackPack
 
 ![Change Region](../../../.gitbook/assets/otel_change_region.png)
 
-Verify that there is a **Lambda Layer** called `stackstate-otel-nodejs`.
+Verify that there is a Lambda Layer called `stackstate-otel-nodejs`.
 
 {% hint style="info" %}
 **If the Lambda Layer is not present:**
 
-  - The AWS StackPack CloudFormation Template installed may not be the latest one containing the Lambda Layer. Follow the [AWS StackPack](../../../../stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack.
-  - Lambda Layers are **AWS REGION** based. This means that if the [AWS StackPack](/stackpacks/integrations/aws/aws.md) CloudFormation template is currently deployed in another region other than where the targeted Lambda lives, the [AWS StackPack](/stackpacks/integrations/aws/aws.md) CloudFormation template should also be deployed inside the same region as the targeted Lambda.
+  - The AWS StackPack CloudFormation Template installed may not be the latest one containing the Lambda Layer. Follow the [AWS StackPack](/stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack.
+  - Lambda Layers are **AWS REGION** based. This means that the AWS StackPack CloudFormation template should also be deployed inside the same region as the targeted Lambda. If the CloudFormation template is currently deployed in another region other than where the targeted Lambda lives.
 {% endhint %}
   
-Go to the [Lambda functions](https://console.aws.amazon.com/lambda/home#/functions) page and navigate to the Lambda that you wish to add OpenTelemetry support to.
+Go to the [Lambda functions \(console.aws.amazon.com\)](https://console.aws.amazon.com/lambda/home#/functions) page and navigate to the Lambda that you wish to add OpenTelemetry support to.
 
 Underneath the **Code** tab, scroll down to the **Layers** section and click **Add a layer** on the right-hand side.
 
