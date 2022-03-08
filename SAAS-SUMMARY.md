@@ -71,6 +71,7 @@
     * [Agent V2 on Linux](setup/agent/linux.md)
     * [Agent V2 on OpenShift](setup/agent/openshift.md)
     * [Agent V2 on Windows](setup/agent/windows.md)
+    * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)

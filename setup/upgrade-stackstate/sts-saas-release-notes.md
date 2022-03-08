@@ -75,7 +75,7 @@ Details of the included improvements and bug fixes can be found below.
 
 **Bug fixes**
 
-- Fixed issue that caused AAD to fail to authenticate with StackState. STAC-15278
+- Fixed issue that caused the AAD to fail to authenticate with StackState. STAC-15278
 
 ### v4.5.2 (2022-14-01)
 

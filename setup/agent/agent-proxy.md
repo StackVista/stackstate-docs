@@ -1,3 +1,7 @@
+---
+description: StackState Self-hosted v4.6.x
+---
+
 # Use an HTTP/HTTPS proxy
 
 ## Overview
