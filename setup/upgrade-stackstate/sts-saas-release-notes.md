@@ -10,9 +10,9 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v4.6.x
 
-### 4.6.0 (04-03-2022)
+### v4.6.0 (04-03-2022)
 
-The StackState 4.6 release brings powerful new capabilities:
+The StackState v4.6 release brings powerful new capabilities:
 
 * Important improvements in topology visualization to accelerate troubleshooting.
 * Support for OpenTelemetry traces, specifically for serverless AWS Lambda applications built with Node.js. This new low-latency data requires no integration, and will immediately enrich your topology with additional relationships and telemetry.
@@ -53,7 +53,7 @@ Details of the included improvements and bug fixes can be found below.
 
 ## StackState v4.5.x
 
-### 4.5.4 (2022-02-09)
+### v4.5.4 (2022-02-09)
 
 **Bug fixes**
 
@@ -65,13 +65,13 @@ Details of the included improvements and bug fixes can be found below.
 - Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
 - Fixed issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
 
-### 4.5.4 (2022-02-01)
+### v4.5.4 (2022-02-01)
 
 **Improvements**
 
 - Internal Playground optimization. STAC-15393
 
-### 4.5.3 (2022-01-21)
+### v4.5.3 (2022-01-21)
 
 **Bug fixes**
 
