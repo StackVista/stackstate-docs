@@ -22,39 +22,11 @@ The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts ru
 
 To set up OpenTelemetry traces, you need to have:
 * [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.16 (or later)
-* The StackState Agent you are running should have [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces), if traces is not enabled then OpenTelemetry will not generate any data.
+* StackState Agent should have [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces are not enabled, OpenTelemetry will not generate any data.
 * AWS Lambda scripts running `NodeJS 14.x` (or later)
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
   * They should be able to communicate with the StackState Agent.
-* [AWS StackPack](/stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer, which is required for AWS OpenTelemetry functionality.
-
-### StackState Agent Prerequisites
-
-The StackState Agent you are running should have Traces enabled, if traces is not enabled then OpenTelemetry will not generate any data.
-You can enable Traces in one of the following ways depending on how you are running the StackState Agent
-
-- [StackState Agent V2 on Docker](https://docs.stackstate.com/setup/agent/docker)
-  - Add the following parameters to your `Docker Run` command
-    - -e STS_APM_URL=`https://ip:receiver-port/stsAgent`
-      - The receiver port from your StackState Agent (Usually runs on port 7077)
-    - -e STS_APM_ENABLED=`true`
-      - Allow the StackState Trace agent to capture traces
-- [StackState Agent V2 on Linux](https://docs.stackstate.com/setup/agent/linux)
-  - The StackState Agent V2 configuration is located in the file /etc/stackstate-agent/stackstate.yaml
-  - Change the following variables in the following file to enable tracing
-    - apm_sts_url=`https://ip:receiver-port/stsAgent`
-      - The receiver port from your StackState Agent (Usually runs on port 7077)
-    - enabled=`true`
-      - Can be found under `apm_config.enabled`
-      - Allow the StackState Trace agent to capture traces
-- [StackState Agent V2 on Windows](https://docs.stackstate.com/setup/agent/windows)
-  - The StackState Agent V2 configuration is located in the file C:\ProgramData\StackState\stackstate.yaml
-  - Change the following variables in the following file to enable tracing
-    - apm_sts_url=`https://ip:receiver-port/stsAgent`
-      - The receiver port from your StackState Agent (Usually runs on port 7077)
-    - enabled=`true`
-      - Can be found under `apm_config.enabled`
-      - Allow the StackState Trace agent to capture traces
+* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer, which is required for AWS OpenTelemetry functionality.
 
 ### Supported Services
 
