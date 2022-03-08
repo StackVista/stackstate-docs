@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Linux backup
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/data-management/backup_restore/linux_backup).
+{% endhint %}
+
 {% hint style="info" %}
 StackState prefers Kubernetes!  
 In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](/setup/install-stackstate/kubernetes_install/migrate_from_linux.md).

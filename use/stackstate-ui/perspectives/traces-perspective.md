@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Traces Perspective
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/perspectives/traces-perspective).
+{% endhint %}
+
 ## Overview
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.

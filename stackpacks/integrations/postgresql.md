@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # PostgreSQL
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/postgresql).
+{% endhint %}
+
 ## Overview
 
 Get metrics from the PostgreSQL service in real time to:

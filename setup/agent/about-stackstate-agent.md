@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # About the StackState Agent
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/agent/about-stackstate-agent).
+{% endhint %}
+
 ## Overview
 
 The StackState Agent functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.

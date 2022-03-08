@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Topology synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/send-topology-data).
+{% endhint %}
+
 ## Overview
 
 StackState can synchronize topology information from different sources, including your own sources.

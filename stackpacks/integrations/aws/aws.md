@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # AWS
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws).
+{% endhint %}
+
 ## Overview
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services. 

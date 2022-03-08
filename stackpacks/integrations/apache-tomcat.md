@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Apache Tomcat
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/apache-tomcat).
+{% endhint %}
+
 ## Overview
 
 This check collects Tomcat metrics, for example:

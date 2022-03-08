@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Getting Started
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/getting_started).
+{% endhint %}
+
 Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
 
 ## StackPacks[](http://not.a.link "StackState Self-Hosted only")

@@ -2,6 +2,12 @@
 description: StackState Self-hosted v4.5.x
 ---
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/health/send-health-data/transactional_increments).
+{% endhint %}
+
 ## Overview
 
 This page describes the exact JSON messages that can be sent for the health synchronization Transactional Increments consistency model.

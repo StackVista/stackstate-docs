@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Elasticsearch
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/data-sources/elasticsearch).
+{% endhint %}
+
 ## Overview
 
 StackState can be configured to pull data from your own Elasticsearch instance. The collected metrics or events data can then be added as a telemetry stream directly to a component or included as part of an integration, topology synchronisation or component/relation template.

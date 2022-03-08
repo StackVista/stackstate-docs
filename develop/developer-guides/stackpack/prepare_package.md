@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Packaging
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/prepare_package).
+{% endhint %}
+
 ## What is a StackPack package?
 
 StackPacks are essentially `.zip` archives that contain a file structure allowing for StackPack presentation in StackState, installation, provisioning and configuration of StackState. The `.zip` extension must be changed to `.sts` to make the archive visible as a StackPack in StackState. A StackPack archive has the following structure:

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Humio
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/humio).
+{% endhint %}
+
 ## What is the Humio StackPack?
 
 The Humio StackPack allows you to access your logs stored in Humio.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Linux
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/agent/linux).
+{% endhint %}
+
 ## Overview
 
 {% hint style="info" %}

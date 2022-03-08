@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # 💠 Dynatrace
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/dynatrace).
+{% endhint %}
+
 ## Overview
 
 The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in StackState.

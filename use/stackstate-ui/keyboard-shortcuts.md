@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Keyboard shortcuts
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/keyboard-shortcuts).
+{% endhint %}
+
 The keyboard shortcuts below can be used to navigate the StackState UI.
 
 | Keyboard shortcut | Action |

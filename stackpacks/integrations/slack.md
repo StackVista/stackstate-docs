@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.5.x
 
 # Slack StackPack
 
+{% hint style="warning" %}
+**This page describes StackState version 4.5.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/slack).
+{% endhint %}
+
 ## Overview
 
 The Slack StackPack allows you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler) to a view in StackState.
