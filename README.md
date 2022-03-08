@@ -10,6 +10,12 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 ➡️ Switch to the [documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/)
 
+{% hint style="success" %}
+**StackState v4.6 is now available!**
+
+[Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new.
+{% endhint %}
+
 ### Using StackState
 
 {% page-ref page="getting_started.md" %}

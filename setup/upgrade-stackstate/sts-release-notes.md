@@ -15,9 +15,9 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### 4.6.0
+### v4.6.0
 
-The StackState 4.6 release brings powerful new capabilities:
+The StackState v4.6 release brings powerful new capabilities:
 
 * Important improvements in topology visualization to accelerate troubleshooting.
 * Support for OpenTelemetry traces, specifically for serverless AWS Lambda applications built with Node.js. This new low-latency data requires no integration, and will immediately enrich your topology with additional relationships and telemetry.
@@ -79,7 +79,7 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### 4.5.5
+### v4.5.5
 
 **Bug fixes**
 
@@ -91,13 +91,13 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
 - Fixed issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
 
-### 4.5.4
+### v4.5.4
 
 **Improvements**
 
 - Internal Playground optimization. STAC-15393
 
-### 4.5.3
+### v4.5.3
 
 **Bug fixes**
 
@@ -208,7 +208,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.4.1
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version 4.4.3](#v4.4.3).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version v4.4.3](#v4.4.3).
 {% endhint %}
 
 **Improvements**
@@ -250,7 +250,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
 * Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
-* [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
+* [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState v4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
 * Improve how component names are displayed in the Topology Perspective. STAC-13063
 * The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
 
@@ -356,7 +356,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Improvements**
 
-* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
+* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
