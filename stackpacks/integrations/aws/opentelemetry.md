@@ -2,7 +2,7 @@
 
 ## Overview
 
-StackState provides an out-of-the-box OpenTelemetry solution for serverless AWS Lambda applications built with NodeJS. A modified OpenTelemetry Lambda Layer based on the officially released [AWS Distro for OpenTelemetry Lambda \(aws-otel.github.io\)](https://aws-otel.github.io/docs/getting-started/lambda) gives a plug-and-play user experience.
+StackState provides an out-of-the-box OpenTelemetry solution for serverless AWS Lambda applications built with NodeJS. A modified OpenTelemetry Lambda Layer, based on the officially released [AWS Distro for OpenTelemetry Lambda \(aws-otel.github.io\)](https://aws-otel.github.io/docs/getting-started/lambda), gives a plug-and-play user experience.
 
 OpenTelemetry has the following benefits:
 
@@ -15,50 +15,49 @@ The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts ru
 |:---|:---|
 | ![](../../../.gitbook/assets/otel_from_original.png) | ![](../../../.gitbook/assets/otel_to_with_traces.png) |
 
-
 ## Setup
 
 ### Prerequisites
 
 To set up OpenTelemetry traces, you need to have:
 * [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.16 (or later)
-* StackState Agent should have [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces are not enabled, OpenTelemetry will not generate any data.
+* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces are not enabled on the Agent, OpenTelemetry will not generate any data.
 * AWS Lambda scripts running `NodeJS 14.x` (or later)
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
   * They should be able to communicate with the StackState Agent.
-* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) installed. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer, which is required for AWS OpenTelemetry functionality.
+* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in StackState. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer, which is required for AWS OpenTelemetry functionality.
 
 ### Supported Services
 
 The following AWS Services and External Services with AWS OpenTelemetry Tracing are supported:
 
-- Communication from **AWS Lambda** to
-  - **AWS Lambda**
-  - **AWS SQS**
-  - **AWS SNS**
-  - **AWS S3**
-  - **AWS StepFunction**
-  - **HTTP Endpoints**
+Communication from **AWS Lambda** to:
+- AWS Lambda
+- AWS SQS
+- AWS SNS
+- AWS S3
+- AWS StepFunction
+- HTTP Endpoints
 
 ### Installation
 
 Follow the steps below to set up OpenTelemetry tracing for a NodeJS AWS Lambda script.
 
 {% hint style="info" %}
-Note that the installation steps should be completed for every Lambda function you wish to add OpenTelemetry tracing to.
+Note that the installation steps should be completed for every Lambda function that you wish to add OpenTelemetry tracing to.
 {% endhint %}
 
-1. [Verify that the Lambda Layer Exists](#add-the-lambda-layer)
+1. [Verify that the Lambda Layer exists](#verify-that-the-lambda-layer-exists)
 2. [Set up tracing](#set-up-tracing)
 3. [Add the required environment variables](#add-environment-variables)
 
 After these steps have been completed, you should be ready to send traces to your StackState Agent.
 
-To test the configuration, execute the associated Lambda function. New Topology relations should be created and visible in the StackState UI within a minute or so. Relations will be created if your Lambda is communicating with any of the [supported services](#supported-services).
+To test the configuration, execute the associated Lambda function. New Topology relations should be created and visible in the StackState UI within a minute or so. Relations will be created wherever your Lambda is communicating with any of the [supported services](#supported-services).
 
-#### Verify that the Lambda Layer Exists
+#### Verify that the Lambda Layer exists
 
-Head over to your [AWS Lambda Layers \(console.aws.amazon.com\)](https://console.aws.amazon.com/lambda/home#/layers) page listing all your available **Lambda Layer** functions.
+Go to the [AWS Lambda Layers \(console.aws.amazon.com\)](https://console.aws.amazon.com/lambda/home#/layers) page listing all available **Lambda Layer** functions.
 
 ![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer.png)
 
