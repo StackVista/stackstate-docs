@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState SaaS
 ---
 
 # How to customize elements created by the Custom Synchronization StackPack

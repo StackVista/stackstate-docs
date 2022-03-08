@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState SaaS
 ---
 
 # Welcome to the StackState Self-hosted product docs!

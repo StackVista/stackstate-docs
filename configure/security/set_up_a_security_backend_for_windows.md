@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState SaaS
 ---
 
 # Set up a security backend for Windows
