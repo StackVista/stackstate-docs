@@ -37,7 +37,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **relation** - Models a dependency between components.
 * **relation health state** - Determined by all checks defined on the relation. The most severe one always determines the state of the relation.
 * **role** - Combination of a configured subject and a set of permissions.
-* **run state** - Defines the working status of a component.
+* **run state** - Defines the operational status of a component.
 * **scope** - Determines limitations for queries that user can execute. See prefix for more information.
 * **selection** - Filtering down the IT landscape from the full view to a more specific one. Selection can be saved as a view.
 * **stack element** - See element.
@@ -53,10 +53,9 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **telemetry data source** - A real-time stream of metric or event data coming from an external system.
 * **telemetry stream** - Component or relation specific data collected and sent over to StackState.
 * **template** - Creates components/relations based on data from the topology data source.
-* **topology** - Consists of components and relations between those components.
+* **topology** - The set of relationships and dependencies between discrete components in an environment (for example, business services, microservices, load balancers, containers and databases).
 * **topology data source** - Used to provide data from an external system during the synchronization process.
 * **traces** - A single request that follows a certain path through the 4T data model.
 * **view** - A partial visualization of the 4T data model that can be tailored to show only the cut of an IT landscape that is needed.
 * **view health state** - Shows the health state of the entire view.
 * **view state function** - Allows users to modify the behavior of the view health state.
-

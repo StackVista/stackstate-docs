@@ -15,9 +15,7 @@ A propagated state is returned as one of the following health states:
 * `DEVIATING`
 * `UNKNOWN`
 
-A component's propagated state is calculated using a propagation function. This can be set as **Propagation** in the component's edit dialogue in the StackState UI.
-
-![Edit component propagation](../../../.gitbook/assets/v45_edit-component-propagation.png)
+A component's propagated state is calculated using a propagation function, which is set during synchronization.
 
 ## Propagation functions
 
@@ -41,11 +39,25 @@ Some propagation functions are installed as part of a StackPack. For example, Qu
 A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
 {% endhint %}
 
+### Specify in template
+
+The default propagation used in StackState is Auto propagation. If another type of propagation should be applied to a component, this must be specified in the during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
+
+To manually specify a non-default propagation function, add the following to the template used when it is synchronized: 
+
+```yaml
+"propagation": {
+  "_type": "Propagation",
+  "function": <id-of-the-function-to-use>,
+  "arguments": []
+},
+```
+
 ## Create a custom propagation function
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
-![Custom propagation function](../../../.gitbook/assets/v45_propagation-function.png)
+![Custom propagation function](../../../.gitbook/assets/v46_propagation-function.png)
 
 The simplest possible function that can be written is given below. This function will always return a `DEVIATING` propagated state:
 
@@ -73,7 +85,7 @@ This code works as follows:
 | Code | Description |
 | :--- | :--- |
 | `.withId(componentId)` | The `componentId` is passed as long and resolved |
-| `.fullComponent()` | Returns a JSON-style representation of the component. This is the same format as is obtained from the `Show Json` component properties menu or by using a [topology query](../../reference/scripting/script-apis/topology.md) in analytics. |
+| `.fullComponent()` | Returns a JSON-style representation of the component. This is the same format as is obtained from the `Show Json` properties menu for a component, or by using a [topology query](../../reference/scripting/script-apis/topology.md) in analytics. |
 | `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides. `component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id. |
 |  |  |
 

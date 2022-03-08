@@ -301,69 +301,6 @@ These environment variables have the same names used by the AWS\_CLI utility and
 * Bugfix: Fixed problem when uninstalling CloudFormation Stack that CloudTrail was still producing logs.
 * Improvement: Updated documentation.
 
-**AWS \(Legacy\) StackPack v5.3.0 \(2021-04-19\)**
-
-* Improvement: Following component types now show their tags as labels: API Gateway Stages, SNS Topics, Firehoses, Route53 HostedZones, Route53 Domains and Classic Elastic LoadBalancers.
-* Improvement: Topology for EC2 instances now includes public-ip and private-ip, hostname, fqdn and instance-id labels.
-* Improvement: Security group components moved to Networking layer.
-* Improvement: Updated documentation.
-* Bugfix: Updates IAM policies when reinstalling AWS integration lambdas.
-
-**AWS \(Legacy\) StackPack v5.2.2 \(2021-04-09\)**
-
-* Bugfix: Fixed upgrading AWS StackPack when you upgrade StackState from 4.2.x to 4.3.x
-
-**AWS \(Legacy\) StackPack v5.2.1 \(2021-04-02\)**
-
-* Bugfix: Updated the manual\_trigger.sh to verify if the lambda exists, Trigger and monitor the lambda outcome and if it failed then the error will be displayed with a possible solution to allow the user to fix the problem and 'press any key' to retry
-* Improvement: Update documentation.
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.1
-* Improvement: StackState min version bumped to 4.3.0
-
-**AWS \(Legacy\) StackPack v5.1.3 \(2021-03-01\)**
-
-* Feature: Added support for security groups
-* Feature: Give RDS databases an identifier so that they can be referred to by other StackPacks
-* Bugfix: Fixed the EC2 instances being stranded. Relationship restored to either a Subnet or VPC fallback.
-* Bugfix: Added a delete event for the removal of a ELB Target Group
-* Bugfix: Fixed the ELB, ELB Target Group and ELB Target Group Instance not mapping on cloud watch events
-* Bugfix: Restored the EC2 identifier to the i- _mapping instead of urn:aws/i-_
-* Bugfix: Updated the ELB Instance identifier to map to urn:aws/target-group-instance/i- _instead of i-_
-
-**AWS \(Legacy\) StackPack v5.1.2 \(2021-02-01\)**
-
-* Bugfix: Merged the `elb_v2_target_group_instance` and `ec2-instance`. The `elb_v2_target_group_instance` will no longer display as a generic aws resource but rather show up as the merged EC2 instance.
-
-**AWS \(Legacy\) StackPack v5.1.1 \(2021-01-22\)**
-
-* Feature: New component type `elb_v2_gateway` and its metrics added. 
-* Feature: Metrics added for type `elb_v2_network`.
-* Improvement: Metrics fixed for different target group based on load balancer type 
-* Improvement: Restricted the full, minimal and uninstall policies resources from all \(\*\) to only certain resources. This will restrict the IAM user to only access resources created by StackState or Specified by the user
-* Improvement: Lambda version is send in the payload
-* Improvement: Better error logs
-* Improvement: Cloudformation memory cache improvements
-
-**AWS \(Legacy\) StackPack v5.1.0 \(2021-01-04\)**
-
-* Feature: Added support for EC2 Nitro based metrics EBSWriteBytes and EBSReadBytes.
-* Improvement: Check if `TargetGrouArn` exist in the loadBalancer for relation.
-
-**AWS \(Legacy\) StackPack v5.0.2 \(2020-11\)**
-
-* Bugfix: Fixed and improved the parsing of custom StackState identifier tags making it more flexible and ignoring case sensitivity.
-* Bugfix: Fixed the merging between ECS service components with Traefik trace service components.
-* Bugfix: Fixed profile selection doesn't work when you run `./install --profile`.
-
-**AWS \(Legacy\) StackPack v5.0.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer.
-
-**AWS \(Legacy\) StackPack v5.0.0 \(2020-08-13\)**
-
-* Bugfix: Fixed the upgradation of other StackPacks due to AWS old layers using common. 
-
 ## See also
 
 * [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)

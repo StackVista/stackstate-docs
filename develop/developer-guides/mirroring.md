@@ -337,7 +337,7 @@ Sample aggregated metric request:
  }
 ```
 
-The request is the same as for raw query with one exception, The `aggregation` field is not empty and holds the aggregation `method` and aggregation bucket size `bucketSizeMillis`. The aggregation is done using the batching windowing method. See the [available aggregation methods](../reference/scripting/script-apis/telemetry.md#aggregation-methods).
+The request is the same as for raw query with one exception, The `aggregation` field is not empty and holds the aggregation `method` and aggregation bucket size `bucketSizeMillis`. The aggregation is done using the batching windowing method. See the [available aggregation methods](/use/metrics-and-events/add-telemetry-to-element.md#aggregation-methods).
 
 An example response of an aggregated query request is given below:
 

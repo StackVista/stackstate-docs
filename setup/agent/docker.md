@@ -48,7 +48,7 @@ docker run -d \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -e STS_API_KEY="API_KEY" \
-    -e STS_STS_URL="<stackstate-receiver-api-address> \
+    -e STS_STS_URL="<stackstate-receiver-api-address>" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:latest
@@ -179,6 +179,10 @@ stackstate-agent:
 ```
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
+
+### Proxy configuration
+
+The Agent can be configured to use a proxy for HTTP and HTTPS requests. For details, see [use an HTTP/HTTPS proxy](/setup/agent/agent-proxy.md).
 
 ### Self-Signed Certificates
 

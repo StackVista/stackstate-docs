@@ -1,9 +1,9 @@
-name: Merge 4.5 changes into master
+name: Merge 4.6 changes into master
 
-# triggered on push or merge to 4.5 branch
+# triggered on push or merge to 4.6 branch
 on:
   push:
-    branches: [ 4.5 ]
+    branches: [ 4.6 ]
 
 jobs:
   auto-pull-request:
@@ -15,5 +15,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: master
-          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 4.5"
+          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 4.6"
           PULL_REQUEST_REVIEWERS: "gggina"

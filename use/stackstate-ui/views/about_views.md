@@ -48,7 +48,7 @@ When you first open a view, the View Details pane will be visible on the right-h
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../health-state/health-state-in-stackstate.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../health-state/about-health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
@@ -84,6 +84,6 @@ Through a combination of configuration of permissions and scope, it is possible 
 ## See also
 
 * [Create and edit views](create_edit_views.md)
-* [Health state for a view](../../health-state/health-state-in-stackstate.md#view-health-state)  
+* [Health state for a view](../../health-state/about-health-state.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
 * [Send event notifications for view health state changes](/use/stackstate-ui/views/manage-event-handlers.md)

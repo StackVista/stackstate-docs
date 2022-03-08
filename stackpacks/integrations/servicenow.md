@@ -276,51 +276,6 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 * Common bumped from 2.5.0 to 2.5.1
 
-**ServiceNow StackPack v5.3.0 \(2021-04-02\)**
-
-**Improvement**
-
-* Common bumped from 2.2.3 to 2.5.0
-* StackState min version bumped to 4.3.0
-
-**ServiceNow StackPack v5.2.0 \(2021-03-23\)**
-
-* Improvement: Set `tags`, `domain`, `layer` and `environment` coming from ServiceNow integration.
-* Improvement: Enable auto grouping on generated views. 
-* Improvement: Added configuration options for SSL certificate included with Agent 2.11.0 release.
-
-**ServiceNow StackPack v5.1.0 \(2020-12-16\)**
-
-* Feature: Documentation update for new features of Change Requests and different filters added.
-
-**ServiceNow StackPack v5.0.0 \(17-11-2020\)**
-
-* Feature: Introduce the Instance Name for easy filtering and use.
-
-**ServiceNow StackPack v4.0.1 \(18-08-2020\)**
-
-* Feature: Introduced the Release notes pop up for customer.
-
-**ServiceNow StackPack v4.0.0 \(04-08-2020\)**
-
-* Bugfix: Fix and make Component mapping function per instance to support multi-instance.
-
-**ServiceNow StackPack v3.1.0 \(04-08-2020\)**
-
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-* Improvement: Addition of new views.
-
-**ServiceNow StackPack v3.0.0 \(30-04-2020\)**
-
-* Feature: Updated the requirement docs to use AgentV2 now.
-* Feature: Updated the installation details to use the new configuration parameters.
-* Feature: Replace resolveOrCreate with getOrCreate.
-* Feature: Multi-instance support is available now.
-
-**ServiceNow StackPack v2.1.0 \(10-04-2020\)**
-
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial.
-
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 

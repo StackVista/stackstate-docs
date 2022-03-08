@@ -148,7 +148,7 @@ Run the command below, specifying the StackState namespace and the image registr
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3 day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to a day of data is used for training. After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
 
 ## Upgrade the standalone AAD instance
 

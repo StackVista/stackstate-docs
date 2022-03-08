@@ -6,7 +6,7 @@ description: StackState SaaS
 
 ## Function `withId`
 
-Get access to a component by its id.
+Get access to a component by its ID.
 
 **Args:**
 
@@ -16,106 +16,99 @@ Get access to a component by its id.
 
 Each of the methods below give you a Async result with a set of properties
 
-`get` - Gets components details in full with following fields
+- `at(time: Instant or Timeslice)` - specifes a [time](time.md) for which the query should be executed. 
+- `get` - Gets components details in full with following fields:
+    ```text
+    id
+    name
+    description
+    lastUpdateTimestamp
+    type
+    layer
+    domain
+    environments
+    state
+    runState
+    outgoingRelations
+    incomingRelations
+    synchronized
+    failingChecks
+    iconbase64
+    visible
+    ```
 
-```text
-id
-name
-description
-lastUpdateTimestamp
-type
-layer
-domain
-environments
-state
-runState
-outgoingRelations
-incomingRelations
-synchronized
-failingChecks
-iconbase64
-visible
-```
+- `checks` - Gets a list of component checks each with the following fields:
+    ```text
+    id
+    lastUpdateTimestamp`
+    name
+    description
+    remediationHint
+    function
+    arguments
+    state
+    syncCreated
+    ```
 
-`checks` - Gets a list of component checks each with the following fields
+- `domain` - Gets the domain the component belongs to with the following fields:
+    ```text
+    id
+    lastUpdateTimestamp
+    name
+    description
+    order
+    identifier
+    ```
 
-```text
-id
-lastUpdateTimestamp`
-name
-description
-remediationHint
-function
-arguments
-state
-syncCreated
-```
+- `streams` - Gets a list of component streams each with the following fields:
+    ```text
+    id
+    lastUpdateTimestamp
+    name
+    description
+    priority
+    dataType
+    dataSource
+    query
+    ```
 
-`domain` - Gets the domain the component belongs to with the following fields
+- `type` - Gets the component type of the given component with the following fields:
+    ```text
+    id
+    lastUpdateTimestamp
+    name
+    description
+    iconbase64
+    identifier
+    ```
 
-```text
-id
-lastUpdateTimestamp
-name
-description
-order
-identifier
-```
+- `layer` - Gets the layer for the component with the following fields:
+    ```text
+    id
+    lastUpdateTimestamp
+    name
+    description
+    order
+    identifier
+    ```
 
-`streams` - Gets a list of component streams each with the following fields
+- `environments` - Gets a list of environments this component belongs to with following fields:
+    ```text
+    id
+    lastUpdateTimestamp
+    name
+    description
+    identifier
+    ownedBy
+    ```
 
-```text
-id
-lastUpdateTimestamp
-name
-description
-priority
-dataType
-dataSource
-query
-```
-
-`type` - Gets the component type of the given component with the following fields
-
-```text
-id
-lastUpdateTimestamp
-name
-description
-iconbase64
-identifier
-```
-
-`layer` - Gets the layer for the component with the following fields
-
-```text
-id
-lastUpdateTimestamp
-name
-description
-order
-identifier
-```
-
-`environments` - Gets a list of environments this component belongs to with following fields
-
-```text
-id
-lastUpdateTimestamp
-name
-description
-identifier
-ownedBy
-```
-
-`propagation` - Get the propagation for the component if any with the following fields
-
-```text
-id
-lastUpdateTimestamp
-function
-arguments
-```
+- `propagation` - Get the propagation for the component if any with the following fields:
+    ```text
+    id
+    lastUpdateTimestamp
+    function
+    arguments
+    ```
 
 **Examples:**
 

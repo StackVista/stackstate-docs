@@ -10,9 +10,9 @@ description: StackState SaaS
 
 StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
 
-* **Amazon Elastic Kubernetes Service (EKS):** 1.18 to 1.21
-* **Azure Kubernetes Service (AKS):** 1.18 to 1.21
-* **OpenShift:** 4.7 to 4.8
+* **Amazon Elastic Kubernetes Service (EKS):** 1.19 to 1.21
+* **Azure Kubernetes Service (AKS):** 1.19 to 1.21
+* **OpenShift:** 4.8 to 4.9
 
 ### Node sizing
 
@@ -71,6 +71,35 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 It is not recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
 If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
+
+
+## KOTS 
+
+### VM
+
+KOTS requires VM running a [supported OS \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/system-requirements)
+
+### Node sizing
+For a standard deployment, KOTS deploys backend services in a redundant setup with 3 instances of each service. The nodes required for different environments:
+
+{% tabs %} 
+{% tab title="Recommended setup" %} 
+Requirements for the recommended high availability setup:
+
+* **Amazon EC2**: 8 instances of type m5.2xlarge or m4.2xlarge
+* **Azure**: 8 instances of type D8s v3 or D8as V4 (Intel or AMD CPUs)
+* **Virtual machines**: 8 nodes with 32GB memory, 8 vCPUs
+
+{% endtab %}
+{% tab title="Minimal setup" %} 
+Requirements for the recommended high availability setup:
+
+* ***Amazon EC2***: 5 instances of type m5.2xlarge or m4.2xlarge
+* ***Azure***: 5 instances of type D8s v3 or D8as V4 (Intel or AMD CPUs)
+* ***Virtual machines***: 5 nodes with 32GB memory, 8 vCPUs
+
+{% endtab %}
+{% endtabs %}
 
 ## Linux
 

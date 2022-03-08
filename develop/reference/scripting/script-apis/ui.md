@@ -22,7 +22,7 @@ UI.baseUrl()
 
 ## Function: `createUrl`
 
-Creates a URL builder that can be used to generate URLs that can be linked back in Stackstate.
+Creates a URL builder that can be used to generate URLs that can be linked back in StackState.
 
 **Args:**
 
@@ -34,14 +34,14 @@ PerspectiveUrlBuilder
 
 **Builder methods:**
 
-* `view(view)` or `explore()` - returns a `PerspectiveUrlBuilder` for either the specified view or the exploration mode with the following methods:
+* `view(viewURN)` or `explore()` - returns a `PerspectiveUrlBuilder` for either the specified view or the exploration mode with the following methods:
   * `at(time: instant)` -  specifies a [time](time.md) for which the view query should be executed.
   * `topologyQuery(query: String)` - specifies a topology query
   * `withComponent(component)` - creates a view URL with the specified component in focus.
-  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the Telemetry Perspective
+  * `withTelemetryComponent(component: Any)` - specifies telemetry component to show charts for on the Metrics Perspective
   * `eventsPerspective()` - points the URL to the Events Perspective
   * `tracesPerspective()` - points the URL to the Traces Perspective
-  * `telemetryPerspective()` - points the URL to the Telemetry Perspective 
+  * `telemetryPerspective()` - points the URL to the Metrics Perspective 
   * `topologyPerspective()` - points the URL to the Topology Perspective
   * `noRootCause()` - disable root cause analysis for the Topology Perspective
   * `rootCauseOnly()` - show root cause on the Topology Perspective
@@ -106,7 +106,7 @@ Opens a new tab in the user's browser to some URL.
 Open the stackstate.com website in a new tab in the browser.
 
 ```groovy
-UI.redirectToUrl("http://wwww.stackstate.com")
+UI.redirectToURL("http://wwww.stackstate.com")
 ```
 
 ## Function: `showReport`

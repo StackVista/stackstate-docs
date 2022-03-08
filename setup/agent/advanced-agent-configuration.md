@@ -137,7 +137,7 @@ stackstate-cluster-agent stackstate/cluster-agent
 
 {% tab title="Docker" %}
 
-To reduce data production in StackState Agent running on Docker:
+To reduce data production in StackState Agent running in a Docker container:
 
 1. Configure the `min_collection_interval` for each of the following system integrations. The default setting is `15` seconds. Doubling this value should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
    - **Memory** - `/etc/stackstate-agent/conf.d/memory.d/conf.yaml`
@@ -200,6 +200,10 @@ To reduce data production in StackState Agent running on Windows:
 {% endtab %}
 
 {% endtabs %}
+
+## Use a proxy for HTTP/HTTPS
+
+The Agent can be configured to use a proxy for HTTP and HTTPS requests. For details, see [use an HTTP/HTTPS proxy](/setup/agent/agent-proxy.md).
 
 
 ## Blacklist and inclusions

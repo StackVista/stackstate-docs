@@ -122,11 +122,10 @@ If MinIO is configured to store its data in Kubernetes storage, a PersistentVolu
 It is advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Storage for clusters running on Azure for the following reasons:
 
 1. Kubernetes clusters running in a cloud provider usually map PVCs to block storage, such as Elastic Block Storage for AWS or Azure Block Storage. Block storage is expensive, especially for large data volumes.
-1. Persistent Volumes are destroyed when the cluster that created them is destroyed. That means an (accidental) deletion of your cluster will also destroy all backups stored in Persistent Volumes.
-1. Persistent Volumes cannot be accessed from another cluster. That means that it is not possible to restore StackState from a backup taken on another cluster.
+2. Persistent Volumes are destroyed when the cluster that created them is destroyed. That means an (accidental) deletion of your cluster will also destroy all backups stored in Persistent Volumes.
+3. Persistent Volumes cannot be accessed from another cluster. That means that it is not possible to restore StackState from a backup taken on another cluster.
 {% endhint %}
 
-## Cavaet 
 To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
 ```yaml
@@ -315,7 +314,9 @@ The timestamp when the backup was taken is part of the backup name.
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-When a snapshot is restored, existing indices will NOT be overwritten. Use Elasticsearch's [Delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices), below.
+When a snapshot is restored, existing indices will NOT be overwritten. Use the Elasticsearch [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. 
+
+See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}
 
 To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line:
@@ -352,33 +353,48 @@ job.batch "elasticsearch-restore-20210229t152530" deleted
 
 The indices restored are listed in the output, as well as the number of failed and successful restore actions.
 
+After the indices have been restored, scale up all `*2es` deployments:
+
+   ```bash
+   kubectl scale --replicas=1 deployment/e2es
+   kubectl scale --replicas=1 deployment/mm2es
+   kubectl scale --replicas=1 deployment/trace2es
+   ```
+
 ### Delete Elasticsearch indices
 
 To delete existing Elasticsearch indices so that a snapshot can be restored, follow these steps.
 
-1. Open a port-forward to the Elasticsearch master:
+1. Stop indexing - scale down all `*2es` deployments to 0:
+
+   ```bash
+   kubectl scale --replicas=0 deployment/e2es
+   kubectl scale --replicas=0 deployment/mm2es
+   kubectl scale --replicas=0 deployment/trace2es
+   ```
+
+2. Open a port-forward to the Elasticsearch master:
 
    ```bash
    kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
    ```
 
-2. Delete an index with a following command:
+3. Delete an index with a following command:
 
    ```bash
    curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
    ```
 
-   Replace `INDEX_NAME` with the name of the index to delete, for example
+   Replace `INDEX_NAME` with the name of the index to delete, for example:
 
    ```bash
    curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
    ```
 
-3. The output should be:
+4. The output should be:
 
    ```javascript
    {
    "acknowledged" : true
    }
    ```
-

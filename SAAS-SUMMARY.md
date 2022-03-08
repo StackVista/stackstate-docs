@@ -8,10 +8,11 @@
 * [StackState walk-through](getting_started.md)
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
-  * [Components and Relations](use/concepts/components_relations.md)
+  * [Components](use/concepts/components.md)
+  * [Relations](use/concepts/relations.md)
+  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
   * [Perspectives](use/concepts/perspectives.md)
   * [Anomaly detection](use/concepts/anomaly-detection.md)
-  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
 * [Glossary](use/glossary.md)
 
 ## 👤 StackState UI
@@ -27,13 +28,13 @@
   * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
   * [Events Perspective](use/stackstate-ui/perspectives/events_perspective.md)
   * [Traces Perspective](use/stackstate-ui/perspectives/traces-perspective.md)
-  * [Telemetry Perspective](use/stackstate-ui/perspectives/telemetry-perspective.md)
+  * [Metrics Perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
 * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 
 ## 🚦 Health state
 
-* [Health state in StackState](use/health-state/health-state-in-stackstate.md)
+* [About health state](use/health-state/about-health-state.md)
 * [Add a health check](use/health-state/add-a-health-check.md)
 * [Anomaly health checks](use/health-state/anomaly-health-checks.md)
 * [Configure the view health](use/health-state/configure-view-health.md)
@@ -48,10 +49,11 @@
 
 * [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
 * [Golden signals](use/metrics-and-events/golden_signals.md)  
+* [Top metrics](use/metrics-and-events/top-metrics.md)
 * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
 * [Event notifications](use/metrics-and-events/event-notifications.md)
-* [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
+* [Set telemetry stream priority](use/metrics-and-events/set-telemetry-stream-priority.md)
 * [Set up traces](configure/traces/how_to_setup_traces.md)
 
 ## 🧩 StackPacks

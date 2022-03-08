@@ -38,7 +38,7 @@ To add an Elasticsearch data source:
 5. Click **CREATE** to save the Elasticsearch data source settings.
    * The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
 
-![Add Elasticsearch data source](../../../.gitbook/assets/v45_elasticsearch_data_source.png)
+![Add Elasticsearch data source](../../../.gitbook/assets/v46_elasticsearch_data_source.png)
 
 #### Find the Elasticsearch index pattern
 

@@ -50,13 +50,13 @@ The properties in the table below can be accessed directly in the component acti
 | `component.name` | String | The name of the component. |
 | `component.description` | Option\[String\] | The description of the component. |
 | `component.labels` | Set\[Label\] | Set of labels, each containing a `name` property. |
-| `state.healthState` | HealthStateValue | The health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| `state.propagatedHealthState` | HealthStateValue | The propagated health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| `layer` | Long | The StackGraph ID of the layer that the component is in. |
-| `domain` | Long | The StackGraph ID of the domain that the component is in. |
-| `environments` | Set\[Long\] | The StackGraph IDs of all environments that the component is in. |
+| `component.state.healthState` | HealthStateValue | The health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| `component.state.propagatedHealthState` | HealthStateValue | The propagated health state of the component. Can be `UNKNOWN`, `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| `component.layer` | Long | The StackGraph ID of the layer that the component is in. |
+| `component.domain` | Long | The StackGraph ID of the domain that the component is in. |
+| `component.environments` | Set\[Long\] | The StackGraph IDs of all environments that the component is in. |
 
-Other component properties can also be accessed using the [component script API](../../reference/scripting/script-apis/component.md).
+Other properties of the component can be accessed using the [component script API](../../reference/scripting/script-apis/component.md).
 
 ### Identifier
 

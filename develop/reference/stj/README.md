@@ -2,5 +2,5 @@
 description: StackState SaaS
 ---
 
-# StackState Template Json \(STJ\)
+# StackState Template JSON \(STJ\)
 

@@ -188,26 +188,3 @@ Execute the info command and verify that the integration check has passed. The o
 
 * Bugfix: Use the domain, layer, environment and type coming from data in component template
 
-**StaticTopology StackPack v2.3.1 \(2021-04-12\)**
-
-* Improvement: Common bumped from 2.5.0 to 2.5.1
-
-**StaticTopology StackPack v2.3.0 \(2021-04-02\)**
-
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Common bumped from 2.2.3 to 2.5.0
-* Improvement: StackState min version bumped to 4.3.0
-
-**StaticTopology StackPack v2.2.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**StaticTopology StackPack v2.2.0 \(2020-08-04\)**
-
-* Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
-* Improvement: Replace resolveOrCreate with getOrCreate.
-
-**StaticTopology StackPack v2.1.0 \(2020-04-23\)**
-
-* Improvement: Upgrade the requirement and documentation of Static Topology to use AgentV2.
-
