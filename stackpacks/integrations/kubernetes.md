@@ -36,6 +36,16 @@ The following prerequisites are required to install the Kubernetes StackPack and
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
+### Supported container runtimes
+
+From StackState Agent v2.16, the following container runtimes are supported:
+
+* containerd
+* CRI-O
+* Docker
+
+Versions of StackState Agent prior to v2.16 only support the Docker container runtime.
+
 ### Install
 
 Install the Kubernetes StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
@@ -146,7 +156,7 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 The Kubernetes integration retrieves components and relations for the Kubernetes cluster.
 
 {% hint style="info" %}
-Note that topology information is only gathered from Kubernetes clusters that use the Docker container runtime.
+**StackState Agent versions prior to 2.16:** Topology information is only gathered from Kubernetes clusters that use the Docker container runtime.
 {% endhint %}
 
 **Components**
