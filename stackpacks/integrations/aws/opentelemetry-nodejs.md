@@ -29,7 +29,7 @@ To set up OpenTelemetry traces, you need to have:
 
 ### Supported Services
 
-The following AWS Services and External Services with AWS OpenTelemetry Tracing are supported:
+The AWS Services and External Services with AWS OpenTelemetry Tracing listed below are supported.
 
 Communication from **AWS Lambda** to:
 - AWS Lambda
