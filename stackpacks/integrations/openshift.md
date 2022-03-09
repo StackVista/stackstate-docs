@@ -38,6 +38,16 @@ The following prerequisites are required to install the OpenShift StackPack and 
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
+### Supported container runtimes
+
+From StackState Agent v2.16, the following container runtimes are supported:
+
+* containerd
+* CRI-O
+* Docker
+
+Versions of StackState Agent prior to v2.16 support the Docker container runtime only.
+
 ### Install
 
 Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
@@ -144,6 +154,11 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 #### Topology
 
 The OpenShift integration retrieves components and relations for the OpenShift cluster.
+
+
+{% hint style="info" %}
+**StackState Agent versions prior to 2.16:** Topology information is only gathered from OpenShift clusters that use the Docker container runtime.
+{% endhint %}
 
 **Components**
 

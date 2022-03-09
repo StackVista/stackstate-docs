@@ -16,6 +16,8 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
+The Kubernetes integration collects topology data in an OpenShift cluster as well as metrics and events.
+
 * Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.

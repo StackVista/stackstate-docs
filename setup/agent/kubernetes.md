@@ -88,10 +88,10 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics. **Use the helm command provided in the StackState UI after you have installed the StackPack**
-   * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken) in addition to the variables included in the provided helm command. 
-   * For large Kubernetes clusters, you can [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
-   * If you are using a custom socket path, [provide the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath). 
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the **helm command provided in the StackState UI after you have installed the StackPack**. Additional variables can be added to the standard helm command, for example:
+   * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
+   * For large Kubernetes clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+   * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath). 
 
 ### Helm chart values
 
@@ -118,8 +118,6 @@ helm upgrade --install \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 
-Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
-
 #### agent.containerRuntime.customSocketPath
 
 It is not necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
@@ -136,9 +134,6 @@ helm upgrade --install \
 --set-string 'agent.containerRuntime.customSocketPath'='<your-custom-socket-path>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
-
-Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
-
 
 ### Upgrade
 
@@ -247,6 +242,7 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 ## See also
 
+* [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
 * [About the StackState Agent](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md)
