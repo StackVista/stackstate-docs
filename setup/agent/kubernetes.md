@@ -92,10 +92,9 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
    * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
    * For large Kubernetes clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
    * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath). 
+   * Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
 ### Helm chart values
-
-Some specific helm chart values are described below.
 
 {% hint style="info" %}
 Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
