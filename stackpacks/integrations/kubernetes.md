@@ -44,7 +44,7 @@ From StackState Agent v2.16, the following container runtimes are supported:
 * CRI-O
 * Docker
 
-Versions of StackState Agent prior to v2.16 only support the Docker container runtime.
+Versions of StackState Agent prior to v2.16 support the Docker container runtime only.
 
 ### Install
 
@@ -139,7 +139,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time)) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+You can also see current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
