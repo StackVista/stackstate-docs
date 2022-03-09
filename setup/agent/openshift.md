@@ -122,7 +122,7 @@ stackstate-cluster-agent stackstate/cluster-agent
 
 It is not necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
 
-If your cluster uses a custom socket path, you can provide it using the `agent.containerRuntime.customSocketPath` key. For example:
+If your cluster uses a custom socket path, you can provide it using the key `agent.containerRuntime.customSocketPath`. For example:
 
 ```
 helm upgrade --install \
