@@ -219,6 +219,13 @@ sudo stackstate-agent status
 
 ### Data retrieved
 
+The AWS integration retrieves the following data:
+
+* [Events](#events)
+* [Metrics](#metrics)
+* [Topology](#topology)
+* [Traces](#traces)
+
 #### Events
 
 The AWS StackPack supports the following event:
