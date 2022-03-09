@@ -46,7 +46,7 @@ From StackState Agent v2.16, the following container runtimes are supported:
 * CRI-O
 * Docker
 
-Versions of StackState Agent prior to v2.16 support the Docker container runtime only.
+Note that versions of StackState Agent prior to v2.16 support the Docker container runtime only.
 
 ### Install
 
@@ -149,7 +149,9 @@ You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel
 
 The OpenShift integration makes all metrics from the OpenShift cluster available in StackState. Relevant metrics are automatically mapped to the associated components.
 
-All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `openshift` in the **Select** box to get a full list of all available metrics.
+All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
+
+![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v46_add_k8s_stream.png)
 
 #### Topology
 

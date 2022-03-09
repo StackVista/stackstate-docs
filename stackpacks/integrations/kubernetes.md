@@ -46,7 +46,7 @@ From StackState Agent v2.16, the following container runtimes are supported:
 * CRI-O
 * Docker
 
-Versions of StackState Agent prior to v2.16 support the Docker container runtime only.
+Note that versions of StackState Agent prior to v2.16 support the Docker container runtime only.
 
 ### Install
 
