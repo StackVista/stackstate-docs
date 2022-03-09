@@ -300,4 +300,4 @@ redirects:
 
   use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
   configure/traces/how_to_setup_traces: ./configure/traces/set-up-traces.md
-  configure/traces/opentelemetry/aws_nodejs: ./stackpacks/aws/opentelemetry.md
+  configure/traces/opentelemetry/aws_nodejs: ./stackpacks/aws/opentelemetry-nodejs.md
