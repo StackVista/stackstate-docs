@@ -132,9 +132,9 @@ helm upgrade --install \
 --set-string 'stackstate.apiKey'='<your-api-key>' \
 --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
 --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+--set-string 'agent.containerRuntime.customSocketPath'='<your-custom-socket-path>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
---set-string 'agent.containerRuntime.customSocketPath'='<your-custom-socket-path>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 
