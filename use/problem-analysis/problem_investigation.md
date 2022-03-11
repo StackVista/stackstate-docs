@@ -29,7 +29,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
    * The affected stream is displayed highlighting the detected anomaly.
 2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
-![Metric stream anomaly event details](../../.gitbook/assets/v45_event_metric_stream_anomaly.png)
+![Metric stream anomaly event details](../../.gitbook/assets/v46_event_metric_stream_anomaly.png)
 
 ### Element properties changed events
 
@@ -54,13 +54,13 @@ A problem subview is a temporary StackState view. The filters applied to a probl
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
 * **Healthy components** - A number of healthy components are also included in a problem:
   * Upstream healthy dependencies of the root cause or one of the contributing causes.
-  * Downstream healthy components with an unhealthy [propagated state](/use/health-state/health-state-in-stackstate.md#propagated-health-state) that originates from either the root cause or one of the contributing causes.
+  * Downstream healthy components with an unhealthy [propagated state](/use/health-state/about-health-state.md#propagated-health-state) that originates from either the root cause or one of the contributing causes.
 
 Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
 To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](../../.gitbook/assets/v45_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](../../.gitbook/assets/v46_problem_subview_breadcrumb.png)
 
 ### Time window of a problem
 

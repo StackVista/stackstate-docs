@@ -248,7 +248,7 @@ curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
 
 
-![](../../.gitbook/assets/v45_main_menu.png)
+![](../../.gitbook/assets/v46_main_menu.png)
 
 ## Use the StackState CLI
 

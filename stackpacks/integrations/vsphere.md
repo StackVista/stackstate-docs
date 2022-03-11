@@ -186,35 +186,6 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 * Improvement: Common bumped from 2.5.0 to 2.5.1
 
-**VMWare vSphere StackPack v2.3.0 \(2021-04-02\)**
-
-* Improvement: Changed synchronization's merge strategy from 'merge, prefer theirs' to 'merge, prefer mine'.
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Update documentation.
-* Improvement: Common bumped from 2.2.3 to 2.5.0
-* Improvement: StackState min version bumped to 4.3.0
-
-**VMWare vSphere StackPack v2.2.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**VMWare vSphere StackPack v2.2.0 \(2020-08-04\)**
-
-* Improvement: Deprecated StackPack specific layers and introduced a new common layer structure.
-* Improvement: Replace resolveOrCreate with getOrCreate.
-
-**VMWare vSphere StackPack v2.1.0 \(2020-04-10\)**
-
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
-
-**VMWare vSphere StackPack v2.0.1 \(2020-04-03\)**
-
-* Improvement: Upgrade the requirement of vSphere to use AgentV2 now.
-
-**VMWare vSphere StackPack v2.0.0 \(2019-10-30\)**
-
-* Feature: Gathers Topology from your vSphere instance and allows visualization of your vSphere components and the relations between them.
-
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 

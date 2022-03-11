@@ -8,10 +8,11 @@
 * [StackState walk-through](getting_started.md)
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
-  * [Components and Relations](use/concepts/components_relations.md)
+  * [Components](use/concepts/components.md)
+  * [Relations](use/concepts/relations.md)
+  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
   * [Perspectives](use/concepts/perspectives.md)
   * [Anomaly detection](use/concepts/anomaly-detection.md)
-  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
 * [Glossary](use/glossary.md)
 
 ## 👤 StackState UI
@@ -33,7 +34,7 @@
 
 ## 🚦 Health state
 
-* [Health state in StackState](use/health-state/health-state-in-stackstate.md)
+* [About health state](use/health-state/about-health-state.md)
 * [Add a health check](use/health-state/add-a-health-check.md)
 * [Anomaly health checks](use/health-state/anomaly-health-checks.md)
 * [Configure the view health](use/health-state/configure-view-health.md)
@@ -48,6 +49,7 @@
 
 * [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
 * [Golden signals](use/metrics-and-events/golden_signals.md)  
+* [Top metrics](use/metrics-and-events/top-metrics.md)
 * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
 * [Event notifications](use/metrics-and-events/event-notifications.md)
@@ -69,6 +71,7 @@
     * [Agent V2 on Linux](setup/agent/linux.md)
     * [Agent V2 on OpenShift](setup/agent/openshift.md)
     * [Agent V2 on Windows](setup/agent/windows.md)
+    * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)

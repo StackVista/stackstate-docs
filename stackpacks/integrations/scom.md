@@ -239,44 +239,6 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 
 * Improvement: Common bumped from 2.5.0 to 2.5.1
 
-**SCOM StackPack v2.1.0 \(2021-04-02\)**
-
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Update documentation.
-* Improvement: Common bumped from 2.2.3 to 2.5.0
-* Improvement: StackState min version bumped to 4.3.0
-
-**SCOM StackPack v2.0.0 \(2021-01-29\)**
-
-* Bugfix: Major bump the version for installation fix
-
-**SCOM StackPack v1.2.2 \(2020-09-03\)**
-
-* Bugfix: Fix the problem of upgradation and installation.
-
-**SCOM StackPack v1.2.1 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**SCOM StackPack v1.2.0 \(2020-08-10\)**
-
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-
-**SCOM StackPack v1.1.0 \(2020-04-10\)**
-
-* Improvement: Updated StackPacks integration page, categories, and icons for the SaaS trial
-
-**SCOM StackPack v1.0.1 \(27-03-2020\)**
-
-* Bugfix: Fix the requirement of SCOM to run AgentV2 always.
-
-**SCOM StackPack v1.0.0 \(15-01-2020\)**
-
-This is the first public release of the SCOM StackPack that provides support to monitor your System Center Operations Manager instance. **NOTE**:- We support SCOM version 1806 and 2019.
-
-* Feature: Gathers Topology from your SCOM instance and allows visualization of your SCOM components and the relations between them.
-* Feature: Monitoring of your SCOM components, including health statuses of all your components.
-
 ## See also
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)

@@ -22,6 +22,7 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
   * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
 
@@ -69,6 +70,7 @@ deployment.apps/stackstate-cluster-agent             1/1     1            1     
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
 ```
+
 ## Integration details
 
 ### Data retrieved
@@ -82,7 +84,11 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
-The Kubernetes integration retrieves all events from the Kubernetes cluster. The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all Kubernetes events from the Kubernetes cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+
+##### Kubernetes events
+
+The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
 | :--- | :--- |
@@ -91,13 +97,49 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 | **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
 | **Others** | All other events |
 
+##### Object change events
+
+The Kubernetes integration will detect changes in Kubernetes objects and will create an event of type `Element Properties Change` with a diff with a YAML representation of the changed object.
+
+![Element Properties Change event](../../.gitbook/assets/k8s-change-event.png)
+
+Changes will be detected in the following object types:
+* `ConfigMap`
+* `CronJob`
+* `DaemonSet`
+* `Deployment`
+* `Ingress`
+* `Job`
+* `Namespace`
+* `Node`
+* `PersistentVolume`
+* `Pod`
+* `ReplicaSet`
+* `Secret` (a hash of the content will be compared)
+* `Service`
+* `StatefulSet`
+
+{% hint style="info" %}
+Note that, in order to reduce noise of changes, the following object properties **will not** be compared:
+* `metadata`
+  * `managedFields`
+  * `resourceVersion`
+  * `annotations`
+    * `kubectl.kubernetes.io/last-applied-configuration`
+* `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
+{% endhint %}
+
+You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time)) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+
+![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
+
 #### Metrics
 
 The Kubernetes integration makes all metrics from the Kubernetes cluster available in StackState. Relevant metrics are automatically mapped to the associated components.
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
-![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v45_add_k8s_stream.png)
+![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v46_add_k8s_stream.png)
 
 #### Topology
 
@@ -225,6 +267,10 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 ## Release notes
 
+**Kubernetes StackPack v3.9.9 (2022-03-02)**
+
+- Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+
 **Kubernetes StackPack v3.9.8 (2021-11-30)**
 
 * Bug Fix: Support nodes without instanceId
@@ -241,57 +287,6 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 * Improvement: Documentation update
 * Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
-
-**Kubernetes StackPack v3.9.4 \(2021-05-11\)**
-
-* Bug Fix: Set aggregation methods for desired replicas streams to be compatible with insufficient replicas check
-* Bug Fix: Set aggregation method for not ready endpoints stream \(on a service\) to be compatible with endpoints check
-
-**Kubernetes StackPack v3.9.3 \(2021-04-29\)**
-
-* Bug Fix: Change dependency to latest version of k8s-common, as the previous release is broken.
-
-**Kubernetes StackPack v3.9.2 \(2021-04-29\)**
-
-* Improvement: Prevented readiness checks from firing pre-maturely by setting window from 10 seconds to 15 minutes for workloads, pods, and containers.
-* Improvement: Prevented readiness checks from firing pre-maturely by changing how service health is determined, and extended the evaluation window to 15 minutes.
-
-**Kubernetes StackPack v3.9.1 \(2021-04-12\)**
-
-* Improvement: Common bumped from 2.5.0 to 2.5.1
-
-**Kubernetes StackPack v3.9.0 \(2021-04-02\)**
-
-* Improvement: Enable auto grouping on generated views.
-* Improvement: Update documentation.
-* Improvement: Common bumped from 2.4.1 to 2.5.0
-* Improvement: StackState min version bumped to 4.3.0
-
-**Kubernetes StackPack v3.8.0 \(2021-03-08\)**
-
-* Feature: Namespaces are now a component in StackState with a namespaces view for each cluster
-* Feature: New component actions for quick navigation on workloads, pods and namespaces
-* Feature: Added a "Pod Scheduled" metric stream to pods
-* Feature: Secrets are now a component in StackState
-* Improvement: The "Desired vs Ready" checks on workloads now use the "Ready replicas" stream instead of the replicas stream.
-* Improvement: Use standard \(blue\) Kubernetes icons
-* Bug fix: Fixed Kubernetes synchronization when a component had no labels but only tags
-
-**Kubernetes StackPack v3.7.2 \(2020-08-18\)**
-
-* Feature: Introduced the Release notes pop up for customer
-
-**Kubernetes StackPack v3.7.1 \(2020-08-10\)**
-
-* Feature: Introduced Kubernetes specific component identifiers
-
-**Kubernetes StackPack v3.7.0 \(2020-08-04\)**
-
-* Improvement: Deprecated stackpack specific layers and introduced a new common layer structure.
-
-**Kubernetes StackPack v3.6.0 \(2020-06-19\)**
-
-* Improvement: Set the stream priorities on all streams.
 
 ## See also
 

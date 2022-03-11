@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 The **View Filters** pane on the left-hand side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
-![View filters](/.gitbook/assets/v45_view_filters_button.png)
+![View filters](/.gitbook/assets/v46_view_filters_button.png)
 
 ## Filter Topology
 
@@ -25,7 +25,7 @@ The main way to filter topology is using the available basic filters. When you s
 | Filter | Description |
 | :--- | :--- |
 | Layers, Domains, Environments and Component types | Filter by the component details included when components are imported or created. |
-| Component health | Only include components with the named [health state](../health-state/health-state-in-stackstate.md) as reported by the associated health check. |
+| Component health | Only include components with the named [health state](../health-state/about-health-state.md) as reported by the associated health check. |
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 

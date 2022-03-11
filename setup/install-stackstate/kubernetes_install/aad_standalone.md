@@ -6,14 +6,14 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-Autonomous Anomaly Detector \(AAD\) is a StackState service configured and deployed as a part of standard installation. In some cases the AAD can be deployed standalone using the AAD helm chart, e.g. when StackState and the AAD are deployed in separate kubernetes clusters. The standalone AAD deployment option is recommended only for the users with advanced knowledge of Kubernetes.
+The Autonomous Anomaly Detector \(AAD\) is a StackState service configured and deployed as a part of standard installation. In some cases the AAD can be deployed standalone using the AAD helm chart, e.g. when StackState and the AAD are deployed in separate kubernetes clusters. The standalone AAD deployment option is recommended only for the users with advanced knowledge of Kubernetes.
 
 The Autonomous Anomaly Detector consists of two components: 
 
-* AAD Kubernetes service
-* AAD StackPack. 
+* The AAD Kubernetes service
+* The AAD StackPack. 
   
-The sections below explain how to configure AAD Kubernetes service and AAD StackPack in order to perform standalone deployment. Note that a [training period](#training-period) is required before AAD can begin to report anomalies.
+The sections below explain how to configure the AAD Kubernetes service and the AAD StackPack in order to perform standalone deployment. Note that a [training period](#training-period) is required before the AAD can begin to report anomalies.
 
 ## Node sizing
 
@@ -29,7 +29,7 @@ The AAD Kubernetes service is stateless and survives restarts. It can be relocat
 
 ## Installation
 
-Standalone deployment consists of two steps - installing AAD StackPack and install AAD Kubernetes service.
+Standalone deployment consists of two steps: Install the AAD StackPack and install the AAD Kubernetes service.
 
 ### Install the AAD StackPack
 
@@ -58,7 +58,7 @@ To be able to pull the Docker image, you will need access to quay.io. Access cre
     helm fetch stackstate/anomaly-detection
 ```
 
-#### 4. Configure AAD Kubernetes service
+#### 4. Configure the AAD Kubernetes service
 
 Create the file `values.yaml` file, including the configuration described below, and save it to disk:
 
@@ -111,7 +111,7 @@ Details of all configuration options are available in the anomaly-detection char
 
 #### 5. Authentication with StackState
 
-By default, AAD Kubernetes Service is configured to use kubernetes `token` authentication, so one does not need to configure anything additional to that AAD Kubernetes service must be installed into the same cluster and namespace as StackState. If this is is not possible there are two other options for authentication:
+By default, the AAD Kubernetes Service is configured to use kubernetes `token` authentication, so one does not need to configure anything additional to that the AAD Kubernetes service must be installed into the same cluster and namespace as StackState. If this is is not possible there are two other options for authentication:
 
 * Stackstate Api Token authentication. One can obtain token from User Profile page.
 
@@ -148,11 +148,11 @@ Run the command below, specifying the StackState namespace and the image registr
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 3 day training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to a day of data is used for training. After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
 
-## Upgrade the standalone AAD instance
+## Upgrade a standalone AAD instance
 
-Upgrading the standalone AAD instance consists of two steps - upgrading AAD Stackpack and upgrading AAD Kubernetes Service.
+Upgrading a standalone AAD instance consists of two steps: Upgrade the AAD Stackpack and upgrade the AAD Kubernetes Service.
 
 ### Upgrade the AAD StackPack
 
@@ -170,7 +170,7 @@ To re-enable the AAD Kubernetes service, you can simply install the AAD StackPac
 
 ## Full uninstall
 
-To completely remove the AAD Kubernetes service and AAD StackPack:
+To completely remove the AAD Kubernetes service and the AAD StackPack:
 
 * Uninstall the AAD Kubernetes service:
 
@@ -196,7 +196,7 @@ The UI will be accessible by URL:
     http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
 ```
 
-Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see [AAD Standalone Deployment](aad_standalone.md#4-configure-aad-kubernetes-service)\).
+Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see the [configure the AAD Kubernetes service](aad_standalone.md#4-configure-the-aad-kubernetes-service)\).
 
 Common questions that can be answered in the status UI:
 

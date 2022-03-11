@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. It runs from left to right on the timeline at the bottom of the StackState UI. By default, the telemetry interval active when opening a [view](/use/stackstate-ui/views/about_views.md) or [explore mode](/use/stackstate-ui/explore_mode.md) is set to a relative time period, showing telemetry data from the last hour. If required, you can configure StackState to use a different default telemetry interval.
 
-![Telemetry interval](../../.gitbook/assets/v44_telemetry_interval.png)
+![Telemetry interval](../../.gitbook/assets/v46_telemetry_interval.png)
 
 ## Customise the default telemetry interval
 

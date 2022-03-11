@@ -12,18 +12,18 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ## Components
 
-The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/health-state-in-stackstate.md).
+The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/about-health-state.md).
 
-* Click on a component to open the [component details](#component-details-pane) in the right-hand pane.
+* Click on a component to open the [component details](/use/concepts/components.md#component-details-pane) in the right-hand pane.
 * Hover over a component to open the [component context menu](#component-context-menu).
 
-➡️ [Learn more about components](/use/concepts/components_relations.md#components).
+➡️ [Learn more about components](/use/concepts/components.md#components)
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state. You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
+When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state and the [top metrics](/use/metrics-and-events/top-metrics.md). You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
 
-![Component context menu](/.gitbook/assets/v45_component_context_menu.png)
+![Component context menu](/.gitbook/assets/v46_component_context_menu.png)
 
 ### Actions
 
@@ -47,13 +47,13 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 ## Relations
 
-Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/health-state-in-stackstate.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
+Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/about-health-state.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
 Click on a relation to open the relation details in the right-hand pane.
 
-➡️ [Learn more about relations](/use/concepts/components_relations.md#relations).
+➡️ [Learn more about relations](/use/concepts/relations.md).
 
-![Indirect relation path](/.gitbook/assets/v45_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v46_indirect_relation_path.png)
 
 ## Filters
 
@@ -75,23 +75,11 @@ The visualization of components and relations in the topology perspective can be
 * Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
-* Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](topology-perspective.md#relations).
+* Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](/use/concepts/relations.md).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
 
-## Details panel
-
-The details panel on the right-hand side of the screen shows information about the view, or the currently selected component, relation or problem.
-
-### Component Details pane
-
-When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
-
-* Metadata, such as the component name, type and any labels.
-* [Health checks](../../health-state/add-a-health-check.md)
-* [Telemetry streams](../../metrics-and-events/telemetry_streams.md)
-
-### Problems
+## Problems
 
 If one or more components in a view have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
 
@@ -109,7 +97,7 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/health-state-in-stackstate.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
+If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/about-health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
 
 {% hint style="success" "self-hosted info" %}
 

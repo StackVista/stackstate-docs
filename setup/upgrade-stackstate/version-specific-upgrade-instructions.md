@@ -23,7 +23,25 @@ This page provides specific instructions and details of any required manual step
 
 #### v4.6.0
 
-No manual action required.
+* Change in supported platforms:
+  * Support for Kubernetes 1.18 was dropped.
+  * Support for OpenShift 4.7 was dropped.
+  * See the [requirements](/setup/install-stackstate/requirements.md) for an up-to-date list of supported platforms.
+
+* StackPack updates:
+  * [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
+    - Feature: Automatically add Open Telemetry HTTP health checks
+      - Error count (sum) check
+      - Request count (sum) check
+      - Response Time (milliseconds) check
+    - Feature: Add Container integration DataSource and Sync
+    Note that the previous release of StackState (v4.5.x) shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
+  * [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
+    - Improvement: Add OpenTelemetry information STAC-15902
+  * [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
+    - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+  * [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
+    - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
 
 {% endtab %}
 {% tab title="Linux" %}
@@ -31,6 +49,21 @@ No manual action required.
 #### v4.6.0
 
 No manual action required.
+
+StackPack updates:
+* [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
+  - Feature: Automatically add Open Telemetry HTTP health checks
+    - Error count (sum) check
+    - Request count (sum) check
+    - Response Time (milliseconds) check
+  - Feature: Add Container integration DataSource and Sync
+  Note that the previous release of StackState (v4.5.x) shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
+* [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
+  - Improvement: Add OpenTelemetry information STAC-15902
+* [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+* [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
 
 {% endtab %}
 {% endtabs %}
@@ -101,7 +134,7 @@ No manual action required.
   * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
   * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
   * A [non-high availability setup](../install-stackstate/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
 * The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it is now possible to use `bcrypt` type passwords.
@@ -151,7 +184,7 @@ No manual action required.
 #### v4.4.0
 
 * ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
 

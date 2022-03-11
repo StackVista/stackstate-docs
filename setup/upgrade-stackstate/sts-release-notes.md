@@ -15,14 +15,71 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### 4.6.0
+### v4.6.0
 
+The StackState v4.6 release brings powerful new capabilities:
+
+* Important improvements in topology visualization to accelerate troubleshooting.
+* Support for OpenTelemetry traces, specifically for serverless AWS Lambda applications built with Node.js. This new low-latency data requires no integration, and will immediately enrich your topology with additional relationships and telemetry.
+* Expanded Autonomous Anomaly Detection capabilities to automatically analyze the golden signals of throughput, latency and error rate. Automatic health checks can then run on this data and alert you as soon as anomalies are found. This will help you to get to the root cause of incidents more quickly and proactively prevent problems before they occur.
+
+Details of the included improvements, bug fixes and StackPack updates can be found below.
+
+**Improvements**
+
+- Topology synchronization progress counters have been moved from individual synchronizations to the `stackstate.log` file for Linux-based distributions. Errors for topology mapping and templates remain in the synchronization-specific logs. STAC-15529
+- The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_install/image_configuration.md) to fetch Docker images. STAC-15180
+- The component context menu now displays the preview of the [three top priority metrics](/use/metrics-and-events/top-metrics.md). STAC-15076
+- `PodDisruptionBudget` and `PodSecurityPolicy` now use the updated apiVersion (policy/v1) for newer Kubernetes versions. STAC-14968
+- The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
+- All PodDisruptionBudget(s) can be configured through the Helm Values. STAC-14770
+- In the StackState Helm chart, the Ingress path can now be configured through the value `ingress.path`. STAC-14769
+- All pods in the StackState Helm charts can now be configured to use a pullSecret to pull protected images. STAC-14767
+- Non-propagating unhealthy components are marked as problem root causes. STAC-13618
+
+**Bug fixes**
+
+- Increased performance of network connections correlation by better data scheduling and by adjusting CPU limits in the Helm chart (default from 0.6 to 2). STAC-15822
+- Fixed an issue that caused custom Kafka producer configuration to be disregarded by the correlator and receiver. STAC-15795
+- Clears the following CVEs STAC-15733:
+  - CVE-2022-23852 
+  - CVE-2022-23990. 
+- The limit of problems visible in the StackState UI has been increased to 999. STAC-15688
+- Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
+- Fixed an issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
+- Fixed bug when major part of Kubernetes topology is missing when a big element is reported (such as big ConfigMap). STAC-15458
+- Fixed receiver out of memory issue appearing under load preventing processes from appearing on topology. STAC-15431
+- Fixed an issue that caused the StackState UI to crash occasionally due to a misconfiguration of the Prometheus nginx exporter. STAC-15167
+- Fixed an issue that caused component properties to not display correctly when a component is merged from two of the same synchronization sources. STAC-15147
+- Fixed an issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
+- Fixed an issue that caused the anomaly event chart to not display full metric data. STAC-14630
+- The `backup-stackgraph` Kubernetes CronJob now correctly checks whether the StackGraph export exists before copying it. STAC-14532
+- Fixed error on the Traces Perspective stemming from server and browser clocks not being synchronized. STAC-12832
+
+**StackPack updates**
+
+* [StackState Agent \(v4.5.0\)](../../stackpacks/integrations/agent.md):
+  - Feature: Automatically add Open Telemetry HTTP health checks
+    - Error count (sum) check
+    - Request count (sum) check
+    - Response Time (milliseconds) check
+  - Feature: Add Container integration DataSource and Sync
+  - Note that the previous release of StackState (v4.5.x) shipped with StackState Agent StackPack v4.4.12. [Read release notes for all versions](../../stackpacks/integrations/agent.md#release-notes).
+
+* [AWS \(v1.2.0\)](../../stackpacks/integrations/aws/aws.md):
+  - Improvement: Add OpenTelemetry information STAC-15902
+
+* [Kubernetes \(v3.9.9\)](../../stackpacks/integrations/kubernetes.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
+
+* [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
+  - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
 
 ## StackState v4.5.x
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### 4.5.5
+### v4.5.5
 
 **Bug fixes**
 
@@ -34,13 +91,13 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
 - Fixed issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
 
-### 4.5.4
+### v4.5.4
 
 **Improvements**
 
 - Internal Playground optimization. STAC-15393
 
-### 4.5.3
+### v4.5.3
 
 **Bug fixes**
 
@@ -87,7 +144,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 - The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
-- Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/components_relations.md#relation-types), save changed views even when timetravelling. STAC-13142
+- Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/relations.md), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours.  Adapt to changing streams in real-time. STAC-12996
 
 **Improvements**
@@ -151,7 +208,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 ### v4.4.1
 
 {% hint style="warning" %}
-This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version 4.4.3](#v4.4.3).
+This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version v4.4.3](#v4.4.3).
 {% endhint %}
 
 **Improvements**
@@ -193,7 +250,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
 * Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
-* [Relations to component groups are shown as solid lines](../../use/stackstate-ui/perspectives/topology-perspective.md#relations). In StackState 4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
+* [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState v4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
 * Improve how component names are displayed in the Topology Perspective. STAC-13063
 * The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
 
@@ -215,18 +272,16 @@ The versions below have reached End of Life \(EOL\) and are no longer be support
 These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
 {% endhint %}
 
-### StackState v4.3.x
+### StackState v4.3.x (EOL)
 
-Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
-
-#### v4.3.6
+#### v4.3.6 (EOL)
 
 **Bug fixes**
 
 - The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15193
 - Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
-#### v4.3.5
+#### v4.3.5 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -241,7 +296,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 - Fixed issue that caused corrupt data in StackGraph under certain circumstances. STAC-13860
 
-#### v4.3.4
+#### v4.3.4 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -251,7 +306,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 
-#### v4.3.3
+#### v4.3.3 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -261,7 +316,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 
-#### v4.3.2
+#### v4.3.2 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -271,7 +326,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fix crash when accessing the logs api. STAC-13149
 
-#### v4.3.1
+#### v4.3.1 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -287,7 +342,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that caused the Autonomous Anomaly Detector to fail to authenticate with StackState. STAC-12742
 * Fixed issue that caused the browser to free when selecting a large group of components. STAC-12016
 
-#### v4.3.0
+#### v4.3.0 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.3.6](#v4.3.6).
@@ -301,7 +356,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Improvements**
 
-* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState 4.4. STAC-12256
+* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
@@ -335,9 +390,9 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that prevented exports produced by the CLI on Windows from being imported. STAC-11096
 * Fixed issue that caused incorrect anomalies to be detected on CloudWatch metrics by introducing two new aggregation methods: COUNT\_NO\_ZEROS and SUM\_NO\_ZEROS. Aggregation methods COUNT and SUM keep the existing behavior of filling gaps in metrics with zeroes, with a configurable delay. STAC-11079
 
-### StackState v4.2.x
+### StackState v4.2.x (EOL)
 
-#### v4.2.4
+#### v4.2.4 (EOL)
 
 **Improvements**
 
@@ -351,7 +406,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
-#### v4.2.3
+#### v4.2.3 (EOL)
 
 **Improvements**
 
@@ -367,13 +422,13 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that prevented `copy_images.sh` script from working with containers without a docker.io prefix. STAC-11697
 * Fixed issue that caused the old and new state to disappear for certain health state changes in the Event Perspective. STAC-11691
 
-#### v4.2.2
+#### v4.2.2 (EOL)
 
 **Bug fixes**
 
-* Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
+* Fix for StackState helm chart to include correct version of the AAD sub chart. STAC-11654
 
-#### v4.2.1
+#### v4.2.1 (EOL)
 
 **Improvements**
 
@@ -383,7 +438,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Fixed issue that prevents StackState distributed Kubernetes installation from starting when the database initialisation process fails due to a pod restart. STAC-11618
 
-#### v4.2.0
+#### v4.2.0 (EOL)
 
 **Features**
 
@@ -413,20 +468,20 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
 
-### StackState v4.1.x
+### StackState v4.1.x (EOL)
 
 {% hint style="info" %}
 With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\) and is no longer supported.
 {% endhint %}
 
-#### v4.1.3
+#### v4.1.3 (EOL)
 
 **Bug fixes**
 
 * Fixed issue that caused the CLI to fail to run on systems with an older GLIBC library. STAC-10609
 * Fixed issue that prevented historical data from displaying in the Health Forecast Report. STAC-11207
 
-#### v4.1.2
+#### v4.1.2 (EOL)
 
 **Bug fixes**
 
@@ -438,19 +493,19 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 
 * Introduced configuration setting `stackstate.topologyQueryService.maxLoadedElementsPerQuery` configuration to tweak the amount of loaded elements we allow during query execution. STAC-11009
 
-#### v4.1.1
+#### v4.1.1 (EOL)
 
 **Bug fixes**
 
 * Fixed issue that prevented users from deleting certain metric streams. STAC-10623
 * Fixed issue that caused an error when StackState attempted to connect to an LDAP server using LDAPS on certain versions of the JVM. STAC-10606
 
-#### v4.1.0
+#### v4.1.0 (EOL)
 
 **Features**
 
 * Introduced Traces Perspective to identify root causes of down-time and performance issues. STAC-7646
-* Introduced Autonomous Anomaly Detector \(AAD\) \[beta\] that identifies anomalies in metric streams with zero configuration. STAC-7403
+* Introduced the Autonomous Anomaly Detector \(AAD\) \[beta\] that identifies anomalies in metric streams with zero configuration. STAC-7403
 * Introduced the ability to deploy StackState on the OpenShift, AKS and EKS Kubernetes platforms. STAC-7328
 
 **Improvements**
@@ -473,25 +528,25 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 * Fixed issue where state service could not find some elements due to querying with an incomplete time slice. STAC-8195
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
-### StackState v4.0.x
+### StackState v4.0.x (EOL)
 
 {% hint style="info" %}
 StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 {% endhint %}
 
-#### v4.0.4
+#### v4.0.4 (EOL)
 
 **Bug fixes**
 
 * Fix issue where the readcache sometimes produces the wrong data, causing intermittent failures in state and view calculation. STAC-10328
 
-#### v4.0.3
+#### v4.0.3 (EOL)
 
 **Bug fixes**
 
 * Fixed issue that prevented time travel under certain circumstances. STAC-9551
 
-#### v4.0.2
+#### v4.0.2 (EOL)
 
 **Bug fixes**
 
@@ -500,7 +555,7 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 * Fixed bug that caused multi param propagation function values to be lost after a component update. STAC-9582
 * Fixed bug that caused the log to be spammed with messages for a deleted checkstate. STAC-9323
 
-#### v4.0.1
+#### v4.0.1 (EOL)
 
 **Bug fixes**
 
@@ -508,7 +563,7 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 * Fix some cases when checks on new or updated components would fail to start and remain in an "Unknown" state. STAC-7949
 * Fix an issue that in some cases prevented properly storing security subjects from CLI. STAC-7569
 
-#### v4.0.0
+#### v4.0.0 (EOL)
 
 **Features**
 
