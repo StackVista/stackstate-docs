@@ -9,7 +9,7 @@ description: StackState SaaS
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream.
 
 {% hint style="info" %}
-Note that a [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
+Note that a [training period](aad.md#training-period) is required before the AAD can begin to report anomalies.
 {% endhint %}
 
 ### The anomaly detection process
@@ -28,7 +28,7 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 | :--- | :--- |
 | 🟥 **HIGH** (red) | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. The least frequently reported severity. [Generates an anomaly event](aad.md#anomaly-events). |
 | 🟧 **MEDIUM** (orange) | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
-| 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of AAD anomaly reports. |
+| 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of anomaly reports from the AAD. |
 
 ![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v46_anomaly_severity_inspector.png)
 
@@ -55,7 +55,7 @@ To install the AAD StackPack, simply press the INSTALL button. No other actions 
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
 
 ## Frequently Asked Questions
 

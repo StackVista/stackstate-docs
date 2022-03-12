@@ -426,7 +426,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Bug fixes**
 
-* Fix for StackState helm chart to include correct version of AAD sub chart. STAC-11654
+* Fix for StackState helm chart to include correct version of the AAD sub chart. STAC-11654
 
 #### v4.2.1 (EOL)
 
@@ -505,7 +505,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 **Features**
 
 * Introduced Traces Perspective to identify root causes of down-time and performance issues. STAC-7646
-* Introduced Autonomous Anomaly Detector \(AAD\) \[beta\] that identifies anomalies in metric streams with zero configuration. STAC-7403
+* Introduced the Autonomous Anomaly Detector \(AAD\) \[beta\] that identifies anomalies in metric streams with zero configuration. STAC-7403
 * Introduced the ability to deploy StackState on the OpenShift, AKS and EKS Kubernetes platforms. STAC-7328
 
 **Improvements**

@@ -37,6 +37,16 @@ The following prerequisites are required to install the OpenShift StackPack and 
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
+### Supported container runtimes
+
+From StackState Agent v2.16, the following container runtimes are supported:
+
+* containerd
+* CRI-O
+* Docker
+
+Note that versions of StackState Agent prior to v2.16 support the Docker container runtime only.
+
 ### Install
 
 Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
@@ -138,11 +148,18 @@ You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel
 
 The OpenShift integration makes all metrics from the OpenShift cluster available in StackState. Relevant metrics are automatically mapped to the associated components.
 
-All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `openshift` in the **Select** box to get a full list of all available metrics.
+All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
+
+![Add an OpenShift metrics stream to a component](../../.gitbook/assets/v46_add_k8s_stream.png)
 
 #### Topology
 
 The OpenShift integration retrieves components and relations for the OpenShift cluster.
+
+
+{% hint style="info" %}
+**StackState Agent versions prior to 2.16:** Topology information is only gathered from OpenShift clusters that use the Docker container runtime.
+{% endhint %}
 
 **Components**
 

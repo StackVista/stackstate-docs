@@ -53,8 +53,8 @@
 * [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
 * [Event notifications](use/metrics-and-events/event-notifications.md)
-* [Set telemetry stream priority](use/metrics-and-events/set-telemetry-stream-priority.md)
-* [Set up traces](configure/traces/how_to_setup_traces.md)
+* [Set telemetry stream priority](configure/telemetry/how_to_use_the_priority_field_for_components.md)
+* [Set up traces](configure/traces/set-up-traces.md)
 
 ## 🧩 StackPacks
 
@@ -71,11 +71,13 @@
     * [Agent V2 on Linux](setup/agent/linux.md)
     * [Agent V2 on OpenShift](setup/agent/openshift.md)
     * [Agent V2 on Windows](setup/agent/windows.md)
+    * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
+    * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)

@@ -54,7 +54,7 @@
 * [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
 * [Event notifications](use/metrics-and-events/event-notifications.md)
 * [Set telemetry stream priority](use/metrics-and-events/set-telemetry-stream-priority.md)
-* [Set up traces](configure/traces/how_to_setup_traces.md)
+* [Set up traces](configure/traces/set-up-traces.md)
 
 ## 🧩 StackPacks
 
@@ -77,6 +77,7 @@
     * [AWS](stackpacks/integrations/aws/aws.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
+    * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)

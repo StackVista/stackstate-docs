@@ -66,7 +66,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 ## Images
 
-The images listed below are used in StackState v4.5.2:
+The images listed below are used in StackState v4.6.0:
 
 * quay.io/stackstate/container-tools:1.1.3
 * quay.io/stackstate/elasticsearch-exporter:v1.2.1
