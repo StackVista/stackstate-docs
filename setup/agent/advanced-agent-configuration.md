@@ -242,6 +242,36 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 | `process_blacklist.inclusions.amount_top_io_write_usage` | The number of processes to report that have a high IO write usage. Default `0`. |
 | `process_blacklist.inclusions.mem_usage_threshold` | Threshold that enables the reporting of high memory usage processes. |
 | `process_blacklist.inclusions.amount_top_mem_usage` | The number of processes to report that have a high memory usage. Default `0`. |
+{% endtab %}   
+{% endtabs %}
+
+## Enable traces
+
+The trace Agent will be enabled by default when StackState Agent is installed. It is required to receive traces in StackState. In case it has been disabled, you can enable it again using the instructions below.
+
+{% tabs %}
+{% tab title="Docker" %}
+To enable tracing on StackState Agent running on Docker, edd the following parameters to your `docker run` command:
+- `-e STS_APM_URL="https://stackstate-ip:receiver-port/stsAgent"`
+  - The default StackState Receiver port is `7077`.
+- `-e STS_APM_ENABLED="true"`
+  - Allows the StackState Trace Agent to capture traces.
+{% endtab %}
+{% tab title="Linux" %}
+To enable tracing on StackState Agent running on Linux, edit the configuration file `/etc/stackstate-agent/stackstate.yaml`and set the following variables:
+- `apm_sts_url="https://stackstate-ip:receiver-port/stsAgent"`
+  - The default StackState Receiver port is `7077`.
+- `enabled="true"`
+  - Can be found under `apm_config.enabled`.
+  - Allows the StackState Trace Agent to capture traces.
+{% endtab %}
+{% tab title="Windows" %} 
+To enable tracing on StackState Agent running on Windows, edit the configuration file `C:\ProgramData\StackState\stackstate.yaml` and change the following variables:
+- `apm_sts_url="https://stackstate-ip:receiver-port/stsAgent"`
+  - The default StackState Receiver port is `7077`.
+- `enabled="true"`
+  - Can be found under `apm_config.enabled`.
+  - Allows the StackState Trace Agent to capture traces.
 {% endtab %}
 {% endtabs %}
 
