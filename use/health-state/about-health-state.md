@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState SaaS
 ---
 
 # About health state
@@ -39,7 +39,12 @@ Existing StackPacks will provide health synchronization out of the box.
 
 {% hint style="success" "self-hosted info" %}
 
-You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can set up a custom health synchronization to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
 
 ### Propagated health state
@@ -66,7 +71,12 @@ A CLEAR \(green\) health state does not propagate.
 
 {% hint style="success" "self-hosted info" %}
 
-You can configure [custom propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md) to customize how health state affects the overall health of your systems.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can configure custom propagation functions to customize how health state affects the overall health of your systems.
 {% endhint %}
 
 ## View health state
@@ -93,6 +103,4 @@ You can check the view health state in the following places in the StackState UI
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](add-a-health-check.md)
-* [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md "StackState Self-Hosted only")
-* [Set up a health synchronization](../../configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [Configure the view health](configure-view-health.md)
