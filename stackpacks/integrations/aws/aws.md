@@ -17,6 +17,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * Logs are retrieved once a minute from CloudWatch and a central S3 bucket. These are mapped to associated components in StackState.
 * Metrics are retrieved on-demand by the StackState CloudWatch plugin. These are mapped to associated components in StackState.
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
+* Communication between NodeJS Lambda functions and the AWS services that they communicate with is monitored using [OpenTelemetry traces](#traces).
 
 AWS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
@@ -84,31 +85,33 @@ The necessary resources can be deployed for one account in a single region using
 The table below includes links to deploy the template in popular AWS regions. For any regions not listed, follow the steps described for the [StackState template deployment](aws.md#stackstate-template-deployment).
 
 {% hint style="info" %}
-You must be logged in to the target AWS account in the web console.
+* To use [OpenTelemetry Traces](/stackpacks/integrations/aws/opentelemetry-nodejs.md), set the `IncludeOpenTelemetryTracing` value to `true`.
+* You must be logged in to the target AWS account in the web console.
 {% endhint %}
 
-| Region Name | Template deployment link |
-| :--- | :--- |
-| Ireland | [eu-west-1 \(console.aws.amazon.com\)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| Frankfurt | [eu-central-1 \(console.aws.amazon.com\)](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| N. Virginia | [us-east-1 \(console.aws.amazon.com\)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| Ohio | [us-east-2 \(console.aws.amazon.com\)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| N. California | [us-west-1 \(console.aws.amazon.com\)](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| Hong Kong | [ap-east-1 \(console.aws.amazon.com\)](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| Singapore | [ap-southeast-1 \(console.aws.amazon.com\)](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
-| Sydney | [ap-southeast-2 \(console.aws.amazon.com\)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml&stackName=stackstate-resources) |
+| Region Name | Template deployment link                                                                                                                                                                                                                                                                                                                           |
+| :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ireland | [eu-west-1 \(console.aws.amazon.com\)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
+| Frankfurt | [eu-central-1 \(console.aws.amazon.com\)](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)       |
+| N. Virginia | [us-east-1 \(console.aws.amazon.com\)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
+| Ohio | [us-east-2 \(console.aws.amazon.com\)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
+| N. California | [us-west-1 \(console.aws.amazon.com\)](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
+| Hong Kong | [ap-east-1 \(console.aws.amazon.com\)](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
+| Singapore | [ap-southeast-1 \(console.aws.amazon.com\)](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources) |
+| Sydney | [ap-southeast-2 \(console.aws.amazon.com\)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources) |
 
 #### StackState template deployment
 
 The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It is recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
 
-* [Download the default StackState CloudFormation template \(stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com\)](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.1.cfn.yaml)
+* [Download the default StackState CloudFormation template \(stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com\)](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml)
 
 The template requires the following parameters:
 
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 * **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
+* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md).
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
@@ -218,6 +221,13 @@ sudo stackstate-agent status
 
 ### Data retrieved
 
+The AWS integration retrieves the following data:
+
+* [Events](#events)
+* [Metrics](#metrics)
+* [Topology](#topology)
+* [Traces](#traces)
+
 #### Events
 
 The AWS StackPack supports the following event:
@@ -232,7 +242,7 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-The following AWS service data is available in StackState as components:
+The AWS service data shown below is available in StackState as components with the associated relations. The retrieved topology can be further enhanced by enabling [OpenTelemetry traces](/stackpacks/integrations/aws/opentelemetry-nodejs.md).
 
 | Service | Resource | Relations |
 | :--- | :--- | :--- |
@@ -279,7 +289,9 @@ The following AWS service data is available in StackState as components:
 
 #### Traces
 
-The AWS integration does not retrieve any Traces data.
+OpenTelemetry creates traces from the AWS services that your Lambdas interacts with. Retrieved traces are available in the Traces Perspective and are also used to enhance the retrieved topology. 
+
+➡️ [Learn more about how to use and setup OpenTelemetry here](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
 
 ### Required AWS resources
 
@@ -500,6 +512,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## See also
 
+* [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
 * [StackState AWS \(Legacy\) integration](aws-legacy.md)
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
