@@ -16,6 +16,8 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
+The Kubernetes integration collects topology data in an OpenShift cluster as well as metrics and events.
+
 * Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
@@ -35,6 +37,16 @@ The following prerequisites are required to install the Kubernetes StackPack and
 * A user with permissions to create privileged pods, ClusterRoles and ClusterRoleBindings:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+
+### Supported container runtimes
+
+From StackState Agent v2.16, the following container runtimes are supported:
+
+* containerd
+* CRI-O
+* Docker
+
+Note that versions of StackState Agent prior to v2.16 support the Docker container runtime only.
 
 ### Install
 
@@ -129,7 +141,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time)) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+You can also see current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
@@ -146,7 +158,7 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 The Kubernetes integration retrieves components and relations for the Kubernetes cluster.
 
 {% hint style="info" %}
-Note that topology information is only gathered from Kubernetes clusters that use the Docker container runtime.
+**StackState Agent versions prior to 2.16:** Topology information is only gathered from Kubernetes clusters that use the Docker container runtime.
 {% endhint %}
 
 **Components**
