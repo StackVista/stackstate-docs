@@ -70,8 +70,11 @@ StackState Agent v2.15.0 is supported to monitor the following versions of Kuber
 
 * Kubernetes 1.16 - 1.21
 * EKS (with Kubernetes 1.16 - 1.21)
-* Docker container runtime (not containerd, cri-o)
 * Default networking
+* Container runtime: 
+  * Docker
+  * containerd (requires StackState Agent v2.16)
+  * CRI-O (requires StackState Agent v2.16)
 
 ### StackState Receiver API address
 
