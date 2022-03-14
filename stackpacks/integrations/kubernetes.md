@@ -97,7 +97,7 @@ The Kubernetes integration retrieves the following data:
 #### Events
 
 * All [Kubernetes events](#kubernetes-events) are retrieved from the Kubernetes cluster. 
-* A StackState `Element Properties Change` event will be generated for [changes detected in a Kubernetes object](#object-change-events).
+* StackState `Element Properties Change` events will be generated for [changes detected in a Kubernetes object](#object-change-events).
 
 ##### Kubernetes events
 
