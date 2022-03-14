@@ -66,15 +66,15 @@ On large Kubernetes clusters, you can [run the `kubernetes_state` check on the C
 
 ### Supported versions
 
-StackState Agent v2.15.0 is supported to monitor the following versions of Kubernetes:
+StackState Agent v2.16.0 is supported to monitor the following versions of Kubernetes:
 
 * Kubernetes 1.16 - 1.21
 * EKS (with Kubernetes 1.16 - 1.21)
 * Default networking
 * Container runtime: 
   * Docker
-  * containerd (requires StackState Agent v2.16)
-  * CRI-O (requires StackState Agent v2.16)
+  * containerd
+  * CRI-O
 
 ### StackState Receiver API address
 
