@@ -26,6 +26,8 @@ When a component is selected by clicking on it, the **Component Details** pane i
 * [Health checks](/use/health-state/add-a-health-check.md)
 * [Telemetry streams](/use/metrics-and-events/telemetry_streams.md)
 
+Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
+
 ![Component details pane](/.gitbook/assets/v46_component_with_details.png)
 
 ## Component groups
