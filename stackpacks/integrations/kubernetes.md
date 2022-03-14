@@ -96,7 +96,8 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
-The Kubernetes integration retrieves all Kubernetes events from the Kubernetes cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+* All [Kubernetes events](#kubernetes-events) are retrieved from the Kubernetes cluster. 
+* An `Element Properties Change` event will be generated in StackState for [changes in Kubernetes objects](#object-change-events).
 
 ##### Kubernetes events
 
@@ -141,7 +142,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#component-details-pane):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
