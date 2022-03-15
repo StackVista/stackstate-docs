@@ -293,7 +293,7 @@ The AWS service data shown below is available in StackState as components with t
 
 OpenTelemetry creates traces from the AWS services that your Lambdas interacts with. Retrieved traces are available in the Traces Perspective and are also used to enhance the retrieved topology. 
 
-➡️ [Learn more about how to use and setup OpenTelemetry here](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
+➡️ [Learn more about how to set up and use OpenTelemetry](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
 
 ### Required AWS resources
 
