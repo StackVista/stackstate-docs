@@ -121,8 +121,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user used to collect CloudWatch metrics.
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user used to collect CloudWatch metrics.
+* **AWS Access Key ID** - The Access Key ID of the IAM user used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to monitor AWS. If StackState is running within AWS, it is also possible to authenticate with an IAM role, see below for details.
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to monitor AWS. If StackState is running within AWS, it is also possible to authenticate with an IAM role, see below for details.
 
 {% hint style="success" "self-hosted info" %}
 
