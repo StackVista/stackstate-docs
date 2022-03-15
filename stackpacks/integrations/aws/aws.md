@@ -135,9 +135,9 @@ StackState pulls CloudWatch metrics directly from AWS. If StackState is running 
 1. In AWS, Create the required policy and attach it to the relevant IAM role:
    * [StackState IAM role: EC2](aws-sts-ec2.md) 
    * [StackState IAM role: EKS](aws-sts-eks.md)
-2. When you install an AWS StackPack instance, set the following parameters:
-   * **AWS Access Key ID** - `use-role` 
-   * **AWS Secret Access Key** - `use-role` 
+2. When you install an AWS StackPack instance, set the following parameter values:
+   * **AWS Access Key ID**: `use-role` 
+   * **AWS Secret Access Key**: `use-role` 
 
 {% hint style="info" %}
 Note that StackState Agent also connects to AWS to pull topology and events data before pushing this to StackState. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2](#iam-role-for-agent-on-ec2).
