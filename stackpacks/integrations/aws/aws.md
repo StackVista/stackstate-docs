@@ -65,6 +65,8 @@ If StackState Agent runs in an AWS environment, an IAM role can be attached to t
 
 If StackState Agent does not run in an AWS environment, or if a role with the required policy is not available on the Agent's EC2 instance, an AWS user must be [configured in the AWS check](#configure-the-aws-check) on the Agent.
 
+StackState pulls CloudWatch metrics directly from AWS. [StackState running within AWS can also authenticate using an IAM role](#iam-role-for-stackstate-on-ec2-or-eks).
+
 ### Deploy the AWS CloudFormation Stack
 
 The StackState AWS CloudFormation Stack should be deployed in each AWS account that you will monitor. It provides the minimum level of access required for the StackState Agent to collect topology, telemetry and logs.
@@ -124,12 +126,15 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#authenticate-with-an-iam-role).
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#authenticate-with-an-iam-role).
 
-#### Authenticate with an IAM role
+#### IAM role for StackState on EC2 or EKS
 
-If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 
+StackState pulls CloudWatch metrics directly from AWS. If StackState is running within AWS, an IAM role can be used for authentication when collecting metrics from CloudWatch: 
 
 1. In AWS [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md): Create the required policy and attach it to the relevant IAM role.
 2. When you install an AWS StackPack instance: Enter the value `use-role` for **AWS Access Key ID** and **AWS Secret Access Key**.
+
+StackState Agent pulls topology and events data from AWS and pushes this to StackState. [StackState Agent running within AWS can also authenticate using an IAM role](#iam-role-for-agent-on-ec2).
+
 
 ### Configure the AWS check
 
