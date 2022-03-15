@@ -121,18 +121,15 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to monitor AWS. If StackState is running within AWS, it is also possible to authenticate with an IAM role, see below for details.
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to monitor AWS. If StackState is running within AWS, it is also possible to authenticate with an IAM role, see below for details.
+* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#authenticate-with-an-iam-role).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#authenticate-with-an-iam-role).
 
-{% hint style="success" "self-hosted info" %}
-
-**Authenticate with an IAM role**
+#### Authenticate with an IAM role
 
 If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 
 
 1. In AWS [EC2](aws-sts-ec2.md) or [EKS](aws-sts-eks.md): Create the required policy and attach it to the relevant IAM role.
 2. When you install an AWS StackPack instance: Enter the value `use-role` for **AWS Access Key ID** and **AWS Secret Access Key**.
-{% endhint %}
 
 ### Configure the AWS check
 
