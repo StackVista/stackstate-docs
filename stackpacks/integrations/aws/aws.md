@@ -140,7 +140,7 @@ StackState pulls CloudWatch metrics directly from AWS. If StackState is running 
    * **AWS Secret Access Key**: `use-role` 
 
 {% hint style="info" %}
-Note that StackState Agent also connects to AWS to pull topology and events data before pushing this to StackState. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2](#iam-role-for-agent-on-ec2).
+Note that StackState Agent also connects to AWS to pull topology and events data. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2](#iam-role-for-agent-on-ec2).
 {% endhint %}
 
 
