@@ -16,15 +16,15 @@ StackState can be installed on a Kubernetes or OpenShift cluster using the Helm 
 
 ### Node sizing
 
-For a standard deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The nodes required for different environments:
+For a standard deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The number of nodes required may change based on system tuning. The nodes required for different environments with out of the box settings are:
 
 {% tabs %}
 {% tab title="Recommended setup" %}
 Requirements for the recommended high availability setup:
 
-* **Amazon EKS:** 6 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 6 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 6 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 8 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 8 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 
 {% tab title="Minimal setup" %}
@@ -38,9 +38,9 @@ Requirements for the minimal high availability setup:
 {% tab title="Non-high availability setup" %}
 Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
 
-* **Amazon EKS:** 3 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 3 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 3 nodes with `32GB memory`, `8 vCPUs`
+* **Amazon EKS:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure AKS:** 4 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
+* **Virtual machines:** 4 nodes with `32GB memory`, `8 vCPUs`
 {% endtab %}
 {% endtabs %}
 
@@ -304,4 +304,3 @@ To use the StackState GUI, you must use one of the following web browsers:
 
 * Chrome
 * Firefox
-
