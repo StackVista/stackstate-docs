@@ -16,7 +16,7 @@ StackState can be installed on a Kubernetes or OpenShift cluster using the Helm 
 
 ### Node sizing
 
-For a standard deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The number of nodes required for environments with out-of-the box settings are listed below, note that these may change based on system tuning:
+For a standard deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The number of nodes required for environments with out-of-the-box settings are listed below, note that these may change based on system tuning:
 
 {% tabs %}
 {% tab title="Recommended setup" %}
