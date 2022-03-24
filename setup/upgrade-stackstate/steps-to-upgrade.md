@@ -124,7 +124,7 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 3. To update the application, return to the **Version History** tab and click **Deploy** next to the target version.
 {% endtab %}  
 
-{% tab title="KOTS Airgapped Upgrade" %}
+{% tab title="KOTS Airgap" %}
 
 {% hint style="warning" %}
 Upgrades should be done through SSH and not than the KOTS UI.
