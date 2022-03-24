@@ -10,6 +10,7 @@
   * [KOTS install](setup/install-stackstate/kots-install/README.md)
     * [Install KOTS and StackState](setup/install-stackstate/kots-install/install_stackstate.md)
     * [Install KOTS Airgap](setup/install-stackstate/kots-install/install_stackstate_airgap.md)
+    * [Reinstall Stackstate on KOTS](setup/install-stackstate/kots-install/reinstall_stackstate.md)
     * [KOTS configuration screen](setup/install-stackstate/kots-install/kots_configuration_screen.md)
   * [Kubernetes install](setup/install-stackstate/kubernetes_install/README.md)
     * [Install StackState](setup/install-stackstate/kubernetes_install/install_stackstate.md)
