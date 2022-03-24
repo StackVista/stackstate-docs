@@ -130,7 +130,7 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 Upgrades should be done through SSH and not than the KOTS UI.
 {% endhint %}
 
-1. Upload the Airgap bundle to your server via ssh/sftp.
+1. Upload the Airgap bundle to your server via SSH/SFTP.
 2. Check the [StackState version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current StackState version and the version that you will upgrade to. 
 3. Run `kubectl kots upstream upgrade stackstate -n default--airgap-bundle bundle_name.airgap`.
 4. Log in to the KOTS UI.
