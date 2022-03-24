@@ -102,9 +102,9 @@ The `/var/lib/longhorn` disk should have a latency of less than 10ms.
 
 For example, the cloud VM instance/disk combinations below are known to provide sufficient performance for etcd and will pass the write latency preflight check.
 
-* **Amazon:** `m4.xlarge` with 80 GB standard EBS root device
-* **Azure:** `D4ds_v4` with 80 GB ultra disk mounted at `/var/lib/etcd` provisioned with 2400 IOPS and 128 MB/s throughput
-* **Google Cloud Platform:** `n1-standard-4` with 500 GB pd-standard boot disk
+* **Amazon:** `m4.x2large` with 80 GB standard EBS root device
+* **Azure:** `D8as V4` with 80 GB ultra disk mounted at `/var/lib/etcd` provisioned with 2400 IOPS and 128 MB/s throughput
+* **Google Cloud Platform:** `n1-standard-8` with 500 GB pd-standard boot disk
 
 ### Node sizing
 
