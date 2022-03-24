@@ -12,7 +12,7 @@ This page details the requirements for all suported installations of StackState:
 * [KOTS](#kots)
 * [Linux](#linux)
 
-It also contains requirements for [networking](#networking) and the [StackState client](#client-browser).
+It also contains requirements for [networking](#networking) and the [StackState client \(browser\)](#client-browser).
 
 ## Kubernetes and OpenShift
 
@@ -100,7 +100,7 @@ For a KOTS deployment, the disks should be partitioned as follows:
 
 The `/var/lib/longhorn` disk should have a latency of less than 10ms. 
 
-The example cloud VM instance/disk combinations below are known to provide sufficient performance for etcd and will pass the write latency preflight check.
+For example, the cloud VM instance/disk combinations below are known to provide sufficient performance for etcd and will pass the write latency preflight check.
 
 * **Amazon:** `m4.xlarge` with 80 GB standard EBS root device
 * **Azure:** `D4ds_v4` with 80 GB ultra disk mounted at `/var/lib/etcd` provisioned with 2400 IOPS and 128 MB/s throughput
@@ -122,9 +122,9 @@ Requirements for the recommended high availability setup:
 {% tab title="Minimal setup" %} 
 Requirements for the recommended high availability setup:
 
-* ***Amazon EC2***: 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* ***Azure***: 5 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
-* ***Virtual machines***: 5 nodes with 32GB memory, 8 vCPUs
+* **Amazon EC2:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure:** 5 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
+* **Virtual machines:** 5 nodes with 32GB memory, 8 vCPUs
 
 {% endtab %}
 {% endtabs %}
