@@ -118,6 +118,12 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 3. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 
+{% tab title="KOTS" %}
+1. In the admin console, go to the **Version History** tab and click **Check For Updates**.
+2. Click the **View preflight checks** logo to view or re-run the preflight checks.
+3. To update the application, return to the **Version History** tab and click **Deploy** next to the target version.
+{% endtab %}  
+
 {% tab title="KOTS Airgapped Upgrade" %}
 
 {% hint style="warning" %}
@@ -136,13 +142,7 @@ Upgrades should be done through SSH and not than the KOTS UI.
 2. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
 3. [Update the `openshift-values.yaml`](/setup/install-stackstate/openshift_install.md#additional-openshift-values-file) file.
 4. To upgrade, use the same helm command as for the [first time OpenShift installation](/setup/install-stackstate/openshift_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
-{% endtab %}   
-
-{% tab title="KOTS" %}
-1. In the admin console, go to the **Version History** tab and click **Check For Updates**.
-2. Click the **View preflight checks** logo to view or re-run the preflight checks.
-3. To update the application, return to the **Version History** tab and click **Deploy** next to the target version.
-{% endtab %}   
+{% endtab %}
 
 {% endtabs %}
 
