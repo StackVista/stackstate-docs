@@ -124,7 +124,13 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 3. [Update the `openshift-values.yaml`](/setup/install-stackstate/openshift_install.md#additional-openshift-values-file) file.
 4. To upgrade, use the same helm command as for the [first time OpenShift installation](/setup/install-stackstate/openshift_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}   
-   
+
+{% tab title="KOTS" %}
+1. In the admin console, go to the Version History tab and click **Check For Updates**
+2. Click the **View preflight checks** logo to view or re-run the preflight checks
+3. To update the application, return to the Version History tab and click **Deploy** next to the target version
+{% endtab %}   
+
 {% endtabs %}
 
 ### Install StackPacks (optional)
