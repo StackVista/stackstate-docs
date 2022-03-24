@@ -6,13 +6,13 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-This page details the requirements for all suported installations of StackState:
+This page details the requirements for all supported installations of StackState:
 
 * [Kuberentes and OpenShift](#kubernetes-and-openshift)
 * [KOTS](#kots)
 * [Linux](#linux)
 
-It also contains requirements for [networking](#networking) and the [StackState client \(browser\)](#client-browser).
+Requirements for [networking](#networking) and the [StackState client \(browser\)](#client-browser) can be found at the bottom of the page.
 
 ## Kubernetes and OpenShift
 
