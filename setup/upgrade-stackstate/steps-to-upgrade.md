@@ -127,7 +127,7 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 {% tab title="KOTS Airgap" %}
 
 {% hint style="warning" %}
-Upgrades should be done through SSH and not than the KOTS UI.
+Upgrades should be done through SSH and not the KOTS UI.
 {% endhint %}
 
 1. Upload the Airgap bundle to your server via SSH/SFTP.
