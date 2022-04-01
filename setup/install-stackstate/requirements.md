@@ -85,7 +85,7 @@ If it is necessary to set a ResourceQuota for your implementation, the namespace
 
 ## KOTS 
 
-### VM requirements
+### Operating system
 
 KOTS requires a VM running a [supported OS \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/system-requirements).
 
