@@ -2,9 +2,6 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# Install StackState
-
-
 ## Overview 
 
 Kubernetes Off The Shelf (KOTS) provides an embedded Kubernetes cluster on standard VMs. StackState can then be installed as an application within this cluster. This guide explains how to install KOTS, which then allows you to install StackState.

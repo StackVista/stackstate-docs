@@ -2,8 +2,6 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-## Install StackState Airgap
-
 ## Overview
 
 For VMs that are not able to connect to the Internet, we provide an offline (Airgapped) install. This requires a number of files to be downloaded and copied to the servers that will make up your cluster.
