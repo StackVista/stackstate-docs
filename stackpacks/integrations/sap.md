@@ -75,6 +75,12 @@ To enable the SAP check and begin collecting data from your SAP host instance, a
 
 ### Data retrieved
 
+The SAP integration collects the following data:
+
+* [Topology](#topology)
+* [Metrics](#metrics)
+* [Events](#events)
+
 #### Topology
 
 The topology elements retrieved from SAP are described below, together with the associated metrics and events.
