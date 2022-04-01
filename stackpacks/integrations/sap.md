@@ -4,7 +4,7 @@ description: StackState Self-hosted v4.6.x
 
 # SAP
 
-## What is the SAP StackPack?
+## Overview
 
 The SAP StackPack is used to create a near real time synchronization with your SAP system and also pulls the metrics from it. The components supported are:
 
@@ -16,7 +16,9 @@ The SAP StackPack is used to create a near real time synchronization with your S
 
 SAP is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
 
-## Prerequisites
+## Setup
+
+### Prerequisites
 
 To set up the StackState SAP integration you need to have:
 
@@ -30,9 +32,15 @@ The StackState SAP integration requires the following TCP ports:
 * 1128 for HTTP 
 * 1129 for HTTPS
 
-## Enable SAP integration
+### Install
 
-To enable the SAP check and begin collecting data from your SAP host instance:
+Install the SAP StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameter:
+
+- **SAP Host Name** - the SAP host name from which topology and metrics need to be collected.
+
+### Configure
+
+To enable the SAP check and begin collecting data from your SAP host instance, add the following configuration to StackState Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/sap.d/conf.yaml`:
    * Include details of your SAP instance:
@@ -63,9 +71,97 @@ To enable the SAP check and begin collecting data from your SAP host instance:
 2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
-## Open-source
+## Integration details
 
-The SAP StackPack is open-source and can be found [on StackState's github page](https://github.com/StackVista/stackpack-sap).
+### Data retrieved
+
+The SAP integration collects the following data:
+
+* [Topology](#topology)
+* [Metrics](#metrics)
+* [Events](#events)
+
+#### Topology
+
+The topology elements retrieved from SAP are described below, together with the associated metrics and events.
+
+* **SAP Host**
+  * Free Space in Paging Files
+  * SAP host control state
+  * Size stored in Paging Files
+  * Total Swap space size
+    
+* **SAP Host instance**
+  * Database connection status
+  * Physical memory
+  * Sap host instance state
+
+* **SAP Process**
+  * SAP process health state
+
+* **SAP Database**
+  * Backup exists
+  * Delta Merges
+  * Last Backup
+  * License Expiring
+  * Recent backup
+  * SAP database state
+  * System Backup
+  * System Replication
+
+* **SAP Database Component**
+  * SAP Database component state
+
+#### Metrics
+
+The metrics described below are retrieved by the SAP integration.
+
+* SAP_ITSAMDatabaseMetric
+  * `sap.hdb.alert.license_expiring`
+  * `sap.hdb.alert.backup.data.last`
+  * `USED_DATA_AREA`
+  * `USED_LOG_AREA`
+  * `db.ora.tablespace.free`
+  * `TimeToLicenseExpiry`
+
+* SAP_ITSAMInstance/Parameter
+  * `PHYS_MEMSIZE`
+
+* GetComputerSystem
+  * `FreeSpaceInPagingFiles`
+  * `SizeStoredInPagingFiles`
+  * `TotalSwapSpaceSize`
+
+#### Events
+
+The events described below are retrieved by the SAP integration.
+
+* SAP_ITSAMInstance/Alert
+  * `Oracle|Performance|Locks`
+  * `R3Services|Dialog|ResponseTimeDialog`
+  * `R3Services|Spool`
+  * `R3Services|Spool|SpoolService|ErrorsInWpSPO`
+  * `R3Services|Spool|SpoolService|ErrorFreqInWpSPO`
+  * `Shortdumps Frequency`
+
+* SAP_ITSAMDatabaseMetric
+  * `db.ora.tablespace.status`
+
+#### Traces
+
+The SAP integration does not retrieve any traces.
+
+### API endpoints
+
+The specific endpoints queried by the StackState SAP integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
+
+* `SAP_ITSAMInstance/Process??Instancenumber=`
+* `SAP_ITSAMInstance/WorkProcess??Instancenumber=`
+* `SAP_ITSAMInstance/Parameter??Instancenumber=`
+
+### Open-source
+
+The SAP StackPack is open-source and can be found at [https://github.com/StackVista/stackpack-sap](https://github.com/StackVista/stackpack-sap).
 
 ## Release notes
 
