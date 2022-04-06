@@ -10,6 +10,14 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v4.6.x
 
+### v4.6.1 (05-04-2022)
+
+**Bug fixes**
+
+- Fixed issue that incorrectly showed an error message when displaying a log stream. STAC-16222
+- If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
+- Security fixes for CVE-2022-24407. STAC-15939
+
 ### v4.6.0 (04-03-2022)
 
 The StackState v4.6 release brings powerful new capabilities:
