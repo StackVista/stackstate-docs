@@ -21,6 +21,10 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
+#### v4.6.1
+
+No manual action required.
+
 #### v4.6.0
 
 * Change in supported platforms:
@@ -45,6 +49,10 @@ This page provides specific instructions and details of any required manual step
 
 {% endtab %}
 {% tab title="Linux" %}
+
+#### v4.6.1
+
+No manual action required.
 
 #### v4.6.0
 
