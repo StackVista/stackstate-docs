@@ -64,21 +64,7 @@ Mergable fields in the component are set fields \(like streams and checks\) and 
 
 Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapper function is to process topology data from an external system and prepare parameters for a template function. A mapper function is thus likely to be plugin specific.
 
-There are two parameters that are specific to a mapper function:
-
-* `ExtTopoComponent` or `ExtTopoRelation` - these are required, system parameters. Every Mapper Function must define one of these. They are used internally by StackState and cannot be changed using the API. They indicate the type of element \(component or relation\) that the mapper function supports.
-* `TemplateLambda` - this is an optional parameter that specifies the template functions that must be used with a mapper function.
-
-For example, below is a simple mapper function script:
-
-```text
-     def params = [
-         'name': element.getExternalId(),
-         'description': element.getData().getString("description").get()
-     ];
-
-     context.runTemplate(template, params)
-```
+➡️ [Learn more about mapper functions](/develop/developer-guides/custom-functions/mapper-functions.md)
 
 ### Create a mapper function
 
@@ -90,44 +76,6 @@ Template functions are defined by a JSON template and input parameters required 
 
 Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapper function parse topological data of external system and prepares input parameters for Template function.
 
-### Create template functions from existing components and relations
+➡️ [Learn more about template functions](/develop/developer-guides/custom-functions/template-functions.md)
 
-An easy way to create template functions is to create them based on existing component or relation. This option is available in context menu of Component or Relations details as _+ Add as template_. After adding component or relation as template, its template function will appear in the Templates list in the Templates pane.
-
-### Manually create a template function
-
-Below are some examples templates to create components. Note that a template is not limited to rendering only components and relations. It can render JSON for any StackState domain object that is supported by restapi, for example a Domain, Layer, Check or Stream. and also not only single object, but several multiple objects with one template.
-
-* A simple template that creates a component. Its template function must define the parameters with the following names: `name`, `description`, `componentTypeId`, `layerId`, `domainId` and `environmentId`.
-
-  ```text
-          [{
-            "_type": "Component",
-            "checks": [],
-            "streams": [],
-            "labels": [],
-            "name": "{{ name }}",
-            "description": "{{ description }}",
-            "type" : {{ componentTypeId }},
-            "layer": {{ layerId }},
-            "domain": {{ domainId }},
-            "environments": [{{ environmentId }}]
-          }]
-  ```
-
-* A template to create a relation between the components `{{ sourceId }}` and `{{ targetId }}`. Its template Function must define parameters with the following names: `name`, `description`, `relationTypeId`, `sourceId` and `targetId`.
-
-  ```text
-         [{
-           "_type": "Relation",
-           "checks": [],
-           "streams": [],
-           "labels": [],
-           "name": "{{ name }}",
-           "description": "{{ description }}",
-           "type": {{ relationTypeId }},
-           "source": {{ sourceId }},
-           "target": {{ targetId }}
-         }]
-  ```
 
