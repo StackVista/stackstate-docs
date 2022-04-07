@@ -236,6 +236,7 @@
     * [Event handler functions](develop/developer-guides/custom-functions/event-handler-functions.md)
     * [ID extractor functions](develop/developer-guides/custom-functions/id-extractor-functions.md)
     * [Mapper functions](develop/developer-guides/custom-functions/mapper-functions.md)
+    * [Template functions](develop/developer-guides/custom-functions/template-functions.md)
   * [Custom Synchronization StackPack](develop/developer-guides/custom_synchronization_stackpack/README.md)
     * [About the Custom Synchronization StackPack](develop/developer-guides/custom_synchronization_stackpack/custom_synchronization_stackpack.md)
     * [How to customize elements created by the Custom Synchronization StackPack](develop/developer-guides/custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md)
