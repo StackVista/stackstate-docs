@@ -66,10 +66,6 @@ Mapping functions are defined by a groovy script and the input parameters that g
 
 ➡️ [Learn more about mapper functions](/develop/developer-guides/custom-functions/mapper-functions.md)
 
-### Create a mapper function
-
-Mapping functions can be created from the **Settings** page in the StackState UI.
-
 ## Template functions
 
 Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
