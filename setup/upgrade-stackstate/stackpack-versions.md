@@ -20,7 +20,7 @@ If a new release of a StackPack is included with your current version of StackSt
 | [Azure](../../stackpacks/integrations/azure.md) | 4.2.0 | [**4.2.0**](../../stackpacks/integrations/azure.md#release-notes) | 4.1.1 |
 | [Cloudera](../../stackpacks/integrations/cloudera.md) | 1.3.1 | 1.3.1 | [**1.3.1**](../../stackpacks/integrations/cloudera.md#release-notes) |
 | [Custom synchronization](../../stackpacks/integrations/customsync.md) | 3.1.1 | 3.1.1 | [**3.1.1**](https://github.com/StackVista/stackpack-autosync/blob/master/RELEASE.md) |
-| [Dynatrace](../../stackpacks/integrations/dynatrace.md) | 1.3.1 | [**1.3.0**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.1.2 |
+| [Dynatrace](../../stackpacks/integrations/dynatrace.md) | [**1.3.1**](../../stackpacks/integrations/dynatrace.md#release-notes) | 1.3.0 | 1.1.2 |
 | [Humio](../../stackpacks/integrations/humio.md) | 1.0.0 | 1.0.0 | 1.0.0 |
 | [Kubernetes](../../stackpacks/integrations/kubernetes.md) | [**3.9.9**](../../stackpacks/integrations/kubernetes.md#release-notes) | 3.9.8 | 3.9.5 |
 | [Nagios](../../stackpacks/integrations/nagios.md) | 2.6.3 | 2.6.3 | [**2.6.3**](../../stackpacks/integrations/nagios.md#release-notes) |
