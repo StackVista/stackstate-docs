@@ -4,7 +4,7 @@ description: StackState Self-hosted v4.6.x
 
 # Mapper functions
 
-Mapper Function is defined by a groovy script and input parameters that groovy script requires. The goal of a Mapper Function is to process topology data from an external system and prepare parameters for use by a template function.
+Mapper Functions are defined by a groovy script and input parameters that groovy script requires. The goal of a Mapper Function is to process topology data from an external system and prepare parameters for use by a template function.
 
 Mapping functions can be created from the **Settings** page in the StackState UI.
 
