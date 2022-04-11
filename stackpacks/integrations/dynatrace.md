@@ -94,7 +94,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **relative_time** - The relative timeframe for retrieving topology.
    - **custom_device_relative_time** - The relative timeframe for retrieving custom devices.
    - **custom_device_fields** - Which Custom Device property fields will be used.
-   - **custom_device_ip** - Use IP address for generating Custom Devices identifier. Set to False if there are multiple custom devices using the same IP to disable identifier generation based on IP and prevent merging of different custom device components.
+   - **custom_device_ip** - Use IP address for generating Custom Devices identifier. Requires Agent v2.17 or later. Set to False if there are multiple custom devices using the same IP to disable identifier generation based on IP and prevent merging of different custom device components.
    - **tags** - custom tags appended to all components, useful for filtering.
 4. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
