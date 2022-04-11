@@ -68,7 +68,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
         # Managed url example - https://{your-domain}/e/{your-environment-id} 
         token: <token>  # API-Token to connect to Dynatrace
-        # verify: True  # By default its True
+        # verify: True  # default `True`
         # cert: /path/to/cert.pem
         # keyfile: /path/to/key.pem
         # timeout: 10
@@ -77,7 +77,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
         # relative_time : <relative_time> # default 'hour'
         # custom_device_relative_time: 1h
         # custom_device_fields: +fromRelationships,+toRelationships,+tags,+managementZones,+properties.dnsNames,+properties.ipAddress
-        # custom_device_ip: True  # By default its True, requires Agent v2.17 or later. Set to false if there are multiple custom devices using the same IP. This will disable identifier generation based on IP and prevent incorrect merging of custom device components.
+        # custom_device_ip: True  # default `True`, requires Agent v2.17 or later.
         # tags:
         #   - foo:bar
     
@@ -86,15 +86,15 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **domain** - The domain to use for imported topology (default dynatrace).
    - **environment** - The environment to use for imported topology (default production).
 3. Other optional configuration options are:
-   - **collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer . Default `300` seconds.
+   - **collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer. Default `300` seconds.
    - **verify** - To verify the certificate for HTTPS.
    - **cert** - The path to the certificate file for HTTPS verification.
    - **keyfile** - The path to public key of certificate for https verification.
    - **timeout** - Timeout for requests.
    - **relative_time** - The relative timeframe for retrieving topology.
    - **custom_device_relative_time** - The relative timeframe for retrieving custom devices.
-   - **custom_device_fields** - Which Custom Device property fields will be used.
-   - **custom_device_ip** - Use IP address for generating Custom Devices identifier. Requires Agent v2.17 or later. Set to false if there are multiple custom devices using the same IP. This will disable identifier generation based on IP and prevent incorrect merging of custom device components.
+   - **custom_device_fields** - The Custom Device property fields that should be used.
+   - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent v2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
 4. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
