@@ -40,10 +40,9 @@ The built-in MinIO instance can be configured to store the backups in three loca
 
 **Encryption**
 
-Encryption with Amazon S3-managed keys (SSE-S3) is supported for the S3 buckets used to store backups.
-
-Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) is **not supported** and will result in errors such as this one in the Elasticsearch logs:
-```
+* Supported: Encryption with Amazon S3-managed keys (SSE-S3).
+* Not supported: Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS). This will result in errors such as this one in the Elasticsearch logs:
+```text
 Caused by: org.elasticsearch.common.io.stream.NotSerializableExceptionWrapper: sdk_client_exception: Unable to verify integrity of data upload. Client calculated content hash (contentMD5: ZX4D/ZDUzZWRhNDUyZTI1MTc= in base 64) didn't match hash (etag: c75faa31280154027542f6530c9e543e in hex) calculated by Amazon S3.  You may need to delete the data stored in Amazon S3. (metadata.contentMD5: null, md5DigestStream: com.amazonaws.services.s3.internal.MD5DigestCalculatingInputStream@5481a656, bucketName: stackstate-elasticsearch-backup, key: tests-UG34QIV9s32tTzQWdPsZL/master.dat)",  
 ```
 {% endhint %}
