@@ -40,7 +40,7 @@ The built-in MinIO instance can be configured to store the backups in three loca
 
 **Encryption**
 
-Amazon S3-managed keys (SSE-S3) should be used to encrypt the S3 buckets used to store the backups. 
+Amazon S3-managed keys (SSE-S3) should be used to encrypt the S3 buckets that store the backups. 
 
 ⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) is not supported. This will result in errors such as this one in the Elasticsearch logs:
 
