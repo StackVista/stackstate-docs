@@ -36,6 +36,17 @@ The built-in MinIO instance can be configured to store the backups in three loca
 
 ### Backup to AWS S3
 
+{% hint style="warning" %}
+
+**Encryption**
+
+Amazon S3-managed keys (SSE-S3) should be used when encrypting S3 buckets that store the backups. 
+
+⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) is not supported. This will result in errors such as this one in the Elasticsearch logs:
+
+`Caused by: org.elasticsearch.common.io.stream.NotSerializableExceptionWrapper: sdk_client_exception: Unable to verify integrity of data upload. Client calculated content hash (contentMD5: ZX4D/ZDUzZWRhNDUyZTI1MTc= in base 64) didn't match hash (etag: c75faa31280154027542f6530c9e543e in hex) calculated by Amazon S3.  You may need to delete the data stored in Amazon S3. (metadata.contentMD5: null, md5DigestStream: com.amazonaws.services.s3.internal.MD5DigestCalculatingInputStream@5481a656, bucketName: stackstate-elasticsearch-backup, key: tests-UG34QIV9s32tTzQWdPsZL/master.dat)",`
+{% endhint %}
+
 To enable scheduled backups to AWS S3 buckets, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
 ```yaml
