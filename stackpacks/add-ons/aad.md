@@ -45,15 +45,33 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 * **Description** - A description of the observed anomaly.
 * **Elements** - The name of the element (or elements) on which the metric stream is attached
 
-### Anomaly feedback
+## Anomaly feedback
 
-The Autonomous Anomaly Detector selects and optimizes a model for each metric stream.  How well the model describes the stream determines to a large extent the quality of the reported anomalies.  Streams with a high false positive rate need better models.  To develop new models and optimize the hyperparameters for selection and (online) training, StackState uses representative datasets.  You can (dis)like anomalies in the [telemetry inspector](../../use/metrics-and-events/browse-telemetry) and export the feedback using the [CLI](../../develop/reference/cli_reference).  The data you selected in this way becomes part of the datasets and will be better supported in the next release, when you send it to StackState.
+The Autonomous Anomaly Detector selects and optimizes a model for each metric stream.  How well the model describes the stream determines to a large extent the quality of the reported anomalies.  Streams with a high false positive rate need better models.  To develop new models and optimize the hyperparameters for selection and (online) training, StackState uses representative datasets.  You can (dis)like anomalies in the [telemetry inspector](../../use/metrics-and-events/browse-telemetry) and export the feedback using the CLI (see below).  The data you selected in this way becomes part of the datasets and will be better supported in the next release, when you send it to StackState.
 
 The feedback sent to StackState consists of:
 * **Thumbs-up, Thumbs-down** votes - Each user can cast one vote
 * **Comments** - Free-form text entered by users
 * **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names
 * **Metric data** - Data from the metric stream leading up to the anomaly.
+
+### Exporting feedback
+
+An export of the feedback on anomalies can be made with the CLI:
+
+```text
+# Export feedback on anomalies in the last 7 days,
+# with 1 day worth of metric data for each anomaly
+sts anomaly feedback --start-time=-7d > feedback.json
+
+# Export feedback on anomalies from 10 to 2 days ago,
+# with 3 days worth of metric data for each anomaly
+sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
+```
+
+{% hint style="warning" %}
+User comments are included in the exported feedback.  These are very useful, but should not contain any sensitive information.
+{% endhint %}
 
 ## Installation
     

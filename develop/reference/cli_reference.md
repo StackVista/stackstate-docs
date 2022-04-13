@@ -269,15 +269,6 @@ sts subscription update new-license-key
 Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
 {% endhint %}
 
-## Export AAD Feedback
-
-Feedback on the anomalies reported by the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad) can be exported.  This feedback is used by StackState to improve the AAD - reducing the number of falsely reported anomalies with better models.
-
-```text
-# Export feedback on anomalies in the last 7 days
-sts anomaly feedback --start-time=-7d > feedback.json
-```
-
 ## See also
 
 * [StackState Templated JSON](stj/)
