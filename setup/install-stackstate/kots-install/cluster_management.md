@@ -21,7 +21,7 @@ To manage the Longhorn storage cluster, expose the Longhorn UI as follows:
 
 1. Start the Longhorn UI by scaling up its deployment:
     ```
-    kubectl -n longhorn-system scale deployment longhorn-ui --replicas=1
+    kubectl scale -n longhorn-system deployment longhorn-ui --replicas=1
     ```
 
 1. Start a port-forward to the longhorn-frontend service using the port number chosen in step 1, 30881 in this case:
@@ -40,7 +40,7 @@ The UI should look something like this:
 To stop the Longhorn UI, scale down its deployment:
 
 ```
-kubectl -n longhorn-system scale deployment longhorn-ui --replicas=0
+kubectl scale -n longhorn-system deployment longhorn-ui --replicas=0
 ```
 
 ### Use kubectl to get information about Longhorn
@@ -49,22 +49,22 @@ The `kubectl` command can be used to get more information about the Longhorn sto
 
 * View all nodes:
     ```
-    kubectl get nodes.v1beta1.longhorn.io -n longhorn-system
+    kubectl get -n longhorn-system nodes.v1beta1.longhorn.io
     ```
 
 * View detailed information for a node:
     ```
-    kubectl describe node.v1beta1.longhorn.io -n longhorn-system NODENAME
+    kubectl describe -n longhorn-system node.v1beta1.longhorn.io NODENAME
     ```
 
 * View all volumes:
     ```
-    kubectl get volumes.v1beta1.longhorn.io -n longhorn-system
+    kubectl get -n longhorn-system volumes.v1beta1.longhorn.io
     ```
 
 * View all replicas:
     ```
-    kubectl get replicas.v1beta1.longhorn.io -n longhorn-system
+    kubectl get -n longhorn-system replicas.v1beta1.longhorn.io
     ```
 
 It is also possible to change settings with kubectl. For example, the following script can be used to set the reserved space for all nodes to 10Gi:
