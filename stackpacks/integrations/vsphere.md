@@ -78,7 +78,8 @@ The advanced configuration items described below can optionally be added to the 
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
-| `all_metrics` | Yes | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. |
+| `all_metrics` | No | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. Note that when using both `all_metrics` and `collection_level` setting `all_metrics` will be ignored. |
+| `collection_level` | No | Specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html) (a number between 1 and 4). Note that when using both `all_metrics` and `collection_level` setting `all_metrics` will be ignored.  |
 | `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
 | `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
@@ -129,7 +130,7 @@ The VMWare vSphere check watches the vCenter Event Manager for the events listed
 
 #### Metrics
 
-The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration item **all\_metrics**. For details see how to [configure the VMWare vSphere check](vsphere.md#configure).
+The metrics retrieved from VMWare vSphere can be configured in the Agent check configuration file using the configuration items **collection_level** and **all_metrics**. For details see the section [advanced configuration of the VMWare vSphere check](#advanced-configuration) (above) and the vmware docs on  [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html).
 
 #### Tags
 
