@@ -2,6 +2,8 @@
 description: StackState Self-hosted v4.6.x
 ---
 
+# Embedded cluster management
+
 ## Overview
 
 This page describes a number of advanced cluster administration scenarios.
@@ -80,8 +82,7 @@ NODES=$(kubectl get ${NODE_TYPE} -n ${LONGHORN_NAMESPACE} -o name)
 
 kubectl patch -n ${LONGHORN_NAMESPACE} ${NODES} --type='json'  -p "[{\"op\": \"replace\", \"path\": \"/spec/disks/default-disk-ca1000000000/storageReserved\", \"value\": ${STORAGE_RESERVED}}]"
 ```
-
-## Restart, add or remove nodes
+## Node management
 
 ### Restart a node
 
@@ -121,11 +122,9 @@ More information about adding a node can be found [in the kURL documentation](ht
 ### Remove a node
 
 {% hint style="warning" %}
-To prevent data loss, ensure that the data has been replicated to another node before removing a node from the cluster.
-{% endhint %}
+* To prevent data loss, ensure that the data has been replicated to another node before removing a node from the cluster.
 
-{% hint style="warning" %}
-Master nodes cannot be removed safely. The [section about Etcd cluster health in the kURL documentation \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes#etcd-cluster-health) mentions that it is important to maintain quorum. However, StackState has so far been unable to remove a master node without breaking the cluster.
+* **Master nodes cannot be removed safely**. The [section about Etcd cluster health in the kURL documentation \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes#etcd-cluster-health) mentions that it is important to maintain quorum. However, StackState has so far been unable to remove a master node without breaking the cluster.
 {% endhint %}
 
 To remove a node, follow these steps:
@@ -168,4 +167,7 @@ To remove a node, follow these steps:
     ekco-purge-node NODENAME
     ```
 
-More information about removing a node can be found [in the kURL documentation \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes#removing-a-node) and [in the Longhorn documentation \(longhorn.io\)](https://longhorn.io/docs/1.2.4/volumes-and-nodes/maintenance/#removing-a-node)
+For more information about removing a node, see the kurl and Longhorn documentation:
+
+* [Removing a node \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes#removing-a-node) 
+* [Removing a node \(longhorn.io\)](https://longhorn.io/docs/1.2.4/volumes-and-nodes/maintenance/#removing-a-node)
