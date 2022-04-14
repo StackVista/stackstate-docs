@@ -45,7 +45,7 @@ To stop the Longhorn UI, scale down its deployment:
 kubectl scale -n longhorn-system deployment longhorn-ui --replicas=0
 ```
 
-### Use kubectl to get information about Longhorn
+### Use kubectl to get Longhorn information
 
 The `kubectl` command can be used to get more information about the Longhorn storage system. For example:
 
