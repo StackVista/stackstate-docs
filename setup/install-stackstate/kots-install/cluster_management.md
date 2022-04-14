@@ -117,14 +117,14 @@ If those commands have expired:
 
 1. Run the generated command on the machine you wish to join the cluster.
 
-More information about adding a node can be found [in the kURL documentation](https://kurl.sh/docs/install-with-kurl/adding-nodes).
+More information about adding a node can be found in the kURL documentation on [adding nodes \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes).
 
 ### Remove a node
 
 {% hint style="warning" %}
 * To prevent data loss, ensure that the data has been replicated to another node before removing a node from the cluster.
 
-* **Master nodes cannot be removed safely**. The [section about Etcd cluster health in the kURL documentation \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes#etcd-cluster-health) mentions that it is important to maintain quorum. However, StackState has so far been unable to remove a master node without breaking the cluster.
+* **Master nodes cannot be removed safely**. The kurl documentation on [etcd cluster health \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/adding-nodes#etcd-cluster-health) mentions that it is important to maintain quorum, however, StackState has so far been unable to remove a master node without breaking the cluster.
 {% endhint %}
 
 To remove a node, follow these steps:
