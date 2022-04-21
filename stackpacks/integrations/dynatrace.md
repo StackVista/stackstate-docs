@@ -199,7 +199,7 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 
 | Dynatrace event severity | Available in StackState as |
 | :--- | :--- |
-| `INFO` | Events are mapped to the associated component. They are listed on the StackState events perspective and when a component is selected to display detailed information about it. |
+| `INFO` | Events are mapped to the associated component. They are listed on the StackState events perspective and in the right panel when detailed information about component is displayed. |
 | `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component. |
 | `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component. |
 
