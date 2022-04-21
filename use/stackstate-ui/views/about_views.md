@@ -37,9 +37,9 @@ To add or remove a star:
 * For the current view: Click the star icon to the right of its name in the top bar to add or remove the star.
 * For any view: Click **all views** from the main menu to open a list of all views. Click the star icon to the right of a view name to add or remove its star.
 
-## The View Details pane
+## View Summary
 
-When you first open a view, the View Details pane will be visible on the right-hand side of the StackState UI. This shows the following information:
+When you first open a view, the **View Summary** will be visible in the right panel. This shows the following information:
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.

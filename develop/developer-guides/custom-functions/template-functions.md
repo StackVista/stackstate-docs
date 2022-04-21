@@ -12,7 +12,7 @@ Template functions are used in cooperation with Mapping functions to create Stac
 
 ## Create template functions from existing components and relations
 
-An easy way to create template functions is to create them based on existing component or relation. This option is available in context menu of Component or Relations details as _+ Add as template_. After adding component or relation as template, its template function will appear in the Templates list in the Templates pane.
+An easy way to create template functions is to create them based on existing component or relation. This option is available as **+ Add as template** in the context menu or in the right panel when an element has been selected to display its detailed information. After adding component or relation as template, its template function will appear in the Templates list in the Templates panel.
 
 ## Manually create a template function
 

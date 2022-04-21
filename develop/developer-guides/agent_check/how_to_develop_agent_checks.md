@@ -8,7 +8,7 @@ This document covers how to create your first check with Agent v2 Check API. Fol
 
 ## Installing Agent v2 StackPack
 
-To install this StackPack navigate to StackState’s StackPacks page using left menu pane and locate the “StackState Agent V2” section. Click on the Agent V2 icon and this opens the installation page. Click on "Install" button and follow installation instructions provided by the StackPack.
+To install this StackPack navigate to StackState’s StackPacks page using left menu and locate the “StackState Agent V2” section. Click on the Agent V2 icon and this opens the installation page. Click on "Install" button and follow installation instructions provided by the StackPack.
 
 ## Directory Structure
 

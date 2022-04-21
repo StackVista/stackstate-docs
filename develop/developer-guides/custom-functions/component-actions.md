@@ -6,7 +6,7 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-This how to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the details pane on the right of the StackState UI.
+This how to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the right panel when a component has been selected to display its detailed information.
 
 ## Add or edit a component action
 

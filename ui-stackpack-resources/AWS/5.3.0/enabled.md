@@ -10,7 +10,7 @@ Now that StackState is receiving data from your AWS instance, you can see your t
 - **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
-Components retrieved from AWS will have an additional action available in the component context menu and component details pane on the right side of the screen. This provides a deep link through to the relevant AWS console at the correct point. For example, in the StackState Topology Perspective: 
+Components retrieved from AWS will have an additional action available in the component context menu and in the right panel when a component has been selected to show its detailed information. This provides a deep link through to the relevant AWS console at the correct point. For example, in the StackState Topology Perspective: 
 
 - Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 - Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.

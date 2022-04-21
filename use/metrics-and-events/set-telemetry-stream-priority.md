@@ -6,11 +6,11 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-Telemetry streams in the right-hand component pane of the StackState UI are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `none`. 
+The telemetry streams associated with an element are displayed in the right panel when an element is selected to show its detailed information. Telemetry streams are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `none`. 
 
 Stream priority is used in StackState to help determine the following:
 
-* The order in which streams are displayed in the **Telemetry** list in the [component and relation details pane](/use/concepts/components.md#component-details-pane) on the right-hand side of the StackState UI. Streams are ordered by priority (highest at the top) and then alphabetically.
+* The order in which streams are displayed in the **Telemetry** list when [detailed component or relation information](/use/concepts/components.md#detailed-component-information) is displayed in the right panel of the StackState UI. Streams are ordered by priority (highest at the top) and then alphabetically.
 * The streams that are shown as [Top metrics](/use/metrics-and-events/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three streams in the **Telemetry** list will be displayed.
 * The order in which streams are displayed in the [Metrics Perspective](/use/stackstate-ui/perspectives/metrics-perspective.md).
 * The [streams selected for monitoring by the Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md#how-are-metric-streams-selected).
@@ -19,11 +19,11 @@ Stream priority is used in StackState to help determine the following:
 
 To change the priority of a specific stream, follow the instructions below.
 
-### 1. Open the Component Details pane
+### 1. Select a component to display detailed information
 
-Locate the component that you want to edit Telemetry streams for. Click on the component to open the Component Details pane on the right of the screen - see the screenshot below:
+Locate the component that you want to edit Telemetry streams for. Click on the component to open detailed information about the component in the right panel - see the screenshot below:
 
-![Component Details](../../.gitbook/assets/v46_component_details.png)
+![Detailed component information](../../.gitbook/assets/v46_component_details.png)
 
 This displays the details of the component, such as Properties, Health status, and Telemetry.
 

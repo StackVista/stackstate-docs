@@ -33,7 +33,7 @@ All events in StackState have a category assigned based on the event type and so
 
 ### Event properties
 
-Click on an event to display an overview of the event details in the **Properties** pane on the right of the screen. Events from external systems will also include links through to relevant information in the source system here:
+Click on an event to display detailed information about the event in the right panel. Events from external systems will also include links through to relevant information in the source system here:
 
 * **Elements** - The components and/or relations involved in the event.
 * **Event type** - A description of the event type.
@@ -47,15 +47,15 @@ Click on an event to display an overview of the event details in the **Propertie
 
 ## Filter displayed events
 
-The events displayed in the Events Perspective and in the Events list in the details panes on the right-hand of the StackState UI can be filtered in the **View filters** pane on the left-hand side of the StackState UI.
+The events displayed in the Events Perspective and in the Events list in the right panel of the StackState UI can be filtered in the **View filters** panel on the left of the StackState UI.
 
 ### Filter by source component
 
-The [topology filters](../filters.md#filter-topology) set in the **View Filters** pane define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
+The [topology filters](../filters.md#filter-topology) set in the **View Filters** panel define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
 
 ### Filter by properties
 
-The [event filters](../filters.md#filter-events) set in the **View Filters** pane can be used to refine the events displayed based on event category, type, source system and tags.
+The [event filters](../filters.md#filter-events) set in the **View Filters** panel can be used to refine the events displayed based on event category, type, source system and tags.
 
 ### Filter by timestamp
 

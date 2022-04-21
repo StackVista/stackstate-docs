@@ -6,13 +6,13 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](problem_investigation.md#problem-details-pane) with further information about the problem.
+Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the **View Summary** in the right panel under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel.
 
-![View Details pane](../../.gitbook/assets/v46_view_details_problems.png)
+![View Summary](../../.gitbook/assets/v46_view_details_problems.png)
 
-## Problem Details pane
+## Detailed information about a problem
 
-Click on a problem to open the **Problem details pane**. This gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem \(the root cause and contributing causes\) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](problem_investigation.md#probable-causes).
+Click on a problem to display detailed information about the problem in the right panel. This gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem \(the root cause and contributing causes\) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](problem_investigation.md#probable-causes).
 
 Click the **INVESTIGATE IN SUBVIEW** button to open all components in a problem in a dedicated, temporary [problem subview](problem_investigation.md#problem-subview).
 
@@ -22,22 +22,22 @@ For each reported problem, StackState will list all events that are likely to ha
 
 ### Anomaly events
 
-Anomaly events are generated whenever an anomaly is detected by the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md). For metric stream anomalies, details of the metric stream where the anomaly was found are available in the event details pane.
+Anomaly events are generated whenever an anomaly is detected by the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md). For metric stream anomalies, details of the metric stream where the anomaly was found are provided.
 
 1. Click on a Metric stream anomaly event in the Events Perspective
-   * The event details pane opens on the right of the screen.
+   * Detailed information about the event is displayed in the right panel.
    * The affected stream is displayed highlighting the detected anomaly.
 2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
-![Metric stream anomaly event details](../../.gitbook/assets/v46_event_metric_stream_anomaly.png)
+![Metric stream anomaly detailed event information](../../.gitbook/assets/v46_event_metric_stream_anomaly.png)
 
 ### Element properties changed events
 
-Element properties changed events are generated whenever relevant properties of a component are updated at the synchronization source. For example, if AWS security rules are changed or a load balancer has increased its capacity. Exact details of the change are available from the event details pane.
+Element properties changed events are generated whenever relevant properties of a component are updated at the synchronization source. For example, if AWS security rules are changed or a load balancer has increased its capacity. Exact details of the change are provided.
 
 1. Click on an Element properties changed event in the Events Perspective.
-   * The event details pane opens on the right of the screen.
-2. Click **Show all changes** in the event details pane.
+   * Detailed information about the event is displayed in the right panel.
+2. Click **Show all changes** in the right panel.
    * A diff of the old and new properties is displayed.
 
 ![View all changes](../../.gitbook/assets/v46_event_view_all_changes.png)
