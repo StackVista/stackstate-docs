@@ -30,7 +30,9 @@ Both the `baseUrl` and `API_KEY` are set during StackState installation, for det
 {% endtab %}
 {% endtabs %}
 
-## Common JSON object
+## JSON 
+
+### Common JSON object
 
 Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages.
 
@@ -45,6 +47,8 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
   "health" // used for sending health data
 }
 ```
+
+### Health payload
 
 StackState accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models). The message that can be sent for each model are described on the pages below:
 

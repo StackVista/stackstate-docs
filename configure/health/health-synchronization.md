@@ -24,7 +24,7 @@ The health synchronization framework works as follows:
 * Health data is sent to StackState and ingested via the Receiver API.
 * StackState topology elements related to the ingested health checks are identified and bound based on:
   * the [topology identifiers](../topology/sync.md#id-extraction) obtained during topology synchronization.
-  * the [topologyElementIdentifier](send-health-data/send-health-data.md#common-json-object) from the ingested health payload.
+  * the `topologyElementIdentifier` from the ingested [health payload](send-health-data/send-health-data.md#health-payload).
 * StackState keeps track of changes to both topology elements and health checks to maintain up-to-date information.
 
 ![Health synchronization pipeline](../../.gitbook/assets/health-sync-pipeline.svg)
@@ -62,15 +62,18 @@ The `TRANSACTIONAL_INCREMENTS` consistency model is designed to be used on strea
 
 External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one sub stream with health checks.
 
-|  |  |
-| :--- | :--- |
-| **Health stream** | The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together. |
-| **Sub stream** | Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the health payload. StackState will assume that all the external health checks belong to a single, default sub stream. |
+#### Health stream
+
+The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together.
+
+#### Sub stream
+
+Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data/send-health-data.md#health-payload). StackState will assume that all the external health checks belong to a single, default sub stream. 
 
 
 ### Repeat Interval
 
-Health synchronization processes the ingested health data per sub stream. The repeat interval specified in the [health payload](#consistency-models) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
+Health synchronization processes the ingested health data per sub stream. The repeat interval specified in the [health payload](/configure/health/send-health-data/send-health-data.md#health-payload) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
 
 ### Expire Interval
 
@@ -83,6 +86,6 @@ The health check state calculated by an external monitoring system. This contain
 ## See also
 
 * [Add a health check based on telemetry available in StackState](../../use/health-state/add-a-health-check.md)
-* [JSON health payload](/configure/health/send-health-data/send-health-data.md#json-property-health)
+* [JSON health payload](/configure/health/send-health-data/send-health-data.md#health-payload)
 * [Topology synchronization](../topology/send-topology-data.md)
 
