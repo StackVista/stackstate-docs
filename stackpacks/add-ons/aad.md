@@ -62,7 +62,7 @@ The feedback sent to StackState consists of:
 ### Export feedback
 
 {% hint style="warning" %}
-User comments are included in the exported feedback. These are very useful, but should not contain any sensitive information.
+**Note that user comments will be included in the exported feedback.** These are very useful, but should not contain any sensitive information.
 {% endhint %}
 
 Feedback that has been added to anomalies can be exported to file using the StackState CLI.
