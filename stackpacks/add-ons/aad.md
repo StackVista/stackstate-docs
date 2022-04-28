@@ -47,11 +47,13 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 
 ## Anomaly feedback
 
+{% hint style="info" %}
+Note that feedback is not used to train the running instance of the AAD.
+{% endhint %}
+
 Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
 
 To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be [exported and sent to StackState](#export-feedback) to assist in the ongoing development of the AAD.
-
-**Note that feedback is not used to train the running instance of the AAD.**
 
 The feedback sent to StackState consists of:
 * **Thumbs-up, Thumbs-down** votes - Each user can cast one vote per reported anomaly.
