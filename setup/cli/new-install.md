@@ -58,6 +58,11 @@ After successful installation The `sts` command is  available on both Powershell
 
 ## Configure the StackState CLI
 
+Get your `API-KEY` and `API-URL` and then run
+
+```text
+sts cli save-config --api-key API-KEY --api-URL API-URL
+```
 
 ## Uninstalling 
 
