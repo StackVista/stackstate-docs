@@ -47,31 +47,35 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 
 ## Anomaly feedback
 
-The Autonomous Anomaly Detector selects and optimizes a model for each metric stream.  How well the model describes the stream determines to a large extent the quality of the reported anomalies.  Streams with a high false positive rate need better models.  To develop new models and optimize the hyperparameters for selection and (online) training, StackState uses representative datasets.  You can (dis)like anomalies in the [telemetry inspector](../../use/metrics-and-events/browse-telemetry) and export the feedback using the CLI (see below).  The data you selected in this way becomes part of the datasets and will be better supported in the next release, when you send it to StackState.
+Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
+
+To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be [exported and sent to StackState](#export-feedback) to assist in the ongoing development of the AAD.
+
+**Note that feedback is not used to train the running instance of the AAD.**
 
 The feedback sent to StackState consists of:
-* **Thumbs-up, Thumbs-down** votes - Each user can cast one vote
-* **Comments** - Free-form text entered by users
-* **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names
+* **Thumbs-up, Thumbs-down** votes - Each user can cast one vote per reported anomaly.
+* **Comments** - Free-form text entered by users. Note that any comments added to an anomaly will be included when feedback is exported and sent to StackState. Take care not to include sensitive data in comments.
+* **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names.
 * **Metric data** - Data from the metric stream leading up to the anomaly.
 
-### Exporting feedback
-
-An export of the feedback on anomalies can be made with the CLI:
-
-```text
-# Export feedback on anomalies in the last 7 days,
-# with 1 day worth of metric data for each anomaly
-sts anomaly feedback --start-time=-7d > feedback.json
-
-# Export feedback on anomalies from 10 to 2 days ago,
-# with 3 days worth of metric data for each anomaly
-sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
-```
+### Export feedback
 
 {% hint style="warning" %}
-User comments are included in the exported feedback.  These are very useful, but should not contain any sensitive information.
+User comments are included in the exported feedback. These are very useful, but should not contain any sensitive information.
 {% endhint %}
+
+Feedback that has been added to anomalies can be exported to file using the StackState CLI.
+
+```text
+# Export all feedback on all anomalies in the last 7 days,
+# include 1 day of metric data for each anomaly
+sts anomaly feedback --start-time=-7d > feedback.json
+
+# Export all feedback on anomalies from 10 to 2 days ago,
+# include 3 days  of metric data for each anomaly
+sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
+```
 
 ## Installation
     
@@ -83,11 +87,11 @@ User comments are included in the exported feedback.  These are very useful, but
 
 ### Install the AAD StackPack
 
-To install the AAD StackPack, simply press the INSTALL button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
+To install the AAD StackPack, simply press the **INSTALL** button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
 
 ## Frequently Asked Questions
 
@@ -117,7 +121,7 @@ Yes. The AAD itself does not alert on anomalies found, but [anomaly health check
 
 ## Uninstall
 
-To uninstall the AAD StackPack, simply press the UNINSTALL button. No other actions need to be taken.
+To uninstall the AAD StackPack, simply press the **UNINSTALL** button. No other actions need to be taken.
 
 ## Release Notes
 
