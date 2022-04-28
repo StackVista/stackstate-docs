@@ -61,6 +61,8 @@ The feedback sent to StackState consists of:
 * **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names.
 * **Metric data** - Data from the metric stream leading up to the anomaly.
 
+![Add feedback to an anomaly](/.gitbook/assets/v50_anomaly_feedback.png)
+
 ### Export feedback
 
 {% hint style="warning" %}
