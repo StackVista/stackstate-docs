@@ -67,7 +67,7 @@ The feedback sent to StackState consists of:
 **Note that user comments will be included in the exported feedback.** These are very useful, but should not contain any sensitive information.
 {% endhint %}
 
-Feedback that has been added to anomalies can be exported to file using the StackState CLI.
+Feedback that has been added to anomalies can be exported to file using the StackState CLI. For example:
 
 ```text
 # Export all feedback on all anomalies in the last 7 days,
@@ -75,9 +75,11 @@ Feedback that has been added to anomalies can be exported to file using the Stac
 sts anomaly feedback --start-time=-7d > feedback.json
 
 # Export all feedback on anomalies from 10 to 2 days ago,
-# include 3 days  of metric data for each anomaly
+# include 3 days of metric data for each anomaly
 sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
 ```
+
+Exported data can be sent on to StackState for investigation when requested using a secure fileshare or email. All data received will be handled in accordance with the StackState security policy.
 
 ## Installation
     
