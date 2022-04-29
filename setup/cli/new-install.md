@@ -51,8 +51,16 @@ After successful installation The `sts` command is  available on both Powershell
 
 {% endtab %}
 {% tab title="Mac Os" %}
+
+```bash
+brew install stackstate-cli
+```
+
 {% endtab %}
 {% tab title="Linux" %}
+
+TODO
+
 {% endtab %}
 {% endtabs %}
 
