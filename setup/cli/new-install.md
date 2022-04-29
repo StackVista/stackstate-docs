@@ -74,9 +74,6 @@ sts cli save-config --api-key API-KEY --api-URL API-URL
 
 {% tabs %}
 {% tab title="Windows" %}
-{% hint style="info" %}
-For these installation instruction to work, you need Windows 10 build 1803 or need to manually install `curl` and `tar`. 
-{% endhint %}
 
 Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
 
