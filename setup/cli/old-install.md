@@ -2,7 +2,7 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# StackState CLI
+# StackState CLI v1
 
 ## Overview
 

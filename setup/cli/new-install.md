@@ -2,21 +2,19 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# StackState CLI
+# StackState CLI v2
 
 ## Overview
 
 The StackState CLI provides easy access to the functionality provided by the StackState APIs. It can be used to configure StackState, work with data, automate using StackState data and help with developing and configuring StackPacks. You can configure the CLI to work with multiple instances of StackState.
 
-## Install and configure the StackState CLI
+## Install
 
 {% tabs %}
 {% tab title="Windows" %}
 {% hint style="info" %}
 For these installation instruction to work, you need Windows 10 build 1803 or need to manually install `curl` and `tar`. 
 {% endhint %}
-
-**Installation:**
 
 Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
 
@@ -80,8 +78,6 @@ sts cli save-config --api-key API-KEY --api-URL API-URL
 For these installation instruction to work, you need Windows 10 build 1803 or need to manually install `curl` and `tar`. 
 {% endhint %}
 
-**Installation:**
-
 Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
 
 ```powershell
@@ -103,7 +99,15 @@ Open a **Powershell** terminal and execute the following steps. You can execute 
 
 {% endtab %}
 {% tab title="Mac Os" %}
+
+```bash
+brew uninstall stackstate-cli
+```
+
 {% endtab %}
 {% tab title="Linux" %}
+
+TODO
+
 {% endtab %}
 {% endtabs %}
