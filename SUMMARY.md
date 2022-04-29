@@ -50,7 +50,7 @@
   * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
   * [Agent V1 \(Legacy\)](setup/agent/agent-v1.md)
-* [StackState CLI]
+* [StackState CLI](setup/cli/README.md)
   * [New StackState CLI](setup/cli/new-install.md)
   * [Old StackState CLI](setup/cli/old-install.md)
 * [StackState CLI](setup/cli-install.md)
