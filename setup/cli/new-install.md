@@ -20,7 +20,7 @@ For these installation instruction to work, you need Windows 10 build 1803 or ne
 
 Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
 
-```text
+```powershell
   # Step 1 - set the target path to which to install the StackState CLI
   $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
   echo "Installing the StackState CLI to: $CLI_PATH"
@@ -60,7 +60,7 @@ After successful installation The `sts` command is  available on both Powershell
 
 Get your `API-KEY` and `API-URL` and then run
 
-```text
+```bash
 sts cli save-config --api-key API-KEY --api-URL API-URL
 ```
 
@@ -76,7 +76,7 @@ For these installation instruction to work, you need Windows 10 build 1803 or ne
 
 Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
 
-```text
+```powershell
   # Step 1 - remove binary
   $CLI_PATH = $env:USERPROFILE+"\stackstate-cli"
   rm -R $CLI_PATH 2>1  > $null
