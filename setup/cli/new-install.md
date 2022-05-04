@@ -16,58 +16,107 @@ The StackState CLI provides easy access to the functionality provided by the Sta
 For these installation instruction to work, you need Windows 10 build 1803 or need to manually install `curl` and `tar`. 
 {% endhint %}
 
-Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
+Open a **Powershell** terminal and execute each step one-by-one or all at once.
 
 ```powershell
-  # Step 1 - set the target path to which to install the StackState CLI
-  $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
-  echo "Installing the StackState CLI to: $CLI_PATH"
+# Step 1 - set the target path to which to install the StackState CLI
+$CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
+echo "Installing the StackState CLI to: $CLI_PATH"
 
-  # Step 2 - Download and unpack the CLI to the target CLI path
-  If (!(test-path $CLI_PATH)) { md $CLI_PATH }
-  curl.exe -fLo $CLI_PATH\stackstate-cli.zip https://dl.stackstate.com/stackstate-cli/v0.1.1/stackstate-cli-full-0.1.1.windows-amd64.zip
-  tar.exe -xf "$CLI_PATH\stackstate-cli.zip" -C $CLI_PATH
-  rm $CLI_PATH\stackstate-cli.zip
+# Step 2 - Download and unpack the CLI to the target CLI path
+If (!(test-path $CLI_PATH)) { md $CLI_PATH }
+curl.exe -fLo $CLI_PATH\stackstate-cli.zip https://dl.stackstate.com/stackstate-cli/v0.2.1/stackstate-cli-full-0.2.1.windows-amd64.zip
+tar.exe -xf "$CLI_PATH\stackstate-cli.zip" -C $CLI_PATH
+rm $CLI_PATH\stackstate-cli.zip
 
-  # Step 3 - Register the CLI path to the current user's PATH, so it will always be available everywhere
-  $PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
-  if ( $PATH -notlike "*$CLI_PATH*" ) { 
-    $PATH = "$PATH;$CLI_PATH"
-    (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
-    $MACHINE_PATH = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
-    $env:Path = "$PATH;$MACHINE_PATH"
-  }
+# Step 3 - Register the CLI path to the current user's PATH, so it will always be available everywhere
+$PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
+if ( $PATH -notlike "*$CLI_PATH*" ) { 
+  $PATH = "$PATH;$CLI_PATH"
+  (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
+  $MACHINE_PATH = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+  $env:Path = "$PATH;$MACHINE_PATH"
+}
 
-  # Step 4 - Verify that the CLI works
-   try {  
-     sts version >$null 2>&1
-     if ($LastExitCode -eq 0) { echo "StackState CLI installed succesfully! Type 'sts' to get started." } else { "Error: StackState CLI error code $LastExitCode." }
-  } Catch { "Error: could not find 'sts' on the path." }
+# Step 4 - Verify that the CLI works
+  try {  
+    sts version >$null 2>&1
+    if ($LastExitCode -eq 0) { echo "StackState CLI installed succesfully! Type 'sts' to get started." } else { "Error: StackState CLI error code $LastExitCode." }
+} Catch { "Error: could not find 'sts' on the path." }
 ```
 
-After successful installation The `sts` command is  available on both Powershell as well as the traditional command terminal for this user.
+After installation the `sts` command is available on both the Powershell terminal as well as the command prompt (cmd.exe) for the current user.
 
 {% endtab %}
 {% tab title="Mac Os" %}
+
+{% tabs %}
+{% tab title="Manual" %}
+
+Open a terminal and execute each step one-by-one or all at once.
+
+```sh
+# Step 1 - Download and unpack
+curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v0.2.1/stackstate-cli-full-0.2.1.darwin-amd64.tar.gz
+
+# Step 2 - Move to /usr/local/bin and remove stack
+tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
+rm stackstate-cli.tar.gz
+
+# Step 3 - Verify installation success
+sts version
+```
+
+After installation the `sts` command is available to the current user from any path location.
+
+{% endtab %}
+{% tab title="Homebrew" %}
+
+{% hint style="warning" %}
+This is currently still in beta and only available to StackState employees. You need to add the StackState brew tap in order for this to work:
+```
+brew tap stackvista/homebrew-tap https://gitlab.com/stackvista/homebrew-tap.git
+```
+{% endhint %}
+
+Make sure you have [Homebrew](https://brew.sh/) installed. Then open a terminal and run:
 
 ```bash
 brew install stackstate-cli
 ```
 
+After installation the `sts` command is available to the current user from any path location.
+
+{% endtab %}
+{% endtabs %}
+
+
 {% endtab %}
 {% tab title="Linux" %}
 
-TODO
+Open a terminal and execute each step one-by-one or all at once.
+
+```sh
+# Step 1 - Download and unpack
+curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v0.2.1/stackstate-cli-full-0.2.1.darwin-amd64.tar.gz
+
+# Step 2 - Move to /usr/local/bin and remove stack
+tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
+rm stackstate-cli.tar.gz
+
+# Step 3 - Verify installation success
+sts version
+```
 
 {% endtab %}
 {% endtabs %}
 
 ## Configure the StackState CLI
 
-Get your `API-KEY` and `API-URL` and then run
+Get your API token from the CLI page then run:
 
 ```bash
-sts cli save-config --api-key API-KEY --api-URL API-URL
+sts cli save-config --url URL --api-token API-TOKEN 
 ```
 
 ## Uninstalling 
@@ -75,7 +124,7 @@ sts cli save-config --api-key API-KEY --api-URL API-URL
 {% tabs %}
 {% tab title="Windows" %}
 
-Open a **Powershell** terminal and execute the following steps. You can execute them one by one or copy-paste this entire script to your terminal.
+Open a **Powershell** terminal and execute each step one-by-one or all at once.
 
 ```powershell
   # Step 1 - remove binary
@@ -94,17 +143,52 @@ Open a **Powershell** terminal and execute the following steps. You can execute 
   }
 ```
 
+The StackState CLI as well as its config are now removed for the current user.
+
 {% endtab %}
 {% tab title="Mac Os" %}
+
+{% tabs %}
+{% tab title="Manual" %}
+Open a terminal and execute:
+
+```sh
+rm -r /usr/local/bin/sts ~/.config/stackstate-cli
+```
+
+The StackState CLI as well as its config are now removed for the current user.
+
+{% endtab %}
+{% tab title="Homebrew" %}
+
+{% hint style="warning" %}
+This is currently still in beta and only available to StackState employees. You need to add the StackState brew tap in order for this to work:
+```
+brew tap stackvista/homebrew-tap https://gitlab.com/stackvista/homebrew-tap.git
+```
+{% endhint %}
+
+Open a terminal and run:
 
 ```bash
 brew uninstall stackstate-cli
 ```
 
+The StackState CLI as well as its config are now removed for the current user.
+
+{% endtab %}
+{% endtabs %}
+
 {% endtab %}
 {% tab title="Linux" %}
 
-TODO
+Open a terminal and execute:
+
+```sh
+rm -r /usr/local/bin/sts ~/.config/stackstate-cli
+```
+
+The StackState CLI as well as its config are now removed for the current user.
 
 {% endtab %}
 {% endtabs %}
