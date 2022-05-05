@@ -19,13 +19,15 @@ For these installation instruction to work, you need Windows 10 build 1803 or ne
 Open a **Powershell** terminal and execute each step one-by-one or all at once.
 
 ```powershell
-# Step 1 - set the target path to which to install the StackState CLI
+# Step 1 - set the source version and target path 
 $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
-echo "Installing the StackState CLI to: $CLI_PATH"
+$VERSION=curl.exe https://dl.stackstate.com/stackstate-cli/LATEST_VERSION
+$CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
+echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
 
 # Step 2 - Download and unpack the CLI to the target CLI path
 If (!(test-path $CLI_PATH)) { md $CLI_PATH }
-curl.exe -fLo $CLI_PATH\stackstate-cli.zip https://dl.stackstate.com/stackstate-cli/v0.2.1/stackstate-cli-full-0.2.1.windows-amd64.zip
+curl.exe -fLo $CLI_PATH\stackstate-cli.zip $CLI_DL
 tar.exe -xf "$CLI_PATH\stackstate-cli.zip" -C $CLI_PATH
 rm $CLI_PATH\stackstate-cli.zip
 
@@ -56,8 +58,10 @@ After installation the `sts` command is available on both the Powershell termina
 Open a terminal and execute each step one-by-one or all at once.
 
 ```sh
-# Step 1 - Download and unpack
-curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v0.2.1/stackstate-cli-full-0.2.1.darwin-amd64.tar.gz
+# Step 1 - Download latest version for x86_64 (Intel) or arm64 (M1)
+(VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+  ARCH=`uname -m` &&
+  curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz)
 
 # Step 2 - Move to /usr/local/bin and remove stack
 tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
@@ -97,8 +101,9 @@ After installation the `sts` command is available to the current user from any p
 Open a terminal and execute each step one-by-one or all at once.
 
 ```sh
-# Step 1 - Download and unpack
-curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v0.2.1/stackstate-cli-full-0.2.1.darwin-amd64.tar.gz
+# Step 1 - Download latest version for x86_64
+(VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+  curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz)
 
 # Step 2 - Move to /usr/local/bin and remove stack
 tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
