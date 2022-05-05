@@ -57,7 +57,7 @@ After installation the `sts` command is available on both the Powershell termina
 
 Open a terminal and execute each step one-by-one or all at once.
 
-```sh
+```bash
 # Step 1 - Download latest version for x86_64 (Intel) or arm64 (M1)
 (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
   ARCH=`uname -m` &&
@@ -100,7 +100,7 @@ After installation the `sts` command is available to the current user from any p
 
 Open a terminal and execute each step one-by-one or all at once.
 
-```sh
+```bash
 # Step 1 - Download latest version for x86_64
 (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
   curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz)
@@ -157,7 +157,7 @@ The StackState CLI as well as its config are now removed for the current user.
 {% tab title="Manual" %}
 Open a terminal and execute:
 
-```sh
+```bassh
 rm -r /usr/local/bin/sts ~/.config/stackstate-cli
 ```
 
@@ -189,7 +189,7 @@ The StackState CLI as well as its config are now removed for the current user.
 
 Open a terminal and execute:
 
-```sh
+```bassh
 rm -r /usr/local/bin/sts ~/.config/stackstate-cli
 ```
 
