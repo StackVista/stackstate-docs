@@ -14,7 +14,7 @@ description: StackState Self-hosted v5.0.x
 
 StackState Self-hosted can be used to observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our SaaS solution. 
 
-➡️ Switch to the [documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/)Ï
+➡️ Switch to the [documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/)
 
 ### Using StackState
 
