@@ -5,7 +5,9 @@ description: Add incoming telemetry (metrics and logs) data to an element.
 # Add a telemetry stream
 
 {% hint style="warning" %}
-**This page describes StackState version 4.4.**
+**This page describes StackState v4.4.x.**
+
+The StackState 4.4 version range is End of Life (EOL) and no longer supported. We encourage customers still running the 4.4 version range to upgrade to a more recent release.
 
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/metrics-and-events/add-telemetry-to-element).
 {% endhint %}
