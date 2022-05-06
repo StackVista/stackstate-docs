@@ -51,7 +51,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 Note that feedback is not used to train the running instance of the AAD.
 {% endhint %}
 
-Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
+Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
 
 To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be [exported and sent to StackState](#export-feedback) to assist in the ongoing development of the AAD.
 
@@ -81,7 +81,7 @@ sts anomaly feedback --start-time=-7d > feedback.json
 sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
 ```
 
-Exported data can be sent on to StackState for investigation when requested using a secure fileshare or email. All data received will be handled in accordance with the StackState security policy.
+Exported data can be sent on to StackState for investigation when requested using a secure fileshare. All data received will be handled in accordance with the StackState security policy.
 
 ## Installation
     
