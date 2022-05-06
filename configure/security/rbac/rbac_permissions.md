@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Permissions
@@ -160,7 +160,7 @@ See also the full list of [system permissions](rbac_permissions.md#system-permis
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
-![Main menu with all permissions granted](../../../.gitbook/assets/v46_main_menu.png)
+![Main menu with all permissions granted](../../../.gitbook/assets/v50_main_menu.png)
 
 | Page | Description | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |

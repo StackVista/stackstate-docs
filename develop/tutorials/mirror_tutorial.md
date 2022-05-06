@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Set up a mirror to pull telemetry data from an external system
@@ -67,7 +67,7 @@ In the Stream Creation screen, you should see random data right away. You can pl
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-mirror-stream.png)
+![](../../.gitbook/assets/v50_example-mirror-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **a-host** component.
 
