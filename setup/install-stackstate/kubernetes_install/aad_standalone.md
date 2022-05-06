@@ -156,7 +156,7 @@ Upgrading a standalone AAD instance consists of two steps: Upgrade the AAD Stack
 
 ### Upgrade the AAD StackPack
 
-When new version of StackPack is available you can simply click on `Upgrade` on the AAD StackPack page.
+When new version of StackPack is available you can simply click **UPGRADE** on the AAD StackPack page.
 
 ### Upgrade the AAD Kubernetes service
 

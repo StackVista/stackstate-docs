@@ -2,7 +2,7 @@
 
 ## Overview
 
-When you hover over a component in the Topology Perspective, the component context menu is displayed. This contains a list of the three top metrics for the component, together with the most recently retrieved metric value. Click on the metric name to open the associated metric stream in the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md).
+When you hover over a component in the Topology Perspective, the component context menu is displayed. This contains a list of the three top metrics for the component, together with the most recently retrieved metric value. Click the metric name to open the associated metric stream in the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md).
 
 ![Top metrics](/.gitbook/assets/v46_component_context_menu.png)
 
@@ -14,7 +14,7 @@ The metrics displayed are taken from the three metric streams displayed at the t
 
 ## Reported metric values
 
-The metric values displayed are the current metric value of the associated metric stream. If no value is available, or the last received metric is more than a few seconds old, `n/a` will be displayed. Click on the metric name to open the stream in the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and browse all retrieved values.
+The metric values displayed are the current metric value of the associated metric stream. If no value is available, or the last received metric is more than a few seconds old, `n/a` will be displayed. Click the metric name to open the stream in the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and browse all retrieved values.
 
 ## See also
 

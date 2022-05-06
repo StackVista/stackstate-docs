@@ -33,12 +33,12 @@ All events in StackState have a category assigned based on the event type and so
 
 ### Event properties
 
-Click on an event to display detailed information about the event in the right panel. Events from external systems will also include links through to relevant information in the source system here:
+Select an event to display detailed information about it in the right panel **View summary** tab. Events from external systems will also include links through to relevant information in the source system here:
 
 * **Elements** - The components and/or relations involved in the event.
 * **Event type** - A description of the event type.
-* **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event occurred.
-* **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click on the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event was processed by StackState.
+* **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event occurred.
+* **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event was processed by StackState.
 * **Links** - Direct links to an external source of an event. For example, a ServiceNow change request or JIRA ticket.
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW ALL PROPERTIES** - Click to access all data included in the event.
@@ -47,7 +47,7 @@ Click on an event to display detailed information about the event in the right p
 
 ## Filter displayed events
 
-The events displayed in the Events Perspective and in the Events list in the right panel of the StackState UI can be filtered in the **View filters** panel on the left of the StackState UI.
+The events displayed in the Events Perspective and in the Events list in the right panel **View summary** tab can be filtered in the **View filters** panel on the left of the StackState UI.
 
 ### Filter by source component
 
@@ -74,7 +74,7 @@ For example:
 
 * Adjust the **Telemetry interval** to increase or decrease the number of events displayed.
 * Adjust the **Topology time** to time travel to the topology available at that point in history. Events generated within the selected telemetry interval by topology elements that existed at the topology time will be displayed.
-* Click on a timestamp from the **Properties** of an event to jump to this topology time. This will update the events list to display events that were generated:
+* Click a timestamp from the **Properties** of an event to jump to this topology time. This will update the events list to display events that were generated:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
