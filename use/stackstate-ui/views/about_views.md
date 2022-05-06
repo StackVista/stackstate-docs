@@ -26,7 +26,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
 
-Click on a view name to open the topology perspective for that view.
+Click a view name to open the topology perspective for that view.
 
 ## Starred views
 

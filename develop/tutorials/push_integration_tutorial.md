@@ -72,7 +72,7 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 ![](../../.gitbook/assets/example-topology.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Click on the group to access the individual components that make up the group.
+Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Select the group to display the individual components that make up the group in the right panel **Selection details tab**.
 
 Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other metadata that the check sent.
 
@@ -108,7 +108,7 @@ The stream preview on the right should show the incoming metric values. Here is 
 
 ![](../../.gitbook/assets/v46_example-telemetry-stream.png)
 
-Click on the **Save** button to permanently add the stream to the **some-application-1** component.
+Click the **Save** button to permanently add the stream to the **some-application-1** component.
 
 ## Add a custom telemetry stream to all components of a type
 

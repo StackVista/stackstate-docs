@@ -64,7 +64,7 @@ Click the **View Filters** icon in the left menu to open the view filters. Here 
 * Topology filters: Filter the components displayed in the topology visualization.
 * Events filters: Filter the events shown in the **Events** list in the right panel **View summary** tab.
 
-Select an element to show detailed information about it in the right panel **Selection details** tab. Click on a label in the **Selection details** tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
+Select an element to show detailed information about it in the right panel **Selection details** tab. Click a label in the **Selection details** tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
 
 The View Filters are saved together with the View. For details, see the page [filters](../filters.md).
 

@@ -23,7 +23,7 @@ Note that you are editing the template for the synchronization that imported the
 {% endhint %}
 
 1. Select an element to open detailed information about it in the right panel **Selection details** tab.
-2. Click on **...** and select **Edit template**.
+2. Click **...** and select **Edit template**.
 3. The template editor will open for the template that was used to create the selected element. Three sets of information are displayed:
    * **input parameters** - the raw data imported for a specific element.
    * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stj/using_stj.md), which is used to build the component properties that you see in the StackState UI right panel **Selection details** tab.

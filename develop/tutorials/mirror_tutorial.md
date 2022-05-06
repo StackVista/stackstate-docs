@@ -63,13 +63,13 @@ Now let's add a telemetry stream from the mirror to the **a-host** component we 
 
 In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 
-In the Stream Creation screen, you should see random data right away. You can play around with the filter fields and values but they won't affect the returned data.
+In the Stream Creation screen, you should see random data right away. You can play around with the filter fields and values, but they won't affect the returned data.
 
 Here is what that looks like:
 
 ![](../../.gitbook/assets/v46_example-mirror-stream.png)
 
-Click on the **Save** button to permanently add the stream to the **a-host** component.
+Click the **Save** button to permanently add the stream to the **a-host** component.
 
 ## Cleaning your StackState instance
 

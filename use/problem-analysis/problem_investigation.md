@@ -58,7 +58,7 @@ A problem subview is a temporary StackState view. The filters applied to a probl
 
 Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
-To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
+To exit the Problem Subview, click the view name in the top bar of the StackState UI.
 
 ![Breadcrumbs with view name](../../.gitbook/assets/v46_problem_subview_breadcrumb.png)
 

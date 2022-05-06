@@ -37,7 +37,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 To export configuration from the StackState UI:
 
 1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings** 
-2. Click on the button **STS-EXPORT-ALL**.
+2. Click the button **STS-EXPORT-ALL**.
 
 ![Export configuration from the StackState UI](../../../.gitbook/assets/v46_export_configuration.png)
 
@@ -116,7 +116,7 @@ Alternatively, in the StackState UI:
 
 1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**. 
 2. Choose the `*.stj` file that you want to import configuration from.
-3. Click on the button **START IMPORT**.
+3. Click the button **START IMPORT**.
 
 ![Import configuration from the StackState UI](../../../.gitbook/assets/v46_import_configuration.png)
 
@@ -124,9 +124,9 @@ Alternatively, in the StackState UI:
 
 It is possible to export and import individual configuration items through the StackState user interface. For example, to export or export a component type:
 
-1. Go to the **Settings** page and click on **Component Types**.
-2. To export an individual component type, click on **Export as config**.
-3. To import a configuration item, click on **Import Model**.
+1. Go to the **Settings** page and click **Component Types**.
+2. To export an individual component type, click **Export as config**.
+3. To import a configuration item, click **Import Model**.
 
 ## Idempotent import/export
 
