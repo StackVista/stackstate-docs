@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # StackState CLI
@@ -248,7 +248,7 @@ curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
 
 
-![](../../.gitbook/assets/v46_main_menu.png)
+![](../../.gitbook/assets/v50_main_menu.png)
 
 ## Use the StackState CLI
 

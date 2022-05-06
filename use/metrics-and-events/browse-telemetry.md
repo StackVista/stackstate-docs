@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Browse telemetry
@@ -14,7 +14,7 @@ Telemetry streams are added to elements automatically when they are imported to 
 
 Click on any of the telemetry stream charts, or select **Inspect stream** from its context menu, to open the telemetry inspector.
 
-![Telemetry inspector](../../.gitbook/assets/v46_telemetry-inspector.png)
+![Telemetry inspector](../../.gitbook/assets/v50_telemetry-inspector.png)
 
 Within the telemetry inspector you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. Changes made here will not be saved to the telemetry stream attached to the element.
 

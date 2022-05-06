@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Push data to StackState from an external system
@@ -106,7 +106,7 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-telemetry-stream.png)
+![](../../.gitbook/assets/v50_example-telemetry-stream.png)
 
 Click on the **Save** button to permanently add the stream to the **some-application-1** component.
 
@@ -165,7 +165,7 @@ The end result should look something like this:
 }],
 ```
 
-![](../../.gitbook/assets/v46_example-template-editor.png)
+![](../../.gitbook/assets/v50_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 
@@ -198,7 +198,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-check-function.png)
+![](../../.gitbook/assets/v50_example-check-function.png)
 
 Finally save the check function.
 
@@ -219,7 +219,7 @@ In the Stream Creation screen, select to output as a **Log stream** at the top. 
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-log-stream-editor.png)
+![](../../.gitbook/assets/v50_example-log-stream-editor.png)
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Add a telemetry stream
@@ -12,7 +12,7 @@ Elements in StackState can have a telemetry \(metrics or log\) stream assigned. 
 
 Telemetry streams can be added to any element in the StackState Topology Perspective.
 
-![Add a telemetry stream to an element](../../.gitbook/assets/v46_add_telemetry_stream.png)
+![Add a telemetry stream to an element](../../.gitbook/assets/v50_add_telemetry_stream.png)
 
 1. Select the element that you want to add a telemetry stream to.
 2. Click **ADD NEW STREAM** under **Telemetry** in the Component Details pane on the right of the screen.

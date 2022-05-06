@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Investigate a problem
@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the View Details pane on the right of the screen under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Click on a problem to open the [Problem Details pane](problem_investigation.md#problem-details-pane) with further information about the problem.
 
-![View Details pane](../../.gitbook/assets/v46_view_details_problems.png)
+![View Details pane](../../.gitbook/assets/v50_view_details_problems.png)
 
 ## Problem Details pane
 
@@ -29,7 +29,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
    * The affected stream is displayed highlighting the detected anomaly.
 2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
-![Metric stream anomaly event details](../../.gitbook/assets/v46_event_metric_stream_anomaly.png)
+![Metric stream anomaly event details](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
 
 ### Element properties changed events
 
@@ -40,7 +40,7 @@ Element properties changed events are generated whenever relevant properties of 
 2. Click **Show all changes** in the event details pane.
    * A diff of the old and new properties is displayed.
 
-![View all changes](../../.gitbook/assets/v46_event_view_all_changes.png)
+![View all changes](../../.gitbook/assets/v50_event_view_all_changes.png)
 
 ### Version changed events
 
@@ -60,7 +60,7 @@ Within a problem subview, you have access to all perspectives containing data sp
 
 To exit the Problem Subview, click on the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](../../.gitbook/assets/v46_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](../../.gitbook/assets/v50_problem_subview_breadcrumb.png)
 
 ### Time window of a problem
 
