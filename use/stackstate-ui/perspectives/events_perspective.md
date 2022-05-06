@@ -33,7 +33,7 @@ All events in StackState have a category assigned based on the event type and so
 
 ### Event properties
 
-Click on an event to display detailed information about the event in the right panel. Events from external systems will also include links through to relevant information in the source system here:
+Select an event to display detailed information about it in the right panel **View summary** tab. Events from external systems will also include links through to relevant information in the source system here:
 
 * **Elements** - The components and/or relations involved in the event.
 * **Event type** - A description of the event type.
@@ -47,7 +47,7 @@ Click on an event to display detailed information about the event in the right p
 
 ## Filter displayed events
 
-The events displayed in the Events Perspective and in the Events list in the right panel of the StackState UI can be filtered in the **View filters** panel on the left of the StackState UI.
+The events displayed in the Events Perspective and in the Events list in the right panel **View summary** tab can be filtered in the **View filters** panel on the left of the StackState UI.
 
 ### Filter by source component
 

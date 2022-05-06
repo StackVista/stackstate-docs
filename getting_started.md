@@ -65,7 +65,7 @@ If you click on a log stream, you can see the log stream in a popup. Again, ther
 
 ## Problems
 
-To quickly find the cause of any deviating component, head to the right panel in the selected view where you can find the **Problems** section. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems section will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
+To quickly find the cause of any deviating component, head to the right panel in the selected view where you can find the **Problems** section in the **View summary** tab. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems section will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
 
 Problems and issues are displayed in the following order:
 
@@ -84,7 +84,7 @@ To show all events for the selected Topology, select the Events Perspective from
 
 ![Events Perspective](/.gitbook/assets/v46_events-perspective.png)
 
-The Events Perspective is not the only place you can find events; you can find the latest events in the Events section of the **View Summary** in the right panel.
+The Events Perspective is not the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab.
 
 ![Events section](/.gitbook/assets/v46_events-section.png)
 

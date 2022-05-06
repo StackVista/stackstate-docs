@@ -74,7 +74,7 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Click on the group to access the individual components that make up the group.
 
-Click on one of the components to display detailed information about it in the right panel. You'll see the component's labels and other meta-data the check sent.
+Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other metadata that the check sent.
 
 ## Merge topology
 
@@ -94,7 +94,7 @@ Our documentation contains a description of the [identifiers used by various Sta
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
-Find the sample check's components in StackState and click on the **some-application-1** component. Detailed information about the component is displayed in the right panel, showing the metadata of this component.
+Find the sample check's components in StackState and select the **some-application-1** component. Detailed information about the component is displayed in the right panel **Selection details** tab, showing the metadata of this component.
 
 In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
 
@@ -114,7 +114,7 @@ Click on the **Save** button to permanently add the stream to the **some-applica
 
 The **some-application-1** component now has our telemetry stream. The sample check, however, also produces telemetry for the second application component. To map a stream to all components of a certain type, we need to update the component's _template_.
 
-Select the **some-application-1** component again to display detailed information about it in the right panel. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **some-application-1** component again to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
@@ -210,7 +210,7 @@ TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "
 
 Just execute a few of these so we have a few datapoints to work with.
 
-Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel **Selection details** tab. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
 
 In the Stream Creation screen, select to output as a **Log stream** at the top. Then fill in the following parameters:
 

@@ -111,7 +111,7 @@ If required, you can [manually configure the topology filtering limit](/configur
 
 ## Filter Events
 
-The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the **View Summary** in the right panel.
+The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the right panel **View summary** tab.
 
 The following event filters are available:
 
@@ -139,4 +139,4 @@ To update the existing view with the currently applied filters, click **Save vie
 
 ## Clear applied filters
 
-To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the **View Summary** in the right panel.
+To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the right panel **View summary** tab.
