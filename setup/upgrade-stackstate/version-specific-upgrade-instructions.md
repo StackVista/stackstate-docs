@@ -16,7 +16,7 @@ This page provides specific instructions and details of any required manual step
 
 ## Upgrade instructions
 
-### Upgrade to v4.6.x
+### Upgrade to v5.0.x
 
 {% tabs %}
 {% tab title="Kubernetes" %}
