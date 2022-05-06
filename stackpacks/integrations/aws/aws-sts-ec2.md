@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # StackState IAM role for EC2
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws-sts-ec2).
+{% endhint %}
+
 ## Overview
 
 If StackState is running within an AWS environment on an EC2 instance, it can have an IAM role attached to the EC2 instance. When this role is available, the AWS StackPack can be installed with the `use-role` option for IAM authentication (the **AWS Access Key ID** and **AWS Secret Access Key**). The attached role will then be used by the StackState CloudWatch plugin to retrieve metrics from CloudWatch.

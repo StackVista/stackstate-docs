@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Re-Install StackState
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kots-install/reinstall_stackstate).
+{% endhint %}
+
 ## Overview 
 
 This page describes how to re-install a StackState instance running on KOTS. When reinstalling, it is possible to start over from scratch or keep the existing configuration.

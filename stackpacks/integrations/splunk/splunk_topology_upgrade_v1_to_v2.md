@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Upgrade Splunk topology V1 to V2
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2).
+{% endhint %}
+
 ## Overview
 
 In previous releases of StackState, it was only possible to run the Splunk topology check using StackState Agent V1. It is now also possible to run the Splunk topology check on [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md).

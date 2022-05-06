@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Splunk events
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_events).
+{% endhint %}
+
 ## Overview
 
 The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. In order to receive Splunk events data in StackState, you will therefore need to add configuration to both Splunk and StackState Agent V1.

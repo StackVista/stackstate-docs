@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # STML Tags
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/stml/tags).
+{% endhint %}
+
 ## Tag: `auto-widget`
 
 Data queried on the [analytics](../../../use/stackstate-ui/analytics.md) page can often times show a preview. Data that is of some known format, like telemetry or topology, will therefore _automatically_ be shown in a chart of topology visualization. This tag renders data exactly the way the analytics preview of the analytics would render data.

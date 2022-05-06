@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # About health state
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/health-state/about-health-state).
+{% endhint %}
+
 ## Overview
 
 StackState will track a single health state for a given topology element \(components and relations\) based on information available from the different health checks attached to it. Health checks can be calculated by either [StackState](about-health-state.md#stackstate-health-checks) or an [external monitoring system](about-health-state.md#external-monitoring-system).

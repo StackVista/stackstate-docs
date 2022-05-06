@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Logz.io
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/logz).
+{% endhint %}
+
 ## What is the Logz.io StackPack?
 
 The Logz.io StackPack allows StackState to connect to Logz.io.

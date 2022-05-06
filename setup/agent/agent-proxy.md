@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Use an HTTP/HTTPS proxy
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/agent/agent-proxy).
+{% endhint %}
+
 ## Overview
 
 The Agent can be configured to use a proxy for HTTP and HTTPS requests. Proxy settings can be configured in two ways:

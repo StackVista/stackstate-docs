@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # How to configure a custom synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom_synchronization_stackpack/how_to_configure_custom_synchronization).
+{% endhint %}
+
 ## Overview
 
 Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../synchronizations_and_templated_files.md) or proceed to edit `default auto synchronization` following the instructions below.

@@ -2,6 +2,12 @@
 description: StackState Self-hosted v4.6.x
 ---
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kots-install/install_stackstate).
+{% endhint %}
+
 ## Overview 
 
 Kubernetes Off The Shelf (KOTS) provides an embedded Kubernetes cluster on standard VMs. StackState can then be installed as an application within this cluster. This guide explains how to install KOTS, which then allows you to install StackState.

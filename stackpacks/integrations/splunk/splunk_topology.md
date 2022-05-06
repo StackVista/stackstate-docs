@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Splunk topology V1
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_topology).
+{% endhint %}
+
 {% hint style="info" %}
 This page describes the Splunk topology V1 integration with StackState Agent V1.
 

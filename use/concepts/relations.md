@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Components 
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/concepts/relations).
+{% endhint %}
+
 ## Overview
 
 A relation connects two [components or groups of components](/use/concepts/components.md). Relations have some similarities with components. Just like a component, they can have a state and a propagated state. In the StackState topology perspective, relations are shown as lines connecting components or component groups.

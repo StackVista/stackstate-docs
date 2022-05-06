@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Naming guide
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/naming_guide).
+{% endhint %}
+
 ## Overview
 
 Getting the most out of StackState becomes easier when components are easy to find. What things are called helps a lot with creating that clarity. To help when naming your new layers or components, this page provides a list of examples used within StackState. Often already provided to you within StackPacks.

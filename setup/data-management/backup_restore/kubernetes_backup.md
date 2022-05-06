@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Kubernetes backup
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/data-management/backup_restore/kubernetes_backup).
+{% endhint %}
+
 ## Overview
 
 The Kubernetes setup for StackState has a built-in backup and restore mechanism that can be configured to store backups to the local clusters, to AWS S3 or to Azure Blob Storage.

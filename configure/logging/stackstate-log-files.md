@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # StackState log files
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/logging/stackstate-log-files).
+{% endhint %}
+
 * [Kubernetes setup](stackstate-log-files.md#kubernetes)
 * [Linux setup](stackstate-log-files.md#linux)
 

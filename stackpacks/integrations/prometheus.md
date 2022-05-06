@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Prometheus
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/prometheus).
+{% endhint %}
+
 ## Overview
 
 StackState can be configured to pull telemetry data from an external Prometheus system. This integration is not set up using a StackPack. 

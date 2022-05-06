@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Telemetry streams
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/metrics-and-events/telemetry_streams).
+{% endhint %}
+
 ## Overview
 
 A telemetry stream is a real-time stream of either metric or log data coming from an external monitoring system.

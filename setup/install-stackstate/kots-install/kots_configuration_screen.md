@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # KOTS/Stackstate Configuration Screen
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kots-install/kots_configuration_screen).
+{% endhint %}
+
 ## Overview
 
 Kubernetes Off The Shelf (KOTS) allows embedded Kubernetes to run clusters on VMs and similar. This can be coupled with StackState to allow easier installation than a Helm-based install. Within the KOTS environment, a number of items can be configured to customise the installation of StackState

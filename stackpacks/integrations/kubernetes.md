@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # 💠 Kubernetes
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/kubernetes).
+{% endhint %}
+
 ## Overview
 
 The Kubernetes integration is used to create a near real-time synchronization of topology and associated internal services from a Kubernetes cluster to StackState. This StackPack allows monitoring of the following:

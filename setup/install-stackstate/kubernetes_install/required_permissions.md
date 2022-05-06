@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Required Permissions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kubernetes_install/required_permissions).
+{% endhint %}
+
 ## Overview
 
 All of StackState's own components can run without any extra permissions. However in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.

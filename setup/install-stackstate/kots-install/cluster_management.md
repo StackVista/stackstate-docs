@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Embedded cluster management
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kots-install/cluster_management).
+{% endhint %}
+
 ## Overview
 
 This page describes a number of advanced cluster administration scenarios.
