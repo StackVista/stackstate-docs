@@ -54,8 +54,9 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Enable or disable view health state
 
-* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md).
-* To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
+To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md). 
+
+To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
 ➡️ [Learn more about how to configure the view health state](../../health-state/configure-view-health.md).
 
@@ -67,10 +68,10 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 {% hint style="success" "self-hosted info" %}
 
-Through a combination of configuration of permissions and scope, it is possible [control access for specific users](../../../configure/security/rbac/role_based_access_control.md):
+Through a combination of configuration of permissions and scope, it is possible [control access for a specific user](../../../configure/security/rbac/role_based_access_control.md). This can be done in the following ways:
 
-* Give access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views.
-* Give access to specific views and disallow them to create, modify or delete views.
+* Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views of the topology available to them.
+* Grant the user access to specific, existing views and deny them permission to create, modify or delete views.
 
 {% endhint %}
 
