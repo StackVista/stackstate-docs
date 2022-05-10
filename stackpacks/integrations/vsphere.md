@@ -17,7 +17,7 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 
 VMWare vSphere is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
-![Data flow](../../.gitbook/assets/stackpack-vsphere.svg)
+![Data flow](../../.gitbook/assets/stackpack-vmware.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
