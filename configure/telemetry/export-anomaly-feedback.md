@@ -19,7 +19,7 @@ To export anomaly feedback from StackState, v1 or v2 of the [StackState CLI](/se
 {% tabs %}
 {% tab title="CLI v1" %}
 
-In StackState CLI v1, anomaly feedback can be exported from StackState using the `sts anomaly feedback` command. For example:
+Using StackState CLI v1, anomaly feedback can be exported with the command `sts anomaly feedback`. For example:
 
 ```commandline
 # Export all feedback on all anomalies in the last 7 days,
@@ -33,7 +33,7 @@ sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.js
 {% endtab %}
 {% tab title="CLI v2" %}
 
-In StackState CLI v2, anomaly feedback can be exported from StackState using the `sts anomaly collect` command. For example:
+Using StackState CLI v2, anomaly feedback can be exported with the command `sts anomaly collect`. For example:
 
 ```commandline
 # Export all feedback on all anomalies in the last 7 days,
