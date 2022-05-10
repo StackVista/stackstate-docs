@@ -71,7 +71,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 Through a combination of configuration of permissions and scope, it is possible [control access for a specific user](../../../configure/security/rbac/role_based_access_control.md). This can be done in the following ways:
 
 * Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views from the topology that is available to them.
-* Grant the user access to specific, existing views and deny them permission to create, modify or delete views.
+* Grant the user access to specific, existing views only and deny them permission to create, modify or delete views.
 
 {% endhint %}
 
