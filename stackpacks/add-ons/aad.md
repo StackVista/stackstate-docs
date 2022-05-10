@@ -45,7 +45,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 * **Description** - A description of the observed anomaly.
 * **Elements** - The name of the element (or elements) on which the metric stream is attached
 
-## Anomaly feedback
+### Anomaly feedback
 
 {% hint style="info" %}
 Note that feedback is not used to train the running instance of the AAD.
@@ -53,7 +53,13 @@ Note that feedback is not used to train the running instance of the AAD.
 
 Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
 
-To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be [exported and sent to StackState](#export-feedback) to assist in the ongoing development of the AAD.
+To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be used by StackState to assist in the ongoing development of the AAD.
+
+{% hint style="success" "self-hosted info" %}
+
+Anomaly feedback can be [exported and sent to StackState](/configure/telemetry/export-anomaly-feedback.md) using the StackState CLI.
+
+{% endhint %}
 
 The feedback sent to StackState consists of:
 * **Thumbs-up, Thumbs-down** votes - Each user can cast one vote per reported anomaly.
@@ -62,38 +68,6 @@ The feedback sent to StackState consists of:
 * **Metric data** - Data from the metric stream leading up to the anomaly.
 
 ![Add feedback to an anomaly](/.gitbook/assets/v50_anomaly_feedback.png)
-
-### Export feedback
-
-{% hint style="warning" %}
-**Note that user comments will be included in the exported feedback.** These are very useful, but should not contain any sensitive information.
-{% endhint %}
-
-Feedback that has been added to anomalies can be exported to file using the StackState CLI. For example:
-
-```text
-#### StackState CLI v2
-
-# Export all feedback on all anomalies in the last 7 days,
-# include 1 day of metric data for each anomaly
-sts anomaly collect --start-time=-7d --file feedback.json
-
-# Export all feedback on anomalies from 10 to 2 days ago,
-# include 3 days of metric data for each anomaly
-sts anomaly collect --start-time=-10d --end-time=-2d --history=3d --file feedback.json
-
-#### StackState CLI v1
-
-# Export all feedback on all anomalies in the last 7 days,
-# include 1 day of metric data for each anomaly
-sts anomaly feedback --start-time=-7d > feedback.json
-
-# Export all feedback on anomalies from 10 to 2 days ago,
-# include 3 days of metric data for each anomaly
-sts anomaly feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
-```
-
-Exported data can be sent on to StackState for investigation when requested using a secure fileshare. All data received will be handled in accordance with the StackState security policy.
 
 ## Installation
     
@@ -115,7 +89,7 @@ The AAD will need to train on your data before it can begin reporting anomalies.
 
 ### How are metric streams selected?
 
-The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. The metric stream selection algorithm ranks metric streams based on the criteria below:
+The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and the stream priority defined by users. The metric stream selection algorithm ranks metric streams based on the criteria below:
 
 * The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
