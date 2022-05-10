@@ -96,7 +96,7 @@ After installation, the StackState CLI must be configured with the API connectio
 
 If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the StackState CLI will use this and the configuration wizard will not run.
 
-The configuration wizard is not available when the CLI is run inside a Docker container on Mac OS, Linux or Windows.
+The configuration wizard is not available when the CLI is run inside a Docker container on MacOS, Linux or Windows.
 
 {% hint style="info" %}
 To configure the CLI, you will need your [authentication credentials](cli-install.md#authentication).
