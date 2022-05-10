@@ -63,7 +63,7 @@ Use the StackState CLI to [export anomaly feedback](/configure/telemetry/export-
 
 The feedback sent to StackState consists of:
 * **Thumbs-up, Thumbs-down** votes - Each user can cast one vote per reported anomaly.
-* **Comments** - Free-form text entered by users. Note that any comments added to an anomaly will be included when feedback is exported and sent to StackState. Take care not to include sensitive data in comments.
+* **Comments** - Free-form text entered by users. Note that any comments added to an anomaly will be included in the feedback sent to StackState. Take care not to include sensitive data in comments.
 * **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names.
 * **Metric data** - Data from the metric stream leading up to the anomaly.
 
