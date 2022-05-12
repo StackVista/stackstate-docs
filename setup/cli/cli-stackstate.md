@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 The StackState CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
 
-This page describes the new `stackstate` CLI. The CLI will eventually fully replace the current `sts` CLI, but currently does not yet support all commands. For an overview of the differences and overlap between the new `stackstate` CLI and the `sts` CLI, see this [comparison page](setup/cli/cli-comparison.md).
+This page describes the new `sts` CLI. The CLI will eventually fully replace the current `stac` CLI, but currently does not yet support all commands. For an overview of the differences and overlap between the new `sts` CLI and the old `stac` CLI, see this [comparison page](setup/cli/cli-comparison.md).
 
 ## Install
 
@@ -97,13 +97,33 @@ After installation the `sts` command is available for the current user.
 {% endtab %}
 {% endtabs %}
 
-## Configure the StackState CLI
+## Configure
+
+{% hint style="warning" %}
+The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.
+{% endhint %}
+
+### Quick start
 
 Get your API token from the CLI page then run:
 
 ```bash
 sts cli save-config --url URL --api-token API-TOKEN 
 ```
+
+A config file will be stored at `~/.config/stackstate-cli/config.yaml`.
+
+### Configuration options
+
+You do not need a configuration file to run the `sts` CLI. You can configure the CLI through (a combination of) environment variables and flags.
+
+If multiple types of configuration are presented to the CLI the order of processing will be: flags first, environment variables second and config file third.
+
+| Name | Flag |  Description |
+| :--- |:--- | :--- |
+| `STS_CLI_URL` | `--url` | URL to your StackState instance. |
+| `STS_CLI_API_TOKEN` | `--api-token` | API token to your StackState instance. |
+| `STS_CLI_API_PATH` | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)|
 
 ## Uninstall
 

@@ -53,7 +53,7 @@
 * [StackState CLI](setup/cli/README.md)
   * [CLI: stackstate (new)](setup/cli/cli-stackstate.md)
   * [CLI: sts](setup/cli/cli-sts.md)
-  * [Differences between CLI's](setup/cli/cli-differences.md)
+  * [Comparison between CLI's](setup/cli/cli-comparison.md)
 * [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)
     * [Kubernetes backup](setup/data-management/backup_restore/kubernetes_backup.md)
