@@ -32,7 +32,7 @@ Port status:
  - ❌ This command will not be ported.
 
 | `sts` command | `stac` command | Port status |   Description | 
-| :--- |:--- | :--- | :--- |
+| :--- |:--- | :- | :--- |
 | `anomaly export` | `anomaly export` |  ✅ | Commands for exporting anomalies to disk. |
 | `anomaly send` | - | ❌ | Command for sending anomalies. Will not be ported. This remains possible via the API. |
 | `datasource list` | `settings list --type DataSource` | ✅ | List all telemetry data sources. |
