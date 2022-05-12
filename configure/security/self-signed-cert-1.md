@@ -99,7 +99,7 @@ For KOTS, Java and LDAP trust stores can also be configured by passing Base64 en
 
 {% tabs %}
 {% tab title="Linux" %}
-To use a base64 encoded trust store, replace the line:
+To use a base64 encoded trust store, edit the `helm upgrade` command above, replacing the line:
 
 `--set-file 'stackstate.java.trustStore'=custom_cacerts`
 
@@ -108,7 +108,7 @@ with:
 `--set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0)`
 {% endtab %}
 {% tab title="MacOs" %}
-To use a base64 encoded trust store, replace the line:
+To use a base64 encoded trust store, edit the `helm upgrade` command above, replacing the line:
 
 `--set-file 'stackstate.java.trustStore'=custom_cacerts`
 
