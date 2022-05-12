@@ -24,7 +24,7 @@ We've built a new StackState CLI for a reason. Here are the major advantages of 
 
  * Unlike `sts`, `stac` will not have commands for sending data to StackState. For these purposes we would like you to use either the Agent or the API. 
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, `sts graph` has now been called `sts settings`.
- * `stac` only works with StackState 5.0 or older.
+ * `stac` only works with StackState 5.0 or later.
 
 ## Port status
 
