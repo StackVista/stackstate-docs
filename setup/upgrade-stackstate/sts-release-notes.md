@@ -21,7 +21,18 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### 4.5.5
+### v4.5.6
+
+**Improvements**
+
+- Added support for base64 encoded trust stores. STAC-16004
+
+**Bug fixes**
+
+- If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
+- Security fixes for CVE-2022-24407. STAC-15939
+
+### v4.5.5
 
 **Bug fixes**
 
@@ -33,13 +44,13 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
 - Fixed issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
 
-### 4.5.4
+### v4.5.4
 
 **Improvements**
 
 - Internal Playground optimization. STAC-15393
 
-### 4.5.3
+### v4.5.3
 
 **Bug fixes**
 
