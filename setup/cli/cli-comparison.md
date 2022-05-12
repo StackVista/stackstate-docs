@@ -6,9 +6,10 @@ description: StackState Self-hosted v4.6.x
 
 StackState has a new CLI: [stac](setup/cli-stackstate) instead of [sts](setup/cli-sts)! The new `stac` CLI does not yet fully replace the old `sts` CLI, but will eventually do so.
 
-## Advantes of `stac`
+## Advantages of `stac`
 
-Advantages of the new `stac` CLI:
+We've built a new StackState CLI for a reason. Here are the major advantages of switching to `stac`:
+
  * Native MacOS support
  * Easy installation and configuration for all Operating Systems
  * Backwards as well as forwards compatible with StackState versions
@@ -19,7 +20,7 @@ Advantages of the new `stac` CLI:
 
 ## Major Differences
 
- * Unlike `sts`, `stac` will not have commands for sending data to StackState. For these purposes we would like you to use either the Agent or the API directly. 
+ * Unlike `sts`, `stac` will not have commands for sending data to StackState. For these purposes we would like you to use either the Agent or the API. 
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, `sts graph` has now been called `sts settings`.
 
 ## Command overview
