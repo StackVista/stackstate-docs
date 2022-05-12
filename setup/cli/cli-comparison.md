@@ -24,12 +24,15 @@ Advantages of the new `stac` CLI:
 
 ## Command overview
 
+The new `stac` CLI will completely replace the `sts` CLI, but not all commands have been ported as of yet. The following is an overview of the `port` status.
+
 Port status:
  - ✅ This command has been fully ported.
+ - 🚧 This command will be ported.
  - ❌ This command will not be ported.
 
-| `sts` command | `stac` comand | Port status |   Description | 
-| :--- |:--- | :--- |
+| `sts` command | `stac` command | Port status |   Description | 
+| :--- |:--- | :--- | :--- |
 | `anomaly export` | `anomaly export` |  ✅ | Commands for exporting anomalies to disk. |
 | `anomaly send` | - | ❌ | Command for sending anomalies. Will not be ported. This remains possible via the API. |
 | `datasource list` | `settings list --type DataSource` | ✅ | List all telemetry data sources. |
