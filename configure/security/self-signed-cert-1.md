@@ -110,7 +110,7 @@ If needed, the Java trust store can also be configured by passing Base64 encoded
 {% tabs %}
 {% tab title="Linux" %}
 
-To use a base64 encoded trust store, run the following helm upgrade command:
+To use a base64 encoded trust store, run the following `helm upgrade` command:
 
 ```bash
 helm upgrade \
@@ -126,7 +126,7 @@ stackstate/stackstate
 {% endtab %}
 {% tab title="MacOs" %}
 
-To use a base64 encoded trust store, run the following helm upgrade command:
+To use a base64 encoded trust store, run the following `helm upgrade` command:
 
 ```bash
 helm upgrade \
