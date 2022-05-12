@@ -4,28 +4,31 @@ description: StackState Self-hosted v4.6.x
 
 # Comparison between sts and stackstate CLI's
 
-StackState has a new CLI: [stac](cli-stac.md) instead of [sts](cli-sts.md)! The new `stac` CLI does not yet fully replace the old `sts` CLI, but will eventually do so.
+StackState has a new CLI: [stac](cli-stac.md) instead of [sts](cli-sts.md)! The new `stac` CLI has many [advantages](cli-comparison.md#advantages) and a few notable [differences](cli-comparison.md#notable-differences). 
 
-## Advantages of `stac`
+Eventually `stac` will fully replace all `sts` most commands and `sts` will be deprecated. See [port status](cli-comparison.md#port-status])) for an up-to-date overview of the port process.
+
+## Advantages
 
 We've built a new StackState CLI for a reason. Here are the major advantages of switching to `stac`:
 
  * Easy installation and configuration for all Operating Systems
  * Native MacOS support
- * Backwards as well as forwards compatible with StackState versions
  * Versioned independently from the StackState product (faster releases)
+ * Backwards as well as forwards compatible with StackState versions
  * Machine readable output for every command
  * Many UX improvements (syntax highlighting, auto-completion, progress bars, etc.)
  * SaaS support
 
-## Major Differences
+## Notable Differences
 
  * Unlike `sts`, `stac` will not have commands for sending data to StackState. For these purposes we would like you to use either the Agent or the API. 
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, `sts graph` has now been called `sts settings`.
+ * `stac` only works with StackState 5.0 or older.
 
-## Command overview
+## Port status
 
-The new `stac` CLI will completely replace the `sts` CLI, but not all commands have been ported as of yet. The following is an overview of the `port` status.
+The new `stac` CLI will completely replace the `sts` CLI, but not all commands have been ported (moved) as of yet. The following is an overview of the `port` status.
 
 Port status:
  - ✅ This command has been fully ported.
