@@ -23,10 +23,13 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 
 ### v4.5.6
 
+**Improvements**
+
+- Added support for base64 encoded trust stores. STAC-16004
+
 **Bug fixes**
 
 - If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
-- Added support for base64 encoded trust stores. STAC-16004
 - Security fixes for CVE-2022-24407. STAC-15939
 
 ### v4.5.5
