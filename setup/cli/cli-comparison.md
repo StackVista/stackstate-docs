@@ -4,7 +4,7 @@ description: StackState Self-hosted v4.6.x
 
 # Comparison between sts and stackstate CLI's
 
-StackState has a new CLI: [stac](/setup/cli-stac) instead of [sts](/setup/cli-sts)! The new `stac` CLI does not yet fully replace the old `sts` CLI, but will eventually do so.
+StackState has a new CLI: [stac](/setup/cli-stac.md) instead of [sts](/setup/cli-sts.md)! The new `stac` CLI does not yet fully replace the old `sts` CLI, but will eventually do so.
 
 ## Advantages of `stac`
 
