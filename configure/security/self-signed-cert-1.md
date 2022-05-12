@@ -95,30 +95,6 @@ stackstate \
 stackstate/stackstate
 ```
 
-For KOTS, Java and LDAP trust stores can also be configured by passing Base64 encoded strings into Helm values.
-
-{% tabs %}
-{% tab title="Linux" %}
-To use a base64 encoded trust store, edit the `helm upgrade` command above, replacing the line:
-
-`--set-file 'stackstate.java.trustStore'=custom_cacerts`
-
-with:
-
-`--set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0)`
-{% endtab %}
-{% tab title="MacOs" %}
-To use a base64 encoded trust store, edit the `helm upgrade` command above, replacing the line:
-
-`--set-file 'stackstate.java.trustStore'=custom_cacerts`
-
-with:
-
-`--set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64)`
-{% endtab %}
-{% endtabs %}
-
-
 {% hint style="info" %}
 **Note:**
 
@@ -126,6 +102,48 @@ with:
 * Include these arguments on every `helm upgrade` run.
 * The password and trust store are stored as a Kubernetes secret.
 {% endhint %}
+
+#### Base64 encoded trust stores
+
+If needed, the Java trust store can also be configured by passing Base64 encoded strings into Helm values.
+
+{% tabs %}
+{% tab title="Linux" %}
+
+To use a base64 encoded trust store, run the following helm upgrade command:
+
+```bash
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0) \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+stackstate \
+stackstate/stackstate
+```
+
+{% endtab %}
+{% tab title="MacOs" %}
+
+To use a base64 encoded trust store, run the following helm upgrade command:
+
+```bash
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64) \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+stackstate \
+stackstate/stackstate
+```
+
+{% endtab %}
+{% endtabs %}
+
+
+
 
 ### Linux
 
