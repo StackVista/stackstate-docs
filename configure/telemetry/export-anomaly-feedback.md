@@ -33,7 +33,7 @@ sts anomaly collect-feedback --start-time=-7d > feedback.json
 sts anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
 ```
 {% endtab %}
-{% tab title="stackstate CLI" %}
+{% tab title="CLI: stackstate" %}
 
 Using StackState CLI v2, anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`. 
 
