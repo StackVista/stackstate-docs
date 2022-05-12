@@ -2,13 +2,13 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# CLI: sts (new)
+# CLI: stac (new)
 
 ## Overview
 
 The StackState CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
 
-This page describes the new `sts` CLI. The CLI will eventually fully replace the current `stac` CLI, but currently does not yet support all commands. For an overview of the differences and overlap between the new `sts` CLI and the old `stac` CLI, see this [comparison page](setup/cli/cli-comparison.md).
+This page describes the new `stac` CLI. The CLI will eventually fully replace the current `stac` CLI, but currently does not yet support all commands. For an overview of the differences and overlap between the new `stac` CLI and the old `sts` CLI, see this [comparison page](setup/cli/cli-comparison.md).
 
 ## Install
 
@@ -51,7 +51,7 @@ if ( $PATH -notlike "*$CLI_PATH*" ) {
 } Catch { "Error: could not find 'sts' on the path." }
 ```
 
-After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
+After installation, the `stac` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
 {% endtab %}
 {% tab title="MacOS" %}
@@ -72,7 +72,7 @@ rm stackstate-cli.tar.gz
 sts version
 ```
 
-After installation the `sts` command is available for the current user.
+After installation the `stac` command is available for the current user.
 
 {% endtab %}
 {% tab title="Linux" %}
@@ -92,7 +92,7 @@ rm stackstate-cli.tar.gz
 sts version
 ```
 
-After installation the `sts` command is available for the current user.
+After installation the `stac` command is available for the current user.
 
 {% endtab %}
 {% endtabs %}
@@ -108,14 +108,14 @@ The most secure way to use your API token is through an environment variable. Yo
 Get your API token from the CLI page then run:
 
 ```bash
-sts cli save-config --url URL --api-token API-TOKEN 
+stac cli save-config --url URL --api-token API-TOKEN 
 ```
 
 A config file will be stored at `~/.config/stackstate-cli/config.yaml`.
 
 ### Configuration options
 
-You do not need a configuration file to run the `sts` CLI. You can configure the CLI through (a combination of) environment variables and flags.
+You do not need a configuration file to run the `stac` CLI. You can configure the CLI through (a combination of) environment variables and flags.
 
 If multiple types of configuration are presented to the CLI the order of processing will be: flags first, environment variables second and config file third.
 
@@ -149,7 +149,7 @@ Open a **Powershell** terminal and execute each step one-by-one or all at once.
   }
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The `stac` CLI and all associated configuration are now removed for the current user.
 
 {% endtab %}
 {% tab title="MacOS" %}
@@ -160,7 +160,7 @@ Open a terminal and execute:
 rm -r /usr/local/bin/sts ~/.config/stackstate-cli
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The `stac` CLI and all associated configuration are now removed for the current user.
 
 {% endtab %}
 {% tab title="Linux" %}
@@ -171,7 +171,7 @@ Open a terminal and execute:
 rm -r /usr/local/bin/sts ~/.config/stackstate-cli
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The `stac` CLI and all associated configuration are now removed for the current user.
 
 {% endtab %}
 {% endtabs %}

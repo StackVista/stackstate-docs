@@ -51,7 +51,7 @@
   * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
   * [Agent V1 \(Legacy\)](setup/agent/agent-v1.md)
 * [StackState CLI](setup/cli/README.md)
-  * [CLI: stackstate (new)](setup/cli/cli-stackstate.md)
+  * [CLI: stac (new)](setup/cli/cli-stac.md)
   * [CLI: sts](setup/cli/cli-sts.md)
   * [Comparison between CLI's](setup/cli/cli-comparison.md)
 * [Data management](setup/data-management/README.md)
