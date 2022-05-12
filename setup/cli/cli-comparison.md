@@ -10,11 +10,11 @@ StackState has a new CLI: [stac](cli-stac.md) instead of [sts](cli-sts.md)! The 
 
 We've built a new StackState CLI for a reason. Here are the major advantages of switching to `stac`:
 
- * Native MacOS support
  * Easy installation and configuration for all Operating Systems
+ * Native MacOS support
  * Backwards as well as forwards compatible with StackState versions
- * Versioned independently from the StackState product
- * Human readable as well as machine readable output for every command
+ * Versioned independently from the StackState product (faster releases)
+ * Machine readable output for every command
  * Many UX improvements (syntax highlighting, auto-completion, progress bars, etc.)
  * SaaS support
 
