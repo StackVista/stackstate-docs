@@ -15,8 +15,8 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 ![Add a telemetry stream to an element](../../.gitbook/assets/v46_add_telemetry_stream.png)
 
 1. Select the element that you want to add a telemetry stream to. Detailed information about the element
-   * Detailed information about the element will be displayed in the right panel details tab.
-2. Click **ADD NEW STREAM** under **Telemetry** in the right panel details tab.
+   * Detailed information about the element will be displayed in the right panel **details** tab.
+2. Click **ADD NEW STREAM** under **Telemetry** in the right panel **details** tab.
 3. Provide the following details:
    * **Name** - A name for the telemetry stream. This will be visible in the StackState UI.
    * **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in **Settings** &gt; **Telemetry Sources**.
@@ -32,7 +32,7 @@ Telemetry streams can be added to any element in the StackState Topology Perspec
 7. The stream preview on the right will update to show the incoming metric values based on the details you provide.
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed.
-9. A graph of the selected telemetry stream data will be visible under **Telemetry** in the right panel details tab. You can inspect data in the stream using the [telemetry inspector](browse-telemetry.md).
+9. A graph of the selected telemetry stream data will be visible under **Telemetry** in the right panel **details** tab. You can inspect data in the stream using the [telemetry inspector](browse-telemetry.md).
 
 ### Aggregation methods
 

@@ -59,7 +59,7 @@ Here is what that looks like:
 
 ## Adding a mirror stream to a component
 
-Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and select it to open detailed information about the component in the right panel details tab.
+Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and select it to open detailed information about the component in the right panel **details** tab.
 
 In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 

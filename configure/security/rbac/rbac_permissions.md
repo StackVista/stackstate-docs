@@ -191,7 +191,7 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 ### Detailed information about components and relations
 
-The permissions listed below are required to carry out specific actions in the right panel details tab when detailed information about an element is displayed.
+The permissions listed below are required to carry out specific actions in the right panel **details** tab when detailed information about an element is displayed.
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |

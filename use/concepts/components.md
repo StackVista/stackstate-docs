@@ -19,9 +19,9 @@ A component consists of:
 
 ## Detailed component information
 
-When a component is selected by clicking on it, detailed information about the component is shown in the right panel details tab:
+When a component is selected by clicking on it, detailed information about the component is shown in the right panel **details** tab. This includes:
 
-* Metadata, such as the component name, type and any labels.
+* Metadata, such as the component name, type and any labels
 * [Run state](/use/concepts/components.md#run-state)
 * [Health checks](/use/health-state/add-a-health-check.md)
 * [Telemetry streams](/use/metrics-and-events/telemetry_streams.md)
