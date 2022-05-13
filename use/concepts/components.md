@@ -19,7 +19,7 @@ A component consists of:
 
 ## Detailed component information
 
-When a component is selected by clicking on it, detailed information about the component is shown in the right panel **Selection details** tab:
+When a component is selected by clicking on it, detailed information about the component is shown in the right panel details tab:
 
 * Metadata, such as the component name, type and any labels.
 * [Run state](/use/concepts/components.md#run-state)
