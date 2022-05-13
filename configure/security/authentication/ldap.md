@@ -126,8 +126,6 @@ stackstate/stackstate
 
 To configure StackState to authenticate using an LDAP authentication server on Linux, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
 
-{% tabs %}
-{% tab title="application\_stackstate.conf" %}
 ```javascript
 authorization {
   // map the groups from the LDAP to the
@@ -182,8 +180,6 @@ authentication {
   }
 }
 ```
-{% endtab %}
-{% endtabs %}
 
 Follow the steps below to configure StackState to authenticate using LDAP:
 
