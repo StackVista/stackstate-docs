@@ -16,6 +16,8 @@ The LDAP main directory and all subdirectories will be checked for user files. T
 
 To configure StackState to authenticate using an LDAP authentication server on Kubernetes, LDAP details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
+{% tabs %}
+{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -54,6 +56,8 @@ stackstate:
       admin: ["ldap-admin-role-for-stackstate"]
       platformAdmin: ["ldap-platform-admin-role-for-stackstate"]
 ```
+{% endtab %}
+{% endtabs %}
 
 Follow the steps below to configure StackState to authenticate using LDAP:
 
@@ -128,6 +132,8 @@ stackstate/stackstate
 
 To configure StackState to authenticate using an LDAP authentication server on Linux, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
 
+{% tabs %}
+{% tab title="application_stackstate.conf" %}
 ```javascript
 authorization {
   // map the groups from the LDAP to the
@@ -184,6 +190,8 @@ authentication {
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Follow the steps below to configure StackState to authenticate using LDAP:
 
