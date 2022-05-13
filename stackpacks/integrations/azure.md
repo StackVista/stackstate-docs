@@ -43,6 +43,7 @@ To set up the StackState Azure integration, you need to have:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
 * If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
+* StackState should not be configured to use a [custom trust store](/configure/security/self-signed-certificates.md).
 
 ### Install StackPack
 
