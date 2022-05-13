@@ -43,6 +43,8 @@ stackstate:
           - dc: com
         rolesKey: cn
         groupMemberKey: member
+        # to return all nested groups, use:
+        # groupMemberKey: "member:1.2.840.113556.1.4.1941:"
 
     # map the groups from LDAP to the
     # 4 standard subjects in StackState (guest, powerUser, admin and platformAdmin)
@@ -175,6 +177,8 @@ authentication {
         ]
         rolesKey = cn
         groupMemberKey = member
+        // to return all nested groups, use:
+        // groupMemberKey: "member:1.2.840.113556.1.4.1941:"
       }
     }
   }
