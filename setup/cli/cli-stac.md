@@ -14,26 +14,22 @@ This page describes the new `stac` CLI. The CLI will eventually fully replace th
 
 {% tabs %}
 {% tab title="Windows" %}
-{% hint style="info" %}
-**Prerequisites**
 
-For these installation instruction to work, you need Windows 10 build 1803 or need to manually install `curl` and `tar`. 
-{% endhint %}
-
-Open a **Powershell** terminal and execute the steps below. This can be done one step at a time, or all together as a single script.
+Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```powershell
 # Step 1 - Set the source version and target path.
 $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
-$VERSION=curl.exe https://dl.stackstate.com/stackstate-cli/LATEST_VERSION
+Invoke-WebRequest https://dl.stackstate.com/stackstate-cli/LATEST_VERSION -OutFile $CLI_PATH\VERSION
+$VERSION=type $CLI_PATH\VERSION
 $CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
 echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
 
-# Step 2 - Download and unpack the CLI to the target CLI path.
+# Step 2 - Download and unpack the CLI to the target CLI path. Remove remaining artifacts.
 If (!(test-path $CLI_PATH)) { md $CLI_PATH }
-curl.exe -fLo $CLI_PATH\stackstate-cli.zip $CLI_DL
-tar.exe -xf "$CLI_PATH\stackstate-cli.zip" -C $CLI_PATH
-rm $CLI_PATH\stackstate-cli.zip
+Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
+Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
+rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
 
 # Step 3 - Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere.
 $PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
@@ -56,7 +52,7 @@ After installation, the `stac` command will be available for the current user on
 {% endtab %}
 {% tab title="MacOS" %}
 
-Open a terminal and execute the steps below. This can be done one step at a time, or all together as a single script.
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```bash
 # Step 1 - Download latest version for x86_64 (Intel) or arm64 (M1).
@@ -77,7 +73,7 @@ After installation the `stac` command is available for the current user.
 {% endtab %}
 {% tab title="Linux" %}
 
-Open a terminal and execute the steps below. This can be done one step at a time, or all together as a single script.
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```bash
 # Step 1 - Download latest version for x86_64.
@@ -130,7 +126,7 @@ If multiple types of configuration are presented to the CLI the order of process
 {% tabs %}
 {% tab title="Windows" %}
 
-Open a **Powershell** terminal and execute each step one-by-one or all at once.
+Open a **Powershell** terminal and run each step one-by-one or all at once.
 
 ```powershell
   # Step 1 - remove binary
@@ -154,7 +150,7 @@ The `stac` CLI and all associated configuration are now removed for the current 
 {% endtab %}
 {% tab title="MacOS" %}
 
-Open a terminal and execute:
+Open a terminal and run:
 
 ```bash
 rm -r /usr/local/bin/sts ~/.config/stackstate-cli
@@ -165,7 +161,7 @@ The `stac` CLI and all associated configuration are now removed for the current 
 {% endtab %}
 {% tab title="Linux" %}
 
-Open a terminal and execute:
+Open a terminal and run:
 
 ```bash
 rm -r /usr/local/bin/sts ~/.config/stackstate-cli
