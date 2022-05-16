@@ -77,31 +77,17 @@ StackState accepts topology information in the following JSON format:
                "externalId":"nginx3.e5dda204-d1b2-11e6-a015-0242ac110005",
                "type":{
                   "name":"docker"
-               },
+                  },
                "data":{
                   "ip_addresses":[
                      "172.17.0.8"
                   ],
                   "labels":["label1", "category:"label2"],
                   "framework_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-0000",
-                  "docker":{
-                     "image":"nginx",
-                     "network":"BRIDGE",
-                     "port_mappings":[
-                        {
-                           "container_port":31945,
-                           "host_port":31945,
-                           "protocol":"tcp"
-                        }
-                     ],
-                     "privileged":false
+                  "task_name":"nginx3",
+                  "slave_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-S0"
                   },
                "sourceProperties":{
-                 "ip_addresses":[
-                    "172.17.0.8"
-                 ],
-                 "labels":["label1", "category:"label2"],
-                 "framework_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-0000",
                  "docker":{
                     "image":"nginx",
                     "network":"BRIDGE",
@@ -113,12 +99,10 @@ StackState accepts topology information in the following JSON format:
                        }
                     ],
                     "privileged":false
+                    }
                   },
-               "task_name":"nginx3",
-               "slave_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-S0"
                }
-            }
-         ],
+            ],
          "relations":[
             {
                "externalId":"nginx3.e5dda204-d1b2-11e6-a015-0242ac110005->nginx5.0df4bc1e-c695-4793-8aae-a30eba54c9d6",
@@ -128,9 +112,6 @@ StackState accepts topology information in the following JSON format:
                "sourceId":"nginx3.e5dda204-d1b2-11e6-a015-0242ac110005",
                "targetId":"nginx5.0df4bc1e-c695-4793-8aae-a30eba54c9d6",
                "data":{
-
-               }
-               "sourceProperties":{
 
                }
             }
@@ -156,7 +137,7 @@ The JSON contains the following fields:
   * **externalId**: A unique ID for this component. This has to be unique for this instance.
   * **type**: A named parameter for this type.
   * **data**: A JSON blob of arbitrary data.
-  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI element properties in place of the `data` field.
+  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field.
 * **relations**: A list of relations. Each relation has the following fields:
   * **externalId**: A unique ID for this relation. This has to be unique for this instance.
   * **type**: A named parameter for this type.
