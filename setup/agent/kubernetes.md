@@ -154,43 +154,11 @@ clusterChecks:
   enabled: true
 ```
 
-### Kubernetes_state check as a cluster check
+The following integrations have checks that can be configured to run as cluster checks:
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
-
-In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large Kubernetes cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
-
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
-
-1. [Enable cluster checks](#enable-cluster-checks).
-2. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
-
-```yaml
-clusterChecks:
-# clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-  enabled: true
-agent:
-  config:
-    override:
-# agent.config.override -- Disables kubernetes_state check on regular agent pods.
-    - name: auto_conf.yaml
-      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-      data: |
-clusterAgent:
-  config:
-    override:
-# clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
-#                                 with ad_identifiers does not work here. Use a specific URL instead.
-    - name: conf.yaml
-      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-      data: |
-        cluster_check: true
-
-        init_config:
-
-        instances:
-          - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-```
+- **Kubernetes integration** - [Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-kubernetes_state-check-as-a-cluster-check).
+- **OpenShift integration** - [OpenShift Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-kubernetes_state-check-as-a-cluster-check).
+- **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws.md#configure-aws-check-as-a-cluster-check).
 
 ### Advanced Agent configuration
 
