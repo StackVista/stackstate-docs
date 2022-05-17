@@ -15,7 +15,7 @@ If StackState or the StackState Agent are running within an AWS environment in a
 
 To set up an IAM role for the AWS StackPack to use, follow the instructions below.
 
-1. Create a policy that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. This is the same policy as used for the [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2). Take note of the policy name.
+1. Create a policy that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. This is the same policy as used for the [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2-eks). Take note of the policy name.
 2. Find the node-group that contains nodes running the relevant pod or pods and create a node group role:
    * For StackState on EKS: `stackstate-api` and `stackstate-server`.
    * For StackState Agent on EKS: `stackstate-cluster-agent`.
@@ -26,5 +26,5 @@ To set up an IAM role for the AWS StackPack to use, follow the instructions belo
 ## See also
 
 * [AWS StackPack](/stackpacks/integrations/aws/aws.md)
-* [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2)
+* [Agent IAM role on EC2 or EKS](aws.md#iam-role-for-agent-on-ec2-or-eks)
 * [StackState IAM role for EC2](/stackpacks/integrations/aws/aws-sts-ec2.md)
