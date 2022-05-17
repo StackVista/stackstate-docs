@@ -12,6 +12,10 @@ This page describes the new `sts` CLI. The CLI will eventually fully replace the
 
 ## Install
 
+{% hint style="warning" %}
+The `sts` CLI does not work with StackState version 4.5 or older. For working with older versions of StackState please use the [stac CLI](cli-stac.md).
+{% endhint %}
+
 {% tabs %}
 {% tab title="Windows" %}
 
