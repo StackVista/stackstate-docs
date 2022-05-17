@@ -69,8 +69,8 @@ If StackState Agent runs in an AWS environment, an IAM role can be attached to t
 1. **If the Agent runs in an EKS pod:**
    a. In AWS, Create the required policy and attach it to the relevant IAM role - [Agent IAM role: EKS](aws-sts-eks.md)
    b. When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), set the following parameter values in `values.yaml`:
-   * `aws_access_key_id: "use-role"`
-   * `aws_secret_access_key: "use-role"` 
+   * `aws_access_key_id: ""`
+   * `aws_secret_access_key: ""` 
 2. **If the Agent runs on an EC2 instance:**
    * The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
 
