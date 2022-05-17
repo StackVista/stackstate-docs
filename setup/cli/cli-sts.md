@@ -112,7 +112,7 @@ The most secure way to use your API token is through an environment variable. Yo
 
 ### Quick start
 
-{% hint style="warning" %}
+{% hint style="info" %}
 **Docker only**:
 You can not configure the Docker version of the CLI with a config file. Instead you will need to specify the configuration of your StackState through the `STS_CLI_URL` and `STS_CLI_API_TOKEN` environment variable and pass these to docker, for example `docker run -e STS_CLI_URL -e STS_CLI_API_TOKEN stackstate/stackstate-cli2 settings list --type Layer`. 
 {% endhint %}
