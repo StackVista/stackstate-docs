@@ -2,259 +2,197 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# CLI: stac (legacy)
+# CLI: sts (new)
 
 ## Overview
 
-The StackState CLI provides easy access to the functionality provided by the StackState APIs. It can be used to configure StackState, work with data, automate using StackState data and help with developing StackPacks. You can configure the CLI to work with multiple instances of StackState.
+The StackState CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
 
-## Install the StackState CLI
+This page describes the new `sts` CLI. The CLI will eventually fully replace the [stac CLI](cli-stac.md), but currently does not yet support all commands. For an overview of the differences and overlap between the new `sts` CLI and the old `stac` CLI, see this [comparison page](setup/cli/cli-comparison.md).
 
-A standalone executable is available to run the StackState CLI on [Linux](cli-install.md#linux-install) and [Windows](cli-install.md#windows-install). You can also run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) on Linux, Windows or MacOS.
-
-### Linux install
-
-The steps below describe how to install the StackState CLI on Linux using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) .
-
-**Requirements:**
-
-* Access to the StackState APIs.
-
-**Installation:**
-
-1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com).
-2. Rename the downloaded file to be `sts` and make it executable:
-
-   ```text
-   mv sts-cli-VERSION-linux64 sts
-   chmod +x sts
-   ```
-
-3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-4. To configure the StackState CLI, do one of the following:
-   * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-   * [Manually add configuration](cli-install.md#manual-configuration-docker).
-
-### Windows install
-
-The steps below describe how to install the StackState CLI on Windows using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) .
-
-**Requirements:**
-
-* Access to the StackState APIs.
-
-**Installation:**
-
-1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
-2. Rename the downloaded file to be `sts.exe`.
-3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
-4. To configure the StackState CLI, do one of the following:
-   * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-   * [Manually add configuration](cli-install.md#manual-configuration-docker).
-
-### Docker install \(Mac, Linux, Windows\)
-
-The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that run the CLI without needing to worry about Docker invocations.
-
-**Requirements:**
-
-* Access to the StackState APIs.
-* [Docker installed \(docker.com\)](https://docs.docker.com/get-docker/).
-* Internet connection for first time run.
-
-**Installation:**
-
-1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
-
-   The ZIP archive contains the following files:
-
-   ```text
-   .
-   +-- bin
-   |   +-- sts     # Script to run the CLI in Docker for bash
-   |   +-- sts.ps1 # Script to run the CLI in Docker for Powershell
-   +-- conf.d
-   |   +-- conf.yaml.example # Example CLI configuration
-   |   +-- VERSION           # The CLI version to retrieve from Docker hub
-   +-- templates
-   |   +-- topology   # Topology templates in a format specific to the CLI
-   +-- release_notes.md  # Changelog of the CLI
-   +-- usage.md          # How to configure and use this package
-   ```
-
-2. \(optional\) Add the `bin` directory to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-3. To configure the StackState CLI, [manually add configuration](cli-install.md#manual-configuration-docker).
-
-## Configure the StackState CLI
-
-After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on Mac, Linux or Windows, the configuration file must be manually created.
-
-* **Linux or Windows install \(standalone executable\)**: [Configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-* **Docker install**: [Create the configuration file manually](cli-install.md#manual-configuration-docker).
-
-### Configuration wizard \(Linux and Windows install\)
-
-If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the StackState CLI will use this and the configuration wizard will not run.
-
-The configuration wizard is not available when the CLI is run inside a Docker container on Mac OS, Linux or Windows.
-
-{% hint style="info" %}
-To configure the CLI, you will need your [authentication credentials](cli-install.md#authentication).
-{% endhint %}
-
-Example configuration wizard:
-
-```text
-$ sts graph list-types
-No config was found. Would you like to configure the CLI using this wizard? (Y/n): Y
-
-StackState URL: https://company.stackstate.com/
-Your API token (see https://company.stackstate.com/#/cli ):
-Admin API URL (default: https://company.stackstate.com/admin):
-Receiver API URL (default: https://company.stackstate.com/receiver):
-Receiver API key (default: API_KEY):
-Hostname used for receiver ingestion via the CLI (default: mycli):
-
-Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
-```
-
-### Manual configuration \(Docker\)
-
-The CLI configuration file can be manually created or edited using the steps below. This is required for a Docker install and optional for a Linux or Windows install using a standalone executable file.
-
-1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com). If you ran the Docker install, you can skip this step and use the ZIP archive you already downloaded.
-2. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the following directories:
-   * **Docker:**
-     * `conf.d/` - relative to the directory where the CLI is run.
-   * **Linux or Windows:**
-     * `conf.d/` - relative to the directory where the CLI is run.
-     * `~/.stackstate/cli/` - relative to the user's home directory.
-     * `%APPDATA%/StackState/cli/` - relative to the user's home directory.
-3. Rename the file to be `conf.yaml`.
-4. Edit the file and add:
-   * URLs to the StackState APIs.
-   * Any required authentication details for the APIs. The `base_api` API has support for [API tokens](cli-install.md#authentication). You can copy your private API Token from the **CLI** page in the StackState UI.
-   * Client details.
+## Install
 
 {% tabs %}
-{% tab title="Example conf.yaml" %}
-```yaml
-## The CLI uses an instance of StackState for all its commands.
-## Unless the `--instance` argument is passed the CLI will pick the `default` instance as configured below.
-## Other instances follow the exact same configuration pattern as the instance below.
-instances:
-  default:
-    base_api:
-      url: "https://stackstate.mycompany.com"
-      # Get the api token from the user interface, see https://stackstate.mycompany.com/#/cli
-      apitoken_auth:
-        token: '???'
-      ## HTTP basic authentication.
-      #basic_auth:
-        #username: '???'
-        #password: '???'
-    receiver_api:
-      url: "https://stackstate.mycompany.com/receiver"
-      ## HTTP basic authentication.
-      #basic_auth:
-        #username: '???'
-        #password: '???'
-    admin_api:
-      url: "https://stackstate.mycompany.com/admin"
-      # Get the api token from the user interface, see https://stackstate.mycompany.com/#/cli
-      apitoken_auth:
-        token: '???'
-      ## HTTP basic authentication.
-      #basic_auth:
-        #username: '???'
-        #password: '???'
+{% tab title="Windows" %}
 
-    ## The CLI uses a client configuration to identify who is sending to the StackState instance. The client
-    ## is used to send topology and/or telemetry to the receiver API.
-    ##
-    ## Unless the `--client` argument is passed the CLI will pick the `default` instance as configured below.
-    ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
-    clients:
-      default:
-        api_key: "API_KEY"
-        ## The name of the host that is passed to StackState when sending. Leave these values unchanged
-        ## if you have no idea what to fill here.
-        hostname: "hostname"
-        internal_hostname: "internal_hostname"
+Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or all together as a single script.
+
+```powershell
+# Step 1 - Set the source version and target path.
+$CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
+Invoke-WebRequest https://dl.stackstate.com/stackstate-cli/LATEST_VERSION -OutFile $CLI_PATH\VERSION
+$VERSION=type $CLI_PATH\VERSION
+$CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
+echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
+
+# Step 2 - Download and unpack the CLI to the target CLI path. Remove remaining artifacts.
+If (!(test-path $CLI_PATH)) { md $CLI_PATH }
+Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
+Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
+rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
+
+# Step 3 - Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere.
+$PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
+if ( $PATH -notlike "*$CLI_PATH*" ) { 
+  $PATH = "$PATH;$CLI_PATH"
+  (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
+  $MACHINE_PATH = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+  $env:Path = "$PATH;$MACHINE_PATH"
+}
+
+# Step 4 - Verify that the CLI works.
+  try {  
+    sts version >$null 2>&1
+    if ($LastExitCode -eq 0) { echo "StackState CLI installed succesfully! Type 'sts' to get started." } else { "Error: StackState CLI error code $LastExitCode." }
+} Catch { "Error: could not find 'sts' on the path." }
 ```
+
+After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
+
+{% endtab %}
+{% tab title="MacOS" %}
+
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
+
+```bash
+# Step 1 - Download latest version for x86_64 (Intel) or arm64 (M1).
+(VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+  ARCH=`uname -m` &&
+  curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz)
+
+# Step 2 - Move to /usr/local/bin and remove stack.
+tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
+rm stackstate-cli.tar.gz
+
+# Step 3 - Verify installation success.
+sts version
+```
+
+After installation the `sts` command is available for the current user.
+
+{% endtab %}
+{% tab title="Linux" %}
+
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
+
+```bash
+# Step 1 - Download latest version for x86_64.
+(VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+  curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz)
+
+# Step 2 - Move to /usr/local/bin and remove stack.
+tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
+rm stackstate-cli.tar.gz
+
+# Step 3 - Verify installation success.
+sts version
+```
+
+After installation the `sts` command is available for the current user.
+
+{% endtab %}
+{% tab title="Docker" %}
+
+To run the latest version of the CLI using Docker execute:
+
+```bash
+docker run stackstate/stackstate-cli2
+```
+
+You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`). 
+
 {% endtab %}
 {% endtabs %}
 
-### Add multiple configurations
-
-The `conf.yaml` CLI configuration file can hold multiple configurations. Other StackState instances can be added on the same level as the default configuration. For example:
-
-```yaml
-instances:
-  default:
-    base_api:
-      ...
-    admin_api:
-      ...
-    receiver_api:
-      ...
-    clients:
-      ...
-  Preproduction:
-    base_api:
-      ...
-    clients:
-      ...
-```
-
-To use the StackState CLI with a non-default instance, specify the instance name in the sts command:
-
-```text
-sts --instance <instance_name> ...
-```
-
-## Authentication
-
-The StackState CLI uses three StackState APIs: the Base API, the Admin API and the Receiver API. These APIs are secured differently and need to have separate authentication details entered in the CLI configuration file.
-
-### API key - Receiver API
-
-StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent and is available from your administrator.
-
-### API token - Base API and Admin API
+## Configure
 
 {% hint style="warning" %}
-**Base API and Admin API authentication using username/password will be deprecated.**
-
-The CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication as described below.
+The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.
 {% endhint %}
 
-The StackState CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API token should be entered in the CLI configuration file for both the Base API and the Admin API. 
+### Quick start
 
-* The Base API is used for most operations. All users have access to this API, although the available operations will be restricted in accordance with the permissions assigned to each role. 
-* The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. Only users with the permission `access-admin-api` will have access to the Admin API and the associated operations.
-
-➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
-
-{% hint style="info" %}
-If you are using a custom tool instead of the CLI, you can authenticate with the same API token. For example, this can be done by including the following header in a curl request:
-
-```
-curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
-```
+{% hint style="warning" %}
+**Docker only**:
+You can not configure the Docker version of the CLI with a config file. Instead you will need to specify the configuration of your StackState through the `STS_CLI_URL` and `STS_CLI_API_TOKEN` environment variable and pass these to docker, for example `docker run -e STS_CLI_URL -e STS_CLI_API_TOKEN stackstate/stackstate-cli2 settings list --type Layer`. 
 {% endhint %}
 
+Get your API token from the CLI page then run:
 
-You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
-
-
-![](../../.gitbook/assets/v46_main_menu.png)
-
-## Use the StackState CLI
-
-For details on how to work with the StackState CLI, see the [CLI reference guide](../../develop/reference/cli_reference.md) or refer to the help provided in the CLI.
-
-```text
-sts --help
+```bash
+sts cli save-config --url URL --api-token API-TOKEN 
 ```
 
+The connection to your StackState instance will be tested and a configuration file will be stored at `~/.config/stackstate-cli/config.yaml`. 
+
+### Configuration options
+
+You do not need a configuration file to run the `sts` CLI. You can configure the CLI through (a combination of) environment variables and flags.
+
+If multiple types of configuration are presented to the CLI the order of processing will be: flags first, environment variables second and config file third.
+
+| Name | Flag |  Description |
+| :--- |:--- | :--- |
+| `STS_CLI_URL` | `--url` | URL to your StackState instance. |
+| `STS_CLI_API_TOKEN` | `--api-token` | API token to your StackState instance. |
+| `STS_CLI_API_PATH` | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)|
+
+## Uninstall
+
+{% tabs %}
+{% tab title="Windows" %}
+
+Open a **Powershell** terminal and run each step one-by-one or all at once.
+
+```powershell
+  # Step 1 - remove binary
+  $CLI_PATH = $env:USERPROFILE+"\stackstate-cli"
+  rm -R $CLI_PATH 2>1  > $null
+
+  # Step 2 - remove config
+  rm -R $env:USERPROFILE+"\.config\stackstate-cli" 2>1  > $null
+
+  # Step 3 - remove the CLI from the environment path
+  $PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
+  $i = $PATH.IndexOf(";$CLI_PATH")
+  if ($i -ne -1) {
+    $PATH = $PATH.Remove($i, $CLI_PATH.Length+1)
+    (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
+  }
+```
+
+The `sts` CLI and all associated configuration are now removed for the current user.
+
+{% endtab %}
+{% tab title="MacOS" %}
+
+Open a terminal and run:
+
+```bash
+rm -r /usr/local/bin/sts ~/.config/stackstate-cli
+```
+
+The `sts` CLI and all associated configuration are now removed for the current user.
+
+{% endtab %}
+{% tab title="Linux" %}
+
+Open a terminal and run:
+
+```bash
+rm -r /usr/local/bin/sts ~/.config/stackstate-cli
+```
+
+The `sts` CLI and all associated configuration are now removed for the current user.
+
+{% endtab %}
+{% tab title="Docker" %}
+
+To remove the CLI image and containers run:
+
+```bash
+docker rmi -f stackstate/stackstate-cli2
+```
+
+{% endtab %}
+{% endtabs %}
