@@ -201,6 +201,6 @@ docker rmi -f stackstate/stackstate-cli2
 {% endtab %}
 {% endtabs %}
 
-# Open source
+## Open source
 
 The StackState CLI is open source and can be found on Gitlab at: [https://gitlab.com/stackvista/stackstate-cli2](https://gitlab.com/stackvista/stackstate-cli2)
