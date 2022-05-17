@@ -57,7 +57,7 @@ By default, metrics are also retrieved from kube-state-metrics if that is deploy
 
 The StackState ClusterCheck Agent is an additional StackState Agent V2 pod that is deployed only when [cluster checks are enabled](#enable-cluster-checks) in the Helm chart. When deployed, cluster checks configured on the [StackState Cluster Agent](#stackstate-cluster-agent) will be run by the StackState ClusterCheck Agent pod. 
 
-On large OpenShift clusters, you can [run the `kubernetes_state` check on the ClusterCheck Agent](#kubernetes_state-check-as-a-cluster-check). This check gathers metrics from kube-state-metrics and sends them to StackState. The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+On large OpenShift clusters, you can [run the `kubernetes_state` check on the ClusterCheck Agent](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check). This check gathers metrics from kube-state-metrics and sends them to StackState. The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
 
 * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
 * Load-balanced cluster services \(for example, Kubernetes services\).
@@ -161,7 +161,7 @@ The following integrations have checks that can be configured to run as cluster 
 
 - **Kubernetes integration** - [Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
 - **OpenShift integration** - [OpenShift Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
-- **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws/aws.md#configure-aws-check-as-a-cluster-check).
+- **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check).
 
 ### Advanced Agent configuration
 
