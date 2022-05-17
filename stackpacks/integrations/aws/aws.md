@@ -39,8 +39,8 @@ It is recommended to have two different AWS accounts: One that is being monitore
 
 * **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
 * **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from any of the following:
-  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2) where the Agent runs.
-  * An [IAM role attached to the EKS pod](/stackpacks/integrations/aws/aws-sts-eks.md) where the Cluster Agent runs.
+  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2-or-eks) where the Agent runs.
+  * An [IAM role attached to the EKS pod](#iam-role-for-agent-on-ec2-or-eks) where the Cluster Agent runs.
   * An [AWS user configured in the AWS check](#configure-the-aws-check) on the Agent.
 
 The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
@@ -66,9 +66,8 @@ Note that StackState Agent also connects to AWS to pull topology and events data
 
 If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that it runs on. The Agent will then use this role by default.
 
-1. **If the Agent runs in an EKS pod:** In AWS, create the required policy and attach it to the relevant IAM role - [Agent IAM role: EKS](aws-sts-eks.md). When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), set the following parameter values in `values.yaml`:
-   * `aws_access_key_id: ""`
-   * `aws_secret_access_key: ""` 
+1. **If the Agent runs in an EKS pod:** In AWS, create the required policy and attach it to the relevant IAM role - [Agent IAM role: EKS](aws-sts-eks.md). When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
+
 2. **If the Agent runs on an EC2 instance:** The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
 
     ```javascript
