@@ -62,6 +62,8 @@ On large Kubernetes clusters, you can [run the `kubernetes_state` check on the C
 * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
 * Load-balanced cluster services \(for example, Kubernetes services\).
 
+The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) can be configured to run as a cluster check.
+
 ## Setup
 
 ### Supported versions
