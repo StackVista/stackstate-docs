@@ -88,7 +88,7 @@ In our sample check, this code defines the extra identifiers:
     ...
 ```
 
-Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/identifiers.md).
+Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/topology/identifiers.md).
 
 ## Add a custom telemetry stream to a component
 
