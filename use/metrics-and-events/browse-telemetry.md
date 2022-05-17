@@ -18,6 +18,16 @@ Click on any of the telemetry stream charts, or select **Inspect stream** from i
 
 Within the telemetry inspector you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. Changes made here will not be saved to the telemetry stream attached to the element.
 
+### Anomaly feedback
+
+When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (*"well spotted!"*) or thumbs-down (*"false positive"*). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies can be [exported and sent to StackState](/stackpacks/add-ons/aad.md#export-feedback) where it will be used by the StackState team to further develop and improve the AAD.
+
+Note that feedback is not used to train the local instance of AAD.
+
+{% hint style="warning" %} 
+Comments added to an anomaly will be included in the data exported and sent to StackState. Take care not to include sensitive data in comments.
+{% endhint %}
+
 ## See also
 
 * [Add a single telemetry stream to a component](add-telemetry-to-element.md)

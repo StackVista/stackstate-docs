@@ -183,6 +183,7 @@
   * [Data sources](configure/telemetry/data-sources/README.md)
     * [Elasticsearch](configure/telemetry/data-sources/elasticsearch.md)
     * [Prometheus mirror](configure/telemetry/data-sources/prometheus-mirror.md)
+  * [Export anomaly feedback](configure/telemetry/export-anomaly-feedback.md)
   * [Send telemetry data over HTTP](configure/telemetry/send_telemetry.md)
   * [Set the default telemetry interval](configure/telemetry/custom_telemetry_interval.md)  
   * [Set telemetry stream priority](use/metrics-and-events/set-telemetry-stream-priority.md)
