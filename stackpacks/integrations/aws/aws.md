@@ -169,9 +169,9 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     helm repo update
    ```
    
-2. Create a `values.yaml` file with details of your AWS instance:
-    - **aws_access_key_id** - The AWS Access Key ID. Set to `use-role` to use the [IAM role attached to the EKS pod](/stackpacks/integrations/aws/aws-sts-eks.md) `stackstate-cluster-agent`. 
-    - **aws_secret_access_key** - The AWS Secret Access Key. Set to `use-role` to use the [IAM role attached to the EKS pod](/stackpacks/integrations/aws/aws-sts-eks.md) `stackstate-cluster-agent`.
+2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use the IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use the IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
@@ -191,8 +191,8 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
             cluster_check: true
 
             init_config:
-            aws_access_key_id: 'use-role'
-            aws_secret_access_key: 'use-role'
+            aws_access_key_id: ''
+            aws_secret_access_key: ''
             external_id: uniquesecret!1 
             # full_run_interval: 3600
 
