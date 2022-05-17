@@ -158,7 +158,7 @@ The following integrations have checks that can be configured to run as cluster 
 
 - **Kubernetes integration** - [Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
 - **OpenShift integration** - [OpenShift Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
-- **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws.md#configure-aws-check-as-a-cluster-check).
+- **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws/aws.md#configure-aws-check-as-a-cluster-check).
 
 ### Advanced Agent configuration
 

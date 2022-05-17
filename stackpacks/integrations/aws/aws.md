@@ -160,7 +160,7 @@ To enable the AWS check and begin collecting data from AWS, add the configuratio
 {% tabs %}
 {% tab title="Agent on Kubernetes" %}
 
-If StackState Agent is running on Kubernetes, the AWS check should be configured as a cluster check.
+If StackState Agent is running on Kubernetes, the AWS check should be configured as a [cluster check](/setup/agent/kubernetes.md#enable-cluster-checks).
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
