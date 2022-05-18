@@ -74,9 +74,9 @@ To set up the StackState AWS integration, you need to have:
 
 ### Configure the AWS Cluster Check
 
-To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
+To enable the AWS cluster check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
+1. Edit the values.yaml file used in the [Helm install](aws-eks.md#install) command. This will also edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
 
     - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2-or-eks).
     - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2-or-eks).
@@ -125,8 +125,7 @@ To enable the AWS check and begin collecting data from AWS, add the following co
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
 
-3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
-4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+3. To apply the configuration changes, redploy the StackState Agent using [Helm upgrade](aws-eks.md#install).
 
 ## Uninstall
 
