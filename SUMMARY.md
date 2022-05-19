@@ -120,7 +120,7 @@
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
     * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
     * [StackState IAM role: EC2](stackpacks/integrations/aws/aws-sts-ec2.md)
-    * [StackState IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
+    * [StackState/Agent IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
     * [AWS \(Legacy\)](stackpacks/integrations/aws/aws-legacy.md)
     * [Migrate AWS \(Legacy\) to AWS](stackpacks/integrations/aws/migration-guide.md)

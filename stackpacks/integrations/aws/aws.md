@@ -38,30 +38,50 @@ To set up the StackState AWS integration, you need to have:
 It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
 
 * **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
-* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from either:
-  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2) where the Agent runs.
+* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from any of the following:
+  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2-or-eks) where the Agent runs.
+  * An [IAM role attached to the EKS pod](#iam-role-for-agent-on-ec2-or-eks) where the Cluster Agent runs.
   * An [AWS user configured in the AWS check](#configure-the-aws-check) on the Agent.
 
 The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
 ![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
 
-#### IAM role for Agent on EC2
+#### IAM role for StackState on EC2 or EKS
 
-If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance that it runs on. The Agent will then use this role by default. The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
+StackState pulls CloudWatch metrics directly from AWS. If StackState is running within AWS (EC2 or EKS), an IAM role can be used for authentication when collecting metrics from CloudWatch: 
 
-```javascript
-{
-  "Version": "2012-10-17",
-  "Statement": [
+1. In AWS, Create the required policy and attach it to the relevant IAM role:
+   * [StackState IAM role: EC2](aws-sts-ec2.md)
+   * [StackState IAM role: EKS](aws-sts-eks.md)
+2. When you install an AWS StackPack instance, set the following parameter values:
+   * **AWS Access Key ID**: `use-role` 
+   * **AWS Secret Access Key**: `use-role` 
+
+{% hint style="info" %}
+Note that StackState Agent also connects to AWS to pull topology and events data. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2 or EKS](#iam-role-for-agent-on-ec2-or-eks).
+{% endhint %}
+
+#### IAM role for Agent on EC2 or EKS
+
+If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that it runs on. The Agent will then use this role by default.
+
+1. **If the Agent runs in an EKS pod:** In AWS, create the required policy and attach it to the relevant IAM role - [Agent IAM role: EKS](aws-sts-eks.md). When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
+
+2. **If the Agent runs on an EC2 instance:** The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
+
+    ```javascript
     {
-      "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": "arn:aws:iam::*:role/StackStateAwsIntegrationRole"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": "sts:AssumeRole",
+          "Resource": "arn:aws:iam::*:role/StackStateAwsIntegrationRole"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 If StackState Agent does not run in an AWS environment, or if a role with the required policy is not available on the Agent's EC2 instance, an AWS user must be [configured in the AWS check](#configure-the-aws-check) on the Agent.
 
@@ -128,30 +148,107 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#iam-role-for-stackstate-on-ec2-or-eks).
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#authenticate-with-an-iam-role).
 
-#### IAM role for StackState on EC2 or EKS
-
-StackState pulls CloudWatch metrics directly from AWS. If StackState is running within AWS, an IAM role can be used for authentication when collecting metrics from CloudWatch: 
-
-1. In AWS, Create the required policy and attach it to the relevant IAM role:
-   * [StackState IAM role: EC2](aws-sts-ec2.md) 
-   * [StackState IAM role: EKS](aws-sts-eks.md)
-2. When you install an AWS StackPack instance, set the following parameter values:
-   * **AWS Access Key ID**: `use-role` 
-   * **AWS Secret Access Key**: `use-role` 
-
-{% hint style="info" %}
-Note that StackState Agent also connects to AWS to pull topology and events data. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2](#iam-role-for-agent-on-ec2).
-{% endhint %}
-
 
 ### Configure the AWS check
 
-To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
+To enable the AWS check and begin collecting data from AWS, add the configuration below to StackState Agent V2.
+
+{% tabs %}
+{% tab title="Agent on Kubernetes" %}
+
+If StackState Agent is running on Kubernetes, the AWS check should be configured as a [cluster check](/setup/agent/kubernetes.md#enable-cluster-checks).
+
+1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+
+   ```text
+    helm repo add stackstate https://helm.stackstate.io
+    helm repo update
+   ```
+   
+2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use the IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use the IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
+    - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
+    - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
+    - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
+    ```yaml
+    clusterChecks:
+    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+    enabled: true
+
+    clusterAgent:
+      config:
+        override:
+    #clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+    #with ad_identifiers does not work here. Use a specific URL instead.
+        - name: conf.yaml
+          path: /etc/stackstate-agent/conf.d/aws_topology.d
+          data: |
+            cluster_check: true
+
+            init_config:
+            aws_access_key_id: ''
+            aws_secret_access_key: ''
+            external_id: uniquesecret!1 
+            # full_run_interval: 3600
+
+            instances:
+            - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+                regions:
+                - global
+                - eu-west-1
+                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+                # apis_to_run:
+                #   - ec2
+                # log_bucket_name: '' 
+                # tags:
+                #   - foo:bar
+   ```
+
+3. Deploy the `cluster_agent` using the updated `values.yaml`:
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+```yaml
+helm upgrade --install \
+--namespace stackstate \
+--create-namespace \
+--set-string 'stackstate.apiKey'='<your-api-key>' \
+--set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+--set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+--set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+--values values.yaml \
+stackstate-cluster-agent stackstate/cluster-agent    
+```
+{% endtab %}
+{% tab title="OpenShift" %}
+
+```yaml
+helm upgrade --install \
+--namespace stackstate \
+--create-namespace \
+--set-string 'stackstate.apiKey'='<your-api-key>' \
+--set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+--set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+--set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+--set 'agent.scc.enabled'=true \
+--set 'kube-state-metrics.securityContext.enabled'=false \
+--values values.yaml \
+stackstate-cluster-agent stackstate/cluster-agent    
+```
+{% endtab %}
+{% endtabs %}
+
+
+{% endtab %}
+{% tab title="Agent on Linux VM" %}
+
+If StackState Agent is running on a Linux VM:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
     
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2-or-eks).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2-or-eks).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
@@ -188,6 +285,13 @@ To enable the AWS check and begin collecting data from AWS, add the following co
 
 3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+{% endtab %}
+{% endtabs %}
+
+
+
+
+
 
 ### Configure VPC FlowLogs
 
