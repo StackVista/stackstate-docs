@@ -2,7 +2,7 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# OpenTelemetry
+# OpenTelemetry - NodeJS
 
 ## Overview
 
@@ -15,9 +15,15 @@ OpenTelemetry has the following benefits:
 
 The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
 
-| Without OpenTelemetry | With OpenTelemetry | 
-|:---|:---|
-| ![](../../../.gitbook/assets/otel_from_original.png) | ![](../../../.gitbook/assets/otel_to_with_traces.png) |
+
+{% tabs %}
+{% tab title="Without OpenTelemetry" %}
+![](../../../.gitbook/assets/otel_from_original.png)
+{% endtab %}
+{% tab title="With OpenTelemetry" %}
+![](/.gitbook/assets/otel_to_with_traces.png)
+{% endtab %}
+{% endtabs %}
 
 ## Setup
 
