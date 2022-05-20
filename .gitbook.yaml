@@ -298,6 +298,7 @@ redirects:
 
 # 4.6 docs
 
+  configure/identifiers: ./configure/topology/identifiers.md
   configure/security/self-signed-cert: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1#retrieve-certificate-via-the-browser: ./configure/security/self-signed-certificates.md
