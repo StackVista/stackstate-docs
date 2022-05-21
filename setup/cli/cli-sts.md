@@ -22,7 +22,7 @@ The `sts` CLI does not work with StackState version 4.5 or older. For working wi
 {% tabs %}
 {% tab title="Installer" %}
 
-Open a **Powershell** terminal (version 5.1 or later) and run:
+Open a **Powershell** terminal (version 5.1 or later), change the "URL" and "API-TOKEN" and run:
 
 ```powershell
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "URL" -StsApiToken "API-TOKEN"
@@ -71,10 +71,10 @@ After installation, the `sts` command will be available for the current user on 
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal and run:
+Open a terminal, change the URL and API-TOKEN and run:
 
 ```bash
-curl -o- https://dl.stackstate.com/stackstate-cli/install.sh |STS_API_URL="URL" STS_API_TOKEN="API-TOKEN" bash
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
 ```
 
 After installation the `sts` command is available for the current user.
@@ -102,10 +102,10 @@ After installation the `sts` command is available for the current user.
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal and run:
+Open a terminal, change the URL and API-TOKEN and run:
 
 ```bash
-curl -o- https://dl.stackstate.com/stackstate-cli/install.sh |STS_API_URL="URL" STS_API_TOKEN="API-TOKEN" bash
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
 ```
 
 After installation the `sts` command is available for the current user.
