@@ -19,80 +19,113 @@ The `sts` CLI does not work with StackState version 4.5 or older. For working wi
 {% tabs %}
 {% tab title="Windows" %}
 
+{% tabs %}
+{% tab title="Installer" %}
+
+Open a **Powershell** terminal (version 5.1 or later) and run:
+
+```powershell
+. { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "URL" -StsApiToken "API-TOKEN"
+```
+
+After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
+
+{% endtab %}
+{% tab title="Manual" %}
+
 Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```powershell
 # Step 1 - Set the source version and target path.
 $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
+If (!(test-path $CLI_PATH)) { md $CLI_PATH }
 Invoke-WebRequest https://dl.stackstate.com/stackstate-cli/LATEST_VERSION -OutFile $CLI_PATH\VERSION
 $VERSION=type $CLI_PATH\VERSION
 $CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
 echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
 
 # Step 2 - Download and unpack the CLI to the target CLI path. Remove remaining artifacts.
-If (!(test-path $CLI_PATH)) { md $CLI_PATH }
 Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
 Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
 rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
 
 # Step 3 - Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere.
-$PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
+$PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
 if ( $PATH -notlike "*$CLI_PATH*" ) { 
   $PATH = "$PATH;$CLI_PATH"
-  (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
-  $MACHINE_PATH = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+  (Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH –Value $PATH) 
+  $MACHINE_PATH = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).path
   $env:Path = "$PATH;$MACHINE_PATH"
 }
 
 # Step 4 - Verify that the CLI works.
-  try {  
-    sts version >$null 2>&1
-    if ($LastExitCode -eq 0) { echo "StackState CLI installed succesfully! Type 'sts' to get started." } else { "Error: StackState CLI error code $LastExitCode." }
-} Catch { "Error: could not find 'sts' on the path." }
+sts version
 ```
 
 After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
+{% endtab %}
+{% endtabs %}
 
 {% endtab %}
 {% tab title="MacOS" %}
 
+{% tabs %}
+{% tab title="Installer" %}
+Open a terminal and run:
+
+```bash
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh |STS_API_URL="URL" STS_API_TOKEN="API-TOKEN" bash
+```
+
+After installation the `sts` command is available for the current user.
+{% endtab %}
+
+{% tab title="Manual" %}
 Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```bash
 # Step 1 - Download latest version for x86_64 (Intel) or arm64 (M1).
 (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
   ARCH=`uname -m` &&
-  curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz)
+  curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
 
-# Step 2 - Move to /usr/local/bin and remove stack.
-tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
-rm stackstate-cli.tar.gz
-
-# Step 3 - Verify installation success.
+# Step 2 - Verify installation success.
 sts version
 ```
 
 After installation the `sts` command is available for the current user.
+{% endtab %}
+{% endtabs %}
 
 {% endtab %}
 {% tab title="Linux" %}
 
+{% tabs %}
+{% tab title="Installer" %}
+Open a terminal and run:
+
+```bash
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh |STS_API_URL="URL" STS_API_TOKEN="API-TOKEN" bash
+```
+
+After installation the `sts` command is available for the current user.
+{% endtab %}
+
+{% tab title="Manual" %}
 Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```bash
-# Step 1 - Download latest version for x86_64.
+# Step 1 - Download and unpack latest version for x86_64.
 (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
-  curl -fLo stackstate-cli.tar.gz https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz)
+  curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz | tar xz --directory /usr/local/bin)
 
-# Step 2 - Move to /usr/local/bin and remove stack.
-tar xzvf stackstate-cli.tar.gz --directory /usr/local/bin
-rm stackstate-cli.tar.gz
-
-# Step 3 - Verify installation success.
+# Step 2 - Verify installation success.
 sts version
 ```
 
 After installation the `sts` command is available for the current user.
+{% endtab %}
+{% endtabs %}
 
 {% endtab %}
 {% tab title="Docker" %}
@@ -146,6 +179,18 @@ If multiple types of configuration are presented to the CLI the order of process
 {% tabs %}
 {% tab title="Windows" %}
 
+{% tabs %}
+{% tab title="Uninstaller" %}
+Open a **Powershell** terminal and run:
+
+```powershell
+. { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; uninstall
+```
+
+The `sts` CLI and all associated configuration are now removed for the current user.
+{% endtab %}
+
+{% tab title="Manual" %}
 Open a **Powershell** terminal and run each step one-by-one or all at once.
 
 ```powershell
@@ -166,10 +211,24 @@ Open a **Powershell** terminal and run each step one-by-one or all at once.
 ```
 
 The `sts` CLI and all associated configuration are now removed for the current user.
+{% endtab %}
+{% endtabs %}
 
 {% endtab %}
 {% tab title="MacOS" %}
 
+{% tabs %}
+{% tab title="Uninstaller" %}
+Open a terminal and run:
+
+```bash
+curl -o- https://dl.stackstate.com/stackstate-cli/uninstall.sh | bash
+```
+
+The `sts` CLI and all associated configuration are now removed for the current user.
+{% endtab %}
+
+{% tab title="Manual" %}
 Open a terminal and run:
 
 ```bash
@@ -177,10 +236,24 @@ rm -r /usr/local/bin/sts ~/.config/stackstate-cli
 ```
 
 The `sts` CLI and all associated configuration are now removed for the current user.
+{% endtab %}
+{% endtabs %}
 
 {% endtab %}
 {% tab title="Linux" %}
 
+{% tabs %}
+{% tab title="Uninstaller" %}
+Open a terminal and run:
+
+```bash
+curl -o- https://dl.stackstate.com/stackstate-cli/uninstall.sh | bash
+```
+
+The `sts` CLI and all associated configuration are now removed for the current user.
+{% endtab %}
+
+{% tab title="Manual" %}
 Open a terminal and run:
 
 ```bash
@@ -188,6 +261,8 @@ rm -r /usr/local/bin/sts ~/.config/stackstate-cli
 ```
 
 The `sts` CLI and all associated configuration are now removed for the current user.
+{% endtab %}
+{% endtabs %}
 
 {% endtab %}
 {% tab title="Docker" %}
