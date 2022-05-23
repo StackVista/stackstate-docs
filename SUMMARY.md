@@ -167,6 +167,7 @@
 
 * [Topology](configure/topology/README.md)
   * [Component actions](configure/topology/component_actions.md)
+  * [Identifiers](configure/topology/identifiers.md)
   * [Topology naming guide](configure/topology/naming_guide.md)
   * [Topology sources](configure/topology/topology_sources.md)
   * [Create a topology manually](configure/topology/how_to_create_manual_topology.md)
@@ -216,7 +217,6 @@
   * [Self-signed certificates](configure/security/self-signed-certificates.md)
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
-* [Identifiers](configure/identifiers.md)
 * [Logging](configure/logging/README.md)
   * [Enable logging for functions](configure/logging/enable-logging.md)
   * [StackState log files](configure/logging/stackstate-log-files.md)
