@@ -33,7 +33,7 @@ cpu:
 {% endtab %}
 {% endtabs %}
 
-## Evaluate effective use of resources
+## Evaluate use of resources
 
 One of the most important uses of anomalies in the StackState product is in [anomaly health checks](../../use/health-state/anomaly-health-checks.md). The following metrics can be used to determine if the AAD is putting the available resources to good use:
 
@@ -54,7 +54,7 @@ sts metric get <multi_metrics_id> -t stackstate.spotlight_streams_with_anomaly_c
 sts metric get <multi_metrics_id> -t stackstate.spotlight_streams_checked -f checked.csv
 ```
 
-Here `<multi_metrics_id>` is the ID for the "StackState Multi Metrics" datasource (`sts datasource list`).
+Here `<multi_metrics_id>` is the ID for the **StackState Multi Metrics** datasource (`sts datasource list`).
 {% endtab %}
 {% endtabs %}
 

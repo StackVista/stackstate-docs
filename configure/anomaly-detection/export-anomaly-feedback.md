@@ -17,25 +17,9 @@ Feedback that has been added to anomalies reported by the Autonomous Anomaly Det
 To export anomaly feedback from StackState, v1 or v2 of the [StackState CLI](/setup/cli-install.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
 
 {% tabs %}
-{% tab title="CLI: sts (legacy)" %}
+{% tab title="CLI: sts (new)" %}
 
-Using StackState CLI v1, anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`. 
-
-For example:
-
-```commandline
-# Export all feedback on all anomalies in the last 7 days,
-# include 1 day of metric data for each anomaly
-sts anomaly collect-feedback --start-time=-7d > feedback.json
-
-# Export all feedback on anomalies from 10 to 2 days ago,
-# include 3 days of metric data for each anomaly
-sts anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
-```
-{% endtab %}
-{% tab title="CLI: stackstate" %}
-
-Using StackState CLI v2, anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`. 
+Using StackState CLI `sts` (new), anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`. 
 
 For example:
 
@@ -47,6 +31,22 @@ sts anomaly collect-feedback --start-time -7d --file feedback.json
 # Export all feedback on anomalies from 10 to 2 days ago,
 # include 3 days of metric data for each anomaly
 sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --file feedback.json
+```
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+Using StackState CLI `stac`, anomaly feedback can be exported from StackState with the command `stac anomaly collect-feedback`. 
+
+For example:
+
+```commandline
+# Export all feedback on all anomalies in the last 7 days,
+# include 1 day of metric data for each anomaly
+stac anomaly collect-feedback --start-time=-7d > feedback.json
+
+# Export all feedback on anomalies from 10 to 2 days ago,
+# include 3 days of metric data for each anomaly
+stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
 ```
 {% endtab %}
 {% endtabs %}

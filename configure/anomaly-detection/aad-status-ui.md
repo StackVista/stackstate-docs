@@ -68,7 +68,7 @@ ingress:
 
 Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
 
-  * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
-  * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
-  * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
+* [AKS \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
+* Not using nginx - [EKS Official docs \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html)
+* Using nginx - [EKS blog post \(aws.amazon.com\)](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/)
 
