@@ -2,11 +2,15 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Autonomous Anomaly Detector Status UI
+# The AAD status UI
 
-The status UI provides details on the technical state of the AAD. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
+## Overview
 
-Common questions that can be answered in the status UI:
+The AAD status UI provides details on the technical state of the AAD. It can be used to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
+
+## When to use the AAD status UI
+
+Common questions that can be answered in the AAD status UI:
 
 **Is the AAD Kubernetes service running?**  
 If the status UI is accessible: The service is running.  
@@ -24,21 +28,23 @@ The status UI section **Top Anomalous Streams** shows the streams with the highe
 **Is the AAD Kubernetes service scheduling streams?**  
 The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
-## Access status UI by proxy
+## Access the status UI 
 
-To access the status UI, one can run kubectl proxy.
+### Proxy
 
-```text
-    kubectl proxy
-```
-
-The UI will be accessible by URL:
+To access the status UI by proxy, run kubectl proxy:
 
 ```text
-    http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
+kubectl proxy
 ```
 
-## Access status UI by ingress
+The UI will be accessible at the URL:
+
+```text
+http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
+```
+
+### Ingress
 
 For more permanent accessibility, the status UI can also be exposed using ingress configuration. The example below shows how to configure an nginx-ingress controller.
 

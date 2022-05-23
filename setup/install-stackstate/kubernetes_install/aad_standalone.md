@@ -76,6 +76,7 @@ image:
 stackstate:
     # Stackstate instance URL
     instance: <stackstate instance url>
+```
 {% endtab %}
 {% endtabs %}
 
@@ -96,8 +97,7 @@ By default, the AAD Kubernetes Service is configured to use kubernetes `token` a
   stackstate:
     authType: api-token
     apiToken: <stackstate api token>
-      ...
-  ```
+  ...
 
 * Cookie authentication. This type of auth is not recommended and exists only for troubleshooting/testing purposes.
 
@@ -114,13 +114,13 @@ By default, the AAD Kubernetes Service is configured to use kubernetes `token` a
 
 Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState to be able to use default token authentication \(Otherwise consider other types of authentication above\).
 
-```text
-    helm upgrade anomaly-detector stackstate/anomaly-detection \
-        --install \
-        --namespace <stackstate-namespace> \
-        --set image.pullSecretPassword=<image registry password>
-        --values ./values.yaml
-```
+  ```text
+  helm upgrade anomaly-detector stackstate/anomaly-detection \
+      --install \
+      --namespace <stackstate-namespace> \
+      --set image.pullSecretPassword=<image registry password>
+      --values ./values.yaml
+  ```
 
 ### Training period
 
