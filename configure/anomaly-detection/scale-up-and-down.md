@@ -45,9 +45,6 @@ Streams with an anomaly check have the highest priority in the AAD. When the num
 These metrics can be accessed from StackState using the CLI:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
-TODO
-{% endtab %}
 {% tab title="CLI: stac" %}
 ```text
 sts metric get <multi_metrics_id> -t stackstate.spotlight_streams_with_anomaly_check -f anomaly_health_checks.csv
@@ -55,6 +52,9 @@ sts metric get <multi_metrics_id> -t stackstate.spotlight_streams_checked -f che
 ```
 
 Here `<multi_metrics_id>` is the ID for the **StackState Multi Metrics** datasource (`sts datasource list`).
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+Command not available.
 {% endtab %}
 {% endtabs %}
 
