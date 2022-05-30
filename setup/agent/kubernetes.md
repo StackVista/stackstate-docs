@@ -18,7 +18,7 @@ To retrieve topology, events and metrics data from a Kubernetes cluster, you wil
 
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM.
 
-## StackState Agents
+## StackState Agent types
 
 The Kubernetes integration collects topology data in a Kubernetes cluster, as well as metrics and events. To achieve this, different types of StackState Agent are used:
 
@@ -146,7 +146,7 @@ helm upgrade --install \
 --create-namespace \
 --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
 --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
---set-string 'stackstate.url'='<ACKSTATE_RECEIVER_API_ADDRESS>' \
+--set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set-string 'agent.containerRuntime.customSocketPath'='<CUSTOM_SOCKET_PATH>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```

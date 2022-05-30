@@ -135,7 +135,7 @@ sudo apt-get upgrade <agent_installer_package>.deb
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `STACKSTATE_RECEIVER_API_KEY` and `STACKSTATE_BASE_URL` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `<STACKSTATE_RECEIVER_API_KEY>` and `<STACKSTATE_BASE_URL>` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 

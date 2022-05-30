@@ -18,7 +18,7 @@ To retrieve topology, events and metrics data from a OpenShift cluster, you will
 
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM.
 
-## StackState Agents
+## StackState Agent types
 
 The OpenShift integration collects topology data in an OpenShift cluster, as well as metrics and events. To achieve this, different types of StackState Agent are used:
 

@@ -10,7 +10,7 @@ These functions only work in the context of scripts that are executed by a user 
 
 ## Function: baseUrl
 
-Returns the StackState baseUrl of the StackState instance as configured in the `application.conf` or `values.yaml`.
+Returns the baseUrl of the StackState instance (`<STACKSTATE_BASE_URL>`) as configured in the `application.conf` or `values.yaml`.
 
 **Examples:**
 
