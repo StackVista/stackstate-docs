@@ -42,7 +42,7 @@ The project name is used in `helm` and `kubectl` commands as the namespace name 
 
 ### Generate `values.yaml`
 
-The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, API key and other important information.
+The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, StackState receiver API key and other important information.
 
 {% hint style="info" %}
 **Before you continue:** Make sure you have the latest version of the Helm chart with `helm repo update`.
@@ -64,14 +64,14 @@ The `generate_values.sh` script in the [installation directory](https://github.c
 
 The script requires the following configuration options:
 
-| Configuration | Flag | Description |
-| :--- | :--- | :--- |
-| Base URL | `-b` | The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`.  If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file. |
-| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories. |
-| License key | `-l` | The StackState license key. |
-| Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it. |
-| Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it. |
-| Kubernetes cluster name | `-k` | Option only available for plain Kubernetes installation |
+| Configuration | Flag | Description                                                                                                                                                                                                                                                                               |
+| :--- | :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`.  If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file. |
+| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                         |
+| License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                               |
+| Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it.                                   |
+| Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it.                                                                                                                                        |
+| Kubernetes cluster name | `-k` | Option only available for plain Kubernetes installation                                                                                                                                                                                                                                   |
 
 {% hint style="info" %}
 Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.
