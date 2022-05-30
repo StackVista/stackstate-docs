@@ -78,28 +78,40 @@ StackState Agent v2.16.0 is supported to monitor the following versions of Kuber
   * containerd
   * CRI-O
 
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
-
 ### Install
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
-   ```text
+   ```commandline
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the **helm command provided in the StackState UI after you have installed the StackPack**. Additional variables can be added to the standard helm command, for example:
-   * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
-   * For large Kubernetes clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
-   * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath). 
-   * Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics to namespace `stackstate` using the helm command below. 
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
+      * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+      * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   - Note that [additional optional configuration](#helm-chart-values) can be added to the standard helm command.
+
+```commandline 
+helm upgrade --install \ 
+   --namespace stackstate \
+   --create-namespace \
+   --set-string <STACKSTATE_RECEIVER_API_KEY> \
+   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+   stackstate-cluster-agent stackstate/cluster-agent
+```
 
 ### Helm chart values
+
+Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent and kube-state-metrics. For example:
+* It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
+* For large Kubernetes clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+* If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
 Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
@@ -115,10 +127,10 @@ For example:
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey=<your-api-key>' \
---set-string 'stackstate.cluster.name=<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
---set-string 'stackstate.url=<stackstate-receiver-api-address>' \
+--set-string 'stackstate.apiKey=<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name=<KUBERNETES_CLUSTER_NAME>' \
+--set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+--set-string 'stackstate.url=<STACKSTATE_RECEIVER_API_ADDRESS>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 
@@ -132,10 +144,10 @@ If your cluster uses a custom socket path, you can provide it using the key `age
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey'='{{config.apiKey}}' \
---set-string 'stackstate.cluster.name'='{{configurationConfig.kubernetes_cluster_name}}' \
---set-string 'stackstate.url'='{{config.baseUrl}}/stsAgent' \
---set-string 'agent.containerRuntime.customSocketPath'='<your-custom-socket-path>' \
+--set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+--set-string 'stackstate.url'='<ACKSTATE_RECEIVER_API_ADDRESS>' \
+--set-string 'agent.containerRuntime.customSocketPath'='<CUSTOM_SOCKET_PATH>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 

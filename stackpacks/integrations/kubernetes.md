@@ -18,7 +18,7 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
 
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agents) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -111,10 +111,10 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   helm upgrade --install \
   --namespace stackstate \
   --create-namespace \
-  --set-string 'stackstate.apiKey'='<your-api-key>' \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
   --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
-  --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
-  --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
   --values values.yaml \
   stackstate-cluster-agent stackstate/cluster-agent    
   ```

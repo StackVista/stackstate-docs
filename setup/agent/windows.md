@@ -41,10 +41,12 @@ StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](htt
 * [Offline install](windows.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
 
 {% hint style="info" %}
-The `stsApiKey` and `stsUrl` \(baseUrl\) specified when running the install script are set during StackState installation, for details see:
+The `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
 
 * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
 * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
 {% endhint %}
 
 #### Online install
@@ -53,8 +55,8 @@ If you have access to the internet on the machine where the Agent will be instal
 
 ```text
 . { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `
-install -stsApiKey "{{config.apiKey}}" `
--stsUrl "<stackstate-receiver-api-address>"
+install -stsApiKey "<STACKSTATE_RECEIVER_API_KEY>" `
+-stsUrl "<STACKSTATE_RECEIVER_API_ADDRESS>"
 ```
 
 #### Offline install
@@ -69,8 +71,8 @@ If you do not have access to the internet on the machine where the Agent will be
 
    ```text
    Import-Module C:\install_script.ps1
-   install -stsApiKey {{config.apiKey}} `
-   -stsUrl <stackstate-receiver-api-address> `
+   install -stsApiKey <STACKSTATE_RECEIVER_API_KEY> `
+   -stsUrl <STACKSTATE_RECEIVER_API_ADDRESS> `
    -f C:\\stackstate-custom.msi
    ```
 

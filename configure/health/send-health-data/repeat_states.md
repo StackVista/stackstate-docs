@@ -77,7 +77,7 @@ Health can be sent in one JSON message via HTTP POST or using the StackState CLI
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
+ 'http://<stackstateURL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,

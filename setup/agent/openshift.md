@@ -18,7 +18,7 @@ To retrieve topology, events and metrics data from a OpenShift cluster, you will
 
 To integrate with other services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM.
 
-## StackState Agent types
+## StackState Agents
 
 The OpenShift integration collects topology data in an OpenShift cluster, as well as metrics and events. To achieve this, different types of StackState Agent are used:
 
@@ -77,10 +77,6 @@ StackState Agent v2.16.0 is supported to monitor the following versions of OpenS
   * containerd
   * CRI-O
 
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
-
 ### Install
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
@@ -92,17 +88,33 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
     helm repo update
    ```
 
-2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with the **helm command provided in the StackState UI after you have installed the StackPack**. Additional variables can be added to the standard helm command, for example: 
-   - It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
-   * For large OpenShift clusters, [enable cluster checks](openshift.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
-   * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath). 
-   * Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+2. Deploy the StackState Agent, Cluster Agent and kube-state-metrics with helm command provided below.
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
+      * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
+      * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   - Note that [additional optional configuration](#helm-chart-values) can be added to the standard helm command.
+
+```commandline
+helm upgrade --install \
+--namespace stackstate \
+--create-namespace \
+--set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+--set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+--set 'agent.scc.enabled'=true \
+--set 'kube-state-metrics.securityContext.enabled'=false \
+stackstate-cluster-agent stackstate/cluster-agent
+```
 
 ### Helm chart values
 
-{% hint style="info" %}
-Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
-{% endhint %}
+Additional variables can be added to the standard helm command, for example:
+* It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
+* For large OpenShift clusters, [enable cluster checks](openshift.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+* If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath). 
+* Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+
 
 #### stackstate.cluster.authToken
 
@@ -114,10 +126,10 @@ For example:
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken'='<your-cluster-token>' \
---set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+--set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+--set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
+--set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
 stackstate-cluster-agent stackstate/cluster-agent
@@ -133,10 +145,10 @@ If your cluster uses a custom socket path, you can provide it using the key `age
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
---set-string 'agent.containerRuntime.customSocketPath'='<your-custom-socket-path>' \
+--set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+--set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+--set-string 'agent.containerRuntime.customSocketPath'='<CUSTOM_SOCKET_PATH>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
 stackstate-cluster-agent stackstate/cluster-agent
