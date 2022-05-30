@@ -27,7 +27,7 @@ The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during S
 
 {% tab title="Linux" %}
 ```text
-https://<STACKSTATE_BASE_URL>:<receiverPort>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
+https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
 Both the `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
