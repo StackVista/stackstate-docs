@@ -156,7 +156,7 @@ The table below shows which event category will be assigned to each event type i
 | :--- | :--- |
 | **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
 | **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
+| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccessfulCreate` `SuccessfulDelete` `Completed` |
 | **Others** | All other events |
 
 ##### Object change events
