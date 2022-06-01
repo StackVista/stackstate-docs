@@ -88,7 +88,9 @@ context().sts()
 
 The `sts()` function returns an object that provides the following functions:
 
-* `intakeApi()` - returns an object representing the StackState intake API that receives incoming data. The object supplies functions `apiKey()` \(returns the API key for the intake API\) and `baseUrl()` \(returns the base URL for the intake API\).
+* `intakeApi()` - returns an object representing the StackState Receiver API that receives incoming data. The object supplies the following functions:
+  * `apiKey()` - returns the `API_KEY`, this is the API key for the StackState Receiver API. Also referred to as the `<STACKSTATE_RECEIVER_API_KEY>`.
+  * `baseUrl()` - returns the `RECEIVER_BASE_URL`, this is the base URL for the StackState Receiver API.
 * `log()` - allows logging to be done in the provisioning script. Example: `context().sts().log().debug("Installing test StackPack")`.
 * `install(stackpackName, parameters)` - triggers installation of StackPack `stackpackName` with parameters `parameters`.
 * `onDataReceived(topic, callback)` - runs a `callback` function whenever data is received by the StackState API on topic `topic`.

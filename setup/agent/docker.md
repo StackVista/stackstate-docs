@@ -37,7 +37,7 @@ To start a single Docker container with StackState Agent V2, run the command bel
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
    * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
    * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
 
 ```text
 docker run -d \
@@ -63,7 +63,7 @@ To run StackState Agent V2 with Docker compose:
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
       * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
       * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
 
    ```text
    stackstate-agent:
@@ -104,7 +104,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
       * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
       * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
    * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
    ```yaml

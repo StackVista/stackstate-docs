@@ -13,7 +13,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 {% tabs %}
 {% tab title="Example health `repeat_states` JSON" %}
 ```javascript
-   "apiKey":"your api key",
+   "apiKey":"<STACKSTATE_RECEIVER_API_KEY>",
    "collection_timestamp":1585818978,
    "internalHostname":"lnx-343242.srv.stackstate.com",
    "events":{},
@@ -77,7 +77,7 @@ Health can be sent in one JSON message via HTTP POST or using the StackState CLI
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<stackstateURL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
+ 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,

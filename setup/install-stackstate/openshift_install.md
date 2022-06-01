@@ -42,7 +42,7 @@ The project name is used in `helm` and `kubectl` commands as the namespace name 
 
 ### Generate `values.yaml`
 
-The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, StackState receiver API key and other important information.
+The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, StackState Receiver API key and other important information.
 
 {% hint style="info" %}
 **Before you continue:** Make sure you have the latest version of the Helm chart with `helm repo update`.

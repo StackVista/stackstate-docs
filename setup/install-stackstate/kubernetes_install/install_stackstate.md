@@ -42,7 +42,7 @@ kubectl create namespace stackstate
 
 ### Generate `values.yaml`
 
-The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, StackState receiver API key and other important information.
+The `values.yaml` file is required to deploy StackState with Helm. It contains your StackState license key, StackState Receiver API key and other important information.
 
 {% hint style="info" %}
 **Before you continue:** Make sure you have the latest version of the Helm chart with `helm repo update`.
@@ -74,7 +74,7 @@ The script requires the following configuration items:
 | Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](install_stackstate.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). |
 
 {% hint style="info" %}
-Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.
+Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
 {% endhint %}
 
 ### Deploy StackState with Helm

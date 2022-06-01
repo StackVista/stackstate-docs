@@ -51,7 +51,7 @@ If you have access to the internet on the machine where the Agent will be instal
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
    * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
    * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -88,7 +88,7 @@ If you do not have access to the internet on the machine where the Agent will be
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
       * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
       * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [Stackstate receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
 
 ```text
 STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
