@@ -174,7 +174,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     ```yaml
     clusterChecks:
     # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-    enabled: true
+      enabled: true
 
     clusterAgent:
       config:
@@ -187,10 +187,10 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
             cluster_check: true
 
             init_config:
-            aws_access_key_id: ''
-            aws_secret_access_key: ''
-            external_id: uniquesecret!1 
-            # full_run_interval: 3600
+              aws_access_key_id: ''
+              aws_secret_access_key: ''
+              external_id: uniquesecret!1 
+              # full_run_interval: 3600
 
             instances:
             - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
