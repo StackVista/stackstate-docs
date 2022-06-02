@@ -231,7 +231,7 @@ The following Kubernetes topology data is available in StackState as components:
 
 The following relations between components are retrieved:
 
-* Container → Volume
+* Container → PersistentVolume, Volume 
 * CronJob → Job
 * DaemonSet → Pod
 * Deployment → ReplicaSet

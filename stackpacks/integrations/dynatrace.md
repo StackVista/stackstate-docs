@@ -51,7 +51,7 @@ If only the Dynatrace topology check is enabled, no Dynatrace events data will b
 
 To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
      - SaaS url example - https://{your-environment-id}.live.dynatrace.com
      - Managed url example - https://{your-domain}/e/{your-environment-id} 
@@ -105,7 +105,7 @@ If only the Dynatrace health check is enabled, no Dynatrace topology data will b
 
 To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
      - SaaS url example - https://{your-environment-id}.live.dynatrace.com
      - Managed url example - https://{your-domain}/e/{your-environment-id} 
