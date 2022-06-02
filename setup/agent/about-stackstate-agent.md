@@ -56,9 +56,9 @@ The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details s
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
 For StackState running on Linux, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<STACKSTATE_BASE_URL>:7077/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
+`https://<STACKSTATE_RECEIVER_BASE_URL>/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
+The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")

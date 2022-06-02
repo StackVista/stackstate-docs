@@ -148,17 +148,19 @@ The OpenShift integration retrieves the following data:
 #### Events
 
 The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+* All [OpenShift events](#openshift-events) are retrieved from the Kubernetes cluster. 
+* StackState `Element Properties Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
 
 ##### OpenShift events
 
 The OpenShift integration retrieves all events from the OpenShift cluster. The table below shows which event category will be assigned to each event type in StackState:
 
-| StackState event category | OpenShift events                                                                                                                                                                                                                                                                                                                                                               |  |
-| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--- |
-| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |  |
-| **Alerts** | `NotTriggerScaleUp`                                                                                                                                                                                                                                                                                                                                                            |  |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate`                                                                                                                                                                                                                                                                                                 |  |
-| **Others** | All other events                                                                                                                                                                                                                                                                                                                                                               |  |
+| StackState event category | OpenShift events                                                                                                                                                                                                                                                                                                                                                               |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
+| **Alerts** | `NotTriggerScaleUp`                                                                                                                                                                                                                                                                                                                                                            |
+| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate`                                                                                                                                                                                                                                                                                                 |
+| **Others** | All other events                                                                                                                                                                                                                                                                                                                                                               |
 
 ##### Object change events
 
@@ -207,7 +209,6 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 #### Topology
 
 The OpenShift integration retrieves components and relations for the OpenShift cluster.
-
 
 {% hint style="info" %}
 **StackState Agent versions prior to 2.16:** Topology information is only gathered from OpenShift clusters that use the Docker container runtime.
@@ -329,14 +330,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the OpenShift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from StackState.
 
-To uninstall the StackState Cluster Agent and the StackState Agent from your OpenShift cluster, run a Helm uninstall:
-
-```text
-helm uninstall <release_name> --namespace <namespace>
-
-# If you used the standard install command provided when you installed the StackPack
-helm uninstall stackstate-cluster-agent --namespace stackstate
-```
+See the OpenShift Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/openshift.md#uninstall) from your Openshift cluster.
 
 ## Release notes
 

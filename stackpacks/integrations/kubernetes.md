@@ -150,14 +150,14 @@ The Kubernetes integration retrieves the following data:
 
 ##### Kubernetes events
 
-The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all events from the Kubernetes cluster.  The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
-| :--- | :--- |
-| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
-| **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
-| **Others** | All other events |
+|:--------------------------| :--- |
+| **Activities**            | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
+| **Alerts**                | `NotTriggerScaleUp` |
+| **Changes**               | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
+| **Others**                | All other events |
 
 ##### Object change events
 
@@ -326,6 +326,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 ## Uninstall
 
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
+
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes.md#uninstall) from your Kubernetes cluster.
 
 ## Release notes
 

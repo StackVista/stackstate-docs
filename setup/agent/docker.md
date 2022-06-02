@@ -99,8 +99,6 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 To run StackState Cluster Agent in Docker Swarm mode:
 
 1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
-
-
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
       * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
       * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
