@@ -194,51 +194,46 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
 
             instances:
             - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
-              regions:
-              - global
-              - eu-west-1
-              collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
-              # apis_to_run:
-              #   - ec2
-              # log_bucket_name: '' 
-              # tags:
-              #   - foo:bar
-  ```
+                regions:
+                - global
+                - eu-west-1
+                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+                # apis_to_run:
+                #   - ec2
+                # log_bucket_name: '' 
+                # tags:
+                #   - foo:bar
+    ```
 
 3. Deploy the `cluster_agent` using the updated `values.yaml`:
+   * **Kubernetes:**
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<your-api-key>' \
+    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+    --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+    --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
 
-{% tabs %}
-{% tab title="Kubernetes" %}
-```yaml
-helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
---set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
---values values.yaml \
-stackstate-cluster-agent stackstate/cluster-agent    
-```
-{% endtab %}
-{% tab title="OpenShift" %}
+   * **OpenShift:**
 
-```yaml
-helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
---set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
---set 'agent.scc.enabled'=true \
---set 'kube-state-metrics.securityContext.enabled'=false \
---values values.yaml \
-stackstate-cluster-agent stackstate/cluster-agent    
-```
-{% endtab %}
-{% endtabs %}
-
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<your-api-key>' \
+    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+    --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+    --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+    --set 'agent.scc.enabled'=true \
+    --set 'kube-state-metrics.securityContext.enabled'=false \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
 
 {% endtab %}
 {% tab title="Agent on Linux VM" %}
