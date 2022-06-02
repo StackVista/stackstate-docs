@@ -141,13 +141,14 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account. To create topology in StackState, you must [configure the AWS check](#configure-the-aws-check) on StackState Agent V2.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account.
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
 * **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#iam-role-for-stackstate-on-ec2-or-eks).
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#authenticate-with-an-iam-role).
 
+To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
 ### Configure the AWS check
 
@@ -282,11 +283,6 @@ If StackState Agent is running on a Linux VM:
 4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
 
 ### Configure VPC FlowLogs
 
@@ -520,16 +516,20 @@ For example, in the StackState Topology Perspective:
 
 ### Tags and labels
 
-On import, all topology in StackState will be given the label `stackpack:aws-v2`. 
+The following labels will be added to imported AWS topology in StackState:
 
-Topology imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only") will have the label `stackpack:aws`.
+* `stackpack:aws-v2` 
+* All `tags` specified for the associated instance in the [Agent AWS check configuration](#configure-the-aws-check). You can add a custom label to all topology imported by an instance of the AWS StackPack by adding it to the Agent AWS check configuration.
+* All tags that exist in AWS.
 
-Any tags that exist in AWS will be added to the StackState topology as labels. In addition, the following special tags can be added in AWS to influence how the topology is built in StackState:
+The special tags listed below can be added in AWS to influence how the topology is built in StackState:
 
-| Tag | Description |
-| :--- | :--- |
-| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
-| `stackstate-environment` | Places the StackState component in the environment specified |
+* `stackstate-identifier` - The specified value will be added as an identifier to the StackState component.
+* `stackstate-environment` - The StackState component will be placed in the specified environment.
+
+{% hint style="info" %}
+Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
+{% endhint %}
 
 ## Troubleshooting
 
