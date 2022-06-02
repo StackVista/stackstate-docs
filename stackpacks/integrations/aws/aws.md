@@ -203,7 +203,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
                 # log_bucket_name: '' 
                 # tags:
                 #   - foo:bar
-   ```
+    ```
 
 3. Deploy the `cluster_agent` using the updated `values.yaml`:
    * **Kubernetes:**
