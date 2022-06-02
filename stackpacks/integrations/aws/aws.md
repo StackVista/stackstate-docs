@@ -206,39 +206,34 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
   ```
 
 3. Deploy the `cluster_agent` using the updated `values.yaml`:
+   * **Kubernetes:**
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<your-api-key>' \
+    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+    --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+    --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
 
-{% tabs %}
-{% tab title="Kubernetes" %}
-```yaml
-helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
---set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
---values values.yaml \
-stackstate-cluster-agent stackstate/cluster-agent    
-```
-{% endtab %}
-{% tab title="OpenShift" %}
+   * **OpenShift:**
 
-```yaml
-helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<your-api-key>' \
---set-string 'stackstate.cluster.name'='<your-cluster-name>' \
---set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
---set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
---set 'agent.scc.enabled'=true \
---set 'kube-state-metrics.securityContext.enabled'=false \
---values values.yaml \
-stackstate-cluster-agent stackstate/cluster-agent    
-```
-{% endtab %}
-{% endtabs %}
-
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<your-api-key>' \
+    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+    --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
+    --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+    --set 'agent.scc.enabled'=true \
+    --set 'kube-state-metrics.securityContext.enabled'=false \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
 
 {% endtab %}
 {% tab title="Agent on Linux VM" %}
