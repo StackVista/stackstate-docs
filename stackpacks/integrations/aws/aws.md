@@ -519,10 +519,10 @@ For example, in the StackState Topology Perspective:
 The following labels will be added to imported AWS topology in StackState:
 
 * `stackpack:aws-v2` 
-* All `tags` specified for the associated instance in the [Agent AWS check configuration](#configure-the-aws-check). You can add a custom label to all topology imported by an instance of the AWS StackPack by adding it to the Agent AWS check configuration.
 * All tags that exist in AWS.
+* All `tags` specified for the associated instance in the [Agent AWS check configuration](#configure-the-aws-check). You can add a custom label to all topology imported by an instance of the AWS StackPack by adding it to the Agent AWS check configuration.
 
-The special tags listed below can be added in AWS to influence how the topology is built in StackState:
+The special tags listed below can be added in AWS to influence how the imported topology is built in StackState:
 
 * `stackstate-identifier` - The specified value will be added as an identifier to the StackState component.
 * `stackstate-environment` - The StackState component will be placed in the specified environment.
