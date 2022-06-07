@@ -147,14 +147,14 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#iam-role-for-stackstate-on-ec2-or-eks).
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#authenticate-with-an-iam-role).
+* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
 
-To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
+StackState will use these settings to configure the StackPack instance within StackState and collect CloudWatch metrics. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
 ### Configure the AWS check
 
-To enable the AWS check and begin collecting data from AWS, add the configuration below to StackState Agent V2.
+To enable the AWS check and begin collecting topology and log data from AWS, add the configuration below to StackState Agent V2.
 
 {% tabs %}
 {% tab title="Agent on Kubernetes" %}
@@ -169,8 +169,8 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
    ```
    
 2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use the IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use the IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
@@ -245,8 +245,8 @@ If StackState Agent is running on a Linux VM:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
     
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2-or-eks).
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2-or-eks).
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-ec2.md).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-ec2.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
