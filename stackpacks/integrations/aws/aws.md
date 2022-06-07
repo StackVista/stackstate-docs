@@ -60,18 +60,20 @@ The policy below grants permission to assume the role `StackStateAwsIntegrationR
 The policy can be made available to StackState and the StackState Agent in one of the following ways:
 
 * **StackState and/or StackState Agent running on EC2 or EKS with Data Collection Account and Monitor Account in the same AWS organization**: 
-  * [Attach the IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks).
+  * [Attach an IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks).
 * **All other situations**: 
   * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack).
   * StackState Agent: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check).
 
 #### IAM role on EC2 or EKS
 
-StackState Agent collects topology, logs and (if configured) VPC flow logs and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
+StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
 
 {% hint style="info" %}
 Note: The AWS Data Collection Account and Monitor Account must be inside the same AWS organization to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
 {% endhint %}
+
+To attach an IAM role and use it for authentication:
 
 1. If you did not already do so, in AWS, [create the required AWS policy](#aws-policy).
 2. Attach the created policy to the relevant IAM role:
@@ -86,7 +88,7 @@ Note: The AWS Data Collection Account and Monitor Account must be inside the sam
 
 ### Deploy the AWS CloudFormation Stack
 
-The StackState AWS CloudFormation Stack should be deployed in each AWS account that you will monitor. It provides the minimum level of access required for the StackState Agent to collect topology, telemetry and logs.
+The StackState AWS CloudFormation Stack should be deployed in each AWS account that you will monitor. It provides the minimum level of access required for StackState and the StackState Agent to collect topology, telemetry and logs.
 
 * [Quick deployment](aws.md#quick-deployment) - Deploy all resources to a region in an account using a link.
 * [StackState CloudFormation template](aws.md#stackstate-template-deployment) - Download the StackState CloudFormation template to integrate into your own deployment workflow.
