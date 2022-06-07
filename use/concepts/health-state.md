@@ -21,17 +21,15 @@ The own health state of an element is calculated as the most severe state report
 
 ![Health states](../../.gitbook/assets/health-states.svg)
 
-### Health checks
+Health states attached to an element can be calculated internally by StackState or ingested from an external monitoring system. The resulting health state of an element is calculated as the most severe state out of all the attached health states reported by health checks, monitors or external monitoring solutions.
 
-Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by a health check attached to it.
-
-#### StackState health checks
+### StackState health checks
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
 See how to [add a health check](../checks-and-monitors/add-a-health-check.md) and how to [set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md).
 
-#### External monitoring system
+### External monitoring system
 
 Health data from external monitoring systems can be synchronized to StackState as health checks. In this case, health checks are calculated by the external systems based on their own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
 
@@ -42,7 +40,13 @@ Existing StackPacks will provide health synchronization out of the box.
 You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
 
-### Propagated health state
+### Monitors
+
+The third source of health data is the Monitors system. Monitors compute health states of a topology based on a configured algorithm by combining and processing the 4T data collected by StackState. Health states computed this way are bound to the topology elements by leveraging the health synchronization.
+
+You can learn more about differences between [checks & monitors](../checks-and-monitors/README.md).
+
+## Propagated health state
 
 Each element in StackState reports two health states:
 
@@ -93,6 +97,7 @@ You can check the view health state in the following places in the StackState UI
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](../checks-and-monitors/add-a-health-check.md)
+* [Add a new monitor](../checks-and-monitors/add-a-monitor.md)
 * [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md "StackState Self-Hosted only")
 * [Set up a health synchronization](../../configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [Configure the view health](../checks-and-monitors/configure-view-health.md)
