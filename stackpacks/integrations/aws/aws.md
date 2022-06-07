@@ -59,11 +59,11 @@ The policy below grants permission to assume the role `StackStateAwsIntegrationR
 
 The policy can be made available to StackState and the StackState Agent in one of the following ways:
 
-* StackState and/or StackState Agent running on EC2 or EKS with Data Collection Account and Monitor Account in the same AWS organization: 
-  * **StackState** and **StackState Agent** : [Attach IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks)
-* All other situations: 
-  * **StackState**: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack)
-  * **StackState Agent**: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check)
+* **StackState and/or StackState Agent running on EC2 or EKS with Data Collection Account and Monitor Account in the same AWS organization**: 
+  * StackState and StackState Agent : [Attach IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks)
+* **All other situations**: 
+  * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack)
+  * StackState Agent: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check)
 
 #### IAM role on EC2 or EKS
 
@@ -537,7 +537,7 @@ Check the StackState support site for:
 
 To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
 
-Once the AWS StackPack has been uninstalled, you will need to delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [web console](aws.md#web-console) or the [command line](aws.md#command-line).
+To clean up the remaining resources inside your AWS account, remove any configured VPC flow logs and delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [AWS web console](aws.md#web-console) or the [AWS CLI](aws.md#command-line).
 
 ### Web console
 
@@ -552,7 +552,7 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
 
 ### Command line
 
-These steps assume you already have the AWS CLI installed and configured with access to the target account. If not, [follow the AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+These steps assume that you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation to [install and configure the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
 1. If `--region` is the main region, follow these steps to delete the S3 bucket. Before emptying the bucket, disable any event sources that are sending files to the bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
 
