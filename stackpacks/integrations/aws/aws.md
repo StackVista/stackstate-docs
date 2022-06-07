@@ -60,10 +60,10 @@ The policy below grants permission to assume the role `StackStateAwsIntegrationR
 The policy can be made available to StackState and the StackState Agent in one of the following ways:
 
 * **StackState and/or StackState Agent running on EC2 or EKS with Data Collection Account and Monitor Account in the same AWS organization**: 
-  * StackState and StackState Agent : [Attach IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks)
+  * [Attach the IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks).
 * **All other situations**: 
-  * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack)
-  * StackState Agent: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check)
+  * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack).
+  * StackState Agent: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check).
 
 #### IAM role on EC2 or EKS
 
