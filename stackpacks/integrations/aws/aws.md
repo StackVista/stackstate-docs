@@ -84,32 +84,12 @@ Note that if the AWS Data Collection Account and the Monitor Account are not ins
 2. Attach the created policy to the relevant IAM role:
    * [StackState/Agent IAM role: EC2](aws-sts-ec2.md)
    * [StackState/Agent IAM role: EKS](aws-sts-eks.md)
-3. **Use IAM role for StackState (CloudWatch metrics)**: When you install an AWS StackPack instance, set the following parameter values:
+3. **To use the IAM role for StackState (CloudWatch metrics)**: When you install an AWS StackPack instance, set the following parameter values:
    * **AWS Access Key ID**: `use-role` 
    * **AWS Secret Access Key**: `use-role` 
 4. **To use the IAM role for StackState Agent**: 
-   * **Agent on EC2**:  
+   * **Agent on EC2**: When you configure the AWS check, leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key`.
    * **Agent on EKS**: When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
-
-
-#### IAM role for Agent on EC2 or EKS
-
-If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that it runs on. The Agent will then use this role by default.
-
-{% hint style="info" %}
-Note that if the Agent AWS account and the Monitor AWS account are not inside the same organization, it is not possible to authenticate using an IAM role on the EC2 instance or EKS pod. An access key and secret must be specified in the Agent AWS check configuration. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
-{% endhint %}
-
-1. In AWS, [create the required AWS policy](#aws-policy).
-2. **If the Agent runs in an EKS pod:** In AWS, [attach the created policy to the relevant IAM role](aws-sts-eks.md). When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
-
-4. **If the Agent runs on an EC2 instance:** 
-
-If StackState Agent does not run in an AWS environment, or if a role with the required policy is not available on the Agent's EC2 instance, an AWS user must be [configured in the AWS check](#configure-the-aws-check) on the Agent.
-
-{% hint style="info" %}
-Note that StackState also connects directly to AWS to pull CloudWatch metrics. StackState running within AWS can also be configured to authenticate using an IAM role, see [IAM role for StackState on EC2 or EKS](#iam-role-for-stackstate-on-ec2-or-eks).
-{% endhint %}
 
 ### Deploy the AWS CloudFormation Stack
 
