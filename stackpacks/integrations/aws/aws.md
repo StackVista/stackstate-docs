@@ -35,40 +35,41 @@ To set up the StackState AWS integration, you need to have:
 
 ### AWS accounts
 
-It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
+It is recommended to have two different AWS accounts: One that is being monitored (the Monitor Account) and another for the StackState Agent (the Agent account).
 
-* **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
-* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from any of the following:
+* **Monitor Account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The CloudFormation stack will create an IAM role that has the permissions required to retrieve data from this Monitor Account (`StackStateAwsIntegrationRole`). 
+* **Data Collection Account** - used to retrieve data from the Monitor Account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the Monitor Account's CloudFormation Stack. This can come from any of the following:
   * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2-or-eks) where the Agent runs.
   * An [IAM role attached to the EKS pod](#iam-role-for-agent-on-ec2-or-eks) where the Cluster Agent runs.
   * An AWS user with the required [AWS policy](#aws-policy) configured in the AWS check on the Agent. This is required if the Agent AWS account and the Monitor AWS account are not inside the same organization. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 
-The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
+The IAM role of the Data Collection Account queries AWS data from the Monitor Account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
 ![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
 
 #### AWS policy
 
-The policy below grants permission to assume the role created in each target AWS account. This should be created and attached to the IAM roles used by StackState and the StackState Agent to collect data from the monitor account:
+The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that is created in each target AWS account when the CloudFormation Stack is deployed. This is required for StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user or IAM role that will be used by StackState and the StackState Agent:
 
-    ```javascript
+```javascript
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Allow",
-          "Action": "sts:AssumeRole",
-          "Resource": "arn:aws:iam::*:role/StackStateAwsIntegrationRole"
-        }
-      ]
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::*:role/StackStateAwsIntegrationRole"
     }
-    ```
+  ]
+}
+```
 
-The IAM roles used by StackState and the StackState Agent can be configured in the following ways:
+The policy can be made available to StackState and the StackState Agent in the following ways:
 
-* 
+* StackState and/or StackState Agent running on EC2 or EKS with Data Collection Account and Monitor Account in the same AWS organization: [Attach IAM role to EC2 instance](#iam-role-on-ec2-or-eks)
+* All other situations: [Configure AWS]
 
-#### IAM role for StackState on EC2 or EKS
+#### IAM role on EC2 or EKS
 
 StackState pulls CloudWatch metrics directly from AWS. If StackState is running within AWS (EC2 or EKS), an IAM role can be used for authentication when collecting metrics from CloudWatch: 
 
