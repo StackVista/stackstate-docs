@@ -41,34 +41,15 @@ It is recommended to have two different AWS accounts: One that is being monitore
 * **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from any of the following:
   * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2-or-eks) where the Agent runs.
   * An [IAM role attached to the EKS pod](#iam-role-for-agent-on-ec2-or-eks) where the Cluster Agent runs.
-  * An [AWS user configured in the AWS check](#configure-the-aws-check) on the Agent.
+  * An AWS user with the required [AWS policy](#aws-policy) configured in the AWS check on the Agent. This is required if the Agent AWS account and the Monitor AWS account are not inside the same organization. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 
 The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
 
 ![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
 
-#### IAM role for StackState on EC2 or EKS
+#### AWS policy
 
-StackState pulls CloudWatch metrics directly from AWS. If StackState is running within AWS (EC2 or EKS), an IAM role can be used for authentication when collecting metrics from CloudWatch: 
-
-1. In AWS, Create the required policy and attach it to the relevant IAM role:
-   * [StackState IAM role: EC2](aws-sts-ec2.md)
-   * [StackState IAM role: EKS](aws-sts-eks.md)
-2. When you install an AWS StackPack instance, set the following parameter values:
-   * **AWS Access Key ID**: `use-role` 
-   * **AWS Secret Access Key**: `use-role` 
-
-{% hint style="info" %}
-Note that StackState Agent also connects to AWS to pull topology and events data. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2 or EKS](#iam-role-for-agent-on-ec2-or-eks).
-{% endhint %}
-
-#### IAM role for Agent on EC2 or EKS
-
-If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that it runs on. The Agent will then use this role by default.
-
-1. **If the Agent runs in an EKS pod:** In AWS, create the required policy and attach it to the relevant IAM role - [Agent IAM role: EKS](aws-sts-eks.md). When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
-
-2. **If the Agent runs on an EC2 instance:** The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
+The policy grants the IAM principal permission to assume the role created in each target AWS account:
 
     ```javascript
     {
@@ -82,6 +63,39 @@ If StackState Agent runs in an AWS environment, an IAM role can be attached to t
       ]
     }
     ```
+
+The IAM roles used by StackState and the StackState Agent can be configured in the following ways:
+
+* 
+
+#### IAM role for StackState on EC2 or EKS
+
+StackState pulls CloudWatch metrics directly from AWS. If StackState is running within AWS (EC2 or EKS), an IAM role can be used for authentication when collecting metrics from CloudWatch: 
+
+1. In AWS, [create the required AWS policy](#aws-policy).
+2. Attach the created policy to the relevant IAM role:
+   * [StackState IAM role: EC2](aws-sts-ec2.md)
+   * [StackState IAM role: EKS](aws-sts-eks.md)
+3. When you install an AWS StackPack instance, set the following parameter values:
+   * **AWS Access Key ID**: `use-role` 
+   * **AWS Secret Access Key**: `use-role` 
+
+{% hint style="info" %}
+Note that StackState Agent also connects to AWS to pull topology and events data. The Agent can also be configured to authenticate using an IAM role, see [IAM role for StackState Agent on EC2 or EKS](#iam-role-for-agent-on-ec2-or-eks).
+{% endhint %}
+
+#### IAM role for Agent on EC2 or EKS
+
+If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that it runs on. The Agent will then use this role by default.
+
+{% hint style="info" %}
+Note that if the Agent AWS account and the Monitor AWS account are not inside the same organization, it is not possible to authenticate using an IAM role on the EC2 instance or EKS pod. An access key and secret must be specified in the Agent AWS check configuration. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+{% endhint %}
+
+1. In AWS, [create the required AWS policy](#aws-policy).
+2. **If the Agent runs in an EKS pod:** In AWS, [attach the created policy to the relevant IAM role](aws-sts-eks.md). When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
+
+4. **If the Agent runs on an EC2 instance:** 
 
 If StackState Agent does not run in an AWS environment, or if a role with the required policy is not available on the Agent's EC2 instance, an AWS user must be [configured in the AWS check](#configure-the-aws-check) on the Agent.
 
