@@ -29,7 +29,7 @@ To set up the StackState AWS integration, you need to have:
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
-* The following [AWS accounts](#aws-accounts):
+* The following AWS accounts:
   * At least one target AWS account that will be monitored.
   * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState.
 
