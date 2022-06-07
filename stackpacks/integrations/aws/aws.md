@@ -70,7 +70,7 @@ The policy can be made available to StackState and the StackState Agent in one o
 StackState Agent collects topology, logs and (if configured) VPC flow logs and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
 
 {% hint style="info" %}
-Note: The AWS Data Collection Account and Monitor Account must be inside the same AWS organization to authenticate using an IAM role in this way. For details see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+Note: The AWS Data Collection Account and Monitor Account must be inside the same AWS organization to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
 {% endhint %}
 
 1. If you did not already do so, in AWS, [create the required AWS policy](#aws-policy).
@@ -136,14 +136,12 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the [IAM user used by the Agent](#aws-accounts) to monitor AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
-
-StackState will use these settings to configure the StackPack instance within StackState and collect CloudWatch metrics. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
+* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it is also possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
 
 ### Configure the AWS check
 
@@ -162,8 +160,8 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
    ```
    
 2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md) attached to the EKS `stackstate-cluster-agent` pod.
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
@@ -311,7 +309,7 @@ In the StackState AWS integration, CloudWatch metrics are pulled directly by Sta
 
 ### Status
 
-To check the status of the AWS integration, run the status subcommand and look for aws\_topology under `Running Checks`:
+To check the status of the AWS integration, run the status subcommand and look for `aws_topology` under `Running Checks`:
 
 ```bash
 sudo stackstate-agent status
