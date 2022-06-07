@@ -49,7 +49,7 @@ The IAM role of the Agent account queries AWS data from the monitor account by a
 
 #### AWS policy
 
-The policy grants the IAM principal permission to assume the role created in each target AWS account:
+The policy below grants permission to assume the role created in each target AWS account. This should be created and attached to the IAM roles used by StackState and the StackState Agent to collect data from the monitor account:
 
     ```javascript
     {
