@@ -6,6 +6,16 @@ description: StackState Self-hosted v5.0.x
 
 ## Checks
 
+**Checks** is a feature of StackState that provides health state information bound to the topology elements based on the telemetry & log streams and a set of customizable validation rules expressed in the form of **Check Functions**.
+
+StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
+
+See how to [add a health check](./add-a-health-check.md) and how to [set up anomaly health checks](./anomaly-health-checks.md).
+
+Checks are defined on a per-topology element basis and rely on the telemetry streams present on said topology elements. In this sense, each instance of a Check is directly connected to the specific topology element for which it will produce health state information. This means that in order to provide health state information for a large swath of the available topology, multiple instances of Checks, one per each topology element to be covered by monitoring, need to be created.
+
+This can be conveniently done by extending the [component templates](../../develop/developer-guides/custom-functions/template-functions.md) in a StackPack definition. See how to [develop a StackPack](../../develop/developer-guides/stackpack/README.md)
+
 ## Monitors
 **Monitors** are a new feature of StackState, introduced in version 5.0, that allows definition of complex validation rules within StackState. Monitors allow novel ways of combining 4T data to improve rule expressiveness and monitoring coverage.
 
