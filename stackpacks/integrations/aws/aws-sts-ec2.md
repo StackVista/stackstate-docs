@@ -12,7 +12,7 @@ If StackState and/or StackState Agent are running within an AWS environment on a
 * For StackState Agent authentication (topology, logs and VPC flow logs): The Agent AWS check can be configured with empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key`. The attached role will be used by StackState Agent for authentication.
 
 {% hint style="info" %}
-Note that if the AWS Data Collection Account and the Monitor Account are not inside the same organization, it is not possible to authenticate using an IAM role in this way. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+Note: If the AWS Data Collection Account and the Monitor Account are not inside the same organization, it is not possible to authenticate using an IAM role in this way. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
 {% endhint %}
 
 ## Set up IAM role for StackState/StackState Agent on EC2
