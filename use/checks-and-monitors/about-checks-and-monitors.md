@@ -208,15 +208,10 @@ The Monitor runner subsystem can be disabled via the configuration file by appen
 stackstate.featureSwitches.monitorRunner = false
 ```
 
-### Available CLI commands
-- List available commands.
-- CLIv1 or CLIv2?
-
 ## See also
-- https://docs.stackstate.com/configure/health/health-synchronization
-- https://docs.stackstate.com/develop/reference/stj
-- https://docs.stackstate.com/develop/reference/scripting
-- https://docs.stackstate.com/develop/reference/stql_reference
-- https://docs.stackstate.com/setup/cli-install
-- https://docs.stackstate.com/stackpacks/about-stackpacks
-- https://docs.stackstate.com/configure/topology/identifiers
+* [Health Synchronization](../../configure/health/health-synchronization)
+* [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
+* [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
+* [StackState CLI](../../setup/cli-install.md)
+* [StackPacks](../../stackpacks/about-stackpacks.md)
+* [Identifiers](../../configure/topology/identifiers.md)
