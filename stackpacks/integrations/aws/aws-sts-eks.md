@@ -24,7 +24,9 @@ To set up an IAM role for StackState or StackState Agent to use, follow the inst
    * **StackState on EKS**: `stackstate-api` and `stackstate-server`.
    * **StackState Agent on EKS**: `stackstate-cluster-agent`.
 3. Attach the policy from the first step to the node-group role from the previous step.
+
    ![Policy for node group role](/.gitbook/assets/sts_on_eks_aws_stp_03.png)
+
 4. Configure the StackPack instance or Agent AWS check to [authenticate using the attached IAM role](/stackpacks/integrations/aws/aws.md#iam-role-on-ec2-or-eks).
 
 ## See also

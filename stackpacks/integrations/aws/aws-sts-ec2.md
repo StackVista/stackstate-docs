@@ -18,9 +18,13 @@ To set up an IAM role for StackState or StackState Agent to use, follow the inst
 
 1. If you did not do so already, [create a policy](/stackpacks/integrations/aws/aws.md#aws-policy) that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. Take note of the policy name.
 2. Create an EC2 instance role and attach the policy from the previous step. 
+
    ![Policy for AssumeRole](/.gitbook/assets/sts_on_ec2_aws_stp_02.png)
+
 3. Attach the newly created EC2 instance role to the EC2 instance where StackState or the StackState Agent is running.
+
    ![Attach role to EC2 instance](/.gitbook/assets/sts_on_ec2_aws_stp_03.png)
+
 4. Configure the StackPack instance or Agent AWS check to [authenticate using the attached IAM role](/stackpacks/integrations/aws/aws.md#iam-role-on-ec2-or-eks).
 
 ## See also
