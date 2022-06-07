@@ -183,16 +183,16 @@ The computation performed by a Monitor Function is restricted in numerous ways, 
 #### Available APIs
 Monitor Functions can leverage existing StackState Script APIs, including:
 
-- `Telemetry`
-- `Async`
-- `View`
-- `Component`
+- `Telemetry` - used to fetch Metric & Log data,
+- `Async` - allowing for combining multiple asynchronous results in one computation,
+- `View` - StackState View related operations,
+- `Component` - StackState Component related operations.
 
 Additionally, the following Script APIs are optionally available. They are considered to be experimental:
 
-- `Topology`
-- `Graph`
-- `Http`
+- `Topology` - used to fetch Topology data,
+- `Http` - used to fetch external data via the HTTP protocol,
+- `Graph` - a generic way to query the StackGraph database.
 
 To use the above, experimental APIs please enable them explicitly in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
 
