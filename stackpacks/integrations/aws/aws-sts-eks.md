@@ -12,7 +12,7 @@ If StackState or the StackState Agent are running within an AWS environment in a
 * When this role is available on the `stackstate-cluster-agent` pod and the AWS check is configured to [run as a cluster check](/stackpacks/integrations/aws.md#configure-aws-check-as-a-cluster-check), the AWS check can be configured  with empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent. The attached role will be used by StackState Agent for authentication.
 
 {% hint style="info" %}
-Note: If the AWS Data Collection Account and the Monitor Account are not inside the same organization, it is not possible to authenticate using an IAM role in this way. For details see the [AWS documentation on AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+Note: If the AWS Data Collection Account and the Monitor Account are not inside the same AWS organization, it is not possible to authenticate using an IAM role in this way. For details see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
 {% endhint %}
 
 ## Set up IAM role for StackState/StackState Agent on EKS
