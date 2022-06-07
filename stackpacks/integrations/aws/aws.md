@@ -75,8 +75,8 @@ Note: If the AWS Data Collection Account and the Monitor Account are not inside 
 
 1. If you did not already do so, in AWS, [create the required AWS policy](#aws-policy).
 2. Attach the created policy to the relevant IAM role:
-   * [StackState/Agent IAM role: EC2](aws-sts-ec2.md)
-   * [StackState/Agent IAM role: EKS](aws-sts-eks.md)
+   * [StackState/Agent running on EC2](aws-sts-ec2.md)
+   * [StackState/Agent running on EKS](aws-sts-eks.md)
 3. **To use the IAM role for StackState (CloudWatch metrics)**: When you install an AWS StackPack instance, set the following parameter values:
    * **AWS Access Key ID**: `use-role` 
    * **AWS Secret Access Key**: `use-role` 

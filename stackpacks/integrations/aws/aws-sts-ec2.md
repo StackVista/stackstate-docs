@@ -6,10 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-If StackState and/or StackState Agent are running within an AWS environment on an EC2 instance, an IAM role can be attached to the EC2 instance for authentication. When this role is available:
-
-* For StackState authentication (CloudWatch metrics): The AWS StackPack can be installed with the `use-role` option for the **AWS Access Key ID** and **AWS Secret Access Key**). The attached role will be used by StackState for authentication.
-* For StackState Agent authentication (topology, logs and VPC flow logs): The Agent AWS check can be configured with empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key`. The attached role will be used by StackState Agent for authentication.
+If StackState and/or StackState Agent are running within an AWS environment on an EC2 instance, an IAM role can be attached to the EC2 instance for authentication. When this role is available it can be used for authentication by StackState or StackState Agent running on the same EC2 instance.
 
 {% hint style="info" %}
 Note: If the AWS Data Collection Account and the Monitor Account are not inside the same AWS organization, it is not possible to authenticate using an IAM role in this way. For details see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
