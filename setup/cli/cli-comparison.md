@@ -35,10 +35,10 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 ### CLI versions
 
 
-| CLI name | description                                                                                                                                                                                                                                              |
-|:---|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `stac` | The old CLI. Works with all supported versions of StackState. Will be deprecated in a future release of StackState. Note that in previous releases this CLI was named `sts`. It has been renamed to `stac` with the release of the new CLi. |
-| `sts` | The new CLI. Works with StackState v5.0 or later.                                                                                                                                                                                                        |
+| CLI name | description                                                                                                                                                                                                                                                                        |
+|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `stac` | The old CLI. Works with all supported versions of StackState, but does not include the newest commands and will be deprecated in a future release of StackState. Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0. |
+| `sts` | The new CLI. Works with StackState v5.0 or later.                                                                                                                                                                                                                                  |
 
 ### Command status
 
