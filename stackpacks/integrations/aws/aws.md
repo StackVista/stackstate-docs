@@ -580,25 +580,26 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
 
 ??? Before emptying the bucket, disable any event sources that are sending files to the bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
 
-1. If you have VPC FlowLogs configured, stop the FlowLogs from generating:
+??? How to describe this command? should it be added as step 1? `1. Set the S3 bucket to be deleted:`
+   ```bash
+   BUCKET=$(aws cloudformation describe-stack-resource --stack-name stackstate-resources --logical-resource-id StsLogsBucket --query "StackResourceDetail.PhysicalResourceId" --output=text)
+   ```
 
-    ```
+1. Disable the EventBridge rule: 
+
+    ```bash
     aws events disable-rule --name $(aws cloudformation describe-stack-resource --stack-name stackstate-resources-debug --logical-resource-id StsEventBridgeRule --query "StackResourceDetail.PhysicalResourceId" --output=text)
+    ```
+   
+2. Delete all FlowLogs that send to this bucket:
+
+    ```bash
     aws ec2 delete-flow-logs --flow-log-ids $(aws ec2 describe-flow-logs --query "FlowLogs[?LogDestination==$BUCKET].[FlowLogId]" --output=text | tr '\n' ' ')"
     ```
 
-2. ???
+4. Delete objects in the S3 bucket. Note that if there are more than 1000 items in the bucket this command will fail, it's likely more convenient to perform this in the [AWS web console](#aws-web-console):
+
    ```bash
-   BUCKET=$(aws cloudformation describe-stack-resource --stack-name stackstate-resources --logical-resource-id StsLogsBucket --query "StackResourceDetail.PhysicalResourceId" --output=text)
-
-   # Disable the eventbridge rule sending to Firehose
-   aws events disable-rule --name $(aws cloudformation describe-stack-resource --stack-name stackstate-resources-debug --logical-resource-id StsEventBridgeRule --query "StackResourceDetail.PhysicalResourceId" --output=text)
-   # Find all flowlogs sending to the bucket and delete them
-   aws ec2 delete-flow-logs --flow-log-ids $(aws ec2 describe-flow-logs --query "FlowLogs[?LogDestination==$BUCKET].[FlowLogId]" --output=text | tr '\n' ' ')
-   ```
-3. Delete objects in the S3 bucket:
-
-   ``` 
    sleep 60 # To make sure all objects have finished writing to bucket
    aws s3api delete-objects --bucket $BUCKET \
        --delete "$(aws s3api list-object-versions \
@@ -607,9 +608,9 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
        --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
    ```
 
-4. Delete the CloudFormation template:
+5. Delete the CloudFormation template:
 
-   ```
+   ```bash
    aws cloudformation delete-stack --stack-name stackstate-resources --region <region>
    ```
    
