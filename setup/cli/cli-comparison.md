@@ -6,9 +6,11 @@ description: StackState Self-hosted v4.6.x
 
 StackState has a new CLI! The new CLI has many advantages and a few notable differences. 
 
-The old CLI has been renamed to `stac` and eventually the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See [CLI commands](#cli-commands) for an up-to-date overview of the port process.
+{% hint style="info" %}
+The old CLI has been renamed to `stac`. In a future release of StackState, the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See [CLI commands](#cli-commands) for an up-to-date overview of the port process.
+{% endhint %}
 
-## Advantages
+## Advantages of the new CLI
 
 The new StackState CLI has been built for a reason. Here are the major advantages of switching:
 
@@ -30,11 +32,13 @@ The new StackState CLI has been built for a reason. Here are the major advantage
 
 The new CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following is an overview of the commands available in each CLI and the current `port` status.
 
-CLI:
+### CLI versions
+ 
  - `stac` - The old CLI. Works with all supported versions of StackState. Will be deprecated in a future release of StackState.
  - `sts` - The new CLI. Works with StackState v5.0 or later.
 
-Command status:
+### Command status
+
  - 🚧 - Work in progress.
  - ❌ - Command will not be available in this CLI.
 
