@@ -2,17 +2,17 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# Upgrade Splunk topology V1 to V2
+# Upgrade Splunk Topology V1 to V2
 
 ## Overview
 
 In previous releases of StackState, it was only possible to run the Splunk topology check using StackState Agent V1. It is now also possible to run the Splunk topology check on [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md).
 
-* If you are currently running the Splunk topology V1 check on the [StackState Agent V1](../../../setup/agent/agent-v1.md), this guide will help you migrate to the new StackState Agent V2 check.
-* If you are starting from scratch, you can directly configure the [Splunk topology V2 check](splunk_topology_v2.md) on StackState Agent V2.
+* If you are currently running the Splunk Topology V1 check on the [StackState Agent V1](../../../setup/agent/agent-v1.md), this guide will help you migrate to the new StackState Agent V2 check.
+* If you are starting from scratch, you can directly configure the [Splunk Topology V2 check](splunk_topology_v2.md) on StackState Agent V2.
 
 {% hint style="info" %}
-It is not advised to run the Splunk topology integration through both StackState Agent V1 and StackState Agent V2 at the same time. Run either the Splunk topology V1 check \(for StackState Agent V1\) or the Splunk topology V2 check \(for StackState Agent V2\).
+It is not advised to run the Splunk topology integration through both StackState Agent V1 and StackState Agent V2 at the same time. Run either the Splunk Topology V1 check \(for StackState Agent V1\) or the Splunk Topology V2 check \(for StackState Agent V2\).
 {% endhint %}
 
 ## Upgrade steps
@@ -42,12 +42,12 @@ To upgrade an existing Splunk topology check to run on StackState Agent V2, foll
    * `default_polling_interval_seconds` replace with `collection_interval`.
    * `polling_interval_seconds` replace with `collection_interval`.
 6. Restart StackState Agent V2 to apply the configuration changes.
-   * The Splunk topology V2 check is now enabled on StackState Agent V2.
+   * The Splunk Topology V2 check is now enabled on StackState Agent V2.
    * Wait for the Agent to collect data and send it to StackState.
 
 ## See also
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](splunk_stackpack.md)
-* [Splunk topology V2 integration](splunk_topology_v2.md)
+* [Splunk Topology V2 integration](splunk_topology_v2.md)
 
