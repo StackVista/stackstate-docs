@@ -2,55 +2,59 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# Comparison between sts and stackstate CLI's
+# Comparison between the old and new StackState CLIs
 
-StackState has a new CLI: [stac](cli-stac.md) instead of [sts](cli-sts.md)! The new `stac` CLI has many [advantages](cli-comparison.md#advantages) and a few notable [differences](cli-comparison.md#notable-differences). 
+StackState has a new CLI! The new CLI has many advantages and a few notable differences. 
 
-Eventually `stac` will fully replace all `sts` most commands and `sts` will be deprecated. See [port status](cli-comparison.md#port-status])) for an up-to-date overview of the port process.
+The old CLI has been renamed to `stac` and eventually the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See [CLI commands](#cli-commands) for an up-to-date overview of the port process.
 
 ## Advantages
 
-We've built a new StackState CLI for a reason. Here are the major advantages of switching to `stac`:
+The new StackState CLI has been built for a reason. Here are the major advantages of switching:
 
  * Easy installation and configuration for all Operating Systems
  * Native MacOS support
- * Versioned independently from the StackState product (faster releases)
+ * Faster releases - the CLI is versioned independently of the StackState product
  * Backwards as well as forwards compatible with StackState versions
  * Machine readable output for every command
- * Many UX improvements (syntax highlighting, auto-completion, progress bars, etc.)
+ * Many UX improvements, including syntax highlighting, auto-completion and progress bars.
  * SaaS support
 
 ## Notable Differences
 
- * Unlike `sts`, `stac` will not have commands for sending data to StackState. For these purposes we would like you to use either the Agent or the API. 
- * Some commands have been renamed to fall more in line with how we think of StackState today. For example, `sts graph` has now been called `sts settings`.
- * `stac` only works with StackState 5.0 or later.
+ * Unlike `stac`, the new CLI will not have commands for sending data to StackState. For these purposes, you can use either the StackState Agent or the StackState Receiver API. 
+ * Some commands have been renamed to fall more in line with how we think of StackState today. For example, the old command `stac graph` is now called `sts settings`.
+ * The new CLI only works with StackState v5.0 or later.
 
-## Port status
+## CLI commands
 
-The new `stac` CLI will completely replace the `sts` CLI, but not all commands have been ported (moved) as of yet. The following is an overview of the `port` status.
+The new CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following is an overview of the commands available in each CLI and the current `port` status.
 
-Port status:
- - ✅ This command has been fully ported.
- - 🚧 This command will be ported.
- - ❌ This command will not be ported.
+CLI:
+ - `stac` - The old CLI. Works with all supported versions of StackState. Will be deprecated in a future release of StackState.
+ - `sts` - The new CLI. Works with StackState v5.0 or later.
 
-| `sts` command | `stac` command | Port status |   Description | 
-| :--- |:--- | :- | :--- |
-| `anomaly export` | `anomaly export` |  ✅ | Commands for exporting anomalies to disk. |
-| `anomaly send` | - | ❌ | Command for sending anomalies. Will not be ported. This remains possible via the API. |
-| `datasource list` | `settings list --type DataSource` | ✅ | List all telemetry data sources. |
-| `event send` | - | ❌ | Commands for sending events. Will not be ported. This remains possible via the agent and the API. |
-| `graph *` | `settings *` | ✅ | Configure StackState settings. |
-| `graph retention` | TBD | 🚧 | Configure StackState graph database retention. |
-| `health *` | TBD | 🚧 | Configuring health synchronization. |
-| `metric send` | - | ❌ | Command for sending metrics. Will not be ported. This remains possible via the agent and the API. |
-| `permission *` | TBD | 🚧 | Configuring user/group permissions. |
-| `serverlog` | - | ❌ | Command for reading StackState log files. Will not be ported. Log files can be read via Kubernetes or directly from disk. |
-| `script execute` | `script execute` | ✅ | Execute StackState scripts. | 
-| `stackpack *` | `stackpack *` | ✅ | Install, configure and uninstall StackPacks. |
-| `subscription *` | TBD | 🚧 | Configuring StackState's license. |
-| `subject *` | TBD | 🚧 | Configuring users/groups. |
-| `topology send` | - | ❌ | Command for sending topology. Will not be ported. This remains possible via the agent or the API. |
-| `topic *` | TBD | 🚧 | Inspect StackState messaging topics. |
-| `trace send` | - | ❌ | Command for sending traces. Will not be ported. This remains possible via the agent or the API. |
+Command status:
+ - 🚧 - Work in progress.
+ - ❌ - Command will not be available in this CLI.
+
+| `stac` command  | `sts` command | Description | 
+| :--- |:--- | | :--- |
+| `anomaly export` | `anomaly export` | Commands for exporting anomalies to disk. |
+| `anomaly send` | ❌ | Command for sending anomalies. Will not be ported. This remains possible via the API. |
+| `datasource list` | `settings list --type DataSource` | List all telemetry data sources. |
+| `event send` | ❌ | Commands for sending events. Will not be ported. This remains possible via the agent and the API. |
+| `graph *` | `settings *` | Configure StackState settings. |
+| `graph retention` | 🚧 | Configure StackState graph database retention. |
+| `health *` | 🚧 | Configuring health synchronization. |
+| `metric send` | ❌ | Command for sending metrics. Will not be ported. This remains possible via the agent and the API. |
+| ❌ | `monitor send` | |
+| `permission *` | 🚧 | Configuring user/group permissions. |
+| `serverlog` | ❌ | Command for reading StackState log files. Will not be ported. Log files can be read via Kubernetes or directly from disk. |
+| `script execute` | `script execute` | Execute StackState scripts. | 
+| `stackpack *` | `stackpack *` | Install, configure and uninstall StackPacks. |
+| `subscription *` | 🚧 | Configuring StackState's license. |
+| `subject *` | 🚧 | Configuring users/groups. |
+| `topology send` | ❌ | Command for sending topology. Will not be ported. This remains possible via the StackState Agent or the StackState Receiver API. |
+| `topic *` | 🚧 | Inspect StackState messaging topics. |
+| `trace send` |❌ | Command for sending traces. Will not be ported. This remains possible via the agent or the API. |

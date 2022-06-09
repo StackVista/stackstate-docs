@@ -14,7 +14,7 @@ A standalone executable is available to run the StackState CLI on [Linux](cli-in
 
 ### Linux install
 
-The steps below describe how to install the StackState CLI on Linux using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) .
+The steps below describe how to install the StackState CLI on Linux using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](#docker-install-mac-linux-windows) .
 
 **Requirements:**
 
