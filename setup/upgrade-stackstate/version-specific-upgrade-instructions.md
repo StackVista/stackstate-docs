@@ -23,7 +23,7 @@ This page provides specific instructions and details of any required manual step
 
 #### v5.0.0
 
-No manual action required.
+* This version of StackState includes a breaking change to the output of the [Telemetry Script Api](/develop/reference/scripting/script-apis/telemetry.md). Any script making use of that api needs to be adapted to deal with the new output format.
 
 StackPack updates:
 

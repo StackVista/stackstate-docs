@@ -23,7 +23,7 @@ Telemetry queries only support metric queries. If you need event queries, please
 
 **Returns:**
 
-`AsyncScriptResult[TelemetryScriptApiQueryResponse]`
+`StreamingScriptResult[MetricTimeSeriesResult]`
 
 **Builder methods:**
 
@@ -53,8 +53,8 @@ Telemetry queries only support metric queries. If you need event queries, please
   {% endtab %}
   {% tab title="Example JSON output" %}
   ```text
-  {
-    "_type": "TelemetryMetricQueryResponse",
+  [{
+    "_type": "MetricTimeSeriesResult",
     "query": {
       "_type": "TelemetryMetricQuery",
       "aggregation": {
@@ -76,60 +76,90 @@ Telemetry queries only support metric queries. If you need event queries, please
       "metricField": "stackstate.jvm_threads_current",
       "startTime": 1643293949765
     },
-    "response": {
-      "_type": "MetricData",
-      "result": [
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
-            }
-          },
-          "points": [[1643293800000, 49.46666666666667]],
-          "tags": []
-        },
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-kafka-to-es-trace-events"
-            }
-          },
-          "points": [[1643293800000, 44.46666666666667]],
-          "tags": []
-        },
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-receiver"
-            }
-          },
-          "points": [[1643293800000, 50.266666666666666]],
-          "tags": []
-        },
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-server"
-            }
-          },
-          "points": [[1643293800000, 179.53333333333333]],
-          "tags": []
+    "timeSeries": {
+      "_type": "TimeSeries",
+      "annotations": [],
+      "id": {
+        "_type": "TimeSeriesId",
+        "groups": {
+          "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
         }
-      ]
+      },
+      "points": [[1643293800000, 49.46666666666667]],
+      "tags": []
     }
-  }
+  },
+  {
+    "_type": "MetricTimeSeriesResult",
+    "query": {
+      "_type": "TelemetryMetricQuery",
+      "aggregation": {
+        "bucketSize": 900000,
+        "method": "MEAN"
+      },
+      "conditions": [
+        {
+          "key": "name",
+          "value": "jvm_threads_current"
+        }
+      ],
+      "dataSourceId": 277422153298283,
+      "endTime": 1643294849765,
+      "groupBy": {
+        "fields": ["host"]
+      },
+      "includeAnnotations": false,
+      "metricField": "stackstate.jvm_threads_current",
+      "startTime": 1643293949765
+    },
+    "timeSeries": {
+      "_type": "TimeSeries",
+      "annotations": [],
+      "id": {
+        "_type": "TimeSeriesId",
+        "groups": {
+          "host": "sts-kafka-to-es-trace-events"
+        }
+      },
+      "points": [[1636293800000, 54.7]],
+      "tags": []
+    }
+  }]
+  ```
+  {% endtab %}
+  {% endtabs %}
+
+* Processing the [StreamingScriptResult](./../streaming_script_result.md) result data, getting the ids of the resulting timeSeries:
+
+  {% tabs %}
+  {% tab title="Query" %}
+  ```text
+  Telemetry
+    .query("StackState Multi Metrics", "")
+    .groupBy("host")
+    .metricField("jvm_threads_current")
+    .start("-15m")
+    .aggregation("mean", "15m")
+    .then { it.timeSeries.id }
+  ```
+  {% endtab %}
+  {% tab title="Example JSON output" %}
+  ```text
+  [
+    {
+      "_type": "TimeSeriesId",
+        "groups": {
+          "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
+        }
+      },
+      {
+        "_type": "TimeSeriesId",
+          "groups": {
+            "host": "sts-kafka-to-es-trace-events"
+          }
+      }
+    }
+  ]
   ```
   {% endtab %}
   {% endtabs %}
@@ -185,3 +215,6 @@ Telemetry queries only support metric queries. If you need event queries, please
     .limit(100)
   ```
 
+## See also
+
+* [Streaming script result](./../streaming_script_result.md)

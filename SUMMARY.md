@@ -271,6 +271,7 @@
   * [StackState Scripting Language \(STSL\)](develop/reference/scripting/README.md)
     * [Scripting in StackState](develop/reference/scripting/scripting-in-stackstate.md)
     * [Async script result](develop/reference/scripting/async_script_result.md)
+    * [Streaming script result](develop/reference/scripting/streaming_script_result.md)
     * [Script APIs](develop/reference/scripting/script-apis/README.md)
       * [Async - script API](develop/reference/scripting/script-apis/async.md)
       * [Component - script API](develop/reference/scripting/script-apis/component.md)

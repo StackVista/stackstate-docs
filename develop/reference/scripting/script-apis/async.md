@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Async - script API
 
-The Script API functions are executed asynchronously and instead of returning result directly they return a `promise` of result in the form of `AsyncScriptResult`. The `Async` Script API offers functions to work with `AsyncScriptResult`
+Some Script API functions are executed asynchronously and instead of returning result directly they return a `promise` of result in the form of `AsyncScriptResult`. The `Async` Script API offers functions to work with `AsyncScriptResult`
 
 ## Function `sequence`
 

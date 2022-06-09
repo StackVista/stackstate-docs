@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Async script result
 
-Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
+Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can not immediately return results. Such asynchronous functions return an `AsyncScriptResult`, others return a [StreamingScriptResult](./streaming_script_result.md). The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
 
 ## Working with `AsyncScriptResult.then`
 
@@ -47,6 +47,18 @@ ScriptApi.asyncFn1()
 ```
 
 The above means that the results of `asyncFn1` are passed to `asyncFn2`, then the results of `asyncFn2` in turn are passed to `asyncFn3`.
+
+### Chaining with an `StreamingScriptResult`
+
+An `AsyncScriptResult` can be chained with a [StreamingScriptResult](./streaming_script_result.md), yielding a `StreamingScriptResult`. For example:
+
+```text
+ScriptApi.asyncFn1().thenStream  { v ->
+  ScriptApi.streamingFn1(v)
+}
+```
+
+will return the results of `streamingFn1`.
 
 ### Flattening
 
@@ -112,3 +124,6 @@ ScriptApi.asyncFn1().catchError { ex ->
 
 Any result returned by the closure passed to `catchError` gets automatically flattened just like `.then` call.
 
+## See also
+
+* [Streaming script result](./streaming_script_result.md)
