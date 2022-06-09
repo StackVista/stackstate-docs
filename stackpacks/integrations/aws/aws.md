@@ -535,27 +535,47 @@ Check the StackState support site for:
 
 ## Uninstall
 
+### Uninstall StackPack
+
 To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
 
-To clean up the remaining resources inside your AWS account, remove any configured VPC flow logs and delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [AWS web console](aws.md#web-console) or the [AWS CLI](aws.md#command-line).
+### Remove AWS resources
 
-### Web console
+To clean up the remaining resources inside your AWS account, remove any configured VPC flow logs and delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [AWS web console](aws.md#aws-web-console) or the [AWS CLI](aws.md#aws-cli).
 
-To delete the StackState AWS Cloudformation stack from an AWS account using the web console: If the template is in the main region, the S3 bucket used by StackState must be emptied as CloudFormation can't delete an empty bucket. Follow these steps:
+#### AWS Web console
 
-1. Disable the EventBridge rule. Go to EventBridge, and find the rule name starting with `stackstate-resources-StsEventBridgeRule`. Open this rule, and press the "Disable" button.
-2. Delete all flowlogs that send to this bucket. Go to the VPC service, and select each VPC in the VPCs list. Look in the FlowLogs tab in the details section, and delete any flowlogs that are sent to the S3 bucket starting with `stackstate-logs`.
-3. Go to the S3 service. Select \(don't open\) the bucket named `stackstate-logs-${AccountId}` where `${AccountId}` is the 12-digit identifier of your AWS account.
-4. Select "Empty", and follow the steps to delete all objects in the bucket.
-5. Go to the CloudFormation service. Select the CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
-6. In the top right of the console, select "Delete".
+To delete the StackState AWS Cloudformation stack from an AWS account using the AWS web console:
 
-### Command line
+If the template is in the main region, the S3 bucket used by StackState must be emptied as CloudFormation can't delete an empty bucket.
 
-These steps assume that you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation to [install and configure the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+1. Disable the EventBridge rule: 
+   1. Go to EventBridge. 
+   2. Find and open the rule with a name that starts with `stackstate-resources-StsEventBridgeRule`.
+   3. Click the **Disable** button.
+2. Delete all FlowLogs that send to this bucket:
+   1. Go to the VPC service.
+   2. Select each VPC in the VPCs list. 
+   3. Look in the **FlowLogs** tab in the **Details** section.
+   4. Delete any FlowLogs that are sent to the S3 bucket starting with `stackstate-logs`.
+3. Delete objects in the S3 bucket:
+   1. Go to the S3 service.
+   2. Select \(don't open\) the bucket named `stackstate-logs-${AccountId}` where `${AccountId}` is the 12-digit identifier of your AWS account.
+   3. Select **Empty** and follow the steps to delete all objects in the bucket.
+4. Delete the CloudFormation template:
+   1. Go to the CloudFormation service. 
+   2. Select the StackState CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
+   3. In the top right of the console, select **Delete**.
+
+#### AWS CLI
+
+{% hint style="info" %}
+The steps below assume that you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation to [install and configure the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+{% endhint %}
+
+To delete the StackState AWS Cloudformation stack from an AWS account using the AWS CLI: 
 
 1. If `--region` is the main region, follow these steps to delete the S3 bucket. Before emptying the bucket, disable any event sources that are sending files to the bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
-
    ```bash
    BUCKET=$(aws cloudformation describe-stack-resource --stack-name stackstate-resources --logical-resource-id StsLogsBucket --query "StackResourceDetail.PhysicalResourceId" --output=text)
 
