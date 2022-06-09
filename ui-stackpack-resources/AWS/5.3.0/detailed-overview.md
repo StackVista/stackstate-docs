@@ -109,7 +109,7 @@ When the AWS integration is enabled, three [views](https://l.stackstate.com/ui-a
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](https://l.stackstate.com/ui-aws-actions) available in the component context menu and in the right panel **details** tab when a component has been selected to show its detailed information. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](https://l.stackstate.com/ui-aws-actions) available in the component context menu and in the right panel **Selection details** tab when a component has been selected to show its detailed information. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState topology perspective: 
 
