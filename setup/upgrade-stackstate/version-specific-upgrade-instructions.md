@@ -23,7 +23,16 @@ This page provides specific instructions and details of any required manual step
 
 #### v5.0.0
 
-* This version of StackState includes a breaking change to the output of the [Telemetry Script Api](/develop/reference/scripting/script-apis/telemetry.md). Any script making use of that api needs to be adapted to deal with the new output format.
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). Any script making use of that API needs to be adapted to deal with the new output format.
+{% endtab %}
+{% tab title="Linux" %}
+
+This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). Any script making use of that API needs to be adapted to deal with the new output format.
+{% endtab %}
+{% endtabs %}
 
 StackPack updates:
 
