@@ -592,7 +592,13 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
        --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
    ```
 
-2. Delete the CloudFormation template: `aws cloudformation delete-stack --stack-name stackstate-resources --region <region>`.
+2. Delete the CloudFormation template:
+   ```
+   aws cloudformation delete-stack --stack-name stackstate-resources --region <region>
+   ```
+   
+
+
 
 Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html).
 
