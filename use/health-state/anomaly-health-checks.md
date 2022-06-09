@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Anomaly health checks
@@ -31,7 +31,7 @@ Follow the instructions below to add an anomaly health check to a component.
    * **event** - leave unchanged. This is an instance of an anomaly event that the check will react to.
 5. Click **CREATE** to activate the check.
 
-![Add an autonomous metric stream anomaly detection check](../../.gitbook/assets/v46_autonomous_metric_stream_anomaly_detection_check.png)
+![Add an autonomous metric stream anomaly detection check](../../.gitbook/assets/v50_autonomous_metric_stream_anomaly_detection_check.png)
 
 {% hint style="success" "self-hosted info" %}
 

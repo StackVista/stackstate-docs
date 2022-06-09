@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Components
@@ -28,7 +28,7 @@ When a component is selected by clicking on it, detailed information about the c
 
 Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
 
-![Detailed component information](/.gitbook/assets/v46_component_with_details.png)
+![Detailed component information](/.gitbook/assets/v50_component_with_details.png)
 
 ## Component groups
 

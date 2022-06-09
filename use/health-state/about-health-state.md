@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # About health state
@@ -88,7 +88,7 @@ You can check the view health state in the following places in the StackState UI
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
-![View health state in main menu](../../.gitbook/assets/v46_view_health_main_menu.png)
+![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.png)
 
 ## See also
 

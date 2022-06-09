@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # 💠 Dynatrace
@@ -242,7 +242,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v46_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v50_dynatrace-filter.png)
 
 ### Open source
 

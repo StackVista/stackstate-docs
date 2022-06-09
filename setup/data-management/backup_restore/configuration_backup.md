@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Configuration backup
@@ -39,7 +39,7 @@ To export configuration from the StackState UI:
 1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings** 
 2. Click the button **STS-EXPORT-ALL**.
 
-![Export configuration from the StackState UI](../../../.gitbook/assets/v46_export_configuration.png)
+![Export configuration from the StackState UI](../../../.gitbook/assets/v50_export_configuration.png)
 
 ### Export configuration with authentication \(curl\)
 
@@ -118,7 +118,7 @@ Alternatively, in the StackState UI:
 2. Choose the `*.stj` file that you want to import configuration from.
 3. Click the button **START IMPORT**.
 
-![Import configuration from the StackState UI](../../../.gitbook/assets/v46_import_configuration.png)
+![Import configuration from the StackState UI](../../../.gitbook/assets/v50_import_configuration.png)
 
 ## Import or export individual configuration items
 

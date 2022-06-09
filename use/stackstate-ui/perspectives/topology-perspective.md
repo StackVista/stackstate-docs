@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Topology Perspective
@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](/.gitbook/assets/v46_topology.png)
+![Topology Perspective](/.gitbook/assets/v50_topology.png)
 
 ## Components
 
@@ -23,7 +23,7 @@ The Topology Perspective shows the filtered components and relations in a select
 
 When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state and the [top metrics](/use/metrics-and-events/top-metrics.md). You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
 
-![Component context menu](/.gitbook/assets/v46_component_context_menu.png)
+![Component context menu](/.gitbook/assets/v50_component_context_menu.png)
 
 ### Actions
 
@@ -36,7 +36,7 @@ You can configure [component actions](../../../configure/topology/component_acti
 
 A list of the available actions is included in the right panel **details** tab when you select a component to show its detailed information and also in the component context menu, which is displayed when you hover over a component.
 
-![Actions](../../../.gitbook/assets/v46_actions.png)
+![Actions](../../../.gitbook/assets/v50_actions.png)
 
 ### Shortcuts
 
@@ -53,7 +53,7 @@ Select a relation to open detailed information about it in the right panel **det
 
 ➡️ [Learn more about relations](/use/concepts/relations.md).
 
-![Indirect relation path](/.gitbook/assets/v46_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v50_indirect_relation_path.png)
 
 ## Filters
 
@@ -110,13 +110,13 @@ It is possible that your view can contain components that have a deviating propa
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
 * **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
-![Root cause](/.gitbook/assets/v46_show_full_root_cause_tree.png)
+![Root cause](/.gitbook/assets/v50_show_full_root_cause_tree.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../../.gitbook/assets/v46_list_mode.png)
+![Filtering\(list format\)](../../../.gitbook/assets/v50_list_mode.png)
 
 ### Export as CSV
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # StackState release notes
@@ -10,6 +10,21 @@ This page includes release notes for the StackState self-hosted product.
 
 * For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
 * For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
+
+## StackState v5.0.x
+
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v5.0.0
+
+**Features**
+
+**Improvements**
+
+**Bug fixes**
+
+**StackPack upgrades**
+
 
 ## StackState v4.6.x
 
@@ -184,18 +199,25 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused incorrect service metric aggregation under certain circumstances. STAC-13591
 - Fixed issue that caused the process manager logs to be truncated. STAC-12875
 
-## StackState v4.4.x
 
-Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+## Unsupported versions
 
-### v4.4.3
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+{% hint style="warning" %}
+These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
+{% endhint %}
+
+### StackState v4.4.x (EOL)
+
+#### v4.4.3 (EOL)
 
 **Bug fixes**
 
 - The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15194
 - Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
-### v4.4.2
+#### v4.4.2 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v4.4.3).
@@ -213,7 +235,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused a loop when logging in with OIDC when 'stackstate.baseUrl' contained a trailing '/'. STAC-13964
 - Fixed issue that caused backup functionality to fail on OpenShift. STAC-13772
 
-### v4.4.1
+#### v4.4.1 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version v4.4.3](#v4.4.3).
@@ -230,7 +252,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused the health synchronization to occasionally keep restarting. STAC-13829
 - Fixed issue that occasionally caused auto propagation to enter a loop and fail to terminate. STAC-13725
 
-### v4.4.0
+#### v4.4.0 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v4.4.3).
@@ -270,15 +292,6 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 * Fixed crash when accessing the logs API. STAC-13149
 * Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
-
-
-## Unsupported versions
-
-The versions below have reached End of Life \(EOL\) and are no longer be supported.
-
-{% hint style="warning" %}
-These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
-{% endhint %}
 
 ### StackState v4.3.x (EOL)
 

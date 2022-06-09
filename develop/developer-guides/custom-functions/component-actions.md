@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Component actions
@@ -60,7 +60,7 @@ Other properties of the component can be accessed using the [component script AP
 
 ### Identifier
 
-Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](../../../configure/identifiers.md) for a component action is a URN that follows the convention:
+Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](../../../configure/topology/identifiers.md) for a component action is a URN that follows the convention:
 
 ```text
 urn:stackpack:{stackpack-name}:component-action:{component-action-name}

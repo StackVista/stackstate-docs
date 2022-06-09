@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Filters
@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 The **View Filters** panel on the left of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
-![View filters](/.gitbook/assets/v46_view_filters_button.png)
+![View filters](/.gitbook/assets/v50_view_filters_button.png)
 
 ## Filter Topology
 
@@ -42,7 +42,7 @@ The example below uses basic filters to return components that match the followi
 * AND has a **Health** state of `Clear` OR `Deviating`
 * OR is the **Component** with the name `ai_engine`
 
-![Filtering example](../../.gitbook/assets/v46_basic_filter_example.png)
+![Filtering example](../../.gitbook/assets/v50_basic_filter_example.png)
 
 This same filter could also be written as an advanced topology filter using STQL.
 
@@ -62,7 +62,7 @@ The STQL query example below will return components that match the following con
 (domain IN ("security check") AND healthstate IN ("CLEAR", "DEVIATING")) OR name IN ("ai_engine")
 ```
 
-![Filtering \(advanced filter\)](../../.gitbook/assets/v46_advanced_filter_example.png)
+![Filtering \(advanced filter\)](../../.gitbook/assets/v50_advanced_filter_example.png)
 
 This same filter result could also be returned with basic filters, see [basic topology filters](filters.md#basic-topology-filters).
 

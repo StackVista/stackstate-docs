@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Create and edit views
@@ -26,7 +26,7 @@ In the **Save view as** dialog, the following options can be set:
 {% hint style="success" "self-hosted info" %}
 
 * You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
-* Views can be given an optional identifier. [Identifiers](../../../configure/identifiers.md) make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.
+* Views can be given an optional identifier. [Identifiers](../../../configure/topology/identifiers.md) make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.
 * Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
 
 {% endhint %}

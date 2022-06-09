@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Components 
@@ -23,7 +23,7 @@ Relations in StackState can be either direct or indirect. The type of relation i
 
 Select a relation to display detailed information about it in the right panel **details** tab. 
 
-![Indirect relation path](/.gitbook/assets/v46_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v50_indirect_relation_path.png)
 
 ## Dependencies and propagation
 

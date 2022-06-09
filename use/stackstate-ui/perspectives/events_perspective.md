@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Events Perspective
 
 The Events Perspective shows events and changes for the elements in the current [view](../views/about_views.md) or filtered topology.
 
-![The Events Perspective](/.gitbook/assets/v46_events-perspective.png)
+![The Events Perspective](/.gitbook/assets/v50_events-perspective.png)
 
 ## Events
 
@@ -43,7 +43,7 @@ Select an event to display detailed information about it in the right panel **Vi
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW ALL PROPERTIES** - Click to access all data included in the event.
 
-![Properties of an event](../../../.gitbook/assets/v46_event-properties.png)
+![Properties of an event](../../../.gitbook/assets/v50_event-properties.png)
 
 ## Filter displayed events
 
@@ -78,7 +78,7 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
-![Timeline](../../../.gitbook/assets/v46_timeline.png)
+![Timeline](../../../.gitbook/assets/v50_timeline.png)
 
 ## See also
 
