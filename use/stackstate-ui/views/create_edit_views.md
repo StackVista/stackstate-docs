@@ -38,13 +38,13 @@ In the **Save view as** dialog, the following options can be set:
 * Note that changes made to a view will be applied for all users.
 {% endhint %}
 
-A saved view can be edited or deleted from either the **all views** screen, or the view details pane.
+A saved view can be edited or deleted from either the **all views** screen, or the right panel **View summary** tab.
 
 1. All views screen:
    * Click **Views** in the main menu to open the **all views** screen.
    * Hover over the view you would like to edit or delete.
    * Click the **Edit view** or **Delete view** button on the right.
-2. View details pane:
+2. Right panel **View Summary** tab:
    * Open the view.
-   * Select the context menu \(accessed through the triple dots\) to the right of the view name in the view details pane.
+   * Open the triple dots menu (to the right of the view name in the right panel **View Summary** tab).
    * Click **Edit** or **Delete**.

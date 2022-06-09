@@ -78,13 +78,13 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
-Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
+Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other meta-data you sent.
 
 ## Making a change to the StackPack
 
 Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
 
-Select the **myDummyApp** component and in the Component Details pane, find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **myDummyApp** component to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 

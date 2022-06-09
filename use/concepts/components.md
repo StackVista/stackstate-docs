@@ -17,18 +17,18 @@ A component consists of:
 
 ![](/.gitbook/assets/021_topology_elements.png)
 
-## Component Details pane
+## Detailed component information
 
-When a component is selected by clicking on it, the **Component Details** pane is shown on the right-hand side of the screen. This panel displays detailed information about the component:
+When a component is selected by clicking on it, detailed information about the component is shown in the right panel **Selection details** tab. This includes:
 
-* Metadata, such as the component name, type and any labels.
+* Metadata, such as the component name, type and any labels
 * [Run state](/use/concepts/components.md#run-state)
 * [Health checks](/use/health-state/add-a-health-check.md)
 * [Telemetry streams](/use/metrics-and-events/telemetry_streams.md)
 
 Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
 
-![Component details pane](/.gitbook/assets/v50_component_with_details.png)
+![Detailed component information](/.gitbook/assets/v50_component_with_details.png)
 
 ## Component groups
 

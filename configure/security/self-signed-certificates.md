@@ -123,7 +123,7 @@ For a Linux installation, the trust store and password need to be added to the J
 The certificate can be directly downloaded from the Chrome browser. The steps involved may vary slightly depending on the version you are using:
 
 1. Navigate to the URL you need the certificate from.
-2. Click on the padlock icon in the location bar.
+2. Click the padlock icon in the location bar.
 3. Click on **Certificate**.
 4. Select **Details**.
 5. Select **Export**.

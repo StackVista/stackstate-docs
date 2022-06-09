@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-The **View Filters** pane on the left-hand side of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
+The **View Filters** panel on the left of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
 ![View filters](/.gitbook/assets/v50_view_filters_button.png)
 
@@ -34,7 +34,7 @@ The main way to filter topology is using the available basic filters. When you s
 You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
 {% endhint %}
 
-To filter the topology using basic filters, click on the **View Filters** button on the left of the screen and select **Basic** under **Filter Topology**. 
+To filter the topology using basic filters, click the **View Filters** button on the left and select **Basic** under **Filter Topology**. 
 
 The example below uses basic filters to return components that match the following conditions:
 
@@ -50,7 +50,7 @@ This same filter could also be written as an advanced topology filter using STQL
 
 You can use the in-built [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
-To filter the topology using an STQL query, click on the **View Filters** button on the left of the screen and select **Advanced** under **Filter Topology**. 
+To filter the topology using an STQL query, click the **View Filters** button on the left and select **Advanced** under **Filter Topology**. 
 
 The STQL query example below will return components that match the following conditions:
 
@@ -68,7 +68,7 @@ This same filter result could also be returned with basic filters, see [basic to
 
 ### Compatibility of basic and advanced filters
 
-You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** pane.
+You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** panel.
 
 It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
 
@@ -76,7 +76,7 @@ It is always possible to switch from Basic to Advanced filtering. The selected b
 
 ### Other filters
 
-Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set in a way that is compatible with basic filtering, the box **Other filters** will be shown in the View Filters pane with details of the affected components:
+Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set in a way that is compatible with basic filtering, the box **Other filters** will be shown in the View Filters panel with details of the affected components:
 
 * **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
 * **identifier** - when an advanced filter filters components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
@@ -111,16 +111,16 @@ If required, you can [manually configure the topology filtering limit](/configur
 
 ## Filter Events
 
-The **View Filters** pane on the left-hand side of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the View Details pane on the right of the StackState UI.
+The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the right panel **View summary** tab.
 
 The following event filters are available:
 
-| Filter | Description |
-| :--- | :--- |
-| **Category** | Show only events from one or more [categories](perspectives/events_perspective.md#event-category). |
-| **Type** | Click on the **Type** filter box to open a list of all event types that have been generated for the currently filtered components in the current time window. You can select one or more event types to refine the events displayed. |
-| **Source** | Events can be generated by StackState or retrieved from an external source system, such as Kubernetes or ServiceNow, by an integration. Click on the **Source** filter box to open a list of all source systems for events that have been generated for the currently filtered components in the current time window. Select one or more source systems to see only those events. |
-| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment. |
+| Filter | Description                                                                                                                                                                                                                                                                                                                                                                      |
+| :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Category** | Show only events from one or more [categories](perspectives/events_perspective.md#event-category).                                                                                                                                                                                                                                                                               |
+| **Type** | Click the **Type** filter box to open a list of all event types that have been generated for the currently filtered components in the current time window. You can select one or more event types to refine the events displayed.                                                                                                                                                |
+| **Source** | Events can be generated by StackState or retrieved from an external source system, such as Kubernetes or ServiceNow, by an integration. Click the **Source** filter box to open a list of all source systems for events that have been generated for the currently filtered components in the current time window. Select one or more source systems to see only those events.   |
+| **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment.                                                                                                                                            |
 
 ## Filter Traces
 
@@ -139,4 +139,4 @@ To update the existing view with the currently applied filters, click **Save vie
 
 ## Clear applied filters
 
-To clear any filters you have added and return to the saved view filters or initial clean state, click on the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the View details pane on the right of the screen.
+To clear any filters you have added and return to the saved view filters or initial clean state, click the view name at the top of the screen. Alternatively, you can select **Reset view** from the **Save view** dropdown menu at the top of the screen, or **Reset** from the **...** menu in the right panel **View summary** tab.
