@@ -7,7 +7,9 @@ description: StackState Self-hosted v4.6.x
 StackState has a new CLI! The new CLI has many advantages and a few notable differences. 
 
 {% hint style="info" %}
-The old CLI has been renamed to `stac`. In a future release of StackState, the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See [CLI commands](#cli-commands) for an up-to-date overview of the port process.
+**The old CLI has been renamed to `stac`.** 
+
+In a future release of StackState, the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
 {% endhint %}
 
 ## Advantages of the new CLI
@@ -39,9 +41,6 @@ The `sts` CLI is:
 ➡️ [Learn how to install the new CLI](cli-sts.md).
 {% endtab %}
 {% tab title="stac CLI" %}
-{% hint style="info" %}
-Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
-{% endhint %}
 
 The `stac` CLI is:
 
@@ -49,30 +48,17 @@ The `stac` CLI is:
 * Works with all supported versions of StackState
 * ⚠️ Does not include the newest commands. 
 * ⚠️ Will be deprecated in a future release of StackState.
+
+{% hint style="info" %}
+Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
+{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 
-## CLI commands
+## CLI command overview
 
-The new CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following is an overview of the commands available in each CLI and the current `port` status.
-
-### CLI versions
-
-**`sts` CLI**
-* The new CLI. 
-* Works with StackState v5.0 or later. 
-* Contains all of the latest commands.
-* [Learn how to install the new CLI](cli-sts.md).
-
-**`stac` CLI**
-
-
-| CLI name | description                                                                                                                                                                                                                                                                        |
-|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `stac` | The old CLI. Works with all supported versions of StackState, but does not include the newest commands and will be deprecated in a future release of StackState. Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0. |
-| `sts` | The new CLI. Works with StackState v5.0 or later.                                                                                                                                                                                                                                  |
-
-### Command status
+The new CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following table gives an overview of the commands available in each CLI and the current `port` status.
 
  - 🚧 - Work in progress.
  - ❌ - Command will not be available in this CLI.
