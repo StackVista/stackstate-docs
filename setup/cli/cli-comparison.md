@@ -4,6 +4,8 @@ description: StackState Self-hosted v4.6.x
 
 # Comparison between the old and new StackState CLIs
 
+## Overview
+
 StackState has a new CLI! The new CLI has many advantages and a few notable differences. 
 
 {% hint style="info" %}
@@ -12,7 +14,7 @@ StackState has a new CLI! The new CLI has many advantages and a few notable diff
 In a future release of StackState, the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
 {% endhint %}
 
-## Advantages of the new CLI
+## Why a new CLI?
 
 The new StackState CLI has been built for a reason. Here are the major advantages of switching:
 
@@ -24,7 +26,7 @@ The new StackState CLI has been built for a reason. Here are the major advantage
  * Many UX improvements, including syntax highlighting, auto-completion and progress bars.
  * SaaS support
 
-## Notable Differences
+## Notable Differences between the CLIs
 
  * Unlike `stac`, the new CLI will not have commands for sending data to StackState. For these purposes, you can use either the StackState Agent or the StackState Receiver API. 
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, the old command `stac graph` is now called `sts settings`.
@@ -36,9 +38,9 @@ The `sts` CLI is:
 
 * 🎉 The new CLI!
 * Works with StackState v5.0 or later. 
-* Contains all of the latest commands.
+* Contains all of the latest commands - see the [CLI command overview](#cli-command-overview).
 
-➡️ [Learn how to install the new CLI](cli-sts.md).
+➡️ [Learn how to install the new CLI](cli-sts.md)
 {% endtab %}
 {% tab title="stac CLI" %}
 
@@ -46,7 +48,7 @@ The `stac` CLI is:
 
 * The old CLI. 
 * Works with all supported versions of StackState
-* ⚠️ Does not include the newest commands. 
+* ⚠️ Does not include the newest commands - see the [CLI command overview](#cli-command-overview). 
 * ⚠️ Will be deprecated in a future release of StackState.
 
 {% hint style="info" %}
@@ -55,6 +57,23 @@ Note that this CLI was previously named `sts`. It has been renamed to `stac` wit
 
 {% endtab %}
 {% endtabs %}
+
+## Which version of the CLI am I running?
+
+We understand that it might be confusing to know which version of the StackState CLI you are running, as the new CLI has the name previously used by the old CLI. You can check which version of the CLI you are running with the following command:
+
+```commandline
+sts version
+
+# Output if you are running the old CLI:
+usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
+  ...
+  
+# Output if you are running the new CLI:
+
+```
+
+If you are not running the new CLI yet, we recommend that you [install the new CLI](cli-sts.md) and rename the old CLI to `stac`.
 
 ## CLI command overview
 
