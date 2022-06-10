@@ -35,7 +35,7 @@ The new StackState CLI has been built for a reason. Here are the major advantage
 * Contains all of the latest commands.
 * [Learn how to install the new CLI](cli-sts.md).
 {% endtab %}
-{% tab title="`stac` CLI" %}
+{% tab title="<code>stac</code> CLI" %}
 {% hint style="info" %}
 Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
 {% endhint %}
