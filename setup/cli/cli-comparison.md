@@ -35,9 +35,11 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 ### CLI versions
 
 * **`sts` CLI**
+
   The new CLI. Works with StackState v5.0 or later. [How to install the new CLI](cli-sts.md).
 
 * **`stac` CLI**
+
   The old CLI. Works with all supported versions of StackState, but does not include the newest commands and will be deprecated in a future release of StackState. Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
 
 
