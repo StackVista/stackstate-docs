@@ -66,20 +66,20 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 | `stac` command  | `sts` command | Description | 
 | :--- |:--- | | :--- |
 | `anomaly export` | `anomaly export` | Commands for exporting anomalies to disk. |
-| `anomaly send` | ❌ | Command for sending anomalies. Will not be ported. This remains possible via the API. |
+| `anomaly send` | ❌ | Command for sending anomalies. Will not be ported to the new CLI. This remains possible via the StackState Receiver API. |
 | `datasource list` | `settings list --type DataSource` | List all telemetry data sources. |
-| `event send` | ❌ | Commands for sending events. Will not be ported. This remains possible via the agent and the API. |
+| `event send` | ❌ | Commands for sending events. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
 | `graph *` | `settings *` | Configure StackState settings. |
 | `graph retention` | 🚧 | Configure StackState graph database retention. |
 | `health *` | 🚧 | Configuring health synchronization. |
-| `metric send` | ❌ | Command for sending metrics. Will not be ported. This remains possible via the agent and the API. |
+| `metric send` | ❌ | Command for sending metrics. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
 | ❌ | `monitor send` | |
 | `permission *` | 🚧 | Configuring user/group permissions. |
-| `serverlog` | ❌ | Command for reading StackState log files. Will not be ported. Log files can be read via Kubernetes or directly from disk. |
+| `serverlog` | ❌ | Command for reading StackState log files. Will not be ported to the new CLI. Log files can be read via Kubernetes or directly from disk. |
 | `script execute` | `script execute` | Execute StackState scripts. | 
 | `stackpack *` | `stackpack *` | Install, configure and uninstall StackPacks. |
 | `subscription *` | 🚧 | Configuring StackState's license. |
 | `subject *` | 🚧 | Configuring users/groups. |
-| `topology send` | ❌ | Command for sending topology. Will not be ported. This remains possible via the StackState Agent or the StackState Receiver API. |
+| `topology send` | ❌ | Command for sending topology. Will not be ported to the new CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
 | `topic *` | 🚧 | Inspect StackState messaging topics. |
-| `trace send` |❌ | Command for sending traces. Will not be ported. This remains possible via the agent or the API. |
+| `trace send` |❌ | Command for sending traces. Will not be ported to the new CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
