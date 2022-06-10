@@ -29,13 +29,14 @@ The new StackState CLI has been built for a reason. Here are the major advantage
  * The new CLI only works with StackState v5.0 or later.
 
 {% tabs %}
-{% tab title="`sts` CLI" %}
+{% tab title="sts CLI" %}
 The `sts` CLI is:
 
-* 🎉 The new CLI. 
+* 🎉 The new CLI!
 * Works with StackState v5.0 or later. 
 * Contains all of the latest commands.
-* [Learn how to install the new CLI](cli-sts.md).
+
+➡️ [Learn how to install the new CLI](cli-sts.md).
 {% endtab %}
 {% tab title="stac CLI" %}
 {% hint style="info" %}
