@@ -28,6 +28,25 @@ The new StackState CLI has been built for a reason. Here are the major advantage
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, the old command `stac graph` is now called `sts settings`.
  * The new CLI only works with StackState v5.0 or later.
 
+{% tabs %}
+{% tab title="`sts` CLI" %}
+* The new CLI. 
+* Works with StackState v5.0 or later. 
+* Contains all of the latest commands.
+* [Learn how to install the new CLI](cli-sts.md).
+{% endtab %}
+{% tab title="`stac` CLI" %}
+{% hint style="info" %}
+Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
+{% endhint %}
+
+* The old CLI. 
+* Works with all supported versions of StackState
+* ⚠️ Does not include the newest commands. 
+* ⚠️ Will be deprecated in a future release of StackState.
+{% endtab %}
+{% endtabs %}
+
 ## CLI commands
 
 The new CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following is an overview of the commands available in each CLI and the current `port` status.
@@ -41,11 +60,7 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 * [Learn how to install the new CLI](cli-sts.md).
 
 **`stac` CLI**
-* The old CLI. 
-* Works with all supported versions of StackState
-* ⚠️ Does not include the newest commands. 
-* ⚠️ Will be deprecated in a future release of StackState. 
-* ⚠️ Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
+
 
 | CLI name | description                                                                                                                                                                                                                                                                        |
 |:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
