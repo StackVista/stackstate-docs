@@ -65,11 +65,14 @@ We understand that it might be confusing to know which version of the StackState
 ```commandline
 sts version
 
+# Output if you are running the new CLI:
+TODO
+
+
 # Output if you are running the old CLI:
 usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
   ...
-  
-# Output if you are running the new CLI:
+
 
 ```
 
