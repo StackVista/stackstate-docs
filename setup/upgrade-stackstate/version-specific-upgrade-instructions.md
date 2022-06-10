@@ -26,11 +26,11 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). Any script making use of that API needs to be adapted to deal with the new output format.
+This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming_script_result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 {% endtab %}
 {% tab title="Linux" %}
 
-This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). Any script making use of that API needs to be adapted to deal with the new output format.
+This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming_script_result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 {% endtab %}
 {% endtabs %}
 

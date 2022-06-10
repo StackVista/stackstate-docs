@@ -23,6 +23,10 @@ Telemetry queries only support metric queries. If you need event queries, please
 
 **Returns:**
 
+{% hint style="info" %}
+The output format of the Telemetry api changed in the 5.0 version of StackState. For prior versions, see the [pre 5.0 docs](https://docs.stackstate.com/v/4.6/develop/reference/scripting/script-apis/telemetry).
+{% endhint %}
+
 `StreamingScriptResult[MetricTimeSeriesResult]`
 
 **Builder methods:**
