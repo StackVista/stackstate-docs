@@ -42,29 +42,21 @@ One of the most important uses of anomalies in the StackState product is in [ano
 
 Streams with an anomaly check have the highest priority in the AAD. When the number of **Checked streams** is higher than the number of **Streams with anomaly checks**, all anomaly health checks are updated on time.
 
-These metrics can be accessed from StackState using the CLI:
-
-{% tabs %}
-{% tab title="CLI: stac" %}
+These metrics can be accessed from StackState using the Analytics environment.
+To plot the number of checked streams over the last 6 hours, use the telemetry query:
 ```text
-sts metric get <multi_metrics_id> -t stackstate.spotlight_streams_with_anomaly_check -f anomaly_health_checks.csv
-sts metric get <multi_metrics_id> -t stackstate.spotlight_streams_checked -f checked.csv
+Telemetry
+  .query("StackState Metrics", "")
+  .metricField("stackstate.spotlight_streams_checked")
+  .start("-6h")
 ```
 
-Here `<multi_metrics_id>` is the ID for the **StackState Multi Metrics** datasource (`sts datasource list`).
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
-Command not available.
-{% endtab %}
-{% endtabs %}
-
-Both files contain a timeseries with 1024 data points by default. This can, for example, be used to compute the ratio of the number of checked streams and the number of health checks:
-
+The number of streams with an anomaly health check defined on them can be shown using:
 ```text
-CHECKED=$(awk -F"," 'NR!=1 {Total=Total+$2} END{print Total}' < checked.csv)
-HEALTH_CHECKS=$(awk -F"," 'NR!=1 {Total=Total+$2} END{print Total}' < anomaly_health_checks.csv)
-RATIO=$(echo "$CHECKED / $HEALTH_CHECKS" | bc -l)
-printf "%.3f\n" $RATIO
+Telemetry
+  .query("StackState Metrics", "")
+  .metricField("stackstate.spotlight_streams_with_anomaly_check")
+  .start("-6h")
 ```
 
-When this ratio is larger than 1, the anomaly health checks are updated in near real-time.
+When the number of checked streams is larger than the number of streams with anomaly health checks, the anomaly health checks are updated in near real-time.
