@@ -42,7 +42,7 @@ One of the most important uses of anomalies in the StackState product is in [ano
 
 These metrics can be accessed using the StackState UI [Analytics environment](/use/stackstate-ui/analytics.md) and compared to determine whether sufficient resources have been allocated to the AAD. As streams with an anomaly check have the highest priority in the AAD, when the number of **Checked streams** is higher than the number of **Streams with anomaly checks**, all anomaly health checks are updated on time:
 
-* **Checked streams** - plot the number of streams checked over the last 6 hours using the query:
+* **Checked streams** - query to plot the number of streams checked over the last 6 hours:
 
     ```text
     Telemetry
@@ -51,7 +51,7 @@ These metrics can be accessed using the StackState UI [Analytics environment](/u
       .start("-6h")
     ```
 
-* **Streams with an anomaly health checks** - plot the number of streams with an anomaly health check defined using the query:
+* **Streams with anomaly checks** - query to plot the number of streams with an anomaly health check defined:
 
     ```text
     Telemetry
