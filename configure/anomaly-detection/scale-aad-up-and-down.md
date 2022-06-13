@@ -59,4 +59,4 @@ Telemetry
   .start("-6h")
 ```
 
-When the number of checked streams is larger than the number of streams with anomaly health checks, the anomaly health checks are updated in near real-time.
+When the number of checked streams is LOWER than the number of streams with an anomaly health check defined, more resources should be allocated to the AAD
