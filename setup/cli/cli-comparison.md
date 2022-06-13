@@ -70,12 +70,12 @@ You can check which version of the `sts` CLI you are running with the following 
 ```commandline
 sts version
 
-# Example output - new CLI:
+# new CLI - example output:
 VERSION | BUILD DATE           | COMMIT                                   
 1.0.0   | 2022-06-24T12:26:50Z | 6553352125d31a46c4790068e36c8eca32ace7fd
 
 
-# Example output - old CLI:
+# old CLI - example output:
 usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
   ...
 
@@ -93,7 +93,7 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 
 | `stac` CLI command  | `sts` CLI command | Description | 
 | :--- |:--- | | :--- |
-| `anomaly export` | `anomaly export` | Commands for exporting anomalies to disk. |
+| `anomaly collect-feedback` | `anomaly collect-feedback` | Commands for exporting anomalies to disk. |
 | `anomaly send` | ❌ | Command for sending anomalies. Will not be ported to the new CLI. This remains possible via the StackState Receiver API. |
 | `datasource list` | `settings list --type DataSource` | List all telemetry data sources. |
 | `event send` | ❌ | Commands for sending events. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
