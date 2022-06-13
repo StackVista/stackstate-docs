@@ -66,4 +66,4 @@ As streams with an anomaly check have the highest priority in the AAD, these met
 
 4. Compare the number of checked streams and the number of streams with anomaly health checks defined:
    * When the number of checked streams is **HIGHER** than the number of streams with an anomaly health check defined, sufficient resources have been allocated. All anomaly health checks are updating on time.
-   * When the number of checked streams is **LOWER** than the number of streams with an anomaly health check defined,[ more resources should be allocated to the AAD](#set-the-number-of-workers).
+   * When the number of checked streams is **LOWER** than the number of streams with an anomaly health check defined, [more resources should be allocated to the AAD](#set-the-number-of-workers).
