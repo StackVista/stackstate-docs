@@ -100,9 +100,9 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 | `graph *` | `settings *` | Configure StackState settings. |
 | `graph retention` | 🚧 | Configure StackState graph database retention. |
 | `health *` | 🚧 | Configuring health synchronization. |
-| `metric send` | ❌ | Command for sending metrics. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
+| `metric *` | ❌ | Commands for sending and retrieving metrics. Will not be ported to the new CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
 | `monitor send` | `monitor send` | |
-| `permission *` | 🚧 | Configuring user/group permissions. |
+| `permission *` | 🚧 | Configure user/group permissions. |
 | `serverlog` | ❌ | Command for reading StackState log files. Will not be ported to the new CLI. Log files can be read via Kubernetes or directly from disk. |
 | `script execute` | `script execute` | Execute StackState scripts. | 
 | `stackpack *` | `stackpack *` | Install, configure and uninstall StackPacks. |
