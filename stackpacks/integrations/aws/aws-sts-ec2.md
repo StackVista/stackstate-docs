@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # StackState IAM role for EC2
@@ -12,7 +12,7 @@ If StackState is running within an AWS environment on an EC2 instance, it can ha
 
 To set up an IAM role for the AWS StackPack to use, follow the instructions below.
 
-1. Create a policy that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. This is the same policy as used for the [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2). Take note of the policy name.
+1. Create a policy that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. This is the same policy as used for the [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2-or-eks). Take note of the policy name.
 2. Create an EC2 instance role and attach the policy from the previous step. 
    ![Policy for AssumeRole](/.gitbook/assets/sts_on_ec2_aws_stp_02.png)
 3. Attach the newly created EC2 instance role to the EC2 instance where StackState is running.
@@ -22,5 +22,5 @@ To set up an IAM role for the AWS StackPack to use, follow the instructions belo
 ## See also
 
 * [AWS StackPack](/stackpacks/integrations/aws/aws.md)
-* [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2)
+* [Agent IAM role on EC2](aws.md#iam-role-for-agent-on-ec2-or-eks)
 * [StackState IAM role for EKS](/stackpacks/integrations/aws/aws-sts-eks.md)

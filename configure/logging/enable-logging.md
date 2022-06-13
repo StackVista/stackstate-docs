@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Enable logging for functions
@@ -173,12 +173,12 @@ $ sts graph show-node 9161801377514
 
 The ID for a check or propagation on a specific component can be found in in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
 
-1. Click on a component to open the component details on the right of the screen.
+1. Select a component to open detailed information about it in the right panel **Selection details** tab.
 2. Click on **...** and select **Show JSON**.
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
-![Show JSON](../../.gitbook/assets/v46_show-json.png)
+![Show JSON](../../.gitbook/assets/v50_show-json.png)
 
 * Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 

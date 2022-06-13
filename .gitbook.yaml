@@ -298,6 +298,7 @@ redirects:
 
 # 4.6 docs
 
+  configure/identifiers: ./configure/topology/identifiers.md
   configure/security/self-signed-cert: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1#retrieve-certificate-via-the-browser: ./configure/security/self-signed-certificates.md
@@ -306,7 +307,8 @@ redirects:
   configure/traces/configure_tracing: ./configure/traces/advanced-configuration-traces.md
   configure/traces/how_to_setup_traces: ./configure/traces/set-up-traces.md
   configure/traces/opentelemetry/aws_nodejs: ./stackpacks/aws/opentelemetry-nodejs.md
-  use/concepts/components_relations: ./use/concepts/components.md
+  get-started/concepts/components_relations: ./use/concepts/relations.md
+  use/concepts/components_relations: ./use/concepts/README.md
   use/concepts/components_relations#components: ./use/concepts/components.md
   use/concepts/components_relations#relations: ./use/concepts/relations.md
   use/concepts/components_relations#relation-types: ./use/concepts/relations.md

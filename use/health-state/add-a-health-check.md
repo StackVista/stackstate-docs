@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Add a health check
@@ -17,10 +17,11 @@ Most elements in the StackState topology will have a relevant health check added
 To add a health check calculated in StackState:
 
 1. Select the element that you want to assign a health check to.
+   * Detailed information about the element will be displayed in the right panel **Selection details** tab.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics-and-events/add-telemetry-to-element.md).
-2. Click **ADD NEW HEALTH CHECK** under **Health** in the Component Details pane on the right of the screen.
+2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel **Selection details** tab.
 3. In the **Add check** dialog box, provide the following details:
-   * **Name** - The health check name. Will be displayed in the StackState UI **Health** pane.
+   * **Name** - The health check name. Will be displayed in the StackState UI right panel **Selection details** tab **Health** section.
    * **Description** - Optional, can be used to explain the check in greater detail.
    * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non clear state, for example `critical` or `deviating`.
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
@@ -28,10 +29,10 @@ To add a health check calculated in StackState:
    * At least one telemetry stream. Some checks will require multiple streams.
    * For metrics check functions, a [windowing method and window size](#metric-stream-configuration).
 5. Click **CREATE** to create the health check.
-   * The check is now active and visible under the **Health** section on the right-hand side of the screen.
+   * The check is now active and visible under the **Health** section on the right.
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
-![Add a health check to an element](../../.gitbook/assets/v46_add_health_check.png)
+![Add a health check to an element](../../.gitbook/assets/v50_add_health_check.png)
 
 ## Metric stream configuration
 

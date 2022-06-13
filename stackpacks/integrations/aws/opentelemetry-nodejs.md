@@ -1,8 +1,8 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
-# OpenTelemetry
+# OpenTelemetry - NodeJS
 
 ## Overview
 
@@ -15,9 +15,15 @@ OpenTelemetry has the following benefits:
 
 The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
 
-| Without OpenTelemetry | With OpenTelemetry | 
-|:---|:---|
-| ![](../../../.gitbook/assets/otel_from_original.png) | ![](../../../.gitbook/assets/otel_to_with_traces.png) |
+
+{% tabs %}
+{% tab title="Without OpenTelemetry" %}
+![](../../../.gitbook/assets/otel_from_original.png)
+{% endtab %}
+{% tab title="With OpenTelemetry" %}
+![](/.gitbook/assets/otel_to_with_traces.png)
+{% endtab %}
+{% endtabs %}
 
 ## Setup
 
@@ -79,7 +85,7 @@ Verify that there is a Lambda Layer called `stackstate-otel-nodejs`.
   
 Go to the [Lambda functions \(console.aws.amazon.com\)](https://console.aws.amazon.com/lambda/home#/functions) page and navigate to the Lambda that you wish to add OpenTelemetry support to.
 
-Underneath the **Code** tab, scroll down to the **Layers** section and click **Add a layer** on the right-hand side.
+Underneath the **Code** tab, scroll down to the **Layers** section and click **Add a layer** on the right.
 
 ![Edit Lambda Layer](../../../.gitbook/assets/otel_edit_lambda_layers.png)
 
@@ -193,11 +199,11 @@ After the latest StackPack CloudFormation template has been deployed, there shou
 
 Click on the layer `stackstate-otel-nodejs` to enter and view the details of the layer.
 
-The **Created** box on the right side should have a relative new time showing when it was created. Alternatively, go to any Lambda Function that is currently using the `stackstate-otel-nodejs` layer and compare the version it is using to the version displayed under the **Version** block for the layer.
+The **Created** box on the right should have a relative new time showing when it was created. Alternatively, go to any Lambda Function that is currently using the `stackstate-otel-nodejs` layer and compare the version it is using to the version displayed under the **Version** block for the layer.
 
 ![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer_version.png)
 
-Go to a Lambda function using the OpenTelemetry `stackstate-otel-nodejs` Lambda layer. Scroll down to the **Layers** section, and click the **Edit** button on the right-hand side.
+Go to a Lambda function using the OpenTelemetry `stackstate-otel-nodejs` Lambda layer. Scroll down to the **Layers** section, and click the **Edit** button on the right.
 
 ![List of Lambda Layers](../../../.gitbook/assets/otel_edit_layer.png)
 

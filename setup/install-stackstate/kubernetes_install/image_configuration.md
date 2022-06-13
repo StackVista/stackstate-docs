@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # StackState images
@@ -66,28 +66,6 @@ To address this issue, you can copy all the images to a single registry close to
 
 ## Images
 
-The images listed below are used in StackState v4.6.0:
+The images listed below are used in StackState v5.0.0:
 
-* quay.io/stackstate/container-tools:1.1.3
-* quay.io/stackstate/elasticsearch-exporter:v1.2.1
-* quay.io/stackstate/elasticsearch:7.16.2-sts.20211222.2354
-* quay.io/stackstate/envoy-alpine:v1.19.1-sts.20211207.0748
-* quay.io/stackstate/hadoop:2.10.1-java11-4
-* quay.io/stackstate/hbase-master:4.6.4
-* quay.io/stackstate/hbase-regionserver:4.6.4
-* quay.io/stackstate/jmx-exporter:0.15.0-focal-20210827-r138
-* quay.io/stackstate/kafka:2.8.0-focal-20210827-r108
-* quay.io/stackstate/kafka:2.8.1-focal-20210827-r90.20220103.1605
-* quay.io/stackstate/kafkaup-operator:0.0.1
-* quay.io/stackstate/minio:2021.2.19-focal-20210827-r5
-* quay.io/stackstate/nginx-prometheus-exporter:0.9.0
-* quay.io/stackstate/spotlight:4.6.0
-* quay.io/stackstate/stackgraph-console:4.6.4
-* quay.io/stackstate/stackstate-correlate-stable:4.6.0
-* quay.io/stackstate/stackstate-kafka-to-es-stable:4.6.0
-* quay.io/stackstate/stackstate-receiver-stable:4.6.0
-* quay.io/stackstate/stackstate-server-stable:4.6.0
-* quay.io/stackstate/stackstate-ui-stable:4.6.0
-* quay.io/stackstate/tephra-server:4.6.4
-* quay.io/stackstate/wait:1.0.6
-* quay.io/stackstate/zookeeper:3.6.1-focal-20210827-r37
+* ...

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Permissions
@@ -160,7 +160,7 @@ See also the full list of [system permissions](rbac_permissions.md#system-permis
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
-![Main menu with all permissions granted](../../../.gitbook/assets/v46_main_menu.png)
+![Main menu with all permissions granted](../../../.gitbook/assets/v50_main_menu.png)
 
 | Page | Description | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -189,9 +189,9 @@ The permissions listed below are required to work with topology in StackState:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
-### Component/relation details
+### Detailed information about components and relations
 
-The permissions listed below are required to carry out specific actions in the component or relation details pane.
+The permissions listed below are required to carry out specific actions in the right panel **Selection details** tab when detailed information about an element is displayed.
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |

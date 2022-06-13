@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Set up a mirror to pull telemetry data from an external system
@@ -59,17 +59,17 @@ Here is what that looks like:
 
 ## Adding a mirror stream to a component
 
-Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and open the Component Details pane.
+Now let's add a telemetry stream from the mirror to the **a-host** component we added in the [push integration tutorial](push_integration_tutorial.md). Navigate to the component and select it to open detailed information about the component in the right panel **Selection details** tab.
 
 In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **mirror sample** as the name for the stream and select the **Mirror server** datasource.
 
-In the Stream Creation screen, you should see random data right away. You can play around with the filter fields and values but they won't affect the returned data.
+In the Stream Creation screen, you should see random data right away. You can play around with the filter fields and values, but they won't affect the returned data.
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-mirror-stream.png)
+![](../../.gitbook/assets/v50_example-mirror-stream.png)
 
-Click on the **Save** button to permanently add the stream to the **a-host** component.
+Click the **Save** button to permanently add the stream to the **a-host** component.
 
 ## Cleaning your StackState instance
 

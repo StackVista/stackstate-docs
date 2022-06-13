@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # About views
@@ -8,12 +8,10 @@ description: StackState Self-hosted v4.6.x
 
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
-* [Filters](../filters.md):
-  * Topology filters - add elements \(components and relations\) to the view.
-  * Events and Traces filters - refine the traces and events displayed.
+* [Filters](../filters.md) - Topology filters add elements \(components and relations\) to the view. Events and Traces filters refine the traces and events displayed for the filtered topology.
 * [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.
 * [View health state configuration](about_views.md#view-health-state) – reports the health state of the view.
-* Event handlers - respond to events generated in the view and send [event notifications](../../metrics-and-events/event-notifications.md).
+* [Event handlers](/use/metrics-and-events/event-notifications.md) - respond to events generated in the view and send event notifications.
 
 Generally speaking, views serve two major purposes:
 
@@ -26,7 +24,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
 
-Click on a view name to open the topology perspective for that view.
+Click a view name to open the topology perspective for that view.
 
 ## Starred views
 
@@ -37,9 +35,9 @@ To add or remove a star:
 * For the current view: Click the star icon to the right of its name in the top bar to add or remove the star.
 * For any view: Click **all views** from the main menu to open a list of all views. Click the star icon to the right of a view name to add or remove its star.
 
-## The View Details pane
+## View Summary
 
-When you first open a view, the View Details pane will be visible on the right-hand side of the StackState UI. This shows the following information:
+When you first open a view, the **View Summary** will be visible in the right panel. This shows the following information:
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.
@@ -56,8 +54,9 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Enable or disable view health state
 
-* To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md).
-* To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
+To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md). 
+
+To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
 ➡️ [Learn more about how to configure the view health state](../../health-state/configure-view-health.md).
 
@@ -69,10 +68,10 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 {% hint style="success" "self-hosted info" %}
 
-Through a combination of configuration of permissions and scope, it is possible [control access for specific users](../../../configure/security/rbac/role_based_access_control.md):
+Through a combination of configuration of permissions and scope, it is possible [control access for a specific user](../../../configure/security/rbac/role_based_access_control.md). This can be done in the following ways:
 
-* Give access to a specific subset of the topology \(a so-called scope\) and allow them to create their own views.
-* Give access to specific views and disallow them to create, modify or delete views.
+* Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views from the topology that is available to them.
+* Grant the user access to specific, existing views only and deny them permission to create, modify or delete views.
 
 {% endhint %}
 

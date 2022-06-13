@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Self-signed certificates
@@ -9,6 +9,10 @@ description: StackState Self-hosted v4.6.x
 StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState will not be able to communicate with these systems when they are secured with TLS using a self-signed certificate or a certificate that is not by default trusted by the JVM.
 
 To mitigate this, StackState allows configuration of a custom trust store.
+
+{% hint style="info" %}
+Note that self-signed certificates are not compatible with the [StackState Azure integration](/stackpacks/integrations/azure.md).
+{% endhint %}
 
 ## Create a custom trust store
 
@@ -119,7 +123,7 @@ For a Linux installation, the trust store and password need to be added to the J
 The certificate can be directly downloaded from the Chrome browser. The steps involved may vary slightly depending on the version you are using:
 
 1. Navigate to the URL you need the certificate from.
-2. Click on the padlock icon in the location bar.
+2. Click the padlock icon in the location bar.
 3. Click on **Certificate**.
 4. Select **Details**.
 5. Select **Export**.

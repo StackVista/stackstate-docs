@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Elasticsearch
@@ -25,7 +25,7 @@ An Elasticsearch data source should be added in StackState for each Elasticsearc
 To add an Elasticsearch data source:
 
 1. In the StackState UI, go to **Settings** &gt; **Telemetry Sources** &gt; **Elasticsearch sources**.
-2. Click on **ADD ELASTICSEARCH DATA SOURCE**.
+2. Click **ADD ELASTICSEARCH DATA SOURCE**.
 3. Enter the required settings:
    * **Name** - the name to identify the Elasticsearch data source in StackState.
    * **Base URL** - the URL of the REST API of your Elasticsearch instance \(default port 9200\). Note that this must be reachable by StackState.
@@ -38,7 +38,7 @@ To add an Elasticsearch data source:
 5. Click **CREATE** to save the Elasticsearch data source settings.
    * The new Elasticsearch data source will be listed on the **Elasticsearch sources** page and available as a data source when adding telemetry to components and relations.
 
-![Add Elasticsearch data source](../../../.gitbook/assets/v46_elasticsearch_data_source.png)
+![Add Elasticsearch data source](../../../.gitbook/assets/v50_elasticsearch_data_source.png)
 
 #### Find the Elasticsearch index pattern
 

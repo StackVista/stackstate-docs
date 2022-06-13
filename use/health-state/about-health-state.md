@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # About health state
@@ -84,11 +84,11 @@ The view health state is calculated based on the health of components and relati
 
 You can check the view health state in the following places in the StackState UI:
 
-* **Current view** - The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the View Details pane on the right of the screen. Historical health state information for a view can be seen in the [timeline Health](../stackstate-ui/timeline-time-travel.md#health) line at the bottom of the screen.
+* **Current view** - The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the right panel **View Summary** tab. Historical health state information for a view can be seen in the [timeline Health](../stackstate-ui/timeline-time-travel.md#health) line at the bottom of the screen.
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
-![View health state in main menu](../../.gitbook/assets/v46_view_health_main_menu.png)
+![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.png)
 
 ## See also
 

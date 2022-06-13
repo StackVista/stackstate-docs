@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Configure the view health
@@ -10,14 +10,14 @@ Reacting to each event in an environment can cause a lot of noise. This may be b
 
 StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
 
-![Views list with view health state](../../.gitbook/assets/v46_views_list.png)
+![Views list with view health state](../../.gitbook/assets/v50_views_list.png)
 
 ## Configure view health state
 
 View health state is calculated by a **view state configuration function**. To configure a view to report its health state:
 
 1. In the StackState UI, click **Views** from the main menu.
-2. Click on the pencil icon next to a view name to edit the view.
+2. Click the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
 4. Select a **Configuration function** to use to calculate the view health.
 5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the default [MINIMUM HEALTH STATES](configure-view-health.md#minimum-health-states) configuration function:
@@ -26,7 +26,7 @@ View health state is calculated by a **view state configuration function**. To c
 6. Click **UPDATE** to save the new configuration to the view.
    * The view health will update immediately.
 
-![Edit query view](../../.gitbook/assets/v46_edit_query_view.png)
+![Edit query view](../../.gitbook/assets/v50_edit_query_view.png)
 
 {% hint style="success" "self-hosted info" %}
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # Components 
@@ -15,15 +15,15 @@ Relations in StackState can be either direct or indirect. The type of relation i
 * **Direct relations** link two components that have a direct connection to each other. 
 * **Indirect relations** link two components that are connected together via a path of invisible components.
 
-| Relation type | Description |
-| :--- | :--- |
-| ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. |
-| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Click on an indirect relation to view the path between the components in the right-hand pane. |
-| ![](/.gitbook/assets/relation_group_comp.svg) | Both a **direct relation** and an **indirect relation** between a component and a component group will be shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct, indirect and/or no relations to one or more components in the group.** Click on a grouped relation to view details of the included relations in the right-hand pane. |
+| Relation type | Description                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](/.gitbook/assets/relation_comp_comp.svg) | A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency.                                                                                                                                                                                                                                                                               |
+| ![](/.gitbook/assets/relation_indirect_comp_comp.svg) | An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the path between the components in the right panel **Selection details** tab.                                                                                                                                                            |
+| ![](/.gitbook/assets/relation_group_comp.svg) | Both a **direct relation** and an **indirect relation** between a component and a component group will be shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct, indirect and/or no relations to one or more components in the group.** Select a grouped relation to display full details of the included relations in the right panel **Selection details** tab. |
 
-Click on a relation to view details in the right-hand pane. 
+Select a relation to display detailed information about it in the right panel **Selection details** tab. 
 
-![Indirect relation path](/.gitbook/assets/v46_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v50_indirect_relation_path.png)
 
 ## Dependencies and propagation
 

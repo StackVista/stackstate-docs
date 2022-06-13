@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x
 ---
 
 # 💠 Dynatrace
@@ -18,7 +18,7 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
     * [Topology data](dynatrace.md#topology) is translated into components and relations. 
     * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the StackState UI right panel **View summary** tab.
 
 ## Setup
 
@@ -197,11 +197,11 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 The [Dynatrace health check](#dynatrace-health-check) retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour).
 
-| Dynatrace event severity | Available in StackState as |
-| :--- | :--- |
-| `INFO` | Events are mapped to the associated component. They are listed on the StackState events perspective and in the Component Details pane. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component. |
-| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component. |
+| Dynatrace event severity | Available in StackState as                                                                                                                       |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective and in the right panel **View summary** tab. |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component.             |
+| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.              |
 
 
 #### Metrics
@@ -242,7 +242,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v46_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v50_dynatrace-filter.png)
 
 ### Open source
 
