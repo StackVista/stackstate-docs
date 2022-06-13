@@ -37,26 +37,26 @@ cpu:
 
 One of the most important uses of anomalies in the StackState product is in [anomaly health checks](../../use/health-state/anomaly-health-checks.md). The following metrics can be used to determine if the AAD is putting the available resources to good use:
 
-* **Streams with anomaly checks** - the number of metric streams that have an anomaly health check defined on them.
 * **Checked streams** - the number of metric streams that have their latest data points checked.
+* **Streams with anomaly checks** - the number of metric streams that have an anomaly health check defined on them.
 
-Streams with an anomaly check have the highest priority in the AAD. When the number of **Checked streams** is higher than the number of **Streams with anomaly checks**, all anomaly health checks are updated on time.
+These metrics can be accessed using the StackState UI [Analytics environment](/use/stackstate-ui/analytics.md) and compared to determine whether sufficient resources have been allocated to the AAD. As streams with an anomaly check have the highest priority in the AAD, when the number of **Checked streams** is higher than the number of **Streams with anomaly checks**, all anomaly health checks are updated on time:
 
-These metrics can be accessed from StackState using the Analytics environment.
-To plot the number of checked streams over the last 6 hours, use the telemetry query:
-```text
-Telemetry
-  .query("StackState Metrics", "")
-  .metricField("stackstate.spotlight_streams_checked")
-  .start("-6h")
-```
+* **Checked streams** - plot the number of streams checked over the last 6 hours using the query:
 
-The number of streams with an anomaly health check defined on them can be shown using:
-```text
-Telemetry
-  .query("StackState Metrics", "")
-  .metricField("stackstate.spotlight_streams_with_anomaly_check")
-  .start("-6h")
-```
+    ```text
+    Telemetry
+      .query("StackState Metrics", "")
+      .metricField("stackstate.spotlight_streams_checked")
+      .start("-6h")
+    ```
 
-When the number of checked streams is larger than the number of streams with anomaly health checks, the anomaly health checks are updated in near real-time.
+* **Streams with an anomaly health checks** - plot the number of streams with an anomaly health check defined using the query:
+
+    ```text
+    Telemetry
+      .query("StackState Metrics", "")
+      .metricField("stackstate.spotlight_streams_with_anomaly_check")
+      .start("-6h")
+    ```
+
