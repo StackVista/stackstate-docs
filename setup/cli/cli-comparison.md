@@ -60,23 +60,29 @@ Note that this CLI was previously named `sts`. It has been renamed to `stac` wit
 
 ## Which version of the CLI am I running?
 
-We understand that it might be confusing to know which version of the StackState CLI you are running, as the new CLI has the name previously used by the old CLI. You can check which version of the CLI you are running with the following command:
+There are now two versions of the StackState CLI and the old version of the CLI has been renamed: 
+
+* The new CLI has the name previously used by the old CLI (`sts`). 
+* The old CLI has been renamed to `stac`, this allows you to have the old CLI and new CLI installed on the same machine.
+
+You can check which version of the `sts` CLI you are running with the following command:
 
 ```commandline
 sts version
 
-# Output if you are running the new CLI:
-TODO
+# Example output - new CLI:
+VERSION | BUILD DATE           | COMMIT                                   
+1.0.0   | 2022-06-24T12:26:50Z | 6553352125d31a46c4790068e36c8eca32ace7fd
 
 
-# Output if you are running the old CLI:
+# Example output - old CLI:
 usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
   ...
 
 
 ```
 
-If you are not running the new CLI yet, we recommend that you [install the new CLI](cli-sts.md) and rename the old CLI to `stac`.
+If you are not running the new `sts` CLI yet, we recommend that you [install the new CLI](cli-sts.md) and rename the old CLI to `stac`.
 
 ## CLI command overview
 
@@ -85,7 +91,7 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
  - 🚧 - Work in progress.
  - ❌ - Command will not be available in this CLI.
 
-| `stac` command  | `sts` command | Description | 
+| `stac` CLI command  | `sts` CLI command | Description | 
 | :--- |:--- | | :--- |
 | `anomaly export` | `anomaly export` | Commands for exporting anomalies to disk. |
 | `anomaly send` | ❌ | Command for sending anomalies. Will not be ported to the new CLI. This remains possible via the StackState Receiver API. |
@@ -95,7 +101,7 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 | `graph retention` | 🚧 | Configure StackState graph database retention. |
 | `health *` | 🚧 | Configuring health synchronization. |
 | `metric send` | ❌ | Command for sending metrics. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
-| ❌ | `monitor send` | |
+| `monitor send` | `monitor send` | |
 | `permission *` | 🚧 | Configuring user/group permissions. |
 | `serverlog` | ❌ | Command for reading StackState log files. Will not be ported to the new CLI. Log files can be read via Kubernetes or directly from disk. |
 | `script execute` | `script execute` | Execute StackState scripts. | 
