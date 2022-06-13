@@ -66,17 +66,6 @@ Create the file `values.yaml` file, including the configuration described below,
   * **pullSecretUsername** - the image registry username \(from step 1\).
 * **stackstate:**
   * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-router:8080/` or `http://<releasename>-stackstate-router:8080/`
-* **ingress:** - Ingress provides access to the technical interface of the AAD, this is useful for troubleshooting. The technical interface can be accessed using kube proxy command: `kubectl proxy`. After proxy is running the technical interface can be accessed using the path below.
-
-  ```text
-    http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
-  ```
-
-  Optionally, the technical interface can be exposed using ingress configuration. The example below shows how to configure an nginx-ingress controller. Setting up the controller itself is beyond the scope of this document. More information about how to set up Ingress can be found at:
-
-  * [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
-  * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
-  * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -87,18 +76,6 @@ image:
 stackstate:
     # Stackstate instance URL
     instance: <stackstate instance url>
-
-# status UI ingress (the configuration below is example for nginx ingress controller)
-ingress:
-    enabled: true
-    hostname: <domain name> # e.g. spotlight.domain.com
-    port: 8090              # status page will be available on spotlight.domain.com:8090
-    annotations:        
-        external-dns.alpha.kubernetes.io/hostname: <domain name> # e.g. spotlight.domain.com
-        kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/ingress.class: nginx
-    hosts:
-        - host: <domain name>  # e.g. spotlight.domain.com
 ```
 {% endtab %}
 {% endtabs %}
@@ -120,8 +97,7 @@ By default, the AAD Kubernetes Service is configured to use kubernetes `token` a
   stackstate:
     authType: api-token
     apiToken: <stackstate api token>
-      ...
-  ```
+  ...
 
 * Cookie authentication. This type of auth is not recommended and exists only for troubleshooting/testing purposes.
 
@@ -138,13 +114,13 @@ By default, the AAD Kubernetes Service is configured to use kubernetes `token` a
 
 Run the command below, specifying the StackState namespace and the image registry password. Note that the AAD Kubernetes service must be installed in the same namespace as StackState to be able to use default token authentication \(Otherwise consider other types of authentication above\).
 
-```text
-    helm upgrade anomaly-detector stackstate/anomaly-detection \
-        --install \
-        --namespace <stackstate-namespace> \
-        --set image.pullSecretPassword=<image registry password>
-        --values ./values.yaml
-```
+  ```text
+  helm upgrade anomaly-detector stackstate/anomaly-detection \
+      --install \
+      --namespace <stackstate-namespace> \
+      --set image.pullSecretPassword=<image registry password>
+      --values ./values.yaml
+  ```
 
 ### Training period
 
@@ -179,42 +155,6 @@ To completely remove the AAD Kubernetes service and the AAD StackPack:
   ```
 
 * Uninstall the AAD StackPack
-
-## Troubleshooting
-
-The status UI provides details on the technical state of the AAD. You can use it to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
-
-To access the status UI, one can run kubectl proxy.
-
-```text
-    kubectl proxy
-```
-
-The UI will be accessible by URL:
-
-```text
-    http://localhost:8001/api/v1/namespaces/<namespace>/services/http:<release-name>-anomaly-detection:8090/proxy/
-```
-
-Optionally to access the status UI, the AAD Kubernetes service ingress can be configured for the anomaly-detection deployment \(for the details see the [configure the AAD Kubernetes service](aad_standalone.md#4-configure-the-aad-kubernetes-service)\).
-
-Common questions that can be answered in the status UI:
-
-**Is the AAD Kubernetes service running?**  
-If the status UI is accessible: The service is running.  
-If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
-
-**Can the AAD Kubernetes service reach StackState?**  
-Check the status UI sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
-
-**Has the AAD Kubernetes service selected metric streams for anomaly detection?**  
-The status UI section **Anomaly Detection Summary** shows the total time of all registered streams, if no streams are selected it will be zero.
-
-**Is the AAD Kubernetes service detecting anomalies?**  
-The status UI section **Top Anomalous Streams** shows the streams with the highest number of anomalies. No streams in this section means that no anomalies have been detected. The status UI section **Anomaly Detection Summary** shows other relevant metrics, such as total time of all registered streams, total checked time and total time of all anomalies detected.
-
-**Is the AAD Kubernetes service scheduling streams?**  
-The status UI tab **Job Progress** shows a ranked list of streams with scheduling progress, including the last time each stream was scheduled.
 
 ## See also
 

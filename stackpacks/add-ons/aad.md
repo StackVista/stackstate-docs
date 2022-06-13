@@ -57,7 +57,7 @@ To enable improvement of the AAD, users can add feedback to reported anomalies. 
 
 {% hint style="success" "self-hosted info" %}
 
-Use the StackState CLI to [export anomaly feedback](/configure/telemetry/export-anomaly-feedback.md) ready to send to StackState.
+Use the StackState CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to StackState.
 
 {% endhint %}
 
