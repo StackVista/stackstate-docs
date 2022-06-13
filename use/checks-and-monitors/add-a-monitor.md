@@ -54,5 +54,35 @@ Each monitor configured in StackState uses a monitor function to compute the hea
 
 Monitor functions are scripts that accept the 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner and it is responsible for detecting any changes in the data that can be considered to change an elements health state.
 
-* You can [create a custom monitor function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
-* Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
+* You can [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+* Details of the monitor functions provided by StackPacks can be found in [their respective documentation](../../stackpacks/integrations/README.md).
+
+## Add a monitor
+
+Most monitors in StackState are created as part of a StackPack installed by the user. There is, however, the possibility to install custom monitors by using the StackState CLI.
+
+To create a custom monitor in StackState:
+
+1. Select a suitable monitor function or [create a custom one](../../develop/developer-guides/custom-functions/check-functions.md).
+  * You can list the available monitor functions via the CLI command `sts settings list --type MonitorFunction`
+2. Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
+  * You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
+3. Populate the at least the `name`, `identifier` and `intervalSeconds` parameters of the monitor definition.
+  * The `identifier` should be a value that uniquely identifies this specific monitor definition.
+4. Populate the `function` value using the previously selected function.
+  * Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#\`get\`).
+5. Populate the parameters of the monitor function invocation.
+  * The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
+4. Apply the newly created monitor in StackState using the CLI commands: `sts monitor apply < path/to/the/file.stj`.
+  * An alternative way is to include the newly created monitor in a custom StackPack and installing it.
+5. Verify that your newly created monitor is working correctly.
+  * You can check if your monitor is working correctly by invoking the `sts monitor status` command.
+  * You can also preview the results it generates by invoking the `sts monitor preview` command.
+
+For a more thorough description of each of the above steps please follow the [step by step guide](../../develop/developer-guides/monitors/how-to-create-moniors.md).
+
+## See also
+* [StackState CLI](../../develop/reference/cli_reference.md)
+* [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
+* [Develop your own StackPacks](../../stackpacks/sdk.md)
+* [Integrations](../../stackpacks/integrations/README.md)
