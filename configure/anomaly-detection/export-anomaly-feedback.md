@@ -51,9 +51,9 @@ stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > fe
 {% endtab %}
 {% endtabs %}
 
-## Send exported feedback to the StackState team
+## Send exported feedback
 
-When requested, exported feedback can be sent on to the StackState team using a secure fileshare. All data received will be handled in accordance with the StackState security policy.
+When requested, feedback exported from StackState can be sent on to the StackState team. Instructions on how to do this using a secure fileshare will be provided to you. All data received will be handled in accordance with the StackState security policy.
 
 {% hint style="warning" %}
 **Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
