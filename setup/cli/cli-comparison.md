@@ -62,7 +62,7 @@ Note that this CLI was previously named `sts`. It has been renamed to `stac` wit
 
 There are now two versions of the StackState CLI and the old version of the CLI has been renamed: 
 
-* The new CLI has the name previously used by the old CLI (`sts`). 
+* The new CLI is called `sts` - note that this is the name previously used by the old CLI. 
 * The old CLI has been renamed to `stac`, this allows you to have the old CLI and new CLI installed on the same machine.
 
 You can check which version of the `sts` CLI you are running with the following command:
