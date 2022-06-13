@@ -58,8 +58,7 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 ## See also
 
-* [Install the StackState CLI](/setup/cli-install.md)
-* [StackState CLI reference](/develop/reference/cli_reference.md)
+* [Install the StackState CLI](/setup/cli)
 * [Send topology data over HTTP](/configure/topology/send-topology-data.md)
 * [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
 

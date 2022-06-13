@@ -138,7 +138,7 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-You can also send metrics to StackState using the [StackState CLI `metric send`](../../develop/reference/cli_reference.md#sts-metric-send) command.
+You can also send metrics to StackState using the StackState CLI `metric send` command.
 
 ## Events
 
@@ -205,7 +205,7 @@ Events have the following details:
 
 ### Send events to StackState
 
-Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the [StackState CLI `event send`](../../develop/reference/cli_reference.md#sts-event-send) command. For example:
+Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the StackState CLI `event send` command. For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -301,7 +301,6 @@ sts event send "HealthStateChangedEvent" \
 
 ## See also
 
-* [StackState CLI reference](../../develop/reference/cli_reference.md)
 * [StackState identifiers](../topology/identifiers.md)
 * [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md)
 * [Events tutorial](../../develop/tutorials/events_tutorial.md)

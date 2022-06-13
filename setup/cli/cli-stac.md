@@ -252,7 +252,7 @@ You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI
 
 ## Use the StackState CLI
 
-For details on how to work with the StackState CLI, see the [CLI reference guide](../../develop/reference/cli_reference.md) or refer to the help provided in the CLI.
+For details on how to work with the StackState CLI, refer to the help provided in the CLI.
 
 ```text
 sts --help

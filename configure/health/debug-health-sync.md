@@ -198,6 +198,5 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 
 ## See also
 
-* [Install the StackState CLI](../../setup/cli-install.md)
-* [StackState CLI reference](../../develop/reference/cli_reference.md)
+* [Install the StackState CLI](../../setup/cli)
 
