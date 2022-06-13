@@ -200,7 +200,7 @@
   * [Debug health synchronization](configure/health/debug-health-sync.md)
 * [Anomaly Detection](configure/anomaly-detection/README.md)
   * [Export anomaly feedback](configure/anomaly-detection/export-anomaly-feedback.md)
-  * [Scale up and down](configure/anomaly-detection/scale-up-and-down.md)
+  * [Scale the AAD up and down](configure/anomaly-detection/scale-aad-up-and-down.md)
   * [The AAD status UI](configure/anomaly-detection/aad-status-ui.md)
 * [Security](configure/security/README.md)
   * [Authentication](configure/security/authentication/README.md)

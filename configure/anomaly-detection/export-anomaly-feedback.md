@@ -6,15 +6,15 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-Feedback that has been added to anomalies reported by the Autonomous Anomaly Detector can be exported to file using the StackState CLI. Exported data can be sent on to StackState for investigation when requested using a secure fileshare. All data received will be handled in accordance with the StackState security policy.
-
-{% hint style="warning" %}
-**Note that any user comments will be included in the exported feedback.** These are very useful, but should not contain any sensitive information.
-{% endhint %}
+Feedback that has been added to anomalies reported by the Autonomous Anomaly Detector can be exported to file using the StackState CLI. Exported data can be sent on to the StackState team for investigation.
 
 ## Export feedback
 
-To export anomaly feedback from StackState, v1 or v2 of the [StackState CLI](/setup/cli-install.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
+To export anomaly feedback from StackState, the [StackState CLI](/setup/cli-install.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
+
+{% hint style="warning" %}
+**Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
+{% endhint %}
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -50,6 +50,14 @@ stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > fe
 ```
 {% endtab %}
 {% endtabs %}
+
+## Send exported feedback to the StackState team
+
+When requested, exported feedback can be sent on to the StackState team using a secure fileshare. All data received will be handled in accordance with the StackState security policy.
+
+{% hint style="warning" %}
+**Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
+{% endhint %}
 
 ## See also
 

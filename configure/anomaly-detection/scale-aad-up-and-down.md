@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Scale up and down
+# Scale the AAD up and down
 
 ## Overview
 
@@ -14,8 +14,8 @@ This page explains how to allocate resources for the AAD and determine if an ins
 
 The AAD consists of two types of pods:
 
-* a (singleton) manager pod that handles all non-CPU-intensive tasks, such as maintaining the work queue and persisting model state.
-* a configurable number of worker pods that run model selection, training and (near) real-time anomaly detection.  Workers fetch their data from StackState and report back any found anomalies (or their absence).
+* A (singleton) manager pod that handles all non-CPU-intensive tasks, such as maintaining the work queue and persisting model state.
+* A configurable number of worker pods that run model selection, training and (near) real-time anomaly detection.  Workers fetch their data from StackState and report back any found anomalies (or their absence).
 
 The number of workers and their individual resource requirements can be configured in the deployment `values.yaml`.  The snippet below contains the default values, adjust these to scale out (`replicas`) and/or up (`cpu.limit`, `cpu.request`).
 
