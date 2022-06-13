@@ -17,7 +17,7 @@ The AAD consists of two types of pods:
 * A (singleton) manager pod that handles all non-CPU-intensive tasks, such as maintaining the work queue and persisting model state.
 * A configurable number of worker pods that run model selection, training and (near) real-time anomaly detection.  Workers fetch their data from StackState and report back any found anomalies (or their absence).
 
-The number of workers and their individual resource requirements can be configured in the deployment `values.yaml`.  The snippet below contains the default values, adjust these to scale out (`replicas`) and/or up (`cpu.limit`, `cpu.request`). Add this to the `values.yaml` file used to deploy either [StackState](/setup/install-stackstate/kubernetes_install/install_stackstate.md) (for a standard deployment where AAD is deployed together with the StackState Kubernetes setup) or the [AAD standalone service](/setup/install-stackstate/kubernetes_install/aad_standalone.md) (use only if required).
+The number of workers and their individual resource requirements can be configured in the deployment `values.yaml`.  The snippet below contains the default values, adjust these to scale out (`replicas`) and/or up (`cpu.limit`, `cpu.request`).
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -32,6 +32,8 @@ cpu:
 ```
 {% endtab %}
 {% endtabs %}
+
+For most cases, this snippet should be added to the `values.yaml` file used to deploy [StackState](/setup/install-stackstate/kubernetes_install/install_stackstate.md). If you are running the [AAD as a standalone service](/setup/install-stackstate/kubernetes_install/aad_standalone.md) (not recommended for most users), add the snippet to the `values.yaml` file used to deploy the AAD Kubernetes Service.
 
 ## Evaluate use of resources
 
