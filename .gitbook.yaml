@@ -318,3 +318,7 @@ redirects:
   use/health-state/health-state-in-stackstate#stackstate-health-checks: ./use/health-state/about-health-state.md
   use/health-state/health-state-in-stackstate#health-checks: ./use/health-state/about-health-state.md
   use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
+
+# 5.0 docs
+
+  develop/reference/scripting/async_script_result: ./develop/reference/scripting/async-script-result.md
