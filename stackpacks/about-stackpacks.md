@@ -70,7 +70,7 @@ Continue using changes made to customized StackPack configuration items after up
 
 1. Before you upgrade, export each customized item:
    * Go to the **Settings** page in the StackState UI.
-   * Click on **Export** in the **...** menu for each customized item.
+   * Click **Export** in the **...** menu for each customized item.
 2. Upgrade the StackPack \(uninstall and reinstall\).
 3. Change the `name` and `identifier` for each exported item:
    * Open the export file in a text editor.

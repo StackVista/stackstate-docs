@@ -27,7 +27,7 @@ The component selection can be adjusted as follows:
 
 ## Filtering
 
-The **View Filters** pane on the left-hand side of the StackState UI can be used to filter the sub-set of topology for which metrics are displayed. 
+The **View Filters** panel on the left of the StackState UI can be used to filter the sub-set of topology for which metrics are displayed. 
 
 ➡️ [Learn more about Topology Filters](../filters.md#filter-topology)
 

@@ -174,7 +174,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     ```yaml
     clusterChecks:
     # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-    enabled: true
+      enabled: true
 
     clusterAgent:
       config:
@@ -187,10 +187,10 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
             cluster_check: true
 
             init_config:
-            aws_access_key_id: ''
-            aws_secret_access_key: ''
-            external_id: uniquesecret!1 
-            # full_run_interval: 3600
+              aws_access_key_id: ''
+              aws_secret_access_key: ''
+              external_id: uniquesecret!1 
+              # full_run_interval: 3600
 
             instances:
             - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
@@ -203,42 +203,37 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
                 # log_bucket_name: '' 
                 # tags:
                 #   - foo:bar
-   ```
+    ```
 
 3. Deploy the `cluster_agent` using the updated `values.yaml`:
+   * **Kubernetes:**
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
 
-{% tabs %}
-{% tab title="Kubernetes" %}
-```yaml
-helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
---set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
---set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
---set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
---values values.yaml \
-stackstate-cluster-agent stackstate/cluster-agent    
-```
-{% endtab %}
-{% tab title="OpenShift" %}
+   * **OpenShift:**
 
-```yaml
-helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
---set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
---set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
---set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
---set 'agent.scc.enabled'=true \
---set 'kube-state-metrics.securityContext.enabled'=false \
---values values.yaml \
-stackstate-cluster-agent stackstate/cluster-agent    
-```
-{% endtab %}
-{% endtabs %}
-
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+    --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+    --set 'agent.scc.enabled'=true \
+    --set 'kube-state-metrics.securityContext.enabled'=false \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
 
 {% endtab %}
 {% tab title="Agent on Linux VM" %}
@@ -516,7 +511,7 @@ When the AWS integration is enabled, three [views](../../../use/stackstate-ui/vi
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel **Selection details** tab when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 

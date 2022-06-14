@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 
 Predict metrics for any metric query coming from any data source.
 
-**Args:**
+### Args
 
 * `predictorName` - the prediction preset to use: 
   * **fft** - Fast Fourier Transformation. Used for seasonal metrics with a repeatable pattern that has a cycle.
@@ -17,12 +17,12 @@ Predict metrics for any metric query coming from any data source.
 * `horizon` - How much future to predict. The horizon is specified in [duration format](time.md).
 * `query` - The metrics to use for the prediction. A telemetry query that returns metrics, created using the `Telemetry.query()` function followed by `.compileQuery()`.
 
-**Builder methods:**
+### Builder methods
 
 * `predictionPoints(points: Int)` - the number of points to the horizon.
 * `includeHistory(start?: Instant, end?: Instant)` - call this builder method to include the result of the `query` in the return value. Optionally a start and end can be added to limit the included history using the [instant format](time.md). When not specifying the start and end the whole history will be included.
 
-**Return type:**
+### Return type
 
 `AsyncScriptResult[PredictionResponse]`
 
@@ -46,7 +46,7 @@ The `MetricTelemetry` has the following fields:
 
 * `MetricTelemetry.result.data` - the two dimensional array with values and time stamps.
 
-**Examples:**
+### Examples
 
 Predict 8 points of disk utilization for `myHost` for the next four hours based on the last four weeks of data:
 

@@ -6,14 +6,14 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-This how to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the details pane on the right of the StackState UI.
+This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the right panel **Selection details** tab when detailed information about a component is displayed.
 
 ## Add or edit a component action
 
 The component actions available in StackState can be managed in the StackState UI from the page **Settings** &gt; **Actions** &gt; **Component Actions**.
 
 * To add a new component action, click the **ADD COMPONENT ACTION** button.
-* To edit an existing component action, click on the **...** menu to the right of its description and select **Edit**.
+* To edit an existing component action, click the **...** menu to the right of its description and select **Edit**.
 
 ![Component Actions](../../../.gitbook/assets/component_actions.png)
 

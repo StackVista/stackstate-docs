@@ -2,24 +2,24 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Splunk health
+# Splunk Health
 
 ## Overview
 
-The StackState Splunk health integration collects health from Splunk by executing Splunk saved searches from StackState Agent V2. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
+When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Health check on StackState Agent V2 to begin collecting Splunk health data.
+
+Health is collected from Splunk by executing Splunk saved searches from StackState Agent V2. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
 
 * [In Splunk](splunk_health.md#splunk-saved-search) - there should be at least one saved search that generates the health data you want to retrieve.
-* [In StackState Agent V2](splunk_health.md#agent-check) - a Splunk health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In StackState Agent V2](splunk_health.md#agent-check) - a Splunk Health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk health check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
-
-Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+The Splunk Health check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
 
 ## Splunk saved search
 
 ### Fields used
 
-StackState Agent V2 executes the Splunk saved searches configured in the [Splunk health Agent check](splunk_health.md#agent-check) and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Health Agent check](splunk_health.md#agent-check) and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Required? | Description |
 | :--- | :--- | :--- | :--- |
@@ -48,16 +48,16 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 
 ## Agent check
 
-### Configure the Splunk health check
+### Configure the Splunk Health check
 
-To enable the Splunk health integration and begin collecting health data from your Splunk instance, the Splunk health check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk Health integration and begin collecting health data from your Splunk instance, the Splunk Health check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk health Agent check configuration file:  
+Example Splunk Health Agent check configuration file:  
 [splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example)
 {% endhint %}
 
-To configure the Splunk health Agent check:
+To configure the Splunk Health Agent check:
 
 1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_health.d/conf.yaml`.
 2. Under **instances**, add details of your Splunk instance:
@@ -86,7 +86,7 @@ The configured `collection_interval` will be used as the [`repeat_interval` for 
 
 ### Disable the Agent check
 
-To disable the Splunk health Agent check:
+To disable the Splunk Health Agent check:
 
 1. Remove or rename the Agent integration configuration file, for example:
 
@@ -102,6 +102,6 @@ To disable the Splunk health Agent check:
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Health synchronization](../../../configure/health/health-synchronization.md)
 * [Debug health synchronization](../../../configure/health/debug-health-sync.md)
-* [Example Splunk health configuration file - splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example)
+* [Example Splunk Health configuration file - splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)
 

@@ -189,9 +189,9 @@ The permissions listed below are required to work with topology in StackState:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
-### Component/relation details
+### Detailed information about components and relations
 
-The permissions listed below are required to carry out specific actions in the component or relation details pane.
+The permissions listed below are required to carry out specific actions in the right panel **Selection details** tab when detailed information about an element is displayed.
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |

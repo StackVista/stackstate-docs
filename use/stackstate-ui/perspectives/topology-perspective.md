@@ -14,7 +14,7 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/about-health-state.md).
 
-* Click on a component to open the [component details](/use/concepts/components.md#component-details-pane) in the right-hand pane.
+* Select a component to display [detailed component information](/use/concepts/components.md#detailed-component-information) in the right panel **Selection details** tab .
 * Hover over a component to open the [component context menu](#component-context-menu).
 
 ➡️ [Learn more about components](/use/concepts/components.md#components)
@@ -34,7 +34,7 @@ Actions can be used to expand the topology selection to show all dependencies fo
 You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 {% endhint %}
 
-A list of the available actions is included in the Component Details pane when you select a component and also in the component context menu, which is displayed when you hover over a component.
+A list of the available actions is included in the right panel **Selection details** tab when you select a component to show its detailed information and also in the component context menu, which is displayed when you hover over a component.
 
 ![Actions](../../../.gitbook/assets/v50_actions.png)
 
@@ -42,14 +42,14 @@ A list of the available actions is included in the Component Details pane when y
 
 Shortcuts give you direct access to detailed information about the specific component:
 
-* **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the Component Details pane.
-* **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the Component Details pane.
+* **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel **Selection details** tab when detailed information about a component is displayed.
+* **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel **Selection details** tab when detailed information about a component is displayed.
 
 ## Relations
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/about-health-state.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
-Click on a relation to open the relation details in the right-hand pane.
+Select a relation to open detailed information about it in the right panel **Selection details** tab.
 
 ➡️ [Learn more about relations](/use/concepts/relations.md).
 
@@ -59,18 +59,18 @@ Click on a relation to open the relation details in the right-hand pane.
 
 The components and events displayed in the topology visualization can be customized by adding filters.
 
-Click the **View Filters** icon in the left-hand side menu to open the view filters. Here you can edit:
+Click the **View Filters** icon in the left menu to open the view filters. Here you can edit:
 
-* Topology filters: The components displayed in the topology visualization.
-* Events filters: The events shown in the **Events** list in the View Details pane on the right-hand side of the screen.
+* Topology filters: Filter the components displayed in the topology visualization.
+* Events filters: Filter the events shown in the **Events** list in the right panel **View summary** tab.
 
-From the **Component Details** pane, click on a label to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
+Select an element to show detailed information about it in the right panel **Selection details** tab. Click a label in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
 
 The View Filters are saved together with the View. For details, see the page [filters](../filters.md).
 
 ## Visualization settings
 
-The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left-hand side menu to open the visualization settings menu. Here you can edit:
+The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
 
 * Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
@@ -81,7 +81,7 @@ The Visualization Settings are saved together with the View. For details, see th
 
 ## Problems
 
-If one or more components in a view have a critical state, StackState will show the related components and their states as a **Problem** in the [View Details pane](../views/about_views.md#the-view-details-pane).
+If one or more components in a view have a critical state, StackState will show the related components and their states as a **Problem** in the [View Summary](../views/about_views.md#view-summary).
 
 ## Navigation
 
@@ -122,6 +122,6 @@ The components in the topology visualization can also be shown in a list instead
 
 From list mode, the component list can be exported as a CSV file. The CSV file includes `name`, `state`, `type` and `updated` details for each component in the view.
 
-1. From the topology perspective, click the **List mode** icon on the top right of the screen to open the topology in list mode.
+1. From the topology perspective, click the **List mode** icon on the top right to open the topology in list mode.
 2. Click **Download as CSV** from the top of the page.
    * The component list will be downloaded as a CSV file named `<view_name>.csv`.
