@@ -132,7 +132,7 @@ max virtual memory areas vm.max_map_count [65530] is too low, increase to at lea
 
 ### Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kuberentes cluster setup, so there are no general solutions there.
+Depending on what your Kubernetes administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kubernetes cluster setup, so there are no general solutions there.
 
 Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 
@@ -177,7 +177,7 @@ spec:
               cpu: 100m
               memory: 100Mi
       # A pause container is needed to prevent a restart loop of the pods in the daemonset
-      # See also this Kuberentes issue https://github.com/kubernetes/kubernetes/issues/36601
+      # See also this Kubernetes issue https://github.com/kubernetes/kubernetes/issues/36601
       containers:
         - name: pause
           image: google/pause
