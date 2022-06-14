@@ -111,10 +111,10 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   helm upgrade --install \
   --namespace stackstate \
   --create-namespace \
-  --set-string 'stackstate.apiKey'='<your-api-key>' \
-  --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
-  --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
-  --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
   --values values.yaml \
   stackstate-cluster-agent stackstate/cluster-agent    
   ```
@@ -150,14 +150,14 @@ The Kubernetes integration retrieves the following data:
 
 ##### Kubernetes events
 
-The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all events from the Kubernetes cluster.  The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
-| :--- | :--- |
-| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
-| **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
-| **Others** | All other events |
+|:--------------------------| :--- |
+| **Activities**            | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
+| **Alerts**                | `NotTriggerScaleUp` |
+| **Changes**               | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
+| **Others**                | All other events |
 
 ##### Object change events
 
@@ -231,7 +231,7 @@ The following Kubernetes topology data is available in StackState as components:
 
 The following relations between components are retrieved:
 
-* Container → Volume
+* Container → PersistentVolume, Volume 
 * CronJob → Job
 * DaemonSet → Pod
 * Deployment → ReplicaSet
@@ -326,6 +326,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 ## Uninstall
 
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
+
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes.md#uninstall) from your Kubernetes cluster.
 
 ## Release notes
 

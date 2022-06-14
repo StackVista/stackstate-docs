@@ -16,12 +16,12 @@ A topology synchronized using StackState Agent follows the process described bel
 
 1. StackState Agent:
    * Connects to a data source to collect data.
-   * Connects to the StackState receiver to push collected data to StackState (in JSON format).
+   * Connects to the StackState Receiver to push collected data to StackState (in JSON format).
    * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
-2. StackState receiver:
+2. StackState Receiver:
    * Extracts topology and telemetry payloads from the received JSON. 
    * Puts messages on the Kafka bus. 
-   * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
+   * Read the [troubleshooting steps for StackState Receiver](#stackstate-receiver).
 3. Kafka:
    * Stores received data in topics.
    * Read the [troubleshooting steps for Kafka](#kafka).
@@ -45,11 +45,11 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 - Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
 - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
-### StackState receiver
+### StackState Receiver
 
-The StackState receiver receives JSON data from the StackState Agent. 
+The StackState Receiver receives JSON data from the StackState Agent. 
  
-- Check the StackState receiver logs for JSON deserialization errors. 
+- Check the StackState Receiver logs for JSON deserialization errors. 
 
 ### Kafka
 

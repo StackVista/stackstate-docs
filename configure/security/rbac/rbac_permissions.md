@@ -111,36 +111,36 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 See also the full list of [view permissions](rbac_permissions.md#view-permissions).
 
-| Permission | Purpose | Guest | Power user | Admin | Platform Admin |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| `access-cli` | Access the CLI page. This provides the API key to use for authentication with the StackState CLI. | ✅ | ✅ | ✅ | ✅ |
-| `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ | - |
-| `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ | - |
-| `manage-star-view` | Add and remove stars from views. | ✅ | ✅ | ✅ | ✅ |
-| `perform-custom-query` | Access the topology filter. | ✅ | ✅ | ✅ | - |
-| `read-permissions` | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ | - |
-| `update-visualization` | Change visualization settings. | ✅ | ✅ | ✅ | - |
-| `access-analytics` | Access the Analytics page. | - | ✅ | ✅ | - |
-| `access-admin-api` | Access the administrator API. | - | - | - | ✅ |
-| `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ | ✅ |
-| `access-synchronization-data` | Access StackState synchronization status and data via the CLI. | - | ✅ | ✅ | - |
-| `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ | - |
-| `create-views` | Create views. | - | ✅ | ✅ | - |
-| `execute-component-templates` | Invoke a component template API extension \(internal use only\). | - | ✅ | ✅ | - |
-| `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ | - |
-| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The `execute-restricted-scripts` permission is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ | - |
-| `import-settings` | Import settings. | - | ✅ | ✅ | - |
-| `export-settings` | Export settings. | - | ✅ | ✅ | - |
-| `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ | - |
-| `manage-event-handlers` | Create or edit event handlers. | - | ✅ | ✅ | - |
-| `manage-telemetry-streams` | Create or edit new streams for components via the UI. | - | ✅ | ✅ | - |
-| `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ | - |
-| `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ | - |
-| `read-settings` | Access the Settings page. | - | ✅ | ✅ | - |
-| `update-settings` | Update settings. | - | ✅ | ✅ | - |
+| Permission | Purpose                                                                                                                                                                          | Guest | Power user | Admin | Platform Admin |
+| :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---: | :---: | :---: |
+| `access-cli` | Access the CLI page. This provides the API key to use for authentication with the StackState CLI.                                                                                | ✅ | ✅ | ✅ | ✅ |
+| `access-explore` | Access the Explore page.                                                                                                                                                         | ✅ | ✅ | ✅ | - |
+| `execute-component-actions` | Execute component actions.                                                                                                                                                       | ✅ | ✅ | ✅ | - |
+| `manage-star-view` | Add and remove stars from views.                                                                                                                                                 | ✅ | ✅ | ✅ | ✅ |
+| `perform-custom-query` | Access the topology filter.                                                                                                                                                      | ✅ | ✅ | ✅ | - |
+| `read-permissions` | List all granted permissions across the entire system via the CLI.                                                                                                               | ✅ | ✅ | ✅ | - |
+| `update-visualization` | Change visualization settings.                                                                                                                                                   | ✅ | ✅ | ✅ | - |
+| `access-analytics` | Access the Analytics page.                                                                                                                                                       | - | ✅ | ✅ | - |
+| `access-admin-api` | Access the administrator API.                                                                                                                                                    | - | - | - | ✅ |
+| `access-log-data` | Access StackState logs via the CLI.                                                                                                                                              | - | ✅ | ✅ | ✅ |
+| `access-synchronization-data` | Access StackState synchronization status and data via the CLI.                                                                                                                   | - | ✅ | ✅ | - |
+| `access-topic-data` | Access StackState Receiver data via the CLI.                                                                                                                                     | - | ✅ | ✅ | - |
+| `create-views` | Create views.                                                                                                                                                                    | - | ✅ | ✅ | - |
+| `execute-component-templates` | Invoke a component template API extension \(internal use only\).                                                                                                                 | - | ✅ | ✅ | - |
+| `execute-node-sync` | Reset or delete a synchronization.                                                                                                                                               | - | ✅ | ✅ | - |
+| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The `execute-restricted-scripts` permission is also required to execute scripts using the HTTP script API.           | - | ✅ | ✅ | - |
+| `import-settings` | Import settings.                                                                                                                                                                 | - | ✅ | ✅ | - |
+| `export-settings` | Export settings.                                                                                                                                                                 | - | ✅ | ✅ | - |
+| `manage-annotations` | Persist and fetch Anomaly annotations in StackState.                                                                                                                             | - | ✅ | ✅ | - |
+| `manage-event-handlers` | Create or edit event handlers.                                                                                                                                                   | - | ✅ | ✅ | - |
+| `manage-telemetry-streams` | Create or edit new streams for components via the UI.                                                                                                                            | - | ✅ | ✅ | - |
+| `manage-topology-elements` | Create/update/delete topology elements.                                                                                                                                          | - | ✅ | ✅ | - |
+| `manage-stackpacks` | Install/upgrade/uninstall StackPacks.                                                                                                                                            | - | ✅ | ✅ | - |
+| `read-settings` | Access the Settings page.                                                                                                                                                        | - | ✅ | ✅ | - |
+| `update-settings` | Update settings.                                                                                                                                                                 | - | ✅ | ✅ | - |
 | `execute-restricted-scripts` | Execute scripts using the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ | - |
-| `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ | - |
-| `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ | - |
+| `update-permissions` | Grant/revoke permissions or modify subjects.                                                                                                                                     | - | - | ✅ | - |
+| `upload-stackpacks` | Upload new \(versions of\) StackPacks.                                                                                                                                           | - | - | ✅ | - |
 
 ### View permissions
 

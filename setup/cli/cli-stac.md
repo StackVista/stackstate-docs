@@ -176,7 +176,7 @@ instances:
     ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
     clients:
       default:
-        api_key: "API_KEY"
+        api_key: "<STACKSTATE_RECEIVER_API_KEY>"
         ## The name of the host that is passed to StackState when sending. Leave these values unchanged
         ## if you have no idea what to fill here.
         hostname: "hostname"
