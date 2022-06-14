@@ -62,7 +62,7 @@ Note that this CLI was previously named `sts`. It has been renamed to `stac` wit
 
 There are now two versions of the StackState CLI and the old version of the CLI has been renamed: 
 
-* The new CLI is called `sts` - note that this is the name previously used by the old CLI. 
+* The new CLI is called `sts` - note that this name was used by the old CLI in previous releases of StackState. 
 * The old CLI has been renamed to `stac`, this allows you to have the old CLI and new CLI installed on the same machine.
 
 You can check which version of the `sts` CLI you are running with the following command:
@@ -95,6 +95,7 @@ The new CLI will completely replace the old `stac` CLI. Not all commands have be
 | :--- |:--- | | :--- |
 | `anomaly collect-feedback` | `anomaly collect-feedback` | Commands for exporting anomalies to disk. |
 | `anomaly send` | ❌ | Command for sending anomalies. Will not be ported to the new CLI. This remains possible via the StackState Receiver API. |
+| ❌ | `completion` | Generates the autocompletion script for the specified shell. |
 | `datasource list` | `settings list --type DataSource` | List all telemetry data sources. |
 | `event send` | ❌ | Commands for sending events. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
 | `graph *` | `settings *` | Configure StackState settings. |
