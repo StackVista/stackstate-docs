@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # View - script API
 
-## Function `getAll`
+## Function: `getAll`
 
 Returns a list of all views.
 

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 Some Script API functions are executed asynchronously and, instead of returning result directly, they return a `promise` of a result in the form of an `AsyncScriptResult`. The `Async` Script API offers functions to work with `AsyncScriptResult`.
 
-## Function `sequence`
+## Function: `sequence`
 
 Flattens async results of Script API functions.
 

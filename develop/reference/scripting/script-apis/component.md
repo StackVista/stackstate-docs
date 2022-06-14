@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Component - script API
 
-## Function `withId`
+## Function: `withId`
 
 Get access to a component by its ID.
 
