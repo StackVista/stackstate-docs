@@ -211,10 +211,10 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     helm upgrade --install \
     --namespace stackstate \
     --create-namespace \
-    --set-string 'stackstate.apiKey'='<your-api-key>' \
-    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
-    --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
-    --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
     --values values.yaml \
     stackstate-cluster-agent stackstate/cluster-agent    
     ```
@@ -225,10 +225,10 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     helm upgrade --install \
     --namespace stackstate \
     --create-namespace \
-    --set-string 'stackstate.apiKey'='<your-api-key>' \
-    --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
-    --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
-    --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+    --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
     --set 'agent.scc.enabled'=true \
     --set 'kube-state-metrics.securityContext.enabled'=false \
     --values values.yaml \

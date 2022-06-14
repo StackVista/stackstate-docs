@@ -65,7 +65,7 @@ ssl-config {
 }
 ```
 
-### Step 3. Configure Stackpacks configuration defaults
+### Step 3. Configure StackPacks configuration defaults
 
 Configure the default receiver URL \(`stackstate.receiver.baseUrl`\) in `etc/application_stackstate.conf` using `https` protocol and the hostname:
 

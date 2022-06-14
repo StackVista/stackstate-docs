@@ -17,18 +17,18 @@ The StackState Receiver API accepts topology, telemetry and health data in a com
 {% tabs %}
 {% tab title="Kubernetes" %}
 ```text
-https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
+https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
 ```text
-https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
+https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -54,7 +54,7 @@ Depending on your StackState configuration, received metrics or events that are 
 
 ## Metrics
 
-Metrics can be sent to the StackState receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#common-json-object).
+Metrics can be sent to the StackState Receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#common-json-object).
 
 ### JSON property: "metrics"
 
@@ -97,7 +97,7 @@ Multiple metrics can be sent in one JSON message via HTTP POST. For example:
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
+ 'http://<STACKSTATE_BASES_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
@@ -142,7 +142,7 @@ You can also send metrics to StackState using the [StackState CLI `metric send`]
 
 ## Events
 
-Events can be sent to the StackState receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#common-json-object).
+Events can be sent to the StackState Receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#common-json-object).
 
 All events in StackState relate to a topology element or elements. Any properties of an event can be used to define a log stream in StackState.
 
@@ -211,7 +211,7 @@ Multiple events can be sent in one JSON message via HTTP POST. You can also send
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
+ 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857342,

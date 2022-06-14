@@ -10,7 +10,7 @@ Health synchronization allows you to add existing health checks from external mo
 
 ## Set up health synchronization
 
-The StackState receiver API will automatically receive and process all incoming health data. No additional configuration is required in StackState to enable this, however, the health data received should match the expected JSON format.
+The StackState Receiver API will automatically receive and process all incoming health data. No additional configuration is required in StackState to enable this, however, the health data received should match the expected JSON format.
 
 Details on how to ingest health data can be found on the following pages:
 
