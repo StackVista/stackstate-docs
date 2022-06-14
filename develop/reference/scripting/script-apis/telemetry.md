@@ -16,12 +16,12 @@ Telemetry.query(dataSourceName: String, query: String)
 Telemetry queries only support metric queries. If you need event queries, please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
 {% endhint %}
 
-### Args
+#### Args
 
 * `dataSourceName` - name of the data source.
 * `query` - set of equality conditions.
 
-### Returns
+#### Returns
 
 {% hint style="info" %}
 The output format of the Telemetry API changed in StackState v5.0. If you are running an earlier version of StackState, see the documentation for [StackState v4.6 documentation \(docs.stackstate.com/v/4.6\)](https://docs.stackstate.com/v/4.6/develop/reference/scripting/script-apis/telemetry).
@@ -29,7 +29,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
 `StreamingScriptResult[MetricTimeSeriesResult]`
 
-### Builder methods
+#### Builder methods
 
 * `.groupBy(fieldName: String)` - optional. Used to return grouped results from Elasticsearch. Requires `.aggregation()` to be used. If there is no aggregation, a plain metric stream will be returned.
 * `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](/use/metrics-and-events/add-telemetry-to-element.md#aggregation-methods).
@@ -40,7 +40,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 * `metricField(fieldName: String)` - optional, but may be required for some data sources. Sets a field that holds metric value. 
 * `compileQuery()` - returns the telemetry query that was created with this function and the builder methods. After this builder method no more builder methods can be called.
 
-### Examples
+#### Examples
 
 * [Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`](#get-metrics-aggregated-using-mean-with-bucket-size-15-minutes-and-grouped-by-the-field-host)
 * [Process the `StreamingScriptResult` result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresultstreaming-script-resultmd-result-data-getting-the-ids-of-the-resulting-timeseries)
@@ -51,7 +51,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 * [Query metrics within time range starting 3 hours ago up to 1 hour ago](#query-metrics-within-time-range-starting-3-hours-ago-up-to-1-hour-ago)
 * [Query metrics from field `value` and limits points returned](#query-metrics-from-field-value-and-limits-points-returned)
 
-#### Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
+##### Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
   
   {% tabs %}
   {% tab title="Query" %}
@@ -142,7 +142,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   {% endtab %}
   {% endtabs %}
 
-#### Process the [StreamingScriptResult](./../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
+##### Process the [StreamingScriptResult](./../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
 
   {% tabs %}
   {% tab title="Query" %}
@@ -177,14 +177,14 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   {% endtab %}
   {% endtabs %}
 
-#### Get raw metric by query
+##### Get raw metric by query
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
   ```
 
-#### Get metric aggregated using Mean with bucket size 1 minute
+##### Get metric aggregated using Mean with bucket size 1 minute
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
@@ -192,7 +192,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
     .aggregation("99th percentile", "1m") // get 99th percentile of each minute
   ```
 
-#### Query metrics starting 3 hours ago till now
+##### Query metrics starting 3 hours ago till now
 
   ```text
   Telemetry
@@ -201,7 +201,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
     .start("-3h") // starting from 3 hours ago
   ```
 
-#### Query metrics starting beginning of the data till last hour ago
+##### Query metrics starting beginning of the data till last hour ago
 
   ```text
   Telemetry
@@ -210,7 +210,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
     .end("-1h") // ending 1 hour ago
   ```
 
-#### Query metrics within time range starting 3 hours ago up to 1 hour ago
+##### Query metrics within time range starting 3 hours ago up to 1 hour ago
 
   ```text
   Telemetry
@@ -219,7 +219,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
     .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
 
-#### Query metrics from field "value" and limits points returned
+##### Query metrics from field "value" and limits points returned
 
   ```text
   Telemetry
