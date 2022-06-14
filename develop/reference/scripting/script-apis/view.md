@@ -8,11 +8,11 @@ description: StackState Self-hosted v5.0.x
 
 Returns a list of all views.
 
-**Args:**
+### Args
 
 None
 
-**Return type:**
+### Return type
 
 `AsyncScriptResult[List[QueryViewResponse]]`
 
@@ -38,7 +38,7 @@ The `ViewInfo` type has the following fields:
 
 If this flag is set the query response will contain the `viewInfo` holding star count. The stars count is available on this path `viewResponse.viewInfo.stars.count`
 
-**Examples:**
+### Examples
 
 The following example collects the names of all components in all views.
 

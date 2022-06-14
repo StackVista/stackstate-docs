@@ -29,7 +29,7 @@ The `it` keyword is a default Groovy keyword that means you do not need to defin
 
 ## Chaining
 
-The `StreamingScriptResult` cannot be chained with either `AsyncScriptResult` or `StreamingScriptResult` itself to avoid computations becoming too heavy. 
+To avoid computations becoming too heavy, the `StreamingScriptResult` cannot be chained with either `AsyncScriptResult` or `StreamingScriptResult` itself. 
 
 ## Collecting results
 
@@ -45,7 +45,7 @@ For example:
 ScriptApi.streamingFn().collectStream(10)
 ```
 
-Will result in an [AsyncScriptResult](async_script_result.md) with the streamed items in a list. If the limit is exceeded, the execution will fail. To avoid failing if the limit is reached, but still produce the maximum amount of results, collectStream takes a second parameter:
+Will result in an [AsyncScriptResult](async-script-result.md) with the streamed items in a list. If the limit is exceeded, the execution will fail. To avoid failing if the limit is reached, but still produce the maximum amount of results, collectStream takes a second parameter:
 
 ```text
 ScriptApi.streamingFn().collectStream(10, false)
@@ -53,5 +53,5 @@ ScriptApi.streamingFn().collectStream(10, false)
 
 ## See also
 
-* [Async script result](async_script_result.md)
+* [Async script result](async-script-result.md)
 
