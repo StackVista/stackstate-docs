@@ -25,11 +25,11 @@ High Availability (HA) allows for protection against a failure of a single node,
 ### Network settings
 
 StackState can be accessed via HTTP and/or HTTPS. The hostname should be the IP or URL to the master server without `http://` or `https://`.
-If needed HTTP proxy can be used for event handlers. The HTTP proxy hostname should be either FQDN or IP-address.
+If needed, HTTP proxy can be used for event handlers. The HTTP proxy hostname should be either FQDN or IP-address.
 
 ### Persistent volume settings
 
-By default the Stackstate application uses a single-replica persistent volumes backed up by [Longhorn](https://longhorn.io/docs/). The data redundancy for StackState components like Kafka, Zookeper, HDFS, and Elasticsearch can be achieved by switching to two-replicas volumes.
+By default, the Stackstate application uses a single-replica persistent volumes backed up by [Longhorn \(longhorn.io\)](https://longhorn.io/docs/). The data redundancy for StackState components like Kafka, Zookeper, HDFS, and Elasticsearch can be achieved by switching to two-replicas volumes.
 
 Please be aware that changing these settings after Stackstate is installed requires manual operations described in [Changing the number of replicas for Longhorn persistent volumes](/setup/install-stackstate/kots-install/cluster_management.md#changing-the-number-of-replicas-for-Longhorn-persistent-volumes).
 
@@ -53,24 +53,24 @@ Once these are all configured, click **Save Config** and follow the prompts to d
 
 ### Authentication
 
-Stackstate supports different authentication backends: File-based (default), LDAP, OIDC, Keycloak. For more information on how to configure them please refer to [Authentication options](https://docs.stackstate.com/configure/security/)
+Stackstate supports different authentication backends: File-based (default), LDAP, OIDC, and Keycloak. For more information on how to configure them refer to [Authentication options](https://docs.stackstate.com/configure/security/)
 
 ![](/.gitbook/assets/kots-authn.png)
 
 ### Automated backup
 
-This section allows to setup automatic Cronjob backup for Elasticsearch and StackGraph.
-A number of storage options for the backups is available: AWS S3, Azure Blob Storage, and NFS.
+This section explains how to set up an automatic Cronjob backup for Elasticsearch and StackGraph.
+A number of storage options are available for the backups: AWS S3, Azure Blob Storage, and NFS.
 
-The backup needs a Kubernetes persistent volume, which might be configured as a single- or two-replicas Longhorn volume. Keep in mind, that the switching between the replicas mode is not possible without the backup persistent volume removal.
+The backup needs a Kubernetes persistent volume. This can be configured as a single- or two-replicas Longhorn volume. Keep in mind that it is not possible to switch between the replicas mode without removing the backup persistent volume.
 
 #### AWS
-AWS backup requires AWS user credentials (AWS access and secret keys) with the read/write permissions on S3 buckets. The backups for Elasticsearch and StackGraph can be stored to different S3 buckets.
+AWS backup requires AWS user credentials (AWS access and secret keys) with the read/write permissions on S3 buckets. The backups for Elasticsearch and StackGraph can be stored in different S3 buckets.
 
 ![](/.gitbook/assets/kots-backup-aws.png)
 
 #### Azure Blob Storage
-Azure backup requires setting Azure storage account name, storage account key, and Blob containers for both Elasticsearch and StackGraph backups
+Azure backup requires setting the Azure storage account name, storage account key and Blob containers for both Elasticsearch and StackGraph backups.
 
 ![](/.gitbook/assets/kots-backup-azure.png)
 
@@ -81,8 +81,8 @@ NFS backup requires an NFS server's FQDN or IP-address, the NFS path to mount, a
 
 ### SSL Settings
 
-StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState will not be able to communicate with these systems when they are secured with TLS using a self-signed certificate or a certificate that is not by default trusted by the JVM.
-To mitigate this, StackState allows configuration of a custom Java trust store. For more information please refer to [Create a custom trust store](https://docs.stackstate.com/configure/security/self-signed-certificates#create-a-custom-trust-store)
+StackState has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems and plugins can retrieve data from external systems such as AWS or Elasticsearch. With the default configuration, StackState will not be able to communicate with these systems when they are secured with TLS using a self-signed certificate or a certificate that is not by default trusted by the JVM.
+To mitigate this, StackState allows configuration of a custom Java trust store. For more information refer to [Create a custom trust store](https://docs.stackstate.com/configure/security/self-signed-certificates#create-a-custom-trust-store)
 
 
 ![](/.gitbook/assets/kots-ssl-settings.png)
