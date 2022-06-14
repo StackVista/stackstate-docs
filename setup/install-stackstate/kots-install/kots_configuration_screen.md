@@ -31,7 +31,7 @@ If needed, HTTP proxy can be used for event handlers. The HTTP proxy hostname sh
 
 By default, the Stackstate application uses a single-replica persistent volumes backed up by [Longhorn \(longhorn.io\)](https://longhorn.io/docs/). The data redundancy for StackState components like Kafka, Zookeper, HDFS, and Elasticsearch can be achieved by switching to two-replicas volumes.
 
-Please be aware that changing these settings after Stackstate is installed requires manual operations described in [Changing the number of replicas for Longhorn persistent volumes](/setup/install-stackstate/kots-install/cluster_management.md#changing-the-number-of-replicas-for-Longhorn-persistent-volumes).
+Be aware that changing these settings after Stackstate is installed requires manual operations described in [Changing the number of replicas for Longhorn persistent volumes](/setup/install-stackstate/kots-install/cluster_management.md#changing-the-number-of-replicas-for-Longhorn-persistent-volumes).
 
 ![](/.gitbook/assets/kots-persistent-volume-settings.png)
 
@@ -75,7 +75,7 @@ Azure backup requires setting the Azure storage account name, storage account ke
 ![](/.gitbook/assets/kots-backup-azure.png)
 
 #### NFS
-NFS backup requires an NFS server's FQDN or IP-address, the NFS path to mount, and paths within the server for Elasticsearch and StackGraph backups. If needed low-level NFS parameters like *mount options* and *uid*/*gid* can be set. For this type of backup a Kubernetes persistent volume of type NFS is provisioned.
+NFS backup requires the NFS server's FQDN or IP-address, the NFS path to mount and paths within the server for Elasticsearch and StackGraph backups. If needed low-level NFS parameters like *mount options* and *uid*/*gid* can be set. For this type of backup a Kubernetes persistent volume of type NFS is provisioned.
 
 ![](/.gitbook/assets/kots-backup-nfs.png)
 
