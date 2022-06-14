@@ -66,7 +66,7 @@ To enable the Azure integration and begin collecting data from Azure, you will n
 {% tab title="Bash" %}
 ```text
 ./stackstate.monitor.sh \
-    <Azure tenantId> \
+    <AZURE_tenantId> \
     <STACKSTATE_BASE_URL> \
     <STACKSTATE_RECEIVER_API_KEY> \
     <AZURE_subscriptionId> \
@@ -76,8 +76,8 @@ To enable the Azure integration and begin collecting data from Azure, you will n
 ```
 
 You can also specify two additional (positional) arguments after the `<AZURE_resourceGroupName>`: 
-- The StackPack Instance URL (topology identifier), default `{tenant ID}_{first 25 chars of client ID}`.
-- The Azure function App name, default `{tenant ID}_{first 25 chars of client ID}`.
+- The StackPack Instance URL (topology identifier), default `{tenantId}_{first 25 chars of client ID}`.
+- The Azure function App name, default `{tenantId}_{first 25 chars of client ID}`.
 
 {% endtab %}
 
@@ -86,18 +86,18 @@ You can also specify two additional (positional) arguments after the `<AZURE_res
 az login
 az login
 ./stackstate.monitor.ps1 `
--tenantId <your tenantId> `
+-tenantId <AZURE_tenantId> `
 -stsApiUrl <STACKSTATE_BASE_URL> `
 -stsApiKey <STACKSTATE_RECEIVER_API_KEY> `
 -subscriptionId <AZURE_subscriptionId> `
--servicePrincipalId <AZURE_ClientId> `
--servicePrincipalSecret <AZURE_ClientSecret> `
--resourceGroupName <RESOURCE_GroupName_TO_DEPLOY_TO>
+-servicePrincipalId <AZURE_clientId> `
+-servicePrincipalSecret <AZURE_clientSecret> `
+-resourceGroupName <AZURE_resourceGroupName>
 ```
 
 You can also specify two additional arguments: 
-- `-stsInstanceUrl` - The StackPack Instance URL (topology identifier), default `{tenant ID}_{first 25 chars of client ID}`.
-- `-functionAppName` - The Azure function App name, default `{tenant ID}_{first 25 chars of client ID}`.
+- `-stsInstanceUrl` - The StackPack Instance URL (topology identifier), default `{tenantId}_{first 25 chars of client ID}`.
+- `-functionAppName` - The Azure function App name, default `{tenantId}_{first 25 chars of client ID}`.
 
 {% endtab %}
 {% endtabs %}

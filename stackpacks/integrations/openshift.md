@@ -112,7 +112,7 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   --namespace stackstate \
   --create-namespace \
   --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
-  --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
+  --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
   --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
   --set 'agent.scc.enabled'=true \
