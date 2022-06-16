@@ -31,7 +31,8 @@ To set up the StackState AWS integration, you need to have:
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * The following AWS accounts:
   * At least one target AWS account that will be monitored.
-  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState.
+  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required. 
+  * A user or role with a policy attached that contains the action to allow assuming the role stsIntegrationRole in the account that will be monitored. For details see the StackState docs on the required AWS policy.
 
 ### AWS accounts
 
@@ -59,18 +60,18 @@ The policy below grants permission to assume the role `StackStateAwsIntegrationR
 
 The policy can be made available to StackState and the StackState Agent in one of the following ways:
 
-* **StackState and/or StackState Agent running on EC2 or EKS with Data Collection Account and Monitor Account in the same AWS organization**: 
+* **If StackState and/or StackState Agent run on EC2 or EKS AND the Data Collection Account and Monitor Account are in the same AWS organization**: 
   * [Attach an IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks).
-* **All other situations**: 
+* **In all other situations**: 
   * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack).
   * StackState Agent: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check).
 
 #### IAM role on EC2 or EKS
 
-StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
+StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment and the Data Collection Account and Monitor Account are in the same AWS organization, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
 
 {% hint style="info" %}
-Note: The AWS Data Collection Account and Monitor Account must be inside the same AWS organization to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+Note: The AWS Data Collection Account and Monitor Account must be a part of the same AWS organization to be able to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
 {% endhint %}
 
 To attach an IAM role and use it for authentication:
@@ -551,8 +552,6 @@ To clean up the remaining resources inside your AWS account, remove any configur
 
 To delete the StackState AWS Cloudformation stack from an AWS account using the AWS web console:
 
-If the template is in the main region, the S3 bucket used by StackState must be emptied as CloudFormation can't delete an empty bucket.
-
 1. Disable the EventBridge rule: 
    1. Go to EventBridge. 
    2. Find and open the rule with a name that starts with `stackstate-resources-StsEventBridgeRule`.
@@ -566,7 +565,7 @@ If the template is in the main region, the S3 bucket used by StackState must be 
    1. Go to the S3 service.
    2. Select \(don't open\) the bucket named `stackstate-logs-${AccountId}` where `${AccountId}` is the 12-digit identifier of your AWS account.
    3. Select **Empty** and follow the steps to delete all objects in the bucket.
-4. Delete the CloudFormation template:
+5. Delete the CloudFormation template:
    1. Go to the CloudFormation service. 
    2. Select the StackState CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
    3. In the top right of the console, select **Delete**.
@@ -577,45 +576,61 @@ If the template is in the main region, the S3 bucket used by StackState must be 
 The steps below assume that you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation to [install and configure the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 {% endhint %}
 
-To delete the StackState AWS Cloudformation stack from an AWS account using the AWS CLI: 
+To delete the StackState AWS Cloudformation stack from an AWS account using the AWS CLI:
 
+1. Set the region to remove StackState resources from:
 
-??? If `--region` is the main region, follow these steps to delete the S3 bucket.
-
-??? Before emptying the bucket, disable any event sources that are sending files to the bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
-
-??? How to describe this command? should it be added as step 1? `1. Set the S3 bucket to be deleted:`
    ```bash
-   BUCKET=$(aws cloudformation describe-stack-resource --stack-name stackstate-resources --logical-resource-id StsLogsBucket --query "StackResourceDetail.PhysicalResourceId" --output=text)
+   REGION="<region>"
    ```
 
-1. Disable the EventBridge rule: 
+2. Set the S3 bucket that will be deleted:
 
-    ```bash
-    aws events disable-rule --name $(aws cloudformation describe-stack-resource --stack-name stackstate-resources-debug --logical-resource-id StsEventBridgeRule --query "StackResourceDetail.PhysicalResourceId" --output=text)
-    ```
+   ```bash
+   BUCKET=$(aws cloudformation describe-stack-resource \
+     --stack-name stackstate-resources \
+     --logical-resource-id StsLogsBucket \
+     --query "StackResourceDetail.PhysicalResourceId" \
+     --output=text)
+   ```
    
-2. Delete all FlowLogs that send to this bucket:
+3. Disable the EventBridge rule: 
 
-    ```bash
-    aws ec2 delete-flow-logs --flow-log-ids $(aws ec2 describe-flow-logs --query "FlowLogs[?LogDestination==$BUCKET].[FlowLogId]" --output=text | tr '\n' ' ')"
-    ```
+   ```bash
+   aws events disable-rule --region $REGION \
+     --name $(aws cloudformation describe-stack-resource --region $REGION \
+       --stack-name stackstate-resources-debug \
+       --logical-resource-id StsEventBridgeRule \
+       --query "StackResourceDetail.PhysicalResourceId" \
+       --output=text)
+   ```
+   
+4. Delete all FlowLogs that send to this bucket:
 
-4. Delete objects in the S3 bucket. Note that if there are more than 1000 items in the bucket this command will fail, it's likely more convenient to perform this in the [AWS web console](#aws-web-console):
+   ```bash
+   aws ec2 delete-flow-logs --region $REGION \
+     --flow-log-ids $(aws ec2 describe-flow-logs --region $REGION\
+       --query "FlowLogs[?LogDestination==$BUCKET].[FlowLogId]" \
+       --output=text | tr '\n' ' ')"
+   ```
+
+5. Delete objects in the S3 bucket. This is a versioned S3 bucket, so each object version will be deleted individually. Note that if there are more than 1000 items in the bucket this command will fail, it's likely more convenient to perform this in the [AWS web console](#aws-web-console):
 
    ```bash
    sleep 60 # To make sure all objects have finished writing to bucket
-   aws s3api delete-objects --bucket $BUCKET \
-       --delete "$(aws s3api list-object-versions \
-       --bucket $BUCKET --query Account --output text) \
-       --output json \
-       --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
+   aws s3api delete-objects --region $REGION --bucket $BUCKET \
+    --delete "$(aws s3api list-object-versions --region $REGION --bucket $BUCKET \
+      --query Account \
+      --output text) \
+    --output json \
+    --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
    ```
 
-5. Delete the CloudFormation template:
+6. Delete the CloudFormation template:
 
    ```bash
-   aws cloudformation delete-stack --stack-name stackstate-resources --region <region>
+   aws cloudformation delete-stack --region $REGION \
+     --stack-name stackstate-resources
    ```
    
 
