@@ -32,11 +32,11 @@ Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, in
 
 ## Component groups
 
-Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a hexagon in the topology visualization. The size of the component group's hexagon in the topology visualization represents the number of components in the group:
+Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a circle in the topology visualization. The size of the component group's circle in the topology visualization represents the number of components in the group:
 
-* Less than 100 components = small hexagon
-* 100 to 150 components = medium hexagon
-* More than 150 components = large hexagon
+* Less than 100 components = small circle
+* 100 to 150 components = medium circle
+* More than 150 components = large circle
 
 You can customize the grouping of components in the [Visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 
