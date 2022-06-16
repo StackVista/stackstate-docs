@@ -59,12 +59,14 @@ A topology element can have any of the propagated health states listed below:
 * Red - `CRITICAL` - Potential impact from another `CRITICAL` topology element. May require your attention.
 * `UNKNOWN` - No propagated health state. There is nothing to worry about.
 
-In the StackState UI, an outer color will be shown when the element's propagated health state is calculated as unhealthy (`DEVIATING` or `CRITICAL`). The color of the element (inner color) represents the [element own health state](#element-own-health-state).
+In the StackState UI, an outer color will be shown when the element's propagated health state is calculated as unhealthy - orange for `DEVIATING` or red for `CRITICAL`. 
+
+The color of the element itself (the inner color) represents the [element own health state](#element-own-health-state).
 
 ![](../../.gitbook/assets/propagated-health-states.svg)
 
 TODO - remove the section below ???
-The propagated health state of an element can be found:
+The propagated health state of an element can also be found:
 
 * In the right panel **Selection details** tab when information about a component or relation is displayed. 
 * In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover over a component in the topology visualization.
@@ -73,7 +75,7 @@ The propagated health state of an element can be found:
 
 ### Propagation
 
-The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](/use/concepts/relations.md) in the topology visualization.
+The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on relations in the topology visualization.
 
 {% hint style="info" %}
 A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state will not propagate.
@@ -93,14 +95,18 @@ You can configure [custom propagation functions](../../develop/developer-guides/
 
 ## View health state
 
-When **view health state** is enabled for a view, it will report a health state as one of four colors:
+When **view health state** is enabled for a view, it will report a health state. The view health state is calculated based on the health of components and relations within in the view. 
 
-* 🟩 Green - `CLEAR` - There is nothing to worry about.
-* 🟧 Orange - `DEVIATING` - Something may require your attention.
-* 🟥 Red - `CRITICAL` - Attention is needed right now, because something is broken.
-*   Gray - `UNKNOWN` - View health state reporting is disabled.
+In the StackState UI, the view health state is reported as a one of four colors:
 
-The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](configure-view-health.md).
+* Green - `CLEAR` - There is nothing to worry about.
+* Orange - `DEVIATING` - Something may require your attention.
+* Red - `CRITICAL` - Attention is needed right now, because something is broken.
+* Gray - `UNKNOWN` - View health state reporting is disabled.
+
+
+
+* [How to configure view health state reporting](configure-view-health.md)
 
 ![Health states](../../.gitbook/assets/view-health-states.svg)
 
