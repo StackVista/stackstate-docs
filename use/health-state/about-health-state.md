@@ -6,17 +6,19 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-StackState calculates and reports the health state for elements (components and relations) and views. Health states are displayed in the topology visualization. Changes to health state will generate events that can be used to trigger [event notifications](/use/metrics-and-events/event-notifications.md).
+StackState calculates and reports the health state for elements (components and relations) and views. The following health state types are reported:
 
-* Health checks assigned to an element use data from telemetry and health streams to calculate the [own health state](#element-own-health-state).
-* Potential impact of unhealthy components and relations on an element is reported as its [propagated health state](#propagated-health-state).
-* The [view health state](#view-health-state) summarises the health states and/or propagated health state of elements it contains.
+* [Own health state](#element-own-health-state) - Indicates the current health state of an element based on its telemetry and health streams.
+* [Propagated health state](#propagated-health-state) - Highlights potential impact resulting from other unhealthy elements in the topology.
+* [View health state](#view-health-state) - Summarizes the health states and/or propagated health states of all elements in a view.
+
+Changes to a health state will generate events that can be used to trigger [event notifications](/use/metrics-and-events/event-notifications.md).
 
 ## Element own health state
 
-StackState will track a single own health state for each topology element (components, component groups and relations) based on information available from [health checks](#health-checks) attached to it. The own health state is calculated as the most severe state reported by a health check attached to the element. If no health checks are present, an `UNKNOWN` health state will be reported.
+StackState tracks a single own health state for each topology element (components, component groups and relations) based on information available from the [health checks](#health-checks) attached to it. The own health state is calculated as the most severe state reported by all health checks attached to the element. If no health checks are present, an `UNKNOWN` health state will be reported.
 
-In the StackState UI, the color of an element represents its own health state. A topology element can have any of the health states listed below:
+In the StackState UI, the color of an element represents its own health state. A topology element can have any of the following health states:
 
 * Green - `CLEAR` - There is nothing to worry about.
 * Orange - `DEVIATING` - Something may require your attention.
@@ -25,11 +27,11 @@ In the StackState UI, the color of an element represents its own health state. A
 
 ![Health states](../../.gitbook/assets/element-health-states.svg)
 
-An outer color will be displayed if the element has an unhealthy [propagated health state](#propagated-health-state).
+The element will also have an outer color if it has an unhealthy [propagated health state](#propagated-health-state).
 
 ### Health checks
 
-Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by a health check attached to it.
+Health checks attached to an element can be calculated internally by StackState or by an external monitoring system (health streams). The health state of an element is calculated as the most severe state reported by a health check attached to it.
 
 #### StackState health checks
 
@@ -40,7 +42,7 @@ StackState can calculate health checks based on telemetry or log streams defined
 
 #### External monitoring system
 
-Health data from external monitoring systems can be synchronized to StackState as health checks. In this case, health checks are calculated by the external systems based on their own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
+Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, health checks are calculated by an external system based on its own rules and then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
 
 Existing StackPacks will provide health synchronization out of the box.
 
@@ -65,7 +67,6 @@ The color of the element itself (the inner color) represents the [element own he
 
 ![](../../.gitbook/assets/propagated-health-states.svg)
 
-TODO - remove the section below ???
 The propagated health state of an element can also be found:
 
 * In the right panel **Selection details** tab when information about a component or relation is displayed. 
@@ -75,11 +76,7 @@ The propagated health state of an element can also be found:
 
 ### Propagation
 
-The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on relations in the topology visualization.
-
-{% hint style="info" %}
-A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state will not propagate.
-{% endhint %}
+The propagated health state is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on relations in the topology visualization. A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state will not propagate.
 
 | Dependency and propagated state | Description |
 | :--- | :--- |
@@ -104,11 +101,9 @@ In the StackState UI, the view health state is reported as a one of four colors:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - View health state reporting is disabled.
 
-
+![Health states](../../.gitbook/assets/view-health-states.svg)
 
 * [How to configure view health state reporting](configure-view-health.md)
-
-![Health states](../../.gitbook/assets/view-health-states.svg)
 
 You can check the view health state in the following places in the StackState UI:
 
