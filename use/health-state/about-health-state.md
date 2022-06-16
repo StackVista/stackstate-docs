@@ -49,7 +49,7 @@ Each element in StackState reports two health states:
 * The own health state of the element is derived from the state reported by health checks attached to the element itself.
 * The propagated health state is derived from the health state of the components and relations that the element depends upon.
 
-In the StackState UI, the colour of an element represents its own health state. An outer color indicates if the element's propagated health state is unhealthy (`DEVIATING` or `CRITICAL`).
+In the StackState UI, the color of an element represents its own health state. An outer color indicates if the element's propagated health state is unhealthy (`DEVIATING` or `CRITICAL`).
 
 ![](../../.gitbook/assets/propagated-health-states.svg)
 
@@ -80,7 +80,7 @@ You can configure [custom propagation functions](../../develop/developer-guides/
 
 ## View health state
 
-When **view health state** is enabled for a view, it will report a health state as one of four colours:
+When **view health state** is enabled for a view, it will report a health state as one of four colors:
 
 * 🟩 Green - `CLEAR` - There is nothing to worry about.
 * 🟧 Orange - `DEVIATING` - Something may require your attention.
