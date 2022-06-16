@@ -523,7 +523,7 @@ The following labels will be added to imported AWS topology in StackState:
 Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
 {% endhint %}
 
-## AWS tags used to build topology
+#### AWS tags used to build StackState topology
 
 The special tags listed below can be added in AWS to influence how the imported topology is built in StackState:
 
