@@ -31,7 +31,7 @@ The element will also have an outer color if it has an unhealthy [propagated hea
 
 ### Health checks
 
-Health checks attached to an element can be calculated internally by StackState or by an external monitoring system (health streams). The health state of an element is calculated as the most severe state reported by a health check attached to it.
+Health checks attached to an element can be calculated internally by StackState or by an external monitoring system (health streams). The health state of an element is calculated as the most severe state reported by a health check attached to it. A badge on a component or component group in the topology visualizer shows how many checks are currently failing. If all checks are passing, no badge will be displayed.
 
 #### StackState health checks
 
