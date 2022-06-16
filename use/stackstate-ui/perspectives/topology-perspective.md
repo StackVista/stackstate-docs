@@ -10,6 +10,12 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ![Topology Perspective](/.gitbook/assets/v50_topology.png)
 
+## Legend
+
+Click on the Legend button (?) in the bottom right of the screen to display an explanation of the icons and colors used in the topology visualization.
+
+![Topology Perspective - legend](/.gitbook/assets/v50_topology_legend.png)
+
 ## Components
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/about-health-state.md).
