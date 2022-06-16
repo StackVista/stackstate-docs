@@ -12,7 +12,7 @@ A component consists of:
 
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
-3. A component color represents the component's [own health state](/use/health-state/about-health-state.md#element-own-health-state).
+3. The component color represents the component's [own health state](/use/health-state/about-health-state.md#element-own-health-state).
 4. An outer color indicates an unhealthy [propagated health state](/use/health-state/about-health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
 
 ![](/.gitbook/assets/021_topology_elements.png)
