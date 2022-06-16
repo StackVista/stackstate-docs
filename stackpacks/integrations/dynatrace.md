@@ -200,7 +200,7 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 | Dynatrace event severity | Available in StackState as                                                                                                                       |
 | :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective and in the right panel **View summary** tab. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component.             |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.             |
 | `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.              |
 
 
@@ -282,7 +282,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 **Dynatrace StackPack v1.1.2 \(2021-06-24\)**
 
-* Improvement: Changed which events send DEVIATING health state
+* Improvement: Changed which events send `DEVIATING` health state
 
 
 ## See also

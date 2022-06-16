@@ -23,7 +23,7 @@ To add a health check calculated in StackState:
 3. In the **Add check** dialog box, provide the following details:
    * **Name** - The health check name. Will be displayed in the StackState UI right panel **Selection details** tab **Health** section.
    * **Description** - Optional, can be used to explain the check in greater detail.
-   * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non clear state, for example `critical` or `deviating`.
+   * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non-clear state, for example `critical` or `deviating`.
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
 4. Provide the required check function arguments, these will vary according to the check function selected, but will include:
    * At least one telemetry stream. Some checks will require multiple streams.

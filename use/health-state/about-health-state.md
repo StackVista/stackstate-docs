@@ -8,30 +8,30 @@ description: StackState Self-hosted v5.0.x
 
 StackState will track a single health state for a given topology element \(components and relations\) based on information available from the different health checks attached to it. Health checks can be calculated by either [StackState](about-health-state.md#stackstate-health-checks) or an [external monitoring system](about-health-state.md#external-monitoring-system).
 
-## Element health state
+## Element own health state
 
-A topology element \(component, component group or relation\) in StackState can have any of the health states listed below. :
+A topology element \(component, component group or relation\) in StackState can have any of the health states listed below:
 
-* Green - `CLEAR` - There is nothing to worry about.
-* Orange - `DEVIATING` - Something may require your attention.
-* Red - `CRITICAL` - Attention is needed right now, because something is broken.
-* Gray - `UNKNOWN` - No health state available.
+* 🟩 Green - `CLEAR` - There is nothing to worry about.
+* 🟧 Orange - `DEVIATING` - Something may require your attention.
+* 🟥 Red - `CRITICAL` - Attention is needed right now, because something is broken.
+* 🌫️ Gray - `UNKNOWN` - No health state available.
 
 The own health state of an element is calculated as the most severe state reported by a [health check](about-health-state.md#health-checks) attached to it. If no health checks are attached to the element, if will report health state UNKNOWN. A second health state - the [propagated health state](about-health-state.md#propagated-health-state) - is derived from the health state of elements that a component depends upon. This is shown as a line around the outside of the component.
 
-![Health states](../../.gitbook/assets/health-states.svg)
+![Health states](../../.gitbook/assets/element-health-states.svg)
 
-### Health checks
+## Health checks
 
 Health checks attached to an element can be calculated internally by StackState or by an external monitoring system. The health state of an element is calculated as the most severe state reported by a health check attached to it.
 
-#### StackState health checks
+### StackState health checks
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
 See how to [add a health check](add-a-health-check.md) and how to [set up anomaly health checks](anomaly-health-checks.md).
 
-#### External monitoring system
+### External monitoring system
 
 Health data from external monitoring systems can be synchronized to StackState as health checks. In this case, health checks are calculated by the external systems based on their own rules and then synchronized with StackState and bound to associated topology elements. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
 
@@ -42,19 +42,28 @@ Existing StackPacks will provide health synchronization out of the box.
 You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
 
-### Propagated health state
+## Propagated health state
 
 Each element in StackState reports two health states:
 
-* The inner color shows the own health state of the element. This is derived from the state reported by health checks attached to the element itself.
-* The outer color shows the element's propagated health state. This is derived from the health state of the components and relations that the element depends upon.
+* The own health state of the element is derived from the state reported by health checks attached to the element itself.
+* The propagated health state is derived from the health state of the components and relations that the element depends upon.
 
-![](../../.gitbook/assets/component_health_state.svg)
+In the StackState UI, the colour of an element represents its own health state. An outer color indicates if the element's propagated health state is unhealthy (`DEVIATING` or `CRITICAL`).
 
-The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](/use/concepts/relations.md) in the topology graph.
+![](../../.gitbook/assets/propagated-health-states.svg)
+
+The propagated health state of an element can always be found in the right panel **Selection details** tab when information about a component or relation is displayed. The [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) also shows the propagated health state when you hover over a component in the topology visualization.
+
+![](../../.gitbook/assets/v50_stackstate-ui-propagated-health-state.png)
+
+## Propagation
+
+The propagated health state of a component is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on [relations](/use/concepts/relations.md) in the topology visualization.
 
 {% hint style="info" %}
-A CLEAR \(green\) health state does not propagate.
+* A CLEAR \(green\) health state does not propagate.
+* Note that CLEAR and UNKNOWN propagated health states are not displayed in the topology visualization
 {% endhint %}
 
 | Dependency and propagated state | Description |
@@ -73,9 +82,9 @@ You can configure [custom propagation functions](../../develop/developer-guides/
 
 When **view health state** is enabled for a view, it will report a health state as one of four colours:
 
-* Green - `CLEAR` - There is nothing to worry about.
-* Orange - `DEVIATING` - Something may require your attention.
-* Red - `CRITICAL` - Attention is needed right now, because something is broken.
+* 🟩 Green - `CLEAR` - There is nothing to worry about.
+* 🟧 Orange - `DEVIATING` - Something may require your attention.
+* 🟥 Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - View health state reporting is disabled.
 
 The view health state is calculated based on the health of components and relations within in the view. Find out how to [configure view health state reporting](configure-view-health.md).

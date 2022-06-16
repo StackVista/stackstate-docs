@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
+When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated sub-view.
 * **Reduce noise** - the evolution of the problem can be be tracked as a single entity, rather than a collection of individual, unhealthy elements.
@@ -36,7 +36,7 @@ When a contributing cause element is added or removed, a `Problem updated` event
 
 ### Problem created
 
-If an element's health state changes to DEVIATING (orange) or CRITICAL (red) and the probable root cause is not already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
+If an element's health state changes to `DEVIATING` (orange) or `CRITICAL` (red) and the probable root cause is not already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
 
 When a problem is created, the following events are generated:
 
@@ -46,7 +46,7 @@ When a problem is created, the following events are generated:
 
 ### Problem updated
 
-A problem will be updated if an element in the landscape switches its state to DEVIATING (orange) or CRITICAL (red) and becomes a new contributing cause or root cause for an existing problem. A problem will also be updated if one of the included elements changes its state to healthy (green).
+A problem will be updated if an element in the landscape switches its state to `DEVIATING` (orange) or `CRITICAL` (red) and becomes a new contributing cause or root cause for an existing problem. A problem will also be updated if one of the included elements changes its state to healthy (green).
 
 When a problem is updated, the following events are generated:
 
