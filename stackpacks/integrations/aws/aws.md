@@ -511,20 +511,24 @@ For example, in the StackState Topology Perspective:
 
 ### Tags and labels
 
+#### Tags added as labels in StackState
+
 The following labels will be added to imported AWS topology in StackState:
 
 * `stackpack:aws-v2` 
 * All tags that exist for the imported element in AWS.
 * All `tags` specified for the associated instance in the [Agent AWS check configuration](#configure-the-aws-check). You can add a custom label to all topology imported by an instance of the AWS StackPack by adding it to the Agent AWS check configuration.
 
+{% hint style="info" %}
+Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
+{% endhint %}
+
+## AWS tags used to build topology
+
 The special tags listed below can be added in AWS to influence how the imported topology is built in StackState:
 
 * `stackstate-identifier` - The specified value will be added as an identifier to the StackState component.
 * `stackstate-environment` - The StackState component will be placed in the specified environment.
-
-{% hint style="info" %}
-Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
-{% endhint %}
 
 ## Troubleshooting
 
