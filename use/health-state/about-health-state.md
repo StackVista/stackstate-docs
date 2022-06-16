@@ -6,11 +6,11 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-StackState calculates and reports the health state for elements (components and relations) and views. Health states are displayed in the topology visualization and any changes to health state will generate events that can be used to trigger [event notifications](/use/metrics-and-events/event-notifications.md).
+StackState calculates and reports the health state for elements (components and relations) and views. Health states are displayed in the topology visualization. Changes to health state will generate events that can be used to trigger [event notifications](/use/metrics-and-events/event-notifications.md).
 
-* Health checks use data from telemetry and health streams to calculate the [own health state](#element-own-health-state) for each element.
-* The potential impact of components and relations with an unhealthy state is calculated and reported as the [propagated health state](#propagated-health-state).
-* The own health state and propagated health state of components in a view can be used to calculate a [view health state](#view-health-state) 
+* Health checks assigned to an element use data from telemetry and health streams to calculate the [own health state](#element-own-health-state).
+* Potential impact of unhealthy components and relations on an element is reported as its [propagated health state](#propagated-health-state).
+* The [view health state](#view-health-state) summarises the health states and/or propagated health state of elements it contains.
 
 ## Element own health state
 
