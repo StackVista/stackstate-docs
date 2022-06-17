@@ -25,7 +25,7 @@ In the StackState UI, the color of an element represents its own health state. A
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - No health state available.
 
-![Health states](../../.gitbook/assets/element-health-states.svg)
+![Health states](../../.gitbook/assets/v50_element-health-states.png)
 
 The element will also have an outer color if it has an unhealthy [propagated health state](#propagated-health-state).
 
@@ -65,7 +65,7 @@ In the StackState UI, an outer color will be shown when the element's propagated
 
 The color of the element itself (the inner color) represents the [element own health state](#element-own-health-state).
 
-![](../../.gitbook/assets/propagated-health-states.svg)
+![](../../.gitbook/assets/v50_propagated-health-states.png)
 
 The propagated health state of an element can also be found:
 
@@ -78,12 +78,12 @@ The propagated health state of an element can also be found:
 
 The propagated health state is calculated using a propagation function. Health state will propagate from one component to the next, from dependencies to dependent components. Note that this is the opposite direction to the arrows shown on relations in the topology visualization. A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state will not propagate.
 
-| Dependency and propagated state | Description |
-| :--- | :--- |
-| ![](../../.gitbook/assets/propagation-a-to-b.svg) | Component A depends on component B. Health state will propagate from B to A. |
-| ![](../../.gitbook/assets/propagation-b-to-a.svg) | Component B depends on component A. Health state will propagate from A to B. |
-| ![](../../.gitbook/assets/propagation-a-and-b.svg) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
-| ![](../../.gitbook/assets/propagation-a-not-b.svg) | No dependency. Health state does not propagate. |
+| Dependency and propagated state                        | Description |
+|:-------------------------------------------------------| :--- |
+| ![](../../.gitbook/assets/v50_propagation_b_to_a.png)  | Component A depends on component B. Health state will propagate from B to A. |
+| ![](../../.gitbook/assets/v50_propagation_a_to_b.png)  | Component B depends on component A. Health state will propagate from A to B. |
+| ![](../../.gitbook/assets/v50_propagation-a-and-b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
+| ![](../../.gitbook/assets/v50_no_propagation.png)      | No dependency. Health state does not propagate. |
 
 {% hint style="success" "self-hosted info" %}
 
@@ -101,7 +101,7 @@ In the StackState UI, the view health state is reported as a one of four colors:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - View health state reporting is disabled.
 
-![Health states](../../.gitbook/assets/view-health-states.svg)
+![Health states](../../.gitbook/assets/v50_view-health-states.png)
 
 * [How to configure view health state reporting](configure-view-health.md)
 
