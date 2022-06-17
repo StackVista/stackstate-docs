@@ -42,7 +42,7 @@ When a problem is created, the following events are generated:
 
 * A `Problem created` event for each created problem.
 
-![Problem created](/.gitbook/assets/v50_problem_created_animation_nofade.gif)
+![Problem created](/.gitbook/assets/v50_problem_created_animation.gif)
 
 ### Problem updated
 
@@ -56,7 +56,7 @@ When a problem is updated, the following events are generated:
 Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
 {% endhint %}
 
-![Problem updated](/.gitbook/assets/v50_problem_updated_animation_nofade.gif)
+![Problem updated](/.gitbook/assets/v50_problem_updated_animation.gif)
 
 ### Problem subsumed
 
@@ -67,7 +67,7 @@ When a problem is subsumed, the following events are generated:
 * A `Problem updated` event for the oldest problem - the only problem that remains.
 * A `Problem subsumed` event for each other (subsumed) problem.
 
-![Problem subsumed](/.gitbook/assets/v50_problem_subsumed_animation_nofade.gif)
+![Problem subsumed](/.gitbook/assets/v50_problem_subsumed_animation.gif)
 
 ### Problem resolved
 
@@ -81,7 +81,7 @@ When a problem is resolved, the following event is generated:
 If elements from the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
 {% endhint %}
 
-![Problem resolved](/.gitbook/assets/v50_problem_resolved_animation_nofade.gif)
+![Problem resolved](/.gitbook/assets/v50_problem_resolved_animation.gif)
 
 ## See also
 
