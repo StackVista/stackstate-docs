@@ -6,14 +6,18 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-The StackState CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
+{% hint style="warning" %}
+The new `sts` CLI works with **StackState v5.0 or higher**.
+{% endhint %}
 
-This page describes the new `sts` CLI. The CLI will eventually fully replace the [stac CLI](cli-stac.md), but currently does not yet support all commands. For an overview of the differences and overlap between the new `sts` CLI and the old `stac` CLI, see this [comparison page](setup/cli/cli-comparison.md).
+The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
+
+This page describes the new `sts` CLI. This CLI will eventually fully replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
 
 ## Install
 
 {% hint style="warning" %}
-The `sts` CLI does not work with StackState version 4.5 or older. For working with older versions of StackState please use the [stac CLI](cli-stac.md).
+The new `sts` CLI will not work with StackState version 4.6 or older. If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
 {% endhint %}
 
 {% tabs %}
@@ -22,10 +26,10 @@ The `sts` CLI does not work with StackState version 4.5 or older. For working wi
 {% tabs %}
 {% tab title="Installer" %}
 
-Open a **Powershell** terminal (version 5.1 or later), change the "URL" and "API-TOKEN" and run:
+Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<API-TOKEN>` and run:
 
 ```powershell
-. { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "URL" -StsApiToken "API-TOKEN"
+. { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "<URL>" -StsApiToken "<API-TOKEN>"
 ```
 
 After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
@@ -35,32 +39,39 @@ After installation, the `sts` command will be available for the current user on 
 
 Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or all together as a single script.
 
-```powershell
-# Step 1 - Set the source version and target path.
-$CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
-If (!(test-path $CLI_PATH)) { md $CLI_PATH }
-Invoke-WebRequest https://dl.stackstate.com/stackstate-cli/LATEST_VERSION -OutFile $CLI_PATH\VERSION
-$VERSION=type $CLI_PATH\VERSION
-$CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
-echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
 
-# Step 2 - Download and unpack the CLI to the target CLI path. Remove remaining artifacts.
-Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
-Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
-rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
+1. Set the source version and target path:
+    ```powershell
+    $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
+    If (!(test-path $CLI_PATH)) { md $CLI_PATH }
+    Invoke-WebRequest https://dl.stackstate.com/stackstate-cli/LATEST_VERSION -OutFile $CLI_PATH\VERSION
+    $VERSION=type $CLI_PATH\VERSION
+    $CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
+    echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
+    ```
 
-# Step 3 - Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere.
-$PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
-if ( $PATH -notlike "*$CLI_PATH*" ) { 
-  $PATH = "$PATH;$CLI_PATH"
-  (Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH –Value $PATH) 
-  $MACHINE_PATH = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).path
-  $env:Path = "$PATH;$MACHINE_PATH"
-}
+2. Download and unpack the CLI to the target CLI path. Remove remaining artifacts:
+    ```powershell
+    Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
+    Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
+    rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
+    ```
 
-# Step 4 - Verify that the CLI works.
-sts version
-```
+3. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
+    ```powershell
+    $PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
+    if ( $PATH -notlike "*$CLI_PATH*" ) { 
+      $PATH = "$PATH;$CLI_PATH"
+      (Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH –Value $PATH) 
+      $MACHINE_PATH = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).path
+      $env:Path = "$PATH;$MACHINE_PATH"
+    }
+   ```
+
+4. Verify that the CLI works:
+    ```powershell
+    sts version
+    ```
 
 After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 {% endtab %}
