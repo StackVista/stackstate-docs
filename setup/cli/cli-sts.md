@@ -159,9 +159,7 @@ The most secure way to use your API token is through an environment variable. Yo
 
 ### Quick start
 
-{% hint style="info" %}
-**Linux, macOS and Windows**
-{% endhint %}
+#### Linux, macOS and Windows
 
 1. In the StackState UI, go to **Main menu** &gt; **CLI** and copy your API token.
 
@@ -172,10 +170,22 @@ The most secure way to use your API token is through an environment variable. Yo
 
 3. The connection to your StackState instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`. 
 
-{% hint style="info" %}
-**Docker only**:
-You cannot configure the Docker version of the CLI with a config file. Instead you will need to specify the configuration of your StackState through the `STS_CLI_URL` and `STS_CLI_API_TOKEN` environment variable and pass these to docker, for example `docker run -e STS_CLI_URL -e STS_CLI_API_TOKEN stackstate/stackstate-cli2 settings list --type Layer`. 
-{% endhint %}
+#### Docker
+
+The Docker version of the CLI cannot be configured with a config file. Specify the configuration of your StackState instance using environment variables and pass these to Docker:
+
+* `STS_CLI_URL` - the URL to your StackState instance.
+* `STS_CLI_API_TOKEN` - the API token taken from the StackState UI **Main menu** &gt; **CLI** page.
+
+For example:
+```
+docker run \
+   -e STS_CLI_URL \
+   -e STS_CLI_API_TOKEN \
+   stackstate/stackstate-cli2 settings list --type Layer
+```
+
+
 
 ### Configuration options
 
